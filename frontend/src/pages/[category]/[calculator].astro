@@ -4,6 +4,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FaqList from '../../components/FaqList.astro';
 import CalculatorCard from '../../components/CalculatorCard.astro';
 import CalculatorIsland from '../../components/islands/CalculatorIsland.tsx';
+import AdPlaceholder from '../../components/AdPlaceholder.astro';
 import { categories, categoriesBySlug } from '../../data/categories';
 import { calculators, calculatorsById } from '../../data/calculators';
 import {
@@ -109,6 +110,13 @@ const jsonLd = [
           </>
         )}
       </div>
+    </div>
+  </section>
+
+  {/* ─── РЕКЛАМНЫЙ ПЛЕЙСХОЛДЕР ─── */}
+  <section class="border-t border-ink-200">
+    <div class="mx-auto max-w-page px-5 sm:px-8 py-6">
+      <AdPlaceholder slot={`calc-${calc.id}-inline`} format="inline" label="Реклама" />
     </div>
   </section>
 
