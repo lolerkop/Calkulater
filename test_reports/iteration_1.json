@@ -1,0 +1,36 @@
+{
+  "summary": "Comprehensive frontend UI/integration testing of static Astro calculators site. All 24 routes return 200, all 5 categories + 18 calculators load with breadcrumbs, FAQ blocks and CalculatorIsland. Search (кредит → credit-calculator), credit/BMI/age/tile calculations all produce correct results. SEO JSON-LD types per page match spec exactly (Home: WebSite+Organization; Category: FAQPage+BreadcrumbList; Calculator: WebApplication+FAQPage+BreadcrumbList). Analytics scripts correctly ABSENT when PUBLIC_GA_ID/PUBLIC_YM_ID are empty. Mobile (375px) has no horizontal scroll. Breadcrumbs navigate back to / and /finance/. Footer present on all pages with links to all 5 categories.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "SearchBox.tsx", "issue": "data-testid is 'search-input' but the review spec/PRD declares 'search-box-input'. Mismatch breaks any E2E tests targeting the spec selector.", "selector": "data-testid='search-input' (actual) vs 'search-box-input' (expected)", "priority": "MEDIUM"},
+      {"component": "CalculatorIsland.tsx submit button", "issue": "data-testid is 'calc-submit-btn' but spec declares 'calculator-run-button'", "selector": "data-testid='calc-submit-btn' vs 'calculator-run-button'", "priority": "MEDIUM"},
+      {"component": "CalculatorIsland.tsx result block", "issue": "data-testid is 'calc-result' but spec declares 'calculator-result'", "selector": "data-testid='calc-result' vs 'calculator-result'", "priority": "MEDIUM"},
+      {"component": "Breadcrumbs.astro", "issue": "Item testids are 'breadcrumb-{i}' but spec declares pattern 'breadcrumbs-*'. Root 'breadcrumbs' is correct.", "selector": "data-testid='breadcrumb-0' vs 'breadcrumbs-0'", "priority": "LOW"},
+      {"component": "AdPlaceholder.astro", "issue": "Component exists with correct testid 'ad-placeholder-{slot}' but is NOT imported/used in any page/layout. No ad placeholders are actually rendered.", "selector": "data-testid='ad-placeholder-*'", "priority": "LOW"}
+    ],
+    "integration_issues": [
+      {"flow": "robots.txt / sitemap-index.xml in dev mode", "issue": "Both /robots.txt and /sitemap-index.xml return 404 from the Astro dev server. They DO exist in production build (/app/frontend/dist/robots.txt, sitemap-0.xml, sitemap-index.xml) because robots.txt.ts uses prerender=true and @astrojs/sitemap integration only emits during astro build. Expected static behavior, but spec asks to verify /robots.txt accessibility - this only works on the built site, not dev preview.", "affected_selectors": ["/robots.txt", "/sitemap-index.xml"]}
+    ],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/test_reports/iteration_1.json"],
+  "action_items": [
+    "Align data-testid naming with PRD/review spec: rename 'search-input' → 'search-box-input', 'calc-submit-btn' → 'calculator-run-button', 'calc-result' → 'calculator-result', 'breadcrumb-{i}' → 'breadcrumbs-{i}'. Update vitest unit tests accordingly.",
+    "Decide whether AdPlaceholder should be inserted into category/calculator pages (it is fully implemented but currently dead code).",
+    "Optional: clarify in docs that /robots.txt and /sitemap-index.xml are emitted at build time only (yarn build); they 404 under astro dev which is expected static-site behavior."
+  ],
+  "critical_code_review_comments": [
+    "Spec/code drift: the review spec lists testids ('search-box-input', 'calculator-run-button', 'calculator-result', 'breadcrumbs-*') that do not exist in the source. Either the spec or the components need to be reconciled. Recommend updating components since the spec uses more descriptive names.",
+    "Credit calculator term field defaults to 'Лет' (years) toggle. When a user types '60' expecting months they get 720 months. Consider switching default to месяцев or making the toggle more prominent. Functional correctness is fine, but UX may mislead.",
+    "AdPlaceholder.astro is dead code — implemented but never imported. Either wire it in or remove to reduce surface area."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (no backend)", "frontend": "95% (functional flows fully pass; only testid naming drift vs spec)"},
+  "test_credentials": "N/A — no auth in app",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Static Astro + React Islands site. Dev server at http://localhost:3000. All 24 routes load 200. Real data-testid values present in source: search-box (root)/search-input/search-results/search-result-{i} (SearchBox), calc-form/calc-submit-btn/calc-reset-btn/calc-result/calc-result-primary/calc-result-row-{i}/calc-result-wrap/calculator-island-{calcId} (CalculatorIsland), field-{name}/field-label-{name}/field-{name}-opt-{val} (inputs), breadcrumbs/breadcrumb-{i} (Breadcrumbs), analytics-ga-init/analytics-ym-init (Analytics — only rendered when env IDs set; both empty in /app/frontend/.env so currently absent). robots.txt + sitemap-*.xml only exist after yarn build (in /app/frontend/dist/). 16 calculators (sport=4, finance=4, currency=4, building=4, date-time=2) — count is 18 routes total per spec but there are 16 calculators per PRD comment. All categories show 4 calculators except date-time which shows 2 (16 total, matching the 'home-about' caption '18 калькуляторов' — possible discrepancy in copy).",
+  "rca of the issue": "Testid mismatch: the source files use shorter testid names ('search-input', 'calc-submit-btn', 'calc-result', 'breadcrumb-{i}'). The review spec lists names with longer prefixes ('search-box-input', 'calculator-run-button', 'calculator-result', 'breadcrumbs-*'). Functionality is unaffected, but any external test harness using the spec's selectors will fail. Fix: search/replace in SearchBox.tsx (line 38), CalculatorIsland.tsx (lines 38, 296), Breadcrumbs.astro (lines 21, 25) and corresponding vitest tests."
+}

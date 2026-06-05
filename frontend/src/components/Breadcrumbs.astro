@@ -9,17 +9,8 @@ interface Props {
 }
 
 const { items } = Astro.props;
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: items.map((item, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    name: item.label,
-    ...(item.href ? { item: item.href } : {}),
-  })),
-};
+// JSON-LD разметка BreadcrumbList генерируется на уровне страницы
+// через хелпер `breadcrumbsJsonLd` (см. src/lib/seo.ts), чтобы избежать дублей.
 ---
 
 <nav aria-label="Хлебные крошки" class="text-xs text-ink-500" data-testid="breadcrumbs">
@@ -38,4 +29,3 @@ const jsonLd = {
     ))}
   </ol>
 </nav>
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

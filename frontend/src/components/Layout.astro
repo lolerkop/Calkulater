@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import Seo from './Seo.astro';
+import Analytics from './Analytics.astro';
 import { SITE } from '../config/site';
 
 interface Props {
@@ -33,15 +34,7 @@ const { title, description, canonical, ogImage, jsonLd, noindex } = Astro.props;
       jsonLd={jsonLd}
       noindex={noindex}
     />
-    {SITE.gaId && (
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.gaId}`}></script>
-      <script set:html={`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${SITE.gaId}');
-      `} />
-    )}
+    <Analytics />
   </head>
   <body class="bg-white text-ink-900 font-sans">
     <a

@@ -5,7 +5,7 @@ import CalculatorCard from '../../components/CalculatorCard.astro';
 import FaqList from '../../components/FaqList.astro';
 import { categories, categoriesBySlug } from '../../data/categories';
 import { calculatorsByCategory } from '../../data/calculators';
-import { SITE } from '../../config/site';
+import { faqJsonLd, breadcrumbsJsonLd } from '../../lib/seo';
 
 export function getStaticPaths() {
   return categories.map((c) => ({ params: { category: c.slug } }));
@@ -20,30 +20,19 @@ if (!category) {
 
 const calcs = calculatorsByCategory(category.id);
 
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: category.faq.map((item) => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a },
-  })),
-};
-
-const breadcrumbsJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: SITE.url + '/' },
-    { '@type': 'ListItem', position: 2, name: category.name, item: SITE.url + '/' + category.slug + '/' },
-  ],
-};
+const jsonLd = [
+  faqJsonLd(category.faq),
+  breadcrumbsJsonLd([
+    { label: 'Главная', href: '/' },
+    { label: category.name, href: `/${category.slug}/` },
+  ]),
+];
 ---
 
 <Layout
   title={category.seoTitle}
   description={category.seoDescription}
-  jsonLd={[faqJsonLd, breadcrumbsJsonLd]}
+  jsonLd={jsonLd}
 >
   <section class="border-b border-ink-900" data-testid={`category-page-${category.slug}`}>
     <div class="mx-auto max-w-page px-5 sm:px-8 pt-10 pb-10">

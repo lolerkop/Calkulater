@@ -6,7 +6,11 @@ import CalculatorCard from '../../components/CalculatorCard.astro';
 import CalculatorIsland from '../../components/islands/CalculatorIsland.tsx';
 import { categories, categoriesBySlug } from '../../data/categories';
 import { calculators, calculatorsById } from '../../data/calculators';
-import { SITE } from '../../config/site';
+import {
+  faqJsonLd,
+  breadcrumbsJsonLd,
+  webApplicationJsonLd,
+} from '../../lib/seo';
 
 export function getStaticPaths() {
   return calculators.map((c) => {
@@ -26,43 +30,25 @@ const related = (calc.relatedCalculatorIds || [])
   .map((id) => calculatorsById[id])
   .filter(Boolean);
 
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: calc.faq.map((item) => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a },
-  })),
-};
-
-const appJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  name: calc.name,
-  description: calc.shortDescription,
-  applicationCategory: 'UtilitiesApplication',
-  operatingSystem: 'Any',
-  inLanguage: 'ru-RU',
-  url: SITE.url + calc.fullPath,
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'RUB' },
-};
-
-const breadcrumbsJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: SITE.url + '/' },
-    { '@type': 'ListItem', position: 2, name: category.name, item: SITE.url + '/' + category.slug + '/' },
-    { '@type': 'ListItem', position: 3, name: calc.name, item: SITE.url + calc.fullPath },
-  ],
-};
+const jsonLd = [
+  webApplicationJsonLd({
+    name: calc.name,
+    description: calc.shortDescription,
+    path: calc.fullPath,
+  }),
+  faqJsonLd(calc.faq),
+  breadcrumbsJsonLd([
+    { label: 'Главная', href: '/' },
+    { label: category.name, href: `/${category.slug}/` },
+    { label: calc.name, href: calc.fullPath },
+  ]),
+];
 ---
 
 <Layout
   title={calc.seoTitle}
   description={calc.seoDescription}
-  jsonLd={[appJsonLd, faqJsonLd, breadcrumbsJsonLd]}
+  jsonLd={jsonLd}
 >
   <section class="border-b border-ink-900" data-testid={`calculator-page-${calc.id}`}>
     <div class="mx-auto max-w-page px-5 sm:px-8 pt-10 pb-8">

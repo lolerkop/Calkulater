@@ -6,28 +6,9 @@ import SearchBox from '../components/islands/SearchBox.tsx';
 import { categories } from '../data/categories';
 import { calculators, popularCalculators, calculatorsByCategory } from '../data/calculators';
 import { SITE } from '../config/site';
+import { websiteJsonLd, organizationJsonLd } from '../lib/seo';
 
-const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: SITE.fullName,
-    url: SITE.url,
-    inLanguage: 'ru-RU',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE.url}/?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: SITE.name,
-    url: SITE.url,
-    email: SITE.email,
-  },
-];
+const jsonLd = [websiteJsonLd(), organizationJsonLd()];
 
 const searchData = calculators.map((c) => ({
   id: c.id,

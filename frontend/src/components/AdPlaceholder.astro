@@ -1,0 +1,42 @@
+---
+// Плейсхолдер рекламного блока. Не подключает реальную сеть,
+// а лишь резервирует место и подсказывает интеграцию (РСЯ / AdSense).
+// Когда нужно — заменить содержимое на тэг рекламы.
+
+interface Props {
+  slot: string;            // Идентификатор слота, напр. "header-728x90"
+  label?: string;          // Подпись внутри плейсхолдера
+  className?: string;      // Дополнительные классы для контейнера
+  format?: 'banner' | 'square' | 'inline'; // Форма блока
+}
+
+const {
+  slot,
+  label = 'Рекламный блок',
+  className = '',
+  format = 'banner',
+} = Astro.props;
+
+const formatClasses: Record<string, string> = {
+  banner: 'h-24 sm:h-28',
+  square: 'h-64 max-w-sm',
+  inline: 'h-20',
+};
+---
+
+<aside
+  class:list={[
+    'w-full border border-dashed border-ink-300 bg-ink-50 text-ink-500',
+    'flex items-center justify-center text-xs uppercase tracking-wider',
+    formatClasses[format],
+    className,
+  ]}
+  data-testid={`ad-placeholder-${slot}`}
+  data-ad-slot={slot}
+  aria-label={label}
+  role="complementary"
+>
+  <span class="font-mono">
+    {label} · {slot}
+  </span>
+</aside>
