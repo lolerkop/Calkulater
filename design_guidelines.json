@@ -1,0 +1,123 @@
+{
+  "theme": "Light",
+  "archetype": "Swiss & High-Contrast",
+  "typography": {
+    "heading_font": "IBM Plex Sans",
+    "body_font": "IBM Plex Sans",
+    "mono_font": "IBM Plex Mono",
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl font-bold tracking-tight text-gray-900",
+      "h2": "text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900 mt-10 mb-6",
+      "h3": "text-xl sm:text-2xl font-medium tracking-tight text-gray-900 mt-8 mb-4",
+      "h4": "text-lg sm:text-xl font-medium text-gray-900 mt-6 mb-3",
+      "body": "text-base leading-relaxed text-gray-600",
+      "small": "text-sm text-gray-500",
+      "number_display": "text-4xl sm:text-5xl font-semibold tracking-tighter text-blue-600 font-mono"
+    }
+  },
+  "colors": {
+    "background": "bg-gray-50",
+    "surface": "bg-white",
+    "surface_alt": "bg-gray-100",
+    "border": "border-gray-200",
+    "primary": "bg-blue-600 text-white",
+    "primary_hover": "hover:bg-blue-700",
+    "text_main": "text-gray-900",
+    "text_muted": "text-gray-600",
+    "accent_green": "text-emerald-700 bg-emerald-50",
+    "accent_red": "text-rose-700 bg-rose-50"
+  },
+  "spacing": {
+    "section": "py-12 md:py-16",
+    "container": "max-w-5xl mx-auto px-4 sm:px-6 lg:px-8",
+    "card_padding": "p-6 sm:p-8",
+    "form_gap": "gap-6",
+    "grid_gap": "gap-4 sm:gap-6"
+  },
+  "components": {
+    "search_bar": {
+      "style": "w-full max-w-2xl mx-auto bg-white border border-gray-300 rounded-xl shadow-sm hover:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition-all duration-200 flex items-center overflow-hidden",
+      "input": "w-full h-14 pl-12 pr-4 text-lg bg-transparent border-none focus:ring-0 text-gray-900 placeholder-gray-400 outline-none"
+    },
+    "category_card": {
+      "style": "flex flex-col items-center justify-center p-6 bg-white border border-gray-200 rounded-2xl hover:border-blue-500 hover:shadow-md transition-all duration-200 group cursor-pointer",
+      "icon": "w-8 h-8 text-gray-500 group-hover:text-blue-600 mb-3 transition-colors",
+      "text": "text-sm font-medium text-gray-900 text-center"
+    },
+    "calculator_card": {
+      "style": "flex flex-col p-6 bg-white border border-gray-200 rounded-2xl hover:border-blue-500 hover:shadow-md transition-all duration-200 cursor-pointer h-full",
+      "header": "flex items-start justify-between mb-4",
+      "icon_wrapper": "p-3 bg-blue-50 rounded-xl text-blue-600",
+      "title": "text-lg font-semibold text-gray-900 mb-2 line-clamp-2",
+      "description": "text-sm text-gray-600 line-clamp-3 mt-auto"
+    },
+    "calculator_layout": {
+      "container": "grid grid-cols-1 lg:grid-cols-12 gap-8 items-start",
+      "form_section": "lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-sm",
+      "results_section": "lg:col-span-5 bg-gray-900 text-white p-6 sm:p-8 rounded-2xl sticky top-24 shadow-xl"
+    },
+    "form_elements": {
+      "label": "block text-sm font-medium text-gray-700 mb-2",
+      "input": "w-full h-12 px-4 bg-white border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow text-base",
+      "input_group": "relative flex items-center",
+      "input_suffix": "absolute right-4 text-gray-500 text-sm font-medium pointer-events-none",
+      "select": "w-full h-12 pl-4 pr-10 bg-white border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none appearance-none cursor-pointer",
+      "toggle_group": "flex p-1 bg-gray-100 rounded-lg",
+      "toggle_item": "flex-1 text-center py-2 text-sm font-medium rounded-md transition-colors data-[state=on]:bg-white data-[state=on]:text-gray-900 data-[state=on]:shadow-sm text-gray-600 hover:text-gray-900 cursor-pointer"
+    },
+    "results_panel": {
+      "style": "flex flex-col gap-6",
+      "main_result_label": "text-gray-400 text-sm font-medium uppercase tracking-wider",
+      "main_result_value": "text-4xl sm:text-5xl font-semibold text-white font-mono tracking-tight break-words",
+      "secondary_result": "flex justify-between items-center py-3 border-t border-gray-700/50 text-sm",
+      "secondary_label": "text-gray-400",
+      "secondary_value": "text-white font-medium font-mono text-right",
+      "action_button": "mt-4 w-full py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 outline-none"
+    },
+    "breadcrumbs": {
+      "style": "flex items-center text-sm text-gray-500 space-x-2 mb-8 overflow-x-auto whitespace-nowrap pb-2",
+      "link": "hover:text-blue-600 transition-colors cursor-pointer",
+      "separator": "w-4 h-4 text-gray-400"
+    },
+    "ad_placeholder": {
+      "style": "w-full bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 text-sm font-medium",
+      "sizes": {
+        "horizontal": "h-24 sm:h-32 mt-12 mb-8",
+        "sidebar": "h-64 sm:h-[600px] mt-8"
+      }
+    },
+    "seo_content": {
+      "wrapper": "prose prose-blue prose-lg max-w-none mt-16 text-gray-600",
+      "faq_item": "border-b border-gray-200 py-6",
+      "faq_question": "text-lg font-semibold text-gray-900 mb-2 cursor-pointer flex justify-between items-center",
+      "faq_answer": "text-gray-600 leading-relaxed mt-2"
+    }
+  },
+  "layout_patterns": {
+    "header": "sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200 h-16 flex items-center",
+    "footer": "bg-white border-t border-gray-200 py-12 mt-24",
+    "home_hero": "pt-16 pb-12 text-center max-w-3xl mx-auto",
+    "grid_categories": "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-8",
+    "grid_calculators": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"
+  },
+  "motion": {
+    "hover": "transition-all duration-200 ease-in-out",
+    "interactive": "active:scale-[0.98]"
+  },
+  "accessibility": {
+    "focus": "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+    "testing": "All interactive elements MUST have data-testid attributes (e.g., data-testid='calculator-form-submit')"
+  },
+  "instructions_to_main_agent": [
+    "This is an Astro + TS/JS project. Use native HTML/React elements with Tailwind, or Astro components as appropriate.",
+    "Do not use generic fonts like Inter or Roboto for headings. 'IBM Plex Sans' is specified for both heading and body to provide a technical, clean, readable look for numbers and long texts.",
+    "Design is practical and utilitarian (Swiss & High-Contrast). Avoid unnecessary gradients, purples, or heavy shadows. Focus on the tools.",
+    "The Home page should NOT have a massive hero image. It should immediately present the Search bar prominently, followed by the category grid.",
+    "Form inputs must be large (h-12), highly legible, and use native styling patterns for reliability on mobile.",
+    "The Calculator Results panel should be prominently styled, using a dark theme block (bg-gray-900) against the light page to draw focus to the numbers, simulating a physical 'LCD' screen or summary card.",
+    "Do not place ad placeholders above the calculator. Place them below the main tool or in a sidebar.",
+    "Ensure breadcrumbs are present on all nested pages.",
+    "Add 'data-testid' to ALL buttons, inputs, category cards, and links for testing."
+  ],
+  "image_urls": {}
+}
