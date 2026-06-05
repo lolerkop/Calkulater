@@ -1,38 +1,45 @@
 import { describe, it, expect } from 'vitest';
 import { calcWallpaper } from '../src/lib/calculators/wallpaper';
 
-describe('Калькулятор обоев', () => {
-  it('считает количество рулонов для типовой комнаты', () => {
-    // 4×5 м, высота 2.7 м, рулон 1.06×10 м, без раппорта
-    // periметр = 18 м, полотен = ceil(18/1.06) = 17
-    // полотен из рулона = floor(10 / 2.7) = 3, рулонов = ceil(17/3) = 6
-    const res = calcWallpaper({
+describe('wallpaper: calcWallpaper', () => {
+  it('считает рулоны для прямоугольной комнаты', () => {
+    // 4×3 м, высота 2.7 м, рулон 0.53×10 м, без раппорта
+    // периметр = 14 м
+    // длина полотна = 2.7 → полотен из рулона = floor(10/2.7) = 3
+    // всего полотен = ceil(14/0.53) = 27
+    // рулонов = ceil(27/3) = 9
+    const r = calcWallpaper({
       length: 4,
-      width: 5,
+      width: 3,
       height: 2.7,
-      rollWidth: 1.06,
+      rollWidth: 0.53,
       rollLength: 10,
-      windows: 1,
-      doors: 1,
+      windows: 0,
+      doors: 0,
       pattern: 0,
     });
-    expect(res.primary.value).toMatch(/6/);
+    expect(r.primary.value).toMatch(/9 шт\./);
+    expect(r.secondary.find((s) => s.label === 'Периметр')?.value).toMatch(/14,00/);
   });
 
-  it('при раппорте требуется больше рулонов', () => {
+  it('учитывает раппорт', () => {
     const noPattern = calcWallpaper({
-      length: 4, width: 4, height: 2.7,
-      rollWidth: 1.06, rollLength: 10, pattern: 0,
+      length: 4, width: 3, height: 2.5, rollWidth: 0.53, rollLength: 10,
+      windows: 0, doors: 0, pattern: 0,
     });
     const withPattern = calcWallpaper({
-      length: 4, width: 4, height: 2.7,
-      rollWidth: 1.06, rollLength: 10, pattern: 64,
+      length: 4, width: 3, height: 2.5, rollWidth: 0.53, rollLength: 10,
+      windows: 0, doors: 0, pattern: 50,
     });
-    const num = (s: string) => parseInt(s.match(/\d+/)?.[0] ?? '0', 10);
+    // С раппортом длина полотна больше → полотен из рулона меньше → больше рулонов
+    const num = (s: string) => parseInt(s.replace(/\D/g, ''), 10);
     expect(num(withPattern.primary.value)).toBeGreaterThanOrEqual(num(noPattern.primary.value));
   });
 
-  it('ошибка при нулевой высоте', () => {
-    expect(calcWallpaper({ length: 4, width: 4, height: 0 }).primary.value).toBe('—');
+  it('ошибка при пустых данных', () => {
+    expect(calcWallpaper({
+      length: 0, width: 0, height: 0, rollWidth: 0, rollLength: 0,
+      windows: 0, doors: 0, pattern: 0,
+    }).primary.value).toBe('—');
   });
 });

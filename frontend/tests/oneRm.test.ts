@@ -1,30 +1,34 @@
 import { describe, it, expect } from 'vitest';
 import { oneRepMax, calcOneRm } from '../src/lib/calculators/oneRm';
 
-describe('Калькулятор 1ПМ (Эпли)', () => {
-  it('1 повторение = тот же вес', () => {
+describe('oneRm: oneRepMax (формула Эпли)', () => {
+  it('1 повторение = чистый вес', () => {
     expect(oneRepMax(100, 1)).toBe(100);
   });
 
-  it('формула Эпли: w * (1 + r/30)', () => {
-    // 100 кг на 10 повторений → 100 * (1 + 10/30) ≈ 133.33
-    expect(oneRepMax(100, 10)).toBeCloseTo(133.333, 2);
+  it('100 кг × 5 повторений = 100 * (1 + 5/30) ≈ 116.67', () => {
+    expect(oneRepMax(100, 5)).toBeCloseTo(116.67, 1);
   });
 
-  it('возвращает 0 при некорректных данных', () => {
+  it('нулевые входные данные → 0', () => {
     expect(oneRepMax(0, 5)).toBe(0);
     expect(oneRepMax(100, 0)).toBe(0);
   });
+});
 
-  it('calcOneRm выдаёт примечание при повторениях > 10', () => {
-    const res = calcOneRm({ weight: 100, reps: 12 });
-    expect(res.note).toBeDefined();
+describe('oneRm: calcOneRm', () => {
+  it('возвращает 1ПМ и проценты от него', () => {
+    const r = calcOneRm({ weight: 100, reps: 5 });
+    expect(r.primary.value).toMatch(/116,7/);
+    expect(r.secondary.length).toBeGreaterThanOrEqual(5);
   });
 
-  it('проценты от 1ПМ присутствуют в результате', () => {
-    const res = calcOneRm({ weight: 100, reps: 5 });
-    const labels = res.secondary.map((r) => r.label);
-    expect(labels).toContain('50% от 1ПМ');
-    expect(labels).toContain('90% от 1ПМ');
+  it('при reps > 10 добавляется note о снижении точности', () => {
+    const r = calcOneRm({ weight: 60, reps: 12 });
+    expect(r.note).toBeDefined();
+  });
+
+  it('ошибка при нулевых данных', () => {
+    expect(calcOneRm({ weight: 0, reps: 0 }).primary.value).toBe('—');
   });
 });

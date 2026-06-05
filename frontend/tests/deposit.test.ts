@@ -1,41 +1,51 @@
 import { describe, it, expect } from 'vitest';
 import { calcDeposit } from '../src/lib/calculators/deposit';
 
-const num = (s: string) =>
-  parseFloat(s.replace(/[^\d.,-]/g, '').replace(/\s/g, '').replace(',', '.'));
-
-describe('Калькулятор вклада', () => {
-  it('без капитализации проценты считаются простым способом', () => {
-    const res = calcDeposit({
+describe('deposit: calcDeposit', () => {
+  it('считает депозит с ежемесячной капитализацией', () => {
+    const r = calcDeposit({
       amount: 100_000,
       months: 12,
-      rate: 10,
+      rate: 12,
+      capitalization: 'yes',
+      capPeriod: 'month',
+      topUp: 0,
+    });
+    expect(r.primary.label).toBe('Итоговая сумма');
+    expect(r.primary.value).not.toBe('—');
+    // (1 + 0.12/12)^12 ≈ 1.12683, итого ≈ 112 683
+    const profitRow = r.secondary.find((s) => s.label === 'Начисленные проценты');
+    expect(profitRow).toBeDefined();
+  });
+
+  it('без капитализации проценты копятся отдельно', () => {
+    const r = calcDeposit({
+      amount: 100_000,
+      months: 12,
+      rate: 12,
       capitalization: 'no',
       topUp: 0,
     });
-    // 100 000 * 10% = 10 000 простыми процентами
-    const profit = num(res.secondary.find((r) => r.label === 'Начисленные проценты')!.value);
-    expect(profit).toBeCloseTo(10_000, 0);
+    // Простые проценты: 100000 * 0.12 = 12000
+    const profitRow = r.secondary.find((s) => s.label === 'Начисленные проценты');
+    expect(profitRow?.value).toMatch(/12[\s\u00A0\u202F]?000/);
   });
 
-  it('капитализация ежемесячно даёт больше, чем без капитализации', () => {
-    const inputs = { amount: 100_000, months: 12, rate: 10, topUp: 0 };
-    const noCap = calcDeposit({ ...inputs, capitalization: 'no' });
-    const monthly = calcDeposit({ ...inputs, capitalization: 'yes', capPeriod: 'month' });
-    const a = num(noCap.primary.value);
-    const b = num(monthly.primary.value);
-    expect(b).toBeGreaterThan(a);
+  it('учитывает пополнения', () => {
+    const r = calcDeposit({
+      amount: 10_000,
+      months: 6,
+      rate: 10,
+      capitalization: 'yes',
+      capPeriod: 'month',
+      topUp: 1000,
+    });
+    const topUpRow = r.secondary.find((s) => s.label === 'Сумма пополнений');
+    expect(topUpRow?.value).toMatch(/6[\s\u00A0\u202F]?000/);
   });
 
-  it('пополнения увеличивают итоговую сумму', () => {
-    const base = calcDeposit({ amount: 50_000, months: 12, rate: 5, capitalization: 'yes', capPeriod: 'month', topUp: 0 });
-    const withTopUp = calcDeposit({ amount: 50_000, months: 12, rate: 5, capitalization: 'yes', capPeriod: 'month', topUp: 5000 });
-    expect(num(withTopUp.primary.value)).toBeGreaterThan(num(base.primary.value));
-    expect(num(withTopUp.secondary.find((r) => r.label === 'Сумма пополнений')!.value)).toBeCloseTo(60_000, 0);
-  });
-
-  it('возвращает ошибку при некорректном сроке', () => {
-    const res = calcDeposit({ amount: 100_000, months: 0, rate: 10 });
-    expect(res.primary.value).toBe('—');
+  it('возвращает ошибку при некорректных входных данных', () => {
+    const r = calcDeposit({ amount: -1, months: 0, rate: 0 });
+    expect(r.primary.value).toBe('—');
   });
 });

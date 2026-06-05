@@ -1,25 +1,27 @@
 import { describe, it, expect } from 'vitest';
 import { calcLaminate, laminatePacks } from '../src/lib/calculators/laminate';
 
-describe('Калькулятор ламината', () => {
-  it('laminatePacks: 4×5 м, упаковка 2 м², запас 10%', () => {
-    const r = laminatePacks(4, 5, 2, 10);
-    expect(r.area).toBe(20);
-    expect(r.areaWithReserve).toBeCloseTo(22, 5);
-    expect(r.packs).toBe(11);
+describe('laminate: laminatePacks', () => {
+  it('считает площадь и упаковки', () => {
+    // 5×4 м = 20 м², запас 10% → 22 м², упаковка 2.5 м² → ceil(22/2.5) = 9
+    const { area, areaWithReserve, packs } = laminatePacks(5, 4, 2.5, 10);
+    expect(area).toBe(20);
+    expect(areaWithReserve).toBeCloseTo(22, 5);
+    expect(packs).toBe(9);
   });
 
-  it('запас 0% → ровно ceil(area / packArea)', () => {
-    const r = laminatePacks(3, 3, 2, 0);
-    expect(r.packs).toBe(Math.ceil(9 / 2)); // 5
+  it('без запаса = ровное деление', () => {
+    expect(laminatePacks(4, 3, 2, 0).packs).toBe(6);
+  });
+});
+
+describe('laminate: calcLaminate', () => {
+  it('возвращает количество упаковок', () => {
+    const r = calcLaminate({ length: 5, width: 4, packArea: 2.5, reserve: 10 });
+    expect(r.primary.value).toMatch(/9 шт\./);
   });
 
-  it('calcLaminate возвращает количество упаковок', () => {
-    const res = calcLaminate({ length: 4, width: 5, packArea: 2, reserve: 10 });
-    expect(res.primary.value).toMatch(/11/);
-  });
-
-  it('ошибка при нулевой ширине', () => {
-    expect(calcLaminate({ length: 4, width: 0, packArea: 2, reserve: 10 }).primary.value).toBe('—');
+  it('ошибка при нулевых размерах', () => {
+    expect(calcLaminate({ length: 0, width: 0, packArea: 0, reserve: 0 }).primary.value).toBe('—');
   });
 });

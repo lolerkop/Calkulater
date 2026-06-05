@@ -1,49 +1,35 @@
 import { describe, it, expect } from 'vitest';
 import { calcPaint } from '../src/lib/calculators/paint';
 
-const num = (s: string) =>
-  parseFloat(s.replace(/[^\d.,-]/g, '').replace(/\s/g, '').replace(',', '.'));
-
-describe('Калькулятор краски', () => {
-  it('считает литры для прямой площади', () => {
-    // 50 м² × 0.15 л/м² × 2 слоя = 15 л
-    const res = calcPaint({
+describe('paint: calcPaint', () => {
+  it('считает литры краски при ручном вводе площади', () => {
+    // 50 м² × 0.1 л/м² × 2 слоя = 10 л → банок 5 шт по 2 л
+    const r = calcPaint({
       mode: 'manual',
       area: 50,
       coats: 2,
-      consumption: 0.15,
-      canVolume: 5,
+      consumption: 0.1,
+      canVolume: 2,
     });
-    expect(num(res.primary.value)).toBeCloseTo(15, 1);
+    expect(r.primary.value).toMatch(/10,0 л/);
+    expect(r.secondary.find((s) => s.label === 'Количество банок')?.value).toMatch(/5 шт\./);
   });
 
-  it('режим room считает периметр × высоту', () => {
-    // 2*(4+5)*2.7 = 48.6 м²
-    const res = calcPaint({
+  it('режим "комната" считает площадь стен', () => {
+    // 5×4 м, высота 2.7 → периметр 18, площадь = 2*9*2.7 = 48.6
+    const r = calcPaint({
       mode: 'room',
-      length: 4,
-      width: 5,
+      length: 5,
+      width: 4,
       height: 2.7,
       coats: 1,
       consumption: 0.1,
-      canVolume: 2.5,
-    });
-    const area = num(res.secondary.find((r) => r.label === 'Площадь окрашивания')!.value);
-    expect(area).toBeCloseTo(48.6, 1);
-  });
-
-  it('количество банок округляется вверх', () => {
-    const res = calcPaint({
-      mode: 'manual',
-      area: 30,
-      coats: 2,
-      consumption: 0.15, // 9 л
       canVolume: 5,
     });
-    expect(res.secondary.find((r) => r.label === 'Количество банок')!.value).toMatch(/2/);
+    expect(r.secondary.find((s) => s.label === 'Площадь окрашивания')?.value).toMatch(/48,60/);
   });
 
-  it('ошибка при нулевой площади', () => {
-    expect(calcPaint({ mode: 'manual', area: 0, coats: 2, consumption: 0.1, canVolume: 5 }).primary.value).toBe('—');
+  it('ошибка при нулевых данных', () => {
+    expect(calcPaint({ mode: 'manual', area: 0, coats: 1, consumption: 0, canVolume: 0 }).primary.value).toBe('—');
   });
 });

@@ -1,49 +1,39 @@
 import { describe, it, expect } from 'vitest';
 import { calcTile } from '../src/lib/calculators/tile';
 
-describe('Калькулятор плитки', () => {
-  it('считает количество плиток с запасом', () => {
-    // Комната 4×5 = 20 м². Плитка 30×30 см = 0.09 м². Запас 10% → 22 м²
-    // Плиток: ceil(22 / 0.09) = 245
-    const res = calcTile({
+describe('tile: calcTile', () => {
+  it('считает количество плиток 30×30 см на 12 м² с запасом 10%', () => {
+    // площадь с запасом = 12 * 1.1 = 13.2 м²
+    // площадь плитки = 0.3 * 0.3 = 0.09 м²
+    // плиток = ceil(13.2 / 0.09) = ceil(146.66) = 147
+    const r = calcTile({
       mode: 'room',
       length: 4,
-      width: 5,
+      width: 3,
       tileLength: 30,
       tileWidth: 30,
       packArea: 1.44,
       reserve: 10,
     });
-    expect(res.primary.value).toMatch(/245/);
+    expect(r.primary.value).toMatch(/147 шт\./);
+    // упаковок = ceil(13.2 / 1.44) = 10
+    expect(r.secondary.find((s) => s.label === 'Количество упаковок')?.value).toMatch(/10 шт\./);
   });
 
-  it('режим manualArea использует введённую площадь', () => {
-    const res = calcTile({
+  it('ручной ввод площади работает', () => {
+    const r = calcTile({
       mode: 'manual',
       manualArea: 10,
-      tileLength: 50,
-      tileWidth: 50,
-      packArea: 1.25,
+      tileLength: 20,
+      tileWidth: 20,
+      packArea: 1,
       reserve: 0,
     });
-    // 10 / 0.25 = 40
-    expect(res.primary.value).toMatch(/40/);
+    // площадь = 10, плитки 0.04 → 250 шт
+    expect(r.primary.value).toMatch(/250 шт\./);
   });
 
-  it('количество упаковок округляется вверх', () => {
-    const res = calcTile({
-      mode: 'manual',
-      manualArea: 10,
-      tileLength: 30,
-      tileWidth: 30,
-      packArea: 3,
-      reserve: 10,
-    });
-    // 11 м² / 3 м² = 3.67 → 4
-    expect(res.secondary.find((r) => r.label === 'Количество упаковок')?.value).toMatch(/4/);
-  });
-
-  it('ошибка при нулевых данных', () => {
-    expect(calcTile({ mode: 'manual', manualArea: 0 }).primary.value).toBe('—');
+  it('ошибка при некорректных размерах', () => {
+    expect(calcTile({ mode: 'room', length: 0, width: 0, tileLength: 0, tileWidth: 0, packArea: 0, reserve: 0 }).primary.value).toBe('—');
   });
 });

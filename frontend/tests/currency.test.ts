@@ -1,25 +1,35 @@
 import { describe, it, expect } from 'vitest';
-import { convertCurrency, calcCurrency } from '../src/lib/calculators/currency';
-import { ratesToUSD } from '../src/data/currencies';
+import { calcCurrency, convertCurrency } from '../src/lib/calculators/currency';
 
-describe('Конвертер валют', () => {
-  it('USD → USD возвращает ту же сумму', () => {
-    expect(convertCurrency(100, 'USD', 'USD')).toBeCloseTo(100, 6);
+describe('currency: convertCurrency', () => {
+  it('USD → USD = 1:1', () => {
+    expect(convertCurrency(100, 'USD', 'USD')).toBe(100);
   });
 
-  it('USD → EUR использует ratesToUSD[EUR]', () => {
-    expect(convertCurrency(100, 'USD', 'EUR')).toBeCloseTo(100 * ratesToUSD.EUR, 6);
+  it('USD → EUR корректно по курсу 0.92', () => {
+    expect(convertCurrency(100, 'USD', 'EUR')).toBeCloseTo(92, 5);
   });
 
-  it('обратная конвертация возвращает исходную сумму', () => {
-    const there = convertCurrency(100, 'USD', 'MDL');
-    const back = convertCurrency(there, 'MDL', 'USD');
-    expect(back).toBeCloseTo(100, 6);
+  it('EUR → USD обратная конвертация', () => {
+    expect(convertCurrency(92, 'EUR', 'USD')).toBeCloseTo(100, 5);
   });
 
-  it('calcCurrency формирует результат с символом валюты', () => {
-    const res = calcCurrency({ amount: 100, from: 'USD', to: 'EUR' });
-    expect(res.primary.value).toMatch(/€/);
-    expect(res.secondary.find((r) => r.label === 'Курс')?.value).toMatch(/1 USD =/);
+  it('кросс-курс EUR → MDL', () => {
+    // 100 EUR -> USD -> MDL: 100/0.92 * 17.85
+    const expected = (100 / 0.92) * 17.85;
+    expect(convertCurrency(100, 'EUR', 'MDL')).toBeCloseTo(expected, 4);
+  });
+});
+
+describe('currency: calcCurrency', () => {
+  it('возвращает строку результата с символом валюты', () => {
+    const r = calcCurrency({ amount: 100, from: 'USD', to: 'EUR' });
+    expect(r.primary.value).toContain('€');
+  });
+
+  it('содержит курс конвертации в secondary', () => {
+    const r = calcCurrency({ amount: 100, from: 'USD', to: 'EUR' });
+    const rateRow = r.secondary.find((s) => s.label === 'Курс');
+    expect(rateRow?.value).toMatch(/1 USD = 0,92/);
   });
 });
