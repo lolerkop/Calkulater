@@ -40,6 +40,17 @@
 - `yarn build` собирает 25 страниц + sitemap + robots.txt без ошибок.
 - E2E через `testing_agent_v3_fork` (iter 1): фронт работает, аналитика при пустых ID не загружается (✅), все 18 калькуляторов рендерятся, SEO/JSON-LD валиден.
 
+### Фаза 4 — Поделиться расчётом (05.06.2026)
+- В `CalculatorIsland.tsx` добавлены хелперы: `defaultValueForField`, `parseUrlValue`, `serializeValue`, `readValuesFromUrl`, `buildQueryString`.
+- На монтировании island значения восстанавливаются из `window.location.search` (только валидные для типа поля).
+- При любом изменении формы URL обновляется через `history.replaceState` без перезагрузки.
+- Поля со значением по умолчанию или пустые **не попадают** в query — URL остаётся чистым.
+- Кнопка `data-testid="calc-share-btn"` копирует ссылку через `navigator.clipboard` + фолбэк `document.execCommand('copy')`. Показывает состояние «Ссылка скопирована» ~1.8s.
+- Кнопка «Сбросить» теперь также очищает query-строку.
+- Canonical (`Seo.astro` line 22) уже использовал `Astro.url.pathname` без `search` — query не попадает в SEO.
+- E2E (`/app/test_reports/iteration_2.json`): 9/9 сценариев PASS — Credit, BMI, Tile + регрессия 3 других калькуляторов + canonical без query + mobile 375×812.
+- 101 vitest тест по-прежнему проходит, lint чистый.
+
 ## Архитектура
 ```
 /app/frontend/
@@ -78,8 +89,9 @@
 - История последних расчётов (localStorage).
 - Расширение калькуляторов: налоги, лизинг, рефинансирование, инвестиции с инфляцией.
 - PWA / offline-режим.
-- Поделиться расчётом по URL (query params).
 - A11y-аудит и keyboard navigation в селектах.
+- Печать расчёта / экспорт в PDF.
+- og:image превью со значениями расчёта (дин. генерация).
 
 ## Тестовые креды
 Не требуются — сайт публичный, без авторизации.
