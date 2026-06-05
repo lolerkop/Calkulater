@@ -1,0 +1,49 @@
+---
+import { categories } from '../data/categories';
+import { SITE } from '../config/site';
+---
+
+<header class="border-b border-ink-900 bg-white" data-testid="site-header">
+  <div class="mx-auto max-w-page px-5 sm:px-8">
+    <div class="flex items-center justify-between py-4">
+      <a
+        href="/"
+        class="flex items-baseline gap-2 group"
+        data-testid="header-logo-link"
+      >
+        <span class="text-xl font-bold tracking-tightest text-ink-900">
+          {SITE.name}
+        </span>
+        <span class="inline-block w-2 h-2 bg-accent group-hover:scale-110 transition-transform"></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7" data-testid="header-nav">
+        {categories.map((c) => (
+          <a
+            href={`/${c.slug}/`}
+            class="text-sm text-ink-700 hover:text-accent transition-colors"
+            data-testid={`header-nav-${c.slug}`}
+          >
+            {c.name}
+          </a>
+        ))}
+      </nav>
+    </div>
+
+    {/* Мобильная навигация — горизонтальная прокрутка */}
+    <nav
+      class="md:hidden flex items-center gap-5 overflow-x-auto pb-3 -mx-5 px-5 text-sm"
+      data-testid="header-nav-mobile"
+    >
+      {categories.map((c) => (
+        <a
+          href={`/${c.slug}/`}
+          class="whitespace-nowrap text-ink-700 hover:text-accent"
+          data-testid={`header-nav-mobile-${c.slug}`}
+        >
+          {c.name}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

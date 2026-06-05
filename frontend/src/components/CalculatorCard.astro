@@ -1,0 +1,30 @@
+---
+import type { CalculatorDef } from '../lib/types';
+import { categoriesBySlug } from '../data/categories';
+
+interface Props {
+  calc: CalculatorDef;
+  showCategory?: boolean;
+}
+
+const { calc, showCategory = true } = Astro.props;
+const category = categoriesBySlug[calc.category];
+---
+
+<a
+  href={calc.fullPath}
+  class="group block border border-ink-200 hover:border-ink-900 p-5 bg-white transition-colors"
+  data-testid={`calculator-card-${calc.slug}`}
+>
+  {showCategory && (
+    <span class="text-[10px] uppercase tracking-wider text-ink-500">
+      {category?.name}
+    </span>
+  )}
+  <h3 class="mt-2 text-base font-semibold text-ink-900 group-hover:text-accent transition-colors leading-snug">
+    {calc.name}
+  </h3>
+  <p class="mt-2 text-sm text-ink-500 leading-relaxed line-clamp-2">
+    {calc.shortDescription}
+  </p>
+</a>

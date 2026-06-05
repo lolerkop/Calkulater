@@ -1,0 +1,31 @@
+---
+import type { FaqItem } from '../lib/types';
+
+interface Props {
+  items: FaqItem[];
+  title?: string;
+}
+
+const { items, title = 'Частые вопросы' } = Astro.props;
+---
+
+<section class="mt-12" data-testid="faq-section">
+  <h2 class="text-2xl font-semibold tracking-tight text-ink-900">{title}</h2>
+  <div class="mt-6 border-t border-ink-200">
+    {items.map((item, i) => (
+      <details
+        class="group border-b border-ink-200 py-4"
+        data-testid={`faq-item-${i}`}
+      >
+        <summary class="flex cursor-pointer items-start justify-between gap-4 text-base font-medium text-ink-900 list-none">
+          <span>{item.q}</span>
+          <span
+            class="mt-1 font-mono text-accent text-lg leading-none transition-transform group-open:rotate-45"
+            aria-hidden="true"
+          >+</span>
+        </summary>
+        <p class="mt-3 text-sm text-ink-500 leading-relaxed">{item.a}</p>
+      </details>
+    ))}
+  </div>
+</section>

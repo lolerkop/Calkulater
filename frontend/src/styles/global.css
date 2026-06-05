@@ -6,14 +6,15 @@
 
 :root {
   color-scheme: light;
+  --accent: #E63946;
 }
 
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
-  background-color: #f9fafb;
-  color: #111827;
+  background-color: #ffffff;
+  color: #0A0A0A;
 }
 
 body {
@@ -21,15 +22,11 @@ body {
 }
 
 ::selection {
-  background: #2563eb;
+  background: #E63946;
   color: #ffffff;
 }
 
-.font-mono {
-  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
-}
-
-/* Hide number input spinners */
+/* Скрыть стрелки у number input */
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -37,4 +34,117 @@ input[type='number']::-webkit-outer-spin-button {
 }
 input[type='number'] {
   -moz-appearance: textfield;
+}
+
+/* Базовые элементы форм в Swiss-style */
+.field-input,
+.field-select,
+.field-textarea {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  background: #ffffff;
+  border: 1px solid #0A0A0A;
+  border-radius: 0;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 0.95rem;
+  color: #0A0A0A;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.field-input:focus,
+.field-select:focus,
+.field-textarea:focus {
+  outline: none;
+  border-color: #E63946;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.12);
+}
+
+.field-label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5A5A5A;
+  margin-bottom: 0.375rem;
+  font-weight: 500;
+}
+
+/* Кнопка-сегмент (toggle) */
+.seg-btn {
+  flex: 1;
+  padding: 0.625rem 0.75rem;
+  background: #ffffff;
+  border: 1px solid #0A0A0A;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.12s ease, color 0.12s ease;
+  color: #0A0A0A;
+}
+.seg-btn + .seg-btn {
+  border-left: none;
+}
+.seg-btn[aria-pressed='true'] {
+  background: #0A0A0A;
+  color: #ffffff;
+}
+.seg-btn:hover:not([aria-pressed='true']) {
+  background: #F2F2F2;
+}
+
+/* Основная кнопка */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background: #E63946;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.btn-primary:hover {
+  background: #CC2E3A;
+}
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+/* Контентная типографика */
+.prose-ru h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: #0A0A0A;
+}
+.prose-ru p {
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: #2A2A2A;
+}
+.prose-ru ol,
+.prose-ru ul {
+  font-size: 0.975rem;
+  line-height: 1.7;
+  color: #2A2A2A;
+  margin-left: 1.25rem;
+}
+.prose-ru ol { list-style: decimal; }
+.prose-ru ul { list-style: disc; }
+
+/* Шрифт цифр */
+.font-mono {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Тонкая разделительная линия */
+.rule {
+  height: 1px;
+  background: #0A0A0A;
 }

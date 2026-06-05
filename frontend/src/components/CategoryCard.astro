@@ -1,0 +1,35 @@
+---
+import type { Category } from '../lib/types';
+
+interface Props {
+  category: Category;
+  count: number;
+  index: number;
+}
+
+const { category, count, index } = Astro.props;
+const num = String(index + 1).padStart(2, '0');
+---
+
+<a
+  href={`/${category.slug}/`}
+  class="group block border border-ink-900 p-6 bg-white hover:bg-ink-900 transition-colors"
+  data-testid={`category-card-${category.slug}`}
+>
+  <div class="flex items-start justify-between">
+    <span class="font-mono text-xs text-ink-500 group-hover:text-ink-300">{num}</span>
+    <span class="text-xs uppercase tracking-wider text-ink-500 group-hover:text-ink-300">
+      {count} калк.
+    </span>
+  </div>
+  <h3 class="mt-6 text-xl font-semibold text-ink-900 group-hover:text-white transition-colors">
+    {category.name}
+  </h3>
+  <p class="mt-2 text-sm text-ink-500 group-hover:text-ink-300 leading-relaxed line-clamp-3">
+    {category.description}
+  </p>
+  <div class="mt-6 flex items-center gap-2 text-sm font-medium text-accent">
+    Открыть
+    <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
+  </div>
+</a>

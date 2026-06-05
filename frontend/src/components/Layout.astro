@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import Seo from './Seo.astro';
+import { SITE } from '../config/site';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const { title, description, canonical, ogImage, jsonLd, noindex } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#E63946" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
+    <Seo
+      title={title}
+      description={description}
+      canonical={canonical}
+      ogImage={ogImage}
+      jsonLd={jsonLd}
+      noindex={noindex}
+    />
+    {SITE.gaId && (
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.gaId}`}></script>
+      <script set:html={`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${SITE.gaId}');
+      `} />
+    )}
+  </head>
+  <body class="bg-white text-ink-900 font-sans">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:px-3 focus:py-2 focus:bg-accent focus:text-white"
+    >Перейти к контенту</a>
+    <Header />
+    <main id="main" data-testid="page-main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
