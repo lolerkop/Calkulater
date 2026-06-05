@@ -6,6 +6,8 @@ import {
   websiteJsonLd,
   organizationJsonLd,
   webApplicationJsonLd,
+  howToJsonLd,
+  articleJsonLd,
 } from '../src/lib/seo';
 
 describe('seo.absUrl', () => {
@@ -75,5 +77,62 @@ describe('seo.webApplicationJsonLd', () => {
     const offers = data.offers as Record<string, unknown>;
     expect(offers.price).toBe('0');
     expect(offers.priceCurrency).toBe('RUB');
+  });
+});
+
+describe('seo.howToJsonLd', () => {
+  it('собирает HowTo с пронумерованными шагами', () => {
+    const data = howToJsonLd({
+      name: 'Кредитный калькулятор',
+      description: 'Расчёт ежемесячного платежа',
+      path: '/finance/credit-calculator/',
+      steps: ['Введите сумму', 'Укажите срок', 'Получите результат'],
+    });
+    expect(data['@type']).toBe('HowTo');
+    expect(data.inLanguage).toBe('ru-RU');
+    const steps = data.step as Array<Record<string, unknown>>;
+    expect(steps).toHaveLength(3);
+    expect(steps[0].position).toBe(1);
+    expect(steps[0]['@type']).toBe('HowToStep');
+    expect((steps[2].url as string)).toMatch(/#step-3$/);
+  });
+
+  it('игнорирует пустые шаги', () => {
+    const data = howToJsonLd({
+      name: 'Тест',
+      description: '...',
+      path: '/x/',
+      steps: ['', '  ', 'Один шаг'],
+    });
+    const steps = data.step as Array<Record<string, unknown>>;
+    expect(steps).toHaveLength(1);
+    expect(steps[0].text).toBe('Один шаг');
+  });
+});
+
+describe('seo.articleJsonLd', () => {
+  it('формирует Article с автором-организацией', () => {
+    const data = articleJsonLd({
+      headline: 'Как рассчитать НДФЛ',
+      description: 'Подробная инструкция',
+      path: '/finance/income-tax-calculator/',
+      body: 'Полный текст статьи.',
+    });
+    expect(data['@type']).toBe('Article');
+    expect(data.headline).toBe('Как рассчитать НДФЛ');
+    expect(data.articleBody).toBe('Полный текст статьи.');
+    expect((data.author as Record<string, unknown>)['@type']).toBe('Organization');
+    expect((data.publisher as Record<string, unknown>)['@type']).toBe('Organization');
+    expect(data.datePublished).toBeDefined();
+    expect(data.dateModified).toBeDefined();
+  });
+
+  it('articleBody не добавляется если не передан', () => {
+    const data = articleJsonLd({
+      headline: 'A',
+      description: 'B',
+      path: '/x/',
+    });
+    expect(data).not.toHaveProperty('articleBody');
   });
 });

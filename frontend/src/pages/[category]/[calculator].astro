@@ -11,6 +11,8 @@ import {
   faqJsonLd,
   breadcrumbsJsonLd,
   webApplicationJsonLd,
+  howToJsonLd,
+  articleJsonLd,
 } from '../../lib/seo';
 
 export function getStaticPaths() {
@@ -31,7 +33,8 @@ const related = (calc.relatedCalculatorIds || [])
   .map((id) => calculatorsById[id])
   .filter(Boolean);
 
-const jsonLd = [
+// Базовые схемы: WebApplication + FAQ + Breadcrumbs всегда
+const jsonLd: Record<string, unknown>[] = [
   webApplicationJsonLd({
     name: calc.name,
     description: calc.shortDescription,
@@ -44,6 +47,34 @@ const jsonLd = [
     { label: calc.name, href: calc.fullPath },
   ]),
 ];
+
+// HowTo — только если у калькулятора есть пошаговая инструкция
+if (calc.howToUse && calc.howToUse.length > 0) {
+  jsonLd.push(
+    howToJsonLd({
+      name: calc.name,
+      description: calc.shortDescription,
+      path: calc.fullPath,
+      steps: calc.howToUse,
+    }),
+  );
+}
+
+// Article — собираем тело из «Как считается» и «Пример расчёта»,
+// если есть содержательный длинный текст
+const articleBody = [calc.longDescription, calc.howItWorks, calc.example]
+  .filter(Boolean)
+  .join('\n\n');
+if (articleBody.length > 0) {
+  jsonLd.push(
+    articleJsonLd({
+      headline: calc.h1 || calc.name,
+      description: calc.seoDescription || calc.shortDescription,
+      path: calc.fullPath,
+      body: articleBody,
+    }),
+  );
+}
 ---
 
 <Layout
@@ -90,7 +121,7 @@ const jsonLd = [
           <>
             <h2>Как пользоваться</h2>
             <ol>
-              {calc.howToUse.map((s) => <li>{s}</li>)}
+              {calc.howToUse.map((s, i) => <li id={`step-${i + 1}`}>{s}</li>)}
             </ol>
           </>
         )}
