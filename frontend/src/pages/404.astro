@@ -1,0 +1,22 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout
+  title="Страница не найдена"
+  description="К сожалению, такой страницы нет. Вернитесь на главную и продолжите подбор калькулятора."
+  noindex
+>
+  <section class="mx-auto max-w-page px-5 sm:px-8 py-20 text-center" data-testid="page-404">
+    <div class="font-mono text-sm text-ink-500">/ 404</div>
+    <h1 class="mt-3 text-5xl sm:text-6xl font-bold tracking-tightest text-ink-900">
+      Страница не найдена
+    </h1>
+    <p class="mt-4 text-ink-500 max-w-md mx-auto">
+      Возможно, адрес был указан неверно или калькулятор переехал в другую категорию.
+    </p>
+    <a href="/" class="mt-8 inline-block btn-primary" data-testid="page-404-home-link">
+      Вернуться на главную
+    </a>
+  </section>
+</Layout>
