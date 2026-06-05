@@ -12,20 +12,80 @@ type Props = {
 
 type FormValues = Record<string, string | number | boolean>;
 
+// Возвращает дефолтное значение поля (используется и для инициализации формы,
+// и для сравнения «изменилось ли значение» при формировании URL-параметров).
+function defaultValueForField(f: Field): string | number | boolean {
+  if (f.defaultValue !== undefined) return f.defaultValue;
+  if (f.type === 'checkbox' || f.type === 'toggle') {
+    return f.options?.[0]?.value ?? false;
+  }
+  if (f.type === 'number') return 0;
+  return '';
+}
+
 function buildInitialValues(fields: Field[]): FormValues {
   const init: FormValues = {};
   for (const f of fields) {
-    if (f.defaultValue !== undefined) {
-      init[f.name] = f.defaultValue;
-    } else if (f.type === 'checkbox' || f.type === 'toggle') {
-      init[f.name] = f.options?.[0]?.value ?? false;
-    } else if (f.type === 'number') {
-      init[f.name] = 0;
-    } else {
-      init[f.name] = '';
-    }
+    init[f.name] = defaultValueForField(f);
   }
   return init;
+}
+
+// Парсит значение из URL-параметра в нужный тип для поля.
+function parseUrlValue(field: Field, raw: string): string | number | boolean | undefined {
+  if (field.type === 'number') {
+    const n = Number(raw);
+    return Number.isFinite(n) ? n : undefined;
+  }
+  if (field.type === 'checkbox') {
+    if (raw === '1' || raw === 'true') return true;
+    if (raw === '0' || raw === 'false') return false;
+    return undefined;
+  }
+  if (field.type === 'select' || field.type === 'toggle') {
+    const allowed = field.options?.map((o) => String(o.value));
+    if (allowed && !allowed.includes(raw)) return undefined;
+    return raw;
+  }
+  // date, textarea и прочие строковые
+  return raw;
+}
+
+// Сериализует значение поля в строку для URL.
+function serializeValue(v: string | number | boolean): string {
+  if (typeof v === 'boolean') return v ? '1' : '0';
+  return String(v);
+}
+
+// Считывает значения из ?query= на текущем URL и накладывает поверх defaults.
+function readValuesFromUrl(fields: Field[], base: FormValues): FormValues {
+  if (typeof window === 'undefined') return base;
+  const params = new URLSearchParams(window.location.search);
+  if ([...params.keys()].length === 0) return base;
+
+  const next: FormValues = { ...base };
+  for (const f of fields) {
+    const raw = params.get(f.name);
+    if (raw === null) continue;
+    const parsed = parseUrlValue(f, raw);
+    if (parsed !== undefined) next[f.name] = parsed;
+  }
+  return next;
+}
+
+// Формирует query-string только из значений, отличающихся от дефолта.
+function buildQueryString(fields: Field[], values: FormValues): string {
+  const params = new URLSearchParams();
+  for (const f of fields) {
+    const v = values[f.name];
+    const def = defaultValueForField(f);
+    // Пустые строки и undefined не пишем
+    if (v === '' || v === undefined || v === null) continue;
+    if (v === def) continue;
+    params.set(f.name, serializeValue(v));
+  }
+  const qs = params.toString();
+  return qs ? `?${qs}` : '';
 }
 
 function isVisible(field: Field, values: FormValues): boolean {
@@ -250,6 +310,17 @@ export default function CalculatorIsland({ calc }: Props) {
   const runner = useMemo(() => runners[calc.id], [calc.id]);
   const [values, setValues] = useState<FormValues>(() => buildInitialValues(calc.fields));
   const [result, setResult] = useState<CalcResult | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  // При монтировании пробуем восстановить значения из URL-параметров
+  // (нужно делать в useEffect, т.к. island гидрируется на клиенте и
+  // первоначальный SSR-рендер не должен отличаться).
+  useEffect(() => {
+    const restored = readValuesFromUrl(calc.fields, buildInitialValues(calc.fields));
+    setValues(restored);
+    // запускаем один раз для текущего калькулятора
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [calc.id]);
 
   // Автоматический пересчёт при изменении значений (с лёгкой задержкой)
   useEffect(() => {
@@ -264,12 +335,68 @@ export default function CalculatorIsland({ calc }: Props) {
     return () => clearTimeout(id);
   }, [values, runner]);
 
+  // Синхронизация значений с URL (без перезагрузки страницы).
+  // Пустые/дефолтные значения в строку не попадают — URL остаётся чистым.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const qs = buildQueryString(calc.fields, values);
+    const newUrl = window.location.pathname + qs + window.location.hash;
+    if (newUrl !== window.location.pathname + window.location.search + window.location.hash) {
+      window.history.replaceState(null, '', newUrl);
+    }
+  }, [values, calc.fields]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (runner) setResult(runner(values));
   };
 
-  const reset = () => setValues(buildInitialValues(calc.fields));
+  const reset = () => {
+    setValues(buildInitialValues(calc.fields));
+    if (typeof window !== 'undefined') {
+      window.history.replaceState(null, '', window.location.pathname + window.location.hash);
+    }
+  };
+
+  const copyShareLink = async () => {
+    if (typeof window === 'undefined') return;
+    const qs = buildQueryString(calc.fields, values);
+    const url = window.location.origin + window.location.pathname + qs;
+
+    const fallbackCopy = (text: string): boolean => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      } catch {
+        return false;
+      }
+    };
+
+    let ok = false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(url);
+        ok = true;
+      } else {
+        ok = fallbackCopy(url);
+      }
+    } catch {
+      ok = fallbackCopy(url);
+    }
+
+    if (ok) {
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    }
+  };
 
   return (
     <div className="grid gap-8 lg:grid-cols-5" data-testid={`calculator-island-${calc.id}`}>
@@ -292,7 +419,7 @@ export default function CalculatorIsland({ calc }: Props) {
           ))}
         </div>
 
-        <div className="mt-7 flex items-center gap-3">
+        <div className="mt-7 flex items-center gap-3 flex-wrap">
           <button type="submit" className="btn-primary" data-testid="calc-submit-btn">
             Рассчитать
           </button>
@@ -303,6 +430,35 @@ export default function CalculatorIsland({ calc }: Props) {
             data-testid="calc-reset-btn"
           >
             Сбросить
+          </button>
+          <button
+            type="button"
+            onClick={copyShareLink}
+            className={[
+              'ml-auto inline-flex items-center gap-2 border px-3 py-2 text-sm transition-colors',
+              copied
+                ? 'border-emerald-700 text-emerald-700 bg-emerald-50'
+                : 'border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-white',
+            ].join(' ')}
+            data-testid="calc-share-btn"
+            aria-live="polite"
+          >
+            {copied ? (
+              <>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Ссылка скопирована
+              </>
+            ) : (
+              <>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5" />
+                  <path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5" />
+                </svg>
+                Скопировать ссылку
+              </>
+            )}
           </button>
         </div>
 
