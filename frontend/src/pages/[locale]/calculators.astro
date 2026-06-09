@@ -126,17 +126,17 @@ const jsonLd = [
         ]}
       />
 
-      <div class="mt-6 flex items-baseline gap-4 flex-wrap">
-        <span class="font-mono text-sm text-ink-500">/{locale}/calculators</span>
-        <span class="text-xs uppercase tracking-wider text-ink-500">
+      <div class="mt-6 flex min-w-0 flex-wrap items-baseline gap-4">
+        <span class="font-mono text-fit text-sm text-ink-500">/{locale}/calculators</span>
+        <span class="text-fit text-xs uppercase tracking-wider text-ink-500">
           {calculators.length} {copy.instruments}
         </span>
       </div>
 
-      <h1 class="mt-3 text-4xl sm:text-5xl font-bold tracking-tightest text-ink-900 leading-tight">
+      <h1 class="mt-3 text-fit text-4xl font-bold leading-tight tracking-tightest text-ink-900 sm:text-5xl">
         {title}
       </h1>
-      <p class="mt-4 max-w-3xl text-base sm:text-lg text-ink-500 leading-relaxed">
+      <p class="mt-4 max-w-3xl text-fit text-base leading-relaxed text-ink-500 sm:text-lg">
         {copy.catalogLead}
       </p>
     </div>
@@ -155,14 +155,14 @@ const jsonLd = [
         <div class="space-y-12">
           {grouped.map(({ category, calculators: categoryCalculators }) => (
             <section data-testid={`calculators-group-${category.slug}`}>
-              <div class="flex items-end justify-between gap-6 border-b border-ink-200 pb-4">
-                <div>
-                  <div class="font-mono text-xs text-ink-500">/{category.slug}</div>
-                  <h2 class="mt-1 text-2xl font-semibold tracking-tight text-ink-900">
+              <div class="flex min-w-0 items-end justify-between gap-6 border-b border-ink-200 pb-4">
+                <div class="min-w-0">
+                  <div class="font-mono text-fit text-xs text-ink-500">/{category.slug}</div>
+                  <h2 class="mt-1 text-fit text-2xl font-semibold tracking-tight text-ink-900">
                     {category.name}
                   </h2>
                 </div>
-                <a href={`/${locale}/${category.slug}/`} class="hidden sm:inline-flex text-sm font-medium text-accent underline-offset-4 hover:underline">
+                <a href={`/${locale}/${category.slug}/`} class="hidden shrink-0 text-sm font-medium text-accent underline-offset-4 hover:underline sm:inline-flex">
                   {copy.openCategory}
                 </a>
               </div>

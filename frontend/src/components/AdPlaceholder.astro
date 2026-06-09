@@ -10,7 +10,7 @@ interface Props {
 }
 
 const {
-  slot,
+  slot = 'main',
   label = 'Рекламный блок',
   className = '',
   format = 'banner',
@@ -28,8 +28,8 @@ const shouldRender = import.meta.env.PUBLIC_SHOW_AD_PLACEHOLDERS === 'true';
 {shouldRender && (
   <aside
     class:list={[
-      'w-full border border-dashed border-ink-300 bg-ink-50 text-ink-500',
-      'flex items-center justify-center text-xs uppercase tracking-wider',
+      'w-full min-w-0 border border-dashed border-ink-300 bg-ink-50 text-ink-500',
+      'flex items-center justify-center text-center text-xs uppercase tracking-wider',
       formatClasses[format],
       className,
     ]}
@@ -38,7 +38,7 @@ const shouldRender = import.meta.env.PUBLIC_SHOW_AD_PLACEHOLDERS === 'true';
     aria-label={label}
     role="complementary"
   >
-    <span class="font-mono">
+    <span class="font-mono text-fit px-3">
       {label} · {slot}
     </span>
   </aside>

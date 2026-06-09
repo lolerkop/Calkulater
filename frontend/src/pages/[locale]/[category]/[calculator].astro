@@ -604,41 +604,41 @@ const islandCalc = {
         ]}
       />
 
-      <div class="mt-6 flex items-baseline gap-4 flex-wrap">
-        <span class="font-mono text-xs text-ink-500">/{locale}/{category.slug}/{calc.slug}</span>
+      <div class="mt-6 flex min-w-0 flex-wrap items-baseline gap-4">
+        <span class="font-mono text-fit text-xs text-ink-500">/{locale}/{category.slug}/{calc.slug}</span>
       </div>
 
-      <h1 class="mt-2 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tightest text-ink-900 leading-tight" data-testid="calculator-h1">
+      <h1 class="mt-2 text-fit text-3xl font-bold leading-tight tracking-tightest text-ink-900 sm:text-4xl lg:text-5xl" data-testid="calculator-h1">
         {calc.h1}
       </h1>
-      <p class="mt-4 max-w-3xl text-base text-ink-500 leading-relaxed">
+      <p class="mt-4 max-w-3xl text-fit text-base leading-relaxed text-ink-500">
         {calc.shortDescription}
       </p>
 
       <div class="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" data-testid="calculator-meta">
-        <div class="border border-ink-200 bg-white p-4">
-          <div class="text-[10px] uppercase tracking-wider text-ink-500">{copy.category}</div>
-          <a href={`/${locale}/${category.slug}/`} class="mt-1 block text-sm font-medium text-ink-900 hover:text-accent">
+        <div class="min-w-0 border border-ink-200 bg-white p-4">
+          <div class="text-fit text-[10px] uppercase tracking-wider text-ink-500">{copy.category}</div>
+          <a href={`/${locale}/${category.slug}/`} class="mt-1 block text-fit text-sm font-medium text-ink-900 hover:text-accent">
             {category.name}
           </a>
         </div>
-        <div class="border border-ink-200 bg-white p-4">
-          <div class="text-[10px] uppercase tracking-wider text-ink-500">{copy.fields}</div>
+        <div class="min-w-0 border border-ink-200 bg-white p-4">
+          <div class="text-fit text-[10px] uppercase tracking-wider text-ink-500">{copy.fields}</div>
           <div class="mt-1 font-mono text-sm text-ink-900">{calc.fields.length}</div>
         </div>
-        <div class="border border-ink-200 bg-white p-4">
+        <div class="min-w-0 border border-ink-200 bg-white p-4">
           <div class="text-[10px] uppercase tracking-wider text-ink-500">FAQ</div>
-          <div class="mt-1 font-mono text-sm text-ink-900">{seoFaq.length} {copy.faqQuestions}</div>
+          <div class="mt-1 font-mono text-fit text-sm text-ink-900">{seoFaq.length} {copy.faqQuestions}</div>
         </div>
-        <div class="border border-ink-200 bg-white p-4" data-testid="calculator-freshness">
-          <div class="text-[10px] uppercase tracking-wider text-ink-500">{freshness.label}</div>
-          <div class="mt-1 text-sm font-medium text-ink-900">{freshness.value}</div>
+        <div class="min-w-0 border border-ink-200 bg-white p-4" data-testid="calculator-freshness">
+          <div class="text-fit text-[10px] uppercase tracking-wider text-ink-500">{freshness.label}</div>
+          <div class="mt-1 text-fit text-sm font-medium text-ink-900">{freshness.value}</div>
         </div>
       </div>
 
       <nav class="mt-6 flex flex-wrap gap-2" aria-label={pageCopy.nav} data-testid="calculator-anchor-nav">
         {pageAnchors.map((item) => (
-          <a href={item.href} class="border border-ink-200 bg-white px-3 py-2 text-sm text-ink-800 hover:border-ink-900 hover:text-accent transition-colors">
+          <a href={item.href} class="max-w-full border border-ink-200 bg-white px-3 py-2 text-fit text-sm leading-tight text-ink-800 transition-colors hover:border-ink-900 hover:text-accent">
             {item.label}
           </a>
         ))}
@@ -653,18 +653,18 @@ const islandCalc = {
   </section>
 
   <section id="details" class="border-b border-ink-900" data-testid="calculator-details">
-    <div class="mx-auto max-w-page px-5 sm:px-8 py-12 grid gap-8 lg:grid-cols-3">
-      <div class="lg:col-span-2">
-        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900">{copy.details}</h2>
-        <p class="mt-4 text-base leading-relaxed text-ink-600">{seoContent.intro}</p>
+    <div class="mx-auto grid max-w-page min-w-0 gap-8 px-5 py-12 sm:px-8 lg:grid-cols-3">
+      <div class="min-w-0 lg:col-span-2">
+        <h2 class="text-fit text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">{copy.details}</h2>
+        <p class="mt-4 text-fit text-base leading-relaxed text-ink-600">{seoContent.intro}</p>
         <div class="mt-6 grid gap-4 md:grid-cols-2">
-          <div class="border border-ink-200 bg-white p-5">
-            <h3 class="font-semibold text-ink-900">{pageCopy.formula}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ink-600">{seoContent.howItWorks}</p>
+          <div class="min-w-0 border border-ink-200 bg-white p-5">
+            <h3 class="text-fit font-semibold text-ink-900">{pageCopy.formula}</h3>
+            <p class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{seoContent.howItWorks}</p>
           </div>
-          <div class="border border-ink-200 bg-white p-5">
-            <h3 class="font-semibold text-ink-900">{pageCopy.example}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ink-600">{seoContent.example}</p>
+          <div class="min-w-0 border border-ink-200 bg-white p-5">
+            <h3 class="text-fit font-semibold text-ink-900">{pageCopy.example}</h3>
+            <p class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{seoContent.example}</p>
           </div>
         </div>
       </div>
@@ -677,25 +677,25 @@ const islandCalc = {
   <section id="usage" class="border-b border-ink-900" data-testid="calculator-usage">
     <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
       <div class="mb-6 max-w-3xl">
-        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900">{copy.tips}</h2>
-        <p class="mt-4 text-base leading-relaxed text-ink-600">{seoContent.tips}</p>
+        <h2 class="text-fit text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">{copy.tips}</h2>
+        <p class="mt-4 text-fit text-base leading-relaxed text-ink-600">{seoContent.tips}</p>
       </div>
       <div class="grid gap-4 lg:grid-cols-3">
-        <div class="border border-ink-200 bg-white p-5" data-testid="calculator-use-cases">
-          <h2 class="text-lg font-semibold text-ink-900">{copy.useCases}</h2>
-          <ul class="mt-3 space-y-2 text-sm leading-relaxed text-ink-600">
+        <div class="min-w-0 border border-ink-200 bg-white p-5" data-testid="calculator-use-cases">
+          <h2 class="text-fit text-lg font-semibold text-ink-900">{copy.useCases}</h2>
+          <ul class="mt-3 space-y-2 text-fit text-sm leading-relaxed text-ink-600">
             {guidance.useCases.map((item) => <li>— {item}</li>)}
           </ul>
         </div>
-        <div class="border border-ink-200 bg-white p-5" data-testid="calculator-checklist">
-          <h2 class="text-lg font-semibold text-ink-900">{copy.checklist}</h2>
-          <ul class="mt-3 space-y-2 text-sm leading-relaxed text-ink-600">
+        <div class="min-w-0 border border-ink-200 bg-white p-5" data-testid="calculator-checklist">
+          <h2 class="text-fit text-lg font-semibold text-ink-900">{copy.checklist}</h2>
+          <ul class="mt-3 space-y-2 text-fit text-sm leading-relaxed text-ink-600">
             {guidance.checklist.map((item) => <li>— {item}</li>)}
           </ul>
         </div>
-        <div class="border border-ink-200 bg-white p-5" data-testid="calculator-common-mistakes">
-          <h2 class="text-lg font-semibold text-ink-900">{copy.mistakes}</h2>
-          <ul class="mt-3 space-y-2 text-sm leading-relaxed text-ink-600">
+        <div class="min-w-0 border border-ink-200 bg-white p-5" data-testid="calculator-common-mistakes">
+          <h2 class="text-fit text-lg font-semibold text-ink-900">{copy.mistakes}</h2>
+          <ul class="mt-3 space-y-2 text-fit text-sm leading-relaxed text-ink-600">
             {guidance.mistakes.map((item) => <li>— {item}</li>)}
           </ul>
         </div>
@@ -705,7 +705,7 @@ const islandCalc = {
 
   <section id="faq" class="border-b border-ink-900" data-testid="calculator-faq">
     <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
-      <h2 class="mb-6 text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900">FAQ</h2>
+      <h2 class="mb-6 text-fit text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">FAQ</h2>
       <FaqList items={seoFaq} />
     </div>
   </section>
@@ -713,11 +713,11 @@ const islandCalc = {
   {relatedOrCategory.length > 0 && (
     <section id="related" data-testid="related-calculators">
       <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
-        <div class="mb-8 flex items-end justify-between gap-6">
-          <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900">
+        <div class="mb-8 flex min-w-0 items-end justify-between gap-6">
+          <h2 class="min-w-0 text-fit text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">
             {related.length > 0 ? copy.related : `${copy.similarInCategory} ${category.name}`}
           </h2>
-          <a href={`/${locale}/${category.slug}/`} class="text-sm font-medium text-accent underline-offset-4 hover:underline">
+          <a href={`/${locale}/${category.slug}/`} class="shrink-0 text-fit text-sm font-medium text-accent underline-offset-4 hover:underline">
             {category.name}
           </a>
         </div>

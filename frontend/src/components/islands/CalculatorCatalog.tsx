@@ -576,9 +576,9 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
 
   return (
     <section className="space-y-6" data-testid="calculator-catalog">
-      <div className="border border-ink-900 bg-white p-4 sm:p-5">
+      <div className="min-w-0 border border-ink-900 bg-white p-4 sm:p-5">
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px_auto] lg:items-end">
-          <div>
+          <div className="min-w-0">
             <label
               htmlFor="catalog-search"
               className="mb-2 block text-xs font-medium uppercase tracking-wider text-ink-500"
@@ -621,7 +621,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             </div>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <label
               htmlFor="catalog-sort"
               className="mb-2 block text-xs font-medium uppercase tracking-wider text-ink-500"
@@ -646,7 +646,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             </div>
           </div>
 
-          <div className="text-sm text-ink-500" aria-live="polite" data-testid="catalog-result-count">
+          <div className="min-w-0 text-sm text-ink-500 text-fit" aria-live="polite" data-testid="catalog-result-count">
             {catalogCopy.found}: <span className="font-mono text-ink-900">{filteredCalculators.length}</span>
           </div>
         </div>
@@ -656,7 +656,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             <button
               key={item}
               type="button"
-              className="border border-ink-200 px-2.5 py-1.5 text-xs font-medium text-ink-700 transition-colors hover:border-ink-900 hover:text-accent"
+              className="max-w-full border border-ink-200 px-2.5 py-1.5 text-left text-xs font-medium leading-tight text-ink-700 transition-colors hover:border-ink-900 hover:text-accent"
               onClick={() => setQuery(item)}
               aria-label={`${catalogCopy.searchPrefix}: ${item}`}
             >
@@ -672,7 +672,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
         >
           <button
             type="button"
-            className="border border-ink-900 px-3 py-2 text-sm font-medium transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
+            className="max-w-full border border-ink-900 px-3 py-2 text-left text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
             aria-pressed={tagFilter === allTag}
             onClick={() => setTagFilter(allTag)}
             data-testid="catalog-tag-all"
@@ -681,7 +681,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
           </button>
           <button
             type="button"
-            className="border border-ink-900 px-3 py-2 text-sm font-medium transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
+            className="max-w-full border border-ink-900 px-3 py-2 text-left text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
             aria-pressed={tagFilter === 'new'}
             onClick={() => setTagFilter('new')}
             data-testid="catalog-tag-new"
@@ -690,7 +690,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
           </button>
           <button
             type="button"
-            className="border border-ink-900 px-3 py-2 text-sm font-medium transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
+            className="max-w-full border border-ink-900 px-3 py-2 text-left text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
             aria-pressed={tagFilter === 'popular'}
             onClick={() => setTagFilter('popular')}
             data-testid="catalog-tag-popular"
@@ -706,7 +706,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
         >
           <button
             type="button"
-            className="shrink-0 border border-ink-900 px-3 py-2 text-sm font-medium transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
+            className="shrink-0 border border-ink-900 px-3 py-2 text-left text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
             aria-pressed={activeCategory === allCategory}
             onClick={() => setActiveCategory(allCategory)}
           >
@@ -716,7 +716,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             <button
               key={category.id}
               type="button"
-              className="shrink-0 border border-ink-900 px-3 py-2 text-sm font-medium transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
+              className="shrink-0 border border-ink-900 px-3 py-2 text-left text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
               aria-pressed={activeCategory === category.id}
               onClick={() => setActiveCategory(category.id)}
             >
@@ -727,19 +727,19 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
         </div>
 
         <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-ink-500" data-testid="catalog-active-filters">
-          <span className="border border-ink-200 bg-ink-50 px-2.5 py-1">
+          <span className="max-w-full border border-ink-200 bg-ink-50 px-2.5 py-1 text-fit">
             {activeCategoryName}
           </span>
-          <span className="border border-ink-200 bg-ink-50 px-2.5 py-1">
+          <span className="max-w-full border border-ink-200 bg-ink-50 px-2.5 py-1 text-fit">
             {activeTagLabel}
           </span>
           {query.trim() && (
-            <span className="border border-ink-200 bg-ink-50 px-2.5 py-1">
+            <span className="max-w-full border border-ink-200 bg-ink-50 px-2.5 py-1 text-fit">
               {catalogCopy.query}: <span className="font-mono text-ink-900">{query.trim()}</span>
             </span>
           )}
           {sortMode === 'name' && (
-            <span className="border border-ink-200 bg-ink-50 px-2.5 py-1">
+            <span className="max-w-full border border-ink-200 bg-ink-50 px-2.5 py-1 text-fit">
               {catalogCopy.alphabetical}
             </span>
           )}
@@ -768,7 +768,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             {activeCategory !== allCategory && (
               <button
                 type="button"
-                className="inline-flex items-center justify-center border border-ink-900 px-4 py-2 text-sm font-medium transition-colors hover:bg-ink-900 hover:text-white"
+                className="inline-flex max-w-full items-center justify-center border border-ink-900 px-4 py-2 text-center text-sm font-medium leading-tight transition-colors hover:bg-ink-900 hover:text-white"
                 onClick={broadenCategoryFilter}
                 data-testid="catalog-empty-broaden"
               >
@@ -777,7 +777,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             )}
             <button
               type="button"
-              className="inline-flex items-center justify-center border border-ink-900 px-4 py-2 text-sm font-medium transition-colors hover:bg-ink-900 hover:text-white"
+              className="inline-flex max-w-full items-center justify-center border border-ink-900 px-4 py-2 text-center text-sm font-medium leading-tight transition-colors hover:bg-ink-900 hover:text-white"
               onClick={resetFilters}
               data-testid="catalog-empty-reset"
             >
@@ -789,7 +789,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
               <button
                 key={item}
                 type="button"
-                className="border border-ink-200 bg-white px-2.5 py-1.5 text-xs font-medium text-ink-700 transition-colors hover:border-ink-900 hover:text-accent"
+                className="max-w-full border border-ink-200 bg-white px-2.5 py-1.5 text-left text-xs font-medium leading-tight text-ink-700 transition-colors hover:border-ink-900 hover:text-accent"
                 onClick={() => {
                   setQuery(item);
                   setActiveCategory(allCategory);
@@ -813,7 +813,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
               <a
                 key={calculator.id}
                 href={calculator.fullPath}
-                className="group flex min-h-[184px] flex-col justify-between border border-ink-200 bg-white p-5 transition-colors hover:border-ink-900 hover:bg-ink-50"
+                className="group flex min-h-[184px] min-w-0 flex-col justify-between overflow-hidden border border-ink-200 bg-white p-5 transition-colors hover:border-ink-900 hover:bg-ink-50"
                 data-testid={`catalog-card-${calculator.id}`}
                 onKeyDown={(event) => {
                   if (event.key === 'ArrowDown') {
@@ -832,8 +832,8 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
                 }}
               >
                 <div>
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="font-mono text-xs text-ink-500">/{category?.slug}</div>
+                  <div className="flex min-w-0 items-start justify-between gap-4">
+                    <div className="min-w-0 font-mono text-xs text-ink-500 text-fit">/{category?.slug}</div>
                     <div className="flex shrink-0 flex-wrap justify-end gap-1.5">
                       {calculator.isNew && (
                         <span
@@ -853,7 +853,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
                       )}
                     </div>
                   </div>
-                  <h3 className="mt-3 text-xl font-semibold leading-snug tracking-tight text-ink-900">
+                  <h3 className="mt-3 text-xl font-semibold leading-snug tracking-tight text-ink-900 text-fit">
                     {calculator.name}
                   </h3>
                   <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-ink-500">
@@ -861,11 +861,11 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
                   </p>
                 </div>
 
-                <div className="mt-5 flex items-center justify-between gap-4">
-                  <span className="text-xs font-medium uppercase tracking-wider text-ink-400">
+                <div className="mt-5 flex min-w-0 items-center justify-between gap-4">
+                  <span className="min-w-0 text-xs font-medium uppercase tracking-wider text-ink-400 text-fit">
                     {calculator.categoryName ?? category?.name}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-sm font-medium text-accent">
+                  <span className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-accent">
                     {copy.open}
                     <ArrowRight
                       className="h-4 w-4 transition-transform group-hover:translate-x-0.5"

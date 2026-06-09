@@ -48,28 +48,28 @@ const navLabel = {
 
 <header class="border-b border-ink-900 bg-white" data-testid="site-header">
   <div class="mx-auto max-w-page px-5 sm:px-8">
-    <div class="flex items-center justify-between py-4">
+    <div class="flex items-center justify-between gap-4 py-4">
       <a
         href={localeHome(locale)}
-        class="flex items-baseline gap-2 group"
+        class="flex shrink-0 items-baseline gap-2 group"
         aria-label={`${meta.siteName} - ${copy.home}`}
         data-testid="header-logo-link"
       >
-        <span class="text-xl font-bold tracking-tightest text-ink-900">
+        <span class="text-xl font-bold text-ink-900 text-fit">
           {meta.siteName}
         </span>
         <span class="inline-block w-2 h-2 bg-accent group-hover:scale-110 transition-transform"></span>
       </a>
 
       <nav
-        class="hidden md:flex items-center gap-7"
+        class="hidden min-w-0 flex-1 items-center justify-end gap-4 overflow-x-auto md:flex"
         aria-label={navLabel}
         data-testid="header-nav"
       >
         <a
           href={catalogPath}
           class:list={[
-            'text-sm font-medium transition-colors hover:text-accent',
+            'shrink-0 text-sm font-medium transition-colors hover:text-accent',
             isAllActive ? 'text-accent' : 'text-ink-900',
           ]}
           aria-current={isAllActive ? 'page' : undefined}
@@ -87,7 +87,7 @@ const navLabel = {
             <a
               href={categoryPath}
               class:list={[
-                'text-sm transition-colors hover:text-accent',
+                'shrink-0 text-sm transition-colors hover:text-accent',
                 isActive ? 'font-medium text-accent' : 'text-ink-700',
               ]}
               aria-current={currentState}
@@ -98,12 +98,12 @@ const navLabel = {
           );
         })}
         {languageLinks.length > 1 && (
-          <span class="flex items-center gap-2 border-l border-ink-200 pl-5">
+          <span class="flex max-w-[280px] shrink-0 items-center gap-2 overflow-x-auto border-l border-ink-200 pl-5">
             {languageLinks.map((item) => (
               <a
                 href={item.href}
                 class:list={[
-                  'text-xs font-semibold transition-colors hover:text-accent',
+                  'shrink-0 text-xs font-semibold transition-colors hover:text-accent',
                   item.locale === locale ? 'text-accent' : 'text-ink-500',
                 ]}
                 hreflang={localeMeta[item.locale].htmlLang}

@@ -251,7 +251,7 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
   }, [query]);
 
   return (
-    <div className="relative" role="search" data-testid="search-box">
+    <div className="relative min-w-0" role="search" data-testid="search-box">
       <label htmlFor="search-input" className="sr-only">
         {searchCopy.label}
       </label>
@@ -302,20 +302,20 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
       {hasQuery && (
         <div
           id={resultsId}
-          className="absolute left-0 right-0 top-full mt-1 z-10 border border-ink-900 bg-white shadow-[4px_4px_0_0_rgba(10,10,10,0.04)]"
+          className="absolute left-0 right-0 top-full z-10 mt-1 max-h-[min(28rem,70vh)] min-w-0 overflow-y-auto border border-ink-900 bg-white shadow-[4px_4px_0_0_rgba(10,10,10,0.04)]"
           role="region"
           aria-label={searchCopy.results}
           data-testid="search-results"
         >
           {results.length === 0 ? (
-            <div className="p-4" role="status" data-testid="search-empty">
-              <div className="text-sm font-medium text-ink-900">{searchCopy.emptyTitle}</div>
-              <p className="mt-1 text-xs leading-relaxed text-ink-500">
+            <div className="min-w-0 p-4" role="status" data-testid="search-empty">
+              <div className="text-fit text-sm font-medium text-ink-900">{searchCopy.emptyTitle}</div>
+              <p className="mt-1 text-fit text-xs leading-relaxed text-ink-500">
                 {searchCopy.emptyText}
               </p>
               <a
                 href={catalogHref}
-                className="mt-3 inline-flex items-center justify-center border border-ink-900 px-3 py-2 text-sm font-medium text-ink-900 transition-colors hover:bg-ink-900 hover:text-white"
+                className="mt-3 inline-flex max-w-full items-center justify-center border border-ink-900 px-3 py-2 text-center text-sm font-medium leading-tight text-ink-900 transition-colors hover:bg-ink-900 hover:text-white"
                 data-testid="search-empty-catalog"
                 onKeyDown={(event) => {
                   if (event.key === 'Escape') {
@@ -339,7 +339,7 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
                   <li key={c.id} className="border-b border-ink-100 last:border-b-0">
                     <a
                       href={c.fullPath}
-                      className="block px-4 py-3 hover:bg-ink-50 transition-colors"
+                      className="block min-w-0 px-4 py-3 transition-colors hover:bg-ink-50"
                       data-testid={`search-result-${i}`}
                       onKeyDown={(event) => {
                         if (event.key === 'Escape') {
@@ -365,18 +365,18 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
                         }
                       }}
                     >
-                      <div className="flex items-start justify-between gap-3">
+                      <div className="flex min-w-0 items-start justify-between gap-3">
                         <div className="min-w-0">
-                          <div className="text-sm font-medium text-ink-900">{c.name}</div>
-                          <div className="mt-0.5 text-[10px] uppercase tracking-wider text-ink-400">
+                          <div className="text-fit text-sm font-medium text-ink-900">{c.name}</div>
+                          <div className="mt-0.5 text-fit text-[10px] uppercase tracking-wider text-ink-400">
                             {c.categoryName ?? c.category}
                           </div>
                         </div>
                         {(c.isNew || c.popularity >= 80) && (
-                          <div className="flex shrink-0 flex-wrap justify-end gap-1.5" data-testid={`search-result-badges-${i}`}>
+                          <div className="flex max-w-[45%] shrink-0 flex-wrap justify-end gap-1.5" data-testid={`search-result-badges-${i}`}>
                             {c.isNew && (
                               <span
-                                className="border border-ink-900 bg-ink-900 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-white"
+                                className="max-w-full border border-ink-900 bg-ink-900 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-fit text-white"
                                 data-testid={`search-result-new-${i}`}
                               >
                                 {copy.newBadge}
@@ -384,7 +384,7 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
                             )}
                             {c.popularity >= 80 && (
                               <span
-                                className="border border-accent px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-accent"
+                                className="max-w-full border border-accent px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-accent text-fit"
                                 data-testid={`search-result-popular-${i}`}
                               >
                                 {copy.popularBadge}
@@ -393,7 +393,7 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
                           </div>
                         )}
                       </div>
-                      <div className="text-xs text-ink-500 mt-0.5 line-clamp-1">
+                      <div className="mt-0.5 line-clamp-2 text-fit text-xs text-ink-500">
                         {c.shortDescription}
                       </div>
                     </a>
@@ -402,7 +402,7 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
               </ul>
               <a
                 href={catalogHref}
-                className="block border-t border-ink-200 bg-ink-50 px-4 py-3 text-sm font-medium text-ink-900 transition-colors hover:bg-white hover:text-accent"
+                className="block border-t border-ink-200 bg-ink-50 px-4 py-3 text-fit text-sm font-medium text-ink-900 transition-colors hover:bg-white hover:text-accent"
                 data-testid="search-all-results"
                 onKeyDown={(event) => {
                   if (event.key === 'Escape') {

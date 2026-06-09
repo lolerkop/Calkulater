@@ -37,16 +37,16 @@ const featured = featuredCalculators.slice(0, 3);
 
 <a
   href={`/${locale}/${category.slug}/`}
-  class="group flex min-h-[260px] flex-col border border-ink-900 p-6 bg-white hover:bg-ink-900 transition-colors"
+  class="group flex min-h-[260px] min-w-0 flex-col overflow-hidden border border-ink-900 p-6 bg-white hover:bg-ink-900 transition-colors"
   data-testid={`category-card-${category.slug}`}
 >
-  <div class="flex items-start justify-between">
+  <div class="flex min-w-0 items-start justify-between gap-3">
     <span class="font-mono text-xs text-ink-500 group-hover:text-ink-300">{num}</span>
-    <span class="text-xs uppercase tracking-wider text-ink-500 group-hover:text-ink-300">
+    <span class="min-w-0 text-xs uppercase tracking-wider text-ink-500 group-hover:text-ink-300 text-fit">
       {count} {categoryCardCopy.countLabel}
     </span>
   </div>
-  <h3 class="mt-6 text-xl font-semibold text-ink-900 group-hover:text-white transition-colors">
+  <h3 class="mt-6 text-xl font-semibold text-ink-900 group-hover:text-white transition-colors text-fit">
     {category.name}
   </h3>
   <p class="mt-2 text-sm text-ink-500 group-hover:text-ink-300 leading-relaxed line-clamp-3">
@@ -62,15 +62,17 @@ const featured = featuredCalculators.slice(0, 3);
         {featured.map((calc) => (
           <li class="flex items-center gap-2 text-xs text-ink-600 group-hover:text-ink-200">
             <span aria-hidden="true" class="font-mono text-ink-400 group-hover:text-ink-300">/</span>
-            <span class="line-clamp-1">{calc.name}</span>
+            <span class="min-w-0 line-clamp-2 text-fit">{calc.name}</span>
           </li>
         ))}
       </ul>
     </div>
   ) : null}
 
-  <div class="mt-auto flex items-center gap-2 pt-6 text-sm font-medium text-accent">
+  <div class="mt-auto flex min-w-0 items-center gap-2 pt-6 text-sm font-medium text-accent">
+    <span class="min-w-0 text-fit">
     {copy.open}
+    </span>
     <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
   </div>
 </a>

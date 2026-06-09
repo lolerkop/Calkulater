@@ -40,24 +40,24 @@ const rights = {
 ---
 
 <footer class="mt-24 border-t border-ink-900 bg-white" data-testid="site-footer">
-  <div class="mx-auto max-w-page px-5 sm:px-8 py-12 grid gap-10 md:grid-cols-4">
-    <div>
-      <div class="flex items-baseline gap-2">
-        <span class="text-lg font-bold text-ink-900">{meta.siteName}</span>
+  <div class="mx-auto grid max-w-page min-w-0 gap-10 px-5 py-12 sm:px-8 md:grid-cols-4">
+    <div class="min-w-0">
+      <div class="flex min-w-0 items-baseline gap-2">
+        <span class="text-fit text-lg font-bold text-ink-900">{meta.siteName}</span>
         <span class="inline-block w-2 h-2 bg-accent"></span>
       </div>
-      <p class="mt-3 text-sm text-ink-500 max-w-xs leading-relaxed">
+      <p class="mt-3 max-w-xs text-fit text-sm leading-relaxed text-ink-500">
         {copy.footerDescription}
       </p>
     </div>
 
-    <div>
-      <h3 class="text-xs uppercase tracking-wider text-ink-500 mb-3">{copy.categories}</h3>
+    <div class="min-w-0">
+      <h3 class="mb-3 text-fit text-xs uppercase tracking-wider text-ink-500">{copy.categories}</h3>
       <ul class="space-y-2 text-sm">
         <li>
           <a
             href={localeCatalog(locale)}
-            class="font-medium text-ink-900 hover:text-accent transition-colors"
+            class="text-fit font-medium text-ink-900 transition-colors hover:text-accent"
             data-testid="footer-link-all-calculators"
           >
             {copy.allCalculators}
@@ -67,7 +67,7 @@ const rights = {
           <li>
             <a
               href={`/${locale}/${c.slug}/`}
-              class="text-ink-800 hover:text-accent transition-colors"
+              class="text-fit text-ink-800 transition-colors hover:text-accent"
               data-testid={`footer-link-${c.slug}`}
             >
               {c.name}
@@ -77,14 +77,14 @@ const rights = {
       </ul>
     </div>
 
-    <div>
-      <h3 class="text-xs uppercase tracking-wider text-ink-500 mb-3">{copy.popular}</h3>
+    <div class="min-w-0">
+      <h3 class="mb-3 text-fit text-xs uppercase tracking-wider text-ink-500">{copy.popular}</h3>
       <ul class="space-y-2 text-sm" data-testid="footer-popular-calculators">
         {topPopularCalculators.map((calc) => (
           <li>
             <a
               href={calc.fullPath}
-              class="text-ink-800 hover:text-accent transition-colors"
+              class="text-fit text-ink-800 transition-colors hover:text-accent"
               data-testid={`footer-popular-${calc.slug}`}
             >
               {calc.name}
@@ -94,23 +94,23 @@ const rights = {
       </ul>
     </div>
 
-    <div>
-      <h3 class="text-xs uppercase tracking-wider text-ink-500 mb-3">{copy.about}</h3>
-      <p class="text-sm text-ink-500 leading-relaxed">
+    <div class="min-w-0">
+      <h3 class="mb-3 text-fit text-xs uppercase tracking-wider text-ink-500">{copy.about}</h3>
+      <p class="text-fit text-sm leading-relaxed text-ink-500">
         {copy.footerNote}
       </p>
       <nav class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm" aria-label={copy.servicePages}>
-        <a href={`/${locale}/about/`} class="text-ink-800 hover:text-accent transition-colors">{copy.about}</a>
-        <a href={`/${locale}/contacts/`} class="text-ink-800 hover:text-accent transition-colors">{copy.contacts}</a>
-        <a href={`/${locale}/privacy/`} class="text-ink-800 hover:text-accent transition-colors">{copy.privacy}</a>
+        <a href={`/${locale}/about/`} class="text-fit text-ink-800 transition-colors hover:text-accent">{copy.about}</a>
+        <a href={`/${locale}/contacts/`} class="text-fit text-ink-800 transition-colors hover:text-accent">{copy.contacts}</a>
+        <a href={`/${locale}/privacy/`} class="text-fit text-ink-800 transition-colors hover:text-accent">{copy.privacy}</a>
       </nav>
     </div>
   </div>
 
   <div class="border-t border-ink-200">
-    <div class="mx-auto max-w-page px-5 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs text-ink-500">
-      <span>© {year} {meta.siteName}. {rights}</span>
-      <span class="mt-2 sm:mt-0">{copy.made}</span>
+    <div class="mx-auto flex max-w-page min-w-0 flex-col px-5 py-5 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+      <span class="text-fit">© {year} {meta.siteName}. {rights}</span>
+      <span class="mt-2 text-fit sm:mt-0">{copy.made}</span>
     </div>
   </div>
 </footer>

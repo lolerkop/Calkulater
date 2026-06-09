@@ -26,14 +26,19 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
-        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        sans: ['"IBM Plex Sans"', '"Noto Sans"', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', '"Noto Sans Mono"', 'ui-monospace', 'SFMono-Regular', 'Consolas', 'monospace'],
       },
       maxWidth: {
         page: '1200px',
       },
       letterSpacing: {
-        tightest: '-0.04em',
+        tight: '0',
+        tighter: '0',
+        tightest: '0',
+        wide: '0',
+        wider: '0',
+        widest: '0',
       },
     },
   },

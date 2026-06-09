@@ -14,16 +14,16 @@ const { items, label = 'Хлебные крошки' } = Astro.props;
 // через хелпер `breadcrumbsJsonLd` (см. src/lib/seo.ts), чтобы избежать дублей.
 ---
 
-<nav aria-label={label} class="text-xs text-ink-500" data-testid="breadcrumbs">
-  <ol class="flex flex-wrap items-center gap-1.5">
+<nav aria-label={label} class="min-w-0 text-xs text-ink-500" data-testid="breadcrumbs">
+  <ol class="flex min-w-0 flex-wrap items-center gap-1.5">
     {items.map((item, i) => (
-      <li class="flex items-center gap-1.5">
+      <li class="flex min-w-0 items-center gap-1.5">
         {item.href ? (
-          <a href={item.href} class="hover:text-accent transition-colors" data-testid={`breadcrumb-${i}`}>
+          <a href={item.href} class="text-fit transition-colors hover:text-accent" data-testid={`breadcrumb-${i}`}>
             {item.label}
           </a>
         ) : (
-          <span class="text-ink-700" data-testid={`breadcrumb-${i}`}>{item.label}</span>
+          <span class="text-fit text-ink-700" data-testid={`breadcrumb-${i}`}>{item.label}</span>
         )}
         {i < items.length - 1 && <span class="text-ink-300">/</span>}
       </li>

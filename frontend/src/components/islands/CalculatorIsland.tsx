@@ -822,7 +822,7 @@ function ResultBlock({
             className="grid grid-cols-1 items-baseline gap-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,auto)] sm:gap-4 sm:px-6"
             data-testid={`calc-result-row-${i}`}
           >
-            <dt className="min-w-0 text-sm text-ink-500">{row.label}</dt>
+            <dt className="min-w-0 text-sm text-ink-500 text-fit">{row.label}</dt>
             <dd
               className={[
                 'min-w-0 font-mono text-sm font-medium tabular-nums text-left [overflow-wrap:anywhere] sm:text-right',
@@ -907,17 +907,17 @@ function FieldRenderer({
     error ? errorId : '',
   ].filter(Boolean).join(' ') || undefined;
   const labelEl = (
-    <label htmlFor={fieldId} className="field-label" data-testid={`field-label-${field.name}`}>
+      <label htmlFor={fieldId} className="field-label text-fit" data-testid={`field-label-${field.name}`}>
       {field.label}
       {field.unit ? <span className="ml-1 text-ink-400 normal-case">({field.unit})</span> : null}
     </label>
   );
 
   const helpEl = helpText ? (
-    <p id={helpId} className="mt-1 text-xs text-ink-500">{helpText}</p>
+    <p id={helpId} className="mt-1 text-xs text-ink-500 text-fit">{helpText}</p>
   ) : null;
   const errorEl = error ? (
-    <p id={errorId} className="mt-1 text-xs font-medium text-accent" data-testid={`field-error-${field.name}`}>
+    <p id={errorId} className="mt-1 text-xs font-medium text-accent text-fit" data-testid={`field-error-${field.name}`}>
       {error}
     </p>
   ) : null;
@@ -978,7 +978,7 @@ function FieldRenderer({
         >
           <legend
             id={`${fieldId}-legend`}
-            className="field-label"
+            className="field-label text-fit"
             data-testid={`field-label-${field.name}`}
           >
             {field.label}
@@ -986,7 +986,7 @@ function FieldRenderer({
           </legend>
           <div
             id={fieldId}
-            className="flex"
+            className="flex flex-col sm:flex-row"
             role="group"
             aria-labelledby={`${fieldId}-legend`}
             aria-describedby={describedBy}
@@ -1042,9 +1042,9 @@ function FieldRenderer({
             checked={Boolean(value)}
             onChange={(e) => onChange(e.target.checked)}
           />
-          <label htmlFor={fieldId} className="text-sm text-ink-900 leading-tight">
+          <label htmlFor={fieldId} className="min-w-0 text-sm text-ink-900 leading-tight text-fit">
             {field.label}
-            {helpText && <span id={helpId} className="block mt-0.5 text-xs text-ink-500">{helpText}</span>}
+            {helpText && <span id={helpId} className="block mt-0.5 text-xs text-ink-500 text-fit">{helpText}</span>}
           </label>
           </div>
           {errorEl}
@@ -1255,10 +1255,10 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   const displayResult = result ? localizeResult(result, locale) : null;
 
   return (
-    <div className="grid gap-8 lg:grid-cols-5" data-testid={`calculator-island-${calc.id}`}>
+    <div className="grid min-w-0 gap-8 lg:grid-cols-5" data-testid={`calculator-island-${calc.id}`}>
       <form
         ref={formRef}
-        className="lg:col-span-3 border border-ink-900 bg-white p-6 sm:p-8"
+        className="min-w-0 border border-ink-900 bg-white p-5 sm:p-8 lg:col-span-3"
         onSubmit={handleSubmit}
         data-testid="calc-form"
       >
@@ -1268,9 +1268,9 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
         >
           <div className="min-w-0">
             <div className="text-xs uppercase tracking-wider text-ink-500">{copy.inputs}</div>
-            <h2 className="mt-1 text-xl font-semibold tracking-tight text-ink-900">{calc.name}</h2>
+            <h2 className="mt-1 text-xl font-semibold tracking-tight text-ink-900 text-fit">{calc.name}</h2>
           </div>
-          <div className="shrink-0 border border-ink-200 px-2.5 py-1 font-mono text-xs text-ink-600">
+          <div className="shrink-0 border border-ink-200 px-2.5 py-1 text-right font-mono text-xs text-ink-600">
             {copy.fieldCounter(visibleFields.length)}
           </div>
         </div>
@@ -1313,7 +1313,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
             type="button"
             onClick={copyShareLink}
             className={[
-              'inline-flex w-full items-center justify-center gap-2 border px-3 py-2 text-sm transition-colors sm:ml-auto sm:w-auto',
+              'inline-flex w-full min-w-0 items-center justify-center gap-2 border px-3 py-2 text-center text-sm leading-tight transition-colors sm:ml-auto sm:w-auto',
               copied
                 ? 'border-emerald-700 text-emerald-700 bg-emerald-50'
                 : 'border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-white',
@@ -1342,7 +1342,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
             data-testid="calc-validation"
           >
             <AlertCircle size={18} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
-            <div>
+            <div className="min-w-0">
               <div className="font-medium">{copy.checkValues}</div>
               <ul className="mt-1 list-disc pl-4 text-ink-700">
                 {validationErrorEntries.map(([fieldName, error]) => {
@@ -1382,8 +1382,8 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           className="mb-3 flex items-center justify-between gap-3 text-xs uppercase tracking-wider text-ink-500 print-hide"
           data-testid="calc-result-heading"
         >
-          <span id="calc-result-title">{copy.result}</span>
-          <span className="font-mono text-[11px] text-ink-400">{calc.id}</span>
+          <span id="calc-result-title" className="min-w-0 text-fit">{copy.result}</span>
+          <span className="min-w-0 text-right font-mono text-[11px] text-ink-400">{calc.id}</span>
         </div>
         {displayResult ? (
           <ResultBlock
@@ -1399,7 +1399,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
             className="border border-accent bg-accent-50 p-8 text-sm text-ink-700"
             data-testid="calc-result-invalid"
           >
-            <div className="flex items-center gap-2 font-medium text-ink-900">
+            <div className="flex items-center gap-2 font-medium text-ink-900 text-fit">
               <AlertCircle size={18} className="text-accent" aria-hidden="true" />
               {copy.unavailableTitle}
             </div>

@@ -29,24 +29,24 @@ const fallbackCalculators = getPopularCalculators(locale);
   locale={locale}
 >
   <section class="mx-auto max-w-page px-5 sm:px-8 py-16 sm:py-20" data-testid="page-404">
-    <div class="grid gap-10 lg:grid-cols-12 lg:items-end border-b border-ink-900 pb-10">
-      <div class="lg:col-span-8">
-        <div class="font-mono text-sm text-ink-500">/ 404</div>
-        <h1 class="mt-3 text-5xl sm:text-6xl font-bold tracking-tightest text-ink-900 leading-none">
+    <div class="grid min-w-0 gap-10 border-b border-ink-900 pb-10 lg:grid-cols-12 lg:items-end">
+      <div class="min-w-0 lg:col-span-8">
+        <div class="font-mono text-fit text-sm text-ink-500">/ 404</div>
+        <h1 class="mt-3 text-fit text-5xl font-bold leading-none tracking-tightest text-ink-900 sm:text-6xl">
           Страница не найдена
         </h1>
-        <p class="mt-5 text-ink-500 max-w-2xl text-base sm:text-lg leading-relaxed">
+        <p class="mt-5 max-w-2xl text-fit text-base leading-relaxed text-ink-500 sm:text-lg">
           Возможно, адрес был указан неверно или калькулятор переехал в другую категорию.
           Откройте полный список инструментов или выберите нужный раздел ниже.
         </p>
       </div>
-      <div class="lg:col-span-4 lg:text-right">
+      <div class="min-w-0 lg:col-span-4 lg:text-right">
         <a href={localeCatalog(locale)} class="inline-flex btn-primary" data-testid="page-404-all-link">
           Все калькуляторы
         </a>
         <a
           href="/ru/"
-          class="ml-3 inline-flex border border-ink-900 px-5 py-3 text-sm font-medium text-ink-900 hover:bg-ink-900 hover:text-white transition-colors"
+          class="ml-3 inline-flex max-w-full border border-ink-900 px-5 py-3 text-center text-sm font-medium leading-tight text-ink-900 transition-colors hover:bg-ink-900 hover:text-white"
           data-testid="page-404-home-link"
         >
           Главная
@@ -54,15 +54,15 @@ const fallbackCalculators = getPopularCalculators(locale);
       </div>
     </div>
 
-    <div class="mt-8 border border-ink-900 bg-white p-5 sm:p-6" data-testid="page-404-search">
-      <div class="mb-3 flex flex-wrap items-end justify-between gap-3">
-        <div>
+    <div class="mt-8 min-w-0 border border-ink-900 bg-white p-5 sm:p-6" data-testid="page-404-search">
+      <div class="mb-3 flex min-w-0 flex-wrap items-end justify-between gap-3">
+        <div class="min-w-0">
           <div class="text-xs uppercase tracking-wider text-ink-500">Поиск по сайту</div>
-          <h2 class="mt-1 text-2xl font-semibold tracking-tight text-ink-900">
+          <h2 class="mt-1 text-fit text-2xl font-semibold tracking-tight text-ink-900">
             Найдите нужный калькулятор
           </h2>
         </div>
-        <span class="font-mono text-xs text-ink-500">
+        <span class="font-mono text-fit text-xs text-ink-500">
           {calculators.length} инструментов
         </span>
       </div>
@@ -73,7 +73,7 @@ const fallbackCalculators = getPopularCalculators(locale);
       {categories.map((category) => (
         <a
           href={`/${locale}/${category.slug}/`}
-          class="border border-ink-200 bg-white p-4 text-sm font-medium text-ink-900 hover:border-ink-900 hover:text-accent transition-colors"
+          class="min-w-0 border border-ink-200 bg-white p-4 text-fit text-sm font-medium text-ink-900 transition-colors hover:border-ink-900 hover:text-accent"
         >
           {category.name}
         </a>
@@ -81,13 +81,13 @@ const fallbackCalculators = getPopularCalculators(locale);
     </div>
 
     <div class="mt-12" data-testid="page-404-popular">
-      <div class="mb-5 flex items-end justify-between gap-6">
-        <h2 class="text-2xl font-semibold tracking-tight text-ink-900">
+      <div class="mb-5 flex min-w-0 items-end justify-between gap-6">
+        <h2 class="min-w-0 text-fit text-2xl font-semibold tracking-tight text-ink-900">
           Популярные калькуляторы
         </h2>
         <a
           href={localeCatalog(locale)}
-          class="hidden sm:inline-flex text-sm font-medium text-accent underline-offset-4 hover:underline"
+          class="hidden shrink-0 text-sm font-medium text-accent underline-offset-4 hover:underline sm:inline-flex"
         >
           Смотреть все
         </a>
