@@ -3,8 +3,12 @@ import { calculators as baseCalculators } from '../data/calculators';
 import { getCalculatorSeoContent } from '../data/calculatorSeoContent';
 import type { CalculatorDef, Category, CategoryId, Field, FaqItem } from './types';
 
-export const locales = ['ru', 'en', 'es', 'de', 'fr', 'pt', 'it', 'pl', 'nl', 'ro', 'id', 'tr', 'vi', 'cs', 'uk', 'sk', 'hu'] as const;
-export type Locale = (typeof locales)[number];
+export const allLocales = ['ru', 'en', 'es', 'de', 'fr', 'pt', 'it', 'pl', 'nl', 'ro', 'id', 'tr', 'vi', 'cs', 'uk', 'sk', 'hu'] as const;
+export type Locale = (typeof allLocales)[number];
+
+// Only these locales are public for now. Other localized data stays in the
+// codebase so we can polish and re-enable languages gradually.
+export const locales = ['ru', 'en', 'uk'] as const satisfies readonly Locale[];
 
 export const defaultLocale: Locale = 'ru';
 
@@ -7223,7 +7227,7 @@ function localizeCalculator(calculator: CalculatorDef, locale: Locale): Calculat
 }
 
 export function isLocale(value: string | undefined): value is Locale {
-  return locales.includes(value as Locale);
+  return Boolean(value && (locales as readonly string[]).includes(value));
 }
 
 export function isCalculatorAvailableInLocale(id: string, locale: Locale): boolean {

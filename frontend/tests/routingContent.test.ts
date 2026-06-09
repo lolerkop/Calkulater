@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { calculators } from '../src/data/calculators';
 import {
+  allLocales,
   getCalculatorById,
   getCalculators,
   getCategories,
@@ -43,7 +44,10 @@ describe('routing content: i18n routes', () => {
   });
 
   it('keeps localized public locales scoped to global calculators only', () => {
-    expect(locales).toEqual(['ru', 'en', 'es', 'de', 'fr', 'pt', 'it', 'pl', 'nl', 'ro', 'id', 'tr', 'vi', 'cs', 'uk', 'sk', 'hu']);
+    expect(locales).toEqual(['ru', 'en', 'uk']);
+    expect(allLocales).toContain('es');
+    expect(allLocales).toContain('de');
+    expect(allLocales).toContain('fr');
     for (const locale of locales) {
       if (locale === 'ru') continue;
       expect(getCalculatorById('income-tax-calculator', locale)).toBeUndefined();
