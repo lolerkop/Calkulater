@@ -575,7 +575,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
     query.trim() || activeCategory !== allCategory || sortMode !== defaultSort || tagFilter !== allTag;
 
   return (
-    <section className="space-y-6" data-testid="calculator-catalog">
+    <section className="space-y-5 sm:space-y-6" data-testid="calculator-catalog">
       <div className="min-w-0 border border-ink-900 bg-white p-4 sm:p-5">
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px_auto] lg:items-end">
           <div className="min-w-0">
@@ -651,12 +651,12 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
           </div>
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-2" aria-label={catalogCopy.quickSearches} data-testid="catalog-quick-queries">
+        <div className="mt-4 flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0" aria-label={catalogCopy.quickSearches} data-testid="catalog-quick-queries">
           {quickQueries.map((item) => (
             <button
               key={item}
               type="button"
-              className="max-w-full border border-ink-200 px-2.5 py-1.5 text-left text-xs font-medium leading-tight text-ink-700 transition-colors hover:border-ink-900 hover:text-accent"
+              className="max-w-[12rem] shrink-0 border border-ink-200 px-2.5 py-1.5 text-left text-xs font-medium leading-tight text-ink-700 transition-colors hover:border-ink-900 hover:text-accent sm:max-w-full"
               onClick={() => setQuery(item)}
               aria-label={`${catalogCopy.searchPrefix}: ${item}`}
             >
@@ -666,13 +666,13 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
         </div>
 
         <div
-          className="mt-4 flex flex-wrap gap-2"
+          className="mt-4 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap"
           aria-label={catalogCopy.statusFilter}
           data-testid="catalog-tag-filter"
         >
           <button
             type="button"
-            className="max-w-full border border-ink-900 px-3 py-2 text-left text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
+            className="max-w-full border border-ink-900 px-2.5 py-2 text-center text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50 sm:px-3 sm:text-left"
             aria-pressed={tagFilter === allTag}
             onClick={() => setTagFilter(allTag)}
             data-testid="catalog-tag-all"
@@ -681,7 +681,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
           </button>
           <button
             type="button"
-            className="max-w-full border border-ink-900 px-3 py-2 text-left text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
+            className="max-w-full border border-ink-900 px-2.5 py-2 text-center text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50 sm:px-3 sm:text-left"
             aria-pressed={tagFilter === 'new'}
             onClick={() => setTagFilter('new')}
             data-testid="catalog-tag-new"
@@ -690,7 +690,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
           </button>
           <button
             type="button"
-            className="max-w-full border border-ink-900 px-3 py-2 text-left text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
+            className="max-w-full border border-ink-900 px-2.5 py-2 text-center text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50 sm:px-3 sm:text-left"
             aria-pressed={tagFilter === 'popular'}
             onClick={() => setTagFilter('popular')}
             data-testid="catalog-tag-popular"
@@ -813,7 +813,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
               <a
                 key={calculator.id}
                 href={calculator.fullPath}
-                className="group flex min-h-[184px] min-w-0 flex-col justify-between overflow-hidden border border-ink-200 bg-white p-5 transition-colors hover:border-ink-900 hover:bg-ink-50"
+                className="group flex min-h-[154px] min-w-0 flex-col justify-between overflow-hidden border border-ink-200 bg-white p-4 transition-colors hover:border-ink-900 hover:bg-ink-50 sm:min-h-[184px] sm:p-5"
                 data-testid={`catalog-card-${calculator.id}`}
                 onKeyDown={(event) => {
                   if (event.key === 'ArrowDown') {
@@ -853,7 +853,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
                       )}
                     </div>
                   </div>
-                  <h3 className="mt-3 text-xl font-semibold leading-snug tracking-tight text-ink-900 text-fit">
+                  <h3 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-ink-900 text-fit sm:text-xl">
                     {calculator.name}
                   </h3>
                   <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-ink-500">
@@ -861,7 +861,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
                   </p>
                 </div>
 
-                <div className="mt-5 flex min-w-0 items-center justify-between gap-4">
+                <div className="mt-4 flex min-w-0 items-center justify-between gap-3 sm:mt-5 sm:gap-4">
                   <span className="min-w-0 text-xs font-medium uppercase tracking-wider text-ink-400 text-fit">
                     {calculator.categoryName ?? category?.name}
                   </span>

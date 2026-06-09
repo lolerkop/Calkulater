@@ -107,7 +107,7 @@ const jsonLd = [
   jsonLd={jsonLd}
 >
   <section class="border-b border-ink-900" data-testid={`category-page-${category.slug}`}>
-    <div class="mx-auto max-w-page px-5 sm:px-8 pt-10 pb-10">
+    <div class="mx-auto max-w-page px-5 pb-8 pt-8 sm:px-8 sm:pb-10 sm:pt-10">
       <Breadcrumbs
         label={pageCopy.breadcrumbs}
         items={[
@@ -116,34 +116,34 @@ const jsonLd = [
         ]}
       />
 
-      <div class="mt-6 flex min-w-0 flex-wrap items-baseline gap-4">
+      <div class="mt-5 flex min-w-0 flex-wrap items-baseline gap-3 sm:mt-6 sm:gap-4">
         <span class="font-mono text-fit text-sm text-ink-500">/{locale}/{category.slug}</span>
         <span class="text-fit text-xs uppercase tracking-wider text-ink-500">
           {calculators.length} {copy.instruments}
         </span>
       </div>
 
-      <h1 class="mt-3 text-fit text-4xl font-bold leading-tight tracking-tightest text-ink-900 sm:text-5xl" data-testid="category-h1">
+      <h1 class="mt-3 text-fit text-3xl font-bold leading-tight tracking-tightest text-ink-900 sm:text-5xl" data-testid="category-h1">
         {category.h1}
       </h1>
-      <p class="mt-4 max-w-3xl text-fit text-base leading-relaxed text-ink-500 sm:text-lg">
+      <p class="mt-3 max-w-3xl text-fit text-base leading-relaxed text-ink-500 sm:mt-4 sm:text-lg">
         {category.longDescription}
       </p>
 
-      <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" data-testid="category-hero-stats">
-        <div class="min-w-0 border border-ink-200 bg-white p-4">
+      <div class="mt-6 grid grid-cols-2 gap-2 sm:mt-8 sm:gap-3 lg:grid-cols-4" data-testid="category-hero-stats">
+        <div class="min-w-0 border border-ink-200 bg-white p-3 sm:p-4">
           <div class="font-mono text-2xl font-semibold text-ink-900">{calculators.length}</div>
           <div class="mt-1 text-fit text-xs uppercase tracking-wider text-ink-500">{copy.instruments}</div>
         </div>
-        <div class="min-w-0 border border-ink-200 bg-white p-4">
+        <div class="min-w-0 border border-ink-200 bg-white p-3 sm:p-4">
           <div class="font-mono text-2xl font-semibold text-ink-900">{popularInCategory.length}</div>
           <div class="mt-1 text-fit text-xs uppercase tracking-wider text-ink-500">{copy.quickStart}</div>
         </div>
-        <div class="min-w-0 border border-ink-200 bg-white p-4">
+        <div class="min-w-0 border border-ink-200 bg-white p-3 sm:p-4">
           <div class="font-mono text-2xl font-semibold text-ink-900">{newInCategory.length}</div>
           <div class="mt-1 text-fit text-xs uppercase tracking-wider text-ink-500">{copy.newest}</div>
         </div>
-        <div class="min-w-0 border border-ink-200 bg-white p-4">
+        <div class="min-w-0 border border-ink-200 bg-white p-3 sm:p-4">
           <div class="font-mono text-2xl font-semibold text-ink-900">{category.faq.length}</div>
           <div class="mt-1 text-xs uppercase tracking-wider text-ink-500">FAQ</div>
         </div>
@@ -163,8 +163,8 @@ const jsonLd = [
   </section>
 
   <section id="all-calculators" data-testid="category-list">
-    <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
-      <div class="mb-8 flex min-w-0 items-end justify-between gap-6">
+    <div class="mx-auto max-w-page px-5 py-8 sm:px-8 sm:py-12">
+      <div class="mb-6 flex min-w-0 items-end justify-between gap-6 sm:mb-8">
         <h2 class="min-w-0 text-fit text-2xl font-semibold tracking-tight text-ink-900 sm:text-3xl">{copy.allInSection}</h2>
         <a href={localeCatalog(locale)} class="shrink-0 text-sm font-medium text-accent underline-offset-4 hover:underline">
           {copy.allCalculators}
@@ -180,7 +180,7 @@ const jsonLd = [
 
   {keywordChips.length > 0 && (
     <section class="border-t border-ink-900" data-testid="category-keywords">
-      <div class="mx-auto max-w-page px-5 sm:px-8 py-10">
+      <div class="mx-auto max-w-page px-5 py-8 sm:px-8 sm:py-10">
         <div class="flex flex-wrap gap-2">
           {keywordChips.map((keyword) => (
             <span class="max-w-full border border-ink-200 bg-white px-3 py-2 text-fit text-xs text-ink-500">{keyword}</span>
@@ -191,14 +191,14 @@ const jsonLd = [
   )}
 
   <section class="border-t border-ink-900" data-testid="category-faq">
-    <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
+    <div class="mx-auto max-w-page px-5 py-8 sm:px-8 sm:py-12">
       <h2 class="mb-6 text-fit text-2xl font-semibold tracking-tight text-ink-900">FAQ</h2>
       <FaqList items={category.faq} />
     </div>
   </section>
 
   <section class="border-t border-ink-900" data-testid="category-other">
-    <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
+    <div class="mx-auto max-w-page px-5 py-8 sm:px-8 sm:py-12">
       <h2 class="mb-6 text-fit text-2xl font-semibold tracking-tight text-ink-900">{copy.categories}</h2>
       <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {otherCategories.map((item) => (

@@ -1255,15 +1255,15 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   const displayResult = result ? localizeResult(result, locale) : null;
 
   return (
-    <div className="grid min-w-0 gap-8 lg:grid-cols-5" data-testid={`calculator-island-${calc.id}`}>
+    <div className="grid min-w-0 gap-5 sm:gap-8 lg:grid-cols-5" data-testid={`calculator-island-${calc.id}`}>
       <form
         ref={formRef}
-        className="min-w-0 border border-ink-900 bg-white p-5 sm:p-8 lg:col-span-3"
+        className="min-w-0 border border-ink-900 bg-white p-4 sm:p-8 lg:col-span-3"
         onSubmit={handleSubmit}
         data-testid="calc-form"
       >
         <div
-          className="mb-6 flex items-start justify-between gap-4 border-b border-ink-200 pb-5"
+          className="mb-5 flex items-start justify-between gap-3 border-b border-ink-200 pb-4 sm:mb-6 sm:gap-4 sm:pb-5"
           data-testid="calc-form-header"
         >
           <div className="min-w-0">
@@ -1275,7 +1275,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           </div>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
           {visibleFields.map((f) => (
             <div key={f.name} className={f.type === 'textarea' ? 'sm:col-span-2' : ''}>
               <FieldRenderer
@@ -1291,7 +1291,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           ))}
         </div>
 
-        <div className="mt-7 flex items-center gap-3 flex-wrap">
+        <div className="mt-6 flex flex-wrap items-stretch gap-2.5 sm:mt-7 sm:items-center sm:gap-3">
           <button
             type="submit"
             className="btn-primary w-full sm:w-auto"
@@ -1303,7 +1303,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           <button
             type="button"
             onClick={reset}
-            className="inline-flex w-full items-center justify-center gap-1.5 text-sm text-ink-500 underline-offset-4 hover:underline hover:text-ink-900 sm:w-auto sm:justify-start"
+            className="inline-flex min-h-11 w-full items-center justify-center gap-1.5 border border-ink-200 px-3 py-2 text-sm text-ink-600 underline-offset-4 transition-colors hover:border-ink-900 hover:text-ink-900 sm:min-h-0 sm:w-auto sm:justify-start sm:border-0 sm:px-0 sm:py-0 sm:text-ink-500 sm:hover:underline"
             data-testid="calc-reset-btn"
           >
             <RotateCcw size={14} aria-hidden="true" />
@@ -1396,7 +1396,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           />
         ) : hasValidationErrors ? (
           <div
-            className="border border-accent bg-accent-50 p-8 text-sm text-ink-700"
+            className="border border-accent bg-accent-50 p-5 text-sm text-ink-700 sm:p-8"
             data-testid="calc-result-invalid"
           >
             <div className="flex items-center gap-2 font-medium text-ink-900 text-fit">
@@ -1409,7 +1409,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           </div>
         ) : (
           <div
-            className="border border-dashed border-ink-300 bg-ink-50 p-8 text-center text-sm text-ink-500"
+            className="border border-dashed border-ink-300 bg-ink-50 p-5 text-center text-sm text-ink-500 sm:p-8"
             data-testid="calc-result-empty"
           >
             <div className="mx-auto flex h-12 w-12 items-center justify-center border border-ink-300 bg-white text-ink-700">
