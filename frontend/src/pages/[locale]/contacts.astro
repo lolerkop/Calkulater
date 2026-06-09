@@ -1,0 +1,168 @@
+---
+import Layout from '../../components/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { SITE } from '../../config/site';
+import { getAlternatesForPage, isLocale, localeHome, locales, ui, type Locale } from '../../lib/i18n';
+import { breadcrumbsJsonLd, webPageJsonLd } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+const locale = (Astro.props.locale ?? 'ru') as Locale;
+if (!isLocale(locale)) return Astro.redirect('/404');
+const copy = ui[locale];
+const path = `/${locale}/contacts/`;
+const pageCopy: Record<Locale, { title: string; description: string; lead: string; emptyEmail: string; breadcrumbs: string }> = {
+  ru: {
+    title: 'Контакты',
+    description: 'Контакты проекта онлайн-калькуляторов для вопросов, ошибок и предложений.',
+    lead: 'Пишите, если нашли ошибку в расчете, хотите предложить новый калькулятор или уточнить данные на странице.',
+    emptyEmail: 'Контактный email будет добавлен перед публичным запуском.',
+    breadcrumbs: 'Хлебные крошки',
+  },
+  en: {
+    title: 'Contacts',
+    description: 'Contacts for questions, bug reports and calculator suggestions.',
+    lead: 'Write if you found a calculation issue, want to suggest a new calculator or need to clarify page data.',
+    emptyEmail: 'A contact email will be added before public launch.',
+    breadcrumbs: 'Breadcrumbs',
+  },
+  es: {
+    title: 'Contacto',
+    description: 'Contacto para preguntas, errores de cálculo y sugerencias de nuevas calculadoras.',
+    lead: 'Escríbenos si encontraste un error de cálculo, quieres sugerir una nueva calculadora o necesitas aclarar datos de una página.',
+    emptyEmail: 'El email de contacto se añadirá antes del lanzamiento público.',
+    breadcrumbs: 'Migas de pan',
+  },
+  de: {
+    title: 'Kontakt',
+    description: 'Kontakt für Fragen, Rechenfehler und Vorschläge für neue Rechner.',
+    lead: 'Schreibe, wenn du einen Rechenfehler gefunden hast, einen neuen Rechner vorschlagen möchtest oder Seitendaten klären willst.',
+    emptyEmail: 'Eine Kontakt-E-Mail wird vor dem öffentlichen Start ergänzt.',
+    breadcrumbs: 'Breadcrumbs',
+  },
+  fr: {
+    title: 'Contact',
+    description: 'Contact pour questions, erreurs de calcul et suggestions de nouvelles calculatrices.',
+    lead: 'Écrivez si vous avez trouvé une erreur de calcul, si vous voulez suggérer une nouvelle calculatrice ou clarifier les données d’une page.',
+    emptyEmail: 'Une adresse email de contact sera ajoutée avant le lancement public.',
+    breadcrumbs: 'Fil d’Ariane',
+  },
+  pt: {
+    title: 'Contactos do projeto',
+    description: 'Contacto para perguntas, erros de cálculo e sugestões de novas calculadoras.',
+    lead: 'Escreva se encontrou um erro de cálculo, quer sugerir uma nova calculadora ou esclarecer dados de uma página.',
+    emptyEmail: 'Um email de contacto será adicionado antes do lançamento público.',
+    breadcrumbs: 'Navegação estrutural',
+  },
+  it: {
+    title: 'Contatti del progetto',
+    description: 'Contatti per domande, errori di calcolo e suggerimenti di nuovi calcolatori.',
+    lead: 'Scrivi se hai trovato un errore di calcolo, vuoi suggerire un nuovo calcolatore o chiarire i dati di una pagina.',
+    emptyEmail: 'Un’email di contatto sarà aggiunta prima del lancio pubblico.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  pl: {
+    title: 'Kontakt',
+    description: 'Kontakt w sprawie pytan, bledow obliczen i propozycji nowych kalkulatorow.',
+    lead: 'Napisz, jesli znalazles blad w obliczeniach, chcesz zaproponowac nowy kalkulator albo wyjasnic dane na stronie.',
+    emptyEmail: 'Adres kontaktowy zostanie dodany przed publicznym startem.',
+    breadcrumbs: 'Nawigacja okruszkowa',
+  },
+  nl: {
+    title: 'Contact',
+    description: 'Contact voor vragen, rekenfouten en suggesties voor nieuwe rekentools.',
+    lead: 'Schrijf als je een rekenfout hebt gevonden, een nieuwe rekentool wilt voorstellen of paginadata wilt verduidelijken.',
+    emptyEmail: 'Een contactadres wordt toegevoegd voor de publieke lancering.',
+    breadcrumbs: 'Kruimelpad',
+  },
+  ro: {
+    title: 'Contact',
+    description: 'Contact pentru intrebari, erori de calcul si sugestii de calculatoare noi.',
+    lead: 'Scrie daca ai gasit o eroare de calcul, vrei sa propui un calculator nou sau sa clarifici datele unei pagini.',
+    emptyEmail: 'O adresa de contact va fi adaugata inainte de lansarea publica.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  id: {
+    title: 'Kontak',
+    description: 'Kontak untuk pertanyaan, kesalahan perhitungan, dan saran kalkulator baru.',
+    lead: 'Tulis jika Anda menemukan kesalahan perhitungan, ingin mengusulkan kalkulator baru, atau perlu memperjelas data halaman.',
+    emptyEmail: 'Alamat kontak akan ditambahkan sebelum peluncuran publik.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  tr: {
+    title: 'İletişim',
+    description: 'Sorular, hesaplama hataları ve yeni hesaplayıcı önerileri için iletişim.',
+    lead: 'Bir hesaplama hatası bulduysanız, yeni bir hesaplayıcı önermek istiyorsanız veya sayfa verilerini netleştirmek gerekiyorsa yazın.',
+    emptyEmail: 'Genel lansmandan önce iletişim adresi eklenecek.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  vi: {
+    title: 'Liên hệ',
+    description: 'Liên hệ cho câu hỏi, lỗi tính toán và đề xuất máy tính mới.',
+    lead: 'Hãy viết nếu bạn thấy lỗi tính toán, muốn đề xuất máy tính mới hoặc cần làm rõ dữ liệu trên trang.',
+    emptyEmail: 'Địa chỉ liên hệ sẽ được thêm trước khi ra mắt công khai.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  cs: {
+    title: 'Kontakt',
+    description: 'Kontakt pro otázky, chyby výpočtů a návrhy nových kalkulaček.',
+    lead: 'Napište, pokud jste našli chybu ve výpočtu, chcete navrhnout novou kalkulačku nebo potřebujete upřesnit data na stránce.',
+    emptyEmail: 'Kontaktní email bude doplněn před veřejným spuštěním.',
+    breadcrumbs: 'Drobečková navigace',
+  },
+  uk: {
+    title: 'Контакти',
+    description: 'Контакти для запитань, помилок розрахунків і пропозицій нових калькуляторів.',
+    lead: 'Напишіть, якщо знайшли помилку в розрахунку, хочете запропонувати новий калькулятор або уточнити дані на сторінці.',
+    emptyEmail: 'Контактний email буде додано перед публічним запуском.',
+    breadcrumbs: 'Навігаційний ланцюжок',
+  },
+  sk: {
+    title: 'Kontakt pre slovenské Kalkulačky',
+    description: 'Kontakt pre otázky, chyby výpočtov a návrhy nových kalkulačiek.',
+    lead: 'Napíšte, ak ste našli chybu vo výpočte, chcete navrhnúť novú kalkulačku alebo potrebujete upresniť dáta na stránke.',
+    emptyEmail: 'Kontaktný email bude doplnený pred verejným spustením.',
+    breadcrumbs: 'Omrvinková navigácia',
+  },
+  hu: {
+    title: 'Kapcsolat',
+    description: 'Kapcsolat kérdésekhez, számítási hibákhoz és új kalkulátorjavaslatokhoz.',
+    lead: 'Írjon, ha számítási hibát talált, új kalkulátort javasolna, vagy pontosítaná az oldalon szereplő adatokat.',
+    emptyEmail: 'A kapcsolati email cím a nyilvános indulás előtt kerül hozzáadásra.',
+    breadcrumbs: 'Morzsanavigáció',
+  },
+};
+const { title, description } = pageCopy[locale];
+const alternates = getAlternatesForPage(Object.fromEntries(locales.map((locale) => [locale, `/${locale}/contacts/`])));
+const jsonLd = [
+  webPageJsonLd({ name: title, description, path, type: 'ContactPage', locale }),
+  breadcrumbsJsonLd([
+    { label: copy.home, href: localeHome(locale) },
+    { label: title, href: path },
+  ]),
+];
+const email = SITE.email;
+---
+
+<Layout title={title} description={description} canonical={path} locale={locale} alternates={alternates} jsonLd={jsonLd}>
+  <section class="border-b border-ink-900" data-testid="contacts-page">
+    <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
+      <Breadcrumbs label={pageCopy[locale].breadcrumbs} items={[{ label: copy.home, href: localeHome(locale) }, { label: title }]} />
+      <h1 class="mt-6 text-4xl sm:text-5xl font-bold tracking-tightest text-ink-900">{title}</h1>
+      <p class="mt-6 max-w-2xl text-base leading-relaxed text-ink-600">
+        {pageCopy[locale].lead}
+      </p>
+      {email ? (
+        <a href={`mailto:${email}`} class="mt-6 inline-flex border border-ink-900 bg-ink-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-ink-900">
+          {email}
+        </a>
+      ) : (
+        <p class="mt-6 inline-flex border border-ink-200 bg-white px-4 py-3 text-sm font-semibold text-ink-700">
+          {pageCopy[locale].emptyEmail}
+        </p>
+      )}
+    </div>
+  </section>
+</Layout>

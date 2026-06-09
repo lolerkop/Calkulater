@@ -8,6 +8,9 @@ import {
   webApplicationJsonLd,
   howToJsonLd,
   articleJsonLd,
+  webPageJsonLd,
+  itemListJsonLd,
+  collectionPageJsonLd,
 } from '../src/lib/seo';
 
 describe('seo.absUrl', () => {
@@ -108,6 +111,21 @@ describe('seo.howToJsonLd', () => {
     expect(steps).toHaveLength(1);
     expect(steps[0].text).toBe('Один шаг');
   });
+
+  it('локализует HowTo name и step для неанглийских языков', () => {
+    const data = howToJsonLd({
+      name: 'Százalékkalkulátor',
+      description: 'Százalékok számítása',
+      path: '/hu/penzugyek/szazalekkalkulator/',
+      steps: ['Adja meg az értékeket'],
+      locale: 'hu',
+    });
+    const steps = data.step as Array<Record<string, unknown>>;
+
+    expect(data.inLanguage).toBe('hu-HU');
+    expect(data.name).toBe('Használat: Százalékkalkulátor');
+    expect(steps[0].name).toBe('1. lépés');
+  });
 });
 
 describe('seo.articleJsonLd', () => {
@@ -134,5 +152,71 @@ describe('seo.articleJsonLd', () => {
       path: '/x/',
     });
     expect(data).not.toHaveProperty('articleBody');
+  });
+
+  it('использует localeCode для Article на каждом языке', () => {
+    const data = articleJsonLd({
+      headline: 'Calculadora de porcentaje',
+      description: 'Guía de cálculo',
+      path: '/es/finanzas/calculadora-porcentajes/',
+      locale: 'es',
+    });
+
+    expect(data.inLanguage).toBe('es-ES');
+  });
+});
+
+describe('seo.webPageJsonLd', () => {
+  it('формирует AboutPage с абсолютным URL и связью с сайтом', () => {
+    const data = webPageJsonLd({
+      type: 'AboutPage',
+      name: 'О проекте',
+      description: 'Описание проекта',
+      path: '/about/',
+    });
+
+    expect(data['@type']).toBe('AboutPage');
+    expect(data.name).toBe('О проекте');
+    expect(data.url).toMatch(/\/about\/$/);
+    expect(data.isPartOf).toBeDefined();
+    expect(data.publisher).toBeDefined();
+  });
+});
+
+describe('seo.itemListJsonLd', () => {
+  it('формирует ItemList со списком калькуляторов', () => {
+    const data = itemListJsonLd({
+      name: 'Все калькуляторы',
+      path: '/',
+      items: [
+        { name: 'Кредитный калькулятор', description: 'Расчет кредита', path: '/finance/credit-calculator/' },
+        { name: 'Калькулятор НДС', description: 'Расчет НДС', path: '/finance/vat-calculator/' },
+      ],
+    });
+
+    expect(data['@type']).toBe('ItemList');
+    expect(data.numberOfItems).toBe(2);
+    const list = data.itemListElement as Array<Record<string, unknown>>;
+    expect(list[0].position).toBe(1);
+    expect((list[0].item as Record<string, unknown>)['@type']).toBe('WebApplication');
+  });
+});
+
+describe('seo.collectionPageJsonLd', () => {
+  it('формирует CollectionPage с mainEntity ItemList', () => {
+    const data = collectionPageJsonLd({
+      name: 'Финансовые калькуляторы',
+      description: 'Кредит, НДС и проценты',
+      path: '/finance/',
+      items: [
+        { name: 'Калькулятор НДС', path: '/finance/vat-calculator/' },
+      ],
+    });
+
+    expect(data['@type']).toBe('CollectionPage');
+    expect(data.url).toMatch(/\/finance\/$/);
+    expect(data.mainEntity).toBeDefined();
+    const hasPart = data.hasPart as Array<Record<string, unknown>>;
+    expect(hasPart[0].url).toMatch(/\/finance\/vat-calculator\/$/);
   });
 });

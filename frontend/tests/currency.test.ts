@@ -32,4 +32,13 @@ describe('currency: calcCurrency', () => {
     const rateRow = r.secondary.find((s) => s.label === 'Курс');
     expect(rateRow?.value).toMatch(/1 USD = 0,92/);
   });
+
+  it('явно помечает курсы как демонстрационные', () => {
+    const r = calcCurrency({ amount: 100, from: 'USD', to: 'EUR' });
+
+    expect(r.secondary.find((s) => s.label === 'Тип курса')?.value).toBe('демонстрационный');
+    expect(r.secondary.find((s) => s.label === 'Дата фиксации демо-курсов')?.value).toBeTruthy();
+    expect(r.note).toContain('Демонстрационные фиксированные курсы');
+    expect(r.note).toContain('банковский или биржевой курс');
+  });
 });

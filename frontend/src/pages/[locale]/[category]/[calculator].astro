@@ -1,0 +1,732 @@
+---
+import Layout from '../../../components/Layout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FaqList from '../../../components/FaqList.astro';
+import CalculatorCard from '../../../components/CalculatorCard.astro';
+import CalculatorIsland from '../../../components/islands/CalculatorIsland';
+import AdPlaceholder from '../../../components/AdPlaceholder.astro';
+import {
+  findCalculatorBySlug,
+  getAlternatesForCalculator,
+  getCalculatorById,
+  getCalculatorsByCategory,
+  getCategories,
+  isLocale,
+  localeHome,
+  locales,
+  ui,
+  type Locale,
+} from '../../../lib/i18n';
+import {
+  articleJsonLd,
+  breadcrumbsJsonLd,
+  faqJsonLd,
+  howToJsonLd,
+  webApplicationJsonLd,
+  webPageJsonLd,
+} from '../../../lib/seo';
+import { calculatorGuidance } from '../../../lib/calculatorGuidance';
+import { calculatorFreshness } from '../../../lib/calculatorFreshness';
+
+export function getStaticPaths() {
+  return locales.flatMap((locale) =>
+    getCategories(locale).flatMap((category) =>
+      getCalculatorsByCategory(category.id, locale).map((calculator) => ({
+        params: { locale, category: category.slug, calculator: calculator.slug },
+        props: { locale, categorySlug: category.slug, calculatorSlug: calculator.slug },
+      })),
+    ),
+  );
+}
+
+const locale = (Astro.props.locale ?? 'ru') as Locale;
+if (!isLocale(locale)) return Astro.redirect('/404');
+const { categorySlug, calculatorSlug } = Astro.props as { categorySlug: string; calculatorSlug: string };
+const found = findCalculatorBySlug(locale, categorySlug, calculatorSlug);
+if (!found) return Astro.redirect('/404');
+
+const { calculator: calc, category } = found;
+const copy = ui[locale];
+const pageCopy = {
+  ru: {
+    breadcrumbs: 'Хлебные крошки',
+    nav: 'Навигация по калькулятору',
+    formula: 'Формула и логика',
+    example: 'Пример',
+    freshness: 'Свежесть',
+    demoRates: 'демо-курсы',
+    formulaBased: 'на основе формулы',
+    currencyNote: 'Курсы валют в MVP являются демонстрационными. Перед обменом денег проверяйте актуальный курс.',
+    formulaNote: 'Расчет использует стабильные формулы и значения, введенные в форму.',
+    useCases: (name: string) => [
+      `Сравните несколько сценариев для ${name}, прежде чем принимать решение.`,
+      'Проверьте, как меняется результат при изменении одного параметра.',
+      'Поделитесь ссылкой с заполненными полями, если нужно обсудить цифры.',
+    ],
+    checklist: [
+      'Проверьте единицы измерения перед использованием результата.',
+      'Используйте результат как ориентир, а не как окончательное профессиональное решение.',
+      'Сверяйте официальные ставки, размеры товаров или условия, если они влияют на расчет.',
+    ],
+    mistakes: [
+      'Смешивать единицы измерения или валюты в одном расчете.',
+      'Забывать запас, комиссии или локальные правила, которые не входят в формулу.',
+      'Использовать округленную оценку как финальное договорное число.',
+    ],
+  },
+  en: {
+    breadcrumbs: 'Breadcrumbs',
+    nav: 'Calculator navigation',
+    formula: 'Formula and logic',
+    example: 'Example',
+    freshness: 'Freshness',
+    demoRates: 'demo rates',
+    formulaBased: 'formula-based',
+    currencyNote: 'Currency rates are demo values in this MVP. Verify live rates before exchanging money.',
+    formulaNote: 'The calculation uses stable formulas and the values entered in the form.',
+    useCases: (name: string) => [
+      `Compare several ${name} scenarios before making a decision.`,
+      'Check how the result changes when one input changes.',
+      'Share a pre-filled link when you need to discuss the numbers with someone.',
+    ],
+    checklist: [
+      'Verify all input units before using the result.',
+      'Treat the output as a reference estimate, not a final professional decision.',
+      'Recheck official rates, product sizes or terms when they affect the result.',
+    ],
+    mistakes: [
+      'Mixing units or currencies in the same calculation.',
+      'Forgetting reserve, fees or local rules that are outside the formula.',
+      'Using a rounded estimate as a final contractual number.',
+    ],
+  },
+  es: {
+    breadcrumbs: 'Migas de pan',
+    nav: 'Navegación de la calculadora',
+    formula: 'Fórmula y lógica',
+    example: 'Ejemplo',
+    freshness: 'Actualización',
+    demoRates: 'tasas demo',
+    formulaBased: 'basado en fórmula',
+    currencyNote: 'Los tipos de cambio son valores demo en este MVP. Comprueba tasas reales antes de cambiar dinero.',
+    formulaNote: 'El cálculo usa fórmulas estables y los valores introducidos en el formulario.',
+    useCases: (name: string) => [
+      `Compara varios escenarios de ${name} antes de tomar una decisión.`,
+      'Revisa cómo cambia el resultado cuando modificas un solo dato.',
+      'Comparte un enlace con los campos rellenados si necesitas comentar los números.',
+    ],
+    checklist: [
+      'Comprueba todas las unidades antes de usar el resultado.',
+      'Toma el resultado como una estimación orientativa, no como una decisión profesional final.',
+      'Verifica tasas oficiales, tamaños de productos o condiciones cuando afecten al cálculo.',
+    ],
+    mistakes: [
+      'Mezclar unidades o divisas dentro del mismo cálculo.',
+      'Olvidar reservas, comisiones o reglas locales que quedan fuera de la fórmula.',
+      'Usar una estimación redondeada como cifra contractual final.',
+    ],
+  },
+  de: {
+    breadcrumbs: 'Breadcrumbs',
+    nav: 'Rechnernavigation',
+    formula: 'Formel und Logik',
+    example: 'Beispiel',
+    freshness: 'Aktualität',
+    demoRates: 'Demo-Kurse',
+    formulaBased: 'formelbasiert',
+    currencyNote: 'Währungskurse sind in diesem MVP Demo-Werte. Prüfe Live-Kurse, bevor du Geld wechselst.',
+    formulaNote: 'Die Berechnung nutzt stabile Formeln und die Werte aus dem Formular.',
+    useCases: (name: string) => [
+      `Vergleiche mehrere Szenarien für ${name}, bevor du entscheidest.`,
+      'Prüfe, wie sich das Ergebnis ändert, wenn du einen Eingabewert anpasst.',
+      'Teile einen vorausgefüllten Link, wenn du die Zahlen besprechen möchtest.',
+    ],
+    checklist: [
+      'Prüfe alle Einheiten, bevor du das Ergebnis nutzt.',
+      'Nutze das Ergebnis als Orientierung, nicht als endgültige fachliche Entscheidung.',
+      'Prüfe offizielle Sätze, Produktgrößen oder Bedingungen, wenn sie das Ergebnis beeinflussen.',
+    ],
+    mistakes: [
+      'Einheiten oder Währungen in einer Berechnung vermischen.',
+      'Reserve, Gebühren oder lokale Regeln vergessen, die nicht Teil der Formel sind.',
+      'Eine gerundete Schätzung als endgültige Vertragszahl verwenden.',
+    ],
+  },
+  fr: {
+    breadcrumbs: 'Fil d’Ariane',
+    nav: 'Navigation de la calculatrice',
+    formula: 'Formule et logique',
+    example: 'Exemple',
+    freshness: 'Actualité',
+    demoRates: 'taux de démonstration',
+    formulaBased: 'basé sur une formule',
+    currencyNote: 'Les taux de change sont des valeurs de démonstration dans ce MVP. Vérifiez les taux réels avant d’échanger de l’argent.',
+    formulaNote: 'Le calcul utilise des formules stables et les valeurs saisies dans le formulaire.',
+    useCases: (name: string) => [
+      `Comparez plusieurs scénarios pour ${name} avant de décider.`,
+      'Vérifiez comment le résultat change lorsqu’une seule valeur varie.',
+      'Partagez un lien prérempli si vous devez discuter des chiffres.',
+    ],
+    checklist: [
+      'Vérifiez toutes les unités avant d’utiliser le résultat.',
+      'Considérez le résultat comme une estimation de référence, pas comme une décision professionnelle finale.',
+      'Revérifiez les taux officiels, dimensions de produits ou conditions quand ils influencent le calcul.',
+    ],
+    mistakes: [
+      'Mélanger unités ou devises dans le même calcul.',
+      'Oublier réserves, frais ou règles locales qui ne font pas partie de la formule.',
+      'Utiliser une estimation arrondie comme chiffre contractuel final.',
+    ],
+  },
+  pt: {
+    breadcrumbs: 'Navegação estrutural',
+    nav: 'Navegação da calculadora',
+    formula: 'Fórmula e lógica',
+    example: 'Exemplo',
+    freshness: 'Atualidade',
+    demoRates: 'taxas de demonstração',
+    formulaBased: 'baseado em fórmula',
+    currencyNote: 'As taxas de câmbio são valores de demonstração neste MVP. Verifique taxas reais antes de trocar dinheiro.',
+    formulaNote: 'O cálculo usa fórmulas estáveis e os valores introduzidos no formulário.',
+    useCases: (name: string) => [
+      `Compare vários cenários para ${name} antes de decidir.`,
+      'Veja como o resultado muda quando altera apenas um valor.',
+      'Partilhe um link preenchido se precisar de discutir os números.',
+    ],
+    checklist: [
+      'Verifique todas as unidades antes de usar o resultado.',
+      'Use o resultado como estimativa de referência, não como decisão profissional final.',
+      'Confirme taxas oficiais, tamanhos de produtos ou condições quando influenciarem o cálculo.',
+    ],
+    mistakes: [
+      'Misturar unidades ou moedas no mesmo cálculo.',
+      'Esquecer reserva, comissões ou regras locais que ficam fora da fórmula.',
+      'Usar uma estimativa arredondada como número contratual final.',
+    ],
+  },
+  it: {
+    breadcrumbs: 'Breadcrumb',
+    nav: 'Navigazione del calcolatore',
+    formula: 'Formula e logica',
+    example: 'Esempio',
+    freshness: 'Aggiornamento',
+    demoRates: 'tassi dimostrativi',
+    formulaBased: 'basato su formula',
+    currencyNote: 'I tassi di cambio sono valori dimostrativi in questo MVP. Verifica tassi reali prima di cambiare denaro.',
+    formulaNote: 'Il calcolo usa formule stabili e i valori inseriti nel modulo.',
+    useCases: (name: string) => [
+      `Confronta più scenari per ${name} prima di decidere.`,
+      'Controlla come cambia il risultato quando modifichi un solo valore.',
+      'Condividi un link precompilato se devi discutere i numeri.',
+    ],
+    checklist: [
+      'Verifica tutte le unità prima di usare il risultato.',
+      'Considera il risultato come stima di riferimento, non come decisione professionale finale.',
+      'Ricontrolla tassi ufficiali, dimensioni dei prodotti o condizioni quando influenzano il calcolo.',
+    ],
+    mistakes: [
+      'Mescolare unità o valute nello stesso calcolo.',
+      'Dimenticare riserva, commissioni o regole locali che non fanno parte della formula.',
+      'Usare una stima arrotondata come numero contrattuale finale.',
+    ],
+  },
+  pl: {
+    breadcrumbs: 'Nawigacja okruszkowa',
+    nav: 'Nawigacja kalkulatora',
+    formula: 'Formula i logika',
+    example: 'Przyklad',
+    freshness: 'Aktualnosc',
+    demoRates: 'kursy demonstracyjne',
+    formulaBased: 'oparte na formule',
+    currencyNote: 'Kursy walut sa wartosciami demonstracyjnymi w tym MVP. Sprawdz realne kursy przed wymiana pieniedzy.',
+    formulaNote: 'Obliczenie korzysta ze stabilnych formul i wartosci wpisanych w formularzu.',
+    useCases: (name: string) => [
+      `Porownaj kilka scenariuszy dla ${name}, zanim podejmiesz decyzje.`,
+      'Sprawdz, jak zmienia sie wynik po zmianie jednej wartosci.',
+      'Udostepnij wypelniony link, jesli musisz omowic liczby.',
+    ],
+    checklist: [
+      'Sprawdz wszystkie jednostki przed uzyciem wyniku.',
+      'Traktuj wynik jako szacunek referencyjny, nie jako finalna decyzje zawodowa.',
+      'Zweryfikuj oficjalne stawki, wymiary produktow lub warunki, gdy wplywaja na obliczenie.',
+    ],
+    mistakes: [
+      'Mieszanie jednostek lub walut w jednym obliczeniu.',
+      'Pominiecie zapasu, prowizji albo lokalnych zasad, ktore nie sa czescia formuly.',
+      'Uzywanie zaokraglonego szacunku jako finalnej liczby umownej.',
+    ],
+  },
+  nl: {
+    breadcrumbs: 'Kruimelpad',
+    nav: 'Rekentool navigatie',
+    formula: 'Formule en logica',
+    example: 'Voorbeeld',
+    freshness: 'Actualiteit',
+    demoRates: 'demo-koersen',
+    formulaBased: 'gebaseerd op formule',
+    currencyNote: 'Wisselkoersen zijn demo-waarden in dit MVP. Controleer echte koersen voordat je geld wisselt.',
+    formulaNote: 'De berekening gebruikt stabiele formules en de waarden die je in het formulier invoert.',
+    useCases: (name: string) => [
+      `Vergelijk meerdere scenario's voor ${name} voordat je beslist.`,
+      'Controleer hoe het resultaat verandert wanneer je een waarde aanpast.',
+      'Deel een vooraf ingevulde link als je de cijfers wilt bespreken.',
+    ],
+    checklist: [
+      'Controleer alle eenheden voordat je het resultaat gebruikt.',
+      'Gebruik het resultaat als referentieschatting, niet als definitieve professionele beslissing.',
+      'Controleer officiele tarieven, productmaten of voorwaarden wanneer die de berekening beinvloeden.',
+    ],
+    mistakes: [
+      'Eenheden of valuta mengen in dezelfde berekening.',
+      'Reserve, kosten of lokale regels vergeten die niet in de formule zitten.',
+      'Een afgeronde schatting gebruiken als definitief contractueel getal.',
+    ],
+  },
+  ro: {
+    breadcrumbs: 'Breadcrumb',
+    nav: 'Navigarea calculatorului',
+    formula: 'Formula si logica',
+    example: 'Exemplu',
+    freshness: 'Actualitate',
+    demoRates: 'cursuri demo',
+    formulaBased: 'bazat pe formula',
+    currencyNote: 'Cursurile valutare sunt valori demonstrative in acest MVP. Verifica cursurile reale inainte de schimb valutar.',
+    formulaNote: 'Calculul foloseste formule stabile si valorile introduse in formular.',
+    useCases: (name: string) => [
+      `Compara mai multe scenarii pentru ${name} inainte de decizie.`,
+      'Verifica cum se schimba rezultatul cand modifici o singura valoare.',
+      'Distribuie un link completat daca trebuie sa discuti cifrele.',
+    ],
+    checklist: [
+      'Verifica toate unitatile inainte de a folosi rezultatul.',
+      'Foloseste rezultatul ca estimare de referinta, nu ca decizie profesionala finala.',
+      'Verifica rate oficiale, dimensiuni de produse sau conditii cand influenteaza calculul.',
+    ],
+    mistakes: [
+      'Amestecarea unitatilor sau valutelor in acelasi calcul.',
+      'Omiterea rezervei, comisioanelor sau regulilor locale care nu intra in formula.',
+      'Folosirea unei estimari rotunjite ca numar contractual final.',
+    ],
+  },
+  id: {
+    breadcrumbs: 'Breadcrumb',
+    nav: 'Navigasi kalkulator',
+    formula: 'Rumus dan logika',
+    example: 'Contoh',
+    freshness: 'Keterkinian',
+    demoRates: 'kurs demo',
+    formulaBased: 'berbasis rumus',
+    currencyNote: 'Kurs mata uang adalah nilai demonstrasi dalam MVP ini. Periksa kurs nyata sebelum menukar uang.',
+    formulaNote: 'Perhitungan memakai rumus stabil dan nilai yang dimasukkan ke formulir.',
+    useCases: (name: string) => [
+      `Bandingkan beberapa skenario untuk ${name} sebelum membuat keputusan.`,
+      'Periksa bagaimana hasil berubah saat satu nilai diubah.',
+      'Bagikan link yang sudah terisi jika perlu mendiskusikan angka.',
+    ],
+    checklist: [
+      'Periksa semua satuan sebelum memakai hasil.',
+      'Gunakan hasil sebagai estimasi referensi, bukan keputusan profesional final.',
+      'Periksa tarif resmi, ukuran produk, atau ketentuan jika memengaruhi perhitungan.',
+    ],
+    mistakes: [
+      'Mencampur satuan atau mata uang dalam satu perhitungan.',
+      'Melupakan cadangan, biaya, atau aturan lokal yang tidak masuk rumus.',
+      'Menggunakan estimasi yang dibulatkan sebagai angka kontrak final.',
+    ],
+  },
+  tr: {
+    breadcrumbs: 'Breadcrumb',
+    nav: 'Hesaplayıcı gezinmesi',
+    formula: 'Formül ve mantık',
+    example: 'Örnek',
+    freshness: 'Güncellik',
+    demoRates: 'demo kurlar',
+    formulaBased: 'formüle dayalı',
+    currencyNote: 'Döviz kurları bu MVP içinde demo değerlerdir. Para bozdurmadan önce gerçek kurları kontrol edin.',
+    formulaNote: 'Hesaplama, sabit formülleri ve forma girilen değerleri kullanır.',
+    useCases: (name: string) => [
+      `${name} için karar vermeden önce birkaç senaryoyu karşılaştırın.`,
+      'Tek bir değeri değiştirdiğinizde sonucun nasıl değiştiğini kontrol edin.',
+      'Rakamları konuşmanız gerekiyorsa doldurulmuş bağlantıyı paylaşın.',
+    ],
+    checklist: [
+      'Sonucu kullanmadan önce tüm birimleri kontrol edin.',
+      'Sonucu nihai profesyonel karar değil, referans tahmin olarak kullanın.',
+      'Hesabı etkileyen resmi oranları, ürün ölçülerini veya koşulları kontrol edin.',
+    ],
+    mistakes: [
+      'Aynı hesapta farklı birimleri veya para birimlerini karıştırmak.',
+      'Formüle dahil olmayan payı, ücretleri veya yerel kuralları unutmak.',
+      'Yuvarlanmış tahmini nihai sözleşme rakamı olarak kullanmak.',
+    ],
+  },
+  vi: {
+    breadcrumbs: 'Breadcrumb',
+    nav: 'Điều hướng máy tính',
+    formula: 'Công thức và logic',
+    example: 'Ví dụ',
+    freshness: 'Độ cập nhật',
+    demoRates: 'tỷ giá demo',
+    formulaBased: 'dựa trên công thức',
+    currencyNote: 'Tỷ giá tiền tệ là giá trị demo trong MVP này. Hãy kiểm tra tỷ giá thực trước khi đổi tiền.',
+    formulaNote: 'Phép tính dùng công thức ổn định và các giá trị nhập trong biểu mẫu.',
+    useCases: (name: string) => [
+      `So sánh vài kịch bản cho ${name} trước khi quyết định.`,
+      'Kiểm tra kết quả thay đổi thế nào khi sửa một giá trị.',
+      'Chia sẻ liên kết đã điền nếu cần thảo luận các con số.',
+    ],
+    checklist: [
+      'Kiểm tra tất cả đơn vị trước khi dùng kết quả.',
+      'Dùng kết quả như ước tính tham khảo, không phải quyết định chuyên môn cuối cùng.',
+      'Kiểm tra tỷ lệ chính thức, kích thước sản phẩm hoặc điều kiện khi chúng ảnh hưởng đến phép tính.',
+    ],
+    mistakes: [
+      'Trộn đơn vị hoặc tiền tệ trong cùng một phép tính.',
+      'Bỏ quên phần dự phòng, phí hoặc quy tắc địa phương không nằm trong công thức.',
+      'Dùng ước tính đã làm tròn như con số hợp đồng cuối cùng.',
+    ],
+  },
+  cs: {
+    breadcrumbs: 'Drobečková navigace',
+    nav: 'Navigace kalkulačky',
+    formula: 'Vzorec a logika',
+    example: 'Příklad',
+    freshness: 'Aktuálnost',
+    demoRates: 'demo kurzy',
+    formulaBased: 'podle vzorce',
+    currencyNote: 'Měnové kurzy jsou v tomto MVP demonstrační hodnoty. Před směnou peněz ověřte aktuální kurz.',
+    formulaNote: 'Výpočet používá stabilní vzorce a hodnoty zadané ve formuláři.',
+    useCases: (name: string) => [
+      `Porovnejte několik scénářů pro ${name}, než se rozhodnete.`,
+      'Zkontrolujte, jak se výsledek změní při úpravě jedné hodnoty.',
+      'Sdílejte vyplněný odkaz, pokud potřebujete čísla s někým probrat.',
+    ],
+    checklist: [
+      'Před použitím výsledku zkontrolujte všechny jednotky.',
+      'Používejte výsledek jako orientační odhad, ne jako finální odborné rozhodnutí.',
+      'Ověřte oficiální sazby, rozměry výrobků nebo podmínky, pokud ovlivňují výpočet.',
+    ],
+    mistakes: [
+      'Míchání jednotek nebo měn v jednom výpočtu.',
+      'Zapomenutí rezervy, poplatků nebo místních pravidel mimo vzorec.',
+      'Použití zaokrouhleného odhadu jako finální smluvní hodnoty.',
+    ],
+  },
+  uk: {
+    breadcrumbs: 'Навігаційний ланцюжок',
+    nav: 'Навігація калькулятора',
+    formula: 'Формула і логіка',
+    example: 'Приклад',
+    freshness: 'Актуальність',
+    demoRates: 'демо-курси',
+    formulaBased: 'на основі формули',
+    currencyNote: 'Курси валют у цьому MVP є демонстраційними значеннями. Перед обміном грошей перевіряйте актуальний курс.',
+    formulaNote: 'Розрахунок використовує стабільні формули та значення, введені у форму.',
+    useCases: (name: string) => [
+      `Порівняйте кілька сценаріїв для ${name}, перш ніж ухвалювати рішення.`,
+      'Перевірте, як змінюється результат після зміни одного значення.',
+      'Поділіться заповненим посиланням, якщо потрібно обговорити цифри.',
+    ],
+    checklist: [
+      'Перевірте всі одиниці вимірювання перед використанням результату.',
+      'Використовуйте результат як орієнтовну оцінку, а не як фінальне професійне рішення.',
+      'Перевіряйте офіційні ставки, розміри товарів або умови, якщо вони впливають на розрахунок.',
+    ],
+    mistakes: [
+      'Змішувати одиниці вимірювання або валюти в одному розрахунку.',
+      'Забувати запас, комісії або локальні правила, що не входять у формулу.',
+      'Використовувати округлену оцінку як фінальне договірне число.',
+    ],
+  },
+  sk: {
+    breadcrumbs: 'Omrvinková navigácia',
+    nav: 'Navigácia kalkulačky',
+    formula: 'Vzorec a logika',
+    example: 'Príklad',
+    freshness: 'Aktuálnosť',
+    demoRates: 'demo kurzy',
+    formulaBased: 'podľa vzorca',
+    currencyNote: 'Menové kurzy sú v tomto MVP demonštračné hodnoty. Pred výmenou peňazí overte aktuálny kurz.',
+    formulaNote: 'Výpočet používa stabilné vzorce a hodnoty zadané vo formulári.',
+    useCases: (name: string) => [
+      `Porovnajte niekoľko scenárov pre ${name}, kým sa rozhodnete.`,
+      'Skontrolujte, ako sa výsledok zmení pri úprave jednej hodnoty.',
+      'Zdieľajte vyplnený odkaz, ak potrebujete čísla s niekým prebrať.',
+    ],
+    checklist: [
+      'Pred použitím výsledku skontrolujte všetky jednotky.',
+      'Používajte výsledok ako orientačný odhad, nie ako finálne odborné rozhodnutie.',
+      'Overte oficiálne sadzby, rozmery produktov alebo podmienky, ak ovplyvňujú výpočet.',
+    ],
+    mistakes: [
+      'Miešanie jednotiek alebo mien v jednom výpočte.',
+      'Zabudnutie rezervy, poplatkov alebo miestnych pravidiel mimo vzorca.',
+      'Použitie zaokrúhleného odhadu ako finálnej zmluvnej hodnoty.',
+    ],
+  },
+  hu: {
+    breadcrumbs: 'Morzsanavigáció',
+    nav: 'Kalkulátor navigáció',
+    formula: 'Képlet és logika',
+    example: 'Példa',
+    freshness: 'Aktualitás',
+    demoRates: 'demo árfolyamok',
+    formulaBased: 'képlet alapján',
+    currencyNote: 'A valutaárfolyamok ebben az MVP-ben demonstrációs értékek. Pénzváltás előtt ellenőrizze az aktuális árfolyamot.',
+    formulaNote: 'A számítás stabil képleteket és az űrlapban megadott értékeket használ.',
+    useCases: (name: string) => [
+      `Hasonlítson össze több forgatókönyvet a ${name} használatával döntés előtt.`,
+      'Nézze meg, hogyan változik az eredmény egyetlen érték módosításakor.',
+      'Ossza meg a kitöltött linket, ha másokkal is egyeztetné a számokat.',
+    ],
+    checklist: [
+      'Az eredmény használata előtt ellenőrizze az összes mértékegységet.',
+      'Az eredményt tájékoztató becslésként használja, ne végleges szakmai döntésként.',
+      'Ellenőrizze a hivatalos árfolyamokat, termékméreteket vagy feltételeket, ha befolyásolják a számítást.',
+    ],
+    mistakes: [
+      'Mértékegységek vagy pénznemek keverése egy számításban.',
+      'Tartalék, díjak vagy helyi szabályok figyelmen kívül hagyása, amelyek nem részei a képletnek.',
+      'Kerekített becslés használata végleges szerződéses értékként.',
+    ],
+  },
+}[locale];
+const related = (calc.relatedCalculatorIds || [])
+  .map((id) => getCalculatorById(id, locale))
+  .filter(Boolean);
+const categoryFallback = getCalculatorsByCategory(calc.category, locale)
+  .filter((item) => item.id !== calc.id)
+  .sort((a, b) => b.popularity - a.popularity || a.name.localeCompare(b.name, locale))
+  .slice(0, 3);
+const relatedOrCategory = related.length > 0 ? related : categoryFallback;
+const ruGuidance = calculatorGuidance(calc);
+const guidance = locale === 'ru'
+  ? ruGuidance
+  : {
+      useCases: pageCopy.useCases(calc.name.toLowerCase()),
+      checklist: pageCopy.checklist,
+      mistakes: pageCopy.mistakes,
+    };
+const ruFreshness = calculatorFreshness(calc);
+const freshness = locale === 'ru'
+  ? ruFreshness
+  : {
+      label: pageCopy.freshness,
+      value: calc.category === 'currency' ? pageCopy.demoRates : pageCopy.formulaBased,
+      note: calc.category === 'currency'
+        ? pageCopy.currencyNote
+        : pageCopy.formulaNote,
+    };
+const fallbackTips = [...guidance.checklist, ...guidance.mistakes].join(' ');
+const seoContent = calc.seoContent ?? {
+  intro: calc.longDescription,
+  howItWorks: calc.howItWorks,
+  example: calc.example,
+  tips: fallbackTips,
+  faq: calc.faq,
+};
+const seoFaq = seoContent.faq.length > 0 ? seoContent.faq : calc.faq;
+const articleBody = [
+  seoContent.intro,
+  seoContent.howItWorks,
+  seoContent.example,
+  seoContent.tips,
+].join('\n\n');
+
+const pageAnchors = [
+  { href: '#calculator', label: copy.calculation },
+  { href: '#details', label: copy.details },
+  { href: '#usage', label: copy.tips },
+  { href: '#faq', label: 'FAQ' },
+  ...(relatedOrCategory.length > 0 ? [{ href: '#related', label: copy.related }] : []),
+];
+
+const alternates = getAlternatesForCalculator(calc.id);
+const jsonLd = [
+  webPageJsonLd({
+    name: calc.h1 || calc.name,
+    description: calc.seoDescription || calc.shortDescription,
+    path: calc.fullPath,
+    locale,
+  }),
+  webApplicationJsonLd({
+    name: calc.name,
+    description: calc.shortDescription,
+    path: calc.fullPath,
+    locale,
+  }),
+  faqJsonLd(seoFaq),
+  breadcrumbsJsonLd([
+    { label: copy.home, href: localeHome(locale) },
+    { label: category.name, href: `/${locale}/${category.slug}/` },
+    { label: calc.name, href: calc.fullPath },
+  ]),
+  howToJsonLd({
+    name: calc.name,
+    description: calc.shortDescription,
+    path: calc.fullPath,
+    steps: calc.howToUse,
+    locale,
+  }),
+  articleJsonLd({
+    headline: calc.h1 || calc.name,
+    description: calc.seoDescription || calc.shortDescription,
+    path: calc.fullPath,
+    locale,
+    body: articleBody,
+  }),
+];
+const islandCalc = {
+  id: calc.id,
+  name: calc.name,
+  fields: calc.fields,
+  disclaimer: calc.disclaimer,
+};
+---
+
+<Layout
+  title={calc.seoTitle}
+  description={calc.seoDescription}
+  canonical={calc.fullPath}
+  ogType="article"
+  locale={locale}
+  alternates={alternates}
+  jsonLd={jsonLd}
+>
+  <section class="border-b border-ink-900" data-testid={`calculator-page-${calc.id}`}>
+    <div class="mx-auto max-w-page px-5 sm:px-8 pt-10 pb-8">
+      <Breadcrumbs
+        label={pageCopy.breadcrumbs}
+        items={[
+          { label: copy.home, href: localeHome(locale) },
+          { label: category.name, href: `/${locale}/${category.slug}/` },
+          { label: calc.name },
+        ]}
+      />
+
+      <div class="mt-6 flex items-baseline gap-4 flex-wrap">
+        <span class="font-mono text-xs text-ink-500">/{locale}/{category.slug}/{calc.slug}</span>
+      </div>
+
+      <h1 class="mt-2 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tightest text-ink-900 leading-tight" data-testid="calculator-h1">
+        {calc.h1}
+      </h1>
+      <p class="mt-4 max-w-3xl text-base text-ink-500 leading-relaxed">
+        {calc.shortDescription}
+      </p>
+
+      <div class="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" data-testid="calculator-meta">
+        <div class="border border-ink-200 bg-white p-4">
+          <div class="text-[10px] uppercase tracking-wider text-ink-500">{copy.category}</div>
+          <a href={`/${locale}/${category.slug}/`} class="mt-1 block text-sm font-medium text-ink-900 hover:text-accent">
+            {category.name}
+          </a>
+        </div>
+        <div class="border border-ink-200 bg-white p-4">
+          <div class="text-[10px] uppercase tracking-wider text-ink-500">{copy.fields}</div>
+          <div class="mt-1 font-mono text-sm text-ink-900">{calc.fields.length}</div>
+        </div>
+        <div class="border border-ink-200 bg-white p-4">
+          <div class="text-[10px] uppercase tracking-wider text-ink-500">FAQ</div>
+          <div class="mt-1 font-mono text-sm text-ink-900">{seoFaq.length} {copy.faqQuestions}</div>
+        </div>
+        <div class="border border-ink-200 bg-white p-4" data-testid="calculator-freshness">
+          <div class="text-[10px] uppercase tracking-wider text-ink-500">{freshness.label}</div>
+          <div class="mt-1 text-sm font-medium text-ink-900">{freshness.value}</div>
+        </div>
+      </div>
+
+      <nav class="mt-6 flex flex-wrap gap-2" aria-label={pageCopy.nav} data-testid="calculator-anchor-nav">
+        {pageAnchors.map((item) => (
+          <a href={item.href} class="border border-ink-200 bg-white px-3 py-2 text-sm text-ink-800 hover:border-ink-900 hover:text-accent transition-colors">
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <section id="calculator" class="border-b border-ink-900">
+    <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
+      <CalculatorIsland calc={islandCalc} locale={locale} client:load />
+    </div>
+  </section>
+
+  <section id="details" class="border-b border-ink-900" data-testid="calculator-details">
+    <div class="mx-auto max-w-page px-5 sm:px-8 py-12 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900">{copy.details}</h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-600">{seoContent.intro}</p>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          <div class="border border-ink-200 bg-white p-5">
+            <h3 class="font-semibold text-ink-900">{pageCopy.formula}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-600">{seoContent.howItWorks}</p>
+          </div>
+          <div class="border border-ink-200 bg-white p-5">
+            <h3 class="font-semibold text-ink-900">{pageCopy.example}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-600">{seoContent.example}</p>
+          </div>
+        </div>
+      </div>
+      <aside>
+        <AdPlaceholder />
+      </aside>
+    </div>
+  </section>
+
+  <section id="usage" class="border-b border-ink-900" data-testid="calculator-usage">
+    <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
+      <div class="mb-6 max-w-3xl">
+        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900">{copy.tips}</h2>
+        <p class="mt-4 text-base leading-relaxed text-ink-600">{seoContent.tips}</p>
+      </div>
+      <div class="grid gap-4 lg:grid-cols-3">
+        <div class="border border-ink-200 bg-white p-5" data-testid="calculator-use-cases">
+          <h2 class="text-lg font-semibold text-ink-900">{copy.useCases}</h2>
+          <ul class="mt-3 space-y-2 text-sm leading-relaxed text-ink-600">
+            {guidance.useCases.map((item) => <li>— {item}</li>)}
+          </ul>
+        </div>
+        <div class="border border-ink-200 bg-white p-5" data-testid="calculator-checklist">
+          <h2 class="text-lg font-semibold text-ink-900">{copy.checklist}</h2>
+          <ul class="mt-3 space-y-2 text-sm leading-relaxed text-ink-600">
+            {guidance.checklist.map((item) => <li>— {item}</li>)}
+          </ul>
+        </div>
+        <div class="border border-ink-200 bg-white p-5" data-testid="calculator-common-mistakes">
+          <h2 class="text-lg font-semibold text-ink-900">{copy.mistakes}</h2>
+          <ul class="mt-3 space-y-2 text-sm leading-relaxed text-ink-600">
+            {guidance.mistakes.map((item) => <li>— {item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="border-b border-ink-900" data-testid="calculator-faq">
+    <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
+      <h2 class="mb-6 text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900">FAQ</h2>
+      <FaqList items={seoFaq} />
+    </div>
+  </section>
+
+  {relatedOrCategory.length > 0 && (
+    <section id="related" data-testid="related-calculators">
+      <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
+        <div class="mb-8 flex items-end justify-between gap-6">
+          <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900">
+            {related.length > 0 ? copy.related : `${copy.similarInCategory} ${category.name}`}
+          </h2>
+          <a href={`/${locale}/${category.slug}/`} class="text-sm font-medium text-accent underline-offset-4 hover:underline">
+            {category.name}
+          </a>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {relatedOrCategory.map((item) => (
+            <CalculatorCard calc={item} locale={locale} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Layout>

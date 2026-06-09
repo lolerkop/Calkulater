@@ -1,0 +1,75 @@
+{
+  "id": "/",
+  "name": "Калькуляторы — онлайн-калькуляторы для повседневных расчетов",
+  "short_name": "Калькуляторы",
+  "description": "Онлайн-калькуляторы для финансов, валют, спорта, ремонта и работы с датами. Простые инструменты без регистрации.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "minimal-ui",
+  "background_color": "#ffffff",
+  "theme_color": "#E63946",
+  "shortcuts": [
+    {
+      "name": "Все калькуляторы",
+      "short_name": "Каталог",
+      "description": "Открыть полный каталог онлайн-калькуляторов",
+      "url": "/calculators/",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Финансовые калькуляторы",
+      "short_name": "Финансы",
+      "description": "Кредиты, вклады, НДФЛ, НДС, проценты и скидки",
+      "url": "/finance/",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Калькуляторы ремонта",
+      "short_name": "Ремонт",
+      "description": "Плитка, обои, краска и ламинат",
+      "url": "/building/",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Спортивные калькуляторы",
+      "short_name": "Спорт",
+      "description": "ИМТ, калории, темп бега и 1ПМ",
+      "url": "/sport/",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

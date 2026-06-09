@@ -1,0 +1,158 @@
+---
+import Layout from '../../components/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getAlternatesForPage, isLocale, localeHome, locales, ui, type Locale } from '../../lib/i18n';
+import { breadcrumbsJsonLd, webPageJsonLd } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+const locale = (Astro.props.locale ?? 'ru') as Locale;
+if (!isLocale(locale)) return Astro.redirect('/404');
+const copy = ui[locale];
+const path = `/${locale}/privacy/`;
+const pageCopy: Record<Locale, { title: string; description: string; p1: string; p2: string; breadcrumbs: string }> = {
+  ru: {
+    title: 'Политика конфиденциальности',
+    description: 'Как сайт онлайн-калькуляторов относится к данным пользователя и расчетам в браузере.',
+    p1: 'Вводимые значения используются для расчета в браузере. Мы не сохраняем данные форм и не требуем регистрацию.',
+    p2: 'Если позже будут подключены аналитика или реклама, их работа будет описана отдельно в этой политике.',
+    breadcrumbs: 'Хлебные крошки',
+  },
+  en: {
+    title: 'Privacy policy',
+    description: 'How the online calculator site handles user inputs and browser-based calculations.',
+    p1: 'Values entered in calculator forms are used for browser-side calculations. We do not store form inputs and do not require registration.',
+    p2: 'If analytics or ads are added later, their behavior will be described separately in this policy.',
+    breadcrumbs: 'Breadcrumbs',
+  },
+  es: {
+    title: 'Política de privacidad',
+    description: 'Cómo el sitio de calculadoras online trata los datos introducidos y los cálculos en el navegador.',
+    p1: 'Los valores introducidos en los formularios se usan para cálculos en el navegador. No guardamos los datos de los formularios y no exigimos registro.',
+    p2: 'Si más adelante se añaden analítica o publicidad, su funcionamiento se describirá por separado en esta política.',
+    breadcrumbs: 'Migas de pan',
+  },
+  de: {
+    title: 'Datenschutzerklärung',
+    description: 'Wie die Online-Rechner-Website mit Eingaben und browserbasierten Berechnungen umgeht.',
+    p1: 'In Rechnerformulare eingegebene Werte werden für Berechnungen im Browser genutzt. Wir speichern keine Formulareingaben und verlangen keine Registrierung.',
+    p2: 'Wenn später Analyse- oder Werbedienste hinzugefügt werden, wird ihr Verhalten separat in dieser Erklärung beschrieben.',
+    breadcrumbs: 'Breadcrumbs',
+  },
+  fr: {
+    title: 'Politique de confidentialité',
+    description: 'Comment le site de calculatrices en ligne traite les saisies utilisateur et les calculs dans le navigateur.',
+    p1: 'Les valeurs saisies dans les formulaires sont utilisées pour des calculs côté navigateur. Nous ne stockons pas les saisies et ne demandons pas d’inscription.',
+    p2: 'Si des outils d’analyse ou de publicité sont ajoutés plus tard, leur fonctionnement sera décrit séparément dans cette politique.',
+    breadcrumbs: 'Fil d’Ariane',
+  },
+  pt: {
+    title: 'Política de privacidade',
+    description: 'Como o site de calculadoras online trata dados introduzidos e cálculos no navegador.',
+    p1: 'Os valores introduzidos nos formulários são usados para cálculos no navegador. Não guardamos entradas de formulários e não exigimos registo.',
+    p2: 'Se ferramentas de análise ou publicidade forem adicionadas mais tarde, o seu funcionamento será descrito separadamente nesta política.',
+    breadcrumbs: 'Navegação estrutural',
+  },
+  it: {
+    title: 'Informativa sulla privacy',
+    description: 'Come il sito di calcolatori online gestisce input utente e calcoli nel browser.',
+    p1: 'I valori inseriti nei moduli vengono usati per calcoli lato browser. Non salviamo gli input dei moduli e non richiediamo registrazione.',
+    p2: 'Se in futuro verranno aggiunti strumenti di analisi o pubblicità, il loro funzionamento sarà descritto separatamente in questa informativa.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  pl: {
+    title: 'Polityka prywatnosci',
+    description: 'Jak strona z kalkulatorami online obsluguje dane wpisywane przez uzytkownika i obliczenia w przegladarce.',
+    p1: 'Wartosci wpisane w formularzach sa uzywane do obliczen po stronie przegladarki. Nie zapisujemy danych z formularzy i nie wymagamy rejestracji.',
+    p2: 'Jesli pozniej zostana dodane narzedzia analityczne lub reklamowe, ich dzialanie zostanie opisane osobno w tej polityce.',
+    breadcrumbs: 'Nawigacja okruszkowa',
+  },
+  nl: {
+    title: 'Privacybeleid',
+    description: 'Hoe de website met online rekentools omgaat met invoer en berekeningen in de browser.',
+    p1: 'Waarden die je in formulieren invoert, worden gebruikt voor berekeningen in de browser. We bewaren geen formulierinvoer en vragen geen registratie.',
+    p2: 'Als later analyse- of advertentietools worden toegevoegd, wordt hun werking apart in dit beleid beschreven.',
+    breadcrumbs: 'Kruimelpad',
+  },
+  ro: {
+    title: 'Politica de confidentialitate',
+    description: 'Cum site-ul de calculatoare online gestioneaza datele introduse si calculele in browser.',
+    p1: 'Valorile introduse in formulare sunt folosite pentru calcule in browser. Nu salvam datele din formulare si nu cerem inregistrare.',
+    p2: 'Daca ulterior vor fi adaugate instrumente de analiza sau publicitate, functionarea lor va fi descrisa separat in aceasta politica.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  id: {
+    title: 'Kebijakan privasi',
+    description: 'Bagaimana situs kalkulator online menangani input dan perhitungan di browser.',
+    p1: 'Nilai yang dimasukkan ke formulir digunakan untuk perhitungan di browser. Kami tidak menyimpan input formulir dan tidak meminta pendaftaran.',
+    p2: 'Jika alat analitik atau iklan ditambahkan nanti, cara kerjanya akan dijelaskan terpisah dalam kebijakan ini.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  tr: {
+    title: 'Gizlilik politikası',
+    description: 'Online hesaplayıcı sitesinin girilen verileri ve tarayıcıdaki hesaplamaları nasıl ele aldığı.',
+    p1: 'Formlara girilen değerler tarayıcıdaki hesaplamalar için kullanılır. Form girdilerini saklamayız ve kayıt istemeyiz.',
+    p2: 'Analitik veya reklam araçları daha sonra eklenirse, çalışma biçimleri bu politikada ayrıca açıklanacaktır.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  vi: {
+    title: 'Chính sách quyền riêng tư',
+    description: 'Cách trang máy tính online xử lý dữ liệu nhập và phép tính trong trình duyệt.',
+    p1: 'Các giá trị nhập vào biểu mẫu được dùng cho phép tính trong trình duyệt. Chúng tôi không lưu dữ liệu biểu mẫu và không yêu cầu đăng ký.',
+    p2: 'Nếu sau này thêm công cụ phân tích hoặc quảng cáo, cách hoạt động của chúng sẽ được mô tả riêng trong chính sách này.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  cs: {
+    title: 'Zásady ochrany soukromí',
+    description: 'Jak web online kalkulaček pracuje se zadanými hodnotami a výpočty v prohlížeči.',
+    p1: 'Hodnoty zadané do formulářů se používají pro výpočty v prohlížeči. Neukládáme vstupy z formulářů a nevyžadujeme registraci.',
+    p2: 'Pokud později přidáme analytiku nebo reklamu, jejich fungování bude popsáno samostatně v těchto zásadách.',
+    breadcrumbs: 'Drobečková navigace',
+  },
+  uk: {
+    title: 'Політика конфіденційності',
+    description: 'Як сайт онлайн-калькуляторів працює з введеними даними та розрахунками в браузері.',
+    p1: 'Значення, введені у форми, використовуються для розрахунків у браузері. Ми не зберігаємо дані форм і не вимагаємо реєстрації.',
+    p2: 'Якщо пізніше буде додано аналітику або рекламу, їхню роботу буде описано окремо в цій політиці.',
+    breadcrumbs: 'Навігаційний ланцюжок',
+  },
+  sk: {
+    title: 'Zásady ochrany súkromia',
+    description: 'Ako web online kalkulačiek pracuje so zadanými hodnotami a výpočtami v prehliadači.',
+    p1: 'Hodnoty zadané do formulárov sa používajú na výpočty v prehliadači. Neukladáme vstupy z formulárov a nevyžadujeme registráciu.',
+    p2: 'Ak neskôr pridáme analytiku alebo reklamu, ich fungovanie bude opísané samostatne v týchto zásadách.',
+    breadcrumbs: 'Omrvinková navigácia',
+  },
+  hu: {
+    title: 'Adatvédelmi irányelvek',
+    description: 'Hogyan kezeli az online kalkulátoroldal a megadott értékeket és a böngészőben futó számításokat.',
+    p1: 'Az űrlapokba írt értékeket a böngészőben futó számítások használják. Az űrlapadatokat nem mentjük, és nem kérünk regisztrációt.',
+    p2: 'Ha később analitika vagy reklám kerül az oldalra, annak működését külön leírjuk ezekben az irányelvekben.',
+    breadcrumbs: 'Morzsanavigáció',
+  },
+};
+const { title, description } = pageCopy[locale];
+const alternates = getAlternatesForPage(Object.fromEntries(locales.map((locale) => [locale, `/${locale}/privacy/`])));
+const jsonLd = [
+  webPageJsonLd({ name: title, description, path, locale }),
+  breadcrumbsJsonLd([
+    { label: copy.home, href: localeHome(locale) },
+    { label: title, href: path },
+  ]),
+];
+---
+
+<Layout title={title} description={description} canonical={path} locale={locale} alternates={alternates} jsonLd={jsonLd}>
+  <section class="border-b border-ink-900" data-testid="privacy-page">
+    <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
+      <Breadcrumbs label={pageCopy[locale].breadcrumbs} items={[{ label: copy.home, href: localeHome(locale) }, { label: title }]} />
+      <h1 class="mt-6 text-4xl sm:text-5xl font-bold tracking-tightest text-ink-900">{title}</h1>
+      <div class="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-ink-600">
+        <p>{pageCopy[locale].p1}</p>
+        <p>{pageCopy[locale].p2}</p>
+      </div>
+    </div>
+  </section>
+</Layout>

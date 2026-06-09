@@ -6,14 +6,15 @@ interface Crumb {
 
 interface Props {
   items: Crumb[];
+  label?: string;
 }
 
-const { items } = Astro.props;
+const { items, label = 'Хлебные крошки' } = Astro.props;
 // JSON-LD разметка BreadcrumbList генерируется на уровне страницы
 // через хелпер `breadcrumbsJsonLd` (см. src/lib/seo.ts), чтобы избежать дублей.
 ---
 
-<nav aria-label="Хлебные крошки" class="text-xs text-ink-500" data-testid="breadcrumbs">
+<nav aria-label={label} class="text-xs text-ink-500" data-testid="breadcrumbs">
   <ol class="flex flex-wrap items-center gap-1.5">
     {items.map((item, i) => (
       <li class="flex items-center gap-1.5">

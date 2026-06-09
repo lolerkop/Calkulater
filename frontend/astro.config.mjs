@@ -1,18 +1,16 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
-import sitemap from '@astrojs/sitemap';
 
-const SITE = process.env.PUBLIC_SITE_URL || 'https://example.com';
+const SITE = process.env.PUBLIC_SITE_URL || 'http://localhost:3000';
 
 export default defineConfig({
   site: SITE,
   integrations: [
     react(),
     tailwind({ applyBaseStyles: false }),
-    sitemap(),
   ],
-  trailingSlash: 'always',
+  trailingSlash: 'ignore',
   build: {
     format: 'directory',
   },

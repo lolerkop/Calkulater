@@ -1,29 +1,72 @@
 ---
-import { categories } from '../data/categories';
-import { SITE } from '../config/site';
+import {
+  getCategories,
+  getPopularCalculators,
+  localeCatalog,
+  localeMeta,
+  ui,
+  type Locale,
+} from '../lib/i18n';
 
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'ru' } = Astro.props;
+const categories = getCategories(locale);
 const year = new Date().getFullYear();
+const copy = ui[locale];
+const meta = localeMeta[locale];
+const topPopularCalculators = getPopularCalculators(locale);
+const rights = {
+  ru: 'Все права защищены.',
+  en: 'All rights reserved.',
+  es: 'Todos los derechos reservados.',
+  de: 'Alle Rechte vorbehalten.',
+  fr: 'Tous droits réservés.',
+  pt: 'Todos os direitos reservados.',
+  it: 'Tutti i diritti riservati.',
+  pl: 'Wszelkie prawa zastrzezone.',
+  nl: 'Alle rechten voorbehouden.',
+  ro: 'Toate drepturile rezervate.',
+  id: 'Semua hak dilindungi.',
+  tr: 'Tüm hakları saklıdır.',
+  vi: 'Đã bảo lưu mọi quyền.',
+  cs: 'Všechna práva vyhrazena.',
+  uk: 'Усі права захищено.',
+  sk: 'Všetky práva vyhradené.',
+  hu: 'Minden jog fenntartva.',
+}[locale];
 ---
 
 <footer class="mt-24 border-t border-ink-900 bg-white" data-testid="site-footer">
-  <div class="mx-auto max-w-page px-5 sm:px-8 py-12 grid gap-10 md:grid-cols-3">
+  <div class="mx-auto max-w-page px-5 sm:px-8 py-12 grid gap-10 md:grid-cols-4">
     <div>
       <div class="flex items-baseline gap-2">
-        <span class="text-lg font-bold text-ink-900">{SITE.name}</span>
+        <span class="text-lg font-bold text-ink-900">{meta.siteName}</span>
         <span class="inline-block w-2 h-2 bg-accent"></span>
       </div>
       <p class="mt-3 text-sm text-ink-500 max-w-xs leading-relaxed">
-        Простые онлайн-калькуляторы для повседневных задач. Без регистрации, без рекламы во время расчета.
+        {copy.footerDescription}
       </p>
     </div>
 
     <div>
-      <h3 class="text-xs uppercase tracking-wider text-ink-500 mb-3">Категории</h3>
+      <h3 class="text-xs uppercase tracking-wider text-ink-500 mb-3">{copy.categories}</h3>
       <ul class="space-y-2 text-sm">
+        <li>
+          <a
+            href={localeCatalog(locale)}
+            class="font-medium text-ink-900 hover:text-accent transition-colors"
+            data-testid="footer-link-all-calculators"
+          >
+            {copy.allCalculators}
+          </a>
+        </li>
         {categories.map((c) => (
           <li>
             <a
-              href={`/${c.slug}/`}
+              href={`/${locale}/${c.slug}/`}
               class="text-ink-800 hover:text-accent transition-colors"
               data-testid={`footer-link-${c.slug}`}
             >
@@ -35,17 +78,39 @@ const year = new Date().getFullYear();
     </div>
 
     <div>
-      <h3 class="text-xs uppercase tracking-wider text-ink-500 mb-3">О сайте</h3>
+      <h3 class="text-xs uppercase tracking-wider text-ink-500 mb-3">{copy.popular}</h3>
+      <ul class="space-y-2 text-sm" data-testid="footer-popular-calculators">
+        {topPopularCalculators.map((calc) => (
+          <li>
+            <a
+              href={calc.fullPath}
+              class="text-ink-800 hover:text-accent transition-colors"
+              data-testid={`footer-popular-${calc.slug}`}
+            >
+              {calc.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xs uppercase tracking-wider text-ink-500 mb-3">{copy.about}</h3>
       <p class="text-sm text-ink-500 leading-relaxed">
-        Все вычисления выполняются в браузере, мы не сохраняем ваши данные. Расчеты носят справочный характер.
+        {copy.footerNote}
       </p>
+      <nav class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm" aria-label={copy.servicePages}>
+        <a href={`/${locale}/about/`} class="text-ink-800 hover:text-accent transition-colors">{copy.about}</a>
+        <a href={`/${locale}/contacts/`} class="text-ink-800 hover:text-accent transition-colors">{copy.contacts}</a>
+        <a href={`/${locale}/privacy/`} class="text-ink-800 hover:text-accent transition-colors">{copy.privacy}</a>
+      </nav>
     </div>
   </div>
 
   <div class="border-t border-ink-200">
     <div class="mx-auto max-w-page px-5 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs text-ink-500">
-      <span>© {year} {SITE.name}. Все права защищены.</span>
-      <span class="mt-2 sm:mt-0">Сделано в Swiss-style.</span>
+      <span>© {year} {meta.siteName}. {rights}</span>
+      <span class="mt-2 sm:mt-0">{copy.made}</span>
     </div>
   </div>
 </footer>

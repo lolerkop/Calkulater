@@ -1,47 +1,170 @@
 ---
-import { categories } from '../data/categories';
-import { SITE } from '../config/site';
+import {
+  getCategories,
+  localeCatalog,
+  localeHome,
+  localeMeta,
+  locales,
+  ui,
+  type AlternateLink,
+  type Locale,
+} from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+  alternates?: AlternateLink[];
+}
+
+const { locale = 'ru', alternates = [] } = Astro.props;
+const categories = getCategories(locale);
+const copy = ui[locale];
+const meta = localeMeta[locale];
+const currentPath = Astro.url.pathname;
+const catalogPath = localeCatalog(locale);
+const isAllActive = currentPath.startsWith(catalogPath);
+const languageLinks = alternates.filter((item): item is AlternateLink & { locale: Locale } =>
+  item.locale !== 'x-default' && locales.includes(item.locale),
+);
+const navLabel = {
+  ru: 'Основная навигация',
+  en: 'Main navigation',
+  es: 'Navegación principal',
+  de: 'Hauptnavigation',
+  fr: 'Navigation principale',
+  pt: 'Navegação principal',
+  it: 'Navigazione principale',
+  pl: 'Nawigacja glowna',
+  nl: 'Hoofdnavigatie',
+  ro: 'Navigare principala',
+  id: 'Navigasi utama',
+  tr: 'Ana gezinme',
+  vi: 'Điều hướng chính',
+  cs: 'Hlavní navigace',
+  uk: 'Основна навігація',
+  sk: 'Hlavná navigácia',
+  hu: 'Fő navigáció',
+}[locale];
 ---
 
 <header class="border-b border-ink-900 bg-white" data-testid="site-header">
   <div class="mx-auto max-w-page px-5 sm:px-8">
     <div class="flex items-center justify-between py-4">
       <a
-        href="/"
+        href={localeHome(locale)}
         class="flex items-baseline gap-2 group"
+        aria-label={`${meta.siteName} - ${copy.home}`}
         data-testid="header-logo-link"
       >
         <span class="text-xl font-bold tracking-tightest text-ink-900">
-          {SITE.name}
+          {meta.siteName}
         </span>
         <span class="inline-block w-2 h-2 bg-accent group-hover:scale-110 transition-transform"></span>
       </a>
 
-      <nav class="hidden md:flex items-center gap-7" data-testid="header-nav">
-        {categories.map((c) => (
-          <a
-            href={`/${c.slug}/`}
-            class="text-sm text-ink-700 hover:text-accent transition-colors"
-            data-testid={`header-nav-${c.slug}`}
-          >
-            {c.name}
-          </a>
-        ))}
+      <nav
+        class="hidden md:flex items-center gap-7"
+        aria-label={navLabel}
+        data-testid="header-nav"
+      >
+        <a
+          href={catalogPath}
+          class:list={[
+            'text-sm font-medium transition-colors hover:text-accent',
+            isAllActive ? 'text-accent' : 'text-ink-900',
+          ]}
+          aria-current={isAllActive ? 'page' : undefined}
+          data-testid="header-nav-all-calculators"
+        >
+          {copy.allCalculators}
+        </a>
+        {categories.map((c) => {
+          const categoryPath = `/${locale}/${c.slug}/`;
+          const isActive = currentPath.startsWith(categoryPath);
+          const currentState = isActive
+            ? (currentPath === categoryPath ? 'page' : 'location')
+            : undefined;
+          return (
+            <a
+              href={categoryPath}
+              class:list={[
+                'text-sm transition-colors hover:text-accent',
+                isActive ? 'font-medium text-accent' : 'text-ink-700',
+              ]}
+              aria-current={currentState}
+              data-testid={`header-nav-${c.slug}`}
+            >
+              {c.name}
+            </a>
+          );
+        })}
+        {languageLinks.length > 1 && (
+          <span class="flex items-center gap-2 border-l border-ink-200 pl-5">
+            {languageLinks.map((item) => (
+              <a
+                href={item.href}
+                class:list={[
+                  'text-xs font-semibold transition-colors hover:text-accent',
+                  item.locale === locale ? 'text-accent' : 'text-ink-500',
+                ]}
+                hreflang={localeMeta[item.locale].htmlLang}
+                data-testid={`header-lang-${item.locale}`}
+              >
+                {localeMeta[item.locale].shortLabel}
+              </a>
+            ))}
+          </span>
+        )}
       </nav>
     </div>
 
     {/* Мобильная навигация — горизонтальная прокрутка */}
     <nav
       class="md:hidden flex items-center gap-5 overflow-x-auto pb-3 -mx-5 px-5 text-sm"
+      aria-label={navLabel}
       data-testid="header-nav-mobile"
     >
-      {categories.map((c) => (
+      <a
+        href={catalogPath}
+        class:list={[
+          'whitespace-nowrap font-medium hover:text-accent',
+          isAllActive ? 'text-accent' : 'text-ink-900',
+        ]}
+        aria-current={isAllActive ? 'page' : undefined}
+        data-testid="header-nav-mobile-all-calculators"
+      >
+        {copy.all}
+      </a>
+      {categories.map((c) => {
+        const categoryPath = `/${locale}/${c.slug}/`;
+        const isActive = currentPath.startsWith(categoryPath);
+        const currentState = isActive
+          ? (currentPath === categoryPath ? 'page' : 'location')
+          : undefined;
+        return (
+          <a
+            href={categoryPath}
+            class:list={[
+              'whitespace-nowrap hover:text-accent',
+              isActive ? 'font-medium text-accent' : 'text-ink-700',
+            ]}
+            aria-current={currentState}
+            data-testid={`header-nav-mobile-${c.slug}`}
+          >
+            {c.name}
+          </a>
+        );
+      })}
+      {languageLinks.map((item) => (
         <a
-          href={`/${c.slug}/`}
-          class="whitespace-nowrap text-ink-700 hover:text-accent"
-          data-testid={`header-nav-mobile-${c.slug}`}
+          href={item.href}
+          class:list={[
+            'whitespace-nowrap font-semibold hover:text-accent',
+            item.locale === locale ? 'text-accent' : 'text-ink-700',
+          ]}
+          hreflang={localeMeta[item.locale].htmlLang}
+          data-testid={`header-nav-mobile-lang-${item.locale}`}
         >
-          {c.name}
+          {localeMeta[item.locale].shortLabel}
         </a>
       ))}
     </nav>

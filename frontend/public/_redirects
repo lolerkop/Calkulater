@@ -1,0 +1,9 @@
+/calculators/ /ru/calculators/ 301!
+/about/ /ru/about/ 301!
+/contacts/ /ru/contacts/ 301!
+/privacy/ /ru/privacy/ 301!
+/finance/* /ru/finance/:splat 301!
+/currency/* /ru/currency/:splat 301!
+/sport/* /ru/sport/:splat 301!
+/building/* /ru/building/:splat 301!
+/date-time/* /ru/date-time/:splat 301!

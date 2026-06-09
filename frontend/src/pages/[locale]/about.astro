@@ -1,0 +1,158 @@
+---
+import Layout from '../../components/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getAlternatesForPage, isLocale, localeHome, locales, ui, type Locale } from '../../lib/i18n';
+import { breadcrumbsJsonLd, webPageJsonLd } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+const locale = (Astro.props.locale ?? 'ru') as Locale;
+if (!isLocale(locale)) return Astro.redirect('/404');
+const copy = ui[locale];
+const path = `/${locale}/about/`;
+const pageCopy: Record<Locale, { title: string; description: string; p1: string; p2: string; breadcrumbs: string }> = {
+  ru: {
+    title: 'О проекте',
+    description: 'О сайте онлайн-калькуляторов: как устроены расчеты, приватность и справочный характер результатов.',
+    p1: 'Сайт собирает практичные онлайн-калькуляторы для финансов, валют, спорта, ремонта и дат. Все расчеты выполняются в браузере.',
+    p2: 'Результаты носят справочный характер. Для финансовых, налоговых, медицинских и строительных решений проверяйте исходные данные и официальные источники.',
+    breadcrumbs: 'Хлебные крошки',
+  },
+  en: {
+    title: 'About the project',
+    description: 'About the online calculator site: browser-based calculations, privacy and reference-only results.',
+    p1: 'This site collects practical online calculators for finance, currency, fitness, home improvement and dates. Calculations run in your browser.',
+    p2: 'Results are reference estimates. For financial, tax, medical and construction decisions, verify the inputs and official sources.',
+    breadcrumbs: 'Breadcrumbs',
+  },
+  es: {
+    title: 'Acerca del proyecto',
+    description: 'Sobre el sitio de calculadoras online: cálculos en el navegador, privacidad y resultados orientativos.',
+    p1: 'Este sitio reúne calculadoras online prácticas para finanzas, divisas, fitness, reformas y fechas. Los cálculos se ejecutan en tu navegador.',
+    p2: 'Los resultados son estimaciones orientativas. Para decisiones financieras, fiscales, médicas o de construcción, verifica los datos y las fuentes oficiales.',
+    breadcrumbs: 'Migas de pan',
+  },
+  de: {
+    title: 'Über das Projekt',
+    description: 'Über die Online-Rechner: Berechnungen im Browser, Datenschutz und Ergebnisse als Orientierung.',
+    p1: 'Diese Website sammelt praktische Online-Rechner für Finanzen, Währungen, Fitness, Heimwerken und Daten. Berechnungen laufen im Browser.',
+    p2: 'Ergebnisse sind Orientierungsschätzungen. Prüfe bei finanziellen, steuerlichen, medizinischen und baulichen Entscheidungen Eingaben und offizielle Quellen.',
+    breadcrumbs: 'Breadcrumbs',
+  },
+  fr: {
+    title: 'À propos du projet',
+    description: 'À propos du site de calculatrices en ligne: calculs dans le navigateur, confidentialité et résultats indicatifs.',
+    p1: 'Ce site réunit des calculatrices en ligne pratiques pour les finances, les devises, la forme, les travaux et les dates. Les calculs s’exécutent dans votre navigateur.',
+    p2: 'Les résultats sont des estimations indicatives. Pour les décisions financières, fiscales, médicales ou de travaux, vérifiez les données et les sources officielles.',
+    breadcrumbs: 'Fil d’Ariane',
+  },
+  pt: {
+    title: 'Sobre o projeto',
+    description: 'Sobre o site de calculadoras online: cálculos no navegador, privacidade e resultados indicativos.',
+    p1: 'Este site reúne calculadoras online práticas para finanças, moedas, fitness, casa e datas. Os cálculos são executados no navegador.',
+    p2: 'Os resultados são estimativas indicativas. Para decisões financeiras, fiscais, médicas ou de obras, verifique os dados e fontes oficiais.',
+    breadcrumbs: 'Navegação estrutural',
+  },
+  it: {
+    title: 'Informazioni sul progetto',
+    description: 'Informazioni sul sito di calcolatori online: calcoli nel browser, privacy e risultati indicativi.',
+    p1: 'Questo sito raccoglie calcolatori online pratici per finanza, valute, fitness, casa e date. I calcoli vengono eseguiti nel browser.',
+    p2: 'I risultati sono stime indicative. Per decisioni finanziarie, fiscali, mediche o legate ai lavori domestici, verifica dati e fonti ufficiali.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  pl: {
+    title: 'O projekcie',
+    description: 'O stronie z kalkulatorami online: obliczenia w przegladarce, prywatnosc i wyniki orientacyjne.',
+    p1: 'Ta strona zbiera praktyczne kalkulatory online do finansow, walut, fitnessu, remontu i dat. Obliczenia dzialaja w przegladarce.',
+    p2: 'Wyniki sa szacunkowe. Przy decyzjach finansowych, podatkowych, medycznych lub remontowych sprawdz dane i oficjalne zrodla.',
+    breadcrumbs: 'Nawigacja okruszkowa',
+  },
+  nl: {
+    title: 'Over het project',
+    description: 'Over de website met online rekentools: berekeningen in de browser, privacy en indicatieve resultaten.',
+    p1: 'Deze site verzamelt praktische online rekentools voor finance, valuta, fitness, klussen en datums. Berekeningen draaien in de browser.',
+    p2: 'Resultaten zijn indicatieve schattingen. Controleer gegevens en officiele bronnen bij financiele, fiscale, medische of klusbeslissingen.',
+    breadcrumbs: 'Kruimelpad',
+  },
+  ro: {
+    title: 'Despre proiect',
+    description: 'Despre site-ul de calculatoare online: calcule in browser, confidentialitate si rezultate orientative.',
+    p1: 'Acest site aduna calculatoare online practice pentru finante, valute, fitness, renovari si date. Calculele ruleaza in browser.',
+    p2: 'Rezultatele sunt estimari orientative. Pentru decizii financiare, fiscale, medicale sau de renovare, verifica datele si sursele oficiale.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  id: {
+    title: 'Tentang proyek',
+    description: 'Tentang situs kalkulator online: perhitungan di browser, privasi, dan hasil orientatif.',
+    p1: 'Situs ini mengumpulkan kalkulator online praktis untuk keuangan, mata uang, fitness, renovasi, dan tanggal. Perhitungan berjalan di browser.',
+    p2: 'Hasil bersifat estimasi orientatif. Untuk keputusan keuangan, pajak, medis, atau renovasi, periksa data dan sumber resmi.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  tr: {
+    title: 'Proje hakkında',
+    description: 'Online hesaplayıcı sitesi hakkında: tarayıcıda hesaplama, gizlilik ve bilgilendirme amaçlı sonuçlar.',
+    p1: 'Bu site finans, döviz, fitness, tadilat ve tarihler için pratik online hesaplayıcıları bir araya getirir. Hesaplamalar tarayıcıda çalışır.',
+    p2: 'Sonuçlar bilgilendirme amaçlı tahminlerdir. Finansal, vergi, tıbbi veya tadilat kararlarında verileri ve resmi kaynakları kontrol edin.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  vi: {
+    title: 'Giới thiệu dự án',
+    description: 'Về trang máy tính online: phép tính trong trình duyệt, quyền riêng tư và kết quả tham khảo.',
+    p1: 'Trang này tập hợp các máy tính online thực tế cho tài chính, tiền tệ, fitness, sửa nhà và ngày tháng. Phép tính chạy trong trình duyệt.',
+    p2: 'Kết quả là ước tính tham khảo. Với quyết định tài chính, thuế, y tế hoặc sửa nhà, hãy kiểm tra dữ liệu và nguồn chính thức.',
+    breadcrumbs: 'Breadcrumb',
+  },
+  cs: {
+    title: 'O projektu',
+    description: 'O webu online kalkulaček: výpočty v prohlížeči, soukromí a orientační výsledky.',
+    p1: 'Tento web shromažďuje praktické online kalkulačky pro finance, měny, fitness, rekonstrukce a datumy. Výpočty běží v prohlížeči.',
+    p2: 'Výsledky jsou orientační odhady. U finančních, daňových, zdravotních nebo stavebních rozhodnutí ověřte vstupní data a oficiální zdroje.',
+    breadcrumbs: 'Drobečková navigace',
+  },
+  uk: {
+    title: 'Про проєкт',
+    description: 'Про сайт онлайн-калькуляторів: розрахунки в браузері, приватність і довідковий характер результатів.',
+    p1: 'Цей сайт збирає практичні онлайн-калькулятори для фінансів, валют, фітнесу, ремонту та дат. Розрахунки виконуються в браузері.',
+    p2: 'Результати мають довідковий характер. Для фінансових, податкових, медичних або будівельних рішень перевіряйте вхідні дані та офіційні джерела.',
+    breadcrumbs: 'Навігаційний ланцюжок',
+  },
+  sk: {
+    title: 'O projekte',
+    description: 'O webe online kalkulačiek: výpočty v prehliadači, súkromie a orientačné výsledky.',
+    p1: 'Tento web zhromažďuje praktické online kalkulačky pre financie, meny, fitness, rekonštrukcie a dátumy. Výpočty bežia v prehliadači.',
+    p2: 'Výsledky sú orientačné odhady. Pri finančných, daňových, zdravotných alebo stavebných rozhodnutiach overte vstupné dáta a oficiálne zdroje.',
+    breadcrumbs: 'Omrvinková navigácia',
+  },
+  hu: {
+    title: 'A projektről',
+    description: 'Az online kalkulátoroldalról: böngészőben futó számítások, adatvédelem és tájékoztató eredmények.',
+    p1: 'Ez az oldal gyakorlati online kalkulátorokat gyűjt pénzügyekhez, valutákhoz, fitneszhez, felújításhoz és dátumokhoz. A számítások a böngészőben futnak.',
+    p2: 'Az eredmények tájékoztató becslések. Pénzügyi, adózási, egészségügyi vagy építési döntések előtt ellenőrizze a bemeneteket és a hivatalos forrásokat.',
+    breadcrumbs: 'Morzsanavigáció',
+  },
+};
+const { title, description } = pageCopy[locale];
+const alternates = getAlternatesForPage(Object.fromEntries(locales.map((locale) => [locale, `/${locale}/about/`])));
+const jsonLd = [
+  webPageJsonLd({ name: title, description, path, type: 'AboutPage', locale }),
+  breadcrumbsJsonLd([
+    { label: copy.home, href: localeHome(locale) },
+    { label: title, href: path },
+  ]),
+];
+---
+
+<Layout title={title} description={description} canonical={path} locale={locale} alternates={alternates} jsonLd={jsonLd}>
+  <section class="border-b border-ink-900" data-testid="about-page">
+    <div class="mx-auto max-w-page px-5 sm:px-8 py-12">
+      <Breadcrumbs label={pageCopy[locale].breadcrumbs} items={[{ label: copy.home, href: localeHome(locale) }, { label: title }]} />
+      <h1 class="mt-6 text-4xl sm:text-5xl font-bold tracking-tightest text-ink-900">{title}</h1>
+      <div class="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-ink-600">
+        <p>{pageCopy[locale].p1}</p>
+        <p>{pageCopy[locale].p2}</p>
+      </div>
+    </div>
+  </section>
+</Layout>

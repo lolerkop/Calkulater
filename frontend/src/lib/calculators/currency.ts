@@ -1,6 +1,12 @@
 import type { CalcFunction, CalcResult } from '../types';
 import { fmtNumber, toNumber, toStr } from '../format';
-import { ratesToUSD, currencyByCode, lastUpdated, type CurrencyCode } from '../../data/currencies';
+import {
+  ratesToUSD,
+  currencyByCode,
+  lastUpdated,
+  ratesNotice,
+  type CurrencyCode,
+} from '../../data/currencies';
 
 export function convertCurrency(amount: number, from: CurrencyCode, to: CurrencyCode): number {
   const usd = amount / ratesToUSD[from];
@@ -34,8 +40,9 @@ export const calcCurrency: CalcFunction = (inputs) => {
       { label: 'Курс', value: `1 ${from} = ${fmtNumber(rate, 4)} ${to}` },
       { label: 'Из', value: `${fmtNumber(amount, 2)} ${fromMeta.symbol} (${fromMeta.name})` },
       { label: 'В', value: `${toMeta.name}` },
-      { label: 'Дата обновления', value: lastUpdated },
+      { label: 'Тип курса', value: 'демонстрационный' },
+      { label: 'Дата фиксации демо-курсов', value: lastUpdated },
     ],
-    note: 'Курсы демонстрационные и могут отличаться от банковских.',
+    note: ratesNotice,
   };
 };

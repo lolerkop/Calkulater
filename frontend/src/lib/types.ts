@@ -25,6 +25,14 @@ export type Field = {
 
 export type FaqItem = { q: string; a: string };
 
+export type CalculatorSeoContent = {
+  intro: string;
+  howItWorks: string;
+  example: string;
+  tips: string;
+  faq: FaqItem[];
+};
+
 export type CategoryId =
   | 'finance'
   | 'currency'
@@ -59,11 +67,13 @@ export type CalculatorDef = {
   keywords: string[];
   icon: string;
   popularity: number;
+  isNew?: boolean;
   fields: Field[];
   resultLabels: Record<string, string>;
   howToUse: string[];
   howItWorks: string;
   example: string;
+  seoContent?: CalculatorSeoContent;
   faq: FaqItem[];
   relatedCalculatorIds: string[];
   disclaimer?: string;

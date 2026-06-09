@@ -1,13 +1,12 @@
 ---
-// Плейсхолдер рекламного блока. Не подключает реальную сеть,
-// а лишь резервирует место и подсказывает интеграцию (РСЯ / AdSense).
-// Когда нужно — заменить содержимое на тэг рекламы.
+// Placeholder for future ad slots. It is hidden by default so the MVP does not
+// show empty ad boxes before monetization is connected.
 
 interface Props {
-  slot: string;            // Идентификатор слота, напр. "header-728x90"
-  label?: string;          // Подпись внутри плейсхолдера
-  className?: string;      // Дополнительные классы для контейнера
-  format?: 'banner' | 'square' | 'inline'; // Форма блока
+  slot: string;
+  label?: string;
+  className?: string;
+  format?: 'banner' | 'square' | 'inline';
 }
 
 const {
@@ -22,21 +21,25 @@ const formatClasses: Record<string, string> = {
   square: 'h-64 max-w-sm',
   inline: 'h-20',
 };
+
+const shouldRender = import.meta.env.PUBLIC_SHOW_AD_PLACEHOLDERS === 'true';
 ---
 
-<aside
-  class:list={[
-    'w-full border border-dashed border-ink-300 bg-ink-50 text-ink-500',
-    'flex items-center justify-center text-xs uppercase tracking-wider',
-    formatClasses[format],
-    className,
-  ]}
-  data-testid={`ad-placeholder-${slot}`}
-  data-ad-slot={slot}
-  aria-label={label}
-  role="complementary"
->
-  <span class="font-mono">
-    {label} · {slot}
-  </span>
-</aside>
+{shouldRender && (
+  <aside
+    class:list={[
+      'w-full border border-dashed border-ink-300 bg-ink-50 text-ink-500',
+      'flex items-center justify-center text-xs uppercase tracking-wider',
+      formatClasses[format],
+      className,
+    ]}
+    data-testid={`ad-placeholder-${slot}`}
+    data-ad-slot={slot}
+    aria-label={label}
+    role="complementary"
+  >
+    <span class="font-mono">
+      {label} · {slot}
+    </span>
+  </aside>
+)}

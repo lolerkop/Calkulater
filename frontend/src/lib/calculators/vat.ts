@@ -2,10 +2,10 @@ import type { CalcFunction } from '../types';
 import { fmtMoney, toNumber, toStr } from '../format';
 
 // Калькулятор НДС: выделить или начислить.
-// Поддерживает ставки 20% (основная), 10% (льготная), 0%, а также произвольную.
+// Поддерживает ставки 22% (основная), 20% (историческая), 10%, 7%, 5% и 0%.
 export const calcVat: CalcFunction = (inputs) => {
   const amount = toNumber(inputs.amount);
-  const rate = toNumber(inputs.rate, 20);
+  const rate = toNumber(inputs.rate, 22);
   const operation = toStr(inputs.operation, 'extract'); // extract — выделить из суммы, add — начислить сверху
 
   if (amount <= 0 || rate < 0) {

@@ -1,30 +1,92 @@
 ---
 import type { CalculatorDef } from '../lib/types';
-import { categoriesBySlug } from '../data/categories';
+import { getCategoryById, ui, type Locale } from '../lib/i18n';
 
 interface Props {
   calc: CalculatorDef;
   showCategory?: boolean;
+  locale?: Locale;
 }
 
-const { calc, showCategory = true } = Astro.props;
-const category = categoriesBySlug[calc.category];
+const { calc, showCategory = true, locale = 'ru' } = Astro.props;
+const category = getCategoryById(calc.category, locale);
+const copy = ui[locale];
+const isPopular = calc.popularity >= 80;
+const isNew = calc.isNew === true;
+const keywordChips = calc.keywords.slice(0, 2);
 ---
 
 <a
   href={calc.fullPath}
-  class="group block border border-ink-200 hover:border-ink-900 p-5 bg-white transition-colors"
+  class="group flex min-h-[220px] flex-col border border-ink-200 bg-white p-5 transition-colors hover:border-ink-900 hover:bg-ink-50 hover:shadow-[3px_3px_0_0_rgba(10,10,10,0.05)]"
   data-testid={`calculator-card-${calc.slug}`}
 >
-  {showCategory && (
-    <span class="text-[10px] uppercase tracking-wider text-ink-500">
-      {category?.name}
+  <div class="flex items-start justify-between gap-3">
+    {showCategory ? (
+      <span class="text-[10px] uppercase tracking-wider text-ink-500">
+        {category?.name}
+      </span>
+    ) : (
+      <span class="font-mono text-[10px] uppercase tracking-wider text-ink-400">
+        /{calc.slug}
+      </span>
+    )}
+    <span class="flex shrink-0 flex-wrap justify-end gap-1.5">
+      {isNew ? (
+        <span
+          class="border border-ink-900 bg-ink-900 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-white"
+          data-testid="calculator-card-new"
+        >
+          {copy.newBadge}
+        </span>
+      ) : null}
+      {isPopular ? (
+        <span
+          class="border border-accent px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-accent"
+          data-testid="calculator-card-popular"
+        >
+          {copy.popularBadge}
+        </span>
+      ) : null}
     </span>
-  )}
-  <h3 class="mt-2 text-base font-semibold text-ink-900 group-hover:text-accent transition-colors leading-snug">
+  </div>
+
+  <h3 class="mt-3 text-base font-semibold text-ink-900 group-hover:text-accent transition-colors leading-snug">
     {calc.name}
   </h3>
   <p class="mt-2 text-sm text-ink-500 leading-relaxed line-clamp-2">
     {calc.shortDescription}
   </p>
+
+  <div class="mt-4 flex flex-wrap gap-2" data-testid="calculator-card-keywords">
+    {keywordChips.map((keyword) => (
+      <span class="border border-ink-200 bg-white px-2 py-1 text-[11px] leading-none text-ink-500">
+        {keyword}
+      </span>
+    ))}
+  </div>
+
+  <div
+    class="mt-auto grid grid-cols-2 gap-2 pt-5 text-xs text-ink-500"
+    data-testid="calculator-card-meta"
+  >
+    <span class="border border-ink-200 bg-white px-2 py-1.5">
+      <span class="font-mono text-ink-900">{calc.fields.length}</span> {copy.fields}
+    </span>
+    <span class="border border-ink-200 bg-white px-2 py-1.5">
+      <span class="font-mono text-ink-900">{calc.faq.length}</span> FAQ
+    </span>
+  </div>
+
+  <div class="mt-4 flex items-center justify-between gap-4 border-t border-ink-200 pt-4">
+    <span class="text-sm font-medium text-accent">
+      {copy.open}
+    </span>
+    <span
+      aria-hidden="true"
+      class="inline-flex h-7 w-7 items-center justify-center border border-ink-900 text-ink-900 transition-colors group-hover:bg-ink-900 group-hover:text-white"
+    >
+      →
+    </span>
+  </div>
 </a>

@@ -4,47 +4,99 @@ import Header from './Header.astro';
 import Footer from './Footer.astro';
 import Seo from './Seo.astro';
 import Analytics from './Analytics.astro';
-import { SITE } from '../config/site';
+import { localeMeta, type AlternateLink, type Locale } from '../lib/i18n';
 
 interface Props {
   title: string;
   description: string;
   canonical?: string;
   ogImage?: string;
+  ogType?: 'website' | 'article';
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
+  locale?: Locale;
+  alternates?: AlternateLink[];
 }
 
-const { title, description, canonical, ogImage, jsonLd, noindex } = Astro.props;
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  ogType,
+  jsonLd,
+  noindex,
+  locale = 'ru',
+  alternates = [],
+} = Astro.props;
+const meta = localeMeta[locale];
+const skipLink = {
+  ru: 'Перейти к основному содержимому',
+  en: 'Skip to main content',
+  es: 'Ir al contenido principal',
+  de: 'Zum Hauptinhalt springen',
+  fr: 'Aller au contenu principal',
+  pt: 'Ir para o conteúdo principal',
+  it: 'Vai al contenuto principale',
+  pl: 'Przejdz do glownej tresci',
+  nl: 'Ga naar hoofdinhoud',
+  ro: 'Mergi la continutul principal',
+  id: 'Lewati ke konten utama',
+  tr: 'Ana içeriğe geç',
+  vi: 'Chuyển đến nội dung chính',
+  cs: 'Přejít na hlavní obsah',
+  uk: 'Перейти до основного вмісту',
+  sk: 'Prejsť na hlavný obsah',
+  hu: 'Ugrás a fő tartalomhoz',
+}[locale];
 ---
 
 <!doctype html>
-<html lang="ru">
+<html lang={meta.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#E63946" />
+    <meta name="color-scheme" content="light" />
+    <meta name="application-name" content={meta.siteName} />
+    <meta name="apple-mobile-web-app-title" content={meta.siteName} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="search"
+      type="application/opensearchdescription+xml"
+      title={`${meta.siteName}: search`}
+      href="/opensearch.xml"
+    />
     <Seo
       title={title}
       description={description}
       canonical={canonical}
       ogImage={ogImage}
+      ogType={ogType}
       jsonLd={jsonLd}
       noindex={noindex}
+      locale={locale}
+      alternates={alternates}
     />
     <Analytics />
   </head>
   <body class="bg-white text-ink-900 font-sans">
     <a
-      href="#main"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:px-3 focus:py-2 focus:bg-accent focus:text-white"
-    >Перейти к контенту</a>
-    <Header />
-    <main id="main" data-testid="page-main">
+      href="#main-content"
+      class="skip-link"
+      data-testid="skip-link"
+    >{skipLink}</a>
+    <Header locale={locale} alternates={alternates} />
+    <main id="main-content" tabindex="-1" data-testid="page-main">
       <slot />
     </main>
-    <Footer />
+    <Footer locale={locale} />
   </body>
 </html>

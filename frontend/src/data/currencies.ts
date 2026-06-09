@@ -38,6 +38,8 @@ export const ratesToUSD: Record<CurrencyCode, number> = {
 };
 
 export const lastUpdated = '2026-02-01';
+export const ratesNotice =
+  'Демонстрационные фиксированные курсы для работы калькулятора без внешнего API. Не используйте их как банковский или биржевой курс.';
 
 export const currencyByCode = Object.fromEntries(
   currencies.map((c) => [c.code, c]),

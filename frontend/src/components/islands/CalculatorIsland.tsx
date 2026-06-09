@@ -2,15 +2,557 @@
 // Поля рендерятся динамически из CalculatorDef.fields, расчет выполняется
 // функцией из реестра runners по идентификатору калькулятора.
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  AlertCircle,
+  Calculator as CalculatorIcon,
+  Check,
+  Copy,
+  Link2,
+  Pencil,
+  Printer,
+  RotateCcw,
+} from 'lucide-react';
 import type { CalculatorDef, Field, CalcResult } from '../../lib/types';
 import { runners } from '../../lib/runners';
+import { localizedResultText, resultLabelMap, type Locale } from '../../lib/clientI18n';
 
 type Props = {
-  calc: CalculatorDef;
+  calc: Pick<CalculatorDef, 'id' | 'name' | 'fields' | 'disclaimer'>;
+  locale?: Locale;
 };
 
 type FormValues = Record<string, string | number | boolean>;
+type FieldErrors = Record<string, string>;
+type CalculatorCopy = {
+  enterNumber: string;
+  minimum: (value: number) => string;
+  maximum: (value: number) => string;
+  note: string;
+  dateHelp: string;
+  textareaHelp: string;
+  rateHelp: string;
+  amountHelp: string;
+  integerHelp: string;
+  unitHelp: string;
+  reserveHelp: string;
+  editInputs: string;
+  printResult: string;
+  resultCopied: string;
+  copyResult: string;
+  tableCaption: string;
+  inputs: string;
+  fieldCounter: (count: number) => string;
+  calculate: string;
+  reset: string;
+  linkCopied: string;
+  copyLink: string;
+  checkValues: string;
+  result: string;
+  unavailableTitle: string;
+  unavailableText: string;
+  emptyText: string;
+};
+
+const calculatorCopyByLocale: Record<Locale, CalculatorCopy> = {
+  ru: {
+    enterNumber: 'Введите число.',
+    minimum: (value) => `Минимум ${value}.`,
+    maximum: (value) => `Максимум ${value}.`,
+    note: 'Примечание',
+    dateHelp: 'Можно выбрать дату вручную или ввести с клавиатуры.',
+    textareaHelp: 'Указывайте значения в формате, показанном в подписи поля.',
+    rateHelp: 'Укажите годовую или выбранную в списке ставку без лишних символов.',
+    amountHelp: 'Введите исходное значение без пробелов и разделителей тысяч.',
+    integerHelp: 'Используйте целое значение, если в поле не указано другое.',
+    unitHelp: 'Проверьте единицы измерения: они указаны в названии или рядом с полем.',
+    reserveHelp: 'Обычно для запаса используют 5-15%, в зависимости от задачи.',
+    editInputs: 'Изменить исходные данные',
+    printResult: 'Распечатать результат',
+    resultCopied: 'Результат скопирован',
+    copyResult: 'Скопировать результат',
+    tableCaption: 'Таблица результата расчета',
+    inputs: 'Исходные данные',
+    fieldCounter: (count) => `${count} полей`,
+    calculate: 'Рассчитать',
+    reset: 'Сбросить',
+    linkCopied: 'Ссылка скопирована',
+    copyLink: 'Скопировать ссылку',
+    checkValues: 'Проверьте значения',
+    result: 'Результат',
+    unavailableTitle: 'Расчёт временно недоступен',
+    unavailableText: 'Исправьте значения в полях формы, и результат появится автоматически.',
+    emptyText: 'Заполните поля — результат появится здесь автоматически.',
+  },
+  en: {
+    enterNumber: 'Enter a number.',
+    minimum: (value) => `Minimum ${value}.`,
+    maximum: (value) => `Maximum ${value}.`,
+    note: 'Note',
+    dateHelp: 'Choose a date or type it manually.',
+    textareaHelp: 'Use the format shown in the field description.',
+    rateHelp: 'Enter the annual or selected rate without extra symbols.',
+    amountHelp: 'Enter the base value without thousands separators.',
+    integerHelp: 'Use a whole number unless the field says otherwise.',
+    unitHelp: 'Check the measurement units shown in or near the field.',
+    reserveHelp: 'A reserve of 5-15% is common, depending on the task.',
+    editInputs: 'Edit inputs',
+    printResult: 'Print result',
+    resultCopied: 'Result copied',
+    copyResult: 'Copy result',
+    tableCaption: 'Calculation result table',
+    inputs: 'Inputs',
+    fieldCounter: (count) => `${count} fields`,
+    calculate: 'Calculate',
+    reset: 'Reset',
+    linkCopied: 'Link copied',
+    copyLink: 'Copy link',
+    checkValues: 'Check values',
+    result: 'Result',
+    unavailableTitle: 'Calculation is temporarily unavailable',
+    unavailableText: 'Fix the form values and the result will appear automatically.',
+    emptyText: 'Fill in the fields and the result will appear here automatically.',
+  },
+  es: {
+    enterNumber: 'Introduce un número.',
+    minimum: (value) => `Mínimo ${value}.`,
+    maximum: (value) => `Máximo ${value}.`,
+    note: 'Nota',
+    dateHelp: 'Elige una fecha o escríbela manualmente.',
+    textareaHelp: 'Usa el formato indicado en la descripción del campo.',
+    rateHelp: 'Introduce la tasa anual o seleccionada sin símbolos adicionales.',
+    amountHelp: 'Introduce el valor base sin separadores de miles.',
+    integerHelp: 'Usa un número entero salvo que el campo indique otra cosa.',
+    unitHelp: 'Comprueba las unidades de medida que aparecen junto al campo.',
+    reserveHelp: 'Una reserva del 5-15% suele ser habitual, según la tarea.',
+    editInputs: 'Editar datos',
+    printResult: 'Imprimir resultado',
+    resultCopied: 'Resultado copiado',
+    copyResult: 'Copiar resultado',
+    tableCaption: 'Tabla del resultado del cálculo',
+    inputs: 'Datos de entrada',
+    fieldCounter: (count) => `${count} campos`,
+    calculate: 'Calcular',
+    reset: 'Restablecer',
+    linkCopied: 'Enlace copiado',
+    copyLink: 'Copiar enlace',
+    checkValues: 'Comprueba los valores',
+    result: 'Resultado',
+    unavailableTitle: 'El cálculo no está disponible temporalmente',
+    unavailableText: 'Corrige los valores del formulario y el resultado aparecerá automáticamente.',
+    emptyText: 'Rellena los campos y el resultado aparecerá aquí automáticamente.',
+  },
+  de: {
+    enterNumber: 'Bitte eine Zahl eingeben.',
+    minimum: (value) => `Minimum ${value}.`,
+    maximum: (value) => `Maximum ${value}.`,
+    note: 'Hinweis',
+    dateHelp: 'Wähle ein Datum aus oder gib es manuell ein.',
+    textareaHelp: 'Nutze das Format aus der Feldbeschreibung.',
+    rateHelp: 'Gib den jährlichen oder gewählten Satz ohne zusätzliche Zeichen ein.',
+    amountHelp: 'Gib den Basiswert ohne Tausendertrennzeichen ein.',
+    integerHelp: 'Nutze eine ganze Zahl, sofern das Feld nichts anderes angibt.',
+    unitHelp: 'Prüfe die Maßeinheiten, die am Feld angezeigt werden.',
+    reserveHelp: 'Eine Reserve von 5-15% ist je nach Aufgabe üblich.',
+    editInputs: 'Eingaben bearbeiten',
+    printResult: 'Ergebnis drucken',
+    resultCopied: 'Ergebnis kopiert',
+    copyResult: 'Ergebnis kopieren',
+    tableCaption: 'Tabelle mit dem Berechnungsergebnis',
+    inputs: 'Eingaben',
+    fieldCounter: (count) => `${count} Felder`,
+    calculate: 'Berechnen',
+    reset: 'Zurücksetzen',
+    linkCopied: 'Link kopiert',
+    copyLink: 'Link kopieren',
+    checkValues: 'Werte prüfen',
+    result: 'Ergebnis',
+    unavailableTitle: 'Berechnung vorübergehend nicht verfügbar',
+    unavailableText: 'Korrigiere die Formularwerte, dann erscheint das Ergebnis automatisch.',
+    emptyText: 'Fülle die Felder aus, dann erscheint das Ergebnis hier automatisch.',
+  },
+  fr: {
+    enterNumber: 'Saisissez un nombre.',
+    minimum: (value) => `Minimum ${value}.`,
+    maximum: (value) => `Maximum ${value}.`,
+    note: 'Note',
+    dateHelp: 'Choisissez une date ou saisissez-la manuellement.',
+    textareaHelp: 'Utilisez le format indiqué dans la description du champ.',
+    rateHelp: 'Saisissez le taux annuel ou sélectionné sans symboles supplémentaires.',
+    amountHelp: 'Saisissez la valeur de base sans séparateurs de milliers.',
+    integerHelp: 'Utilisez un nombre entier sauf indication contraire du champ.',
+    unitHelp: 'Vérifiez les unités de mesure affichées près du champ.',
+    reserveHelp: 'Une réserve de 5-15% est courante selon la tâche.',
+    editInputs: 'Modifier les données',
+    printResult: 'Imprimer le résultat',
+    resultCopied: 'Résultat copié',
+    copyResult: 'Copier le résultat',
+    tableCaption: 'Tableau du résultat du calcul',
+    inputs: 'Données de départ',
+    fieldCounter: (count) => `${count} champs`,
+    calculate: 'Calculer',
+    reset: 'Réinitialiser',
+    linkCopied: 'Lien copié',
+    copyLink: 'Copier le lien',
+    checkValues: 'Vérifiez les valeurs',
+    result: 'Résultat',
+    unavailableTitle: 'Le calcul est temporairement indisponible',
+    unavailableText: 'Corrigez les valeurs du formulaire et le résultat apparaîtra automatiquement.',
+    emptyText: 'Remplissez les champs et le résultat apparaîtra ici automatiquement.',
+  },
+  pt: {
+    enterNumber: 'Introduza um número.',
+    minimum: (value) => `Mínimo ${value}.`,
+    maximum: (value) => `Máximo ${value}.`,
+    note: 'Nota',
+    dateHelp: 'Escolha uma data ou introduza-a manualmente.',
+    textareaHelp: 'Use o formato indicado na descrição do campo.',
+    rateHelp: 'Introduza a taxa anual ou selecionada sem símbolos adicionais.',
+    amountHelp: 'Introduza o valor base sem separadores de milhares.',
+    integerHelp: 'Use um número inteiro salvo indicação em contrário.',
+    unitHelp: 'Verifique as unidades de medida apresentadas junto ao campo.',
+    reserveHelp: 'Uma reserva de 5-15% é comum, dependendo da tarefa.',
+    editInputs: 'Editar dados',
+    printResult: 'Imprimir resultado',
+    resultCopied: 'Resultado copiado',
+    copyResult: 'Copiar resultado',
+    tableCaption: 'Tabela do resultado do cálculo',
+    inputs: 'Dados de entrada',
+    fieldCounter: (count) => `${count} campos`,
+    calculate: 'Calcular',
+    reset: 'Repor',
+    linkCopied: 'Link copiado',
+    copyLink: 'Copiar link',
+    checkValues: 'Verifique os valores',
+    result: 'Resultado',
+    unavailableTitle: 'O cálculo está temporariamente indisponível',
+    unavailableText: 'Corrija os valores do formulário e o resultado aparecerá automaticamente.',
+    emptyText: 'Preencha os campos e o resultado aparecerá aqui automaticamente.',
+  },
+  it: {
+    enterNumber: 'Inserisci un numero.',
+    minimum: (value) => `Minimo ${value}.`,
+    maximum: (value) => `Massimo ${value}.`,
+    note: 'Nota',
+    dateHelp: 'Scegli una data o inseriscila manualmente.',
+    textareaHelp: 'Usa il formato indicato nella descrizione del campo.',
+    rateHelp: 'Inserisci il tasso annuale o selezionato senza simboli aggiuntivi.',
+    amountHelp: 'Inserisci il valore di base senza separatori delle migliaia.',
+    integerHelp: 'Usa un numero intero salvo diversa indicazione del campo.',
+    unitHelp: 'Controlla le unità di misura mostrate vicino al campo.',
+    reserveHelp: 'Una riserva del 5-15% è comune, a seconda dell’attività.',
+    editInputs: 'Modifica dati',
+    printResult: 'Stampa risultato',
+    resultCopied: 'Risultato copiato',
+    copyResult: 'Copia risultato',
+    tableCaption: 'Tabella del risultato del calcolo',
+    inputs: 'Dati di partenza',
+    fieldCounter: (count) => `${count} campi`,
+    calculate: 'Calcola',
+    reset: 'Reimposta',
+    linkCopied: 'Link copiato',
+    copyLink: 'Copia link',
+    checkValues: 'Controlla i valori',
+    result: 'Risultato',
+    unavailableTitle: 'Il calcolo è temporaneamente non disponibile',
+    unavailableText: 'Correggi i valori del modulo e il risultato apparirà automaticamente.',
+    emptyText: 'Compila i campi e il risultato apparirà qui automaticamente.',
+  },
+  pl: {
+    enterNumber: 'Wpisz liczbe.',
+    minimum: (value) => `Minimum ${value}.`,
+    maximum: (value) => `Maksimum ${value}.`,
+    note: 'Uwaga',
+    dateHelp: 'Wybierz date albo wpisz ja recznie.',
+    textareaHelp: 'Uzyj formatu pokazanego w opisie pola.',
+    rateHelp: 'Wpisz roczna lub wybrana stawke bez dodatkowych symboli.',
+    amountHelp: 'Wpisz wartosc bazowa bez separatorow tysiecy.',
+    integerHelp: 'Uzyj liczby calkowitej, jesli pole nie wskazuje inaczej.',
+    unitHelp: 'Sprawdz jednostki miary pokazane przy polu.',
+    reserveHelp: 'Zapas 5-15% jest typowy, zalezy od zadania.',
+    editInputs: 'Edytuj dane',
+    printResult: 'Drukuj wynik',
+    resultCopied: 'Wynik skopiowany',
+    copyResult: 'Kopiuj wynik',
+    tableCaption: 'Tabela wyniku obliczenia',
+    inputs: 'Dane wejsciowe',
+    fieldCounter: (count) => `${count} pol`,
+    calculate: 'Oblicz',
+    reset: 'Resetuj',
+    linkCopied: 'Link skopiowany',
+    copyLink: 'Kopiuj link',
+    checkValues: 'Sprawdz wartosci',
+    result: 'Wynik',
+    unavailableTitle: 'Obliczenie jest tymczasowo niedostepne',
+    unavailableText: 'Popraw wartosci w formularzu, a wynik pojawi sie automatycznie.',
+    emptyText: 'Wypelnij pola, a wynik pojawi sie tutaj automatycznie.',
+  },
+  nl: {
+    enterNumber: 'Voer een getal in.',
+    minimum: (value) => `Minimum ${value}.`,
+    maximum: (value) => `Maximum ${value}.`,
+    note: 'Opmerking',
+    dateHelp: 'Kies een datum of typ deze handmatig.',
+    textareaHelp: 'Gebruik het formaat uit de veldbeschrijving.',
+    rateHelp: 'Voer het jaarlijkse of gekozen tarief in zonder extra symbolen.',
+    amountHelp: 'Voer de basiswaarde in zonder scheidingstekens voor duizenden.',
+    integerHelp: 'Gebruik een geheel getal tenzij het veld iets anders aangeeft.',
+    unitHelp: 'Controleer de meeteenheden bij het veld.',
+    reserveHelp: 'Een reserve van 5-15% is gebruikelijk, afhankelijk van de taak.',
+    editInputs: 'Invoer aanpassen',
+    printResult: 'Resultaat printen',
+    resultCopied: 'Resultaat gekopieerd',
+    copyResult: 'Resultaat kopieren',
+    tableCaption: 'Tabel met berekeningsresultaat',
+    inputs: 'Invoer',
+    fieldCounter: (count) => `${count} velden`,
+    calculate: 'Berekenen',
+    reset: 'Resetten',
+    linkCopied: 'Link gekopieerd',
+    copyLink: 'Link kopieren',
+    checkValues: 'Controleer waarden',
+    result: 'Resultaat',
+    unavailableTitle: 'Berekening is tijdelijk niet beschikbaar',
+    unavailableText: 'Corrigeer de formulierwaarden en het resultaat verschijnt automatisch.',
+    emptyText: 'Vul de velden in en het resultaat verschijnt hier automatisch.',
+  },
+  ro: {
+    enterNumber: 'Introdu un numar.',
+    minimum: (value) => `Minimum ${value}.`,
+    maximum: (value) => `Maximum ${value}.`,
+    note: 'Nota',
+    dateHelp: 'Alege o data sau introdu-o manual.',
+    textareaHelp: 'Foloseste formatul indicat in descrierea campului.',
+    rateHelp: 'Introdu rata anuala sau selectata fara simboluri suplimentare.',
+    amountHelp: 'Introdu valoarea de baza fara separatoare de mii.',
+    integerHelp: 'Foloseste un numar intreg daca nu este indicat altfel.',
+    unitHelp: 'Verifica unitatile de masura afisate langa camp.',
+    reserveHelp: 'O rezerva de 5-15% este obisnuita, in functie de situatie.',
+    editInputs: 'Editeaza datele',
+    printResult: 'Printeaza rezultatul',
+    resultCopied: 'Rezultat copiat',
+    copyResult: 'Copiaza rezultatul',
+    tableCaption: 'Tabel cu rezultatul calculului',
+    inputs: 'Date introduse',
+    fieldCounter: (count) => `${count} campuri`,
+    calculate: 'Calculeaza',
+    reset: 'Reseteaza',
+    linkCopied: 'Link copiat',
+    copyLink: 'Copiaza linkul',
+    checkValues: 'Verifica valorile',
+    result: 'Rezultat',
+    unavailableTitle: 'Calculul este temporar indisponibil',
+    unavailableText: 'Corecteaza valorile formularului si rezultatul va aparea automat.',
+    emptyText: 'Completeaza campurile si rezultatul va aparea aici automat.',
+  },
+  id: {
+    enterNumber: 'Masukkan angka.',
+    minimum: (value) => `Minimum ${value}.`,
+    maximum: (value) => `Maksimum ${value}.`,
+    note: 'Catatan',
+    dateHelp: 'Pilih tanggal atau masukkan secara manual.',
+    textareaHelp: 'Gunakan format yang ditunjukkan pada deskripsi kolom.',
+    rateHelp: 'Masukkan suku bunga tahunan atau pilihan tanpa simbol tambahan.',
+    amountHelp: 'Masukkan nilai dasar tanpa pemisah ribuan.',
+    integerHelp: 'Gunakan bilangan bulat kecuali kolom menyatakan lain.',
+    unitHelp: 'Periksa satuan ukuran yang ditampilkan di dekat kolom.',
+    reserveHelp: 'Cadangan 5-15% umum digunakan, tergantung kebutuhan.',
+    editInputs: 'Ubah input',
+    printResult: 'Cetak hasil',
+    resultCopied: 'Hasil disalin',
+    copyResult: 'Salin hasil',
+    tableCaption: 'Tabel hasil perhitungan',
+    inputs: 'Input',
+    fieldCounter: (count) => `${count} kolom`,
+    calculate: 'Hitung',
+    reset: 'Reset',
+    linkCopied: 'Link disalin',
+    copyLink: 'Salin link',
+    checkValues: 'Periksa nilai',
+    result: 'Hasil',
+    unavailableTitle: 'Perhitungan sementara tidak tersedia',
+    unavailableText: 'Perbaiki nilai formulir dan hasil akan muncul otomatis.',
+    emptyText: 'Isi kolom dan hasil akan muncul otomatis di sini.',
+  },
+  tr: {
+    enterNumber: 'Bir sayı girin.',
+    minimum: (value) => `Minimum ${value}.`,
+    maximum: (value) => `Maksimum ${value}.`,
+    note: 'Not',
+    dateHelp: 'Bir tarih seçin veya manuel girin.',
+    textareaHelp: 'Alan açıklamasında gösterilen formatı kullanın.',
+    rateHelp: 'Yıllık veya seçili oranı ek sembol olmadan girin.',
+    amountHelp: 'Temel değeri binlik ayırıcı olmadan girin.',
+    integerHelp: 'Alan aksini belirtmiyorsa tam sayı kullanın.',
+    unitHelp: 'Alanın yanında gösterilen ölçü birimlerini kontrol edin.',
+    reserveHelp: 'İhtiyaca göre %5-15 pay bırakmak yaygındır.',
+    editInputs: 'Girdileri düzenle',
+    printResult: 'Sonucu yazdır',
+    resultCopied: 'Sonuç kopyalandı',
+    copyResult: 'Sonucu kopyala',
+    tableCaption: 'Hesaplama sonucu tablosu',
+    inputs: 'Girdiler',
+    fieldCounter: (count) => `${count} alan`,
+    calculate: 'Hesapla',
+    reset: 'Sıfırla',
+    linkCopied: 'Bağlantı kopyalandı',
+    copyLink: 'Bağlantıyı kopyala',
+    checkValues: 'Değerleri kontrol edin',
+    result: 'Sonuç',
+    unavailableTitle: 'Hesaplama geçici olarak kullanılamıyor',
+    unavailableText: 'Form değerlerini düzeltin, sonuç otomatik olarak görünecektir.',
+    emptyText: 'Alanları doldurun, sonuç burada otomatik olarak görünecektir.',
+  },
+  vi: {
+    enterNumber: 'Nhập một số.',
+    minimum: (value) => `Tối thiểu ${value}.`,
+    maximum: (value) => `Tối đa ${value}.`,
+    note: 'Ghi chú',
+    dateHelp: 'Chọn ngày hoặc nhập thủ công.',
+    textareaHelp: 'Dùng định dạng được mô tả trong trường.',
+    rateHelp: 'Nhập lãi suất năm hoặc giá trị đã chọn không kèm ký hiệu thêm.',
+    amountHelp: 'Nhập giá trị gốc không dùng dấu phân cách hàng nghìn.',
+    integerHelp: 'Dùng số nguyên nếu trường không yêu cầu khác.',
+    unitHelp: 'Kiểm tra đơn vị đo hiển thị cạnh trường.',
+    reserveHelp: 'Dự phòng 5-15% thường được dùng, tùy tình huống.',
+    editInputs: 'Sửa dữ liệu',
+    printResult: 'In kết quả',
+    resultCopied: 'Đã sao chép kết quả',
+    copyResult: 'Sao chép kết quả',
+    tableCaption: 'Bảng kết quả tính toán',
+    inputs: 'Dữ liệu nhập',
+    fieldCounter: (count) => `${count} trường`,
+    calculate: 'Tính',
+    reset: 'Đặt lại',
+    linkCopied: 'Đã sao chép liên kết',
+    copyLink: 'Sao chép liên kết',
+    checkValues: 'Kiểm tra giá trị',
+    result: 'Kết quả',
+    unavailableTitle: 'Phép tính tạm thời không khả dụng',
+    unavailableText: 'Sửa giá trị trong biểu mẫu và kết quả sẽ tự động xuất hiện.',
+    emptyText: 'Điền các trường và kết quả sẽ tự động xuất hiện ở đây.',
+  },
+  cs: {
+    enterNumber: 'Zadejte číslo.',
+    minimum: (value) => `Minimum ${value}.`,
+    maximum: (value) => `Maximum ${value}.`,
+    note: 'Poznámka',
+    dateHelp: 'Vyberte datum nebo jej zadejte ručně.',
+    textareaHelp: 'Použijte formát uvedený v popisu pole.',
+    rateHelp: 'Zadejte roční nebo vybranou sazbu bez dalších symbolů.',
+    amountHelp: 'Zadejte základní hodnotu bez oddělovačů tisíců.',
+    integerHelp: 'Použijte celé číslo, pokud pole neuvádí jinak.',
+    unitHelp: 'Zkontrolujte jednotky zobrazené u pole.',
+    reserveHelp: 'Rezerva 5-15% se používá často, podle situace.',
+    editInputs: 'Upravit vstupy',
+    printResult: 'Vytisknout výsledek',
+    resultCopied: 'Výsledek zkopírován',
+    copyResult: 'Kopírovat výsledek',
+    tableCaption: 'Tabulka výsledku výpočtu',
+    inputs: 'Vstupy',
+    fieldCounter: (count) => `${count} polí`,
+    calculate: 'Spočítat',
+    reset: 'Resetovat',
+    linkCopied: 'Odkaz zkopírován',
+    copyLink: 'Kopírovat odkaz',
+    checkValues: 'Zkontrolujte hodnoty',
+    result: 'Výsledek',
+    unavailableTitle: 'Výpočet je dočasně nedostupný',
+    unavailableText: 'Opravte hodnoty ve formuláři a výsledek se zobrazí automaticky.',
+    emptyText: 'Vyplňte pole a výsledek se zde zobrazí automaticky.',
+  },
+  uk: {
+    enterNumber: 'Введіть число.',
+    minimum: (value) => `Мінімум ${value}.`,
+    maximum: (value) => `Максимум ${value}.`,
+    note: 'Примітка',
+    dateHelp: 'Оберіть дату або введіть її вручну.',
+    textareaHelp: 'Використовуйте формат, показаний в описі поля.',
+    rateHelp: 'Введіть річну або вибрану ставку без зайвих символів.',
+    amountHelp: 'Введіть базове значення без розділювачів тисяч.',
+    integerHelp: 'Використовуйте ціле число, якщо поле не вимагає іншого.',
+    unitHelp: 'Перевірте одиниці вимірювання, показані біля поля.',
+    reserveHelp: 'Запас 5-15% часто використовують залежно від ситуації.',
+    editInputs: 'Змінити дані',
+    printResult: 'Надрукувати результат',
+    resultCopied: 'Результат скопійовано',
+    copyResult: 'Скопіювати результат',
+    tableCaption: 'Таблиця результату розрахунку',
+    inputs: 'Вхідні дані',
+    fieldCounter: (count) => `${count} полів`,
+    calculate: 'Розрахувати',
+    reset: 'Скинути',
+    linkCopied: 'Посилання скопійовано',
+    copyLink: 'Скопіювати посилання',
+    checkValues: 'Перевірте значення',
+    result: 'Результат',
+    unavailableTitle: 'Розрахунок тимчасово недоступний',
+    unavailableText: 'Виправте значення у формі, і результат зʼявиться автоматично.',
+    emptyText: 'Заповніть поля, і результат автоматично зʼявиться тут.',
+  },
+  sk: {
+    enterNumber: 'Zadajte číslo.',
+    minimum: (value) => `Minimum ${value}.`,
+    maximum: (value) => `Maximum ${value}.`,
+    note: 'Poznámka',
+    dateHelp: 'Vyberte dátum alebo ho zadajte ručne.',
+    textareaHelp: 'Použite formát uvedený v popise poľa.',
+    rateHelp: 'Zadajte ročnú alebo vybranú sadzbu bez ďalších symbolov.',
+    amountHelp: 'Zadajte základnú hodnotu bez oddeľovačov tisícov.',
+    integerHelp: 'Použite celé číslo, ak pole neuvádza inak.',
+    unitHelp: 'Skontrolujte jednotky zobrazené pri poli.',
+    reserveHelp: 'Rezerva 5-15% sa používa často podľa situácie.',
+    editInputs: 'Upraviť vstupy',
+    printResult: 'Vytlačiť výsledok',
+    resultCopied: 'Výsledok skopírovaný',
+    copyResult: 'Kopírovať výsledok',
+    tableCaption: 'Tabuľka výsledku výpočtu',
+    inputs: 'Vstupy',
+    fieldCounter: (count) => `${count} polí`,
+    calculate: 'Vypočítať',
+    reset: 'Resetovať',
+    linkCopied: 'Odkaz skopírovaný',
+    copyLink: 'Kopírovať odkaz',
+    checkValues: 'Skontrolujte hodnoty',
+    result: 'Výsledok',
+    unavailableTitle: 'Výpočet je dočasne nedostupný',
+    unavailableText: 'Opravte hodnoty vo formulári a výsledok sa zobrazí automaticky.',
+    emptyText: 'Vyplňte polia a výsledok sa tu zobrazí automaticky.',
+  },
+  hu: {
+    enterNumber: 'Adjon meg egy számot.',
+    minimum: (value) => `Minimum ${value}.`,
+    maximum: (value) => `Maximum ${value}.`,
+    note: 'Megjegyzés',
+    dateHelp: 'Válasszon dátumot, vagy írja be kézzel.',
+    textareaHelp: 'Használja a mező leírásában megadott formátumot.',
+    rateHelp: 'Adja meg az éves vagy kiválasztott kamatlábat extra jelek nélkül.',
+    amountHelp: 'Adja meg az alapértéket ezres elválasztók nélkül.',
+    integerHelp: 'Használjon egész számot, hacsak a mező mást nem jelez.',
+    unitHelp: 'Ellenőrizze a mező mellett látható mértékegységeket.',
+    reserveHelp: 'Feladattól függően gyakori az 5-15% tartalék.',
+    editInputs: 'Bemenetek módosítása',
+    printResult: 'Eredmény nyomtatása',
+    resultCopied: 'Eredmény másolva',
+    copyResult: 'Eredmény másolása',
+    tableCaption: 'Számítási eredmény táblázata',
+    inputs: 'Bemenetek',
+    fieldCounter: (count) => `${count} mező`,
+    calculate: 'Számítás',
+    reset: 'Visszaállítás',
+    linkCopied: 'Link másolva',
+    copyLink: 'Link másolása',
+    checkValues: 'Ellenőrizze az értékeket',
+    result: 'Eredmény',
+    unavailableTitle: 'A számítás átmenetileg nem érhető el',
+    unavailableText: 'Javítsa a mezőértékeket, és az eredmény automatikusan megjelenik.',
+    emptyText: 'Töltse ki a mezőket, és az eredmény automatikusan itt jelenik meg.',
+  },
+};
+
+function calculatorCopy(locale: Locale): CalculatorCopy {
+  return calculatorCopyByLocale[locale];
+}
 
 // Возвращает дефолтное значение поля (используется и для инициализации формы,
 // и для сравнения «изменилось ли значение» при формировании URL-параметров).
@@ -77,6 +619,7 @@ function readValuesFromUrl(fields: Field[], base: FormValues): FormValues {
 function buildQueryString(fields: Field[], values: FormValues): string {
   const params = new URLSearchParams();
   for (const f of fields) {
+    if (!isVisible(f, values)) continue;
     const v = values[f.name];
     const def = defaultValueForField(f);
     // Пустые строки и undefined не пишем
@@ -93,18 +636,182 @@ function isVisible(field: Field, values: FormValues): boolean {
   return values[field.showIf.field] === field.showIf.equals;
 }
 
-function ResultBlock({ result }: { result: CalcResult }) {
+function validateValues(fields: Field[], values: FormValues, locale: Locale): FieldErrors {
+  const errors: FieldErrors = {};
+  const copy = calculatorCopy(locale);
+  for (const field of fields) {
+    if (!isVisible(field, values) || field.type !== 'number') continue;
+    const raw = values[field.name];
+    if (raw === '' || raw === undefined || raw === null || !Number.isFinite(Number(raw))) {
+      errors[field.name] = copy.enterNumber;
+      continue;
+    }
+    const value = Number(raw);
+    if (field.min !== undefined && value < field.min) {
+      errors[field.name] = copy.minimum(field.min);
+    }
+    if (field.max !== undefined && value > field.max) {
+      errors[field.name] = copy.maximum(field.max);
+    }
+  }
+  return errors;
+}
+
+function translateLabel(label: string, locale: Locale): string {
+  if (locale === 'ru') return label;
+  return resultLabelMap[label] ?? label
+    .replace('НДС', 'VAT')
+    .replace('НДФЛ', 'Income tax')
+    .replace('от', 'of');
+}
+
+function localizeResult(result: CalcResult, locale: Locale): CalcResult {
+  if (locale === 'ru') return result;
+  return {
+    ...result,
+    primary: {
+      label: translateLabel(result.primary.label, locale),
+      value: localizedResultText(result.primary.value, locale),
+    },
+    secondary: result.secondary.map((row) => ({
+      ...row,
+      label: translateLabel(row.label, locale),
+      value: localizedResultText(row.value, locale),
+    })),
+    table: result.table
+      ? {
+          ...result.table,
+          title: result.table.title ? translateLabel(result.table.title, locale) : result.table.title,
+          columns: result.table.columns.map((column) => translateLabel(column, locale)),
+          rows: result.table.rows.map((row) => row.map((cell) => localizedResultText(cell, locale))),
+          note: result.table.note ? localizedResultText(result.table.note, locale) : result.table.note,
+        }
+      : undefined,
+    note: result.note ? localizedResultText(result.note, locale) : result.note,
+  };
+}
+
+function resultToText(calc: CalculatorDef, result: CalcResult, locale: Locale): string {
+  const copy = calculatorCopy(locale);
+  const secondary = result.secondary
+    .map((row) => `${row.label}: ${row.value}`)
+    .join('\n');
+  return [
+    calc.name,
+    `${result.primary.label}: ${result.primary.value}`,
+    secondary,
+    result.note ? `${copy.note}: ${result.note}` : '',
+  ].filter(Boolean).join('\n');
+}
+
+function fallbackCopy(text: string): boolean {
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  } catch {
+    return false;
+  }
+}
+
+function defaultHelpForField(field: Field, locale: Locale): string {
+  if (field.help) return field.help;
+  const copy = calculatorCopy(locale);
+  const name = field.name.toLowerCase();
+  const label = field.label.toLowerCase();
+
+  if (field.type === 'date') return copy.dateHelp;
+  if (field.type === 'textarea') return copy.textareaHelp;
+  if (name.includes('rate') || label.includes('ставк')) return copy.rateHelp;
+  if (name.includes('amount') || name.includes('price') || label.includes('сумм') || label.includes('цен')) return copy.amountHelp;
+  if (name.includes('month') || name.includes('year') || label.includes('срок')) return copy.integerHelp;
+  if (name.includes('height') || name.includes('weight') || name.includes('length') || name.includes('width') || label.includes('размер')) return copy.unitHelp;
+  if (name.includes('reserve') || label.includes('запас')) return copy.reserveHelp;
+  return '';
+}
+
+function ResultBlock({
+  result,
+  onCopy,
+  onEdit,
+  onPrint,
+  copied,
+  locale,
+}: {
+  result: CalcResult;
+  onCopy: () => void;
+  onEdit: () => void;
+  onPrint: () => void;
+  copied: boolean;
+  locale: Locale;
+}) {
+  const copy = calculatorCopy(locale);
+
   return (
-    <div className="border border-ink-900 bg-ink-50" data-testid="calc-result">
-      <div className="p-6 sm:p-7 border-b border-ink-900 bg-white">
-        <div className="text-xs uppercase tracking-wider text-ink-500">
-          {result.primary.label}
-        </div>
-        <div
-          className="mt-2 font-mono text-3xl sm:text-4xl font-semibold text-ink-900 tracking-tightest"
-          data-testid="calc-result-primary"
-        >
-          {result.primary.value}
+    <div
+      className="border border-ink-900 bg-ink-50"
+      role="status"
+      aria-live="polite"
+      aria-atomic="false"
+      data-testid="calc-result"
+    >
+      <div className="p-5 sm:p-7 border-b border-ink-900 bg-white">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div className="min-w-0">
+            <div className="text-xs uppercase tracking-wider text-ink-500">
+              {result.primary.label}
+            </div>
+            <div
+              className="mt-2 font-mono text-3xl sm:text-4xl font-semibold text-ink-900 tracking-tightest [overflow-wrap:anywhere]"
+              data-testid="calc-result-primary"
+            >
+              {result.primary.value}
+            </div>
+          </div>
+          <div className="flex shrink-0 gap-2 self-end print-hide sm:self-auto">
+            <button
+              type="button"
+              onClick={onEdit}
+              className="inline-flex h-10 w-10 items-center justify-center border border-ink-900 text-ink-900 transition-colors hover:bg-ink-900 hover:text-white"
+              aria-label={copy.editInputs}
+              title={copy.editInputs}
+              data-testid="calc-edit-inputs-btn"
+            >
+              <Pencil size={16} aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={onPrint}
+              className="inline-flex h-10 w-10 items-center justify-center border border-ink-900 text-ink-900 transition-colors hover:bg-ink-900 hover:text-white"
+              aria-label={copy.printResult}
+              title={copy.printResult}
+              data-testid="calc-print-btn"
+            >
+              <Printer size={17} aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={onCopy}
+              className={[
+                'inline-flex h-10 w-10 items-center justify-center border transition-colors',
+                copied
+                  ? 'border-emerald-700 bg-emerald-50 text-emerald-700'
+                  : 'border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-white',
+              ].join(' ')}
+              aria-label={copied ? copy.resultCopied : copy.copyResult}
+              title={copied ? copy.resultCopied : copy.copyResult}
+              data-testid="calc-copy-result-btn"
+            >
+              {copied ? <Check size={17} aria-hidden="true" /> : <Copy size={17} aria-hidden="true" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -112,13 +819,13 @@ function ResultBlock({ result }: { result: CalcResult }) {
         {result.secondary.map((row, i) => (
           <div
             key={i}
-            className="flex items-baseline justify-between gap-4 px-6 py-3"
+            className="grid grid-cols-1 items-baseline gap-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,auto)] sm:gap-4 sm:px-6"
             data-testid={`calc-result-row-${i}`}
           >
-            <dt className="text-sm text-ink-500">{row.label}</dt>
+            <dt className="min-w-0 text-sm text-ink-500">{row.label}</dt>
             <dd
               className={[
-                'font-mono text-sm font-medium tabular-nums text-right',
+                'min-w-0 font-mono text-sm font-medium tabular-nums text-left [overflow-wrap:anywhere] sm:text-right',
                 row.accent === 'green' ? 'text-emerald-700' : '',
                 row.accent === 'red' ? 'text-accent' : '',
                 !row.accent || row.accent === 'neutral' ? 'text-ink-900' : '',
@@ -133,15 +840,22 @@ function ResultBlock({ result }: { result: CalcResult }) {
       {result.table && (
         <div className="border-t border-ink-200 overflow-x-auto">
           {result.table.title && (
-            <div className="px-6 pt-4 text-xs uppercase tracking-wider text-ink-500">
+            <div className="px-4 pt-4 text-xs uppercase tracking-wider text-ink-500 sm:px-6">
               {result.table.title}
             </div>
           )}
-          <table className="w-full text-sm">
+          <table className="min-w-max w-full text-sm">
+            <caption className="sr-only">
+              {result.table.title ?? copy.tableCaption}
+            </caption>
             <thead>
               <tr className="text-ink-500">
                 {result.table.columns.map((c, i) => (
-                  <th key={i} className="px-6 py-2 text-left font-medium border-b border-ink-200">
+                  <th
+                    key={i}
+                    scope="col"
+                    className="whitespace-nowrap px-4 py-2 text-left font-medium border-b border-ink-200 sm:px-6"
+                  >
                     {c}
                   </th>
                 ))}
@@ -151,7 +865,7 @@ function ResultBlock({ result }: { result: CalcResult }) {
               {result.table.rows.map((row, i) => (
                 <tr key={i} className="border-b border-ink-100 last:border-b-0">
                   {row.map((cell, j) => (
-                    <td key={j} className="px-6 py-2 font-mono tabular-nums">
+                    <td key={j} className="whitespace-nowrap px-4 py-2 font-mono tabular-nums sm:px-6">
                       {cell}
                     </td>
                   ))}
@@ -163,7 +877,7 @@ function ResultBlock({ result }: { result: CalcResult }) {
       )}
 
       {result.note && (
-        <p className="px-6 py-3 text-xs text-ink-500 border-t border-ink-200">
+        <p className="px-4 py-3 text-xs text-ink-500 border-t border-ink-200 sm:px-6">
           {result.note}
         </p>
       )}
@@ -174,21 +888,38 @@ function ResultBlock({ result }: { result: CalcResult }) {
 function FieldRenderer({
   field,
   value,
+  error,
   onChange,
+  locale,
 }: {
   field: Field;
   value: string | number | boolean;
+  error?: string;
   onChange: (next: string | number | boolean) => void;
+  locale: Locale;
 }) {
+  const fieldId = `f-${field.name}`;
+  const helpText = defaultHelpForField(field, locale);
+  const helpId = `${fieldId}-help`;
+  const errorId = `${fieldId}-error`;
+  const describedBy = [
+    helpText ? helpId : '',
+    error ? errorId : '',
+  ].filter(Boolean).join(' ') || undefined;
   const labelEl = (
-    <label htmlFor={`f-${field.name}`} className="field-label" data-testid={`field-label-${field.name}`}>
+    <label htmlFor={fieldId} className="field-label" data-testid={`field-label-${field.name}`}>
       {field.label}
       {field.unit ? <span className="ml-1 text-ink-400 normal-case">({field.unit})</span> : null}
     </label>
   );
 
-  const helpEl = field.help ? (
-    <p className="mt-1 text-xs text-ink-500">{field.help}</p>
+  const helpEl = helpText ? (
+    <p id={helpId} className="mt-1 text-xs text-ink-500">{helpText}</p>
+  ) : null;
+  const errorEl = error ? (
+    <p id={errorId} className="mt-1 text-xs font-medium text-accent" data-testid={`field-error-${field.name}`}>
+      {error}
+    </p>
   ) : null;
 
   switch (field.type) {
@@ -197,11 +928,13 @@ function FieldRenderer({
         <div>
           {labelEl}
           <input
-            id={`f-${field.name}`}
+            id={fieldId}
             data-testid={`field-${field.name}`}
             type="number"
             inputMode="decimal"
             className="field-input font-mono"
+            aria-describedby={describedBy}
+            aria-invalid={error ? 'true' : undefined}
             value={value === '' || value === undefined ? '' : String(value)}
             min={field.min}
             max={field.max}
@@ -210,6 +943,7 @@ function FieldRenderer({
             onChange={(e) => onChange(e.target.value === '' ? '' : Number(e.target.value))}
           />
           {helpEl}
+          {errorEl}
         </div>
       );
     case 'select':
@@ -217,9 +951,11 @@ function FieldRenderer({
         <div>
           {labelEl}
           <select
-            id={`f-${field.name}`}
+            id={fieldId}
             data-testid={`field-${field.name}`}
             className="field-select"
+            aria-describedby={describedBy}
+            aria-invalid={error ? 'true' : undefined}
             value={String(value ?? '')}
             onChange={(e) => onChange(e.target.value)}
           >
@@ -230,13 +966,33 @@ function FieldRenderer({
             ))}
           </select>
           {helpEl}
+          {errorEl}
         </div>
       );
     case 'toggle':
       return (
-        <div>
-          {labelEl}
-          <div className="flex" role="group" data-testid={`field-${field.name}`}>
+        <fieldset
+          className="m-0 min-w-0 border-0 p-0"
+          aria-describedby={describedBy}
+          data-testid={`field-${field.name}-fieldset`}
+        >
+          <legend
+            id={`${fieldId}-legend`}
+            className="field-label"
+            data-testid={`field-label-${field.name}`}
+          >
+            {field.label}
+            {field.unit ? <span className="ml-1 text-ink-400 normal-case">({field.unit})</span> : null}
+          </legend>
+          <div
+            id={fieldId}
+            className="flex"
+            role="group"
+            aria-labelledby={`${fieldId}-legend`}
+            aria-describedby={describedBy}
+            aria-invalid={error ? 'true' : undefined}
+            data-testid={`field-${field.name}`}
+          >
             {field.options?.map((opt) => (
               <button
                 key={opt.value}
@@ -251,38 +1007,47 @@ function FieldRenderer({
             ))}
           </div>
           {helpEl}
-        </div>
+          {errorEl}
+        </fieldset>
       );
     case 'date':
       return (
         <div>
           {labelEl}
           <input
-            id={`f-${field.name}`}
+            id={fieldId}
             data-testid={`field-${field.name}`}
             type="date"
             className="field-input font-mono"
+            aria-describedby={describedBy}
+            aria-invalid={error ? 'true' : undefined}
             value={String(value ?? '')}
             onChange={(e) => onChange(e.target.value)}
           />
           {helpEl}
+          {errorEl}
         </div>
       );
     case 'checkbox':
       return (
-        <div className="flex items-start gap-2">
+        <div>
+          <div className="flex items-start gap-2">
           <input
-            id={`f-${field.name}`}
+            id={fieldId}
             data-testid={`field-${field.name}`}
             type="checkbox"
             className="mt-1 h-4 w-4 accent-accent"
+            aria-describedby={describedBy}
+            aria-invalid={error ? 'true' : undefined}
             checked={Boolean(value)}
             onChange={(e) => onChange(e.target.checked)}
           />
-          <label htmlFor={`f-${field.name}`} className="text-sm text-ink-900 leading-tight">
+          <label htmlFor={fieldId} className="text-sm text-ink-900 leading-tight">
             {field.label}
-            {field.help && <span className="block mt-0.5 text-xs text-ink-500">{field.help}</span>}
+            {helpText && <span id={helpId} className="block mt-0.5 text-xs text-ink-500">{helpText}</span>}
           </label>
+          </div>
+          {errorEl}
         </div>
       );
     case 'textarea':
@@ -290,15 +1055,18 @@ function FieldRenderer({
         <div>
           {labelEl}
           <textarea
-            id={`f-${field.name}`}
+            id={fieldId}
             data-testid={`field-${field.name}`}
             className="field-textarea"
+            aria-describedby={describedBy}
+            aria-invalid={error ? 'true' : undefined}
             rows={3}
             placeholder={field.placeholder}
             value={String(value ?? '')}
             onChange={(e) => onChange(e.target.value)}
           />
           {helpEl}
+          {errorEl}
         </div>
       );
     default:
@@ -306,18 +1074,35 @@ function FieldRenderer({
   }
 }
 
-export default function CalculatorIsland({ calc }: Props) {
+export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
+  const copy = calculatorCopy(locale);
   const runner = useMemo(() => runners[calc.id], [calc.id]);
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const resultRegionRef = useRef<HTMLDivElement | null>(null);
   const [values, setValues] = useState<FormValues>(() => buildInitialValues(calc.fields));
   const [result, setResult] = useState<CalcResult | null>(null);
   const [copied, setCopied] = useState(false);
+  const [copiedResult, setCopiedResult] = useState(false);
+  const [urlRestored, setUrlRestored] = useState(false);
+
+  const validationErrors = useMemo(
+    () => validateValues(calc.fields, values, locale),
+    [calc.fields, values, locale],
+  );
+  const validationErrorEntries = useMemo(
+    () => Object.entries(validationErrors),
+    [validationErrors],
+  );
+  const hasValidationErrors = validationErrorEntries.length > 0;
 
   // При монтировании пробуем восстановить значения из URL-параметров
   // (нужно делать в useEffect, т.к. island гидрируется на клиенте и
   // первоначальный SSR-рендер не должен отличаться).
   useEffect(() => {
+    setUrlRestored(false);
     const restored = readValuesFromUrl(calc.fields, buildInitialValues(calc.fields));
     setValues(restored);
+    setUrlRestored(true);
     // запускаем один раз для текущего калькулятора
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [calc.id]);
@@ -327,32 +1112,91 @@ export default function CalculatorIsland({ calc }: Props) {
     if (!runner) return;
     const id = setTimeout(() => {
       try {
+        const errors = validateValues(calc.fields, values, locale);
+        if (Object.keys(errors).length > 0) {
+          setResult(null);
+          return;
+        }
         setResult(runner(values));
       } catch {
         setResult(null);
       }
     }, 80);
     return () => clearTimeout(id);
-  }, [values, runner]);
+  }, [values, runner, calc.fields, locale]);
 
   // Синхронизация значений с URL (без перезагрузки страницы).
   // Пустые/дефолтные значения в строку не попадают — URL остаётся чистым.
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined' || !urlRestored) return;
     const qs = buildQueryString(calc.fields, values);
     const newUrl = window.location.pathname + qs + window.location.hash;
     if (newUrl !== window.location.pathname + window.location.search + window.location.hash) {
       window.history.replaceState(null, '', newUrl);
     }
-  }, [values, calc.fields]);
+  }, [values, calc.fields, urlRestored]);
+
+  const focusFirstInvalidField = () => {
+    if (typeof window === 'undefined') return;
+    const firstInvalidField = validationErrorEntries[0]?.[0];
+    if (!firstInvalidField) return;
+
+    window.requestAnimationFrame(() => {
+      document.getElementById(`f-${firstInvalidField}`)?.focus();
+    });
+  };
+
+  const focusResultPanel = () => {
+    if (typeof window === 'undefined') return;
+
+    window.requestAnimationFrame(() => {
+      const resultRegion = resultRegionRef.current;
+      if (!resultRegion) return;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      resultRegion.scrollIntoView({
+        block: 'start',
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      });
+      resultRegion.focus({ preventScroll: true });
+    });
+  };
+
+  const focusFormPanel = () => {
+    if (typeof window === 'undefined') return;
+
+    window.requestAnimationFrame(() => {
+      const form = formRef.current;
+      if (!form) return;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      form.scrollIntoView({
+        block: 'start',
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      });
+      const firstFocusable = form.querySelector<HTMLElement>(
+        'input:not([type="hidden"]), select, textarea, button',
+      );
+      firstFocusable?.focus({ preventScroll: true });
+    });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (runner) setResult(runner(values));
+    if (hasValidationErrors) {
+      focusFirstInvalidField();
+      return;
+    }
+    if (runner) {
+      setResult(runner(values));
+      focusResultPanel();
+    }
   };
 
   const reset = () => {
     setValues(buildInitialValues(calc.fields));
+    setCopied(false);
+    setCopiedResult(false);
     if (typeof window !== 'undefined') {
       window.history.replaceState(null, '', window.location.pathname + window.location.hash);
     }
@@ -361,24 +1205,7 @@ export default function CalculatorIsland({ calc }: Props) {
   const copyShareLink = async () => {
     if (typeof window === 'undefined') return;
     const qs = buildQueryString(calc.fields, values);
-    const url = window.location.origin + window.location.pathname + qs;
-
-    const fallbackCopy = (text: string): boolean => {
-      try {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        ta.setAttribute('readonly', '');
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.select();
-        const ok = document.execCommand('copy');
-        document.body.removeChild(ta);
-        return ok;
-      } catch {
-        return false;
-      }
-    };
+    const url = window.location.origin + window.location.pathname + qs + '#calculator';
 
     let ok = false;
     try {
@@ -398,19 +1225,64 @@ export default function CalculatorIsland({ calc }: Props) {
     }
   };
 
+  const copyResult = async () => {
+    if (typeof window === 'undefined' || !result) return;
+    const text = resultToText(calc, localizeResult(result, locale), locale);
+    let ok = false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        ok = true;
+      } else {
+        ok = fallbackCopy(text);
+      }
+    } catch {
+      ok = fallbackCopy(text);
+    }
+
+    if (ok) {
+      setCopiedResult(true);
+      window.setTimeout(() => setCopiedResult(false), 1800);
+    }
+  };
+
+  const printResult = () => {
+    if (typeof window === 'undefined') return;
+    window.print();
+  };
+
+  const visibleFields = calc.fields.filter((f) => isVisible(f, values));
+  const displayResult = result ? localizeResult(result, locale) : null;
+
   return (
     <div className="grid gap-8 lg:grid-cols-5" data-testid={`calculator-island-${calc.id}`}>
       <form
+        ref={formRef}
         className="lg:col-span-3 border border-ink-900 bg-white p-6 sm:p-8"
         onSubmit={handleSubmit}
         data-testid="calc-form"
       >
+        <div
+          className="mb-6 flex items-start justify-between gap-4 border-b border-ink-200 pb-5"
+          data-testid="calc-form-header"
+        >
+          <div className="min-w-0">
+            <div className="text-xs uppercase tracking-wider text-ink-500">{copy.inputs}</div>
+            <h2 className="mt-1 text-xl font-semibold tracking-tight text-ink-900">{calc.name}</h2>
+          </div>
+          <div className="shrink-0 border border-ink-200 px-2.5 py-1 font-mono text-xs text-ink-600">
+            {copy.fieldCounter(visibleFields.length)}
+          </div>
+        </div>
+
         <div className="grid gap-5 sm:grid-cols-2">
-          {calc.fields.filter((f) => isVisible(f, values)).map((f) => (
+          {visibleFields.map((f) => (
             <div key={f.name} className={f.type === 'textarea' ? 'sm:col-span-2' : ''}>
               <FieldRenderer
                 field={f}
                 value={values[f.name] as string | number | boolean}
+                error={validationErrors[f.name]}
+                locale={locale}
                 onChange={(next) =>
                   setValues((prev) => ({ ...prev, [f.name]: next }))
                 }
@@ -420,22 +1292,28 @@ export default function CalculatorIsland({ calc }: Props) {
         </div>
 
         <div className="mt-7 flex items-center gap-3 flex-wrap">
-          <button type="submit" className="btn-primary" data-testid="calc-submit-btn">
-            Рассчитать
+          <button
+            type="submit"
+            className="btn-primary w-full sm:w-auto"
+            data-testid="calc-submit-btn"
+            aria-disabled={hasValidationErrors}
+          >
+            {copy.calculate}
           </button>
           <button
             type="button"
             onClick={reset}
-            className="text-sm text-ink-500 underline-offset-4 hover:underline hover:text-ink-900"
+            className="inline-flex w-full items-center justify-center gap-1.5 text-sm text-ink-500 underline-offset-4 hover:underline hover:text-ink-900 sm:w-auto sm:justify-start"
             data-testid="calc-reset-btn"
           >
-            Сбросить
+            <RotateCcw size={14} aria-hidden="true" />
+            {copy.reset}
           </button>
           <button
             type="button"
             onClick={copyShareLink}
             className={[
-              'ml-auto inline-flex items-center gap-2 border px-3 py-2 text-sm transition-colors',
+              'inline-flex w-full items-center justify-center gap-2 border px-3 py-2 text-sm transition-colors sm:ml-auto sm:w-auto',
               copied
                 ? 'border-emerald-700 text-emerald-700 bg-emerald-50'
                 : 'border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-white',
@@ -445,22 +1323,46 @@ export default function CalculatorIsland({ calc }: Props) {
           >
             {copied ? (
               <>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                Ссылка скопирована
+                <Check size={14} aria-hidden="true" />
+                {copy.linkCopied}
               </>
             ) : (
               <>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5" />
-                  <path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5" />
-                </svg>
-                Скопировать ссылку
+                <Link2 size={14} aria-hidden="true" />
+                {copy.copyLink}
               </>
             )}
           </button>
         </div>
+
+        {hasValidationErrors && (
+          <div
+            className="mt-5 flex gap-3 border border-accent bg-accent-50 p-4 text-sm text-ink-900"
+            role="status"
+            data-testid="calc-validation"
+          >
+            <AlertCircle size={18} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
+            <div>
+              <div className="font-medium">{copy.checkValues}</div>
+              <ul className="mt-1 list-disc pl-4 text-ink-700">
+                {validationErrorEntries.map(([fieldName, error]) => {
+                  const fieldLabel = calc.fields.find((field) => field.name === fieldName)?.label ?? fieldName;
+                  return (
+                    <li key={fieldName}>
+                      <a
+                        href={`#f-${fieldName}`}
+                        className="underline underline-offset-4 hover:text-accent"
+                      >
+                        {fieldLabel}
+                      </a>
+                      : {error}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        )}
 
         {calc.disclaimer && (
           <p className="mt-6 text-xs text-ink-500 leading-relaxed border-t border-ink-200 pt-4">
@@ -469,12 +1371,53 @@ export default function CalculatorIsland({ calc }: Props) {
         )}
       </form>
 
-      <div className="lg:col-span-2 lg:sticky lg:top-6 self-start" data-testid="calc-result-wrap">
-        {result ? (
-          <ResultBlock result={result} />
+      <div
+        ref={resultRegionRef}
+        className="min-w-0 lg:col-span-2 lg:sticky lg:top-6 self-start focus:outline-none"
+        data-testid="calc-result-wrap"
+        tabIndex={-1}
+        aria-labelledby="calc-result-title"
+      >
+        <div
+          className="mb-3 flex items-center justify-between gap-3 text-xs uppercase tracking-wider text-ink-500 print-hide"
+          data-testid="calc-result-heading"
+        >
+          <span id="calc-result-title">{copy.result}</span>
+          <span className="font-mono text-[11px] text-ink-400">{calc.id}</span>
+        </div>
+        {displayResult ? (
+          <ResultBlock
+            result={displayResult}
+            onCopy={copyResult}
+            onEdit={focusFormPanel}
+            onPrint={printResult}
+            copied={copiedResult}
+            locale={locale}
+          />
+        ) : hasValidationErrors ? (
+          <div
+            className="border border-accent bg-accent-50 p-8 text-sm text-ink-700"
+            data-testid="calc-result-invalid"
+          >
+            <div className="flex items-center gap-2 font-medium text-ink-900">
+              <AlertCircle size={18} className="text-accent" aria-hidden="true" />
+              {copy.unavailableTitle}
+            </div>
+            <p className="mt-3 leading-relaxed">
+              {copy.unavailableText}
+            </p>
+          </div>
         ) : (
-          <div className="border border-dashed border-ink-300 p-8 text-center text-sm text-ink-500">
-            Заполните поля — результат появится здесь автоматически.
+          <div
+            className="border border-dashed border-ink-300 bg-ink-50 p-8 text-center text-sm text-ink-500"
+            data-testid="calc-result-empty"
+          >
+            <div className="mx-auto flex h-12 w-12 items-center justify-center border border-ink-300 bg-white text-ink-700">
+              <CalculatorIcon size={21} aria-hidden="true" />
+            </div>
+            <p className="mt-4 leading-relaxed">
+              {copy.emptyText}
+            </p>
           </div>
         )}
       </div>

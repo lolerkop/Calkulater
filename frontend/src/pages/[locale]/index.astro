@@ -1,0 +1,375 @@
+---
+import Layout from '../../components/Layout.astro';
+import CategoryCard from '../../components/CategoryCard.astro';
+import CalculatorCard from '../../components/CalculatorCard.astro';
+import SearchBox from '../../components/islands/SearchBox';
+import {
+  getAlternatesForPage,
+  getCalculators,
+  getCalculatorsByCategory,
+  getCategories,
+  getNewCalculators,
+  getPopularCalculators,
+  isLocale,
+  localeCatalog,
+  localeMeta,
+  locales,
+  ui,
+  type Locale,
+} from '../../lib/i18n';
+import {
+  collectionPageJsonLd,
+  itemListJsonLd,
+  organizationJsonLd,
+  websiteJsonLdForLocale,
+} from '../../lib/seo';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+const locale = (Astro.props.locale ?? 'ru') as Locale;
+if (!isLocale(locale)) return Astro.redirect('/404');
+
+const copy = ui[locale];
+const meta = localeMeta[locale];
+const categories = getCategories(locale);
+const calculators = getCalculators(locale);
+const popularCalculators = getPopularCalculators(locale);
+const newCalculators = getNewCalculators(locale);
+const alternates = getAlternatesForPage(Object.fromEntries(locales.map((locale) => [locale, `/${locale}/`])));
+const homeText: Record<Locale, {
+  title: string;
+  eyebrowCalculators: string;
+  eyebrowCategories: string;
+  h1Top: string;
+  h1Middle: string;
+  h1Accent: string;
+  chooseCategory: string;
+}> = {
+  ru: {
+    title: 'Онлайн-калькуляторы — финансы, валюты, спорт, ремонт',
+    eyebrowCalculators: 'калькуляторов',
+    eyebrowCategories: 'категорий',
+    h1Top: 'Онлайн-калькуляторы',
+    h1Middle: 'для повседневных',
+    h1Accent: 'расчетов',
+    chooseCategory: 'Выбрать категорию',
+  },
+  en: {
+    title: 'Online calculators — finance, currency, fitness and home improvement',
+    eyebrowCalculators: 'calculators',
+    eyebrowCategories: 'categories',
+    h1Top: 'Online calculators',
+    h1Middle: 'for everyday',
+    h1Accent: 'decisions',
+    chooseCategory: 'Choose category',
+  },
+  es: {
+    title: 'Calculadoras online — finanzas, divisas, fitness y reformas',
+    eyebrowCalculators: 'calculadoras',
+    eyebrowCategories: 'categorías',
+    h1Top: 'Calculadoras online',
+    h1Middle: 'para decisiones',
+    h1Accent: 'cotidianas',
+    chooseCategory: 'Elegir categoría',
+  },
+  de: {
+    title: 'Online-Rechner — Finanzen, Währungen, Fitness und Heimwerken',
+    eyebrowCalculators: 'Rechner',
+    eyebrowCategories: 'Kategorien',
+    h1Top: 'Online-Rechner',
+    h1Middle: 'für alltägliche',
+    h1Accent: 'Entscheidungen',
+    chooseCategory: 'Kategorie wählen',
+  },
+  fr: {
+    title: 'Calculatrices en ligne - finances, devises, forme et travaux',
+    eyebrowCalculators: 'calculatrices',
+    eyebrowCategories: 'catégories',
+    h1Top: 'Calculatrices en ligne',
+    h1Middle: 'pour les décisions',
+    h1Accent: 'du quotidien',
+    chooseCategory: 'Choisir une catégorie',
+  },
+  pt: {
+    title: 'Calculadoras online - finanças, moedas, fitness e casa',
+    eyebrowCalculators: 'calculadoras',
+    eyebrowCategories: 'categorias',
+    h1Top: 'Calculadoras online',
+    h1Middle: 'para decisões',
+    h1Accent: 'do dia a dia',
+    chooseCategory: 'Escolher categoria',
+  },
+  it: {
+    title: 'Calcolatori online - finanza, valute, fitness e casa',
+    eyebrowCalculators: 'calcolatori',
+    eyebrowCategories: 'categorie',
+    h1Top: 'Calcolatori online',
+    h1Middle: 'per decisioni',
+    h1Accent: 'quotidiane',
+    chooseCategory: 'Scegli categoria',
+  },
+  pl: {
+    title: 'Kalkulatory online - finanse, waluty, fitness i remont',
+    eyebrowCalculators: 'kalkulatory',
+    eyebrowCategories: 'kategorie',
+    h1Top: 'Kalkulatory online',
+    h1Middle: 'do codziennych',
+    h1Accent: 'decyzji',
+    chooseCategory: 'Wybierz kategorie',
+  },
+  nl: {
+    title: 'Online rekentools - finance, valuta, fitness en klussen',
+    eyebrowCalculators: 'rekentools',
+    eyebrowCategories: 'categorieen',
+    h1Top: 'Online rekentools',
+    h1Middle: 'voor dagelijkse',
+    h1Accent: 'keuzes',
+    chooseCategory: 'Kies categorie',
+  },
+  ro: {
+    title: 'Calculatoare online - finante, valute, fitness si renovari',
+    eyebrowCalculators: 'calculatoare',
+    eyebrowCategories: 'categorii',
+    h1Top: 'Calculatoare online',
+    h1Middle: 'pentru decizii',
+    h1Accent: 'zilnice',
+    chooseCategory: 'Alege categoria',
+  },
+  id: {
+    title: 'Kalkulator online - keuangan, mata uang, fitness, dan renovasi',
+    eyebrowCalculators: 'kalkulator',
+    eyebrowCategories: 'kategori',
+    h1Top: 'Kalkulator online',
+    h1Middle: 'untuk keputusan',
+    h1Accent: 'harian',
+    chooseCategory: 'Pilih kategori',
+  },
+  tr: {
+    title: 'Online hesaplayıcılar - finans, döviz, fitness ve tadilat',
+    eyebrowCalculators: 'hesaplayıcı',
+    eyebrowCategories: 'kategori',
+    h1Top: 'Online hesaplayıcılar',
+    h1Middle: 'günlük kararlar',
+    h1Accent: 'için',
+    chooseCategory: 'Kategori seç',
+  },
+  vi: {
+    title: 'Máy tính online - tài chính, tiền tệ, fitness và sửa nhà',
+    eyebrowCalculators: 'máy tính',
+    eyebrowCategories: 'danh mục',
+    h1Top: 'Máy tính online',
+    h1Middle: 'cho quyết định',
+    h1Accent: 'hằng ngày',
+    chooseCategory: 'Chọn danh mục',
+  },
+  cs: {
+    title: 'Online kalkulačky - finance, měny, fitness a rekonstrukce',
+    eyebrowCalculators: 'kalkulaček',
+    eyebrowCategories: 'kategorií',
+    h1Top: 'Online kalkulačky',
+    h1Middle: 'pro každodenní',
+    h1Accent: 'rozhodnutí',
+    chooseCategory: 'Vybrat kategorii',
+  },
+  uk: {
+    title: 'Онлайн-калькулятори - фінанси, валюти, фітнес і ремонт',
+    eyebrowCalculators: 'калькуляторів',
+    eyebrowCategories: 'категорій',
+    h1Top: 'Онлайн-калькулятори',
+    h1Middle: 'для щоденних',
+    h1Accent: 'рішень',
+    chooseCategory: 'Вибрати категорію',
+  },
+  sk: {
+    title: 'Online kalkulačky - financie, meny, fitness a rekonštrukcie',
+    eyebrowCalculators: 'kalkulačiek',
+    eyebrowCategories: 'kategórií',
+    h1Top: 'Online kalkulačky',
+    h1Middle: 'pre každodenné',
+    h1Accent: 'rozhodnutia',
+    chooseCategory: 'Vybrať kategóriu',
+  },
+  hu: {
+    title: 'Online kalkulátorok - pénzügyek, valuták, fitness és felújítás',
+    eyebrowCalculators: 'kalkulátor',
+    eyebrowCategories: 'kategória',
+    h1Top: 'Online kalkulátorok',
+    h1Middle: 'mindennapi',
+    h1Accent: 'döntésekhez',
+    chooseCategory: 'Kategória választása',
+  },
+};
+const title = homeText[locale].title;
+const description = meta.description;
+
+const allCalculatorItems = calculators.map((calculator) => ({
+  name: calculator.name,
+  description: calculator.shortDescription,
+  path: calculator.fullPath,
+}));
+
+const jsonLd = [
+  websiteJsonLdForLocale(locale),
+  organizationJsonLd(),
+  collectionPageJsonLd({
+    name: meta.fullName,
+    description,
+    path: `/${locale}/`,
+    items: allCalculatorItems,
+    locale,
+  }),
+  itemListJsonLd({
+    name: copy.allCalculators,
+    path: `/${locale}/`,
+    items: allCalculatorItems,
+  }),
+];
+
+const searchData = calculators.map((calculator) => ({
+  id: calculator.id,
+  name: calculator.name,
+  shortDescription: calculator.shortDescription,
+  fullPath: calculator.fullPath,
+  keywords: calculator.keywords,
+  category: calculator.category,
+  categoryName: categories.find((category) => category.id === calculator.category)?.name ?? calculator.category,
+  popularity: calculator.popularity,
+  isNew: calculator.isNew,
+}));
+
+const categoryStats = categories.map((category) => ({
+  category,
+  count: getCalculatorsByCategory(category.id, locale).length,
+}));
+
+const featuredCategoryCalculators = Object.fromEntries(
+  categories.map((category) => [
+    category.id,
+    getCalculatorsByCategory(category.id, locale)
+      .slice()
+      .sort((a, b) => b.popularity - a.popularity)
+      .slice(0, 3),
+  ]),
+);
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical={`/${locale}/`}
+  locale={locale}
+  alternates={alternates}
+  jsonLd={jsonLd}
+>
+  <section class="border-b border-ink-900" data-testid="home-hero">
+    <div class="mx-auto max-w-page px-5 sm:px-8 pt-14 pb-12 sm:pt-20 sm:pb-16">
+      <div class="grid gap-8 items-end lg:grid-cols-12">
+        <div class="lg:col-span-8">
+          <div class="mb-5 flex items-center gap-3 text-xs uppercase tracking-wider text-ink-500">
+            <span class="inline-block h-px w-6 bg-ink-900"></span>
+            <span>{calculators.length} {homeText[locale].eyebrowCalculators} · {categories.length} {homeText[locale].eyebrowCategories}</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tightest text-ink-900 leading-[1.05]" data-testid="home-h1">
+            <>
+              <span>{homeText[locale].h1Top} </span><br />
+              <span>{homeText[locale].h1Middle} <span class="text-accent">{homeText[locale].h1Accent}</span>.</span>
+            </>
+          </h1>
+          <p class="mt-5 max-w-2xl text-base sm:text-lg text-ink-500 leading-relaxed">
+            {description}
+          </p>
+
+          <div class="mt-7 flex flex-wrap gap-3" data-testid="home-hero-actions">
+            <a href={localeCatalog(locale)} class="inline-flex items-center justify-center border border-ink-900 bg-ink-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-ink-900">
+              {copy.allCalculators}
+            </a>
+            <a href="#categories" class="inline-flex items-center justify-center border border-ink-900 px-4 py-3 text-sm font-semibold text-ink-900 transition-colors hover:bg-ink-50">
+              {homeText[locale].chooseCategory}
+            </a>
+          </div>
+
+          <div class="mt-8 grid gap-2 sm:grid-cols-2 lg:max-w-2xl" data-testid="home-quick-links">
+            {popularCalculators.slice(0, 4).map((calculator) => (
+              <a href={calculator.fullPath} class="group flex items-center justify-between gap-3 border border-ink-200 bg-white px-3 py-2.5 text-sm transition-colors hover:border-ink-900 hover:bg-ink-50">
+                <span class="font-medium text-ink-900 group-hover:text-accent">{calculator.name}</span>
+                <span class="font-mono text-xs text-ink-400">→</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <div class="border border-ink-900 bg-white p-5" data-testid="home-search-panel">
+            <div class="mb-2 text-xs uppercase tracking-wider text-ink-500">{copy.search}</div>
+            <SearchBox calculators={searchData} locale={locale} client:load />
+
+            <div class="mt-5 grid grid-cols-2 gap-2" data-testid="home-category-stats">
+              {categoryStats.map(({ category, count }) => (
+                <a href={`/${locale}/${category.slug}/`} class="border border-ink-200 px-3 py-2 transition-colors hover:border-ink-900 hover:bg-ink-50">
+                  <div class="font-mono text-sm text-ink-900">{count}</div>
+                  <div class="mt-0.5 text-xs text-ink-500">{category.name}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="categories" class="border-b border-ink-900" data-testid="home-categories">
+    <div class="mx-auto max-w-page px-5 sm:px-8 py-14">
+      <div class="mb-8 flex items-end justify-between">
+        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900">{copy.categories}</h2>
+        <span class="hidden font-mono text-xs text-ink-500 sm:block">/ {copy.allCalculators}</span>
+      </div>
+      <div class="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {categories.map((category, index) => (
+          <CategoryCard
+            category={category}
+            count={getCalculatorsByCategory(category.id, locale).length}
+            index={index}
+            featuredCalculators={featuredCategoryCalculators[category.id]}
+            locale={locale}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {newCalculators.length > 0 && (
+    <section class="border-b border-ink-900" data-testid="home-new">
+      <div class="mx-auto max-w-page px-5 sm:px-8 py-14">
+        <div class="mb-8 flex items-end justify-between gap-6">
+          <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900">{copy.newest}</h2>
+          <a href={`${localeCatalog(locale)}?tag=new`} class="text-sm font-medium text-accent underline-offset-4 hover:underline">
+            {copy.allCalculators}
+          </a>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {newCalculators.slice(0, 3).map((calculator) => (
+            <CalculatorCard calc={calculator} locale={locale} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section data-testid="home-popular">
+    <div class="mx-auto max-w-page px-5 sm:px-8 py-14">
+      <div class="mb-8 flex items-end justify-between gap-6">
+        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-ink-900">{copy.popular}</h2>
+        <a href={localeCatalog(locale)} class="text-sm font-medium text-accent underline-offset-4 hover:underline">
+          {copy.allCalculators}
+        </a>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {popularCalculators.slice(0, 6).map((calculator) => (
+          <CalculatorCard calc={calculator} locale={locale} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

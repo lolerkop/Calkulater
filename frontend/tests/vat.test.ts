@@ -26,6 +26,13 @@ describe('vat: выделить НДС из суммы', () => {
 });
 
 describe('vat: начислить НДС сверху', () => {
+  it('defaults to 22% when rate is empty', () => {
+    const r = calcVat({ amount: 100_000, operation: 'add' });
+    expect(norm(r.primary.value)).toContain('22 000');
+    const gross = r.secondary.find((s) => s.label === 'Сумма с НДС');
+    expect(norm(gross?.value || '')).toContain('122 000');
+  });
+
   it('к 100 000 ₽ при ставке 20% добавляет 20 000 ₽', () => {
     const r = calcVat({ amount: 100_000, rate: 20, operation: 'add' });
     expect(norm(r.primary.value)).toContain('20 000');

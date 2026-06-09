@@ -4,8 +4,16 @@
 // Если ID пустые — ничего не рендерим (без заглушек).
 import { SITE } from '../config/site';
 
-const gaId = SITE.gaId;
-const ymId = SITE.ymId;
+function isValidGaId(value: string): boolean {
+  return /^G-[A-Z0-9]{6,}$/i.test(value) && !/^G-X+$/i.test(value);
+}
+
+function isValidYmId(value: string): boolean {
+  return /^\d{5,12}$/.test(value) && value !== '12345678' && !/^0+$/.test(value);
+}
+
+const gaId = isValidGaId(SITE.gaId) ? SITE.gaId : '';
+const ymId = isValidYmId(SITE.ymId) ? SITE.ymId : '';
 ---
 
 {gaId && (

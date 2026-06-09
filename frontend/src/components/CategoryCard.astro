@@ -1,25 +1,49 @@
 ---
-import type { Category } from '../lib/types';
+import type { CalculatorDef, Category } from '../lib/types';
+import { ui, type Locale } from '../lib/i18n';
 
 interface Props {
   category: Category;
   count: number;
   index: number;
+  featuredCalculators?: Pick<CalculatorDef, 'name' | 'fullPath'>[];
+  locale?: Locale;
 }
 
-const { category, count, index } = Astro.props;
+const { category, count, index, featuredCalculators = [], locale = 'ru' } = Astro.props;
+const copy = ui[locale];
+const categoryCardCopy = {
+  ru: { countLabel: 'калк.', inside: 'Внутри раздела' },
+  en: { countLabel: 'tools', inside: 'Inside' },
+  es: { countLabel: 'herr.', inside: 'Dentro' },
+  de: { countLabel: 'Tools', inside: 'Im Bereich' },
+  fr: { countLabel: 'outils', inside: 'Dans la section' },
+  pt: { countLabel: 'ferr.', inside: 'Na secção' },
+  it: { countLabel: 'strumenti', inside: 'Nella sezione' },
+  pl: { countLabel: 'narz.', inside: 'W sekcji' },
+  nl: { countLabel: 'tools', inside: 'In deze sectie' },
+  ro: { countLabel: 'calc.', inside: 'In sectiune' },
+  id: { countLabel: 'alat', inside: 'Di bagian ini' },
+  tr: { countLabel: 'araç', inside: 'Bu bölümde' },
+  vi: { countLabel: 'công cụ', inside: 'Trong mục này' },
+  cs: { countLabel: 'nástrojů', inside: 'V této sekci' },
+  uk: { countLabel: 'інстр.', inside: 'У цьому розділі' },
+  sk: { countLabel: 'nástrojov', inside: 'V tejto sekcii' },
+  hu: { countLabel: 'eszköz', inside: 'Ebben a részben' },
+}[locale];
 const num = String(index + 1).padStart(2, '0');
+const featured = featuredCalculators.slice(0, 3);
 ---
 
 <a
-  href={`/${category.slug}/`}
-  class="group block border border-ink-900 p-6 bg-white hover:bg-ink-900 transition-colors"
+  href={`/${locale}/${category.slug}/`}
+  class="group flex min-h-[260px] flex-col border border-ink-900 p-6 bg-white hover:bg-ink-900 transition-colors"
   data-testid={`category-card-${category.slug}`}
 >
   <div class="flex items-start justify-between">
     <span class="font-mono text-xs text-ink-500 group-hover:text-ink-300">{num}</span>
     <span class="text-xs uppercase tracking-wider text-ink-500 group-hover:text-ink-300">
-      {count} калк.
+      {count} {categoryCardCopy.countLabel}
     </span>
   </div>
   <h3 class="mt-6 text-xl font-semibold text-ink-900 group-hover:text-white transition-colors">
@@ -28,8 +52,25 @@ const num = String(index + 1).padStart(2, '0');
   <p class="mt-2 text-sm text-ink-500 group-hover:text-ink-300 leading-relaxed line-clamp-3">
     {category.description}
   </p>
-  <div class="mt-6 flex items-center gap-2 text-sm font-medium text-accent">
-    Открыть
+
+  {featured.length > 0 ? (
+    <div class="mt-5 border-t border-ink-200 pt-4 group-hover:border-ink-700" data-testid="category-card-featured">
+      <div class="text-[10px] uppercase tracking-wider text-ink-400 group-hover:text-ink-300">
+        {categoryCardCopy.inside}
+      </div>
+      <ul class="mt-2 space-y-1.5">
+        {featured.map((calc) => (
+          <li class="flex items-center gap-2 text-xs text-ink-600 group-hover:text-ink-200">
+            <span aria-hidden="true" class="font-mono text-ink-400 group-hover:text-ink-300">/</span>
+            <span class="line-clamp-1">{calc.name}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ) : null}
+
+  <div class="mt-auto flex items-center gap-2 pt-6 text-sm font-medium text-accent">
+    {copy.open}
     <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
   </div>
 </a>

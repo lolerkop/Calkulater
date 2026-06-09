@@ -12,9 +12,24 @@ export const calcPercent: CalcFunction = (inputs) => {
   const a = toNumber(inputs.a);
   const b = toNumber(inputs.b);
 
+  const modeLabels: Record<string, string> = {
+    of: 'Процент от числа',
+    what: 'Часть от целого',
+    addPct: 'Прибавить процент',
+    subPct: 'Вычесть процент',
+    change: 'Процентное изменение',
+  };
+
+  const secondary = (hint?: string) => [
+    { label: 'Режим', value: modeLabels[mode] ?? 'Проценты' },
+    { label: 'Значение A', value: fmtNumber(a, 2) },
+    { label: 'Значение B', value: fmtNumber(b, 2) },
+    ...(hint ? [{ label: 'Подсказка', value: hint }] : []),
+  ];
+
   const result = (label: string, value: number, hint?: string) => ({
     primary: { label, value: fmtNumber(value, 2) },
-    secondary: hint ? [{ label: 'Подсказка', value: hint }] : [],
+    secondary: secondary(hint),
   });
 
   switch (mode) {
@@ -34,7 +49,7 @@ export const calcPercent: CalcFunction = (inputs) => {
       const v = (a / b) * 100;
       return {
         primary: { label: `${fmtNumber(a, 2)} от ${fmtNumber(b, 2)}`, value: `${fmtNumber(v, 2)}%` },
-        secondary: [],
+        secondary: secondary(),
       };
     }
     case 'addPct': {
@@ -59,6 +74,7 @@ export const calcPercent: CalcFunction = (inputs) => {
       return {
         primary: { label: 'Изменение', value: `${v >= 0 ? '+' : ''}${fmtNumber(v, 2)}%` },
         secondary: [
+          ...secondary(),
           { label: 'Абсолютная разница', value: fmtNumber(b - a, 2) },
         ],
       };
