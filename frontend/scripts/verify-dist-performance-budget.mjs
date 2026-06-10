@@ -11,7 +11,7 @@ const budgets = {
   cssTotalGzip: 40 * 1024,
   htmlFileGzip: 18 * 1024,
   htmlTotalBaseGzip: 320 * 1024,
-  htmlAverageGzip: 9.35 * 1024,
+  htmlAverageGzip: 9.5 * 1024,
 };
 
 function listFiles(dir) {

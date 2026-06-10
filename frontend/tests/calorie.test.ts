@@ -11,6 +11,14 @@ describe('calorie: calcCalorie', () => {
     expect(r.secondary.find((s) => s.label === 'Базовый обмен (BMR)')?.value).toMatch(/1[\s\u00A0\u202F]?780/);
   });
 
+  it('применяет пользовательский процент дефицита и распределение макронутриентов', () => {
+    const maintain = calcCalorie({ gender: 'male', age: 30, height: 180, weight: 80, activity: 1.55, goal: 'maintain' });
+    const lose = calcCalorie({ gender: 'male', age: 30, height: 180, weight: 80, activity: 1.55, goal: 'lose', goalAdjustment: 20, proteinPct: 35, fatPct: 25 });
+    const number = (value: string) => Number(value.replace(/\D/g, ''));
+    expect(number(lose.primary.value)).toBeCloseTo(number(maintain.primary.value) * 0.8, -1);
+    expect(lose.secondary.find((s) => s.label === 'Белки')).toBeDefined();
+  });
+
   it('для женщины формула с -161', () => {
     // Ж, 25, 165, 60, 1.2 → BMR = 600 + 1031.25 - 125 - 161 = 1345.25
     const r = calcCalorie({ gender: 'female', age: 25, height: 165, weight: 60, activity: 1.2, goal: 'maintain' });

@@ -29,6 +29,19 @@ describe('paint: calcPaint', () => {
     expect(r.secondary.find((s) => s.label === 'Площадь окрашивания')?.value).toMatch(/48,60/);
   });
 
+  it('показывает отдельно заданный запас и остаток из-за целых банок', () => {
+    const r = calcPaint({
+      mode: 'manual',
+      area: 50,
+      coats: 2,
+      consumption: 0.1,
+      canVolume: 3,
+      reserve: 10,
+    });
+    expect(r.secondary.find((s) => s.label === 'Заданный запас')?.value).toContain('10,0');
+    expect(r.secondary.find((s) => s.label === 'Остаток из-за целых банок')).toBeDefined();
+  });
+
   it('ошибка при нулевых данных', () => {
     expect(calcPaint({ mode: 'manual', area: 0, coats: 1, consumption: 0, canVolume: 0 }).primary.value).toBe('—');
   });

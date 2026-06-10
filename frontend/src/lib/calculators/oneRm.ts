@@ -20,6 +20,9 @@ export const calcOneRm: CalcFunction = (inputs) => {
   }
 
   const orm = oneRepMax(weight, reps);
+  const brzycki = reps >= 37 ? orm : weight * (36 / (37 - reps));
+  const lander = (100 * weight) / (101.3 - 2.67123 * reps);
+  const average = (orm + brzycki + lander) / 3;
 
   return {
     primary: { label: 'Примерный 1ПМ', value: `${fmtNumber(orm, 1)} кг` },
@@ -29,6 +32,9 @@ export const calcOneRm: CalcFunction = (inputs) => {
       { label: '70% от 1ПМ', value: `${fmtNumber(orm * 0.7, 1)} кг` },
       { label: '80% от 1ПМ', value: `${fmtNumber(orm * 0.8, 1)} кг` },
       { label: '90% от 1ПМ', value: `${fmtNumber(orm * 0.9, 1)} кг` },
+      { label: 'Формула Бжицки', value: `${fmtNumber(brzycki, 1)} кг` },
+      { label: 'Формула Лэндера', value: `${fmtNumber(lander, 1)} кг` },
+      { label: 'Средняя оценка', value: `${fmtNumber(average, 1)} кг`, accent: 'green' },
     ],
     note: reps > 10 ? 'Точность формулы снижается при повторениях больше 10.' : undefined,
   };

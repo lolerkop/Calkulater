@@ -30,6 +30,9 @@ export const calcBmi: CalcFunction = (inputs) => {
 
   const bmi = bmiValue(height, weight);
   const cat = bmiCategory(bmi);
+  const heightM = height / 100;
+  const healthyMin = 18.5 * heightM * heightM;
+  const healthyMax = 24.9 * heightM * heightM;
 
   return {
     primary: { label: 'ИМТ', value: fmtNumber(bmi, 1) },
@@ -38,6 +41,8 @@ export const calcBmi: CalcFunction = (inputs) => {
       { label: 'Комментарий', value: cat.note },
       { label: 'Рост', value: `${height} см` },
       { label: 'Вес', value: `${weight} кг` },
+      { label: 'Ориентир здорового веса', value: `${fmtNumber(healthyMin, 1)}–${fmtNumber(healthyMax, 1)} кг` },
     ],
+    note: 'ИМТ — ориентировочный показатель для взрослых. Он может быть менее точным для спортсменов, беременных и людей старшего возраста.',
   };
 };

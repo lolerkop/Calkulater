@@ -34,7 +34,8 @@ describe('project configuration', () => {
     expect(packageJson.scripts['dev:local']).toContain('--port 4321');
     expect(packageJson.scripts['preview:local']).toContain('--port 4322');
     expect(packageJson.scripts.check).toContain('vitest run');
-    expect(packageJson.scripts.check).toContain('astro build');
+    expect(packageJson.scripts.check).toContain('npm run build');
+    expect(packageJson.scripts.prebuild).toContain('rates:update');
     expect(packageJson.scripts.check).toContain('verify-public-assets');
     expect(packageJson.scripts.check).toContain('verify-text-encoding');
     expect(packageJson.scripts.check).toContain('verify-dist-content-sanity');

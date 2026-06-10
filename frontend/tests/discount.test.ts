@@ -46,3 +46,12 @@ describe('discount: ошибки ввода', () => {
     expect(r.primary.value).toBe('—');
   });
 });
+
+describe('discount: последовательные скидки и количество', () => {
+  it('считает 20% + 10% как 28% и умножает итог на количество', () => {
+    const r = calcDiscount({ price: 1000, mode: 'byPercent', discountPct: 20, secondDiscountPct: 10, quantity: 3 });
+    expect(r.primary.value).toContain('720');
+    expect(r.secondary.find((s) => s.label === 'Процент скидки')?.value).toMatch(/28[.,]00%/);
+    expect(r.secondary.find((s) => s.label === 'Итого за товары')?.value).toMatch(/2[\s\u00A0\u202F]?160/);
+  });
+});

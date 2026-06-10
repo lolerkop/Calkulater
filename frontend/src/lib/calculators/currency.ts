@@ -4,6 +4,7 @@ import {
   ratesToUSD,
   currencyByCode,
   lastUpdated,
+  ratesSource,
   ratesNotice,
   type CurrencyCode,
 } from '../../data/currencies';
@@ -40,8 +41,9 @@ export const calcCurrency: CalcFunction = (inputs) => {
       { label: 'Курс', value: `1 ${from} = ${fmtNumber(rate, 4)} ${to}` },
       { label: 'Из', value: `${fmtNumber(amount, 2)} ${fromMeta.symbol} (${fromMeta.name})` },
       { label: 'В', value: `${toMeta.name}` },
-      { label: 'Тип курса', value: 'демонстрационный' },
-      { label: 'Дата фиксации демо-курсов', value: lastUpdated },
+      { label: 'Тип курса', value: 'официальный справочный' },
+      { label: 'Дата курса', value: lastUpdated },
+      { label: 'Источник', value: ratesSource },
     ],
     note: ratesNotice,
   };

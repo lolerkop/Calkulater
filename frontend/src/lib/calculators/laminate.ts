@@ -17,6 +17,8 @@ export const calcLaminate: CalcFunction = (inputs) => {
   const width = toNumber(inputs.width);
   const packArea = toNumber(inputs.packArea);
   const reserve = toNumber(inputs.reserve);
+  const packPrice = Math.max(0, toNumber(inputs.packPrice));
+  const underlayPrice = Math.max(0, toNumber(inputs.underlayPrice));
 
   if (length <= 0 || width <= 0 || packArea <= 0) {
     return {
@@ -34,6 +36,13 @@ export const calcLaminate: CalcFunction = (inputs) => {
       { label: 'Площадь с запасом', value: `${fmtNumber(areaWithReserve, 2)} м²` },
       { label: 'Площадь упаковки', value: `${fmtNumber(packArea, 2)} м²` },
       { label: 'Запас', value: `${fmtNumber(reserve, 0)} %` },
+      ...(packPrice > 0 || underlayPrice > 0
+        ? [{
+            label: 'Ориентировочная стоимость',
+            value: `${fmtNumber(packs * packPrice + area * underlayPrice, 2)} ₽`,
+            accent: 'green' as const,
+          }]
+        : []),
     ],
   };
 };

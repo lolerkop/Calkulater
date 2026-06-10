@@ -37,4 +37,19 @@ describe('credit: calcCredit', () => {
     expect(r.note).toBeDefined();
     expect(r.note).toContain('первого');
   });
+
+  it('ежемесячная доплата сокращает срок и график заканчивается нулевым остатком', () => {
+    const r = calcCredit({
+      amount: 500_000,
+      term: 5,
+      termUnit: 'years',
+      rate: 14,
+      type: 'annuity',
+      extraPayment: 5_000,
+    });
+    const term = r.secondary.find((s) => s.label === 'Срок')?.value;
+    expect(Number(term?.match(/\d+/)?.[0])).toBeLessThan(60);
+    expect(r.secondary.some((s) => s.label === 'Сокращение срока')).toBe(true);
+    expect(r.table?.rows.at(-1)?.at(-1)).toMatch(/^0/);
+  });
 });

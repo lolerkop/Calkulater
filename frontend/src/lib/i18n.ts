@@ -1112,7 +1112,7 @@ const enCategories: Record<CategoryId, Omit<Category, 'id' | 'icon' | 'faq'>> = 
       'Currency calculators convert amounts between common currencies and provide separate pages for popular pairs. Rates are demo values for testing the interface, so always verify the live rate before exchanging money.',
     seoTitle: 'Currency converter — USD, EUR, MDL, RON and more',
     seoDescription:
-      'Online currency converter for USD, EUR, MDL, RON, UAH, PLN, GBP, CHF and TRY. Demo rates for quick estimates.',
+      'Online currency converter for USD, EUR, MDL, RON, UAH, PLN, GBP, CHF and TRY. Official reference rates with an update date.',
     h1: 'Currency calculators',
   },
   sport: {
@@ -1884,7 +1884,7 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Валютні калькулятори переводять суми між поширеними валютами та мають окремі сторінки для популярних пар. Курси в MVP є демонстраційними значеннями.',
       seoTitle: 'Конвертер валют - USD, EUR, MDL, RON та інші',
       seoDescription:
-        'Онлайн-конвертер для USD, EUR, MDL, RON, UAH, PLN, GBP, CHF і TRY. Демо-курси для швидких оцінок.',
+        'Онлайн-конвертер для USD, EUR, MDL, RON, UAH, PLN, GBP, CHF і TRY. Офіційні довідкові курси з датою оновлення.',
       h1: 'Валютні калькулятори',
     },
     sport: {
@@ -5762,8 +5762,15 @@ const commonFieldLabels: Record<string, string> = {
   months: 'Months',
   topUp: 'Regular contribution',
   frequency: 'Frequency',
+  compounding: 'Compounding frequency',
+  topUpTiming: 'Contribution timing',
   price: 'Original price',
   downPayment: 'Down payment',
+  downPaymentMode: 'Down payment format',
+  downPaymentPct: 'Down payment',
+  extraPayment: 'Extra monthly payment',
+  oneTimeFee: 'One-time fee',
+  monthlyInsurance: 'Monthly insurance and costs',
   mode: 'Mode',
   a: 'Value A',
   b: 'Value B',
@@ -5775,6 +5782,9 @@ const commonFieldLabels: Record<string, string> = {
   gender: 'Gender',
   activity: 'Activity level',
   goal: 'Goal',
+  goalAdjustment: 'Calorie adjustment for goal, %',
+  proteinPct: 'Protein share, %',
+  fatPct: 'Fat share, %',
   distance: 'Distance',
   unit: 'Unit',
   hours: 'Hours',
@@ -5802,11 +5812,19 @@ const commonFieldLabels: Record<string, string> = {
   startDate: 'Start date',
   endDate: 'End date',
   includeWeekends: 'Count weekends as workdays',
+  saturdayWorking: 'Count Saturday as a workday',
   excludedDates: 'Excluded dates',
   capitalization: 'Capitalization',
   capPeriod: 'Capitalization period',
   discountPct: 'Discount, %',
   discountAmt: 'Discount amount',
+  secondDiscountPct: 'Additional discount, %',
+  quantity: 'Quantity',
+  glueConsumption: 'Adhesive consumption',
+  packPrice: 'Price per pack',
+  rollPrice: 'Price per roll',
+  canPrice: 'Price per can',
+  underlayPrice: 'Underlay price per m²',
 };
 
 const optionLabels: Record<string, string> = {
@@ -5836,7 +5854,13 @@ const optionLabels: Record<string, string> = {
   change: 'Percentage change',
   add: 'Add percentage',
   subtract: 'Subtract percentage',
+  addPct: 'Add percentage',
+  subPct: 'Subtract percentage',
   findOriginal: 'Find original value',
+  amount: 'Amount',
+  percent: 'Percentage',
+  beginning: 'At the beginning',
+  end: 'At the end',
 };
 
 const fieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>> = {
@@ -6536,8 +6560,15 @@ const fieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>>
     months: 'Місяці',
     topUp: 'Регулярний внесок',
     frequency: 'Частота',
+    compounding: 'Частота капіталізації',
+    topUpTiming: 'Коли вноситься поповнення',
     price: 'Початкова ціна',
     downPayment: 'Перший внесок',
+    downPaymentMode: 'Як задано перший внесок',
+    downPaymentPct: 'Перший внесок',
+    extraPayment: 'Додатковий щомісячний платіж',
+    oneTimeFee: 'Разова комісія',
+    monthlyInsurance: 'Страхування та витрати на місяць',
     mode: 'Режим',
     a: 'Значення A',
     b: 'Значення B',
@@ -6549,6 +6580,9 @@ const fieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>>
     gender: 'Стать',
     activity: 'Рівень активності',
     goal: 'Ціль',
+    goalAdjustment: 'Корекція калорій для цілі, %',
+    proteinPct: 'Частка білка, %',
+    fatPct: 'Частка жирів, %',
     distance: 'Дистанція',
     unit: 'Одиниця',
     hours: 'Години',
@@ -6576,11 +6610,19 @@ const fieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>>
     startDate: 'Початкова дата',
     endDate: 'Кінцева дата',
     includeWeekends: 'Враховувати вихідні як робочі дні',
+    saturdayWorking: 'Вважати суботу робочим днем',
     excludedDates: 'Виключені дати',
     capitalization: 'Капіталізація',
     capPeriod: 'Період капіталізації',
     discountPct: 'Знижка, %',
     discountAmt: 'Сума знижки',
+    secondDiscountPct: 'Додаткова знижка, %',
+    quantity: 'Кількість товарів',
+    glueConsumption: 'Витрата клею',
+    packPrice: 'Ціна упаковки',
+    rollPrice: 'Ціна рулону',
+    canPrice: 'Ціна однієї банки',
+    underlayPrice: 'Ціна підкладки за м²',
   },
   sk: {
     amount: 'Suma',
@@ -7075,7 +7117,13 @@ const optionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>
     change: 'Відсоткова зміна',
     add: 'Додати відсоток',
     subtract: 'Відняти відсоток',
+    addPct: 'Додати відсоток',
+    subPct: 'Відняти відсоток',
     findOriginal: 'Знайти початкове значення',
+    amount: 'Сумою',
+    percent: 'Відсотком',
+    beginning: 'На початку',
+    end: 'Наприкінці',
   },
   sk: {
     years: 'Roky',
@@ -7150,6 +7198,19 @@ const enUnits: Record<string, string> = {
 
 function localizeUnit(unit: string | undefined, locale: Locale): string | undefined {
   if (!unit || locale === 'ru') return unit;
+  if (locale === 'uk') {
+    const ukrainianUnits: Record<string, string> = {
+      '₽': '₴',
+      '₽ годовых': '% річних',
+      '% годовых': '% річних',
+      'кг': 'кг',
+      'см': 'см',
+      'м': 'м',
+      'м²': 'м²',
+      'л': 'л',
+    };
+    return ukrainianUnits[unit] ?? unit;
+  }
   const currencyByLocale: Partial<Record<Locale, string>> = {
     en: '$',
     pl: 'zł',
@@ -7173,7 +7234,7 @@ function localizeField(field: Field, locale: Locale): Field {
     ...field,
     label: fieldLabels[field.name] ?? field.label,
     unit: localizeUnit(field.unit, locale),
-    help: field.help ? undefined : field.help,
+    help: field.help,
     options: field.options?.map((option) => ({
       ...option,
       label: localizedOptions[option.value] ?? option.label,
@@ -7354,8 +7415,7 @@ export function localizedResultText(value: string, locale: Locale): string {
     .replaceAll('лет', 'years')
     .replaceAll('дн.', 'days')
     .replaceAll('шт.', 'pcs.')
-    .replaceAll('л', 'L')
-    .replaceAll('демонстрационный', 'demo');
+    .replaceAll('л', 'L');
 }
 
 export const resultLabelMap: Record<string, string> = {
@@ -7380,7 +7440,6 @@ export const resultLabelMap: Record<string, string> = {
   'Из': 'From',
   'В': 'To',
   'Тип курса': 'Rate type',
-  'Дата фиксации демо-курсов': 'Demo rate date',
   'ИМТ': 'BMI',
   'Категория': 'Category',
   'Комментарий': 'Note',

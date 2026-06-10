@@ -80,6 +80,34 @@ describe('incomeTax: фиксированная ставка', () => {
     });
     expect(norm(r.primary.value)).toContain('15 000');
   });
+
+  it('обратный расчёт учитывает вычет', () => {
+    const r = calcIncomeTax({
+      amount: 90_000,
+      period: 'month',
+      mode: 'fixed',
+      rate: 13,
+      direction: 'net',
+      deductions: 10_000,
+    });
+    const gross = r.secondary.find((s) => s.label === 'Начислено (до налога)');
+    expect(norm(gross?.value || '')).toContain('101 954');
+  });
+});
+
+describe('incomeTax: расчёт с начала года', () => {
+  it('обратный расчёт использует текущую ступень прогрессивной шкалы', () => {
+    const r = calcIncomeTax({
+      amount: 85_000,
+      period: 'month',
+      mode: 'progressive',
+      direction: 'net',
+      incomeBeforePeriod: 3_000_000,
+    });
+    const gross = r.secondary.find((s) => s.label === 'Начислено (до налога)');
+    expect(norm(gross?.value || '')).toContain('100 000');
+    expect(norm(r.primary.value)).toContain('15 000');
+  });
 });
 
 describe('incomeTax: ошибки ввода', () => {

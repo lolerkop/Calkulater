@@ -20,6 +20,13 @@ describe('compound: calcCompound', () => {
     expect(invested).toMatch(/22[\s\u00A0\u202F]?000/);
   });
 
+  it('разделяет частоту пополнений и капитализации', () => {
+    const monthly = calcCompound({ principal: 100_000, rate: 12, years: 2, topUp: 0, frequency: 'year', compounding: 'month' });
+    const yearly = calcCompound({ principal: 100_000, rate: 12, years: 2, topUp: 0, frequency: 'month', compounding: 'year' });
+    const money = (value: string) => Number(value.replace(/[^\d,.-]/g, '').replace(',', '.'));
+    expect(money(monthly.primary.value)).toBeGreaterThan(money(yearly.primary.value));
+  });
+
   it('возвращает ошибку при отрицательных входных данных', () => {
     const r = calcCompound({ principal: -1, rate: 0, years: 0 });
     expect(r.primary.value).toBe('—');

@@ -14,7 +14,7 @@ export function calculatorFreshness(calculator: CalculatorDef): CalculatorFreshn
     return {
       label: 'Курсы',
       value: currencyRatesUpdatedAt,
-      note: 'Демо-курсы зафиксированы для работы без внешнего API и не являются банковскими.',
+      note: 'Официальные справочные курсы обновляются при сборке сайта; коммерческий курс банка может отличаться.',
     };
   }
 

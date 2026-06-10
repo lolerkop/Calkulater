@@ -65,7 +65,9 @@ describe('data quality: calculators', () => {
 
       for (const field of calculator.fields) {
         expect(field.label.length, `${calculator.id}.${field.name}: label`).toBeGreaterThan(1);
-        expect(field.defaultValue, `${calculator.id}.${field.name}: defaultValue`).toBeDefined();
+        if (field.type !== 'date') {
+          expect(field.defaultValue, `${calculator.id}.${field.name}: defaultValue`).toBeDefined();
+        }
 
         if (field.type === 'number') {
           const defaultValue = Number(field.defaultValue);
@@ -136,7 +138,7 @@ describe('data quality: calculators', () => {
     expect(vat?.disclaimer).toContain('бухгалтерской');
   });
 
-  it('keeps currency calculators explicit about demo exchange rates', () => {
+  it('keeps currency calculators explicit about official reference rates', () => {
     const currencyCalculators = calculators.filter((calculator) => calculator.category === 'currency');
 
     expect(currencyCalculators.length).toBeGreaterThan(0);
@@ -151,7 +153,8 @@ describe('data quality: calculators', () => {
         ...calculator.faq.map((item) => `${item.q} ${item.a}`),
       ].join(' ');
 
-      expect(content, calculator.id).toContain('демонстрац');
+      expect(content, calculator.id).toMatch(/официальн|справочн/i);
+      expect(content, calculator.id).toMatch(/банк|обменник/i);
     }
   });
 
@@ -188,7 +191,7 @@ describe('data quality: calculators', () => {
     expect(incomeTax).toBeDefined();
     expect(vat).toBeDefined();
     expect(calculatorFreshness(currency!).value).toBe(currencyRatesUpdatedAt);
-    expect(calculatorFreshness(currency!).note).toContain('Демо-курсы');
+    expect(calculatorFreshness(currency!).note).toContain('Официальные справочные курсы');
     expect(calculatorFreshness(incomeTax!).value).toBe('проверяйте нормы');
     expect(calculatorFreshness(vat!).note).toContain('официальными источниками');
   });

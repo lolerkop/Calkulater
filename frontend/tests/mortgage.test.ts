@@ -20,4 +20,19 @@ describe('mortgage: calcMortgage', () => {
     const r = calcMortgage({ price: 3_000_000, downPayment: 500_000, years: 10, rate: 9, type: 'differentiated' });
     expect(r.note).toBeDefined();
   });
+
+  it('принимает первоначальный взнос в процентах и учитывает досрочную доплату', () => {
+    const r = calcMortgage({
+      price: 5_000_000,
+      downPaymentMode: 'percent',
+      downPaymentPct: 20,
+      years: 20,
+      rate: 10,
+      type: 'annuity',
+      extraPayment: 10_000,
+    });
+    expect(r.secondary.find((s) => s.label === 'Сумма кредита')?.value).toMatch(/4[\s\u00A0\u202F]?000[\s\u00A0\u202F]?000/);
+    expect(r.secondary.find((s) => s.label === 'Первоначальный взнос')?.value).toContain('20.0%');
+    expect(r.secondary.some((s) => s.label === 'Сокращение срока')).toBe(true);
+  });
 });

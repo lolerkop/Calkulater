@@ -7,6 +7,7 @@ export const calcVat: CalcFunction = (inputs) => {
   const amount = toNumber(inputs.amount);
   const rate = toNumber(inputs.rate, 22);
   const operation = toStr(inputs.operation, 'extract'); // extract — выделить из суммы, add — начислить сверху
+  const operationDate = toStr(inputs.operationDate);
 
   if (amount <= 0 || rate < 0) {
     return {
@@ -36,5 +37,10 @@ export const calcVat: CalcFunction = (inputs) => {
       { label: 'Сумма без НДС', value: fmtMoney(net) },
       { label: 'Сумма с НДС', value: fmtMoney(gross), accent: 'green' },
     ],
+    note: operationDate && operationDate < '2026-01-01' && rate === 22
+      ? 'Для операций до 1 января 2026 года проверьте ставку: основная ставка 22% применяется с 2026 года.'
+      : operationDate && operationDate >= '2026-01-01' && rate === 20
+        ? 'Для операций с 1 января 2026 года проверьте ставку: основная ставка была повышена до 22%.'
+        : undefined,
   };
 };

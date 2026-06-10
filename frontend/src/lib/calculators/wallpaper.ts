@@ -10,6 +10,7 @@ export const calcWallpaper: CalcFunction = (inputs) => {
   const windows = Math.max(0, Math.round(toNumber(inputs.windows)));
   const doors = Math.max(0, Math.round(toNumber(inputs.doors)));
   const pattern = toNumber(inputs.pattern); // cm
+  const rollPrice = toNumber(inputs.rollPrice);
 
   if (length <= 0 || width <= 0 || height <= 0 || rollWidth <= 0 || rollLength <= 0) {
     return {
@@ -23,11 +24,15 @@ export const calcWallpaper: CalcFunction = (inputs) => {
   const wallArea = perimeter * height - windows * 1.5 - doors * 1.8;
 
   // Длина одного полотна с учётом раппорта
-  const stripLength = height + pattern / 100;
+  const patternM = pattern / 100;
+  const stripLength = patternM > 0
+    ? Math.ceil(height / patternM) * patternM
+    : height;
   // Сколько полотен помещается в одном рулоне
   const stripsPerRoll = Math.floor(rollLength / stripLength);
   // Сколько всего полотен нужно (по ширине стен)
-  const totalStrips = Math.ceil(perimeter / rollWidth);
+  const effectiveWallWidth = Math.max(0, wallArea) / height;
+  const totalStrips = Math.ceil(effectiveWallWidth / rollWidth);
   // Количество рулонов
   const rolls = stripsPerRoll > 0 ? Math.ceil(totalStrips / stripsPerRoll) : Infinity;
   // Запас
@@ -45,6 +50,7 @@ export const calcWallpaper: CalcFunction = (inputs) => {
       { label: 'Количество полотен', value: `${fmtInt(totalStrips)} шт.` },
       { label: 'Полотен из рулона', value: `${fmtInt(stripsPerRoll)} шт.` },
       { label: 'Запас', value: `${fmtNumber(reservePct, 1)} %` },
+      ...(rollPrice > 0 ? [{ label: 'Стоимость обоев', value: `${fmtNumber(rolls * rollPrice, 2)} ₽`, accent: 'green' as const }] : []),
     ],
   };
 };

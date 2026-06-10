@@ -7,12 +7,14 @@
     "start": "astro dev --host 0.0.0.0 --port 3000",
     "dev": "astro dev --host 0.0.0.0 --port 3000",
     "dev:local": "astro dev --host 127.0.0.1 --port 4321",
+    "rates:update": "node scripts/update-currency-rates.mjs",
+    "prebuild": "npm run rates:update",
     "build": "astro build",
     "preview": "astro preview --host 0.0.0.0 --port 3000",
     "preview:local": "astro preview --host 127.0.0.1 --port 4322",
     "astro": "astro",
     "test": "vitest run",
-    "check": "vitest run && node scripts/verify-public-assets.mjs && astro build && node scripts/verify-text-encoding.mjs && node scripts/verify-dist-content-sanity.mjs && node scripts/verify-dist-links.mjs && node scripts/verify-dist-seo.mjs && node scripts/verify-dist-sitemap.mjs && node scripts/verify-dist-hosting-files.mjs && node scripts/verify-dist-a11y.mjs && node scripts/verify-dist-production-hygiene.mjs && node scripts/verify-dist-performance-budget.mjs"
+    "check": "vitest run && node scripts/verify-public-assets.mjs && npm run build && node scripts/verify-text-encoding.mjs && node scripts/verify-dist-content-sanity.mjs && node scripts/verify-dist-links.mjs && node scripts/verify-dist-seo.mjs && node scripts/verify-dist-sitemap.mjs && node scripts/verify-dist-hosting-files.mjs && node scripts/verify-dist-a11y.mjs && node scripts/verify-dist-production-hygiene.mjs && node scripts/verify-dist-performance-budget.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",

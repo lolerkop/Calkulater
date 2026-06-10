@@ -54,9 +54,9 @@ const pageCopy = {
     formula: 'Формула и логика',
     example: 'Пример',
     freshness: 'Свежесть',
-    demoRates: 'демо-курсы',
+    referenceRates: 'официальные справочные курсы',
     formulaBased: 'на основе формулы',
-    currencyNote: 'Курсы валют в MVP являются демонстрационными. Перед обменом денег проверяйте актуальный курс.',
+    currencyNote: 'Показана дата официального справочного курса. Перед обменом проверяйте курс покупки или продажи и комиссию банка.',
     formulaNote: 'Расчет использует стабильные формулы и значения, введенные в форму.',
     useCases: (name: string) => [
       `Сравните несколько сценариев для ${name}, прежде чем принимать решение.`,
@@ -80,9 +80,9 @@ const pageCopy = {
     formula: 'Formula and logic',
     example: 'Example',
     freshness: 'Freshness',
-    demoRates: 'demo rates',
+    referenceRates: 'official reference rates',
     formulaBased: 'formula-based',
-    currencyNote: 'Currency rates are demo values in this MVP. Verify live rates before exchanging money.',
+    currencyNote: 'The official reference-rate date is shown. Check your bank\'s buy or sell rate and fees before exchanging money.',
     formulaNote: 'The calculation uses stable formulas and the values entered in the form.',
     useCases: (name: string) => [
       `Compare several ${name} scenarios before making a decision.`,
@@ -418,9 +418,9 @@ const pageCopy = {
     formula: 'Формула і логіка',
     example: 'Приклад',
     freshness: 'Актуальність',
-    demoRates: 'демо-курси',
+    referenceRates: 'офіційні довідкові курси',
     formulaBased: 'на основі формули',
-    currencyNote: 'Курси валют у цьому MVP є демонстраційними значеннями. Перед обміном грошей перевіряйте актуальний курс.',
+    currencyNote: 'Показано дату офіційного довідкового курсу. Перед обміном перевіряйте курс купівлі або продажу та комісію банку.',
     formulaNote: 'Розрахунок використовує стабільні формули та значення, введені у форму.',
     useCases: (name: string) => [
       `Порівняйте кілька сценаріїв для ${name}, перш ніж ухвалювати рішення.`,
@@ -512,7 +512,7 @@ const freshness = locale === 'ru'
   ? ruFreshness
   : {
       label: pageCopy.freshness,
-      value: calc.category === 'currency' ? pageCopy.demoRates : pageCopy.formulaBased,
+      value: calc.category === 'currency' ? ruFreshness.value : pageCopy.formulaBased,
       note: calc.category === 'currency'
         ? pageCopy.currencyNote
         : pageCopy.formulaNote,

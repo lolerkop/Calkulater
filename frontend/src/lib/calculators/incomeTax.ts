@@ -34,6 +34,8 @@ export const calcIncomeTax: CalcFunction = (inputs) => {
   const mode = toStr(inputs.mode, 'progressive'); // progressive | fixed
   const fixedRate = toNumber(inputs.rate, 13);
   const direction = toStr(inputs.direction, 'gross'); // gross (с указанной начислено) | net (с указанной на руки)
+  const incomeBeforePeriod = Math.max(0, toNumber(inputs.incomeBeforePeriod));
+  const deductions = Math.max(0, toNumber(inputs.deductions));
 
   if (amount <= 0) {
     return {
@@ -51,39 +53,61 @@ export const calcIncomeTax: CalcFunction = (inputs) => {
 
   if (mode === 'progressive') {
     if (direction === 'gross') {
-      const annualGross = amount * annualMultiplier;
-      const annualTax = calcProgressiveTax(annualGross);
+      const taxableAmount = Math.max(0, amount - deductions);
+      const usesCumulativeIncome = period === 'month' && incomeBeforePeriod > 0;
+      const annualGross = usesCumulativeIncome
+        ? incomeBeforePeriod + taxableAmount
+        : taxableAmount * annualMultiplier;
+      const annualTax = usesCumulativeIncome
+        ? calcProgressiveTax(annualGross) - calcProgressiveTax(incomeBeforePeriod)
+        : calcProgressiveTax(annualGross);
       gross = amount;
-      tax = annualTax / annualMultiplier;
+      tax = usesCumulativeIncome ? annualTax : annualTax / annualMultiplier;
       net = gross - tax;
     } else {
-      // Обратный расчёт: подбираем gross такой, что gross - tax(gross) = net
-      // Бинарный поиск, т.к. функция монотонная.
-      const targetAnnualNet = amount * annualMultiplier;
-      let lo = targetAnnualNet;
-      let hi = targetAnnualNet * 2;
+      // Обратный расчёт: подбираем начисленную сумму с учётом текущей
+      // ступени прогрессивной шкалы и вычетов за выбранный период.
+      const usesCumulativeIncome = period === 'month' && incomeBeforePeriod > 0;
+      const taxForGross = (candidateGross: number) => {
+        if (usesCumulativeIncome) {
+          const taxableCurrent = Math.max(0, candidateGross - deductions);
+          return calcProgressiveTax(incomeBeforePeriod + taxableCurrent)
+            - calcProgressiveTax(incomeBeforePeriod);
+        }
+
+        const annualGross = candidateGross * annualMultiplier;
+        const annualDeductions = deductions * annualMultiplier;
+        return calcProgressiveTax(Math.max(0, annualGross - annualDeductions)) / annualMultiplier;
+      };
+
+      let lo = amount;
+      let hi = Math.max(amount + deductions, amount * 2);
+      while (hi - taxForGross(hi) < amount) hi *= 2;
       for (let i = 0; i < 60; i++) {
         const mid = (lo + hi) / 2;
-        const t = calcProgressiveTax(mid);
-        if (mid - t > targetAnnualNet) hi = mid;
+        if (mid - taxForGross(mid) > amount) hi = mid;
         else lo = mid;
       }
-      const annualGross = (lo + hi) / 2;
-      const annualTax = calcProgressiveTax(annualGross);
-      gross = annualGross / annualMultiplier;
-      tax = annualTax / annualMultiplier;
-      net = gross - tax;
+      gross = (lo + hi) / 2;
+      tax = taxForGross(gross);
+      net = amount;
     }
   } else {
     const rate = fixedRate / 100;
     if (direction === 'gross') {
       gross = amount;
-      tax = gross * rate;
+      tax = Math.max(0, gross - deductions) * rate;
       net = gross - tax;
     } else {
       net = amount;
-      gross = net / (1 - rate);
-      tax = gross - net;
+      if (rate >= 1) {
+        return {
+          primary: { label: 'Налог', value: '—' },
+          secondary: [{ label: 'Проверьте данные', value: 'Ставка должна быть меньше 100%', accent: 'red' }],
+        };
+      }
+      gross = net <= deductions ? net : deductions + (net - deductions) / (1 - rate);
+      tax = Math.max(0, gross - deductions) * rate;
     }
   }
 
@@ -96,6 +120,8 @@ export const calcIncomeTax: CalcFunction = (inputs) => {
       { label: 'Начислено (до налога)', value: fmtMoney(gross) },
       { label: 'На руки (после налога)', value: fmtMoney(net), accent: 'green' },
       { label: 'Эффективная ставка', value: `${effectiveRate.toFixed(2)}%` },
+      ...(deductions > 0 ? [{ label: 'Учтённые вычеты', value: fmtMoney(deductions) }] : []),
+      ...(incomeBeforePeriod > 0 ? [{ label: 'Доход до периода', value: fmtMoney(incomeBeforePeriod) }] : []),
     ],
   };
 };

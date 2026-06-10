@@ -126,7 +126,7 @@ const navLabel = {
       <a
         href={catalogPath}
         class:list={[
-          'whitespace-nowrap font-medium hover:text-accent',
+          'shrink-0 whitespace-nowrap font-medium hover:text-accent',
           isAllActive ? 'text-accent' : 'text-ink-900',
         ]}
         aria-current={isAllActive ? 'page' : undefined}
@@ -144,7 +144,7 @@ const navLabel = {
           <a
             href={categoryPath}
             class:list={[
-              'whitespace-nowrap hover:text-accent',
+              'shrink-0 whitespace-nowrap hover:text-accent',
               isActive ? 'font-medium text-accent' : 'text-ink-700',
             ]}
             aria-current={currentState}
@@ -158,7 +158,7 @@ const navLabel = {
         <a
           href={item.href}
           class:list={[
-            'whitespace-nowrap font-semibold hover:text-accent',
+            'shrink-0 whitespace-nowrap font-semibold hover:text-accent',
             item.locale === locale ? 'text-accent' : 'text-ink-700',
           ]}
           hreflang={localeMeta[item.locale].htmlLang}

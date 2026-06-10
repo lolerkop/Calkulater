@@ -5,6 +5,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   AlertCircle,
+  ArrowRightLeft,
   Calculator as CalculatorIcon,
   Check,
   Copy,
@@ -15,7 +16,7 @@ import {
 } from 'lucide-react';
 import type { CalculatorDef, Field, CalcResult } from '../../lib/types';
 import { runners } from '../../lib/runners';
-import { localizedResultText, resultLabelMap, type Locale } from '../../lib/clientI18n';
+import { localizedResultLabel, localizedResultText, type Locale } from '../../lib/clientI18n';
 
 type Props = {
   calc: Pick<CalculatorDef, 'id' | 'name' | 'fields' | 'disclaimer'>;
@@ -554,10 +555,26 @@ function calculatorCopy(locale: Locale): CalculatorCopy {
   return calculatorCopyByLocale[locale];
 }
 
+function swapCopy(locale: Locale): string {
+  if (locale === 'uk') return 'Поміняти валюти місцями';
+  if (locale === 'ru') return 'Поменять валюты местами';
+  return 'Swap currencies';
+}
+
 // Возвращает дефолтное значение поля (используется и для инициализации формы,
 // и для сравнения «изменилось ли значение» при формировании URL-параметров).
 function defaultValueForField(f: Field): string | number | boolean {
   if (f.defaultValue !== undefined) return f.defaultValue;
+  if (f.type === 'date' && typeof window !== 'undefined') {
+    const today = new Date();
+    if (f.name === 'startDate' || f.name === 'calcDate' || f.name === 'operationDate') {
+      return today.toISOString().slice(0, 10);
+    }
+    if (f.name === 'endDate') {
+      today.setDate(today.getDate() + 30);
+      return today.toISOString().slice(0, 10);
+    }
+  }
   if (f.type === 'checkbox' || f.type === 'toggle') {
     return f.options?.[0]?.value ?? false;
   }
@@ -615,6 +632,34 @@ function readValuesFromUrl(fields: Field[], base: FormValues): FormValues {
   return next;
 }
 
+function storageKey(calculatorId: string, locale: Locale): string {
+  return `calcuway:${locale}:${calculatorId}:inputs`;
+}
+
+function readSavedValues(
+  calculatorId: string,
+  locale: Locale,
+  fields: Field[],
+  base: FormValues,
+): FormValues {
+  if (typeof window === 'undefined') return base;
+  try {
+    const raw = window.localStorage.getItem(storageKey(calculatorId, locale));
+    if (!raw) return base;
+    const saved = JSON.parse(raw) as Record<string, unknown>;
+    const next = { ...base };
+    for (const field of fields) {
+      const value = saved[field.name];
+      if (typeof value !== 'string' && typeof value !== 'number' && typeof value !== 'boolean') continue;
+      const parsed = parseUrlValue(field, String(value));
+      if (parsed !== undefined) next[field.name] = parsed;
+    }
+    return next;
+  } catch {
+    return base;
+  }
+}
+
 // Формирует query-string только из значений, отличающихся от дефолта.
 function buildQueryString(fields: Field[], values: FormValues): string {
   const params = new URLSearchParams();
@@ -634,6 +679,26 @@ function buildQueryString(fields: Field[], values: FormValues): string {
 function isVisible(field: Field, values: FormValues): boolean {
   if (!field.showIf) return true;
   return values[field.showIf.field] === field.showIf.equals;
+}
+
+function contextualField(field: Field, calculatorId: string, values: FormValues, locale: Locale): Field {
+  if (calculatorId !== 'percent-calculator' || (field.name !== 'a' && field.name !== 'b')) return field;
+  const mode = String(values.mode ?? 'of');
+  const labels = {
+    ru: {
+      percentage: 'Процент', number: 'Число', part: 'Часть', whole: 'Целое', start: 'Начальное значение', end: 'Конечное значение',
+    },
+    en: {
+      percentage: 'Percentage', number: 'Number', part: 'Part', whole: 'Whole', start: 'Starting value', end: 'Final value',
+    },
+    uk: {
+      percentage: 'Відсоток', number: 'Число', part: 'Частина', whole: 'Ціле', start: 'Початкове значення', end: 'Кінцеве значення',
+    },
+  } as const;
+  const copy = labels[locale === 'ru' || locale === 'uk' ? locale : 'en'];
+  if (mode === 'what') return { ...field, label: field.name === 'a' ? copy.part : copy.whole };
+  if (mode === 'change') return { ...field, label: field.name === 'a' ? copy.start : copy.end };
+  return { ...field, label: field.name === 'a' ? copy.percentage : copy.number };
 }
 
 function validateValues(fields: Field[], values: FormValues, locale: Locale): FieldErrors {
@@ -658,11 +723,7 @@ function validateValues(fields: Field[], values: FormValues, locale: Locale): Fi
 }
 
 function translateLabel(label: string, locale: Locale): string {
-  if (locale === 'ru') return label;
-  return resultLabelMap[label] ?? label
-    .replace('НДС', 'VAT')
-    .replace('НДФЛ', 'Income tax')
-    .replace('от', 'of');
+  return localizedResultLabel(label, locale);
 }
 
 function localizeResult(result: CalcResult, locale: Locale): CalcResult {
@@ -1100,12 +1161,17 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   // первоначальный SSR-рендер не должен отличаться).
   useEffect(() => {
     setUrlRestored(false);
-    const restored = readValuesFromUrl(calc.fields, buildInitialValues(calc.fields));
+    const defaults = buildInitialValues(calc.fields);
+    const hasUrlValues = typeof window !== 'undefined' && new URLSearchParams(window.location.search).size > 0;
+    const base = hasUrlValues
+      ? defaults
+      : readSavedValues(calc.id, locale, calc.fields, defaults);
+    const restored = readValuesFromUrl(calc.fields, base);
     setValues(restored);
     setUrlRestored(true);
     // запускаем один раз для текущего калькулятора
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [calc.id]);
+  }, [calc.id, calc.fields, locale]);
 
   // Автоматический пересчёт при изменении значений (с лёгкой задержкой)
   useEffect(() => {
@@ -1135,6 +1201,15 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
       window.history.replaceState(null, '', newUrl);
     }
   }, [values, calc.fields, urlRestored]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !urlRestored) return;
+    try {
+      window.localStorage.setItem(storageKey(calc.id, locale), JSON.stringify(values));
+    } catch {
+      // Storage can be unavailable in private browsing; calculations still work normally.
+    }
+  }, [calc.id, locale, urlRestored, values]);
 
   const focusFirstInvalidField = () => {
     if (typeof window === 'undefined') return;
@@ -1198,6 +1273,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
     setCopied(false);
     setCopiedResult(false);
     if (typeof window !== 'undefined') {
+      window.localStorage.removeItem(storageKey(calc.id, locale));
       window.history.replaceState(null, '', window.location.pathname + window.location.hash);
     }
   };
@@ -1279,7 +1355,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           {visibleFields.map((f) => (
             <div key={f.name} className={f.type === 'textarea' ? 'sm:col-span-2' : ''}>
               <FieldRenderer
-                field={f}
+                field={contextualField(f, calc.id, values, locale)}
                 value={values[f.name] as string | number | boolean}
                 error={validationErrors[f.name]}
                 locale={locale}
@@ -1291,10 +1367,26 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           ))}
         </div>
 
-        <div className="mt-6 flex flex-wrap items-stretch gap-2.5 sm:mt-7 sm:items-center sm:gap-3">
+        {calc.fields.some((field) => field.name === 'from') && calc.fields.some((field) => field.name === 'to') && (
+          <button
+            type="button"
+            className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 border border-ink-300 px-3 py-2 text-sm font-medium text-ink-800 transition-colors hover:border-ink-900 hover:bg-ink-50 sm:w-auto"
+            onClick={() => setValues((previous) => ({
+              ...previous,
+              from: previous.to,
+              to: previous.from,
+            }))}
+            data-testid="calc-swap-currencies-btn"
+          >
+            <ArrowRightLeft size={16} aria-hidden="true" />
+            {swapCopy(locale)}
+          </button>
+        )}
+
+        <div className="sticky bottom-0 z-10 -mx-4 mt-6 grid grid-cols-2 items-stretch gap-2.5 border-t border-ink-200 bg-white/95 px-4 py-3 shadow-[0_-8px_24px_rgba(17,17,17,0.06)] backdrop-blur sm:static sm:mx-0 sm:mt-7 sm:flex sm:flex-wrap sm:items-center sm:gap-3 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none">
           <button
             type="submit"
-            className="btn-primary w-full sm:w-auto"
+            className="btn-primary col-span-2 w-full sm:w-auto"
             data-testid="calc-submit-btn"
             aria-disabled={hasValidationErrors}
           >
@@ -1303,7 +1395,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           <button
             type="button"
             onClick={reset}
-            className="inline-flex min-h-11 w-full items-center justify-center gap-1.5 border border-ink-200 px-3 py-2 text-sm text-ink-600 underline-offset-4 transition-colors hover:border-ink-900 hover:text-ink-900 sm:min-h-0 sm:w-auto sm:justify-start sm:border-0 sm:px-0 sm:py-0 sm:text-ink-500 sm:hover:underline"
+            className="inline-flex min-h-11 min-w-0 items-center justify-center gap-1.5 border border-ink-200 px-2 py-2 text-center text-sm leading-tight text-ink-600 underline-offset-4 transition-colors hover:border-ink-900 hover:text-ink-900 sm:min-h-0 sm:w-auto sm:justify-start sm:border-0 sm:px-0 sm:py-0 sm:text-ink-500 sm:hover:underline"
             data-testid="calc-reset-btn"
           >
             <RotateCcw size={14} aria-hidden="true" />
@@ -1313,7 +1405,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
             type="button"
             onClick={copyShareLink}
             className={[
-              'inline-flex w-full min-w-0 items-center justify-center gap-2 border px-3 py-2 text-center text-sm leading-tight transition-colors sm:ml-auto sm:w-auto',
+              'inline-flex min-h-11 min-w-0 items-center justify-center gap-2 border px-2 py-2 text-center text-sm leading-tight transition-colors sm:ml-auto sm:w-auto sm:px-3',
               copied
                 ? 'border-emerald-700 text-emerald-700 bg-emerald-50'
                 : 'border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-white',

@@ -7,6 +7,7 @@ export const calcCompound: CalcFunction = (inputs) => {
   const years = Math.round(toNumber(inputs.years));
   const topUp = toNumber(inputs.topUp);
   const frequency = toStr(inputs.frequency, 'month');
+  const compounding = toStr(inputs.compounding, 'month');
 
   if (years <= 0 || principal < 0 || rate < 0) {
     return {
@@ -16,14 +17,16 @@ export const calcCompound: CalcFunction = (inputs) => {
   }
 
   const months = years * 12;
-  const monthlyRate = rate / 100 / 12;
+  const compoundingInterval = compounding === 'year' ? 12 : compounding === 'quarter' ? 3 : 1;
+  const periodsPerYear = 12 / compoundingInterval;
+  const periodRate = rate / 100 / periodsPerYear;
   const topUpInterval = frequency === 'year' ? 12 : frequency === 'quarter' ? 3 : 1;
 
   let balance = principal;
   let invested = principal;
 
   for (let m = 1; m <= months; m++) {
-    balance *= 1 + monthlyRate;
+    if (m % compoundingInterval === 0) balance *= 1 + periodRate;
     if (topUp > 0 && m % topUpInterval === 0) {
       balance += topUp;
       invested += topUp;
@@ -37,8 +40,8 @@ export const calcCompound: CalcFunction = (inputs) => {
   let yearInvested = principal;
   for (let y = 1; y <= years; y++) {
     for (let m = 1; m <= 12; m++) {
-      yearBalance *= 1 + monthlyRate;
       const month = (y - 1) * 12 + m;
+      if (month % compoundingInterval === 0) yearBalance *= 1 + periodRate;
       if (topUp > 0 && month % topUpInterval === 0) {
         yearBalance += topUp;
         yearInvested += topUp;

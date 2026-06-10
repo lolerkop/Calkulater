@@ -10,6 +10,8 @@ export const calcTile: CalcFunction = (inputs) => {
   const tileWidth = toNumber(inputs.tileWidth); // cm
   const packArea = toNumber(inputs.packArea);
   const reserve = toNumber(inputs.reserve);
+  const glueConsumption = toNumber(inputs.glueConsumption, 5);
+  const packPrice = toNumber(inputs.packPrice);
 
   const area = mode === 'room' ? length * width : manualArea;
 
@@ -24,7 +26,8 @@ export const calcTile: CalcFunction = (inputs) => {
   const tileAreaM2 = (tileLength / 100) * (tileWidth / 100);
   const tiles = Math.ceil(areaWithReserve / tileAreaM2);
   const packs = Math.ceil(areaWithReserve / packArea);
-  const glueKg = areaWithReserve * 5; // 5 кг/м²
+  const glueKg = areaWithReserve * Math.max(0, glueConsumption);
+  const totalPrice = packs * Math.max(0, packPrice);
 
   return {
     primary: { label: 'Количество плиток', value: `${fmtInt(tiles)} шт.` },
@@ -33,6 +36,7 @@ export const calcTile: CalcFunction = (inputs) => {
       { label: 'Площадь с запасом', value: `${fmtNumber(areaWithReserve, 2)} м²` },
       { label: 'Количество упаковок', value: `${fmtInt(packs)} шт.` },
       { label: 'Примерный расход клея', value: `${fmtInt(glueKg)} кг` },
+      ...(packPrice > 0 ? [{ label: 'Стоимость плитки', value: `${fmtNumber(totalPrice, 2)} ₽`, accent: 'green' as const }] : []),
     ],
   };
 };

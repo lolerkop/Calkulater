@@ -1,5 +1,8 @@
-// Демонстрационные курсы валют. Базовая валюта — USD.
-// Значения зафиксированы для целей MVP и не отражают реальные рыночные курсы.
+import {
+  generatedRatesDate,
+  generatedRatesSource,
+  generatedRatesToUSD,
+} from './currencyRates.generated';
 
 export type CurrencyCode =
   | 'USD'
@@ -25,21 +28,12 @@ export const currencies: { code: CurrencyCode; name: string; symbol: string }[] 
 ];
 
 // Курсы к USD: сколько единиц валюты дают за 1 USD
-export const ratesToUSD: Record<CurrencyCode, number> = {
-  USD: 1,
-  EUR: 0.92,
-  MDL: 17.85,
-  RON: 4.58,
-  UAH: 41.20,
-  PLN: 4.05,
-  GBP: 0.79,
-  CHF: 0.88,
-  TRY: 34.10,
-};
+export const ratesToUSD: Record<CurrencyCode, number> = generatedRatesToUSD;
 
-export const lastUpdated = '2026-02-01';
+export const lastUpdated = generatedRatesDate;
+export const ratesSource = generatedRatesSource;
 export const ratesNotice =
-  'Демонстрационные фиксированные курсы для работы калькулятора без внешнего API. Не используйте их как банковский или биржевой курс.';
+  'Официальные справочные курсы Банка России на указанную дату. Банки и обменные пункты могут использовать другие курсы и комиссии.';
 
 export const currencyByCode = Object.fromEntries(
   currencies.map((c) => [c.code, c]),

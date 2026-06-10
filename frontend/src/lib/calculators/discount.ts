@@ -10,6 +10,8 @@ export const calcDiscount: CalcFunction = (inputs) => {
   const mode = toStr(inputs.mode, 'byPercent');
   const discountPct = toNumber(inputs.discountPct);
   const discountAmt = toNumber(inputs.discountAmt);
+  const secondDiscountPct = Math.min(100, Math.max(0, toNumber(inputs.secondDiscountPct)));
+  const quantity = Math.max(1, Math.round(toNumber(inputs.quantity, 1)));
 
   if (price <= 0) {
     return {
@@ -30,7 +32,11 @@ export const calcDiscount: CalcFunction = (inputs) => {
     pct = clamped;
   }
 
-  const finalPrice = price - saved;
+  const firstPrice = price - saved;
+  const secondSaved = firstPrice * secondDiscountPct / 100;
+  const finalPrice = firstPrice - secondSaved;
+  saved += secondSaved;
+  pct = (saved / price) * 100;
 
   return {
     primary: { label: 'Цена со скидкой', value: fmtMoney(finalPrice) },
@@ -38,6 +44,8 @@ export const calcDiscount: CalcFunction = (inputs) => {
       { label: 'Размер скидки', value: fmtMoney(saved), accent: 'green' },
       { label: 'Процент скидки', value: `${pct.toFixed(2)}%` },
       { label: 'Исходная цена', value: fmtMoney(price) },
+      ...(secondDiscountPct > 0 ? [{ label: 'Дополнительная скидка', value: `${secondDiscountPct.toFixed(2)}%` }] : []),
+      ...(quantity > 1 ? [{ label: 'Итого за товары', value: fmtMoney(finalPrice * quantity), accent: 'green' as const }] : []),
     ],
   };
 };

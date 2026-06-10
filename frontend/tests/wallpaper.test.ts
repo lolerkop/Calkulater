@@ -22,6 +22,13 @@ describe('wallpaper: calcWallpaper', () => {
     expect(r.secondary.find((s) => s.label === 'Периметр')?.value).toMatch(/14,00/);
   });
 
+  it('раппорт округляет длину полотна вверх и может увеличить число рулонов', () => {
+    const withoutPattern = calcWallpaper({ length: 5, width: 4, height: 2.5, rollWidth: 0.53, rollLength: 10, pattern: 0 });
+    const withPattern = calcWallpaper({ length: 5, width: 4, height: 2.5, rollWidth: 0.53, rollLength: 10, pattern: 64 });
+    const count = (value: string) => Number(value.match(/\d+/)?.[0]);
+    expect(count(withPattern.primary.value)).toBeGreaterThan(count(withoutPattern.primary.value));
+  });
+
   it('учитывает раппорт', () => {
     const noPattern = calcWallpaper({
       length: 4, width: 3, height: 2.5, rollWidth: 0.53, rollLength: 10,

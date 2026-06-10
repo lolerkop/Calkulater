@@ -44,6 +44,13 @@ describe('deposit: calcDeposit', () => {
     expect(topUpRow?.value).toMatch(/6[\s\u00A0\u202F]?000/);
   });
 
+  it('пополнение в начале месяца даёт больше процентов, чем в конце', () => {
+    const beginning = calcDeposit({ amount: 10_000, months: 12, rate: 12, capitalization: 'yes', capPeriod: 'month', topUp: 1_000, topUpTiming: 'beginning' });
+    const end = calcDeposit({ amount: 10_000, months: 12, rate: 12, capitalization: 'yes', capPeriod: 'month', topUp: 1_000, topUpTiming: 'end' });
+    const money = (value: string) => Number(value.replace(/[^\d,.-]/g, '').replace(',', '.'));
+    expect(money(beginning.primary.value)).toBeGreaterThan(money(end.primary.value));
+  });
+
   it('возвращает ошибку при некорректных входных данных', () => {
     const r = calcDeposit({ amount: -1, months: 0, rate: 0 });
     expect(r.primary.value).toBe('—');

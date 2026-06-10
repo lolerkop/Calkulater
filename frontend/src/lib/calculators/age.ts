@@ -33,9 +33,18 @@ export function calculateAge(birth: Date, target: Date): {
 
 function parseDate(s: string): Date | null {
   if (!s) return null;
-  const d = new Date(s);
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+  if (!match) return null;
+  const d = new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
   if (isNaN(d.getTime())) return null;
   return d;
+}
+
+function formatIsoDate(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
 export const calcAge: CalcFunction = (inputs) => {
@@ -60,6 +69,10 @@ export const calcAge: CalcFunction = (inputs) => {
   }
 
   const { years, months, days, totalDays } = calculateAge(birth, target);
+  const weekdays = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+  let nextBirthday = new Date(target.getFullYear(), birth.getMonth(), birth.getDate());
+  if (nextBirthday < target) nextBirthday = new Date(target.getFullYear() + 1, birth.getMonth(), birth.getDate());
+  const daysUntilBirthday = Math.ceil((nextBirthday.getTime() - target.getTime()) / 86_400_000);
 
   const yearsStr = `${years} ${pluralRu(years, ['год', 'года', 'лет'])}`;
   const monthsStr = `${months} ${pluralRu(months, ['месяц', 'месяца', 'месяцев'])}`;
@@ -72,6 +85,9 @@ export const calcAge: CalcFunction = (inputs) => {
       { label: 'Месяцев (сверх лет)', value: String(months) },
       { label: 'Дней (сверх месяцев)', value: String(days) },
       { label: 'Всего прожито дней', value: fmtInt(totalDays) },
+      { label: 'День недели рождения', value: weekdays[birth.getDay()] },
+      { label: 'Следующий день рождения', value: formatIsoDate(nextBirthday) },
+      { label: 'До дня рождения', value: `${daysUntilBirthday} дн.` },
     ],
   };
 };

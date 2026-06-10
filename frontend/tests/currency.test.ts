@@ -1,22 +1,23 @@
 import { describe, it, expect } from 'vitest';
 import { calcCurrency, convertCurrency } from '../src/lib/calculators/currency';
+import { lastUpdated, ratesToUSD } from '../src/data/currencies';
 
 describe('currency: convertCurrency', () => {
   it('USD → USD = 1:1', () => {
     expect(convertCurrency(100, 'USD', 'USD')).toBe(100);
   });
 
-  it('USD → EUR корректно по курсу 0.92', () => {
-    expect(convertCurrency(100, 'USD', 'EUR')).toBeCloseTo(92, 5);
+  it('USD → EUR использует загруженный официальный курс', () => {
+    expect(convertCurrency(100, 'USD', 'EUR')).toBeCloseTo(100 * ratesToUSD.EUR, 5);
   });
 
   it('EUR → USD обратная конвертация', () => {
-    expect(convertCurrency(92, 'EUR', 'USD')).toBeCloseTo(100, 5);
+    const euros = 100 * ratesToUSD.EUR;
+    expect(convertCurrency(euros, 'EUR', 'USD')).toBeCloseTo(100, 5);
   });
 
   it('кросс-курс EUR → MDL', () => {
-    // 100 EUR -> USD -> MDL: 100/0.92 * 17.85
-    const expected = (100 / 0.92) * 17.85;
+    const expected = (100 / ratesToUSD.EUR) * ratesToUSD.MDL;
     expect(convertCurrency(100, 'EUR', 'MDL')).toBeCloseTo(expected, 4);
   });
 });
@@ -30,15 +31,16 @@ describe('currency: calcCurrency', () => {
   it('содержит курс конвертации в secondary', () => {
     const r = calcCurrency({ amount: 100, from: 'USD', to: 'EUR' });
     const rateRow = r.secondary.find((s) => s.label === 'Курс');
-    expect(rateRow?.value).toMatch(/1 USD = 0,92/);
+    expect(rateRow?.value).toContain('1 USD =');
+    expect(rateRow?.value).toContain('EUR');
   });
 
-  it('явно помечает курсы как демонстрационные', () => {
+  it('показывает источник и дату официальных справочных курсов', () => {
     const r = calcCurrency({ amount: 100, from: 'USD', to: 'EUR' });
 
-    expect(r.secondary.find((s) => s.label === 'Тип курса')?.value).toBe('демонстрационный');
-    expect(r.secondary.find((s) => s.label === 'Дата фиксации демо-курсов')?.value).toBeTruthy();
-    expect(r.note).toContain('Демонстрационные фиксированные курсы');
-    expect(r.note).toContain('банковский или биржевой курс');
+    expect(r.secondary.find((s) => s.label === 'Тип курса')?.value).toBe('официальный справочный');
+    expect(r.secondary.find((s) => s.label === 'Дата курса')?.value).toBe(lastUpdated);
+    expect(r.secondary.find((s) => s.label === 'Источник')?.value).toContain('cbr.ru');
+    expect(r.note).toContain('Банка России');
   });
 });

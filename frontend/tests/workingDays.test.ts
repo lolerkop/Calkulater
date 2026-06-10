@@ -25,6 +25,18 @@ describe('workingDays: calcWorkingDays', () => {
     expect(r.primary.value).toMatch(/7 дн\./);
   });
 
+  it('режим шестидневки считает субботу рабочей', () => {
+    const r = calcWorkingDays({
+      startDate: '2026-02-02',
+      endDate: '2026-02-08',
+      includeWeekends: 'no',
+      saturdayWorking: 'yes',
+      excludedDates: '',
+    });
+    expect(r.primary.value).toMatch(/6 дн\./);
+    expect(r.secondary.find((s) => s.label === 'Выходные дни')?.value).toBe('1');
+  });
+
   it('исключённые даты не считаются рабочими', () => {
     const r = calcWorkingDays({
       startDate: '2026-02-02',

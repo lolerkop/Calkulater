@@ -20,6 +20,7 @@ export const calcWorkingDays: CalcFunction = (inputs) => {
   const startStr = toStr(inputs.startDate);
   const endStr = toStr(inputs.endDate);
   const includeWeekends = toStr(inputs.includeWeekends, 'no') === 'yes';
+  const saturdayWorking = toStr(inputs.saturdayWorking, 'no') === 'yes';
   const excludedStr = toStr(inputs.excludedDates);
 
   const start = parseDate(startStr);
@@ -59,7 +60,7 @@ export const calcWorkingDays: CalcFunction = (inputs) => {
 
     if (excluded.has(iso)) {
       excludedCount++;
-    } else if (day === 0 || day === 6) {
+    } else if (day === 0 || (day === 6 && !saturdayWorking)) {
       if (includeWeekends) {
         working++;
       } else {
