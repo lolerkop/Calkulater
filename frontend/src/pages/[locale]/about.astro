@@ -145,11 +145,11 @@ const jsonLd = [
 ---
 
 <Layout title={title} description={description} canonical={path} locale={locale} alternates={alternates} jsonLd={jsonLd}>
-  <section class="border-b border-ink-900" data-testid="about-page">
-    <div class="mx-auto max-w-page min-w-0 px-5 py-8 sm:px-8 sm:py-12">
+  <section class="hero-mesh border-b border-ink-200" data-testid="about-page">
+    <div class="mx-auto max-w-page min-w-0 px-5 py-10 sm:px-8 sm:py-16">
       <Breadcrumbs label={pageCopy[locale].breadcrumbs} items={[{ label: copy.home, href: localeHome(locale) }, { label: title }]} />
-      <h1 class="mt-5 text-fit text-3xl font-bold tracking-tightest text-ink-900 sm:mt-6 sm:text-5xl">{title}</h1>
-      <div class="mt-6 max-w-3xl space-y-4 text-fit text-base leading-relaxed text-ink-600">
+      <h1 class="mt-5 text-fit text-4xl font-extrabold tracking-[-0.05em] text-ink-900 sm:mt-6 sm:text-5xl">{title}</h1>
+      <div class="mt-6 max-w-3xl space-y-4 rounded-3xl border border-white/80 bg-white/80 p-5 text-fit text-base leading-relaxed text-ink-600 shadow-lg backdrop-blur sm:p-7">
         <p>{pageCopy[locale].p1}</p>
         <p>{pageCopy[locale].p2}</p>
       </div>

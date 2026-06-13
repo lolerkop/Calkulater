@@ -6,6 +6,10 @@ import {
   lastUpdated,
   ratesSource,
   ratesNotice,
+  ratesStatus,
+  ratesUpdateAttemptedAt,
+  ratesUpdateFailed,
+  ratesAreStale,
   type CurrencyCode,
 } from '../../data/currencies';
 
@@ -43,7 +47,9 @@ export const calcCurrency: CalcFunction = (inputs) => {
       { label: 'В', value: `${toMeta.name}` },
       { label: 'Тип курса', value: 'официальный справочный' },
       { label: 'Дата курса', value: lastUpdated },
-      { label: 'Источник', value: ratesSource },
+      { label: 'Статус обновления', value: ratesStatus, accent: ratesUpdateFailed || ratesAreStale ? 'red' : 'neutral' },
+      { label: 'Последняя попытка обновления', value: ratesUpdateAttemptedAt },
+      { label: 'Источник', value: 'Банк России', href: ratesSource },
     ],
     note: ratesNotice,
   };

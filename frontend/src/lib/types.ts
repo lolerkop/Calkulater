@@ -79,7 +79,12 @@ export type CalculatorDef = {
   disclaimer?: string;
 };
 
-export type CalcResultRow = { label: string; value: string; accent?: 'green' | 'red' | 'neutral' };
+export type CalcResultRow = {
+  label: string;
+  value: string;
+  accent?: 'green' | 'red' | 'neutral';
+  href?: string;
+};
 
 export type CalcResultTable = {
   title?: string;

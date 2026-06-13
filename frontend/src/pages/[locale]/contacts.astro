@@ -147,19 +147,19 @@ const email = SITE.email;
 ---
 
 <Layout title={title} description={description} canonical={path} locale={locale} alternates={alternates} jsonLd={jsonLd}>
-  <section class="border-b border-ink-900" data-testid="contacts-page">
-    <div class="mx-auto max-w-page min-w-0 px-5 py-8 sm:px-8 sm:py-12">
+  <section class="hero-mesh border-b border-ink-200" data-testid="contacts-page">
+    <div class="mx-auto max-w-page min-w-0 px-5 py-10 sm:px-8 sm:py-16">
       <Breadcrumbs label={pageCopy[locale].breadcrumbs} items={[{ label: copy.home, href: localeHome(locale) }, { label: title }]} />
-      <h1 class="mt-5 text-fit text-3xl font-bold tracking-tightest text-ink-900 sm:mt-6 sm:text-5xl">{title}</h1>
+      <h1 class="mt-5 text-fit text-4xl font-extrabold tracking-[-0.05em] text-ink-900 sm:mt-6 sm:text-5xl">{title}</h1>
       <p class="mt-6 max-w-2xl text-fit text-base leading-relaxed text-ink-600">
         {pageCopy[locale].lead}
       </p>
       {email ? (
-        <a href={`mailto:${email}`} class="mt-6 inline-flex max-w-full border border-ink-900 bg-ink-900 px-4 py-3 text-center text-fit text-sm font-semibold leading-tight text-white transition-colors hover:bg-white hover:text-ink-900">
+        <a href={`mailto:${email}`} class="mt-6 inline-flex max-w-full rounded-xl bg-gradient-to-r from-accent to-sky px-5 py-3 text-center text-fit text-sm font-bold leading-tight text-white shadow-lg transition-transform hover:-translate-y-0.5">
           {email}
         </a>
       ) : (
-        <p class="mt-6 inline-flex max-w-full border border-ink-200 bg-white px-4 py-3 text-fit text-sm font-semibold leading-tight text-ink-700">
+        <p class="mt-6 inline-flex max-w-full rounded-xl border border-white/80 bg-white/80 px-4 py-3 text-fit text-sm font-semibold leading-tight text-ink-700 shadow-sm backdrop-blur">
           {pageCopy[locale].emptyEmail}
         </p>
       )}

@@ -576,7 +576,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
 
   return (
     <section className="space-y-5 sm:space-y-6" data-testid="calculator-catalog">
-      <div className="min-w-0 border border-ink-900 bg-white p-4 sm:p-5">
+      <div className="min-w-0 rounded-3xl border border-ink-200 bg-white p-4 shadow-[0_12px_36px_rgba(39,32,85,0.07)] sm:p-6">
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px_auto] lg:items-end">
           <div className="min-w-0">
             <label
@@ -610,7 +610,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
               {query && (
                 <button
                   type="button"
-                  className="absolute right-2 top-1/2 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center border border-ink-200 text-ink-500 transition-colors hover:border-ink-900 hover:text-ink-900"
+                  className="absolute right-2 top-1/2 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-lg border border-ink-200 text-ink-500 transition-colors hover:border-accent-100 hover:text-accent"
                   onClick={() => setQuery('')}
                   aria-label={catalogCopy.clearSearch}
                   data-testid="catalog-search-clear"
@@ -656,7 +656,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             <button
               key={item}
               type="button"
-              className="max-w-[12rem] shrink-0 border border-ink-200 px-2.5 py-1.5 text-left text-xs font-medium leading-tight text-ink-700 transition-colors hover:border-ink-900 hover:text-accent sm:max-w-full"
+              className="max-w-[12rem] shrink-0 rounded-full border border-ink-200 bg-ink-50 px-3 py-1.5 text-left text-xs font-medium leading-tight text-ink-700 transition-colors hover:border-accent-100 hover:bg-accent-50 hover:text-accent sm:max-w-full"
               onClick={() => setQuery(item)}
               aria-label={`${catalogCopy.searchPrefix}: ${item}`}
             >
@@ -672,7 +672,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
         >
           <button
             type="button"
-            className="max-w-full border border-ink-900 px-2.5 py-2 text-center text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50 sm:px-3 sm:text-left"
+            className="max-w-full rounded-xl border border-ink-200 px-2.5 py-2 text-center text-sm font-semibold leading-tight transition-colors aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white hover:bg-accent-50 sm:px-3 sm:text-left"
             aria-pressed={tagFilter === allTag}
             onClick={() => setTagFilter(allTag)}
             data-testid="catalog-tag-all"
@@ -681,7 +681,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
           </button>
           <button
             type="button"
-            className="max-w-full border border-ink-900 px-2.5 py-2 text-center text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50 sm:px-3 sm:text-left"
+            className="max-w-full rounded-xl border border-ink-200 px-2.5 py-2 text-center text-sm font-semibold leading-tight transition-colors aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white hover:bg-accent-50 sm:px-3 sm:text-left"
             aria-pressed={tagFilter === 'new'}
             onClick={() => setTagFilter('new')}
             data-testid="catalog-tag-new"
@@ -690,7 +690,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
           </button>
           <button
             type="button"
-            className="max-w-full border border-ink-900 px-2.5 py-2 text-center text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50 sm:px-3 sm:text-left"
+            className="max-w-full rounded-xl border border-ink-200 px-2.5 py-2 text-center text-sm font-semibold leading-tight transition-colors aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white hover:bg-accent-50 sm:px-3 sm:text-left"
             aria-pressed={tagFilter === 'popular'}
             onClick={() => setTagFilter('popular')}
             data-testid="catalog-tag-popular"
@@ -706,7 +706,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
         >
           <button
             type="button"
-            className="shrink-0 border border-ink-900 px-3 py-2 text-left text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
+            className="shrink-0 rounded-xl border border-ink-200 px-3 py-2 text-left text-sm font-semibold leading-tight transition-colors aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white hover:bg-accent-50"
             aria-pressed={activeCategory === allCategory}
             onClick={() => setActiveCategory(allCategory)}
           >
@@ -716,7 +716,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             <button
               key={category.id}
               type="button"
-              className="shrink-0 border border-ink-900 px-3 py-2 text-left text-sm font-medium leading-tight transition-colors aria-pressed:bg-ink-900 aria-pressed:text-white hover:bg-ink-50"
+              className="shrink-0 rounded-xl border border-ink-200 px-3 py-2 text-left text-sm font-semibold leading-tight transition-colors aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white hover:bg-accent-50"
               aria-pressed={activeCategory === category.id}
               onClick={() => setActiveCategory(category.id)}
             >
@@ -768,7 +768,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             {activeCategory !== allCategory && (
               <button
                 type="button"
-                className="inline-flex max-w-full items-center justify-center border border-ink-900 px-4 py-2 text-center text-sm font-medium leading-tight transition-colors hover:bg-ink-900 hover:text-white"
+                className="inline-flex max-w-full items-center justify-center rounded-xl bg-accent px-4 py-2 text-center text-sm font-semibold leading-tight text-white transition-colors hover:bg-accent-600"
                 onClick={broadenCategoryFilter}
                 data-testid="catalog-empty-broaden"
               >
@@ -777,7 +777,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             )}
             <button
               type="button"
-              className="inline-flex max-w-full items-center justify-center border border-ink-900 px-4 py-2 text-center text-sm font-medium leading-tight transition-colors hover:bg-ink-900 hover:text-white"
+              className="inline-flex max-w-full items-center justify-center rounded-xl bg-accent px-4 py-2 text-center text-sm font-semibold leading-tight text-white transition-colors hover:bg-accent-600"
               onClick={resetFilters}
               data-testid="catalog-empty-reset"
             >
@@ -789,7 +789,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
               <button
                 key={item}
                 type="button"
-                className="max-w-full border border-ink-200 bg-white px-2.5 py-1.5 text-left text-xs font-medium leading-tight text-ink-700 transition-colors hover:border-ink-900 hover:text-accent"
+                className="max-w-full rounded-full border border-ink-200 bg-white px-3 py-1.5 text-left text-xs font-medium leading-tight text-ink-700 transition-colors hover:border-accent-100 hover:bg-accent-50 hover:text-accent"
                 onClick={() => {
                   setQuery(item);
                   setActiveCategory(allCategory);
@@ -813,7 +813,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
               <a
                 key={calculator.id}
                 href={calculator.fullPath}
-                className="group flex min-h-[154px] min-w-0 flex-col justify-between overflow-hidden border border-ink-200 bg-white p-4 transition-colors hover:border-ink-900 hover:bg-ink-50 sm:min-h-[184px] sm:p-5"
+                className="group flex min-h-[166px] min-w-0 flex-col justify-between overflow-hidden rounded-2xl border border-ink-200 bg-white p-4 shadow-[0_8px_24px_rgba(39,32,85,0.05)] transition-all hover:-translate-y-1 hover:border-accent-100 hover:shadow-[0_18px_42px_rgba(61,48,133,0.12)] sm:min-h-[190px] sm:p-5"
                 data-testid={`catalog-card-${calculator.id}`}
                 onKeyDown={(event) => {
                   if (event.key === 'ArrowDown') {
@@ -837,7 +837,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
                     <div className="flex shrink-0 flex-wrap justify-end gap-1.5">
                       {calculator.isNew && (
                         <span
-                          className="border border-ink-900 bg-ink-900 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-white"
+                          className="rounded-full bg-ink-900 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-white"
                           data-testid={`catalog-card-new-${calculator.id}`}
                         >
                           {copy.newBadge}

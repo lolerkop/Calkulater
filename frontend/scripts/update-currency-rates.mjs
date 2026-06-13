@@ -2,8 +2,17 @@ import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
 const outputUrl = new URL('../src/data/currencyRates.generated.ts', import.meta.url);
+const statusOutputUrl = new URL('../src/data/currencyRatesStatus.generated.ts', import.meta.url);
 const sourceUrl = 'https://www.cbr.ru/scripts/XML_daily.asp';
 const requiredCodes = ['EUR', 'MDL', 'RON', 'UAH', 'PLN', 'GBP', 'CHF', 'TRY'];
+
+async function writeStatus(status, message = '') {
+  const attemptedAt = new Date().toISOString().slice(0, 10);
+  const content = `export const generatedRatesUpdateStatus: 'success' | 'failed' = '${status}';\n` +
+    `export const generatedRatesUpdateAttemptedAt = '${attemptedAt}';\n` +
+    `export const generatedRatesUpdateMessage = ${JSON.stringify(message)};\n`;
+  await writeFile(fileURLToPath(statusOutputUrl), content, 'utf8');
+}
 
 function readTag(block, name) {
   return block.match(new RegExp(`<${name}>([^<]+)</${name}>`))?.[1]?.trim();
@@ -45,9 +54,12 @@ async function updateRates() {
     `export const generatedRatesSource = '${sourceUrl}';\n`;
 
   await writeFile(fileURLToPath(outputUrl), content, 'utf8');
+  await writeStatus('success');
   console.log(`Updated currency rates for ${isoDate}.`);
 }
 
-updateRates().catch((error) => {
-  console.warn(`Currency update skipped: ${error.message}. Using the last committed rates.`);
+updateRates().catch(async (error) => {
+  const message = error instanceof Error ? error.message : 'Unknown update error';
+  await writeStatus('failed', message);
+  console.warn(`Currency update skipped: ${message}. Using the last committed rates.`);
 });

@@ -288,22 +288,27 @@ const categoryTips: Record<string, Record<string, string>> = {
   finance: {
     ru: 'сравнивайте несколько сценариев, проверяйте комиссии, ставки, налоги и условия договора перед финансовым решением',
     en: 'compare several scenarios and check fees, rates, taxes and contract terms before making a financial decision',
+    uk: 'порівнюйте кілька сценаріїв і перевіряйте комісії, ставки, податки та умови договору перед фінансовим рішенням',
   },
   currency: {
     ru: 'проверяйте актуальный курс, банковскую комиссию, спред обменника и дату обновления перед обменом денег',
-    en: 'check the live rate, bank fee, exchange spread and update time before exchanging money',
+    en: 'check the displayed reference-rate date, bank fee and exchange spread before exchanging money',
+    uk: 'перевіряйте дату довідкового курсу, банківську комісію та спред обмінника перед обміном грошей',
   },
   sport: {
     ru: 'используйте результат как ориентир и учитывайте здоровье, опыт тренировок, восстановление и индивидуальные ограничения',
     en: 'use the result as guidance and consider health, training history, recovery and individual limits',
+    uk: 'використовуйте результат як орієнтир і враховуйте здоровʼя, досвід тренувань, відновлення та індивідуальні обмеження',
   },
   building: {
     ru: 'добавляйте запас материала, проверяйте размеры упаковки, особенности основания и реальные потери при монтаже',
     en: 'add material reserve and check pack sizes, surface conditions and real installation waste',
+    uk: 'додавайте запас матеріалу та перевіряйте розміри упаковки, стан основи й реальні втрати під час монтажу',
   },
   'date-time': {
     ru: 'проверяйте включение начальной и конечной даты, праздники, часовой пояс и локальные правила календаря',
     en: 'check whether start and end dates are included, plus holidays, time zone and local calendar rules',
+    uk: 'перевіряйте включення початкової та кінцевої дати, свята, часовий пояс і місцеві календарні правила',
   },
 };
 
@@ -311,22 +316,27 @@ const formulaHints: Record<string, Record<string, string>> = {
   finance: {
     ru: 'Финансовая логика строится вокруг суммы, срока, ставки или процента: калькулятор приводит входные данные к одной базе и показывает итоговую денежную оценку.',
     en: 'The financial logic is built around amount, term, rate or percentage: the calculator normalizes the inputs and returns a monetary estimate.',
+    uk: 'Фінансова логіка спирається на суму, строк, ставку або відсоток: калькулятор приводить дані до спільної бази та повертає грошову оцінку.',
   },
   currency: {
     ru: 'Валютная логика использует соотношение официальных справочных курсов на указанную дату. Коммерческий курс покупки или продажи может отличаться.',
     en: 'Currency logic uses the ratio between official reference rates for the displayed date. A bank\'s buy or sell rate may differ.',
+    uk: 'Валютна логіка використовує співвідношення офіційних довідкових курсів на вказану дату. Курс купівлі або продажу банку може відрізнятися.',
   },
   sport: {
     ru: 'Спортивная логика использует антропометрические, временные или тренировочные показатели и переводит их в понятный ориентир для самопроверки.',
     en: 'Fitness logic uses body, time or training inputs and turns them into a practical reference value for self-checking.',
+    uk: 'Фітнес-логіка використовує дані тіла, часу або тренувань і перетворює їх на практичний орієнтир для самоперевірки.',
   },
   building: {
     ru: 'Строительная логика переводит размеры помещения и материала в площадь, количество упаковок или расход с учетом запаса.',
     en: 'Home-improvement logic converts room and material dimensions into area, pack count or consumption with reserve.',
+    uk: 'Логіка ремонту перетворює розміри приміщення та матеріалу на площу, кількість упаковок або витрату із запасом.',
   },
   'date-time': {
     ru: 'Календарная логика сравнивает даты, считает интервалы и применяет правила включения дней, выходных или исключений.',
     en: 'Date logic compares dates, counts intervals and applies rules for included days, weekends or exclusions.',
+    uk: 'Календарна логіка порівнює дати, рахує інтервали та застосовує правила включених днів, вихідних або винятків.',
   },
 };
 
@@ -906,22 +916,27 @@ const categoryAccuracy: Record<string, Record<string, string>> = {
   finance: {
     ru: 'Для финансовых расчетов отдельно проверяйте актуальные ставки, налоги и условия банка или сервиса.',
     en: 'For financial calculations, separately check current rates, taxes and provider terms.',
+    uk: 'Для фінансових розрахунків окремо перевіряйте актуальні ставки, податки та умови банку або сервісу.',
   },
   currency: {
     ru: 'Для валютных расчетов сверяйте курс перед фактической покупкой, продажей или переводом денег.',
     en: 'For currency calculations, check the rate before an actual exchange, purchase or transfer.',
+    uk: 'Для валютних розрахунків перевіряйте курс перед фактичним обміном, купівлею або переказом грошей.',
   },
   sport: {
     ru: 'Для спортивных и медицинских показателей учитывайте самочувствие, опыт и рекомендации специалиста.',
     en: 'For fitness and health values, consider wellbeing, experience and professional guidance.',
+    uk: 'Для фітнес- і медичних показників враховуйте самопочуття, досвід і рекомендації фахівця.',
   },
   building: {
     ru: 'Для ремонта сверяйте результат с инструкциями производителя и реальными условиями помещения.',
     en: 'For renovation work, compare the estimate with manufacturer instructions and real room conditions.',
+    uk: 'Для ремонту звіряйте оцінку з інструкціями виробника та реальними умовами приміщення.',
   },
   'date-time': {
     ru: 'Для дат проверяйте локальные праздники, рабочие правила и формат включения границ периода.',
     en: 'For dates, check local holidays, working rules and whether period boundaries are included.',
+    uk: 'Для дат перевіряйте місцеві свята, робочі правила та включення меж періоду.',
   },
 };
 

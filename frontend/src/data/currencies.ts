@@ -3,6 +3,11 @@ import {
   generatedRatesSource,
   generatedRatesToUSD,
 } from './currencyRates.generated';
+import {
+  generatedRatesUpdateAttemptedAt,
+  generatedRatesUpdateMessage,
+  generatedRatesUpdateStatus,
+} from './currencyRatesStatus.generated';
 
 export type CurrencyCode =
   | 'USD'
@@ -32,8 +37,21 @@ export const ratesToUSD: Record<CurrencyCode, number> = generatedRatesToUSD;
 
 export const lastUpdated = generatedRatesDate;
 export const ratesSource = generatedRatesSource;
+export const ratesUpdateAttemptedAt = generatedRatesUpdateAttemptedAt;
+export const ratesUpdateMessage = generatedRatesUpdateMessage;
+export const ratesUpdateFailed = generatedRatesUpdateStatus === 'failed';
+const ratesAgeDays = Math.max(
+  0,
+  Math.floor((Date.parse(generatedRatesUpdateAttemptedAt) - Date.parse(generatedRatesDate)) / 86_400_000),
+);
+export const ratesAreStale = ratesAgeDays > 4;
+export const ratesStatus = ratesUpdateFailed
+  ? 'Не удалось обновить курсы при последней сборке. Используются последние сохранённые данные.'
+  : ratesAreStale
+    ? 'Дата курса старше четырёх дней. Данные могут быть устаревшими.'
+    : 'Курсы успешно обновлены при последней сборке сайта.';
 export const ratesNotice =
-  'Официальные справочные курсы Банка России на указанную дату. Банки и обменные пункты могут использовать другие курсы и комиссии.';
+  'Это не курс в реальном времени. Используются официальные справочные курсы Банка России на указанную дату. Банки и обменные пункты могут использовать другие курсы и комиссии.';
 
 export const currencyByCode = Object.fromEntries(
   currencies.map((c) => [c.code, c]),

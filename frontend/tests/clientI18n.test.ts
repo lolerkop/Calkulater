@@ -24,6 +24,13 @@ describe('calculator result localization', () => {
     expect(localizedResultText('Выберите начало и конец', 'uk')).toBe('Оберіть початкову та кінцеву дати');
   });
 
+  it('localizes currency source and update status', () => {
+    expect(localizedResultLabel('Статус обновления', 'en')).toBe('Update status');
+    expect(localizedResultLabel('Последняя попытка обновления', 'uk')).toBe('Остання спроба оновлення');
+    expect(localizedResultText('Банк России', 'en')).toBe('Bank of Russia');
+    expect(localizedResultText('Банк России', 'uk')).toBe('Банк Росії');
+  });
+
   it('localizes complete age phrases without leaving Russian suffixes', () => {
     expect(localizedResultText('36 лет, 5 месяцев, 9 дней', 'en')).toBe('36 years, 5 months, 9 days');
     expect(localizedResultText('36 лет, 5 месяцев, 9 дней', 'uk')).toBe('36 років, 5 місяців, 9 днів');

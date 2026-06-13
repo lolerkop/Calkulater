@@ -16,15 +16,15 @@ const pageCopy: Record<Locale, { title: string; description: string; p1: string;
   ru: {
     title: 'Политика конфиденциальности',
     description: 'Как сайт онлайн-калькуляторов относится к данным пользователя и расчетам в браузере.',
-    p1: 'Вводимые значения используются для расчета в браузере. Мы не сохраняем данные форм и не требуем регистрацию.',
-    p2: 'Если позже будут подключены аналитика или реклама, их работа будет описана отдельно в этой политике.',
+    p1: 'Введённые значения используются только для расчёта в браузере. Они не отправляются на сервер и не сохраняются автоматически в localStorage.',
+    p2: 'Параметры добавляются в ссылку только после явного нажатия «Скопировать ссылку». Такая ссылка содержит введённые значения, поэтому передавайте её только тем, кому доверяете.',
     breadcrumbs: 'Хлебные крошки',
   },
   en: {
     title: 'Privacy policy',
     description: 'How the online calculator site handles user inputs and browser-based calculations.',
-    p1: 'Values entered in calculator forms are used for browser-side calculations. We do not store form inputs and do not require registration.',
-    p2: 'If analytics or ads are added later, their behavior will be described separately in this policy.',
+    p1: 'Values entered in calculator forms are used only for calculations in your browser. They are not sent to a server or saved automatically in localStorage.',
+    p2: 'Inputs are added to a URL only after you explicitly select Copy link. That URL contains the entered values, so share it only with people you trust.',
     breadcrumbs: 'Breadcrumbs',
   },
   es: {
@@ -114,8 +114,8 @@ const pageCopy: Record<Locale, { title: string; description: string; p1: string;
   uk: {
     title: 'Політика конфіденційності',
     description: 'Як сайт онлайн-калькуляторів працює з введеними даними та розрахунками в браузері.',
-    p1: 'Значення, введені у форми, використовуються для розрахунків у браузері. Ми не зберігаємо дані форм і не вимагаємо реєстрації.',
-    p2: 'Якщо пізніше буде додано аналітику або рекламу, їхню роботу буде описано окремо в цій політиці.',
+    p1: 'Введені у форми значення використовуються лише для розрахунків у браузері. Вони не надсилаються на сервер і не зберігаються автоматично в localStorage.',
+    p2: 'Параметри додаються до URL лише після явного натискання «Скопіювати посилання». Таке посилання містить введені значення, тому передавайте його лише людям, яким довіряєте.',
     breadcrumbs: 'Навігаційний ланцюжок',
   },
   sk: {
@@ -145,11 +145,11 @@ const jsonLd = [
 ---
 
 <Layout title={title} description={description} canonical={path} locale={locale} alternates={alternates} jsonLd={jsonLd}>
-  <section class="border-b border-ink-900" data-testid="privacy-page">
-    <div class="mx-auto max-w-page min-w-0 px-5 py-8 sm:px-8 sm:py-12">
+  <section class="hero-mesh border-b border-ink-200" data-testid="privacy-page">
+    <div class="mx-auto max-w-page min-w-0 px-5 py-10 sm:px-8 sm:py-16">
       <Breadcrumbs label={pageCopy[locale].breadcrumbs} items={[{ label: copy.home, href: localeHome(locale) }, { label: title }]} />
-      <h1 class="mt-5 text-fit text-3xl font-bold tracking-tightest text-ink-900 sm:mt-6 sm:text-5xl">{title}</h1>
-      <div class="mt-6 max-w-3xl space-y-4 text-fit text-base leading-relaxed text-ink-600">
+      <h1 class="mt-5 text-fit text-4xl font-extrabold tracking-[-0.05em] text-ink-900 sm:mt-6 sm:text-5xl">{title}</h1>
+      <div class="mt-6 max-w-3xl space-y-4 rounded-3xl border border-white/80 bg-white/80 p-5 text-fit text-base leading-relaxed text-ink-600 shadow-lg backdrop-blur sm:p-7">
         <p>{pageCopy[locale].p1}</p>
         <p>{pageCopy[locale].p2}</p>
       </div>

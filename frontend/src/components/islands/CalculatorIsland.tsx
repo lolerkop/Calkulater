@@ -632,34 +632,6 @@ function readValuesFromUrl(fields: Field[], base: FormValues): FormValues {
   return next;
 }
 
-function storageKey(calculatorId: string, locale: Locale): string {
-  return `calcuway:${locale}:${calculatorId}:inputs`;
-}
-
-function readSavedValues(
-  calculatorId: string,
-  locale: Locale,
-  fields: Field[],
-  base: FormValues,
-): FormValues {
-  if (typeof window === 'undefined') return base;
-  try {
-    const raw = window.localStorage.getItem(storageKey(calculatorId, locale));
-    if (!raw) return base;
-    const saved = JSON.parse(raw) as Record<string, unknown>;
-    const next = { ...base };
-    for (const field of fields) {
-      const value = saved[field.name];
-      if (typeof value !== 'string' && typeof value !== 'number' && typeof value !== 'boolean') continue;
-      const parsed = parseUrlValue(field, String(value));
-      if (parsed !== undefined) next[field.name] = parsed;
-    }
-    return next;
-  } catch {
-    return base;
-  }
-}
-
 // Формирует query-string только из значений, отличающихся от дефолта.
 function buildQueryString(fields: Field[], values: FormValues): string {
   const params = new URLSearchParams();
@@ -817,20 +789,20 @@ function ResultBlock({
 
   return (
     <div
-      className="border border-ink-900 bg-ink-50"
+      className="overflow-hidden rounded-3xl border border-ink-200 bg-ink-50 shadow-[0_18px_48px_rgba(61,48,133,0.11)]"
       role="status"
       aria-live="polite"
       aria-atomic="false"
       data-testid="calc-result"
     >
-      <div className="p-5 sm:p-7 border-b border-ink-900 bg-white">
+      <div className="border-b border-accent-100 bg-gradient-to-br from-white via-white to-accent-50 p-5 sm:p-7">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="min-w-0">
             <div className="text-xs uppercase tracking-wider text-ink-500">
               {result.primary.label}
             </div>
             <div
-              className="mt-2 font-mono text-3xl sm:text-4xl font-semibold text-ink-900 tracking-tightest [overflow-wrap:anywhere]"
+              className="mt-2 font-mono text-3xl font-semibold tracking-[-0.04em] text-accent [overflow-wrap:anywhere] sm:text-4xl"
               data-testid="calc-result-primary"
             >
               {result.primary.value}
@@ -840,7 +812,7 @@ function ResultBlock({
             <button
               type="button"
               onClick={onEdit}
-              className="inline-flex h-10 w-10 items-center justify-center border border-ink-900 text-ink-900 transition-colors hover:bg-ink-900 hover:text-white"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-ink-200 bg-white text-ink-700 shadow-sm transition-colors hover:border-accent-100 hover:text-accent"
               aria-label={copy.editInputs}
               title={copy.editInputs}
               data-testid="calc-edit-inputs-btn"
@@ -850,7 +822,7 @@ function ResultBlock({
             <button
               type="button"
               onClick={onPrint}
-              className="inline-flex h-10 w-10 items-center justify-center border border-ink-900 text-ink-900 transition-colors hover:bg-ink-900 hover:text-white"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-ink-200 bg-white text-ink-700 shadow-sm transition-colors hover:border-accent-100 hover:text-accent"
               aria-label={copy.printResult}
               title={copy.printResult}
               data-testid="calc-print-btn"
@@ -861,10 +833,10 @@ function ResultBlock({
               type="button"
               onClick={onCopy}
               className={[
-                'inline-flex h-10 w-10 items-center justify-center border transition-colors',
+                'inline-flex h-10 w-10 items-center justify-center rounded-xl border bg-white shadow-sm transition-colors',
                 copied
                   ? 'border-emerald-700 bg-emerald-50 text-emerald-700'
-                  : 'border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-white',
+                  : 'border-ink-200 text-ink-700 hover:border-accent-100 hover:text-accent',
               ].join(' ')}
               aria-label={copied ? copy.resultCopied : copy.copyResult}
               title={copied ? copy.resultCopied : copy.copyResult}
@@ -892,7 +864,16 @@ function ResultBlock({
                 !row.accent || row.accent === 'neutral' ? 'text-ink-900' : '',
               ].join(' ')}
             >
-              {row.value}
+              {row.href ? (
+                <a
+                  href={row.href}
+                  className="underline underline-offset-4 hover:text-accent"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {row.value}
+                </a>
+              ) : row.value}
             </dd>
           </div>
         ))}
@@ -1144,7 +1125,6 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   const [result, setResult] = useState<CalcResult | null>(null);
   const [copied, setCopied] = useState(false);
   const [copiedResult, setCopiedResult] = useState(false);
-  const [urlRestored, setUrlRestored] = useState(false);
 
   const validationErrors = useMemo(
     () => validateValues(calc.fields, values, locale),
@@ -1160,15 +1140,9 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   // (нужно делать в useEffect, т.к. island гидрируется на клиенте и
   // первоначальный SSR-рендер не должен отличаться).
   useEffect(() => {
-    setUrlRestored(false);
     const defaults = buildInitialValues(calc.fields);
-    const hasUrlValues = typeof window !== 'undefined' && new URLSearchParams(window.location.search).size > 0;
-    const base = hasUrlValues
-      ? defaults
-      : readSavedValues(calc.id, locale, calc.fields, defaults);
-    const restored = readValuesFromUrl(calc.fields, base);
+    const restored = readValuesFromUrl(calc.fields, defaults);
     setValues(restored);
-    setUrlRestored(true);
     // запускаем один раз для текущего калькулятора
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [calc.id, calc.fields, locale]);
@@ -1190,26 +1164,6 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
     }, 80);
     return () => clearTimeout(id);
   }, [values, runner, calc.fields, locale]);
-
-  // Синхронизация значений с URL (без перезагрузки страницы).
-  // Пустые/дефолтные значения в строку не попадают — URL остаётся чистым.
-  useEffect(() => {
-    if (typeof window === 'undefined' || !urlRestored) return;
-    const qs = buildQueryString(calc.fields, values);
-    const newUrl = window.location.pathname + qs + window.location.hash;
-    if (newUrl !== window.location.pathname + window.location.search + window.location.hash) {
-      window.history.replaceState(null, '', newUrl);
-    }
-  }, [values, calc.fields, urlRestored]);
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || !urlRestored) return;
-    try {
-      window.localStorage.setItem(storageKey(calc.id, locale), JSON.stringify(values));
-    } catch {
-      // Storage can be unavailable in private browsing; calculations still work normally.
-    }
-  }, [calc.id, locale, urlRestored, values]);
 
   const focusFirstInvalidField = () => {
     if (typeof window === 'undefined') return;
@@ -1273,7 +1227,6 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
     setCopied(false);
     setCopiedResult(false);
     if (typeof window !== 'undefined') {
-      window.localStorage.removeItem(storageKey(calc.id, locale));
       window.history.replaceState(null, '', window.location.pathname + window.location.hash);
     }
   };
@@ -1334,19 +1287,19 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
     <div className="grid min-w-0 gap-5 sm:gap-8 lg:grid-cols-5" data-testid={`calculator-island-${calc.id}`}>
       <form
         ref={formRef}
-        className="min-w-0 border border-ink-900 bg-white p-4 sm:p-8 lg:col-span-3"
+        className="min-w-0 rounded-3xl border border-ink-200 bg-white p-4 shadow-[0_18px_48px_rgba(61,48,133,0.09)] sm:p-8 lg:col-span-3"
         onSubmit={handleSubmit}
         data-testid="calc-form"
       >
         <div
-          className="mb-5 flex items-start justify-between gap-3 border-b border-ink-200 pb-4 sm:mb-6 sm:gap-4 sm:pb-5"
+          className="mb-5 flex items-start justify-between gap-3 border-b border-ink-100 pb-4 sm:mb-6 sm:gap-4 sm:pb-5"
           data-testid="calc-form-header"
         >
           <div className="min-w-0">
             <div className="text-xs uppercase tracking-wider text-ink-500">{copy.inputs}</div>
-            <h2 className="mt-1 text-xl font-semibold tracking-tight text-ink-900 text-fit">{calc.name}</h2>
+            <h2 className="mt-1 text-xl font-bold tracking-[-0.03em] text-ink-900 text-fit">{calc.name}</h2>
           </div>
-          <div className="shrink-0 border border-ink-200 px-2.5 py-1 text-right font-mono text-xs text-ink-600">
+          <div className="shrink-0 rounded-full bg-accent-50 px-3 py-1.5 text-right font-mono text-xs text-accent">
             {copy.fieldCounter(visibleFields.length)}
           </div>
         </div>
@@ -1370,7 +1323,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
         {calc.fields.some((field) => field.name === 'from') && calc.fields.some((field) => field.name === 'to') && (
           <button
             type="button"
-            className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 border border-ink-300 px-3 py-2 text-sm font-medium text-ink-800 transition-colors hover:border-ink-900 hover:bg-ink-50 sm:w-auto"
+            className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-ink-200 bg-ink-50 px-3 py-2 text-sm font-semibold text-ink-700 transition-colors hover:border-accent-100 hover:bg-accent-50 hover:text-accent sm:w-auto"
             onClick={() => setValues((previous) => ({
               ...previous,
               from: previous.to,
@@ -1383,7 +1336,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           </button>
         )}
 
-        <div className="sticky bottom-0 z-10 -mx-4 mt-6 grid grid-cols-2 items-stretch gap-2.5 border-t border-ink-200 bg-white/95 px-4 py-3 shadow-[0_-8px_24px_rgba(17,17,17,0.06)] backdrop-blur sm:static sm:mx-0 sm:mt-7 sm:flex sm:flex-wrap sm:items-center sm:gap-3 sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none">
+        <div className="-mx-4 mt-6 grid grid-cols-2 items-stretch gap-2.5 border-t border-ink-100 bg-white px-4 py-3 sm:mx-0 sm:mt-7 sm:flex sm:flex-wrap sm:items-center sm:gap-3 sm:border-0 sm:bg-transparent sm:p-0">
           <button
             type="submit"
             className="btn-primary col-span-2 w-full sm:w-auto"
@@ -1395,7 +1348,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           <button
             type="button"
             onClick={reset}
-            className="inline-flex min-h-11 min-w-0 items-center justify-center gap-1.5 border border-ink-200 px-2 py-2 text-center text-sm leading-tight text-ink-600 underline-offset-4 transition-colors hover:border-ink-900 hover:text-ink-900 sm:min-h-0 sm:w-auto sm:justify-start sm:border-0 sm:px-0 sm:py-0 sm:text-ink-500 sm:hover:underline"
+            className="inline-flex min-h-11 min-w-0 items-center justify-center gap-1.5 rounded-xl border border-ink-200 px-2 py-2 text-center text-sm leading-tight text-ink-600 underline-offset-4 transition-colors hover:border-accent-100 hover:text-accent sm:min-h-0 sm:w-auto sm:justify-start sm:border-0 sm:px-0 sm:py-0 sm:text-ink-500 sm:hover:underline"
             data-testid="calc-reset-btn"
           >
             <RotateCcw size={14} aria-hidden="true" />
@@ -1405,10 +1358,10 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
             type="button"
             onClick={copyShareLink}
             className={[
-              'inline-flex min-h-11 min-w-0 items-center justify-center gap-2 border px-2 py-2 text-center text-sm leading-tight transition-colors sm:ml-auto sm:w-auto sm:px-3',
+              'inline-flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-xl border px-2 py-2 text-center text-sm leading-tight transition-colors sm:ml-auto sm:w-auto sm:px-3',
               copied
                 ? 'border-emerald-700 text-emerald-700 bg-emerald-50'
-                : 'border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-white',
+                : 'border-ink-200 bg-white text-ink-700 hover:border-accent-100 hover:bg-accent-50 hover:text-accent',
             ].join(' ')}
             data-testid="calc-share-btn"
             aria-live="polite"
@@ -1429,7 +1382,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
 
         {hasValidationErrors && (
           <div
-            className="mt-5 flex gap-3 border border-accent bg-accent-50 p-4 text-sm text-ink-900"
+            className="mt-5 flex gap-3 rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-ink-900"
             role="status"
             data-testid="calc-validation"
           >

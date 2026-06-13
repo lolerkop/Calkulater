@@ -28,7 +28,7 @@ const shouldRender = import.meta.env.PUBLIC_SHOW_AD_PLACEHOLDERS === 'true';
 {shouldRender && (
   <aside
     class:list={[
-      'w-full min-w-0 border border-dashed border-ink-300 bg-ink-50 text-ink-500',
+      'w-full min-w-0 rounded-2xl border border-dashed border-ink-300 bg-ink-50 text-ink-500',
       'flex items-center justify-center text-center text-xs uppercase tracking-wider',
       formatClasses[format],
       className,

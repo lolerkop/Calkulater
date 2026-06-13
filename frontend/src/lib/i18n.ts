@@ -1,6 +1,7 @@
 import { categories as baseCategories } from '../data/categories';
 import { calculators as baseCalculators } from '../data/calculators';
 import { getCalculatorSeoContent } from '../data/calculatorSeoContent';
+import { localizedResultLabel } from './clientI18n';
 import type { CalculatorDef, Category, CategoryId, Field, FaqItem } from './types';
 
 export const allLocales = ['ru', 'en', 'es', 'de', 'fr', 'pt', 'it', 'pl', 'nl', 'ro', 'id', 'tr', 'vi', 'cs', 'uk', 'sk', 'hu'] as const;
@@ -259,11 +260,11 @@ export const ui = {
     about: 'О проекте',
     contacts: 'Контакты',
     privacy: 'Политика',
-    made: 'Сделано в Swiss-style.',
+    made: 'Быстро, понятно и без регистрации.',
     footerDescription:
       'Простые онлайн-калькуляторы для повседневных задач. Без регистрации, без рекламы во время расчета.',
     footerNote:
-      'Все вычисления выполняются в браузере, мы не сохраняем ваши данные. Расчеты носят справочный характер.',
+      'Все вычисления выполняются в браузере. Данные не сохраняются автоматически и попадают в ссылку только после команды «Скопировать ссылку».',
     language: 'Язык',
     chooseLanguage: 'Выберите язык',
     ruVersion: 'Русская версия',
@@ -308,11 +309,11 @@ export const ui = {
     about: 'About',
     contacts: 'Contacts',
     privacy: 'Privacy',
-    made: 'Made in Swiss style.',
+    made: 'Fast, clear and registration-free.',
     footerDescription:
       'Simple online calculators for everyday tasks. No sign-up and no interruptions while you calculate.',
     footerNote:
-      'All calculations run in your browser. We do not store your inputs. Results are for reference only.',
+      'Calculations run in your browser. Inputs are not saved automatically and enter a URL only when you select Copy link.',
     language: 'Language',
     chooseLanguage: 'Choose language',
     ruVersion: 'Русская версия',
@@ -945,11 +946,11 @@ export const ui = {
     about: 'Про проєкт',
     contacts: 'Контакти',
     privacy: 'Конфіденційність',
-    made: 'Зроблено у Swiss style.',
+    made: 'Швидко, зрозуміло та без реєстрації.',
     footerDescription:
       'Прості онлайн-калькулятори для щоденних задач. Без реєстрації та без відволікання під час розрахунку.',
     footerNote:
-      'Усі розрахунки виконуються в браузері. Ми не зберігаємо введені дані. Результати мають довідковий характер.',
+      'Усі розрахунки виконуються в браузері. Дані не зберігаються автоматично й потрапляють у URL лише після команди «Скопіювати посилання».',
     language: 'Мова',
     chooseLanguage: 'Виберіть мову',
     ruVersion: 'Russian version',
@@ -1109,7 +1110,7 @@ const enCategories: Record<CategoryId, Omit<Category, 'id' | 'icon' | 'faq'>> = 
     slug: 'currency',
     description: 'Currency converter and popular pairs for quick travel, shopping and budget estimates.',
     longDescription:
-      'Currency calculators convert amounts between common currencies and provide separate pages for popular pairs. Rates are demo values for testing the interface, so always verify the live rate before exchanging money.',
+      'Currency calculators convert amounts between common currencies using Bank of Russia reference rates published for the displayed date. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
     seoTitle: 'Currency converter — USD, EUR, MDL, RON and more',
     seoDescription:
       'Online currency converter for USD, EUR, MDL, RON, UAH, PLN, GBP, CHF and TRY. Official reference rates with an update date.',
@@ -1157,7 +1158,7 @@ const enCategoryFaq: Record<CategoryId, FaqItem[]> = {
     { q: 'Do you store my inputs?', a: 'No. Calculations run in your browser and inputs are not sent to a server.' },
   ],
   currency: [
-    { q: 'Are the exchange rates live?', a: 'In this MVP the rates are demo values. Check the live bank or exchange rate before making a transaction.' },
+    { q: 'Are the exchange rates live?', a: 'No. The site uses official Bank of Russia reference rates updated during the site build. Check the displayed date and your bank or exchange service before a transaction.' },
     { q: 'Which currencies are supported?', a: 'The converter includes USD, EUR, MDL, RON, UAH, PLN, GBP, CHF and TRY.' },
     { q: 'Can I use it for travel budgets?', a: 'Yes, it is useful for quick estimates, but final exchange amounts can differ.' },
   ],
@@ -1881,7 +1882,7 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       slug: 'valyuty',
       description: 'Конвертер валют і популярні валютні пари для подорожей, покупок і швидкого бюджету.',
       longDescription:
-        'Валютні калькулятори переводять суми між поширеними валютами та мають окремі сторінки для популярних пар. Курси в MVP є демонстраційними значеннями.',
+        'Валютні калькулятори переводять суми між поширеними валютами за довідковими курсами Банку Росії на вказану дату. Банки та обмінні сервіси можуть застосовувати інші курси й комісії.',
       seoTitle: 'Конвертер валют - USD, EUR, MDL, RON та інші',
       seoDescription:
         'Онлайн-конвертер для USD, EUR, MDL, RON, UAH, PLN, GBP, CHF і TRY. Офіційні довідкові курси з датою оновлення.',
@@ -2370,7 +2371,7 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Ви зберігаєте мої дані?', a: 'Ні. Розрахунки виконуються в браузері, а введені значення не надсилаються на сервер.' },
     ],
     currency: [
-      { q: 'Курси валют актуальні в реальному часі?', a: 'У цьому MVP курси є демонстраційними значеннями. Перед обміном перевіряйте курс у банку або офіційному джерелі.' },
+      { q: 'Курси валют оновлюються в реальному часі?', a: 'Ні. Сайт використовує офіційні довідкові курси Банку Росії, оновлені під час складання сайту. Перевіряйте показану дату та курс банку або обмінного сервісу.' },
       { q: 'Які валюти підтримуються?', a: 'Конвертер містить USD, EUR, MDL, RON, UAH, PLN, GBP, CHF і TRY.' },
       { q: 'Чи підходить це для бюджету подорожі?', a: 'Так, інструмент корисний для швидких оцінок, але фінальна сума може відрізнятися.' },
     ],
@@ -2542,10 +2543,10 @@ const enCalculatorCopy: Record<string, CalcCopy> = {
     h1: 'Currency converter',
     keywords: ['currency converter', 'exchange rate', 'USD', 'EUR'],
     howToUse: ['Enter the amount.', 'Select source and target currencies.', 'Check the converted amount.'],
-    howItWorks: 'The calculator multiplies the amount by the demo exchange rate between the selected currencies.',
+    howItWorks: 'The calculator derives a cross-rate from official Bank of Russia reference rates published for the displayed date.',
     example: 'Convert 100 USD to EUR to estimate a travel budget.',
     faq: faq('currency converter'),
-    disclaimer: 'Rates are demo values in this MVP. Verify live rates before exchanging money.',
+    disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'usd-to-eur': {
     name: 'USD to EUR converter',
@@ -2557,10 +2558,10 @@ const enCalculatorCopy: Record<string, CalcCopy> = {
     h1: 'USD to EUR converter',
     keywords: ['USD to EUR', 'dollar to euro', 'currency converter'],
     howToUse: ['Enter USD amount.', 'Keep EUR as the target currency.', 'Review the converted amount.'],
-    howItWorks: 'The converter applies the demo USD/EUR exchange rate.',
+    howItWorks: 'The converter derives the USD/EUR cross-rate from official reference rates for the displayed date.',
     example: 'Convert 100 USD to EUR before a trip or purchase.',
     faq: faq('USD to EUR converter'),
-    disclaimer: 'Rates are demo values in this MVP. Verify live rates before exchanging money.',
+    disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'eur-to-mdl': {
     name: 'EUR to MDL converter',
@@ -2572,10 +2573,10 @@ const enCalculatorCopy: Record<string, CalcCopy> = {
     h1: 'EUR to MDL converter',
     keywords: ['EUR to MDL', 'euro to leu', 'currency converter'],
     howToUse: ['Enter EUR amount.', 'Keep MDL as the target currency.', 'Review the converted amount.'],
-    howItWorks: 'The converter applies the demo EUR/MDL exchange rate.',
+    howItWorks: 'The converter derives the EUR/MDL cross-rate from official reference rates for the displayed date.',
     example: 'Convert 100 EUR to MDL for a quick budget estimate.',
     faq: faq('EUR to MDL converter'),
-    disclaimer: 'Rates are demo values in this MVP. Verify live rates before exchanging money.',
+    disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'usd-to-mdl': {
     name: 'USD to MDL converter',
@@ -2587,10 +2588,10 @@ const enCalculatorCopy: Record<string, CalcCopy> = {
     h1: 'USD to MDL converter',
     keywords: ['USD to MDL', 'dollar to leu', 'currency converter'],
     howToUse: ['Enter USD amount.', 'Keep MDL as the target currency.', 'Review the converted amount.'],
-    howItWorks: 'The converter applies the demo USD/MDL exchange rate.',
+    howItWorks: 'The converter derives the USD/MDL cross-rate from official reference rates for the displayed date.',
     example: 'Convert 100 USD to MDL for a quick budget estimate.',
     faq: faq('USD to MDL converter'),
-    disclaimer: 'Rates are demo values in this MVP. Verify live rates before exchanging money.',
+    disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'bmi-calculator': {
     name: 'BMI calculator',
@@ -4982,7 +4983,7 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
       seoDescription: 'Конвертуйте USD, EUR, MDL, RON, UAH, PLN, GBP, CHF і TRY у безкоштовному онлайн-конвертері.',
       h1: 'Конвертер валют',
       keywords: ['конвертер валют', 'курс валют', 'USD', 'EUR'],
-      disclaimer: 'Курси є демонстраційними значеннями в цьому MVP. Перед обміном перевіряйте актуальний курс.',
+      disclaimer: 'Довідкові курси оновлюються під час складання сайту. Банки та обмінні сервіси можуть використовувати інші курси купівлі, продажу й комісії.',
     },
     'usd-to-eur': {
       name: 'Конвертер USD в EUR',
@@ -4992,7 +4993,7 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
       seoDescription: 'Конвертуйте USD в EUR онлайн простим валютним калькулятором.',
       h1: 'Конвертер USD в EUR',
       keywords: ['USD в EUR', 'долар в євро', 'конвертер валют'],
-      disclaimer: 'Курси є демонстраційними значеннями в цьому MVP. Перед обміном перевіряйте актуальний курс.',
+      disclaimer: 'Довідкові курси оновлюються під час складання сайту. Банки та обмінні сервіси можуть використовувати інші курси купівлі, продажу й комісії.',
     },
     'eur-to-mdl': {
       name: 'Конвертер EUR в MDL',
@@ -5002,7 +5003,7 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
       seoDescription: 'Конвертуйте EUR в MDL онлайн простим валютним калькулятором.',
       h1: 'Конвертер EUR в MDL',
       keywords: ['EUR в MDL', 'євро в лей', 'конвертер валют'],
-      disclaimer: 'Курси є демонстраційними значеннями в цьому MVP. Перед обміном перевіряйте актуальний курс.',
+      disclaimer: 'Довідкові курси оновлюються під час складання сайту. Банки та обмінні сервіси можуть використовувати інші курси купівлі, продажу й комісії.',
     },
     'usd-to-mdl': {
       name: 'Конвертер USD в MDL',
@@ -5012,7 +5013,7 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
       seoDescription: 'Конвертуйте USD в MDL онлайн простим валютним калькулятором.',
       h1: 'Конвертер USD в MDL',
       keywords: ['USD в MDL', 'долар в лей', 'конвертер валют'],
-      disclaimer: 'Курси є демонстраційними значеннями в цьому MVP. Перед обміном перевіряйте актуальний курс.',
+      disclaimer: 'Довідкові курси оновлюються під час складання сайту. Банки та обмінні сервіси можуть використовувати інші курси купівлі, продажу й комісії.',
     },
     'bmi-calculator': {
       name: 'Калькулятор BMI',
@@ -5851,6 +5852,7 @@ const optionLabels: Record<string, string> = {
   byAmount: 'By amount',
   of: 'What is A% of B',
   whatPercent: 'A is what percent of B',
+  what: 'A is what percent of B',
   change: 'Percentage change',
   add: 'Add percentage',
   subtract: 'Subtract percentage',
@@ -5861,6 +5863,20 @@ const optionLabels: Record<string, string> = {
   percent: 'Percentage',
   beginning: 'At the beginning',
   end: 'At the end',
+  USD: 'USD — US dollar',
+  EUR: 'EUR — Euro',
+  MDL: 'MDL — Moldovan leu',
+  RON: 'RON — Romanian leu',
+  UAH: 'UAH — Ukrainian hryvnia',
+  PLN: 'PLN — Polish zloty',
+  GBP: 'GBP — Pound sterling',
+  CHF: 'CHF — Swiss franc',
+  TRY: 'TRY — Turkish lira',
+  '1.2': 'Minimal — desk-based work',
+  '1.375': 'Light — 1-3 workouts per week',
+  '1.55': 'Moderate — 3-5 workouts per week',
+  '1.725': 'High — 6-7 workouts per week',
+  '1.9': 'Very high — physical work',
 };
 
 const fieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>> = {
@@ -7114,6 +7130,7 @@ const optionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>
     byAmount: 'За сумою',
     of: 'Скільки становить A% від B',
     whatPercent: 'A це який відсоток від B',
+    what: 'A це який відсоток від B',
     change: 'Відсоткова зміна',
     add: 'Додати відсоток',
     subtract: 'Відняти відсоток',
@@ -7124,6 +7141,20 @@ const optionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>
     percent: 'Відсотком',
     beginning: 'На початку',
     end: 'Наприкінці',
+    USD: 'USD — Долар США',
+    EUR: 'EUR — Євро',
+    MDL: 'MDL — Молдовський лей',
+    RON: 'RON — Румунський лей',
+    UAH: 'UAH — Українська гривня',
+    PLN: 'PLN — Польський злотий',
+    GBP: 'GBP — Фунт стерлінгів',
+    CHF: 'CHF — Швейцарський франк',
+    TRY: 'TRY — Турецька ліра',
+    '1.2': 'Мінімальна — сидяча робота',
+    '1.375': 'Легка — 1-3 тренування на тиждень',
+    '1.55': 'Середня — 3-5 тренувань на тиждень',
+    '1.725': 'Висока — 6-7 тренувань на тиждень',
+    '1.9': 'Дуже висока — фізична робота',
   },
   sk: {
     years: 'Roky',
@@ -7281,6 +7312,12 @@ function localizeCalculator(calculator: CalculatorDef, locale: Locale): Calculat
     category: calculator.category,
     fullPath: `${fullPathPrefix}/${copy.slug}/`,
     fields: calculator.fields.map((field) => localizeField(field, locale)),
+    resultLabels: Object.fromEntries(
+      Object.entries(calculator.resultLabels).map(([key, label]) => [key, localizedResultLabel(label, locale)]),
+    ),
+    disclaimer: copy.disclaimer ?? (locale === 'uk'
+      ? 'Результати є орієнтовними оцінками. Перед важливими рішеннями перевіряйте вихідні дані.'
+      : 'Results are reference estimates. Verify the inputs before making important decisions.'),
     relatedCalculatorIds: calculator.relatedCalculatorIds.filter((id) => globalCalculatorIds.has(id)),
   };
   const seoContent = getCalculatorSeoContent(localizedCalculator, locale);

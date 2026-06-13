@@ -153,12 +153,13 @@ export function websiteJsonLdForLocale(locale: Locale): Json {
 /**
  * Организация-владелец сайта.
  */
-export function organizationJsonLd(): Json {
+export function organizationJsonLd(locale: Locale = 'ru'): Json {
+  const meta = localeMeta[locale];
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${absUrl('/')}#organization`,
-    name: SITE.name,
+    name: meta.siteName,
     url: absUrl('/'),
     ...(SITE.email ? { email: SITE.email } : {}),
   };
@@ -318,6 +319,7 @@ export function articleJsonLd(params: {
   const published = params.datePublished ?? '2025-01-01';
   const modified = params.dateModified ?? new Date().toISOString().slice(0, 10);
   const locale = params.locale ?? 'ru';
+  const organizationName = localeMeta[locale].siteName;
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -325,10 +327,10 @@ export function articleJsonLd(params: {
     description: params.description,
     inLanguage: localeMeta[locale].localeCode,
     mainEntityOfPage: { '@type': 'WebPage', '@id': absUrl(params.path) },
-    author: { '@type': 'Organization', name: SITE.name, url: absUrl('/') },
+    author: { '@type': 'Organization', name: organizationName, url: absUrl('/') },
     publisher: {
       '@type': 'Organization',
-      name: SITE.name,
+      name: organizationName,
       url: absUrl('/'),
     },
     datePublished: published,

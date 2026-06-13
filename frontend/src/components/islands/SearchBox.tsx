@@ -289,7 +289,7 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
         {hasQuery && (
           <button
             type="button"
-            className="absolute right-2 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-ink-200 bg-white text-ink-500 transition-colors hover:border-ink-900 hover:text-ink-900"
+            className="absolute right-2 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-lg border border-ink-200 bg-white text-ink-500 transition-colors hover:border-accent-100 hover:text-accent"
             onClick={() => setQuery('')}
             aria-label={searchCopy.clear}
             data-testid="search-clear"
@@ -302,7 +302,7 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
       {hasQuery && (
         <div
           id={resultsId}
-          className="absolute left-0 right-0 top-full z-10 mt-1 max-h-[min(28rem,70vh)] min-w-0 overflow-y-auto border border-ink-900 bg-white shadow-[4px_4px_0_0_rgba(10,10,10,0.04)]"
+          className="absolute left-0 right-0 top-full z-10 mt-2 max-h-[min(28rem,70vh)] min-w-0 overflow-y-auto rounded-2xl border border-ink-200 bg-white shadow-[0_18px_44px_rgba(39,32,85,0.14)]"
           role="region"
           aria-label={searchCopy.results}
           data-testid="search-results"
@@ -315,7 +315,7 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
               </p>
               <a
                 href={catalogHref}
-                className="mt-3 inline-flex max-w-full items-center justify-center border border-ink-900 px-3 py-2 text-center text-sm font-medium leading-tight text-ink-900 transition-colors hover:bg-ink-900 hover:text-white"
+                className="mt-3 inline-flex max-w-full items-center justify-center rounded-xl bg-accent px-3 py-2 text-center text-sm font-semibold leading-tight text-white transition-colors hover:bg-accent-600"
                 data-testid="search-empty-catalog"
                 onKeyDown={(event) => {
                   if (event.key === 'Escape') {
@@ -376,7 +376,7 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
                           <div className="flex max-w-[45%] shrink-0 flex-wrap justify-end gap-1.5" data-testid={`search-result-badges-${i}`}>
                             {c.isNew && (
                               <span
-                                className="max-w-full border border-ink-900 bg-ink-900 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-fit text-white"
+                                className="max-w-full rounded-full bg-ink-900 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-fit text-white"
                                 data-testid={`search-result-new-${i}`}
                               >
                                 {copy.newBadge}
@@ -384,7 +384,7 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
                             )}
                             {c.popularity >= 80 && (
                               <span
-                                className="max-w-full border border-accent px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-accent text-fit"
+                                className="max-w-full rounded-full bg-accent-50 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-accent text-fit"
                                 data-testid={`search-result-popular-${i}`}
                               >
                                 {copy.popularBadge}

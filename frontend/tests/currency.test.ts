@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { calcCurrency, convertCurrency } from '../src/lib/calculators/currency';
-import { lastUpdated, ratesToUSD } from '../src/data/currencies';
+import { lastUpdated, ratesSource, ratesToUSD } from '../src/data/currencies';
 
 describe('currency: convertCurrency', () => {
   it('USD → USD = 1:1', () => {
@@ -40,7 +40,9 @@ describe('currency: calcCurrency', () => {
 
     expect(r.secondary.find((s) => s.label === 'Тип курса')?.value).toBe('официальный справочный');
     expect(r.secondary.find((s) => s.label === 'Дата курса')?.value).toBe(lastUpdated);
-    expect(r.secondary.find((s) => s.label === 'Источник')?.value).toContain('cbr.ru');
+    expect(r.secondary.find((s) => s.label === 'Источник')?.value).toBe('Банк России');
+    expect(r.secondary.find((s) => s.label === 'Источник')?.href).toBe(ratesSource);
+    expect(r.secondary.find((s) => s.label === 'Статус обновления')?.value).toBeTruthy();
     expect(r.note).toContain('Банка России');
   });
 });
