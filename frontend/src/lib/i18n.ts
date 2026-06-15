@@ -1,6 +1,8 @@
 import { categories as baseCategories } from '../data/categories';
 import { calculators as baseCalculators } from '../data/calculators';
 import { getCalculatorSeoContent } from '../data/calculatorSeoContent';
+import { fullParityCalculatorIds, isRuOnlyCalculator } from '../data/localizationParity';
+import { ukCalculatorContent } from '../data/ukCalculatorContent';
 import { localizedResultLabel } from './clientI18n';
 import type { CalculatorDef, Category, CategoryId, Field, FaqItem } from './types';
 
@@ -199,7 +201,7 @@ export const localeMeta: Record<Locale, {
   },
   uk: {
     label: 'Українська',
-    shortLabel: 'UK',
+    shortLabel: 'UA',
     htmlLang: 'uk',
     localeCode: 'uk-UA',
     ogLocale: 'uk_UA',
@@ -1071,27 +1073,7 @@ export const ui = {
   },
 } satisfies Record<Locale, Record<string, string>>;
 
-const globalCalculatorIds = new Set([
-  'credit-calculator',
-  'compound-interest',
-  'mortgage-calculator',
-  'percent-calculator',
-  'discount-calculator',
-  'currency-converter',
-  'usd-to-eur',
-  'eur-to-mdl',
-  'usd-to-mdl',
-  'bmi-calculator',
-  'calorie-calculator',
-  'running-pace-calculator',
-  'one-rep-max-calculator',
-  'tile-calculator',
-  'wallpaper-calculator',
-  'paint-calculator',
-  'laminate-calculator',
-  'age-calculator',
-  'working-days-calculator',
-]);
+const globalCalculatorIds = new Set<string>(fullParityCalculatorIds);
 
 const enCategories: Record<CategoryId, Omit<Category, 'id' | 'icon' | 'faq'>> = {
   finance: {
@@ -1872,9 +1854,9 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       description: 'Калькулятори кредитів, іпотеки, складних відсотків, відсотків і знижок для щоденних фінансових рішень.',
       longDescription:
         'Фінансові калькулятори допомагають оцінити платежі, переплату, зростання заощаджень, відсотки та знижки перед рішенням. Змінюйте дані й порівнюйте сценарії за кілька секунд.',
-      seoTitle: 'Фінансові калькулятори - кредит, іпотека, складний відсоток і проценти',
+      seoTitle: 'Фінансові калькулятори - кредит, іпотека, складні відсотки',
       seoDescription:
-        'Безкоштовні фінансові калькулятори для кредитів, іпотеки, складного відсотка, процентів і знижок. Швидкі інструменти без реєстрації.',
+        'Безкоштовні калькулятори кредиту, іпотеки, складних відсотків, відсоткових задач і знижок. Швидкі розрахунки без реєстрації.',
       h1: 'Фінансові калькулятори',
     },
     currency: {
@@ -1882,7 +1864,7 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       slug: 'valyuty',
       description: 'Конвертер валют і популярні валютні пари для подорожей, покупок і швидкого бюджету.',
       longDescription:
-        'Валютні калькулятори переводять суми між поширеними валютами за довідковими курсами Банку Росії на вказану дату. Банки та обмінні сервіси можуть застосовувати інші курси й комісії.',
+        'Валютні калькулятори переводять суми між поширеними валютами за офіційними довідковими курсами Банку Росії на вказану дату. Це не курси купівлі чи продажу: банки та обмінні сервіси можуть застосовувати власний курс, спред і комісію.',
       seoTitle: 'Конвертер валют - USD, EUR, MDL, RON та інші',
       seoDescription:
         'Онлайн-конвертер для USD, EUR, MDL, RON, UAH, PLN, GBP, CHF і TRY. Офіційні довідкові курси з датою оновлення.',
@@ -1893,10 +1875,10 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       slug: 'fitness',
       description: 'Калькулятори BMI, калорій, темпу бігу та 1RM для тренувань і показників тіла.',
       longDescription:
-        'Фітнес-калькулятори оцінюють BMI, денну норму калорій, темп бігу та приблизну силу. Використовуйте їх для планування, а не як медичну консультацію.',
-      seoTitle: 'Фітнес-калькулятори - BMI, калорії, темп бігу та 1RM',
+        'Фітнес-калькулятори допомагають оцінити ІМТ, добову потребу в калоріях, темп бігу та орієнтовний максимум у силовій вправі. Результати придатні для планування, але не замінюють медичну або тренерську оцінку.',
+      seoTitle: 'Фітнес-калькулятори - ІМТ, калорії, темп бігу та 1RM',
       seoDescription:
-        'Безкоштовні калькулятори BMI, денних калорій, темпу бігу та one-rep max 1RM. Швидкі інструменти для тренувальних оцінок.',
+        'Безкоштовні калькулятори ІМТ, добової потреби в калоріях, темпу бігу та one-rep max 1RM.',
       h1: 'Фітнес-калькулятори',
     },
     building: {
@@ -1915,7 +1897,7 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       slug: 'daty',
       description: 'Калькулятори віку та робочих днів для форм, планування і строків.',
       longDescription:
-        'Калькулятори дат допомагають визначити точний вік і порахувати робочі дні між датами. Корисно для форм, планування і дедлайнів.',
+        'Калькулятори дат допомагають визначити точний вік і порахувати робочі дні між датами. Вони корисні для анкет, планування та перевірки строків.',
       seoTitle: 'Калькулятори дат - вік і робочі дні',
       seoDescription:
         'Розрахуйте точний вік і робочі дні між датами простими інструментами в браузері.',
@@ -2450,13 +2432,13 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
 type CalcCopy = Pick<CalculatorDef,
   'name' | 'slug' | 'shortDescription' | 'longDescription' | 'seoTitle' | 'seoDescription' |
   'h1' | 'keywords' | 'howToUse' | 'howItWorks' | 'example' | 'faq' | 'disclaimer'
->;
+> & Pick<CalculatorDef, 'resultTitle'>;
 
 function faq(topic: string): FaqItem[] {
   return [
     { q: `How accurate is this ${topic}?`, a: 'The result is a practical estimate based on the values you enter and the formula shown on the page.' },
-    { q: 'Do I need to create an account?', a: 'No. The calculator works in your browser and does not require registration.' },
-    { q: 'Can I share the result?', a: 'Yes. Use the share link to copy the current inputs in the page URL.' },
+    { q: `Does this ${topic} require an account?`, a: 'No. The calculator works in your browser and does not require registration.' },
+    { q: `Can I share a ${topic} result?`, a: 'Yes. Use the share link to copy the current inputs in the page URL.' },
   ];
 }
 
@@ -5016,14 +4998,14 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
       disclaimer: 'Довідкові курси оновлюються під час складання сайту. Банки та обмінні сервіси можуть використовувати інші курси купівлі, продажу й комісії.',
     },
     'bmi-calculator': {
-      name: 'Калькулятор BMI',
+      name: 'Калькулятор ІМТ (BMI)',
       slug: 'kalkulyator-bmi',
-      shortDescription: 'Розрахуйте індекс маси тіла за зростом і вагою.',
-      seoTitle: 'Калькулятор BMI - індекс маси тіла',
-      seoDescription: 'Розрахуйте BMI онлайн за зростом і вагою. Безкоштовний калькулятор індексу маси тіла.',
-      h1: 'Калькулятор BMI',
-      keywords: ['калькулятор BMI', 'індекс маси тіла', 'категорія ваги'],
-      disclaimer: 'BMI є загальним орієнтовним показником і не є медичним діагнозом.',
+      shortDescription: 'Розрахуйте індекс маси тіла за зростом і масою тіла.',
+      seoTitle: 'Калькулятор ІМТ (BMI) - індекс маси тіла',
+      seoDescription: 'Розрахуйте ІМТ за зростом і масою тіла. Безкоштовний калькулятор BMI з поясненням результату.',
+      h1: 'Калькулятор ІМТ (BMI)',
+      keywords: ['калькулятор ІМТ', 'BMI', 'індекс маси тіла'],
+      disclaimer: 'ІМТ є загальним орієнтовним показником і не є медичним діагнозом.',
     },
     'calorie-calculator': {
       name: 'Калькулятор калорій',
@@ -5563,8 +5545,8 @@ function faqForLocale(topic: string, locale: Exclude<Locale, 'ru'>): FaqItem[] {
   if (locale === 'uk') {
     return [
       { q: `Наскільки точний ${topic}?`, a: 'Результат є практичною оцінкою на основі введених значень і формули, показаної на сторінці.' },
-      { q: 'Чи потрібно створювати акаунт?', a: 'Ні. Калькулятор працює в браузері та не потребує реєстрації.' },
-      { q: 'Чи можна поділитися результатом?', a: 'Так. Використовуйте посилання, щоб скопіювати поточні введені дані в URL сторінки.' },
+      { q: `Чи потребує ${topic} реєстрації?`, a: 'Ні. Калькулятор працює в браузері та не потребує реєстрації.' },
+      { q: `Чи можна поділитися результатом з ${topic}?`, a: 'Так. Використовуйте посилання, щоб скопіювати поточні введені дані в URL сторінки.' },
     ];
   }
   if (locale === 'sk') {
@@ -5709,6 +5691,7 @@ function buildLocalizedCalculatorCopy(id: string, locale: Exclude<Locale, 'ru'>)
     };
   }
   if (locale === 'uk') {
+    const detailedCopy = ukCalculatorContent[id];
     return {
       ...copy,
       longDescription: `Використовуйте ${copy.name.toLowerCase()}, щоб швидко отримати оцінку та порівняти кілька сценаріїв безпосередньо в браузері.`,
@@ -5717,6 +5700,7 @@ function buildLocalizedCalculatorCopy(id: string, locale: Exclude<Locale, 'ru'>)
       example: `Спробуйте ${copy.name.toLowerCase()} з прикладовими значеннями та подивіться, як змінюється результат після редагування поля.`,
       faq: faqForLocale(copy.name.toLowerCase(), locale),
       disclaimer: copy.disclaimer ?? 'Результати є орієнтовними оцінками. Перед важливими рішеннями перевіряйте дані.',
+      ...(detailedCopy ?? {}),
     };
   }
   if (locale === 'sk') {
@@ -6591,7 +6575,7 @@ const fieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>>
     from: 'Вихідна валюта',
     to: 'Цільова валюта',
     height: 'Зріст',
-    weight: 'Вага',
+    weight: 'Маса тіла',
     age: 'Вік',
     gender: 'Стать',
     activity: 'Рівень активності',
@@ -7309,6 +7293,7 @@ function localizeCalculator(calculator: CalculatorDef, locale: Locale): Calculat
   const localizedCalculator = {
     ...calculator,
     ...copy,
+    resultTitle: copy.resultTitle ?? copy.name,
     category: calculator.category,
     fullPath: `${fullPathPrefix}/${copy.slug}/`,
     fields: calculator.fields.map((field) => localizeField(field, locale)),
@@ -7396,7 +7381,10 @@ export function localeCatalog(locale: Locale): string {
 }
 
 export function getEquivalentCalculatorPath(id: string, locale: Locale): string {
-  return getCalculatorById(id, locale)?.fullPath ?? localeHome(locale);
+  const equivalent = getCalculatorById(id, locale);
+  if (equivalent) return equivalent.fullPath;
+  const calculator = baseCalculators.find((item) => item.id === id);
+  return calculator ? getEquivalentCategoryPath(calculator.category, locale) : localeCatalog(locale);
 }
 
 export function getEquivalentCategoryPath(id: CategoryId, locale: Locale): string {
@@ -7410,7 +7398,7 @@ export function getAlternatesForCalculator(id: string): AlternateLink[] {
       return calculator ? { locale, href: calculator.fullPath } : undefined;
     })
     .filter(Boolean) as AlternateLink[];
-  links.push({ locale: 'x-default', href: '/' });
+  if (!isRuOnlyCalculator(id)) links.push({ locale: 'x-default', href: '/' });
   return links;
 }
 

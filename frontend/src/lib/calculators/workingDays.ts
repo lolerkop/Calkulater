@@ -1,19 +1,28 @@
 import type { CalcFunction, CalcResult } from '../types';
 import { fmtInt, toStr } from '../format';
-
-function parseDate(s: string): Date | null {
-  if (!s) return null;
-  const d = new Date(s);
-  if (isNaN(d.getTime())) return null;
-  d.setHours(0, 0, 0, 0);
-  return d;
-}
+import { parseIsoDate } from '../date';
 
 function isoDate(d: Date): string {
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, '0');
   const day = String(d.getDate()).padStart(2, '0');
   return `${y}-${m}-${day}`;
+}
+
+export function parseExcludedDates(value: string): { dates: Set<string>; invalid: string[] } {
+  const dates = new Set<string>();
+  const invalid: string[] = [];
+
+  for (const token of value.split(/[,;\n]+/).map((item) => item.trim()).filter(Boolean)) {
+    const parsed = parseIsoDate(token);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(token) || !parsed || isoDate(parsed) !== token) {
+      invalid.push(token);
+      continue;
+    }
+    dates.add(token);
+  }
+
+  return { dates, invalid };
 }
 
 export const calcWorkingDays: CalcFunction = (inputs) => {
@@ -23,8 +32,8 @@ export const calcWorkingDays: CalcFunction = (inputs) => {
   const saturdayWorking = toStr(inputs.saturdayWorking, 'no') === 'yes';
   const excludedStr = toStr(inputs.excludedDates);
 
-  const start = parseDate(startStr);
-  const end = parseDate(endStr);
+  const start = parseIsoDate(startStr);
+  const end = parseIsoDate(endStr);
 
   if (!start || !end) {
     return {
@@ -40,12 +49,13 @@ export const calcWorkingDays: CalcFunction = (inputs) => {
     };
   }
 
-  const excluded = new Set(
-    excludedStr
-      .split(/[,;\n]+/)
-      .map((x) => x.trim())
-      .filter(Boolean),
-  );
+  const { dates: excluded, invalid } = parseExcludedDates(excludedStr);
+  if (invalid.length > 0) {
+    return {
+      primary: { label: 'Рабочие дни', value: '—' },
+      secondary: [{ label: 'Ошибка формата', value: `Проверьте даты: ${invalid.join(', ')}`, accent: 'red' }],
+    };
+  }
 
   let calendar = 0;
   let working = 0;

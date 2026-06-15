@@ -74,10 +74,31 @@ if (manifestFile) {
   }
 }
 
+const fontPaths = [
+  '/fonts/manrope-v20-cyrillic.woff2',
+  '/fonts/manrope-v20-latin.woff2',
+  '/fonts/ibm-plex-mono-v20-400-cyrillic.woff2',
+  '/fonts/ibm-plex-mono-v20-400-latin.woff2',
+  '/fonts/ibm-plex-mono-v20-500-cyrillic.woff2',
+  '/fonts/ibm-plex-mono-v20-500-latin.woff2',
+  '/fonts/ibm-plex-mono-v20-600-cyrillic.woff2',
+  '/fonts/ibm-plex-mono-v20-600-latin.woff2',
+];
+
+for (const fontPath of fontPaths) {
+  const fontFile = assertFile(fontPath, `font ${fontPath}`);
+  if (!fontFile) continue;
+
+  const buffer = fs.readFileSync(fontFile);
+  if (buffer.subarray(0, 4).toString('ascii') !== 'wOF2') {
+    issues.push(`${fontPath}: not a valid WOFF2 file`);
+  }
+}
+
 if (issues.length > 0) {
   console.error('Public asset issues found:');
   for (const issue of issues) console.error(`- ${issue}`);
   process.exit(1);
 }
 
-console.log('Verified public assets: favicon, manifest icons, and OG image look valid.');
+console.log('Verified public assets: favicon, manifest icons, OG image, and fonts look valid.');

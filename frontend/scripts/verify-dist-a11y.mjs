@@ -92,6 +92,17 @@ for (const filePath of files) {
       issues.push(`${file}: form control without label`);
     }
   }
+
+  if (html.includes('data-testid="calc-form"')) {
+    const formIndex = html.indexOf('data-testid="calc-form"');
+    const supportIndex = html.indexOf('data-testid="calculator-support"');
+    if (supportIndex === -1 || formIndex > supportIndex) {
+      issues.push(`${file}: calculator form must precede supporting metadata`);
+    }
+    if (!/data-testid="calc-result-wrap"[^>]*aria-live="polite"/i.test(html)) {
+      issues.push(`${file}: calculator result container must use aria-live="polite"`);
+    }
+  }
 }
 
 if (issues.length > 0) {

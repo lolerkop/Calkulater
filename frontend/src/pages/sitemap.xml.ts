@@ -34,12 +34,11 @@ function alternateXml(alternates: AlternateLink[]): string[] {
   });
 }
 
-function urlXml(path: string, alternates: AlternateLink[], lastmod: string): string[] {
+function urlXml(path: string, alternates: AlternateLink[]): string[] {
   return [
     '  <url>',
     `    <loc>${escapeXml(abs(path))}</loc>`,
     ...alternateXml(alternates),
-    `    <lastmod>${lastmod}</lastmod>`,
     '  </url>',
   ];
 }
@@ -49,22 +48,24 @@ function localePathMap(suffix = '/'): Partial<Record<Locale, string>> {
 }
 
 export const GET: APIRoute = () => {
-  const today = new Date().toISOString().slice(0, 10);
   const entries: string[][] = [];
+  const homeAlternates = getAlternatesForPage(localePathMap('/'));
+
+  entries.push(urlXml('/', homeAlternates));
 
   for (const locale of locales) {
-    entries.push(urlXml(`/${locale}/`, getAlternatesForPage(localePathMap('/')), today));
-    entries.push(urlXml(localeCatalog(locale), getAlternatesForPage(localePathMap('/calculators/')), today));
-    entries.push(urlXml(`/${locale}/about/`, getAlternatesForPage(localePathMap('/about/')), today));
-    entries.push(urlXml(`/${locale}/contacts/`, getAlternatesForPage(localePathMap('/contacts/')), today));
-    entries.push(urlXml(`/${locale}/privacy/`, getAlternatesForPage(localePathMap('/privacy/')), today));
+    entries.push(urlXml(`/${locale}/`, homeAlternates));
+    entries.push(urlXml(localeCatalog(locale), getAlternatesForPage(localePathMap('/calculators/'))));
+    entries.push(urlXml(`/${locale}/about/`, getAlternatesForPage(localePathMap('/about/'))));
+    entries.push(urlXml(`/${locale}/contacts/`, getAlternatesForPage(localePathMap('/contacts/'))));
+    entries.push(urlXml(`/${locale}/privacy/`, getAlternatesForPage(localePathMap('/privacy/'))));
 
     for (const category of getCategories(locale as Locale)) {
-      entries.push(urlXml(`/${locale}/${category.slug}/`, getAlternatesForCategory(category.id), today));
+      entries.push(urlXml(`/${locale}/${category.slug}/`, getAlternatesForCategory(category.id)));
     }
 
     for (const calculator of getCalculators(locale as Locale)) {
-      entries.push(urlXml(calculator.fullPath, getAlternatesForCalculator(calculator.id), today));
+      entries.push(urlXml(calculator.fullPath, getAlternatesForCalculator(calculator.id)));
     }
   }
 

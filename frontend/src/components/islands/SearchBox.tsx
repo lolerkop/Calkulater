@@ -283,8 +283,6 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
             }
           }}
           autoComplete="off"
-          aria-controls={hasQuery ? resultsId : undefined}
-          aria-expanded={hasQuery ? 'true' : 'false'}
         />
         {hasQuery && (
           <button
@@ -368,7 +366,7 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
                       <div className="flex min-w-0 items-start justify-between gap-3">
                         <div className="min-w-0">
                           <div className="text-fit text-sm font-medium text-ink-900">{c.name}</div>
-                          <div className="mt-0.5 text-fit text-[10px] uppercase tracking-wider text-ink-400">
+                          <div className="mt-0.5 text-fit text-[10px] uppercase tracking-wider text-ink-600">
                             {c.categoryName ?? c.category}
                           </div>
                         </div>

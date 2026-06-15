@@ -54,6 +54,29 @@ const pageCopy = {
   sk: { breadcrumbs: 'Omrvinková navigácia' },
   hu: { breadcrumbs: 'Morzsanavigáció' },
 }[locale];
+const usefulCopy = locale === 'ru'
+  ? {
+      heading: 'Что выбрать в этом разделе',
+      intro: 'Начните с популярного калькулятора или откройте полный список. Для другой задачи перейдите в соседний раздел.',
+      popular: 'Популярные калькуляторы',
+      newItems: 'Новые калькуляторы',
+      other: 'Другие разделы',
+    }
+  : locale === 'uk'
+    ? {
+        heading: 'Що вибрати в цьому розділі',
+        intro: 'Почніть із популярного калькулятора або відкрийте повний список. Для іншого завдання перейдіть до сусіднього розділу.',
+        popular: 'Популярні калькулятори',
+        newItems: 'Нові калькулятори',
+        other: 'Інші розділи',
+      }
+    : {
+        heading: 'Choose a calculator in this section',
+        intro: 'Start with a popular calculator or browse the full list. For a different task, open a related category.',
+        popular: 'Popular calculators',
+        newItems: 'New calculators',
+        other: 'Other categories',
+      };
 const category = getCategoriesBySlug(locale)[categorySlug];
 if (!category) return Astro.redirect('/404');
 
@@ -66,9 +89,6 @@ const newInCategory = calculators
   .filter((calculator) => calculator.isNew)
   .sort((a, b) => b.popularity - a.popularity || a.name.localeCompare(b.name, locale));
 const otherCategories = getCategories(locale).filter((item) => item.id !== category.id);
-const keywordChips = Array.from(
-  new Set(calculators.flatMap((calculator) => calculator.keywords.slice(0, 2))),
-).slice(0, 8);
 const calculatorItems = calculators.map((calculator) => ({
   name: calculator.name,
   description: calculator.shortDescription,
@@ -117,7 +137,6 @@ const jsonLd = [
       />
 
       <div class="mt-5 flex min-w-0 flex-wrap items-baseline gap-3 sm:mt-6 sm:gap-4">
-        <span class="font-mono text-fit text-sm text-ink-500">/{locale}/{category.slug}</span>
         <span class="text-fit text-xs uppercase tracking-wider text-ink-500">
           {calculators.length} {copy.instruments}
         </span>
@@ -178,17 +197,38 @@ const jsonLd = [
     </div>
   </section>
 
-  {keywordChips.length > 0 && (
-    <section class="border-t border-ink-200 bg-white/50" data-testid="category-keywords">
-      <div class="mx-auto max-w-page px-5 py-8 sm:px-8 sm:py-10">
-        <div class="flex flex-wrap gap-2">
-          {keywordChips.map((keyword) => (
-            <span class="max-w-full rounded-full border border-ink-200 bg-white px-3 py-2 text-fit text-xs font-medium text-ink-500">{keyword}</span>
-          ))}
+  <section class="border-t border-ink-200 bg-white/50" data-testid="category-useful-links">
+    <div class="mx-auto max-w-page px-5 py-8 sm:px-8 sm:py-10">
+      <h2 class="text-fit text-2xl font-semibold tracking-tight text-ink-900">{usefulCopy.heading}</h2>
+      <p class="mt-3 max-w-3xl text-fit text-sm leading-relaxed text-ink-600">{usefulCopy.intro}</p>
+      <div class="mt-6 grid gap-4 lg:grid-cols-3">
+        <div class="content-card">
+          <h3 class="font-semibold text-ink-900">{usefulCopy.popular}</h3>
+          <div class="mt-3 flex flex-wrap gap-2">
+            {popularInCategory.map((calculator) => (
+              <a href={calculator.fullPath} class="text-fit text-sm font-medium text-accent underline-offset-4 hover:underline">{calculator.name}</a>
+            ))}
+          </div>
+        </div>
+        <div class="content-card">
+          <h3 class="font-semibold text-ink-900">{usefulCopy.newItems}</h3>
+          <div class="mt-3 flex flex-wrap gap-2">
+            {(newInCategory.length > 0 ? newInCategory.slice(0, 3) : calculators.slice(-3)).map((calculator) => (
+              <a href={calculator.fullPath} class="text-fit text-sm font-medium text-accent underline-offset-4 hover:underline">{calculator.name}</a>
+            ))}
+          </div>
+        </div>
+        <div class="content-card">
+          <h3 class="font-semibold text-ink-900">{usefulCopy.other}</h3>
+          <div class="mt-3 flex flex-wrap gap-2">
+            {otherCategories.map((item) => (
+              <a href={`/${locale}/${item.slug}/`} class="text-fit text-sm font-medium text-accent underline-offset-4 hover:underline">{item.name}</a>
+            ))}
+          </div>
         </div>
       </div>
-    </section>
-  )}
+    </div>
+  </section>
 
   <section class="border-t border-ink-200" data-testid="category-faq">
     <div class="mx-auto max-w-page px-5 py-8 sm:px-8 sm:py-12">

@@ -20,6 +20,7 @@ export type Field = {
   max?: number;
   step?: number;
   help?: string;
+  readOnly?: boolean;
   showIf?: { field: string; equals: string | number | boolean };
 };
 
@@ -56,6 +57,7 @@ export type Category = {
 export type CalculatorDef = {
   id: string;
   name: string;
+  resultTitle?: string;
   slug: string;
   fullPath: string;
   category: CategoryId;

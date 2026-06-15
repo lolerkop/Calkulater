@@ -344,7 +344,7 @@ const featuredCategoryCalculators = Object.fromEntries(
       <div class="mx-auto max-w-page px-5 py-12 sm:px-8 sm:py-16">
         <div class="mb-6 flex min-w-0 items-end justify-between gap-6 sm:mb-8">
           <h2 class="section-heading min-w-0 text-fit text-ink-900">{copy.newest}</h2>
-          <a href={`${localeCatalog(locale)}?tag=new`} class="shrink-0 text-sm font-medium text-accent underline-offset-4 hover:underline">
+          <a href={localeCatalog(locale)} class="shrink-0 text-sm font-medium text-accent underline-offset-4 hover:underline">
             {copy.allCalculators}
           </a>
         </div>

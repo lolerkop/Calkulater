@@ -35,5 +35,6 @@ describe('tile: calcTile', () => {
 
   it('ошибка при некорректных размерах', () => {
     expect(calcTile({ mode: 'room', length: 0, width: 0, tileLength: 0, tileWidth: 0, packArea: 0, reserve: 0 }).primary.value).toBe('—');
+    expect(calcTile({ mode: 'room', length: -4, width: 3, tileLength: 30, tileWidth: 30, packArea: 1.44, reserve: 10 }).primary.value).toBe('—');
   });
 });

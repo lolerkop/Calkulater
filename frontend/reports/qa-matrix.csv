@@ -1,0 +1,19 @@
+page,route,locale,calculator_type,SEO,UX,logic,a11y,performance,privacy,status
+Root gateway,/,x-default,gateway,pass,pass,n/a,pass,pass,pass,pass
+Russian home,/ru/,ru,home,pass,pass,n/a,pass,pass,pass,pass
+English home,/en/,en,home,pass,pass,n/a,pass,pass,pass,pass
+Ukrainian home,/uk/,uk,home,pass,pass,n/a,pass,pass,pass,pass
+Contacts,/ru/contacts/,ru,service,pass,pass,n/a,pass,n/a,pass,pass
+Privacy,/ru/privacy/,ru,service,pass,pass,n/a,pass,n/a,pass,pass
+Finance category,/ru/finance/,ru,category,pass,pass,n/a,pass,n/a,pass,pass
+Currency category,/ru/currency/,ru,category,pass,pass,n/a,pass,n/a,pass,pass
+Percent calculator,/ru/finance/percent-calculator/,ru,finance,pass,pass,pass,pass,pass,pass,pass
+Income tax calculator,/ru/finance/income-tax-calculator/,ru,finance-sensitive,pass,pass,pass,pass,pass,pass,pass
+VAT calculator,/ru/finance/vat-calculator/,ru,finance-sensitive,pass,pass,pass,pass,pass,pass,pass
+Currency converter,/ru/currency/currency-converter/,ru,currency-sensitive,pass,pass,pass,pass,pass,pass,pass
+USD to EUR pair,/ru/currency/usd-to-eur/,ru,currency-sensitive,pass,pass,pass,pass,pass,pass,pass
+Age calculator,/ru/date-time/age-calculator/,ru,date,pass,pass,pass,pass,pass,pass,pass
+Working days calculator,/ru/date-time/working-days-calculator/,ru,date,pass,pass,pass,pass,pass,pass,pass
+Tile calculator,/ru/building/tile-calculator/,ru,building,pass,pass,pass,pass,pass,pass,pass
+Wallpaper calculator,/ru/building/wallpaper-calculator/,ru,building,pass,pass,pass,pass,pass,pass,pass
+Ukrainian BMI,/uk/fitness/kalkulyator-bmi/,uk,health-sensitive,pass,pass,pass,pass,pass,pass,pass

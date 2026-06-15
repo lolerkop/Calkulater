@@ -6,9 +6,10 @@ interface Props {
   calc: CalculatorDef;
   showCategory?: boolean;
   locale?: Locale;
+  analyticsEvent?: string;
 }
 
-const { calc, showCategory = true, locale = 'ru' } = Astro.props;
+const { calc, showCategory = true, locale = 'ru', analyticsEvent } = Astro.props;
 const category = getCategoryById(calc.category, locale);
 const copy = ui[locale];
 const isPopular = calc.popularity >= 80;
@@ -19,6 +20,7 @@ const isNew = calc.isNew === true;
   href={calc.fullPath}
   class="calculator-card-shell group flex flex-col"
   data-testid={`calculator-card-${calc.slug}`}
+  data-analytics-event={analyticsEvent}
 >
   <div class="flex min-w-0 items-start justify-between gap-3">
     {showCategory ? (
@@ -26,8 +28,8 @@ const isNew = calc.isNew === true;
         {category?.name}
       </span>
     ) : (
-      <span class="min-w-0 font-mono text-[10px] uppercase tracking-wider text-ink-400 text-fit">
-        /{calc.slug}
+      <span class="min-w-0 text-[10px] uppercase tracking-wider text-ink-500 text-fit">
+        {category?.name}
       </span>
     )}
     <span class="flex shrink-0 flex-wrap justify-end gap-1.5">

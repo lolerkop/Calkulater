@@ -1,0 +1,8 @@
+name,type,provider,purpose,personal_data,retention,consent_required,source_file
+"Calculator form values","browser memory","Calcuway","Perform calculations locally","May include financial health or date inputs","Until page close or reset","no","src/components/islands/CalculatorIsland.tsx"
+"Calculator query parameters","URL and browser history","User browser and share recipients","Restore an explicitly shared calculation","May include sensitive calculator inputs","Until URL history bookmark or message is removed","no","src/components/islands/CalculatorIsland.tsx"
+"calcuway.analytics-consent.v1","localStorage","Calcuway","Store the analytics consent choice","no","Until cleared or the storage-key version changes","no","src/components/Analytics.astro"
+"GA4 identifiers and cookies","analytics storage","Google Analytics 4","Optional audience measurement","yes","Provider-controlled","yes","src/components/Analytics.astro"
+"Yandex Metrica identifiers and cookies","analytics storage","Yandex Metrica","Optional audience measurement","yes","Provider-controlled","yes","src/components/Analytics.astro"
+"HTTP request and error logs","hosting or CDN logs","Deployment hosting/CDN provider not specified","Deliver protect and diagnose the site","IP address User-Agent requested URL timestamp and errors","Provider configuration not specified","no","public/_headers"
+"Public support request","external user submission","GitHub","Handle support questions and bug reports","Whatever the user submits publicly","GitHub policy and user deletion controls","no","src/config/site.ts"

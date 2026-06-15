@@ -11,7 +11,7 @@ describe('OpenSearch description', () => {
     expect(body).toContain('<OpenSearchDescription');
     expect(body).toContain(`<ShortName>${SITE.name}</ShortName>`);
     expect(body).toContain('<InputEncoding>UTF-8</InputEncoding>');
-    expect(body).toContain('template="http://localhost:3000/ru/calculators/?q={searchTerms}"');
+    expect(body).toContain('template="https://calcuway.com/ru/calculators/?q={searchTerms}"');
     expect(body).toContain('/favicon.svg');
   });
 });

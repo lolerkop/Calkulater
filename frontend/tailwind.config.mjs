@@ -6,10 +6,10 @@ export default {
       colors: {
         // Calcuway violet-blue product palette
         accent: {
-          DEFAULT: '#6758F3',
+          DEFAULT: '#5F4EE8',
           50: '#F3F1FF',
           100: '#E8E4FF',
-          500: '#6758F3',
+          500: '#5F4EE8',
           600: '#5848DF',
           700: '#4738BD',
         },

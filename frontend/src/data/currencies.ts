@@ -8,6 +8,7 @@ import {
   generatedRatesUpdateMessage,
   generatedRatesUpdateStatus,
 } from './currencyRatesStatus.generated';
+import { currencyRatesAreStale } from '../lib/currencyFreshness';
 
 export type CurrencyCode =
   | 'USD'
@@ -40,11 +41,7 @@ export const ratesSource = generatedRatesSource;
 export const ratesUpdateAttemptedAt = generatedRatesUpdateAttemptedAt;
 export const ratesUpdateMessage = generatedRatesUpdateMessage;
 export const ratesUpdateFailed = generatedRatesUpdateStatus === 'failed';
-const ratesAgeDays = Math.max(
-  0,
-  Math.floor((Date.parse(generatedRatesUpdateAttemptedAt) - Date.parse(generatedRatesDate)) / 86_400_000),
-);
-export const ratesAreStale = ratesAgeDays > 4;
+export const ratesAreStale = currencyRatesAreStale(generatedRatesDate);
 export const ratesStatus = ratesUpdateFailed
   ? 'Не удалось обновить курсы при последней сборке. Используются последние сохранённые данные.'
   : ratesAreStale

@@ -36,6 +36,8 @@ describe('project configuration', () => {
     expect(packageJson.scripts.check).toContain('vitest run');
     expect(packageJson.scripts.check).toContain('npm run build');
     expect(packageJson.scripts.prebuild).toContain('rates:update');
+    expect(packageJson.scripts.prebuild).toContain('rates:verify');
+    expect(packageJson.scripts['performance:ci']).toContain('run-performance-ci');
     expect(packageJson.scripts.check).toContain('verify-public-assets');
     expect(packageJson.scripts.check).toContain('verify-text-encoding');
     expect(packageJson.scripts.check).toContain('verify-dist-content-sanity');
@@ -43,6 +45,7 @@ describe('project configuration', () => {
     expect(packageJson.scripts.check).toContain('verify-dist-seo');
     expect(packageJson.scripts.check).toContain('verify-dist-sitemap');
     expect(packageJson.scripts.check).toContain('verify-dist-hosting-files');
+    expect(packageJson.scripts.check).toContain('verify-dist-privacy');
     expect(packageJson.scripts.check).toContain('verify-dist-a11y');
     expect(packageJson.scripts.check).toContain('verify-dist-production-hygiene');
     expect(packageJson.scripts.check).toContain('verify-dist-performance-budget');
@@ -59,6 +62,7 @@ describe('project configuration', () => {
     const headers = readProjectFile('frontend/public/_headers');
 
     expect(headers).toContain('X-Content-Type-Options: nosniff');
+    expect(headers).toContain('Strict-Transport-Security: max-age=31536000');
     expect(headers).toContain('Referrer-Policy: strict-origin-when-cross-origin');
     expect(headers).toContain('X-Frame-Options: SAMEORIGIN');
     expect(headers).toContain('Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()');
@@ -66,7 +70,28 @@ describe('project configuration', () => {
     expect(headers).toContain('application/opensearchdescription+xml; charset=utf-8');
     expect(headers).toContain('/site.webmanifest');
     expect(headers).toContain('application/manifest+json; charset=utf-8');
-    expect(headers).not.toContain('Content-Security-Policy');
+    expect(headers).toContain('Content-Security-Policy-Report-Only');
+    expect(headers).toContain('Cache-Control: public, max-age=0, must-revalidate');
+    expect(headers).toContain('/_astro/*');
+    expect(headers).toContain('/fonts/*');
+    expect(headers).toContain('Cache-Control: public, max-age=31536000, immutable');
+    expect(headers).not.toMatch(/fonts\.(?:googleapis|gstatic)\.com/);
+    expect(headers).not.toMatch(/^\s*Content-Security-Policy:/m);
+    expect(headers).not.toMatch(/Strict-Transport-Security:.*(?:includeSubDomains|preload)/i);
+  });
+
+  it('keeps reproducible Lighthouse budgets and reports', () => {
+    const packageJson = JSON.parse(readProjectFile('frontend/package.json'));
+    const budget = JSON.parse(readProjectFile('frontend/performance-budget.json'));
+    const runner = readProjectFile('frontend/scripts/run-lighthouse.mjs');
+
+    expect(packageJson.devDependencies.lighthouse).toBe('13.4.0');
+    expect(budget.runs).toBe(3);
+    expect(budget.targets).toHaveLength(6);
+    expect(budget.budgets.largestContentfulPaintMs).toBe(2500);
+    expect(budget.budgets.cumulativeLayoutShift).toBe(0.1);
+    expect(runner).toContain("ReportGenerator.generateReport(report, 'html')");
+    expect(runner).toContain('budgetIssues(summary, config.budgets)');
   });
 
   it('announces the standard i18n sitemap URL in robots.txt', () => {

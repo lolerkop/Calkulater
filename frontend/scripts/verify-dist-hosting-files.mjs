@@ -22,9 +22,18 @@ const headers = readDist('_headers');
 if (headers) {
   const requiredHeaderLines = [
     'X-Content-Type-Options: nosniff',
+    'Strict-Transport-Security: max-age=31536000',
     'Referrer-Policy: strict-origin-when-cross-origin',
     'X-Frame-Options: SAMEORIGIN',
     'Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()',
+    "Content-Security-Policy-Report-Only: default-src 'self';",
+    "object-src 'none'",
+    "https://www.googletagmanager.com",
+    "https://mc.yandex.ru",
+    'Cache-Control: public, max-age=0, must-revalidate',
+    '/_astro/*',
+    'Cache-Control: public, max-age=31536000, immutable',
+    '/fonts/*',
     '/opensearch.xml',
     'Content-Type: application/opensearchdescription+xml; charset=utf-8',
     '/site.webmanifest',
@@ -33,6 +42,15 @@ if (headers) {
 
   for (const line of requiredHeaderLines) {
     if (!headers.includes(line)) issues.push(`_headers: missing "${line}"`);
+  }
+  if (/^\s*Content-Security-Policy:/m.test(headers)) {
+    issues.push('_headers: enforcing CSP must wait until Report-Only violations are reviewed');
+  }
+  if (/Strict-Transport-Security:.*(?:includeSubDomains|preload)/i.test(headers)) {
+    issues.push('_headers: HSTS subdomain or preload rollout requires separate domain verification');
+  }
+  if (/fonts\.(?:googleapis|gstatic)\.com/.test(headers)) {
+    issues.push('_headers: Google Fonts CSP domains remain after fonts were self-hosted');
   }
 }
 
@@ -44,6 +62,9 @@ if (robots) {
   if (!/Sitemap:\s+https?:\/\/[^\s]+\/sitemap\.xml/.test(robots)) {
     issues.push('robots.txt: missing absolute sitemap.xml URL');
   }
+  if (!robots.includes('Sitemap: https://calcuway.com/sitemap.xml')) {
+    issues.push('robots.txt: sitemap must use the canonical host');
+  }
 }
 
 const sitemap = readDist('sitemap.xml');
@@ -54,13 +75,17 @@ if (sitemap) {
   if (sitemap.includes('/en/finance/vat-calculator/') || sitemap.includes('/en/finance/income-tax-calculator/')) {
     issues.push('sitemap.xml: contains EN URL for RU-only tax calculator');
   }
+  if (sitemap.includes('www.calcuway.com') || /<(?:loc|xhtml:link)[^>]*(?:href=")?[^<>"]*\?/.test(sitemap) || sitemap.includes('<lastmod>')) {
+    issues.push('sitemap.xml: contains non-canonical, query, or synthetic lastmod data');
+  }
 }
 
 const redirects = readDist('_redirects');
 if (redirects) {
-  for (const fragment of ['/calculators/ /ru/calculators/ 301!', '/finance/* /ru/finance/:splat 301!']) {
+  for (const fragment of ['/calculators/ /ru/calculators/ 301', '/finance/* /ru/finance/:splat 301']) {
     if (!redirects.includes(fragment)) issues.push(`_redirects: missing "${fragment}"`);
   }
+  if (redirects.includes('301!')) issues.push('_redirects: contains Netlify-only 301! syntax');
 }
 
 const opensearch = readDist('opensearch.xml');

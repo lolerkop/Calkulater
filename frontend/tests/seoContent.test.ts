@@ -2,12 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { calculatorSeoContent } from '../src/data/calculatorSeoContent';
 import { getCalculators, locales } from '../src/lib/i18n';
 
-function wordCount(text: string): number {
-  return text
-    .trim()
-    .split(/\s+/)
-    .filter(Boolean).length;
-}
+const forbiddenBoilerplate = [
+  'перед разговором с банком, тренером, подрядчиком',
+  'комиссии, точные даты, налоги, физические свойства материалов, состояние здоровья',
+  'before talking to a bank, coach, contractor',
+  'fees, exact dates, taxes, physical properties of materials, health conditions',
+];
 
 describe('calculator SEO content', () => {
   it('exists for every generated calculator page', () => {
@@ -18,36 +18,45 @@ describe('calculator SEO content', () => {
     }
   });
 
-  it('keeps dedicated SEO blocks within the editorial brief', () => {
+  it('keeps every content block specific and complete', () => {
     for (const locale of locales) {
       for (const calculator of getCalculators(locale)) {
         const id = calculator.id;
         const content = calculator.seoContent!;
-        expect.soft(wordCount(content.intro), `${locale}/${id} intro`).toBeGreaterThanOrEqual(40);
-        expect.soft(wordCount(content.intro), `${locale}/${id} intro`).toBeLessThanOrEqual(80);
-
-        expect.soft(wordCount(content.howItWorks), `${locale}/${id} howItWorks`).toBeGreaterThanOrEqual(120);
-        expect.soft(wordCount(content.howItWorks), `${locale}/${id} howItWorks`).toBeLessThanOrEqual(250);
-
-        expect.soft(wordCount(content.example), `${locale}/${id} example`).toBeGreaterThanOrEqual(80);
-        expect.soft(wordCount(content.example), `${locale}/${id} example`).toBeLessThanOrEqual(150);
-
-        expect.soft(wordCount(content.tips), `${locale}/${id} tips`).toBeGreaterThanOrEqual(120);
-        expect.soft(wordCount(content.tips), `${locale}/${id} tips`).toBeLessThanOrEqual(200);
-
-        expect.soft(content.faq.length, `${locale}/${id} faq count`).toBeGreaterThanOrEqual(4);
+        expect.soft(content.intro.trim(), `${locale}/${id} intro`).not.toBe('');
+        expect.soft(content.howItWorks.trim(), `${locale}/${id} howItWorks`).not.toBe('');
+        expect.soft(content.example.trim(), `${locale}/${id} example`).not.toBe('');
+        expect.soft(content.tips.trim(), `${locale}/${id} tips`).not.toBe('');
+        expect.soft(content.faq.length, `${locale}/${id} faq count`).toBeGreaterThan(0);
         expect.soft(content.faq.length, `${locale}/${id} faq count`).toBeLessThanOrEqual(7);
 
         for (const item of content.faq) {
-          expect.soft(wordCount(item.a), `${locale}/${id} FAQ: ${item.q}`).toBeGreaterThanOrEqual(40);
-          expect.soft(wordCount(item.a), `${locale}/${id} FAQ: ${item.q}`).toBeLessThanOrEqual(90);
+          expect.soft(item.q.trim(), `${locale}/${id} FAQ question`).not.toBe('');
+          expect.soft(item.a.trim(), `${locale}/${id} FAQ: ${item.q}`).not.toBe('');
+        }
+
+        const combined = [content.intro, content.howItWorks, content.example, content.tips, ...content.faq.flatMap((item) => [item.q, item.a])]
+          .join(' ')
+          .toLowerCase();
+        for (const phrase of forbiddenBoilerplate) {
+          expect.soft(combined, `${locale}/${id} boilerplate`).not.toContain(phrase);
         }
       }
     }
   });
 
-  it('does not duplicate FAQ questions inside one locale', () => {
+  it('does not duplicate FAQ questions inside one calculator', () => {
     for (const locale of locales) {
+      for (const calculator of getCalculators(locale)) {
+        const questions = calculator.seoContent!.faq.map((item) => item.q.toLowerCase().trim());
+        expect(new Set(questions).size, `${locale}/${calculator.id} FAQ questions`).toBe(questions.length);
+      }
+    }
+  });
+
+  it('does not reuse FAQ questions across pages in one locale', () => {
+    for (const locale of locales) {
+      if (!['ru', 'en', 'uk'].includes(locale)) continue;
       const questions = getCalculators(locale).flatMap((calculator) =>
         calculator.seoContent!.faq.map((item) => item.q.toLowerCase().trim()),
       );

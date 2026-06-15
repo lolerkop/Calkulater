@@ -236,7 +236,7 @@ export const calculatorSeoContent: SeoContentByLocale = {
       howItWorks:
         'BMI is calculated by dividing weight in kilograms by height in meters squared. In US-style inputs, the calculator first converts pounds and inches into metric units before applying the same formula. The result is compared with standard adult ranges: below 18.5 is commonly considered underweight, 18.5 to 24.9 is the healthy range, 25 to 29.9 is overweight and 30 or higher is obesity. The formula is intentionally simple, which makes it useful for population-level screening, but it does not measure body fat directly. It does not know how much of your weight is muscle, bone, water or fat, and it does not account for age, sex, pregnancy, athletic training or fat distribution. Because of that, BMI should be interpreted as a general signal rather than a complete health assessment.',
       example:
-        'A user enters 180 pounds and 5 feet 10 inches. The calculator converts the values, then computes BMI using the standard formula. The result is about 25.8, which falls in the overweight range for adults. This does not automatically mean the person is unhealthy, but it suggests that waist size, activity level, blood pressure, lab results and body composition may be worth checking. If the user lifts weights regularly, the result should be interpreted together with muscle mass and waist measurement.',
+        'A user enters 82 kilograms and 178 centimeters. The calculator converts height to 1.78 meters, then computes BMI using the standard formula. The result is about 25.9, which falls in the overweight range for adults. This does not automatically mean the person is unhealthy, but it suggests that waist size, activity level, blood pressure, lab results and body composition may be worth checking. If the user lifts weights regularly, the result should be interpreted together with muscle mass and waist measurement.',
       tips:
         'The most common mistake is treating BMI as a final verdict. A muscular athlete can have a high BMI with low body fat, while an older adult can have a normal BMI but low muscle mass. BMI also says nothing about where fat is stored, even though abdominal fat is often more relevant to health risk. Measure height and weight consistently, preferably without shoes and at a similar time of day. Do not overreact to daily weight swings after meals, travel or training. For a fuller picture, combine BMI with waist circumference, waist-to-height ratio, fitness level, medical history and professional advice. If the result is in an extreme range or changes quickly without explanation, it is worth discussing with a healthcare professional.',
       faq: [
@@ -1011,28 +1011,11 @@ function contentParams(calculator: CalculatorDef, locale: string): GeneratedPara
 export function getCalculatorSeoContent(calculator: CalculatorDef, locale: string): CalculatorSeoContent {
   const manual = calculatorSeoContent[locale]?.[calculator.id];
   if (manual) return manual;
-
-  const copyKey = locale === 'ru' ? 'ru' : (localeFallback[locale] ?? 'en');
-  const copy = genericCopy[copyKey];
-  const params = contentParams(calculator, locale);
-  const intro = normalizeSpaces(copy.intro(params));
-  const howItWorks = normalizeSpaces(copy.howItWorks(params));
-  const example = normalizeSpaces(copy.example(params));
-  const tips = normalizeSpaces(copy.tips(params));
-
   return {
-    intro: padToMin(intro, 40, 80, [params.example, params.fields, params.results]),
-    howItWorks: padToMin(howItWorks, 120, 250, [params.shortDescription, params.example, params.results]),
-    example: padToMin(example, 80, 150, [
-      params.shortDescription,
-      params.fields,
-      params.results,
-      `${params.name} ${params.fields} ${params.results}`,
-    ]),
-    tips: padToMin(tips, 120, 200, [params.shortDescription, params.example, params.fields]),
-    faq: copy.faq(params).map((item) => ({
-      q: normalizeSpaces(item.q),
-      a: padToMin(normalizeSpaces(item.a), 40, 90, [params.shortDescription, params.example, params.results]),
-    })),
+    intro: calculator.longDescription,
+    howItWorks: calculator.howItWorks,
+    example: calculator.example,
+    tips: calculator.howToUse.join(' '),
+    faq: calculator.faq,
   };
 }

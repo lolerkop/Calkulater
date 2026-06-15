@@ -17,7 +17,8 @@ describe('routing content: i18n routes', () => {
     const localizedHome = await import('../src/pages/[locale]/index.astro?raw');
 
     expect(root.default).toContain('locale-gateway');
-    expect(root.default).toContain('noindex={true}');
+    expect(root.default).toContain('canonical="/"');
+    expect(root.default).not.toContain('noindex={true}');
     expect(root.default).toContain('locales.map');
     expect(root.default).toContain('gateway-${locale}');
     expect(localizedHome.default).toContain('getStaticPaths');
@@ -187,7 +188,7 @@ describe('routing content: localized components', () => {
     expect(island.default).toContain('calculatorCopyByLocale');
     expect(island.default).toContain('localizeResult');
     expect(island.default).toContain("qs + '#calculator'");
-    expect(island.default).toContain('buildQueryString');
+    expect(island.default).toContain('buildCalculatorQueryString');
   });
 });
 
@@ -205,12 +206,13 @@ describe('routing content: SEO plumbing', () => {
     expect(seoLib.default).toContain('/calculators/');
   });
 
-  it('ships Netlify redirects for old unprefixed URLs', () => {
+  it('ships Cloudflare-compatible redirects for old unprefixed URLs', () => {
     const redirectsPath = fileURLToPath(new URL('../public/_redirects', import.meta.url));
     const redirects = readFileSync(redirectsPath, 'utf8');
 
-    expect(redirects).toContain('/calculators/ /ru/calculators/ 301!');
-    expect(redirects).toContain('/finance/* /ru/finance/:splat 301!');
-    expect(redirects).toContain('/sport/* /ru/sport/:splat 301!');
+    expect(redirects).toContain('/calculators/ /ru/calculators/ 301');
+    expect(redirects).toContain('/finance/* /ru/finance/:splat 301');
+    expect(redirects).toContain('/sport/* /ru/sport/:splat 301');
+    expect(redirects).not.toContain('301!');
   });
 });

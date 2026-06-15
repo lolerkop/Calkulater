@@ -9,6 +9,10 @@ interface ImportMetaEnv {
   readonly PUBLIC_YM_ID?: string;
   /** Публичный email для страницы контактов и schema.org Organization. */
   readonly PUBLIC_CONTACT_EMAIL?: string;
+  readonly PUBLIC_PRIVACY_EMAIL?: string;
+  readonly PUBLIC_LEGAL_NAME?: string;
+  readonly PUBLIC_JURISDICTION?: string;
+  readonly PUBLIC_SUPPORT_URL?: string;
   /** Показывать ли пустые рекламные плейсхолдеры до подключения рекламной сети. */
   readonly PUBLIC_SHOW_AD_PLACEHOLDERS?: string;
 }

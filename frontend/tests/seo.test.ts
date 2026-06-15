@@ -16,8 +16,7 @@ import {
 describe('seo.absUrl', () => {
   it('собирает абсолютный URL из относительного пути', () => {
     const url = absUrl('/finance/credit/');
-    expect(url).toMatch(/\/finance\/credit\/$/);
-    expect(url.startsWith('http')).toBe(true);
+    expect(url).toBe('https://calcuway.com/finance/credit/');
   });
 
   it('добавляет ведущий слэш если его нет', () => {

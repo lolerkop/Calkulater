@@ -1,0 +1,11 @@
+url,boilerplate_before,formula_before,example_verified,source_before,last_reviewed_before,faq_before,keyword_tail_before,status_after
+/ru/date-time/age-calculator/,yes,generic,yes,no,no,mixed,no,specific content and review block
+/ru/building/tile-calculator/,yes,generic,yes,no,no,mixed,no,specific content and building source block
+/ru/currency/currency-converter/,yes,generic,yes,no,no,relevant but generic,no,rate date source limitation and freshness
+/ru/currency/usd-to-eur/,yes,generic,yes,no,no,relevant but generic,no,rate date source limitation and freshness
+/uk/fitness/kalkulyator-bmi/,yes,generic,yes,no,no,mixed,no,specific FAQ WHO source and BMI limitations
+/ru/finance/income-tax-calculator/,yes,generic,yes,no,no,relevant,no,FNS source tax period rates and review date
+/ru/finance/vat-calculator/,yes,generic,yes,no,no,relevant,no,FNS source 2026 rates and review date
+/ru/finance/,no,n/a,n/a,n/a,n/a,relevant,yes,natural popular new and category links
+/ru/currency/,no,n/a,n/a,n/a,n/a,relevant,yes,natural popular new and category links
+/uk/calculators/ (new-filter equivalent),no,n/a,n/a,n/a,n/a,n/a,partial,new calculators exposed through natural catalog/category links

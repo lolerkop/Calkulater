@@ -15,7 +15,7 @@ function walk(dir) {
 function routeFromHtml(filePath) {
   const relativePath = path.relative(root, filePath).replaceAll(path.sep, '/');
   if (relativePath === '404.html') return null;
-  if (relativePath === 'index.html') return null;
+  if (relativePath === 'index.html') return '/';
   if (relativePath.endsWith('/index.html')) {
     return `/${relativePath.slice(0, -'index.html'.length)}`;
   }
@@ -42,8 +42,19 @@ const htmlRoutes = walk(root)
   .sort();
 
 const sitemap = readFileSync(sitemapPath, 'utf8');
+if (sitemap.includes('<lastmod>')) {
+  console.error('Sitemap contains synthetic lastmod values.');
+  process.exit(1);
+}
 const sitemapRoutes = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
-  .map((match) => new URL(match[1]).pathname)
+  .map((match) => {
+    const url = new URL(match[1]);
+    if (url.origin !== 'https://calcuway.com' || url.search) {
+      console.error(`Invalid sitemap URL: ${url.toString()}`);
+      process.exit(1);
+    }
+    return url.pathname;
+  })
   .sort();
 
 const missing = htmlRoutes.filter((route) => !sitemapRoutes.includes(route));

@@ -26,6 +26,7 @@ describe('calculator smoke: default form values', () => {
       expect(result.primary.label, `${calculator.id}: primary label`).toBeTruthy();
       expect(result.primary.value, `${calculator.id}: primary value`).toBeTruthy();
       expect(result.secondary.length, `${calculator.id}: secondary rows`).toBeGreaterThan(0);
+      expect(JSON.stringify(result), `${calculator.id}: finite result`).not.toMatch(/NaN|Infinity|undefined/);
 
       for (const [index, row] of result.secondary.entries()) {
         expect(row.label, `${calculator.id}: secondary ${index} label`).toBeTruthy();

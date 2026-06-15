@@ -832,8 +832,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
                 }}
               >
                 <div>
-                  <div className="flex min-w-0 items-start justify-between gap-4">
-                    <div className="min-w-0 font-mono text-xs text-ink-500 text-fit">/{category?.slug}</div>
+                  <div className="flex min-w-0 items-start justify-end gap-4">
                     <div className="flex shrink-0 flex-wrap justify-end gap-1.5">
                       {calculator.isNew && (
                         <span
@@ -862,7 +861,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
                 </div>
 
                 <div className="mt-4 flex min-w-0 items-center justify-between gap-3 sm:mt-5 sm:gap-4">
-                  <span className="min-w-0 text-xs font-medium uppercase tracking-wider text-ink-400 text-fit">
+                  <span className="min-w-0 text-xs font-medium uppercase tracking-wider text-ink-600 text-fit">
                     {calculator.categoryName ?? category?.name}
                   </span>
                   <span className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-accent">

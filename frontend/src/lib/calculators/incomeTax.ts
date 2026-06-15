@@ -6,7 +6,7 @@ import { fmtMoney, toNumber, toStr } from '../format';
 // 15% от 2,4 до 5 млн, 18% от 5 до 20 млн, 20% от 20 до 50 млн, 22% свыше.
 // Для упрощённого режима пользователь может выбрать «фиксированная ставка»
 // и вручную задать 13% / 15% / 30% (нерезидент).
-const PROGRESSIVE_BRACKETS: { upTo: number; rate: number }[] = [
+export const PROGRESSIVE_BRACKETS: { upTo: number; rate: number }[] = [
   { upTo: 2_400_000, rate: 0.13 },
   { upTo: 5_000_000, rate: 0.15 },
   { upTo: 20_000_000, rate: 0.18 },
@@ -14,7 +14,7 @@ const PROGRESSIVE_BRACKETS: { upTo: number; rate: number }[] = [
   { upTo: Infinity, rate: 0.22 },
 ];
 
-function calcProgressiveTax(annualIncome: number): number {
+export function calcProgressiveTax(annualIncome: number): number {
   let remaining = annualIncome;
   let prevCap = 0;
   let tax = 0;

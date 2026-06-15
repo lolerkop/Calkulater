@@ -8,13 +8,21 @@
     "dev": "astro dev --host 0.0.0.0 --port 3000",
     "dev:local": "astro dev --host 127.0.0.1 --port 4321",
     "rates:update": "node scripts/update-currency-rates.mjs",
-    "prebuild": "npm run rates:update",
+    "rates:verify": "vite-node scripts/verify-currency-freshness.mts",
+    "seo:inventory": "vite-node scripts/export-url-inventory.mts",
+    "localization:inventory": "vite-node scripts/export-localization-inventory.mts",
+    "prebuild": "npm run rates:update && npm run rates:verify",
     "build": "astro build",
     "preview": "astro preview --host 0.0.0.0 --port 3000",
     "preview:local": "astro preview --host 127.0.0.1 --port 4322",
     "astro": "astro",
     "test": "vitest run",
-    "check": "vitest run && node scripts/verify-public-assets.mjs && npm run build && node scripts/verify-text-encoding.mjs && node scripts/verify-dist-content-sanity.mjs && node scripts/verify-dist-locales.mjs && node scripts/verify-dist-links.mjs && node scripts/verify-dist-seo.mjs && node scripts/verify-dist-sitemap.mjs && node scripts/verify-dist-hosting-files.mjs && node scripts/verify-dist-a11y.mjs && node scripts/verify-dist-production-hygiene.mjs && node scripts/verify-dist-performance-budget.mjs"
+    "test:e2e": "playwright test",
+    "qa:release-gates": "node scripts/verify-release-gates.mjs",
+    "performance:lighthouse": "node scripts/run-lighthouse.mjs",
+    "performance:ci": "node scripts/run-performance-ci.mjs",
+    "check": "vitest run && node scripts/verify-public-assets.mjs && npm run build && node scripts/verify-text-encoding.mjs && node scripts/verify-dist-content-sanity.mjs && node scripts/verify-dist-locales.mjs && node scripts/verify-dist-links.mjs && node scripts/verify-dist-seo.mjs && node scripts/verify-dist-sitemap.mjs && node scripts/verify-dist-hosting-files.mjs && node scripts/verify-dist-privacy.mjs && node scripts/verify-dist-a11y.mjs && node scripts/verify-dist-production-hygiene.mjs && node scripts/verify-dist-performance-budget.mjs && npm run qa:release-gates",
+    "release:check": "npm run check && npm run test:e2e && npm run performance:ci && npm run qa:release-gates"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",
@@ -28,9 +36,12 @@
     "typescript": "^5.7.2"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@playwright/test": "^1.60.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "lighthouse": "13.4.0",
     "vitest": "^2.1.8"
   }
 }

@@ -37,6 +37,11 @@ const rights = {
   sk: 'Všetky práva vyhradené.',
   hu: 'Minden jog fenntartva.',
 }[locale];
+const reportIssue = {
+  ru: 'Сообщить об ошибке в калькуляторе',
+  en: 'Report a calculator error',
+  uk: 'Повідомити про помилку в калькуляторі',
+}[locale] ?? 'Report a calculator error';
 ---
 
 <footer class="mt-20 border-t border-ink-200 bg-white/80" data-testid="site-footer">
@@ -101,8 +106,9 @@ const rights = {
       </p>
       <nav class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm" aria-label={copy.servicePages}>
         <a href={`/${locale}/about/`} class="text-fit text-ink-800 transition-colors hover:text-accent">{copy.about}</a>
-        <a href={`/${locale}/contacts/`} class="text-fit text-ink-800 transition-colors hover:text-accent">{copy.contacts}</a>
+        <a href={`/${locale}/contacts/`} class="text-fit text-ink-800 transition-colors hover:text-accent" data-analytics-event="contact_link_clicked">{copy.contacts}</a>
         <a href={`/${locale}/privacy/`} class="text-fit text-ink-800 transition-colors hover:text-accent">{copy.privacy}</a>
+        <a href={`/${locale}/contacts/#calculation-errors`} class="text-fit text-ink-800 transition-colors hover:text-accent">{reportIssue}</a>
       </nav>
     </div>
   </div>

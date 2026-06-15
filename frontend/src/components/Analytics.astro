@@ -1,8 +1,10 @@
 ---
-// Компонент аналитики: Google Analytics 4 и Яндекс.Метрика.
-// ID берутся из переменных окружения PUBLIC_GA_ID / PUBLIC_YM_ID.
-// Если ID пустые — ничего не рендерим (без заглушек).
 import { SITE } from '../config/site';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
 
 function isValidGaId(value: string): boolean {
   return /^G-[A-Z0-9]{6,}$/i.test(value) && !/^G-X+$/i.test(value);
@@ -12,58 +14,201 @@ function isValidYmId(value: string): boolean {
   return /^\d{5,12}$/.test(value) && value !== '12345678' && !/^0+$/.test(value);
 }
 
+const locale = Astro.props.locale ?? 'ru';
+const language = locale === 'ru' || locale === 'uk' ? locale : 'en';
 const gaId = isValidGaId(SITE.gaId) ? SITE.gaId : '';
 const ymId = isValidYmId(SITE.ymId) ? SITE.ymId : '';
+const analyticsConfigured = Boolean(gaId || ymId);
+const storageKey = 'calcuway.analytics-consent.v1';
+const copy = {
+  ru: {
+    title: 'Настройки аналитики',
+    text: 'С вашего согласия мы загрузим Google Analytics или Яндекс Метрику, если их идентификаторы настроены. До согласия аналитика не загружается.',
+    accept: 'Разрешить',
+    reject: 'Отклонить',
+    privacy: 'Политика конфиденциальности',
+    settings: 'Настройки приватности',
+  },
+  en: {
+    title: 'Analytics settings',
+    text: 'With your consent, Google Analytics or Yandex Metrica will load when their IDs are configured. No analytics loads before consent.',
+    accept: 'Allow',
+    reject: 'Reject',
+    privacy: 'Privacy policy',
+    settings: 'Privacy settings',
+  },
+  uk: {
+    title: 'Налаштування аналітики',
+    text: 'За вашою згодою буде завантажено Google Analytics або Яндекс Метрику, якщо їхні ідентифікатори налаштовано. До згоди аналітика не завантажується.',
+    accept: 'Дозволити',
+    reject: 'Відхилити',
+    privacy: 'Політика конфіденційності',
+    settings: 'Налаштування приватності',
+  },
+}[language];
 ---
 
-{gaId && (
+{analyticsConfigured && (
   <>
-    <script
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-      data-testid="analytics-ga-loader"
-    ></script>
-    <script
-      is:inline
-      data-testid="analytics-ga-init"
-      define:vars={{ gaId }}
+    <section
+      id="analytics-consent"
+      class="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-2xl rounded-2xl border border-ink-200 bg-white p-5 shadow-2xl"
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="analytics-consent-title"
+      data-testid="analytics-consent"
+      hidden
     >
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ window.dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', gaId, { anonymize_ip: true });
-    </script>
-  </>
-)}
-
-{ymId && (
-  <>
-    <script
-      is:inline
-      data-testid="analytics-ym-init"
-      define:vars={{ ymId }}
-    >
-      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-      window.ym(Number(ymId), "init", {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        webvisor: true
-      });
-    </script>
-    <noscript>
-      <div>
-        <img
-          src={`https://mc.yandex.ru/watch/${ymId}`}
-          style="position:absolute; left:-9999px;"
-          alt=""
-        />
+      <h2 id="analytics-consent-title" class="text-lg font-bold text-ink-900">{copy.title}</h2>
+      <p class="mt-2 text-sm leading-relaxed text-ink-600">{copy.text}</p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <button type="button" class="rounded-xl bg-accent px-4 py-2 text-sm font-bold text-white" data-analytics-choice="granted">
+          {copy.accept}
+        </button>
+        <button type="button" class="rounded-xl border border-ink-300 px-4 py-2 text-sm font-bold text-ink-800" data-analytics-choice="denied">
+          {copy.reject}
+        </button>
+        <a href={`/${locale}/privacy/#analytics`} class="self-center text-sm font-semibold text-accent underline underline-offset-4">
+          {copy.privacy}
+        </a>
       </div>
-    </noscript>
+    </section>
+    <button
+      id="analytics-settings"
+      type="button"
+      class="fixed bottom-4 left-4 z-40 rounded-xl border border-ink-200 bg-white px-3 py-2 text-xs font-semibold text-ink-700 shadow-lg"
+      data-testid="analytics-settings"
+      hidden
+    >
+      {copy.settings}
+    </button>
+    <script is:inline define:vars={{ gaId, ymId, storageKey }}>
+      (() => {
+        const banner = document.getElementById('analytics-consent');
+        const settings = document.getElementById('analytics-settings');
+        let loaded = false;
+        let consentGranted = false;
+        const allowedEvents = new Set([
+          'calculator_view',
+          'calculator_input_started',
+          'calculator_result_shown',
+          'calculator_validation_error',
+          'calculator_copy_link_clicked',
+          'calculator_copy_link_confirmed',
+          'calculator_copy_link_cancelled',
+          'language_switch_clicked',
+          'related_calculator_clicked',
+          'contact_link_clicked',
+        ]);
+        const allowedMetadata = new Set(['calculator_id', 'locale', 'target_locale', 'target_path']);
+
+        const sendEvent = (name, metadata = {}) => {
+          if (!consentGranted || !allowedEvents.has(name)) return;
+          const safeMetadata = {};
+          for (const [key, value] of Object.entries(metadata)) {
+            if (allowedMetadata.has(key) && typeof value === 'string' && value.length <= 120) {
+              safeMetadata[key] = value;
+            }
+          }
+          if (gaId && window.gtag) window.gtag('event', name, safeMetadata);
+          if (ymId && window.ym) window.ym(Number(ymId), 'reachGoal', name, safeMetadata);
+        };
+
+        window.addEventListener('calcuway:analytics', (event) => {
+          sendEvent(event.detail?.name, event.detail?.metadata);
+        });
+
+        document.addEventListener('click', (event) => {
+          const link = event.target.closest?.('[data-analytics-event]');
+          if (!link) return;
+          const url = link.href ? new URL(link.href, window.location.origin) : null;
+          sendEvent(link.dataset.analyticsEvent, {
+            locale: document.documentElement.lang,
+            target_locale: link.dataset.analyticsTargetLocale || '',
+            target_path: url?.origin === window.location.origin ? url.pathname : '',
+          });
+        });
+
+        const loadAnalytics = () => {
+          consentGranted = true;
+          if (gaId) window[`ga-disable-${gaId}`] = false;
+          if (loaded) {
+            if (gaId && window.gtag) window.gtag('config', gaId, { anonymize_ip: true });
+            if (ymId && window.ym) window.ym(Number(ymId), 'init', {
+              clickmap: true,
+              trackLinks: true,
+              accurateTrackBounce: true,
+              webvisor: false,
+            });
+            return;
+          }
+          loaded = true;
+
+          if (gaId) {
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () { window.dataLayer.push(arguments); };
+            window.gtag('js', new Date());
+            window.gtag('config', gaId, { anonymize_ip: true });
+            const gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaId)}`;
+            gaScript.dataset.testid = 'analytics-ga-loader';
+            document.head.appendChild(gaScript);
+          }
+
+          if (ymId) {
+            window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
+            window.ym.l = Number(new Date());
+            window.ym(Number(ymId), 'init', {
+              clickmap: true,
+              trackLinks: true,
+              accurateTrackBounce: true,
+              webvisor: false,
+            });
+            const ymScript = document.createElement('script');
+            ymScript.async = true;
+            ymScript.src = 'https://mc.yandex.ru/metrika/tag.js';
+            ymScript.dataset.testid = 'analytics-ym-loader';
+            document.head.appendChild(ymScript);
+          }
+        };
+
+        const showSettings = () => {
+          banner.hidden = true;
+          settings.hidden = false;
+        };
+
+        const saveChoice = (choice) => {
+          try { localStorage.setItem(storageKey, choice); } catch {}
+          showSettings();
+          if (choice === 'granted') {
+            loadAnalytics();
+          } else {
+            consentGranted = false;
+            if (gaId) window[`ga-disable-${gaId}`] = true;
+            if (ymId && window.ym) window.ym(Number(ymId), 'destruct');
+          }
+        };
+
+        let savedChoice = '';
+        try { savedChoice = localStorage.getItem(storageKey) || ''; } catch {}
+        if (savedChoice === 'granted') {
+          showSettings();
+          loadAnalytics();
+        } else if (savedChoice === 'denied') {
+          showSettings();
+        } else {
+          banner.hidden = false;
+        }
+
+        banner.querySelectorAll('[data-analytics-choice]').forEach((button) => {
+          button.addEventListener('click', () => saveChoice(button.dataset.analyticsChoice));
+        });
+        settings.addEventListener('click', () => {
+          settings.hidden = true;
+          banner.hidden = false;
+        });
+      })();
+    </script>
   </>
 )}

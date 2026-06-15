@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
+const canonicalOrigin = 'https://calcuway.com';
 
 function walk(dir) {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -75,6 +76,12 @@ const issues = [];
 const seenTitles = new Map();
 const seenDescriptions = new Map();
 const seenCanonicals = new Map();
+const pageAlternates = new Map();
+const ruOnlyCalculatorRoutes = new Set([
+  '/ru/finance/deposit-calculator/',
+  '/ru/finance/income-tax-calculator/',
+  '/ru/finance/vat-calculator/',
+]);
 const localeCodes = {
   ru: 'ru-RU',
   en: 'en-US',
@@ -154,6 +161,9 @@ for (const filePath of htmlFiles) {
   if (canonical && !canonical.startsWith('http://') && !canonical.startsWith('https://')) {
     issues.push(`${file}: canonical is not absolute`);
   }
+  if (canonical && new URL(canonical).origin !== canonicalOrigin) {
+    issues.push(`${file}: canonical uses a non-canonical host`);
+  }
   if (!isNoIndex && canonical && expectedRoute && new URL(canonical).pathname !== expectedRoute) {
     issues.push(`${file}: canonical path does not match route`);
   }
@@ -174,6 +184,9 @@ for (const filePath of htmlFiles) {
   if (ogUrl && !isAbsoluteHttpUrl(ogUrl)) {
     issues.push(`${file}: og:url is not absolute`);
   }
+  if (ogUrl && new URL(ogUrl).origin !== canonicalOrigin) {
+    issues.push(`${file}: og:url uses a non-canonical host`);
+  }
   if (!isNoIndex && ogUrl && expectedRoute && new URL(ogUrl).pathname !== expectedRoute) {
     issues.push(`${file}: og:url path does not match route`);
   }
@@ -188,6 +201,37 @@ for (const filePath of htmlFiles) {
   }
   if (twitterImage && !distAssetExistsFromUrl(twitterImage)) {
     issues.push(`${file}: twitter:image asset is missing from dist`);
+  }
+
+  const alternateTags = [...html.matchAll(/<link\s+[^>]*rel="alternate"[^>]*>/gi)].map((match) => match[0]);
+  const alternates = new Map();
+  for (const tag of alternateTags) {
+    const hreflang = attrValue(tag, 'hreflang');
+    const href = attrValue(tag, 'href');
+    if (!hreflang || !href || !isAbsoluteHttpUrl(href)) {
+      issues.push(`${file}: invalid hreflang alternate`);
+      continue;
+    }
+    const alternateUrl = new URL(href);
+    if (alternateUrl.origin !== canonicalOrigin || alternateUrl.search) {
+      issues.push(`${file}: hreflang alternate is not a clean canonical-host URL`);
+    }
+    if (alternates.has(hreflang)) {
+      issues.push(`${file}: duplicate hreflang "${hreflang}"`);
+    }
+    alternates.set(hreflang, href);
+  }
+  if (!isNoIndex && !ruOnlyCalculatorRoutes.has(expectedRoute) && !alternates.has('x-default')) {
+    issues.push(`${file}: missing x-default hreflang`);
+  }
+  if (ruOnlyCalculatorRoutes.has(expectedRoute) && [...alternates.keys()].join(',') !== 'ru') {
+    issues.push(`${file}: RU-only calculator must expose only the ru hreflang`);
+  }
+  if (alternates.get('x-default') && new URL(alternates.get('x-default')).pathname !== '/') {
+    issues.push(`${file}: x-default must point to the root gateway`);
+  }
+  if (expectedRoute && !isNoIndex) {
+    pageAlternates.set(expectedRoute, { file, alternates });
   }
 
   const h1Count = (html.match(/<h1[\s>]/gi) ?? []).length;
@@ -249,6 +293,24 @@ for (const filePath of htmlFiles) {
     requireJsonLdTypes(file, types, ['Organization', 'WebPage'], issues);
   } else if (html.includes('data-testid="breadcrumbs"')) {
     requireJsonLdTypes(file, types, ['BreadcrumbList'], issues);
+  }
+}
+
+for (const [route, page] of pageAlternates) {
+  for (const [hreflang, href] of page.alternates) {
+    if (hreflang === 'x-default') continue;
+    const targetRoute = new URL(href).pathname;
+    const targetPage = pageAlternates.get(targetRoute);
+    if (!targetPage) {
+      issues.push(`${page.file}: hreflang target is not indexable: ${targetRoute}`);
+      continue;
+    }
+    const hasReturnLink = [...targetPage.alternates.values()].some(
+      (targetHref) => new URL(targetHref).pathname === route,
+    );
+    if (!hasReturnLink) {
+      issues.push(`${page.file}: hreflang target ${targetRoute} has no return link`);
+    }
   }
 }
 

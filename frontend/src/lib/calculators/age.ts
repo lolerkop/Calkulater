@@ -1,5 +1,6 @@
 import type { CalcFunction, CalcResult } from '../types';
 import { fmtInt, pluralRu, toStr } from '../format';
+import { parseIsoDate } from '../date';
 
 export function calculateAge(birth: Date, target: Date): {
   years: number;
@@ -10,9 +11,12 @@ export function calculateAge(birth: Date, target: Date): {
   if (target < birth) {
     return { years: 0, months: 0, days: 0, totalDays: 0 };
   }
+  const leapBirthdayObservedOnFeb28 = birth.getMonth() === 1 && birth.getDate() === 29 &&
+    new Date(target.getFullYear(), 1, 29).getMonth() !== 1;
+  const comparisonDay = leapBirthdayObservedOnFeb28 ? 28 : birth.getDate();
   let years = target.getFullYear() - birth.getFullYear();
   let months = target.getMonth() - birth.getMonth();
-  let days = target.getDate() - birth.getDate();
+  let days = target.getDate() - comparisonDay;
 
   if (days < 0) {
     months -= 1;
@@ -31,15 +35,6 @@ export function calculateAge(birth: Date, target: Date): {
   return { years, months, days, totalDays };
 }
 
-function parseDate(s: string): Date | null {
-  if (!s) return null;
-  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
-  if (!match) return null;
-  const d = new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
-  if (isNaN(d.getTime())) return null;
-  return d;
-}
-
 function formatIsoDate(date: Date): string {
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -51,8 +46,8 @@ export const calcAge: CalcFunction = (inputs) => {
   const birthStr = toStr(inputs.birthDate);
   const targetStr = toStr(inputs.targetDate);
 
-  const birth = parseDate(birthStr);
-  const target = targetStr ? parseDate(targetStr) : new Date();
+  const birth = parseIsoDate(birthStr);
+  const target = targetStr ? parseIsoDate(targetStr) : new Date();
 
   if (!birth || !target) {
     return {
@@ -70,8 +65,12 @@ export const calcAge: CalcFunction = (inputs) => {
 
   const { years, months, days, totalDays } = calculateAge(birth, target);
   const weekdays = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-  let nextBirthday = new Date(target.getFullYear(), birth.getMonth(), birth.getDate());
-  if (nextBirthday < target) nextBirthday = new Date(target.getFullYear() + 1, birth.getMonth(), birth.getDate());
+  const birthdayInYear = (year: number) => {
+    const isNonLeapFeb29 = birth.getMonth() === 1 && birth.getDate() === 29 && new Date(year, 1, 29).getMonth() !== 1;
+    return new Date(year, birth.getMonth(), isNonLeapFeb29 ? 28 : birth.getDate());
+  };
+  let nextBirthday = birthdayInYear(target.getFullYear());
+  if (nextBirthday < target) nextBirthday = birthdayInYear(target.getFullYear() + 1);
   const daysUntilBirthday = Math.ceil((nextBirthday.getTime() - target.getTime()) / 86_400_000);
 
   const yearsStr = `${years} ${pluralRu(years, ['год', 'года', 'лет'])}`;

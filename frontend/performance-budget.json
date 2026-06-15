@@ -1,0 +1,20 @@
+{
+  "runs": 3,
+  "targets": [
+    { "slug": "root", "path": "/" },
+    { "slug": "ru-home", "path": "/ru/" },
+    { "slug": "currency", "path": "/ru/currency/currency-converter/" },
+    { "slug": "income-tax", "path": "/ru/finance/income-tax-calculator/" },
+    { "slug": "tile", "path": "/ru/building/tile-calculator/" },
+    { "slug": "uk-bmi", "path": "/uk/fitness/kalkulyator-bmi/" }
+  ],
+  "budgets": {
+    "largestContentfulPaintMs": 2500,
+    "cumulativeLayoutShift": 0.1,
+    "totalBlockingTimeMs": 200,
+    "scriptBytes": 174080,
+    "stylesheetBytes": 81920,
+    "imageBytes": 256000,
+    "totalBytes": 716800
+  }
+}

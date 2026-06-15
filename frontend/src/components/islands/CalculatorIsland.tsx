@@ -11,19 +11,31 @@ import {
   Copy,
   Link2,
   Pencil,
+  Plus,
   Printer,
   RotateCcw,
+  X,
 } from 'lucide-react';
 import type { CalculatorDef, Field, CalcResult } from '../../lib/types';
 import { runners } from '../../lib/runners';
 import { localizedResultLabel, localizedResultText, type Locale } from '../../lib/clientI18n';
+import { parseLocalizedNumber } from '../../lib/format';
+import { parseExcludedDates } from '../../lib/calculators/workingDays';
+import { isValidIsoDate } from '../../lib/date';
+import {
+  buildCalculatorQueryString,
+  buildInitialValues,
+  readValuesFromSearch,
+  type ShareFormValues,
+} from '../../lib/shareLink';
+import { trackAnalyticsEvent } from '../../lib/analytics';
 
 type Props = {
-  calc: Pick<CalculatorDef, 'id' | 'name' | 'fields' | 'disclaimer'>;
+  calc: Pick<CalculatorDef, 'id' | 'name' | 'resultTitle' | 'category' | 'fields' | 'disclaimer'>;
   locale?: Locale;
 };
 
-type FormValues = Record<string, string | number | boolean>;
+type FormValues = ShareFormValues;
 type FieldErrors = Record<string, string>;
 type CalculatorCopy = {
   enterNumber: string;
@@ -64,7 +76,7 @@ const calculatorCopyByLocale: Record<Locale, CalculatorCopy> = {
     dateHelp: 'Можно выбрать дату вручную или ввести с клавиатуры.',
     textareaHelp: 'Указывайте значения в формате, показанном в подписи поля.',
     rateHelp: 'Укажите годовую или выбранную в списке ставку без лишних символов.',
-    amountHelp: 'Введите исходное значение без пробелов и разделителей тысяч.',
+    amountHelp: 'Можно использовать пробелы для тысяч и запятую или точку для дробной части.',
     integerHelp: 'Используйте целое значение, если в поле не указано другое.',
     unitHelp: 'Проверьте единицы измерения: они указаны в названии или рядом с полем.',
     reserveHelp: 'Обычно для запаса используют 5-15%, в зависимости от задачи.',
@@ -93,7 +105,7 @@ const calculatorCopyByLocale: Record<Locale, CalculatorCopy> = {
     dateHelp: 'Choose a date or type it manually.',
     textareaHelp: 'Use the format shown in the field description.',
     rateHelp: 'Enter the annual or selected rate without extra symbols.',
-    amountHelp: 'Enter the base value without thousands separators.',
+    amountHelp: 'Thousands separators and either a decimal point or comma are accepted.',
     integerHelp: 'Use a whole number unless the field says otherwise.',
     unitHelp: 'Check the measurement units shown in or near the field.',
     reserveHelp: 'A reserve of 5-15% is common, depending on the task.',
@@ -470,7 +482,7 @@ const calculatorCopyByLocale: Record<Locale, CalculatorCopy> = {
     dateHelp: 'Оберіть дату або введіть її вручну.',
     textareaHelp: 'Використовуйте формат, показаний в описі поля.',
     rateHelp: 'Введіть річну або вибрану ставку без зайвих символів.',
-    amountHelp: 'Введіть базове значення без розділювачів тисяч.',
+    amountHelp: 'Можна використовувати пробіли для тисяч і кому або крапку для дробової частини.',
     integerHelp: 'Використовуйте ціле число, якщо поле не вимагає іншого.',
     unitHelp: 'Перевірте одиниці вимірювання, показані біля поля.',
     reserveHelp: 'Запас 5-15% часто використовують залежно від ситуації.',
@@ -551,6 +563,36 @@ const calculatorCopyByLocale: Record<Locale, CalculatorCopy> = {
   },
 };
 
+const shareWarningCopyByLocale: Partial<Record<Locale, {
+  title: string;
+  text: string;
+  confirm: string;
+  cancel: string;
+}>> = {
+  ru: {
+    title: 'Проверьте данные перед копированием',
+    text: 'Ссылка будет содержать введённые параметры. Не отправляйте её людям, которым не хотите раскрывать эти значения.',
+    confirm: 'Скопировать',
+    cancel: 'Отмена',
+  },
+  en: {
+    title: 'Check the data before copying',
+    text: 'The link will contain the entered parameters. Do not send it to people you do not want to share these values with.',
+    confirm: 'Copy link',
+    cancel: 'Cancel',
+  },
+  uk: {
+    title: 'Перевірте дані перед копіюванням',
+    text: 'Посилання міститиме введені параметри. Не надсилайте його людям, яким не хочете розкривати ці значення.',
+    confirm: 'Скопіювати',
+    cancel: 'Скасувати',
+  },
+};
+
+function shareWarningCopy(locale: Locale) {
+  return shareWarningCopyByLocale[locale] ?? shareWarningCopyByLocale.en!;
+}
+
 function calculatorCopy(locale: Locale): CalculatorCopy {
   return calculatorCopyByLocale[locale];
 }
@@ -561,91 +603,22 @@ function swapCopy(locale: Locale): string {
   return 'Swap currencies';
 }
 
-// Возвращает дефолтное значение поля (используется и для инициализации формы,
-// и для сравнения «изменилось ли значение» при формировании URL-параметров).
-function defaultValueForField(f: Field): string | number | boolean {
-  if (f.defaultValue !== undefined) return f.defaultValue;
-  if (f.type === 'date' && typeof window !== 'undefined') {
-    const today = new Date();
-    if (f.name === 'startDate' || f.name === 'calcDate' || f.name === 'operationDate') {
-      return today.toISOString().slice(0, 10);
-    }
-    if (f.name === 'endDate') {
-      today.setDate(today.getDate() + 30);
-      return today.toISOString().slice(0, 10);
-    }
-  }
-  if (f.type === 'checkbox' || f.type === 'toggle') {
-    return f.options?.[0]?.value ?? false;
-  }
-  if (f.type === 'number') return 0;
-  return '';
-}
-
-function buildInitialValues(fields: Field[]): FormValues {
-  const init: FormValues = {};
-  for (const f of fields) {
-    init[f.name] = defaultValueForField(f);
-  }
-  return init;
-}
-
-// Парсит значение из URL-параметра в нужный тип для поля.
-function parseUrlValue(field: Field, raw: string): string | number | boolean | undefined {
-  if (field.type === 'number') {
-    const n = Number(raw);
-    return Number.isFinite(n) ? n : undefined;
-  }
-  if (field.type === 'checkbox') {
-    if (raw === '1' || raw === 'true') return true;
-    if (raw === '0' || raw === 'false') return false;
-    return undefined;
-  }
-  if (field.type === 'select' || field.type === 'toggle') {
-    const allowed = field.options?.map((o) => String(o.value));
-    if (allowed && !allowed.includes(raw)) return undefined;
-    return raw;
-  }
-  // date, textarea и прочие строковые
-  return raw;
-}
-
-// Сериализует значение поля в строку для URL.
-function serializeValue(v: string | number | boolean): string {
-  if (typeof v === 'boolean') return v ? '1' : '0';
-  return String(v);
-}
-
 // Считывает значения из ?query= на текущем URL и накладывает поверх defaults.
-function readValuesFromUrl(fields: Field[], base: FormValues): FormValues {
+function readValuesFromUrl(fields: Field[], base: FormValues, locale: Locale): FormValues {
   if (typeof window === 'undefined') return base;
-  const params = new URLSearchParams(window.location.search);
-  if ([...params.keys()].length === 0) return base;
-
-  const next: FormValues = { ...base };
-  for (const f of fields) {
-    const raw = params.get(f.name);
-    if (raw === null) continue;
-    const parsed = parseUrlValue(f, raw);
-    if (parsed !== undefined) next[f.name] = parsed;
-  }
-  return next;
+  return readValuesFromSearch(fields, base, window.location.search, locale);
 }
 
-// Формирует query-string только из значений, отличающихся от дефолта.
-function buildQueryString(fields: Field[], values: FormValues): string {
-  const params = new URLSearchParams();
-  for (const f of fields) {
-    if (!isVisible(f, values)) continue;
-    const v = values[f.name];
-    const def = defaultValueForField(f);
-    // Пустые строки и undefined не пишем
-    if (v === '' || v === undefined || v === null) continue;
-    if (v === def) continue;
-    params.set(f.name, serializeValue(v));
+function normalizeValues(fields: Field[], values: FormValues, locale: Locale): FormValues {
+  const normalized = { ...values };
+  for (const field of fields) {
+    if (field.type !== 'number') continue;
+    const raw = values[field.name];
+    if (typeof raw === 'boolean') continue;
+    const parsed = parseLocalizedNumber(String(raw ?? ''), locale);
+    if (parsed !== null) normalized[field.name] = parsed;
   }
-  const qs = params.toString();
-  return qs ? `?${qs}` : '';
+  return normalized;
 }
 
 function isVisible(field: Field, values: FormValues): boolean {
@@ -673,22 +646,78 @@ function contextualField(field: Field, calculatorId: string, values: FormValues,
   return { ...field, label: field.name === 'a' ? copy.percentage : copy.number };
 }
 
-function validateValues(fields: Field[], values: FormValues, locale: Locale): FieldErrors {
+function validateValues(calculatorId: string, fields: Field[], values: FormValues, locale: Locale): FieldErrors {
   const errors: FieldErrors = {};
   const copy = calculatorCopy(locale);
   for (const field of fields) {
     if (!isVisible(field, values) || field.type !== 'number') continue;
     const raw = values[field.name];
-    if (raw === '' || raw === undefined || raw === null || !Number.isFinite(Number(raw))) {
+    const parsed = typeof raw === 'boolean' ? null : parseLocalizedNumber(String(raw ?? ''), locale);
+    if (raw === '' || raw === undefined || raw === null || parsed === null) {
       errors[field.name] = copy.enterNumber;
       continue;
     }
-    const value = Number(raw);
+    const value = parsed;
     if (field.min !== undefined && value < field.min) {
       errors[field.name] = copy.minimum(field.min);
     }
     if (field.max !== undefined && value > field.max) {
       errors[field.name] = copy.maximum(field.max);
+    }
+  }
+
+  const requiredDateNames = new Set(['birthDate', 'startDate', 'endDate', 'operationDate']);
+  const dateError = locale === 'ru'
+    ? 'Выберите корректную дату.'
+    : locale === 'uk'
+      ? 'Оберіть коректну дату.'
+      : 'Choose a valid date.';
+  for (const field of fields) {
+    if (!isVisible(field, values) || field.type !== 'date') continue;
+    const raw = String(values[field.name] ?? '');
+    if ((requiredDateNames.has(field.name) && !raw) || (raw && !isValidIsoDate(raw))) {
+      errors[field.name] = dateError;
+    }
+  }
+
+  const zeroError = locale === 'ru'
+    ? 'Значение не может быть равно нулю.'
+    : locale === 'uk'
+      ? 'Значення не може дорівнювати нулю.'
+      : 'The value cannot be zero.';
+  if (calculatorId === 'percent-calculator') {
+    const mode = String(values.mode ?? 'of');
+    if (mode === 'what' && parseLocalizedNumber(String(values.b ?? ''), locale) === 0) errors.b = zeroError;
+    if (mode === 'change' && parseLocalizedNumber(String(values.a ?? ''), locale) === 0) errors.a = zeroError;
+  }
+  if (calculatorId === 'working-days-calculator') {
+    const invalid = parseExcludedDates(String(values.excludedDates ?? '')).invalid;
+    if (invalid.length > 0) {
+      errors.excludedDates = locale === 'ru'
+        ? `Используйте формат ГГГГ-ММ-ДД: ${invalid.join(', ')}`
+        : locale === 'uk'
+          ? `Використовуйте формат РРРР-ММ-ДД: ${invalid.join(', ')}`
+          : `Use YYYY-MM-DD: ${invalid.join(', ')}`;
+    }
+    const start = String(values.startDate ?? '');
+    const end = String(values.endDate ?? '');
+    if (isValidIsoDate(start) && isValidIsoDate(end) && end < start) {
+      errors.endDate = locale === 'ru'
+        ? 'Дата окончания не может быть раньше даты начала.'
+        : locale === 'uk'
+          ? 'Дата завершення не може бути раніше дати початку.'
+          : 'The end date cannot be before the start date.';
+    }
+  }
+  if (calculatorId === 'age-calculator') {
+    const birth = String(values.birthDate ?? '');
+    const target = String(values.targetDate ?? '');
+    if (isValidIsoDate(birth) && isValidIsoDate(target) && target < birth) {
+      errors.targetDate = locale === 'ru'
+        ? 'Дата расчёта не может быть раньше даты рождения.'
+        : locale === 'uk'
+          ? 'Дата розрахунку не може бути раніше дати народження.'
+          : 'The calculation date cannot be before the birth date.';
     }
   }
   return errors;
@@ -724,7 +753,7 @@ function localizeResult(result: CalcResult, locale: Locale): CalcResult {
   };
 }
 
-function resultToText(calc: CalculatorDef, result: CalcResult, locale: Locale): string {
+function resultToText(calc: Pick<CalculatorDef, 'name'>, result: CalcResult, locale: Locale): string {
   const copy = calculatorCopy(locale);
   const secondary = result.secondary
     .map((row) => `${row.label}: ${row.value}`)
@@ -790,9 +819,6 @@ function ResultBlock({
   return (
     <div
       className="overflow-hidden rounded-3xl border border-ink-200 bg-ink-50 shadow-[0_18px_48px_rgba(61,48,133,0.11)]"
-      role="status"
-      aria-live="polite"
-      aria-atomic="false"
       data-testid="calc-result"
     >
       <div className="border-b border-accent-100 bg-gradient-to-br from-white via-white to-accent-50 p-5 sm:p-7">
@@ -927,6 +953,134 @@ function ResultBlock({
   );
 }
 
+function excludedDatesCopy(locale: Locale) {
+  if (locale === 'ru') {
+    return {
+      help: 'Выберите дату и добавьте её в список. Каждую дату можно удалить отдельно.',
+      add: 'Добавить дату',
+      list: 'Исключаемые даты',
+      remove: 'Удалить дату',
+    };
+  }
+  if (locale === 'uk') {
+    return {
+      help: 'Виберіть дату й додайте її до списку. Кожну дату можна видалити окремо.',
+      add: 'Додати дату',
+      list: 'Виключені дати',
+      remove: 'Видалити дату',
+    };
+  }
+  return {
+    help: 'Choose a date and add it to the list. Each date can be removed separately.',
+    add: 'Add date',
+    list: 'Excluded dates',
+    remove: 'Remove date',
+  };
+}
+
+function ExcludedDatesField({
+  field,
+  value,
+  error,
+  onChange,
+  locale,
+  describedBy,
+  helpId,
+  errorId,
+}: {
+  field: Field;
+  value: string;
+  error?: string;
+  onChange: (next: string | number | boolean) => void;
+  locale: Locale;
+  describedBy?: string;
+  helpId: string;
+  errorId: string;
+}) {
+  const [draft, setDraft] = useState('');
+  const fieldId = `f-${field.name}`;
+  const copy = excludedDatesCopy(locale);
+  const tokens = value.split(/[,;\n]+/).map((item) => item.trim()).filter(Boolean);
+  const invalidTokens = new Set(parseExcludedDates(value).invalid);
+
+  const addDate = () => {
+    if (!draft || tokens.includes(draft)) return;
+    onChange([...tokens, draft].join(','));
+    setDraft('');
+  };
+
+  const removeDate = (date: string) => {
+    onChange(tokens.filter((item) => item !== date).join(','));
+  };
+
+  return (
+    <div>
+      <label htmlFor={fieldId} className="field-label text-fit" data-testid={`field-label-${field.name}`}>
+        {field.label}
+      </label>
+      <div className="grid gap-2 sm:grid-cols-[minmax(0,1fr)_auto]">
+        <input
+          id={fieldId}
+          data-testid={`field-${field.name}`}
+          type="date"
+          className="field-input font-mono"
+          aria-describedby={describedBy}
+          aria-invalid={error ? 'true' : undefined}
+          value={draft}
+          onChange={(event) => setDraft(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              addDate();
+            }
+          }}
+        />
+        <button
+          type="button"
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-ink-200 bg-white px-4 py-2 text-sm font-semibold text-ink-700 transition-colors hover:border-accent-100 hover:bg-accent-50 hover:text-accent disabled:cursor-not-allowed disabled:text-ink-400"
+          disabled={!draft}
+          onClick={addDate}
+          data-testid="excluded-date-add"
+        >
+          <Plus size={16} aria-hidden="true" />
+          {copy.add}
+        </button>
+      </div>
+      <p id={helpId} className="mt-1 text-xs text-ink-500 text-fit">{copy.help}</p>
+      {tokens.length > 0 && (
+        <ul className="mt-3 flex flex-wrap gap-2" aria-label={copy.list} data-testid="excluded-date-list">
+          {tokens.map((date) => (
+            <li
+              key={date}
+              className={[
+                'inline-flex min-h-9 items-center gap-1 rounded-full border bg-white pl-3 pr-1 text-sm font-medium',
+                invalidTokens.has(date) ? 'border-accent text-accent' : 'border-ink-200 text-ink-700',
+              ].join(' ')}
+              data-testid="excluded-date-chip"
+            >
+              <span className="font-mono">{date}</span>
+              <button
+                type="button"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full hover:bg-ink-100 focus-visible:outline-offset-0"
+                aria-label={`${copy.remove}: ${date}`}
+                onClick={() => removeDate(date)}
+                data-testid={`excluded-date-remove-${date}`}
+              >
+                <X size={15} aria-hidden="true" />
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+      {error && (
+        <p id={errorId} className="mt-2 text-xs font-medium text-accent text-fit" role="alert" data-testid={`field-error-${field.name}`}>
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
 function FieldRenderer({
   field,
   value,
@@ -951,7 +1105,7 @@ function FieldRenderer({
   const labelEl = (
       <label htmlFor={fieldId} className="field-label text-fit" data-testid={`field-label-${field.name}`}>
       {field.label}
-      {field.unit ? <span className="ml-1 text-ink-400 normal-case">({field.unit})</span> : null}
+      {field.unit ? <span className="ml-1 text-ink-600 normal-case">({field.unit})</span> : null}
     </label>
   );
 
@@ -959,10 +1113,25 @@ function FieldRenderer({
     <p id={helpId} className="mt-1 text-xs text-ink-500 text-fit">{helpText}</p>
   ) : null;
   const errorEl = error ? (
-    <p id={errorId} className="mt-1 text-xs font-medium text-accent text-fit" data-testid={`field-error-${field.name}`}>
+    <p id={errorId} className="mt-1 text-xs font-medium text-accent text-fit" role="alert" data-testid={`field-error-${field.name}`}>
       {error}
     </p>
   ) : null;
+
+  if (field.name === 'excludedDates') {
+    return (
+      <ExcludedDatesField
+        field={field}
+        value={String(value ?? '')}
+        error={error}
+        onChange={onChange}
+        locale={locale}
+        describedBy={describedBy}
+        helpId={helpId}
+        errorId={errorId}
+      />
+    );
+  }
 
   switch (field.type) {
     case 'number':
@@ -972,17 +1141,14 @@ function FieldRenderer({
           <input
             id={fieldId}
             data-testid={`field-${field.name}`}
-            type="number"
+            type="text"
             inputMode="decimal"
             className="field-input font-mono"
             aria-describedby={describedBy}
             aria-invalid={error ? 'true' : undefined}
             value={value === '' || value === undefined ? '' : String(value)}
-            min={field.min}
-            max={field.max}
-            step={field.step ?? 'any'}
             placeholder={field.placeholder}
-            onChange={(e) => onChange(e.target.value === '' ? '' : Number(e.target.value))}
+            onChange={(e) => onChange(e.target.value)}
           />
           {helpEl}
           {errorEl}
@@ -998,6 +1164,7 @@ function FieldRenderer({
             className="field-select"
             aria-describedby={describedBy}
             aria-invalid={error ? 'true' : undefined}
+            disabled={field.readOnly}
             value={String(value ?? '')}
             onChange={(e) => onChange(e.target.value)}
           >
@@ -1024,7 +1191,7 @@ function FieldRenderer({
             data-testid={`field-label-${field.name}`}
           >
             {field.label}
-            {field.unit ? <span className="ml-1 text-ink-400 normal-case">({field.unit})</span> : null}
+            {field.unit ? <span className="ml-1 text-ink-600 normal-case">({field.unit})</span> : null}
           </legend>
           <div
             id={fieldId}
@@ -1078,13 +1245,13 @@ function FieldRenderer({
             id={fieldId}
             data-testid={`field-${field.name}`}
             type="checkbox"
-            className="mt-1 h-4 w-4 accent-accent"
+            className="mt-0.5 h-6 w-6 shrink-0 accent-accent"
             aria-describedby={describedBy}
             aria-invalid={error ? 'true' : undefined}
             checked={Boolean(value)}
             onChange={(e) => onChange(e.target.checked)}
           />
-          <label htmlFor={fieldId} className="min-w-0 text-sm text-ink-900 leading-tight text-fit">
+          <label htmlFor={fieldId} className="inline-flex min-h-6 min-w-0 flex-col justify-center text-sm text-ink-900 leading-tight text-fit">
             {field.label}
             {helpText && <span id={helpId} className="block mt-0.5 text-xs text-ink-500 text-fit">{helpText}</span>}
           </label>
@@ -1118,17 +1285,21 @@ function FieldRenderer({
 
 export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   const copy = calculatorCopy(locale);
+  const warningCopy = shareWarningCopy(locale);
   const runner = useMemo(() => runners[calc.id], [calc.id]);
   const formRef = useRef<HTMLFormElement | null>(null);
-  const resultRegionRef = useRef<HTMLDivElement | null>(null);
+  const inputStartedRef = useRef(false);
+  const resultTrackedRef = useRef(false);
+  const validationTrackedRef = useRef(false);
   const [values, setValues] = useState<FormValues>(() => buildInitialValues(calc.fields));
   const [result, setResult] = useState<CalcResult | null>(null);
   const [copied, setCopied] = useState(false);
   const [copiedResult, setCopiedResult] = useState(false);
+  const [shareWarningOpen, setShareWarningOpen] = useState(false);
 
   const validationErrors = useMemo(
-    () => validateValues(calc.fields, values, locale),
-    [calc.fields, values, locale],
+    () => validateValues(calc.id, calc.fields, values, locale),
+    [calc.id, calc.fields, values, locale],
   );
   const validationErrorEntries = useMemo(
     () => Object.entries(validationErrors),
@@ -1136,12 +1307,16 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   );
   const hasValidationErrors = validationErrorEntries.length > 0;
 
+  useEffect(() => {
+    trackAnalyticsEvent('calculator_view', { calculator_id: calc.id, locale });
+  }, [calc.id, locale]);
+
   // При монтировании пробуем восстановить значения из URL-параметров
   // (нужно делать в useEffect, т.к. island гидрируется на клиенте и
   // первоначальный SSR-рендер не должен отличаться).
   useEffect(() => {
     const defaults = buildInitialValues(calc.fields);
-    const restored = readValuesFromUrl(calc.fields, defaults);
+    const restored = readValuesFromUrl(calc.fields, defaults, locale);
     setValues(restored);
     // запускаем один раз для текущего калькулятора
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1152,44 +1327,26 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
     if (!runner) return;
     const id = setTimeout(() => {
       try {
-        const errors = validateValues(calc.fields, values, locale);
+        const errors = validateValues(calc.id, calc.fields, values, locale);
         if (Object.keys(errors).length > 0) {
           setResult(null);
+          if (inputStartedRef.current && !validationTrackedRef.current) {
+            trackAnalyticsEvent('calculator_validation_error', { calculator_id: calc.id, locale });
+            validationTrackedRef.current = true;
+          }
           return;
         }
-        setResult(runner(values));
+        setResult(runner(normalizeValues(calc.fields, values, locale)));
+        if (inputStartedRef.current && !resultTrackedRef.current) {
+          trackAnalyticsEvent('calculator_result_shown', { calculator_id: calc.id, locale });
+          resultTrackedRef.current = true;
+        }
       } catch {
         setResult(null);
       }
     }, 80);
     return () => clearTimeout(id);
-  }, [values, runner, calc.fields, locale]);
-
-  const focusFirstInvalidField = () => {
-    if (typeof window === 'undefined') return;
-    const firstInvalidField = validationErrorEntries[0]?.[0];
-    if (!firstInvalidField) return;
-
-    window.requestAnimationFrame(() => {
-      document.getElementById(`f-${firstInvalidField}`)?.focus();
-    });
-  };
-
-  const focusResultPanel = () => {
-    if (typeof window === 'undefined') return;
-
-    window.requestAnimationFrame(() => {
-      const resultRegion = resultRegionRef.current;
-      if (!resultRegion) return;
-
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      resultRegion.scrollIntoView({
-        block: 'start',
-        behavior: prefersReducedMotion ? 'auto' : 'smooth',
-      });
-      resultRegion.focus({ preventScroll: true });
-    });
-  };
+  }, [values, runner, calc.id, calc.fields, locale]);
 
   const focusFormPanel = () => {
     if (typeof window === 'undefined') return;
@@ -1210,22 +1367,14 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (hasValidationErrors) {
-      focusFirstInvalidField();
-      return;
-    }
-    if (runner) {
-      setResult(runner(values));
-      focusResultPanel();
-    }
-  };
-
   const reset = () => {
     setValues(buildInitialValues(calc.fields));
     setCopied(false);
     setCopiedResult(false);
+    setShareWarningOpen(false);
+    inputStartedRef.current = false;
+    resultTrackedRef.current = false;
+    validationTrackedRef.current = false;
     if (typeof window !== 'undefined') {
       window.history.replaceState(null, '', window.location.pathname + window.location.hash);
     }
@@ -1233,7 +1382,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
 
   const copyShareLink = async () => {
     if (typeof window === 'undefined') return;
-    const qs = buildQueryString(calc.fields, values);
+    const qs = buildCalculatorQueryString(calc.fields, values, locale);
     const url = window.location.origin + window.location.pathname + qs + '#calculator';
 
     let ok = false;
@@ -1252,6 +1401,46 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1800);
     }
+  };
+
+  const requestCopyShareLink = () => {
+    trackAnalyticsEvent('calculator_copy_link_clicked', { calculator_id: calc.id, locale });
+    if (calc.category === 'finance' || calc.category === 'currency' || calc.category === 'sport') {
+      setShareWarningOpen(true);
+      return;
+    }
+    void copyShareLink();
+  };
+
+  const confirmCopyShareLink = () => {
+    setShareWarningOpen(false);
+    trackAnalyticsEvent('calculator_copy_link_confirmed', { calculator_id: calc.id, locale });
+    void copyShareLink();
+  };
+
+  const cancelCopyShareLink = () => {
+    setShareWarningOpen(false);
+    trackAnalyticsEvent('calculator_copy_link_cancelled', { calculator_id: calc.id, locale });
+  };
+
+  const updateField = (fieldName: string, next: string | number | boolean) => {
+    if (!inputStartedRef.current) {
+      inputStartedRef.current = true;
+      trackAnalyticsEvent('calculator_input_started', { calculator_id: calc.id, locale });
+    }
+    resultTrackedRef.current = false;
+    validationTrackedRef.current = false;
+    setValues((previous) => ({ ...previous, [fieldName]: next }));
+  };
+
+  const swapCurrencies = () => {
+    if (!inputStartedRef.current) {
+      inputStartedRef.current = true;
+      trackAnalyticsEvent('calculator_input_started', { calculator_id: calc.id, locale });
+    }
+    resultTrackedRef.current = false;
+    validationTrackedRef.current = false;
+    setValues((previous) => ({ ...previous, from: previous.to, to: previous.from }));
   };
 
   const copyResult = async () => {
@@ -1288,7 +1477,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
       <form
         ref={formRef}
         className="min-w-0 rounded-3xl border border-ink-200 bg-white p-4 shadow-[0_18px_48px_rgba(61,48,133,0.09)] sm:p-8 lg:col-span-3"
-        onSubmit={handleSubmit}
+        onSubmit={(event) => event.preventDefault()}
         data-testid="calc-form"
       >
         <div
@@ -1312,23 +1501,17 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
                 value={values[f.name] as string | number | boolean}
                 error={validationErrors[f.name]}
                 locale={locale}
-                onChange={(next) =>
-                  setValues((prev) => ({ ...prev, [f.name]: next }))
-                }
+                onChange={(next) => updateField(f.name, next)}
               />
             </div>
           ))}
         </div>
 
-        {calc.fields.some((field) => field.name === 'from') && calc.fields.some((field) => field.name === 'to') && (
+        {calc.id === 'currency-converter' && (
           <button
             type="button"
             className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-ink-200 bg-ink-50 px-3 py-2 text-sm font-semibold text-ink-700 transition-colors hover:border-accent-100 hover:bg-accent-50 hover:text-accent sm:w-auto"
-            onClick={() => setValues((previous) => ({
-              ...previous,
-              from: previous.to,
-              to: previous.from,
-            }))}
+            onClick={swapCurrencies}
             data-testid="calc-swap-currencies-btn"
           >
             <ArrowRightLeft size={16} aria-hidden="true" />
@@ -1337,14 +1520,6 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
         )}
 
         <div className="-mx-4 mt-6 grid grid-cols-2 items-stretch gap-2.5 border-t border-ink-100 bg-white px-4 py-3 sm:mx-0 sm:mt-7 sm:flex sm:flex-wrap sm:items-center sm:gap-3 sm:border-0 sm:bg-transparent sm:p-0">
-          <button
-            type="submit"
-            className="btn-primary col-span-2 w-full sm:w-auto"
-            data-testid="calc-submit-btn"
-            aria-disabled={hasValidationErrors}
-          >
-            {copy.calculate}
-          </button>
           <button
             type="button"
             onClick={reset}
@@ -1356,7 +1531,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           </button>
           <button
             type="button"
-            onClick={copyShareLink}
+            onClick={requestCopyShareLink}
             className={[
               'inline-flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-xl border px-2 py-2 text-center text-sm leading-tight transition-colors sm:ml-auto sm:w-auto sm:px-3',
               copied
@@ -1379,6 +1554,27 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
             )}
           </button>
         </div>
+
+        {shareWarningOpen && (
+          <div
+            className="mt-4 rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-ink-900"
+            role="alertdialog"
+            aria-labelledby="share-warning-title"
+            aria-describedby="share-warning-text"
+            data-testid="calc-share-warning"
+          >
+            <div id="share-warning-title" className="font-semibold">{warningCopy.title}</div>
+            <p id="share-warning-text" className="mt-1 leading-relaxed text-ink-700">{warningCopy.text}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <button type="button" className="btn-primary" onClick={confirmCopyShareLink} data-testid="calc-share-confirm">
+                {warningCopy.confirm}
+              </button>
+              <button type="button" className="inline-flex min-h-11 items-center justify-center rounded-xl border border-ink-200 bg-white px-4 py-2 text-sm font-semibold text-ink-700" onClick={cancelCopyShareLink} data-testid="calc-share-cancel">
+                {warningCopy.cancel}
+              </button>
+            </div>
+          </div>
+        )}
 
         {hasValidationErrors && (
           <div
@@ -1417,18 +1613,18 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
       </form>
 
       <div
-        ref={resultRegionRef}
         className="min-w-0 lg:col-span-2 lg:sticky lg:top-6 self-start focus:outline-none"
         data-testid="calc-result-wrap"
         tabIndex={-1}
         aria-labelledby="calc-result-title"
+        aria-live="polite"
+        aria-atomic="false"
       >
         <div
           className="mb-3 flex items-center justify-between gap-3 text-xs uppercase tracking-wider text-ink-500 print-hide"
           data-testid="calc-result-heading"
         >
-          <span id="calc-result-title" className="min-w-0 text-fit">{copy.result}</span>
-          <span className="min-w-0 text-right font-mono text-[11px] text-ink-400">{calc.id}</span>
+          <span id="calc-result-title" className="min-w-0 text-fit">{calc.resultTitle ?? calc.name}</span>
         </div>
         {displayResult ? (
           <ResultBlock

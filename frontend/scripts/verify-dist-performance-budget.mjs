@@ -9,6 +9,9 @@ const budgets = {
   jsChunkGzip: 70 * 1024,
   jsTotalGzip: 105 * 1024,
   cssTotalGzip: 40 * 1024,
+  fontFileGzip: 28 * 1024,
+  fontTotalGzip: 125 * 1024,
+  imageTotalGzip: 250 * 1024,
   htmlFileGzip: 18 * 1024,
   htmlTotalBaseGzip: 320 * 1024,
   htmlAverageGzip: 9.5 * 1024,
@@ -41,6 +44,8 @@ const files = listFiles(root);
 const jsFiles = files.filter((file) => file.endsWith('.js'));
 const cssFiles = files.filter((file) => file.endsWith('.css'));
 const htmlFiles = files.filter((file) => file.endsWith('.html'));
+const fontFiles = files.filter((file) => file.endsWith('.woff2'));
+const imageFiles = files.filter((file) => /\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(file));
 
 let jsTotalGzip = 0;
 for (const filePath of jsFiles) {
@@ -73,6 +78,23 @@ if (cssTotalGzip > budgets.cssTotalGzip) {
   issues.push(`total CSS gzip ${kib(cssTotalGzip)} exceeds ${kib(budgets.cssTotalGzip)}`);
 }
 
+let fontTotalGzip = 0;
+for (const filePath of fontFiles) {
+  const size = gzipSize(filePath);
+  fontTotalGzip += size;
+  if (size > budgets.fontFileGzip) {
+    issues.push(`${path.relative(root, filePath)}: font gzip ${kib(size)} exceeds ${kib(budgets.fontFileGzip)}`);
+  }
+}
+if (fontTotalGzip > budgets.fontTotalGzip) {
+  issues.push(`total font gzip ${kib(fontTotalGzip)} exceeds ${kib(budgets.fontTotalGzip)}`);
+}
+
+const imageTotalGzip = imageFiles.reduce((total, filePath) => total + gzipSize(filePath), 0);
+if (imageTotalGzip > budgets.imageTotalGzip) {
+  issues.push(`total image gzip ${kib(imageTotalGzip)} exceeds ${kib(budgets.imageTotalGzip)}`);
+}
+
 const htmlTotalBudget = Math.max(budgets.htmlTotalBaseGzip, htmlFiles.length * budgets.htmlAverageGzip);
 if (htmlTotalGzip > htmlTotalBudget) {
   issues.push(`total HTML gzip ${kib(htmlTotalGzip)} exceeds ${kib(htmlTotalBudget)}`);
@@ -85,5 +107,5 @@ if (issues.length > 0) {
 }
 
 console.log(
-  `Verified performance budgets: JS ${kib(jsTotalGzip)}, CSS ${kib(cssTotalGzip)}, HTML ${kib(htmlTotalGzip)} gzip.`,
+  `Verified performance budgets: JS ${kib(jsTotalGzip)}, CSS ${kib(cssTotalGzip)}, fonts ${kib(fontTotalGzip)}, images ${kib(imageTotalGzip)}, HTML ${kib(htmlTotalGzip)} gzip.`,
 );
