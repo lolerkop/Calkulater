@@ -7410,9 +7410,10 @@ export function getAlternatesForCategory(id: CategoryId): AlternateLink[] {
 }
 
 export function getAlternatesForPage(pathByLocale: Partial<Record<Locale, string>>): AlternateLink[] {
-  const links = locales
-    .filter((locale) => pathByLocale[locale])
-    .map((locale) => ({ locale, href: pathByLocale[locale]! }));
+  const links: AlternateLink[] = locales.flatMap((locale) => {
+    const href = pathByLocale[locale];
+    return href ? [{ locale, href }] : [];
+  });
   links.push({ locale: 'x-default', href: '/' });
   return links;
 }

@@ -30,10 +30,12 @@ describe('project configuration', () => {
     const packageJson = JSON.parse(readProjectFile('frontend/package.json'));
 
     expect(packageJson.scripts.test).toBe('vitest run');
+    expect(packageJson.scripts.typecheck).toBe('tsc --noEmit');
     expect(packageJson.scripts.build).toBe('astro build');
     expect(packageJson.scripts['dev:local']).toContain('--port 4321');
     expect(packageJson.scripts['preview:local']).toContain('--port 4322');
     expect(packageJson.scripts.check).toContain('vitest run');
+    expect(packageJson.scripts.check).toContain('npm run typecheck');
     expect(packageJson.scripts.check).toContain('npm run build');
     expect(packageJson.scripts.prebuild).toContain('rates:update');
     expect(packageJson.scripts.prebuild).toContain('rates:verify');

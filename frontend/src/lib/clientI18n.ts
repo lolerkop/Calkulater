@@ -217,7 +217,11 @@ export function localizedResultText(value: string, locale: Locale): string {
     .replace(/ г(?=$|\s|[),])/g, ` ${units.gram}`);
 }
 
-const resultValueMap: Partial<Record<Locale, Record<string, string>>> = {
+type ResultValueMap = Partial<Record<Locale, Record<string, string>>> & {
+  en: Record<string, string>;
+};
+
+const resultValueMap: ResultValueMap = {
   en: {
     'официальный справочный': 'official reference rate',
     'Это не курс в реальном времени. Используются официальные справочные курсы Банка России на указанную дату. Банки и обменные пункты могут использовать другие курсы и комиссии.': 'These are not real-time rates. The calculation uses official Bank of Russia reference rates for the displayed date. Banks and exchange services may use different rates and fees.',
