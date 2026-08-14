@@ -2,6 +2,16 @@ import type { CalcFunction, CalcResult } from '../types';
 import { fmtInt, pluralRu, toStr } from '../format';
 import { parseIsoDate } from '../date';
 
+const MS_PER_CALENDAR_DAY = 86_400_000;
+
+function calendarDayNumber(date: Date): number {
+  return Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / MS_PER_CALENDAR_DAY;
+}
+
+function calendarDaysBetween(start: Date, end: Date): number {
+  return calendarDayNumber(end) - calendarDayNumber(start);
+}
+
 export function calculateAge(birth: Date, target: Date): {
   years: number;
   months: number;
@@ -29,8 +39,7 @@ export function calculateAge(birth: Date, target: Date): {
     months += 12;
   }
 
-  const msPerDay = 1000 * 60 * 60 * 24;
-  const totalDays = Math.floor((target.getTime() - birth.getTime()) / msPerDay);
+  const totalDays = calendarDaysBetween(birth, target);
 
   return { years, months, days, totalDays };
 }
@@ -70,8 +79,10 @@ export const calcAge: CalcFunction = (inputs) => {
     return new Date(year, birth.getMonth(), isNonLeapFeb29 ? 28 : birth.getDate());
   };
   let nextBirthday = birthdayInYear(target.getFullYear());
-  if (nextBirthday < target) nextBirthday = birthdayInYear(target.getFullYear() + 1);
-  const daysUntilBirthday = Math.ceil((nextBirthday.getTime() - target.getTime()) / 86_400_000);
+  if (calendarDaysBetween(target, nextBirthday) < 0) {
+    nextBirthday = birthdayInYear(target.getFullYear() + 1);
+  }
+  const daysUntilBirthday = calendarDaysBetween(target, nextBirthday);
 
   const yearsStr = `${years} ${pluralRu(years, ['год', 'года', 'лет'])}`;
   const monthsStr = `${months} ${pluralRu(months, ['месяц', 'месяца', 'месяцев'])}`;
