@@ -6,26 +6,50 @@ const statusOutputUrl = new URL('../src/data/currencyRatesStatus.generated.ts', 
 const sourceUrl = 'https://www.cbr.ru/scripts/XML_daily.asp';
 const requiredCodes = ['EUR', 'MDL', 'RON', 'UAH', 'PLN', 'GBP', 'CHF', 'TRY'];
 
-async function writeStatus(status, message = '') {
-  const attemptedAt = new Date().toISOString().slice(0, 10);
+async function writeStatus(status, message = '', {
+  writeFileImpl = writeFile,
+  statusOutputPath = fileURLToPath(statusOutputUrl),
+  now = new Date(),
+} = {}) {
+  const attemptedAt = now.toISOString().slice(0, 10);
   const content = `export const generatedRatesUpdateStatus: 'success' | 'failed' = '${status}';\n` +
     `export const generatedRatesUpdateAttemptedAt = '${attemptedAt}';\n` +
     `export const generatedRatesUpdateMessage = ${JSON.stringify(message)};\n`;
-  await writeFile(fileURLToPath(statusOutputUrl), content, 'utf8');
+  await writeFileImpl(statusOutputPath, content, 'utf8');
 }
 
 function readTag(block, name) {
   return block.match(new RegExp(`<${name}>([^<]+)</${name}>`))?.[1]?.trim();
 }
 
-async function updateRates() {
-  const response = await fetch(sourceUrl, {
-    headers: { 'user-agent': 'Calcuway/1.0 (+https://calcuway.com)' },
-  });
-  if (!response.ok) throw new Error(`CBR returned ${response.status}`);
+function parseOfficialDate(xml) {
+  const rootTag = xml.match(/<ValCurs\b[^>]*>/)?.[0];
+  const rawDate = rootTag?.match(/\bDate="([^"]*)"/)?.[1]?.trim();
+  if (rawDate === undefined) throw new Error('CBR response Date is missing');
 
-  const xml = new TextDecoder('windows-1251').decode(await response.arrayBuffer());
-  const date = xml.match(/Date="([^"]+)"/)?.[1];
+  const match = /^(\d{2})\.(\d{2})\.(\d{4})$/.exec(rawDate);
+  if (!match) throw new Error(`Invalid CBR response Date: ${rawDate || '(empty)'}`);
+
+  const [, dayText, monthText, yearText] = match;
+  const day = Number(dayText);
+  const month = Number(monthText);
+  const year = Number(yearText);
+  const parsed = new Date(0);
+  parsed.setUTCHours(0, 0, 0, 0);
+  parsed.setUTCFullYear(year, month - 1, day);
+  if (
+    parsed.getUTCFullYear() !== year ||
+    parsed.getUTCMonth() !== month - 1 ||
+    parsed.getUTCDate() !== day
+  ) {
+    throw new Error(`Invalid CBR response Date: ${rawDate}`);
+  }
+
+  return `${yearText}-${monthText}-${dayText}`;
+}
+
+export function parseCurrencyRatesXml(xml) {
+  const isoDate = parseOfficialDate(xml);
   const blocks = [...xml.matchAll(/<Valute\b[\s\S]*?<\/Valute>/g)].map((match) => match[0]);
   const usdBlock = blocks.find((block) => readTag(block, 'CharCode') === 'USD');
   if (!usdBlock) throw new Error('USD rate is missing from CBR response');
@@ -44,7 +68,23 @@ async function updateRates() {
   const missing = requiredCodes.filter((code) => !rates[code]);
   if (missing.length) throw new Error(`Missing rates: ${missing.join(', ')}`);
 
-  const isoDate = date ? date.split('.').reverse().join('-') : new Date().toISOString().slice(0, 10);
+  return { isoDate, rates };
+}
+
+async function updateRates({
+  fetchImpl = globalThis.fetch,
+  writeFileImpl = writeFile,
+  ratesOutputPath = fileURLToPath(outputUrl),
+  logger = console,
+  ...statusOptions
+} = {}) {
+  const response = await fetchImpl(sourceUrl, {
+    headers: { 'user-agent': 'Calcuway/1.0 (+https://calcuway.com)' },
+  });
+  if (!response.ok) throw new Error(`CBR returned ${response.status}`);
+
+  const xml = new TextDecoder('windows-1251').decode(await response.arrayBuffer());
+  const { isoDate, rates } = parseCurrencyRatesXml(xml);
   const lines = Object.entries(rates)
     .map(([code, value]) => `  ${code}: ${Number(value.toFixed(8))},`)
     .join('\n');
@@ -53,13 +93,24 @@ async function updateRates() {
     `export const generatedRatesDate = '${isoDate}';\n` +
     `export const generatedRatesSource = '${sourceUrl}';\n`;
 
-  await writeFile(fileURLToPath(outputUrl), content, 'utf8');
-  await writeStatus('success');
-  console.log(`Updated currency rates for ${isoDate}.`);
+  await writeFileImpl(ratesOutputPath, content, 'utf8');
+  await writeStatus('success', '', { writeFileImpl, ...statusOptions });
+  logger.log(`Updated currency rates for ${isoDate}.`);
+  return isoDate;
 }
 
-updateRates().catch(async (error) => {
-  const message = error instanceof Error ? error.message : 'Unknown update error';
-  await writeStatus('failed', message);
-  console.warn(`Currency update skipped: ${message}. Using the last committed rates.`);
-});
+export async function runCurrencyRateUpdate(options = {}) {
+  try {
+    const isoDate = await updateRates(options);
+    return { status: 'success', isoDate };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown update error';
+    await writeStatus('failed', message, options);
+    (options.logger ?? console).warn(`Currency update skipped: ${message}. Using the last committed rates.`);
+    return { status: 'failed', message };
+  }
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  await runCurrencyRateUpdate();
+}
