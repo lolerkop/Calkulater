@@ -7,6 +7,7 @@
     "start": "astro dev --host 0.0.0.0 --port 3000",
     "dev": "astro dev --host 0.0.0.0 --port 3000",
     "dev:local": "astro dev --host 127.0.0.1 --port 4321",
+    "postinstall": "patch-package",
     "rates:update": "node scripts/update-currency-rates.mjs",
     "rates:verify": "vite-node scripts/verify-currency-freshness.mts",
     "seo:inventory": "vite-node scripts/export-url-inventory.mts",
@@ -21,7 +22,8 @@
     "qa:release-gates": "node scripts/verify-release-gates.mjs",
     "performance:lighthouse": "node scripts/run-lighthouse.mjs",
     "performance:ci": "node scripts/run-performance-ci.mjs",
-    "check": "vitest run && node scripts/verify-public-assets.mjs && npm run build && node scripts/verify-text-encoding.mjs && node scripts/verify-dist-content-sanity.mjs && node scripts/verify-dist-locales.mjs && node scripts/verify-dist-links.mjs && node scripts/verify-dist-seo.mjs && node scripts/verify-dist-sitemap.mjs && node scripts/verify-dist-hosting-files.mjs && node scripts/verify-dist-privacy.mjs && node scripts/verify-dist-a11y.mjs && node scripts/verify-dist-production-hygiene.mjs && node scripts/verify-dist-performance-budget.mjs && npm run qa:release-gates",
+    "verify:dist-no-nul": "node scripts/verify-dist-no-nul.mjs",
+    "check": "vitest run && node scripts/verify-public-assets.mjs && npm run build && npm run verify:dist-no-nul && node scripts/verify-text-encoding.mjs && node scripts/verify-dist-content-sanity.mjs && node scripts/verify-dist-locales.mjs && node scripts/verify-dist-links.mjs && node scripts/verify-dist-seo.mjs && node scripts/verify-dist-sitemap.mjs && node scripts/verify-dist-hosting-files.mjs && node scripts/verify-dist-privacy.mjs && node scripts/verify-dist-a11y.mjs && node scripts/verify-dist-production-hygiene.mjs && node scripts/verify-dist-performance-budget.mjs && npm run qa:release-gates",
     "release:check": "npm run check && npm run test:e2e && npm run performance:ci && npm run qa:release-gates"
   },
   "dependencies": {
@@ -42,6 +44,7 @@
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "lighthouse": "13.4.0",
+    "patch-package": "8.0.0",
     "vitest": "^2.1.8"
   }
 }
