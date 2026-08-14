@@ -61,6 +61,20 @@ describe('project configuration', () => {
     expect(packageJson.scripts.check).not.toContain('rates:update');
   });
 
+  it('commits a successful scheduled currency check even when rates are unchanged', () => {
+    const workflow = readProjectFile('.github/workflows/currency-rates.yml');
+
+    expect(workflow).toContain("cron: '17 5 * * *'");
+    expect(workflow).toContain('npm run rates:update');
+    expect(workflow).toContain('npm run rates:verify');
+    expect(workflow).toContain('src/data/currencyRates.generated.ts');
+    expect(workflow).toContain('src/data/currencyRatesStatus.generated.ts');
+    expect(workflow).toContain('artifacts_changed=true');
+    expect(workflow).toContain("if: steps.changes.outputs.artifacts_changed == 'true'");
+    expect(workflow).toContain('the successful check status will be committed');
+    expect(workflow).not.toContain('git push --force');
+  });
+
   it('keeps extension endpoints usable in local dev without slash redirects', () => {
     const astroConfig = readProjectFile('frontend/astro.config.mjs');
 

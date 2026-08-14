@@ -1,4 +1,4 @@
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
 const outputUrl = new URL('../src/data/currencyRates.generated.ts', import.meta.url);
@@ -6,15 +6,41 @@ const statusOutputUrl = new URL('../src/data/currencyRatesStatus.generated.ts', 
 const sourceUrl = 'https://www.cbr.ru/scripts/XML_daily.asp';
 const requiredCodes = ['EUR', 'MDL', 'RON', 'UAH', 'PLN', 'GBP', 'CHF', 'TRY'];
 
+function readStatusValue(content, name) {
+  return content.match(new RegExp(`export const ${name} = ['\"]([^'\"]*)['\"];`))?.[1] ?? '';
+}
+
+async function readLastSuccessfulStatus({
+  readFileImpl = readFile,
+  statusOutputPath = fileURLToPath(statusOutputUrl),
+} = {}) {
+  try {
+    const content = await readFileImpl(statusOutputPath, 'utf8');
+    return {
+      checkedAt: readStatusValue(content, 'generatedRatesLastSuccessfulCheckAt'),
+      effectiveDate: readStatusValue(content, 'generatedRatesLastSuccessfulEffectiveDate'),
+    };
+  } catch {
+    return { checkedAt: '', effectiveDate: '' };
+  }
+}
+
 async function writeStatus(status, message = '', {
+  effectiveDate = '',
+  readFileImpl = readFile,
   writeFileImpl = writeFile,
   statusOutputPath = fileURLToPath(statusOutputUrl),
   now = new Date(),
 } = {}) {
-  const attemptedAt = now.toISOString().slice(0, 10);
+  const attemptedAt = now.toISOString();
+  const lastSuccessful = status === 'success'
+    ? { checkedAt: attemptedAt, effectiveDate }
+    : await readLastSuccessfulStatus({ readFileImpl, statusOutputPath });
   const content = `export const generatedRatesUpdateStatus: 'success' | 'failed' = '${status}';\n` +
     `export const generatedRatesUpdateAttemptedAt = '${attemptedAt}';\n` +
-    `export const generatedRatesUpdateMessage = ${JSON.stringify(message)};\n`;
+    `export const generatedRatesUpdateMessage = ${JSON.stringify(message)};\n` +
+    `export const generatedRatesLastSuccessfulCheckAt = '${lastSuccessful.checkedAt}';\n` +
+    `export const generatedRatesLastSuccessfulEffectiveDate = '${lastSuccessful.effectiveDate}';\n`;
   await writeFileImpl(statusOutputPath, content, 'utf8');
 }
 
@@ -94,7 +120,11 @@ async function updateRates({
     `export const generatedRatesSource = '${sourceUrl}';\n`;
 
   await writeFileImpl(ratesOutputPath, content, 'utf8');
-  await writeStatus('success', '', { writeFileImpl, ...statusOptions });
+  await writeStatus('success', '', {
+    effectiveDate: isoDate,
+    writeFileImpl,
+    ...statusOptions,
+  });
   logger.log(`Updated currency rates for ${isoDate}.`);
   return isoDate;
 }

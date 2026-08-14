@@ -85,20 +85,27 @@ jobs:
             exit 1
           fi
 
-      - name: Detect new rates
+      - name: Detect currency artifact changes
         id: changes
         shell: bash
         run: |
-          if git diff --quiet -- src/data/currencyRates.generated.ts; then
-            echo "rates_changed=false" >> "${GITHUB_OUTPUT}"
-            echo "CBR returned the already tracked rates; no commit is needed."
+          if git diff --quiet -- \
+            src/data/currencyRates.generated.ts \
+            src/data/currencyRatesStatus.generated.ts; then
+            echo "artifacts_changed=false" >> "${GITHUB_OUTPUT}"
+            echo "No currency artifacts changed; no commit is needed."
           else
-            echo "rates_changed=true" >> "${GITHUB_OUTPUT}"
-            echo "New validated rates are ready to commit."
+            echo "artifacts_changed=true" >> "${GITHUB_OUTPUT}"
+
+            if git diff --quiet -- src/data/currencyRates.generated.ts; then
+              echo "The official rates are unchanged; the successful check status will be committed."
+            else
+              echo "New validated rates and their successful check status will be committed."
+            fi
           fi
 
       - name: Commit and push updated rates
-        if: steps.changes.outputs.rates_changed == 'true'
+        if: steps.changes.outputs.artifacts_changed == 'true'
         shell: bash
         run: |
           set -euo pipefail
