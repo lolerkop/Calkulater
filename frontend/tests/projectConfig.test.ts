@@ -37,7 +37,6 @@ describe('project configuration', () => {
     expect(packageJson.scripts.check).toContain('vitest run');
     expect(packageJson.scripts.check).toContain('npm run typecheck');
     expect(packageJson.scripts.check).toContain('npm run build');
-    expect(packageJson.scripts.prebuild).toContain('rates:update');
     expect(packageJson.scripts.prebuild).toContain('rates:verify');
     expect(packageJson.scripts['performance:ci']).toContain('run-performance-ci');
     expect(packageJson.scripts.check).toContain('verify-public-assets');
@@ -51,6 +50,15 @@ describe('project configuration', () => {
     expect(packageJson.scripts.check).toContain('verify-dist-a11y');
     expect(packageJson.scripts.check).toContain('verify-dist-production-hygiene');
     expect(packageJson.scripts.check).toContain('verify-dist-performance-budget');
+  });
+
+  it('keeps live currency updates out of the build and check lifecycle', () => {
+    const packageJson = JSON.parse(readProjectFile('frontend/package.json'));
+
+    expect(packageJson.scripts['rates:update']).toBe('node scripts/update-currency-rates.mjs');
+    expect(packageJson.scripts.prebuild).toBe('npm run rates:verify');
+    expect(packageJson.scripts.build).not.toContain('rates:update');
+    expect(packageJson.scripts.check).not.toContain('rates:update');
   });
 
   it('keeps extension endpoints usable in local dev without slash redirects', () => {
