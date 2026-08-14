@@ -1,0 +1,118 @@
+name: Refresh currency rates
+
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: currency-rates-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh-rates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch and validate official CBR rates
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for attempt in 1 2 3; do
+            npm run rates:update
+
+            if grep -Fq "generatedRatesUpdateStatus: 'success' | 'failed' = 'success';" \
+              src/data/currencyRatesStatus.generated.ts; then
+              echo "Currency update succeeded on attempt ${attempt}."
+              break
+            fi
+
+            echo "Currency update attempt ${attempt} failed."
+            sed 's/^/  /' src/data/currencyRatesStatus.generated.ts
+
+            if [[ "${attempt}" -eq 3 ]]; then
+              echo "Currency update failed after 3 attempts; no files will be committed." >&2
+              exit 1
+            fi
+
+            sleep 30
+          done
+
+      - name: Verify saved currency data
+        run: npm run rates:verify
+
+      - name: Allow only expected currency artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          unexpected=()
+
+          while IFS= read -r line; do
+            path="${line:3}"
+            case "${path}" in
+              src/data/currencyRates.generated.ts|src/data/currencyRatesStatus.generated.ts)
+                ;;
+              *)
+                unexpected+=("${line}")
+                ;;
+            esac
+          done < <(git status --porcelain --untracked-files=all)
+
+          if (( ${#unexpected[@]} > 0 )); then
+            echo "Unexpected files changed; refusing to commit:" >&2
+            printf '  %s\n' "${unexpected[@]}" >&2
+            exit 1
+          fi
+
+      - name: Detect new rates
+        id: changes
+        shell: bash
+        run: |
+          if git diff --quiet -- src/data/currencyRates.generated.ts; then
+            echo "rates_changed=false" >> "${GITHUB_OUTPUT}"
+            echo "CBR returned the already tracked rates; no commit is needed."
+          else
+            echo "rates_changed=true" >> "${GITHUB_OUTPUT}"
+            echo "New validated rates are ready to commit."
+          fi
+
+      - name: Commit and push updated rates
+        if: steps.changes.outputs.rates_changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git add -- \
+            src/data/currencyRates.generated.ts \
+            src/data/currencyRatesStatus.generated.ts
+
+          if git diff --cached --quiet; then
+            echo "No staged currency changes; refusing to create an empty commit." >&2
+            exit 1
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh currency rates"
+          git push origin "HEAD:${{ github.event.repository.default_branch }}"
