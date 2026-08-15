@@ -98,6 +98,40 @@ describe('project configuration', () => {
     expect(workflow).toContain('Unexpected files changed; refusing to commit:');
   });
 
+  it('watches production on a schedule without touching the release pipeline', () => {
+    const workflow = readProjectFile('.github/workflows/production-monitor.yml');
+    const triggers = workflow.slice(workflow.indexOf('\non:'), workflow.indexOf('\npermissions:'));
+
+    // Scheduled and manual only: an edge-side change arrives without a commit,
+    // so a push-triggered job would never see it - and this must not gate a release.
+    expect(triggers).toContain('schedule:');
+    expect(triggers).toContain('workflow_dispatch:');
+    expect(triggers).not.toContain('push:');
+    expect(triggers).not.toContain('pull_request:');
+
+    // Daily, on an off-peak minute rather than the top of the hour.
+    const cron = triggers.match(/cron: '(\d+) (\d+) \* \* \*'/);
+    expect(cron).not.toBeNull();
+    expect(Number(cron![1])).toBeGreaterThan(0);
+
+    // Observation only: no write access, no commits, no pushes.
+    expect(workflow).toContain('permissions:\n  contents: read');
+    expect(workflow).not.toContain('contents: write');
+    expect(workflow).not.toMatch(/git (push|commit)/);
+
+    // It runs the production verifier and nothing heavier.
+    expect(workflow).toContain('npm run verify:production-external-hosts');
+    expect(workflow).not.toContain('release:check');
+    expect(workflow).not.toContain('npm run build');
+    expect(workflow).toMatch(/timeout-minutes: \d+/);
+    expect(workflow).toContain('group: production-monitor');
+
+    // The release pipeline must not depend on this monitor.
+    const quality = readProjectFile('.github/workflows/quality.yml');
+    expect(quality).not.toContain('production-monitor');
+    expect(quality).not.toContain('verify:production-external-hosts');
+  });
+
   it('keeps extension endpoints usable in local dev without slash redirects', () => {
     const astroConfig = readProjectFile('frontend/astro.config.mjs');
 

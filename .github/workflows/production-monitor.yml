@@ -1,0 +1,48 @@
+name: Production monitor
+
+# Watches the live site for third-party hosts that appear without a commit.
+# Cloudflare Pages injects its Web Analytics beacon at the edge, so such a
+# change never reaches dist and no push-triggered job would ever see it - only a
+# scheduled run against production can. This job observes and reports; it never
+# writes to the repository and is not part of the release pipeline.
+
+on:
+  schedule:
+    # 09:43 UTC daily: an off-peak minute, away from the top of the hour and
+    # from the currency refresh at 05:17.
+    - cron: '43 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # A slow run must never let the next day's run pile up behind it.
+  group: production-monitor
+  cancel-in-progress: false
+
+jobs:
+  external-hosts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Verify production external hosts
+        run: npm run verify:production-external-hosts
