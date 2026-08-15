@@ -3,6 +3,19 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { calculators } from '../src/data/calculators';
 import {
+  calculatorCopy,
+  excludedDatesCopy,
+  shareWarningCopy,
+  swapCopy,
+} from '../src/components/islands/calculator/copy';
+import { clientLocales } from '../src/lib/clientI18n';
+
+// Клиентские острова не должны тянуть build-time слой локалей: там таблицы на
+// тысячи строк, и любой их импорт утащил бы их в браузерный бандл. Проверяем
+// именно спецификаторы модулей (static import, dynamic import, require), а не
+// упоминания пути в комментариях. Глубина вложенности значения не имеет.
+const HEAVY_I18N_IMPORT = /['"][^'"]*\blib\/i18n(\.ts)?['"]/;
+import {
   allLocales,
   getCalculatorById,
   getCalculators,
@@ -153,9 +166,9 @@ describe('routing content: localized components', () => {
     expect(searchBox.default).toContain('../../lib/clientI18n');
     expect(catalog.default).toContain('../../lib/clientI18n');
     expect(island.default).toContain('../../lib/clientI18n');
-    expect(searchBox.default).not.toContain('../../lib/i18n');
-    expect(catalog.default).not.toContain('../../lib/i18n');
-    expect(island.default).not.toContain('../../lib/i18n');
+    expect(searchBox.default).not.toMatch(HEAVY_I18N_IMPORT);
+    expect(catalog.default).not.toMatch(HEAVY_I18N_IMPORT);
+    expect(island.default).not.toMatch(HEAVY_I18N_IMPORT);
     expect(searchBox.default).toContain('localeCatalog(locale)');
     expect(searchBox.default).toContain('searchCopyByLocale');
     expect(searchBox.default).toContain('Buscar calculadoras');
@@ -185,10 +198,35 @@ describe('routing content: localized components', () => {
     expect(catalog.default).toContain('Hľadať v katalógu');
     expect(catalog.default).toContain('Keresés a katalógusban');
     expect(island.default).toContain('locale?: Locale');
-    expect(island.default).toContain('calculatorCopyByLocale');
+    expect(island.default).toContain("from './calculator/copy'");
     expect(island.default).toContain('localizeResult');
     expect(island.default).toContain("qs + '#calculator'");
     expect(island.default).toContain('buildCalculatorQueryString');
+  });
+
+  it('keeps island copy in a client-safe module covering every client locale', async () => {
+    const island = await import('../src/components/islands/CalculatorIsland.tsx?raw');
+    const copySource = await import('../src/components/islands/calculator/copy.ts?raw');
+
+    // Таблицы текстов живут в copy-модуле, а не в самом островe.
+    expect(island.default).not.toMatch(/const \w*CopyByLocale/);
+    expect(copySource.default).toMatch(/const calculatorCopyByLocale: Record<Locale, CalculatorCopy>/);
+
+    // Тот же bundle-инвариант, что и для острова: build-time слой локалей на
+    // тысячи строк не должен попасть в браузер через новый модуль.
+    expect(copySource.default).not.toMatch(HEAVY_I18N_IMPORT);
+    expect(copySource.default).toContain('lib/clientI18n');
+
+    // Контракт проверяем по факту, а не по тексту исходника.
+    for (const locale of clientLocales) {
+      expect(calculatorCopy(locale).calculate).toBeTruthy();
+      expect(calculatorCopy(locale).minimum(5)).toContain('5');
+      expect(swapCopy(locale)).toBeTruthy();
+      expect(excludedDatesCopy(locale).add).toBeTruthy();
+      // У предупреждения о ссылке своё, более узкое покрытие с откатом на en.
+      expect(shareWarningCopy(locale).confirm).toBeTruthy();
+    }
+    expect(shareWarningCopy('de')).toEqual(shareWarningCopy('en'));
   });
 });
 
