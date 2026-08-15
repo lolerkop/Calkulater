@@ -69,9 +69,11 @@ jobs:
           unexpected=()
 
           while IFS= read -r line; do
+            # git status --porcelain prints paths relative to the repository root,
+            # not to this job's frontend working directory.
             path="${line:3}"
             case "${path}" in
-              src/data/currencyRates.generated.ts|src/data/currencyRatesStatus.generated.ts)
+              frontend/src/data/currencyRates.generated.ts|frontend/src/data/currencyRatesStatus.generated.ts)
                 ;;
               *)
                 unexpected+=("${line}")

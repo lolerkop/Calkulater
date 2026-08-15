@@ -75,6 +75,29 @@ describe('project configuration', () => {
     expect(workflow).not.toContain('git push --force');
   });
 
+  it('matches the currency guard allowlist against repository-root relative paths', () => {
+    const workflow = readProjectFile('.github/workflows/currency-rates.yml');
+    const allowLine = workflow
+      .split(/\r?\n/)
+      .find((line) => line.trim().startsWith('frontend/src/data/currencyRates.generated.ts'));
+
+    expect(workflow).toContain('git status --porcelain --untracked-files=all');
+    expect(allowLine).toBeDefined();
+
+    const allowed = allowLine!.trim().replace(/\)$/, '').split('|');
+    const guardAccepts = (path: string) => allowed.includes(path);
+
+    // `git status --porcelain` reports paths from the repository root even though the
+    // job runs in `frontend`, so the guard has to allow the prefixed paths.
+    expect(guardAccepts('frontend/src/data/currencyRates.generated.ts')).toBe(true);
+    expect(guardAccepts('frontend/src/data/currencyRatesStatus.generated.ts')).toBe(true);
+    expect(guardAccepts('src/data/currencyRatesStatus.generated.ts')).toBe(false);
+    expect(guardAccepts('frontend/package.json')).toBe(false);
+    expect(allowed).toHaveLength(2);
+    expect(allowed.some((pattern) => pattern.includes('*'))).toBe(false);
+    expect(workflow).toContain('Unexpected files changed; refusing to commit:');
+  });
+
   it('keeps extension endpoints usable in local dev without slash redirects', () => {
     const astroConfig = readProjectFile('frontend/astro.config.mjs');
 
