@@ -132,6 +132,34 @@ describe('project configuration', () => {
     expect(quality).not.toContain('verify:production-external-hosts');
   });
 
+  it('pins one Node version across every workflow and declares the floor in package.json', () => {
+    const workflows = ['quality', 'currency-rates', 'production-monitor'].map((name) => ({
+      name,
+      yaml: readProjectFile(`.github/workflows/${name}.yml`),
+    }));
+
+    const versions = workflows.map(({ name, yaml }) => {
+      const declared = [...yaml.matchAll(/node-version:\s*(\S+)/g)].map((match) => match[1]);
+      expect(declared, `${name}.yml declares exactly one node-version`).toHaveLength(1);
+      return declared[0];
+    });
+
+    // One runtime everywhere: a split would mean some job silently tests on a
+    // version nobody else runs.
+    expect(new Set(versions).size).toBe(1);
+    expect(versions[0]).toBe('22.23.2');
+    for (const version of versions) expect(version.startsWith('20')).toBe(false);
+
+    // package.json states the real floor - lighthouse needs >=22.19, which is the
+    // highest minimum in the tree - and the pinned runtime has to satisfy it.
+    const { engines } = JSON.parse(readProjectFile('frontend/package.json'));
+    expect(engines.node).toBe('>=22.19');
+
+    const [major, minor] = versions[0].split('.').map(Number);
+    const [floorMajor, floorMinor] = engines.node.replace('>=', '').split('.').map(Number);
+    expect(major > floorMajor || (major === floorMajor && minor >= floorMinor)).toBe(true);
+  });
+
   it('keeps extension endpoints usable in local dev without slash redirects', () => {
     const astroConfig = readProjectFile('frontend/astro.config.mjs');
 
