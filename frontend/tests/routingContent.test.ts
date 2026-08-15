@@ -204,6 +204,20 @@ describe('routing content: localized components', () => {
     expect(island.default).toContain('buildCalculatorQueryString');
   });
 
+  it('keeps every client-side calculator module free of the build-time locale layer', async () => {
+    // Список растёт вместе с extraction: каждый новый клиентский модуль обязан
+    // попадать под ту же защиту, иначе таблицы на тысячи строк уедут в браузер.
+    const clientModules = {
+      island: await import('../src/components/islands/CalculatorIsland.tsx?raw'),
+      copy: await import('../src/components/islands/calculator/copy.ts?raw'),
+      validation: await import('../src/components/islands/calculator/validation.ts?raw'),
+    };
+
+    for (const [name, source] of Object.entries(clientModules)) {
+      expect(source.default, name).not.toMatch(HEAVY_I18N_IMPORT);
+    }
+  });
+
   it('keeps island copy in a client-safe module covering every client locale', async () => {
     const island = await import('../src/components/islands/CalculatorIsland.tsx?raw');
     const copySource = await import('../src/components/islands/calculator/copy.ts?raw');
@@ -212,9 +226,6 @@ describe('routing content: localized components', () => {
     expect(island.default).not.toMatch(/const \w*CopyByLocale/);
     expect(copySource.default).toMatch(/const calculatorCopyByLocale: Record<Locale, CalculatorCopy>/);
 
-    // Тот же bundle-инвариант, что и для острова: build-time слой локалей на
-    // тысячи строк не должен попасть в браузер через новый модуль.
-    expect(copySource.default).not.toMatch(HEAVY_I18N_IMPORT);
     expect(copySource.default).toContain('lib/clientI18n');
 
     // Контракт проверяем по факту, а не по тексту исходника.
