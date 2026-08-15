@@ -5,13 +5,11 @@
 
 import type { Field } from '../../../lib/types';
 import type { Locale } from '../../../lib/clientI18n';
-import type { ShareFormValues } from '../../../lib/shareLink';
 import { parseLocalizedNumber } from '../../../lib/format';
 import { parseExcludedDates } from '../../../lib/calculators/workingDays';
 import { isValidIsoDate } from '../../../lib/date';
 import { calculatorCopy } from './copy';
-
-type FormValues = ShareFormValues;
+import type { FormValues } from './values';
 
 export type FieldErrors = Record<string, string>;
 export const EMPTY_ERRORS: FieldErrors = Object.freeze({});

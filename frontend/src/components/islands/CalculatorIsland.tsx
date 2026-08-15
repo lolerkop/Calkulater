@@ -19,14 +19,12 @@ import {
 import type { CalculatorDef, Field, CalcResult } from '../../lib/types';
 import { runners } from '../../lib/runners';
 import { localizedResultLabel, localizedResultText, type Locale } from '../../lib/clientI18n';
-import { parseLocalizedNumber } from '../../lib/format';
 import { parseExcludedDates } from '../../lib/calculators/workingDays';
 import {
   buildCalculatorQueryString,
   buildHydrationValues,
   buildInitialValues,
   readValuesFromSearch,
-  type ShareFormValues,
 } from '../../lib/shareLink';
 import { trackAnalyticsEvent } from '../../lib/analytics';
 import {
@@ -40,13 +38,12 @@ import {
   isVisible,
   validateValues,
 } from './calculator/validation';
+import { normalizeValues, type FormValues } from './calculator/values';
 
 type Props = {
   calc: Pick<CalculatorDef, 'id' | 'name' | 'resultTitle' | 'category' | 'fields' | 'disclaimer'>;
   locale?: Locale;
 };
-
-type FormValues = ShareFormValues;
 
 // Считывает значения из ?query= на текущем URL и накладывает поверх defaults.
 function readValuesFromUrl(fields: Field[], base: FormValues, locale: Locale): FormValues {
@@ -90,18 +87,6 @@ function readPreHydrationEdits(fields: Field[]): FormValues {
   }
 
   return edits;
-}
-
-function normalizeValues(fields: Field[], values: FormValues, locale: Locale): FormValues {
-  const normalized = { ...values };
-  for (const field of fields) {
-    if (field.type !== 'number') continue;
-    const raw = values[field.name];
-    if (typeof raw === 'boolean') continue;
-    const parsed = parseLocalizedNumber(String(raw ?? ''), locale);
-    if (parsed !== null) normalized[field.name] = parsed;
-  }
-  return normalized;
 }
 
 function contextualField(field: Field, calculatorId: string, values: FormValues, locale: Locale): Field {
