@@ -24,6 +24,7 @@ import { parseExcludedDates } from '../../lib/calculators/workingDays';
 import { isValidIsoDate } from '../../lib/date';
 import {
   buildCalculatorQueryString,
+  buildHydrationValues,
   buildInitialValues,
   readValuesFromSearch,
   type ShareFormValues,
@@ -37,6 +38,7 @@ type Props = {
 
 type FormValues = ShareFormValues;
 type FieldErrors = Record<string, string>;
+const EMPTY_ERRORS: FieldErrors = Object.freeze({});
 type CalculatorCopy = {
   enterNumber: string;
   minimum: (value: number) => string;
@@ -1329,11 +1331,14 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   const inputStartedRef = useRef(false);
   const resultTrackedRef = useRef(false);
   const validationTrackedRef = useRef(false);
-  const [values, setValues] = useState<FormValues>(() => buildInitialValues(calc.fields));
+  // Первый рендер обязан совпасть с серверным, поэтому автоматические даты здесь
+  // ещё пустые; настоящие подставляются после монтирования.
+  const [values, setValues] = useState<FormValues>(() => buildHydrationValues(calc.fields));
   // Инициализатор useState выполняется в фазе первого рендера — до того, как React
   // применит к DOM значения контролируемых полей, поэтому ввод, сделанный до
   // гидратации, здесь ещё виден.
   const [preHydrationEdits] = useState<FormValues>(() => readPreHydrationEdits(calc.fields));
+  const [hydrated, setHydrated] = useState(false);
   const [result, setResult] = useState<CalcResult | null>(null);
   const [copied, setCopied] = useState(false);
   const [copiedResult, setCopiedResult] = useState(false);
@@ -1343,9 +1348,13 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
     () => validateValues(calc.id, calc.fields, values, locale),
     [calc.id, calc.fields, values, locale],
   );
+  // До монтирования значения ещё не окончательны, поэтому ошибки не показываем:
+  // иначе сервер отдавал бы ложную ошибку по незаполненной автоматической дате,
+  // а его разметка расходилась бы с первым клиентским рендером.
+  const visibleErrors = hydrated ? validationErrors : EMPTY_ERRORS;
   const validationErrorEntries = useMemo(
-    () => Object.entries(validationErrors),
-    [validationErrors],
+    () => Object.entries(visibleErrors),
+    [visibleErrors],
   );
   const hasValidationErrors = validationErrorEntries.length > 0;
 
@@ -1364,6 +1373,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
     setValues(Object.keys(preHydrationEdits).length > 0
       ? { ...restored, ...preHydrationEdits }
       : restored);
+    setHydrated(true);
     // запускаем один раз для текущего калькулятора
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [calc.id, calc.fields, locale, preHydrationEdits]);
@@ -1545,7 +1555,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
               <FieldRenderer
                 field={contextualField(f, calc.id, values, locale)}
                 value={values[f.name] as string | number | boolean}
-                error={validationErrors[f.name]}
+                error={visibleErrors[f.name]}
                 locale={locale}
                 onChange={(next) => updateField(f.name, next)}
               />

@@ -3,16 +3,26 @@ import { parseLocalizedNumber, type NumberLocale } from './format';
 
 export type ShareFormValues = Record<string, string | number | boolean>;
 
+// Календарная дата в часовом поясе пользователя. toISOString() здесь не годится:
+// он отдаёт дату по UTC, поэтому вечером в UTC+ и утром в UTC- пользователь
+// получал бы соседний день.
+export function toLocalIsoDate(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
 export function defaultValueForField(field: Field): string | number | boolean {
   if (field.defaultValue !== undefined) return field.defaultValue;
   if (field.type === 'date' && typeof window !== 'undefined') {
     const today = new Date();
     if (field.name === 'startDate' || field.name === 'calcDate' || field.name === 'operationDate') {
-      return today.toISOString().slice(0, 10);
+      return toLocalIsoDate(today);
     }
     if (field.name === 'endDate') {
       today.setDate(today.getDate() + 30);
-      return today.toISOString().slice(0, 10);
+      return toLocalIsoDate(today);
     }
   }
   if (field.type === 'checkbox' || field.type === 'toggle') {
@@ -24,6 +34,18 @@ export function defaultValueForField(field: Field): string | number | boolean {
 
 export function buildInitialValues(fields: Field[]): ShareFormValues {
   return Object.fromEntries(fields.map((field) => [field.name, defaultValueForField(field)]));
+}
+
+// Значения самого первого рендера. Сервер не знает ни текущей даты пользователя,
+// ни его часового пояса, поэтому автоматические даты остаются пустыми — и клиент
+// обязан отрендерить ровно то же самое, иначе React не сможет гидрировать
+// разметку и перерисует остров целиком. Реальная дата подставляется уже после
+// монтирования, через buildInitialValues.
+export function buildHydrationValues(fields: Field[]): ShareFormValues {
+  return Object.fromEntries(fields.map((field) => [
+    field.name,
+    field.defaultValue === undefined && field.type === 'date' ? '' : defaultValueForField(field),
+  ]));
 }
 
 function parseUrlValue(
