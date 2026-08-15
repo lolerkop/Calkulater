@@ -94,6 +94,80 @@ test('input made before hydration wins over the query state it conflicts with', 
   await expect(page.getByTestId('field-reserve')).toHaveValue('25');
 });
 
+// Поле исключаемых дат держит собственный черновик: это не значение калькулятора,
+// а внутреннее состояние UI, поэтому общий захват правок его не касается.
+test('excluded dates draft typed before hydration survives it', async ({ page }) => {
+  const hydrate = await holdHydration(page);
+  await page.goto('/ru/date-time/working-days-calculator/', { waitUntil: 'commit' });
+
+  // В серверной разметке черновик пуст, а кнопка добавления недоступна.
+  await expect(page.getByTestId('field-excludedDates')).toHaveValue('');
+  await expect(page.getByTestId('excluded-date-add')).toBeDisabled();
+
+  await page.getByTestId('field-excludedDates').fill('2026-02-10');
+  await expect(page.getByTestId('field-excludedDates')).toHaveValue('2026-02-10');
+
+  hydrate();
+
+  await expect(page.getByTestId('calc-result')).toBeVisible();
+  // Введённое значение уцелело, и React о нём знает: кнопка стала активной.
+  await expect(page.getByTestId('field-excludedDates')).toHaveValue('2026-02-10');
+  await expect(page.getByTestId('excluded-date-add')).toBeEnabled();
+
+  await page.getByTestId('excluded-date-add').click();
+  await expect(page.getByTestId('excluded-date-chip')).toHaveText('2026-02-10');
+  await expect(page.getByTestId('field-excludedDates')).toHaveValue('');
+});
+
+test('a pre-hydration draft does not disturb excluded dates restored from the query', async ({ page }) => {
+  const hydrate = await holdHydration(page);
+  await page.goto('/ru/date-time/working-days-calculator/?excludedDates=2026-02-03', { waitUntil: 'commit' });
+
+  // Список восстанавливается только после гидратации, в разметке его ещё нет.
+  await expect(page.getByTestId('excluded-date-chip')).toHaveCount(0);
+  await page.getByTestId('field-excludedDates').fill('2026-02-05');
+
+  hydrate();
+
+  await expect(page.getByTestId('calc-result')).toBeVisible();
+  await expect(page.getByTestId('excluded-date-chip')).toHaveText(['2026-02-03']);
+  // Черновик остаётся черновиком и не попадает в список сам по себе.
+  await expect(page.getByTestId('field-excludedDates')).toHaveValue('2026-02-05');
+
+  await page.getByTestId('excluded-date-add').click();
+  await expect(page.getByTestId('excluded-date-chip')).toHaveText(['2026-02-03', '2026-02-05']);
+});
+
+test('excluded dates add and remove work normally after hydration', async ({ page }) => {
+  await page.goto('/ru/date-time/working-days-calculator/');
+  await expect(page.getByTestId('calc-result')).toBeVisible();
+
+  await page.getByTestId('field-excludedDates').fill('2026-02-11');
+  await page.getByTestId('excluded-date-add').click();
+  await expect(page.getByTestId('excluded-date-chip')).toHaveText(['2026-02-11']);
+
+  // Повторная дата не дублируется.
+  await page.getByTestId('field-excludedDates').fill('2026-02-11');
+  await page.getByTestId('excluded-date-add').click();
+  await expect(page.getByTestId('excluded-date-chip')).toHaveCount(1);
+
+  await page.getByTestId('excluded-date-remove-2026-02-11').click();
+  await expect(page.getByTestId('excluded-date-chip')).toHaveCount(0);
+});
+
+test('reset clears excluded dates while keeping the staged draft', async ({ page }) => {
+  await page.goto('/ru/date-time/working-days-calculator/?excludedDates=2026-02-03');
+  await expect(page.getByTestId('excluded-date-chip')).toHaveText(['2026-02-03']);
+
+  // Черновик набран, но ещё не добавлен в список.
+  await page.getByTestId('field-excludedDates').fill('2026-02-07');
+  await page.getByTestId('calc-reset-btn').click();
+
+  await expect(page.getByTestId('excluded-date-chip')).toHaveCount(0);
+  await expect(page.getByTestId('field-excludedDates')).toHaveValue('2026-02-07');
+  await expect(page).not.toHaveURL(/\?/);
+});
+
 test('form still works normally after hydration has completed', async ({ page }) => {
   await page.goto('/ru/finance/vat-calculator/');
   await expect(page.getByTestId('calc-result')).toBeVisible();

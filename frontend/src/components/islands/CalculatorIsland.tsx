@@ -434,6 +434,18 @@ function ResultBlock({
   );
 }
 
+// Черновик поля исключаемых дат — не значение калькулятора, а внутреннее состояние
+// UI, поэтому его нельзя восстанавливать через readPreHydrationEdits: попав в values,
+// он сразу стал бы полноценной исключённой датой. Механика та же: читаем DOM в фазе
+// первого рендера, пока React ещё не переписал контролируемый input, а применяем уже
+// после монтирования — так первый рендер остаётся совпадающим с серверным.
+function readPreHydrationDraft(fieldId: string): string {
+  if (typeof document === 'undefined') return '';
+  const element = document.getElementById(fieldId);
+  if (!(element instanceof HTMLInputElement)) return '';
+  return element.value !== element.defaultValue ? element.value : '';
+}
+
 function ExcludedDatesField({
   field,
   value,
@@ -453,8 +465,14 @@ function ExcludedDatesField({
   helpId: string;
   errorId: string;
 }) {
-  const [draft, setDraft] = useState('');
   const fieldId = `f-${field.name}`;
+  const [draft, setDraft] = useState('');
+  const [preHydrationDraft] = useState(() => readPreHydrationDraft(fieldId));
+
+  useEffect(() => {
+    if (preHydrationDraft) setDraft(preHydrationDraft);
+  }, [preHydrationDraft]);
+
   const copy = excludedDatesCopy(locale);
   const tokens = value.split(/[,;\n]+/).map((item) => item.trim()).filter(Boolean);
   const invalidTokens = new Set(parseExcludedDates(value).invalid);
