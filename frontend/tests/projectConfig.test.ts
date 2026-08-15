@@ -132,7 +132,7 @@ describe('project configuration', () => {
     const budget = JSON.parse(readProjectFile('frontend/performance-budget.json'));
     const runner = readProjectFile('frontend/scripts/run-lighthouse.mjs');
 
-    expect(packageJson.devDependencies.lighthouse).toBe('13.4.0');
+    expect(packageJson.devDependencies.lighthouse).toBe('13.4.1');
     expect(budget.runs).toBe(3);
     expect(budget.targets).toHaveLength(6);
     expect(budget.budgets.largestContentfulPaintMs).toBe(2500);
