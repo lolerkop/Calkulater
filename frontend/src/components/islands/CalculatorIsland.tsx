@@ -609,6 +609,44 @@ function readValuesFromUrl(fields: Field[], base: FormValues, locale: Locale): F
   return readValuesFromSearch(fields, base, window.location.search, locale);
 }
 
+// Значения, которые пользователь успел поменять в SSR-разметке до того, как React
+// гидрировал остров. Отличить их помогает сам DOM: у изменённого контрола текущее
+// значение расходится с тем, что отрендерил сервер (value-атрибут / selected /
+// checked). Читается один раз в фазе рендера — до того, как React запишет в DOM
+// значения контролируемых полей и затрёт ввод.
+function readPreHydrationEdits(fields: Field[]): FormValues {
+  const edits: FormValues = {};
+  if (typeof document === 'undefined') return edits;
+
+  for (const field of fields) {
+    const element = document.getElementById(`f-${field.name}`);
+    if (!element) continue;
+
+    if (field.type === 'select' && element instanceof HTMLSelectElement) {
+      const serverValue = Array.from(element.options).find((option) => option.defaultSelected)?.value;
+      if (serverValue !== undefined && element.value !== serverValue) edits[field.name] = element.value;
+      continue;
+    }
+
+    if (field.type === 'textarea' && element instanceof HTMLTextAreaElement) {
+      if (element.value !== element.defaultValue) edits[field.name] = element.value;
+      continue;
+    }
+
+    // toggle рендерится кнопками, а excludedDates — своим полем-черновиком:
+    // у них нет серверного значения, которое пользователь мог бы изменить.
+    if (element instanceof HTMLInputElement) {
+      if (field.type === 'checkbox') {
+        if (element.checked !== element.defaultChecked) edits[field.name] = element.checked;
+      } else if (field.type === 'number' || field.type === 'date') {
+        if (element.value !== element.defaultValue) edits[field.name] = element.value;
+      }
+    }
+  }
+
+  return edits;
+}
+
 function normalizeValues(fields: Field[], values: FormValues, locale: Locale): FormValues {
   const normalized = { ...values };
   for (const field of fields) {
@@ -1292,6 +1330,10 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   const resultTrackedRef = useRef(false);
   const validationTrackedRef = useRef(false);
   const [values, setValues] = useState<FormValues>(() => buildInitialValues(calc.fields));
+  // Инициализатор useState выполняется в фазе первого рендера — до того, как React
+  // применит к DOM значения контролируемых полей, поэтому ввод, сделанный до
+  // гидратации, здесь ещё виден.
+  const [preHydrationEdits] = useState<FormValues>(() => readPreHydrationEdits(calc.fields));
   const [result, setResult] = useState<CalcResult | null>(null);
   const [copied, setCopied] = useState(false);
   const [copiedResult, setCopiedResult] = useState(false);
@@ -1314,13 +1356,17 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   // При монтировании пробуем восстановить значения из URL-параметров
   // (нужно делать в useEffect, т.к. island гидрируется на клиенте и
   // первоначальный SSR-рендер не должен отличаться).
+  // Ввод, сделанный до гидратации, накладывается поверх: он позже по времени,
+  // чем и defaults, и параметры ссылки.
   useEffect(() => {
     const defaults = buildInitialValues(calc.fields);
     const restored = readValuesFromUrl(calc.fields, defaults, locale);
-    setValues(restored);
+    setValues(Object.keys(preHydrationEdits).length > 0
+      ? { ...restored, ...preHydrationEdits }
+      : restored);
     // запускаем один раз для текущего калькулятора
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [calc.id, calc.fields, locale]);
+  }, [calc.id, calc.fields, locale, preHydrationEdits]);
 
   // Автоматический пересчёт при изменении значений (с лёгкой задержкой)
   useEffect(() => {
