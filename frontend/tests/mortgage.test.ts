@@ -32,7 +32,7 @@ describe('mortgage: calcMortgage', () => {
       extraPayment: 10_000,
     });
     expect(r.secondary.find((s) => s.label === 'Сумма кредита')?.value).toMatch(/4[\s\u00A0\u202F]?000[\s\u00A0\u202F]?000/);
-    expect(r.secondary.find((s) => s.label === 'Первоначальный взнос')?.value).toContain('20.0%');
+    expect(r.secondary.find((s) => s.label === 'Первоначальный взнос')?.value).toContain('20,0%');
     expect(r.secondary.some((s) => s.label === 'Сокращение срока')).toBe(true);
   });
 });

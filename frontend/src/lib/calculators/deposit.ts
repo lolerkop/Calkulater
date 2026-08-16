@@ -1,5 +1,5 @@
 import type { CalcFunction, CalcResult } from '../types';
-import { fmtMoney, toNumber, toStr } from '../format';
+import { fmtMoney, fmtPct, toNumber, toStr } from '../format';
 
 export const calcDeposit: CalcFunction = (inputs) => {
   const amount = toNumber(inputs.amount);
@@ -66,7 +66,7 @@ export const calcDeposit: CalcFunction = (inputs) => {
       { label: 'Начисленные проценты', value: fmtMoney(profit), accent: 'green' },
       { label: 'Сумма пополнений', value: fmtMoney(totalTopUps) },
       { label: 'Срок', value: `${months} мес.` },
-      { label: 'Эффективная годовая ставка', value: `${effectiveRate.toFixed(2)}%` },
+      { label: 'Эффективная годовая ставка', value: fmtPct(effectiveRate, 2) },
     ],
     table: {
       title: 'Динамика вклада',

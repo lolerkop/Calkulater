@@ -1,5 +1,5 @@
 import type { CalcFunction, CalcResult } from '../types';
-import { fmtMoney, toNumber, toStr } from '../format';
+import { fmtMoney, fmtPct, toNumber, toStr } from '../format';
 import { creditAnnuityPayment } from './credit';
 
 export const calcMortgage: CalcFunction = (inputs) => {
@@ -78,7 +78,7 @@ export const calcMortgage: CalcFunction = (inputs) => {
     primary: { label: 'Ежемесячный платеж', value: fmtMoney(monthly) },
     secondary: [
       { label: 'Сумма кредита', value: fmtMoney(loanAmount) },
-      { label: 'Первоначальный взнос', value: `${fmtMoney(down)} (${downPaymentPct.toFixed(1)}%)` },
+      { label: 'Первоначальный взнос', value: `${fmtMoney(down)} (${fmtPct(downPaymentPct, 1)})` },
       ...(extraPayment > 0 ? [{ label: 'Плановый платеж с доплатой', value: fmtMoney(monthly + extraPayment) }] : []),
       ...(monthlyInsurance > 0 ? [{ label: 'Расход в месяц со страховкой', value: fmtMoney(monthly + extraPayment + monthlyInsurance) }] : []),
       { label: 'Переплата', value: fmtMoney(overpay), accent: 'red' },

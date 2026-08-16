@@ -1,5 +1,5 @@
 import type { CalcFunction } from '../types';
-import { fmtMoney, toNumber, toStr } from '../format';
+import { fmtMoney, fmtPct, toNumber, toStr } from '../format';
 
 // Калькулятор скидки. Два режима:
 //  - byPercent: исходная цена + скидка в %. Считаем итоговую цену и экономию.
@@ -42,9 +42,9 @@ export const calcDiscount: CalcFunction = (inputs) => {
     primary: { label: 'Цена со скидкой', value: fmtMoney(finalPrice) },
     secondary: [
       { label: 'Размер скидки', value: fmtMoney(saved), accent: 'green' },
-      { label: 'Процент скидки', value: `${pct.toFixed(2)}%` },
+      { label: 'Процент скидки', value: fmtPct(pct, 2) },
       { label: 'Исходная цена', value: fmtMoney(price) },
-      ...(secondDiscountPct > 0 ? [{ label: 'Дополнительная скидка', value: `${secondDiscountPct.toFixed(2)}%` }] : []),
+      ...(secondDiscountPct > 0 ? [{ label: 'Дополнительная скидка', value: fmtPct(secondDiscountPct, 2) }] : []),
       ...(quantity > 1 ? [{ label: 'Итого за товары', value: fmtMoney(finalPrice * quantity), accent: 'green' as const }] : []),
     ],
   };

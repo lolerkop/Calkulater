@@ -26,7 +26,7 @@ const canonicalPublishedExamples: PublishedExample[] = [
   { calculatorId: 'percent-calculator', locale: 'ru', source: '/ru/finance/percent-calculator/', input: { mode: 'addPct', a: 200, b: 15 }, expected: ['230,00'] },
   { calculatorId: 'percent-calculator', locale: 'ru', source: '/ru/finance/percent-calculator/', input: { mode: 'subPct', a: 200, b: 15 }, expected: ['170,00'] },
   { calculatorId: 'percent-calculator', locale: 'ru', source: '/ru/finance/percent-calculator/', input: { mode: 'change', a: 100, b: 130 }, expected: ['+30,00%'] },
-  { calculatorId: 'discount-calculator', locale: 'ru', source: '/ru/finance/discount-calculator/', input: { price: 5000, mode: 'byPercent', discountPct: 20, secondDiscountPct: 0, quantity: 1 }, expected: ['4 000 ₽', '1 000 ₽', '20.00%'] },
+  { calculatorId: 'discount-calculator', locale: 'ru', source: '/ru/finance/discount-calculator/', input: { price: 5000, mode: 'byPercent', discountPct: 20, secondDiscountPct: 0, quantity: 1 }, expected: ['4 000 ₽', '1 000 ₽', '20,00%'] },
   { calculatorId: 'currency-converter', locale: 'ru', source: '/ru/currency/currency-converter/', input: { amount: 100, from: 'USD', to: 'EUR' }, expected: ['€', '100,00 $'] },
   { calculatorId: 'usd-to-eur', locale: 'ru', source: '/ru/currency/usd-to-eur/', input: { amount: 100, from: 'USD', to: 'EUR' }, expected: ['€', '100,00 $'] },
   { calculatorId: 'eur-to-mdl', locale: 'ru', source: '/ru/currency/eur-to-mdl/', input: { amount: 100, from: 'EUR', to: 'MDL' }, expected: ['L', '100,00 €'] },

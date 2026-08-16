@@ -1,5 +1,5 @@
 import type { CalcFunction } from '../types';
-import { fmtMoney, toNumber, toStr } from '../format';
+import { fmtMoney, fmtPct, toNumber, toStr } from '../format';
 
 // Калькулятор НДФЛ (Россия).
 // Поддерживает прогрессивную шкалу 2025 года: 13% до 2,4 млн ₽ / год,
@@ -119,7 +119,7 @@ export const calcIncomeTax: CalcFunction = (inputs) => {
     secondary: [
       { label: 'Начислено (до налога)', value: fmtMoney(gross) },
       { label: 'На руки (после налога)', value: fmtMoney(net), accent: 'green' },
-      { label: 'Эффективная ставка', value: `${effectiveRate.toFixed(2)}%` },
+      { label: 'Эффективная ставка', value: fmtPct(effectiveRate, 2) },
       ...(deductions > 0 ? [{ label: 'Учтённые вычеты', value: fmtMoney(deductions) }] : []),
       ...(incomeBeforePeriod > 0 ? [{ label: 'Доход до периода', value: fmtMoney(incomeBeforePeriod) }] : []),
     ],
