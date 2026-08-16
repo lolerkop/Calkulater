@@ -393,6 +393,12 @@ const resultValueMap: ResultValueMap = {
 };
 
 export const resultLabelMap: Record<string, string> = {
+  'Количество камней': 'Units needed',
+  'Площадь кладки': 'Masonry area',
+  'Площадь проёмов': 'Openings area',
+  'Камней без запаса': 'Units without waste',
+  'Расчётный модуль камня': 'Working module per unit',
+  'Камней на квадратный метр': 'Units per square metre',
   'Процент жира': 'Body fat percentage',
   'Метод расчёта': 'Method',
   'Обхват талии': 'Waist circumference',
@@ -565,6 +571,12 @@ export const resultLabelMap: Record<string, string> = {
 };
 
 const ukrainianResultLabelMap: Record<string, string> = {
+  'Количество камней': 'Кількість каменів',
+  'Площадь кладки': 'Площа кладки',
+  'Площадь проёмов': 'Площа прорізів',
+  'Камней без запаса': 'Каменів без запасу',
+  'Расчётный модуль камня': 'Розрахунковий модуль каменю',
+  'Камней на квадратный метр': 'Каменів на квадратний метр',
   'Процент жира': 'Відсоток жиру',
   'Метод расчёта': 'Метод розрахунку',
   'Обхват талии': 'Обхват талії',

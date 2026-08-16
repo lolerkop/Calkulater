@@ -19,14 +19,14 @@ describe('localization parity', () => {
       ...fullParityCalculatorIds,
       ...Object.keys(ruOnlyCalculatorReasons),
     ]);
-    expect(calculators).toHaveLength(27);
-    expect(fullParityCalculatorIds).toHaveLength(24);
+    expect(calculators).toHaveLength(28);
+    expect(fullParityCalculatorIds).toHaveLength(25);
     expect(Object.keys(ruOnlyCalculatorReasons)).toHaveLength(3);
     expect(classified.size).toBe(calculators.length);
     for (const calculator of calculators) expect(classified.has(calculator.id)).toBe(true);
-    expect(getCalculators('ru')).toHaveLength(27);
-    expect(getCalculators('en')).toHaveLength(24);
-    expect(getCalculators('uk')).toHaveLength(24);
+    expect(getCalculators('ru')).toHaveLength(28);
+    expect(getCalculators('en')).toHaveLength(25);
+    expect(getCalculators('uk')).toHaveLength(25);
   });
 
   it('creates complete hreflang clusters only for full-parity calculators', () => {

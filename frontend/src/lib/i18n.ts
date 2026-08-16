@@ -2443,6 +2443,34 @@ function faq(topic: string): FaqItem[] {
 }
 
 const enCalculatorCopy: Record<string, CalcCopy> = {
+  'brick-calculator': {
+    name: 'Brick and block calculator',
+    resultTitle: 'Brick and block result',
+    slug: 'brick-calculator',
+    shortDescription: 'Bricks or blocks needed for a single-leaf wall.',
+    longDescription: 'This calculator works out how many bricks or blocks cover a wall built as a single leaf. Every unit owns one joint to its right and one above it, so the working module is the unit size plus the joint thickness on each side. The area of openings is subtracted from the wall area, and the waste allowance is reported on its own line so you can see exactly how many units it costs.',
+    seoTitle: 'Brick and block calculator — units needed for a wall',
+    seoDescription: 'Calculate how many bricks or blocks a wall needs: wall size or area, openings, unit size, mortar joint and waste allowance. Single-leaf masonry.',
+    h1: 'Brick and block calculator',
+    keywords: ['brick calculator', 'block calculator', 'bricks per wall', 'masonry', 'mortar joint'],
+    howToUse: [
+      'Describe the wall by its dimensions, or enter its area directly if you already know it.',
+      'Enter the total area of window and door openings — it is subtracted from the masonry area.',
+      'Enter the length and height of the unit in millimetres and the mortar joint thickness.',
+      'Add a waste allowance for breakage and cutting, and a price per unit if you need the cost.',
+    ],
+    howItWorks: 'The masonry area is the wall area minus the openings. Every unit owns one joint to its right and one above it — the next joint belongs to the next unit — so the working module is the unit length plus one joint multiplied by the unit height plus one joint. The number of units is the masonry area divided by that module and rounded up. The waste allowance is taken from the same figure and shown separately. The calculation covers a single leaf: walls one brick thick or more are not modelled.',
+    example: 'A 6 by 2.8 m wall with no openings, built from 250 by 65 mm bricks with a 10 mm joint, gives a module of 0.26 by 0.075 = 0.0195 m², so 16.8 m² needs 862 bricks, or 905 with a 5% allowance.',
+    faq: [
+      { q: 'Is the mortar joint taken into account?', a: 'Yes. Every unit owns one joint to its right and one above it; the neighbouring joint already belongs to the next unit. So the joint thickness is added once to the length and once to the height, not twice. With a 10 mm joint a 250 by 65 mm brick occupies 260 by 75 mm in the wall.' },
+      { q: 'What wall thickness does this cover?', a: 'A single leaf, measured on the visible face of the wall. Walls one brick thick, one and a half bricks, cavity walls and walls with a separate facing leaf need bonding geometry rather than just an area, and are not modelled here. For a multi-leaf wall, calculate each leaf separately.' },
+      { q: 'Why is the number rounded up?', a: 'You cannot buy part of a brick, and one unit fewer will not cover the whole area. When the area divides into the module exactly, no extra unit is added: the rounding is protected against binary noise and will not turn an exact number into that number plus one.' },
+      { q: 'How much waste should I allow for breakage and cutting?', a: 'Usually 5 to 10 per cent for breakage in transit, cutting around openings and defects. Complex masonry with a lot of cuts needs more. The calculator shows the allowance on its own line so you can see it rather than only the total.' },
+      { q: 'How do I handle openings?', a: 'Add up the areas of all windows and doors and enter the total in the openings field. It is subtracted from the wall area. If the openings fill the whole wall, no calculation is produced — there is nothing to build.' },
+      { q: 'Does it work for aerated and foam blocks?', a: 'Yes, as long as you enter their actual dimensions and joint thickness. For thin-bed adhesive masonry set the joint to 2–3 mm instead of 10. The model is the same for any rectangular unit; only the sizes change.' },
+      { q: 'Does it include mortar consumption?', a: 'No. The calculator counts units, not mortar volume: that depends on the wall thickness and the bonding pattern, neither of which is modelled here. Work the mortar out separately from your drawings.' },
+    ],
+  },
   'body-fat-calculator': {
     name: 'Body fat percentage calculator',
     resultTitle: 'Body fat estimate',
@@ -5275,6 +5303,15 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
       h1: 'Калькулятор відсотка жиру',
       keywords: ['відсоток жиру', 'калькулятор жиру', 'метод ВМС США', 'склад тіла'],
     },
+    'brick-calculator': {
+      name: 'Калькулятор цегли та блоків',
+      slug: 'kalkulyator-tsehly',
+      shortDescription: 'Кількість цегли або блоків на один шар кладки.',
+      seoTitle: 'Калькулятор цегли та блоків - розрахунок на стіну',
+      seoDescription: 'Розрахуйте кількість цегли або блоків на стіну: розміри чи площа, прорізи, розмір каменю, товщина шва та запас.',
+      h1: 'Калькулятор цегли та блоків',
+      keywords: ['калькулятор цегли', 'розрахунок блоків', 'кладка', 'розчинний шов'],
+    },
   },
   sk: {
     'credit-calculator': {
@@ -5946,6 +5983,12 @@ const commonFieldLabels: Record<string, string> = {
   neck: 'Neck circumference',
   waist: 'Waist circumference',
   hip: 'Hip circumference',
+  wallLength: 'Wall length',
+  wallHeight: 'Wall height',
+  openingsArea: 'Openings area',
+  unitLength: 'Unit length',
+  unitHeight: 'Unit height',
+  joint: 'Mortar joint',
   sex: 'Sex',
   plannedUnits: 'Planned sales volume',
   monthlyInsurance: 'Monthly insurance and costs',
@@ -6037,6 +6080,7 @@ const optionLabels: Record<string, string> = {
   mi: 'mi',
   room: 'By room',
   area: 'By area',
+  dimensions: 'By dimensions',
   manual: 'Manual area',
   byPercent: 'By percent',
   byAmount: 'By amount',
@@ -6840,6 +6884,12 @@ const fieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>>
     neck: 'Обхват шиї',
     waist: 'Обхват талії',
     hip: 'Обхват стегон',
+    wallLength: 'Довжина стіни',
+    wallHeight: 'Висота стіни',
+    openingsArea: 'Площа прорізів',
+    unitLength: 'Довжина каменю',
+    unitHeight: 'Висота каменю',
+    joint: 'Товщина шва',
     sex: 'Стать',
     plannedUnits: 'Плановий обсяг продажів',
     markupPct: 'Націнка',
@@ -7439,6 +7489,7 @@ const optionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>
 
 const enUnits: Record<string, string> = {
   '₽': '$',
+  'мм': 'mm',
   '₽ годовых': '% yearly',
   '% годовых': '% yearly',
   'кг': 'kg',
@@ -7453,6 +7504,7 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
   if (locale === 'uk') {
     const ukrainianUnits: Record<string, string> = {
       '₽': '₴',
+      'мм': 'мм',
       '₽ годовых': '% річних',
       '% годовых': '% річних',
       'кг': 'кг',
@@ -7672,6 +7724,7 @@ export function localizedResultText(value: string, locale: Locale): string {
     .replaceAll('₽', currency)
     .replaceAll('ккал', 'kcal')
     .replaceAll('кг', 'kg')
+    .replaceAll('мм', 'mm')
     .replaceAll('см', 'cm')
     .replaceAll('км/ч', 'km/h')
     .replaceAll('мес.', 'mo.')

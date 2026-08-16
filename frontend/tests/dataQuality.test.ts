@@ -209,6 +209,7 @@ describe('data quality: calculators', () => {
     expect(newCalculatorIds).toEqual([
       'body-fat-calculator',
       'break-even-calculator',
+      'brick-calculator',
       'date-shift-calculator',
       'discount-calculator',
       'income-tax-calculator',
@@ -238,6 +239,7 @@ describe('data quality: calculators', () => {
       'date-shift-calculator',
       'break-even-calculator',
       'body-fat-calculator',
+      'brick-calculator',
     ]);
   });
 });

@@ -86,6 +86,12 @@ const stateScenarios: Record<string, StateScenario> = {
     },
     result: { primary: '900 ₽', rows: [{ label: 'Итого за товары', value: '1 800 ₽' }] },
   },
+  'brick-calculator': {
+    // Стена 5 × 3 без проёмов, камень 400 × 200 со швом 10: модуль 0,41 × 0,21 = 0,0861 м².
+    // 15 / 0,0861 = 174,22 → 175 без запаса, ×1,1 = 191,64 → 192 с запасом.
+    query: { mode: 'dimensions', wallLength: 5, wallHeight: 3, openingsArea: 0, unitLength: 400, unitHeight: 200, joint: 10, reserve: 10, unitPrice: 0 },
+    result: { primary: '192 \u0448\u0442.' },
+  },
   'body-fat-calculator': {
     // Мужчина 180 см, шея 38, талия 90: 86,010·log10(52/2,54) − 70,041·log10(180/2,54) + 36,76.
     query: { sex: 'male', height: 180, neck: 38, waist: 95 },
@@ -248,8 +254,8 @@ const calculatorCases = calculators.map((sourceCalculator) => {
   return { calculator, scenario };
 });
 
-if (calculatorCases.length !== 27) {
-  throw new Error(`Expected 27 calculators in the source registry, got ${calculatorCases.length}`);
+if (calculatorCases.length !== 28) {
+  throw new Error(`Expected 28 calculators in the source registry, got ${calculatorCases.length}`);
 }
 
 function escapeRegExp(value: string): string {

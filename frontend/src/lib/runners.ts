@@ -23,6 +23,7 @@ import { calcDiscount } from './calculators/discount';
 import { calcMargin } from './calculators/margin';
 import { calcBreakEven } from './calculators/breakEven';
 import { calcBodyFat } from './calculators/bodyFat';
+import { calcBrick } from './calculators/brick';
 
 export const runners: Record<string, CalcFunction> = {
   'credit-calculator': calcCredit,
@@ -53,4 +54,5 @@ export const runners: Record<string, CalcFunction> = {
   'margin-calculator': calcMargin,
   'break-even-calculator': calcBreakEven,
   'body-fat-calculator': calcBodyFat,
+  'brick-calculator': calcBrick,
 };

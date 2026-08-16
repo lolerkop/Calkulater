@@ -23,6 +23,7 @@ export const fullParityCalculatorIds = [
   'margin-calculator',
   'break-even-calculator',
   'body-fat-calculator',
+  'brick-calculator',
 ] as const;
 
 export const ruOnlyCalculatorReasons = {
