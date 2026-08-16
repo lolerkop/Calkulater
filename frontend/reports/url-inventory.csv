@@ -23,6 +23,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/finance/vat-calculator/,ru,calculator,true,/ru/finance/vat-calculator/,calculator:vat-calculator:ru-only,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/percent-calculator/,ru,calculator,true,/ru/finance/percent-calculator/,calculator:percent-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/discount-calculator/,ru,calculator,true,/ru/finance/discount-calculator/,calculator:discount-calculator,src/pages/[locale]/[category]/[calculator].astro
+/ru/finance/margin-calculator/,ru,calculator,true,/ru/finance/margin-calculator/,calculator:margin-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/currency/currency-converter/,ru,calculator,true,/ru/currency/currency-converter/,calculator:currency-converter,src/pages/[locale]/[category]/[calculator].astro
 /ru/currency/usd-to-eur/,ru,calculator,true,/ru/currency/usd-to-eur/,calculator:usd-to-eur,src/pages/[locale]/[category]/[calculator].astro
 /ru/currency/eur-to-mdl/,ru,calculator,true,/ru/currency/eur-to-mdl/,calculator:eur-to-mdl,src/pages/[locale]/[category]/[calculator].astro
@@ -58,6 +59,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/finance/mortgage-calculator/,en,calculator,true,/en/finance/mortgage-calculator/,calculator:mortgage-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/percentage-calculator/,en,calculator,true,/en/finance/percentage-calculator/,calculator:percent-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/discount-calculator/,en,calculator,true,/en/finance/discount-calculator/,calculator:discount-calculator,src/pages/[locale]/[category]/[calculator].astro
+/en/finance/margin-calculator/,en,calculator,true,/en/finance/margin-calculator/,calculator:margin-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/currency/currency-converter/,en,calculator,true,/en/currency/currency-converter/,calculator:currency-converter,src/pages/[locale]/[category]/[calculator].astro
 /en/currency/usd-to-eur/,en,calculator,true,/en/currency/usd-to-eur/,calculator:usd-to-eur,src/pages/[locale]/[category]/[calculator].astro
 /en/currency/eur-to-mdl/,en,calculator,true,/en/currency/eur-to-mdl/,calculator:eur-to-mdl,src/pages/[locale]/[category]/[calculator].astro
@@ -93,6 +95,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/finansy/ipotechnyi-kalkulyator/,uk,calculator,true,/uk/finansy/ipotechnyi-kalkulyator/,calculator:mortgage-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/kalkulyator-vidsotkiv/,uk,calculator,true,/uk/finansy/kalkulyator-vidsotkiv/,calculator:percent-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/kalkulyator-znyzhky/,uk,calculator,true,/uk/finansy/kalkulyator-znyzhky/,calculator:discount-calculator,src/pages/[locale]/[category]/[calculator].astro
+/uk/finansy/kalkulyator-marzhi/,uk,calculator,true,/uk/finansy/kalkulyator-marzhi/,calculator:margin-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/valyuty/konverter-valyut/,uk,calculator,true,/uk/valyuty/konverter-valyut/,calculator:currency-converter,src/pages/[locale]/[category]/[calculator].astro
 /uk/valyuty/usd-v-eur/,uk,calculator,true,/uk/valyuty/usd-v-eur/,calculator:usd-to-eur,src/pages/[locale]/[category]/[calculator].astro
 /uk/valyuty/eur-v-mdl/,uk,calculator,true,/uk/valyuty/eur-v-mdl/,calculator:eur-to-mdl,src/pages/[locale]/[category]/[calculator].astro

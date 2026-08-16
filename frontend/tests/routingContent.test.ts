@@ -67,7 +67,7 @@ describe('routing content: i18n routes', () => {
       expect(getCalculatorById('income-tax-calculator', locale)).toBeUndefined();
       expect(getCalculatorById('vat-calculator', locale)).toBeUndefined();
       expect(isCalculatorAvailableInLocale('discount-calculator', locale)).toBe(true);
-      expect(getCalculators(locale).length).toBe(21);
+      expect(getCalculators(locale).length).toBe(22);
     }
     expect(getCalculatorById('income-tax-calculator', 'ru')).toBeTruthy();
     expect(getCalculatorById('vat-calculator', 'ru')).toBeTruthy();

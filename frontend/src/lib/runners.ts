@@ -20,6 +20,7 @@ import { calcIncomeTax } from './calculators/incomeTax';
 import { calcVat } from './calculators/vat';
 import { calcPercent } from './calculators/percent';
 import { calcDiscount } from './calculators/discount';
+import { calcMargin } from './calculators/margin';
 
 export const runners: Record<string, CalcFunction> = {
   'credit-calculator': calcCredit,
@@ -47,4 +48,5 @@ export const runners: Record<string, CalcFunction> = {
   'vat-calculator': calcVat,
   'percent-calculator': calcPercent,
   'discount-calculator': calcDiscount,
+  'margin-calculator': calcMargin,
 };
