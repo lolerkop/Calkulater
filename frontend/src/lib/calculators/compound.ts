@@ -1,5 +1,5 @@
 import type { CalcFunction, CalcResult } from '../types';
-import { fmtMoney, toNumber, toStr } from '../format';
+import { fmtMoney, pluralRu, toNumber, toStr } from '../format';
 
 export const calcCompound: CalcFunction = (inputs) => {
   const principal = toNumber(inputs.principal);
@@ -55,7 +55,9 @@ export const calcCompound: CalcFunction = (inputs) => {
     secondary: [
       { label: 'Внесённая сумма', value: fmtMoney(invested) },
       { label: 'Прибыль', value: fmtMoney(profit), accent: 'green' },
-      { label: 'Срок', value: `${years} лет` },
+      // Срок задаёт пользователь начиная с одного года, поэтому форма слова
+      // выбирается по числу: иначе строка читалась бы как «1 лет».
+      { label: 'Срок', value: `${years} ${pluralRu(years, ['год', 'года', 'лет'])}` },
     ],
     table: {
       title: 'Динамика по годам',

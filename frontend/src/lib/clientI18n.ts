@@ -1,3 +1,5 @@
+import { pluralRu } from './plural';
+
 export const clientLocales = ['ru', 'en', 'es', 'de', 'fr', 'pt', 'it', 'pl', 'nl', 'ro', 'id', 'tr', 'vi', 'cs', 'uk', 'sk', 'hu'] as const;
 export type Locale = (typeof clientLocales)[number];
 
@@ -173,6 +175,32 @@ function replacePhrasesOnce(value: string, phrases: Record<string, string>): str
   return value.replace(pattern, (match) => phrases[match] ?? match);
 }
 
+// Счётные слова, встречающиеся в русских значениях результата. Раннер уже
+// выбрал русскую форму по числу, но при переводе форму нужно выбрать заново по
+// тому же числу: раньше здесь стояла константа, и «1 месяц» превращался в
+// «1 months», а «1 місяців». Английский различает только единственное и
+// множественное число; украинский, как и русский, использует три формы по двум
+// последним цифрам, поэтому берётся общий для восточнославянских языков pluralRu.
+//
+// Число читается из самой строки вместе с неразрывными разделителями тысяч,
+// которые расставил Intl в раннере: «6 784 дн.» — это 6784, а не 784.
+const countWords: Array<{ source: RegExp; en: [string, string]; uk: [string, string, string] }> = [
+  { source: /(\d+(?:\u00a0\d{3})*) (?:года|год|лет)/g, en: ['year', 'years'], uk: ['рік', 'роки', 'років'] },
+  { source: /(\d+(?:\u00a0\d{3})*) (?:месяцев|месяца|месяц)/g, en: ['month', 'months'], uk: ['місяць', 'місяці', 'місяців'] },
+  { source: /(\d+(?:\u00a0\d{3})*) (?:дней|дня|день)/g, en: ['day', 'days'], uk: ['день', 'дні', 'днів'] },
+  // Сокращение «дн.» не изменяется по числу ни в русском, ни в украинском, но в
+  // английском разворачивается в полное слово, которому форма уже нужна.
+  { source: /(\d+(?:\u00a0\d{3})*) дн\./g, en: ['day', 'days'], uk: ['дн.', 'дн.', 'дн.'] },
+];
+
+function localizeCountWords(value: string, locale: 'en' | 'uk'): string {
+  return countWords.reduce((text, unit) => text.replace(unit.source, (_match, digits: string) => {
+    const count = Number(digits.replace(/\u00a0/g, ''));
+    const word = locale === 'en' ? unit.en[count === 1 ? 0 : 1] : pluralRu(count, unit.uk);
+    return `${digits} ${word}`;
+  }), value);
+}
+
 export function localizedResultText(value: string, locale: Locale): string {
   if (locale === 'ru') return value;
   const currencyByLocale: Partial<Record<Locale, string>> = {
@@ -199,16 +227,8 @@ export function localizedResultText(value: string, locale: Locale): string {
   // короткому ключу перехватить совпадение у длинного.
   let localized = exact ?? replacePhrasesOnce(value, phrases);
 
-  if (locale === 'en') {
-    localized = localized
-      .replace(/(\d+) (?:года|год|лет)/g, '$1 years')
-      .replace(/(\d+) (?:месяцев|месяца|месяц)/g, '$1 months')
-      .replace(/(\d+) (?:дней|дня|день)/g, '$1 days');
-  } else if (locale === 'uk') {
-    localized = localized
-      .replace(/(\d+) (?:года|год|лет)/g, '$1 років')
-      .replace(/(\d+) (?:месяцев|месяца|месяц)/g, '$1 місяців')
-      .replace(/(\d+) (?:дней|дня|день)/g, '$1 днів');
+  if (locale === 'en' || locale === 'uk') {
+    localized = localizeCountWords(localized, locale);
   }
 
   const units = locale === 'uk'

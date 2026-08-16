@@ -6,6 +6,7 @@
 // бандл. Клиентская часть локалей живёт в lib/clientI18n.
 
 import type { Locale } from '../../../lib/clientI18n';
+import { pluralRu } from '../../../lib/plural';
 
 export type CalculatorCopy = {
   enterNumber: string;
@@ -56,7 +57,9 @@ const calculatorCopyByLocale: Record<Locale, CalculatorCopy> = {
     copyResult: 'Скопировать результат',
     tableCaption: 'Таблица результата расчета',
     inputs: 'Исходные данные',
-    fieldCounter: (count) => `${count} полей`,
+    // В каталоге есть калькуляторы с двумя, тремя и четырьмя полями, поэтому
+    // одной формы «полей» не хватает: бейдж показывал «2 полей».
+    fieldCounter: (count) => `${count} ${pluralRu(count, ['поле', 'поля', 'полей'])}`,
     calculate: 'Рассчитать',
     reset: 'Сбросить',
     linkCopied: 'Ссылка скопирована',
@@ -462,7 +465,7 @@ const calculatorCopyByLocale: Record<Locale, CalculatorCopy> = {
     copyResult: 'Скопіювати результат',
     tableCaption: 'Таблиця результату розрахунку',
     inputs: 'Вхідні дані',
-    fieldCounter: (count) => `${count} полів`,
+    fieldCounter: (count) => `${count} ${pluralRu(count, ['поле', 'поля', 'полів'])}`,
     calculate: 'Розрахувати',
     reset: 'Скинути',
     linkCopied: 'Посилання скопійовано',

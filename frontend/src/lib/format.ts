@@ -72,14 +72,10 @@ export function toStr(v: string | number | boolean | undefined, fallback = ''): 
   return String(v);
 }
 
-export function pluralRu(n: number, forms: [string, string, string]): string {
-  const abs = Math.abs(n) % 100;
-  const last = abs % 10;
-  if (abs > 10 && abs < 20) return forms[2];
-  if (last > 1 && last < 5) return forms[1];
-  if (last === 1) return forms[0];
-  return forms[2];
-}
+// Само правило живёт в lib/plural, чтобы клиентский слой локализации мог взять
+// его, не притаскивая в общий чанк Intl-обёртки этого модуля. Реэкспорт
+// оставлен ради раннеров, которые берут форматирование и склонение вместе.
+export { pluralRu } from './plural';
 
 export function fmtDuration(totalSeconds: number): string {
   if (!isFinite(totalSeconds) || totalSeconds < 0) return '—';
