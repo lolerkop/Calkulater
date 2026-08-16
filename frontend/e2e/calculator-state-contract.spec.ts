@@ -86,6 +86,11 @@ const stateScenarios: Record<string, StateScenario> = {
     },
     result: { primary: '900 ₽', rows: [{ label: 'Итого за товары', value: '1 800 ₽' }] },
   },
+  'break-even-calculator': {
+    // 10 000 постоянных затрат при марже 500 - 300 = 200 дают ровно 50 единиц.
+    query: { fixedCosts: 10000, unitPrice: 500, variableCost: 300, plannedUnits: 0 },
+    result: { primary: '50 \u0448\u0442.', rows: [{ label: '\u041c\u0430\u0440\u0436\u0438\u043d\u0430\u043b\u044c\u043d\u0430\u044f \u043f\u0440\u0438\u0431\u044b\u043b\u044c \u0441 \u0435\u0434\u0438\u043d\u0438\u0446\u044b', value: '200\u00a0\u20bd' }] },
+  },
   'margin-calculator': {
     query: { mode: 'fromMarkup', cost: 100, markupPct: 50, quantity: 2 },
     result: { primary: '150 ₽' },
@@ -238,8 +243,8 @@ const calculatorCases = calculators.map((sourceCalculator) => {
   return { calculator, scenario };
 });
 
-if (calculatorCases.length !== 25) {
-  throw new Error(`Expected 25 calculators in the source registry, got ${calculatorCases.length}`);
+if (calculatorCases.length !== 26) {
+  throw new Error(`Expected 26 calculators in the source registry, got ${calculatorCases.length}`);
 }
 
 function escapeRegExp(value: string): string {

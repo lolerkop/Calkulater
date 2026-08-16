@@ -207,6 +207,7 @@ describe('data quality: calculators', () => {
       .sort();
 
     expect(newCalculatorIds).toEqual([
+      'break-even-calculator',
       'date-shift-calculator',
       'discount-calculator',
       'income-tax-calculator',
@@ -216,6 +217,7 @@ describe('data quality: calculators', () => {
       'vat-calculator',
     ]);
     expect(financeNewCalculatorIds).toEqual([
+      'break-even-calculator',
       'discount-calculator',
       'income-tax-calculator',
       'margin-calculator',
@@ -233,6 +235,7 @@ describe('data quality: calculators', () => {
       'margin-calculator',
       'screed-calculator',
       'date-shift-calculator',
+      'break-even-calculator',
     ]);
   });
 });

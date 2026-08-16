@@ -21,6 +21,7 @@ export const fullParityCalculatorIds = [
   'date-shift-calculator',
   'screed-calculator',
   'margin-calculator',
+  'break-even-calculator',
 ] as const;
 
 export const ruOnlyCalculatorReasons = {
