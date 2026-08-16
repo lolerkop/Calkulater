@@ -1,5 +1,6 @@
 import type { CalcFunction, CalcResult } from '../types';
 import { fmtInt, fmtNumber, toNumber, toStr } from '../format';
+import { ceilUnits } from '../rounding';
 
 export const calcPaint: CalcFunction = (inputs) => {
   const mode = toStr(inputs.mode, 'manual');
@@ -28,7 +29,7 @@ export const calcPaint: CalcFunction = (inputs) => {
 
   const baseLiters = area * consumption * coats;
   const liters = baseLiters * (1 + reserve / 100);
-  const cans = Math.ceil(liters / canVolume);
+  const cans = ceilUnits(liters / canVolume);
   const totalCanLiters = cans * canVolume;
   const reservePct = liters > 0 ? ((totalCanLiters - liters) / liters) * 100 : 0;
 

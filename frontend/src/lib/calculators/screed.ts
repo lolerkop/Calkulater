@@ -1,12 +1,6 @@
 import type { CalcFunction } from '../types';
 import { fmtInt, fmtNumber, toNumber, toStr } from '../format';
-
-// Округление вверх с допуском на двоичную погрешность: 10 × 5 × 18 × 1.1 даёт
-// 990.0000000000001, и обычный Math.ceil превратил бы это в лишний килограмм,
-// а на границе — и в лишний мешок.
-function ceilWithTolerance(value: number): number {
-  return Math.ceil(Math.round(value * 1e9) / 1e9);
-}
+import { ceilUnits } from '../rounding';
 
 // Калькулятор стяжки пола: объём раствора и количество сухой смеси.
 // Все свойства материала вводит пользователь — расход и вес мешка берутся
@@ -41,7 +35,7 @@ export const calcScreed: CalcFunction = (inputs) => {
   const reserveFactor = 1 + Math.max(0, reserve) / 100;
   const volume = area * (thickness / 100) * reserveFactor;
   const dryMixKg = area * thickness * Math.max(0, mixConsumption) * reserveFactor;
-  const bags = ceilWithTolerance(dryMixKg / bagWeight);
+  const bags = ceilUnits(dryMixKg / bagWeight);
   const totalPrice = bags * Math.max(0, bagPrice);
 
   return {
@@ -49,7 +43,7 @@ export const calcScreed: CalcFunction = (inputs) => {
     secondary: [
       { label: 'Площадь', value: `${fmtNumber(area, 2)} м²` },
       { label: 'Толщина слоя', value: `${fmtNumber(thickness, 1)} см` },
-      { label: 'Сухая смесь', value: `${fmtInt(ceilWithTolerance(dryMixKg))} кг` },
+      { label: 'Сухая смесь', value: `${fmtInt(ceilUnits(dryMixKg))} кг` },
       { label: 'Мешков', value: `${fmtInt(bags)} шт.`, accent: 'green' },
       ...(bagPrice > 0 ? [{ label: 'Стоимость смеси', value: `${fmtNumber(totalPrice, 2)} ₽` }] : []),
     ],

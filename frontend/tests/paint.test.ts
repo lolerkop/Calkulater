@@ -46,3 +46,26 @@ describe('paint: calcPaint', () => {
     expect(calcPaint({ mode: 'manual', area: 0, coats: 1, consumption: 0, canVolume: 0 }).primary.value).toBe('—');
   });
 });
+
+describe('paint: округление вверх не добавляет лишнюю банку из-за FP', () => {
+  const norm = (s: string) => s.replace(/[\s\u00a0\u202f]+/g, ' ');
+  const row = (r: ReturnType<typeof calcPaint>, label: string) =>
+    norm(r.secondary.find((s) => s.label === label)?.value ?? '');
+
+  it('3 м², расход 0,2 л/м², 3 слоя, банка 0,9 л = ровно 2 банки', () => {
+    // 3 × 0,2 × 3 = 1,8 л; 1,8 / 0,9 = 2
+    const r = calcPaint({ mode: 'manual', area: 3, consumption: 0.2, coats: 3, canVolume: 0.9, reserve: 0 });
+    expect(row(r, 'Количество банок')).toContain('2 шт.');
+  });
+
+  it('1,5 м², расход 0,2 л/м², 3 слоя, банка 0,9 л = ровно 1 банка', () => {
+    const r = calcPaint({ mode: 'manual', area: 1.5, consumption: 0.2, coats: 3, canVolume: 0.9, reserve: 0 });
+    expect(row(r, 'Количество банок')).toContain('1 шт.');
+  });
+
+  it('настоящий остаток по-прежнему округляется вверх', () => {
+    // 3,1 × 0,2 × 3 = 1,86 л; 1,86 / 0,9 = 2,07 -> 3 банки
+    const r = calcPaint({ mode: 'manual', area: 3.1, consumption: 0.2, coats: 3, canVolume: 0.9, reserve: 0 });
+    expect(row(r, 'Количество банок')).toContain('3 шт.');
+  });
+});

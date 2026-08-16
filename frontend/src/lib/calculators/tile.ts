@@ -1,5 +1,6 @@
 import type { CalcFunction, CalcResult } from '../types';
 import { fmtInt, fmtNumber, toNumber, toStr } from '../format';
+import { ceilUnits } from '../rounding';
 
 export const calcTile: CalcFunction = (inputs) => {
   const mode = toStr(inputs.mode, 'room');
@@ -24,8 +25,8 @@ export const calcTile: CalcFunction = (inputs) => {
 
   const areaWithReserve = area * (1 + reserve / 100);
   const tileAreaM2 = (tileLength / 100) * (tileWidth / 100);
-  const tiles = Math.ceil(areaWithReserve / tileAreaM2);
-  const packs = Math.ceil(areaWithReserve / packArea);
+  const tiles = ceilUnits(areaWithReserve / tileAreaM2);
+  const packs = ceilUnits(areaWithReserve / packArea);
   const glueKg = areaWithReserve * Math.max(0, glueConsumption);
   const totalPrice = packs * Math.max(0, packPrice);
 

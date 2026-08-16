@@ -1,5 +1,6 @@
 import type { CalcFunction, CalcResult } from '../types';
 import { fmtInt, fmtNumber, toNumber } from '../format';
+import { ceilUnits, floorUnits } from '../rounding';
 
 export const calcWallpaper: CalcFunction = (inputs) => {
   const length = toNumber(inputs.length);
@@ -29,12 +30,12 @@ export const calcWallpaper: CalcFunction = (inputs) => {
     ? Math.ceil(height / patternM) * patternM
     : height;
   // Сколько полотен помещается в одном рулоне
-  const stripsPerRoll = Math.floor(rollLength / stripLength);
+  const stripsPerRoll = floorUnits(rollLength / stripLength);
   // Сколько всего полотен нужно (по ширине стен)
   const effectiveWallWidth = Math.max(0, wallArea) / height;
-  const totalStrips = Math.ceil(effectiveWallWidth / rollWidth);
+  const totalStrips = ceilUnits(effectiveWallWidth / rollWidth);
   // Количество рулонов
-  const rolls = stripsPerRoll > 0 ? Math.ceil(totalStrips / stripsPerRoll) : Infinity;
+  const rolls = stripsPerRoll > 0 ? ceilUnits(totalStrips / stripsPerRoll) : Infinity;
   // Запас
   const totalRollArea = rolls * rollWidth * rollLength;
   const reservePct = wallArea > 0 ? Math.max(0, ((totalRollArea - wallArea) / wallArea) * 100) : 0;

@@ -50,3 +50,28 @@ describe('wallpaper: calcWallpaper', () => {
     }).primary.value).toBe('—');
   });
 });
+
+describe('wallpaper: округление не искажает количество полотен и рулонов', () => {
+  const norm = (s: string) => s.replace(/[\s\u00a0\u202f]+/g, ' ');
+  const row = (r: ReturnType<typeof calcWallpaper>, label: string) =>
+    norm(r.secondary.find((s) => s.label === label)?.value ?? '');
+
+  it('периметр 6 м при рулоне 1,0 м = ровно 6 полотен, а не 7', () => {
+    // 2 × (1 + 2) = 6 м; 6 / 1,0 = 6
+    const r = calcWallpaper({ length: 1, width: 2, height: 2.7, rollWidth: 1.0, rollLength: 10, windows: 0, doors: 0, pattern: 0 });
+    expect(row(r, 'Количество полотен')).toBe('6 шт.');
+    expect(norm(r.primary.value)).toBe('2 шт.');
+  });
+
+  it('floor не занижает число полотен из рулона', () => {
+    // раппорт 10 см, высота 2,25 -> полотно 2,3 м; 11,5 / 2,3 = ровно 5
+    const r = calcWallpaper({ length: 3, width: 3, height: 2.25, rollWidth: 0.53, rollLength: 11.5, windows: 0, doors: 0, pattern: 10 });
+    expect(row(r, 'Полотен из рулона')).toBe('5 шт.');
+  });
+
+  it('настоящий остаток по-прежнему округляется вверх', () => {
+    // 2 × (3 + 4) = 14 м; 14 / 0,53 = 26,4… -> 27 полотен
+    const r = calcWallpaper({ length: 3, width: 4, height: 2.5, rollWidth: 0.53, rollLength: 10, windows: 0, doors: 0, pattern: 0 });
+    expect(row(r, 'Количество полотен')).toBe('27 шт.');
+  });
+});

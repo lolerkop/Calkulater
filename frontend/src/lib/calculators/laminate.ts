@@ -1,5 +1,6 @@
 import type { CalcFunction, CalcResult } from '../types';
 import { fmtInt, fmtNumber, toNumber } from '../format';
+import { ceilUnits } from '../rounding';
 
 export function laminatePacks(length: number, width: number, packArea: number, reservePct: number): {
   area: number;
@@ -8,7 +9,7 @@ export function laminatePacks(length: number, width: number, packArea: number, r
 } {
   const area = length * width;
   const areaWithReserve = area * (1 + reservePct / 100);
-  const packs = packArea > 0 ? Math.ceil(areaWithReserve / packArea) : 0;
+  const packs = packArea > 0 ? ceilUnits(areaWithReserve / packArea) : 0;
   return { area, areaWithReserve, packs };
 }
 
