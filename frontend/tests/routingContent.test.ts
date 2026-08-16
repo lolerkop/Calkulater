@@ -213,6 +213,7 @@ describe('routing content: localized components', () => {
       validation: await import('../src/components/islands/calculator/validation.ts?raw'),
       values: await import('../src/components/islands/calculator/values.ts?raw'),
       fields: await import('../src/components/islands/calculator/fields.tsx?raw'),
+      results: await import('../src/components/islands/calculator/results.tsx?raw'),
     };
 
     for (const [name, source] of Object.entries(clientModules)) {
