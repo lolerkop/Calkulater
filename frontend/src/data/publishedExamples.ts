@@ -33,6 +33,7 @@ const canonicalPublishedExamples: PublishedExample[] = [
   { calculatorId: 'eur-to-mdl', locale: 'ru', source: '/ru/currency/eur-to-mdl/', input: { amount: 100, from: 'EUR', to: 'MDL' }, expected: ['L', '100,00 €'] },
   { calculatorId: 'usd-to-mdl', locale: 'ru', source: '/ru/currency/usd-to-mdl/', input: { amount: 100, from: 'USD', to: 'MDL' }, expected: ['L', '100,00 $'] },
   { calculatorId: 'bmi-calculator', locale: 'ru', source: '/ru/sport/bmi-calculator/', input: { height: 175, weight: 70 }, expected: ['22,9', 'Норма'] },
+  { calculatorId: 'body-fat-calculator', locale: 'ru', source: '/ru/sport/body-fat-calculator/', input: { sex: 'male', height: 180, neck: 38, waist: 90 }, expected: ['19,9%'] },
   { calculatorId: 'calorie-calculator', locale: 'ru', source: '/ru/sport/calorie-calculator/', input: { gender: 'male', age: 30, height: 175, weight: 70, activity: '1.55', goal: 'maintain', goalAdjustment: 15, proteinPct: 30, fatPct: 25 }, expected: ['2 556 ккал'] },
   { calculatorId: 'running-pace-calculator', locale: 'ru', source: '/ru/sport/running-pace-calculator/', input: { distance: 5, unit: 'km', hours: 0, minutes: 25, seconds: 0 }, expected: ['5:00/км', '12,00 км/ч'] },
   { calculatorId: 'one-rep-max-calculator', locale: 'ru', source: '/ru/sport/one-rep-max-calculator/', input: { weight: 80, reps: 5 }, expected: ['93,3 кг', '74,7 кг'] },

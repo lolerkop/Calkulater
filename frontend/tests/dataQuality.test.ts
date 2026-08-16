@@ -207,6 +207,7 @@ describe('data quality: calculators', () => {
       .sort();
 
     expect(newCalculatorIds).toEqual([
+      'body-fat-calculator',
       'break-even-calculator',
       'date-shift-calculator',
       'discount-calculator',
@@ -236,6 +237,7 @@ describe('data quality: calculators', () => {
       'screed-calculator',
       'date-shift-calculator',
       'break-even-calculator',
+      'body-fat-calculator',
     ]);
   });
 });

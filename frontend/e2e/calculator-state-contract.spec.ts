@@ -86,6 +86,11 @@ const stateScenarios: Record<string, StateScenario> = {
     },
     result: { primary: '900 ₽', rows: [{ label: 'Итого за товары', value: '1 800 ₽' }] },
   },
+  'body-fat-calculator': {
+    // Мужчина 180 см, шея 38, талия 90: 86,010·log10(52/2,54) − 70,041·log10(180/2,54) + 36,76.
+    query: { sex: 'male', height: 180, neck: 38, waist: 95 },
+    result: { primary: '23,4%' },
+  },
   'break-even-calculator': {
     // 10 000 постоянных затрат при марже 500 - 300 = 200 дают ровно 50 единиц.
     query: { fixedCosts: 10000, unitPrice: 500, variableCost: 300, plannedUnits: 0 },
@@ -243,8 +248,8 @@ const calculatorCases = calculators.map((sourceCalculator) => {
   return { calculator, scenario };
 });
 
-if (calculatorCases.length !== 26) {
-  throw new Error(`Expected 26 calculators in the source registry, got ${calculatorCases.length}`);
+if (calculatorCases.length !== 27) {
+  throw new Error(`Expected 27 calculators in the source registry, got ${calculatorCases.length}`);
 }
 
 function escapeRegExp(value: string): string {

@@ -31,6 +31,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/currency/usd-to-mdl/,ru,calculator,true,/ru/currency/usd-to-mdl/,calculator:usd-to-mdl,src/pages/[locale]/[category]/[calculator].astro
 /ru/sport/bmi-calculator/,ru,calculator,true,/ru/sport/bmi-calculator/,calculator:bmi-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/sport/calorie-calculator/,ru,calculator,true,/ru/sport/calorie-calculator/,calculator:calorie-calculator,src/pages/[locale]/[category]/[calculator].astro
+/ru/sport/body-fat-calculator/,ru,calculator,true,/ru/sport/body-fat-calculator/,calculator:body-fat-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/sport/running-pace-calculator/,ru,calculator,true,/ru/sport/running-pace-calculator/,calculator:running-pace-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/sport/one-rep-max-calculator/,ru,calculator,true,/ru/sport/one-rep-max-calculator/,calculator:one-rep-max-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/building/tile-calculator/,ru,calculator,true,/ru/building/tile-calculator/,calculator:tile-calculator,src/pages/[locale]/[category]/[calculator].astro
@@ -68,6 +69,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/currency/usd-to-mdl/,en,calculator,true,/en/currency/usd-to-mdl/,calculator:usd-to-mdl,src/pages/[locale]/[category]/[calculator].astro
 /en/fitness/bmi-calculator/,en,calculator,true,/en/fitness/bmi-calculator/,calculator:bmi-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/fitness/calorie-calculator/,en,calculator,true,/en/fitness/calorie-calculator/,calculator:calorie-calculator,src/pages/[locale]/[category]/[calculator].astro
+/en/fitness/body-fat-calculator/,en,calculator,true,/en/fitness/body-fat-calculator/,calculator:body-fat-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/fitness/running-pace-calculator/,en,calculator,true,/en/fitness/running-pace-calculator/,calculator:running-pace-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/fitness/one-rep-max-calculator/,en,calculator,true,/en/fitness/one-rep-max-calculator/,calculator:one-rep-max-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/home-improvement/tile-calculator/,en,calculator,true,/en/home-improvement/tile-calculator/,calculator:tile-calculator,src/pages/[locale]/[category]/[calculator].astro
@@ -105,6 +107,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/valyuty/usd-v-mdl/,uk,calculator,true,/uk/valyuty/usd-v-mdl/,calculator:usd-to-mdl,src/pages/[locale]/[category]/[calculator].astro
 /uk/fitness/kalkulyator-bmi/,uk,calculator,true,/uk/fitness/kalkulyator-bmi/,calculator:bmi-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/fitness/kalkulyator-kaloriy/,uk,calculator,true,/uk/fitness/kalkulyator-kaloriy/,calculator:calorie-calculator,src/pages/[locale]/[category]/[calculator].astro
+/uk/fitness/kalkulyator-vidsotka-zhyru/,uk,calculator,true,/uk/fitness/kalkulyator-vidsotka-zhyru/,calculator:body-fat-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/fitness/kalkulyator-tempu-bigu/,uk,calculator,true,/uk/fitness/kalkulyator-tempu-bigu/,calculator:running-pace-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/fitness/kalkulyator-1rm/,uk,calculator,true,/uk/fitness/kalkulyator-1rm/,calculator:one-rep-max-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/remont/kalkulyator-plytky/,uk,calculator,true,/uk/remont/kalkulyator-plytky/,calculator:tile-calculator,src/pages/[locale]/[category]/[calculator].astro

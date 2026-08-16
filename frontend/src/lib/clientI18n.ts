@@ -393,6 +393,13 @@ const resultValueMap: ResultValueMap = {
 };
 
 export const resultLabelMap: Record<string, string> = {
+  'Процент жира': 'Body fat percentage',
+  'Метод расчёта': 'Method',
+  'Обхват талии': 'Waist circumference',
+  'Обхват шеи': 'Neck circumference',
+  'Обхват бёдер': 'Hip circumference',
+  'Талия минус шея': 'Waist minus neck',
+  'Талия плюс бёдра минус шея': 'Waist plus hips minus neck',
   'Точка безубыточности': 'Break-even point',
   'Маржинальная прибыль с единицы': 'Contribution margin per unit',
   'Коэффициент маржинальной прибыли': 'Contribution margin ratio',
@@ -558,6 +565,13 @@ export const resultLabelMap: Record<string, string> = {
 };
 
 const ukrainianResultLabelMap: Record<string, string> = {
+  'Процент жира': 'Відсоток жиру',
+  'Метод расчёта': 'Метод розрахунку',
+  'Обхват талии': 'Обхват талії',
+  'Обхват шеи': 'Обхват шиї',
+  'Обхват бёдер': 'Обхват стегон',
+  'Талия минус шея': 'Талія мінус шия',
+  'Талия плюс бёдра минус шея': 'Талія плюс стегна мінус шия',
   'Точка безубыточности': 'Точка беззбитковості',
   'Маржинальная прибыль с единицы': 'Маржинальний прибуток з одиниці',
   'Коэффициент маржинальной прибыли': 'Коефіцієнт маржинального прибутку',
