@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { calcIncomeTax } from '../src/lib/calculators/incomeTax';
+import { calculators } from '../src/data/calculators';
 
 // Хелпер: нормализация любых пробелов (Intl использует NBSP / NNBSP)
 const norm = (s: string) => s.replace(/\s+/g, ' ');
@@ -114,5 +115,47 @@ describe('incomeTax: ошибки ввода', () => {
   it('нулевая сумма возвращает прочерк', () => {
     const r = calcIncomeTax({ amount: 0 });
     expect(r.primary.value).toBe('—');
+  });
+});
+
+// Содержимое страницы описывает поведение калькулятора, а не отдельную
+// налоговую норму: поле «Налоговые вычеты за период» реально уменьшает базу,
+// поэтому FAQ не должен утверждать обратное. Ответ FAQ уходит и в FAQPage
+// JSON-LD, так что расхождение видно не только читателю.
+describe('incomeTax: контент о вычетах соответствует поведению', () => {
+  const definition = calculators.find((item) => item.id === 'income-tax-calculator')!;
+  const deductionsAnswer = definition.faq.find((item) => /вычет/i.test(item.q))?.a ?? '';
+
+  it('поле вычетов объявлено в калькуляторе', () => {
+    const field = definition.fields.find((item) => item.name === 'deductions');
+    expect(field, 'поле deductions').toBeDefined();
+    expect(field!.label).toContain('вычет');
+  });
+
+  it('вычет уменьшает налог в прогрессивном режиме', () => {
+    const base = { amount: 100_000, period: 'month', mode: 'progressive', direction: 'gross' };
+    const without = calcIncomeTax(base);
+    const with20k = calcIncomeTax({ ...base, deductions: 20_000 });
+    expect(norm(without.primary.value)).toContain('13 000');
+    expect(norm(with20k.primary.value)).toContain('10 400');
+  });
+
+  it('вычет уменьшает налог в режиме фиксированной ставки', () => {
+    const base = { amount: 100_000, period: 'month', mode: 'fixed', rate: 13, direction: 'gross' };
+    expect(norm(calcIncomeTax(base).primary.value)).toContain('13 000');
+    expect(norm(calcIncomeTax({ ...base, deductions: 20_000 }).primary.value)).toContain('10 400');
+  });
+
+  it('учтённый вычет показывается отдельной строкой результата', () => {
+    const r = calcIncomeTax({ amount: 100_000, period: 'month', mode: 'progressive', direction: 'gross', deductions: 20_000 });
+    const row = r.secondary.find((s) => s.label === 'Учтённые вычеты');
+    expect(row, 'строка «Учтённые вычеты»').toBeDefined();
+    expect(norm(row!.value)).toContain('20 000');
+  });
+
+  it('FAQ не отрицает учёт вычетов', () => {
+    expect(deductionsAnswer, 'ответ FAQ про вычеты').not.toBe('');
+    expect(deductionsAnswer).not.toMatch(/^Нет[,.]/);
+    expect(deductionsAnswer, 'FAQ должен ссылаться на поле ввода').toMatch(/Налоговые вычеты за период/);
   });
 });
