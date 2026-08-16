@@ -37,6 +37,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/building/laminate-calculator/,ru,calculator,true,/ru/building/laminate-calculator/,calculator:laminate-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/age-calculator/,ru,calculator,true,/ru/date-time/age-calculator/,calculator:age-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/working-days-calculator/,ru,calculator,true,/ru/date-time/working-days-calculator/,calculator:working-days-calculator,src/pages/[locale]/[category]/[calculator].astro
+/ru/date-time/date-calculator/,ru,calculator,true,/ru/date-time/date-calculator/,calculator:date-shift-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/,en,home,true,/en/,home,src/pages/[locale]/index.astro
 /en/calculators/,en,catalog,true,/en/calculators/,catalog,src/pages/[locale]/calculators.astro
 /en/calculators/?tag=*,en,facet,false,/en/calculators/,none,functions/[locale]/calculators.js
@@ -70,6 +71,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/home-improvement/laminate-calculator/,en,calculator,true,/en/home-improvement/laminate-calculator/,calculator:laminate-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/age-calculator/,en,calculator,true,/en/date-time/age-calculator/,calculator:age-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/business-days-calculator/,en,calculator,true,/en/date-time/business-days-calculator/,calculator:working-days-calculator,src/pages/[locale]/[category]/[calculator].astro
+/en/date-time/date-calculator/,en,calculator,true,/en/date-time/date-calculator/,calculator:date-shift-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/,uk,home,true,/uk/,home,src/pages/[locale]/index.astro
 /uk/calculators/,uk,catalog,true,/uk/calculators/,catalog,src/pages/[locale]/calculators.astro
 /uk/calculators/?tag=*,uk,facet,false,/uk/calculators/,none,functions/[locale]/calculators.js
@@ -103,6 +105,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/remont/kalkulyator-laminatu/,uk,calculator,true,/uk/remont/kalkulyator-laminatu/,calculator:laminate-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-viku/,uk,calculator,true,/uk/daty/kalkulyator-viku/,calculator:age-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-robochyh-dniv/,uk,calculator,true,/uk/daty/kalkulyator-robochyh-dniv/,calculator:working-days-calculator,src/pages/[locale]/[category]/[calculator].astro
+/uk/daty/kalkulyator-dat/,uk,calculator,true,/uk/daty/kalkulyator-dat/,calculator:date-shift-calculator,src/pages/[locale]/[category]/[calculator].astro
 /calculators/,ru,redirect,false,/ru/calculators/,none,functions/_middleware.js
 /about/,ru,redirect,false,/ru/about/,none,functions/_middleware.js
 /contacts/,ru,redirect,false,/ru/contacts/,none,functions/_middleware.js

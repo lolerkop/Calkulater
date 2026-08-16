@@ -196,7 +196,7 @@ describe('data quality: calculators', () => {
     expect(calculatorFreshness(vat!).note).toContain('официальными источниками');
   });
 
-  it('marks the recently added finance calculators as new', () => {
+  it('marks the recently added calculators as new', () => {
     const newCalculatorIds = calculators
       .filter((calculator) => calculator.isNew)
       .map((calculator) => calculator.id)
@@ -207,13 +207,28 @@ describe('data quality: calculators', () => {
       .sort();
 
     expect(newCalculatorIds).toEqual([
+      'date-shift-calculator',
       'discount-calculator',
       'income-tax-calculator',
       'percent-calculator',
       'vat-calculator',
     ]);
-    expect(financeNewCalculatorIds).toEqual(newCalculatorIds);
+    expect(financeNewCalculatorIds).toEqual([
+      'discount-calculator',
+      'income-tax-calculator',
+      'percent-calculator',
+      'vat-calculator',
+    ]);
     expect(newCalculators.map((calculator) => calculator.id).sort()).toEqual(newCalculatorIds);
+    // Блок «новые» на главной показывает первые три по популярности, поэтому
+    // порядок фиксируем явно: он определяет внутренние ссылки с главной.
+    expect(newCalculators.map((calculator) => calculator.id)).toEqual([
+      'income-tax-calculator',
+      'percent-calculator',
+      'vat-calculator',
+      'discount-calculator',
+      'date-shift-calculator',
+    ]);
   });
 });
 

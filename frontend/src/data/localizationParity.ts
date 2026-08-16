@@ -18,6 +18,7 @@ export const fullParityCalculatorIds = [
   'laminate-calculator',
   'age-calculator',
   'working-days-calculator',
+  'date-shift-calculator',
 ] as const;
 
 export const ruOnlyCalculatorReasons = {

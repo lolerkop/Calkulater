@@ -14,6 +14,7 @@ import { calcPaint } from './calculators/paint';
 import { calcLaminate } from './calculators/laminate';
 import { calcAge } from './calculators/age';
 import { calcWorkingDays } from './calculators/workingDays';
+import { calcDateShift } from './calculators/dateShift';
 import { calcIncomeTax } from './calculators/incomeTax';
 import { calcVat } from './calculators/vat';
 import { calcPercent } from './calculators/percent';
@@ -38,6 +39,7 @@ export const runners: Record<string, CalcFunction> = {
   'laminate-calculator': calcLaminate,
   'age-calculator': calcAge,
   'working-days-calculator': calcWorkingDays,
+  'date-shift-calculator': calcDateShift,
   // Новые финансовые калькуляторы (НДФЛ, НДС, проценты, скидка)
   'income-tax-calculator': calcIncomeTax,
   'vat-calculator': calcVat,
