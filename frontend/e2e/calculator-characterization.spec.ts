@@ -144,3 +144,21 @@ test('UK keeps comma decimals and no longer doubles the BMI category', async ({ 
   await expect(page.getByTestId('calc-result')).toContainText('Категорія');
   await expect(page.getByTestId('calc-result')).toContainText('Зріст');
 });
+
+test('share warning behaves like a dialog for the keyboard', async ({ context, page }) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.goto('/ru/finance/credit-calculator/');
+
+  await page.getByTestId('calc-share-btn').click();
+  await expect(page.getByTestId('calc-share-warning')).toBeVisible();
+
+  // Открытый alertdialog забирает фокус, иначе клавиатурный пользователь остаётся
+  // снаружи и не знает, что появилось.
+  await expect(page.getByTestId('calc-share-confirm')).toBeFocused();
+
+  // Escape отменяет так же, как кнопка «Отмена»: ссылка не копируется.
+  await page.keyboard.press('Escape');
+  await expect(page.getByTestId('calc-share-warning')).toHaveCount(0);
+  await expect(page.getByTestId('calc-share-btn')).toContainText('Скопировать ссылку');
+  await expect(page.getByTestId('calc-form')).toBeVisible();
+});

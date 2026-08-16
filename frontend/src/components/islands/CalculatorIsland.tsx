@@ -141,6 +141,13 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   const [copied, setCopied] = useState(false);
   const [copiedResult, setCopiedResult] = useState(false);
   const [shareWarningOpen, setShareWarningOpen] = useState(false);
+  const shareConfirmRef = useRef<HTMLButtonElement | null>(null);
+
+  // Открытый alertdialog должен забирать фокус: иначе клавиатурный пользователь
+  // остаётся на кнопке «Скопировать ссылку» и не попадает в предупреждение.
+  useEffect(() => {
+    if (shareWarningOpen) shareConfirmRef.current?.focus();
+  }, [shareWarningOpen]);
 
   const validationErrors = useMemo(
     () => validateValues(calc.id, calc.fields, values, locale),
@@ -416,11 +423,18 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
             aria-labelledby="share-warning-title"
             aria-describedby="share-warning-text"
             data-testid="calc-share-warning"
+            onKeyDown={(event) => {
+              // Escape отменяет так же, как кнопка «Отмена»: ссылка не копируется.
+              if (event.key === 'Escape') {
+                event.stopPropagation();
+                cancelCopyShareLink();
+              }
+            }}
           >
             <div id="share-warning-title" className="font-semibold">{warningCopy.title}</div>
             <p id="share-warning-text" className="mt-1 leading-relaxed text-ink-700">{warningCopy.text}</p>
             <div className="mt-4 flex flex-wrap gap-2">
-              <button type="button" className="btn-primary" onClick={confirmCopyShareLink} data-testid="calc-share-confirm">
+              <button ref={shareConfirmRef} type="button" className="btn-primary" onClick={confirmCopyShareLink} data-testid="calc-share-confirm">
                 {warningCopy.confirm}
               </button>
               <button type="button" className="inline-flex min-h-11 items-center justify-center rounded-xl border border-ink-200 bg-white px-4 py-2 text-sm font-semibold text-ink-700" onClick={cancelCopyShareLink} data-testid="calc-share-cancel">
