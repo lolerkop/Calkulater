@@ -35,6 +35,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/building/wallpaper-calculator/,ru,calculator,true,/ru/building/wallpaper-calculator/,calculator:wallpaper-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/building/paint-calculator/,ru,calculator,true,/ru/building/paint-calculator/,calculator:paint-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/building/laminate-calculator/,ru,calculator,true,/ru/building/laminate-calculator/,calculator:laminate-calculator,src/pages/[locale]/[category]/[calculator].astro
+/ru/building/screed-calculator/,ru,calculator,true,/ru/building/screed-calculator/,calculator:screed-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/age-calculator/,ru,calculator,true,/ru/date-time/age-calculator/,calculator:age-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/working-days-calculator/,ru,calculator,true,/ru/date-time/working-days-calculator/,calculator:working-days-calculator,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/date-calculator/,ru,calculator,true,/ru/date-time/date-calculator/,calculator:date-shift-calculator,src/pages/[locale]/[category]/[calculator].astro
@@ -69,6 +70,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/home-improvement/wallpaper-calculator/,en,calculator,true,/en/home-improvement/wallpaper-calculator/,calculator:wallpaper-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/home-improvement/paint-calculator/,en,calculator,true,/en/home-improvement/paint-calculator/,calculator:paint-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/home-improvement/laminate-calculator/,en,calculator,true,/en/home-improvement/laminate-calculator/,calculator:laminate-calculator,src/pages/[locale]/[category]/[calculator].astro
+/en/home-improvement/screed-calculator/,en,calculator,true,/en/home-improvement/screed-calculator/,calculator:screed-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/age-calculator/,en,calculator,true,/en/date-time/age-calculator/,calculator:age-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/business-days-calculator/,en,calculator,true,/en/date-time/business-days-calculator/,calculator:working-days-calculator,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/date-calculator/,en,calculator,true,/en/date-time/date-calculator/,calculator:date-shift-calculator,src/pages/[locale]/[category]/[calculator].astro
@@ -103,6 +105,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/remont/kalkulyator-shpaler/,uk,calculator,true,/uk/remont/kalkulyator-shpaler/,calculator:wallpaper-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/remont/kalkulyator-farby/,uk,calculator,true,/uk/remont/kalkulyator-farby/,calculator:paint-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/remont/kalkulyator-laminatu/,uk,calculator,true,/uk/remont/kalkulyator-laminatu/,calculator:laminate-calculator,src/pages/[locale]/[category]/[calculator].astro
+/uk/remont/kalkulyator-styazhky/,uk,calculator,true,/uk/remont/kalkulyator-styazhky/,calculator:screed-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-viku/,uk,calculator,true,/uk/daty/kalkulyator-viku/,calculator:age-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-robochyh-dniv/,uk,calculator,true,/uk/daty/kalkulyator-robochyh-dniv/,calculator:working-days-calculator,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-dat/,uk,calculator,true,/uk/daty/kalkulyator-dat/,calculator:date-shift-calculator,src/pages/[locale]/[category]/[calculator].astro

@@ -19,6 +19,7 @@ export const fullParityCalculatorIds = [
   'age-calculator',
   'working-days-calculator',
   'date-shift-calculator',
+  'screed-calculator',
 ] as const;
 
 export const ruOnlyCalculatorReasons = {

@@ -12,6 +12,7 @@ import { calcTile } from './calculators/tile';
 import { calcWallpaper } from './calculators/wallpaper';
 import { calcPaint } from './calculators/paint';
 import { calcLaminate } from './calculators/laminate';
+import { calcScreed } from './calculators/screed';
 import { calcAge } from './calculators/age';
 import { calcWorkingDays } from './calculators/workingDays';
 import { calcDateShift } from './calculators/dateShift';
@@ -37,6 +38,7 @@ export const runners: Record<string, CalcFunction> = {
   'wallpaper-calculator': calcWallpaper,
   'paint-calculator': calcPaint,
   'laminate-calculator': calcLaminate,
+  'screed-calculator': calcScreed,
   'age-calculator': calcAge,
   'working-days-calculator': calcWorkingDays,
   'date-shift-calculator': calcDateShift,

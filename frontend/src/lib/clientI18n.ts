@@ -223,6 +223,7 @@ export function localizedResultText(value: string, locale: Locale): string {
     .replace(/\/миля/g, locale === 'uk' ? '/миля' : '/mi')
     .replace(/ км(?=$|\s|[),])/g, locale === 'uk' ? ' км' : ' km')
     .replace(/м²/g, 'm²')
+    .replace(/м³/g, 'm³')
     .replace(/ м(?=$|\s|[),×])/g, locale === 'uk' ? ' м' : ' m')
     .replace(/ кг(?=$|\s|[),–])/g, ` ${units.kg}`)
     .replace(/ см(?=$|\s|[),])/g, ` ${units.cm}`)
@@ -452,6 +453,11 @@ export const resultLabelMap: Record<string, string> = {
   'Всего календарных дней': 'Total calendar days',
   'Номер дня в году': 'Day of the year',
   'Номер недели (ISO)': 'ISO week number',
+  'Объём раствора': 'Mortar volume',
+  'Толщина слоя': 'Layer thickness',
+  'Сухая смесь': 'Dry mix',
+  'Мешков': 'Bags',
+  'Стоимость смеси': 'Dry mix cost',
   'Выходные дни': 'Weekend days',
   'Исключённые даты': 'Excluded dates',
   'Режим': 'Mode',
@@ -593,6 +599,11 @@ const ukrainianResultLabelMap: Record<string, string> = {
   'Всего календарных дней': 'Усього календарних днів',
   'Номер дня в году': 'Номер дня в році',
   'Номер недели (ISO)': 'Номер тижня (ISO)',
+  'Объём раствора': 'Об’єм розчину',
+  'Толщина слоя': 'Товщина шару',
+  'Сухая смесь': 'Суха суміш',
+  'Мешков': 'Мішків',
+  'Стоимость смеси': 'Вартість суміші',
   'Выходные дни': 'Вихідні дні',
   'Исключённые даты': 'Виключені дати',
   'Режим': 'Режим',

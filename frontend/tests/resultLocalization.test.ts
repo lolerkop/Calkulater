@@ -5,6 +5,7 @@ import { buildInitialValues } from '../src/lib/shareLink';
 import { localizeResult, resultToText } from '../src/components/islands/calculator/resultLocalization';
 import { localizedResultText } from '../src/lib/clientI18n';
 import type { CalcResult } from '../src/lib/types';
+import { calcScreed } from '../src/lib/calculators/screed';
 
 // Характеризация текущего конвейера локализации результата. Значения считаются
 // настоящими раннерами, поэтому тесты описывают то, что реально видит посетитель.
@@ -125,5 +126,27 @@ describe('result localization: copied text follows the visible result', () => {
     const uk = localizeResult(bmi(), 'uk');
     const text = resultToText({ name: 'Калькулятор ІМТ' }, uk, 'uk');
     expect(text).toContain('Примітка: ');
+  });
+});
+
+describe('result localization: единицы объёма', () => {
+  it('переводит кубометры так же, как квадратные', () => {
+    // Правило для м² существовало, для м³ — нет, и объём стяжки уходил
+    // в EN и UK с кириллической единицей.
+    for (const locale of ['en', 'uk'] as const) {
+      expect(localizedResultText('1,100 м³', locale)).toBe('1,100 m³');
+      expect(localizedResultText('12,00 м²', locale)).toBe('12,00 m²');
+    }
+  });
+
+  it('не трогает кубометры в русской локали', () => {
+    expect(localizedResultText('1,100 м³', 'ru')).toBe('1,100 м³');
+  });
+
+  it('переводит единицу внутри полного результата стяжки', () => {
+    const en = localizeResult(calcScreed({ mode: 'area', manualArea: 20, thickness: 5, reserve: 0 }), 'en');
+    expect(en.primary.value).toBe('1.000 m³');
+    expect(en.primary.label).toBe('Mortar volume');
+    expect(JSON.stringify(en)).not.toMatch(/[А-Яа-яЁё]/);
   });
 });

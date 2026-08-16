@@ -8,7 +8,7 @@ const ruOnlyCalculatorIds = ['deposit-calculator', 'income-tax-calculator', 'vat
 
 describe('SEO URL inventory', () => {
   it('keeps every indexable URL self-canonical and query-free', () => {
-    expect(urlInventory).toHaveLength(120);
+    expect(urlInventory).toHaveLength(123);
     const indexable = urlInventory.filter((entry) => entry.indexableExpected);
     expect(new Set(indexable.map((entry) => entry.url)).size).toBe(indexable.length);
 

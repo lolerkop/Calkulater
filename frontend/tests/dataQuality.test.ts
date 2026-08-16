@@ -211,6 +211,7 @@ describe('data quality: calculators', () => {
       'discount-calculator',
       'income-tax-calculator',
       'percent-calculator',
+      'screed-calculator',
       'vat-calculator',
     ]);
     expect(financeNewCalculatorIds).toEqual([
@@ -227,6 +228,7 @@ describe('data quality: calculators', () => {
       'percent-calculator',
       'vat-calculator',
       'discount-calculator',
+      'screed-calculator',
       'date-shift-calculator',
     ]);
   });
