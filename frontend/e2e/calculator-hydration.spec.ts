@@ -179,3 +179,56 @@ test('form still works normally after hydration has completed', async ({ page })
   await page.getByTestId('field-amount').fill('24000');
   await expect(page.getByTestId('calc-result')).toContainText('4 000 ₽');
 });
+
+// Conditional (showIf) fields are the one input class the cases above do not
+// reach: they exist in the SSR markup only while their controlling field holds
+// the matching value, so an edit made before hydration has to survive both the
+// island taking over and the visibility rule being re-evaluated.
+test('a conditional showIf field edited before hydration keeps its value', async ({ page }) => {
+  const reactErrors: string[] = [];
+  page.on('console', (message) => {
+    if (message.type() === 'error' && /418|423|425|hydrat/i.test(message.text())) {
+      reactErrors.push(message.text());
+    }
+  });
+  page.on('pageerror', (error) => reactErrors.push(String(error)));
+
+  const hydrate = await holdHydration(page);
+  await page.goto('/ru/finance/income-tax-calculator/?mode=fixed', { waitUntil: 'commit' });
+
+  // The SSR markup is built from the field defaults, so the fixed-rate field is
+  // hidden until hydration applies the query. The visible controls are still
+  // editable, and that edit is what has to survive.
+  await expect(page.getByTestId('field-amount')).toHaveValue('150000');
+  await page.getByTestId('field-amount').fill('200000');
+
+  hydrate();
+
+  await expect(page.getByTestId('calc-result')).toBeVisible();
+  // The query made mode=fixed win, so the conditional rate field is now shown…
+  await expect(page.getByTestId('field-rate')).toBeVisible();
+  await expect(page.getByTestId('field-rate')).toHaveValue('13');
+  // …and the pre-hydration edit still won over the default, reaching the result:
+  // 200 000 at a fixed 13% is 26 000.
+  await expect(page.getByTestId('field-amount')).toHaveValue('200000');
+  await expect(page.getByTestId('calc-result-primary')).toHaveText('26 000 ₽');
+  expect(reactErrors).toEqual([]);
+});
+
+test('hiding a conditional field after hydration keeps the visible mode consistent', async ({ page }) => {
+  await page.goto('/ru/finance/discount-calculator/');
+
+  // byPercent is the default, so the percent field is the visible one.
+  await expect(page.getByTestId('field-discountPct')).toBeVisible();
+  await expect(page.getByTestId('field-discountAmt')).toHaveCount(0);
+  await expect(page.getByTestId('calc-result-primary')).toHaveText('4 000 ₽');
+
+  await page.getByTestId('field-mode-opt-byAmount').click();
+
+  await expect(page.getByTestId('field-discountAmt')).toBeVisible();
+  await expect(page.getByTestId('field-discountPct')).toHaveCount(0);
+  await expect(page.getByTestId('calc-result-primary')).toHaveText('4 000 ₽');
+
+  await page.getByTestId('field-discountAmt').fill('2500');
+  await expect(page.getByTestId('calc-result-primary')).toHaveText('2 500 ₽');
+});

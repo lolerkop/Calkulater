@@ -269,3 +269,37 @@ describe('strings that must not change', () => {
     expect(localizedResultText(note!, 'uk')).toContain('2026 років');
   });
 });
+
+// Русская сторона той же морфологии. Формы выбирает раннер, а не слой
+// локализации, поэтому проверяются они через настоящий вывод калькуляторов.
+// Категорию числа снова определяет Intl.PluralRules, то есть таблицы CLDR.
+describe('Russian count words across every grammatical class', () => {
+  const target = new Date(2026, 2, 1); // 1 марта 2026
+  const iso = (date: Date) =>
+    `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  const primaryOf = (birth: Date) => age(iso(birth), iso(target)).primary.value;
+
+  const YEARS = { one: 'год', few: 'года', many: 'лет' };
+  const MONTHS = { one: 'месяц', few: 'месяца', many: 'месяцев' };
+  const DAYS = { one: 'день', few: 'дня', many: 'дней' };
+
+  it.each([0, 1, 2, 4, 5, 11, 14, 21, 22, 25, 101, 111])('agrees %i years', (count) => {
+    const birth = new Date(target.getFullYear() - count, target.getMonth(), target.getDate());
+    expect(primaryOf(birth)).toContain(`${count} ${expectedForm('ru', count, YEARS)}`);
+  });
+
+  it.each([0, 1, 2, 4, 5, 11])('agrees %i months', (count) => {
+    const birth = new Date(target.getFullYear(), target.getMonth() - count, target.getDate());
+    expect(primaryOf(birth)).toContain(`${count} ${expectedForm('ru', count, MONTHS)}`);
+  });
+
+  it.each([0, 1, 2, 4, 5, 11, 14, 21, 22, 25])('agrees %i days', (count) => {
+    const birth = new Date(target.getFullYear(), target.getMonth(), target.getDate() - count);
+    expect(primaryOf(birth)).toContain(`${count} ${expectedForm('ru', count, DAYS)}`);
+  });
+
+  it.each([1, 2, 4, 5, 11, 14, 21, 22, 25, 101, 111])('agrees the compound term of %i years', (years) => {
+    expect(rowValue(resultOf('compound-interest', { years }), 'Срок'))
+      .toBe(`${years} ${expectedForm('ru', years, YEARS)}`);
+  });
+});
