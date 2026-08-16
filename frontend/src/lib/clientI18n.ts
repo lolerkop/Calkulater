@@ -161,6 +161,18 @@ export const clientUi = {
   },
 } satisfies Record<Locale, Record<string, string>>;
 
+function escapeForRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function replacePhrasesOnce(value: string, phrases: Record<string, string>): string {
+  const present = Object.keys(phrases).filter((key) => value.includes(key));
+  if (present.length === 0) return value;
+  present.sort((a, b) => b.length - a.length);
+  const pattern = new RegExp(present.map(escapeForRegExp).join('|'), 'g');
+  return value.replace(pattern, (match) => phrases[match] ?? match);
+}
+
 export function localizedResultText(value: string, locale: Locale): string {
   if (locale === 'ru') return value;
   const currencyByLocale: Partial<Record<Locale, string>> = {
@@ -176,11 +188,16 @@ export function localizedResultText(value: string, locale: Locale): string {
   };
   const currency = currencyByLocale[locale] ?? '€';
   const phrases = resultValueMap[locale] ?? resultValueMap.en;
-  let localized = phrases[value] ?? value;
-
-  for (const [source, target] of Object.entries(phrases)) {
-    if (localized.includes(source)) localized = localized.replaceAll(source, target);
-  }
+  const exact = phrases[value];
+  // Словарь нужен и для фраз, встроенных в более длинный текст, поэтому строка,
+  // не совпавшая целиком, всё равно проходит подстановку. Раньше это делалось
+  // циклом последовательных replaceAll, и каждая следующая замена просматривала
+  // текст, вставленный предыдущей: перевод, начинающийся со своего же ключа,
+  // подставлялся повторно («Норма» → «Нормальний діапазон» → «Нормальний
+  // діапазонльний діапазон»). Одна проходка по объединённому шаблону разбирает
+  // каждую позицию ровно один раз, а сортировка по убыванию длины не даёт
+  // короткому ключу перехватить совпадение у длинного.
+  let localized = exact ?? replacePhrasesOnce(value, phrases);
 
   if (locale === 'en') {
     localized = localized

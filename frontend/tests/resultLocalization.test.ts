@@ -8,8 +8,8 @@ import type { CalcResult } from '../src/lib/types';
 
 // Характеризация текущего конвейера локализации результата. Значения считаются
 // настоящими раннерами, поэтому тесты описывают то, что реально видит посетитель.
-// Часть ожиданий фиксирует известные дефекты — они помечены LEGACY и должны
-// поменяться намеренно, когда дефект будут исправлять.
+// Ожидания описывают исправленное поведение: EN получает английские разделители,
+// UK сохраняет запятую и переводится ровно один раз.
 function resultOf(id: string, overrides: Record<string, unknown> = {}): CalcResult {
   const calculator = calculators.find((item) => item.id === id);
   if (!calculator) throw new Error(`unknown calculator: ${id}`);
@@ -53,19 +53,19 @@ describe('result localization: labels and units are translated', () => {
   });
 });
 
-describe('result localization: LEGACY number formatting', () => {
-  // Раннер форматирует числа через Intl.NumberFormat('ru-RU'), а слой локализации
-  // заменяет только слова, символ валюты и единицы — цифры он не трогает.
-  it('LEGACY: EN keeps the Russian group separator and a postfix currency symbol', () => {
+describe('result localization: number formatting per locale', () => {
+  // Раннер форматирует числа по ru-RU; английские разделители расставляются
+  // на границе представления, остальные локали используют запятую как есть.
+  it('EN groups thousands with a comma; the currency symbol still trails', () => {
     const en = localizeResult(credit(), 'en');
-    expect(en.primary.value).toBe('13 347 $');
-    expect(en.secondary.find((row) => row.label === 'Total repayment')?.value).toBe('800 800 $');
+    expect(en.primary.value).toBe('13,347 $');
+    expect(en.secondary.find((row) => row.label === 'Total repayment')?.value).toBe('800,800 $');
   });
 
-  it('LEGACY: EN keeps the Russian decimal comma', () => {
+  it('EN marks the decimal with a dot', () => {
     const en = localizeResult(bmi(), 'en');
-    expect(en.primary.value).toBe('24,7');
-    expect(en.secondary.find((row) => row.label === 'Healthy weight reference')?.value).toBe('59,9–80,7 kg');
+    expect(en.primary.value).toBe('24.7');
+    expect(en.secondary.find((row) => row.label === 'Healthy weight reference')?.value).toBe('59.9–80.7 kg');
   });
 
   it('UK keeps the comma decimal, which is correct for Ukrainian', () => {
@@ -75,22 +75,20 @@ describe('result localization: LEGACY number formatting', () => {
   });
 });
 
-describe('result localization: LEGACY UK phrase corruption', () => {
-  // Словарь фраз применяется повторно к уже переведённой строке, а украинский
-  // перевод «Норма» начинается с «Норма», поэтому подстановка срабатывает дважды.
-  it('LEGACY: the BMI category is doubled in UK', () => {
+describe('result localization: UK phrase substitution', () => {
+  it('translates the BMI category exactly once', () => {
     const uk = localizeResult(bmi(), 'uk');
     expect(uk.secondary.find((row) => row.label === 'Категорія')?.value)
-      .toBe('Нормальний діапазонльний діапазон');
+      .toBe('Нормальний діапазон');
   });
 
-  it('LEGACY: the transformation is not idempotent for that phrase', () => {
-    const once = localizedResultText('Норма', 'uk');
-    expect(once).toBe('Нормальний діапазонльний діапазон');
-    expect(localizedResultText(once, 'uk')).not.toBe(once);
+  it('returns exactly the dictionary entry, with nothing appended', () => {
+    expect(localizedResultText('Норма', 'uk')).toBe('Нормальний діапазон');
   });
 
-  it('is the only non-idempotent value across every calculator and locale', () => {
+  it('leaves no doubled fragment in any localized runner output', () => {
+    // Признак прежней порчи — переведённая строка, в которой один и тот же кусок
+    // идёт подряд дважды. Проверяется по фактическому выводу всех калькуляторов.
     const offenders: string[] = [];
     for (const calculator of calculators) {
       const run = runners[calculator.id];
@@ -105,12 +103,12 @@ describe('result localization: LEGACY UK phrase corruption', () => {
         .filter(Boolean);
       for (const locale of ['en', 'uk'] as const) {
         for (const value of values) {
-          const once = localizedResultText(value, locale);
-          if (localizedResultText(once, locale) !== once) offenders.push(`${locale}:${calculator.id}:${value}`);
+          const localized = localizedResultText(value, locale);
+          if (/(\S{5,})\1/.test(localized)) offenders.push(`${locale}:${calculator.id}:${localized}`);
         }
       }
     }
-    expect(offenders).toEqual(['uk:bmi-calculator:Норма']);
+    expect(offenders).toEqual([]);
   });
 });
 
@@ -119,8 +117,8 @@ describe('result localization: copied text follows the visible result', () => {
     const en = localizeResult(credit(), 'en');
     const text = resultToText({ name: 'Loan calculator' }, en, 'en');
     expect(text).toContain('Loan calculator');
-    expect(text).toContain('Monthly payment: 13 347 $');
-    expect(text).toContain('Total repayment: 800 800 $');
+    expect(text).toContain('Monthly payment: 13,347 $');
+    expect(text).toContain('Total repayment: 800,800 $');
   });
 
   it('adds the localized note label when a note exists', () => {

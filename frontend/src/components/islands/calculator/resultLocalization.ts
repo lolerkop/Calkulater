@@ -12,29 +12,59 @@ function translateLabel(label: string, locale: Locale): string {
   return localizedResultLabel(label, locale);
 }
 
+// Число в русской записи: целая часть с неразрывными пробелами между тройками и
+// необязательная дробная часть после запятой.
+const RU_FORMATTED_NUMBER = /\d+(?:\u00a0\d{3})*(?:,\d+)?/g;
+
+// Раннеры форматируют числа через Intl.NumberFormat('ru-RU') и не знают локали,
+// поэтому английские разделители расставляются здесь, на границе представления.
+// Переписываются только разделители внутри самого числа, так что даты, время и
+// ISO-метки не затрагиваются: между их цифрами нет ни неразрывного пробела, ни
+// запятой. Остальные локали используют запятую как десятичный разделитель, и для
+// них запись раннера уже верна.
+function toEnglishDigitSeparators(value: string): string {
+  return value.replace(RU_FORMATTED_NUMBER, (run) => {
+    const [integer, fraction] = run.split(',');
+    const grouped = integer.split('\u00a0').join(',');
+    return fraction === undefined ? grouped : `${grouped}.${fraction}`;
+  });
+}
+
+function localizeValue(value: string, locale: Locale): string {
+  const translated = localizedResultText(value, locale);
+  return locale === 'en' ? toEnglishDigitSeparators(translated) : translated;
+}
+
+// Часть меток собирается из чисел («15,00% of 200,00»), поэтому разделители в них
+// должны совпадать со значением в той же строке.
+function localizeLabel(label: string, locale: Locale): string {
+  const translated = translateLabel(label, locale);
+  return locale === 'en' ? toEnglishDigitSeparators(translated) : translated;
+}
+
 export function localizeResult(result: CalcResult, locale: Locale): CalcResult {
   if (locale === 'ru') return result;
   return {
     ...result,
     primary: {
-      label: translateLabel(result.primary.label, locale),
-      value: localizedResultText(result.primary.value, locale),
+      label: localizeLabel(result.primary.label, locale),
+      value: localizeValue(result.primary.value, locale),
     },
     secondary: result.secondary.map((row) => ({
       ...row,
-      label: translateLabel(row.label, locale),
-      value: localizedResultText(row.value, locale),
+      label: localizeLabel(row.label, locale),
+      value: localizeValue(row.value, locale),
     })),
     table: result.table
       ? {
           ...result.table,
-          title: result.table.title ? translateLabel(result.table.title, locale) : result.table.title,
-          columns: result.table.columns.map((column) => translateLabel(column, locale)),
-          rows: result.table.rows.map((row) => row.map((cell) => localizedResultText(cell, locale))),
-          note: result.table.note ? localizedResultText(result.table.note, locale) : result.table.note,
+          title: result.table.title ? localizeLabel(result.table.title, locale) : result.table.title,
+          columns: result.table.columns.map((column) => localizeLabel(column, locale)),
+          rows: result.table.rows.map((row) => row.map((cell) => localizeValue(cell, locale))),
+          note: result.table.note ? localizeValue(result.table.note, locale) : result.table.note,
         }
       : undefined,
-    note: result.note ? localizedResultText(result.note, locale) : result.note,
+    note: result.note ? localizeValue(result.note, locale) : result.note,
   };
 }
 

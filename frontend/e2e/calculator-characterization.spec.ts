@@ -102,36 +102,45 @@ test('showIf field appears, accepts input and hides again with the controlling t
   await expect(page.getByTestId('calc-result-primary')).toHaveText('19\u00a0500 ₽');
 });
 
-test('LEGACY: EN results keep RU number formatting and a trailing currency symbol', async ({ page }) => {
-  // Pins current behaviour before the planned locale-aware formatting fix.
-  // Results are produced in Russian by the runners and only post-translated, so an
-  // English visitor sees a U+00A0 group separator and a postfix "$" instead of "$13,347".
+test('EN results use English digit separators', async ({ page }) => {
+  // Runners format numbers with Intl.NumberFormat('ru-RU'), so the separators are
+  // rewritten at the presentation boundary: a comma groups thousands and a dot marks
+  // the decimal. The currency symbol still trails the amount — placement is a separate
+  // product decision and was deliberately not changed.
   await page.goto('/en/finance/loan-calculator/?amount=600000&rate=12&term=5');
 
-  await expect(page.getByTestId('calc-result-primary')).toHaveText('13\u00a0347 $');
-  await expect(page.getByTestId('calc-result')).toContainText('800\u00a0800 $');
-  await expect(page.getByTestId('calc-result-primary')).not.toContainText('$13,347');
+  await expect(page.getByTestId('calc-result-primary')).toHaveText('13,347 $');
+  await expect(page.getByTestId('calc-result')).toContainText('800,800 $');
 
-  // Exact value without Playwright's whitespace normalization.
-  expect(await page.getByTestId('calc-result-primary').textContent()).toBe('13\u00a0347 $');
+  // Exact value: no U+00A0 left anywhere in it.
+  expect(await page.getByTestId('calc-result-primary').textContent()).toBe('13,347 $');
 
-  // Labels and units are translated even though the numbers are not.
   await expect(page.getByTestId('calc-result')).toContainText('Total repayment');
   await expect(page.getByTestId('calc-result')).toContainText('60 mo.');
 });
 
-test('LEGACY: UK results keep RU decimals and a doubled category value', async ({ page }) => {
-  // Pins current behaviour before the planned locale-aware formatting fix.
-  // "Нормальний діапазонльний діапазон" is a real defect: the UK phrase dictionary is
-  // re-applied to the already-translated string, and the translation of "Норма" starts
-  // with "Норма", so it is substituted a second time. Fixed separately, not here.
+test('EN decimals use a dot while clock times stay untouched', async ({ page }) => {
+  await page.goto('/en/fitness/bmi-calculator/?height=180&weight=80');
+  await expect(page.getByTestId('calc-result-primary')).toHaveText('24.7');
+  await expect(page.getByTestId('calc-result')).toContainText('59.9–80.7 kg');
+
+  // A pace is not a separator-bearing number and must survive as it is.
+  await page.goto('/en/fitness/running-pace-calculator/');
+  await expect(page.getByTestId('calc-result-primary')).toContainText(':');
+  await expect(page.getByTestId('calc-result')).toContainText('km/h');
+});
+
+test('UK keeps comma decimals and no longer doubles the BMI category', async ({ page }) => {
+  // Ukrainian uses a comma decimal separator, so the runner formatting is already
+  // correct there. The category used to read "Нормальний діапазонльний діапазон"
+  // because the phrase dictionary was re-applied to its own output.
   await page.goto('/uk/fitness/kalkulyator-bmi/?height=180&weight=80');
 
   await expect(page.getByTestId('calc-result-primary')).toHaveText('24,7');
   await expect(page.getByTestId('calc-result')).toContainText('59,9–80,7 кг');
-  await expect(page.getByTestId('calc-result')).toContainText('Нормальний діапазонльний діапазон');
+  await expect(page.getByTestId('calc-result')).toContainText('Нормальний діапазон');
+  await expect(page.getByTestId('calc-result')).not.toContainText('діапазонльний');
 
-  // Labels are translated even though the numbers are not.
   await expect(page.getByTestId('calc-result')).toContainText('Категорія');
   await expect(page.getByTestId('calc-result')).toContainText('Зріст');
 });
