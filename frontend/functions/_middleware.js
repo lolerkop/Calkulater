@@ -1,3 +1,5 @@
+const PRODUCTION_HOSTNAME = 'calcuway.com';
+
 const EXACT_REDIRECTS = new Map([
   ['/calculators', '/ru/calculators/'],
   ['/about', '/ru/about/'],
@@ -30,10 +32,19 @@ export async function onRequest(context) {
   const redirectedPath = legacyRedirectPath(url.pathname);
 
   if (url.hostname === 'www.calcuway.com' || redirectedPath) {
-    url.hostname = 'calcuway.com';
+    url.hostname = PRODUCTION_HOSTNAME;
     if (redirectedPath) url.pathname = redirectedPath;
     return Response.redirect(url.toString(), 301);
   }
 
-  return context.next();
+  const assetResponse = await context.next();
+  if (url.hostname === PRODUCTION_HOSTNAME) return assetResponse;
+
+  // Тот же сайт доступен на служебных доменах Cloudflare Pages. Страницы там
+  // отдают canonical на продакшен, но при этом объявляют index,follow, поэтому
+  // копия остаётся индексируемой. Заголовок закрывает её от поисковых систем,
+  // не затрагивая продакшен-домен.
+  const response = new Response(assetResponse.body, assetResponse);
+  response.headers.set('X-Robots-Tag', 'noindex');
+  return response;
 }
