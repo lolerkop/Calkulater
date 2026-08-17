@@ -9,7 +9,7 @@ import { parseLocalizedNumber } from '../../../lib/format';
 import { parseExcludedDates } from '../../../lib/calculators/workingDays';
 import { isValidIsoDate } from '../../../lib/date';
 import { calculatorCopy } from './copy';
-import type { FormValues } from './values';
+import { isPartialNumber, type FormValues } from './values';
 
 export type FieldErrors = Record<string, string>;
 export const EMPTY_ERRORS: FieldErrors = Object.freeze({});
@@ -25,8 +25,15 @@ export function validateValues(calculatorId: string, fields: Field[], values: Fo
   for (const field of fields) {
     if (!isVisible(field, values) || field.type !== 'number') continue;
     const raw = values[field.name];
-    const parsed = typeof raw === 'boolean' ? null : parseLocalizedNumber(String(raw ?? ''), locale);
-    if (raw === '' || raw === undefined || raw === null || parsed === null) {
+    const text = typeof raw === 'boolean' ? '' : String(raw ?? '');
+    const parsed = typeof raw === 'boolean' ? null : parseLocalizedNumber(text, locale);
+    if (parsed === null) {
+      // Пустое необязательное поле — это «суммы нет», а не ошибка ввода: раннер
+      // получит нуль и просто не выведет зависящую от суммы строку.
+      if (text.trim() === '' && field.optional) continue;
+      // Незакрытая дробь вроде «1,» — значение неполное, а не неверное. Ругаться
+      // на посетителя, пока он ещё набирает число, незачем.
+      if (isPartialNumber(text)) continue;
       errors[field.name] = copy.enterNumber;
       continue;
     }

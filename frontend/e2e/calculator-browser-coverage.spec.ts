@@ -66,11 +66,16 @@ async function expectOptionalPriceContract(
   await options.expectQuantity();
   await expect(page.getByTestId('calc-result')).not.toContainText(options.costLabel);
 
-  // Пустое значение считается общей валидацией number-поля: форма остаётся
-  // рабочей, но результат не показывается, пока значение не исправлено.
+  // Стёртая необязательная цена значит «цены нет», а не ошибку ввода: раннер
+  // сверяет её с нулём, поэтому основной расчёт остаётся на месте, а строка
+  // стоимости просто не выводится — ровно как при явном нуле.
+  // Прежде здесь закреплялось противоположное: пустое поле роняло весь
+  // результат. Это поведение исправлено, и тест переписан под новый контракт.
   await field.fill('');
-  await expect(error).toBeVisible();
-  await expect(page.getByTestId('calc-result')).toHaveCount(0);
+  await expect(error).toHaveCount(0);
+  await expectHealthyResult(page);
+  await options.expectQuantity();
+  await expect(page.getByTestId('calc-result')).not.toContainText(options.costLabel);
   await expect(page.getByTestId('calc-form')).toBeVisible();
 
   await field.fill('0');

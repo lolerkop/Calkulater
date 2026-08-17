@@ -46,8 +46,8 @@ export const calculators: CalculatorDef[] = [
         name: 'type', label: 'Тип платежа', type: 'toggle', defaultValue: 'annuity',
         options: [{ value: 'annuity', label: 'Аннуитетный' }, { value: 'differentiated', label: 'Дифференцированный' }],
       },
-      { name: 'extraPayment', label: 'Доплата каждый месяц', type: 'number', defaultValue: 0, unit: '₽', min: 0 },
-      { name: 'oneTimeFee', label: 'Разовая комиссия', type: 'number', defaultValue: 0, unit: '₽', min: 0 },
+      { name: 'extraPayment', label: 'Доплата каждый месяц', type: 'number', defaultValue: 0, unit: '₽', min: 0, optional: true },
+      { name: 'oneTimeFee', label: 'Разовая комиссия', type: 'number', defaultValue: 0, unit: '₽', min: 0, optional: true },
     ],
     resultLabels: {
       monthly: 'Ежемесячный платеж',
@@ -231,8 +231,8 @@ export const calculators: CalculatorDef[] = [
         name: 'type', label: 'Тип платежа', type: 'toggle', defaultValue: 'annuity',
         options: [{ value: 'annuity', label: 'Аннуитетный' }, { value: 'differentiated', label: 'Дифференцированный' }],
       },
-      { name: 'extraPayment', label: 'Доплата каждый месяц', type: 'number', defaultValue: 0, unit: '₽', min: 0 },
-      { name: 'monthlyInsurance', label: 'Страховка и расходы в месяц', type: 'number', defaultValue: 0, unit: '₽', min: 0 },
+      { name: 'extraPayment', label: 'Доплата каждый месяц', type: 'number', defaultValue: 0, unit: '₽', min: 0, optional: true },
+      { name: 'monthlyInsurance', label: 'Страховка и расходы в месяц', type: 'number', defaultValue: 0, unit: '₽', min: 0, optional: true },
     ],
     resultLabels: {
       loanAmount: 'Сумма кредита',
@@ -583,7 +583,7 @@ export const calculators: CalculatorDef[] = [
       { name: 'fixedCosts', label: 'Постоянные затраты за период', type: 'number', defaultValue: 300000, unit: '₽', min: 0, step: 100 },
       { name: 'unitPrice', label: 'Цена продажи единицы', type: 'number', defaultValue: 1500, unit: '₽', min: 0.01, step: 0.01 },
       { name: 'variableCost', label: 'Переменные затраты на единицу', type: 'number', defaultValue: 900, unit: '₽', min: 0, step: 0.01 },
-      { name: 'plannedUnits', label: 'Плановый объём продаж', type: 'number', defaultValue: 0, min: 0, step: 1 },
+      { name: 'plannedUnits', label: 'Плановый объём продаж', type: 'number', defaultValue: 0, min: 0, step: 1, optional: true },
     ],
     resultLabels: {
       units: 'Точка безубыточности',
@@ -1078,7 +1078,7 @@ export const calculators: CalculatorDef[] = [
       { name: 'packArea', label: 'Площадь упаковки, м²', type: 'number', defaultValue: 1.44, min: 0.01, step: 0.01 },
       { name: 'reserve', label: 'Запас, %', type: 'number', defaultValue: 10, min: 0 },
       { name: 'glueConsumption', label: 'Расход клея, кг/м²', type: 'number', defaultValue: 5, min: 0, step: 0.1 },
-      { name: 'packPrice', label: 'Цена упаковки', type: 'number', defaultValue: 0, unit: '₽', min: 0 },
+      { name: 'packPrice', label: 'Цена упаковки', type: 'number', defaultValue: 0, unit: '₽', min: 0, optional: true },
     ],
     resultLabels: {
       area: 'Площадь',
@@ -1131,7 +1131,7 @@ export const calculators: CalculatorDef[] = [
       { name: 'windows', label: 'Количество окон', type: 'number', defaultValue: 1, min: 0 },
       { name: 'doors', label: 'Количество дверей', type: 'number', defaultValue: 1, min: 0 },
       { name: 'pattern', label: 'Раппорт рисунка, см', type: 'number', defaultValue: 0, min: 0 },
-      { name: 'rollPrice', label: 'Цена рулона', type: 'number', defaultValue: 0, min: 0 },
+      { name: 'rollPrice', label: 'Цена рулона', type: 'number', defaultValue: 0, min: 0, optional: true },
     ],
     resultLabels: {
       wallArea: 'Площадь стен',
@@ -1189,7 +1189,7 @@ export const calculators: CalculatorDef[] = [
       { name: 'consumption', label: 'Расход на м², л', type: 'number', defaultValue: 0.15, min: 0.01, step: 0.01 },
       { name: 'canVolume', label: 'Объём банки, л', type: 'number', defaultValue: 2.5, min: 0.01, step: 0.1 },
       { name: 'reserve', label: 'Запас, %', type: 'number', defaultValue: 10, min: 0, max: 50 },
-      { name: 'canPrice', label: 'Цена одной банки', type: 'number', defaultValue: 0, min: 0 },
+      { name: 'canPrice', label: 'Цена одной банки', type: 'number', defaultValue: 0, min: 0, optional: true },
     ],
     resultLabels: {
       area: 'Площадь окрашивания',
@@ -1237,8 +1237,8 @@ export const calculators: CalculatorDef[] = [
       { name: 'width', label: 'Ширина комнаты, м', type: 'number', defaultValue: 4, min: 0.01 },
       { name: 'packArea', label: 'Площадь упаковки, м²', type: 'number', defaultValue: 2.13, min: 0.01, step: 0.01 },
       { name: 'reserve', label: 'Запас, %', type: 'number', defaultValue: 10, min: 0 },
-      { name: 'packPrice', label: 'Цена упаковки', type: 'number', defaultValue: 0, min: 0 },
-      { name: 'underlayPrice', label: 'Цена подложки за м²', type: 'number', defaultValue: 0, min: 0 },
+      { name: 'packPrice', label: 'Цена упаковки', type: 'number', defaultValue: 0, min: 0, optional: true },
+      { name: 'underlayPrice', label: 'Цена подложки за м²', type: 'number', defaultValue: 0, min: 0, optional: true },
     ],
     resultLabels: {
       area: 'Площадь пола',
@@ -1292,7 +1292,7 @@ export const calculators: CalculatorDef[] = [
       { name: 'mixConsumption', label: 'Расход смеси, кг на м² при слое 1 см', type: 'number', defaultValue: 18, min: 0, step: 0.1 },
       { name: 'bagWeight', label: 'Вес мешка, кг', type: 'number', defaultValue: 25, min: 1, step: 1 },
       { name: 'reserve', label: 'Запас, %', type: 'number', defaultValue: 10, min: 0, step: 1 },
-      { name: 'bagPrice', label: 'Цена мешка', type: 'number', defaultValue: 0, unit: '₽', min: 0 },
+      { name: 'bagPrice', label: 'Цена мешка', type: 'number', defaultValue: 0, unit: '₽', min: 0, optional: true },
     ],
     resultLabels: {
       volume: 'Объём раствора',
@@ -1355,7 +1355,7 @@ export const calculators: CalculatorDef[] = [
       { name: 'unitHeight', label: 'Высота камня', type: 'number', defaultValue: 65, unit: 'мм', min: 1, step: 1 },
       { name: 'joint', label: 'Толщина шва', type: 'number', defaultValue: 10, unit: 'мм', min: 0, step: 1 },
       { name: 'reserve', label: 'Запас', type: 'number', defaultValue: 5, unit: '%', min: 0, max: 50, step: 1 },
-      { name: 'unitPrice', label: 'Цена за штуку', type: 'number', defaultValue: 0, unit: '₽', min: 0, step: 0.01 },
+      { name: 'unitPrice', label: 'Цена за штуку', type: 'number', defaultValue: 0, unit: '₽', min: 0, step: 0.01, optional: true },
     ],
     resultLabels: {
       units: 'Количество камней',
