@@ -84,6 +84,9 @@
   --border: #E5E2ED;
   --ink: #17152F;
   --muted: #716D84;
+  /* Цвет шапки после наложения: bg-white/85 поверх --surface-soft.
+     Нужен подложке .nav-scroll, чтобы та сливалась с фоном, а не белела. */
+  --header-veil: #FEFEFF;
   --shadow-sm: 0 8px 24px rgba(39, 32, 85, 0.07);
   --shadow-lg: 0 24px 64px rgba(61, 48, 133, 0.13);
 }
@@ -370,14 +373,29 @@ table {
   hyphens: auto;
 }
 
-.mobile-scroll {
+/* Горизонтальные полосы навигации.
+   Подсказка о прокрутке — тень у края. Она держится на месте (scroll), а
+   поверх неё лежит подложка цвета шапки, прикреплённая к содержимому (local):
+   домотав полосу до конца, пользователь приводит подложку к тому же краю, и
+   тень скрывается. Поэтому затенение видно ровно там, где за краем ещё есть
+   пункты, и пропадает, когда их не осталось. */
+.nav-scroll {
   overscroll-behavior-inline: contain;
   scrollbar-width: none;
   touch-action: pan-x;
   -webkit-overflow-scrolling: touch;
+  background-image:
+    linear-gradient(to right, var(--header-veil) 20%, rgba(255, 255, 255, 0)),
+    linear-gradient(to left, var(--header-veil) 20%, rgba(255, 255, 255, 0)),
+    linear-gradient(to right, rgba(23, 21, 47, 0.13), rgba(23, 21, 47, 0)),
+    linear-gradient(to left, rgba(23, 21, 47, 0.13), rgba(23, 21, 47, 0));
+  background-position: left center, right center, left center, right center;
+  background-repeat: no-repeat;
+  background-size: 30px 100%, 30px 100%, 18px 100%, 18px 100%;
+  background-attachment: local, local, scroll, scroll;
 }
 
-.mobile-scroll::-webkit-scrollbar {
+.nav-scroll::-webkit-scrollbar {
   display: none;
 }
 
