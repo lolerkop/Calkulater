@@ -416,13 +416,18 @@ table {
    тень скрывается. Поэтому затенение видно ровно там, где за краем ещё есть
    пункты, и пропадает, когда их не осталось. */
 .nav-scroll {
+  /* Цвет подложки настраивается: у шапки поверхность околобелая, у панели
+     результата — --surface-soft. Значение по умолчанию оставляет поведение
+     шапки прежним, а поверхность с другим фоном переопределяет переменную
+     локально, иначе по краю пошла бы светлая полоса. */
+  --nav-veil: var(--header-veil);
   overscroll-behavior-inline: contain;
   scrollbar-width: none;
   touch-action: pan-x;
   -webkit-overflow-scrolling: touch;
   background-image:
-    linear-gradient(to right, var(--header-veil) 20%, rgba(255, 255, 255, 0)),
-    linear-gradient(to left, var(--header-veil) 20%, rgba(255, 255, 255, 0)),
+    linear-gradient(to right, var(--nav-veil) 20%, rgba(255, 255, 255, 0)),
+    linear-gradient(to left, var(--nav-veil) 20%, rgba(255, 255, 255, 0)),
     linear-gradient(to right, rgba(23, 21, 47, 0.13), rgba(23, 21, 47, 0)),
     linear-gradient(to left, rgba(23, 21, 47, 0.13), rgba(23, 21, 47, 0));
   background-position: left center, right center, left center, right center;

@@ -3,6 +3,7 @@
 // модуль не занимается: он получает уже подготовленный CalcResult через props,
 // поэтому translateLabel/localizeResult/resultToText остаются в островe.
 
+import type { CSSProperties } from 'react';
 import {
   AlertCircle,
   Calculator as CalculatorIcon,
@@ -122,7 +123,12 @@ function ResultBlock({
       </dl>
 
       {result.table && (
-        <div className="border-t border-ink-200 overflow-x-auto">
+        <div
+          className="nav-scroll border-t border-ink-200 overflow-x-auto"
+          // Панель результата стоит на --surface-soft, а не на фоне шапки:
+          // подложке подсказки нужен именно этот цвет, иначе край побелеет.
+          style={{ '--nav-veil': 'var(--surface-soft)' } as CSSProperties}
+        >
           {result.table.title && (
             <div className="px-4 pt-4 text-xs uppercase tracking-wider text-ink-500 sm:px-6">
               {result.table.title}
