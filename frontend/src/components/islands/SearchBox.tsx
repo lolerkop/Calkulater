@@ -264,7 +264,10 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
           id="search-input"
           data-testid="search-input"
           type="search"
-          className="field-input py-4 pl-11 pr-12 text-base sm:text-lg"
+          className={[
+            'field-input search-input py-4 text-base sm:text-lg',
+            hasQuery ? 'search-input-clearable' : '',
+          ].join(' ').trim()}
           placeholder={searchCopy.placeholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
