@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import type { CalculatorDef, Field, CalcResult } from '../../lib/types';
 import { runners } from '../../lib/runners';
+import { v2ContextualFields } from '../../calculators/runtime.generated';
 import type { Locale } from '../../lib/clientI18n';
 import {
   buildCalculatorQueryString,
@@ -84,24 +85,11 @@ function readPreHydrationEdits(fields: Field[]): FormValues {
   return edits;
 }
 
+// Подписи полей, зависящие от значений формы, принадлежат калькулятору.
+// Остров лишь спрашивает манифест — какие калькуляторы существуют, он не знает.
 function contextualField(field: Field, calculatorId: string, values: FormValues, locale: Locale): Field {
-  if (calculatorId !== 'percent-calculator' || (field.name !== 'a' && field.name !== 'b')) return field;
-  const mode = String(values.mode ?? 'of');
-  const labels = {
-    ru: {
-      percentage: 'Процент', number: 'Число', part: 'Часть', whole: 'Целое', start: 'Начальное значение', end: 'Конечное значение',
-    },
-    en: {
-      percentage: 'Percentage', number: 'Number', part: 'Part', whole: 'Whole', start: 'Starting value', end: 'Final value',
-    },
-    uk: {
-      percentage: 'Відсоток', number: 'Число', part: 'Частина', whole: 'Ціле', start: 'Початкове значення', end: 'Кінцеве значення',
-    },
-  } as const;
-  const copy = labels[locale === 'ru' || locale === 'uk' ? locale : 'en'];
-  if (mode === 'what') return { ...field, label: field.name === 'a' ? copy.part : copy.whole };
-  if (mode === 'change') return { ...field, label: field.name === 'a' ? copy.start : copy.end };
-  return { ...field, label: field.name === 'a' ? copy.percentage : copy.number };
+  const own = v2ContextualFields[calculatorId];
+  return own ? own(field, values, locale) : field;
 }
 
 function fallbackCopy(text: string): boolean {

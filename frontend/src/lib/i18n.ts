@@ -1,5 +1,6 @@
 import { categories as baseCategories } from '../data/categories';
 import { calculators as baseCalculators } from '../data/calculators';
+import { v2EnCopy, v2UkCopy } from '../calculators/manifest.generated';
 import { getCalculatorSeoContent } from '../data/calculatorSeoContent';
 import { fullParityCalculatorIds, isRuOnlyCalculator } from '../data/localizationParity';
 import { ukCalculatorContent } from '../data/ukCalculatorContent';
@@ -2442,7 +2443,7 @@ function faq(topic: string): FaqItem[] {
   ];
 }
 
-const enCalculatorCopy: Record<string, CalcCopy> = {
+const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
   'brick-calculator': {
     name: 'Brick and block calculator',
     resultTitle: 'Brick and block result',
@@ -2542,20 +2543,6 @@ const enCalculatorCopy: Record<string, CalcCopy> = {
     example: 'Use the calculator to compare how a larger down payment changes the monthly payment.',
     faq: faq('mortgage calculator'),
     disclaimer: 'Mortgage results are estimates and do not include taxes, insurance, fees or lender-specific conditions.',
-  },
-  'percent-calculator': {
-    name: 'Percentage calculator',
-    slug: 'percentage-calculator',
-    shortDescription: 'Calculate percentages, percentage change and values before or after percent adjustments.',
-    longDescription: 'Use this percentage calculator for everyday math: percent of a number, percentage change, markups and reverse percentages.',
-    seoTitle: 'Percentage calculator — percent of a number and percentage change',
-    seoDescription: 'Free percentage calculator for percent of a number, percentage change, increase, decrease and reverse calculations.',
-    h1: 'Percentage calculator',
-    keywords: ['percentage calculator', 'percent change', 'percent of number'],
-    howToUse: ['Choose the calculation mode.', 'Enter values A and B.', 'Read the result and helper values.'],
-    howItWorks: 'The calculator applies the selected percentage formula to the two input values.',
-    example: 'Find 15% of 200 or calculate the percentage change from 80 to 100.',
-    faq: faq('percentage calculator'),
   },
   'discount-calculator': {
     name: 'Discount calculator',
@@ -2718,20 +2705,6 @@ const enCalculatorCopy: Record<string, CalcCopy> = {
     example: 'Estimate rolls for a 5 by 4 meter room with 2.7 m wall height.',
     faq: faq('wallpaper calculator'),
   },
-  'paint-calculator': {
-    name: 'Paint calculator',
-    slug: 'paint-calculator',
-    shortDescription: 'Estimate paint liters and cans for walls or a manual area.',
-    longDescription: 'Use this paint calculator to estimate paint quantity from area, coats, coverage and can size.',
-    seoTitle: 'Paint calculator — liters and cans needed',
-    seoDescription: 'Calculate paint liters and cans for walls using area, coats, coverage and can volume.',
-    h1: 'Paint calculator',
-    keywords: ['paint calculator', 'paint liters', 'paint cans'],
-    howToUse: ['Enter room dimensions or area.', 'Set coats, coverage and can size.', 'Review liters and cans.'],
-    howItWorks: 'The calculator multiplies area by coats and coverage, then divides by can volume.',
-    example: 'Estimate paint for 30 square meters with two coats.',
-    faq: faq('paint calculator'),
-  },
   'laminate-calculator': {
     name: 'Laminate calculator',
     slug: 'laminate-calculator',
@@ -2891,7 +2864,7 @@ type CalculatorSeoCopy = Pick<CalcCopy,
   'name' | 'slug' | 'shortDescription' | 'seoTitle' | 'seoDescription' | 'h1' | 'keywords' | 'disclaimer'
 >;
 
-const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string, CalculatorSeoCopy>> = {
+const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string, CalculatorSeoCopy>> = {
   es: {
     'credit-calculator': {
       name: 'Calculadora de préstamo',
@@ -5106,15 +5079,6 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
       keywords: ['іпотечний калькулятор', 'платіж за іпотекою', 'кредит на житло'],
       disclaimer: 'Результати іпотеки є оцінками та не замінюють пропозицію банку.',
     },
-    'percent-calculator': {
-      name: 'Калькулятор відсотків',
-      slug: 'kalkulyator-vidsotkiv',
-      shortDescription: 'Розрахуйте відсотки, відсоткову зміну та значення до або після коригування.',
-      seoTitle: 'Калькулятор відсотків - відсоток від числа і зміна',
-      seoDescription: 'Безкоштовний калькулятор для відсотка від числа, збільшення, зменшення та зворотного розрахунку.',
-      h1: 'Калькулятор відсотків',
-      keywords: ['калькулятор відсотків', 'відсоткова зміна', 'відсоток від числа'],
-    },
     'discount-calculator': {
       name: 'Калькулятор знижки',
       slug: 'kalkulyator-znyzhky',
@@ -5220,15 +5184,6 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
       seoDescription: 'Розрахуйте кількість рулонів шпалер за розмірами стін, рулону та запасом.',
       h1: 'Калькулятор шпалер',
       keywords: ['калькулятор шпалер', 'рулони шпалер', 'поклейка шпалер'],
-    },
-    'paint-calculator': {
-      name: 'Калькулятор фарби',
-      slug: 'kalkulyator-farby',
-      shortDescription: 'Оцініть літри фарби та кількість банок для фарбування.',
-      seoTitle: 'Калькулятор фарби - літри фарби та банки',
-      seoDescription: 'Розрахуйте потрібну кількість фарби за площею, покривністю та кількістю шарів.',
-      h1: 'Калькулятор фарби',
-      keywords: ['калькулятор фарби', 'літри фарби', 'фарбування'],
     },
     'laminate-calculator': {
       name: 'Калькулятор ламінату',
@@ -5787,6 +5742,16 @@ function faqForLocale(topic: string, locale: Exclude<Locale, 'ru'>): FaqItem[] {
   }
   return faq(topic);
 }
+
+// Копирайт калькуляторов V2 приходит из их собственных директорий через
+// генерируемый манифест. Слияние одноразовое: добавление калькулятора больше
+// не требует дописывать сотни строк в этот файл.
+const enCalculatorCopy: Record<string, CalcCopy> = { ...legacyEnCalculatorCopy, ...v2EnCopy };
+
+const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string, CalculatorSeoCopy>> = {
+  ...legacyCalculatorSeoByLocale,
+  uk: { ...legacyCalculatorSeoByLocale.uk, ...v2UkCopy },
+};
 
 function buildLocalizedCalculatorCopy(id: string, locale: Exclude<Locale, 'ru'>): CalcCopy {
   if (locale === 'en') return enCalculatorCopy[id];

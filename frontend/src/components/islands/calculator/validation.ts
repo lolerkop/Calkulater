@@ -10,6 +10,7 @@ import { parseExcludedDates } from '../../../lib/calculators/workingDays';
 import { isValidIsoDate } from '../../../lib/date';
 import { calculatorCopy } from './copy';
 import { isPartialNumber, type FormValues } from './values';
+import { v2Validators } from '../../../calculators/runtime.generated';
 
 export type FieldErrors = Record<string, string>;
 export const EMPTY_ERRORS: FieldErrors = Object.freeze({});
@@ -60,16 +61,19 @@ export function validateValues(calculatorId: string, fields: Field[], values: Fo
     }
   }
 
-  const zeroError = locale === 'ru'
-    ? 'Значение не может быть равно нулю.'
-    : locale === 'uk'
-      ? 'Значення не може дорівнювати нулю.'
-      : 'The value cannot be zero.';
-  if (calculatorId === 'percent-calculator') {
-    const mode = String(values.mode ?? 'of');
-    if (mode === 'what' && parseLocalizedNumber(String(values.b ?? ''), locale) === 0) errors.b = zeroError;
-    if (mode === 'change' && parseLocalizedNumber(String(values.a ?? ''), locale) === 0) errors.a = zeroError;
+  // Валидация, специфичная для калькулятора, живёт рядом с самим калькулятором.
+  // Общий слой только вызывает её и не знает, какие калькуляторы существуют:
+  // именно это отличает V2 от прежних веток `if (calculatorId === '...')`.
+  const ownValidator = v2Validators[calculatorId];
+  if (ownValidator) {
+    Object.assign(errors, ownValidator({
+      values,
+      locale,
+      fields,
+      parseNumber: (text: string) => parseLocalizedNumber(text, locale),
+    }));
   }
+
   if (calculatorId === 'working-days-calculator') {
     const invalid = parseExcludedDates(String(values.excludedDates ?? '')).invalid;
     if (invalid.length > 0) {

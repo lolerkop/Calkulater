@@ -1,5 +1,5 @@
-import type { CalcFunction } from '../types';
-import { fmtNumber, toNumber, toStr } from '../format';
+import type { CalcFunction } from '../../lib/types';
+import { fmtNumber, toNumber, toStr } from '../../lib/format';
 
 // Универсальный калькулятор процентов: четыре режима.
 //  - of:      сколько составит X% от числа A
@@ -83,3 +83,6 @@ export const calcPercent: CalcFunction = (inputs) => {
       return result('Результат', 0);
   }
 };
+
+// Runtime-манифест импортирует функцию под фиксированным именем.
+export { calcPercent as compute };

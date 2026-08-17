@@ -1,21 +1,16 @@
 import type { CalculatorDef } from '../lib/types';
 import { currencies } from './currencies';
+import { BUILD_DISCLAIMER, CURR_DISCLAIMER, FIN_DISCLAIMER, SPORT_DISCLAIMER } from '../lib/disclaimers';
+import { v2CatalogAdditions } from '../calculators/manifest.generated';
+import { mergeIntoCatalog } from '../lib/platform/types';
 
 const currencyOptions = currencies.map((c) => ({
   value: c.code,
   label: `${c.code} — ${c.name}`,
 }));
 
-const FIN_DISCLAIMER =
-  'Расчет носит справочный характер и не является финансовой, налоговой или бухгалтерской рекомендацией.';
-const SPORT_DISCLAIMER =
-  'Расчет является ориентировочным и не заменяет консультацию специалиста.';
-const CURR_DISCLAIMER =
-  'Используются официальные справочные курсы Банка России на указанную дату. Банки и обменники применяют собственные курсы покупки и продажи и могут взимать комиссию.';
-const BUILD_DISCLAIMER =
-  'Расчет является ориентировочным. Фактический расход зависит от материалов, основания и способа укладки.';
 
-export const calculators: CalculatorDef[] = [
+const legacyCalculators: CalculatorDef[] = [
   // ── ФИНАНСЫ ──────────────────────────────────────────────────────
   {
     id: 'credit-calculator',
@@ -389,59 +384,6 @@ export const calculators: CalculatorDef[] = [
       { q: 'Можно ли использовать расчёт для бухгалтерии?', a: 'Калькулятор подходит для быстрой проверки формулы. Для отчётности сверяйте ставку, период и правила с бухгалтером или официальными материалами ФНС. Ставки на странице указаны по состоянию на 2026 год.' },
     ],
     relatedCalculatorIds: ['income-tax-calculator', 'percent-calculator', 'discount-calculator'],
-    disclaimer: FIN_DISCLAIMER,
-  },
-  {
-    id: 'percent-calculator',
-    name: 'Калькулятор процентов',
-    slug: 'percent-calculator',
-    fullPath: '/finance/percent-calculator/',
-    category: 'finance',
-    icon: 'percent',
-    popularity: 88,
-    isNew: true,
-    shortDescription:
-      'Найдите процент от числа, долю в процентах, прибавьте или отнимите процент.',
-    longDescription:
-      'Универсальный калькулятор процентов с пятью режимами: найти процент от числа, найти долю в процентах, прибавить или отнять процент, рассчитать процентное изменение между двумя значениями.',
-    seoTitle: 'Калькулятор процентов онлайн — найти процент от числа',
-    seoDescription:
-      'Калькулятор процентов: процент от числа, доля в процентах, прибавить или отнять процент, процент изменения.',
-    h1: 'Калькулятор процентов',
-    keywords: ['проценты', 'процент от числа', 'процентное изменение', 'формула процентов'],
-    fields: [
-      {
-        name: 'mode', label: 'Режим', type: 'select', defaultValue: 'of',
-        options: [
-          { value: 'of', label: 'Сколько составит X% от числа' },
-          { value: 'what', label: 'Сколько процентов A от B' },
-          { value: 'addPct', label: 'Прибавить процент к числу' },
-          { value: 'subPct', label: 'Отнять процент от числа' },
-          { value: 'change', label: 'Процент изменения от A к B' },
-        ],
-      },
-      { name: 'a', label: 'Значение A', type: 'number', defaultValue: 15 },
-      { name: 'b', label: 'Значение B', type: 'number', defaultValue: 200 },
-    ],
-    resultLabels: {
-      result: 'Результат',
-    },
-    howToUse: [
-      'Выберите нужный режим расчёта в выпадающем списке.',
-      'Введите значение A (обычно процент или часть).',
-      'Введите значение B (обычно число или целое).',
-    ],
-    howItWorks:
-      'Базовая формула процента: X% от числа N = (X / 100) × N. Для процентного изменения используется формула (B − A) / A × 100%.',
-    example:
-      '15% от 200 = 30. 50 от 200 = 25%. 200 + 15% = 230. 200 − 15% = 170. Изменение со 100 до 130 = +30%.',
-    faq: [
-      { q: 'Как найти X процентов от числа?', a: 'Разделите X на 100 и умножьте на число. Например, 20% от 500 = 0,2 × 500 = 100.' },
-      { q: 'Как считать процент изменения?', a: 'Из нового значения вычтите старое, разделите на старое и умножьте на 100. Положительный результат — рост, отрицательный — снижение.' },
-      { q: 'Можно ли вводить дробные значения?', a: 'Да, используйте точку или запятую как разделитель.' },
-      { q: 'Какой режим выбрать для скидки или наценки?', a: 'Для наценки используйте «прибавить процент к числу», для скидки — «отнять процент от числа» или отдельный калькулятор скидки.' },
-    ],
-    relatedCalculatorIds: ['discount-calculator', 'vat-calculator', 'compound-interest'],
     disclaimer: FIN_DISCLAIMER,
   },
   {
@@ -1159,64 +1101,6 @@ export const calculators: CalculatorDef[] = [
     disclaimer: BUILD_DISCLAIMER,
   },
   {
-    id: 'paint-calculator',
-    name: 'Калькулятор краски',
-    slug: 'paint-calculator',
-    fullPath: '/building/paint-calculator/',
-    category: 'building',
-    icon: 'paint-bucket',
-    popularity: 65,
-    shortDescription: 'Объём краски и количество банок для покраски стен.',
-    longDescription:
-      'Калькулятор краски помогает оценить литры и количество банок для стен или другой площади. В расчёте учитываются площадь, количество слоёв, расход на квадратный метр и объём банки. Это удобно перед покупкой, чтобы не брать слишком мало материала и не переплачивать за лишние банки.',
-    seoTitle: 'Калькулятор краски онлайн — литры и банки',
-    seoDescription:
-      'Расчёт краски онлайн: литры и количество банок с учётом площади, числа слоёв, расхода на м² и объёма упаковки.',
-    h1: 'Калькулятор краски',
-    keywords: ['краска', 'покраска', 'расход'],
-    fields: [
-      {
-        name: 'mode', label: 'Способ расчёта', type: 'toggle', defaultValue: 'manual',
-        options: [{ value: 'manual', label: 'Площадь вручную' }, { value: 'room', label: 'По размерам комнаты' }],
-      },
-      { name: 'area', label: 'Площадь, м²', type: 'number', defaultValue: 30, min: 0.01, showIf: { field: 'mode', equals: 'manual' } },
-      { name: 'length', label: 'Длина, м', type: 'number', defaultValue: 5, min: 0.01, showIf: { field: 'mode', equals: 'room' } },
-      { name: 'width', label: 'Ширина, м', type: 'number', defaultValue: 4, min: 0.01, showIf: { field: 'mode', equals: 'room' } },
-      { name: 'height', label: 'Высота, м', type: 'number', defaultValue: 2.7, min: 0.01, step: 0.1, showIf: { field: 'mode', equals: 'room' } },
-      { name: 'windows', label: 'Количество окон', type: 'number', defaultValue: 1, min: 0, showIf: { field: 'mode', equals: 'room' } },
-      { name: 'doors', label: 'Количество дверей', type: 'number', defaultValue: 1, min: 0, showIf: { field: 'mode', equals: 'room' } },
-      { name: 'coats', label: 'Количество слоёв', type: 'number', defaultValue: 2, min: 1, max: 4 },
-      { name: 'consumption', label: 'Расход на м², л', type: 'number', defaultValue: 0.15, min: 0.01, step: 0.01 },
-      { name: 'canVolume', label: 'Объём банки, л', type: 'number', defaultValue: 2.5, min: 0.01, step: 0.1 },
-      { name: 'reserve', label: 'Запас, %', type: 'number', defaultValue: 10, min: 0, max: 50 },
-      { name: 'canPrice', label: 'Цена одной банки', type: 'number', defaultValue: 0, min: 0, optional: true },
-    ],
-    resultLabels: {
-      area: 'Площадь окрашивания',
-      liters: 'Литры краски',
-      cans: 'Количество банок',
-      reserve: 'Запас',
-    },
-    howToUse: [
-      'Выберите способ — площадь напрямую или размеры комнаты.',
-      'Укажите число слоёв (обычно 2).',
-      'Введите расход и объём банки — данные есть на этикетке.',
-      'Проверьте тип поверхности: пористые основания могут потребовать больше краски.',
-    ],
-    howItWorks:
-      'Литры = площадь × расход × количество слоёв. Банки округляются вверх, чтобы хватило с запасом.',
-    example: '30 м² в 2 слоя при расходе 0,15 л/м² без дополнительного запаса → 9 л краски, 4 банки по 2,5 л.',
-    faq: [
-      { q: 'Какой расход краски брать?', a: 'Обычно 0,1-0,2 л/м² на слой для водоэмульсионных красок. Точные значения — на этикетке.' },
-      { q: 'Сколько слоёв нужно?', a: 'Чаще всего 2. На контрастных стенах может понадобиться 3.' },
-      { q: 'Учитывается ли грунтовка?', a: 'Нет, грунтовка считается отдельно. Она может снизить расход краски на впитывающих поверхностях.' },
-      { q: 'Почему банки округляются вверх?', a: 'Краску покупают банками фиксированного объёма, поэтому итог всегда округляется до целой банки.' },
-      { q: 'Можно ли считать потолок?', a: 'Да, выберите ввод площади вручную и укажите площадь потолка, число слоёв и расход для выбранной краски.' },
-    ],
-    relatedCalculatorIds: ['wallpaper-calculator', 'tile-calculator', 'laminate-calculator'],
-    disclaimer: BUILD_DISCLAIMER,
-  },
-  {
     id: 'laminate-calculator',
     name: 'Калькулятор ламината',
     slug: 'laminate-calculator',
@@ -1545,6 +1429,12 @@ export const calculators: CalculatorDef[] = [
     disclaimer: 'Для юридических сроков сверяйте правила исчисления дат в договоре, законе или локальном производственном календаре.',
   },
 ];
+
+// Каталог = легаси-определения плюс калькуляторы Platform V2.
+// Это единственное место, где две архитектуры встречаются, и оно не растёт
+// при добавлении калькуляторов: V2-калькуляторы попадают сюда через манифест,
+// который порождается генератором, а не правится руками.
+export const calculators: CalculatorDef[] = mergeIntoCatalog(legacyCalculators, v2CatalogAdditions);
 
 export const calculatorsById = Object.fromEntries(
   calculators.map((c) => [c.id, c]),

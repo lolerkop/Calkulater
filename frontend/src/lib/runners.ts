@@ -10,7 +10,6 @@ import { calcPace } from './calculators/pace';
 import { calcOneRm } from './calculators/oneRm';
 import { calcTile } from './calculators/tile';
 import { calcWallpaper } from './calculators/wallpaper';
-import { calcPaint } from './calculators/paint';
 import { calcLaminate } from './calculators/laminate';
 import { calcScreed } from './calculators/screed';
 import { calcAge } from './calculators/age';
@@ -18,14 +17,14 @@ import { calcWorkingDays } from './calculators/workingDays';
 import { calcDateShift } from './calculators/dateShift';
 import { calcIncomeTax } from './calculators/incomeTax';
 import { calcVat } from './calculators/vat';
-import { calcPercent } from './calculators/percent';
 import { calcDiscount } from './calculators/discount';
 import { calcMargin } from './calculators/margin';
 import { calcBreakEven } from './calculators/breakEven';
 import { calcBodyFat } from './calculators/bodyFat';
 import { calcBrick } from './calculators/brick';
+import { v2Runners } from '../calculators/runtime.generated';
 
-export const runners: Record<string, CalcFunction> = {
+const legacyRunners: Record<string, CalcFunction> = {
   'credit-calculator': calcCredit,
   'deposit-calculator': calcDeposit,
   'compound-interest': calcCompound,
@@ -40,7 +39,6 @@ export const runners: Record<string, CalcFunction> = {
   'one-rep-max-calculator': calcOneRm,
   'tile-calculator': calcTile,
   'wallpaper-calculator': calcWallpaper,
-  'paint-calculator': calcPaint,
   'laminate-calculator': calcLaminate,
   'screed-calculator': calcScreed,
   'age-calculator': calcAge,
@@ -49,10 +47,14 @@ export const runners: Record<string, CalcFunction> = {
   // Новые финансовые калькуляторы (НДФЛ, НДС, проценты, скидка)
   'income-tax-calculator': calcIncomeTax,
   'vat-calculator': calcVat,
-  'percent-calculator': calcPercent,
   'discount-calculator': calcDiscount,
   'margin-calculator': calcMargin,
   'break-even-calculator': calcBreakEven,
   'body-fat-calculator': calcBodyFat,
   'brick-calculator': calcBrick,
 };
+
+// Раннеры Platform V2 приходят из генерируемого манифеста. Строка не растёт при
+// добавлении калькуляторов — в этом и смысл: реестр перестал быть местом,
+// которое правит каждая задача.
+export const runners: Record<string, CalcFunction> = { ...legacyRunners, ...v2Runners };

@@ -1,6 +1,6 @@
-import type { CalcFunction, CalcResult } from '../types';
-import { fmtInt, fmtNumber, toNumber, toStr } from '../format';
-import { ceilUnits } from '../rounding';
+import type { CalcFunction, CalcResult } from '../../lib/types';
+import { fmtInt, fmtNumber, toNumber, toStr } from '../../lib/format';
+import { ceilUnits } from '../../lib/rounding';
 
 export const calcPaint: CalcFunction = (inputs) => {
   const mode = toStr(inputs.mode, 'manual');
@@ -45,3 +45,6 @@ export const calcPaint: CalcFunction = (inputs) => {
     ],
   };
 };
+
+// Runtime-манифест импортирует функцию под фиксированным именем.
+export { calcPaint as compute };
