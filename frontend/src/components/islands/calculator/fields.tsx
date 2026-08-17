@@ -171,7 +171,9 @@ export function FieldRenderer({
   const labelEl = (
       <label htmlFor={fieldId} className="field-label text-fit" data-testid={`field-label-${field.name}`}>
       {field.label}
-      {field.unit ? <span className="ml-1 text-ink-600 normal-case">({field.unit})</span> : null}
+      {/* Пробел стоит в самом тексте, а не в отступе: подпись читают вслух и
+          копируют, и «Сумма кредита(₽)» там выглядит опечаткой. */}
+      {field.unit ? <span className="text-ink-600 normal-case">{` (${field.unit})`}</span> : null}
     </label>
   );
 
@@ -257,7 +259,7 @@ export function FieldRenderer({
             data-testid={`field-label-${field.name}`}
           >
             {field.label}
-            {field.unit ? <span className="ml-1 text-ink-600 normal-case">({field.unit})</span> : null}
+            {field.unit ? <span className="text-ink-600 normal-case">{` (${field.unit})`}</span> : null}
           </legend>
           <div
             id={fieldId}

@@ -26,6 +26,7 @@ import {
   webPageJsonLd,
 } from '../../../lib/seo';
 import { calculatorFreshness } from '../../../lib/calculatorFreshness';
+import { fieldUnitLabel } from '../../../lib/fieldUnitLabel';
 import { getCalculatorEditorial } from '../../../data/calculatorEditorial';
 import { isRuOnlyCalculator, ruOnlyCalculatorReasons } from '../../../data/localizationParity';
 
@@ -51,17 +52,11 @@ const copy = ui[locale];
 const editorial = getCalculatorEditorial(calc, locale);
 const localeSpecificReason = isRuOnlyCalculator(calc.id) ? ruOnlyCalculatorReasons[calc.id] : undefined;
 const editorialCopy = locale === 'ru'
-  ? { fields: 'Поля и единицы', use: 'Как пользоваться', noUnit: 'без единицы', select: 'вариант из списка', date: 'дата', toggle: 'да или нет' }
+  ? { fields: 'Поля и единицы', use: 'Как пользоваться' }
   : locale === 'uk'
-    ? { fields: 'Поля й одиниці', use: 'Як користуватися', noUnit: 'без одиниці', select: 'варіант зі списку', date: 'дата', toggle: 'так або ні' }
-    : { fields: 'Fields and units', use: 'How to use', noUnit: 'unitless', select: 'list option', date: 'date', toggle: 'yes or no' };
-const fieldUnit = (field: (typeof calc.fields)[number]) => {
-  if (field.unit) return field.unit;
-  if (field.type === 'select') return editorialCopy.select;
-  if (field.type === 'date') return editorialCopy.date;
-  if (field.type === 'toggle' || field.type === 'checkbox') return editorialCopy.toggle;
-  return editorialCopy.noUnit;
-};
+    ? { fields: 'Поля й одиниці', use: 'Як користуватися' }
+    : { fields: 'Fields and units', use: 'How to use' };
+const fieldUnit = (field: (typeof calc.fields)[number]) => fieldUnitLabel(field, locale);
 const pageCopy = {
   ru: {
     breadcrumbs: 'Хлебные крошки',

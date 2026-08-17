@@ -418,11 +418,15 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           </button>
         )}
 
+        {/* Подписи кнопок переносятся по пробелу, но не рвутся внутри слова:
+            глобальное overflow-wrap: anywhere спасает вёрстку от бесконечных
+            строк, а на узкой кнопке превращало «Скопировать ссылку» в
+            «Скопирова / ть ссылку». */}
         <div className="-mx-4 mt-6 grid grid-cols-2 items-stretch gap-2.5 border-t border-ink-100 bg-white px-4 py-3 sm:mx-0 sm:mt-7 sm:flex sm:flex-wrap sm:items-center sm:gap-3 sm:border-0 sm:bg-transparent sm:p-0">
           <button
             type="button"
             onClick={reset}
-            className="inline-flex min-h-11 min-w-0 items-center justify-center gap-1.5 rounded-xl border border-ink-200 px-2 py-2 text-center text-sm leading-tight text-ink-600 underline-offset-4 transition-colors hover:border-accent-100 hover:text-accent sm:min-h-0 sm:w-auto sm:justify-start sm:border-0 sm:px-0 sm:py-0 sm:text-ink-500 sm:hover:underline"
+            className="inline-flex min-h-11 min-w-0 items-center justify-center gap-1.5 rounded-xl border border-ink-200 px-2 py-2 text-center text-sm leading-tight text-ink-600 underline-offset-4 transition-colors [overflow-wrap:normal] hover:border-accent-100 hover:text-accent sm:min-h-0 sm:w-auto sm:justify-start sm:border-0 sm:px-0 sm:py-0 sm:text-ink-500 sm:hover:underline"
             data-testid="calc-reset-btn"
           >
             <RotateCcw size={14} aria-hidden="true" />
@@ -433,7 +437,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
             type="button"
             onClick={requestCopyShareLink}
             className={[
-              'inline-flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-xl border px-2 py-2 text-center text-sm leading-tight transition-colors sm:ml-auto sm:w-auto sm:px-3',
+              'inline-flex min-h-11 min-w-0 items-center justify-center gap-2 rounded-xl border px-2 py-2 text-center text-sm leading-tight transition-colors [overflow-wrap:normal] sm:ml-auto sm:w-auto sm:px-3',
               copied
                 ? 'border-emerald-700 text-emerald-700 bg-emerald-50'
                 : 'border-ink-200 bg-white text-ink-700 hover:border-accent-100 hover:bg-accent-50 hover:text-accent',
