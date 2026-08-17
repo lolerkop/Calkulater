@@ -105,6 +105,11 @@ function contextualField(field: Field, calculatorId: string, values: FormValues,
 }
 
 function fallbackCopy(text: string): boolean {
+  // Запасной путь копирования требует настоящего выделения, поэтому фокус на
+  // время уходит на временное поле. Забрать его насовсем нельзя: после удаления
+  // поля фокус упал бы на body, и клавиатурный пользователь потерял бы место на
+  // странице. Поэтому запоминаем прежний элемент и возвращаем фокус ему.
+  const previous = document.activeElement as HTMLElement | null;
   try {
     const ta = document.createElement('textarea');
     ta.value = text;
@@ -118,6 +123,8 @@ function fallbackCopy(text: string): boolean {
     return ok;
   } catch {
     return false;
+  } finally {
+    if (previous?.isConnected && previous !== document.body) previous.focus();
   }
 }
 
@@ -142,11 +149,27 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   const [copiedResult, setCopiedResult] = useState(false);
   const [shareWarningOpen, setShareWarningOpen] = useState(false);
   const shareConfirmRef = useRef<HTMLButtonElement | null>(null);
+  const shareTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const shareWasOpenRef = useRef(false);
 
   // Открытый alertdialog должен забирать фокус: иначе клавиатурный пользователь
   // остаётся на кнопке «Скопировать ссылку» и не попадает в предупреждение.
+  // При закрытии фокус нужно вернуть обратно на неё: браузер удаляет элемент,
+  // на котором фокус стоял, и роняет его на body — с этого места следующий Tab
+  // начинает обход страницы заново, теряя место пользователя.
   useEffect(() => {
-    if (shareWarningOpen) shareConfirmRef.current?.focus();
+    if (shareWarningOpen) {
+      shareWasOpenRef.current = true;
+      shareConfirmRef.current?.focus();
+      return;
+    }
+    if (!shareWasOpenRef.current) return;
+    shareWasOpenRef.current = false;
+    // Забирать фокус можно только у body: если пользователь успел перейти на
+    // другой контрол (например, нажал «Сбросить»), фокус принадлежит ему.
+    if (document.activeElement && document.activeElement !== document.body) return;
+    const trigger = shareTriggerRef.current;
+    if (trigger?.isConnected) trigger.focus();
   }, [shareWarningOpen]);
 
   const validationErrors = useMemo(
@@ -284,6 +307,21 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
     trackAnalyticsEvent('calculator_copy_link_cancelled', { calculator_id: calc.id, locale });
   };
 
+  // Escape отменяет так же, как кнопка «Отмена»: ссылка не копируется.
+  // Слушаем на документе, а не на самой панели. Предупреждение немодальное и
+  // фокус за его пределы уходить вправе, а обработчик на панели срабатывал бы
+  // только пока фокус внутри — уйдя на соседнюю кнопку, пользователь терял
+  // возможность закрыть предупреждение с клавиатуры.
+  useEffect(() => {
+    if (!shareWarningOpen) return undefined;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      cancelCopyShareLink();
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [shareWarningOpen, calc.id, locale]);
+
   const updateField = (fieldName: string, next: string | number | boolean) => {
     if (!inputStartedRef.current) {
       inputStartedRef.current = true;
@@ -391,6 +429,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
             {copy.reset}
           </button>
           <button
+            ref={shareTriggerRef}
             type="button"
             onClick={requestCopyShareLink}
             className={[
@@ -420,16 +459,14 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           <div
             className="mt-4 rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-ink-900"
             role="alertdialog"
+            // Предупреждение стоит в потоке страницы ниже кнопки и ничего не
+            // перекрывает, поэтому оно немодальное: остальная страница остаётся
+            // доступной. Проставлено явно, чтобы вспомогательные технологии не
+            // трактовали alertdialog как перехватывающий всё окно.
+            aria-modal="false"
             aria-labelledby="share-warning-title"
             aria-describedby="share-warning-text"
             data-testid="calc-share-warning"
-            onKeyDown={(event) => {
-              // Escape отменяет так же, как кнопка «Отмена»: ссылка не копируется.
-              if (event.key === 'Escape') {
-                event.stopPropagation();
-                cancelCopyShareLink();
-              }
-            }}
           >
             <div id="share-warning-title" className="font-semibold">{warningCopy.title}</div>
             <p id="share-warning-text" className="mt-1 leading-relaxed text-ink-700">{warningCopy.text}</p>
