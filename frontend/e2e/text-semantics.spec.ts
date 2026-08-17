@@ -67,6 +67,25 @@ test.describe('блок «Поля и единицы» описывает пер
     expect(строка!.целиком).toContain('Да');
   });
 
+  test('украинский кирпич: обе поверхности берут переведённую подпись', async ({ page }) => {
+    await page.goto('/uk/remont/kalkulyator-tsehly/');
+    await page.waitForSelector('[data-testid="calc-result-primary"]');
+
+    // Кнопка переключателя и строка блока читают один и тот же источник, поэтому
+    // пропущенный перевод раньше показывался в обоих местах сразу.
+    const кнопки = await page.locator('[data-testid="field-mode-fieldset"] .seg-btn').allInnerTexts();
+    expect(кнопки, 'подписи переключателя').toContain('Розміри');
+    expect(кнопки.join(' '), 'русское слово на украинской странице').not.toContain('Размеры');
+
+    const список = await описания(page);
+    const строка = список.find((x) => x.подпись === 'Режим');
+    expect(строка, 'поле «Режим» должно быть в блоке').toBeTruthy();
+    expect(строка!.целиком).toContain('Розміри / За площею');
+
+    const весьТекст = await page.locator('body').innerText();
+    expect(весьТекст, 'на украинской странице не должно остаться «Размеры»').not.toContain('Размеры');
+  });
+
   test('описания не протекают служебными значениями', async ({ page }) => {
     for (const route of [
       '/ru/finance/credit-calculator/',

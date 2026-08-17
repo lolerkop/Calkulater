@@ -7391,6 +7391,7 @@ const optionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>
     mi: 'милі',
     room: 'За кімнатою',
     area: 'За площею',
+    dimensions: 'Розміри',
     manual: 'Ручна площа',
     byPercent: 'За відсотком',
     byAmount: 'За сумою',
