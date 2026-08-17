@@ -4,7 +4,7 @@ import { calcAge } from '../src/lib/calculators/age';
 import { bmiValue, calcBmi } from '../src/lib/calculators/bmi';
 import { convertCurrency } from '../src/lib/calculators/currency';
 import { calcProgressiveTax, calcIncomeTax } from '../src/lib/calculators/incomeTax';
-import { calcPercent } from '../src/lib/calculators/percent';
+import { calcPercent } from '../src/calculators/percent-calculator/compute';
 import { calcVat } from '../src/lib/calculators/vat';
 import { calcWorkingDays, parseExcludedDates } from '../src/lib/calculators/workingDays';
 import { parseLocalizedNumber } from '../src/lib/format';

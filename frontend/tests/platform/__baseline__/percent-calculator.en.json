@@ -1,0 +1,128 @@
+{
+  "id": "percent-calculator",
+  "name": "Percentage calculator",
+  "slug": "percentage-calculator",
+  "fullPath": "/en/finance/percentage-calculator/",
+  "category": "finance",
+  "icon": "percent",
+  "popularity": 88,
+  "isNew": true,
+  "shortDescription": "Calculate percentages, percentage change and values before or after percent adjustments.",
+  "longDescription": "Use this percentage calculator for everyday math: percent of a number, percentage change, markups and reverse percentages.",
+  "seoTitle": "Percentage calculator — percent of a number and percentage change",
+  "seoDescription": "Free percentage calculator for percent of a number, percentage change, increase, decrease and reverse calculations.",
+  "h1": "Percentage calculator",
+  "keywords": [
+    "percentage calculator",
+    "percent change",
+    "percent of number"
+  ],
+  "fields": [
+    {
+      "name": "mode",
+      "label": "Mode",
+      "type": "select",
+      "defaultValue": "of",
+      "options": [
+        {
+          "value": "of",
+          "label": "What is A% of B"
+        },
+        {
+          "value": "what",
+          "label": "A is what percent of B"
+        },
+        {
+          "value": "addPct",
+          "label": "Add percentage"
+        },
+        {
+          "value": "subPct",
+          "label": "Subtract percentage"
+        },
+        {
+          "value": "change",
+          "label": "Percentage change"
+        }
+      ]
+    },
+    {
+      "name": "a",
+      "label": "Value A",
+      "type": "number",
+      "defaultValue": 15
+    },
+    {
+      "name": "b",
+      "label": "Value B",
+      "type": "number",
+      "defaultValue": 200
+    }
+  ],
+  "resultLabels": {
+    "result": "Result"
+  },
+  "howToUse": [
+    "Choose the calculation mode.",
+    "Enter values A and B.",
+    "Read the result and helper values."
+  ],
+  "howItWorks": "The calculator applies the selected percentage formula to the two input values.",
+  "example": "Find 15% of 200 or calculate the percentage change from 80 to 100.",
+  "faq": [
+    {
+      "q": "How do I calculate a percentage of a number?",
+      "a": "Multiply the number by the percentage and divide by 100. For example, 15% of 200 is 200 × 15 / 100, which equals 30. In the calculator, select the percent-of-a-number mode, enter the base value and the percent, and the result is shown instantly."
+    },
+    {
+      "q": "How do I calculate percentage increase?",
+      "a": "Subtract the old value from the new value, divide the difference by the old value and multiply by 100. If a price rises from $80 to $100, the increase is $20 divided by $80, or 25%. This measures growth relative to the original value."
+    },
+    {
+      "q": "Why do two discounts not add up directly?",
+      "a": "Sequential discounts apply one after another. If a $100 item gets 20% off, the price becomes $80. A second 10% discount is calculated from $80, not from $100, so the final price is $72. The total discount is 28%, not 30%."
+    },
+    {
+      "q": "How do I find the original number before a percentage change?",
+      "a": "Use reverse percentage. If a value after a 20% increase is 120, divide 120 by 1.2 to get the original value of 100. If a value after a 20% discount is 80, divide 80 by 0.8. The key is knowing whether the percentage was added or subtracted."
+    },
+    {
+      "q": "What is the difference between percent and percentage points?",
+      "a": "Percent describes relative change, while percentage points describe the simple difference between two percentages. Moving from 10% to 12% is an increase of 2 percentage points. Relative to the old 10% rate, however, the increase is 20%. Both numbers are correct but answer different questions."
+    }
+  ],
+  "relatedCalculatorIds": [
+    "discount-calculator",
+    "compound-interest"
+  ],
+  "disclaimer": "Results are reference estimates. Verify the inputs before making important decisions.",
+  "resultTitle": "Percentage calculator",
+  "seoContent": {
+    "intro": "The percentage calculator solves common percent tasks: percent of a number, percentage change, markup and reverse percentage. It is useful for shopping, finance, reports, schoolwork and quick checks in spreadsheets. Use it when you need to understand both the number itself and the relative change behind it.",
+    "howItWorks": "Each mode answers a different question. To find a percent of a number, the calculator multiplies the base number by the percentage and divides by 100. To calculate percentage change, it subtracts the old value from the new value, divides the difference by the old value and converts the result to a percent. This shows how much something increased or decreased relative to the starting point. Markup adds a percentage to the original value, while reverse percentage works backward from a value after an increase or discount. Choosing the correct mode matters because “20% of 500” and “500 increased by 20%” are not the same question. The first returns a part of the base number. The second returns the new value after the percentage has been applied.",
+    "example": "Imagine a subscription price increased from $40 to $50. You choose percentage change, enter 40 as the old value and 50 as the new value. The calculator returns 25%. The dollar difference is $10, but the relative increase is one quarter of the original price. That makes it easier to compare this change with another subscription that increased by a different dollar amount. A $15 increase on a $150 plan, for example, is only 10%, even though the dollar increase is larger.",
+    "tips": "A common mistake is confusing percent with percentage points. If an interest rate rises from 5% to 7%, it increased by 2 percentage points, but the relative increase is 40%. Another mistake is adding sequential percentages directly. A 20% discount followed by another 10% discount does not equal 30%, because the second discount applies to the reduced price. Reverse percentage also needs a clear base: if a price after 20% tax is $120, the tax is not 20% of $120; the original base is $100. When using percentages in finance, check whether the rate is annual, monthly, one-time or compounded, because the same number can mean different things. In reports, label the base value clearly before sharing the result publicly.",
+    "faq": [
+      {
+        "q": "How do I calculate a percentage of a number?",
+        "a": "Multiply the number by the percentage and divide by 100. For example, 15% of 200 is 200 × 15 / 100, which equals 30. In the calculator, select the percent-of-a-number mode, enter the base value and the percent, and the result is shown instantly."
+      },
+      {
+        "q": "How do I calculate percentage increase?",
+        "a": "Subtract the old value from the new value, divide the difference by the old value and multiply by 100. If a price rises from $80 to $100, the increase is $20 divided by $80, or 25%. This measures growth relative to the original value."
+      },
+      {
+        "q": "Why do two discounts not add up directly?",
+        "a": "Sequential discounts apply one after another. If a $100 item gets 20% off, the price becomes $80. A second 10% discount is calculated from $80, not from $100, so the final price is $72. The total discount is 28%, not 30%."
+      },
+      {
+        "q": "How do I find the original number before a percentage change?",
+        "a": "Use reverse percentage. If a value after a 20% increase is 120, divide 120 by 1.2 to get the original value of 100. If a value after a 20% discount is 80, divide 80 by 0.8. The key is knowing whether the percentage was added or subtracted."
+      },
+      {
+        "q": "What is the difference between percent and percentage points?",
+        "a": "Percent describes relative change, while percentage points describe the simple difference between two percentages. Moving from 10% to 12% is an increase of 2 percentage points. Relative to the old 10% rate, however, the increase is 20%. Both numbers are correct but answer different questions."
+      }
+    ]
+  }
+}

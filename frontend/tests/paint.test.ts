@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calcPaint } from '../src/lib/calculators/paint';
+import { calcPaint } from '../src/calculators/paint-calculator/compute';
 
 describe('paint: calcPaint', () => {
   it('считает литры краски при ручном вводе площади', () => {

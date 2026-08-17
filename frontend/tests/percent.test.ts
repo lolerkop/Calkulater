@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calcPercent } from '../src/lib/calculators/percent';
+import { calcPercent } from '../src/calculators/percent-calculator/compute';
 
 describe('percent: режим "of" — сколько X% от A', () => {
   it('20% от 500 = 100', () => {

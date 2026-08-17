@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { ceilUnits, floorUnits } from '../src/lib/rounding';
 import { calcTile } from '../src/lib/calculators/tile';
 import { calcLaminate } from '../src/lib/calculators/laminate';
-import { calcPaint } from '../src/lib/calculators/paint';
+import { calcPaint } from '../src/calculators/paint-calculator/compute';
 import { calcWallpaper } from '../src/lib/calculators/wallpaper';
 import { calcScreed } from '../src/lib/calculators/screed';
 

@@ -1,0 +1,198 @@
+{
+  "id": "paint-calculator",
+  "name": "Paint calculator",
+  "slug": "paint-calculator",
+  "fullPath": "/en/home-improvement/paint-calculator/",
+  "category": "building",
+  "icon": "paint-bucket",
+  "popularity": 65,
+  "shortDescription": "Estimate paint liters and cans for walls or a manual area.",
+  "longDescription": "Use this paint calculator to estimate paint quantity from area, coats, coverage and can size.",
+  "seoTitle": "Paint calculator — liters and cans needed",
+  "seoDescription": "Calculate paint liters and cans for walls using area, coats, coverage and can volume.",
+  "h1": "Paint calculator",
+  "keywords": [
+    "paint calculator",
+    "paint liters",
+    "paint cans"
+  ],
+  "fields": [
+    {
+      "name": "mode",
+      "label": "Mode",
+      "type": "toggle",
+      "defaultValue": "manual",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual area"
+        },
+        {
+          "value": "room",
+          "label": "By room"
+        }
+      ]
+    },
+    {
+      "name": "area",
+      "label": "Area",
+      "type": "number",
+      "defaultValue": 30,
+      "min": 0.01,
+      "showIf": {
+        "field": "mode",
+        "equals": "manual"
+      }
+    },
+    {
+      "name": "length",
+      "label": "Length",
+      "type": "number",
+      "defaultValue": 5,
+      "min": 0.01,
+      "showIf": {
+        "field": "mode",
+        "equals": "room"
+      }
+    },
+    {
+      "name": "width",
+      "label": "Width",
+      "type": "number",
+      "defaultValue": 4,
+      "min": 0.01,
+      "showIf": {
+        "field": "mode",
+        "equals": "room"
+      }
+    },
+    {
+      "name": "height",
+      "label": "Height",
+      "type": "number",
+      "defaultValue": 2.7,
+      "min": 0.01,
+      "step": 0.1,
+      "showIf": {
+        "field": "mode",
+        "equals": "room"
+      }
+    },
+    {
+      "name": "windows",
+      "label": "Windows",
+      "type": "number",
+      "defaultValue": 1,
+      "min": 0,
+      "showIf": {
+        "field": "mode",
+        "equals": "room"
+      }
+    },
+    {
+      "name": "doors",
+      "label": "Doors",
+      "type": "number",
+      "defaultValue": 1,
+      "min": 0,
+      "showIf": {
+        "field": "mode",
+        "equals": "room"
+      }
+    },
+    {
+      "name": "coats",
+      "label": "Coats",
+      "type": "number",
+      "defaultValue": 2,
+      "min": 1,
+      "max": 4
+    },
+    {
+      "name": "consumption",
+      "label": "Coverage per square meter",
+      "type": "number",
+      "defaultValue": 0.15,
+      "min": 0.01,
+      "step": 0.01
+    },
+    {
+      "name": "canVolume",
+      "label": "Can volume",
+      "type": "number",
+      "defaultValue": 2.5,
+      "min": 0.01,
+      "step": 0.1
+    },
+    {
+      "name": "reserve",
+      "label": "Reserve",
+      "type": "number",
+      "defaultValue": 10,
+      "min": 0,
+      "max": 50
+    },
+    {
+      "name": "canPrice",
+      "label": "Price per can",
+      "type": "number",
+      "defaultValue": 0,
+      "min": 0,
+      "optional": true
+    }
+  ],
+  "resultLabels": {
+    "area": "Paint area",
+    "liters": "Paint liters",
+    "cans": "Cans needed",
+    "reserve": "Reserve"
+  },
+  "howToUse": [
+    "Enter room dimensions or area.",
+    "Set coats, coverage and can size.",
+    "Review liters and cans."
+  ],
+  "howItWorks": "The calculator multiplies area by coats and coverage, then divides by can volume.",
+  "example": "Estimate paint for 30 square meters with two coats.",
+  "faq": [
+    {
+      "q": "How accurate is this paint calculator?",
+      "a": "The result is a practical estimate based on the values you enter and the formula shown on the page."
+    },
+    {
+      "q": "Does this paint calculator require an account?",
+      "a": "No. The calculator works in your browser and does not require registration."
+    },
+    {
+      "q": "Can I share a paint calculator result?",
+      "a": "Yes. Use the share link to copy the current inputs in the page URL."
+    }
+  ],
+  "relatedCalculatorIds": [
+    "wallpaper-calculator",
+    "tile-calculator",
+    "laminate-calculator"
+  ],
+  "disclaimer": "Results are reference estimates. Verify the inputs before making important decisions.",
+  "resultTitle": "Paint calculator",
+  "seoContent": {
+    "intro": "Use this paint calculator to estimate paint quantity from area, coats, coverage and can size.",
+    "howItWorks": "The calculator multiplies area by coats and coverage, then divides by can volume.",
+    "example": "Estimate paint for 30 square meters with two coats.",
+    "tips": "Enter room dimensions or area. Set coats, coverage and can size. Review liters and cans.",
+    "faq": [
+      {
+        "q": "How accurate is this paint calculator?",
+        "a": "The result is a practical estimate based on the values you enter and the formula shown on the page."
+      },
+      {
+        "q": "Does this paint calculator require an account?",
+        "a": "No. The calculator works in your browser and does not require registration."
+      },
+      {
+        "q": "Can I share a paint calculator result?",
+        "a": "Yes. Use the share link to copy the current inputs in the page URL."
+      }
+    ]
+  }
+}
