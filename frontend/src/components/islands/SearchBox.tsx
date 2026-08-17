@@ -201,10 +201,30 @@ const searchCopyByLocale: Record<Locale, {
 export default function SearchBox({ calculators, locale = 'ru' }: Props) {
   const copy = clientUi[locale];
   const searchCopy = searchCopyByLocale[locale];
-  const [query, setQuery] = useState(() => {
+  // Поле отрисовано на сервере, а остров подключается по client:idle, поэтому
+  // посетитель успевает начать печатать раньше React. Набранное к этому моменту
+  // лежит только в DOM, и без переноса в состояние hasQuery остаётся false: ни
+  // кнопки очистки, ни результатов не будет, пока поле не изменят ещё раз.
+  //
+  // Забрать значение надо именно в фазе первого render — позже React уже владеет
+  // полем. Но кладть его сразу в состояние нельзя: первый клиентский render
+  // обязан совпасть с серверной разметкой, иначе React пересоздаёт поле и теряет
+  // и фокус, и следующее нажатие клавиши. Поэтому запоминаем и применяем после
+  // монтирования — той же схемой, что уже работает в калькуляторе.
+  const [preHydrationQuery] = useState(() => {
     if (typeof window === 'undefined') return '';
-    return new URLSearchParams(window.location.search).get('q') ?? '';
+    return (document.getElementById('search-input') as HTMLInputElement | null)?.value ?? '';
   });
+  const [query, setQuery] = useState('');
+
+  useEffect(() => {
+    // Набранное вручную важнее параметра ссылки: это то, что человек ввёл сейчас.
+    // Пустое поле оставляем пустым, даже если его успели потрогать и стереть.
+    const fromUrl = new URLSearchParams(window.location.search).get('q') ?? '';
+    const restored = preHydrationQuery || fromUrl;
+    if (restored) setQuery(restored);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const hasQuery = query.trim().length > 0;
   const resultsId = 'search-results';
 
