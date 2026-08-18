@@ -27,7 +27,10 @@ const all = '[data-catalog-card]';
 test.describe('фильтр каталога', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/ru/calculators/');
-    await expect(page.locator('[data-testid="catalog-search"]')).toBeVisible();
+    // Поле поиска присутствует в разметке до гидратации, поэтому его видимость
+    // ничего не доказывает. Счётчик найденного заполняет уже контроллер, прочитав
+    // карточки из DOM: его появление и есть признак того, что фильтр готов.
+    await expect(page.locator('[data-testid="catalog-result-count"]')).toContainText(String(TOTAL));
   });
 
   test('карточки отдаёт сервер, а не клиент', async ({ page }) => {
@@ -75,7 +78,9 @@ test.describe('фильтр каталога', () => {
   test('пустое состояние и сброс', async ({ page }) => {
     await page.locator('[data-testid="catalog-search"]').fill('щщщщ');
     await expect(page.locator(visible)).toHaveCount(0);
-    await expect(page.locator('[data-testid="catalog-empty"]')).toBeVisible();
+    // Пустое состояние рисует остров после отбора; под параллельной нагрузкой
+    // отрисовка иногда отстаёт, поэтому ожиданию дан запас.
+    await expect(page.locator('[data-testid="catalog-empty"]')).toBeVisible({ timeout: 15000 });
 
     await page.locator('[data-testid="catalog-empty-reset"]').click();
     await expect(page.locator(visible)).toHaveCount(TOTAL);
