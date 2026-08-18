@@ -211,64 +211,28 @@ export function renderLocalizationManifest(ids: readonly string[], dir?: string)
     && lifecycleOf(id, dir) === 'released');
   const alias = (id: string) => 'loc_' + id.replace(/[^a-zA-Z0-9]+/g, '_');
   const imports = withLocalization
-    .map((id) => `import * as ${alias(id)} from './${id}/localization';`)
+    .map((id) => `import { localization as ${alias(id)} } from './${id}/localization';`)
     .join('\n');
-  // Не каждый калькулятор объявляет все корзины, поэтому чтение идёт через
-  // помощник: так отсутствующая корзина остаётся пустой, а не ошибкой типов.
-  const merge = (kind: string, locale: string) => withLocalization
-    .map((id) => `  ...bucket(${alias(id)}, '${kind}', '${locale}'),`)
+  const entries = (locale: string) => withLocalization
+    .map((id) => `    '${id}': ${alias(id)}.${locale} ?? {},`)
     .join('\n');
 
   return `// СГЕНЕРИРОВАНО. Не редактировать руками.
-// Подписи полей и фразы результата, объявленные самими калькуляторами.
+// Локализация калькуляторов V2, размеченная по (локаль, калькулятор, ключ).
+// Ключи вроде \`mode\` или \`amount\` встречаются у многих калькуляторов, поэтому
+// плоская карта по имени ключа здесь невозможна by construction.
 // Перегенерировать: npm run calculators:generate
+
+import type { ScopedLocalization } from '../lib/platform/types';
 
 ${imports}
 
-type LocalizationModule = Record<string, unknown>;
-const bucket = (module: LocalizationModule, kind: string, locale: string): Record<string, string> =>
-  ((module[kind] as Record<string, Record<string, string>> | undefined)?.[locale]) ?? {};
-
-/**
- * Подписи полей привязаны к калькулятору, а не к имени поля.
- *
- * Общая карта в \`i18n\` ключуется одним лишь именем поля, и поле \`mode\` есть
- * сразу у нескольких калькуляторов — метка одного перетирала метки остальных.
- * Область видимости по идентификатору убирает это столкновение.
- */
-export const v2FieldLabelsById: Record<'en' | 'uk', Record<string, Record<string, string>>> = {
+export const v2Localization: ScopedLocalization = {
   en: {
-${withLocalization.map((id) => `    '${id}': bucket(${alias(id)}, 'fieldLabels', 'en'),`).join('\n')}
+${entries('en')}
   },
   uk: {
-${withLocalization.map((id) => `    '${id}': bucket(${alias(id)}, 'fieldLabels', 'uk'),`).join('\n')}
-  },
-};
-
-export const v2OptionLabels: Record<'en' | 'uk', Record<string, string>> = {
-  en: {
-${merge('optionLabels', 'en')}
-  },
-  uk: {
-${merge('optionLabels', 'uk')}
-  },
-};
-
-export const v2ResultPhrases: Record<'en' | 'uk', Record<string, string>> = {
-  en: {
-${merge('resultPhrases', 'en')}
-  },
-  uk: {
-${merge('resultPhrases', 'uk')}
-  },
-};
-
-export const v2ResultValues: Record<'en' | 'uk', Record<string, string>> = {
-  en: {
-${merge('resultValues', 'en')}
-  },
-  uk: {
-${merge('resultValues', 'uk')}
+${entries('uk')}
   },
 };
 `;

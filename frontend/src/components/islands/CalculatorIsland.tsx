@@ -332,7 +332,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
 
   const copyResult = async () => {
     if (typeof window === 'undefined' || !result) return;
-    const text = resultToText(calc, localizeResult(result, locale), locale);
+    const text = resultToText(calc, localizeResult(result, locale, calc.id), locale);
     let ok = false;
     try {
       if (navigator.clipboard && window.isSecureContext) {
@@ -357,7 +357,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   };
 
   const visibleFields = calc.fields.filter((f) => isVisible(f, values));
-  const displayResult = result ? localizeResult(result, locale) : null;
+  const displayResult = result ? localizeResult(result, locale, calc.id) : null;
 
   return (
     <div className="grid min-w-0 gap-5 sm:gap-8 lg:grid-cols-5" data-testid={`calculator-island-${calc.id}`}>

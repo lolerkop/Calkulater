@@ -1,6 +1,5 @@
 import { pluralRu } from './plural';
 
-import { v2ResultPhrases, v2ResultValues } from '../calculators/localization.generated';
 
 export const clientLocales = ['ru', 'en', 'es', 'de', 'fr', 'pt', 'it', 'pl', 'nl', 'ro', 'id', 'tr', 'vi', 'cs', 'uk', 'sk', 'hu'] as const;
 export type Locale = (typeof clientLocales)[number];
@@ -261,7 +260,7 @@ type ResultValueMap = Partial<Record<Locale, Record<string, string>>> & {
   en: Record<string, string>;
 };
 
-const legacyResultValueMap: ResultValueMap = {
+const resultValueMap: ResultValueMap = {
   en: {
     'Введите положительные размеры и толщину': 'Enter positive dimensions and thickness',
     'Вес мешка должен быть больше нуля': 'The bag weight must be greater than zero',
@@ -454,14 +453,8 @@ const legacyResultValueMap: ResultValueMap = {
   },
 };
 
-// Фразы-значения калькуляторов V2 — из их собственных модулей локализации.
-const resultValueMap: ResultValueMap = {
-  ...legacyResultValueMap,
-  en: { ...legacyResultValueMap.en, ...v2ResultValues.en },
-  uk: { ...(legacyResultValueMap.uk ?? {}), ...v2ResultValues.uk },
-};
 
-const legacyResultLabelMap: Record<string, string> = {
+export const resultLabelMap: Record<string, string> = {
   'Количество камней': 'Units needed',
   'Площадь кладки': 'Masonry area',
   'Площадь проёмов': 'Openings area',
@@ -639,7 +632,7 @@ const legacyResultLabelMap: Record<string, string> = {
   'Итого за товары': 'Total for all items',
 };
 
-const legacyUkrainianResultLabelMap: Record<string, string> = {
+const ukrainianResultLabelMap: Record<string, string> = {
   'Количество камней': 'Кількість каменів',
   'Площадь кладки': 'Площа кладки',
   'Площадь проёмов': 'Площа прорізів',
@@ -815,11 +808,6 @@ const legacyUkrainianResultLabelMap: Record<string, string> = {
   'Дополнительная скидка': 'Додаткова знижка',
   'Итого за товары': 'Разом за всі товари',
 };
-
-// Фразы результата калькуляторов V2 объявлены рядом с самими калькуляторами.
-// Слияние одноразовое — как и для подписей полей.
-export const resultLabelMap: Record<string, string> = { ...legacyResultLabelMap, ...v2ResultPhrases.en };
-const ukrainianResultLabelMap: Record<string, string> = { ...legacyUkrainianResultLabelMap, ...v2ResultPhrases.uk };
 
 export function localizedResultLabel(label: string, locale: Locale): string {
   if (locale === 'ru') return label;

@@ -121,6 +121,56 @@ export type CalculatorPublishedExample = {
   readonly expected: readonly string[];
 };
 
+/**
+ * Локализация, принадлежащая калькулятору, — один комплект на локаль.
+ *
+ * Ключи внутри комплекта локальны для калькулятора: `mode`, `amount`, `length`
+ * встречаются у десятков калькуляторов сразу, и в общей карте, ключуемой одним
+ * лишь именем, они неизбежно сталкиваются. Именно это и произошло: подпись
+ * поля `mode`, объявленная одним калькулятором, перетёрла `mode` у процентов
+ * и краски. Поэтому идентификатор калькулятора входит в пространство имён
+ * структурно, а не по договорённости.
+ */
+export type CalculatorLocaleBundle = {
+  /** Подписи полей: имя поля → текст. */
+  readonly fields?: Readonly<Record<string, string>>;
+  /** Подписи вариантов выбора: значение варианта → текст. */
+  readonly options?: Readonly<Record<string, string>>;
+  /** Подписи строк результата: русская фраза → перевод. */
+  readonly results?: Readonly<Record<string, string>>;
+  /** Значения внутри строк результата: русская фраза → перевод. */
+  readonly values?: Readonly<Record<string, string>>;
+};
+
+/** Локали сборки, кроме русской: он базовый и переводу не подлежит. */
+export type TranslatedLocale = 'en' | 'uk';
+
+export type CalculatorLocalization = Readonly<Partial<Record<TranslatedLocale, CalculatorLocaleBundle>>>;
+
+/** Пространство имён: (локаль, калькулятор, локальный ключ). */
+export type ScopedLocalization = Readonly<
+  Record<TranslatedLocale, Readonly<Record<string, CalculatorLocaleBundle>>>
+>;
+
+export function isTranslatedLocale(locale: string): locale is TranslatedLocale {
+  return locale === 'en' || locale === 'uk';
+}
+
+/**
+ * Единственный способ прочитать локализацию V2. Идентификатор калькулятора
+ * обязателен, поэтому обращение без области видимости невозможно синтаксически.
+ */
+export function lookupScoped(
+  scoped: ScopedLocalization,
+  locale: string,
+  calculatorId: string,
+  bucket: keyof CalculatorLocaleBundle,
+  key: string,
+): string | undefined {
+  if (!isTranslatedLocale(locale)) return undefined;
+  return scoped[locale][calculatorId]?.[bucket]?.[key];
+}
+
 export type CalculatorDefinitionV2 = {
   readonly id: string;
   /** Версия формы определения, а не контента: меняется при смене контракта. */

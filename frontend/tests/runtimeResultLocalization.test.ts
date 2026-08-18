@@ -81,7 +81,7 @@ function collectLeaks(locale: 'en' | 'uk', onlyIds?: Set<string>): Leak[] {
         continue;
       }
       const original = new Set(visibleStrings(russian));
-      const localized = localizeResult(russian, locale);
+      const localized = localizeResult(russian, locale, calculator.id);
       const scenario = JSON.stringify(inputs).slice(0, 70);
 
       for (const value of visibleStrings(localized)) {
@@ -121,7 +121,7 @@ describe('runtime result localization: калькуляторы Expansion Pack #
       const russian = runners[id](buildInitialValues(calculator.fields) as never);
       for (const locale of ['en', 'uk'] as const) {
         const name = getCalculatorById(id, locale)!.name;
-        const text = resultToText({ name }, localizeResult(russian, locale), locale);
+        const text = resultToText({ name }, localizeResult(russian, locale, id), locale);
         if (locale === 'en') {
           expect(text, `${id} EN буфер`).not.toMatch(CYRILLIC);
         } else {
