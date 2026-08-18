@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { calculators } from '../src/data/calculators';
-import { runners } from '../src/lib/runners';
+import { allRunners as runners } from '../src/lib/runners.all';
 import { buildInitialValues } from '../src/lib/shareLink';
 import { creditAnnuityPayment } from '../src/lib/calculators/credit';
 import { bmiValue } from '../src/lib/calculators/bmi';

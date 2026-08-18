@@ -20,6 +20,50 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  // Калькуляторы V2 волны 1. Ожидаемые значения выведены вручную из формул:
+  //   (120000 − 90000) / 120000 = 25,00 %
+  //   50 % от 80000 = 40 000 ₽
+  //   200000 × 3 / 100 = 6 000 ₽
+  // Значения намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  'savings-rate': {
+    query: { income: 120000, expenses: 90000 },
+    result: { primary: '25,00 %' },
+  },
+  'budget-50-30-20': {
+    query: { income: 80000 },
+    result: { primary: '40 000 ₽' },
+  },
+  // 2^(1/10) = e^(ln2/10) = e^0,06931472 = 1,07177346 → 7,18 %
+  'cagr': {
+    query: { begin: 50000, end: 100000, years: 10 },
+    result: { primary: '7,18 %' },
+  },
+  // 29 февраля 2024 — 60-й день, 9-я неделя ISO
+  'week-number': {
+    query: { date: '2024-02-29' },
+    result: { primary: '9' },
+  },
+  // 20:15 = 1215 мин, 8:00 = 480 → 735 мин = 12 ч 15 мин.
+  // Отличается от умолчания (9:00 → 17:30 тоже даёт 510 минут).
+  'time-duration': {
+    query: { mode: 'difference', startHour: 8, startMinute: 0, endHour: 20, endMinute: 15 },
+    result: { primary: '12 ч 15 мин' },
+  },
+  // 4·150 + 9·70 + 4·250 = 600 + 630 + 1000 = 2230
+  'calories-from-macros': {
+    query: { protein: 150, fat: 70, carbs: 250 },
+    result: { primary: '2 230 ккал' },
+  },
+  // 3 × 3 × 2,5 = 22,50 м³
+  'room-volume': {
+    query: { mode: 'dimensions', length: 3, width: 3, height: 2.5 },
+    result: { primary: '22,50 м³' },
+  },
+  'commission': {
+    query: { mode: 'fromAmount', a: 200000, b: 3 },
+    result: { primary: '6 000 ₽' },
+  },
   'credit-calculator': {
     query: { amount: 120000, term: 1, termUnit: 'years', rate: 0, type: 'annuity' },
     result: { primary: '10 000 ₽' },
@@ -254,8 +298,13 @@ const calculatorCases = calculators.map((sourceCalculator) => {
   return { calculator, scenario };
 });
 
-if (calculatorCases.length !== 28) {
-  throw new Error(`Expected 28 calculators in the source registry, got ${calculatorCases.length}`);
+// Пин на число заменён структурным условием: каждый калькулятор источника
+// получил сценарий, и лишних сценариев нет. Это защищает от пропуска
+// калькулятора, но не требует благословлять каждое новое значение.
+if (calculatorCases.length !== calculators.length) {
+  throw new Error(
+    `Сценарии покрывают ${calculatorCases.length} калькуляторов из ${calculators.length}`,
+  );
 }
 
 function escapeRegExp(value: string): string {

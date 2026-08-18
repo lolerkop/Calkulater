@@ -3,7 +3,7 @@ import Layout from '../../../components/Layout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FaqList from '../../../components/FaqList.astro';
 import CalculatorCard from '../../../components/CalculatorCard.astro';
-import CalculatorIsland from '../../../components/islands/CalculatorIsland';
+import CalculatorIslandDispatch from '../../../components/CalculatorIslandDispatch.generated.astro';
 import AdPlaceholder from '../../../components/AdPlaceholder.astro';
 import {
   findCalculatorBySlug,
@@ -620,7 +620,7 @@ const islandCalc = {
 
   <section id="calculator" class="border-b border-ink-200 bg-white/45">
     <div class="mx-auto max-w-page px-5 py-6 sm:px-8 sm:py-12">
-      <CalculatorIsland calc={islandCalc} locale={locale} client:load />
+      <CalculatorIslandDispatch calc={islandCalc} locale={locale} />
     </div>
   </section>
 

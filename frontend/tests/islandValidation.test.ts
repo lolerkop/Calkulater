@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { v2Runtimes } from '../src/calculators/runtime.generated';
 import { calculators } from '../src/data/calculators';
 import { buildInitialValues } from '../src/lib/shareLink';
 import {
@@ -24,7 +25,7 @@ const age = fieldsOf('age-calculator');
 const percent = fieldsOf('percent-calculator');
 
 function validate(id: string, fields: Field[], overrides: Record<string, unknown> = {}, locale = 'ru' as const) {
-  return validateValues(id, fields, { ...buildInitialValues(fields), ...overrides }, locale);
+  return validateValues(id, fields, { ...buildInitialValues(fields), ...overrides }, locale, v2Runtimes[id]);
 }
 
 describe('island validation: numbers', () => {

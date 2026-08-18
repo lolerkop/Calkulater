@@ -7,9 +7,13 @@
 import type { CalcResult, CalculatorDef } from '../../../lib/types';
 import { localizedResultLabel, localizedResultText, type Locale } from '../../../lib/clientI18n';
 import { calculatorCopy } from './copy';
+import { runtimeLocale, type CalculatorClientRuntime } from '../../../lib/platform/runtime';
 
-function translateLabel(label: string, locale: Locale): string {
-  return localizedResultLabel(label, locale);
+// Перевод подписи строки результата. Сначала — то, что объявил сам калькулятор,
+// затем общая карта. Одна и та же русская фраза у разных калькуляторов может
+// значить разное, поэтому обращение всегда с идентификатором.
+function translateLabel(label: string, locale: Locale, runtime: CalculatorClientRuntime | undefined): string {
+  return runtimeLocale(runtime, locale, 'results', label) ?? localizedResultLabel(label, locale);
 }
 
 // Число в русской записи: целая часть с неразрывными пробелами между тройками и
@@ -30,41 +34,47 @@ function toEnglishDigitSeparators(value: string): string {
   });
 }
 
-function localizeValue(value: string, locale: Locale): string {
-  const translated = localizedResultText(value, locale);
+function localizeValue(value: string, locale: Locale, runtime: CalculatorClientRuntime | undefined): string {
+  const own = runtimeLocale(runtime, locale, 'values', value);
+  const translated = own ?? localizedResultText(value, locale);
   return locale === 'en' ? toEnglishDigitSeparators(translated) : translated;
 }
 
 // Часть меток собирается из чисел («15,00% of 200,00»), поэтому разделители в них
 // должны совпадать со значением в той же строке.
-function localizeLabel(label: string, locale: Locale): string {
-  const translated = translateLabel(label, locale);
+function localizeLabel(label: string, locale: Locale, runtime: CalculatorClientRuntime | undefined): string {
+  const translated = translateLabel(label, locale, runtime);
   return locale === 'en' ? toEnglishDigitSeparators(translated) : translated;
 }
 
-export function localizeResult(result: CalcResult, locale: Locale): CalcResult {
+export function localizeResult(
+  result: CalcResult,
+  locale: Locale,
+  calculatorId: string,
+  runtime?: CalculatorClientRuntime,
+): CalcResult {
   if (locale === 'ru') return result;
   return {
     ...result,
     primary: {
-      label: localizeLabel(result.primary.label, locale),
-      value: localizeValue(result.primary.value, locale),
+      label: localizeLabel(result.primary.label, locale, runtime),
+      value: localizeValue(result.primary.value, locale, runtime),
     },
     secondary: result.secondary.map((row) => ({
       ...row,
-      label: localizeLabel(row.label, locale),
-      value: localizeValue(row.value, locale),
+      label: localizeLabel(row.label, locale, runtime),
+      value: localizeValue(row.value, locale, runtime),
     })),
     table: result.table
       ? {
           ...result.table,
-          title: result.table.title ? localizeLabel(result.table.title, locale) : result.table.title,
-          columns: result.table.columns.map((column) => localizeLabel(column, locale)),
-          rows: result.table.rows.map((row) => row.map((cell) => localizeValue(cell, locale))),
-          note: result.table.note ? localizeValue(result.table.note, locale) : result.table.note,
+          title: result.table.title ? localizeLabel(result.table.title, locale, runtime) : result.table.title,
+          columns: result.table.columns.map((column) => localizeLabel(column, locale, runtime)),
+          rows: result.table.rows.map((row) => row.map((cell) => localizeValue(cell, locale, runtime))),
+          note: result.table.note ? localizeValue(result.table.note, locale, runtime) : result.table.note,
         }
       : undefined,
-    note: result.note ? localizeValue(result.note, locale) : result.note,
+    note: result.note ? localizeValue(result.note, locale, runtime) : result.note,
   };
 }
 

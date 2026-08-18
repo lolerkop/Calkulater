@@ -2,13 +2,20 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { GET } from '../src/pages/sitemap.xml';
 import { currencyPairIds, urlInventory } from '../src/data/urlInventory';
-import { getCalculatorById, locales } from '../src/lib/i18n';
+import { getCalculatorById, getCalculators, locales } from '../src/lib/i18n';
 
 const ruOnlyCalculatorIds = ['deposit-calculator', 'income-tax-calculator', 'vat-calculator'];
 
 describe('SEO URL inventory', () => {
   it('keeps every indexable URL self-canonical and query-free', () => {
-    expect(urlInventory).toHaveLength(135);
+    // Пин на общее число URL защищал только сам себя: каждая новая страница
+    // требовала ручного благословения. Значимое здесь другое — у каждого
+    // публичного калькулятора ровно одна запись на локаль, лишних нет.
+    const calculatorEntries = urlInventory.filter((entry) => entry.pageType === 'calculator');
+    const expectedCalculatorUrls = locales.flatMap((locale) =>
+      getCalculators(locale).map((calculator) => calculator.fullPath));
+    expect(calculatorEntries.map((entry) => entry.url).sort()).toEqual(expectedCalculatorUrls.sort());
+
     const indexable = urlInventory.filter((entry) => entry.indexableExpected);
     expect(new Set(indexable.map((entry) => entry.url)).size).toBe(indexable.length);
 

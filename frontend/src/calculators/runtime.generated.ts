@@ -11,21 +11,61 @@
 
 import type { CalcFunction } from '../lib/types';
 import type { CalculatorContextualField, CalculatorValidator } from '../lib/platform/types';
+import type { CalculatorClientRuntime } from '../lib/platform/runtime';
+import { v2Localization } from './localization.generated';
 
+import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
+import { compute as compute_cagr } from './cagr/compute';
+import { compute as compute_calories_from_macros } from './calories-from-macros/compute';
+import { compute as compute_commission } from './commission/compute';
+import { validate as validate_commission } from './commission/validate';
+import { contextualField as ctx_commission } from './commission/contextualField';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
 import { contextualField as ctx_percent_calculator } from './percent-calculator/contextualField';
+import { compute as compute_room_volume } from './room-volume/compute';
+import { compute as compute_savings_rate } from './savings-rate/compute';
+import { compute as compute_time_duration } from './time-duration/compute';
+import { compute as compute_week_number } from './week-number/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
+  'budget-50-30-20': compute_budget_50_30_20,
+  'cagr': compute_cagr,
+  'calories-from-macros': compute_calories_from_macros,
+  'commission': compute_commission,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
+  'room-volume': compute_room_volume,
+  'savings-rate': compute_savings_rate,
+  'time-duration': compute_time_duration,
+  'week-number': compute_week_number,
 };
 
 export const v2Validators: Record<string, CalculatorValidator> = {
+  'commission': validate_commission,
   'percent-calculator': validate_percent_calculator,
 };
 
 export const v2ContextualFields: Record<string, CalculatorContextualField> = {
+  'commission': ctx_commission,
   'percent-calculator': ctx_percent_calculator,
 };
+
+/**
+ * Полные рантаймы по идентификатору — для сборки и тестов.
+ *
+ * В клиентский граф этот файл не входит: остров получает рантайм от своей
+ * точки входа. Здесь он собран целиком только чтобы тесты могли обратиться
+ * к любому калькулятору по идентификатору.
+ */
+export const v2Runtimes: Record<string, CalculatorClientRuntime> = Object.fromEntries(
+  Object.keys(v2Runners).map((id) => [id, {
+    compute: v2Runners[id],
+    validate: v2Validators[id],
+    contextualField: v2ContextualFields[id],
+    localization: v2Localization.en[id] || v2Localization.uk[id]
+      ? { en: v2Localization.en[id], uk: v2Localization.uk[id] }
+      : undefined,
+  }]),
+);

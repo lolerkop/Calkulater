@@ -5,6 +5,7 @@ import {
   fullParityCalculatorIds,
   ruOnlyCalculatorReasons,
 } from '../src/data/localizationParity';
+import { v2FullParityIds } from '../src/calculators/manifest.generated';
 import {
   getAlternatesForCalculator,
   getCalculatorById,
@@ -19,14 +20,29 @@ describe('localization parity', () => {
       ...fullParityCalculatorIds,
       ...Object.keys(ruOnlyCalculatorReasons),
     ]);
-    expect(calculators).toHaveLength(28);
-    expect(fullParityCalculatorIds).toHaveLength(25);
-    expect(Object.keys(ruOnlyCalculatorReasons)).toHaveLength(3);
-    expect(classified.size).toBe(calculators.length);
-    for (const calculator of calculators) expect(classified.has(calculator.id)).toBe(true);
-    expect(getCalculators('ru')).toHaveLength(28);
-    expect(getCalculators('en')).toHaveLength(25);
-    expect(getCalculators('uk')).toHaveLength(25);
+    // Классификация больше не живёт в одном списке. Легаси-калькуляторы
+    // перечислены явно, калькуляторы V2 объявляют готовность локали сами —
+    // наличием собственных комплектов копирайта. Проверяется структура:
+    // каждый публичный калькулятор отнесён ровно к одной из трёх категорий.
+    const ruOnly = new Set(Object.keys(ruOnlyCalculatorReasons));
+    const v2Ready = new Set(v2FullParityIds);
+    for (const calculator of calculators) {
+      // Мигрированные калькуляторы попадают сразу в две категории: они остались
+      // в легаси-списке и одновременно объявляют готовность как V2. Важно
+      // другое — каждый калькулятор отнесён хотя бы к одной, а «только русский»
+      // несовместим с полным паритетом.
+      const fullParity = classified.has(calculator.id) && !ruOnly.has(calculator.id);
+      expect(fullParity || ruOnly.has(calculator.id) || v2Ready.has(calculator.id), calculator.id).toBe(true);
+      if (ruOnly.has(calculator.id)) expect(v2Ready.has(calculator.id), calculator.id).toBe(false);
+    }
+
+    expect(getCalculators('ru')).toHaveLength(calculators.length);
+    for (const locale of ['en', 'uk'] as const) {
+      const available = getCalculators(locale).map((calculator) => calculator.id);
+      expect(new Set(available).size).toBe(available.length);
+      expect(available).toHaveLength(calculators.length - ruOnly.size);
+      for (const id of available) expect(ruOnly.has(id), id).toBe(false);
+    }
   });
 
   it('creates complete hreflang clusters only for full-parity calculators', () => {

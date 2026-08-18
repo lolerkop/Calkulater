@@ -3,7 +3,7 @@ import { calculators } from '../src/data/calculators';
 import { calculatorSeoContent } from '../src/data/calculatorSeoContent';
 import { publishedExamples } from '../src/data/publishedExamples';
 import { getCalculatorById, getCalculators, locales } from '../src/lib/i18n';
-import { runners } from '../src/lib/runners';
+import { allRunners as runners } from '../src/lib/runners.all';
 
 const normalize = (value: string) => value.replace(/[\s\u00a0\u202f]+/g, ' ').trim();
 

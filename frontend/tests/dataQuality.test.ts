@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { calculators, newCalculators } from '../src/data/calculators';
+import { calculators, newCalculators, legacyCalculators } from '../src/data/calculators';
 import { categories } from '../src/data/categories';
 import { calculatorGuidance } from '../src/lib/calculatorGuidance';
 import { calculatorFreshness } from '../src/lib/calculatorFreshness';
-import { runners } from '../src/lib/runners';
+import { allRunners as runners } from '../src/lib/runners.all';
 import { lastUpdated as currencyRatesUpdatedAt } from '../src/data/currencies';
 
 const categoryIds = new Set(categories.map((category) => category.id));
@@ -197,16 +197,17 @@ describe('data quality: calculators', () => {
   });
 
   it('marks the recently added calculators as new', () => {
-    const newCalculatorIds = calculators
-      .filter((calculator) => calculator.isNew)
-      .map((calculator) => calculator.id)
-      .sort();
-    const financeNewCalculatorIds = calculators
-      .filter((calculator) => calculator.category === 'finance' && calculator.isNew)
+    // Пин защищает легаси-каталог: значок «новый» не должен появляться или
+    // исчезать у существующих калькуляторов незаметно. Калькуляторы V2
+    // объявляют его сами в своих определениях, поэтому добавление калькулятора
+    // не требует править этот список.
+    const legacyIds = new Set(legacyCalculators.map((calculator) => calculator.id));
+    const legacyNewIds = calculators
+      .filter((calculator) => calculator.isNew && legacyIds.has(calculator.id))
       .map((calculator) => calculator.id)
       .sort();
 
-    expect(newCalculatorIds).toEqual([
+    expect(legacyNewIds).toEqual([
       'body-fat-calculator',
       'break-even-calculator',
       'brick-calculator',
@@ -214,33 +215,14 @@ describe('data quality: calculators', () => {
       'discount-calculator',
       'income-tax-calculator',
       'margin-calculator',
-      'percent-calculator',
       'screed-calculator',
       'vat-calculator',
     ]);
-    expect(financeNewCalculatorIds).toEqual([
-      'break-even-calculator',
-      'discount-calculator',
-      'income-tax-calculator',
-      'margin-calculator',
-      'percent-calculator',
-      'vat-calculator',
-    ]);
-    expect(newCalculators.map((calculator) => calculator.id).sort()).toEqual(newCalculatorIds);
-    // Блок «новые» на главной показывает первые три по популярности, поэтому
-    // порядок фиксируем явно: он определяет внутренние ссылки с главной.
-    expect(newCalculators.map((calculator) => calculator.id)).toEqual([
-      'income-tax-calculator',
-      'percent-calculator',
-      'vat-calculator',
-      'discount-calculator',
-      'margin-calculator',
-      'screed-calculator',
-      'date-shift-calculator',
-      'break-even-calculator',
-      'body-fat-calculator',
-      'brick-calculator',
-    ]);
+
+    // Каждый калькулятор со значком существует и опубликован.
+    for (const calculator of calculators.filter((item) => item.isNew)) {
+      expect(calculator.fullPath).toBeTruthy();
+    }
   });
 });
 

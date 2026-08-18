@@ -1,5 +1,6 @@
 import { pluralRu } from './plural';
 
+
 export const clientLocales = ['ru', 'en', 'es', 'de', 'fr', 'pt', 'it', 'pl', 'nl', 'ro', 'id', 'tr', 'vi', 'cs', 'uk', 'sk', 'hu'] as const;
 export type Locale = (typeof clientLocales)[number];
 
@@ -232,12 +233,16 @@ export function localizedResultText(value: string, locale: Locale): string {
   }
 
   const units = locale === 'uk'
-    ? { month: 'міс.', year: 'років', day: 'дн.', piece: 'шт.', liter: 'л', gram: 'г', kg: 'кг', cm: 'см', kcal: 'ккал', pace: '/км' }
-    : { month: 'mo.', year: 'years', day: 'days', piece: 'pcs.', liter: 'L', gram: 'g', kg: 'kg', cm: 'cm', kcal: 'kcal', pace: '/km' };
+    ? { month: 'міс.', year: 'років', day: 'дн.', piece: 'шт.', liter: 'л', gram: 'г', kg: 'кг', cm: 'см', kcal: 'ккал', pace: '/км', hour: 'год', minute: 'хв' }
+    : { month: 'mo.', year: 'years', day: 'days', piece: 'pcs.', liter: 'L', gram: 'g', kg: 'kg', cm: 'cm', kcal: 'kcal', pace: '/km', hour: 'h', minute: 'min' };
 
   return localized
     .replaceAll('₽', currency)
     .replace(/ккал/g, units.kcal)
+    // Составные величины времени вида «8 ч 30 мин»: сокращения глобальны,
+    // поэтому переводятся здесь, а не в локализации отдельного калькулятора.
+    .replace(/ ч(?=$|\s)/g, ` ${units.hour}`)
+    .replace(/ мин(?=$|\s|[),])/g, ` ${units.minute}`)
     .replace(/км\/ч/g, 'km/h')
     .replace(/\/км/g, units.pace)
     .replace(/\/миля/g, locale === 'uk' ? '/миля' : '/mi')
@@ -451,6 +456,7 @@ const resultValueMap: ResultValueMap = {
     'Суббота': 'Субота',
   },
 };
+
 
 export const resultLabelMap: Record<string, string> = {
   'Количество камней': 'Units needed',

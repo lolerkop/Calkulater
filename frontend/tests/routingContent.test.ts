@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { calculators } from '../src/data/calculators';
+import { isRuOnlyCalculator } from '../src/data/localizationParity';
 import {
   calculatorCopy,
   excludedDatesCopy,
@@ -52,12 +53,15 @@ describe('routing content: i18n routes', () => {
     expect(category.default).toContain('getCategories(locale)');
     expect(category.default).toContain('getCalculatorsByCategory(category.id, locale)');
     expect(calculator.default).toContain('findCalculatorBySlug');
-    expect(calculator.default).toContain('CalculatorIsland calc={islandCalc} locale={locale}');
+    // Маршрут рендерит диспетчер островов: он выбирает точку входа калькулятора,
+    // чтобы в клиент уезжал чанк только текущего.
+    expect(calculator.default).toContain('CalculatorIslandDispatch calc={islandCalc} locale={locale}');
     expect(calculator.default).toContain('getAlternatesForCalculator');
     expect(calculator.default).toContain('calculator-freshness');
   });
 
   it('keeps localized public locales scoped to global calculators only', () => {
+    const ruOnlyCount = calculators.filter((calculator) => isRuOnlyCalculator(calculator.id)).length;
     expect(locales).toEqual(['ru', 'en', 'uk']);
     expect(allLocales).toContain('es');
     expect(allLocales).toContain('de');
@@ -67,7 +71,8 @@ describe('routing content: i18n routes', () => {
       expect(getCalculatorById('income-tax-calculator', locale)).toBeUndefined();
       expect(getCalculatorById('vat-calculator', locale)).toBeUndefined();
       expect(isCalculatorAvailableInLocale('discount-calculator', locale)).toBe(true);
-      expect(getCalculators(locale).length).toBe(25);
+      // Выводится из состава каталога: пин здесь защищал бы только сам себя.
+      expect(getCalculators(locale).length).toBe(calculators.length - ruOnlyCount);
     }
     expect(getCalculatorById('income-tax-calculator', 'ru')).toBeTruthy();
     expect(getCalculatorById('vat-calculator', 'ru')).toBeTruthy();

@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { calculators } from '../src/data/calculators';
-import { runners } from '../src/lib/runners';
+import { allRunners as runners } from '../src/lib/runners.all';
 import { buildInitialValues } from '../src/lib/shareLink';
 import { getCalculatorById } from '../src/lib/i18n';
+import { v2Runtimes } from '../src/calculators/runtime.generated';
 import { localizeResult, resultToText } from '../src/components/islands/calculator/resultLocalization';
 import type { CalcResult, Field } from '../src/lib/types';
 
@@ -81,7 +82,7 @@ function collectLeaks(locale: 'en' | 'uk', onlyIds?: Set<string>): Leak[] {
         continue;
       }
       const original = new Set(visibleStrings(russian));
-      const localized = localizeResult(russian, locale);
+      const localized = localizeResult(russian, locale, calculator.id, v2Runtimes[calculator.id]);
       const scenario = JSON.stringify(inputs).slice(0, 70);
 
       for (const value of visibleStrings(localized)) {
@@ -121,7 +122,7 @@ describe('runtime result localization: калькуляторы Expansion Pack #
       const russian = runners[id](buildInitialValues(calculator.fields) as never);
       for (const locale of ['en', 'uk'] as const) {
         const name = getCalculatorById(id, locale)!.name;
-        const text = resultToText({ name }, localizeResult(russian, locale), locale);
+        const text = resultToText({ name }, localizeResult(russian, locale, id, v2Runtimes[id]), locale);
         if (locale === 'en') {
           expect(text, `${id} EN буфер`).not.toMatch(CYRILLIC);
         } else {

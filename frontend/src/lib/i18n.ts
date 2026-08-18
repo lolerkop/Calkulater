@@ -1,6 +1,8 @@
 import { categories as baseCategories } from '../data/categories';
 import { calculators as baseCalculators } from '../data/calculators';
-import { v2EnCopy, v2UkCopy } from '../calculators/manifest.generated';
+import { v2EnCopy, v2FullParityIds, v2UkCopy } from '../calculators/manifest.generated';
+import { v2Localization } from '../calculators/localization.generated';
+import { lookupScoped } from './platform/types';
 import { getCalculatorSeoContent } from '../data/calculatorSeoContent';
 import { fullParityCalculatorIds, isRuOnlyCalculator } from '../data/localizationParity';
 import { ukCalculatorContent } from '../data/ukCalculatorContent';
@@ -1074,7 +1076,10 @@ export const ui = {
   },
 } satisfies Record<Locale, Record<string, string>>;
 
-const globalCalculatorIds = new Set<string>(fullParityCalculatorIds);
+// Легаси-калькуляторы перечислены списком, калькуляторы V2 объявляют паритет
+// сами — фактом наличия собственного копирайта для локали. Добавление
+// калькулятора V2 больше не требует правки общего списка.
+const globalCalculatorIds = new Set<string>([...fullParityCalculatorIds, ...v2FullParityIds]);
 
 const enCategories: Record<CategoryId, Omit<Category, 'id' | 'icon' | 'faq'>> = {
   finance: {
@@ -6083,7 +6088,7 @@ const optionLabels: Record<string, string> = {
   fromMargin: 'Cost and margin',
 };
 
-const fieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>> = {
+const legacyFieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>> = {
   en: commonFieldLabels,
   es: {
     amount: 'Importe',
@@ -6987,7 +6992,7 @@ const fieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>>
   },
 };
 
-const optionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>> = {
+const legacyOptionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>> = {
   en: optionLabels,
   es: {
     years: 'Años',
@@ -7455,6 +7460,7 @@ const optionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, string>
 
 const enUnits: Record<string, string> = {
   '₽': '$',
+  'г': 'g',
   'мм': 'mm',
   '₽ годовых': '% yearly',
   '% годовых': '% yearly',
@@ -7474,6 +7480,7 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
       '₽ годовых': '% річних',
       '% годовых': '% річних',
       'кг': 'кг',
+      'г': 'г',
       'см': 'см',
       'м': 'м',
       'м²': 'м²',
@@ -7496,18 +7503,27 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
   return (enUnits[unit] ?? unit).replace('$', currency);
 }
 
-function localizeField(field: Field, locale: Locale): Field {
+const optionLabelsByLocale = legacyOptionLabelsByLocale;
+
+const fieldLabelsByLocale = legacyFieldLabelsByLocale;
+
+function localizeField(field: Field, locale: Locale, calculatorId: string): Field {
   if (locale === 'ru') return { ...field };
   const fieldLabels = fieldLabelsByLocale[locale];
   const localizedOptions = optionLabelsByLocale[locale];
   return {
     ...field,
-    label: fieldLabels[field.name] ?? field.label,
+    // Сначала подпись, объявленная самим калькулятором, затем общая карта.
+    // Имена полей вроде `mode` встречаются у многих калькуляторов сразу,
+    // поэтому обращение к V2-локализации всегда идёт с идентификатором.
+    label: lookupScoped(v2Localization, locale, calculatorId, 'fields', field.name)
+      ?? fieldLabels[field.name] ?? field.label,
     unit: localizeUnit(field.unit, locale),
     help: field.help,
     options: field.options?.map((option) => ({
       ...option,
-      label: localizedOptions[option.value] ?? option.label,
+      label: lookupScoped(v2Localization, locale, calculatorId, 'options', option.value)
+        ?? localizedOptions[option.value] ?? option.label,
     })),
   };
 }
@@ -7538,7 +7554,7 @@ function localizeCalculator(calculator: CalculatorDef, locale: Locale): Calculat
     const localizedCalculator = {
       ...calculator,
       fullPath: `${fullPathPrefix}/${calculator.slug}/`,
-      fields: calculator.fields.map((field) => localizeField(field, locale)),
+      fields: calculator.fields.map((field) => localizeField(field, locale, calculator.id)),
     };
     const seoContent = getCalculatorSeoContent(localizedCalculator, locale);
     return { ...localizedCalculator, seoContent, faq: seoContent.faq };
@@ -7551,9 +7567,15 @@ function localizeCalculator(calculator: CalculatorDef, locale: Locale): Calculat
     resultTitle: copy.resultTitle ?? copy.name,
     category: calculator.category,
     fullPath: `${fullPathPrefix}/${copy.slug}/`,
-    fields: calculator.fields.map((field) => localizeField(field, locale)),
+    fields: calculator.fields.map((field) => localizeField(field, locale, calculator.id)),
     resultLabels: Object.fromEntries(
-      Object.entries(calculator.resultLabels).map(([key, label]) => [key, localizedResultLabel(label, locale)]),
+      Object.entries(calculator.resultLabels).map(([key, label]) => [
+        key,
+        // Сначала перевод, объявленный самим калькулятором: одна и та же русская
+        // фраза у разных калькуляторов может значить разное.
+        lookupScoped(v2Localization, locale, calculator.id, 'results', label)
+          ?? localizedResultLabel(label, locale),
+      ]),
     ),
     disclaimer: copy.disclaimer ?? (locale === 'uk'
       ? 'Результати є орієнтовними оцінками. Перед важливими рішеннями перевіряйте вихідні дані.'

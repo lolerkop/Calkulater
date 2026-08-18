@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { calculators } from '../src/data/calculators';
-import { runners } from '../src/lib/runners';
+import { allRunners as runners } from '../src/lib/runners.all';
 import type { CalculatorDef, Field } from '../src/lib/types';
 
 function defaultValueForField(field: Field): string | number | boolean {
