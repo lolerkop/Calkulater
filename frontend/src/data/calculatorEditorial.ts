@@ -4,6 +4,7 @@ import {
   ratesUpdateFailed,
 } from './currencies';
 import type { CalculatorDef } from '../lib/types';
+import { categoryDefinitions } from '../categories/manifest.generated';
 
 export type EditorialSource = {
   label: string;
@@ -49,38 +50,15 @@ const labels = {
   },
 } as const;
 
-const genericLimitations = {
-  ru: {
-    finance: 'Расчёт справочный: договорные комиссии, льготы и индивидуальные условия учитываются только при наличии соответствующих полей.',
-    currency: 'Это официальный справочный, а не коммерческий курс покупки или продажи. Банк или обменный пункт может применять спред и комиссию.',
-    sport: 'Результат является ориентиром и не заменяет индивидуальную медицинскую или спортивную оценку.',
-    building: 'Перед покупкой проверьте фактические замеры, размер упаковки, партию и рекомендации производителя.',
-    math: 'Расчёт выполняется по определениям соответствующих операций. Для очень больших чисел возможна потеря младших разрядов из-за обычной числовой точности браузера.',
-    business: 'Показатель считается по введённым суммам и не учитывает налоги, сезонность и структуру затрат, если вы не заложили их в исходные данные.',
-    converters: 'Перевод выполняется по международным определениям единиц. Там, где единица задана точно, результат точен по определению.',
-    'date-time': 'Для документов и сроков проверьте правила включения дат, праздники и требования конкретной организации.',
-  },
-  en: {
-    finance: 'This is a reference estimate. Contract fees, benefits and individual terms are included only when the form has a matching input.',
-    currency: 'This is an official reference rate, not a live commercial buy or sell quote. A bank or exchange service may add a spread and fees.',
-    sport: 'The result is guidance and does not replace an individual medical or training assessment.',
-    building: 'Before buying, verify the measurements, pack size, production batch and manufacturer instructions.',
-    math: 'Calculations follow the definitions of the operations involved. Very large numbers may lose their least significant digits to ordinary browser numeric precision.',
-    business: 'The figure is derived from the amounts you enter and does not account for taxes, seasonality or cost structure unless you include them in the inputs.',
-    converters: 'Conversions use international unit definitions. Where a unit is defined exactly, the result is exact by definition.',
-    'date-time': 'For documents and deadlines, verify inclusion rules, holidays and the requirements of the relevant organization.',
-  },
-  uk: {
-    finance: 'Результат довідковий: договірні комісії, пільги та індивідуальні умови враховуються лише за наявності відповідних полів.',
-    currency: 'Це офіційний довідковий, а не комерційний курс купівлі чи продажу. Банк або обмінник може застосовувати спред і комісію.',
-    sport: 'Результат є орієнтиром і не замінює індивідуальну медичну або спортивну оцінку.',
-    building: 'Перед купівлею перевірте фактичні виміри, розмір упаковки, партію та рекомендації виробника.',
-    math: 'Розрахунок виконується за визначеннями відповідних операцій. Для дуже великих чисел можлива втрата молодших розрядів через звичайну числову точність браузера.',
-    business: 'Показник рахується за введеними сумами і не враховує податки, сезонність та структуру витрат, якщо ви не заклали їх у вихідні дані.',
-    converters: 'Переведення виконується за міжнародними визначеннями одиниць. Там, де одиниця задана точно, результат точний за визначенням.',
-    'date-time': 'Для документів і строків перевірте правила включення дат, свята та вимоги конкретної організації.',
-  },
-} as const;
+// Оговорки категорий переехали в их модули. Прежняя карта была ориентирована
+// локаль → категория; теперь каждая категория несёт свои переводы, а нужная
+// ориентация собирается здесь.
+const genericLimitations = Object.fromEntries(
+  (['ru', 'en', 'uk'] as const).map((locale) => [
+    locale,
+    Object.fromEntries(categoryDefinitions.map((definition) => [definition.id, definition.editorial[locale]])),
+  ]),
+) as Record<'ru' | 'en' | 'uk', Record<string, string>>;
 
 function language(locale: string): keyof typeof labels {
   return locale === 'ru' || locale === 'uk' ? locale : 'en';
