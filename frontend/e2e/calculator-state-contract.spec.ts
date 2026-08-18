@@ -60,6 +60,16 @@ const stateScenarios: Record<string, StateScenario> = {
   'convert-power': { query: { value: 1, from: 'mw', to: 'kw' }, result: { primary: '1 000,00 кВт' } },
   'convert-time': { query: { value: 1, from: 'd', to: 'h' }, result: { primary: '24,0000 ч' } },
   'convert-angle': { query: { value: 1, from: 'turn', to: 'deg' }, result: { primary: '360,0000 °' } },
+  // Волна 7, партия A. Значения намеренно отличаются от умолчаний и меняют
+  // результат: контракт reset проверяет возврат формы к исходному состоянию.
+  //   100 = 8 · 12 + 4 · 84 = 2² · 3 · 7 · x² − 3x + 2 = (x − 2)(x − 1)
+  //   1000 − 400 = 600 · 90 000 / 30 = 3 000 · 200 000 × 10 × 2 / 100 = 40 000
+  'modulo': { query: { a: 100, b: 8 }, result: { primary: '4' } },
+  'prime-factorization': { query: { n: 84 }, result: { primary: '84 = 2² · 3 · 7' } },
+  'quadratic-equation': { query: { a: 1, b: -3, c: 2 }, result: { primary: 'x₁ = 2, x₂ = 1' } },
+  'contribution-margin': { query: { price: 1000, variable: 400 }, result: { primary: '600 ₽' } },
+  'cac': { query: { spend: 90000, customers: 30 }, result: { primary: '3 000 ₽' } },
+  'simple-interest': { query: { mode: 'interest', principal: 200000, rate: 10, years: 2 }, result: { primary: '40 000 ₽' } },
   'savings-rate': {
     query: { income: 120000, expenses: 90000 },
     result: { primary: '25,00 %' },

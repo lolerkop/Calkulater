@@ -33,6 +33,8 @@ const мусор = (текст: string) => /NaN|Infinity|undefined|\[object/.tes
 
 // Ровно те поля, у которых раннер защищает строку условием «> 0».
 const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
+  ['contribution-margin', 'volume'],
+  ['cac', 'ltv'],
   ['credit-calculator', 'extraPayment'],
   ['credit-calculator', 'oneTimeFee'],
   ['mortgage-calculator', 'extraPayment'],

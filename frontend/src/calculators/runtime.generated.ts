@@ -15,11 +15,13 @@ import type { CalculatorClientRuntime } from '../lib/platform/runtime';
 import { v2Localization } from './localization.generated';
 
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
+import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
 import { compute as compute_calories_from_macros } from './calories-from-macros/compute';
 import { compute as compute_commission } from './commission/compute';
 import { validate as validate_commission } from './commission/validate';
 import { contextualField as ctx_commission } from './commission/contextualField';
+import { compute as compute_contribution_margin } from './contribution-margin/compute';
 import { compute as compute_convert_angle } from './convert-angle/compute';
 import { compute as compute_convert_area } from './convert-area/compute';
 import { compute as compute_convert_cooking_volume } from './convert-cooking-volume/compute';
@@ -40,20 +42,26 @@ import { compute as compute_convert_temperature } from './convert-temperature/co
 import { compute as compute_convert_time } from './convert-time/compute';
 import { compute as compute_convert_torque } from './convert-torque/compute';
 import { compute as compute_convert_volume } from './convert-volume/compute';
+import { compute as compute_modulo } from './modulo/compute';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
 import { contextualField as ctx_percent_calculator } from './percent-calculator/contextualField';
+import { compute as compute_prime_factorization } from './prime-factorization/compute';
+import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
 import { compute as compute_room_volume } from './room-volume/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
+import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
 import { compute as compute_week_number } from './week-number/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
   'budget-50-30-20': compute_budget_50_30_20,
+  'cac': compute_cac,
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
   'commission': compute_commission,
+  'contribution-margin': compute_contribution_margin,
   'convert-angle': compute_convert_angle,
   'convert-area': compute_convert_area,
   'convert-cooking-volume': compute_convert_cooking_volume,
@@ -74,10 +82,14 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-time': compute_convert_time,
   'convert-torque': compute_convert_torque,
   'convert-volume': compute_convert_volume,
+  'modulo': compute_modulo,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
+  'prime-factorization': compute_prime_factorization,
+  'quadratic-equation': compute_quadratic_equation,
   'room-volume': compute_room_volume,
   'savings-rate': compute_savings_rate,
+  'simple-interest': compute_simple_interest,
   'time-duration': compute_time_duration,
   'week-number': compute_week_number,
 };

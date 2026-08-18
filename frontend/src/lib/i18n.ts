@@ -1137,6 +1137,29 @@ const enCategories: Record<CategoryId, Omit<Category, 'id' | 'icon' | 'faq'>> = 
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
     },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
+    },
   'date-time': {
     name: 'Date and time',
     slug: 'date-time',
@@ -1176,6 +1199,16 @@ const enCategoryFaq: Record<CategoryId, FaqItem[]> = {
       { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
     ],
   'date-time': [
     { q: 'Are leap years handled?', a: 'Yes. Date calculations use calendar dates and account for leap years.' },
@@ -1241,6 +1274,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
+    },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
     },
     'date-time': {
       name: 'Fechas',
@@ -1310,6 +1366,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
     },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
+    },
     'date-time': {
       name: 'Datum und Zeit',
       slug: 'datum-zeit',
@@ -1377,6 +1456,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
+    },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
     },
     'date-time': {
       name: 'Dates',
@@ -1446,6 +1548,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
     },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
+    },
     'date-time': {
       name: 'Datas',
       slug: 'datas',
@@ -1513,6 +1638,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
+    },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
     },
     'date-time': {
       name: 'Date',
@@ -1582,6 +1730,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
     },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
+    },
     'date-time': {
       name: 'Daty',
       slug: 'daty',
@@ -1649,6 +1820,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
+    },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
     },
     'date-time': {
       name: 'Datums',
@@ -1718,6 +1912,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
     },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
+    },
     'date-time': {
       name: 'Date',
       slug: 'date',
@@ -1785,6 +2002,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
+    },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
     },
     'date-time': {
       name: 'Tanggal',
@@ -1854,6 +2094,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
     },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
+    },
     'date-time': {
       name: 'Tarihler',
       slug: 'tarihler',
@@ -1921,6 +2184,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
+    },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
     },
     'date-time': {
       name: 'Ngày tháng',
@@ -1990,6 +2276,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
     },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
+    },
     'date-time': {
       name: 'Datum a čas',
       slug: 'datum-cas',
@@ -2057,6 +2366,28 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Онлайн-конвертери одиниць: довжина, маса, температура, площа, обʼєм, швидкість, тиск, енергія, потужність, час і кути.',
       h1: 'Конвертери одиниць вимірювання',
+    },
+    math: {
+      name: 'Математичні калькулятори',
+      slug: 'math',
+      description: 'Остача від ділення, прості множники, пропорції, рівняння та логарифми.',
+      longDescription:
+        'Шкільна та прикладна математика: розклад числа на прості множники, ділення з остачею, корені квадратного рівняння, пропорція з одним невідомим, логарифм за будь-якою основою та римські числа. Розділ закриває задачі, де потрібна точна відповідь і зрозумілий хід розв’язання, а не наближення.',
+      seoTitle: 'Математичні калькулятори — остача, множники, рівняння',
+      seoDescription:
+        'Онлайн-калькулятори з математики: ділення з остачею, розклад на прості множники, квадратне рівняння, пропорція, логарифм і римські числа.',
+      h1: 'Математичні калькулятори',
+    },
+    business: {
+      name: 'Бізнес і маркетинг',
+      slug: 'business',
+      description: 'Маржинальність, вартість залучення клієнта, середній чек, повернення та ROI реклами.',
+      longDescription:
+        'Метрики, за якими бізнес розуміє, заробляє він чи витрачає: маржинальний дохід і його частка в ціні, вартість залучення клієнта, середній чек, частка повернень, окупність реклами та виторг на співробітника. Усі показники рахуються за тими самими даними, що є в будь-якій звітності.',
+      seoTitle: 'Бізнес-калькулятори — маржинальність, CAC, середній чек, ROI',
+      seoDescription:
+        'Онлайн-калькулятори бізнес-метрик: маржинальний дохід, вартість залучення клієнта, середній чек, частка повернень, ROI реклами та виторг на співробітника.',
+      h1: 'Калькулятори бізнес-метрик',
     },
     'date-time': {
       name: 'Дати',
@@ -2126,6 +2457,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
     },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
+    },
     'date-time': {
       name: 'Dátumy',
       slug: 'datumy',
@@ -2194,6 +2548,29 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
       h1: 'Unit converters',
     },
+    // Локаль не собирается: до перевода стоит английский текст, а не выдумка.
+    math: {
+      name: 'Maths calculators',
+      slug: 'math',
+      description: 'Remainder, prime factors, proportions, equations and logarithms.',
+      longDescription:
+        'School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.',
+      seoTitle: 'Maths calculators — remainder, prime factors, equations',
+      seoDescription:
+        'Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.',
+      h1: 'Maths calculators',
+    },
+    business: {
+      name: 'Business and marketing',
+      slug: 'business',
+      description: 'Contribution margin, customer acquisition cost, average order value, returns and ad ROI.',
+      longDescription:
+        'The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.',
+      seoTitle: 'Business calculators — margin, CAC, average order value, ROI',
+      seoDescription:
+        'Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.',
+      h1: 'Business metric calculators',
+    },
     'date-time': {
       name: 'Dátumok',
       slug: 'datumok',
@@ -2237,6 +2614,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
+    ],
     'date-time': [
       { q: '¿Se consideran años bisiestos?', a: 'Sí. Los cálculos usan fechas de calendario y consideran años bisiestos.' },
       { q: '¿Puedo contar festivos?', a: 'La calculadora de días laborables permite añadir fechas excluidas manualmente.' },
@@ -2269,6 +2656,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
     ],
     'date-time': [
       { q: 'Werden Schaltjahre berücksichtigt?', a: 'Ja. Datumsberechnungen nutzen Kalenderdaten und berücksichtigen Schaltjahre.' },
@@ -2303,6 +2700,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
+    ],
     'date-time': [
       { q: 'Les années bissextiles sont-elles prises en compte ?', a: 'Oui. Les calculs utilisent les dates du calendrier et tiennent compte des années bissextiles.' },
       { q: 'Puis-je compter les jours fériés ?', a: 'La calculatrice de jours ouvrés permet d’ajouter manuellement des dates exclues.' },
@@ -2335,6 +2742,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
     ],
     'date-time': [
       { q: 'Os anos bissextos são considerados?', a: 'Sim. Os cálculos usam datas de calendário e consideram anos bissextos.' },
@@ -2369,6 +2786,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
+    ],
     'date-time': [
       { q: 'Gli anni bisestili sono considerati?', a: 'Sì. I calcoli usano date di calendario e tengono conto degli anni bisestili.' },
       { q: 'Posso contare i giorni festivi?', a: 'Il calcolatore dei giorni lavorativi permette di aggiungere date escluse manualmente.' },
@@ -2401,6 +2828,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
     ],
     'date-time': [
       { q: 'Czy lata przestepne sa uwzgledniane?', a: 'Tak. Obliczenia korzystaja z dat kalendarzowych i uwzgledniaja lata przestepne.' },
@@ -2435,6 +2872,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
+    ],
     'date-time': [
       { q: 'Worden schrikkeljaren meegenomen?', a: 'Ja. Datumberekeningen gebruiken kalenderdatums en houden rekening met schrikkeljaren.' },
       { q: 'Kan ik feestdagen meetellen?', a: 'De werkdagen rekentool laat je uitgesloten datums handmatig toevoegen.' },
@@ -2467,6 +2914,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
     ],
     'date-time': [
       { q: 'Anii bisecti sunt luati in calcul?', a: 'Da. Calculele folosesc date calendaristice si tin cont de anii bisecti.' },
@@ -2501,6 +2958,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
+    ],
     'date-time': [
       { q: 'Apakah tahun kabisat dihitung?', a: 'Ya. Perhitungan memakai tanggal kalender dan memperhitungkan tahun kabisat.' },
       { q: 'Bisakah menghitung hari libur?', a: 'Kalkulator hari kerja memungkinkan Anda menambahkan tanggal yang dikecualikan secara manual.' },
@@ -2533,6 +3000,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
     ],
     'date-time': [
       { q: 'Artık yıllar hesaba katılır mı?', a: 'Evet. Tarih hesaplamaları takvim tarihlerini kullanır ve artık yılları dikkate alır.' },
@@ -2567,6 +3044,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
+    ],
     'date-time': [
       { q: 'Có tính năm nhuận không?', a: 'Có. Phép tính dùng ngày lịch và xét năm nhuận.' },
       { q: 'Có thể tính ngày lễ không?', a: 'Máy tính ngày làm việc cho phép thêm ngày loại trừ thủ công.' },
@@ -2599,6 +3086,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
     ],
     'date-time': [
       { q: 'Počítají se přestupné roky?', a: 'Ano. Datumové výpočty používají kalendářní data a zohledňují přestupné roky.' },
@@ -2633,6 +3130,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Чому галони США та Великої Британії різні?', a: 'Це історично різні міри: американський галон дорівнює 3,785 літра, британський — 4,546. Конвертер обʼєму містить обидва.' },
       { q: 'Наскільки точні переведення?', a: 'Використовуються міжнародні визначення одиниць. Там, де одиниця задана точно — дюйм дорівнює рівно 2,54 сантиметра, — переведення точне за визначенням.' },
     ],
+    math: [
+      { q: 'Чи показують калькулятори хід розв’язання?', a: 'Вони показують проміжні величини — дискримінант, частку, кількість дільників, — за якими видно, звідки взялася відповідь.' },
+      { q: 'Що відбувається з від’ємними числами?', a: 'Там, де знак осмислений, він зберігається: ділення з остачею йде за знаком діленого, а рівняння приймає будь-які коефіцієнти.' },
+      { q: 'Чому деякі значення не рахуються?', a: 'У частини задач є область визначення: не можна ділити на нуль, брати логарифм недодатного числа або розкладати одиницю на множники.' },
+    ],
+    business: [
+      { q: 'За який період рахувати метрики?', a: 'За той самий, з якого взяті вихідні суми. Змішувати місячні витрати з квартальним виторгом не можна.' },
+      { q: 'Чому ROI буває від’ємним?', a: 'Отже, повернулося менше вкладеного. Калькулятор показує це прямо, а не обрізає до нуля.' },
+      { q: 'Чим ROI відрізняється від ROAS?', a: 'ROAS — відношення виторгу до витрат, ROI — частка прибутку від вкладень. За виторгу вдвічі більшого за витрати ROAS дорівнює 2, а ROI — 100 %.' },
+    ],
     'date-time': [
       { q: 'Чи враховуються високосні роки?', a: 'Так. Розрахунки дат використовують календарні дати та враховують високосні роки.' },
       { q: 'Чи можна врахувати свята?', a: 'Калькулятор робочих днів дозволяє вручну додати виключені дати.' },
@@ -2666,6 +3173,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
+    ],
     'date-time': [
       { q: 'Počítajú sa priestupné roky?', a: 'Áno. Dátumové výpočty používajú kalendárne dátumy a zohľadňujú priestupné roky.' },
       { q: 'Môžem započítať sviatky?', a: 'Kalkulačka pracovných dní umožňuje ručne pridať vylúčené dátumy.' },
@@ -2698,6 +3215,16 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
       { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
       { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
+    math: [
+      { q: 'Do the calculators show the working?', a: 'They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.' },
+      { q: 'What happens with negative numbers?', a: 'Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.' },
+      { q: 'Why are some values rejected?', a: 'Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.' },
+    ],
+    business: [
+      { q: 'Which period should the metrics cover?', a: 'The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.' },
+      { q: 'Why can ROI be negative?', a: 'It means less came back than went in. The calculator states that plainly instead of clamping to zero.' },
+      { q: 'How does ROI differ from ROAS?', a: 'ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.' },
     ],
     'date-time': [
       { q: 'Figyelembe veszi a szökőéveket?', a: 'Igen. A dátumszámítások naptári dátumokat használnak, és figyelembe veszik a szökőéveket.' },

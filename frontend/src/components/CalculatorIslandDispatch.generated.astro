@@ -9,9 +9,11 @@
 // Легаси-калькуляторы рендерят общий остров и берут расчёт из общего реестра.
 import CalculatorIsland from './islands/CalculatorIsland';
 import Budget503020Island from '../calculators/budget-50-30-20/island';
+import CacIsland from '../calculators/cac/island';
 import CagrIsland from '../calculators/cagr/island';
 import CaloriesFromMacrosIsland from '../calculators/calories-from-macros/island';
 import CommissionIsland from '../calculators/commission/island';
+import ContributionMarginIsland from '../calculators/contribution-margin/island';
 import ConvertAngleIsland from '../calculators/convert-angle/island';
 import ConvertAreaIsland from '../calculators/convert-area/island';
 import ConvertCookingVolumeIsland from '../calculators/convert-cooking-volume/island';
@@ -32,22 +34,28 @@ import ConvertTemperatureIsland from '../calculators/convert-temperature/island'
 import ConvertTimeIsland from '../calculators/convert-time/island';
 import ConvertTorqueIsland from '../calculators/convert-torque/island';
 import ConvertVolumeIsland from '../calculators/convert-volume/island';
+import ModuloIsland from '../calculators/modulo/island';
 import PaintCalculatorIsland from '../calculators/paint-calculator/island';
 import PercentCalculatorIsland from '../calculators/percent-calculator/island';
+import PrimeFactorizationIsland from '../calculators/prime-factorization/island';
+import QuadraticEquationIsland from '../calculators/quadratic-equation/island';
 import RoomVolumeIsland from '../calculators/room-volume/island';
 import SavingsRateIsland from '../calculators/savings-rate/island';
+import SimpleInterestIsland from '../calculators/simple-interest/island';
 import TimeDurationIsland from '../calculators/time-duration/island';
 import WeekNumberIsland from '../calculators/week-number/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['budget-50-30-20', 'cagr', 'calories-from-macros', 'commission', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'paint-calculator', 'percent-calculator', 'room-volume', 'savings-rate', 'time-duration', 'week-number']);
+const V2_IDS = new Set(['budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'modulo', 'paint-calculator', 'percent-calculator', 'prime-factorization', 'quadratic-equation', 'room-volume', 'savings-rate', 'simple-interest', 'time-duration', 'week-number']);
 ---
 
 {id === 'budget-50-30-20' && <Budget503020Island calc={calc} locale={locale} client:load />}
+{id === 'cac' && <CacIsland calc={calc} locale={locale} client:load />}
 {id === 'cagr' && <CagrIsland calc={calc} locale={locale} client:load />}
 {id === 'calories-from-macros' && <CaloriesFromMacrosIsland calc={calc} locale={locale} client:load />}
 {id === 'commission' && <CommissionIsland calc={calc} locale={locale} client:load />}
+{id === 'contribution-margin' && <ContributionMarginIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-angle' && <ConvertAngleIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-area' && <ConvertAreaIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-cooking-volume' && <ConvertCookingVolumeIsland calc={calc} locale={locale} client:load />}
@@ -68,10 +76,14 @@ const V2_IDS = new Set(['budget-50-30-20', 'cagr', 'calories-from-macros', 'comm
 {id === 'convert-time' && <ConvertTimeIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-torque' && <ConvertTorqueIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-volume' && <ConvertVolumeIsland calc={calc} locale={locale} client:load />}
+{id === 'modulo' && <ModuloIsland calc={calc} locale={locale} client:load />}
 {id === 'paint-calculator' && <PaintCalculatorIsland calc={calc} locale={locale} client:load />}
 {id === 'percent-calculator' && <PercentCalculatorIsland calc={calc} locale={locale} client:load />}
+{id === 'prime-factorization' && <PrimeFactorizationIsland calc={calc} locale={locale} client:load />}
+{id === 'quadratic-equation' && <QuadraticEquationIsland calc={calc} locale={locale} client:load />}
 {id === 'room-volume' && <RoomVolumeIsland calc={calc} locale={locale} client:load />}
 {id === 'savings-rate' && <SavingsRateIsland calc={calc} locale={locale} client:load />}
+{id === 'simple-interest' && <SimpleInterestIsland calc={calc} locale={locale} client:load />}
 {id === 'time-duration' && <TimeDurationIsland calc={calc} locale={locale} client:load />}
 {id === 'week-number' && <WeekNumberIsland calc={calc} locale={locale} client:load />}
 {!V2_IDS.has(id) && <CalculatorIsland calc={calc} locale={locale} client:load />}
