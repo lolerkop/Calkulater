@@ -10,6 +10,7 @@ import { categoryDefinitions, categoryIds, categoryById } from '../../src/catego
 import { discoverCategoryIds, orderOf, renderManifest } from '../../scripts/generate-category-manifest.mts';
 
 const DIR = new URL('../../src/categories', import.meta.url).pathname;
+const root = new URL('../../', import.meta.url).pathname;
 
 describe('манифест категорий', () => {
   it('обнаруживает ровно те категории, что лежат в директориях', () => {
@@ -67,10 +68,27 @@ describe('манифест категорий', () => {
   });
 });
 
+describe('категория из одного калькулятора', () => {
+  it('правило соседей применяется только там, где соседи есть', () => {
+    // Раньше проверка была безусловной, и категория с единственным
+    // калькулятором становилась невозможной: в Phase 7 из-за этого пришлось
+    // переносить калькулятор между партиями. Здесь закреплено, что условие
+    // проверяет наличие соседей, а не требует их.
+    const source = readFileSync(`${root}tests/dataQuality.test.ts`, 'utf8');
+    expect(source, 'условие на соседей исчезло').toContain('if (peers.length === 0) continue;');
+  });
+
+  it('шаблон калькулятора не оставляет блок связанных пустым', () => {
+    // Явные связи, а при их отсутствии — соседи по категории. Для одиночной
+    // категории соседей нет, и работают явные связи.
+    const page = readFileSync(`${root}src/pages/[locale]/[category]/[calculator].astro`, 'utf8');
+    expect(page).toContain('related.length > 0 ? related : categoryFallback');
+  });
+});
+
 describe('общий код не перечисляет категории', () => {
   const shared = ['src/lib/types.ts', 'src/lib/search.ts', 'src/lib/calculatorGuidance.ts',
     'src/data/calculatorEditorial.ts', 'src/data/categories.ts'];
-  const root = new URL('../../', import.meta.url).pathname;
 
   it('ни один общий файл не содержит исчерпывающего списка категорий', () => {
     // Одно-два упоминания законны: категория может встретиться в комментарии

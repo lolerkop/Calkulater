@@ -117,9 +117,27 @@ describe('data quality: calculators', () => {
   });
 
   it('keeps related calculator links useful for same-category navigation', () => {
+    // Правило защищает переход к соседям по разделу: со страницы калькулятора
+    // должен быть виден хотя бы один родственный.
+    //
+    // Требовать этого безусловно нельзя. У категории, где калькулятор пока
+    // один, соседей нет по определению, и прежняя безусловная проверка делала
+    // такую категорию невозможной: в Phase 7 из-за неё калькулятор пришлось
+    // переносить между партиями только ради того, чтобы новый раздел стал
+    // структурно допустимым. Формальность ограничивала ассортимент.
+    //
+    // Проверка применяется там, где ей есть что проверять: если соседи в
+    // категории существуют, хотя бы один из них должен быть в связях. Пустой
+    // страница не останется и в одиночном случае — шаблон выводит явные связи,
+    // а при их отсутствии соседей по категории.
     const calculatorsById = new Map(calculators.map((calculator) => [calculator.id, calculator]));
 
     for (const calculator of calculators) {
+      const peers = calculators.filter(
+        (item) => item.category === calculator.category && item.id !== calculator.id,
+      );
+      if (peers.length === 0) continue;
+
       const relatedCalculators = calculator.relatedCalculatorIds
         .map((relatedId) => calculatorsById.get(relatedId))
         .filter(Boolean);
