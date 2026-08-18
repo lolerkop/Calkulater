@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import type { CalculatorDef, Field, CalcResult } from '../../lib/types';
 import { runners } from '../../lib/runners';
-import { v2ContextualFields } from '../../calculators/runtime.generated';
+import type { CalculatorClientRuntime } from '../../lib/platform/runtime';
 import type { Locale } from '../../lib/clientI18n';
 import {
   buildCalculatorQueryString,
@@ -37,6 +37,12 @@ import { ResultPanel } from './calculator/results';
 import { localizeResult, resultToText } from './calculator/resultLocalization';
 
 type Props = {
+  /**
+   * Рантайм текущего калькулятора. Приходит от его точки входа обычной
+   * зависимостью модуля, поэтому к моменту исполнения острова уже здесь.
+   * Легаси-калькуляторы его не передают и работают через общий реестр.
+   */
+  runtime?: CalculatorClientRuntime;
   calc: Pick<CalculatorDef, 'id' | 'name' | 'resultTitle' | 'category' | 'fields' | 'disclaimer'>;
   locale?: Locale;
 };
@@ -85,11 +91,15 @@ function readPreHydrationEdits(fields: Field[]): FormValues {
   return edits;
 }
 
-// Подписи полей, зависящие от значений формы, принадлежат калькулятору.
-// Остров лишь спрашивает манифест — какие калькуляторы существуют, он не знает.
-function contextualField(field: Field, calculatorId: string, values: FormValues, locale: Locale): Field {
-  const own = v2ContextualFields[calculatorId];
-  return own ? own(field, values, locale) : field;
+// Подписи полей, зависящие от значений формы, принадлежат калькулятору
+// и приходят в его рантайме. Остров не знает даже количества калькуляторов.
+function contextualField(
+  field: Field,
+  runtime: CalculatorClientRuntime | undefined,
+  values: FormValues,
+  locale: Locale,
+): Field {
+  return runtime?.contextualField ? runtime.contextualField(field, values, locale) : field;
 }
 
 function fallbackCopy(text: string): boolean {
@@ -116,10 +126,11 @@ function fallbackCopy(text: string): boolean {
   }
 }
 
-export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
+export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props) {
   const copy = calculatorCopy(locale);
   const warningCopy = shareWarningCopy(locale);
-  const runner = useMemo(() => runners[calc.id], [calc.id]);
+  // Расчёт калькулятора V2 приходит с его рантаймом; легаси берёт из реестра.
+  const runner = useMemo(() => runtime?.compute ?? runners[calc.id], [runtime, calc.id]);
   const formRef = useRef<HTMLFormElement | null>(null);
   const inputStartedRef = useRef(false);
   const resultTrackedRef = useRef(false);
@@ -161,7 +172,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   }, [shareWarningOpen]);
 
   const validationErrors = useMemo(
-    () => validateValues(calc.id, calc.fields, values, locale),
+    () => validateValues(calc.id, calc.fields, values, locale, runtime),
     [calc.id, calc.fields, values, locale],
   );
   // До монтирования значения ещё не окончательны, поэтому ошибки не показываем:
@@ -199,7 +210,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
     if (!runner) return;
     const id = setTimeout(() => {
       try {
-        const errors = validateValues(calc.id, calc.fields, values, locale);
+        const errors = validateValues(calc.id, calc.fields, values, locale, runtime);
         if (Object.keys(errors).length > 0) {
           setResult(null);
           if (inputStartedRef.current && !validationTrackedRef.current) {
@@ -332,7 +343,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
 
   const copyResult = async () => {
     if (typeof window === 'undefined' || !result) return;
-    const text = resultToText(calc, localizeResult(result, locale, calc.id), locale);
+    const text = resultToText(calc, localizeResult(result, locale, calc.id, runtime), locale);
     let ok = false;
     try {
       if (navigator.clipboard && window.isSecureContext) {
@@ -357,7 +368,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
   };
 
   const visibleFields = calc.fields.filter((f) => isVisible(f, values));
-  const displayResult = result ? localizeResult(result, locale, calc.id) : null;
+  const displayResult = result ? localizeResult(result, locale, calc.id, runtime) : null;
 
   return (
     <div className="grid min-w-0 gap-5 sm:gap-8 lg:grid-cols-5" data-testid={`calculator-island-${calc.id}`}>
@@ -384,7 +395,7 @@ export default function CalculatorIsland({ calc, locale = 'ru' }: Props) {
           {visibleFields.map((f) => (
             <div key={f.name} className={f.type === 'textarea' ? 'sm:col-span-2' : ''}>
               <FieldRenderer
-                field={contextualField(f, calc.id, values, locale)}
+                field={contextualField(f, runtime, values, locale)}
                 value={values[f.name] as string | number | boolean}
                 error={visibleErrors[f.name]}
                 locale={locale}

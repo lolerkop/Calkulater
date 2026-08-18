@@ -10,7 +10,7 @@ import { parseExcludedDates } from '../../../lib/calculators/workingDays';
 import { isValidIsoDate } from '../../../lib/date';
 import { calculatorCopy } from './copy';
 import { isPartialNumber, type FormValues } from './values';
-import { v2Validators } from '../../../calculators/runtime.generated';
+import type { CalculatorClientRuntime } from '../../../lib/platform/runtime';
 
 export type FieldErrors = Record<string, string>;
 export const EMPTY_ERRORS: FieldErrors = Object.freeze({});
@@ -20,7 +20,13 @@ export function isVisible(field: Field, values: FormValues): boolean {
   return values[field.showIf.field] === field.showIf.equals;
 }
 
-export function validateValues(calculatorId: string, fields: Field[], values: FormValues, locale: Locale): FieldErrors {
+export function validateValues(
+  calculatorId: string,
+  fields: Field[],
+  values: FormValues,
+  locale: Locale,
+  runtime?: CalculatorClientRuntime,
+): FieldErrors {
   const errors: FieldErrors = {};
   const copy = calculatorCopy(locale);
   for (const field of fields) {
@@ -64,7 +70,7 @@ export function validateValues(calculatorId: string, fields: Field[], values: Fo
   // Валидация, специфичная для калькулятора, живёт рядом с самим калькулятором.
   // Общий слой только вызывает её и не знает, какие калькуляторы существуют:
   // именно это отличает V2 от прежних веток `if (calculatorId === '...')`.
-  const ownValidator = v2Validators[calculatorId];
+  const ownValidator = runtime?.validate;
   if (ownValidator) {
     Object.assign(errors, ownValidator({
       values,

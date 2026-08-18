@@ -22,7 +22,6 @@ import { calcMargin } from './calculators/margin';
 import { calcBreakEven } from './calculators/breakEven';
 import { calcBodyFat } from './calculators/bodyFat';
 import { calcBrick } from './calculators/brick';
-import { v2Runners } from '../calculators/runtime.generated';
 
 const legacyRunners: Record<string, CalcFunction> = {
   'credit-calculator': calcCredit,
@@ -54,7 +53,11 @@ const legacyRunners: Record<string, CalcFunction> = {
   'brick-calculator': calcBrick,
 };
 
-// Раннеры Platform V2 приходят из генерируемого манифеста. Строка не растёт при
-// добавлении калькуляторов — в этом и смысл: реестр перестал быть местом,
-// которое правит каждая задача.
-export const runners: Record<string, CalcFunction> = { ...legacyRunners, ...v2Runners };
+// Реестр только легаси-калькуляторов: именно его импортирует остров.
+//
+// Раннеры V2 сюда сознательно не входят. Пока они были здесь, весь их код
+// становился статически достижимым из острова, и посетитель одной страницы
+// скачивал реализации всех остальных. Теперь калькулятор V2 приносит расчёт
+// собственной точкой входа, а полный реестр для сборки и тестов собирается
+// отдельно в `runners.all.ts`.
+export const runners: Record<string, CalcFunction> = legacyRunners;
