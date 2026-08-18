@@ -10,7 +10,9 @@ const currencyOptions = currencies.map((c) => ({
 }));
 
 
-const legacyCalculators: CalculatorDef[] = [
+// Экспортируется, чтобы тесты могли отличать унаследованный каталог от
+// калькуляторов V2: пины, защищающие легаси, не должны срабатывать на новых.
+export const legacyCalculators: CalculatorDef[] = [
   // ── ФИНАНСЫ ──────────────────────────────────────────────────────
   {
     id: 'credit-calculator',
