@@ -12,8 +12,15 @@ import { localization as loc_calories_from_macros } from './calories-from-macros
 import { localization as loc_commission } from './commission/localization';
 import { localization as loc_convert_angle } from './convert-angle/localization';
 import { localization as loc_convert_area } from './convert-area/localization';
+import { localization as loc_convert_cooking_volume } from './convert-cooking-volume/localization';
+import { localization as loc_convert_data_rate } from './convert-data-rate/localization';
+import { localization as loc_convert_density } from './convert-density/localization';
 import { localization as loc_convert_digital } from './convert-digital/localization';
 import { localization as loc_convert_energy } from './convert-energy/localization';
+import { localization as loc_convert_flow } from './convert-flow/localization';
+import { localization as loc_convert_force } from './convert-force/localization';
+import { localization as loc_convert_frequency } from './convert-frequency/localization';
+import { localization as loc_convert_illuminance } from './convert-illuminance/localization';
 import { localization as loc_convert_length } from './convert-length/localization';
 import { localization as loc_convert_mass } from './convert-mass/localization';
 import { localization as loc_convert_power } from './convert-power/localization';
@@ -21,6 +28,7 @@ import { localization as loc_convert_pressure } from './convert-pressure/localiz
 import { localization as loc_convert_speed } from './convert-speed/localization';
 import { localization as loc_convert_temperature } from './convert-temperature/localization';
 import { localization as loc_convert_time } from './convert-time/localization';
+import { localization as loc_convert_torque } from './convert-torque/localization';
 import { localization as loc_convert_volume } from './convert-volume/localization';
 import { localization as loc_room_volume } from './room-volume/localization';
 import { localization as loc_savings_rate } from './savings-rate/localization';
@@ -35,8 +43,15 @@ export const v2Localization: ScopedLocalization = {
     'commission': loc_commission.en ?? {},
     'convert-angle': loc_convert_angle.en ?? {},
     'convert-area': loc_convert_area.en ?? {},
+    'convert-cooking-volume': loc_convert_cooking_volume.en ?? {},
+    'convert-data-rate': loc_convert_data_rate.en ?? {},
+    'convert-density': loc_convert_density.en ?? {},
     'convert-digital': loc_convert_digital.en ?? {},
     'convert-energy': loc_convert_energy.en ?? {},
+    'convert-flow': loc_convert_flow.en ?? {},
+    'convert-force': loc_convert_force.en ?? {},
+    'convert-frequency': loc_convert_frequency.en ?? {},
+    'convert-illuminance': loc_convert_illuminance.en ?? {},
     'convert-length': loc_convert_length.en ?? {},
     'convert-mass': loc_convert_mass.en ?? {},
     'convert-power': loc_convert_power.en ?? {},
@@ -44,6 +59,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-speed': loc_convert_speed.en ?? {},
     'convert-temperature': loc_convert_temperature.en ?? {},
     'convert-time': loc_convert_time.en ?? {},
+    'convert-torque': loc_convert_torque.en ?? {},
     'convert-volume': loc_convert_volume.en ?? {},
     'room-volume': loc_room_volume.en ?? {},
     'savings-rate': loc_savings_rate.en ?? {},
@@ -57,8 +73,15 @@ export const v2Localization: ScopedLocalization = {
     'commission': loc_commission.uk ?? {},
     'convert-angle': loc_convert_angle.uk ?? {},
     'convert-area': loc_convert_area.uk ?? {},
+    'convert-cooking-volume': loc_convert_cooking_volume.uk ?? {},
+    'convert-data-rate': loc_convert_data_rate.uk ?? {},
+    'convert-density': loc_convert_density.uk ?? {},
     'convert-digital': loc_convert_digital.uk ?? {},
     'convert-energy': loc_convert_energy.uk ?? {},
+    'convert-flow': loc_convert_flow.uk ?? {},
+    'convert-force': loc_convert_force.uk ?? {},
+    'convert-frequency': loc_convert_frequency.uk ?? {},
+    'convert-illuminance': loc_convert_illuminance.uk ?? {},
     'convert-length': loc_convert_length.uk ?? {},
     'convert-mass': loc_convert_mass.uk ?? {},
     'convert-power': loc_convert_power.uk ?? {},
@@ -66,6 +89,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-speed': loc_convert_speed.uk ?? {},
     'convert-temperature': loc_convert_temperature.uk ?? {},
     'convert-time': loc_convert_time.uk ?? {},
+    'convert-torque': loc_convert_torque.uk ?? {},
     'convert-volume': loc_convert_volume.uk ?? {},
     'room-volume': loc_room_volume.uk ?? {},
     'savings-rate': loc_savings_rate.uk ?? {},

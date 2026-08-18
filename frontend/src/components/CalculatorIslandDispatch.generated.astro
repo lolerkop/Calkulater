@@ -14,8 +14,15 @@ import CaloriesFromMacrosIsland from '../calculators/calories-from-macros/island
 import CommissionIsland from '../calculators/commission/island';
 import ConvertAngleIsland from '../calculators/convert-angle/island';
 import ConvertAreaIsland from '../calculators/convert-area/island';
+import ConvertCookingVolumeIsland from '../calculators/convert-cooking-volume/island';
+import ConvertDataRateIsland from '../calculators/convert-data-rate/island';
+import ConvertDensityIsland from '../calculators/convert-density/island';
 import ConvertDigitalIsland from '../calculators/convert-digital/island';
 import ConvertEnergyIsland from '../calculators/convert-energy/island';
+import ConvertFlowIsland from '../calculators/convert-flow/island';
+import ConvertForceIsland from '../calculators/convert-force/island';
+import ConvertFrequencyIsland from '../calculators/convert-frequency/island';
+import ConvertIlluminanceIsland from '../calculators/convert-illuminance/island';
 import ConvertLengthIsland from '../calculators/convert-length/island';
 import ConvertMassIsland from '../calculators/convert-mass/island';
 import ConvertPowerIsland from '../calculators/convert-power/island';
@@ -23,6 +30,7 @@ import ConvertPressureIsland from '../calculators/convert-pressure/island';
 import ConvertSpeedIsland from '../calculators/convert-speed/island';
 import ConvertTemperatureIsland from '../calculators/convert-temperature/island';
 import ConvertTimeIsland from '../calculators/convert-time/island';
+import ConvertTorqueIsland from '../calculators/convert-torque/island';
 import ConvertVolumeIsland from '../calculators/convert-volume/island';
 import PaintCalculatorIsland from '../calculators/paint-calculator/island';
 import PercentCalculatorIsland from '../calculators/percent-calculator/island';
@@ -33,7 +41,7 @@ import WeekNumberIsland from '../calculators/week-number/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['budget-50-30-20', 'cagr', 'calories-from-macros', 'commission', 'convert-angle', 'convert-area', 'convert-digital', 'convert-energy', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-volume', 'paint-calculator', 'percent-calculator', 'room-volume', 'savings-rate', 'time-duration', 'week-number']);
+const V2_IDS = new Set(['budget-50-30-20', 'cagr', 'calories-from-macros', 'commission', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'paint-calculator', 'percent-calculator', 'room-volume', 'savings-rate', 'time-duration', 'week-number']);
 ---
 
 {id === 'budget-50-30-20' && <Budget503020Island calc={calc} locale={locale} client:load />}
@@ -42,8 +50,15 @@ const V2_IDS = new Set(['budget-50-30-20', 'cagr', 'calories-from-macros', 'comm
 {id === 'commission' && <CommissionIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-angle' && <ConvertAngleIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-area' && <ConvertAreaIsland calc={calc} locale={locale} client:load />}
+{id === 'convert-cooking-volume' && <ConvertCookingVolumeIsland calc={calc} locale={locale} client:load />}
+{id === 'convert-data-rate' && <ConvertDataRateIsland calc={calc} locale={locale} client:load />}
+{id === 'convert-density' && <ConvertDensityIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-digital' && <ConvertDigitalIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-energy' && <ConvertEnergyIsland calc={calc} locale={locale} client:load />}
+{id === 'convert-flow' && <ConvertFlowIsland calc={calc} locale={locale} client:load />}
+{id === 'convert-force' && <ConvertForceIsland calc={calc} locale={locale} client:load />}
+{id === 'convert-frequency' && <ConvertFrequencyIsland calc={calc} locale={locale} client:load />}
+{id === 'convert-illuminance' && <ConvertIlluminanceIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-length' && <ConvertLengthIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-mass' && <ConvertMassIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-power' && <ConvertPowerIsland calc={calc} locale={locale} client:load />}
@@ -51,6 +66,7 @@ const V2_IDS = new Set(['budget-50-30-20', 'cagr', 'calories-from-macros', 'comm
 {id === 'convert-speed' && <ConvertSpeedIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-temperature' && <ConvertTemperatureIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-time' && <ConvertTimeIsland calc={calc} locale={locale} client:load />}
+{id === 'convert-torque' && <ConvertTorqueIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-volume' && <ConvertVolumeIsland calc={calc} locale={locale} client:load />}
 {id === 'paint-calculator' && <PaintCalculatorIsland calc={calc} locale={locale} client:load />}
 {id === 'percent-calculator' && <PercentCalculatorIsland calc={calc} locale={locale} client:load />}

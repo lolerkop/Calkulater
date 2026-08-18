@@ -18,8 +18,15 @@ import { definition as def_calories_from_macros } from './calories-from-macros/d
 import { definition as def_commission } from './commission/definition';
 import { definition as def_convert_angle } from './convert-angle/definition';
 import { definition as def_convert_area } from './convert-area/definition';
+import { definition as def_convert_cooking_volume } from './convert-cooking-volume/definition';
+import { definition as def_convert_data_rate } from './convert-data-rate/definition';
+import { definition as def_convert_density } from './convert-density/definition';
 import { definition as def_convert_digital } from './convert-digital/definition';
 import { definition as def_convert_energy } from './convert-energy/definition';
+import { definition as def_convert_flow } from './convert-flow/definition';
+import { definition as def_convert_force } from './convert-force/definition';
+import { definition as def_convert_frequency } from './convert-frequency/definition';
+import { definition as def_convert_illuminance } from './convert-illuminance/definition';
 import { definition as def_convert_length } from './convert-length/definition';
 import { definition as def_convert_mass } from './convert-mass/definition';
 import { definition as def_convert_power } from './convert-power/definition';
@@ -27,6 +34,7 @@ import { definition as def_convert_pressure } from './convert-pressure/definitio
 import { definition as def_convert_speed } from './convert-speed/definition';
 import { definition as def_convert_temperature } from './convert-temperature/definition';
 import { definition as def_convert_time } from './convert-time/definition';
+import { definition as def_convert_torque } from './convert-torque/definition';
 import { definition as def_convert_volume } from './convert-volume/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
@@ -42,8 +50,15 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_commission,
   def_convert_angle,
   def_convert_area,
+  def_convert_cooking_volume,
+  def_convert_data_rate,
+  def_convert_density,
   def_convert_digital,
   def_convert_energy,
+  def_convert_flow,
+  def_convert_force,
+  def_convert_frequency,
+  def_convert_illuminance,
   def_convert_length,
   def_convert_mass,
   def_convert_power,
@@ -51,6 +66,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_speed,
   def_convert_temperature,
   def_convert_time,
+  def_convert_torque,
   def_convert_volume,
   def_paint_calculator,
   def_percent_calculator,
