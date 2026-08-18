@@ -38,11 +38,15 @@ import { definition as def_convert_temperature } from './convert-temperature/def
 import { definition as def_convert_time } from './convert-time/definition';
 import { definition as def_convert_torque } from './convert-torque/definition';
 import { definition as def_convert_volume } from './convert-volume/definition';
+import { definition as def_dti } from './dti/definition';
+import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_modulo } from './modulo/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
 import { definition as def_prime_factorization } from './prime-factorization/definition';
+import { definition as def_proportion } from './proportion/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
+import { definition as def_roman_numerals } from './roman-numerals/definition';
 import { definition as def_room_volume } from './room-volume/definition';
 import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
@@ -76,11 +80,15 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_time,
   def_convert_torque,
   def_convert_volume,
+  def_dti,
+  def_leap_year,
   def_modulo,
   def_paint_calculator,
   def_percent_calculator,
   def_prime_factorization,
+  def_proportion,
   def_quadratic_equation,
+  def_roman_numerals,
   def_room_volume,
   def_savings_rate,
   def_simple_interest,

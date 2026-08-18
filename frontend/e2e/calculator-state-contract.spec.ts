@@ -70,6 +70,13 @@ const stateScenarios: Record<string, StateScenario> = {
   'contribution-margin': { query: { price: 1000, variable: 400 }, result: { primary: '600 ₽' } },
   'cac': { query: { spend: 90000, customers: 30 }, result: { primary: '3 000 ₽' } },
   'simple-interest': { query: { mode: 'interest', principal: 200000, rate: 10, years: 2 }, result: { primary: '40 000 ₽' } },
+  // Волна 7, партия B.
+  //   3 / 4 = 9 / d → d = 4·9 / 3 = 12 · 1888 = MDCCCLXXXVIII
+  //   36 000 / 120 000 = 30 % → комфортная · 1600 не високосный (делится на 400? да)
+    'proportion': { query: { find: 'd', a: 3, b: 4, c: 9, d: 0 }, result: { primary: '12' } },
+  'roman-numerals': { query: { mode: 'toRoman', arabic: 1888 }, result: { primary: 'MDCCCLXXXVIII' } },
+  'dti': { query: { payments: 60000, income: 120000 }, result: { primary: '50,00 %' } },
+  'leap-year': { query: { year: 1900 }, result: { primary: 'Нет' } },
   'savings-rate': {
     query: { income: 120000, expenses: 90000 },
     result: { primary: '25,00 %' },

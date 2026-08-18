@@ -17,6 +17,6 @@ export const simpleInterestCopyEn: CalculatorCopy = {
     { q: 'How does this differ from compound interest?', a: 'Simple interest never accrues on interest. Over the same term compound interest yields more, and the gap widens with time.' },
     { q: 'Where is simple interest used?', a: 'In short loans, instalments, penalties and some bonds — wherever the base is fixed by contract.' },
     { q: 'Can the term be fractional?', a: 'Yes. Half a year is 0.5, and the formula stays linear in the term.' },
-    { q: 'Why is a zero term rejected?', a: 'The rate would then be undefined: it divides by the term.' },
+    { q: 'Why is a zero term rejected?', a: 'The rate has no value in that case: the formula divides by the term.' },
   ],
 };
