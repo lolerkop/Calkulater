@@ -14,6 +14,7 @@ import type { CalculatorContextualField, CalculatorValidator } from '../lib/plat
 import type { CalculatorClientRuntime } from '../lib/platform/runtime';
 import { v2Localization } from './localization.generated';
 
+import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_aov } from './aov/compute';
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
@@ -43,7 +44,9 @@ import { compute as compute_convert_temperature } from './convert-temperature/co
 import { compute as compute_convert_time } from './convert-time/compute';
 import { compute as compute_convert_torque } from './convert-torque/compute';
 import { compute as compute_convert_volume } from './convert-volume/compute';
+import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
+import { compute as compute_dividend_yield } from './dividend-yield/compute';
 import { compute as compute_dti } from './dti/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_logarithm } from './logarithm/compute';
@@ -58,15 +61,18 @@ import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
 import { compute as compute_return_rate } from './return-rate/compute';
+import { compute as compute_revenue_per_employee } from './revenue-per-employee/compute';
 import { compute as compute_roi } from './roi/compute';
 import { compute as compute_roman_numerals } from './roman-numerals/compute';
 import { compute as compute_room_volume } from './room-volume/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
+import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
 import { compute as compute_week_number } from './week-number/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
+  'ad-roi': compute_ad_roi,
   'aov': compute_aov,
   'budget-50-30-20': compute_budget_50_30_20,
   'cac': compute_cac,
@@ -94,7 +100,9 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-time': compute_convert_time,
   'convert-torque': compute_convert_torque,
   'convert-volume': compute_convert_volume,
+  'day-of-week': compute_day_of_week,
   'difference-abs-rel': compute_difference_abs_rel,
+  'dividend-yield': compute_dividend_yield,
   'dti': compute_dti,
   'leap-year': compute_leap_year,
   'logarithm': compute_logarithm,
@@ -105,10 +113,12 @@ export const v2Runners: Record<string, CalcFunction> = {
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
   'return-rate': compute_return_rate,
+  'revenue-per-employee': compute_revenue_per_employee,
   'roi': compute_roi,
   'roman-numerals': compute_roman_numerals,
   'room-volume': compute_room_volume,
   'savings-rate': compute_savings_rate,
+  'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
   'time-duration': compute_time_duration,
   'week-number': compute_week_number,

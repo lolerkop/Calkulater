@@ -85,6 +85,14 @@ const stateScenarios: Record<string, StateScenario> = {
   'aov': { query: { revenue: 300000, orders: 150 }, result: { primary: '2 000 ₽' } },
   'return-rate': { query: { returns: 60, orders: 600 }, result: { primary: '10,00 %' } },
   'roi': { query: { received: 150000, invested: 100000 }, result: { primary: '50,00 %' } },
+  // Волна 7, партия D.
+  //   (400 000 − 200 000) / 200 000 = +100 % · 20 000 000 / 50 = 400 000
+  //   (2000 + 0) / 40 = 50 · 15 / 300 = 5 % · 1 января 2024 — понедельник
+  'ad-roi': { query: { revenue: 400000, spend: 200000 }, result: { primary: '100,00 %' } },
+  'revenue-per-employee': { query: { revenue: 20000000, employees: 50 }, result: { primary: '400 000 ₽' } },
+  'shipping-per-unit': { query: { shipping: 2000, units: 40 }, result: { primary: '50 ₽' } },
+  'dividend-yield': { query: { dividend: 15, price: 300 }, result: { primary: '5,00 %' } },
+  'day-of-week': { query: { date: '2024-01-01' }, result: { primary: 'понедельник' } },
   'savings-rate': {
     query: { income: 120000, expenses: 90000 },
     result: { primary: '25,00 %' },

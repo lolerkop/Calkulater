@@ -8,6 +8,7 @@
 //
 // Легаси-калькуляторы рендерят общий остров и берут расчёт из общего реестра.
 import CalculatorIsland from './islands/CalculatorIsland';
+import AdRoiIsland from '../calculators/ad-roi/island';
 import AovIsland from '../calculators/aov/island';
 import Budget503020Island from '../calculators/budget-50-30-20/island';
 import CacIsland from '../calculators/cac/island';
@@ -35,7 +36,9 @@ import ConvertTemperatureIsland from '../calculators/convert-temperature/island'
 import ConvertTimeIsland from '../calculators/convert-time/island';
 import ConvertTorqueIsland from '../calculators/convert-torque/island';
 import ConvertVolumeIsland from '../calculators/convert-volume/island';
+import DayOfWeekIsland from '../calculators/day-of-week/island';
 import DifferenceAbsRelIsland from '../calculators/difference-abs-rel/island';
+import DividendYieldIsland from '../calculators/dividend-yield/island';
 import DtiIsland from '../calculators/dti/island';
 import LeapYearIsland from '../calculators/leap-year/island';
 import LogarithmIsland from '../calculators/logarithm/island';
@@ -46,19 +49,22 @@ import PrimeFactorizationIsland from '../calculators/prime-factorization/island'
 import ProportionIsland from '../calculators/proportion/island';
 import QuadraticEquationIsland from '../calculators/quadratic-equation/island';
 import ReturnRateIsland from '../calculators/return-rate/island';
+import RevenuePerEmployeeIsland from '../calculators/revenue-per-employee/island';
 import RoiIsland from '../calculators/roi/island';
 import RomanNumeralsIsland from '../calculators/roman-numerals/island';
 import RoomVolumeIsland from '../calculators/room-volume/island';
 import SavingsRateIsland from '../calculators/savings-rate/island';
+import ShippingPerUnitIsland from '../calculators/shipping-per-unit/island';
 import SimpleInterestIsland from '../calculators/simple-interest/island';
 import TimeDurationIsland from '../calculators/time-duration/island';
 import WeekNumberIsland from '../calculators/week-number/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['aov', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'difference-abs-rel', 'dti', 'leap-year', 'logarithm', 'modulo', 'paint-calculator', 'percent-calculator', 'prime-factorization', 'proportion', 'quadratic-equation', 'return-rate', 'roi', 'roman-numerals', 'room-volume', 'savings-rate', 'simple-interest', 'time-duration', 'week-number']);
+const V2_IDS = new Set(['ad-roi', 'aov', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'day-of-week', 'difference-abs-rel', 'dividend-yield', 'dti', 'leap-year', 'logarithm', 'modulo', 'paint-calculator', 'percent-calculator', 'prime-factorization', 'proportion', 'quadratic-equation', 'return-rate', 'revenue-per-employee', 'roi', 'roman-numerals', 'room-volume', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'time-duration', 'week-number']);
 ---
 
+{id === 'ad-roi' && <AdRoiIsland calc={calc} locale={locale} client:load />}
 {id === 'aov' && <AovIsland calc={calc} locale={locale} client:load />}
 {id === 'budget-50-30-20' && <Budget503020Island calc={calc} locale={locale} client:load />}
 {id === 'cac' && <CacIsland calc={calc} locale={locale} client:load />}
@@ -86,7 +92,9 @@ const V2_IDS = new Set(['aov', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-
 {id === 'convert-time' && <ConvertTimeIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-torque' && <ConvertTorqueIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-volume' && <ConvertVolumeIsland calc={calc} locale={locale} client:load />}
+{id === 'day-of-week' && <DayOfWeekIsland calc={calc} locale={locale} client:load />}
 {id === 'difference-abs-rel' && <DifferenceAbsRelIsland calc={calc} locale={locale} client:load />}
+{id === 'dividend-yield' && <DividendYieldIsland calc={calc} locale={locale} client:load />}
 {id === 'dti' && <DtiIsland calc={calc} locale={locale} client:load />}
 {id === 'leap-year' && <LeapYearIsland calc={calc} locale={locale} client:load />}
 {id === 'logarithm' && <LogarithmIsland calc={calc} locale={locale} client:load />}
@@ -97,10 +105,12 @@ const V2_IDS = new Set(['aov', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-
 {id === 'proportion' && <ProportionIsland calc={calc} locale={locale} client:load />}
 {id === 'quadratic-equation' && <QuadraticEquationIsland calc={calc} locale={locale} client:load />}
 {id === 'return-rate' && <ReturnRateIsland calc={calc} locale={locale} client:load />}
+{id === 'revenue-per-employee' && <RevenuePerEmployeeIsland calc={calc} locale={locale} client:load />}
 {id === 'roi' && <RoiIsland calc={calc} locale={locale} client:load />}
 {id === 'roman-numerals' && <RomanNumeralsIsland calc={calc} locale={locale} client:load />}
 {id === 'room-volume' && <RoomVolumeIsland calc={calc} locale={locale} client:load />}
 {id === 'savings-rate' && <SavingsRateIsland calc={calc} locale={locale} client:load />}
+{id === 'shipping-per-unit' && <ShippingPerUnitIsland calc={calc} locale={locale} client:load />}
 {id === 'simple-interest' && <SimpleInterestIsland calc={calc} locale={locale} client:load />}
 {id === 'time-duration' && <TimeDurationIsland calc={calc} locale={locale} client:load />}
 {id === 'week-number' && <WeekNumberIsland calc={calc} locale={locale} client:load />}

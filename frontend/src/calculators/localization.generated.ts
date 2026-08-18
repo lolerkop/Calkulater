@@ -6,6 +6,7 @@
 
 import type { ScopedLocalization } from '../lib/platform/types';
 
+import { localization as loc_ad_roi } from './ad-roi/localization';
 import { localization as loc_aov } from './aov/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
 import { localization as loc_cac } from './cac/localization';
@@ -33,7 +34,9 @@ import { localization as loc_convert_temperature } from './convert-temperature/l
 import { localization as loc_convert_time } from './convert-time/localization';
 import { localization as loc_convert_torque } from './convert-torque/localization';
 import { localization as loc_convert_volume } from './convert-volume/localization';
+import { localization as loc_day_of_week } from './day-of-week/localization';
 import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
+import { localization as loc_dividend_yield } from './dividend-yield/localization';
 import { localization as loc_dti } from './dti/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_logarithm } from './logarithm/localization';
@@ -42,16 +45,19 @@ import { localization as loc_prime_factorization } from './prime-factorization/l
 import { localization as loc_proportion } from './proportion/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
 import { localization as loc_return_rate } from './return-rate/localization';
+import { localization as loc_revenue_per_employee } from './revenue-per-employee/localization';
 import { localization as loc_roi } from './roi/localization';
 import { localization as loc_roman_numerals } from './roman-numerals/localization';
 import { localization as loc_room_volume } from './room-volume/localization';
 import { localization as loc_savings_rate } from './savings-rate/localization';
+import { localization as loc_shipping_per_unit } from './shipping-per-unit/localization';
 import { localization as loc_simple_interest } from './simple-interest/localization';
 import { localization as loc_time_duration } from './time-duration/localization';
 import { localization as loc_week_number } from './week-number/localization';
 
 export const v2Localization: ScopedLocalization = {
   en: {
+    'ad-roi': loc_ad_roi.en ?? {},
     'aov': loc_aov.en ?? {},
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
     'cac': loc_cac.en ?? {},
@@ -79,7 +85,9 @@ export const v2Localization: ScopedLocalization = {
     'convert-time': loc_convert_time.en ?? {},
     'convert-torque': loc_convert_torque.en ?? {},
     'convert-volume': loc_convert_volume.en ?? {},
+    'day-of-week': loc_day_of_week.en ?? {},
     'difference-abs-rel': loc_difference_abs_rel.en ?? {},
+    'dividend-yield': loc_dividend_yield.en ?? {},
     'dti': loc_dti.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
     'logarithm': loc_logarithm.en ?? {},
@@ -88,15 +96,18 @@ export const v2Localization: ScopedLocalization = {
     'proportion': loc_proportion.en ?? {},
     'quadratic-equation': loc_quadratic_equation.en ?? {},
     'return-rate': loc_return_rate.en ?? {},
+    'revenue-per-employee': loc_revenue_per_employee.en ?? {},
     'roi': loc_roi.en ?? {},
     'roman-numerals': loc_roman_numerals.en ?? {},
     'room-volume': loc_room_volume.en ?? {},
     'savings-rate': loc_savings_rate.en ?? {},
+    'shipping-per-unit': loc_shipping_per_unit.en ?? {},
     'simple-interest': loc_simple_interest.en ?? {},
     'time-duration': loc_time_duration.en ?? {},
     'week-number': loc_week_number.en ?? {},
   },
   uk: {
+    'ad-roi': loc_ad_roi.uk ?? {},
     'aov': loc_aov.uk ?? {},
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
     'cac': loc_cac.uk ?? {},
@@ -124,7 +135,9 @@ export const v2Localization: ScopedLocalization = {
     'convert-time': loc_convert_time.uk ?? {},
     'convert-torque': loc_convert_torque.uk ?? {},
     'convert-volume': loc_convert_volume.uk ?? {},
+    'day-of-week': loc_day_of_week.uk ?? {},
     'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
+    'dividend-yield': loc_dividend_yield.uk ?? {},
     'dti': loc_dti.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
     'logarithm': loc_logarithm.uk ?? {},
@@ -133,10 +146,12 @@ export const v2Localization: ScopedLocalization = {
     'proportion': loc_proportion.uk ?? {},
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
     'return-rate': loc_return_rate.uk ?? {},
+    'revenue-per-employee': loc_revenue_per_employee.uk ?? {},
     'roi': loc_roi.uk ?? {},
     'roman-numerals': loc_roman_numerals.uk ?? {},
     'room-volume': loc_room_volume.uk ?? {},
     'savings-rate': loc_savings_rate.uk ?? {},
+    'shipping-per-unit': loc_shipping_per_unit.uk ?? {},
     'simple-interest': loc_simple_interest.uk ?? {},
     'time-duration': loc_time_duration.uk ?? {},
     'week-number': loc_week_number.uk ?? {},

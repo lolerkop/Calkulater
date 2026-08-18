@@ -35,6 +35,8 @@ const мусор = (текст: string) => /NaN|Infinity|undefined|\[object/.tes
 const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['contribution-margin', 'volume'],
   ['roi', 'extra'],
+  ['shipping-per-unit', 'packaging'],
+  ['dividend-yield', 'shares'],
   ['cac', 'ltv'],
   ['credit-calculator', 'extraPayment'],
   ['credit-calculator', 'oneTimeFee'],
