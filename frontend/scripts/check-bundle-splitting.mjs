@@ -93,7 +93,37 @@ if (pages.length === 0) {
 const shared = [...pages[0].modules].filter((name) => pages.every((page) => page.modules.has(name)));
 const sharedSet = new Set(shared);
 
+// Общие модули исключены из поиска чужих реализаций, потому что строки
+// перевода живут там законно. Но сам общий остров обязан быть пустым по
+// части расчётов: если реализации вернутся туда, страница снова начнёт
+// тянуть чужой код, а посчитанное выше «чужих 0» этого не покажет.
+//
+// Проверяются только маркеры, которых нет в картах перевода: их подбор
+// подтверждён сравнением с общими чанками.
+const ISLAND_ONLY_MARKERS = {
+  'savings-rate': 'Расходы превышают доход',
+  'budget-50-30-20': 'Доход после налогов',
+  commission: 'fromCommission',
+  cagr: 'Общий рост за срок',
+  'week-number': 'Осталось дней до конца года',
+  'time-duration': 'Переход через полночь',
+  'calories-from-macros': 'Из белков',
+};
+
 const violations = [];
+
+const islandChunk = shared
+  .filter((name) => /^CalculatorIsland\./.test(name))
+  .sort((a, b) => readFileSync(join(ASTRO, b), 'utf8').length - readFileSync(join(ASTRO, a), 'utf8').length)[0];
+if (islandChunk) {
+  const source = readFileSync(join(ASTRO, islandChunk), 'utf8');
+  for (const [id, marker] of Object.entries(ISLAND_ONLY_MARKERS)) {
+    if (source.includes(marker)) {
+      violations.push(`общий остров ${islandChunk} содержит реализацию ${id} — калькуляторы снова импортируются жадно`);
+    }
+  }
+}
+
 for (const page of pages) {
   const owner = Object.keys(CODE_MARKERS).find((id) => page.path.includes(`/${id}/`));
   if (!owner) continue;
