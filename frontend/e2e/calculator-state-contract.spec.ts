@@ -34,6 +34,32 @@ const stateScenarios: Record<string, StateScenario> = {
     query: { income: 80000 },
     result: { primary: '40 000 ₽' },
   },
+  // 2^(1/10) = e^(ln2/10) = e^0,06931472 = 1,07177346 → 7,18 %
+  'cagr': {
+    query: { begin: 50000, end: 100000, years: 10 },
+    result: { primary: '7,18 %' },
+  },
+  // 29 февраля 2024 — 60-й день, 9-я неделя ISO
+  'week-number': {
+    query: { date: '2024-02-29' },
+    result: { primary: '9' },
+  },
+  // 20:15 = 1215 мин, 8:00 = 480 → 735 мин = 12 ч 15 мин.
+  // Отличается от умолчания (9:00 → 17:30 тоже даёт 510 минут).
+  'time-duration': {
+    query: { mode: 'difference', startHour: 8, startMinute: 0, endHour: 20, endMinute: 15 },
+    result: { primary: '12 ч 15 мин' },
+  },
+  // 4·150 + 9·70 + 4·250 = 600 + 630 + 1000 = 2230
+  'calories-from-macros': {
+    query: { protein: 150, fat: 70, carbs: 250 },
+    result: { primary: '2 230 ккал' },
+  },
+  // 3 × 3 × 2,5 = 22,50 м³
+  'room-volume': {
+    query: { mode: 'dimensions', length: 3, width: 3, height: 2.5 },
+    result: { primary: '22,50 м³' },
+  },
   'commission': {
     query: { mode: 'fromAmount', a: 200000, b: 3 },
     result: { primary: '6 000 ₽' },

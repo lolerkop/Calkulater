@@ -7460,6 +7460,7 @@ const legacyOptionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, s
 
 const enUnits: Record<string, string> = {
   '₽': '$',
+  'г': 'g',
   'мм': 'mm',
   '₽ годовых': '% yearly',
   '% годовых': '% yearly',
@@ -7479,6 +7480,7 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
       '₽ годовых': '% річних',
       '% годовых': '% річних',
       'кг': 'кг',
+      'г': 'г',
       'см': 'см',
       'м': 'м',
       'м²': 'м²',
