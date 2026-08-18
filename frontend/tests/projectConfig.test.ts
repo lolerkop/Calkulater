@@ -236,7 +236,10 @@ describe('project configuration', () => {
   it('documents the static deployment shape and remaining production setup', () => {
     const readme = readProjectFile('README.md');
 
-    expect(readme).toContain(`${calculators.length} онлайн-калькуляторами`);
+    // Число сверяется по основе слова, а не по одной падежной форме: «с 71
+    // онлайн-калькулятором» и «с 76 онлайн-калькуляторами» оба грамматичны, и
+    // жёсткая форма заставляла бы писать README неправильно ради теста.
+    expect(readme).toContain(`${calculators.length} онлайн-калькулятор`);
     expect(readme).toContain('npm run check');
     expect(readme).toContain('проверку битой кириллицы');
     expect(readme).toContain('VPS для текущей версии не нужен');

@@ -6,6 +6,7 @@
 
 import type { ScopedLocalization } from '../lib/platform/types';
 
+import { localization as loc_aov } from './aov/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
@@ -32,12 +33,16 @@ import { localization as loc_convert_temperature } from './convert-temperature/l
 import { localization as loc_convert_time } from './convert-time/localization';
 import { localization as loc_convert_torque } from './convert-torque/localization';
 import { localization as loc_convert_volume } from './convert-volume/localization';
+import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
 import { localization as loc_dti } from './dti/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
+import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_modulo } from './modulo/localization';
 import { localization as loc_prime_factorization } from './prime-factorization/localization';
 import { localization as loc_proportion } from './proportion/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
+import { localization as loc_return_rate } from './return-rate/localization';
+import { localization as loc_roi } from './roi/localization';
 import { localization as loc_roman_numerals } from './roman-numerals/localization';
 import { localization as loc_room_volume } from './room-volume/localization';
 import { localization as loc_savings_rate } from './savings-rate/localization';
@@ -47,6 +52,7 @@ import { localization as loc_week_number } from './week-number/localization';
 
 export const v2Localization: ScopedLocalization = {
   en: {
+    'aov': loc_aov.en ?? {},
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
@@ -73,12 +79,16 @@ export const v2Localization: ScopedLocalization = {
     'convert-time': loc_convert_time.en ?? {},
     'convert-torque': loc_convert_torque.en ?? {},
     'convert-volume': loc_convert_volume.en ?? {},
+    'difference-abs-rel': loc_difference_abs_rel.en ?? {},
     'dti': loc_dti.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
+    'logarithm': loc_logarithm.en ?? {},
     'modulo': loc_modulo.en ?? {},
     'prime-factorization': loc_prime_factorization.en ?? {},
     'proportion': loc_proportion.en ?? {},
     'quadratic-equation': loc_quadratic_equation.en ?? {},
+    'return-rate': loc_return_rate.en ?? {},
+    'roi': loc_roi.en ?? {},
     'roman-numerals': loc_roman_numerals.en ?? {},
     'room-volume': loc_room_volume.en ?? {},
     'savings-rate': loc_savings_rate.en ?? {},
@@ -87,6 +97,7 @@ export const v2Localization: ScopedLocalization = {
     'week-number': loc_week_number.en ?? {},
   },
   uk: {
+    'aov': loc_aov.uk ?? {},
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
@@ -113,12 +124,16 @@ export const v2Localization: ScopedLocalization = {
     'convert-time': loc_convert_time.uk ?? {},
     'convert-torque': loc_convert_torque.uk ?? {},
     'convert-volume': loc_convert_volume.uk ?? {},
+    'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
     'dti': loc_dti.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
+    'logarithm': loc_logarithm.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
     'prime-factorization': loc_prime_factorization.uk ?? {},
     'proportion': loc_proportion.uk ?? {},
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
+    'return-rate': loc_return_rate.uk ?? {},
+    'roi': loc_roi.uk ?? {},
     'roman-numerals': loc_roman_numerals.uk ?? {},
     'room-volume': loc_room_volume.uk ?? {},
     'savings-rate': loc_savings_rate.uk ?? {},

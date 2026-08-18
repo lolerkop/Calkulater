@@ -77,6 +77,14 @@ const stateScenarios: Record<string, StateScenario> = {
   'roman-numerals': { query: { mode: 'toRoman', arabic: 1888 }, result: { primary: 'MDCCCLXXXVIII' } },
   'dti': { query: { payments: 60000, income: 120000 }, result: { primary: '50,00 %' } },
   'leap-year': { query: { year: 1900 }, result: { primary: 'Нет' } },
+  // Волна 7, партия C.
+  //   log₂(1024) = 10 · 200 → 150: −50 и −25 % · 300 000 / 150 = 2000
+  //   60 / 600 = 10 % · (150 000 − 100 000) / 100 000 = +50 %
+  'logarithm': { query: { mode: 'custom', value: 1024, base: 2 }, result: { primary: '10' } },
+  'difference-abs-rel': { query: { from: 200, to: 150 }, result: { primary: '-50' } },
+  'aov': { query: { revenue: 300000, orders: 150 }, result: { primary: '2 000 ₽' } },
+  'return-rate': { query: { returns: 60, orders: 600 }, result: { primary: '10,00 %' } },
+  'roi': { query: { received: 150000, invested: 100000 }, result: { primary: '50,00 %' } },
   'savings-rate': {
     query: { income: 120000, expenses: 90000 },
     result: { primary: '25,00 %' },

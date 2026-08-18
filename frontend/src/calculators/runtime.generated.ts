@@ -14,6 +14,7 @@ import type { CalculatorContextualField, CalculatorValidator } from '../lib/plat
 import type { CalculatorClientRuntime } from '../lib/platform/runtime';
 import { v2Localization } from './localization.generated';
 
+import { compute as compute_aov } from './aov/compute';
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
@@ -42,8 +43,11 @@ import { compute as compute_convert_temperature } from './convert-temperature/co
 import { compute as compute_convert_time } from './convert-time/compute';
 import { compute as compute_convert_torque } from './convert-torque/compute';
 import { compute as compute_convert_volume } from './convert-volume/compute';
+import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
 import { compute as compute_dti } from './dti/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
+import { compute as compute_logarithm } from './logarithm/compute';
+import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_modulo } from './modulo/compute';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
@@ -53,6 +57,8 @@ import { compute as compute_prime_factorization } from './prime-factorization/co
 import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
+import { compute as compute_return_rate } from './return-rate/compute';
+import { compute as compute_roi } from './roi/compute';
 import { compute as compute_roman_numerals } from './roman-numerals/compute';
 import { compute as compute_room_volume } from './room-volume/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
@@ -61,6 +67,7 @@ import { compute as compute_time_duration } from './time-duration/compute';
 import { compute as compute_week_number } from './week-number/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
+  'aov': compute_aov,
   'budget-50-30-20': compute_budget_50_30_20,
   'cac': compute_cac,
   'cagr': compute_cagr,
@@ -87,14 +94,18 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-time': compute_convert_time,
   'convert-torque': compute_convert_torque,
   'convert-volume': compute_convert_volume,
+  'difference-abs-rel': compute_difference_abs_rel,
   'dti': compute_dti,
   'leap-year': compute_leap_year,
+  'logarithm': compute_logarithm,
   'modulo': compute_modulo,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
   'prime-factorization': compute_prime_factorization,
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
+  'return-rate': compute_return_rate,
+  'roi': compute_roi,
   'roman-numerals': compute_roman_numerals,
   'room-volume': compute_room_volume,
   'savings-rate': compute_savings_rate,
@@ -110,6 +121,7 @@ export const v2Validators: Record<string, CalculatorValidator> = {
 
 export const v2ContextualFields: Record<string, CalculatorContextualField> = {
   'commission': ctx_commission,
+  'logarithm': ctx_logarithm,
   'percent-calculator': ctx_percent_calculator,
   'proportion': ctx_proportion,
 };
