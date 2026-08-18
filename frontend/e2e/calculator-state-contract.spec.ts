@@ -26,6 +26,21 @@ const stateScenarios: Record<string, StateScenario> = {
   //   200000 × 3 / 100 = 6 000 ₽
   // Значения намеренно отличаются от значений по умолчанию: контракт reset
   // проверяет, что сброс возвращает форму к исходному состоянию.
+  // Конвертеры волны 3. Ожидаемые значения известны из определений единиц:
+  //   10 кгс = 98,0665 Н · 1 г/см³ = 1000 кг/м³ · 1 м³/ч = 16,6667 л/мин
+  //   1 МБ/с = 8 Мбит/с · 1 lbf·ft = 1,3558 Н·м · 1 ГГц = 1000 МГц
+  //   1 фот = 10 000 лк · 1 метрический стакан = 250 мл · 1 lbf = 4,4482 Н
+  //   1 lb/ft³ = 16,0185 кг/м³ · 1 л/с = 3,6 м³/ч
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  'convert-force': { query: { value: 1, from: 'lbf', to: 'n' }, result: { primary: '4,4482 Н' } },
+  'convert-density': { query: { value: 1, from: 'lbft3', to: 'kgm3' }, result: { primary: '16,0185 кг/м³' } },
+  'convert-flow': { query: { value: 1, from: 'ls', to: 'm3h' }, result: { primary: '3,6000 м³/ч' } },
+  'convert-data-rate': { query: { value: 1, from: 'mbytes', to: 'mbits' }, result: { primary: '8,0000 Мбит/с' } },
+  'convert-torque': { query: { value: 1, from: 'lbfft', to: 'nm' }, result: { primary: '1,3558 Н·м' } },
+  'convert-frequency': { query: { value: 1, from: 'ghz', to: 'mhz' }, result: { primary: '1 000,00 МГц' } },
+  'convert-illuminance': { query: { value: 1, from: 'ph', to: 'lx' }, result: { primary: '10 000,00 лк' } },
+  'convert-cooking-volume': { query: { value: 1, from: 'cupM', to: 'ml' }, result: { primary: '250,0000 мл' } },
   // Конвертеры волны 2. Пары подобраны так, чтобы ожидаемое значение было
   // известно из определения единиц, а не получено прогоном движка:
   //   1 км = 1000 м · 100 °C = 212 °F · 1 ТБ = 1000 ГБ · 1 т = 1000 кг
