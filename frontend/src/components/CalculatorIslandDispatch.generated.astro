@@ -10,6 +10,7 @@
 import CalculatorIsland from './islands/CalculatorIsland';
 import AdRoiIsland from '../calculators/ad-roi/island';
 import AovIsland from '../calculators/aov/island';
+import AspectRatioIsland from '../calculators/aspect-ratio/island';
 import Budget503020Island from '../calculators/budget-50-30-20/island';
 import CacIsland from '../calculators/cac/island';
 import CagrIsland from '../calculators/cagr/island';
@@ -39,10 +40,14 @@ import ConvertVolumeIsland from '../calculators/convert-volume/island';
 import DayOfWeekIsland from '../calculators/day-of-week/island';
 import DifferenceAbsRelIsland from '../calculators/difference-abs-rel/island';
 import DividendYieldIsland from '../calculators/dividend-yield/island';
+import DownloadTimeIsland from '../calculators/download-time/island';
 import DtiIsland from '../calculators/dti/island';
+import FpsFrametimeIsland from '../calculators/fps-frametime/island';
 import LeapYearIsland from '../calculators/leap-year/island';
+import LedResistorIsland from '../calculators/led-resistor/island';
 import LogarithmIsland from '../calculators/logarithm/island';
 import ModuloIsland from '../calculators/modulo/island';
+import OhmsLawIsland from '../calculators/ohms-law/island';
 import PaintCalculatorIsland from '../calculators/paint-calculator/island';
 import PercentCalculatorIsland from '../calculators/percent-calculator/island';
 import PrimeFactorizationIsland from '../calculators/prime-factorization/island';
@@ -61,11 +66,12 @@ import WeekNumberIsland from '../calculators/week-number/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['ad-roi', 'aov', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'day-of-week', 'difference-abs-rel', 'dividend-yield', 'dti', 'leap-year', 'logarithm', 'modulo', 'paint-calculator', 'percent-calculator', 'prime-factorization', 'proportion', 'quadratic-equation', 'return-rate', 'revenue-per-employee', 'roi', 'roman-numerals', 'room-volume', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'time-duration', 'week-number']);
+const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'day-of-week', 'difference-abs-rel', 'dividend-yield', 'download-time', 'dti', 'fps-frametime', 'leap-year', 'led-resistor', 'logarithm', 'modulo', 'ohms-law', 'paint-calculator', 'percent-calculator', 'prime-factorization', 'proportion', 'quadratic-equation', 'return-rate', 'revenue-per-employee', 'roi', 'roman-numerals', 'room-volume', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'time-duration', 'week-number']);
 ---
 
 {id === 'ad-roi' && <AdRoiIsland calc={calc} locale={locale} client:load />}
 {id === 'aov' && <AovIsland calc={calc} locale={locale} client:load />}
+{id === 'aspect-ratio' && <AspectRatioIsland calc={calc} locale={locale} client:load />}
 {id === 'budget-50-30-20' && <Budget503020Island calc={calc} locale={locale} client:load />}
 {id === 'cac' && <CacIsland calc={calc} locale={locale} client:load />}
 {id === 'cagr' && <CagrIsland calc={calc} locale={locale} client:load />}
@@ -95,10 +101,14 @@ const V2_IDS = new Set(['ad-roi', 'aov', 'budget-50-30-20', 'cac', 'cagr', 'calo
 {id === 'day-of-week' && <DayOfWeekIsland calc={calc} locale={locale} client:load />}
 {id === 'difference-abs-rel' && <DifferenceAbsRelIsland calc={calc} locale={locale} client:load />}
 {id === 'dividend-yield' && <DividendYieldIsland calc={calc} locale={locale} client:load />}
+{id === 'download-time' && <DownloadTimeIsland calc={calc} locale={locale} client:load />}
 {id === 'dti' && <DtiIsland calc={calc} locale={locale} client:load />}
+{id === 'fps-frametime' && <FpsFrametimeIsland calc={calc} locale={locale} client:load />}
 {id === 'leap-year' && <LeapYearIsland calc={calc} locale={locale} client:load />}
+{id === 'led-resistor' && <LedResistorIsland calc={calc} locale={locale} client:load />}
 {id === 'logarithm' && <LogarithmIsland calc={calc} locale={locale} client:load />}
 {id === 'modulo' && <ModuloIsland calc={calc} locale={locale} client:load />}
+{id === 'ohms-law' && <OhmsLawIsland calc={calc} locale={locale} client:load />}
 {id === 'paint-calculator' && <PaintCalculatorIsland calc={calc} locale={locale} client:load />}
 {id === 'percent-calculator' && <PercentCalculatorIsland calc={calc} locale={locale} client:load />}
 {id === 'prime-factorization' && <PrimeFactorizationIsland calc={calc} locale={locale} client:load />}

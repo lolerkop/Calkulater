@@ -14,6 +14,7 @@ import { isPublished } from '../lib/platform/types';
 
 import { definition as def_ad_roi } from './ad-roi/definition';
 import { definition as def_aov } from './aov/definition';
+import { definition as def_aspect_ratio } from './aspect-ratio/definition';
 import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition';
 import { definition as def_cac } from './cac/definition';
 import { definition as def_cagr } from './cagr/definition';
@@ -43,10 +44,14 @@ import { definition as def_convert_volume } from './convert-volume/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
 import { definition as def_dividend_yield } from './dividend-yield/definition';
+import { definition as def_download_time } from './download-time/definition';
 import { definition as def_dti } from './dti/definition';
+import { definition as def_fps_frametime } from './fps-frametime/definition';
 import { definition as def_leap_year } from './leap-year/definition';
+import { definition as def_led_resistor } from './led-resistor/definition';
 import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_modulo } from './modulo/definition';
+import { definition as def_ohms_law } from './ohms-law/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
 import { definition as def_prime_factorization } from './prime-factorization/definition';
@@ -66,6 +71,7 @@ import { definition as def_week_number } from './week-number/definition';
 export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ad_roi,
   def_aov,
+  def_aspect_ratio,
   def_budget_50_30_20,
   def_cac,
   def_cagr,
@@ -95,10 +101,14 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_day_of_week,
   def_difference_abs_rel,
   def_dividend_yield,
+  def_download_time,
   def_dti,
+  def_fps_frametime,
   def_leap_year,
+  def_led_resistor,
   def_logarithm,
   def_modulo,
+  def_ohms_law,
   def_paint_calculator,
   def_percent_calculator,
   def_prime_factorization,

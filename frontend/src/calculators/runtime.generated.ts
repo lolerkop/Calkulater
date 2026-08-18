@@ -16,6 +16,7 @@ import { v2Localization } from './localization.generated';
 
 import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_aov } from './aov/compute';
+import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
@@ -47,11 +48,17 @@ import { compute as compute_convert_volume } from './convert-volume/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
 import { compute as compute_dividend_yield } from './dividend-yield/compute';
+import { compute as compute_download_time } from './download-time/compute';
 import { compute as compute_dti } from './dti/compute';
+import { compute as compute_fps_frametime } from './fps-frametime/compute';
+import { contextualField as ctx_fps_frametime } from './fps-frametime/contextualField';
 import { compute as compute_leap_year } from './leap-year/compute';
+import { compute as compute_led_resistor } from './led-resistor/compute';
 import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_modulo } from './modulo/compute';
+import { compute as compute_ohms_law } from './ohms-law/compute';
+import { contextualField as ctx_ohms_law } from './ohms-law/contextualField';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
@@ -74,6 +81,7 @@ import { compute as compute_week_number } from './week-number/compute';
 export const v2Runners: Record<string, CalcFunction> = {
   'ad-roi': compute_ad_roi,
   'aov': compute_aov,
+  'aspect-ratio': compute_aspect_ratio,
   'budget-50-30-20': compute_budget_50_30_20,
   'cac': compute_cac,
   'cagr': compute_cagr,
@@ -103,10 +111,14 @@ export const v2Runners: Record<string, CalcFunction> = {
   'day-of-week': compute_day_of_week,
   'difference-abs-rel': compute_difference_abs_rel,
   'dividend-yield': compute_dividend_yield,
+  'download-time': compute_download_time,
   'dti': compute_dti,
+  'fps-frametime': compute_fps_frametime,
   'leap-year': compute_leap_year,
+  'led-resistor': compute_led_resistor,
   'logarithm': compute_logarithm,
   'modulo': compute_modulo,
+  'ohms-law': compute_ohms_law,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
   'prime-factorization': compute_prime_factorization,
@@ -131,7 +143,9 @@ export const v2Validators: Record<string, CalculatorValidator> = {
 
 export const v2ContextualFields: Record<string, CalculatorContextualField> = {
   'commission': ctx_commission,
+  'fps-frametime': ctx_fps_frametime,
   'logarithm': ctx_logarithm,
+  'ohms-law': ctx_ohms_law,
   'percent-calculator': ctx_percent_calculator,
   'proportion': ctx_proportion,
 };

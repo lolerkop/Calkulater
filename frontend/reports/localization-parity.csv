@@ -29,6 +29,7 @@ working-days-calculator,/ru/date-time/working-days-calculator/,/en/date-time/bus
 date-shift-calculator,/ru/date-time/date-calculator/,/en/date-time/date-calculator/,/uk/daty/kalkulyator-dat/,full-parity,"Equivalent localized calculator exists in RU, EN and UK.",ru|en|uk|x-default,Each language links to the equivalent calculator page.
 ad-roi,/ru/business/ad-roi/,/en/business/advertising-roi/,/uk/business/roi-reklamy/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 aov,/ru/business/aov/,/en/business/average-order-value/,/uk/business/serednii-chek/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+aspect-ratio,/ru/computers/aspect-ratio/,/en/computers/aspect-ratio-calculator/,/uk/kompyutery/spivvidnoshennya-storin/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 budget-50-30-20,/ru/finance/budget-50-30-20/,/en/finance/budget-50-30-20-calculator/,/uk/finansy/kalkulyator-byudzhetu-50-30-20/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 cac,/ru/business/cac/,/en/business/customer-acquisition-cost/,/uk/business/vartist-zaluchennya-kliyenta/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 cagr,/ru/finance/cagr/,/en/finance/cagr-calculator/,/uk/finansy/cagr-kalkulyator/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -58,10 +59,14 @@ convert-volume,/ru/converters/convert-volume/,/en/converters/volume-converter/,/
 day-of-week,/ru/date-time/day-of-week/,/en/date-time/day-of-week/,/uk/daty/den-tyzhnya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 difference-abs-rel,/ru/math/difference-abs-rel/,/en/math/absolute-relative-difference/,/uk/math/abs-rel-riznytsya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 dividend-yield,/ru/finance/dividend-yield/,/en/finance/dividend-yield/,/uk/finansy/dyvidendna-dokhidnist/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+download-time,/ru/computers/download-time/,/en/computers/download-time-calculator/,/uk/kompyutery/chas-zavantazhennya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 dti,/ru/finance/dti/,/en/finance/debt-to-income/,/uk/finansy/kredytne-navantazhennya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+fps-frametime,/ru/computers/fps-frametime/,/en/computers/fps-frame-time-calculator/,/uk/kompyutery/fps-chas-kadru/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 leap-year,/ru/date-time/leap-year/,/en/date-time/leap-year/,/uk/daty/vysokosnyi-rik/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+led-resistor,/ru/electronics/led-resistor/,/en/electronics/led-resistor-calculator/,/uk/elektronika/rezystor-dlya-svitlodioda/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 logarithm,/ru/math/logarithm/,/en/math/logarithm-calculator/,/uk/math/kalkulyator-logaryfma/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 modulo,/ru/math/modulo/,/en/math/remainder-calculator/,/uk/math/kalkulyator-ostachi/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+ohms-law,/ru/electronics/ohms-law/,/en/electronics/ohms-law-calculator/,/uk/elektronika/zakon-oma/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 prime-factorization,/ru/math/prime-factorization/,/en/math/prime-factorisation/,/uk/math/rozklad-na-prosti-mnozhnyky/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 proportion,/ru/math/proportion/,/en/math/proportion-calculator/,/uk/math/kalkulyator-proportsii/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 quadratic-equation,/ru/math/quadratic-equation/,/en/math/quadratic-equation/,/uk/math/kvadratne-rivnyannya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.

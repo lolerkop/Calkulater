@@ -12,9 +12,11 @@ import { definition as def_date_time } from './date-time/definition';
 import { definition as def_math } from './math/definition';
 import { definition as def_business } from './business/definition';
 import { definition as def_converters } from './converters/definition';
+import { definition as def_electronics } from './electronics/definition';
+import { definition as def_computers } from './computers/definition';
 
 /** Порядок задан полем order каждой категории, а не этим списком. */
-export const categoryIds = ['finance', 'currency', 'sport', 'building', 'date-time', 'math', 'business', 'converters'] as const;
+export const categoryIds = ['finance', 'currency', 'sport', 'building', 'date-time', 'math', 'business', 'converters', 'electronics', 'computers'] as const;
 
 export type CategoryId = (typeof categoryIds)[number];
 
@@ -27,6 +29,8 @@ export const categoryDefinitions: readonly CategoryDefinition[] = [
   def_math,
   def_business,
   def_converters,
+  def_electronics,
+  def_computers,
 ];
 
 export const categoryById: Readonly<Record<CategoryId, CategoryDefinition>> = {
@@ -38,4 +42,6 @@ export const categoryById: Readonly<Record<CategoryId, CategoryDefinition>> = {
   'math': def_math,
   'business': def_business,
   'converters': def_converters,
+  'electronics': def_electronics,
+  'computers': def_computers,
 } as const;

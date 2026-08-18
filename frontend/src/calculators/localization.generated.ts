@@ -8,6 +8,7 @@ import type { ScopedLocalization } from '../lib/platform/types';
 
 import { localization as loc_ad_roi } from './ad-roi/localization';
 import { localization as loc_aov } from './aov/localization';
+import { localization as loc_aspect_ratio } from './aspect-ratio/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
@@ -37,10 +38,14 @@ import { localization as loc_convert_volume } from './convert-volume/localizatio
 import { localization as loc_day_of_week } from './day-of-week/localization';
 import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
 import { localization as loc_dividend_yield } from './dividend-yield/localization';
+import { localization as loc_download_time } from './download-time/localization';
 import { localization as loc_dti } from './dti/localization';
+import { localization as loc_fps_frametime } from './fps-frametime/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
+import { localization as loc_led_resistor } from './led-resistor/localization';
 import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_modulo } from './modulo/localization';
+import { localization as loc_ohms_law } from './ohms-law/localization';
 import { localization as loc_prime_factorization } from './prime-factorization/localization';
 import { localization as loc_proportion } from './proportion/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
@@ -59,6 +64,7 @@ export const v2Localization: ScopedLocalization = {
   en: {
     'ad-roi': loc_ad_roi.en ?? {},
     'aov': loc_aov.en ?? {},
+    'aspect-ratio': loc_aspect_ratio.en ?? {},
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
@@ -88,10 +94,14 @@ export const v2Localization: ScopedLocalization = {
     'day-of-week': loc_day_of_week.en ?? {},
     'difference-abs-rel': loc_difference_abs_rel.en ?? {},
     'dividend-yield': loc_dividend_yield.en ?? {},
+    'download-time': loc_download_time.en ?? {},
     'dti': loc_dti.en ?? {},
+    'fps-frametime': loc_fps_frametime.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
+    'led-resistor': loc_led_resistor.en ?? {},
     'logarithm': loc_logarithm.en ?? {},
     'modulo': loc_modulo.en ?? {},
+    'ohms-law': loc_ohms_law.en ?? {},
     'prime-factorization': loc_prime_factorization.en ?? {},
     'proportion': loc_proportion.en ?? {},
     'quadratic-equation': loc_quadratic_equation.en ?? {},
@@ -109,6 +119,7 @@ export const v2Localization: ScopedLocalization = {
   uk: {
     'ad-roi': loc_ad_roi.uk ?? {},
     'aov': loc_aov.uk ?? {},
+    'aspect-ratio': loc_aspect_ratio.uk ?? {},
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
@@ -138,10 +149,14 @@ export const v2Localization: ScopedLocalization = {
     'day-of-week': loc_day_of_week.uk ?? {},
     'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
     'dividend-yield': loc_dividend_yield.uk ?? {},
+    'download-time': loc_download_time.uk ?? {},
     'dti': loc_dti.uk ?? {},
+    'fps-frametime': loc_fps_frametime.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
+    'led-resistor': loc_led_resistor.uk ?? {},
     'logarithm': loc_logarithm.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
+    'ohms-law': loc_ohms_law.uk ?? {},
     'prime-factorization': loc_prime_factorization.uk ?? {},
     'proportion': loc_proportion.uk ?? {},
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
