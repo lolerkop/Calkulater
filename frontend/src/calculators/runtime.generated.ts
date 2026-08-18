@@ -11,6 +11,8 @@
 
 import type { CalcFunction } from '../lib/types';
 import type { CalculatorContextualField, CalculatorValidator } from '../lib/platform/types';
+import type { CalculatorClientRuntime } from '../lib/platform/runtime';
+import { v2Localization } from './localization.generated';
 
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cagr } from './cagr/compute';
@@ -49,3 +51,21 @@ export const v2ContextualFields: Record<string, CalculatorContextualField> = {
   'commission': ctx_commission,
   'percent-calculator': ctx_percent_calculator,
 };
+
+/**
+ * Полные рантаймы по идентификатору — для сборки и тестов.
+ *
+ * В клиентский граф этот файл не входит: остров получает рантайм от своей
+ * точки входа. Здесь он собран целиком только чтобы тесты могли обратиться
+ * к любому калькулятору по идентификатору.
+ */
+export const v2Runtimes: Record<string, CalculatorClientRuntime> = Object.fromEntries(
+  Object.keys(v2Runners).map((id) => [id, {
+    compute: v2Runners[id],
+    validate: v2Validators[id],
+    contextualField: v2ContextualFields[id],
+    localization: v2Localization.en[id] || v2Localization.uk[id]
+      ? { en: v2Localization.en[id], uk: v2Localization.uk[id] }
+      : undefined,
+  }]),
+);

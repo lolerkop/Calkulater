@@ -22,6 +22,8 @@ const CALC_DIR = join(ROOT, 'src/calculators');
 export const MANIFEST_PATH = join(CALC_DIR, 'manifest.generated.ts');
 export const RUNTIME_PATH = join(CALC_DIR, 'runtime.generated.ts');
 export const LOCALIZATION_PATH = join(CALC_DIR, 'localization.generated.ts');
+export const DISPATCH_PATH = join(ROOT, 'src/components/CalculatorIslandDispatch.generated.astro');
+export const islandEntryPath = (id: string) => join(CALC_DIR, id, 'island.tsx');
 
 /**
  * Статус читается из текста определения на этапе генерации.
@@ -180,6 +182,8 @@ export function renderRuntimeManifest(ids: readonly string[], dir?: string): str
 
 import type { CalcFunction } from '../lib/types';
 import type { CalculatorContextualField, CalculatorValidator } from '../lib/platform/types';
+import type { CalculatorClientRuntime } from '../lib/platform/runtime';
+import { v2Localization } from './localization.generated';
 
 ${imports.join('\n')}
 
@@ -194,6 +198,24 @@ ${validators.join('\n')}
 export const v2ContextualFields: Record<string, CalculatorContextualField> = {
 ${contextual.join('\n')}
 };
+
+/**
+ * Полные рантаймы по идентификатору — для сборки и тестов.
+ *
+ * В клиентский граф этот файл не входит: остров получает рантайм от своей
+ * точки входа. Здесь он собран целиком только чтобы тесты могли обратиться
+ * к любому калькулятору по идентификатору.
+ */
+export const v2Runtimes: Record<string, CalculatorClientRuntime> = Object.fromEntries(
+  Object.keys(v2Runners).map((id) => [id, {
+    compute: v2Runners[id],
+    validate: v2Validators[id],
+    contextualField: v2ContextualFields[id],
+    localization: v2Localization.en[id] || v2Localization.uk[id]
+      ? { en: v2Localization.en[id], uk: v2Localization.uk[id] }
+      : undefined,
+  }]),
+);
 `;
 }
 
@@ -235,5 +257,96 @@ ${entries('en')}
 ${entries('uk')}
   },
 };
+`;
+}
+
+/**
+ * Точка входа калькулятора: общий остров плюс рантайм ровно одного калькулятора.
+ *
+ * Существует ради разделения клиентского графа. Astro ставит на страницу
+ * `component-url` того компонента, который отрендерил маршрут, поэтому каждый
+ * калькулятор получает свой чанк, а общий остров Rollup выносит в разделяемый.
+ * Рантайм приходит обычной зависимостью модуля — он уже здесь к моменту
+ * исполнения острова, поэтому асинхронной загрузки после монтирования нет
+ * и гонки «ввод до прихода расчёта» не возникает.
+ */
+export function renderIslandEntry(id: string, dir?: string): string {
+  const modules = runtimeModules(id, dir);
+  const imports = [
+    "import CalculatorIsland from '../../components/islands/CalculatorIsland';",
+    "import type { CalculatorClientRuntime } from '../../lib/platform/runtime';",
+    "import { compute } from './compute';",
+  ];
+  const fields = ['  compute,'];
+  if (modules.validate) { imports.push("import { validate } from './validate';"); fields.push('  validate,'); }
+  if (modules.contextualField) {
+    imports.push("import { contextualField } from './contextualField';");
+    fields.push('  contextualField,');
+  }
+  if (modules.localization) {
+    imports.push("import { localization } from './localization';");
+    fields.push('  localization,');
+  }
+  const name = id.split(/[^a-zA-Z0-9]+/).map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+
+  return `// СГЕНЕРИРОВАНО. Не редактировать руками.
+// Точка входа калькулятора ${id}. Перегенерировать: npm run calculators:generate
+
+${imports.join('\n')}
+
+const runtime: CalculatorClientRuntime = {
+${fields.join('\n')}
+};
+
+type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'>;
+
+export default function ${name}Island(props: Props) {
+  return <CalculatorIsland {...props} runtime={runtime} />;
+}
+`;
+}
+
+/**
+ * Диспетчер островов: явные литеральные ссылки на компоненты.
+ *
+ * Каждая ссылка статически видна компилятору Astro. Это обязательное условие:
+ * `client:*` умеет гидратировать только компонент, чей модуль Astro может
+ * разрешить во время рендера, а выбор из словаря по идентификатору падает
+ * с `NoMatchingImport`.
+ *
+ * Файл линейно растёт по числу калькуляторов, но это стоимость сборки:
+ * в браузер уезжает чанк ровно одного выбранного острова.
+ */
+export function renderDispatch(ids: readonly string[], dir?: string): string {
+  const released = ids.filter((id) => lifecycleOf(id, dir) === 'released');
+  const name = (id: string) =>
+    id.split(/[^a-zA-Z0-9]+/).map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join('') + 'Island';
+  const imports = released
+    .map((id) => `import ${name(id)} from '../calculators/${id}/island';`)
+    .join('\n');
+  const branches = released
+    .map((id) => `{id === '${id}' && <${name(id)} calc={calc} locale={locale} client:load />}`)
+    .join('\n');
+  const known = released.map((id) => `'${id}'`).join(', ');
+
+  return `---
+// СГЕНЕРИРОВАНО. Не редактировать руками.
+// Диспетчер островов калькуляторов. Перегенерировать: npm run calculators:generate
+//
+// Ссылки на компоненты литеральные: \`client:*\` гидратирует только тот
+// компонент, чей модуль Astro может разрешить во время рендера. Выбор из
+// словаря по идентификатору падает с \`NoMatchingImport\`, поэтому ветки явные.
+//
+// Легаси-калькуляторы рендерят общий остров и берут расчёт из общего реестра.
+import CalculatorIsland from './islands/CalculatorIsland';
+${imports}
+
+const { calc, locale } = Astro.props;
+const id = calc.id;
+const V2_IDS = new Set([${known}]);
+---
+
+${branches}
+{!V2_IDS.has(id) && <CalculatorIsland calc={calc} locale={locale} client:load />}
 `;
 }

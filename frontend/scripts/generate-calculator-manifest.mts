@@ -7,7 +7,8 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import {
-  discoverCalculatorIds, LOCALIZATION_PATH, MANIFEST_PATH, renderLocalizationManifest,
+  discoverCalculatorIds, DISPATCH_PATH, islandEntryPath, LOCALIZATION_PATH, MANIFEST_PATH,
+  renderDispatch, renderIslandEntry, renderLocalizationManifest,
   renderManifest, renderRuntimeManifest, RUNTIME_PATH,
 } from './calculatorManifestSource.mts';
 
@@ -17,6 +18,8 @@ const targets = [
   { path: MANIFEST_PATH, content: renderManifest(ids), name: 'манифест' },
   { path: RUNTIME_PATH, content: renderRuntimeManifest(ids), name: 'runtime-манифест' },
   { path: LOCALIZATION_PATH, content: renderLocalizationManifest(ids), name: 'манифест локализации' },
+  { path: DISPATCH_PATH, content: renderDispatch(ids), name: 'диспетчер островов' },
+  ...ids.map((id) => ({ path: islandEntryPath(id), content: renderIslandEntry(id), name: `точка входа ${id}` })),
 ];
 
 for (const target of targets) {

@@ -1,0 +1,37 @@
+---
+// СГЕНЕРИРОВАНО. Не редактировать руками.
+// Диспетчер островов калькуляторов. Перегенерировать: npm run calculators:generate
+//
+// Ссылки на компоненты литеральные: `client:*` гидратирует только тот
+// компонент, чей модуль Astro может разрешить во время рендера. Выбор из
+// словаря по идентификатору падает с `NoMatchingImport`, поэтому ветки явные.
+//
+// Легаси-калькуляторы рендерят общий остров и берут расчёт из общего реестра.
+import CalculatorIsland from './islands/CalculatorIsland';
+import Budget503020Island from '../calculators/budget-50-30-20/island';
+import CagrIsland from '../calculators/cagr/island';
+import CaloriesFromMacrosIsland from '../calculators/calories-from-macros/island';
+import CommissionIsland from '../calculators/commission/island';
+import PaintCalculatorIsland from '../calculators/paint-calculator/island';
+import PercentCalculatorIsland from '../calculators/percent-calculator/island';
+import RoomVolumeIsland from '../calculators/room-volume/island';
+import SavingsRateIsland from '../calculators/savings-rate/island';
+import TimeDurationIsland from '../calculators/time-duration/island';
+import WeekNumberIsland from '../calculators/week-number/island';
+
+const { calc, locale } = Astro.props;
+const id = calc.id;
+const V2_IDS = new Set(['budget-50-30-20', 'cagr', 'calories-from-macros', 'commission', 'paint-calculator', 'percent-calculator', 'room-volume', 'savings-rate', 'time-duration', 'week-number']);
+---
+
+{id === 'budget-50-30-20' && <Budget503020Island calc={calc} locale={locale} client:load />}
+{id === 'cagr' && <CagrIsland calc={calc} locale={locale} client:load />}
+{id === 'calories-from-macros' && <CaloriesFromMacrosIsland calc={calc} locale={locale} client:load />}
+{id === 'commission' && <CommissionIsland calc={calc} locale={locale} client:load />}
+{id === 'paint-calculator' && <PaintCalculatorIsland calc={calc} locale={locale} client:load />}
+{id === 'percent-calculator' && <PercentCalculatorIsland calc={calc} locale={locale} client:load />}
+{id === 'room-volume' && <RoomVolumeIsland calc={calc} locale={locale} client:load />}
+{id === 'savings-rate' && <SavingsRateIsland calc={calc} locale={locale} client:load />}
+{id === 'time-duration' && <TimeDurationIsland calc={calc} locale={locale} client:load />}
+{id === 'week-number' && <WeekNumberIsland calc={calc} locale={locale} client:load />}
+{!V2_IDS.has(id) && <CalculatorIsland calc={calc} locale={locale} client:load />}
