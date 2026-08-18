@@ -39,8 +39,12 @@ const budgets = {
   // ── производительность маршрута (жёстко) ──
   routeJsClosureGzip: 95 * 1024,
   routeHtmlGzip: 15 * 1024,
-  catalogHtmlBaseGzip: 5.5 * 1024,
-  catalogHtmlPerCardGzip: 0.42 * 1024,
+  // Наклон пересчитан после того, как из каталога ушёл дубль в <noscript>:
+  // измерено 0,19 КиБ на калькулятор на синтетике 48→100 и около 0,23 на
+  // реальных текстах. Порог 0,26 оставляет запас на разброс копирайта, но
+  // ловит возврат второго представления каталога.
+  catalogHtmlBaseGzip: 8 * 1024,
+  catalogHtmlPerCardGzip: 0.26 * 1024,
   catalogHtmlCeilingGzip: 30 * 1024,
   // Локальная главная — вторая страница, размер которой определяется числом
   // калькуляторов, а не собственным содержимым: она встраивает JSON-LD со всем
@@ -48,8 +52,11 @@ const budgets = {
   // измерял её неверно и сорвался бы на 42-м калькуляторе по причине, не
   // связанной с самой страницей. Коэффициенты сняты измерением: 36 → 48
   // калькуляторов дало 223 Б/калькулятор на ru, 248 на uk, 194 на en.
-  indexHtmlBaseGzip: 8 * 1024,
-  indexHtmlPerCalculatorGzip: 0.29 * 1024,
+  // Главная перестала объявлять весь каталог в структурированных данных,
+  // поэтому её наклон упал с 0,22 до 0,07 КиБ на калькулятор (синтетика
+  // 48→100), около 0,08 на реальных текстах. Порог 0,12 держит запас.
+  indexHtmlBaseGzip: 9 * 1024,
+  indexHtmlPerCalculatorGzip: 0.12 * 1024,
   indexHtmlCeilingGzip: 24 * 1024,
   cssTotalGzip: 40 * 1024,
 
@@ -130,10 +137,12 @@ let publishedCount = 0;
 for (const file of htmlFiles.filter(isCatalog)) {
   const rel = path.relative(root, file);
   const html = fs.readFileSync(file, 'utf8');
-  // Карточки считаются по оболочке, а не по testid: внутри карточки есть ещё
-  // два элемента с testid того же префикса — бейджи «новинка» и «популярное».
-  // Из-за них каталог насчитывал на две карточки больше и получал лишний запас.
-  const cards = (html.match(/calculator-card-shell/g) ?? []).length;
+  // Карточка опознаётся по ссылке на калькулятор, а не по классу разметки.
+  // Класс `calculator-card-shell` принадлежал астро-карточкам из блока
+  // <noscript>, который дублировал уже отрисованный на сервере остров; блок
+  // удалён, и счёт по классу дал бы ноль. Уникальная ссылка на калькулятор —
+  // то, что каталог обязан вывести при любом рендерере.
+  const cards = new Set([...html.matchAll(/href="\/[a-z]{2}\/[a-z0-9-]+\/[a-z0-9-]+\/"/g)].map((m) => m[0])).size;
   publishedCount = Math.max(publishedCount, cards);
   const allowed = budgets.catalogHtmlBaseGzip + cards * budgets.catalogHtmlPerCardGzip;
   const size = gzipSize(file);

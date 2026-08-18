@@ -204,11 +204,19 @@ const homeText: Record<Locale, {
 const title = homeText[locale].title;
 const description = meta.description;
 
-const allCalculatorItems = calculators.map((calculator) => ({
-  name: calculator.name,
-  description: calculator.shortDescription,
-  path: calculator.fullPath,
-}));
+// Структурированные данные главной описывают то, что главная показывает.
+// Раньше здесь перечислялись все калькуляторы каталога, хотя страница выводит
+// около десяти карточек. Google требует, чтобы разметка была достоверным
+// представлением содержимого страницы, и прямо запрещает размечать то, чего
+// читатель не видит. Полный список принадлежит каталогу — странице, которая
+// его действительно выводит.
+const shownCalculatorItems = [...newCalculators.slice(0, 3), ...popularCalculators.slice(0, 6)]
+  .filter((calculator, index, all) => all.findIndex((item) => item.id === calculator.id) === index)
+  .map((calculator) => ({
+    name: calculator.name,
+    description: calculator.shortDescription,
+    path: calculator.fullPath,
+  }));
 
 const jsonLd = [
   websiteJsonLdForLocale(locale),
@@ -217,13 +225,13 @@ const jsonLd = [
     name: meta.fullName,
     description,
     path: `/${locale}/`,
-    items: allCalculatorItems,
+    items: shownCalculatorItems,
     locale,
   }),
   itemListJsonLd({
     name: copy.allCalculators,
     path: `/${locale}/`,
-    items: allCalculatorItems,
+    items: shownCalculatorItems,
   }),
 ];
 

@@ -232,15 +232,15 @@ export function collectionPageJsonLd(params: {
     url: absUrl(params.path),
     inLanguage: localeMeta[locale].localeCode,
     isPartOf: { '@id': `${absUrl(`/${locale}/`)}#website` },
+    // Элементы перечисляет ItemList, на который указывает mainEntity.
+    // Раньше рядом стоял hasPart с тем же списком в форме WebPage: те же имена,
+    // те же описания, те же адреса. Дубль измерен — на каталоге он стоил 33 КБ
+    // сырых, а Google не документирует чтение hasPart у CollectionPage ни для
+    // одного результата. Ссылки по @id достаточно: граф остаётся связным,
+    // данные перестают дублироваться.
     mainEntity: {
       '@id': `${absUrl(params.path)}#itemlist`,
     },
-    hasPart: params.items.map((item) => ({
-      '@type': 'WebPage',
-      name: item.name,
-      ...(item.description ? { description: item.description } : {}),
-      url: absUrl(item.path),
-    })),
   };
 }
 

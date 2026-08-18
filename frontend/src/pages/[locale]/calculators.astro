@@ -1,7 +1,6 @@
 ---
 import Layout from '../../components/Layout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import CalculatorCard from '../../components/CalculatorCard.astro';
 import CalculatorCatalog from '../../components/islands/CalculatorCatalog';
 import {
   getAlternatesForPage,
@@ -60,13 +59,12 @@ const items = calculators.map((calculator) => ({
   path: calculator.fullPath,
 }));
 
-const grouped = categories.map((category) => ({
-  category,
-  calculators: calculators
-    .filter((calculator) => calculator.category === category.id)
-    .sort((a, b) => b.popularity - a.popularity),
-}));
 
+// Дубля каталога в <noscript> здесь больше нет. Astro отдаёт остров уже
+// отрисованным на сервере: все карточки со ссылками присутствуют в HTML до
+// гидратации, поэтому без JS страница оставалась рабочей и так, а второй
+// список лишь показывал каждый калькулятор дважды. Измерено: 65 КБ сырых,
+// 3,8 КиБ gzip на каждой локали каталога.
 const catalogCalculators = calculators.map((calculator) => {
   const category = categories.find((item) => item.id === calculator.category);
   return {
@@ -151,30 +149,6 @@ const jsonLd = [
         client:idle
       />
 
-      <noscript>
-        <div class="space-y-12">
-          {grouped.map(({ category, calculators: categoryCalculators }) => (
-            <section data-testid={`calculators-group-${category.slug}`}>
-              <div class="flex min-w-0 items-end justify-between gap-6 pb-4">
-                <div class="min-w-0">
-                  <h2 class="text-fit text-2xl font-bold tracking-[-0.03em] text-ink-900">
-                    {category.name}
-                  </h2>
-                </div>
-                <a href={`/${locale}/${category.slug}/`} class="hidden shrink-0 text-sm font-medium text-accent underline-offset-4 hover:underline sm:inline-flex">
-                  {copy.openCategory}
-                </a>
-              </div>
-
-              <div class="mt-5 grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {categoryCalculators.map((calculator) => (
-                  <CalculatorCard calc={calculator} showCategory={false} locale={locale} />
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-      </noscript>
     </div>
   </section>
 </Layout>

@@ -214,8 +214,11 @@ describe('seo.collectionPageJsonLd', () => {
 
     expect(data['@type']).toBe('CollectionPage');
     expect(data.url).toMatch(/\/finance\/$/);
-    expect(data.mainEntity).toBeDefined();
-    const hasPart = data.hasPart as Array<Record<string, unknown>>;
-    expect(hasPart[0].url).toMatch(/\/finance\/vat-calculator\/$/);
+    // Элементы перечисляет ItemList; CollectionPage только ссылается на него.
+    expect((data.mainEntity as Record<string, unknown>)['@id']).toMatch(/#itemlist$/);
+    // hasPart дублировал тот же список в форме WebPage. Проверка удерживает
+    // дубль удалённым: вернуть его — значит снова платить за каждый калькулятор
+    // на каждой странице каталога, главной и категории.
+    expect(data.hasPart, 'hasPart дублирует ItemList').toBeUndefined();
   });
 });
