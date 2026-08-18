@@ -7,7 +7,8 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import {
-  discoverCalculatorIds, MANIFEST_PATH, renderManifest, renderRuntimeManifest, RUNTIME_PATH,
+  discoverCalculatorIds, LOCALIZATION_PATH, MANIFEST_PATH, renderLocalizationManifest,
+  renderManifest, renderRuntimeManifest, RUNTIME_PATH,
 } from './calculatorManifestSource.mts';
 
 const isVerify = process.argv.includes('--verify');
@@ -15,6 +16,7 @@ const ids = discoverCalculatorIds();
 const targets = [
   { path: MANIFEST_PATH, content: renderManifest(ids), name: 'манифест' },
   { path: RUNTIME_PATH, content: renderRuntimeManifest(ids), name: 'runtime-манифест' },
+  { path: LOCALIZATION_PATH, content: renderLocalizationManifest(ids), name: 'манифест локализации' },
 ];
 
 for (const target of targets) {

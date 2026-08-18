@@ -28,7 +28,7 @@ export const paintReferenceCases: readonly CalculatorReferenceCase[] = [
     ],
   },
   {
-    name: 'вручную с запасом 10% и ценой: 13,2 л, 6 банок, 7 200 ₽',
+    name: 'вручную с запасом 10% и ценой: 13,2 л, 6 банок, 7 200 ₽',
     inputs: { mode: 'manual', area: 50, coats: 2, consumption: 0.12, canVolume: 2.5, reserve: 10, canPrice: 1200 },
     expectPrimary: '13,2 л',
     expectSecondary: [

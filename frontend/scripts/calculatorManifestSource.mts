@@ -21,6 +21,7 @@ const ROOT = new URL('..', import.meta.url).pathname;
 const CALC_DIR = join(ROOT, 'src/calculators');
 export const MANIFEST_PATH = join(CALC_DIR, 'manifest.generated.ts');
 export const RUNTIME_PATH = join(CALC_DIR, 'runtime.generated.ts');
+export const LOCALIZATION_PATH = join(CALC_DIR, 'localization.generated.ts');
 
 /**
  * Статус читается из текста определения на этапе генерации.
@@ -42,7 +43,12 @@ export function runtimeModules(id: string, dir: string = CALC_DIR) {
   const has = (file: string) => {
     try { statSync(join(dir, id, file)); return true; } catch { return false; }
   };
-  return { compute: has('compute.ts'), validate: has('validate.ts'), contextualField: has('contextualField.ts') };
+  return {
+    compute: has('compute.ts'),
+    validate: has('validate.ts'),
+    contextualField: has('contextualField.ts'),
+    localization: has('localization.ts'),
+  };
 }
 
 export function discoverCalculatorIds(dir: string = CALC_DIR): string[] {
@@ -81,13 +87,12 @@ export function renderManifest(ids: readonly string[]): string {
 // Перегенерировать: npm run calculators:generate
 // Проверить актуальность: npm run calculators:verify
 
-import type { CalcFunction, CalculatorDef } from '../lib/types';
+import type { CalculatorDef } from '../lib/types';
 import type {
   CalculatorCopy,
   CalculatorDefinitionV2,
-  CalculatorContextualField,
+  CalculatorPublishedExample,
   CalculatorSeoCopy,
-  CalculatorValidator,
 } from '../lib/platform/types';
 import { isPublished } from '../lib/platform/types';
 ${imports ? '\n' + imports + '\n' : ''}
@@ -113,6 +118,18 @@ export const v2EnCopy: Record<string, CalculatorCopy> = Object.fromEntries(
 export const v2UkCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.uk).map((d) => [d.id, d.copy!.uk!]),
 );
+
+/**
+ * Калькулятор доступен во всех локалях сборки, если владеет копирайтом для них.
+ * Прежде это решал центральный список идентификаторов — из-за него добавление
+ * калькулятора требовало правки общего файла.
+ */
+export const v2FullParityIds: readonly string[] = published
+  .filter((d) => d.copy?.en && d.copy?.uk)
+  .map((d) => d.id);
+
+export const v2PublishedExamples: readonly { id: string; example: CalculatorPublishedExample }[] =
+  published.filter((d) => d.publishedExample).map((d) => ({ id: d.id, example: d.publishedExample! }));
 `;
 }
 
@@ -176,6 +193,83 @@ ${validators.join('\n')}
 
 export const v2ContextualFields: Record<string, CalculatorContextualField> = {
 ${contextual.join('\n')}
+};
+`;
+}
+
+/**
+ * Манифест локализации: подписи полей и фразы результата, которыми владеют
+ * калькуляторы.
+ *
+ * Отдельный файл, потому что у этих данных два потребителя с разным временем
+ * жизни — `i18n` на сборке и `clientI18n` в браузере. Модули калькуляторов,
+ * которые он импортирует, не имеют собственных импортов, поэтому цикла между
+ * локализацией и платформой не возникает.
+ */
+export function renderLocalizationManifest(ids: readonly string[], dir?: string): string {
+  const withLocalization = ids.filter((id) => runtimeModules(id, dir).localization
+    && lifecycleOf(id, dir) === 'released');
+  const alias = (id: string) => 'loc_' + id.replace(/[^a-zA-Z0-9]+/g, '_');
+  const imports = withLocalization
+    .map((id) => `import * as ${alias(id)} from './${id}/localization';`)
+    .join('\n');
+  // Не каждый калькулятор объявляет все корзины, поэтому чтение идёт через
+  // помощник: так отсутствующая корзина остаётся пустой, а не ошибкой типов.
+  const merge = (kind: string, locale: string) => withLocalization
+    .map((id) => `  ...bucket(${alias(id)}, '${kind}', '${locale}'),`)
+    .join('\n');
+
+  return `// СГЕНЕРИРОВАНО. Не редактировать руками.
+// Подписи полей и фразы результата, объявленные самими калькуляторами.
+// Перегенерировать: npm run calculators:generate
+
+${imports}
+
+type LocalizationModule = Record<string, unknown>;
+const bucket = (module: LocalizationModule, kind: string, locale: string): Record<string, string> =>
+  ((module[kind] as Record<string, Record<string, string>> | undefined)?.[locale]) ?? {};
+
+/**
+ * Подписи полей привязаны к калькулятору, а не к имени поля.
+ *
+ * Общая карта в \`i18n\` ключуется одним лишь именем поля, и поле \`mode\` есть
+ * сразу у нескольких калькуляторов — метка одного перетирала метки остальных.
+ * Область видимости по идентификатору убирает это столкновение.
+ */
+export const v2FieldLabelsById: Record<'en' | 'uk', Record<string, Record<string, string>>> = {
+  en: {
+${withLocalization.map((id) => `    '${id}': bucket(${alias(id)}, 'fieldLabels', 'en'),`).join('\n')}
+  },
+  uk: {
+${withLocalization.map((id) => `    '${id}': bucket(${alias(id)}, 'fieldLabels', 'uk'),`).join('\n')}
+  },
+};
+
+export const v2OptionLabels: Record<'en' | 'uk', Record<string, string>> = {
+  en: {
+${merge('optionLabels', 'en')}
+  },
+  uk: {
+${merge('optionLabels', 'uk')}
+  },
+};
+
+export const v2ResultPhrases: Record<'en' | 'uk', Record<string, string>> = {
+  en: {
+${merge('resultPhrases', 'en')}
+  },
+  uk: {
+${merge('resultPhrases', 'uk')}
+  },
+};
+
+export const v2ResultValues: Record<'en' | 'uk', Record<string, string>> = {
+  en: {
+${merge('resultValues', 'en')}
+  },
+  uk: {
+${merge('resultValues', 'uk')}
+  },
 };
 `;
 }

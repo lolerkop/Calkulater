@@ -1,4 +1,5 @@
 import { getCalculatorById, locales } from '../lib/i18n';
+import { v2PublishedExamples } from '../calculators/manifest.generated';
 
 type ExampleInput = Record<string, string | number | boolean>;
 type PublishedLocale = (typeof locales)[number];
@@ -57,7 +58,17 @@ const canonicalPublishedExamples: PublishedExample[] = [
   { calculatorId: 'bmi-calculator', locale: 'en', source: '/en/fitness/bmi-calculator/', input: { height: 178, weight: 82 }, expected: ['25,9', 'Избыточный вес'], exampleKind: 'seo', onlyLocales: ['en'] },
 ];
 
-export const publishedExamples: PublishedExample[] = canonicalPublishedExamples.flatMap((example) =>
+// Калькуляторы V2 приносят свой пример с собой. Разворачивание по локалям —
+// то же самое, что и для легаси: раннер возвращает результат независимо от
+// локали, поэтому различается только публичный адрес.
+const v2Examples: Omit<PublishedExample, 'locale' | 'source'>[] = v2PublishedExamples.map(
+  ({ id, example }) => ({ calculatorId: id, input: example.inputs, expected: [...example.expected] }),
+);
+
+export const publishedExamples: PublishedExample[] = [
+  ...canonicalPublishedExamples,
+  ...(v2Examples as PublishedExample[]),
+].flatMap((example) =>
   (example.onlyLocales ?? locales).flatMap((locale) => {
     const calculator = getCalculatorById(example.calculatorId, locale);
     if (!calculator) return [];

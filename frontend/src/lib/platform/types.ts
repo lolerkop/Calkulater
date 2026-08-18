@@ -106,6 +106,21 @@ export type CalculatorContextualField = (
   locale: Locale,
 ) => Field;
 
+/**
+ * Опубликованный пример: набор входов и строки, которые обязаны появиться
+ * в результате. Служит проверкой того, что калькулятор действительно считает
+ * то, что обещает страница.
+ *
+ * Хранится одним экземпляром на калькулятор: раннер возвращает результат
+ * независимо от локали, поэтому ожидаемые строки одинаковы для всех локалей,
+ * а различается только публичный адрес. Разворачивание по локалям — работа
+ * платформы, а не автора калькулятора.
+ */
+export type CalculatorPublishedExample = {
+  readonly inputs: CalculatorFormValues;
+  readonly expected: readonly string[];
+};
+
 export type CalculatorDefinitionV2 = {
   readonly id: string;
   /** Версия формы определения, а не контента: меняется при смене контракта. */
@@ -121,6 +136,7 @@ export type CalculatorDefinitionV2 = {
     readonly uk?: CalculatorSeoCopy;
   };
   readonly referenceCases?: readonly CalculatorReferenceCase[];
+  readonly publishedExample?: CalculatorPublishedExample;
   /**
    * Идентификатор калькулятора, сразу после которого этот должен стоять
    * в каталоге. Нужен мигрированным калькуляторам: сетка категории выводит
