@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { calculators } from '../src/data/calculators';
-import { runners } from '../src/lib/runners';
+import { allRunners as runners } from '../src/lib/runners.all';
 import { buildInitialValues } from '../src/lib/shareLink';
 import { localizeResult } from '../src/components/islands/calculator/resultLocalization';
 import type { CalcResult } from '../src/lib/types';

@@ -3,7 +3,7 @@ import { calculators, newCalculators, legacyCalculators } from '../src/data/calc
 import { categories } from '../src/data/categories';
 import { calculatorGuidance } from '../src/lib/calculatorGuidance';
 import { calculatorFreshness } from '../src/lib/calculatorFreshness';
-import { runners } from '../src/lib/runners';
+import { allRunners as runners } from '../src/lib/runners.all';
 import { lastUpdated as currencyRatesUpdatedAt } from '../src/data/currencies';
 
 const categoryIds = new Set(categories.map((category) => category.id));

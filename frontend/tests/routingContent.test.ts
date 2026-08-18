@@ -53,7 +53,9 @@ describe('routing content: i18n routes', () => {
     expect(category.default).toContain('getCategories(locale)');
     expect(category.default).toContain('getCalculatorsByCategory(category.id, locale)');
     expect(calculator.default).toContain('findCalculatorBySlug');
-    expect(calculator.default).toContain('CalculatorIsland calc={islandCalc} locale={locale}');
+    // Маршрут рендерит диспетчер островов: он выбирает точку входа калькулятора,
+    // чтобы в клиент уезжал чанк только текущего.
+    expect(calculator.default).toContain('CalculatorIslandDispatch calc={islandCalc} locale={locale}');
     expect(calculator.default).toContain('getAlternatesForCalculator');
     expect(calculator.default).toContain('calculator-freshness');
   });

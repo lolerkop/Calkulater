@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { calculators } from '../src/data/calculators';
-import { runners } from '../src/lib/runners';
+import { allRunners as runners } from '../src/lib/runners.all';
 import { buildInitialValues } from '../src/lib/shareLink';
 import { validateValues } from '../src/components/islands/calculator/validation';
 import { isPartialNumber, normalizeValues } from '../src/components/islands/calculator/values';
