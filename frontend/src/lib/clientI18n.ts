@@ -202,7 +202,24 @@ function localizeCountWords(value: string, locale: 'en' | 'uk'): string {
   }), value);
 }
 
-export function localizedResultText(value: string, locale: Locale): string {
+/**
+ * Перевод значения результата.
+ *
+ * `ownPhrases` — карта `values` самого калькулятора. Она сливается поверх общей
+ * и проходит ту же однопроходную подстановку, а не отдельным точным поиском.
+ * Причина измерена: обозначения единиц приходят фрагментом внутри строки
+ * («10,0000 м/с»), поэтому точный поиск по целой строке не срабатывал никогда,
+ * и на английской странице оставалась кириллица. Хуже того, общий хвост
+ * замен ниже правит подстроки вслепую и превращал «см²» в «сm²» — кириллическая
+ * «с» с латинским «m²». Приоритет калькулятора снимает обе проблемы разом:
+ * его ключ длиннее и забирает совпадение первым, а к моменту хвоста кириллицы
+ * в строке уже не остаётся.
+ */
+export function localizedResultText(
+  value: string,
+  locale: Locale,
+  ownPhrases?: Readonly<Record<string, string>>,
+): string {
   if (locale === 'ru') return value;
   const currencyByLocale: Partial<Record<Locale, string>> = {
     en: '$',
@@ -216,7 +233,8 @@ export function localizedResultText(value: string, locale: Locale): string {
     hu: 'Ft',
   };
   const currency = currencyByLocale[locale] ?? '€';
-  const phrases = resultValueMap[locale] ?? resultValueMap.en;
+  const shared = resultValueMap[locale] ?? resultValueMap.en;
+  const phrases = ownPhrases ? { ...shared, ...ownPhrases } : shared;
   const exact = phrases[value];
   // Словарь нужен и для фраз, встроенных в более длинный текст, поэтому строка,
   // не совпавшая целиком, всё равно проходит подстановку. Раньше это делалось

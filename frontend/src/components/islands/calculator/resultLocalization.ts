@@ -7,7 +7,7 @@
 import type { CalcResult, CalculatorDef } from '../../../lib/types';
 import { localizedResultLabel, localizedResultText, type Locale } from '../../../lib/clientI18n';
 import { calculatorCopy } from './copy';
-import { runtimeLocale, type CalculatorClientRuntime } from '../../../lib/platform/runtime';
+import { runtimeBucket, runtimeLocale, type CalculatorClientRuntime } from '../../../lib/platform/runtime';
 
 // Перевод подписи строки результата. Сначала — то, что объявил сам калькулятор,
 // затем общая карта. Одна и та же русская фраза у разных калькуляторов может
@@ -34,9 +34,11 @@ function toEnglishDigitSeparators(value: string): string {
   });
 }
 
+// Значения калькулятора переводятся вместе с общими: его карта уходит в ту же
+// подстановку с приоритетом. Отдельный точный поиск по целой строке здесь не
+// годится — обозначения единиц всегда приходят фрагментом внутри значения.
 function localizeValue(value: string, locale: Locale, runtime: CalculatorClientRuntime | undefined): string {
-  const own = runtimeLocale(runtime, locale, 'values', value);
-  const translated = own ?? localizedResultText(value, locale);
+  const translated = localizedResultText(value, locale, runtimeBucket(runtime, locale, 'values'));
   return locale === 'en' ? toEnglishDigitSeparators(translated) : translated;
 }
 

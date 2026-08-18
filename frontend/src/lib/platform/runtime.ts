@@ -30,6 +30,16 @@ export type CalculatorClientRuntime = {
  * Чтение локализации текущего калькулятора. Идентификатор не нужен: рантайм
  * принадлежит ровно одному калькулятору по построению.
  */
+export function runtimeBucket(
+  runtime: CalculatorClientRuntime | undefined,
+  locale: string,
+  bucket: keyof CalculatorLocaleBundle,
+): Readonly<Record<string, string>> | undefined {
+  if (!runtime?.localization) return undefined;
+  if (locale !== 'en' && locale !== 'uk') return undefined;
+  return runtime.localization[locale]?.[bucket];
+}
+
 export function runtimeLocale(
   runtime: CalculatorClientRuntime | undefined,
   locale: string,

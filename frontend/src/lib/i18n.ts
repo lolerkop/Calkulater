@@ -1126,6 +1126,17 @@ const enCategories: Record<CategoryId, Omit<Category, 'id' | 'icon' | 'faq'>> = 
       'Estimate tiles, wallpaper rolls, paint liters and laminate packs with free home improvement calculators.',
     h1: 'Home improvement calculators',
   },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
+    },
   'date-time': {
     name: 'Date and time',
     slug: 'date-time',
@@ -1160,6 +1171,12 @@ const enCategoryFaq: Record<CategoryId, FaqItem[]> = {
     { q: 'Can I calculate several rooms at once?', a: 'For now, calculate each room separately and add the results.' },
     { q: 'Are product sizes important?', a: 'Yes. Real pack area, roll size and paint coverage can change the final amount.' },
   ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
   'date-time': [
     { q: 'Are leap years handled?', a: 'Yes. Date calculations use calendar dates and account for leap years.' },
     { q: 'Can I count holidays?', a: 'The business days calculator lets you add excluded dates manually.' },
@@ -1213,6 +1230,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Calcula azulejos, rollos de papel pintado, litros de pintura y paquetes de laminado con herramientas online gratis.',
       h1: 'Calculadoras de reformas',
+    },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
     },
     'date-time': {
       name: 'Fechas',
@@ -1271,6 +1299,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Berechne Fliesen, Tapetenrollen, Farbe und Laminatpakete mit kostenlosen Online-Rechnern.',
       h1: 'Heimwerkerrechner',
     },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
+    },
     'date-time': {
       name: 'Datum und Zeit',
       slug: 'datum-zeit',
@@ -1327,6 +1366,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Estimez carreaux, rouleaux de papier peint, litres de peinture et paquets de stratifié avec des calculatrices gratuites.',
       h1: 'Calculatrices travaux',
+    },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
     },
     'date-time': {
       name: 'Dates',
@@ -1385,6 +1435,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Estime azulejos, rolos de papel de parede, litros de tinta e pacotes de laminado com calculadoras online grátis.',
       h1: 'Calculadoras para casa',
     },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
+    },
     'date-time': {
       name: 'Datas',
       slug: 'datas',
@@ -1441,6 +1502,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Stima piastrelle, rotoli di carta da parati, litri di vernice e confezioni di laminato con calcolatori online gratuiti.',
       h1: 'Calcolatori per la casa',
+    },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
     },
     'date-time': {
       name: 'Date',
@@ -1499,6 +1571,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Oszacuj plytki, rolki tapety, litry farby i paczki paneli za pomoca darmowych kalkulatorow remontowych online.',
       h1: 'Kalkulatory remontowe',
     },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
+    },
     'date-time': {
       name: 'Daty',
       slug: 'daty',
@@ -1555,6 +1638,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Schat tegels, behangrollen, liters verf en pakken laminaat met gratis online klusrekentools.',
       h1: 'Klus rekentools',
+    },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
     },
     'date-time': {
       name: 'Datums',
@@ -1613,6 +1707,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Estimeaza gresie, role de tapet, litri de vopsea si pachete de laminat cu calculatoare online gratuite.',
       h1: 'Calculatoare pentru renovari',
     },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
+    },
     'date-time': {
       name: 'Date',
       slug: 'date',
@@ -1669,6 +1774,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Perkirakan ubin, gulungan wallpaper, liter cat, dan paket laminasi dengan kalkulator renovasi online gratis.',
       h1: 'Kalkulator renovasi',
+    },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
     },
     'date-time': {
       name: 'Tanggal',
@@ -1727,6 +1843,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Ücretsiz online tadilat hesaplayıcılarıyla fayans, duvar kağıdı rulosu, boya litresi ve laminat paketlerini tahmin edin.',
       h1: 'Tadilat hesaplayıcıları',
     },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
+    },
     'date-time': {
       name: 'Tarihler',
       slug: 'tarihler',
@@ -1783,6 +1910,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Ước tính gạch, cuộn giấy dán tường, lít sơn và hộp laminate bằng máy tính sửa nhà online miễn phí.',
       h1: 'Máy tính sửa nhà',
+    },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
     },
     'date-time': {
       name: 'Ngày tháng',
@@ -1841,6 +1979,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Spočítejte dlaždice, role tapet, litry barvy a balení laminátu pomocí bezplatných online kalkulaček.',
       h1: 'Kalkulačky pro rekonstrukce',
     },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
+    },
     'date-time': {
       name: 'Datum a čas',
       slug: 'datum-cas',
@@ -1897,6 +2046,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
       seoDescription:
         'Розрахуйте плитку, рулони шпалер, літри фарби та пачки ламінату за допомогою безкоштовних онлайн-калькуляторів.',
       h1: 'Калькулятори ремонту',
+    },
+    converters: {
+      name: 'Конвертери величин',
+      slug: 'konvertery',
+      description: 'Переведення довжини, маси, температури, тиску та інших величин між одиницями.',
+      longDescription:
+        'Конвертери переводять значення з однієї одиниці в іншу: метри у фути, градуси Цельсія у Фаренгейти, гігабайти у гібібайти. Кожен конвертер працює в обидва боки — напрямок задає вибір одиниць, а не окремий калькулятор.',
+      seoTitle: 'Конвертери величин — довжина, маса, температура, тиск',
+      seoDescription:
+        'Онлайн-конвертери одиниць: довжина, маса, температура, площа, обʼєм, швидкість, тиск, енергія, потужність, час і кути.',
+      h1: 'Конвертери одиниць вимірювання',
     },
     'date-time': {
       name: 'Дати',
@@ -1955,6 +2115,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Vypočítajte dlaždice, rolky tapiet, litre farby a balenia laminátu pomocou bezplatných online kalkulačiek.',
       h1: 'Kalkulačky na rekonštrukciu',
     },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
+    },
     'date-time': {
       name: 'Dátumy',
       slug: 'datumy',
@@ -2012,6 +2183,17 @@ const localizedCategories: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Omit
         'Számolja ki a csempét, tapétatekercseket, festéklitereket és lamináltpadló-csomagokat ingyenes online kalkulátorokkal.',
       h1: 'Felújítási kalkulátorok',
     },
+    converters: {
+      name: 'Unit converters',
+      slug: 'converters',
+      description: 'Convert length, mass, temperature, pressure and other quantities between units.',
+      longDescription:
+        'Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.',
+      seoTitle: 'Unit converters — length, mass, temperature, pressure',
+      seoDescription:
+        'Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.',
+      h1: 'Unit converters',
+    },
     'date-time': {
       name: 'Dátumok',
       slug: 'datumok',
@@ -2049,6 +2231,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: '¿Puedo calcular varias habitaciones?', a: 'Por ahora calcula cada habitación por separado y suma los resultados.' },
       { q: '¿Importan los tamaños del producto?', a: 'Sí. Área por paquete, tamaño del rollo y cobertura de pintura pueden cambiar el resultado.' },
     ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
     'date-time': [
       { q: '¿Se consideran años bisiestos?', a: 'Sí. Los cálculos usan fechas de calendario y consideran años bisiestos.' },
       { q: '¿Puedo contar festivos?', a: 'La calculadora de días laborables permite añadir fechas excluidas manualmente.' },
@@ -2075,6 +2263,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Sollte ich zusätzliches Material einplanen?', a: 'Meist ja. Reserve deckt Zuschnitt, Fehler und Verschnitt ab.' },
       { q: 'Kann ich mehrere Räume berechnen?', a: 'Berechne aktuell jeden Raum separat und addiere die Ergebnisse.' },
       { q: 'Sind Produktgrößen wichtig?', a: 'Ja. Packungsfläche, Rollenmaße und Farbdeckung können die endgültige Menge verändern.' },
+    ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
     'date-time': [
       { q: 'Werden Schaltjahre berücksichtigt?', a: 'Ja. Datumsberechnungen nutzen Kalenderdaten und berücksichtigen Schaltjahre.' },
@@ -2103,6 +2297,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Puis-je calculer plusieurs pièces ?', a: 'Pour l’instant, calculez chaque pièce séparément puis additionnez les résultats.' },
       { q: 'Les dimensions du produit sont-elles importantes ?', a: 'Oui. Surface par paquet, taille du rouleau et pouvoir couvrant de la peinture peuvent modifier le résultat.' },
     ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
     'date-time': [
       { q: 'Les années bissextiles sont-elles prises en compte ?', a: 'Oui. Les calculs utilisent les dates du calendrier et tiennent compte des années bissextiles.' },
       { q: 'Puis-je compter les jours fériés ?', a: 'La calculatrice de jours ouvrés permet d’ajouter manuellement des dates exclues.' },
@@ -2129,6 +2329,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Devo adicionar material extra?', a: 'Normalmente sim. Uma reserva cobre cortes, defeitos e desperdício.' },
       { q: 'Posso calcular várias divisões?', a: 'Por enquanto, calcule cada divisão separadamente e some os resultados.' },
       { q: 'Os tamanhos dos produtos importam?', a: 'Sim. Área por pacote, tamanho do rolo e rendimento da tinta podem alterar o resultado.' },
+    ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
     'date-time': [
       { q: 'Os anos bissextos são considerados?', a: 'Sim. Os cálculos usam datas de calendário e consideram anos bissextos.' },
@@ -2157,6 +2363,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Posso calcolare più stanze?', a: 'Per ora calcola ogni stanza separatamente e somma i risultati.' },
       { q: 'Le dimensioni del prodotto contano?', a: 'Sì. Area per confezione, dimensione del rotolo e resa della vernice possono cambiare il risultato.' },
     ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
     'date-time': [
       { q: 'Gli anni bisestili sono considerati?', a: 'Sì. I calcoli usano date di calendario e tengono conto degli anni bisestili.' },
       { q: 'Posso contare i giorni festivi?', a: 'Il calcolatore dei giorni lavorativi permette di aggiungere date escluse manualmente.' },
@@ -2183,6 +2395,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Czy dodac zapas materialu?', a: 'Zwykle tak. Zapas pomaga pokryc docinki, uszkodzenia i odpady.' },
       { q: 'Czy moge policzyc kilka pomieszczen?', a: 'Na razie policz kazde pomieszczenie osobno i zsumuj wyniki.' },
       { q: 'Czy parametry produktu maja znaczenie?', a: 'Tak. Powierzchnia paczki, rozmiar rolki i wydajnosc farby moga zmienic wynik.' },
+    ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
     'date-time': [
       { q: 'Czy lata przestepne sa uwzgledniane?', a: 'Tak. Obliczenia korzystaja z dat kalendarzowych i uwzgledniaja lata przestepne.' },
@@ -2211,6 +2429,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Kan ik meerdere kamers berekenen?', a: 'Bereken voorlopig elke kamer apart en tel de resultaten op.' },
       { q: 'Zijn productmaten belangrijk?', a: 'Ja. Pakoppervlak, rolmaat en verfdekking kunnen de uitkomst veranderen.' },
     ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
     'date-time': [
       { q: 'Worden schrikkeljaren meegenomen?', a: 'Ja. Datumberekeningen gebruiken kalenderdatums en houden rekening met schrikkeljaren.' },
       { q: 'Kan ik feestdagen meetellen?', a: 'De werkdagen rekentool laat je uitgesloten datums handmatig toevoegen.' },
@@ -2237,6 +2461,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Trebuie sa adaug material in plus?', a: 'De obicei da. O rezerva acopera taieri, defecte si pierderi.' },
       { q: 'Pot calcula mai multe camere?', a: 'Deocamdata calculeaza fiecare camera separat si aduna rezultatele.' },
       { q: 'Conteaza dimensiunile produsului?', a: 'Da. Suprafata pachetului, dimensiunea rolei si randamentul vopselei pot schimba rezultatul.' },
+    ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
     'date-time': [
       { q: 'Anii bisecti sunt luati in calcul?', a: 'Da. Calculele folosesc date calendaristice si tin cont de anii bisecti.' },
@@ -2265,6 +2495,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Bisakah menghitung beberapa ruangan?', a: 'Untuk saat ini hitung setiap ruangan secara terpisah lalu jumlahkan hasilnya.' },
       { q: 'Apakah ukuran produk penting?', a: 'Ya. Luas per paket, ukuran gulungan, dan daya sebar cat dapat mengubah hasil.' },
     ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
     'date-time': [
       { q: 'Apakah tahun kabisat dihitung?', a: 'Ya. Perhitungan memakai tanggal kalender dan memperhitungkan tahun kabisat.' },
       { q: 'Bisakah menghitung hari libur?', a: 'Kalkulator hari kerja memungkinkan Anda menambahkan tanggal yang dikecualikan secara manual.' },
@@ -2291,6 +2527,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Ek malzeme payı eklemeli miyim?', a: 'Genellikle evet. Pay, kesim, kusur ve fireleri karşılamaya yardımcı olur.' },
       { q: 'Birden fazla odayı hesaplayabilir miyim?', a: 'Şimdilik her odayı ayrı hesaplayın ve sonuçları toplayın.' },
       { q: 'Ürün ölçüleri önemli mi?', a: 'Evet. Paket alanı, rulo ölçüsü ve boya kapatıcılığı sonucu değiştirebilir.' },
+    ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
     'date-time': [
       { q: 'Artık yıllar hesaba katılır mı?', a: 'Evet. Tarih hesaplamaları takvim tarihlerini kullanır ve artık yılları dikkate alır.' },
@@ -2319,6 +2561,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Có thể tính nhiều phòng không?', a: 'Hiện tại hãy tính từng phòng riêng rồi cộng kết quả.' },
       { q: 'Kích thước sản phẩm có quan trọng không?', a: 'Có. Diện tích mỗi hộp, kích thước cuộn và độ phủ sơn có thể thay đổi kết quả.' },
     ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
     'date-time': [
       { q: 'Có tính năm nhuận không?', a: 'Có. Phép tính dùng ngày lịch và xét năm nhuận.' },
       { q: 'Có thể tính ngày lễ không?', a: 'Máy tính ngày làm việc cho phép thêm ngày loại trừ thủ công.' },
@@ -2345,6 +2593,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Mám přidat materiál navíc?', a: 'Obvykle ano. Rezerva pomáhá pokrýt řezání, vady a odpad.' },
       { q: 'Mohu počítat více místností najednou?', a: 'Zatím počítejte každou místnost zvlášť a výsledky sečtěte.' },
       { q: 'Jsou důležité rozměry výrobku?', a: 'Ano. Plocha balení, velikost role a vydatnost barvy mohou změnit konečný výsledek.' },
+    ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
     'date-time': [
       { q: 'Počítají se přestupné roky?', a: 'Ano. Datumové výpočty používají kalendářní data a zohledňují přestupné roky.' },
@@ -2373,6 +2627,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Чи можна рахувати кілька кімнат одразу?', a: 'Поки що рахуйте кожну кімнату окремо та додавайте результати.' },
       { q: 'Розміри товару важливі?', a: 'Так. Площа упаковки, розмір рулону та покривність фарби можуть змінити фінальний результат.' },
     ],
+    converters: [
+      { q: 'Чи працюють конвертери в обидва боки?', a: 'Так. Напрямок задає вибір вихідної та цільової одиниці, тому окремий калькулятор для зворотного переведення не потрібен.' },
+      { q: 'Чим відрізняються гігабайт і гібібайт?', a: 'Гігабайт — це 1 000 000 000 байтів, гібібайт — 1 073 741 824. Різниця близько 7 % і помітна на обсягах дисків.' },
+      { q: 'Чому галони США та Великої Британії різні?', a: 'Це історично різні міри: американський галон дорівнює 3,785 літра, британський — 4,546. Конвертер обʼєму містить обидва.' },
+      { q: 'Наскільки точні переведення?', a: 'Використовуються міжнародні визначення одиниць. Там, де одиниця задана точно — дюйм дорівнює рівно 2,54 сантиметра, — переведення точне за визначенням.' },
+    ],
     'date-time': [
       { q: 'Чи враховуються високосні роки?', a: 'Так. Розрахунки дат використовують календарні дати та враховують високосні роки.' },
       { q: 'Чи можна врахувати свята?', a: 'Калькулятор робочих днів дозволяє вручну додати виключені дати.' },
@@ -2400,6 +2660,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Môžem počítať viac miestností naraz?', a: 'Zatiaľ počítajte každú miestnosť zvlášť a výsledky sčítajte.' },
       { q: 'Sú rozmery produktu dôležité?', a: 'Áno. Plocha balenia, veľkosť rolky a výdatnosť farby môžu zmeniť konečný výsledok.' },
     ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
+    ],
     'date-time': [
       { q: 'Počítajú sa priestupné roky?', a: 'Áno. Dátumové výpočty používajú kalendárne dátumy a zohľadňujú priestupné roky.' },
       { q: 'Môžem započítať sviatky?', a: 'Kalkulačka pracovných dní umožňuje ručne pridať vylúčené dátumy.' },
@@ -2426,6 +2692,12 @@ const localizedCategoryFaq: Record<Exclude<Locale, 'ru'>, Record<CategoryId, Faq
       { q: 'Érdemes tartalék anyagot hozzáadni?', a: 'Általában igen. A tartalék segít fedezni a vágást, hibákat és veszteséget.' },
       { q: 'Számolhatok több helyiséget egyszerre?', a: 'Egyelőre számolja ki külön az egyes helyiségeket, majd adja össze az eredményeket.' },
       { q: 'Fontosak a termék méretei?', a: 'Igen. A csomag lefedése, a tekercs mérete és a festék kiadóssága megváltoztathatja a végeredményt.' },
+    ],
+    converters: [
+      { q: 'Do converters work both ways?', a: 'Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.' },
+      { q: 'What is the difference between a gigabyte and a gibibyte?', a: 'A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.' },
+      { q: 'Why are US and UK gallons different?', a: 'They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.' },
+      { q: 'How accurate are the conversions?', a: 'They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.' },
     ],
     'date-time': [
       { q: 'Figyelembe veszi a szökőéveket?', a: 'Igen. A dátumszámítások naptári dátumokat használnak, és figyelembe veszik a szökőéveket.' },

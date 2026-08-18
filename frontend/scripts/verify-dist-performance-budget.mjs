@@ -42,6 +42,15 @@ const budgets = {
   catalogHtmlBaseGzip: 5.5 * 1024,
   catalogHtmlPerCardGzip: 0.42 * 1024,
   catalogHtmlCeilingGzip: 30 * 1024,
+  // Локальная главная — вторая страница, размер которой определяется числом
+  // калькуляторов, а не собственным содержимым: она встраивает JSON-LD со всем
+  // каталогом и данные поиска по всем калькуляторам. Плоский маршрутный бюджет
+  // измерял её неверно и сорвался бы на 42-м калькуляторе по причине, не
+  // связанной с самой страницей. Коэффициенты сняты измерением: 36 → 48
+  // калькуляторов дало 223 Б/калькулятор на ru, 248 на uk, 194 на en.
+  indexHtmlBaseGzip: 8 * 1024,
+  indexHtmlPerCalculatorGzip: 0.29 * 1024,
+  indexHtmlCeilingGzip: 24 * 1024,
   cssTotalGzip: 40 * 1024,
 
   // ── масштаб архитектуры (жёстко) ──
@@ -94,6 +103,9 @@ const fontFiles = files.filter((file) => file.endsWith('.woff2'));
 const imageFiles = files.filter((file) => /\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(file));
 
 const isCatalog = (file) => /[/\\]calculators[/\\]index\.html$/.test(file);
+// Главная локали: dist/<locale>/index.html и только она.
+const isLocaleIndex = (file) => /[/\\][a-z]{2}[/\\]index\.html$/.test(file);
+const scalesWithCatalog = (file) => isCatalog(file) || isLocaleIndex(file);
 
 // ── производительность маршрутов ──
 const routes = [];
@@ -101,21 +113,28 @@ for (const file of htmlFiles) {
   const rel = path.relative(root, file);
   const htmlGzip = gzipSize(file);
   const closure = closureOf(file);
-  routes.push({ route: `/${rel}`, htmlGzip, jsClosureGzip: closure.gzip, jsClosureRaw: closure.raw, modules: closure.modules, catalog: isCatalog(file) });
+  routes.push({ route: `/${rel}`, htmlGzip, jsClosureGzip: closure.gzip, jsClosureRaw: closure.raw, modules: closure.modules, catalog: scalesWithCatalog(file) });
 
   if (closure.gzip > budgets.routeJsClosureGzip) {
     issues.push(`${rel}: initial JS closure gzip ${kib(closure.gzip)} exceeds ${kib(budgets.routeJsClosureGzip)}`);
   }
-  if (!isCatalog(file) && htmlGzip > budgets.routeHtmlGzip) {
+  if (!scalesWithCatalog(file) && htmlGzip > budgets.routeHtmlGzip) {
     issues.push(`${rel}: HTML gzip ${kib(htmlGzip)} exceeds ${kib(budgets.routeHtmlGzip)}`);
   }
 }
+
+// Число опубликованных калькуляторов: каталог перечисляет ровно их.
+let publishedCount = 0;
 
 // ── каталог: наклонный бюджет ──
 for (const file of htmlFiles.filter(isCatalog)) {
   const rel = path.relative(root, file);
   const html = fs.readFileSync(file, 'utf8');
-  const cards = new Set([...html.matchAll(/data-testid="calculator-card-([a-z0-9-]+)"/g)].map((m) => m[1])).size;
+  // Карточки считаются по оболочке, а не по testid: внутри карточки есть ещё
+  // два элемента с testid того же префикса — бейджи «новинка» и «популярное».
+  // Из-за них каталог насчитывал на две карточки больше и получал лишний запас.
+  const cards = (html.match(/calculator-card-shell/g) ?? []).length;
+  publishedCount = Math.max(publishedCount, cards);
   const allowed = budgets.catalogHtmlBaseGzip + cards * budgets.catalogHtmlPerCardGzip;
   const size = gzipSize(file);
   if (size > budgets.catalogHtmlCeilingGzip) {
@@ -127,6 +146,24 @@ for (const file of htmlFiles.filter(isCatalog)) {
     issues.push(
       `${rel}: catalog HTML gzip ${kib(size)} exceeds ${kib(allowed)} allowed for ${cards} cards `
       + `(${kib(budgets.catalogHtmlPerCardGzip)}/card) — a card grew, not the catalogue`,
+    );
+  }
+}
+
+// ── главная локали: тот же наклонный бюджет, своя пара коэффициентов ──
+for (const file of htmlFiles.filter(isLocaleIndex)) {
+  const rel = path.relative(root, file);
+  const allowed = budgets.indexHtmlBaseGzip + publishedCount * budgets.indexHtmlPerCalculatorGzip;
+  const size = gzipSize(file);
+  if (size > budgets.indexHtmlCeilingGzip) {
+    issues.push(
+      `${rel}: locale index HTML gzip ${kib(size)} exceeds the ${kib(budgets.indexHtmlCeilingGzip)} ceiling — `
+      + 'the home page embeds the whole catalogue and needs a scale redesign before more calculators',
+    );
+  } else if (size > allowed) {
+    issues.push(
+      `${rel}: locale index HTML gzip ${kib(size)} exceeds ${kib(allowed)} allowed for ${publishedCount} calculators `
+      + `(${kib(budgets.indexHtmlPerCalculatorGzip)}/calculator) — the page grew, not the catalogue`,
     );
   }
 }

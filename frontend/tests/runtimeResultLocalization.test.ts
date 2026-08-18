@@ -29,8 +29,18 @@ const RUSSIAN_ONLY_LETTERS = /[ыъэё]/i;
 // дословно совпавшие с русским оригиналом.
 const UK_SENTENCE_WORDS = 4;
 
+// Сокращения и аббревиатуры словами не считаются. Причина измерена: конвертеры
+// вводят единицы, записанные несколькими токенами, — «мм рт. ст.», «гал. США».
+// В украинском они пишутся ровно так же, как в русском, и это не утечка, а
+// правильный перевод; но по токенам такая строка выглядела как фраза из четырёх
+// слов. Признаком утечки остаётся связная проза, поэтому из счёта исключаются
+// токены с точкой на конце (сокращение) и целиком прописные (аббревиатура).
+function isProseWord(word: string): boolean {
+  return CYRILLIC.test(word) && !word.endsWith('.') && word !== word.toUpperCase();
+}
+
 function cyrillicWordCount(value: string): number {
-  return value.split(/\s+/).filter((word) => CYRILLIC.test(word)).length;
+  return value.split(/\s+/).filter(isProseWord).length;
 }
 
 function visibleStrings(result: CalcResult): string[] {

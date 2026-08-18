@@ -55,6 +55,7 @@ const genericLimitations = {
     currency: 'Это официальный справочный, а не коммерческий курс покупки или продажи. Банк или обменный пункт может применять спред и комиссию.',
     sport: 'Результат является ориентиром и не заменяет индивидуальную медицинскую или спортивную оценку.',
     building: 'Перед покупкой проверьте фактические замеры, размер упаковки, партию и рекомендации производителя.',
+    converters: 'Перевод выполняется по международным определениям единиц. Там, где единица задана точно, результат точен по определению.',
     'date-time': 'Для документов и сроков проверьте правила включения дат, праздники и требования конкретной организации.',
   },
   en: {
@@ -62,6 +63,7 @@ const genericLimitations = {
     currency: 'This is an official reference rate, not a live commercial buy or sell quote. A bank or exchange service may add a spread and fees.',
     sport: 'The result is guidance and does not replace an individual medical or training assessment.',
     building: 'Before buying, verify the measurements, pack size, production batch and manufacturer instructions.',
+    converters: 'Conversions use international unit definitions. Where a unit is defined exactly, the result is exact by definition.',
     'date-time': 'For documents and deadlines, verify inclusion rules, holidays and the requirements of the relevant organization.',
   },
   uk: {
@@ -69,6 +71,7 @@ const genericLimitations = {
     currency: 'Це офіційний довідковий, а не комерційний курс купівлі чи продажу. Банк або обмінник може застосовувати спред і комісію.',
     sport: 'Результат є орієнтиром і не замінює індивідуальну медичну або спортивну оцінку.',
     building: 'Перед купівлею перевірте фактичні виміри, розмір упаковки, партію та рекомендації виробника.',
+    converters: 'Переведення виконується за міжнародними визначеннями одиниць. Там, де одиниця задана точно, результат точний за визначенням.',
     'date-time': 'Для документів і строків перевірте правила включення дат, свята та вимоги конкретної організації.',
   },
 } as const;

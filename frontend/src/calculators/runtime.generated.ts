@@ -20,6 +20,18 @@ import { compute as compute_calories_from_macros } from './calories-from-macros/
 import { compute as compute_commission } from './commission/compute';
 import { validate as validate_commission } from './commission/validate';
 import { contextualField as ctx_commission } from './commission/contextualField';
+import { compute as compute_convert_angle } from './convert-angle/compute';
+import { compute as compute_convert_area } from './convert-area/compute';
+import { compute as compute_convert_digital } from './convert-digital/compute';
+import { compute as compute_convert_energy } from './convert-energy/compute';
+import { compute as compute_convert_length } from './convert-length/compute';
+import { compute as compute_convert_mass } from './convert-mass/compute';
+import { compute as compute_convert_power } from './convert-power/compute';
+import { compute as compute_convert_pressure } from './convert-pressure/compute';
+import { compute as compute_convert_speed } from './convert-speed/compute';
+import { compute as compute_convert_temperature } from './convert-temperature/compute';
+import { compute as compute_convert_time } from './convert-time/compute';
+import { compute as compute_convert_volume } from './convert-volume/compute';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
@@ -34,6 +46,18 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
   'commission': compute_commission,
+  'convert-angle': compute_convert_angle,
+  'convert-area': compute_convert_area,
+  'convert-digital': compute_convert_digital,
+  'convert-energy': compute_convert_energy,
+  'convert-length': compute_convert_length,
+  'convert-mass': compute_convert_mass,
+  'convert-power': compute_convert_power,
+  'convert-pressure': compute_convert_pressure,
+  'convert-speed': compute_convert_speed,
+  'convert-temperature': compute_convert_temperature,
+  'convert-time': compute_convert_time,
+  'convert-volume': compute_convert_volume,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
   'room-volume': compute_room_volume,

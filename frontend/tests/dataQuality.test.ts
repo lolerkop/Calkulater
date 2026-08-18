@@ -80,8 +80,14 @@ describe('data quality: calculators', () => {
           }
         }
 
-        if (field.type === 'number' && calculator.id !== 'percent-calculator') {
-          expect(field.min, `${calculator.id}.${field.name}: min`).toBeDefined();
+        // Числовое поле обязано объявить область определения: либо нижнюю
+        // границу, либо `signed` — что отрицательные значения осмысленны.
+        // Ветка по id осталась только для percent-calculator: он сертифицирован
+        // ранней фазой, и пометка `signed` изменила бы его данные и байты
+        // страницы. Ветка снимается вместе с этой пометкой в фазе, которая
+        // владеет процентами.
+        if (field.type === 'number' && !field.signed && calculator.id !== 'percent-calculator') {
+          expect(field.min, `${calculator.id}.${field.name}: min либо signed`).toBeDefined();
         }
         if (field.type === 'select' || field.type === 'toggle') {
           expect(field.options?.length ?? 0, `${calculator.id}.${field.name}: options`).toBeGreaterThan(0);

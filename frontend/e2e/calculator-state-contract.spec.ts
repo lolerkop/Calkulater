@@ -26,6 +26,25 @@ const stateScenarios: Record<string, StateScenario> = {
   //   200000 × 3 / 100 = 6 000 ₽
   // Значения намеренно отличаются от значений по умолчанию: контракт reset
   // проверяет, что сброс возвращает форму к исходному состоянию.
+  // Конвертеры волны 2. Пары подобраны так, чтобы ожидаемое значение было
+  // известно из определения единиц, а не получено прогоном движка:
+  //   1 км = 1000 м · 100 °C = 212 °F · 1 ТБ = 1000 ГБ · 1 т = 1000 кг
+  //   1 га = 10 000 м² · 1 м³ = 1000 л · 36 км/ч = 10 м/с · 1 атм = 101 325 Па
+  //   1 кВт·ч = 3 600 000 Дж · 1 МВт = 1000 кВт · 1 сут = 24 ч · 1 оборот = 360°
+  // Каждый набор отличается от значений по умолчанию: контракт reset проверяет,
+  // что сброс возвращает форму к исходному состоянию.
+  'convert-length': { query: { value: 2, from: 'km', to: 'm' }, result: { primary: '2 000,00 м' } },
+  'convert-temperature': { query: { value: 100, from: 'c', to: 'f' }, result: { primary: '212,0000 °F' } },
+  'convert-digital': { query: { value: 1, from: 'TB', to: 'GB' }, result: { primary: '1 000,00 ГБ' } },
+  'convert-mass': { query: { value: 1, from: 't', to: 'kg' }, result: { primary: '1 000,00 кг' } },
+  'convert-area': { query: { value: 1, from: 'ha', to: 'm2' }, result: { primary: '10 000,00 м²' } },
+  'convert-volume': { query: { value: 1, from: 'm3', to: 'l' }, result: { primary: '1 000,00 л' } },
+  'convert-speed': { query: { value: 36, from: 'kmh', to: 'ms' }, result: { primary: '10,0000 м/с' } },
+  'convert-pressure': { query: { value: 1, from: 'atm', to: 'pa' }, result: { primary: '101 325,00 Па' } },
+  'convert-energy': { query: { value: 1, from: 'kwh', to: 'j' }, result: { primary: '3 600 000,00 Дж' } },
+  'convert-power': { query: { value: 1, from: 'mw', to: 'kw' }, result: { primary: '1 000,00 кВт' } },
+  'convert-time': { query: { value: 1, from: 'd', to: 'h' }, result: { primary: '24,0000 ч' } },
+  'convert-angle': { query: { value: 1, from: 'turn', to: 'deg' }, result: { primary: '360,0000 °' } },
   'savings-rate': {
     query: { income: 120000, expenses: 90000 },
     result: { primary: '25,00 %' },
