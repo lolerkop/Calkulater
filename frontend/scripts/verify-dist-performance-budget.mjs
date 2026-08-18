@@ -39,12 +39,12 @@ const budgets = {
   // ── производительность маршрута (жёстко) ──
   routeJsClosureGzip: 95 * 1024,
   routeHtmlGzip: 15 * 1024,
-  // Наклон пересчитан после того, как из каталога ушёл дубль в <noscript>:
-  // измерено 0,19 КиБ на калькулятор на синтетике 48→100 и около 0,23 на
-  // реальных текстах. Порог 0,26 оставляет запас на разброс копирайта, но
-  // ловит возврат второго представления каталога.
+  // Наклон пересчитан после того, как сетку забрал Astro, а из острова ушли
+  // сериализованные калькуляторы: 0,14 КиБ на калькулятор на синтетике 48→100
+  // и около 0,17 на реальных текстах. Порог 0,20 оставляет запас на разброс
+  // копирайта, но ловит возврат второго представления каталога.
   catalogHtmlBaseGzip: 8 * 1024,
-  catalogHtmlPerCardGzip: 0.26 * 1024,
+  catalogHtmlPerCardGzip: 0.2 * 1024,
   catalogHtmlCeilingGzip: 30 * 1024,
   // Локальная главная — вторая страница, размер которой определяется числом
   // калькуляторов, а не собственным содержимым: она встраивает JSON-LD со всем
@@ -55,6 +55,12 @@ const budgets = {
   // Главная перестала объявлять весь каталог в структурированных данных,
   // поэтому её наклон упал с 0,22 до 0,07 КиБ на калькулятор (синтетика
   // 48→100), около 0,08 на реальных текстах. Порог 0,12 держит запас.
+  // Гидратационные props каталога обязаны оставаться постоянными по числу
+  // калькуляторов. До правки остров получал весь массив и при сорока восьми
+  // калькуляторах это было 33 878 сырых байт; теперь он получает только
+  // категории и локаль — около 950. Порог в 4 КиБ ловит возврат массива
+  // задолго до того, как это станет заметно на общем весе страницы.
+  catalogPropsRaw: 4 * 1024,
   indexHtmlBaseGzip: 9 * 1024,
   indexHtmlPerCalculatorGzip: 0.12 * 1024,
   indexHtmlCeilingGzip: 24 * 1024,
@@ -144,6 +150,17 @@ for (const file of htmlFiles.filter(isCatalog)) {
   // то, что каталог обязан вывести при любом рендерере.
   const cards = new Set([...html.matchAll(/href="\/[a-z]{2}\/[a-z0-9-]+\/[a-z0-9-]+\/"/g)].map((m) => m[0])).size;
   publishedCount = Math.max(publishedCount, cards);
+
+  // Сетку рисует Astro; остров только показывает и прячет готовые карточки.
+  // Признак — размер сериализованных props, а не имя файла: имена содержат хеш
+  // и меняются от сборки к сборке.
+  const propsRaw = [...html.matchAll(/props="([^"]*)"/g)].reduce((sum, match) => sum + Buffer.byteLength(match[1]), 0);
+  if (propsRaw > budgets.catalogPropsRaw) {
+    issues.push(
+      `${rel}: catalog hydration props ${propsRaw} B exceed ${budgets.catalogPropsRaw} B — `
+      + 'the full calculator array is being serialised into the island again',
+    );
+  }
   const allowed = budgets.catalogHtmlBaseGzip + cards * budgets.catalogHtmlPerCardGzip;
   const size = gzipSize(file);
   if (size > budgets.catalogHtmlCeilingGzip) {

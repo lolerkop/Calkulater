@@ -1,0 +1,86 @@
+---
+// Карточка каталога. Разметка перенесена из React-острова дословно: те же классы,
+// та же вложенность, тот же порядок узлов, тот же SVG стрелки.
+//
+// Перенос сделан ради масштаба, а не ради вида. Остров получал все калькуляторы
+// сериализованными props, чтобы отрисовать сетку на клиенте, и при 48
+// калькуляторах это стоило 33 878 сырых байт на каждой локали каталога — те же
+// имена и описания, что уже лежали в HTML, но в кодировке Astro (`&quot;`,
+// обёртки `[0, x]`), которую gzip не мог сопоставить с разметкой. Теперь сетку
+// рисует Astro один раз, а остров только показывает и прячет уже готовые
+// карточки.
+//
+// Атрибуты `data-*` несут ровно то, чего нет в видимом тексте: ключевые слова,
+// идентификатор категории, признаки популярности и новизны, порядок по алфавиту.
+// Имя и описание не дублируются — контроллер читает их из заголовка и абзаца
+// самой карточки, то есть ровно из тех двух полей, по которым искал прежний
+// отбор. Псевдонимы категорий и токены новизны — общие таблицы, они живут в
+// контроллере и на карточках не повторяются.
+
+import ArrowRight from './icons/ArrowRight.astro';
+import type { CalculatorDef } from '../lib/types';
+
+type Props = {
+  calc: Pick<CalculatorDef, 'id' | 'name' | 'shortDescription' | 'fullPath' | 'keywords' | 'category' | 'popularity' | 'isNew'>;
+  categoryName: string;
+  newBadge: string;
+  popularBadge: string;
+  openLabel: string;
+  /** Позиция калькулятора при сортировке по имени; используется контроллером. */
+  nameOrder: number;
+};
+
+const { calc, categoryName, newBadge, popularBadge, openLabel, nameOrder } = Astro.props;
+const isPopular = calc.popularity >= 80;
+---
+
+<a
+  href={calc.fullPath}
+  class="group flex min-h-[166px] min-w-0 flex-col justify-between overflow-hidden rounded-2xl border border-ink-200 bg-white p-4 shadow-[0_8px_24px_rgba(39,32,85,0.05)] transition-all hover:-translate-y-1 hover:border-accent-100 hover:shadow-[0_18px_42px_rgba(61,48,133,0.12)] sm:min-h-[190px] sm:p-5"
+  data-testid={`catalog-card-${calc.id}`}
+  data-catalog-card
+  data-category={calc.category}
+  data-popular={isPopular ? '1' : '0'}
+  data-new={calc.isNew ? '1' : '0'}
+  data-name-order={nameOrder}
+  data-keywords={(calc.keywords ?? []).join(' ')}
+>
+  <div>
+    <div class="flex min-w-0 items-start justify-end gap-4">
+      <div class="flex shrink-0 flex-wrap justify-end gap-1.5">
+        {calc.isNew && (
+          <span
+            class="rounded-full bg-ink-900 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-white"
+            data-testid={`catalog-card-new-${calc.id}`}
+          >
+            {newBadge}
+          </span>
+        )}
+        {isPopular && (
+          <span
+            class="border border-accent px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-accent"
+            data-testid={`catalog-card-popular-${calc.id}`}
+          >
+            {popularBadge}
+          </span>
+        )}
+      </div>
+    </div>
+    <h3 class="mt-3 text-lg font-semibold leading-snug tracking-tight text-ink-900 text-fit sm:text-xl">
+      {calc.name}
+    </h3>
+    <p class="mt-2 line-clamp-2 text-sm leading-relaxed text-ink-500">
+      {calc.shortDescription}
+    </p>
+  </div>
+
+  <div class="mt-4 flex min-w-0 items-center justify-between gap-3 sm:mt-5 sm:gap-4">
+    <span class="min-w-0 text-xs font-medium uppercase tracking-wider text-ink-600 text-fit">
+      {categoryName}
+    </span>
+    <span class="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-accent">
+      {openLabel}
+      <ArrowRight />
+    </span>
+  </div>
+</a>

@@ -2,6 +2,8 @@
 import Layout from '../../components/Layout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CalculatorCatalog from '../../components/islands/CalculatorCatalog';
+import CatalogCard from '../../components/CatalogCard.astro';
+import { clientUi } from '../../lib/clientI18n';
 import {
   getAlternatesForPage,
   getCalculators,
@@ -86,6 +88,19 @@ const catalogCategories = categories.map((category) => ({
   slug: category.slug,
 }));
 
+// Сетка выводится в порядке по популярности — том же, что был у острова по
+// умолчанию. Позиция при сортировке по имени считается здесь же: контроллеру
+// достаточно переставить CSS-свойство order, и ему не нужны сами калькуляторы.
+const nameOrder = new Map(
+  [...catalogCalculators]
+    .sort((a, b) => a.name.localeCompare(b.name, locale))
+    .map((calculator, index) => [calculator.id, index] as const),
+);
+const sortedCatalogCalculators = [...catalogCalculators].sort(
+  (a, b) => b.popularity - a.popularity || a.name.localeCompare(b.name, locale),
+);
+const cardCopy = clientUi[locale];
+
 const jsonLd = [
   collectionPageJsonLd({
     name: title,
@@ -142,12 +157,28 @@ const jsonLd = [
 
   <section>
     <div class="mx-auto max-w-page space-y-10 px-5 py-10 sm:px-8 sm:py-14 sm:space-y-12">
-      <CalculatorCatalog
-        calculators={catalogCalculators}
-        categories={catalogCategories}
-        locale={locale}
-        client:idle
-      />
+        <section class="space-y-5 sm:space-y-6" data-testid="calculator-catalog">
+          <div class="contents">
+            <CalculatorCatalog categories={catalogCategories} locale={locale} client:idle />
+          </div>
+
+          <div
+            id="catalog-results"
+            class="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3"
+            aria-label={copy.allCalculators}
+          >
+            {sortedCatalogCalculators.map((calculator) => (
+              <CatalogCard
+                calc={calculator}
+                categoryName={calculator.categoryName ?? calculator.category}
+                newBadge={cardCopy.newBadge}
+                popularBadge={cardCopy.popularBadge}
+                openLabel={cardCopy.open}
+                nameOrder={nameOrder.get(calculator.id) ?? 0}
+              />
+            ))}
+          </div>
+        </section>
 
     </div>
   </section>

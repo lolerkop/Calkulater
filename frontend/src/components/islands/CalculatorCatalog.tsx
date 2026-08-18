@@ -1,6 +1,6 @@
 import { ArrowRight, ListFilter, Search, X } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
-import { matchesCalculatorSearch, type SearchableCalculator } from '../../lib/search';
+import { categoryAliases, normalizeSearchText, queryNeedles } from '../../lib/search';
 import type { CategoryId } from '../../lib/types';
 import { clientUi, type Locale } from '../../lib/clientI18n';
 
@@ -11,10 +11,55 @@ type CatalogCategory = {
 };
 
 type Props = {
-  calculators: SearchableCalculator[];
   categories: CatalogCategory[];
   locale?: Locale;
 };
+
+/**
+ * Метаданные карточки, прочитанные из уже отрисованного DOM.
+ *
+ * Остров не получает калькуляторы сериализованными props: сетку рисует Astro,
+ * а здесь остаётся ровно то, чего нет в видимом тексте, — ключевые слова,
+ * идентификатор категории, популярность, признак новизны и позиция при
+ * сортировке по имени. Псевдонимы категорий и токены новизны общие, они
+ * подставляются ниже и на карточках не повторяются.
+ */
+type CardHandle = {
+  readonly element: HTMLElement;
+  readonly category: CategoryId;
+  readonly isPopular: boolean;
+  readonly isNew: boolean;
+  readonly nameOrder: number;
+  readonly haystack: string;
+};
+
+function readCards(categories: CatalogCategory[]): CardHandle[] {
+  const names = new Map(categories.map((category) => [category.id, category.name]));
+  return [...document.querySelectorAll<HTMLElement>('[data-catalog-card]')].map((element) => {
+    const category = (element.dataset.category ?? '') as CategoryId;
+    const isNew = element.dataset.new === '1';
+    return {
+      element,
+      category,
+      isPopular: element.dataset.popular === '1',
+      isNew,
+      nameOrder: Number(element.dataset.nameOrder ?? 0),
+      // Имя и описание берутся из самой карточки: это те же два поля, по
+      // которым искал прежний отбор, и повторять их атрибутом незачем. Бейджи
+      // и подпись ссылки в счёт не идут — иначе запрос «открыть» начал бы
+      // совпадать со всеми карточками.
+      haystack: normalizeSearchText([
+        element.querySelector('h3')?.textContent ?? '',
+        element.querySelector('p')?.textContent ?? '',
+        category,
+        names.get(category) ?? '',
+        isNew ? 'новый новые свежее' : '',
+        categoryAliases[category] ?? '',
+        element.dataset.keywords ?? '',
+      ].join(' ')),
+    };
+  });
+}
 
 const allCategory = 'all';
 const allTag = 'all';
@@ -463,7 +508,7 @@ function initialTag(): TagFilter {
   return value === 'new' || value === 'popular' ? value : allTag;
 }
 
-export default function CalculatorCatalog({ calculators, categories, locale = 'ru' }: Props) {
+export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) {
   const copy = clientUi[locale];
   const catalogCopy = catalogCopyByLocale[locale];
   const quickQueries = quickQueriesByLocale[locale];
@@ -478,34 +523,57 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
     [categories],
   );
 
+  // Карточки читаются один раз после монтирования: до этого момента сеткой
+  // владеет разметка, отданная сервером, и трогать её незачем.
+  const [cards, setCards] = useState<CardHandle[]>([]);
+  useEffect(() => { setCards(readCards(categories)); }, [categories]);
+
   const categoryCounts = useMemo(() => {
     const counts: Partial<Record<CategoryId, number>> = {};
-    for (const calculator of calculators) {
-      counts[calculator.category] = (counts[calculator.category] ?? 0) + 1;
-    }
+    for (const card of cards) counts[card.category] = (counts[card.category] ?? 0) + 1;
     return counts;
-  }, [calculators]);
+  }, [cards]);
 
   const tagCounts = useMemo(() => ({
-    all: calculators.length,
-    new: calculators.filter((calculator) => calculator.isNew).length,
-    popular: calculators.filter((calculator) => calculator.popularity >= 80).length,
-  }), [calculators]);
+    all: cards.length,
+    new: cards.filter((card) => card.isNew).length,
+    popular: cards.filter((card) => card.isPopular).length,
+  }), [cards]);
 
-  const filteredCalculators = useMemo(() => {
-    return calculators
-      .filter((calculator) => activeCategory === allCategory || calculator.category === activeCategory)
-      .filter((calculator) => {
-        if (tagFilter === 'new') return calculator.isNew === true;
-        if (tagFilter === 'popular') return calculator.popularity >= 80;
-        return true;
-      })
-      .filter((calculator) => matchesCalculatorSearch(calculator, query))
-      .sort((a, b) => {
-        if (sortMode === 'name') return a.name.localeCompare(b.name, locale);
-        return b.popularity - a.popularity || a.name.localeCompare(b.name, locale);
-      });
-  }, [activeCategory, calculators, query, sortMode, tagFilter]);
+  // Тот же отбор, что был у React-версии, только над уже готовыми карточками:
+  // категория, метка, поиск. Совпадение ищется по тем же иглам запроса.
+  const visibleCards = useMemo(() => {
+    const needles = queryNeedles(query);
+    return cards.filter((card) => {
+      if (activeCategory !== allCategory && card.category !== activeCategory) return false;
+      if (tagFilter === 'new' && !card.isNew) return false;
+      if (tagFilter === 'popular' && !card.isPopular) return false;
+      if (needles.length === 0) return true;
+      return needles.some((needle) => card.haystack.includes(needle));
+    });
+  }, [activeCategory, cards, query, tagFilter]);
+
+  const hasActiveFilters =
+    query.trim() || activeCategory !== allCategory || sortMode !== defaultSort || tagFilter !== allTag;
+
+  // Показ и порядок применяются к разметке, а не пересобирают её. `hidden`
+  // выключает карточку и для клавиатуры, и для скринридера — в отличие от
+  // прозрачности или выноса за экран.
+  useEffect(() => {
+    if (cards.length === 0) return;
+    const shown = new Set(visibleCards.map((card) => card.element));
+    for (const card of cards) {
+      const isVisible = shown.has(card.element);
+      card.element.toggleAttribute('hidden', !isVisible);
+      card.element.style.order = sortMode === 'name' ? String(card.nameOrder) : '';
+    }
+    const grid = document.getElementById('catalog-results');
+    if (grid) {
+      grid.toggleAttribute('hidden', visibleCards.length === 0);
+      grid.setAttribute('aria-label', hasActiveFilters ? catalogCopy.filteredCalculators : copy.allCalculators);
+    }
+  }, [cards, catalogCopy, copy, hasActiveFilters, sortMode, visibleCards]);
+
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -556,9 +624,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
   };
 
   const focusCatalogCard = (index: number) => {
-    const calculator = filteredCalculators[index];
-    if (!calculator) return;
-    document.querySelector<HTMLAnchorElement>(`[data-testid="catalog-card-${calculator.id}"]`)?.focus();
+    (visibleCards[index]?.element as HTMLAnchorElement | undefined)?.focus();
   };
 
   const activeCategoryName =
@@ -571,11 +637,9 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
       : tagFilter === 'popular'
         ? copy.popular
         : catalogCopy.allStatuses;
-  const hasActiveFilters =
-    query.trim() || activeCategory !== allCategory || sortMode !== defaultSort || tagFilter !== allTag;
 
   return (
-    <section className="space-y-5 sm:space-y-6" data-testid="calculator-catalog">
+    <>
       <div className="min-w-0 rounded-3xl border border-ink-200 bg-white p-4 shadow-[0_12px_36px_rgba(39,32,85,0.07)] sm:p-6">
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px_auto] lg:items-end">
           <div className="min-w-0">
@@ -599,7 +663,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 onKeyDown={(event) => {
-                  if (event.key === 'ArrowDown' && filteredCalculators.length > 0) {
+                  if (event.key === 'ArrowDown' && visibleCards.length > 0) {
                     event.preventDefault();
                     focusCatalogCard(0);
                   }
@@ -647,7 +711,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
           </div>
 
           <div className="min-w-0 text-sm text-ink-500 text-fit" aria-live="polite" data-testid="catalog-result-count">
-            {catalogCopy.found}: <span className="font-mono text-ink-900">{filteredCalculators.length}</span>
+            {catalogCopy.found}: <span className="font-mono text-ink-900">{visibleCards.length}</span>
           </div>
         </div>
 
@@ -710,7 +774,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             aria-pressed={activeCategory === allCategory}
             onClick={() => setActiveCategory(allCategory)}
           >
-            {copy.all} <span className="ml-1 font-mono text-xs opacity-70">{calculators.length}</span>
+            {copy.all} <span className="ml-1 font-mono text-xs opacity-70">{cards.length}</span>
           </button>
           {categories.map((category) => (
             <button
@@ -755,7 +819,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
         </div>
       </div>
 
-      {filteredCalculators.length === 0 ? (
+      {cards.length > 0 && visibleCards.length === 0 && (
         <div
           className="border border-ink-200 bg-ink-50 px-5 py-8 text-center"
           data-testid="catalog-empty"
@@ -800,83 +864,7 @@ export default function CalculatorCatalog({ calculators, categories, locale = 'r
             ))}
           </div>
         </div>
-      ) : (
-        <div
-          id="catalog-results"
-          className="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3"
-          aria-label={hasActiveFilters ? catalogCopy.filteredCalculators : copy.allCalculators}
-        >
-          {filteredCalculators.map((calculator) => {
-            const category = categoriesById[calculator.category];
-
-            return (
-              <a
-                key={calculator.id}
-                href={calculator.fullPath}
-                className="group flex min-h-[166px] min-w-0 flex-col justify-between overflow-hidden rounded-2xl border border-ink-200 bg-white p-4 shadow-[0_8px_24px_rgba(39,32,85,0.05)] transition-all hover:-translate-y-1 hover:border-accent-100 hover:shadow-[0_18px_42px_rgba(61,48,133,0.12)] sm:min-h-[190px] sm:p-5"
-                data-testid={`catalog-card-${calculator.id}`}
-                onKeyDown={(event) => {
-                  if (event.key === 'ArrowDown') {
-                    event.preventDefault();
-                    focusCatalogCard(Math.min(filteredCalculators.length - 1, filteredCalculators.indexOf(calculator) + 1));
-                  }
-                  if (event.key === 'ArrowUp') {
-                    event.preventDefault();
-                    const index = filteredCalculators.indexOf(calculator);
-                    if (index <= 0) {
-                      focusCatalogSearch();
-                    } else {
-                      focusCatalogCard(index - 1);
-                    }
-                  }
-                }}
-              >
-                <div>
-                  <div className="flex min-w-0 items-start justify-end gap-4">
-                    <div className="flex shrink-0 flex-wrap justify-end gap-1.5">
-                      {calculator.isNew && (
-                        <span
-                          className="rounded-full bg-ink-900 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-white"
-                          data-testid={`catalog-card-new-${calculator.id}`}
-                        >
-                          {copy.newBadge}
-                        </span>
-                      )}
-                      {calculator.popularity >= 80 && (
-                        <span
-                          className="border border-accent px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-accent"
-                          data-testid={`catalog-card-popular-${calculator.id}`}
-                        >
-                          {copy.popularBadge}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <h3 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-ink-900 text-fit sm:text-xl">
-                    {calculator.name}
-                  </h3>
-                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-ink-500">
-                    {calculator.shortDescription}
-                  </p>
-                </div>
-
-                <div className="mt-4 flex min-w-0 items-center justify-between gap-3 sm:mt-5 sm:gap-4">
-                  <span className="min-w-0 text-xs font-medium uppercase tracking-wider text-ink-600 text-fit">
-                    {calculator.categoryName ?? category?.name}
-                  </span>
-                  <span className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-accent">
-                    {copy.open}
-                    <ArrowRight
-                      className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </div>
-              </a>
-            );
-          })}
-        </div>
       )}
-    </section>
+    </>
   );
 }
