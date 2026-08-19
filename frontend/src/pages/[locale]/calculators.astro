@@ -89,17 +89,17 @@ const catalogCategories = categories.map((category) => ({
 }));
 
 // Сетка выводится в порядке по популярности — том же, что был у острова по
-// умолчанию. Позиция при сортировке по имени считается здесь же: контроллеру
-// достаточно переставить CSS-свойство order, и ему не нужны сами калькуляторы.
-const nameOrder = new Map(
-  [...catalogCalculators]
-    .sort((a, b) => a.name.localeCompare(b.name, locale))
-    .map((calculator, index) => [calculator.id, index] as const),
-);
+// умолчанию. Позицию по алфавиту контроллер считает сам из заголовков карточек:
+// это те же имена и то же сравнение localeCompare, а атрибут на каждой карточке
+// стоил бы байтами на каждой из сотен карточек.
 const sortedCatalogCalculators = [...catalogCalculators].sort(
   (a, b) => b.popularity - a.popularity || a.name.localeCompare(b.name, locale),
 );
 const cardCopy = clientUi[locale];
+
+// Сколько калькуляторов перечисляет ItemList каталога. Величина постоянная:
+// структурированные данные не должны расти вместе с подборкой.
+const catalogItemListSize = 24;
 
 const jsonLd = [
   collectionPageJsonLd({
@@ -112,7 +112,20 @@ const jsonLd = [
   itemListJsonLd({
     name: title,
     path: catalogPath,
-    items,
+    // Перечисляется ВЕРХ подборки, а не вся она.
+    //
+    // Разметка обязана быть достоверным представлением страницы и не смеет
+    // объявлять того, чего читатель не видит, — на этом стоит проверка
+    // verify-dist-structured-data-scale. Обратного она не требует: объявить
+    // меньше показанного можно, и это ровно тот случай. Полный перечень стоил
+    // 6,75 КиБ gzip — четверть страницы — и повторял имя, описание и адрес
+    // каждой карточки второй раз, тогда как обходчик берёт их из настоящих
+    // ссылок в разметке. Ссылки на месте, все до одной; дублирующий их список
+    // рос вместе с каталогом и упирался в потолок раньше самого каталога.
+    //
+    // Берётся начало того же порядка, в котором страница и показывает карточки
+    // (по популярности), поэтому список описывает именно то, что видно сверху.
+    items: items.slice(0, catalogItemListSize),
   }),
   breadcrumbsJsonLd([
     { label: copy.home, href: localeHome(locale) },
@@ -167,6 +180,16 @@ const jsonLd = [
             class="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3"
             aria-label={copy.allCalculators}
           >
+            {/*
+              Стрелка карточки объявляется один раз и переиспользуется через
+              <use>: полная разметка иконки повторялась на каждой карточке и
+              росла вместе с подборкой.
+            */}
+            <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+              <symbol id="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+              </symbol>
+            </svg>
             {sortedCatalogCalculators.map((calculator) => (
               <CatalogCard
                 calc={calculator}
@@ -174,7 +197,6 @@ const jsonLd = [
                 newBadge={cardCopy.newBadge}
                 popularBadge={cardCopy.popularBadge}
                 openLabel={cardCopy.open}
-                nameOrder={nameOrder.get(calculator.id) ?? 0}
               />
             ))}
           </div>

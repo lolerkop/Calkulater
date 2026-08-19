@@ -65,6 +65,15 @@ const budgets = {
   catalogHtmlBaseGzip: 8 * 1024,
   catalogHtmlPerCardGzip: 0.2 * 1024,
   catalogHtmlCeilingGzip: 30 * 1024,
+  // ── масштаб каталога ──
+  // До скольких калькуляторов подборка обязана дожить, не выйдя за
+  // catalogHtmlCeilingGzip. Своего потолка здесь НЕТ: проверяется тот же 30 КиБ.
+  catalogScaleTargetCards: 200,
+  // Сколько калькуляторов вправе перечислять ItemList каталога. Разметка не
+  // должна расти вместе с подборкой: полный перечень стоил 6,75 КиБ gzip —
+  // четверть страницы — и повторял имя, описание и адрес каждой карточки,
+  // тогда как обходчик берёт их из настоящих ссылок.
+  catalogItemListMax: 24,
   // Локальная главная — вторая страница, размер которой определяется числом
   // калькуляторов, а не собственным содержимым: она встраивает JSON-LD со всем
   // каталогом и данные поиска по всем калькуляторам. Плоский маршрутный бюджет
@@ -288,6 +297,27 @@ if (worstOrdinary && worstOrdinary.slugs.length > 0) {
 // Число опубликованных калькуляторов: каталог перечисляет ровно их.
 let publishedCount = 0;
 
+// Синтетический рост подборки: настоящая разметка карточки клонируется под
+// новые адреса и уникальный видимый текст. Байты те же, что выдал бы генератор,
+// а уникальный текст не даёт gzip схлопнуть клоны и делает оценку строгой.
+const CATALOG_CARD = /<a href="[^"]*"[^>]*data-catalog-card[\s\S]*?<\/a>/g;
+
+function grownToCards(html, target) {
+  const cards = html.match(CATALOG_CARD);
+  if (!cards || cards.length === 0 || cards.length >= target) return null;
+  const last = cards[cards.length - 1];
+  let extra = '';
+  for (let i = 0; i < target - cards.length; i += 1) {
+    extra += cards[i % cards.length]
+      .replace(/href="\/([a-z]{2})\/([a-z0-9-]+)\/([a-z0-9-]+)\/"/, (m, l, cat, slug) => `href="/${l}/${cat}/${slug}-scale${i}/"`)
+      .replace(/(<h3[^>]*>\s*)([^<]+?)(\s*<\/h3>)/, (m, a, t, b) => `${a}${t} ${i}${b}`)
+      .replace(/(<p[^>]*>\s*)([^<]+?)(\s*<\/p>)/, (m, a, t, b) => `${a}${t} ${i}.${b}`);
+  }
+  return html.replace(last, last + extra);
+}
+
+let catalogScaleReport = null;
+
 // ── каталог: наклонный бюджет ──
 for (const file of htmlFiles.filter(isCatalog)) {
   const rel = path.relative(root, file);
@@ -322,6 +352,35 @@ for (const file of htmlFiles.filter(isCatalog)) {
       `${rel}: catalog HTML gzip ${kib(size)} exceeds ${kib(allowed)} allowed for ${cards} cards `
       + `(${kib(budgets.catalogHtmlPerCardGzip)}/card) — a card grew, not the catalogue`,
     );
+  }
+
+  // Структурированные данные каталога не растут вместе с подборкой.
+  const itemList = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
+    .map((match) => { try { return JSON.parse(match[1]); } catch { return null; } })
+    .find((block) => block && block['@type'] === 'ItemList');
+  if (itemList && itemList.itemListElement.length > budgets.catalogItemListMax) {
+    issues.push(
+      `${rel}: ItemList перечисляет ${itemList.itemListElement.length} калькуляторов при пределе `
+      + `${budgets.catalogItemListMax} — разметка снова растёт вместе с подборкой`,
+    );
+  }
+
+  // Во что обойдётся рост подборки. Страница выращивается до целевого числа
+  // карточек НАСТОЯЩЕЙ разметкой карточки и меряется тем же gzip и тем же
+  // потолком catalogHtmlCeilingGzip — отдельного порога здесь нет.
+  const grown = grownToCards(html, budgets.catalogScaleTargetCards);
+  if (grown) {
+    const grownGzip = zlib.gzipSync(Buffer.from(grown)).length;
+    if (!catalogScaleReport || grownGzip > catalogScaleReport.grown) {
+      catalogScaleReport = { route: rel, cards, target: budgets.catalogScaleTargetCards, now: size, grown: grownGzip };
+    }
+    if (grownGzip > budgets.catalogHtmlCeilingGzip) {
+      issues.push(
+        `${rel}: при ${budgets.catalogScaleTargetCards} калькуляторах HTML gzip ${kib(grownGzip)} превысит `
+        + `${kib(budgets.catalogHtmlCeilingGzip)} (сейчас ${kib(size)} при ${cards}) — `
+        + 'цена карточки вернулась к прежнему наклону',
+      );
+    }
   }
 }
 
@@ -412,6 +471,13 @@ console.log(
   `Verified route performance: worst JS closure ${kib(worstJs.jsClosureGzip)} (${worstJs.route}), `
   + `worst HTML ${kib(worstHtml.htmlGzip)} (${worstHtml.route}).`,
 );
+if (catalogScaleReport) {
+  console.log(
+    `Catalog scale: ${catalogScaleReport.cards} calculators ${kib(catalogScaleReport.now)}`
+    + ` → ${catalogScaleReport.target} calculators ${kib(catalogScaleReport.grown)}`
+    + ` (ceiling ${kib(budgets.catalogHtmlCeilingGzip)}, ${catalogScaleReport.route}).`,
+  );
+}
 if (categoryScaleReport) {
   console.log(
     `Category scale: ${categoryScaleReport.present} sections ${kib(categoryScaleReport.now)}`

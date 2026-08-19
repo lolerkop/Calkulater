@@ -29,21 +29,24 @@ type CardHandle = {
   readonly category: CategoryId;
   readonly isPopular: boolean;
   readonly isNew: boolean;
-  readonly nameOrder: number;
+  readonly title: string;
+  nameOrder: number;
   readonly haystack: string;
 };
 
-function readCards(categories: CatalogCategory[]): CardHandle[] {
+function readCards(categories: CatalogCategory[], locale: Locale): CardHandle[] {
   const names = new Map(categories.map((category) => [category.id, category.name]));
-  return [...document.querySelectorAll<HTMLElement>('[data-catalog-card]')].map((element) => {
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-catalog-card]')].map((element) => {
     const category = (element.dataset.category ?? '') as CategoryId;
     const isNew = element.dataset.new === '1';
+    const title = element.querySelector('h3')?.textContent?.trim() ?? '';
     return {
       element,
       category,
+      title,
       isPopular: element.dataset.popular === '1',
       isNew,
-      nameOrder: Number(element.dataset.nameOrder ?? 0),
+      nameOrder: 0,
       // Имя и описание берутся из самой карточки: это те же два поля, по
       // которым искал прежний отбор, и повторять их атрибутом незачем. Бейджи
       // и подпись ссылки в счёт не идут — иначе запрос «открыть» начал бы
@@ -59,6 +62,15 @@ function readCards(categories: CatalogCategory[]): CardHandle[] {
       ].join(' ')),
     };
   });
+
+  // Позиция по алфавиту выводится из заголовков карточек, а не из атрибута на
+  // каждой из них: сравнение то же самое (localeCompare той же локали), что
+  // считала сборка, а разметка перестаёт нести число на каждую карточку.
+  [...cards]
+    .sort((a, b) => a.title.localeCompare(b.title, locale))
+    .forEach((card, index) => { card.nameOrder = index; });
+
+  return cards;
 }
 
 const allCategory = 'all';
@@ -526,7 +538,7 @@ export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) 
   // Карточки читаются один раз после монтирования: до этого момента сеткой
   // владеет разметка, отданная сервером, и трогать её незачем.
   const [cards, setCards] = useState<CardHandle[]>([]);
-  useEffect(() => { setCards(readCards(categories)); }, [categories]);
+  useEffect(() => { setCards(readCards(categories, locale)); }, [categories, locale]);
 
   const categoryCounts = useMemo(() => {
     const counts: Partial<Record<CategoryId, number>> = {};
