@@ -47,13 +47,16 @@ import { compute as compute_convert_temperature } from './convert-temperature/co
 import { compute as compute_convert_time } from './convert-time/compute';
 import { compute as compute_convert_torque } from './convert-torque/compute';
 import { compute as compute_convert_volume } from './convert-volume/compute';
+import { compute as compute_cpm } from './cpm/compute';
 import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
 import { compute as compute_dividend_yield } from './dividend-yield/compute';
+import { compute as compute_divisors } from './divisors/compute';
 import { compute as compute_download_time } from './download-time/compute';
 import { compute as compute_dti } from './dti/compute';
 import { compute as compute_electricity_usage } from './electricity-usage/compute';
+import { compute as compute_factorial } from './factorial/compute';
 import { compute as compute_files_on_disk } from './files-on-disk/compute';
 import { compute as compute_final_grade } from './final-grade/compute';
 import { compute as compute_fps_frametime } from './fps-frametime/compute';
@@ -65,6 +68,7 @@ import { compute as compute_led_resistor } from './led-resistor/compute';
 import { compute as compute_linear_equation } from './linear-equation/compute';
 import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
+import { compute as compute_ltv } from './ltv/compute';
 import { compute as compute_modulo } from './modulo/compute';
 import { compute as compute_network_bandwidth } from './network-bandwidth/compute';
 import { compute as compute_ohms_law } from './ohms-law/compute';
@@ -83,6 +87,7 @@ import { compute as compute_reading_speed } from './reading-speed/compute';
 import { compute as compute_real_return } from './real-return/compute';
 import { compute as compute_return_rate } from './return-rate/compute';
 import { compute as compute_revenue_per_employee } from './revenue-per-employee/compute';
+import { compute as compute_roas } from './roas/compute';
 import { compute as compute_roi } from './roi/compute';
 import { compute as compute_roman_numerals } from './roman-numerals/compute';
 import { compute as compute_room_volume } from './room-volume/compute';
@@ -131,13 +136,16 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-time': compute_convert_time,
   'convert-torque': compute_convert_torque,
   'convert-volume': compute_convert_volume,
+  'cpm': compute_cpm,
   'ctr': compute_ctr,
   'day-of-week': compute_day_of_week,
   'difference-abs-rel': compute_difference_abs_rel,
   'dividend-yield': compute_dividend_yield,
+  'divisors': compute_divisors,
   'download-time': compute_download_time,
   'dti': compute_dti,
   'electricity-usage': compute_electricity_usage,
+  'factorial': compute_factorial,
   'files-on-disk': compute_files_on_disk,
   'final-grade': compute_final_grade,
   'fps-frametime': compute_fps_frametime,
@@ -147,6 +155,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'led-resistor': compute_led_resistor,
   'linear-equation': compute_linear_equation,
   'logarithm': compute_logarithm,
+  'ltv': compute_ltv,
   'modulo': compute_modulo,
   'network-bandwidth': compute_network_bandwidth,
   'ohms-law': compute_ohms_law,
@@ -161,6 +170,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'real-return': compute_real_return,
   'return-rate': compute_return_rate,
   'revenue-per-employee': compute_revenue_per_employee,
+  'roas': compute_roas,
   'roi': compute_roi,
   'roman-numerals': compute_roman_numerals,
   'room-volume': compute_room_volume,

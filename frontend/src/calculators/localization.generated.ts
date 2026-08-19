@@ -37,13 +37,16 @@ import { localization as loc_convert_temperature } from './convert-temperature/l
 import { localization as loc_convert_time } from './convert-time/localization';
 import { localization as loc_convert_torque } from './convert-torque/localization';
 import { localization as loc_convert_volume } from './convert-volume/localization';
+import { localization as loc_cpm } from './cpm/localization';
 import { localization as loc_ctr } from './ctr/localization';
 import { localization as loc_day_of_week } from './day-of-week/localization';
 import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
 import { localization as loc_dividend_yield } from './dividend-yield/localization';
+import { localization as loc_divisors } from './divisors/localization';
 import { localization as loc_download_time } from './download-time/localization';
 import { localization as loc_dti } from './dti/localization';
 import { localization as loc_electricity_usage } from './electricity-usage/localization';
+import { localization as loc_factorial } from './factorial/localization';
 import { localization as loc_files_on_disk } from './files-on-disk/localization';
 import { localization as loc_final_grade } from './final-grade/localization';
 import { localization as loc_fps_frametime } from './fps-frametime/localization';
@@ -53,6 +56,7 @@ import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_led_resistor } from './led-resistor/localization';
 import { localization as loc_linear_equation } from './linear-equation/localization';
 import { localization as loc_logarithm } from './logarithm/localization';
+import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_modulo } from './modulo/localization';
 import { localization as loc_network_bandwidth } from './network-bandwidth/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
@@ -65,6 +69,7 @@ import { localization as loc_reading_speed } from './reading-speed/localization'
 import { localization as loc_real_return } from './real-return/localization';
 import { localization as loc_return_rate } from './return-rate/localization';
 import { localization as loc_revenue_per_employee } from './revenue-per-employee/localization';
+import { localization as loc_roas } from './roas/localization';
 import { localization as loc_roi } from './roi/localization';
 import { localization as loc_roman_numerals } from './roman-numerals/localization';
 import { localization as loc_room_volume } from './room-volume/localization';
@@ -113,13 +118,16 @@ export const v2Localization: ScopedLocalization = {
     'convert-time': loc_convert_time.en ?? {},
     'convert-torque': loc_convert_torque.en ?? {},
     'convert-volume': loc_convert_volume.en ?? {},
+    'cpm': loc_cpm.en ?? {},
     'ctr': loc_ctr.en ?? {},
     'day-of-week': loc_day_of_week.en ?? {},
     'difference-abs-rel': loc_difference_abs_rel.en ?? {},
     'dividend-yield': loc_dividend_yield.en ?? {},
+    'divisors': loc_divisors.en ?? {},
     'download-time': loc_download_time.en ?? {},
     'dti': loc_dti.en ?? {},
     'electricity-usage': loc_electricity_usage.en ?? {},
+    'factorial': loc_factorial.en ?? {},
     'files-on-disk': loc_files_on_disk.en ?? {},
     'final-grade': loc_final_grade.en ?? {},
     'fps-frametime': loc_fps_frametime.en ?? {},
@@ -129,6 +137,7 @@ export const v2Localization: ScopedLocalization = {
     'led-resistor': loc_led_resistor.en ?? {},
     'linear-equation': loc_linear_equation.en ?? {},
     'logarithm': loc_logarithm.en ?? {},
+    'ltv': loc_ltv.en ?? {},
     'modulo': loc_modulo.en ?? {},
     'network-bandwidth': loc_network_bandwidth.en ?? {},
     'ohms-law': loc_ohms_law.en ?? {},
@@ -141,6 +150,7 @@ export const v2Localization: ScopedLocalization = {
     'real-return': loc_real_return.en ?? {},
     'return-rate': loc_return_rate.en ?? {},
     'revenue-per-employee': loc_revenue_per_employee.en ?? {},
+    'roas': loc_roas.en ?? {},
     'roi': loc_roi.en ?? {},
     'roman-numerals': loc_roman_numerals.en ?? {},
     'room-volume': loc_room_volume.en ?? {},
@@ -188,13 +198,16 @@ export const v2Localization: ScopedLocalization = {
     'convert-time': loc_convert_time.uk ?? {},
     'convert-torque': loc_convert_torque.uk ?? {},
     'convert-volume': loc_convert_volume.uk ?? {},
+    'cpm': loc_cpm.uk ?? {},
     'ctr': loc_ctr.uk ?? {},
     'day-of-week': loc_day_of_week.uk ?? {},
     'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
     'dividend-yield': loc_dividend_yield.uk ?? {},
+    'divisors': loc_divisors.uk ?? {},
     'download-time': loc_download_time.uk ?? {},
     'dti': loc_dti.uk ?? {},
     'electricity-usage': loc_electricity_usage.uk ?? {},
+    'factorial': loc_factorial.uk ?? {},
     'files-on-disk': loc_files_on_disk.uk ?? {},
     'final-grade': loc_final_grade.uk ?? {},
     'fps-frametime': loc_fps_frametime.uk ?? {},
@@ -204,6 +217,7 @@ export const v2Localization: ScopedLocalization = {
     'led-resistor': loc_led_resistor.uk ?? {},
     'linear-equation': loc_linear_equation.uk ?? {},
     'logarithm': loc_logarithm.uk ?? {},
+    'ltv': loc_ltv.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
     'network-bandwidth': loc_network_bandwidth.uk ?? {},
     'ohms-law': loc_ohms_law.uk ?? {},
@@ -216,6 +230,7 @@ export const v2Localization: ScopedLocalization = {
     'real-return': loc_real_return.uk ?? {},
     'return-rate': loc_return_rate.uk ?? {},
     'revenue-per-employee': loc_revenue_per_employee.uk ?? {},
+    'roas': loc_roas.uk ?? {},
     'roi': loc_roi.uk ?? {},
     'roman-numerals': loc_roman_numerals.uk ?? {},
     'room-volume': loc_room_volume.uk ?? {},

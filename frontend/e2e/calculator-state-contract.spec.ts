@@ -440,6 +440,26 @@ const stateScenarios: Record<string, StateScenario> = {
     query: { nominal: 5, inflation: 9 },
     result: { primary: '-3,67%' },
   },
+  'cpm': {
+    query: { mode: 'cpm', cost: 900, impressions: 15000 },
+    result: { primary: '60,00 ₽' },
+  },
+  'roas': {
+    query: { revenue: 95000, cost: 120000, margin: 100 },
+    result: { primary: '0,79×' },
+  },
+  'ltv': {
+    query: { mode: 'churn', arpu: 1200, churn: 5, margin: 100 },
+    result: { primary: '24 000,00 ₽' },
+  },
+  'factorial': {
+    query: { n: 20 },
+    result: { primary: '2432902008176640000' },
+  },
+  'divisors': {
+    query: { n: 36 },
+    result: { primary: '1, 2, 3, 4, 6, 9, 12, 18, 36' },
+  },
   'date-shift-calculator': {
     query: {
       startDate: '2026-01-01',

@@ -43,13 +43,16 @@ import { definition as def_convert_temperature } from './convert-temperature/def
 import { definition as def_convert_time } from './convert-time/definition';
 import { definition as def_convert_torque } from './convert-torque/definition';
 import { definition as def_convert_volume } from './convert-volume/definition';
+import { definition as def_cpm } from './cpm/definition';
 import { definition as def_ctr } from './ctr/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
 import { definition as def_dividend_yield } from './dividend-yield/definition';
+import { definition as def_divisors } from './divisors/definition';
 import { definition as def_download_time } from './download-time/definition';
 import { definition as def_dti } from './dti/definition';
 import { definition as def_electricity_usage } from './electricity-usage/definition';
+import { definition as def_factorial } from './factorial/definition';
 import { definition as def_files_on_disk } from './files-on-disk/definition';
 import { definition as def_final_grade } from './final-grade/definition';
 import { definition as def_fps_frametime } from './fps-frametime/definition';
@@ -59,6 +62,7 @@ import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
 import { definition as def_linear_equation } from './linear-equation/definition';
 import { definition as def_logarithm } from './logarithm/definition';
+import { definition as def_ltv } from './ltv/definition';
 import { definition as def_modulo } from './modulo/definition';
 import { definition as def_network_bandwidth } from './network-bandwidth/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
@@ -73,6 +77,7 @@ import { definition as def_reading_speed } from './reading-speed/definition';
 import { definition as def_real_return } from './real-return/definition';
 import { definition as def_return_rate } from './return-rate/definition';
 import { definition as def_revenue_per_employee } from './revenue-per-employee/definition';
+import { definition as def_roas } from './roas/definition';
 import { definition as def_roi } from './roi/definition';
 import { definition as def_roman_numerals } from './roman-numerals/definition';
 import { definition as def_room_volume } from './room-volume/definition';
@@ -120,13 +125,16 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_time,
   def_convert_torque,
   def_convert_volume,
+  def_cpm,
   def_ctr,
   def_day_of_week,
   def_difference_abs_rel,
   def_dividend_yield,
+  def_divisors,
   def_download_time,
   def_dti,
   def_electricity_usage,
+  def_factorial,
   def_files_on_disk,
   def_final_grade,
   def_fps_frametime,
@@ -136,6 +144,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_led_resistor,
   def_linear_equation,
   def_logarithm,
+  def_ltv,
   def_modulo,
   def_network_bandwidth,
   def_ohms_law,
@@ -150,6 +159,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_real_return,
   def_return_rate,
   def_revenue_per_employee,
+  def_roas,
   def_roi,
   def_roman_numerals,
   def_room_volume,

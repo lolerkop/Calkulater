@@ -59,6 +59,7 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['network-bandwidth', 'overhead'],
   ['trip-cost', 'tolls'],
   ['real-return', 'amount'],
+  ['ltv', 'cac'],
 ];
 
 describe('необязательные суммы', () => {
