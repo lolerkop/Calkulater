@@ -111,10 +111,13 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/automotive/fuel-consumption/,ru,calculator,true,/ru/automotive/fuel-consumption/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/circle/,ru,calculator,true,/ru/geometry/circle/,calculator:geom-circle,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/cone/,ru,calculator,true,/ru/geometry/cone/,calculator:geom-cone,src/pages/[locale]/[category]/[calculator].astro
+/ru/geometry/cuboid/,ru,calculator,true,/ru/geometry/cuboid/,calculator:geom-cuboid,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/cylinder/,ru,calculator,true,/ru/geometry/cylinder/,calculator:geom-cylinder,src/pages/[locale]/[category]/[calculator].astro
+/ru/geometry/parallelogram/,ru,calculator,true,/ru/geometry/parallelogram/,calculator:geom-parallelogram,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/rectangle/,ru,calculator,true,/ru/geometry/rectangle/,calculator:geom-rectangle,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/regular-polygon/,ru,calculator,true,/ru/geometry/regular-polygon/,calculator:geom-regular-polygon,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/right-triangle/,ru,calculator,true,/ru/geometry/right-triangle/,calculator:geom-right-triangle,src/pages/[locale]/[category]/[calculator].astro
+/ru/geometry/sector/,ru,calculator,true,/ru/geometry/sector/,calculator:geom-sector,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/sphere/,ru,calculator,true,/ru/geometry/sphere/,calculator:geom-sphere,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/square/,ru,calculator,true,/ru/geometry/square/,calculator:geom-square,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/trapezoid/,ru,calculator,true,/ru/geometry/trapezoid/,calculator:geom-trapezoid,src/pages/[locale]/[category]/[calculator].astro
@@ -159,6 +162,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/business/roas/,ru,calculator,true,/ru/business/roas/,calculator:roas,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/roi/,ru,calculator,true,/ru/finance/roi/,calculator:roi,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/roman-numerals/,ru,calculator,true,/ru/math/roman-numerals/,calculator:roman-numerals,src/pages/[locale]/[category]/[calculator].astro
+/ru/building/roof-area/,ru,calculator,true,/ru/building/roof-area/,calculator:roof-area,src/pages/[locale]/[category]/[calculator].astro
 /ru/building/room-volume/,ru,calculator,true,/ru/building/room-volume/,calculator:room-volume,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/rule-of-72/,ru,calculator,true,/ru/finance/rule-of-72/,calculator:rule-of-72,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/savings-rate/,ru,calculator,true,/ru/finance/savings-rate/,calculator:savings-rate,src/pages/[locale]/[category]/[calculator].astro
@@ -168,6 +172,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/automotive/speed-distance-time/,ru,calculator,true,/ru/automotive/speed-distance-time/,calculator:speed-distance-time,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/descriptive-statistics/,ru,calculator,true,/ru/math/descriptive-statistics/,calculator:stats-descriptive,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/stock-duration/,ru,calculator,true,/ru/household/stock-duration/,calculator:stock-duration,src/pages/[locale]/[category]/[calculator].astro
+/ru/building/strip-foundation/,ru,calculator,true,/ru/building/strip-foundation/,calculator:strip-foundation,src/pages/[locale]/[category]/[calculator].astro
 /ru/education/test-score-percent/,ru,calculator,true,/ru/education/test-score-percent/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/time-duration/,ru,calculator,true,/ru/date-time/time-duration/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/tip/,ru,calculator,true,/ru/household/tip/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro
@@ -285,10 +290,13 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/automotive/fuel-consumption-calculator/,en,calculator,true,/en/automotive/fuel-consumption-calculator/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/circle-calculator/,en,calculator,true,/en/geometry/circle-calculator/,calculator:geom-circle,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/cone-calculator/,en,calculator,true,/en/geometry/cone-calculator/,calculator:geom-cone,src/pages/[locale]/[category]/[calculator].astro
+/en/geometry/cuboid-calculator/,en,calculator,true,/en/geometry/cuboid-calculator/,calculator:geom-cuboid,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/cylinder-calculator/,en,calculator,true,/en/geometry/cylinder-calculator/,calculator:geom-cylinder,src/pages/[locale]/[category]/[calculator].astro
+/en/geometry/parallelogram-calculator/,en,calculator,true,/en/geometry/parallelogram-calculator/,calculator:geom-parallelogram,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/rectangle-calculator/,en,calculator,true,/en/geometry/rectangle-calculator/,calculator:geom-rectangle,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/regular-polygon-calculator/,en,calculator,true,/en/geometry/regular-polygon-calculator/,calculator:geom-regular-polygon,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/right-triangle-calculator/,en,calculator,true,/en/geometry/right-triangle-calculator/,calculator:geom-right-triangle,src/pages/[locale]/[category]/[calculator].astro
+/en/geometry/sector-calculator/,en,calculator,true,/en/geometry/sector-calculator/,calculator:geom-sector,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/sphere-calculator/,en,calculator,true,/en/geometry/sphere-calculator/,calculator:geom-sphere,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/square-calculator/,en,calculator,true,/en/geometry/square-calculator/,calculator:geom-square,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/trapezoid-calculator/,en,calculator,true,/en/geometry/trapezoid-calculator/,calculator:geom-trapezoid,src/pages/[locale]/[category]/[calculator].astro
@@ -333,6 +341,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/business/roas-calculator/,en,calculator,true,/en/business/roas-calculator/,calculator:roas,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/roi-calculator/,en,calculator,true,/en/finance/roi-calculator/,calculator:roi,src/pages/[locale]/[category]/[calculator].astro
 /en/math/roman-numerals/,en,calculator,true,/en/math/roman-numerals/,calculator:roman-numerals,src/pages/[locale]/[category]/[calculator].astro
+/en/home-improvement/roof-area-calculator/,en,calculator,true,/en/home-improvement/roof-area-calculator/,calculator:roof-area,src/pages/[locale]/[category]/[calculator].astro
 /en/home-improvement/room-volume-calculator/,en,calculator,true,/en/home-improvement/room-volume-calculator/,calculator:room-volume,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/rule-of-72-calculator/,en,calculator,true,/en/finance/rule-of-72-calculator/,calculator:rule-of-72,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/savings-rate-calculator/,en,calculator,true,/en/finance/savings-rate-calculator/,calculator:savings-rate,src/pages/[locale]/[category]/[calculator].astro
@@ -342,6 +351,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/automotive/speed-distance-time-calculator/,en,calculator,true,/en/automotive/speed-distance-time-calculator/,calculator:speed-distance-time,src/pages/[locale]/[category]/[calculator].astro
 /en/math/descriptive-statistics-calculator/,en,calculator,true,/en/math/descriptive-statistics-calculator/,calculator:stats-descriptive,src/pages/[locale]/[category]/[calculator].astro
 /en/household/stock-duration-calculator/,en,calculator,true,/en/household/stock-duration-calculator/,calculator:stock-duration,src/pages/[locale]/[category]/[calculator].astro
+/en/home-improvement/strip-foundation-calculator/,en,calculator,true,/en/home-improvement/strip-foundation-calculator/,calculator:strip-foundation,src/pages/[locale]/[category]/[calculator].astro
 /en/education/test-score-percentage-calculator/,en,calculator,true,/en/education/test-score-percentage-calculator/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/time-duration-calculator/,en,calculator,true,/en/date-time/time-duration-calculator/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
 /en/household/tip-calculator/,en,calculator,true,/en/household/tip-calculator/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro
@@ -459,10 +469,13 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/avtomobili/vytrata-palyva/,uk,calculator,true,/uk/avtomobili/vytrata-palyva/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/kolo/,uk,calculator,true,/uk/heometriya/kolo/,calculator:geom-circle,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/konus/,uk,calculator,true,/uk/heometriya/konus/,calculator:geom-cone,src/pages/[locale]/[category]/[calculator].astro
+/uk/heometriya/paralelepiped/,uk,calculator,true,/uk/heometriya/paralelepiped/,calculator:geom-cuboid,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/tsylindr/,uk,calculator,true,/uk/heometriya/tsylindr/,calculator:geom-cylinder,src/pages/[locale]/[category]/[calculator].astro
+/uk/heometriya/paralelohram/,uk,calculator,true,/uk/heometriya/paralelohram/,calculator:geom-parallelogram,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/pryamokutnyk/,uk,calculator,true,/uk/heometriya/pryamokutnyk/,calculator:geom-rectangle,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/pravylnyy-mnohokutnyk/,uk,calculator,true,/uk/heometriya/pravylnyy-mnohokutnyk/,calculator:geom-regular-polygon,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/pryamokutnyy-trykutnyk/,uk,calculator,true,/uk/heometriya/pryamokutnyy-trykutnyk/,calculator:geom-right-triangle,src/pages/[locale]/[category]/[calculator].astro
+/uk/heometriya/sektor-kola/,uk,calculator,true,/uk/heometriya/sektor-kola/,calculator:geom-sector,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/kulya/,uk,calculator,true,/uk/heometriya/kulya/,calculator:geom-sphere,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/kvadrat/,uk,calculator,true,/uk/heometriya/kvadrat/,calculator:geom-square,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/trapetsiya/,uk,calculator,true,/uk/heometriya/trapetsiya/,calculator:geom-trapezoid,src/pages/[locale]/[category]/[calculator].astro
@@ -507,6 +520,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/business/roas/,uk,calculator,true,/uk/business/roas/,calculator:roas,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/roi-kalkulyator/,uk,calculator,true,/uk/finansy/roi-kalkulyator/,calculator:roi,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/rymski-chysla/,uk,calculator,true,/uk/math/rymski-chysla/,calculator:roman-numerals,src/pages/[locale]/[category]/[calculator].astro
+/uk/remont/ploshcha-dakhu/,uk,calculator,true,/uk/remont/ploshcha-dakhu/,calculator:roof-area,src/pages/[locale]/[category]/[calculator].astro
 /uk/remont/kalkulyator-obyemu-prymishchennya/,uk,calculator,true,/uk/remont/kalkulyator-obyemu-prymishchennya/,calculator:room-volume,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/pravylo-72/,uk,calculator,true,/uk/finansy/pravylo-72/,calculator:rule-of-72,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/kalkulyator-normy-zaoshchadzhen/,uk,calculator,true,/uk/finansy/kalkulyator-normy-zaoshchadzhen/,calculator:savings-rate,src/pages/[locale]/[category]/[calculator].astro
@@ -516,6 +530,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/avtomobili/shvydkist-vidstan-chas/,uk,calculator,true,/uk/avtomobili/shvydkist-vidstan-chas/,calculator:speed-distance-time,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/serednie-znachennia/,uk,calculator,true,/uk/math/serednie-znachennia/,calculator:stats-descriptive,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/zapas-produktu/,uk,calculator,true,/uk/pobut/zapas-produktu/,calculator:stock-duration,src/pages/[locale]/[category]/[calculator].astro
+/uk/remont/strichkovyi-fundament/,uk,calculator,true,/uk/remont/strichkovyi-fundament/,calculator:strip-foundation,src/pages/[locale]/[category]/[calculator].astro
 /uk/navchannya/vidsotok-za-test/,uk,calculator,true,/uk/navchannya/vidsotok-za-test/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-tryvalosti-chasu/,uk,calculator,true,/uk/daty/kalkulyator-tryvalosti-chasu/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/chayovi/,uk,calculator,true,/uk/pobut/chayovi/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro

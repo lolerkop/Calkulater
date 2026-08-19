@@ -20,6 +20,20 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  // Волна 4, батч B2 — геометрия крыши, ленты и плоских фигур.
+  // Ожидаемые значения выведены вручную:
+  //   односкатная 6×4 при 15°: 24 / cos 15° = 24,847 м²
+  //   28,6 × 0,3 × 1,2 = 10,296 м³
+  //   2,5×2,5×10: V = 62,5; d = √112,5 = 10,6066…
+  //   10 × 8 × sin 30° = 40; P = 2(10+8) = 36
+  //   r=12, 90°: S = ½·144·π/2 = 113,0973; хорда 2·12·sin45° = 16,97056
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  'roof-area': { query: { mode: 'shed', length: 6, width: 4, slopeMode: 'degrees', angle: 15 }, result: { primary: '24,847 м²', rows: [{ label: 'Площадь основания', value: '24 м²' }, { label: 'Скатов', value: '1' }] } },
+  'strip-foundation': { query: { perimeter: 28.6, width: 0.3, depth: 1.2, waste: 0 }, result: { primary: '10,296 м³', rows: [{ label: 'Чистый объём', value: '10,296 м³' }] } },
+  'geom-cuboid': { query: { unit: 'cm', a: 2.5, b: 2.5, c: 10 }, result: { primary: '62,5 см³', rows: [{ label: 'Площадь поверхности', value: '112,5 см²' }, { label: 'Диагональ', value: '10,607 см' }] } },
+  'geom-parallelogram': { query: { unit: 'cm', mode: 'sides', a: 10, b: 8, angle: 30 }, result: { primary: '40 см²', rows: [{ label: 'Периметр', value: '36 см' }] } },
+  'geom-sector': { query: { unit: 'cm', radius: 12, angle: 90 }, result: { primary: '113,1 см²', rows: [{ label: 'Длина дуги', value: '18,85 см' }, { label: 'Хорда', value: '16,971 см' }] } },
   // Волна 4, батч B1 — строительные материалы. Ожидаемые значения выведены вручную:
   //   35,5 × 15 × 9 = 4 792,5 кг; мешков ceil(4792,5 / 25) = 192
   //   4 × 0,100 × 0,040 = 0,016 м³; × 20 = 0,32 м³

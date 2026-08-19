@@ -74,10 +74,13 @@ import { compute as compute_fraction_arith } from './fraction-arith/compute';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
 import { compute as compute_geom_circle } from './geom-circle/compute';
 import { compute as compute_geom_cone } from './geom-cone/compute';
+import { compute as compute_geom_cuboid } from './geom-cuboid/compute';
 import { compute as compute_geom_cylinder } from './geom-cylinder/compute';
+import { compute as compute_geom_parallelogram } from './geom-parallelogram/compute';
 import { compute as compute_geom_rectangle } from './geom-rectangle/compute';
 import { compute as compute_geom_regular_polygon } from './geom-regular-polygon/compute';
 import { compute as compute_geom_right_triangle } from './geom-right-triangle/compute';
+import { compute as compute_geom_sector } from './geom-sector/compute';
 import { compute as compute_geom_sphere } from './geom-sphere/compute';
 import { compute as compute_geom_square } from './geom-square/compute';
 import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
@@ -129,6 +132,7 @@ import { compute as compute_revenue_per_employee } from './revenue-per-employee/
 import { compute as compute_roas } from './roas/compute';
 import { compute as compute_roi } from './roi/compute';
 import { compute as compute_roman_numerals } from './roman-numerals/compute';
+import { compute as compute_roof_area } from './roof-area/compute';
 import { compute as compute_room_volume } from './room-volume/compute';
 import { compute as compute_rule_of_72 } from './rule-of-72/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
@@ -139,6 +143,7 @@ import { compute as compute_speed_distance_time } from './speed-distance-time/co
 import { contextualField as ctx_speed_distance_time } from './speed-distance-time/contextualField';
 import { compute as compute_stats_descriptive } from './stats-descriptive/compute';
 import { compute as compute_stock_duration } from './stock-duration/compute';
+import { compute as compute_strip_foundation } from './strip-foundation/compute';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
 import { compute as compute_tip } from './tip/compute';
@@ -208,10 +213,13 @@ export const v2Runners: Record<string, CalcFunction> = {
   'fuel-consumption': compute_fuel_consumption,
   'geom-circle': compute_geom_circle,
   'geom-cone': compute_geom_cone,
+  'geom-cuboid': compute_geom_cuboid,
   'geom-cylinder': compute_geom_cylinder,
+  'geom-parallelogram': compute_geom_parallelogram,
   'geom-rectangle': compute_geom_rectangle,
   'geom-regular-polygon': compute_geom_regular_polygon,
   'geom-right-triangle': compute_geom_right_triangle,
+  'geom-sector': compute_geom_sector,
   'geom-sphere': compute_geom_sphere,
   'geom-square': compute_geom_square,
   'geom-trapezoid': compute_geom_trapezoid,
@@ -258,6 +266,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'roas': compute_roas,
   'roi': compute_roi,
   'roman-numerals': compute_roman_numerals,
+  'roof-area': compute_roof_area,
   'room-volume': compute_room_volume,
   'rule-of-72': compute_rule_of_72,
   'savings-rate': compute_savings_rate,
@@ -267,6 +276,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'speed-distance-time': compute_speed_distance_time,
   'stats-descriptive': compute_stats_descriptive,
   'stock-duration': compute_stock_duration,
+  'strip-foundation': compute_strip_foundation,
   'test-score-percent': compute_test_score_percent,
   'time-duration': compute_time_duration,
   'tip': compute_tip,

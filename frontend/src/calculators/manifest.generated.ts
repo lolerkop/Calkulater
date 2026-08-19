@@ -69,10 +69,13 @@ import { definition as def_fraction_arith } from './fraction-arith/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
 import { definition as def_geom_circle } from './geom-circle/definition';
 import { definition as def_geom_cone } from './geom-cone/definition';
+import { definition as def_geom_cuboid } from './geom-cuboid/definition';
 import { definition as def_geom_cylinder } from './geom-cylinder/definition';
+import { definition as def_geom_parallelogram } from './geom-parallelogram/definition';
 import { definition as def_geom_rectangle } from './geom-rectangle/definition';
 import { definition as def_geom_regular_polygon } from './geom-regular-polygon/definition';
 import { definition as def_geom_right_triangle } from './geom-right-triangle/definition';
+import { definition as def_geom_sector } from './geom-sector/definition';
 import { definition as def_geom_sphere } from './geom-sphere/definition';
 import { definition as def_geom_square } from './geom-square/definition';
 import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
@@ -119,6 +122,7 @@ import { definition as def_revenue_per_employee } from './revenue-per-employee/d
 import { definition as def_roas } from './roas/definition';
 import { definition as def_roi } from './roi/definition';
 import { definition as def_roman_numerals } from './roman-numerals/definition';
+import { definition as def_roof_area } from './roof-area/definition';
 import { definition as def_room_volume } from './room-volume/definition';
 import { definition as def_rule_of_72 } from './rule-of-72/definition';
 import { definition as def_savings_rate } from './savings-rate/definition';
@@ -128,6 +132,7 @@ import { definition as def_solution_concentration } from './solution-concentrati
 import { definition as def_speed_distance_time } from './speed-distance-time/definition';
 import { definition as def_stats_descriptive } from './stats-descriptive/definition';
 import { definition as def_stock_duration } from './stock-duration/definition';
+import { definition as def_strip_foundation } from './strip-foundation/definition';
 import { definition as def_test_score_percent } from './test-score-percent/definition';
 import { definition as def_time_duration } from './time-duration/definition';
 import { definition as def_tip } from './tip/definition';
@@ -197,10 +202,13 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_fuel_consumption,
   def_geom_circle,
   def_geom_cone,
+  def_geom_cuboid,
   def_geom_cylinder,
+  def_geom_parallelogram,
   def_geom_rectangle,
   def_geom_regular_polygon,
   def_geom_right_triangle,
+  def_geom_sector,
   def_geom_sphere,
   def_geom_square,
   def_geom_trapezoid,
@@ -247,6 +255,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_roas,
   def_roi,
   def_roman_numerals,
+  def_roof_area,
   def_room_volume,
   def_rule_of_72,
   def_savings_rate,
@@ -256,6 +265,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_speed_distance_time,
   def_stats_descriptive,
   def_stock_duration,
+  def_strip_foundation,
   def_test_score_percent,
   def_time_duration,
   def_tip,

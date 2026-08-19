@@ -84,10 +84,13 @@ fraction-arith,/ru/math/fractions/,/en/math/fraction-calculator/,/uk/math/drobi/
 fuel-consumption,/ru/automotive/fuel-consumption/,/en/automotive/fuel-consumption-calculator/,/uk/avtomobili/vytrata-palyva/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-circle,/ru/geometry/circle/,/en/geometry/circle-calculator/,/uk/heometriya/kolo/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-cone,/ru/geometry/cone/,/en/geometry/cone-calculator/,/uk/heometriya/konus/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+geom-cuboid,/ru/geometry/cuboid/,/en/geometry/cuboid-calculator/,/uk/heometriya/paralelepiped/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-cylinder,/ru/geometry/cylinder/,/en/geometry/cylinder-calculator/,/uk/heometriya/tsylindr/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+geom-parallelogram,/ru/geometry/parallelogram/,/en/geometry/parallelogram-calculator/,/uk/heometriya/paralelohram/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-rectangle,/ru/geometry/rectangle/,/en/geometry/rectangle-calculator/,/uk/heometriya/pryamokutnyk/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-regular-polygon,/ru/geometry/regular-polygon/,/en/geometry/regular-polygon-calculator/,/uk/heometriya/pravylnyy-mnohokutnyk/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-right-triangle,/ru/geometry/right-triangle/,/en/geometry/right-triangle-calculator/,/uk/heometriya/pryamokutnyy-trykutnyk/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+geom-sector,/ru/geometry/sector/,/en/geometry/sector-calculator/,/uk/heometriya/sektor-kola/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-sphere,/ru/geometry/sphere/,/en/geometry/sphere-calculator/,/uk/heometriya/kulya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-square,/ru/geometry/square/,/en/geometry/square-calculator/,/uk/heometriya/kvadrat/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-trapezoid,/ru/geometry/trapezoid/,/en/geometry/trapezoid-calculator/,/uk/heometriya/trapetsiya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -132,6 +135,7 @@ revenue-per-employee,/ru/business/revenue-per-employee/,/en/business/revenue-per
 roas,/ru/business/roas/,/en/business/roas-calculator/,/uk/business/roas/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 roi,/ru/finance/roi/,/en/finance/roi-calculator/,/uk/finansy/roi-kalkulyator/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 roman-numerals,/ru/math/roman-numerals/,/en/math/roman-numerals/,/uk/math/rymski-chysla/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+roof-area,/ru/building/roof-area/,/en/home-improvement/roof-area-calculator/,/uk/remont/ploshcha-dakhu/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 room-volume,/ru/building/room-volume/,/en/home-improvement/room-volume-calculator/,/uk/remont/kalkulyator-obyemu-prymishchennya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 rule-of-72,/ru/finance/rule-of-72/,/en/finance/rule-of-72-calculator/,/uk/finansy/pravylo-72/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 savings-rate,/ru/finance/savings-rate/,/en/finance/savings-rate-calculator/,/uk/finansy/kalkulyator-normy-zaoshchadzhen/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -141,6 +145,7 @@ solution-concentration,/ru/chemistry/solution-concentration/,/en/chemistry/solut
 speed-distance-time,/ru/automotive/speed-distance-time/,/en/automotive/speed-distance-time-calculator/,/uk/avtomobili/shvydkist-vidstan-chas/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 stats-descriptive,/ru/math/descriptive-statistics/,/en/math/descriptive-statistics-calculator/,/uk/math/serednie-znachennia/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 stock-duration,/ru/household/stock-duration/,/en/household/stock-duration-calculator/,/uk/pobut/zapas-produktu/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+strip-foundation,/ru/building/strip-foundation/,/en/home-improvement/strip-foundation-calculator/,/uk/remont/strichkovyi-fundament/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 test-score-percent,/ru/education/test-score-percent/,/en/education/test-score-percentage-calculator/,/uk/navchannya/vidsotok-za-test/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 time-duration,/ru/date-time/time-duration/,/en/date-time/time-duration-calculator/,/uk/daty/kalkulyator-tryvalosti-chasu/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 tip,/ru/household/tip/,/en/household/tip-calculator/,/uk/pobut/chayovi/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.

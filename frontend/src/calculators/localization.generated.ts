@@ -63,10 +63,13 @@ import { localization as loc_fraction_arith } from './fraction-arith/localizatio
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
 import { localization as loc_geom_circle } from './geom-circle/localization';
 import { localization as loc_geom_cone } from './geom-cone/localization';
+import { localization as loc_geom_cuboid } from './geom-cuboid/localization';
 import { localization as loc_geom_cylinder } from './geom-cylinder/localization';
+import { localization as loc_geom_parallelogram } from './geom-parallelogram/localization';
 import { localization as loc_geom_rectangle } from './geom-rectangle/localization';
 import { localization as loc_geom_regular_polygon } from './geom-regular-polygon/localization';
 import { localization as loc_geom_right_triangle } from './geom-right-triangle/localization';
+import { localization as loc_geom_sector } from './geom-sector/localization';
 import { localization as loc_geom_sphere } from './geom-sphere/localization';
 import { localization as loc_geom_square } from './geom-square/localization';
 import { localization as loc_geom_trapezoid } from './geom-trapezoid/localization';
@@ -111,6 +114,7 @@ import { localization as loc_revenue_per_employee } from './revenue-per-employee
 import { localization as loc_roas } from './roas/localization';
 import { localization as loc_roi } from './roi/localization';
 import { localization as loc_roman_numerals } from './roman-numerals/localization';
+import { localization as loc_roof_area } from './roof-area/localization';
 import { localization as loc_room_volume } from './room-volume/localization';
 import { localization as loc_rule_of_72 } from './rule-of-72/localization';
 import { localization as loc_savings_rate } from './savings-rate/localization';
@@ -120,6 +124,7 @@ import { localization as loc_solution_concentration } from './solution-concentra
 import { localization as loc_speed_distance_time } from './speed-distance-time/localization';
 import { localization as loc_stats_descriptive } from './stats-descriptive/localization';
 import { localization as loc_stock_duration } from './stock-duration/localization';
+import { localization as loc_strip_foundation } from './strip-foundation/localization';
 import { localization as loc_test_score_percent } from './test-score-percent/localization';
 import { localization as loc_time_duration } from './time-duration/localization';
 import { localization as loc_tip } from './tip/localization';
@@ -190,10 +195,13 @@ export const v2Localization: ScopedLocalization = {
     'fuel-consumption': loc_fuel_consumption.en ?? {},
     'geom-circle': loc_geom_circle.en ?? {},
     'geom-cone': loc_geom_cone.en ?? {},
+    'geom-cuboid': loc_geom_cuboid.en ?? {},
     'geom-cylinder': loc_geom_cylinder.en ?? {},
+    'geom-parallelogram': loc_geom_parallelogram.en ?? {},
     'geom-rectangle': loc_geom_rectangle.en ?? {},
     'geom-regular-polygon': loc_geom_regular_polygon.en ?? {},
     'geom-right-triangle': loc_geom_right_triangle.en ?? {},
+    'geom-sector': loc_geom_sector.en ?? {},
     'geom-sphere': loc_geom_sphere.en ?? {},
     'geom-square': loc_geom_square.en ?? {},
     'geom-trapezoid': loc_geom_trapezoid.en ?? {},
@@ -238,6 +246,7 @@ export const v2Localization: ScopedLocalization = {
     'roas': loc_roas.en ?? {},
     'roi': loc_roi.en ?? {},
     'roman-numerals': loc_roman_numerals.en ?? {},
+    'roof-area': loc_roof_area.en ?? {},
     'room-volume': loc_room_volume.en ?? {},
     'rule-of-72': loc_rule_of_72.en ?? {},
     'savings-rate': loc_savings_rate.en ?? {},
@@ -247,6 +256,7 @@ export const v2Localization: ScopedLocalization = {
     'speed-distance-time': loc_speed_distance_time.en ?? {},
     'stats-descriptive': loc_stats_descriptive.en ?? {},
     'stock-duration': loc_stock_duration.en ?? {},
+    'strip-foundation': loc_strip_foundation.en ?? {},
     'test-score-percent': loc_test_score_percent.en ?? {},
     'time-duration': loc_time_duration.en ?? {},
     'tip': loc_tip.en ?? {},
@@ -316,10 +326,13 @@ export const v2Localization: ScopedLocalization = {
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
     'geom-circle': loc_geom_circle.uk ?? {},
     'geom-cone': loc_geom_cone.uk ?? {},
+    'geom-cuboid': loc_geom_cuboid.uk ?? {},
     'geom-cylinder': loc_geom_cylinder.uk ?? {},
+    'geom-parallelogram': loc_geom_parallelogram.uk ?? {},
     'geom-rectangle': loc_geom_rectangle.uk ?? {},
     'geom-regular-polygon': loc_geom_regular_polygon.uk ?? {},
     'geom-right-triangle': loc_geom_right_triangle.uk ?? {},
+    'geom-sector': loc_geom_sector.uk ?? {},
     'geom-sphere': loc_geom_sphere.uk ?? {},
     'geom-square': loc_geom_square.uk ?? {},
     'geom-trapezoid': loc_geom_trapezoid.uk ?? {},
@@ -364,6 +377,7 @@ export const v2Localization: ScopedLocalization = {
     'roas': loc_roas.uk ?? {},
     'roi': loc_roi.uk ?? {},
     'roman-numerals': loc_roman_numerals.uk ?? {},
+    'roof-area': loc_roof_area.uk ?? {},
     'room-volume': loc_room_volume.uk ?? {},
     'rule-of-72': loc_rule_of_72.uk ?? {},
     'savings-rate': loc_savings_rate.uk ?? {},
@@ -373,6 +387,7 @@ export const v2Localization: ScopedLocalization = {
     'speed-distance-time': loc_speed_distance_time.uk ?? {},
     'stats-descriptive': loc_stats_descriptive.uk ?? {},
     'stock-duration': loc_stock_duration.uk ?? {},
+    'strip-foundation': loc_strip_foundation.uk ?? {},
     'test-score-percent': loc_test_score_percent.uk ?? {},
     'time-duration': loc_time_duration.uk ?? {},
     'tip': loc_tip.uk ?? {},
