@@ -47,6 +47,7 @@ import DownloadTimeIsland from '../calculators/download-time/island';
 import DtiIsland from '../calculators/dti/island';
 import ElectricityUsageIsland from '../calculators/electricity-usage/island';
 import FilesOnDiskIsland from '../calculators/files-on-disk/island';
+import FinalGradeIsland from '../calculators/final-grade/island';
 import FpsFrametimeIsland from '../calculators/fps-frametime/island';
 import FuelConsumptionIsland from '../calculators/fuel-consumption/island';
 import InverterPowerIsland from '../calculators/inverter-power/island';
@@ -59,11 +60,13 @@ import NetworkBandwidthIsland from '../calculators/network-bandwidth/island';
 import OhmsLawIsland from '../calculators/ohms-law/island';
 import PaintCalculatorIsland from '../calculators/paint-calculator/island';
 import PercentCalculatorIsland from '../calculators/percent-calculator/island';
+import PoolFillTimeIsland from '../calculators/pool-fill-time/island';
 import PowerToWeightIsland from '../calculators/power-to-weight/island';
 import PrimeFactorizationIsland from '../calculators/prime-factorization/island';
 import ProportionIsland from '../calculators/proportion/island';
 import QuadraticEquationIsland from '../calculators/quadratic-equation/island';
 import ReadingSpeedIsland from '../calculators/reading-speed/island';
+import RealReturnIsland from '../calculators/real-return/island';
 import ReturnRateIsland from '../calculators/return-rate/island';
 import RevenuePerEmployeeIsland from '../calculators/revenue-per-employee/island';
 import RoiIsland from '../calculators/roi/island';
@@ -73,15 +76,17 @@ import RuleOf72Island from '../calculators/rule-of-72/island';
 import SavingsRateIsland from '../calculators/savings-rate/island';
 import ShippingPerUnitIsland from '../calculators/shipping-per-unit/island';
 import SimpleInterestIsland from '../calculators/simple-interest/island';
+import SpeedDistanceTimeIsland from '../calculators/speed-distance-time/island';
 import TestScorePercentIsland from '../calculators/test-score-percent/island';
 import TimeDurationIsland from '../calculators/time-duration/island';
 import TipIsland from '../calculators/tip/island';
+import TripCostIsland from '../calculators/trip-cost/island';
 import UnixTimestampIsland from '../calculators/unix-timestamp/island';
 import WeekNumberIsland from '../calculators/week-number/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'combinatorics', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'ctr', 'day-of-week', 'difference-abs-rel', 'dividend-yield', 'download-time', 'dti', 'electricity-usage', 'files-on-disk', 'fps-frametime', 'fuel-consumption', 'inverter-power', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'modulo', 'network-bandwidth', 'ohms-law', 'paint-calculator', 'percent-calculator', 'power-to-weight', 'prime-factorization', 'proportion', 'quadratic-equation', 'reading-speed', 'return-rate', 'revenue-per-employee', 'roi', 'roman-numerals', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'test-score-percent', 'time-duration', 'tip', 'unix-timestamp', 'week-number']);
+const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'combinatorics', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'ctr', 'day-of-week', 'difference-abs-rel', 'dividend-yield', 'download-time', 'dti', 'electricity-usage', 'files-on-disk', 'final-grade', 'fps-frametime', 'fuel-consumption', 'inverter-power', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'modulo', 'network-bandwidth', 'ohms-law', 'paint-calculator', 'percent-calculator', 'pool-fill-time', 'power-to-weight', 'prime-factorization', 'proportion', 'quadratic-equation', 'reading-speed', 'real-return', 'return-rate', 'revenue-per-employee', 'roi', 'roman-numerals', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'speed-distance-time', 'test-score-percent', 'time-duration', 'tip', 'trip-cost', 'unix-timestamp', 'week-number']);
 ---
 
 {id === 'ad-roi' && <AdRoiIsland calc={calc} locale={locale} client:load />}
@@ -123,6 +128,7 @@ const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'bud
 {id === 'dti' && <DtiIsland calc={calc} locale={locale} client:load />}
 {id === 'electricity-usage' && <ElectricityUsageIsland calc={calc} locale={locale} client:load />}
 {id === 'files-on-disk' && <FilesOnDiskIsland calc={calc} locale={locale} client:load />}
+{id === 'final-grade' && <FinalGradeIsland calc={calc} locale={locale} client:load />}
 {id === 'fps-frametime' && <FpsFrametimeIsland calc={calc} locale={locale} client:load />}
 {id === 'fuel-consumption' && <FuelConsumptionIsland calc={calc} locale={locale} client:load />}
 {id === 'inverter-power' && <InverterPowerIsland calc={calc} locale={locale} client:load />}
@@ -135,11 +141,13 @@ const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'bud
 {id === 'ohms-law' && <OhmsLawIsland calc={calc} locale={locale} client:load />}
 {id === 'paint-calculator' && <PaintCalculatorIsland calc={calc} locale={locale} client:load />}
 {id === 'percent-calculator' && <PercentCalculatorIsland calc={calc} locale={locale} client:load />}
+{id === 'pool-fill-time' && <PoolFillTimeIsland calc={calc} locale={locale} client:load />}
 {id === 'power-to-weight' && <PowerToWeightIsland calc={calc} locale={locale} client:load />}
 {id === 'prime-factorization' && <PrimeFactorizationIsland calc={calc} locale={locale} client:load />}
 {id === 'proportion' && <ProportionIsland calc={calc} locale={locale} client:load />}
 {id === 'quadratic-equation' && <QuadraticEquationIsland calc={calc} locale={locale} client:load />}
 {id === 'reading-speed' && <ReadingSpeedIsland calc={calc} locale={locale} client:load />}
+{id === 'real-return' && <RealReturnIsland calc={calc} locale={locale} client:load />}
 {id === 'return-rate' && <ReturnRateIsland calc={calc} locale={locale} client:load />}
 {id === 'revenue-per-employee' && <RevenuePerEmployeeIsland calc={calc} locale={locale} client:load />}
 {id === 'roi' && <RoiIsland calc={calc} locale={locale} client:load />}
@@ -149,9 +157,11 @@ const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'bud
 {id === 'savings-rate' && <SavingsRateIsland calc={calc} locale={locale} client:load />}
 {id === 'shipping-per-unit' && <ShippingPerUnitIsland calc={calc} locale={locale} client:load />}
 {id === 'simple-interest' && <SimpleInterestIsland calc={calc} locale={locale} client:load />}
+{id === 'speed-distance-time' && <SpeedDistanceTimeIsland calc={calc} locale={locale} client:load />}
 {id === 'test-score-percent' && <TestScorePercentIsland calc={calc} locale={locale} client:load />}
 {id === 'time-duration' && <TimeDurationIsland calc={calc} locale={locale} client:load />}
 {id === 'tip' && <TipIsland calc={calc} locale={locale} client:load />}
+{id === 'trip-cost' && <TripCostIsland calc={calc} locale={locale} client:load />}
 {id === 'unix-timestamp' && <UnixTimestampIsland calc={calc} locale={locale} client:load />}
 {id === 'week-number' && <WeekNumberIsland calc={calc} locale={locale} client:load />}
 {!V2_IDS.has(id) && <CalculatorIsland calc={calc} locale={locale} client:load />}

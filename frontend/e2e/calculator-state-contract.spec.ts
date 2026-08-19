@@ -420,6 +420,26 @@ const stateScenarios: Record<string, StateScenario> = {
     query: { mode: 'toTimestamp', date: '2000-01-01', hour: 0, minute: 0, second: 0 },
     result: { primary: '946684800' },
   },
+  'final-grade': {
+    query: { current: 90, target: 85, weight: 40 },
+    result: { primary: '77,50%' },
+  },
+  'trip-cost': {
+    query: { distance: 1200, consumption: 9, fuelPrice: 58, tolls: 1500, passengers: 4 },
+    result: { primary: '7 764,00 ₽' },
+  },
+  'speed-distance-time': {
+    query: { mode: 'distance', speed: 90, time: 2.5 },
+    result: { primary: '225,00 км' },
+  },
+  'pool-fill-time': {
+    query: { mode: 'rect', length: 8, width: 4, depth: 1.5, flow: 35, flowUnit: 'lmin' },
+    result: { primary: '22,86 ч' },
+  },
+  'real-return': {
+    query: { nominal: 5, inflation: 9 },
+    result: { primary: '-3,67%' },
+  },
   'date-shift-calculator': {
     query: {
       startDate: '2026-01-01',

@@ -51,6 +51,7 @@ import { definition as def_download_time } from './download-time/definition';
 import { definition as def_dti } from './dti/definition';
 import { definition as def_electricity_usage } from './electricity-usage/definition';
 import { definition as def_files_on_disk } from './files-on-disk/definition';
+import { definition as def_final_grade } from './final-grade/definition';
 import { definition as def_fps_frametime } from './fps-frametime/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
 import { definition as def_inverter_power } from './inverter-power/definition';
@@ -63,11 +64,13 @@ import { definition as def_network_bandwidth } from './network-bandwidth/definit
 import { definition as def_ohms_law } from './ohms-law/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
+import { definition as def_pool_fill_time } from './pool-fill-time/definition';
 import { definition as def_power_to_weight } from './power-to-weight/definition';
 import { definition as def_prime_factorization } from './prime-factorization/definition';
 import { definition as def_proportion } from './proportion/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
 import { definition as def_reading_speed } from './reading-speed/definition';
+import { definition as def_real_return } from './real-return/definition';
 import { definition as def_return_rate } from './return-rate/definition';
 import { definition as def_revenue_per_employee } from './revenue-per-employee/definition';
 import { definition as def_roi } from './roi/definition';
@@ -77,9 +80,11 @@ import { definition as def_rule_of_72 } from './rule-of-72/definition';
 import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
+import { definition as def_speed_distance_time } from './speed-distance-time/definition';
 import { definition as def_test_score_percent } from './test-score-percent/definition';
 import { definition as def_time_duration } from './time-duration/definition';
 import { definition as def_tip } from './tip/definition';
+import { definition as def_trip_cost } from './trip-cost/definition';
 import { definition as def_unix_timestamp } from './unix-timestamp/definition';
 import { definition as def_week_number } from './week-number/definition';
 
@@ -123,6 +128,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_dti,
   def_electricity_usage,
   def_files_on_disk,
+  def_final_grade,
   def_fps_frametime,
   def_fuel_consumption,
   def_inverter_power,
@@ -135,11 +141,13 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ohms_law,
   def_paint_calculator,
   def_percent_calculator,
+  def_pool_fill_time,
   def_power_to_weight,
   def_prime_factorization,
   def_proportion,
   def_quadratic_equation,
   def_reading_speed,
+  def_real_return,
   def_return_rate,
   def_revenue_per_employee,
   def_roi,
@@ -149,9 +157,11 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_savings_rate,
   def_shipping_per_unit,
   def_simple_interest,
+  def_speed_distance_time,
   def_test_score_percent,
   def_time_duration,
   def_tip,
+  def_trip_cost,
   def_unix_timestamp,
   def_week_number,
 ];

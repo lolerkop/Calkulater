@@ -55,6 +55,7 @@ import { compute as compute_download_time } from './download-time/compute';
 import { compute as compute_dti } from './dti/compute';
 import { compute as compute_electricity_usage } from './electricity-usage/compute';
 import { compute as compute_files_on_disk } from './files-on-disk/compute';
+import { compute as compute_final_grade } from './final-grade/compute';
 import { compute as compute_fps_frametime } from './fps-frametime/compute';
 import { contextualField as ctx_fps_frametime } from './fps-frametime/contextualField';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
@@ -72,12 +73,14 @@ import { compute as compute_paint_calculator } from './paint-calculator/compute'
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
 import { contextualField as ctx_percent_calculator } from './percent-calculator/contextualField';
+import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_power_to_weight } from './power-to-weight/compute';
 import { compute as compute_prime_factorization } from './prime-factorization/compute';
 import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
 import { compute as compute_reading_speed } from './reading-speed/compute';
+import { compute as compute_real_return } from './real-return/compute';
 import { compute as compute_return_rate } from './return-rate/compute';
 import { compute as compute_revenue_per_employee } from './revenue-per-employee/compute';
 import { compute as compute_roi } from './roi/compute';
@@ -87,9 +90,12 @@ import { compute as compute_rule_of_72 } from './rule-of-72/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
 import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
+import { compute as compute_speed_distance_time } from './speed-distance-time/compute';
+import { contextualField as ctx_speed_distance_time } from './speed-distance-time/contextualField';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
 import { compute as compute_tip } from './tip/compute';
+import { compute as compute_trip_cost } from './trip-cost/compute';
 import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
 import { compute as compute_week_number } from './week-number/compute';
 
@@ -133,6 +139,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'dti': compute_dti,
   'electricity-usage': compute_electricity_usage,
   'files-on-disk': compute_files_on_disk,
+  'final-grade': compute_final_grade,
   'fps-frametime': compute_fps_frametime,
   'fuel-consumption': compute_fuel_consumption,
   'inverter-power': compute_inverter_power,
@@ -145,11 +152,13 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ohms-law': compute_ohms_law,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
+  'pool-fill-time': compute_pool_fill_time,
   'power-to-weight': compute_power_to_weight,
   'prime-factorization': compute_prime_factorization,
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
   'reading-speed': compute_reading_speed,
+  'real-return': compute_real_return,
   'return-rate': compute_return_rate,
   'revenue-per-employee': compute_revenue_per_employee,
   'roi': compute_roi,
@@ -159,9 +168,11 @@ export const v2Runners: Record<string, CalcFunction> = {
   'savings-rate': compute_savings_rate,
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
+  'speed-distance-time': compute_speed_distance_time,
   'test-score-percent': compute_test_score_percent,
   'time-duration': compute_time_duration,
   'tip': compute_tip,
+  'trip-cost': compute_trip_cost,
   'unix-timestamp': compute_unix_timestamp,
   'week-number': compute_week_number,
 };
@@ -178,6 +189,7 @@ export const v2ContextualFields: Record<string, CalculatorContextualField> = {
   'ohms-law': ctx_ohms_law,
   'percent-calculator': ctx_percent_calculator,
   'proportion': ctx_proportion,
+  'speed-distance-time': ctx_speed_distance_time,
 };
 
 /**
