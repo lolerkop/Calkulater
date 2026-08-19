@@ -360,6 +360,26 @@ const stateScenarios: Record<string, StateScenario> = {
     query: { mode: 'reduce', width: 2560, height: 1080 },
     result: { primary: '64:27' },
   },
+  'test-score-percent': {
+    query: { correct: 37, total: 45 },
+    result: { primary: '82,22%' },
+  },
+  'reading-speed': {
+    query: { words: 1800, minutes: 7 },
+    result: { primary: '257 слов/мин' },
+  },
+  'power-to-weight': {
+    query: { power: 450, powerUnit: 'ps', mass: 1650 },
+    result: { primary: '200,59 кВт/т' },
+  },
+  'fuel-consumption': {
+    query: { mode: 'measure', litres: 55.4, distance: 623 },
+    result: { primary: '8,89 л/100 км' },
+  },
+  'electricity-usage': {
+    query: { power: 75, powerUnit: 'w', hoursPerDay: 24, days: 365 },
+    result: { primary: '657,00 кВт·ч' },
+  },
   'date-shift-calculator': {
     query: {
       startDate: '2026-01-01',

@@ -42,7 +42,9 @@ import DifferenceAbsRelIsland from '../calculators/difference-abs-rel/island';
 import DividendYieldIsland from '../calculators/dividend-yield/island';
 import DownloadTimeIsland from '../calculators/download-time/island';
 import DtiIsland from '../calculators/dti/island';
+import ElectricityUsageIsland from '../calculators/electricity-usage/island';
 import FpsFrametimeIsland from '../calculators/fps-frametime/island';
+import FuelConsumptionIsland from '../calculators/fuel-consumption/island';
 import LeapYearIsland from '../calculators/leap-year/island';
 import LedResistorIsland from '../calculators/led-resistor/island';
 import LogarithmIsland from '../calculators/logarithm/island';
@@ -50,9 +52,11 @@ import ModuloIsland from '../calculators/modulo/island';
 import OhmsLawIsland from '../calculators/ohms-law/island';
 import PaintCalculatorIsland from '../calculators/paint-calculator/island';
 import PercentCalculatorIsland from '../calculators/percent-calculator/island';
+import PowerToWeightIsland from '../calculators/power-to-weight/island';
 import PrimeFactorizationIsland from '../calculators/prime-factorization/island';
 import ProportionIsland from '../calculators/proportion/island';
 import QuadraticEquationIsland from '../calculators/quadratic-equation/island';
+import ReadingSpeedIsland from '../calculators/reading-speed/island';
 import ReturnRateIsland from '../calculators/return-rate/island';
 import RevenuePerEmployeeIsland from '../calculators/revenue-per-employee/island';
 import RoiIsland from '../calculators/roi/island';
@@ -61,12 +65,13 @@ import RoomVolumeIsland from '../calculators/room-volume/island';
 import SavingsRateIsland from '../calculators/savings-rate/island';
 import ShippingPerUnitIsland from '../calculators/shipping-per-unit/island';
 import SimpleInterestIsland from '../calculators/simple-interest/island';
+import TestScorePercentIsland from '../calculators/test-score-percent/island';
 import TimeDurationIsland from '../calculators/time-duration/island';
 import WeekNumberIsland from '../calculators/week-number/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'day-of-week', 'difference-abs-rel', 'dividend-yield', 'download-time', 'dti', 'fps-frametime', 'leap-year', 'led-resistor', 'logarithm', 'modulo', 'ohms-law', 'paint-calculator', 'percent-calculator', 'prime-factorization', 'proportion', 'quadratic-equation', 'return-rate', 'revenue-per-employee', 'roi', 'roman-numerals', 'room-volume', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'time-duration', 'week-number']);
+const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'day-of-week', 'difference-abs-rel', 'dividend-yield', 'download-time', 'dti', 'electricity-usage', 'fps-frametime', 'fuel-consumption', 'leap-year', 'led-resistor', 'logarithm', 'modulo', 'ohms-law', 'paint-calculator', 'percent-calculator', 'power-to-weight', 'prime-factorization', 'proportion', 'quadratic-equation', 'reading-speed', 'return-rate', 'revenue-per-employee', 'roi', 'roman-numerals', 'room-volume', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'test-score-percent', 'time-duration', 'week-number']);
 ---
 
 {id === 'ad-roi' && <AdRoiIsland calc={calc} locale={locale} client:load />}
@@ -103,7 +108,9 @@ const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'budget-50-30-20', 'cac
 {id === 'dividend-yield' && <DividendYieldIsland calc={calc} locale={locale} client:load />}
 {id === 'download-time' && <DownloadTimeIsland calc={calc} locale={locale} client:load />}
 {id === 'dti' && <DtiIsland calc={calc} locale={locale} client:load />}
+{id === 'electricity-usage' && <ElectricityUsageIsland calc={calc} locale={locale} client:load />}
 {id === 'fps-frametime' && <FpsFrametimeIsland calc={calc} locale={locale} client:load />}
+{id === 'fuel-consumption' && <FuelConsumptionIsland calc={calc} locale={locale} client:load />}
 {id === 'leap-year' && <LeapYearIsland calc={calc} locale={locale} client:load />}
 {id === 'led-resistor' && <LedResistorIsland calc={calc} locale={locale} client:load />}
 {id === 'logarithm' && <LogarithmIsland calc={calc} locale={locale} client:load />}
@@ -111,9 +118,11 @@ const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'budget-50-30-20', 'cac
 {id === 'ohms-law' && <OhmsLawIsland calc={calc} locale={locale} client:load />}
 {id === 'paint-calculator' && <PaintCalculatorIsland calc={calc} locale={locale} client:load />}
 {id === 'percent-calculator' && <PercentCalculatorIsland calc={calc} locale={locale} client:load />}
+{id === 'power-to-weight' && <PowerToWeightIsland calc={calc} locale={locale} client:load />}
 {id === 'prime-factorization' && <PrimeFactorizationIsland calc={calc} locale={locale} client:load />}
 {id === 'proportion' && <ProportionIsland calc={calc} locale={locale} client:load />}
 {id === 'quadratic-equation' && <QuadraticEquationIsland calc={calc} locale={locale} client:load />}
+{id === 'reading-speed' && <ReadingSpeedIsland calc={calc} locale={locale} client:load />}
 {id === 'return-rate' && <ReturnRateIsland calc={calc} locale={locale} client:load />}
 {id === 'revenue-per-employee' && <RevenuePerEmployeeIsland calc={calc} locale={locale} client:load />}
 {id === 'roi' && <RoiIsland calc={calc} locale={locale} client:load />}
@@ -122,6 +131,7 @@ const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'budget-50-30-20', 'cac
 {id === 'savings-rate' && <SavingsRateIsland calc={calc} locale={locale} client:load />}
 {id === 'shipping-per-unit' && <ShippingPerUnitIsland calc={calc} locale={locale} client:load />}
 {id === 'simple-interest' && <SimpleInterestIsland calc={calc} locale={locale} client:load />}
+{id === 'test-score-percent' && <TestScorePercentIsland calc={calc} locale={locale} client:load />}
 {id === 'time-duration' && <TimeDurationIsland calc={calc} locale={locale} client:load />}
 {id === 'week-number' && <WeekNumberIsland calc={calc} locale={locale} client:load />}
 {!V2_IDS.has(id) && <CalculatorIsland calc={calc} locale={locale} client:load />}

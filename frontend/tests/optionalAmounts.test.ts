@@ -50,6 +50,10 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['laminate-calculator', 'packPrice'],
   ['laminate-calculator', 'underlayPrice'],
   ['screed-calculator', 'bagPrice'],
+  ['test-score-percent', 'passMark'],
+  ['reading-speed', 'bookWords'],
+  ['power-to-weight', 'payload'],
+  ['electricity-usage', 'tariff'],
 ];
 
 describe('необязательные суммы', () => {

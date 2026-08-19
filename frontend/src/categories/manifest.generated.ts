@@ -14,9 +14,12 @@ import { definition as def_business } from './business/definition';
 import { definition as def_converters } from './converters/definition';
 import { definition as def_electronics } from './electronics/definition';
 import { definition as def_computers } from './computers/definition';
+import { definition as def_education } from './education/definition';
+import { definition as def_automotive } from './automotive/definition';
+import { definition as def_household } from './household/definition';
 
 /** Порядок задан полем order каждой категории, а не этим списком. */
-export const categoryIds = ['finance', 'currency', 'sport', 'building', 'date-time', 'math', 'business', 'converters', 'electronics', 'computers'] as const;
+export const categoryIds = ['finance', 'currency', 'sport', 'building', 'date-time', 'math', 'business', 'converters', 'electronics', 'computers', 'education', 'automotive', 'household'] as const;
 
 export type CategoryId = (typeof categoryIds)[number];
 
@@ -31,6 +34,9 @@ export const categoryDefinitions: readonly CategoryDefinition[] = [
   def_converters,
   def_electronics,
   def_computers,
+  def_education,
+  def_automotive,
+  def_household,
 ];
 
 export const categoryById: Readonly<Record<CategoryId, CategoryDefinition>> = {
@@ -44,4 +50,7 @@ export const categoryById: Readonly<Record<CategoryId, CategoryDefinition>> = {
   'converters': def_converters,
   'electronics': def_electronics,
   'computers': def_computers,
+  'education': def_education,
+  'automotive': def_automotive,
+  'household': def_household,
 } as const;
