@@ -51,6 +51,7 @@ import { definition as def_ctr } from './ctr/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_density } from './density/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
+import { definition as def_dilution } from './dilution/definition';
 import { definition as def_dividend_yield } from './dividend-yield/definition';
 import { definition as def_divisors } from './divisors/definition';
 import { definition as def_down_payment } from './down-payment/definition';
@@ -74,6 +75,7 @@ import { definition as def_geom_sphere } from './geom-sphere/definition';
 import { definition as def_geom_square } from './geom-square/definition';
 import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
 import { definition as def_geom_triangle } from './geom-triangle/definition';
+import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
 import { definition as def_installment } from './installment/definition';
 import { definition as def_inventory_turnover } from './inventory-turnover/definition';
 import { definition as def_inverter_power } from './inverter-power/definition';
@@ -85,12 +87,15 @@ import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_ltv } from './ltv/definition';
 import { definition as def_market_cap } from './market-cap/definition';
 import { definition as def_modulo } from './modulo/definition';
+import { definition as def_molarity } from './molarity/definition';
+import { definition as def_moles } from './moles/definition';
 import { definition as def_momentum } from './momentum/definition';
 import { definition as def_network_bandwidth } from './network-bandwidth/definition';
 import { definition as def_newton_force } from './newton-force/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
+import { definition as def_ph_poh } from './ph-poh/definition';
 import { definition as def_physics_power } from './physics-power/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
 import { definition as def_potential_energy } from './potential-energy/definition';
@@ -115,6 +120,7 @@ import { definition as def_rule_of_72 } from './rule-of-72/definition';
 import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
+import { definition as def_solution_concentration } from './solution-concentration/definition';
 import { definition as def_speed_distance_time } from './speed-distance-time/definition';
 import { definition as def_stats_descriptive } from './stats-descriptive/definition';
 import { definition as def_stock_duration } from './stock-duration/definition';
@@ -169,6 +175,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_day_of_week,
   def_density,
   def_difference_abs_rel,
+  def_dilution,
   def_dividend_yield,
   def_divisors,
   def_down_payment,
@@ -192,6 +199,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_square,
   def_geom_trapezoid,
   def_geom_triangle,
+  def_ideal_gas_law,
   def_installment,
   def_inventory_turnover,
   def_inverter_power,
@@ -203,12 +211,15 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ltv,
   def_market_cap,
   def_modulo,
+  def_molarity,
+  def_moles,
   def_momentum,
   def_network_bandwidth,
   def_newton_force,
   def_ohms_law,
   def_paint_calculator,
   def_percent_calculator,
+  def_ph_poh,
   def_physics_power,
   def_pool_fill_time,
   def_potential_energy,
@@ -233,6 +244,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_savings_rate,
   def_shipping_per_unit,
   def_simple_interest,
+  def_solution_concentration,
   def_speed_distance_time,
   def_stats_descriptive,
   def_stock_duration,

@@ -45,6 +45,7 @@ import { localization as loc_ctr } from './ctr/localization';
 import { localization as loc_day_of_week } from './day-of-week/localization';
 import { localization as loc_density } from './density/localization';
 import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
+import { localization as loc_dilution } from './dilution/localization';
 import { localization as loc_dividend_yield } from './dividend-yield/localization';
 import { localization as loc_divisors } from './divisors/localization';
 import { localization as loc_down_payment } from './down-payment/localization';
@@ -68,6 +69,7 @@ import { localization as loc_geom_sphere } from './geom-sphere/localization';
 import { localization as loc_geom_square } from './geom-square/localization';
 import { localization as loc_geom_trapezoid } from './geom-trapezoid/localization';
 import { localization as loc_geom_triangle } from './geom-triangle/localization';
+import { localization as loc_ideal_gas_law } from './ideal-gas-law/localization';
 import { localization as loc_installment } from './installment/localization';
 import { localization as loc_inventory_turnover } from './inventory-turnover/localization';
 import { localization as loc_inverter_power } from './inverter-power/localization';
@@ -79,10 +81,13 @@ import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_market_cap } from './market-cap/localization';
 import { localization as loc_modulo } from './modulo/localization';
+import { localization as loc_molarity } from './molarity/localization';
+import { localization as loc_moles } from './moles/localization';
 import { localization as loc_momentum } from './momentum/localization';
 import { localization as loc_network_bandwidth } from './network-bandwidth/localization';
 import { localization as loc_newton_force } from './newton-force/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
+import { localization as loc_ph_poh } from './ph-poh/localization';
 import { localization as loc_physics_power } from './physics-power/localization';
 import { localization as loc_pool_fill_time } from './pool-fill-time/localization';
 import { localization as loc_potential_energy } from './potential-energy/localization';
@@ -107,6 +112,7 @@ import { localization as loc_rule_of_72 } from './rule-of-72/localization';
 import { localization as loc_savings_rate } from './savings-rate/localization';
 import { localization as loc_shipping_per_unit } from './shipping-per-unit/localization';
 import { localization as loc_simple_interest } from './simple-interest/localization';
+import { localization as loc_solution_concentration } from './solution-concentration/localization';
 import { localization as loc_speed_distance_time } from './speed-distance-time/localization';
 import { localization as loc_stats_descriptive } from './stats-descriptive/localization';
 import { localization as loc_stock_duration } from './stock-duration/localization';
@@ -162,6 +168,7 @@ export const v2Localization: ScopedLocalization = {
     'day-of-week': loc_day_of_week.en ?? {},
     'density': loc_density.en ?? {},
     'difference-abs-rel': loc_difference_abs_rel.en ?? {},
+    'dilution': loc_dilution.en ?? {},
     'dividend-yield': loc_dividend_yield.en ?? {},
     'divisors': loc_divisors.en ?? {},
     'down-payment': loc_down_payment.en ?? {},
@@ -185,6 +192,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-square': loc_geom_square.en ?? {},
     'geom-trapezoid': loc_geom_trapezoid.en ?? {},
     'geom-triangle': loc_geom_triangle.en ?? {},
+    'ideal-gas-law': loc_ideal_gas_law.en ?? {},
     'installment': loc_installment.en ?? {},
     'inventory-turnover': loc_inventory_turnover.en ?? {},
     'inverter-power': loc_inverter_power.en ?? {},
@@ -196,10 +204,13 @@ export const v2Localization: ScopedLocalization = {
     'ltv': loc_ltv.en ?? {},
     'market-cap': loc_market_cap.en ?? {},
     'modulo': loc_modulo.en ?? {},
+    'molarity': loc_molarity.en ?? {},
+    'moles': loc_moles.en ?? {},
     'momentum': loc_momentum.en ?? {},
     'network-bandwidth': loc_network_bandwidth.en ?? {},
     'newton-force': loc_newton_force.en ?? {},
     'ohms-law': loc_ohms_law.en ?? {},
+    'ph-poh': loc_ph_poh.en ?? {},
     'physics-power': loc_physics_power.en ?? {},
     'pool-fill-time': loc_pool_fill_time.en ?? {},
     'potential-energy': loc_potential_energy.en ?? {},
@@ -224,6 +235,7 @@ export const v2Localization: ScopedLocalization = {
     'savings-rate': loc_savings_rate.en ?? {},
     'shipping-per-unit': loc_shipping_per_unit.en ?? {},
     'simple-interest': loc_simple_interest.en ?? {},
+    'solution-concentration': loc_solution_concentration.en ?? {},
     'speed-distance-time': loc_speed_distance_time.en ?? {},
     'stats-descriptive': loc_stats_descriptive.en ?? {},
     'stock-duration': loc_stock_duration.en ?? {},
@@ -278,6 +290,7 @@ export const v2Localization: ScopedLocalization = {
     'day-of-week': loc_day_of_week.uk ?? {},
     'density': loc_density.uk ?? {},
     'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
+    'dilution': loc_dilution.uk ?? {},
     'dividend-yield': loc_dividend_yield.uk ?? {},
     'divisors': loc_divisors.uk ?? {},
     'down-payment': loc_down_payment.uk ?? {},
@@ -301,6 +314,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-square': loc_geom_square.uk ?? {},
     'geom-trapezoid': loc_geom_trapezoid.uk ?? {},
     'geom-triangle': loc_geom_triangle.uk ?? {},
+    'ideal-gas-law': loc_ideal_gas_law.uk ?? {},
     'installment': loc_installment.uk ?? {},
     'inventory-turnover': loc_inventory_turnover.uk ?? {},
     'inverter-power': loc_inverter_power.uk ?? {},
@@ -312,10 +326,13 @@ export const v2Localization: ScopedLocalization = {
     'ltv': loc_ltv.uk ?? {},
     'market-cap': loc_market_cap.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
+    'molarity': loc_molarity.uk ?? {},
+    'moles': loc_moles.uk ?? {},
     'momentum': loc_momentum.uk ?? {},
     'network-bandwidth': loc_network_bandwidth.uk ?? {},
     'newton-force': loc_newton_force.uk ?? {},
     'ohms-law': loc_ohms_law.uk ?? {},
+    'ph-poh': loc_ph_poh.uk ?? {},
     'physics-power': loc_physics_power.uk ?? {},
     'pool-fill-time': loc_pool_fill_time.uk ?? {},
     'potential-energy': loc_potential_energy.uk ?? {},
@@ -340,6 +357,7 @@ export const v2Localization: ScopedLocalization = {
     'savings-rate': loc_savings_rate.uk ?? {},
     'shipping-per-unit': loc_shipping_per_unit.uk ?? {},
     'simple-interest': loc_simple_interest.uk ?? {},
+    'solution-concentration': loc_solution_concentration.uk ?? {},
     'speed-distance-time': loc_speed_distance_time.uk ?? {},
     'stats-descriptive': loc_stats_descriptive.uk ?? {},
     'stock-duration': loc_stock_duration.uk ?? {},

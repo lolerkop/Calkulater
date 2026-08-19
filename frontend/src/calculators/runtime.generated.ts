@@ -55,6 +55,7 @@ import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_density } from './density/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
+import { compute as compute_dilution } from './dilution/compute';
 import { compute as compute_dividend_yield } from './dividend-yield/compute';
 import { compute as compute_divisors } from './divisors/compute';
 import { compute as compute_down_payment } from './down-payment/compute';
@@ -79,6 +80,7 @@ import { compute as compute_geom_sphere } from './geom-sphere/compute';
 import { compute as compute_geom_square } from './geom-square/compute';
 import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
 import { compute as compute_geom_triangle } from './geom-triangle/compute';
+import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
 import { compute as compute_installment } from './installment/compute';
 import { compute as compute_inventory_turnover } from './inventory-turnover/compute';
 import { compute as compute_inverter_power } from './inverter-power/compute';
@@ -91,6 +93,8 @@ import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
 import { compute as compute_market_cap } from './market-cap/compute';
 import { compute as compute_modulo } from './modulo/compute';
+import { compute as compute_molarity } from './molarity/compute';
+import { compute as compute_moles } from './moles/compute';
 import { compute as compute_momentum } from './momentum/compute';
 import { compute as compute_network_bandwidth } from './network-bandwidth/compute';
 import { compute as compute_newton_force } from './newton-force/compute';
@@ -100,6 +104,7 @@ import { compute as compute_paint_calculator } from './paint-calculator/compute'
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
 import { contextualField as ctx_percent_calculator } from './percent-calculator/contextualField';
+import { compute as compute_ph_poh } from './ph-poh/compute';
 import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_potential_energy } from './potential-energy/compute';
@@ -125,6 +130,7 @@ import { compute as compute_rule_of_72 } from './rule-of-72/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
 import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
+import { compute as compute_solution_concentration } from './solution-concentration/compute';
 import { compute as compute_speed_distance_time } from './speed-distance-time/compute';
 import { contextualField as ctx_speed_distance_time } from './speed-distance-time/contextualField';
 import { compute as compute_stats_descriptive } from './stats-descriptive/compute';
@@ -180,6 +186,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'day-of-week': compute_day_of_week,
   'density': compute_density,
   'difference-abs-rel': compute_difference_abs_rel,
+  'dilution': compute_dilution,
   'dividend-yield': compute_dividend_yield,
   'divisors': compute_divisors,
   'down-payment': compute_down_payment,
@@ -203,6 +210,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-square': compute_geom_square,
   'geom-trapezoid': compute_geom_trapezoid,
   'geom-triangle': compute_geom_triangle,
+  'ideal-gas-law': compute_ideal_gas_law,
   'installment': compute_installment,
   'inventory-turnover': compute_inventory_turnover,
   'inverter-power': compute_inverter_power,
@@ -214,12 +222,15 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ltv': compute_ltv,
   'market-cap': compute_market_cap,
   'modulo': compute_modulo,
+  'molarity': compute_molarity,
+  'moles': compute_moles,
   'momentum': compute_momentum,
   'network-bandwidth': compute_network_bandwidth,
   'newton-force': compute_newton_force,
   'ohms-law': compute_ohms_law,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
+  'ph-poh': compute_ph_poh,
   'physics-power': compute_physics_power,
   'pool-fill-time': compute_pool_fill_time,
   'potential-energy': compute_potential_energy,
@@ -244,6 +255,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'savings-rate': compute_savings_rate,
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
+  'solution-concentration': compute_solution_concentration,
   'speed-distance-time': compute_speed_distance_time,
   'stats-descriptive': compute_stats_descriptive,
   'stock-duration': compute_stock_duration,
