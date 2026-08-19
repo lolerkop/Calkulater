@@ -7,18 +7,6 @@ import { getCategories, getPopularCalculators, getCalculators, localeCatalog } f
 const locale = 'ru';
 const categories = getCategories(locale);
 const calculators = getCalculators(locale);
-const searchData = calculators.map((calculator) => ({
-  id: calculator.id,
-  name: calculator.name,
-  shortDescription: calculator.shortDescription,
-  fullPath: calculator.fullPath,
-  keywords: calculator.keywords,
-  category: calculator.category,
-  categoryName: categories.find((category) => category.id === calculator.category)?.name ?? calculator.category,
-  popularity: calculator.popularity,
-  isNew: calculator.isNew,
-}));
-
 const fallbackCalculators = getPopularCalculators(locale);
 ---
 
@@ -66,7 +54,7 @@ const fallbackCalculators = getPopularCalculators(locale);
           {calculators.length} инструментов
         </span>
       </div>
-      <SearchBox calculators={searchData} locale={locale} client:idle />
+      <SearchBox locale={locale} client:idle />
     </div>
 
     <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5" data-testid="page-404-categories">

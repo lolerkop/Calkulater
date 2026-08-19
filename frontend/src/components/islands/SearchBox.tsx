@@ -1,18 +1,14 @@
 // Поиск по калькуляторам на главной. Простая клиентская фильтрация по
 // названию, описанию и ключевым словам.
 
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Search, X } from 'lucide-react';
-import type { CalculatorDef } from '../../lib/types';
+import type { SearchableCalculator } from '../../lib/search';
 import { matchesCalculatorSearch, queryNeedles } from '../../lib/search';
+import { loadSearchIndex } from '../../lib/searchIndexClient';
 import { clientUi, localeCatalog, type Locale } from '../../lib/clientI18n';
 
 type Props = {
-  calculators: Array<
-    Pick<CalculatorDef, 'id' | 'name' | 'shortDescription' | 'fullPath' | 'keywords' | 'category' | 'popularity' | 'isNew'> & {
-      categoryName?: string;
-    }
-  >;
   locale?: Locale;
 };
 
@@ -198,7 +194,7 @@ const searchCopyByLocale: Record<Locale, {
   },
 };
 
-export default function SearchBox({ calculators, locale = 'ru' }: Props) {
+export default function SearchBox({ locale = 'ru' }: Props) {
   const copy = clientUi[locale];
   const searchCopy = searchCopyByLocale[locale];
   // Поле отрисовано на сервере, а остров подключается по client:idle, поэтому
@@ -216,25 +212,50 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
     return (document.getElementById('search-input') as HTMLInputElement | null)?.value ?? '';
   });
   const [query, setQuery] = useState('');
+  // Индекс приходит отдельным файлом и только тогда, когда посетитель
+  // действительно взялся искать. До этого момента страница о нём не знает.
+  const [index, setIndex] = useState<SearchableCalculator[] | null>(null);
+  const [indexFailed, setIndexFailed] = useState(false);
+  const requested = useRef(false);
+
+  const requestIndex = useCallback(() => {
+    if (requested.current) return;
+    requested.current = true;
+    loadSearchIndex(locale)
+      .then(setIndex)
+      .catch(() => {
+        // Поиск не отвечает — поле остаётся рабочим, а состояние честно
+        // говорит, что результатов не будет. Следующая попытка разрешена.
+        requested.current = false;
+        setIndexFailed(true);
+      });
+  }, [locale]);
 
   useEffect(() => {
     // Набранное вручную важнее параметра ссылки: это то, что человек ввёл сейчас.
     // Пустое поле оставляем пустым, даже если его успели потрогать и стереть.
     const fromUrl = new URLSearchParams(window.location.search).get('q') ?? '';
     const restored = preHydrationQuery || fromUrl;
-    if (restored) setQuery(restored);
+    if (restored) {
+      setQuery(restored);
+      requestIndex();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const hasQuery = query.trim().length > 0;
   const resultsId = 'search-results';
 
+  // Порядок разрешения промиса на результат не влияет: список выводится из
+  // текущего запроса и текущего индекса. Пришедший позже индекс не может
+  // показать выдачу по старому запросу — её просто негде взять.
   const results = useMemo(() => {
     const needles = queryNeedles(query);
-    if (needles.length === 0) return [];
-    return calculators
+    if (needles.length === 0 || !index) return [];
+    return index
       .filter((c) => matchesCalculatorSearch(c, query))
       .slice(0, 8);
-  }, [query, calculators]);
+  }, [query, index]);
+  const indexPending = hasQuery && !index && !indexFailed;
   const catalogHref = hasQuery
     ? `${localeCatalog(locale)}?q=${encodeURIComponent(query.trim())}`
     : localeCatalog(locale);
@@ -290,7 +311,11 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
           ].join(' ').trim()}
           placeholder={searchCopy.placeholder}
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            requestIndex();
+            setQuery(e.target.value);
+          }}
+          onFocus={requestIndex}
           onKeyDown={(event) => {
             if (event.key === 'Escape') {
               setQuery('');
@@ -320,7 +345,10 @@ export default function SearchBox({ calculators, locale = 'ru' }: Props) {
         )}
       </div>
 
-      {hasQuery && (
+      {/* Пока индекс в пути, панель не открываем: показывать «ничего не найдено»
+          там, где искать ещё нечем, значит соврать. Нового состояния интерфейса
+          не заводим — панель просто появляется вместе с результатами. */}
+      {hasQuery && !indexPending && (
         <div
           id={resultsId}
           className="absolute left-0 right-0 top-full z-10 mt-2 max-h-[min(28rem,70vh)] min-w-0 overflow-y-auto rounded-2xl border border-ink-200 bg-white shadow-[0_18px_44px_rgba(39,32,85,0.14)]"

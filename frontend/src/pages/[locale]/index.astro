@@ -235,18 +235,6 @@ const jsonLd = [
   }),
 ];
 
-const searchData = calculators.map((calculator) => ({
-  id: calculator.id,
-  name: calculator.name,
-  shortDescription: calculator.shortDescription,
-  fullPath: calculator.fullPath,
-  keywords: calculator.keywords,
-  category: calculator.category,
-  categoryName: categories.find((category) => category.id === calculator.category)?.name ?? calculator.category,
-  popularity: calculator.popularity,
-  isNew: calculator.isNew,
-}));
-
 const categoryStats = categories.map((category) => ({
   category,
   count: getCalculatorsByCategory(category.id, locale).length,
@@ -311,7 +299,7 @@ const featuredCategoryCalculators = Object.fromEntries(
         <div class="min-w-0 lg:col-span-5">
           <div class="min-w-0 rounded-3xl border border-white/80 bg-white/90 p-5 shadow-[0_24px_64px_rgba(61,48,133,0.16)] backdrop-blur sm:p-6" data-testid="home-search-panel">
             <div class="mb-3 text-fit text-sm font-bold text-ink-900">{copy.search}</div>
-            <SearchBox calculators={searchData} locale={locale} client:idle />
+            <SearchBox locale={locale} client:idle />
 
             <div class="mt-5 grid grid-cols-2 gap-2" data-testid="home-category-stats">
               {categoryStats.map(({ category, count }) => (

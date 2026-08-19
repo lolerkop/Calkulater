@@ -338,6 +338,28 @@ const stateScenarios: Record<string, StateScenario> = {
     },
     result: { primary: '4 дн.', rows: [{ label: 'Исключённые даты', value: '1' }] },
   },
+  // Волна Phase 9A: значения отличаются от значений по умолчанию, иначе
+  // сценарий проверял бы не восстановление состояния, а совпадение с дефолтом.
+  'led-resistor': {
+    query: { supplyVoltage: 12, forwardVoltage: 3.2, current: 350, currentUnit: 'ma' },
+    result: { primary: '25,14 Ом' },
+  },
+  'ohms-law': {
+    query: { mode: 'vr', voltage: 230, resistance: 100 },
+    result: { primary: '2,300 А' },
+  },
+  'download-time': {
+    query: { size: 700, sizeUnit: 'mib', speed: 50, speedUnit: 'mbit' },
+    result: { primary: '1:57' },
+  },
+  'fps-frametime': {
+    query: { mode: 'ms', frameTime: 8.33 },
+    result: { primary: '120,05 FPS' },
+  },
+  'aspect-ratio': {
+    query: { mode: 'reduce', width: 2560, height: 1080 },
+    result: { primary: '64:27' },
+  },
   'date-shift-calculator': {
     query: {
       startDate: '2026-01-01',

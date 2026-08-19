@@ -39,6 +39,12 @@ const budgets = {
   // ── производительность маршрута (жёстко) ──
   routeJsClosureGzip: 95 * 1024,
   routeHtmlGzip: 15 * 1024,
+  // Props острова поиска. Индекс переехал в отдельный файл на локаль и
+  // забирается по первому обращению к поиску; в разметке от него остаётся
+  // только локаль. Раньше здесь лежал весь корпус — около 46 КБ сырого JSON
+  // и больше половины веса страницы 404. Порог с большим запасом пропускает
+  // локаль и подписи, но возврат массива калькуляторов роняет сборку.
+  searchBoxPropsRaw: 512,
   // Наклон пересчитан после того, как сетку забрал Astro, а из острова ушли
   // сериализованные калькуляторы: 0,14 КиБ на калькулятор на синтетике 48→100
   // и около 0,17 на реальных текстах. Порог 0,20 оставляет запас на разброс
@@ -133,6 +139,14 @@ for (const file of htmlFiles) {
   }
   if (!scalesWithCatalog(file) && htmlGzip > budgets.routeHtmlGzip) {
     issues.push(`${rel}: HTML gzip ${kib(htmlGzip)} exceeds ${kib(budgets.routeHtmlGzip)}`);
+  }
+
+  const searchIsland = fs.readFileSync(file, 'utf8').match(/<astro-island[^>]*SearchBox[^>]*>/);
+  if (searchIsland) {
+    const props = (searchIsland[0].match(/props="(.*?)"/s) ?? [])[1] ?? '';
+    if (props.length > budgets.searchBoxPropsRaw) {
+      issues.push(`${rel}: SearchBox props ${props.length} B exceeds ${budgets.searchBoxPropsRaw} B — поисковый индекс вернулся в разметку`);
+    }
   }
 }
 
