@@ -1,5 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, toNumber } from '../../lib/format';
+import { formatStatistic } from '../../lib/platform/measurement';
 
 // Z-оценка: на сколько стандартных отклонений значение отстоит от среднего.
 //
@@ -7,10 +8,7 @@ import { fmtNumber, toNumber } from '../../lib/format';
 // поэтому поля объявлены signed, а нулевая сигма отклоняется: делить не на что,
 // и «бесконечно далеко от среднего» — это не число, а отсутствие разброса.
 
-const statNumber = (value: number): string => {
-  const text = fmtNumber(Number(value.toFixed(4)), 4);
-  return text.includes(',') ? text.replace(/0+$/, '').replace(/,$/, '') : text;
-};
+const statNumber = (value: number): string => formatStatistic(value, fmtNumber);
 
 export const compute: CalcFunction = (inputs) => {
   const x = toNumber(inputs.x);

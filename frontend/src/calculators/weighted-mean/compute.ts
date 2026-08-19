@@ -1,5 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, parseLocalizedNumber, toStr } from '../../lib/format';
+import { formatStatistic } from '../../lib/platform/measurement';
 
 // Средневзвешенное значение по парам «значение вес».
 //
@@ -20,10 +21,7 @@ const parseLine = (line: string): [number, number] | null => {
   return [value, weight];
 };
 
-const statNumber = (value: number): string => {
-  const text = fmtNumber(Number(value.toFixed(4)), 4);
-  return text.includes(',') ? text.replace(/0+$/, '').replace(/,$/, '') : text;
-};
+const statNumber = (value: number): string => formatStatistic(value, fmtNumber);
 
 export const compute: CalcFunction = (inputs) => {
   const fail = (label: string, message: string) => ({

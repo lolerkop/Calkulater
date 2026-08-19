@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatMeasure, formatQuantity, lengthSymbol } from '../../src/lib/platform/measurement';
+import { formatMeasure, formatQuantity, lengthSymbol, formatStatistic } from '../../src/lib/platform/measurement';
 import { fmtNumber } from '../../src/lib/format';
 
 // Помощник извлечён после десяти реальных потребителей и отвечает ровно за две
@@ -59,5 +59,33 @@ describe('оформление физической величины', () => {
   it('граница диапазона: 10⁻⁴ ещё обычная запись', () => {
     expect(q(1e-4)).not.toContain('10^');
     expect(q(9e-5)).toContain('10^');
+  });
+});
+
+describe('formatStatistic', () => {
+  const s = (value: number) => formatStatistic(value, fmtNumber);
+
+  it('держит четыре знака там, где у размеров фигуры хватило бы трёх', () => {
+    // √182 = 13,4907376… — третий знак уже теряет различие с 13,491
+    expect(s(Math.sqrt(182))).toBe('13,4907');
+    expect(s(Math.sqrt(910 / 6))).toBe('12,3153');
+    expect(s(690 / 9)).toBe('76,6667');
+  });
+
+  it('срезает хвост нулей и не оставляет висящей запятой', () => {
+    expect(s(18)).toBe('18');
+    expect(s(15.5)).toBe('15,5');
+    expect(s(0)).toBe('0');
+    expect(s(1000)).toBe('1 000');
+  });
+
+  it('сохраняет знак', () => {
+    expect(s(-8)).toBe('-8');
+    expect(s(-2 / 3)).toBe('-0,6667');
+  });
+
+  it('разряды не зависят от величины, в отличие от formatMeasure', () => {
+    // formatMeasure для 1234,5678 даёт два знака, статистика — четыре
+    expect(s(1234.5678)).toBe('1 234,5678');
   });
 });

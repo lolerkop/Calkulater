@@ -1,5 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, parseLocalizedNumber, toStr } from '../../lib/format';
+import { formatStatistic } from '../../lib/platform/measurement';
 
 // Описательная статистика по произвольному списку чисел.
 //
@@ -16,12 +17,7 @@ import { fmtNumber, parseLocalizedNumber, toStr } from '../../lib/format';
 const tokenize = (raw: string): string[] =>
   raw.replace(/,(?=\s|$)/g, ' ').split(/[\s;]+/).filter(Boolean);
 
-// Разряды: у статистики точность выше, чем у размеров фигуры, — стандартное
-// отклонение 13,4907 отличимо от 13,491. Хвост нулей срезается.
-const statNumber = (value: number): string => {
-  const text = fmtNumber(Number(value.toFixed(4)), 4);
-  return text.includes(',') ? text.replace(/0+$/, '').replace(/,$/, '') : text;
-};
+const statNumber = (value: number): string => formatStatistic(value, fmtNumber);
 
 export const compute: CalcFunction = (inputs) => {
   const population = toStr(inputs.mode, 'sample') === 'population';
