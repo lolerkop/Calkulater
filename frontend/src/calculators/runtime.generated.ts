@@ -54,9 +54,11 @@ import { compute as compute_density } from './density/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
 import { compute as compute_dividend_yield } from './dividend-yield/compute';
 import { compute as compute_divisors } from './divisors/compute';
+import { compute as compute_down_payment } from './down-payment/compute';
 import { compute as compute_download_time } from './download-time/compute';
 import { compute as compute_dti } from './dti/compute';
 import { compute as compute_electricity_usage } from './electricity-usage/compute';
+import { compute as compute_engagement_rate } from './engagement-rate/compute';
 import { compute as compute_factorial } from './factorial/compute';
 import { compute as compute_files_on_disk } from './files-on-disk/compute';
 import { compute as compute_final_grade } from './final-grade/compute';
@@ -82,6 +84,7 @@ import { compute as compute_linear_equation } from './linear-equation/compute';
 import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
+import { compute as compute_market_cap } from './market-cap/compute';
 import { compute as compute_modulo } from './modulo/compute';
 import { compute as compute_momentum } from './momentum/compute';
 import { compute as compute_network_bandwidth } from './network-bandwidth/compute';
@@ -97,6 +100,7 @@ import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_potential_energy } from './potential-energy/compute';
 import { compute as compute_power_to_weight } from './power-to-weight/compute';
 import { compute as compute_pressure } from './pressure/compute';
+import { compute as compute_price_per_unit } from './price-per-unit/compute';
 import { compute as compute_prime_factorization } from './prime-factorization/compute';
 import { compute as compute_probability_basic } from './probability-basic/compute';
 import { compute as compute_proportion } from './proportion/compute';
@@ -104,6 +108,7 @@ import { contextualField as ctx_proportion } from './proportion/contextualField'
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
 import { compute as compute_reading_speed } from './reading-speed/compute';
 import { compute as compute_real_return } from './real-return/compute';
+import { compute as compute_rental_yield } from './rental-yield/compute';
 import { compute as compute_return_rate } from './return-rate/compute';
 import { compute as compute_revenue_per_employee } from './revenue-per-employee/compute';
 import { compute as compute_roas } from './roas/compute';
@@ -116,6 +121,7 @@ import { compute as compute_shipping_per_unit } from './shipping-per-unit/comput
 import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_speed_distance_time } from './speed-distance-time/compute';
 import { contextualField as ctx_speed_distance_time } from './speed-distance-time/contextualField';
+import { compute as compute_stock_duration } from './stock-duration/compute';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
 import { compute as compute_tip } from './tip/compute';
@@ -163,9 +169,11 @@ export const v2Runners: Record<string, CalcFunction> = {
   'difference-abs-rel': compute_difference_abs_rel,
   'dividend-yield': compute_dividend_yield,
   'divisors': compute_divisors,
+  'down-payment': compute_down_payment,
   'download-time': compute_download_time,
   'dti': compute_dti,
   'electricity-usage': compute_electricity_usage,
+  'engagement-rate': compute_engagement_rate,
   'factorial': compute_factorial,
   'files-on-disk': compute_files_on_disk,
   'final-grade': compute_final_grade,
@@ -189,6 +197,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'linear-equation': compute_linear_equation,
   'logarithm': compute_logarithm,
   'ltv': compute_ltv,
+  'market-cap': compute_market_cap,
   'modulo': compute_modulo,
   'momentum': compute_momentum,
   'network-bandwidth': compute_network_bandwidth,
@@ -201,12 +210,14 @@ export const v2Runners: Record<string, CalcFunction> = {
   'potential-energy': compute_potential_energy,
   'power-to-weight': compute_power_to_weight,
   'pressure': compute_pressure,
+  'price-per-unit': compute_price_per_unit,
   'prime-factorization': compute_prime_factorization,
   'probability-basic': compute_probability_basic,
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
   'reading-speed': compute_reading_speed,
   'real-return': compute_real_return,
+  'rental-yield': compute_rental_yield,
   'return-rate': compute_return_rate,
   'revenue-per-employee': compute_revenue_per_employee,
   'roas': compute_roas,
@@ -218,6 +229,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
   'speed-distance-time': compute_speed_distance_time,
+  'stock-duration': compute_stock_duration,
   'test-score-percent': compute_test_score_percent,
   'time-duration': compute_time_duration,
   'tip': compute_tip,

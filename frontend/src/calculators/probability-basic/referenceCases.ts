@@ -10,7 +10,7 @@ export const probabilityBasicReferenceCases: readonly CalculatorReferenceCase[] 
     name: "один исход из шести",
     inputs: {"mode": "single", "favourable": 1, "total": 6},
     expectPrimary: "0,1667",
-    expectSecondary: [{ label: "В процентах", value: "16,667 %" }],
+    expectSecondary: [{ label: "В процентах", value: "16,667%" }],
   },
   {
     name: "противоположное событие: 5 из 6",
@@ -31,7 +31,7 @@ export const probabilityBasicReferenceCases: readonly CalculatorReferenceCase[] 
     name: "граница: достоверное событие",
     inputs: {"mode": "single", "favourable": 6, "total": 6},
     expectPrimary: "1",
-    expectSecondary: [{ label: "В процентах", value: "100 %" }],
+    expectSecondary: [{ label: "В процентах", value: "100%" }],
   },
   {
     name: "благоприятных больше общего числа отклоняется",

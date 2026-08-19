@@ -50,9 +50,11 @@ import { definition as def_density } from './density/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
 import { definition as def_dividend_yield } from './dividend-yield/definition';
 import { definition as def_divisors } from './divisors/definition';
+import { definition as def_down_payment } from './down-payment/definition';
 import { definition as def_download_time } from './download-time/definition';
 import { definition as def_dti } from './dti/definition';
 import { definition as def_electricity_usage } from './electricity-usage/definition';
+import { definition as def_engagement_rate } from './engagement-rate/definition';
 import { definition as def_factorial } from './factorial/definition';
 import { definition as def_files_on_disk } from './files-on-disk/definition';
 import { definition as def_final_grade } from './final-grade/definition';
@@ -76,6 +78,7 @@ import { definition as def_led_resistor } from './led-resistor/definition';
 import { definition as def_linear_equation } from './linear-equation/definition';
 import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_ltv } from './ltv/definition';
+import { definition as def_market_cap } from './market-cap/definition';
 import { definition as def_modulo } from './modulo/definition';
 import { definition as def_momentum } from './momentum/definition';
 import { definition as def_network_bandwidth } from './network-bandwidth/definition';
@@ -88,12 +91,14 @@ import { definition as def_pool_fill_time } from './pool-fill-time/definition';
 import { definition as def_potential_energy } from './potential-energy/definition';
 import { definition as def_power_to_weight } from './power-to-weight/definition';
 import { definition as def_pressure } from './pressure/definition';
+import { definition as def_price_per_unit } from './price-per-unit/definition';
 import { definition as def_prime_factorization } from './prime-factorization/definition';
 import { definition as def_probability_basic } from './probability-basic/definition';
 import { definition as def_proportion } from './proportion/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
 import { definition as def_reading_speed } from './reading-speed/definition';
 import { definition as def_real_return } from './real-return/definition';
+import { definition as def_rental_yield } from './rental-yield/definition';
 import { definition as def_return_rate } from './return-rate/definition';
 import { definition as def_revenue_per_employee } from './revenue-per-employee/definition';
 import { definition as def_roas } from './roas/definition';
@@ -105,6 +110,7 @@ import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
 import { definition as def_speed_distance_time } from './speed-distance-time/definition';
+import { definition as def_stock_duration } from './stock-duration/definition';
 import { definition as def_test_score_percent } from './test-score-percent/definition';
 import { definition as def_time_duration } from './time-duration/definition';
 import { definition as def_tip } from './tip/definition';
@@ -152,9 +158,11 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_difference_abs_rel,
   def_dividend_yield,
   def_divisors,
+  def_down_payment,
   def_download_time,
   def_dti,
   def_electricity_usage,
+  def_engagement_rate,
   def_factorial,
   def_files_on_disk,
   def_final_grade,
@@ -178,6 +186,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_linear_equation,
   def_logarithm,
   def_ltv,
+  def_market_cap,
   def_modulo,
   def_momentum,
   def_network_bandwidth,
@@ -190,12 +199,14 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_potential_energy,
   def_power_to_weight,
   def_pressure,
+  def_price_per_unit,
   def_prime_factorization,
   def_probability_basic,
   def_proportion,
   def_quadratic_equation,
   def_reading_speed,
   def_real_return,
+  def_rental_yield,
   def_return_rate,
   def_revenue_per_employee,
   def_roas,
@@ -207,6 +218,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_shipping_per_unit,
   def_simple_interest,
   def_speed_distance_time,
+  def_stock_duration,
   def_test_score_percent,
   def_time_duration,
   def_tip,

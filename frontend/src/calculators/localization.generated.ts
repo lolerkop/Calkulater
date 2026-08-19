@@ -44,9 +44,11 @@ import { localization as loc_density } from './density/localization';
 import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
 import { localization as loc_dividend_yield } from './dividend-yield/localization';
 import { localization as loc_divisors } from './divisors/localization';
+import { localization as loc_down_payment } from './down-payment/localization';
 import { localization as loc_download_time } from './download-time/localization';
 import { localization as loc_dti } from './dti/localization';
 import { localization as loc_electricity_usage } from './electricity-usage/localization';
+import { localization as loc_engagement_rate } from './engagement-rate/localization';
 import { localization as loc_factorial } from './factorial/localization';
 import { localization as loc_files_on_disk } from './files-on-disk/localization';
 import { localization as loc_final_grade } from './final-grade/localization';
@@ -70,6 +72,7 @@ import { localization as loc_led_resistor } from './led-resistor/localization';
 import { localization as loc_linear_equation } from './linear-equation/localization';
 import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_ltv } from './ltv/localization';
+import { localization as loc_market_cap } from './market-cap/localization';
 import { localization as loc_modulo } from './modulo/localization';
 import { localization as loc_momentum } from './momentum/localization';
 import { localization as loc_network_bandwidth } from './network-bandwidth/localization';
@@ -80,12 +83,14 @@ import { localization as loc_pool_fill_time } from './pool-fill-time/localizatio
 import { localization as loc_potential_energy } from './potential-energy/localization';
 import { localization as loc_power_to_weight } from './power-to-weight/localization';
 import { localization as loc_pressure } from './pressure/localization';
+import { localization as loc_price_per_unit } from './price-per-unit/localization';
 import { localization as loc_prime_factorization } from './prime-factorization/localization';
 import { localization as loc_probability_basic } from './probability-basic/localization';
 import { localization as loc_proportion } from './proportion/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
 import { localization as loc_reading_speed } from './reading-speed/localization';
 import { localization as loc_real_return } from './real-return/localization';
+import { localization as loc_rental_yield } from './rental-yield/localization';
 import { localization as loc_return_rate } from './return-rate/localization';
 import { localization as loc_revenue_per_employee } from './revenue-per-employee/localization';
 import { localization as loc_roas } from './roas/localization';
@@ -97,6 +102,7 @@ import { localization as loc_savings_rate } from './savings-rate/localization';
 import { localization as loc_shipping_per_unit } from './shipping-per-unit/localization';
 import { localization as loc_simple_interest } from './simple-interest/localization';
 import { localization as loc_speed_distance_time } from './speed-distance-time/localization';
+import { localization as loc_stock_duration } from './stock-duration/localization';
 import { localization as loc_test_score_percent } from './test-score-percent/localization';
 import { localization as loc_time_duration } from './time-duration/localization';
 import { localization as loc_tip } from './tip/localization';
@@ -145,9 +151,11 @@ export const v2Localization: ScopedLocalization = {
     'difference-abs-rel': loc_difference_abs_rel.en ?? {},
     'dividend-yield': loc_dividend_yield.en ?? {},
     'divisors': loc_divisors.en ?? {},
+    'down-payment': loc_down_payment.en ?? {},
     'download-time': loc_download_time.en ?? {},
     'dti': loc_dti.en ?? {},
     'electricity-usage': loc_electricity_usage.en ?? {},
+    'engagement-rate': loc_engagement_rate.en ?? {},
     'factorial': loc_factorial.en ?? {},
     'files-on-disk': loc_files_on_disk.en ?? {},
     'final-grade': loc_final_grade.en ?? {},
@@ -171,6 +179,7 @@ export const v2Localization: ScopedLocalization = {
     'linear-equation': loc_linear_equation.en ?? {},
     'logarithm': loc_logarithm.en ?? {},
     'ltv': loc_ltv.en ?? {},
+    'market-cap': loc_market_cap.en ?? {},
     'modulo': loc_modulo.en ?? {},
     'momentum': loc_momentum.en ?? {},
     'network-bandwidth': loc_network_bandwidth.en ?? {},
@@ -181,12 +190,14 @@ export const v2Localization: ScopedLocalization = {
     'potential-energy': loc_potential_energy.en ?? {},
     'power-to-weight': loc_power_to_weight.en ?? {},
     'pressure': loc_pressure.en ?? {},
+    'price-per-unit': loc_price_per_unit.en ?? {},
     'prime-factorization': loc_prime_factorization.en ?? {},
     'probability-basic': loc_probability_basic.en ?? {},
     'proportion': loc_proportion.en ?? {},
     'quadratic-equation': loc_quadratic_equation.en ?? {},
     'reading-speed': loc_reading_speed.en ?? {},
     'real-return': loc_real_return.en ?? {},
+    'rental-yield': loc_rental_yield.en ?? {},
     'return-rate': loc_return_rate.en ?? {},
     'revenue-per-employee': loc_revenue_per_employee.en ?? {},
     'roas': loc_roas.en ?? {},
@@ -198,6 +209,7 @@ export const v2Localization: ScopedLocalization = {
     'shipping-per-unit': loc_shipping_per_unit.en ?? {},
     'simple-interest': loc_simple_interest.en ?? {},
     'speed-distance-time': loc_speed_distance_time.en ?? {},
+    'stock-duration': loc_stock_duration.en ?? {},
     'test-score-percent': loc_test_score_percent.en ?? {},
     'time-duration': loc_time_duration.en ?? {},
     'tip': loc_tip.en ?? {},
@@ -245,9 +257,11 @@ export const v2Localization: ScopedLocalization = {
     'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
     'dividend-yield': loc_dividend_yield.uk ?? {},
     'divisors': loc_divisors.uk ?? {},
+    'down-payment': loc_down_payment.uk ?? {},
     'download-time': loc_download_time.uk ?? {},
     'dti': loc_dti.uk ?? {},
     'electricity-usage': loc_electricity_usage.uk ?? {},
+    'engagement-rate': loc_engagement_rate.uk ?? {},
     'factorial': loc_factorial.uk ?? {},
     'files-on-disk': loc_files_on_disk.uk ?? {},
     'final-grade': loc_final_grade.uk ?? {},
@@ -271,6 +285,7 @@ export const v2Localization: ScopedLocalization = {
     'linear-equation': loc_linear_equation.uk ?? {},
     'logarithm': loc_logarithm.uk ?? {},
     'ltv': loc_ltv.uk ?? {},
+    'market-cap': loc_market_cap.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
     'momentum': loc_momentum.uk ?? {},
     'network-bandwidth': loc_network_bandwidth.uk ?? {},
@@ -281,12 +296,14 @@ export const v2Localization: ScopedLocalization = {
     'potential-energy': loc_potential_energy.uk ?? {},
     'power-to-weight': loc_power_to_weight.uk ?? {},
     'pressure': loc_pressure.uk ?? {},
+    'price-per-unit': loc_price_per_unit.uk ?? {},
     'prime-factorization': loc_prime_factorization.uk ?? {},
     'probability-basic': loc_probability_basic.uk ?? {},
     'proportion': loc_proportion.uk ?? {},
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
     'reading-speed': loc_reading_speed.uk ?? {},
     'real-return': loc_real_return.uk ?? {},
+    'rental-yield': loc_rental_yield.uk ?? {},
     'return-rate': loc_return_rate.uk ?? {},
     'revenue-per-employee': loc_revenue_per_employee.uk ?? {},
     'roas': loc_roas.uk ?? {},
@@ -298,6 +315,7 @@ export const v2Localization: ScopedLocalization = {
     'shipping-per-unit': loc_shipping_per_unit.uk ?? {},
     'simple-interest': loc_simple_interest.uk ?? {},
     'speed-distance-time': loc_speed_distance_time.uk ?? {},
+    'stock-duration': loc_stock_duration.uk ?? {},
     'test-score-percent': loc_test_score_percent.uk ?? {},
     'time-duration': loc_time_duration.uk ?? {},
     'tip': loc_tip.uk ?? {},

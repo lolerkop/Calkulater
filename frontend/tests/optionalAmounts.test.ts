@@ -60,6 +60,8 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['trip-cost', 'tolls'],
   ['real-return', 'amount'],
   ['ltv', 'cac'],
+  ['rental-yield', 'annualCosts'],
+  ['stock-duration', 'reserveDays'],
 ];
 
 describe('необязательные суммы', () => {

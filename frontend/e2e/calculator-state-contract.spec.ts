@@ -20,6 +20,17 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  // Волна 3, батч B2. Ожидаемые значения выведены вручную:
+  //   1 500 000 / 5 000 000 = 30 %      ·  250 000 000 / 1 000 000 = 250
+  //   50 000 × 12 / 8 000 000 = 7,5 %, чистая (600 000 − 120 000) / 8 000 000 = 6,0 %
+  //   150 / 0,5 = 300 против 260 / 1 = 260 -> B   ·  1000 / 75 = 13,3
+  //   120 / 4000 = 3 %
+  'down-payment': { query: { mode: 'amount', price: 5000000, downPayment: 1500000 }, result: { primary: '1 500 000,00 ₽', rows: [{ label: 'Доля взноса', value: '30,00%' }] } },
+  'market-cap': { query: { mode: 'price', shares: 1000000, cap: 250000000 }, result: { primary: '250,00 ₽', rows: [{ label: 'Капитализация', value: '250 000 000,00 ₽' }] } },
+  'rental-yield': { query: { price: 8000000, rentMode: 'monthly', monthlyRent: 50000, annualCosts: 120000 }, result: { primary: '7,50%', rows: [{ label: 'Чистая доходность', value: '6,00%' }] } },
+  'price-per-unit': { query: { mode: 'compare', unit: 'kg', priceA: 150, amountA: 0.5, priceB: 260, amountB: 1 }, result: { primary: 'B', rows: [{ label: 'Переплата за единицу', value: '40,00 ₽ за кг' }] } },
+  'stock-duration': { query: { stock: 1000, perDay: 75, reserveDays: 0 }, result: { primary: '13,3 дней', rows: [{ label: 'Расход в сутки', value: '75' }] } },
+  'engagement-rate': { query: { engagements: 120, base: 'followers', followers: 4000 }, result: { primary: '3,00%', rows: [{ label: 'База расчёта', value: 'подписчики' }] } },
   // Волна 3, батч B1. Ожидаемые значения выведены вручную:
   //   30 / 6 = 5 м/с      ·  2700 · 0,5 = 1350 кг   ·  2000 / 100000 = 0,02 м²
   //   2/3 · 3/4 = 6/12 -> 1/2          ·  0,5 + 0,5 − 0,25 = 0,75

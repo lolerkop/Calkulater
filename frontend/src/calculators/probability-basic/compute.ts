@@ -39,7 +39,7 @@ export const compute: CalcFunction = (inputs) => {
   return {
     primary: { label: 'Вероятность', value: fmt(p) },
     secondary: [
-      { label: 'В процентах', value: `${fmt(p * 100)} %` },
+      { label: 'В процентах', value: `${fmt(p * 100)}%` },
       { label: 'Противоположное событие', value: fmt(1 - p) },
       { label: 'Шансы', value: odds },
     ],
