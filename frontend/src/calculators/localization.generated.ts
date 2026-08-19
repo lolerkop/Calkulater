@@ -52,9 +52,14 @@ import { localization as loc_final_grade } from './final-grade/localization';
 import { localization as loc_fps_frametime } from './fps-frametime/localization';
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
 import { localization as loc_geom_circle } from './geom-circle/localization';
+import { localization as loc_geom_cone } from './geom-cone/localization';
+import { localization as loc_geom_cylinder } from './geom-cylinder/localization';
 import { localization as loc_geom_rectangle } from './geom-rectangle/localization';
+import { localization as loc_geom_regular_polygon } from './geom-regular-polygon/localization';
 import { localization as loc_geom_right_triangle } from './geom-right-triangle/localization';
+import { localization as loc_geom_sphere } from './geom-sphere/localization';
 import { localization as loc_geom_square } from './geom-square/localization';
+import { localization as loc_geom_trapezoid } from './geom-trapezoid/localization';
 import { localization as loc_geom_triangle } from './geom-triangle/localization';
 import { localization as loc_inverter_power } from './inverter-power/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
@@ -138,9 +143,14 @@ export const v2Localization: ScopedLocalization = {
     'fps-frametime': loc_fps_frametime.en ?? {},
     'fuel-consumption': loc_fuel_consumption.en ?? {},
     'geom-circle': loc_geom_circle.en ?? {},
+    'geom-cone': loc_geom_cone.en ?? {},
+    'geom-cylinder': loc_geom_cylinder.en ?? {},
     'geom-rectangle': loc_geom_rectangle.en ?? {},
+    'geom-regular-polygon': loc_geom_regular_polygon.en ?? {},
     'geom-right-triangle': loc_geom_right_triangle.en ?? {},
+    'geom-sphere': loc_geom_sphere.en ?? {},
     'geom-square': loc_geom_square.en ?? {},
+    'geom-trapezoid': loc_geom_trapezoid.en ?? {},
     'geom-triangle': loc_geom_triangle.en ?? {},
     'inverter-power': loc_inverter_power.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
@@ -223,9 +233,14 @@ export const v2Localization: ScopedLocalization = {
     'fps-frametime': loc_fps_frametime.uk ?? {},
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
     'geom-circle': loc_geom_circle.uk ?? {},
+    'geom-cone': loc_geom_cone.uk ?? {},
+    'geom-cylinder': loc_geom_cylinder.uk ?? {},
     'geom-rectangle': loc_geom_rectangle.uk ?? {},
+    'geom-regular-polygon': loc_geom_regular_polygon.uk ?? {},
     'geom-right-triangle': loc_geom_right_triangle.uk ?? {},
+    'geom-sphere': loc_geom_sphere.uk ?? {},
     'geom-square': loc_geom_square.uk ?? {},
+    'geom-trapezoid': loc_geom_trapezoid.uk ?? {},
     'geom-triangle': loc_geom_triangle.uk ?? {},
     'inverter-power': loc_inverter_power.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},

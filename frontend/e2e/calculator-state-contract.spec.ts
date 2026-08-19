@@ -20,6 +20,23 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  // Геометрия, волна 3. Ожидаемые значения выведены вручную из формул фигур:
+  //   √49 = 7 -> S = 49          ·  30 / 6 = 5        ·  π·5² = 78,54
+  //   ½·10·4 = 20                ·  √(13² − 5²) = 12  ·  ((7,5+2,5)/2)·3 = 15
+  //   квадрат как n=4: 5² = 25   ·  (4/3)π·5³ = 523,599
+  //   π·1²·1 = 3,142             ·  π·6²·8/3 = 301,593, образующая √(36+64) = 10
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  'geom-square': { query: { mode: 'area', unit: 'm', area: 49 }, result: { primary: '49 м²' } },
+  'geom-rectangle': { query: { mode: 'areaSide', unit: 'm', area: 30, a: 6 }, result: { primary: '30 м²', rows: [{ label: 'Вторая сторона', value: '5 м' }] } },
+  'geom-circle': { query: { mode: 'diameter', unit: 'cm', d: 10 }, result: { primary: '78,54 см²', rows: [{ label: 'Радиус', value: '5 см' }] } },
+  'geom-triangle': { query: { mode: 'baseHeight', unit: 'm', base: 10, height: 4 }, result: { primary: '20 м²' } },
+  'geom-right-triangle': { query: { mode: 'legHyp', unit: 'cm', a: 5, c: 13 }, result: { primary: '12 см', rows: [{ label: 'Площадь', value: '30 см²' }] } },
+  'geom-trapezoid': { query: { unit: 'm', a: 7.5, b: 2.5, h: 3 }, result: { primary: '15 м²', rows: [{ label: 'Средняя линия', value: '5 м' }] } },
+  'geom-regular-polygon': { query: { unit: 'm', n: 4, side: 5 }, result: { primary: '25 м²', rows: [{ label: 'Внутренний угол', value: '90°' }] } },
+  'geom-sphere': { query: { mode: 'diameter', unit: 'cm', d: 10 }, result: { primary: '523,6 см³', rows: [{ label: 'Радиус', value: '5 см' }] } },
+  'geom-cylinder': { query: { unit: 'm', r: 1, h: 1 }, result: { primary: '3,142 м³', rows: [{ label: 'Полная поверхность', value: '12,566 м²' }] } },
+  'geom-cone': { query: { unit: 'm', r: 6, h: 8 }, result: { primary: '301,59 м³', rows: [{ label: 'Образующая', value: '10 м' }] } },
   // Калькуляторы V2 волны 1. Ожидаемые значения выведены вручную из формул:
   //   (120000 − 90000) / 120000 = 25,00 %
   //   50 % от 80000 = 40 000 ₽

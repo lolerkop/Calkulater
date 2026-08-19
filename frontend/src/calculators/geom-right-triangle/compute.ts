@@ -1,27 +1,19 @@
 import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { formatMeasure, lengthSymbol } from '../../lib/platform/measurement';
 
 // Прямоугольный треугольник: a² + b² = c².
 //
 // Режим «катет и гипотенуза» строже режима «два катета»: c² − a² обязано быть
 // положительным. При c ≤ a под корнем оказывается ноль или отрицательное число,
 // и Math.sqrt вернёт 0 или NaN — оба выглядят как ответ, хотя треугольника нет.
-// Разряды подбираются по величине: у площади в квадратных миллиметрах и у
-// объёма в кубометрах разумная точность разная, а хвост нулей читать мешает.
-const dim = (value: number): string => {
-  const abs = Math.abs(value);
-  const digits = abs >= 100 ? 2 : abs >= 1 ? 3 : abs >= 0.01 ? 4 : 6;
-  const text = fmtNumber(Number(value.toFixed(digits)), digits);
-  return text.includes(',') ? text.replace(/0+$/, '').replace(/,$/, '') : text;
-};
 
-// Значение поля — ASCII-код единицы; в разметку идёт локализуемый символ.
-// Кириллица в value утекала бы в английские данные калькулятора.
-const SYMBOL: Record<string, string> = { mm: 'мм', cm: 'см', m: 'м' };
+
+const dim = (value: number): string => formatMeasure(value, fmtNumber);
 
 export const compute: CalcFunction = (inputs) => {
   const mode = toStr(inputs.mode, 'legs');
-  const unit = SYMBOL[toStr(inputs.unit, 'cm')] ?? 'см';
+  const unit = lengthSymbol(toStr(inputs.unit, 'cm'));
   const a = toNumber(inputs.a);
   const fail = (message: string) => ({
     primary: { label: mode === 'legs' ? 'Гипотенуза' : 'Второй катет', value: '—' },

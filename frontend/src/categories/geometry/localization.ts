@@ -187,7 +187,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -205,7 +205,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -223,7 +223,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -241,7 +241,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -259,7 +259,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -277,7 +277,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -295,7 +295,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -313,7 +313,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -331,7 +331,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -349,7 +349,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -367,7 +367,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -385,7 +385,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -403,7 +403,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -439,7 +439,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",
@@ -457,7 +457,7 @@ export const faq: CategoryFaqByLocale = {
     },
     {
       q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and its area is undefined rather than zero.",
+      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
     },
     {
       q: "Are the results rounded?",

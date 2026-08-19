@@ -54,9 +54,14 @@ import FinalGradeIsland from '../calculators/final-grade/island';
 import FpsFrametimeIsland from '../calculators/fps-frametime/island';
 import FuelConsumptionIsland from '../calculators/fuel-consumption/island';
 import GeomCircleIsland from '../calculators/geom-circle/island';
+import GeomConeIsland from '../calculators/geom-cone/island';
+import GeomCylinderIsland from '../calculators/geom-cylinder/island';
 import GeomRectangleIsland from '../calculators/geom-rectangle/island';
+import GeomRegularPolygonIsland from '../calculators/geom-regular-polygon/island';
 import GeomRightTriangleIsland from '../calculators/geom-right-triangle/island';
+import GeomSphereIsland from '../calculators/geom-sphere/island';
 import GeomSquareIsland from '../calculators/geom-square/island';
+import GeomTrapezoidIsland from '../calculators/geom-trapezoid/island';
 import GeomTriangleIsland from '../calculators/geom-triangle/island';
 import InverterPowerIsland from '../calculators/inverter-power/island';
 import LeapYearIsland from '../calculators/leap-year/island';
@@ -96,7 +101,7 @@ import WeekNumberIsland from '../calculators/week-number/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'combinatorics', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cpm', 'ctr', 'day-of-week', 'difference-abs-rel', 'dividend-yield', 'divisors', 'download-time', 'dti', 'electricity-usage', 'factorial', 'files-on-disk', 'final-grade', 'fps-frametime', 'fuel-consumption', 'geom-circle', 'geom-rectangle', 'geom-right-triangle', 'geom-square', 'geom-triangle', 'inverter-power', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'ltv', 'modulo', 'network-bandwidth', 'ohms-law', 'paint-calculator', 'percent-calculator', 'pool-fill-time', 'power-to-weight', 'prime-factorization', 'proportion', 'quadratic-equation', 'reading-speed', 'real-return', 'return-rate', 'revenue-per-employee', 'roas', 'roi', 'roman-numerals', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'speed-distance-time', 'test-score-percent', 'time-duration', 'tip', 'trip-cost', 'unix-timestamp', 'week-number']);
+const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'combinatorics', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cpm', 'ctr', 'day-of-week', 'difference-abs-rel', 'dividend-yield', 'divisors', 'download-time', 'dti', 'electricity-usage', 'factorial', 'files-on-disk', 'final-grade', 'fps-frametime', 'fuel-consumption', 'geom-circle', 'geom-cone', 'geom-cylinder', 'geom-rectangle', 'geom-regular-polygon', 'geom-right-triangle', 'geom-sphere', 'geom-square', 'geom-trapezoid', 'geom-triangle', 'inverter-power', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'ltv', 'modulo', 'network-bandwidth', 'ohms-law', 'paint-calculator', 'percent-calculator', 'pool-fill-time', 'power-to-weight', 'prime-factorization', 'proportion', 'quadratic-equation', 'reading-speed', 'real-return', 'return-rate', 'revenue-per-employee', 'roas', 'roi', 'roman-numerals', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'speed-distance-time', 'test-score-percent', 'time-duration', 'tip', 'trip-cost', 'unix-timestamp', 'week-number']);
 ---
 
 {id === 'ad-roi' && <AdRoiIsland calc={calc} locale={locale} client:load />}
@@ -145,9 +150,14 @@ const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'bud
 {id === 'fps-frametime' && <FpsFrametimeIsland calc={calc} locale={locale} client:load />}
 {id === 'fuel-consumption' && <FuelConsumptionIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-circle' && <GeomCircleIsland calc={calc} locale={locale} client:load />}
+{id === 'geom-cone' && <GeomConeIsland calc={calc} locale={locale} client:load />}
+{id === 'geom-cylinder' && <GeomCylinderIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-rectangle' && <GeomRectangleIsland calc={calc} locale={locale} client:load />}
+{id === 'geom-regular-polygon' && <GeomRegularPolygonIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-right-triangle' && <GeomRightTriangleIsland calc={calc} locale={locale} client:load />}
+{id === 'geom-sphere' && <GeomSphereIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-square' && <GeomSquareIsland calc={calc} locale={locale} client:load />}
+{id === 'geom-trapezoid' && <GeomTrapezoidIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-triangle' && <GeomTriangleIsland calc={calc} locale={locale} client:load />}
 {id === 'inverter-power' && <InverterPowerIsland calc={calc} locale={locale} client:load />}
 {id === 'leap-year' && <LeapYearIsland calc={calc} locale={locale} client:load />}

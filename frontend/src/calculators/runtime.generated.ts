@@ -63,9 +63,14 @@ import { compute as compute_fps_frametime } from './fps-frametime/compute';
 import { contextualField as ctx_fps_frametime } from './fps-frametime/contextualField';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
 import { compute as compute_geom_circle } from './geom-circle/compute';
+import { compute as compute_geom_cone } from './geom-cone/compute';
+import { compute as compute_geom_cylinder } from './geom-cylinder/compute';
 import { compute as compute_geom_rectangle } from './geom-rectangle/compute';
+import { compute as compute_geom_regular_polygon } from './geom-regular-polygon/compute';
 import { compute as compute_geom_right_triangle } from './geom-right-triangle/compute';
+import { compute as compute_geom_sphere } from './geom-sphere/compute';
 import { compute as compute_geom_square } from './geom-square/compute';
+import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
 import { compute as compute_geom_triangle } from './geom-triangle/compute';
 import { compute as compute_inverter_power } from './inverter-power/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
@@ -156,9 +161,14 @@ export const v2Runners: Record<string, CalcFunction> = {
   'fps-frametime': compute_fps_frametime,
   'fuel-consumption': compute_fuel_consumption,
   'geom-circle': compute_geom_circle,
+  'geom-cone': compute_geom_cone,
+  'geom-cylinder': compute_geom_cylinder,
   'geom-rectangle': compute_geom_rectangle,
+  'geom-regular-polygon': compute_geom_regular_polygon,
   'geom-right-triangle': compute_geom_right_triangle,
+  'geom-sphere': compute_geom_sphere,
   'geom-square': compute_geom_square,
+  'geom-trapezoid': compute_geom_trapezoid,
   'geom-triangle': compute_geom_triangle,
   'inverter-power': compute_inverter_power,
   'leap-year': compute_leap_year,

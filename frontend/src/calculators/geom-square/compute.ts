@@ -1,5 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { formatMeasure, lengthSymbol } from '../../lib/platform/measurement';
 
 // Квадрат. Сторона может быть задана напрямую, через площадь или через периметр.
 //
@@ -8,22 +9,13 @@ import { fmtNumber, toNumber, toStr } from '../../lib/format';
 // зависит — меняется только подпись. Площадь получает квадрат единицы, диагональ
 // остаётся линейной. Именно здесь чаще всего ошибаются вручную, переводя площадь
 // линейным множителем.
-// Разряды подбираются по величине: у площади в квадратных миллиметрах и у
-// объёма в кубометрах разумная точность разная, а хвост нулей читать мешает.
-const dim = (value: number): string => {
-  const abs = Math.abs(value);
-  const digits = abs >= 100 ? 2 : abs >= 1 ? 3 : abs >= 0.01 ? 4 : 6;
-  const text = fmtNumber(Number(value.toFixed(digits)), digits);
-  return text.includes(',') ? text.replace(/0+$/, '').replace(/,$/, '') : text;
-};
 
-// Значение поля — ASCII-код единицы; в разметку идёт локализуемый символ.
-// Кириллица в value утекала бы в английские данные калькулятора.
-const SYMBOL: Record<string, string> = { mm: 'мм', cm: 'см', m: 'м' };
+
+const dim = (value: number): string => formatMeasure(value, fmtNumber);
 
 export const compute: CalcFunction = (inputs) => {
   const mode = toStr(inputs.mode, 'side');
-  const unit = SYMBOL[toStr(inputs.unit, 'cm')] ?? 'см';
+  const unit = lengthSymbol(toStr(inputs.unit, 'cm'));
   const fail = (message: string) => ({
     primary: { label: 'Площадь', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
