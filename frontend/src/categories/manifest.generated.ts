@@ -17,9 +17,10 @@ import { definition as def_computers } from './computers/definition';
 import { definition as def_education } from './education/definition';
 import { definition as def_automotive } from './automotive/definition';
 import { definition as def_household } from './household/definition';
+import { definition as def_geometry } from './geometry/definition';
 
 /** Порядок задан полем order каждой категории, а не этим списком. */
-export const categoryIds = ['finance', 'currency', 'sport', 'building', 'date-time', 'math', 'business', 'converters', 'electronics', 'computers', 'education', 'automotive', 'household'] as const;
+export const categoryIds = ['finance', 'currency', 'sport', 'building', 'date-time', 'math', 'business', 'converters', 'electronics', 'computers', 'education', 'automotive', 'household', 'geometry'] as const;
 
 export type CategoryId = (typeof categoryIds)[number];
 
@@ -37,6 +38,7 @@ export const categoryDefinitions: readonly CategoryDefinition[] = [
   def_education,
   def_automotive,
   def_household,
+  def_geometry,
 ];
 
 export const categoryById: Readonly<Record<CategoryId, CategoryDefinition>> = {
@@ -53,4 +55,5 @@ export const categoryById: Readonly<Record<CategoryId, CategoryDefinition>> = {
   'education': def_education,
   'automotive': def_automotive,
   'household': def_household,
+  'geometry': def_geometry,
 } as const;

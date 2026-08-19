@@ -62,6 +62,11 @@ import { compute as compute_final_grade } from './final-grade/compute';
 import { compute as compute_fps_frametime } from './fps-frametime/compute';
 import { contextualField as ctx_fps_frametime } from './fps-frametime/contextualField';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
+import { compute as compute_geom_circle } from './geom-circle/compute';
+import { compute as compute_geom_rectangle } from './geom-rectangle/compute';
+import { compute as compute_geom_right_triangle } from './geom-right-triangle/compute';
+import { compute as compute_geom_square } from './geom-square/compute';
+import { compute as compute_geom_triangle } from './geom-triangle/compute';
 import { compute as compute_inverter_power } from './inverter-power/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
@@ -150,6 +155,11 @@ export const v2Runners: Record<string, CalcFunction> = {
   'final-grade': compute_final_grade,
   'fps-frametime': compute_fps_frametime,
   'fuel-consumption': compute_fuel_consumption,
+  'geom-circle': compute_geom_circle,
+  'geom-rectangle': compute_geom_rectangle,
+  'geom-right-triangle': compute_geom_right_triangle,
+  'geom-square': compute_geom_square,
+  'geom-triangle': compute_geom_triangle,
   'inverter-power': compute_inverter_power,
   'leap-year': compute_leap_year,
   'led-resistor': compute_led_resistor,

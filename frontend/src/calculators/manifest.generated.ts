@@ -57,6 +57,11 @@ import { definition as def_files_on_disk } from './files-on-disk/definition';
 import { definition as def_final_grade } from './final-grade/definition';
 import { definition as def_fps_frametime } from './fps-frametime/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
+import { definition as def_geom_circle } from './geom-circle/definition';
+import { definition as def_geom_rectangle } from './geom-rectangle/definition';
+import { definition as def_geom_right_triangle } from './geom-right-triangle/definition';
+import { definition as def_geom_square } from './geom-square/definition';
+import { definition as def_geom_triangle } from './geom-triangle/definition';
 import { definition as def_inverter_power } from './inverter-power/definition';
 import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
@@ -139,6 +144,11 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_final_grade,
   def_fps_frametime,
   def_fuel_consumption,
+  def_geom_circle,
+  def_geom_rectangle,
+  def_geom_right_triangle,
+  def_geom_square,
+  def_geom_triangle,
   def_inverter_power,
   def_leap_year,
   def_led_resistor,

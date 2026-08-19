@@ -51,6 +51,11 @@ import { localization as loc_files_on_disk } from './files-on-disk/localization'
 import { localization as loc_final_grade } from './final-grade/localization';
 import { localization as loc_fps_frametime } from './fps-frametime/localization';
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
+import { localization as loc_geom_circle } from './geom-circle/localization';
+import { localization as loc_geom_rectangle } from './geom-rectangle/localization';
+import { localization as loc_geom_right_triangle } from './geom-right-triangle/localization';
+import { localization as loc_geom_square } from './geom-square/localization';
+import { localization as loc_geom_triangle } from './geom-triangle/localization';
 import { localization as loc_inverter_power } from './inverter-power/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_led_resistor } from './led-resistor/localization';
@@ -132,6 +137,11 @@ export const v2Localization: ScopedLocalization = {
     'final-grade': loc_final_grade.en ?? {},
     'fps-frametime': loc_fps_frametime.en ?? {},
     'fuel-consumption': loc_fuel_consumption.en ?? {},
+    'geom-circle': loc_geom_circle.en ?? {},
+    'geom-rectangle': loc_geom_rectangle.en ?? {},
+    'geom-right-triangle': loc_geom_right_triangle.en ?? {},
+    'geom-square': loc_geom_square.en ?? {},
+    'geom-triangle': loc_geom_triangle.en ?? {},
     'inverter-power': loc_inverter_power.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
     'led-resistor': loc_led_resistor.en ?? {},
@@ -212,6 +222,11 @@ export const v2Localization: ScopedLocalization = {
     'final-grade': loc_final_grade.uk ?? {},
     'fps-frametime': loc_fps_frametime.uk ?? {},
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
+    'geom-circle': loc_geom_circle.uk ?? {},
+    'geom-rectangle': loc_geom_rectangle.uk ?? {},
+    'geom-right-triangle': loc_geom_right_triangle.uk ?? {},
+    'geom-square': loc_geom_square.uk ?? {},
+    'geom-triangle': loc_geom_triangle.uk ?? {},
     'inverter-power': loc_inverter_power.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
     'led-resistor': loc_led_resistor.uk ?? {},
