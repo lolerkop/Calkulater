@@ -19,12 +19,14 @@ import { definition as def_aspect_ratio } from './aspect-ratio/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
 import { definition as def_battery_runtime } from './battery-runtime/definition';
 import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
+import { definition as def_board_volume } from './board-volume/definition';
 import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition';
 import { definition as def_cac } from './cac/definition';
 import { definition as def_cagr } from './cagr/definition';
 import { definition as def_calories_from_macros } from './calories-from-macros/definition';
 import { definition as def_combinatorics } from './combinatorics/definition';
 import { definition as def_commission } from './commission/definition';
+import { definition as def_concrete } from './concrete/definition';
 import { definition as def_contribution_margin } from './contribution-margin/definition';
 import { definition as def_convert_angle } from './convert-angle/definition';
 import { definition as def_convert_area } from './convert-area/definition';
@@ -77,6 +79,7 @@ import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
 import { definition as def_geom_triangle } from './geom-triangle/definition';
 import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
 import { definition as def_installment } from './installment/definition';
+import { definition as def_insulation } from './insulation/definition';
 import { definition as def_inventory_turnover } from './inventory-turnover/definition';
 import { definition as def_inverter_power } from './inverter-power/definition';
 import { definition as def_kinetic_energy } from './kinetic-energy/definition';
@@ -97,6 +100,7 @@ import { definition as def_paint_calculator } from './paint-calculator/definitio
 import { definition as def_percent_calculator } from './percent-calculator/definition';
 import { definition as def_ph_poh } from './ph-poh/definition';
 import { definition as def_physics_power } from './physics-power/definition';
+import { definition as def_plaster } from './plaster/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
 import { definition as def_potential_energy } from './potential-energy/definition';
 import { definition as def_power_to_weight } from './power-to-weight/definition';
@@ -143,12 +147,14 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_battery_charge_time,
   def_battery_runtime,
   def_bike_gear_ratio,
+  def_board_volume,
   def_budget_50_30_20,
   def_cac,
   def_cagr,
   def_calories_from_macros,
   def_combinatorics,
   def_commission,
+  def_concrete,
   def_contribution_margin,
   def_convert_angle,
   def_convert_area,
@@ -201,6 +207,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_triangle,
   def_ideal_gas_law,
   def_installment,
+  def_insulation,
   def_inventory_turnover,
   def_inverter_power,
   def_kinetic_energy,
@@ -221,6 +228,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_percent_calculator,
   def_ph_poh,
   def_physics_power,
+  def_plaster,
   def_pool_fill_time,
   def_potential_energy,
   def_power_to_weight,

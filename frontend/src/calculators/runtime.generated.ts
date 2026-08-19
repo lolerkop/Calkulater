@@ -21,6 +21,7 @@ import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
+import { compute as compute_board_volume } from './board-volume/compute';
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
@@ -29,6 +30,7 @@ import { compute as compute_combinatorics } from './combinatorics/compute';
 import { compute as compute_commission } from './commission/compute';
 import { validate as validate_commission } from './commission/validate';
 import { contextualField as ctx_commission } from './commission/contextualField';
+import { compute as compute_concrete } from './concrete/compute';
 import { compute as compute_contribution_margin } from './contribution-margin/compute';
 import { compute as compute_convert_angle } from './convert-angle/compute';
 import { compute as compute_convert_area } from './convert-area/compute';
@@ -82,6 +84,7 @@ import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
 import { compute as compute_geom_triangle } from './geom-triangle/compute';
 import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
 import { compute as compute_installment } from './installment/compute';
+import { compute as compute_insulation } from './insulation/compute';
 import { compute as compute_inventory_turnover } from './inventory-turnover/compute';
 import { compute as compute_inverter_power } from './inverter-power/compute';
 import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
@@ -106,6 +109,7 @@ import { validate as validate_percent_calculator } from './percent-calculator/va
 import { contextualField as ctx_percent_calculator } from './percent-calculator/contextualField';
 import { compute as compute_ph_poh } from './ph-poh/compute';
 import { compute as compute_physics_power } from './physics-power/compute';
+import { compute as compute_plaster } from './plaster/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_potential_energy } from './potential-energy/compute';
 import { compute as compute_power_to_weight } from './power-to-weight/compute';
@@ -154,12 +158,14 @@ export const v2Runners: Record<string, CalcFunction> = {
   'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
   'bike-gear-ratio': compute_bike_gear_ratio,
+  'board-volume': compute_board_volume,
   'budget-50-30-20': compute_budget_50_30_20,
   'cac': compute_cac,
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
   'combinatorics': compute_combinatorics,
   'commission': compute_commission,
+  'concrete': compute_concrete,
   'contribution-margin': compute_contribution_margin,
   'convert-angle': compute_convert_angle,
   'convert-area': compute_convert_area,
@@ -212,6 +218,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-triangle': compute_geom_triangle,
   'ideal-gas-law': compute_ideal_gas_law,
   'installment': compute_installment,
+  'insulation': compute_insulation,
   'inventory-turnover': compute_inventory_turnover,
   'inverter-power': compute_inverter_power,
   'kinetic-energy': compute_kinetic_energy,
@@ -232,6 +239,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'percent-calculator': compute_percent_calculator,
   'ph-poh': compute_ph_poh,
   'physics-power': compute_physics_power,
+  'plaster': compute_plaster,
   'pool-fill-time': compute_pool_fill_time,
   'potential-energy': compute_potential_energy,
   'power-to-weight': compute_power_to_weight,

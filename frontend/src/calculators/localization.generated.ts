@@ -13,12 +13,14 @@ import { localization as loc_aspect_ratio } from './aspect-ratio/localization';
 import { localization as loc_battery_charge_time } from './battery-charge-time/localization';
 import { localization as loc_battery_runtime } from './battery-runtime/localization';
 import { localization as loc_bike_gear_ratio } from './bike-gear-ratio/localization';
+import { localization as loc_board_volume } from './board-volume/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
 import { localization as loc_calories_from_macros } from './calories-from-macros/localization';
 import { localization as loc_combinatorics } from './combinatorics/localization';
 import { localization as loc_commission } from './commission/localization';
+import { localization as loc_concrete } from './concrete/localization';
 import { localization as loc_contribution_margin } from './contribution-margin/localization';
 import { localization as loc_convert_angle } from './convert-angle/localization';
 import { localization as loc_convert_area } from './convert-area/localization';
@@ -71,6 +73,7 @@ import { localization as loc_geom_trapezoid } from './geom-trapezoid/localizatio
 import { localization as loc_geom_triangle } from './geom-triangle/localization';
 import { localization as loc_ideal_gas_law } from './ideal-gas-law/localization';
 import { localization as loc_installment } from './installment/localization';
+import { localization as loc_insulation } from './insulation/localization';
 import { localization as loc_inventory_turnover } from './inventory-turnover/localization';
 import { localization as loc_inverter_power } from './inverter-power/localization';
 import { localization as loc_kinetic_energy } from './kinetic-energy/localization';
@@ -89,6 +92,7 @@ import { localization as loc_newton_force } from './newton-force/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
 import { localization as loc_ph_poh } from './ph-poh/localization';
 import { localization as loc_physics_power } from './physics-power/localization';
+import { localization as loc_plaster } from './plaster/localization';
 import { localization as loc_pool_fill_time } from './pool-fill-time/localization';
 import { localization as loc_potential_energy } from './potential-energy/localization';
 import { localization as loc_power_to_weight } from './power-to-weight/localization';
@@ -136,12 +140,14 @@ export const v2Localization: ScopedLocalization = {
     'battery-charge-time': loc_battery_charge_time.en ?? {},
     'battery-runtime': loc_battery_runtime.en ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.en ?? {},
+    'board-volume': loc_board_volume.en ?? {},
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
     'calories-from-macros': loc_calories_from_macros.en ?? {},
     'combinatorics': loc_combinatorics.en ?? {},
     'commission': loc_commission.en ?? {},
+    'concrete': loc_concrete.en ?? {},
     'contribution-margin': loc_contribution_margin.en ?? {},
     'convert-angle': loc_convert_angle.en ?? {},
     'convert-area': loc_convert_area.en ?? {},
@@ -194,6 +200,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-triangle': loc_geom_triangle.en ?? {},
     'ideal-gas-law': loc_ideal_gas_law.en ?? {},
     'installment': loc_installment.en ?? {},
+    'insulation': loc_insulation.en ?? {},
     'inventory-turnover': loc_inventory_turnover.en ?? {},
     'inverter-power': loc_inverter_power.en ?? {},
     'kinetic-energy': loc_kinetic_energy.en ?? {},
@@ -212,6 +219,7 @@ export const v2Localization: ScopedLocalization = {
     'ohms-law': loc_ohms_law.en ?? {},
     'ph-poh': loc_ph_poh.en ?? {},
     'physics-power': loc_physics_power.en ?? {},
+    'plaster': loc_plaster.en ?? {},
     'pool-fill-time': loc_pool_fill_time.en ?? {},
     'potential-energy': loc_potential_energy.en ?? {},
     'power-to-weight': loc_power_to_weight.en ?? {},
@@ -258,12 +266,14 @@ export const v2Localization: ScopedLocalization = {
     'battery-charge-time': loc_battery_charge_time.uk ?? {},
     'battery-runtime': loc_battery_runtime.uk ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.uk ?? {},
+    'board-volume': loc_board_volume.uk ?? {},
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
     'calories-from-macros': loc_calories_from_macros.uk ?? {},
     'combinatorics': loc_combinatorics.uk ?? {},
     'commission': loc_commission.uk ?? {},
+    'concrete': loc_concrete.uk ?? {},
     'contribution-margin': loc_contribution_margin.uk ?? {},
     'convert-angle': loc_convert_angle.uk ?? {},
     'convert-area': loc_convert_area.uk ?? {},
@@ -316,6 +326,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-triangle': loc_geom_triangle.uk ?? {},
     'ideal-gas-law': loc_ideal_gas_law.uk ?? {},
     'installment': loc_installment.uk ?? {},
+    'insulation': loc_insulation.uk ?? {},
     'inventory-turnover': loc_inventory_turnover.uk ?? {},
     'inverter-power': loc_inverter_power.uk ?? {},
     'kinetic-energy': loc_kinetic_energy.uk ?? {},
@@ -334,6 +345,7 @@ export const v2Localization: ScopedLocalization = {
     'ohms-law': loc_ohms_law.uk ?? {},
     'ph-poh': loc_ph_poh.uk ?? {},
     'physics-power': loc_physics_power.uk ?? {},
+    'plaster': loc_plaster.uk ?? {},
     'pool-fill-time': loc_pool_fill_time.uk ?? {},
     'potential-energy': loc_potential_energy.uk ?? {},
     'power-to-weight': loc_power_to_weight.uk ?? {},

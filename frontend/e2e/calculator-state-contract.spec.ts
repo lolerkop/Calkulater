@@ -20,6 +20,17 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  // Волна 4, батч B1 — строительные материалы. Ожидаемые значения выведены вручную:
+  //   35,5 × 15 × 9 = 4 792,5 кг; мешков ceil(4792,5 / 25) = 192
+  //   4 × 0,100 × 0,040 = 0,016 м³; × 20 = 0,32 м³
+  //   10 × 3 × 0,15 = 4,5 м³ без запаса
+  //   24,5 × 0,05 = 1,225 м³; плит ceil(24,5 / 0,6) = 41; упаковок ceil(41 / 8) = 6
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  'plaster': { query: { mode: 'area', area: 35.5, thickness: 15, consumption: 9, bagWeight: 25 }, result: { primary: '4 792,50 кг', rows: [{ label: 'Мешков', value: '192 шт' }] } },
+  'board-volume': { query: { length: 4, width: 100, thickness: 40, count: 20, pricePerM3: 0 }, result: { primary: '0,32 м³', rows: [{ label: 'Объём одной доски', value: '0,016 м³' }, { label: 'Досок в кубометре', value: '62,50 шт' }] } },
+  'concrete': { query: { mode: 'slab', length: 10, width: 3, thickness: 0.15, waste: 0 }, result: { primary: '4,5 м³', rows: [{ label: 'Чистый объём', value: '4,5 м³' }] } },
+  'insulation': { query: { area: 24.5, thickness: 50, slabArea: 0.6, perPack: 8 }, result: { primary: '1,225 м³', rows: [{ label: 'Плит', value: '41 шт' }, { label: 'Упаковок', value: '6 шт' }] } },
   // Волна 4, батч A3 — химия. Ожидаемые значения выведены вручную:
   //   58,44 г при M = 58,44 -> 1 моль; 1 / 0,5 л = 2 моль/л
   //   44 / 44,01 = 0,9997727789 -> 0,9998 моль; N = 0,9997727789 · 6,02214076e23 = 6,021e23

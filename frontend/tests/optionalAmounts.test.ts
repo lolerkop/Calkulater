@@ -63,6 +63,7 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['rental-yield', 'annualCosts'],
   ['stock-duration', 'reserveDays'],
   ['bike-gear-ratio', 'wheelCircumference'],
+  ['board-volume', 'pricePerM3'],
 ];
 
 describe('необязательные суммы', () => {
