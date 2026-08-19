@@ -106,6 +106,7 @@ import { localization as loc_savings_rate } from './savings-rate/localization';
 import { localization as loc_shipping_per_unit } from './shipping-per-unit/localization';
 import { localization as loc_simple_interest } from './simple-interest/localization';
 import { localization as loc_speed_distance_time } from './speed-distance-time/localization';
+import { localization as loc_stats_descriptive } from './stats-descriptive/localization';
 import { localization as loc_stock_duration } from './stock-duration/localization';
 import { localization as loc_test_score_percent } from './test-score-percent/localization';
 import { localization as loc_time_duration } from './time-duration/localization';
@@ -113,7 +114,10 @@ import { localization as loc_tip } from './tip/localization';
 import { localization as loc_trip_cost } from './trip-cost/localization';
 import { localization as loc_unix_timestamp } from './unix-timestamp/localization';
 import { localization as loc_week_number } from './week-number/localization';
+import { localization as loc_weighted_mean } from './weighted-mean/localization';
 import { localization as loc_work } from './work/localization';
+import { localization as loc_workday_cost } from './workday-cost/localization';
+import { localization as loc_z_score } from './z-score/localization';
 
 export const v2Localization: ScopedLocalization = {
   en: {
@@ -217,6 +221,7 @@ export const v2Localization: ScopedLocalization = {
     'shipping-per-unit': loc_shipping_per_unit.en ?? {},
     'simple-interest': loc_simple_interest.en ?? {},
     'speed-distance-time': loc_speed_distance_time.en ?? {},
+    'stats-descriptive': loc_stats_descriptive.en ?? {},
     'stock-duration': loc_stock_duration.en ?? {},
     'test-score-percent': loc_test_score_percent.en ?? {},
     'time-duration': loc_time_duration.en ?? {},
@@ -224,7 +229,10 @@ export const v2Localization: ScopedLocalization = {
     'trip-cost': loc_trip_cost.en ?? {},
     'unix-timestamp': loc_unix_timestamp.en ?? {},
     'week-number': loc_week_number.en ?? {},
+    'weighted-mean': loc_weighted_mean.en ?? {},
     'work': loc_work.en ?? {},
+    'workday-cost': loc_workday_cost.en ?? {},
+    'z-score': loc_z_score.en ?? {},
   },
   uk: {
     'ad-roi': loc_ad_roi.uk ?? {},
@@ -327,6 +335,7 @@ export const v2Localization: ScopedLocalization = {
     'shipping-per-unit': loc_shipping_per_unit.uk ?? {},
     'simple-interest': loc_simple_interest.uk ?? {},
     'speed-distance-time': loc_speed_distance_time.uk ?? {},
+    'stats-descriptive': loc_stats_descriptive.uk ?? {},
     'stock-duration': loc_stock_duration.uk ?? {},
     'test-score-percent': loc_test_score_percent.uk ?? {},
     'time-duration': loc_time_duration.uk ?? {},
@@ -334,6 +343,9 @@ export const v2Localization: ScopedLocalization = {
     'trip-cost': loc_trip_cost.uk ?? {},
     'unix-timestamp': loc_unix_timestamp.uk ?? {},
     'week-number': loc_week_number.uk ?? {},
+    'weighted-mean': loc_weighted_mean.uk ?? {},
     'work': loc_work.uk ?? {},
+    'workday-cost': loc_workday_cost.uk ?? {},
+    'z-score': loc_z_score.uk ?? {},
   },
 };

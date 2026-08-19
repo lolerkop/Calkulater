@@ -114,6 +114,7 @@ import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
 import { definition as def_speed_distance_time } from './speed-distance-time/definition';
+import { definition as def_stats_descriptive } from './stats-descriptive/definition';
 import { definition as def_stock_duration } from './stock-duration/definition';
 import { definition as def_test_score_percent } from './test-score-percent/definition';
 import { definition as def_time_duration } from './time-duration/definition';
@@ -121,7 +122,10 @@ import { definition as def_tip } from './tip/definition';
 import { definition as def_trip_cost } from './trip-cost/definition';
 import { definition as def_unix_timestamp } from './unix-timestamp/definition';
 import { definition as def_week_number } from './week-number/definition';
+import { definition as def_weighted_mean } from './weighted-mean/definition';
 import { definition as def_work } from './work/definition';
+import { definition as def_workday_cost } from './workday-cost/definition';
+import { definition as def_z_score } from './z-score/definition';
 
 export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ad_roi,
@@ -226,6 +230,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_shipping_per_unit,
   def_simple_interest,
   def_speed_distance_time,
+  def_stats_descriptive,
   def_stock_duration,
   def_test_score_percent,
   def_time_duration,
@@ -233,7 +238,10 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_trip_cost,
   def_unix_timestamp,
   def_week_number,
+  def_weighted_mean,
   def_work,
+  def_workday_cost,
+  def_z_score,
 ];
 
 const published = v2Definitions.filter(isPublished);

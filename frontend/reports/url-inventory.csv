@@ -153,6 +153,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/business/shipping-per-unit/,ru,calculator,true,/ru/business/shipping-per-unit/,calculator:shipping-per-unit,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/simple-interest/,ru,calculator,true,/ru/finance/simple-interest/,calculator:simple-interest,src/pages/[locale]/[category]/[calculator].astro
 /ru/automotive/speed-distance-time/,ru,calculator,true,/ru/automotive/speed-distance-time/,calculator:speed-distance-time,src/pages/[locale]/[category]/[calculator].astro
+/ru/math/descriptive-statistics/,ru,calculator,true,/ru/math/descriptive-statistics/,calculator:stats-descriptive,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/stock-duration/,ru,calculator,true,/ru/household/stock-duration/,calculator:stock-duration,src/pages/[locale]/[category]/[calculator].astro
 /ru/education/test-score-percent/,ru,calculator,true,/ru/education/test-score-percent/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/time-duration/,ru,calculator,true,/ru/date-time/time-duration/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
@@ -160,7 +161,10 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/automotive/trip-cost/,ru,calculator,true,/ru/automotive/trip-cost/,calculator:trip-cost,src/pages/[locale]/[category]/[calculator].astro
 /ru/computers/unix-timestamp/,ru,calculator,true,/ru/computers/unix-timestamp/,calculator:unix-timestamp,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/week-number/,ru,calculator,true,/ru/date-time/week-number/,calculator:week-number,src/pages/[locale]/[category]/[calculator].astro
+/ru/math/weighted-average/,ru,calculator,true,/ru/math/weighted-average/,calculator:weighted-mean,src/pages/[locale]/[category]/[calculator].astro
 /ru/physics/work/,ru,calculator,true,/ru/physics/work/,calculator:work,src/pages/[locale]/[category]/[calculator].astro
+/ru/finance/workday-cost/,ru,calculator,true,/ru/finance/workday-cost/,calculator:workday-cost,src/pages/[locale]/[category]/[calculator].astro
+/ru/math/z-score/,ru,calculator,true,/ru/math/z-score/,calculator:z-score,src/pages/[locale]/[category]/[calculator].astro
 /en/,en,home,true,/en/,home,src/pages/[locale]/index.astro
 /en/calculators/,en,catalog,true,/en/calculators/,catalog,src/pages/[locale]/calculators.astro
 /en/calculators/?tag=*,en,facet,false,/en/calculators/,none,functions/[locale]/calculators.js
@@ -310,6 +314,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/business/shipping-per-unit/,en,calculator,true,/en/business/shipping-per-unit/,calculator:shipping-per-unit,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/simple-interest/,en,calculator,true,/en/finance/simple-interest/,calculator:simple-interest,src/pages/[locale]/[category]/[calculator].astro
 /en/automotive/speed-distance-time-calculator/,en,calculator,true,/en/automotive/speed-distance-time-calculator/,calculator:speed-distance-time,src/pages/[locale]/[category]/[calculator].astro
+/en/math/descriptive-statistics-calculator/,en,calculator,true,/en/math/descriptive-statistics-calculator/,calculator:stats-descriptive,src/pages/[locale]/[category]/[calculator].astro
 /en/household/stock-duration-calculator/,en,calculator,true,/en/household/stock-duration-calculator/,calculator:stock-duration,src/pages/[locale]/[category]/[calculator].astro
 /en/education/test-score-percentage-calculator/,en,calculator,true,/en/education/test-score-percentage-calculator/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/time-duration-calculator/,en,calculator,true,/en/date-time/time-duration-calculator/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
@@ -317,7 +322,10 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/automotive/trip-cost-calculator/,en,calculator,true,/en/automotive/trip-cost-calculator/,calculator:trip-cost,src/pages/[locale]/[category]/[calculator].astro
 /en/computers/unix-timestamp-converter/,en,calculator,true,/en/computers/unix-timestamp-converter/,calculator:unix-timestamp,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/week-number-calculator/,en,calculator,true,/en/date-time/week-number-calculator/,calculator:week-number,src/pages/[locale]/[category]/[calculator].astro
+/en/math/weighted-average-calculator/,en,calculator,true,/en/math/weighted-average-calculator/,calculator:weighted-mean,src/pages/[locale]/[category]/[calculator].astro
 /en/physics/work-physics-calculator/,en,calculator,true,/en/physics/work-physics-calculator/,calculator:work,src/pages/[locale]/[category]/[calculator].astro
+/en/finance/workday-cost-calculator/,en,calculator,true,/en/finance/workday-cost-calculator/,calculator:workday-cost,src/pages/[locale]/[category]/[calculator].astro
+/en/math/z-score-calculator/,en,calculator,true,/en/math/z-score-calculator/,calculator:z-score,src/pages/[locale]/[category]/[calculator].astro
 /uk/,uk,home,true,/uk/,home,src/pages/[locale]/index.astro
 /uk/calculators/,uk,catalog,true,/uk/calculators/,catalog,src/pages/[locale]/calculators.astro
 /uk/calculators/?tag=*,uk,facet,false,/uk/calculators/,none,functions/[locale]/calculators.js
@@ -467,6 +475,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/business/dostavka-na-odynytsyu/,uk,calculator,true,/uk/business/dostavka-na-odynytsyu/,calculator:shipping-per-unit,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/prosti-vidsotky/,uk,calculator,true,/uk/finansy/prosti-vidsotky/,calculator:simple-interest,src/pages/[locale]/[category]/[calculator].astro
 /uk/avtomobili/shvydkist-vidstan-chas/,uk,calculator,true,/uk/avtomobili/shvydkist-vidstan-chas/,calculator:speed-distance-time,src/pages/[locale]/[category]/[calculator].astro
+/uk/math/serednie-znachennia/,uk,calculator,true,/uk/math/serednie-znachennia/,calculator:stats-descriptive,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/zapas-produktu/,uk,calculator,true,/uk/pobut/zapas-produktu/,calculator:stock-duration,src/pages/[locale]/[category]/[calculator].astro
 /uk/navchannya/vidsotok-za-test/,uk,calculator,true,/uk/navchannya/vidsotok-za-test/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-tryvalosti-chasu/,uk,calculator,true,/uk/daty/kalkulyator-tryvalosti-chasu/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
@@ -474,7 +483,10 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/avtomobili/vartist-poyizdky/,uk,calculator,true,/uk/avtomobili/vartist-poyizdky/,calculator:trip-cost,src/pages/[locale]/[category]/[calculator].astro
 /uk/kompyutery/unix-chas/,uk,calculator,true,/uk/kompyutery/unix-chas/,calculator:unix-timestamp,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-nomera-tyzhnya/,uk,calculator,true,/uk/daty/kalkulyator-nomera-tyzhnya/,calculator:week-number,src/pages/[locale]/[category]/[calculator].astro
+/uk/math/serednozvazhene/,uk,calculator,true,/uk/math/serednozvazhene/,calculator:weighted-mean,src/pages/[locale]/[category]/[calculator].astro
 /uk/fizyka/mekhanichna-robota/,uk,calculator,true,/uk/fizyka/mekhanichna-robota/,calculator:work,src/pages/[locale]/[category]/[calculator].astro
+/uk/finansy/vartist-robochoho-dnia/,uk,calculator,true,/uk/finansy/vartist-robochoho-dnia/,calculator:workday-cost,src/pages/[locale]/[category]/[calculator].astro
+/uk/math/z-ocinka/,uk,calculator,true,/uk/math/z-ocinka/,calculator:z-score,src/pages/[locale]/[category]/[calculator].astro
 /calculators/,ru,redirect,false,/ru/calculators/,none,functions/_middleware.js
 /about/,ru,redirect,false,/ru/about/,none,functions/_middleware.js
 /contacts/,ru,redirect,false,/ru/contacts/,none,functions/_middleware.js

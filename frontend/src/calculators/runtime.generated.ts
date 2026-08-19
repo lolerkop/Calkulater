@@ -125,6 +125,7 @@ import { compute as compute_shipping_per_unit } from './shipping-per-unit/comput
 import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_speed_distance_time } from './speed-distance-time/compute';
 import { contextualField as ctx_speed_distance_time } from './speed-distance-time/contextualField';
+import { compute as compute_stats_descriptive } from './stats-descriptive/compute';
 import { compute as compute_stock_duration } from './stock-duration/compute';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
@@ -132,7 +133,10 @@ import { compute as compute_tip } from './tip/compute';
 import { compute as compute_trip_cost } from './trip-cost/compute';
 import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
 import { compute as compute_week_number } from './week-number/compute';
+import { compute as compute_weighted_mean } from './weighted-mean/compute';
 import { compute as compute_work } from './work/compute';
+import { compute as compute_workday_cost } from './workday-cost/compute';
+import { compute as compute_z_score } from './z-score/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
   'ad-roi': compute_ad_roi,
@@ -237,6 +241,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
   'speed-distance-time': compute_speed_distance_time,
+  'stats-descriptive': compute_stats_descriptive,
   'stock-duration': compute_stock_duration,
   'test-score-percent': compute_test_score_percent,
   'time-duration': compute_time_duration,
@@ -244,7 +249,10 @@ export const v2Runners: Record<string, CalcFunction> = {
   'trip-cost': compute_trip_cost,
   'unix-timestamp': compute_unix_timestamp,
   'week-number': compute_week_number,
+  'weighted-mean': compute_weighted_mean,
   'work': compute_work,
+  'workday-cost': compute_workday_cost,
+  'z-score': compute_z_score,
 };
 
 export const v2Validators: Record<string, CalculatorValidator> = {
