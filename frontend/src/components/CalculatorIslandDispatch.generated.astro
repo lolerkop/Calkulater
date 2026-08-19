@@ -64,6 +64,7 @@ import GeomSquareIsland from '../calculators/geom-square/island';
 import GeomTrapezoidIsland from '../calculators/geom-trapezoid/island';
 import GeomTriangleIsland from '../calculators/geom-triangle/island';
 import InverterPowerIsland from '../calculators/inverter-power/island';
+import KineticEnergyIsland from '../calculators/kinetic-energy/island';
 import LeapYearIsland from '../calculators/leap-year/island';
 import LedResistorIsland from '../calculators/led-resistor/island';
 import LinearEquationIsland from '../calculators/linear-equation/island';
@@ -71,10 +72,13 @@ import LogarithmIsland from '../calculators/logarithm/island';
 import LtvIsland from '../calculators/ltv/island';
 import ModuloIsland from '../calculators/modulo/island';
 import NetworkBandwidthIsland from '../calculators/network-bandwidth/island';
+import NewtonForceIsland from '../calculators/newton-force/island';
 import OhmsLawIsland from '../calculators/ohms-law/island';
 import PaintCalculatorIsland from '../calculators/paint-calculator/island';
 import PercentCalculatorIsland from '../calculators/percent-calculator/island';
+import PhysicsPowerIsland from '../calculators/physics-power/island';
 import PoolFillTimeIsland from '../calculators/pool-fill-time/island';
+import PotentialEnergyIsland from '../calculators/potential-energy/island';
 import PowerToWeightIsland from '../calculators/power-to-weight/island';
 import PrimeFactorizationIsland from '../calculators/prime-factorization/island';
 import ProportionIsland from '../calculators/proportion/island';
@@ -98,10 +102,11 @@ import TipIsland from '../calculators/tip/island';
 import TripCostIsland from '../calculators/trip-cost/island';
 import UnixTimestampIsland from '../calculators/unix-timestamp/island';
 import WeekNumberIsland from '../calculators/week-number/island';
+import WorkIsland from '../calculators/work/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'combinatorics', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cpm', 'ctr', 'day-of-week', 'difference-abs-rel', 'dividend-yield', 'divisors', 'download-time', 'dti', 'electricity-usage', 'factorial', 'files-on-disk', 'final-grade', 'fps-frametime', 'fuel-consumption', 'geom-circle', 'geom-cone', 'geom-cylinder', 'geom-rectangle', 'geom-regular-polygon', 'geom-right-triangle', 'geom-sphere', 'geom-square', 'geom-trapezoid', 'geom-triangle', 'inverter-power', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'ltv', 'modulo', 'network-bandwidth', 'ohms-law', 'paint-calculator', 'percent-calculator', 'pool-fill-time', 'power-to-weight', 'prime-factorization', 'proportion', 'quadratic-equation', 'reading-speed', 'real-return', 'return-rate', 'revenue-per-employee', 'roas', 'roi', 'roman-numerals', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'speed-distance-time', 'test-score-percent', 'time-duration', 'tip', 'trip-cost', 'unix-timestamp', 'week-number']);
+const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'combinatorics', 'commission', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cpm', 'ctr', 'day-of-week', 'difference-abs-rel', 'dividend-yield', 'divisors', 'download-time', 'dti', 'electricity-usage', 'factorial', 'files-on-disk', 'final-grade', 'fps-frametime', 'fuel-consumption', 'geom-circle', 'geom-cone', 'geom-cylinder', 'geom-rectangle', 'geom-regular-polygon', 'geom-right-triangle', 'geom-sphere', 'geom-square', 'geom-trapezoid', 'geom-triangle', 'inverter-power', 'kinetic-energy', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'ltv', 'modulo', 'network-bandwidth', 'newton-force', 'ohms-law', 'paint-calculator', 'percent-calculator', 'physics-power', 'pool-fill-time', 'potential-energy', 'power-to-weight', 'prime-factorization', 'proportion', 'quadratic-equation', 'reading-speed', 'real-return', 'return-rate', 'revenue-per-employee', 'roas', 'roi', 'roman-numerals', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'speed-distance-time', 'test-score-percent', 'time-duration', 'tip', 'trip-cost', 'unix-timestamp', 'week-number', 'work']);
 ---
 
 {id === 'ad-roi' && <AdRoiIsland calc={calc} locale={locale} client:load />}
@@ -160,6 +165,7 @@ const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'bud
 {id === 'geom-trapezoid' && <GeomTrapezoidIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-triangle' && <GeomTriangleIsland calc={calc} locale={locale} client:load />}
 {id === 'inverter-power' && <InverterPowerIsland calc={calc} locale={locale} client:load />}
+{id === 'kinetic-energy' && <KineticEnergyIsland calc={calc} locale={locale} client:load />}
 {id === 'leap-year' && <LeapYearIsland calc={calc} locale={locale} client:load />}
 {id === 'led-resistor' && <LedResistorIsland calc={calc} locale={locale} client:load />}
 {id === 'linear-equation' && <LinearEquationIsland calc={calc} locale={locale} client:load />}
@@ -167,10 +173,13 @@ const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'bud
 {id === 'ltv' && <LtvIsland calc={calc} locale={locale} client:load />}
 {id === 'modulo' && <ModuloIsland calc={calc} locale={locale} client:load />}
 {id === 'network-bandwidth' && <NetworkBandwidthIsland calc={calc} locale={locale} client:load />}
+{id === 'newton-force' && <NewtonForceIsland calc={calc} locale={locale} client:load />}
 {id === 'ohms-law' && <OhmsLawIsland calc={calc} locale={locale} client:load />}
 {id === 'paint-calculator' && <PaintCalculatorIsland calc={calc} locale={locale} client:load />}
 {id === 'percent-calculator' && <PercentCalculatorIsland calc={calc} locale={locale} client:load />}
+{id === 'physics-power' && <PhysicsPowerIsland calc={calc} locale={locale} client:load />}
 {id === 'pool-fill-time' && <PoolFillTimeIsland calc={calc} locale={locale} client:load />}
+{id === 'potential-energy' && <PotentialEnergyIsland calc={calc} locale={locale} client:load />}
 {id === 'power-to-weight' && <PowerToWeightIsland calc={calc} locale={locale} client:load />}
 {id === 'prime-factorization' && <PrimeFactorizationIsland calc={calc} locale={locale} client:load />}
 {id === 'proportion' && <ProportionIsland calc={calc} locale={locale} client:load />}
@@ -194,4 +203,5 @@ const V2_IDS = new Set(['ad-roi', 'aov', 'aspect-ratio', 'battery-runtime', 'bud
 {id === 'trip-cost' && <TripCostIsland calc={calc} locale={locale} client:load />}
 {id === 'unix-timestamp' && <UnixTimestampIsland calc={calc} locale={locale} client:load />}
 {id === 'week-number' && <WeekNumberIsland calc={calc} locale={locale} client:load />}
+{id === 'work' && <WorkIsland calc={calc} locale={locale} client:load />}
 {!V2_IDS.has(id) && <CalculatorIsland calc={calc} locale={locale} client:load />}

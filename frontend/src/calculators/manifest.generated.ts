@@ -68,6 +68,7 @@ import { definition as def_geom_square } from './geom-square/definition';
 import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
 import { definition as def_geom_triangle } from './geom-triangle/definition';
 import { definition as def_inverter_power } from './inverter-power/definition';
+import { definition as def_kinetic_energy } from './kinetic-energy/definition';
 import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
 import { definition as def_linear_equation } from './linear-equation/definition';
@@ -75,10 +76,13 @@ import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_ltv } from './ltv/definition';
 import { definition as def_modulo } from './modulo/definition';
 import { definition as def_network_bandwidth } from './network-bandwidth/definition';
+import { definition as def_newton_force } from './newton-force/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
+import { definition as def_physics_power } from './physics-power/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
+import { definition as def_potential_energy } from './potential-energy/definition';
 import { definition as def_power_to_weight } from './power-to-weight/definition';
 import { definition as def_prime_factorization } from './prime-factorization/definition';
 import { definition as def_proportion } from './proportion/definition';
@@ -102,6 +106,7 @@ import { definition as def_tip } from './tip/definition';
 import { definition as def_trip_cost } from './trip-cost/definition';
 import { definition as def_unix_timestamp } from './unix-timestamp/definition';
 import { definition as def_week_number } from './week-number/definition';
+import { definition as def_work } from './work/definition';
 
 export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ad_roi,
@@ -160,6 +165,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_trapezoid,
   def_geom_triangle,
   def_inverter_power,
+  def_kinetic_energy,
   def_leap_year,
   def_led_resistor,
   def_linear_equation,
@@ -167,10 +173,13 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ltv,
   def_modulo,
   def_network_bandwidth,
+  def_newton_force,
   def_ohms_law,
   def_paint_calculator,
   def_percent_calculator,
+  def_physics_power,
   def_pool_fill_time,
+  def_potential_energy,
   def_power_to_weight,
   def_prime_factorization,
   def_proportion,
@@ -194,6 +203,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_trip_cost,
   def_unix_timestamp,
   def_week_number,
+  def_work,
 ];
 
 const published = v2Definitions.filter(isPublished);

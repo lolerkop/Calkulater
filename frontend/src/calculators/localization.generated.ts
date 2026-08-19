@@ -62,6 +62,7 @@ import { localization as loc_geom_square } from './geom-square/localization';
 import { localization as loc_geom_trapezoid } from './geom-trapezoid/localization';
 import { localization as loc_geom_triangle } from './geom-triangle/localization';
 import { localization as loc_inverter_power } from './inverter-power/localization';
+import { localization as loc_kinetic_energy } from './kinetic-energy/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_led_resistor } from './led-resistor/localization';
 import { localization as loc_linear_equation } from './linear-equation/localization';
@@ -69,8 +70,11 @@ import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_modulo } from './modulo/localization';
 import { localization as loc_network_bandwidth } from './network-bandwidth/localization';
+import { localization as loc_newton_force } from './newton-force/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
+import { localization as loc_physics_power } from './physics-power/localization';
 import { localization as loc_pool_fill_time } from './pool-fill-time/localization';
+import { localization as loc_potential_energy } from './potential-energy/localization';
 import { localization as loc_power_to_weight } from './power-to-weight/localization';
 import { localization as loc_prime_factorization } from './prime-factorization/localization';
 import { localization as loc_proportion } from './proportion/localization';
@@ -94,6 +98,7 @@ import { localization as loc_tip } from './tip/localization';
 import { localization as loc_trip_cost } from './trip-cost/localization';
 import { localization as loc_unix_timestamp } from './unix-timestamp/localization';
 import { localization as loc_week_number } from './week-number/localization';
+import { localization as loc_work } from './work/localization';
 
 export const v2Localization: ScopedLocalization = {
   en: {
@@ -153,6 +158,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-trapezoid': loc_geom_trapezoid.en ?? {},
     'geom-triangle': loc_geom_triangle.en ?? {},
     'inverter-power': loc_inverter_power.en ?? {},
+    'kinetic-energy': loc_kinetic_energy.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
     'led-resistor': loc_led_resistor.en ?? {},
     'linear-equation': loc_linear_equation.en ?? {},
@@ -160,8 +166,11 @@ export const v2Localization: ScopedLocalization = {
     'ltv': loc_ltv.en ?? {},
     'modulo': loc_modulo.en ?? {},
     'network-bandwidth': loc_network_bandwidth.en ?? {},
+    'newton-force': loc_newton_force.en ?? {},
     'ohms-law': loc_ohms_law.en ?? {},
+    'physics-power': loc_physics_power.en ?? {},
     'pool-fill-time': loc_pool_fill_time.en ?? {},
+    'potential-energy': loc_potential_energy.en ?? {},
     'power-to-weight': loc_power_to_weight.en ?? {},
     'prime-factorization': loc_prime_factorization.en ?? {},
     'proportion': loc_proportion.en ?? {},
@@ -185,6 +194,7 @@ export const v2Localization: ScopedLocalization = {
     'trip-cost': loc_trip_cost.en ?? {},
     'unix-timestamp': loc_unix_timestamp.en ?? {},
     'week-number': loc_week_number.en ?? {},
+    'work': loc_work.en ?? {},
   },
   uk: {
     'ad-roi': loc_ad_roi.uk ?? {},
@@ -243,6 +253,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-trapezoid': loc_geom_trapezoid.uk ?? {},
     'geom-triangle': loc_geom_triangle.uk ?? {},
     'inverter-power': loc_inverter_power.uk ?? {},
+    'kinetic-energy': loc_kinetic_energy.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
     'led-resistor': loc_led_resistor.uk ?? {},
     'linear-equation': loc_linear_equation.uk ?? {},
@@ -250,8 +261,11 @@ export const v2Localization: ScopedLocalization = {
     'ltv': loc_ltv.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
     'network-bandwidth': loc_network_bandwidth.uk ?? {},
+    'newton-force': loc_newton_force.uk ?? {},
     'ohms-law': loc_ohms_law.uk ?? {},
+    'physics-power': loc_physics_power.uk ?? {},
     'pool-fill-time': loc_pool_fill_time.uk ?? {},
+    'potential-energy': loc_potential_energy.uk ?? {},
     'power-to-weight': loc_power_to_weight.uk ?? {},
     'prime-factorization': loc_prime_factorization.uk ?? {},
     'proportion': loc_proportion.uk ?? {},
@@ -275,5 +289,6 @@ export const v2Localization: ScopedLocalization = {
     'trip-cost': loc_trip_cost.uk ?? {},
     'unix-timestamp': loc_unix_timestamp.uk ?? {},
     'week-number': loc_week_number.uk ?? {},
+    'work': loc_work.uk ?? {},
   },
 };

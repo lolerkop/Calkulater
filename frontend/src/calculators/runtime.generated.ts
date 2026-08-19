@@ -73,6 +73,7 @@ import { compute as compute_geom_square } from './geom-square/compute';
 import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
 import { compute as compute_geom_triangle } from './geom-triangle/compute';
 import { compute as compute_inverter_power } from './inverter-power/compute';
+import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
 import { compute as compute_linear_equation } from './linear-equation/compute';
@@ -81,13 +82,16 @@ import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
 import { compute as compute_modulo } from './modulo/compute';
 import { compute as compute_network_bandwidth } from './network-bandwidth/compute';
+import { compute as compute_newton_force } from './newton-force/compute';
 import { compute as compute_ohms_law } from './ohms-law/compute';
 import { contextualField as ctx_ohms_law } from './ohms-law/contextualField';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
 import { contextualField as ctx_percent_calculator } from './percent-calculator/contextualField';
+import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
+import { compute as compute_potential_energy } from './potential-energy/compute';
 import { compute as compute_power_to_weight } from './power-to-weight/compute';
 import { compute as compute_prime_factorization } from './prime-factorization/compute';
 import { compute as compute_proportion } from './proportion/compute';
@@ -113,6 +117,7 @@ import { compute as compute_tip } from './tip/compute';
 import { compute as compute_trip_cost } from './trip-cost/compute';
 import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
 import { compute as compute_week_number } from './week-number/compute';
+import { compute as compute_work } from './work/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
   'ad-roi': compute_ad_roi,
@@ -171,6 +176,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-trapezoid': compute_geom_trapezoid,
   'geom-triangle': compute_geom_triangle,
   'inverter-power': compute_inverter_power,
+  'kinetic-energy': compute_kinetic_energy,
   'leap-year': compute_leap_year,
   'led-resistor': compute_led_resistor,
   'linear-equation': compute_linear_equation,
@@ -178,10 +184,13 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ltv': compute_ltv,
   'modulo': compute_modulo,
   'network-bandwidth': compute_network_bandwidth,
+  'newton-force': compute_newton_force,
   'ohms-law': compute_ohms_law,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
+  'physics-power': compute_physics_power,
   'pool-fill-time': compute_pool_fill_time,
+  'potential-energy': compute_potential_energy,
   'power-to-weight': compute_power_to_weight,
   'prime-factorization': compute_prime_factorization,
   'proportion': compute_proportion,
@@ -205,6 +214,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'trip-cost': compute_trip_cost,
   'unix-timestamp': compute_unix_timestamp,
   'week-number': compute_week_number,
+  'work': compute_work,
 };
 
 export const v2Validators: Record<string, CalculatorValidator> = {

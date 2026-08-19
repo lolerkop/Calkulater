@@ -20,6 +20,17 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  // Физика, волна 3. Ожидаемые значения выведены вручную из соотношений:
+  //   50 / 5 = 10 кг            ·  √(2·100 / 8) = 5 м/с
+  //   98,0665 / (9,80665·2) = 5 кг  ·  10 · 5 · cos 60° = 25 Дж
+  //   600 / 50 = 12 с
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  'newton-force': { query: { mode: 'm', F: 50, a2: 5 }, result: { primary: '10 кг', rows: [{ label: 'Сила', value: '50 Н' }] } },
+  'kinetic-energy': { query: { mode: 'v', E: 100, m2: 8 }, result: { primary: '5 м/с', rows: [{ label: 'Кинетическая энергия', value: '100 Дж' }] } },
+  'potential-energy': { query: { mode: 'm', E2: 98.0665, h2: 2 }, result: { primary: '5 кг', rows: [{ label: 'Высота', value: '2 м' }] } },
+  'work': { query: { mode: 'W', F: 10, s: 5, angleDeg: 60 }, result: { primary: '25 Дж', rows: [{ label: 'Косинус угла', value: '0,5' }] } },
+  'physics-power': { query: { mode: 't', W2: 600, P: 50 }, result: { primary: '12 с', rows: [{ label: 'Мощность', value: '50 Вт' }] } },
   // Геометрия, волна 3. Ожидаемые значения выведены вручную из формул фигур:
   //   √49 = 7 -> S = 49          ·  30 / 6 = 5        ·  π·5² = 78,54
   //   ½·10·4 = 20                ·  √(13² − 5²) = 12  ·  ((7,5+2,5)/2)·3 = 15
