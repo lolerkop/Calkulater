@@ -17,7 +17,9 @@ import { v2Localization } from './localization.generated';
 import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_aov } from './aov/compute';
 import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
+import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
+import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
@@ -76,6 +78,7 @@ import { compute as compute_geom_sphere } from './geom-sphere/compute';
 import { compute as compute_geom_square } from './geom-square/compute';
 import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
 import { compute as compute_geom_triangle } from './geom-triangle/compute';
+import { compute as compute_inventory_turnover } from './inventory-turnover/compute';
 import { compute as compute_inverter_power } from './inverter-power/compute';
 import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
@@ -99,6 +102,7 @@ import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_potential_energy } from './potential-energy/compute';
 import { compute as compute_power_to_weight } from './power-to-weight/compute';
+import { compute as compute_ppi_dpi } from './ppi-dpi/compute';
 import { compute as compute_pressure } from './pressure/compute';
 import { compute as compute_price_per_unit } from './price-per-unit/compute';
 import { compute as compute_prime_factorization } from './prime-factorization/compute';
@@ -134,7 +138,9 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ad-roi': compute_ad_roi,
   'aov': compute_aov,
   'aspect-ratio': compute_aspect_ratio,
+  'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
+  'bike-gear-ratio': compute_bike_gear_ratio,
   'budget-50-30-20': compute_budget_50_30_20,
   'cac': compute_cac,
   'cagr': compute_cagr,
@@ -190,6 +196,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-square': compute_geom_square,
   'geom-trapezoid': compute_geom_trapezoid,
   'geom-triangle': compute_geom_triangle,
+  'inventory-turnover': compute_inventory_turnover,
   'inverter-power': compute_inverter_power,
   'kinetic-energy': compute_kinetic_energy,
   'leap-year': compute_leap_year,
@@ -209,6 +216,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'pool-fill-time': compute_pool_fill_time,
   'potential-energy': compute_potential_energy,
   'power-to-weight': compute_power_to_weight,
+  'ppi-dpi': compute_ppi_dpi,
   'pressure': compute_pressure,
   'price-per-unit': compute_price_per_unit,
   'prime-factorization': compute_prime_factorization,

@@ -20,6 +20,13 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  // Волна 3, батч B3. Ожидаемые значения выведены вручную:
+  //   250 000 / 40 000 = 6,25 раза     ·  √(2560² + 1440²) / 27 = 108,79 ppi
+  //   100 / (10 × 0,8) = 12,5 ч        ·  53 / 11 = 4,82
+  'inventory-turnover': { query: { cogs: 250000, mode: 'direct', avgInventory: 40000 }, result: { primary: '6,25 раз', rows: [{ label: 'Срок хранения', value: '58,4 дней' }] } },
+  'ppi-dpi': { query: { w: 2560, h: 1440, diagonal: 27 }, result: { primary: '108,79 ppi' } },
+  'battery-charge-time': { query: { capacityAh: 100, currentA: 10, efficiency: 80 }, result: { primary: '12 ч 30 мин', rows: [{ label: 'В часах', value: '12,50 ч' }] } },
+  'bike-gear-ratio': { query: { chainring: 53, sprocket: 11, wheelCircumference: 0 }, result: { primary: '4,82' } },
   // Волна 3, батч B2. Ожидаемые значения выведены вручную:
   //   1 500 000 / 5 000 000 = 30 %      ·  250 000 000 / 1 000 000 = 250
   //   50 000 × 12 / 8 000 000 = 7,5 %, чистая (600 000 − 120 000) / 8 000 000 = 6,0 %

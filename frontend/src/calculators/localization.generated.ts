@@ -9,7 +9,9 @@ import type { ScopedLocalization } from '../lib/platform/types';
 import { localization as loc_ad_roi } from './ad-roi/localization';
 import { localization as loc_aov } from './aov/localization';
 import { localization as loc_aspect_ratio } from './aspect-ratio/localization';
+import { localization as loc_battery_charge_time } from './battery-charge-time/localization';
 import { localization as loc_battery_runtime } from './battery-runtime/localization';
+import { localization as loc_bike_gear_ratio } from './bike-gear-ratio/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
@@ -65,6 +67,7 @@ import { localization as loc_geom_sphere } from './geom-sphere/localization';
 import { localization as loc_geom_square } from './geom-square/localization';
 import { localization as loc_geom_trapezoid } from './geom-trapezoid/localization';
 import { localization as loc_geom_triangle } from './geom-triangle/localization';
+import { localization as loc_inventory_turnover } from './inventory-turnover/localization';
 import { localization as loc_inverter_power } from './inverter-power/localization';
 import { localization as loc_kinetic_energy } from './kinetic-energy/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
@@ -82,6 +85,7 @@ import { localization as loc_physics_power } from './physics-power/localization'
 import { localization as loc_pool_fill_time } from './pool-fill-time/localization';
 import { localization as loc_potential_energy } from './potential-energy/localization';
 import { localization as loc_power_to_weight } from './power-to-weight/localization';
+import { localization as loc_ppi_dpi } from './ppi-dpi/localization';
 import { localization as loc_pressure } from './pressure/localization';
 import { localization as loc_price_per_unit } from './price-per-unit/localization';
 import { localization as loc_prime_factorization } from './prime-factorization/localization';
@@ -116,7 +120,9 @@ export const v2Localization: ScopedLocalization = {
     'ad-roi': loc_ad_roi.en ?? {},
     'aov': loc_aov.en ?? {},
     'aspect-ratio': loc_aspect_ratio.en ?? {},
+    'battery-charge-time': loc_battery_charge_time.en ?? {},
     'battery-runtime': loc_battery_runtime.en ?? {},
+    'bike-gear-ratio': loc_bike_gear_ratio.en ?? {},
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
@@ -172,6 +178,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-square': loc_geom_square.en ?? {},
     'geom-trapezoid': loc_geom_trapezoid.en ?? {},
     'geom-triangle': loc_geom_triangle.en ?? {},
+    'inventory-turnover': loc_inventory_turnover.en ?? {},
     'inverter-power': loc_inverter_power.en ?? {},
     'kinetic-energy': loc_kinetic_energy.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
@@ -189,6 +196,7 @@ export const v2Localization: ScopedLocalization = {
     'pool-fill-time': loc_pool_fill_time.en ?? {},
     'potential-energy': loc_potential_energy.en ?? {},
     'power-to-weight': loc_power_to_weight.en ?? {},
+    'ppi-dpi': loc_ppi_dpi.en ?? {},
     'pressure': loc_pressure.en ?? {},
     'price-per-unit': loc_price_per_unit.en ?? {},
     'prime-factorization': loc_prime_factorization.en ?? {},
@@ -222,7 +230,9 @@ export const v2Localization: ScopedLocalization = {
     'ad-roi': loc_ad_roi.uk ?? {},
     'aov': loc_aov.uk ?? {},
     'aspect-ratio': loc_aspect_ratio.uk ?? {},
+    'battery-charge-time': loc_battery_charge_time.uk ?? {},
     'battery-runtime': loc_battery_runtime.uk ?? {},
+    'bike-gear-ratio': loc_bike_gear_ratio.uk ?? {},
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
@@ -278,6 +288,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-square': loc_geom_square.uk ?? {},
     'geom-trapezoid': loc_geom_trapezoid.uk ?? {},
     'geom-triangle': loc_geom_triangle.uk ?? {},
+    'inventory-turnover': loc_inventory_turnover.uk ?? {},
     'inverter-power': loc_inverter_power.uk ?? {},
     'kinetic-energy': loc_kinetic_energy.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
@@ -295,6 +306,7 @@ export const v2Localization: ScopedLocalization = {
     'pool-fill-time': loc_pool_fill_time.uk ?? {},
     'potential-energy': loc_potential_energy.uk ?? {},
     'power-to-weight': loc_power_to_weight.uk ?? {},
+    'ppi-dpi': loc_ppi_dpi.uk ?? {},
     'pressure': loc_pressure.uk ?? {},
     'price-per-unit': loc_price_per_unit.uk ?? {},
     'prime-factorization': loc_prime_factorization.uk ?? {},

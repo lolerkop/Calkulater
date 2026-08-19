@@ -56,7 +56,9 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/business/ad-roi/,ru,calculator,true,/ru/business/ad-roi/,calculator:ad-roi,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/aov/,ru,calculator,true,/ru/business/aov/,calculator:aov,src/pages/[locale]/[category]/[calculator].astro
 /ru/computers/aspect-ratio/,ru,calculator,true,/ru/computers/aspect-ratio/,calculator:aspect-ratio,src/pages/[locale]/[category]/[calculator].astro
+/ru/electronics/battery-charge-time/,ru,calculator,true,/ru/electronics/battery-charge-time/,calculator:battery-charge-time,src/pages/[locale]/[category]/[calculator].astro
 /ru/electronics/battery-runtime/,ru,calculator,true,/ru/electronics/battery-runtime/,calculator:battery-runtime,src/pages/[locale]/[category]/[calculator].astro
+/ru/sport/bike-gear-ratio/,ru,calculator,true,/ru/sport/bike-gear-ratio/,calculator:bike-gear-ratio,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/budget-50-30-20/,ru,calculator,true,/ru/finance/budget-50-30-20/,calculator:budget-50-30-20,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/cac/,ru,calculator,true,/ru/business/cac/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/cagr/,ru,calculator,true,/ru/finance/cagr/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
@@ -112,6 +114,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/geometry/square/,ru,calculator,true,/ru/geometry/square/,calculator:geom-square,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/trapezoid/,ru,calculator,true,/ru/geometry/trapezoid/,calculator:geom-trapezoid,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/triangle/,ru,calculator,true,/ru/geometry/triangle/,calculator:geom-triangle,src/pages/[locale]/[category]/[calculator].astro
+/ru/business/inventory-turnover/,ru,calculator,true,/ru/business/inventory-turnover/,calculator:inventory-turnover,src/pages/[locale]/[category]/[calculator].astro
 /ru/electronics/inverter-power/,ru,calculator,true,/ru/electronics/inverter-power/,calculator:inverter-power,src/pages/[locale]/[category]/[calculator].astro
 /ru/physics/kinetic-energy/,ru,calculator,true,/ru/physics/kinetic-energy/,calculator:kinetic-energy,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/leap-year/,ru,calculator,true,/ru/date-time/leap-year/,calculator:leap-year,src/pages/[locale]/[category]/[calculator].astro
@@ -129,6 +132,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/household/pool-fill-time/,ru,calculator,true,/ru/household/pool-fill-time/,calculator:pool-fill-time,src/pages/[locale]/[category]/[calculator].astro
 /ru/physics/potential-energy/,ru,calculator,true,/ru/physics/potential-energy/,calculator:potential-energy,src/pages/[locale]/[category]/[calculator].astro
 /ru/automotive/power-to-weight/,ru,calculator,true,/ru/automotive/power-to-weight/,calculator:power-to-weight,src/pages/[locale]/[category]/[calculator].astro
+/ru/computers/ppi/,ru,calculator,true,/ru/computers/ppi/,calculator:ppi-dpi,src/pages/[locale]/[category]/[calculator].astro
 /ru/physics/pressure/,ru,calculator,true,/ru/physics/pressure/,calculator:pressure,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/price-per-unit/,ru,calculator,true,/ru/household/price-per-unit/,calculator:price-per-unit,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/prime-factorization/,ru,calculator,true,/ru/math/prime-factorization/,calculator:prime-factorization,src/pages/[locale]/[category]/[calculator].astro
@@ -209,7 +213,9 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/business/advertising-roi/,en,calculator,true,/en/business/advertising-roi/,calculator:ad-roi,src/pages/[locale]/[category]/[calculator].astro
 /en/business/average-order-value/,en,calculator,true,/en/business/average-order-value/,calculator:aov,src/pages/[locale]/[category]/[calculator].astro
 /en/computers/aspect-ratio-calculator/,en,calculator,true,/en/computers/aspect-ratio-calculator/,calculator:aspect-ratio,src/pages/[locale]/[category]/[calculator].astro
+/en/electronics/battery-charge-time-calculator/,en,calculator,true,/en/electronics/battery-charge-time-calculator/,calculator:battery-charge-time,src/pages/[locale]/[category]/[calculator].astro
 /en/electronics/battery-runtime-calculator/,en,calculator,true,/en/electronics/battery-runtime-calculator/,calculator:battery-runtime,src/pages/[locale]/[category]/[calculator].astro
+/en/fitness/bike-gear-ratio-calculator/,en,calculator,true,/en/fitness/bike-gear-ratio-calculator/,calculator:bike-gear-ratio,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/budget-50-30-20-calculator/,en,calculator,true,/en/finance/budget-50-30-20-calculator/,calculator:budget-50-30-20,src/pages/[locale]/[category]/[calculator].astro
 /en/business/customer-acquisition-cost/,en,calculator,true,/en/business/customer-acquisition-cost/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/cagr-calculator/,en,calculator,true,/en/finance/cagr-calculator/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
@@ -265,6 +271,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/geometry/square-calculator/,en,calculator,true,/en/geometry/square-calculator/,calculator:geom-square,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/trapezoid-calculator/,en,calculator,true,/en/geometry/trapezoid-calculator/,calculator:geom-trapezoid,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/triangle-calculator/,en,calculator,true,/en/geometry/triangle-calculator/,calculator:geom-triangle,src/pages/[locale]/[category]/[calculator].astro
+/en/business/inventory-turnover-calculator/,en,calculator,true,/en/business/inventory-turnover-calculator/,calculator:inventory-turnover,src/pages/[locale]/[category]/[calculator].astro
 /en/electronics/inverter-power-calculator/,en,calculator,true,/en/electronics/inverter-power-calculator/,calculator:inverter-power,src/pages/[locale]/[category]/[calculator].astro
 /en/physics/kinetic-energy-calculator/,en,calculator,true,/en/physics/kinetic-energy-calculator/,calculator:kinetic-energy,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/leap-year/,en,calculator,true,/en/date-time/leap-year/,calculator:leap-year,src/pages/[locale]/[category]/[calculator].astro
@@ -282,6 +289,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/household/pool-fill-time-calculator/,en,calculator,true,/en/household/pool-fill-time-calculator/,calculator:pool-fill-time,src/pages/[locale]/[category]/[calculator].astro
 /en/physics/potential-energy-calculator/,en,calculator,true,/en/physics/potential-energy-calculator/,calculator:potential-energy,src/pages/[locale]/[category]/[calculator].astro
 /en/automotive/power-to-weight-calculator/,en,calculator,true,/en/automotive/power-to-weight-calculator/,calculator:power-to-weight,src/pages/[locale]/[category]/[calculator].astro
+/en/computers/ppi-calculator/,en,calculator,true,/en/computers/ppi-calculator/,calculator:ppi-dpi,src/pages/[locale]/[category]/[calculator].astro
 /en/physics/pressure-calculator/,en,calculator,true,/en/physics/pressure-calculator/,calculator:pressure,src/pages/[locale]/[category]/[calculator].astro
 /en/household/price-per-unit-calculator/,en,calculator,true,/en/household/price-per-unit-calculator/,calculator:price-per-unit,src/pages/[locale]/[category]/[calculator].astro
 /en/math/prime-factorisation/,en,calculator,true,/en/math/prime-factorisation/,calculator:prime-factorization,src/pages/[locale]/[category]/[calculator].astro
@@ -362,7 +370,9 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/business/roi-reklamy/,uk,calculator,true,/uk/business/roi-reklamy/,calculator:ad-roi,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/serednii-chek/,uk,calculator,true,/uk/business/serednii-chek/,calculator:aov,src/pages/[locale]/[category]/[calculator].astro
 /uk/kompyutery/spivvidnoshennya-storin/,uk,calculator,true,/uk/kompyutery/spivvidnoshennya-storin/,calculator:aspect-ratio,src/pages/[locale]/[category]/[calculator].astro
+/uk/elektronika/chas-zaryadzhannya/,uk,calculator,true,/uk/elektronika/chas-zaryadzhannya/,calculator:battery-charge-time,src/pages/[locale]/[category]/[calculator].astro
 /uk/elektronika/chas-roboty-akumulyatora/,uk,calculator,true,/uk/elektronika/chas-roboty-akumulyatora/,calculator:battery-runtime,src/pages/[locale]/[category]/[calculator].astro
+/uk/fitness/velosypedna-peredacha/,uk,calculator,true,/uk/fitness/velosypedna-peredacha/,calculator:bike-gear-ratio,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/kalkulyator-byudzhetu-50-30-20/,uk,calculator,true,/uk/finansy/kalkulyator-byudzhetu-50-30-20/,calculator:budget-50-30-20,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/vartist-zaluchennya-kliyenta/,uk,calculator,true,/uk/business/vartist-zaluchennya-kliyenta/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/cagr-kalkulyator/,uk,calculator,true,/uk/finansy/cagr-kalkulyator/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
@@ -418,6 +428,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/heometriya/kvadrat/,uk,calculator,true,/uk/heometriya/kvadrat/,calculator:geom-square,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/trapetsiya/,uk,calculator,true,/uk/heometriya/trapetsiya/,calculator:geom-trapezoid,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/trykutnyk/,uk,calculator,true,/uk/heometriya/trykutnyk/,calculator:geom-triangle,src/pages/[locale]/[category]/[calculator].astro
+/uk/business/oborotnist-zapasiv/,uk,calculator,true,/uk/business/oborotnist-zapasiv/,calculator:inventory-turnover,src/pages/[locale]/[category]/[calculator].astro
 /uk/elektronika/potuzhnist-invertora/,uk,calculator,true,/uk/elektronika/potuzhnist-invertora/,calculator:inverter-power,src/pages/[locale]/[category]/[calculator].astro
 /uk/fizyka/kinetychna-enerhiya/,uk,calculator,true,/uk/fizyka/kinetychna-enerhiya/,calculator:kinetic-energy,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/vysokosnyi-rik/,uk,calculator,true,/uk/daty/vysokosnyi-rik/,calculator:leap-year,src/pages/[locale]/[category]/[calculator].astro
@@ -435,6 +446,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/pobut/napovnennya-baseynu/,uk,calculator,true,/uk/pobut/napovnennya-baseynu/,calculator:pool-fill-time,src/pages/[locale]/[category]/[calculator].astro
 /uk/fizyka/potentsialna-enerhiya/,uk,calculator,true,/uk/fizyka/potentsialna-enerhiya/,calculator:potential-energy,src/pages/[locale]/[category]/[calculator].astro
 /uk/avtomobili/potuzhnist-do-masy/,uk,calculator,true,/uk/avtomobili/potuzhnist-do-masy/,calculator:power-to-weight,src/pages/[locale]/[category]/[calculator].astro
+/uk/kompyutery/ppi/,uk,calculator,true,/uk/kompyutery/ppi/,calculator:ppi-dpi,src/pages/[locale]/[category]/[calculator].astro
 /uk/fizyka/tysk/,uk,calculator,true,/uk/fizyka/tysk/,calculator:pressure,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/tsina-za-odynytsyu/,uk,calculator,true,/uk/pobut/tsina-za-odynytsyu/,calculator:price-per-unit,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/rozklad-na-prosti-mnozhnyky/,uk,calculator,true,/uk/math/rozklad-na-prosti-mnozhnyky/,calculator:prime-factorization,src/pages/[locale]/[category]/[calculator].astro

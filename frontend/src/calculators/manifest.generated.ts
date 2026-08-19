@@ -15,7 +15,9 @@ import { isPublished } from '../lib/platform/types';
 import { definition as def_ad_roi } from './ad-roi/definition';
 import { definition as def_aov } from './aov/definition';
 import { definition as def_aspect_ratio } from './aspect-ratio/definition';
+import { definition as def_battery_charge_time } from './battery-charge-time/definition';
 import { definition as def_battery_runtime } from './battery-runtime/definition';
+import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
 import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition';
 import { definition as def_cac } from './cac/definition';
 import { definition as def_cagr } from './cagr/definition';
@@ -71,6 +73,7 @@ import { definition as def_geom_sphere } from './geom-sphere/definition';
 import { definition as def_geom_square } from './geom-square/definition';
 import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
 import { definition as def_geom_triangle } from './geom-triangle/definition';
+import { definition as def_inventory_turnover } from './inventory-turnover/definition';
 import { definition as def_inverter_power } from './inverter-power/definition';
 import { definition as def_kinetic_energy } from './kinetic-energy/definition';
 import { definition as def_leap_year } from './leap-year/definition';
@@ -90,6 +93,7 @@ import { definition as def_physics_power } from './physics-power/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
 import { definition as def_potential_energy } from './potential-energy/definition';
 import { definition as def_power_to_weight } from './power-to-weight/definition';
+import { definition as def_ppi_dpi } from './ppi-dpi/definition';
 import { definition as def_pressure } from './pressure/definition';
 import { definition as def_price_per_unit } from './price-per-unit/definition';
 import { definition as def_prime_factorization } from './prime-factorization/definition';
@@ -123,7 +127,9 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ad_roi,
   def_aov,
   def_aspect_ratio,
+  def_battery_charge_time,
   def_battery_runtime,
+  def_bike_gear_ratio,
   def_budget_50_30_20,
   def_cac,
   def_cagr,
@@ -179,6 +185,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_square,
   def_geom_trapezoid,
   def_geom_triangle,
+  def_inventory_turnover,
   def_inverter_power,
   def_kinetic_energy,
   def_leap_year,
@@ -198,6 +205,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_pool_fill_time,
   def_potential_energy,
   def_power_to_weight,
+  def_ppi_dpi,
   def_pressure,
   def_price_per_unit,
   def_prime_factorization,
