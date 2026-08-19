@@ -15,6 +15,7 @@ import type { CalculatorClientRuntime } from '../lib/platform/runtime';
 import { v2Localization } from './localization.generated';
 
 import { compute as compute_ad_roi } from './ad-roi/compute';
+import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
 import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
@@ -78,6 +79,7 @@ import { compute as compute_geom_sphere } from './geom-sphere/compute';
 import { compute as compute_geom_square } from './geom-square/compute';
 import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
 import { compute as compute_geom_triangle } from './geom-triangle/compute';
+import { compute as compute_installment } from './installment/compute';
 import { compute as compute_inventory_turnover } from './inventory-turnover/compute';
 import { compute as compute_inverter_power } from './inverter-power/compute';
 import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
@@ -140,6 +142,7 @@ import { compute as compute_z_score } from './z-score/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
   'ad-roi': compute_ad_roi,
+  'annuity': compute_annuity,
   'aov': compute_aov,
   'aspect-ratio': compute_aspect_ratio,
   'battery-charge-time': compute_battery_charge_time,
@@ -200,6 +203,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-square': compute_geom_square,
   'geom-trapezoid': compute_geom_trapezoid,
   'geom-triangle': compute_geom_triangle,
+  'installment': compute_installment,
   'inventory-turnover': compute_inventory_turnover,
   'inverter-power': compute_inverter_power,
   'kinetic-energy': compute_kinetic_energy,

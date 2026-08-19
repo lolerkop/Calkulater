@@ -13,6 +13,7 @@ import type {
 import { isPublished } from '../lib/platform/types';
 
 import { definition as def_ad_roi } from './ad-roi/definition';
+import { definition as def_annuity } from './annuity/definition';
 import { definition as def_aov } from './aov/definition';
 import { definition as def_aspect_ratio } from './aspect-ratio/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
@@ -73,6 +74,7 @@ import { definition as def_geom_sphere } from './geom-sphere/definition';
 import { definition as def_geom_square } from './geom-square/definition';
 import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
 import { definition as def_geom_triangle } from './geom-triangle/definition';
+import { definition as def_installment } from './installment/definition';
 import { definition as def_inventory_turnover } from './inventory-turnover/definition';
 import { definition as def_inverter_power } from './inverter-power/definition';
 import { definition as def_kinetic_energy } from './kinetic-energy/definition';
@@ -129,6 +131,7 @@ import { definition as def_z_score } from './z-score/definition';
 
 export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ad_roi,
+  def_annuity,
   def_aov,
   def_aspect_ratio,
   def_battery_charge_time,
@@ -189,6 +192,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_square,
   def_geom_trapezoid,
   def_geom_triangle,
+  def_installment,
   def_inventory_turnover,
   def_inverter_power,
   def_kinetic_energy,

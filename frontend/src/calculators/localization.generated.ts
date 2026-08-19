@@ -7,6 +7,7 @@
 import type { ScopedLocalization } from '../lib/platform/types';
 
 import { localization as loc_ad_roi } from './ad-roi/localization';
+import { localization as loc_annuity } from './annuity/localization';
 import { localization as loc_aov } from './aov/localization';
 import { localization as loc_aspect_ratio } from './aspect-ratio/localization';
 import { localization as loc_battery_charge_time } from './battery-charge-time/localization';
@@ -67,6 +68,7 @@ import { localization as loc_geom_sphere } from './geom-sphere/localization';
 import { localization as loc_geom_square } from './geom-square/localization';
 import { localization as loc_geom_trapezoid } from './geom-trapezoid/localization';
 import { localization as loc_geom_triangle } from './geom-triangle/localization';
+import { localization as loc_installment } from './installment/localization';
 import { localization as loc_inventory_turnover } from './inventory-turnover/localization';
 import { localization as loc_inverter_power } from './inverter-power/localization';
 import { localization as loc_kinetic_energy } from './kinetic-energy/localization';
@@ -122,6 +124,7 @@ import { localization as loc_z_score } from './z-score/localization';
 export const v2Localization: ScopedLocalization = {
   en: {
     'ad-roi': loc_ad_roi.en ?? {},
+    'annuity': loc_annuity.en ?? {},
     'aov': loc_aov.en ?? {},
     'aspect-ratio': loc_aspect_ratio.en ?? {},
     'battery-charge-time': loc_battery_charge_time.en ?? {},
@@ -182,6 +185,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-square': loc_geom_square.en ?? {},
     'geom-trapezoid': loc_geom_trapezoid.en ?? {},
     'geom-triangle': loc_geom_triangle.en ?? {},
+    'installment': loc_installment.en ?? {},
     'inventory-turnover': loc_inventory_turnover.en ?? {},
     'inverter-power': loc_inverter_power.en ?? {},
     'kinetic-energy': loc_kinetic_energy.en ?? {},
@@ -236,6 +240,7 @@ export const v2Localization: ScopedLocalization = {
   },
   uk: {
     'ad-roi': loc_ad_roi.uk ?? {},
+    'annuity': loc_annuity.uk ?? {},
     'aov': loc_aov.uk ?? {},
     'aspect-ratio': loc_aspect_ratio.uk ?? {},
     'battery-charge-time': loc_battery_charge_time.uk ?? {},
@@ -296,6 +301,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-square': loc_geom_square.uk ?? {},
     'geom-trapezoid': loc_geom_trapezoid.uk ?? {},
     'geom-triangle': loc_geom_triangle.uk ?? {},
+    'installment': loc_installment.uk ?? {},
     'inventory-turnover': loc_inventory_turnover.uk ?? {},
     'inverter-power': loc_inverter_power.uk ?? {},
     'kinetic-energy': loc_kinetic_energy.uk ?? {},
