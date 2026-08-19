@@ -82,6 +82,7 @@ final-grade,/ru/education/final-grade/,/en/education/final-grade-calculator/,/uk
 fps-frametime,/ru/computers/fps-frametime/,/en/computers/fps-frame-time-calculator/,/uk/kompyutery/fps-chas-kadru/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 fraction-arith,/ru/math/fractions/,/en/math/fraction-calculator/,/uk/math/drobi/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 fuel-consumption,/ru/automotive/fuel-consumption/,/en/automotive/fuel-consumption-calculator/,/uk/avtomobili/vytrata-palyva/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+generator-fuel,/ru/household/generator-fuel/,/en/household/generator-fuel-calculator/,/uk/pobut/vytrata-palnoho-heneratora/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-circle,/ru/geometry/circle/,/en/geometry/circle-calculator/,/uk/heometriya/kolo/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-cone,/ru/geometry/cone/,/en/geometry/cone-calculator/,/uk/heometriya/konus/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-cuboid,/ru/geometry/cuboid/,/en/geometry/cuboid-calculator/,/uk/heometriya/paralelepiped/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -95,6 +96,8 @@ geom-sphere,/ru/geometry/sphere/,/en/geometry/sphere-calculator/,/uk/heometriya/
 geom-square,/ru/geometry/square/,/en/geometry/square-calculator/,/uk/heometriya/kvadrat/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-trapezoid,/ru/geometry/trapezoid/,/en/geometry/trapezoid-calculator/,/uk/heometriya/trapetsiya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-triangle,/ru/geometry/triangle/,/en/geometry/triangle-calculator/,/uk/heometriya/trykutnyk/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+golden-ratio,/ru/geometry/golden-ratio/,/en/geometry/golden-ratio-calculator/,/uk/heometriya/zolotyi-pereriz/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+hydrostatic-pressure,/ru/physics/hydrostatic-pressure/,/en/physics/hydrostatic-pressure-calculator/,/uk/fizyka/hidrostatychnyi-tysk/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 ideal-gas-law,/ru/chemistry/ideal-gas-law/,/en/chemistry/ideal-gas-law-calculator/,/uk/himiya/rivniannia-stanu-hazu/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 installment,/ru/finance/installment/,/en/finance/installment-calculator/,/uk/finansy/rozstrochka/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 insulation,/ru/building/insulation/,/en/home-improvement/insulation-calculator/,/uk/remont/utepliuvach/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -116,6 +119,7 @@ newton-force,/ru/physics/newton-force/,/en/physics/newtons-second-law-calculator
 ohms-law,/ru/electronics/ohms-law/,/en/electronics/ohms-law-calculator/,/uk/elektronika/zakon-oma/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 ph-poh,/ru/chemistry/ph-poh/,/en/chemistry/ph-calculator/,/uk/himiya/ph-poh/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 physics-power,/ru/physics/mechanical-power/,/en/physics/mechanical-power-calculator/,/uk/fizyka/mekhanichna-potuzhnist/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+physics-torque,/ru/physics/torque/,/en/physics/torque-calculator/,/uk/fizyka/moment-syly/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 plaster,/ru/building/plaster/,/en/home-improvement/plaster-calculator/,/uk/remont/shtukaturka/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 pool-fill-time,/ru/household/pool-fill-time/,/en/household/pool-fill-time-calculator/,/uk/pobut/napovnennya-baseynu/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 potential-energy,/ru/physics/potential-energy/,/en/physics/potential-energy-calculator/,/uk/fizyka/potentsialna-enerhiya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.

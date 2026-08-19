@@ -64,6 +64,8 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['stock-duration', 'reserveDays'],
   ['bike-gear-ratio', 'wheelCircumference'],
   ['board-volume', 'pricePerM3'],
+  ['generator-fuel', 'price'],
+  ['hydrostatic-pressure', 'p0'],
 ];
 
 describe('необязательные суммы', () => {

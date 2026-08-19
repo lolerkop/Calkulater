@@ -61,6 +61,7 @@ import { localization as loc_final_grade } from './final-grade/localization';
 import { localization as loc_fps_frametime } from './fps-frametime/localization';
 import { localization as loc_fraction_arith } from './fraction-arith/localization';
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
+import { localization as loc_generator_fuel } from './generator-fuel/localization';
 import { localization as loc_geom_circle } from './geom-circle/localization';
 import { localization as loc_geom_cone } from './geom-cone/localization';
 import { localization as loc_geom_cuboid } from './geom-cuboid/localization';
@@ -74,6 +75,8 @@ import { localization as loc_geom_sphere } from './geom-sphere/localization';
 import { localization as loc_geom_square } from './geom-square/localization';
 import { localization as loc_geom_trapezoid } from './geom-trapezoid/localization';
 import { localization as loc_geom_triangle } from './geom-triangle/localization';
+import { localization as loc_golden_ratio } from './golden-ratio/localization';
+import { localization as loc_hydrostatic_pressure } from './hydrostatic-pressure/localization';
 import { localization as loc_ideal_gas_law } from './ideal-gas-law/localization';
 import { localization as loc_installment } from './installment/localization';
 import { localization as loc_insulation } from './insulation/localization';
@@ -95,6 +98,7 @@ import { localization as loc_newton_force } from './newton-force/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
 import { localization as loc_ph_poh } from './ph-poh/localization';
 import { localization as loc_physics_power } from './physics-power/localization';
+import { localization as loc_physics_torque } from './physics-torque/localization';
 import { localization as loc_plaster } from './plaster/localization';
 import { localization as loc_pool_fill_time } from './pool-fill-time/localization';
 import { localization as loc_potential_energy } from './potential-energy/localization';
@@ -193,6 +197,7 @@ export const v2Localization: ScopedLocalization = {
     'fps-frametime': loc_fps_frametime.en ?? {},
     'fraction-arith': loc_fraction_arith.en ?? {},
     'fuel-consumption': loc_fuel_consumption.en ?? {},
+    'generator-fuel': loc_generator_fuel.en ?? {},
     'geom-circle': loc_geom_circle.en ?? {},
     'geom-cone': loc_geom_cone.en ?? {},
     'geom-cuboid': loc_geom_cuboid.en ?? {},
@@ -206,6 +211,8 @@ export const v2Localization: ScopedLocalization = {
     'geom-square': loc_geom_square.en ?? {},
     'geom-trapezoid': loc_geom_trapezoid.en ?? {},
     'geom-triangle': loc_geom_triangle.en ?? {},
+    'golden-ratio': loc_golden_ratio.en ?? {},
+    'hydrostatic-pressure': loc_hydrostatic_pressure.en ?? {},
     'ideal-gas-law': loc_ideal_gas_law.en ?? {},
     'installment': loc_installment.en ?? {},
     'insulation': loc_insulation.en ?? {},
@@ -227,6 +234,7 @@ export const v2Localization: ScopedLocalization = {
     'ohms-law': loc_ohms_law.en ?? {},
     'ph-poh': loc_ph_poh.en ?? {},
     'physics-power': loc_physics_power.en ?? {},
+    'physics-torque': loc_physics_torque.en ?? {},
     'plaster': loc_plaster.en ?? {},
     'pool-fill-time': loc_pool_fill_time.en ?? {},
     'potential-energy': loc_potential_energy.en ?? {},
@@ -324,6 +332,7 @@ export const v2Localization: ScopedLocalization = {
     'fps-frametime': loc_fps_frametime.uk ?? {},
     'fraction-arith': loc_fraction_arith.uk ?? {},
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
+    'generator-fuel': loc_generator_fuel.uk ?? {},
     'geom-circle': loc_geom_circle.uk ?? {},
     'geom-cone': loc_geom_cone.uk ?? {},
     'geom-cuboid': loc_geom_cuboid.uk ?? {},
@@ -337,6 +346,8 @@ export const v2Localization: ScopedLocalization = {
     'geom-square': loc_geom_square.uk ?? {},
     'geom-trapezoid': loc_geom_trapezoid.uk ?? {},
     'geom-triangle': loc_geom_triangle.uk ?? {},
+    'golden-ratio': loc_golden_ratio.uk ?? {},
+    'hydrostatic-pressure': loc_hydrostatic_pressure.uk ?? {},
     'ideal-gas-law': loc_ideal_gas_law.uk ?? {},
     'installment': loc_installment.uk ?? {},
     'insulation': loc_insulation.uk ?? {},
@@ -358,6 +369,7 @@ export const v2Localization: ScopedLocalization = {
     'ohms-law': loc_ohms_law.uk ?? {},
     'ph-poh': loc_ph_poh.uk ?? {},
     'physics-power': loc_physics_power.uk ?? {},
+    'physics-torque': loc_physics_torque.uk ?? {},
     'plaster': loc_plaster.uk ?? {},
     'pool-fill-time': loc_pool_fill_time.uk ?? {},
     'potential-energy': loc_potential_energy.uk ?? {},

@@ -72,6 +72,7 @@ import { compute as compute_fps_frametime } from './fps-frametime/compute';
 import { contextualField as ctx_fps_frametime } from './fps-frametime/contextualField';
 import { compute as compute_fraction_arith } from './fraction-arith/compute';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
+import { compute as compute_generator_fuel } from './generator-fuel/compute';
 import { compute as compute_geom_circle } from './geom-circle/compute';
 import { compute as compute_geom_cone } from './geom-cone/compute';
 import { compute as compute_geom_cuboid } from './geom-cuboid/compute';
@@ -85,6 +86,8 @@ import { compute as compute_geom_sphere } from './geom-sphere/compute';
 import { compute as compute_geom_square } from './geom-square/compute';
 import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
 import { compute as compute_geom_triangle } from './geom-triangle/compute';
+import { compute as compute_golden_ratio } from './golden-ratio/compute';
+import { compute as compute_hydrostatic_pressure } from './hydrostatic-pressure/compute';
 import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
 import { compute as compute_installment } from './installment/compute';
 import { compute as compute_insulation } from './insulation/compute';
@@ -112,6 +115,7 @@ import { validate as validate_percent_calculator } from './percent-calculator/va
 import { contextualField as ctx_percent_calculator } from './percent-calculator/contextualField';
 import { compute as compute_ph_poh } from './ph-poh/compute';
 import { compute as compute_physics_power } from './physics-power/compute';
+import { compute as compute_physics_torque } from './physics-torque/compute';
 import { compute as compute_plaster } from './plaster/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_potential_energy } from './potential-energy/compute';
@@ -211,6 +215,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'fps-frametime': compute_fps_frametime,
   'fraction-arith': compute_fraction_arith,
   'fuel-consumption': compute_fuel_consumption,
+  'generator-fuel': compute_generator_fuel,
   'geom-circle': compute_geom_circle,
   'geom-cone': compute_geom_cone,
   'geom-cuboid': compute_geom_cuboid,
@@ -224,6 +229,8 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-square': compute_geom_square,
   'geom-trapezoid': compute_geom_trapezoid,
   'geom-triangle': compute_geom_triangle,
+  'golden-ratio': compute_golden_ratio,
+  'hydrostatic-pressure': compute_hydrostatic_pressure,
   'ideal-gas-law': compute_ideal_gas_law,
   'installment': compute_installment,
   'insulation': compute_insulation,
@@ -247,6 +254,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'percent-calculator': compute_percent_calculator,
   'ph-poh': compute_ph_poh,
   'physics-power': compute_physics_power,
+  'physics-torque': compute_physics_torque,
   'plaster': compute_plaster,
   'pool-fill-time': compute_pool_fill_time,
   'potential-energy': compute_potential_energy,

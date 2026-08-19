@@ -63,6 +63,7 @@ import FinalGradeIsland from '../calculators/final-grade/island';
 import FpsFrametimeIsland from '../calculators/fps-frametime/island';
 import FractionArithIsland from '../calculators/fraction-arith/island';
 import FuelConsumptionIsland from '../calculators/fuel-consumption/island';
+import GeneratorFuelIsland from '../calculators/generator-fuel/island';
 import GeomCircleIsland from '../calculators/geom-circle/island';
 import GeomConeIsland from '../calculators/geom-cone/island';
 import GeomCuboidIsland from '../calculators/geom-cuboid/island';
@@ -76,6 +77,8 @@ import GeomSphereIsland from '../calculators/geom-sphere/island';
 import GeomSquareIsland from '../calculators/geom-square/island';
 import GeomTrapezoidIsland from '../calculators/geom-trapezoid/island';
 import GeomTriangleIsland from '../calculators/geom-triangle/island';
+import GoldenRatioIsland from '../calculators/golden-ratio/island';
+import HydrostaticPressureIsland from '../calculators/hydrostatic-pressure/island';
 import IdealGasLawIsland from '../calculators/ideal-gas-law/island';
 import InstallmentIsland from '../calculators/installment/island';
 import InsulationIsland from '../calculators/insulation/island';
@@ -99,6 +102,7 @@ import PaintCalculatorIsland from '../calculators/paint-calculator/island';
 import PercentCalculatorIsland from '../calculators/percent-calculator/island';
 import PhPohIsland from '../calculators/ph-poh/island';
 import PhysicsPowerIsland from '../calculators/physics-power/island';
+import PhysicsTorqueIsland from '../calculators/physics-torque/island';
 import PlasterIsland from '../calculators/plaster/island';
 import PoolFillTimeIsland from '../calculators/pool-fill-time/island';
 import PotentialEnergyIsland from '../calculators/potential-energy/island';
@@ -142,7 +146,7 @@ import ZScoreIsland from '../calculators/z-score/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['ad-roi', 'annuity', 'aov', 'aspect-ratio', 'battery-charge-time', 'battery-runtime', 'bike-gear-ratio', 'board-volume', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'combinatorics', 'commission', 'concrete', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cpm', 'ctr', 'day-of-week', 'density', 'difference-abs-rel', 'dilution', 'dividend-yield', 'divisors', 'down-payment', 'download-time', 'dti', 'electricity-usage', 'engagement-rate', 'factorial', 'files-on-disk', 'final-grade', 'fps-frametime', 'fraction-arith', 'fuel-consumption', 'geom-circle', 'geom-cone', 'geom-cuboid', 'geom-cylinder', 'geom-parallelogram', 'geom-rectangle', 'geom-regular-polygon', 'geom-right-triangle', 'geom-sector', 'geom-sphere', 'geom-square', 'geom-trapezoid', 'geom-triangle', 'ideal-gas-law', 'installment', 'insulation', 'inventory-turnover', 'inverter-power', 'kinetic-energy', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'ltv', 'market-cap', 'modulo', 'molarity', 'moles', 'momentum', 'network-bandwidth', 'newton-force', 'ohms-law', 'paint-calculator', 'percent-calculator', 'ph-poh', 'physics-power', 'plaster', 'pool-fill-time', 'potential-energy', 'power-to-weight', 'ppi-dpi', 'pressure', 'price-per-unit', 'prime-factorization', 'probability-basic', 'proportion', 'quadratic-equation', 'reading-speed', 'real-return', 'rental-yield', 'return-rate', 'revenue-per-employee', 'roas', 'roi', 'roman-numerals', 'roof-area', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'solution-concentration', 'speed-distance-time', 'stats-descriptive', 'stock-duration', 'strip-foundation', 'test-score-percent', 'time-duration', 'tip', 'trip-cost', 'unix-timestamp', 'week-number', 'weighted-mean', 'work', 'workday-cost', 'z-score']);
+const V2_IDS = new Set(['ad-roi', 'annuity', 'aov', 'aspect-ratio', 'battery-charge-time', 'battery-runtime', 'bike-gear-ratio', 'board-volume', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'combinatorics', 'commission', 'concrete', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cpm', 'ctr', 'day-of-week', 'density', 'difference-abs-rel', 'dilution', 'dividend-yield', 'divisors', 'down-payment', 'download-time', 'dti', 'electricity-usage', 'engagement-rate', 'factorial', 'files-on-disk', 'final-grade', 'fps-frametime', 'fraction-arith', 'fuel-consumption', 'generator-fuel', 'geom-circle', 'geom-cone', 'geom-cuboid', 'geom-cylinder', 'geom-parallelogram', 'geom-rectangle', 'geom-regular-polygon', 'geom-right-triangle', 'geom-sector', 'geom-sphere', 'geom-square', 'geom-trapezoid', 'geom-triangle', 'golden-ratio', 'hydrostatic-pressure', 'ideal-gas-law', 'installment', 'insulation', 'inventory-turnover', 'inverter-power', 'kinetic-energy', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'ltv', 'market-cap', 'modulo', 'molarity', 'moles', 'momentum', 'network-bandwidth', 'newton-force', 'ohms-law', 'paint-calculator', 'percent-calculator', 'ph-poh', 'physics-power', 'physics-torque', 'plaster', 'pool-fill-time', 'potential-energy', 'power-to-weight', 'ppi-dpi', 'pressure', 'price-per-unit', 'prime-factorization', 'probability-basic', 'proportion', 'quadratic-equation', 'reading-speed', 'real-return', 'rental-yield', 'return-rate', 'revenue-per-employee', 'roas', 'roi', 'roman-numerals', 'roof-area', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'solution-concentration', 'speed-distance-time', 'stats-descriptive', 'stock-duration', 'strip-foundation', 'test-score-percent', 'time-duration', 'tip', 'trip-cost', 'unix-timestamp', 'week-number', 'weighted-mean', 'work', 'workday-cost', 'z-score']);
 ---
 
 {id === 'ad-roi' && <AdRoiIsland calc={calc} locale={locale} client:load />}
@@ -200,6 +204,7 @@ const V2_IDS = new Set(['ad-roi', 'annuity', 'aov', 'aspect-ratio', 'battery-cha
 {id === 'fps-frametime' && <FpsFrametimeIsland calc={calc} locale={locale} client:load />}
 {id === 'fraction-arith' && <FractionArithIsland calc={calc} locale={locale} client:load />}
 {id === 'fuel-consumption' && <FuelConsumptionIsland calc={calc} locale={locale} client:load />}
+{id === 'generator-fuel' && <GeneratorFuelIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-circle' && <GeomCircleIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-cone' && <GeomConeIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-cuboid' && <GeomCuboidIsland calc={calc} locale={locale} client:load />}
@@ -213,6 +218,8 @@ const V2_IDS = new Set(['ad-roi', 'annuity', 'aov', 'aspect-ratio', 'battery-cha
 {id === 'geom-square' && <GeomSquareIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-trapezoid' && <GeomTrapezoidIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-triangle' && <GeomTriangleIsland calc={calc} locale={locale} client:load />}
+{id === 'golden-ratio' && <GoldenRatioIsland calc={calc} locale={locale} client:load />}
+{id === 'hydrostatic-pressure' && <HydrostaticPressureIsland calc={calc} locale={locale} client:load />}
 {id === 'ideal-gas-law' && <IdealGasLawIsland calc={calc} locale={locale} client:load />}
 {id === 'installment' && <InstallmentIsland calc={calc} locale={locale} client:load />}
 {id === 'insulation' && <InsulationIsland calc={calc} locale={locale} client:load />}
@@ -236,6 +243,7 @@ const V2_IDS = new Set(['ad-roi', 'annuity', 'aov', 'aspect-ratio', 'battery-cha
 {id === 'percent-calculator' && <PercentCalculatorIsland calc={calc} locale={locale} client:load />}
 {id === 'ph-poh' && <PhPohIsland calc={calc} locale={locale} client:load />}
 {id === 'physics-power' && <PhysicsPowerIsland calc={calc} locale={locale} client:load />}
+{id === 'physics-torque' && <PhysicsTorqueIsland calc={calc} locale={locale} client:load />}
 {id === 'plaster' && <PlasterIsland calc={calc} locale={locale} client:load />}
 {id === 'pool-fill-time' && <PoolFillTimeIsland calc={calc} locale={locale} client:load />}
 {id === 'potential-energy' && <PotentialEnergyIsland calc={calc} locale={locale} client:load />}

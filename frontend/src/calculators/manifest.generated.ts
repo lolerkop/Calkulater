@@ -67,6 +67,7 @@ import { definition as def_final_grade } from './final-grade/definition';
 import { definition as def_fps_frametime } from './fps-frametime/definition';
 import { definition as def_fraction_arith } from './fraction-arith/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
+import { definition as def_generator_fuel } from './generator-fuel/definition';
 import { definition as def_geom_circle } from './geom-circle/definition';
 import { definition as def_geom_cone } from './geom-cone/definition';
 import { definition as def_geom_cuboid } from './geom-cuboid/definition';
@@ -80,6 +81,8 @@ import { definition as def_geom_sphere } from './geom-sphere/definition';
 import { definition as def_geom_square } from './geom-square/definition';
 import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
 import { definition as def_geom_triangle } from './geom-triangle/definition';
+import { definition as def_golden_ratio } from './golden-ratio/definition';
+import { definition as def_hydrostatic_pressure } from './hydrostatic-pressure/definition';
 import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
 import { definition as def_installment } from './installment/definition';
 import { definition as def_insulation } from './insulation/definition';
@@ -103,6 +106,7 @@ import { definition as def_paint_calculator } from './paint-calculator/definitio
 import { definition as def_percent_calculator } from './percent-calculator/definition';
 import { definition as def_ph_poh } from './ph-poh/definition';
 import { definition as def_physics_power } from './physics-power/definition';
+import { definition as def_physics_torque } from './physics-torque/definition';
 import { definition as def_plaster } from './plaster/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
 import { definition as def_potential_energy } from './potential-energy/definition';
@@ -200,6 +204,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_fps_frametime,
   def_fraction_arith,
   def_fuel_consumption,
+  def_generator_fuel,
   def_geom_circle,
   def_geom_cone,
   def_geom_cuboid,
@@ -213,6 +218,8 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_square,
   def_geom_trapezoid,
   def_geom_triangle,
+  def_golden_ratio,
+  def_hydrostatic_pressure,
   def_ideal_gas_law,
   def_installment,
   def_insulation,
@@ -236,6 +243,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_percent_calculator,
   def_ph_poh,
   def_physics_power,
+  def_physics_torque,
   def_plaster,
   def_pool_fill_time,
   def_potential_energy,
