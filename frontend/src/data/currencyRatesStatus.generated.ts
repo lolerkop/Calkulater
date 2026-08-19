@@ -1,5 +1,5 @@
 export const generatedRatesUpdateStatus: 'success' | 'failed' = 'success';
-export const generatedRatesUpdateAttemptedAt = '2026-08-18T05:45:36.635Z';
+export const generatedRatesUpdateAttemptedAt = '2026-08-19T05:46:51.481Z';
 export const generatedRatesUpdateMessage = "";
-export const generatedRatesLastSuccessfulCheckAt = '2026-08-18T05:45:36.635Z';
-export const generatedRatesLastSuccessfulEffectiveDate = '2026-08-18';
+export const generatedRatesLastSuccessfulCheckAt = '2026-08-19T05:46:51.481Z';
+export const generatedRatesLastSuccessfulEffectiveDate = '2026-08-19';
