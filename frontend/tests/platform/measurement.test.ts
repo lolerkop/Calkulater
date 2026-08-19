@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatMeasure, formatQuantity, lengthSymbol, formatStatistic } from '../../src/lib/platform/measurement';
+import { formatMeasure, formatQuantity, lengthSymbol, formatStatistic, sinDegrees } from '../../src/lib/platform/measurement';
 import { fmtNumber } from '../../src/lib/format';
 
 // Помощник извлечён после десяти реальных потребителей и отвечает ровно за две
@@ -87,5 +87,25 @@ describe('formatStatistic', () => {
   it('разряды не зависят от величины, в отличие от formatMeasure', () => {
     // formatMeasure для 1234,5678 даёт два знака, статистика — четыре
     expect(s(1234.5678)).toBe('1 234,5678');
+  });
+});
+
+describe('sinDegrees', () => {
+  it('переводит градусы в радианы, а не подставляет их в Math.sin', () => {
+    expect(sinDegrees(30)).toBeCloseTo(0.5, 12);
+    expect(sinDegrees(90)).toBe(1);
+    expect(sinDegrees(45)).toBeCloseTo(Math.SQRT1_2, 12);
+  });
+
+  it('приводит машинный нуль к точному', () => {
+    // Math.sin(Math.PI) даёт 1,2246e-16 — именно этот остаток и должен исчезнуть
+    expect(Math.sin(Math.PI)).not.toBe(0);
+    expect(sinDegrees(180)).toBe(0);
+    expect(sinDegrees(360)).toBe(0);
+    expect(sinDegrees(0)).toBe(0);
+  });
+
+  it('порог не съедает настоящие малые значения', () => {
+    expect(sinDegrees(1e-6)).toBeGreaterThan(0);
   });
 });

@@ -1,6 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, toNumber } from '../../lib/format';
-import { formatQuantity } from '../../lib/platform/measurement';
+import { formatQuantity, sinDegrees } from '../../lib/platform/measurement';
 
 // Момент силы: τ = F · r · sin θ.
 //
@@ -12,11 +12,6 @@ import { formatQuantity } from '../../lib/platform/measurement';
 // обязан дать РОВНО нуль, а не машинный остаток.
 
 const qty = (value: number): string => formatQuantity(value, fmtNumber);
-
-const sinDegrees = (degrees: number): number => {
-  const value = Math.sin((degrees * Math.PI) / 180);
-  return Math.abs(value) < 1e-12 ? 0 : value;
-};
 
 export const compute: CalcFunction = (inputs) => {
   const force = toNumber(inputs.force);

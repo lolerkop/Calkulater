@@ -1,6 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure, lengthSymbol } from '../../lib/platform/measurement';
+import { formatMeasure, lengthSymbol, sinDegrees } from '../../lib/platform/measurement';
 
 // Параллелограмм: площадь по основанию и высоте либо по двум сторонам и углу.
 //
@@ -13,11 +13,6 @@ import { formatMeasure, lengthSymbol } from '../../lib/platform/measurement';
 // не выводится, и вместо правдоподобного числа выводится прочерк.
 
 const dim = (value: number): string => formatMeasure(value, fmtNumber);
-
-const sinDegrees = (degrees: number): number => {
-  const value = Math.sin((degrees * Math.PI) / 180);
-  return Math.abs(value) < 1e-12 ? 0 : value;
-};
 
 export const compute: CalcFunction = (inputs) => {
   const unit = lengthSymbol(toStr(inputs.unit, 'cm'));
