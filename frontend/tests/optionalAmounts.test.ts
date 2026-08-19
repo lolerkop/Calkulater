@@ -56,6 +56,7 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['electricity-usage', 'tariff'],
   ['rule-of-72', 'amount'],
   ['ctr', 'cost'],
+  ['network-bandwidth', 'overhead'],
 ];
 
 describe('необязательные суммы', () => {

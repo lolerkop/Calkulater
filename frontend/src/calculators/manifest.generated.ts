@@ -15,6 +15,7 @@ import { isPublished } from '../lib/platform/types';
 import { definition as def_ad_roi } from './ad-roi/definition';
 import { definition as def_aov } from './aov/definition';
 import { definition as def_aspect_ratio } from './aspect-ratio/definition';
+import { definition as def_battery_runtime } from './battery-runtime/definition';
 import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition';
 import { definition as def_cac } from './cac/definition';
 import { definition as def_cagr } from './cagr/definition';
@@ -49,13 +50,16 @@ import { definition as def_dividend_yield } from './dividend-yield/definition';
 import { definition as def_download_time } from './download-time/definition';
 import { definition as def_dti } from './dti/definition';
 import { definition as def_electricity_usage } from './electricity-usage/definition';
+import { definition as def_files_on_disk } from './files-on-disk/definition';
 import { definition as def_fps_frametime } from './fps-frametime/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
+import { definition as def_inverter_power } from './inverter-power/definition';
 import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
 import { definition as def_linear_equation } from './linear-equation/definition';
 import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_modulo } from './modulo/definition';
+import { definition as def_network_bandwidth } from './network-bandwidth/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
@@ -76,12 +80,14 @@ import { definition as def_simple_interest } from './simple-interest/definition'
 import { definition as def_test_score_percent } from './test-score-percent/definition';
 import { definition as def_time_duration } from './time-duration/definition';
 import { definition as def_tip } from './tip/definition';
+import { definition as def_unix_timestamp } from './unix-timestamp/definition';
 import { definition as def_week_number } from './week-number/definition';
 
 export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ad_roi,
   def_aov,
   def_aspect_ratio,
+  def_battery_runtime,
   def_budget_50_30_20,
   def_cac,
   def_cagr,
@@ -116,13 +122,16 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_download_time,
   def_dti,
   def_electricity_usage,
+  def_files_on_disk,
   def_fps_frametime,
   def_fuel_consumption,
+  def_inverter_power,
   def_leap_year,
   def_led_resistor,
   def_linear_equation,
   def_logarithm,
   def_modulo,
+  def_network_bandwidth,
   def_ohms_law,
   def_paint_calculator,
   def_percent_calculator,
@@ -143,6 +152,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_test_score_percent,
   def_time_duration,
   def_tip,
+  def_unix_timestamp,
   def_week_number,
 ];
 

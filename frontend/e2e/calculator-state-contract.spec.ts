@@ -400,6 +400,26 @@ const stateScenarios: Record<string, StateScenario> = {
     query: { mode: 'permutations', n: 10, k: 3 },
     result: { primary: '720' },
   },
+  'inverter-power': {
+    query: { outputPower: 2500, efficiency: 92, batteryVoltage: 24 },
+    result: { primary: '2 717,4 Вт' },
+  },
+  'battery-runtime': {
+    query: { capacity: 7, voltage: 12, load: 30, dod: 100, efficiency: 100 },
+    result: { primary: '2,80 ч' },
+  },
+  'network-bandwidth': {
+    query: { users: 8, perUser: 25, overhead: 0, concurrency: 100 },
+    result: { primary: '200,0 Мбит/с' },
+  },
+  'files-on-disk': {
+    query: { capacity: 64, capacityUnit: 'gib', fileSize: 25, fileUnit: 'mib' },
+    result: { primary: '2 621' },
+  },
+  'unix-timestamp': {
+    query: { mode: 'toTimestamp', date: '2000-01-01', hour: 0, minute: 0, second: 0 },
+    result: { primary: '946684800' },
+  },
   'date-shift-calculator': {
     query: {
       startDate: '2026-01-01',

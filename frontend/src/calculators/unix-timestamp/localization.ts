@@ -1,0 +1,63 @@
+import type { CalculatorLocalization } from '../../lib/platform/types';
+
+const RESULTS_EN = {
+    "Результат": "Result",
+    "Дата и время UTC": "Date and time in UTC",
+    "Unix-время": "Unix time",
+    "Unix-время, секунды": "Unix time, seconds",
+    "Дата в ISO 8601": "ISO 8601 date",
+    "День недели": "Day of the week",
+    "Проверьте данные": "Check the values",
+};
+const RESULTS_UK = {
+    "Результат": "Результат",
+    "Дата и время UTC": "Дата й час UTC",
+    "Unix-время": "Unix-час",
+    "Unix-время, секунды": "Unix-час, секунди",
+    "Дата в ISO 8601": "Дата в ISO 8601",
+    "День недели": "День тижня",
+    "Проверьте данные": "Перевірте дані",
+};
+
+export const localization: CalculatorLocalization = {
+  en: {
+    fields: { mode: "Direction", timestamp: "Unix time, seconds", date: "Date (UTC)", hour: "Hour", minute: "Minute", second: "Second" },
+    options: { toDate: "timestamp → date", toTimestamp: "date → timestamp" },
+    results: RESULTS_EN,
+    values: {
+    "воскресенье": "Sunday",
+    "понедельник": "Monday",
+    "вторник": "Tuesday",
+    "среда": "Wednesday",
+    "четверг": "Thursday",
+    "пятница": "Friday",
+    "суббота": "Saturday",
+    "Секунды задаются целым числом": "Seconds must be a whole number",
+    "Дата задаётся в формате ГГГГ-ММ-ДД": "The date must be in YYYY-MM-DD format",
+    "Часы задаются в диапазоне от 0 до 23": "Hours are set between 0 and 23",
+    "Минуты задаются в диапазоне от 0 до 59": "Minutes are set between 0 and 59",
+    "Секунды задаются в диапазоне от 0 до 59": "Seconds are set between 0 and 59",
+    "Значение выходит за поддерживаемый диапазон дат": "The value is outside the supported date range",
+    },
+  },
+  uk: {
+    fields: { mode: "Напрямок", timestamp: "Unix-час, секунди", date: "Дата (UTC)", hour: "Година", minute: "Хвилина", second: "Секунда" },
+    options: { toDate: "timestamp → дата", toTimestamp: "дата → timestamp" },
+    results: RESULTS_UK,
+    values: {
+    "воскресенье": "неділя",
+    "понедельник": "понеділок",
+    "вторник": "вівторок",
+    "среда": "середа",
+    "четверг": "четвер",
+    "пятница": "п’ятниця",
+    "суббота": "субота",
+    "Секунды задаются целым числом": "Секунди задаються цілим числом",
+    "Дата задаётся в формате ГГГГ-ММ-ДД": "Дата задається у форматі РРРР-ММ-ДД",
+    "Часы задаются в диапазоне от 0 до 23": "Години задаються в діапазоні від 0 до 23",
+    "Минуты задаются в диапазоне от 0 до 59": "Хвилини задаються в діапазоні від 0 до 59",
+    "Секунды задаются в диапазоне от 0 до 59": "Секунди задаються в діапазоні від 0 до 59",
+    "Значение выходит за поддерживаемый диапазон дат": "Значення виходить за підтримуваний діапазон дат",
+    },
+  },
+};

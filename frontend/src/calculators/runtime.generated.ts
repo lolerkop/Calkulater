@@ -17,6 +17,7 @@ import { v2Localization } from './localization.generated';
 import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_aov } from './aov/compute';
 import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
+import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
@@ -53,15 +54,18 @@ import { compute as compute_dividend_yield } from './dividend-yield/compute';
 import { compute as compute_download_time } from './download-time/compute';
 import { compute as compute_dti } from './dti/compute';
 import { compute as compute_electricity_usage } from './electricity-usage/compute';
+import { compute as compute_files_on_disk } from './files-on-disk/compute';
 import { compute as compute_fps_frametime } from './fps-frametime/compute';
 import { contextualField as ctx_fps_frametime } from './fps-frametime/contextualField';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
+import { compute as compute_inverter_power } from './inverter-power/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
 import { compute as compute_linear_equation } from './linear-equation/compute';
 import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_modulo } from './modulo/compute';
+import { compute as compute_network_bandwidth } from './network-bandwidth/compute';
 import { compute as compute_ohms_law } from './ohms-law/compute';
 import { contextualField as ctx_ohms_law } from './ohms-law/contextualField';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
@@ -86,12 +90,14 @@ import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
 import { compute as compute_tip } from './tip/compute';
+import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
 import { compute as compute_week_number } from './week-number/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
   'ad-roi': compute_ad_roi,
   'aov': compute_aov,
   'aspect-ratio': compute_aspect_ratio,
+  'battery-runtime': compute_battery_runtime,
   'budget-50-30-20': compute_budget_50_30_20,
   'cac': compute_cac,
   'cagr': compute_cagr,
@@ -126,13 +132,16 @@ export const v2Runners: Record<string, CalcFunction> = {
   'download-time': compute_download_time,
   'dti': compute_dti,
   'electricity-usage': compute_electricity_usage,
+  'files-on-disk': compute_files_on_disk,
   'fps-frametime': compute_fps_frametime,
   'fuel-consumption': compute_fuel_consumption,
+  'inverter-power': compute_inverter_power,
   'leap-year': compute_leap_year,
   'led-resistor': compute_led_resistor,
   'linear-equation': compute_linear_equation,
   'logarithm': compute_logarithm,
   'modulo': compute_modulo,
+  'network-bandwidth': compute_network_bandwidth,
   'ohms-law': compute_ohms_law,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
@@ -153,6 +162,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'test-score-percent': compute_test_score_percent,
   'time-duration': compute_time_duration,
   'tip': compute_tip,
+  'unix-timestamp': compute_unix_timestamp,
   'week-number': compute_week_number,
 };
 

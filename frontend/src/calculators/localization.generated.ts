@@ -9,6 +9,7 @@ import type { ScopedLocalization } from '../lib/platform/types';
 import { localization as loc_ad_roi } from './ad-roi/localization';
 import { localization as loc_aov } from './aov/localization';
 import { localization as loc_aspect_ratio } from './aspect-ratio/localization';
+import { localization as loc_battery_runtime } from './battery-runtime/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
@@ -43,13 +44,16 @@ import { localization as loc_dividend_yield } from './dividend-yield/localizatio
 import { localization as loc_download_time } from './download-time/localization';
 import { localization as loc_dti } from './dti/localization';
 import { localization as loc_electricity_usage } from './electricity-usage/localization';
+import { localization as loc_files_on_disk } from './files-on-disk/localization';
 import { localization as loc_fps_frametime } from './fps-frametime/localization';
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
+import { localization as loc_inverter_power } from './inverter-power/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_led_resistor } from './led-resistor/localization';
 import { localization as loc_linear_equation } from './linear-equation/localization';
 import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_modulo } from './modulo/localization';
+import { localization as loc_network_bandwidth } from './network-bandwidth/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
 import { localization as loc_power_to_weight } from './power-to-weight/localization';
 import { localization as loc_prime_factorization } from './prime-factorization/localization';
@@ -68,6 +72,7 @@ import { localization as loc_simple_interest } from './simple-interest/localizat
 import { localization as loc_test_score_percent } from './test-score-percent/localization';
 import { localization as loc_time_duration } from './time-duration/localization';
 import { localization as loc_tip } from './tip/localization';
+import { localization as loc_unix_timestamp } from './unix-timestamp/localization';
 import { localization as loc_week_number } from './week-number/localization';
 
 export const v2Localization: ScopedLocalization = {
@@ -75,6 +80,7 @@ export const v2Localization: ScopedLocalization = {
     'ad-roi': loc_ad_roi.en ?? {},
     'aov': loc_aov.en ?? {},
     'aspect-ratio': loc_aspect_ratio.en ?? {},
+    'battery-runtime': loc_battery_runtime.en ?? {},
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
@@ -109,13 +115,16 @@ export const v2Localization: ScopedLocalization = {
     'download-time': loc_download_time.en ?? {},
     'dti': loc_dti.en ?? {},
     'electricity-usage': loc_electricity_usage.en ?? {},
+    'files-on-disk': loc_files_on_disk.en ?? {},
     'fps-frametime': loc_fps_frametime.en ?? {},
     'fuel-consumption': loc_fuel_consumption.en ?? {},
+    'inverter-power': loc_inverter_power.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
     'led-resistor': loc_led_resistor.en ?? {},
     'linear-equation': loc_linear_equation.en ?? {},
     'logarithm': loc_logarithm.en ?? {},
     'modulo': loc_modulo.en ?? {},
+    'network-bandwidth': loc_network_bandwidth.en ?? {},
     'ohms-law': loc_ohms_law.en ?? {},
     'power-to-weight': loc_power_to_weight.en ?? {},
     'prime-factorization': loc_prime_factorization.en ?? {},
@@ -134,12 +143,14 @@ export const v2Localization: ScopedLocalization = {
     'test-score-percent': loc_test_score_percent.en ?? {},
     'time-duration': loc_time_duration.en ?? {},
     'tip': loc_tip.en ?? {},
+    'unix-timestamp': loc_unix_timestamp.en ?? {},
     'week-number': loc_week_number.en ?? {},
   },
   uk: {
     'ad-roi': loc_ad_roi.uk ?? {},
     'aov': loc_aov.uk ?? {},
     'aspect-ratio': loc_aspect_ratio.uk ?? {},
+    'battery-runtime': loc_battery_runtime.uk ?? {},
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
@@ -174,13 +185,16 @@ export const v2Localization: ScopedLocalization = {
     'download-time': loc_download_time.uk ?? {},
     'dti': loc_dti.uk ?? {},
     'electricity-usage': loc_electricity_usage.uk ?? {},
+    'files-on-disk': loc_files_on_disk.uk ?? {},
     'fps-frametime': loc_fps_frametime.uk ?? {},
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
+    'inverter-power': loc_inverter_power.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
     'led-resistor': loc_led_resistor.uk ?? {},
     'linear-equation': loc_linear_equation.uk ?? {},
     'logarithm': loc_logarithm.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
+    'network-bandwidth': loc_network_bandwidth.uk ?? {},
     'ohms-law': loc_ohms_law.uk ?? {},
     'power-to-weight': loc_power_to_weight.uk ?? {},
     'prime-factorization': loc_prime_factorization.uk ?? {},
@@ -199,6 +213,7 @@ export const v2Localization: ScopedLocalization = {
     'test-score-percent': loc_test_score_percent.uk ?? {},
     'time-duration': loc_time_duration.uk ?? {},
     'tip': loc_tip.uk ?? {},
+    'unix-timestamp': loc_unix_timestamp.uk ?? {},
     'week-number': loc_week_number.uk ?? {},
   },
 };
