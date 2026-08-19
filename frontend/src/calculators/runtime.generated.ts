@@ -21,6 +21,7 @@ import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
 import { compute as compute_calories_from_macros } from './calories-from-macros/compute';
+import { compute as compute_combinatorics } from './combinatorics/compute';
 import { compute as compute_commission } from './commission/compute';
 import { validate as validate_commission } from './commission/validate';
 import { contextualField as ctx_commission } from './commission/contextualField';
@@ -45,6 +46,7 @@ import { compute as compute_convert_temperature } from './convert-temperature/co
 import { compute as compute_convert_time } from './convert-time/compute';
 import { compute as compute_convert_torque } from './convert-torque/compute';
 import { compute as compute_convert_volume } from './convert-volume/compute';
+import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
 import { compute as compute_dividend_yield } from './dividend-yield/compute';
@@ -56,6 +58,7 @@ import { contextualField as ctx_fps_frametime } from './fps-frametime/contextual
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
+import { compute as compute_linear_equation } from './linear-equation/compute';
 import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_modulo } from './modulo/compute';
@@ -76,11 +79,13 @@ import { compute as compute_revenue_per_employee } from './revenue-per-employee/
 import { compute as compute_roi } from './roi/compute';
 import { compute as compute_roman_numerals } from './roman-numerals/compute';
 import { compute as compute_room_volume } from './room-volume/compute';
+import { compute as compute_rule_of_72 } from './rule-of-72/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
 import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
+import { compute as compute_tip } from './tip/compute';
 import { compute as compute_week_number } from './week-number/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
@@ -91,6 +96,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cac': compute_cac,
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
+  'combinatorics': compute_combinatorics,
   'commission': compute_commission,
   'contribution-margin': compute_contribution_margin,
   'convert-angle': compute_convert_angle,
@@ -113,6 +119,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-time': compute_convert_time,
   'convert-torque': compute_convert_torque,
   'convert-volume': compute_convert_volume,
+  'ctr': compute_ctr,
   'day-of-week': compute_day_of_week,
   'difference-abs-rel': compute_difference_abs_rel,
   'dividend-yield': compute_dividend_yield,
@@ -123,6 +130,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'fuel-consumption': compute_fuel_consumption,
   'leap-year': compute_leap_year,
   'led-resistor': compute_led_resistor,
+  'linear-equation': compute_linear_equation,
   'logarithm': compute_logarithm,
   'modulo': compute_modulo,
   'ohms-law': compute_ohms_law,
@@ -138,11 +146,13 @@ export const v2Runners: Record<string, CalcFunction> = {
   'roi': compute_roi,
   'roman-numerals': compute_roman_numerals,
   'room-volume': compute_room_volume,
+  'rule-of-72': compute_rule_of_72,
   'savings-rate': compute_savings_rate,
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
   'test-score-percent': compute_test_score_percent,
   'time-duration': compute_time_duration,
+  'tip': compute_tip,
   'week-number': compute_week_number,
 };
 

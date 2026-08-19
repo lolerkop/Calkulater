@@ -19,6 +19,7 @@ import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition'
 import { definition as def_cac } from './cac/definition';
 import { definition as def_cagr } from './cagr/definition';
 import { definition as def_calories_from_macros } from './calories-from-macros/definition';
+import { definition as def_combinatorics } from './combinatorics/definition';
 import { definition as def_commission } from './commission/definition';
 import { definition as def_contribution_margin } from './contribution-margin/definition';
 import { definition as def_convert_angle } from './convert-angle/definition';
@@ -41,6 +42,7 @@ import { definition as def_convert_temperature } from './convert-temperature/def
 import { definition as def_convert_time } from './convert-time/definition';
 import { definition as def_convert_torque } from './convert-torque/definition';
 import { definition as def_convert_volume } from './convert-volume/definition';
+import { definition as def_ctr } from './ctr/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
 import { definition as def_dividend_yield } from './dividend-yield/definition';
@@ -51,6 +53,7 @@ import { definition as def_fps_frametime } from './fps-frametime/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
 import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
+import { definition as def_linear_equation } from './linear-equation/definition';
 import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_modulo } from './modulo/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
@@ -66,11 +69,13 @@ import { definition as def_revenue_per_employee } from './revenue-per-employee/d
 import { definition as def_roi } from './roi/definition';
 import { definition as def_roman_numerals } from './roman-numerals/definition';
 import { definition as def_room_volume } from './room-volume/definition';
+import { definition as def_rule_of_72 } from './rule-of-72/definition';
 import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
 import { definition as def_test_score_percent } from './test-score-percent/definition';
 import { definition as def_time_duration } from './time-duration/definition';
+import { definition as def_tip } from './tip/definition';
 import { definition as def_week_number } from './week-number/definition';
 
 export const v2Definitions: readonly CalculatorDefinitionV2[] = [
@@ -81,6 +86,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_cac,
   def_cagr,
   def_calories_from_macros,
+  def_combinatorics,
   def_commission,
   def_contribution_margin,
   def_convert_angle,
@@ -103,6 +109,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_time,
   def_convert_torque,
   def_convert_volume,
+  def_ctr,
   def_day_of_week,
   def_difference_abs_rel,
   def_dividend_yield,
@@ -113,6 +120,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_fuel_consumption,
   def_leap_year,
   def_led_resistor,
+  def_linear_equation,
   def_logarithm,
   def_modulo,
   def_ohms_law,
@@ -128,11 +136,13 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_roi,
   def_roman_numerals,
   def_room_volume,
+  def_rule_of_72,
   def_savings_rate,
   def_shipping_per_unit,
   def_simple_interest,
   def_test_score_percent,
   def_time_duration,
+  def_tip,
   def_week_number,
 ];
 

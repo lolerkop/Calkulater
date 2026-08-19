@@ -54,6 +54,8 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['reading-speed', 'bookWords'],
   ['power-to-weight', 'payload'],
   ['electricity-usage', 'tariff'],
+  ['rule-of-72', 'amount'],
+  ['ctr', 'cost'],
 ];
 
 describe('необязательные суммы', () => {

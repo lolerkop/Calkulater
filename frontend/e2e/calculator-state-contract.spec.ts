@@ -380,6 +380,26 @@ const stateScenarios: Record<string, StateScenario> = {
     query: { power: 75, powerUnit: 'w', hoursPerDay: 24, days: 365 },
     result: { primary: '657,00 кВт·ч' },
   },
+  'tip': {
+    query: { bill: 5400, tipPercent: 15, people: 4 },
+    result: { primary: '6 210,00 ₽' },
+  },
+  'rule-of-72': {
+    query: { rate: 3 },
+    result: { primary: '24,00 лет' },
+  },
+  'ctr': {
+    query: { clicks: 37, impressions: 1000 },
+    result: { primary: '3,70%' },
+  },
+  'linear-equation': {
+    query: { a: -4, b: 7, c: -9 },
+    result: { primary: 'x = 4' },
+  },
+  'combinatorics': {
+    query: { mode: 'permutations', n: 10, k: 3 },
+    result: { primary: '720' },
+  },
   'date-shift-calculator': {
     query: {
       startDate: '2026-01-01',

@@ -13,6 +13,7 @@ import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localizat
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
 import { localization as loc_calories_from_macros } from './calories-from-macros/localization';
+import { localization as loc_combinatorics } from './combinatorics/localization';
 import { localization as loc_commission } from './commission/localization';
 import { localization as loc_contribution_margin } from './contribution-margin/localization';
 import { localization as loc_convert_angle } from './convert-angle/localization';
@@ -35,6 +36,7 @@ import { localization as loc_convert_temperature } from './convert-temperature/l
 import { localization as loc_convert_time } from './convert-time/localization';
 import { localization as loc_convert_torque } from './convert-torque/localization';
 import { localization as loc_convert_volume } from './convert-volume/localization';
+import { localization as loc_ctr } from './ctr/localization';
 import { localization as loc_day_of_week } from './day-of-week/localization';
 import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
 import { localization as loc_dividend_yield } from './dividend-yield/localization';
@@ -45,6 +47,7 @@ import { localization as loc_fps_frametime } from './fps-frametime/localization'
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_led_resistor } from './led-resistor/localization';
+import { localization as loc_linear_equation } from './linear-equation/localization';
 import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_modulo } from './modulo/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
@@ -58,11 +61,13 @@ import { localization as loc_revenue_per_employee } from './revenue-per-employee
 import { localization as loc_roi } from './roi/localization';
 import { localization as loc_roman_numerals } from './roman-numerals/localization';
 import { localization as loc_room_volume } from './room-volume/localization';
+import { localization as loc_rule_of_72 } from './rule-of-72/localization';
 import { localization as loc_savings_rate } from './savings-rate/localization';
 import { localization as loc_shipping_per_unit } from './shipping-per-unit/localization';
 import { localization as loc_simple_interest } from './simple-interest/localization';
 import { localization as loc_test_score_percent } from './test-score-percent/localization';
 import { localization as loc_time_duration } from './time-duration/localization';
+import { localization as loc_tip } from './tip/localization';
 import { localization as loc_week_number } from './week-number/localization';
 
 export const v2Localization: ScopedLocalization = {
@@ -74,6 +79,7 @@ export const v2Localization: ScopedLocalization = {
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
     'calories-from-macros': loc_calories_from_macros.en ?? {},
+    'combinatorics': loc_combinatorics.en ?? {},
     'commission': loc_commission.en ?? {},
     'contribution-margin': loc_contribution_margin.en ?? {},
     'convert-angle': loc_convert_angle.en ?? {},
@@ -96,6 +102,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-time': loc_convert_time.en ?? {},
     'convert-torque': loc_convert_torque.en ?? {},
     'convert-volume': loc_convert_volume.en ?? {},
+    'ctr': loc_ctr.en ?? {},
     'day-of-week': loc_day_of_week.en ?? {},
     'difference-abs-rel': loc_difference_abs_rel.en ?? {},
     'dividend-yield': loc_dividend_yield.en ?? {},
@@ -106,6 +113,7 @@ export const v2Localization: ScopedLocalization = {
     'fuel-consumption': loc_fuel_consumption.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
     'led-resistor': loc_led_resistor.en ?? {},
+    'linear-equation': loc_linear_equation.en ?? {},
     'logarithm': loc_logarithm.en ?? {},
     'modulo': loc_modulo.en ?? {},
     'ohms-law': loc_ohms_law.en ?? {},
@@ -119,11 +127,13 @@ export const v2Localization: ScopedLocalization = {
     'roi': loc_roi.en ?? {},
     'roman-numerals': loc_roman_numerals.en ?? {},
     'room-volume': loc_room_volume.en ?? {},
+    'rule-of-72': loc_rule_of_72.en ?? {},
     'savings-rate': loc_savings_rate.en ?? {},
     'shipping-per-unit': loc_shipping_per_unit.en ?? {},
     'simple-interest': loc_simple_interest.en ?? {},
     'test-score-percent': loc_test_score_percent.en ?? {},
     'time-duration': loc_time_duration.en ?? {},
+    'tip': loc_tip.en ?? {},
     'week-number': loc_week_number.en ?? {},
   },
   uk: {
@@ -134,6 +144,7 @@ export const v2Localization: ScopedLocalization = {
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
     'calories-from-macros': loc_calories_from_macros.uk ?? {},
+    'combinatorics': loc_combinatorics.uk ?? {},
     'commission': loc_commission.uk ?? {},
     'contribution-margin': loc_contribution_margin.uk ?? {},
     'convert-angle': loc_convert_angle.uk ?? {},
@@ -156,6 +167,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-time': loc_convert_time.uk ?? {},
     'convert-torque': loc_convert_torque.uk ?? {},
     'convert-volume': loc_convert_volume.uk ?? {},
+    'ctr': loc_ctr.uk ?? {},
     'day-of-week': loc_day_of_week.uk ?? {},
     'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
     'dividend-yield': loc_dividend_yield.uk ?? {},
@@ -166,6 +178,7 @@ export const v2Localization: ScopedLocalization = {
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
     'led-resistor': loc_led_resistor.uk ?? {},
+    'linear-equation': loc_linear_equation.uk ?? {},
     'logarithm': loc_logarithm.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
     'ohms-law': loc_ohms_law.uk ?? {},
@@ -179,11 +192,13 @@ export const v2Localization: ScopedLocalization = {
     'roi': loc_roi.uk ?? {},
     'roman-numerals': loc_roman_numerals.uk ?? {},
     'room-volume': loc_room_volume.uk ?? {},
+    'rule-of-72': loc_rule_of_72.uk ?? {},
     'savings-rate': loc_savings_rate.uk ?? {},
     'shipping-per-unit': loc_shipping_per_unit.uk ?? {},
     'simple-interest': loc_simple_interest.uk ?? {},
     'test-score-percent': loc_test_score_percent.uk ?? {},
     'time-duration': loc_time_duration.uk ?? {},
+    'tip': loc_tip.uk ?? {},
     'week-number': loc_week_number.uk ?? {},
   },
 };

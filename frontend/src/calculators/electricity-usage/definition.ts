@@ -54,6 +54,6 @@ export const definition: CalculatorDefinitionV2 = {
       { q: 'Чем ватт отличается от киловатт-часа?', a: 'Ватт — это скорость расхода, а киловатт-час — энергия, накопленная за время. Прибор на 1000 Вт за один час съедает ровно 1 кВт·ч.' },
       { q: 'Обязательно ли указывать тариф?', a: 'Нет. Без него вы всё равно получите потребление в киловатт-часах, просто без строки стоимости.' },
     ],
-    relatedCalculatorIds: ['convert-power', 'convert-energy', 'room-volume'],
+    relatedCalculatorIds: ['tip', 'convert-power', 'convert-energy'],
   },
 };
