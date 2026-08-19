@@ -54,10 +54,21 @@ describe('island values: locale semantics', () => {
     expect(normalize(vat, { amount: '1,000' }, 'ru').amount).toBe(1);
   });
 
-  it('reads a dot group as a thousands separator outside en', () => {
-    expect(normalize(vat, { amount: '1.000' }, 'ru').amount).toBe(1000);
-    expect(normalize(vat, { amount: '1.000' }, 'uk').amount).toBe(1000);
+  // Phase 14S: точечных разрядов в ru/uk больше нет. Intl для ru-RU группирует
+  // неразрывным пробелом и точку не выводит, поэтому точка всегда дробная — иначе
+  // «2.500» на калькуляторе квадрата снова стало бы 2500.
+  it('reads a single dot as a decimal mark in every locale', () => {
+    expect(normalize(vat, { amount: '1.000' }, 'ru').amount).toBe(1);
+    expect(normalize(vat, { amount: '1.000' }, 'uk').amount).toBe(1);
     expect(normalize(vat, { amount: '1.000' }, 'en').amount).toBe(1);
+  });
+
+  it('никогда не умножает десятичную дробь на тысячу', () => {
+    for (const locale of ['ru', 'uk', 'en'] as const) {
+      expect(normalize(vat, { amount: '2.500' }, locale).amount).toBe(2.5);
+      expect(normalize(vat, { amount: '0.001' }, locale).amount).toBe(0.001);
+      expect(normalize(vat, { amount: '18.015' }, locale).amount).toBe(18.015);
+    }
   });
 });
 
