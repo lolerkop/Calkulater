@@ -17,12 +17,21 @@ async function задержатьИндекс(page: Page) {
   return () => отпустить();
 }
 
+/** Остров подключается по client:idle: до этого onFocus ещё не навешен. */
+async function дождатьсяГидратации(page: Page) {
+  await page.waitForFunction(() => {
+    const box = document.querySelector('[data-testid="search-box"]');
+    const island = box && box.closest('astro-island');
+    return !!island && !island.hasAttribute('ssr');
+  }, undefined, { timeout: 25000 });
+}
+
 test.describe('ленивый индекс поиска', () => {
   test('индекс не запрашивается, пока поиск не тронули', async ({ page }) => {
     const запросы: string[] = [];
     page.on('request', (r) => { if (r.url().includes('/search-index/')) запросы.push(r.url()); });
     await page.goto('/ru/');
-    await page.getByTestId('search-input').waitFor();
+    await дождатьсяГидратации(page);
     await page.waitForTimeout(1200);
     expect(запросы, 'нетронутая страница индекс не тянет').toEqual([]);
   });
@@ -31,6 +40,7 @@ test.describe('ленивый индекс поиска', () => {
     const запросы: string[] = [];
     page.on('request', (r) => { if (r.url().includes('/search-index/')) запросы.push(r.url()); });
     await page.goto('/ru/');
+    await дождатьсяГидратации(page);
     await page.getByTestId('search-input').focus();
     await expect.poll(() => запросы.length, { timeout: 10000 }).toBeGreaterThan(0);
     expect(запросы[0], 'локаль своя').toContain('/search-index/ru.json');
