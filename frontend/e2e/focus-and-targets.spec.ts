@@ -93,12 +93,12 @@ test.describe('область нажатия переключателя язык
     test(`на ${width}px область нажатия не меньше ${МИНИМУМ}px и не задевает соседей`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto('/ru/');
-      const ссылка = page.getByTestId('header-nav-mobile-lang-en');
+      const ссылка = page.getByTestId('header-lang-en');
       await ссылка.scrollIntoViewIfNeeded();
 
       const замер = await page.evaluate(() => {
-        const en = document.querySelector('[data-testid="header-nav-mobile-lang-en"]') as HTMLElement;
-        const ru = document.querySelector('[data-testid="header-nav-mobile-lang-ru"]') as HTMLElement;
+        const en = document.querySelector('[data-testid="header-lang-en"]') as HTMLElement;
+        const ru = document.querySelector('[data-testid="header-lang-ru"]') as HTMLElement;
         const box = en.getBoundingClientRect();
         const cx = box.x + box.width / 2;
         // Реальная область: сканируем вверх и вниз, пока точка принадлежит ссылке.
@@ -133,7 +133,7 @@ test.describe('область нажатия переключателя язык
     for (const смещение of [-5, 15, 35]) {
       await page.setViewportSize({ width: 375, height: 900 });
       await page.goto('/ru/');
-      const ссылка = page.getByTestId('header-nav-mobile-lang-en');
+      const ссылка = page.getByTestId('header-lang-en');
       await ссылка.scrollIntoViewIfNeeded();
       const box = (await ссылка.boundingBox())!;
       await page.mouse.click(box.x + box.width / 2, box.y + смещение);
@@ -147,12 +147,15 @@ test.describe('область нажатия переключателя язык
     await page.goto('/ru/');
     const размеры = await page.evaluate(() => ({
       шапка: Math.round(document.querySelector('[data-testid="site-header"]')!.getBoundingClientRect().height),
-      полоса: Math.round(document.querySelector('[data-testid="header-nav-mobile"]')!.getBoundingClientRect().height),
-      плашка: Math.round(document.querySelector('[data-testid="header-nav-mobile-lang-en"]')!.getBoundingClientRect().height),
+      полоса: Math.round(document.querySelector('[data-testid="header-nav"]')!.getBoundingClientRect().height),
+      плашка: Math.round(document.querySelector('[data-testid="header-lang-en"]')!.getBoundingClientRect().height),
     }));
-    // Значения зафиксированы до правки: расширение области не должно их двигать.
-    expect(размеры.шапка).toBe(118);
-    expect(размеры.полоса).toBe(53);
+    // Значения зафиксированы: расширение области нажатия не должно их двигать.
+    // 119/54 вместо прежних 118/53 — цена перехода на одну полосу разделов
+    // вместо двух: рамка строки переехала на саму полосу. Плашка языка как
+    // была 30px, так и осталась — расширение по-прежнему только виртуальное.
+    expect(размеры.шапка).toBe(119);
+    expect(размеры.полоса).toBe(54);
     expect(размеры.плашка).toBe(30);
   });
 });

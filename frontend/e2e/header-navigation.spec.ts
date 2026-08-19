@@ -37,10 +37,8 @@ type NavGeometry = {
 };
 
 const readNavGeometry = `(() => {
-  const shown = (el) => !!(el && el.getClientRects().length);
-  const desktop = document.querySelector('[data-testid="header-nav"]');
-  const mobile = document.querySelector('[data-testid="header-nav-mobile"]');
-  const nav = shown(desktop) ? desktop : mobile;
+  // Полоса разделов одна на обе раскладки — выбирать между копиями больше не из чего.
+  const nav = document.querySelector('[data-testid="header-nav"]');
   const navBox = nav.getBoundingClientRect();
   const items = [...nav.children];
 
@@ -52,10 +50,10 @@ const readNavGeometry = `(() => {
   const worst = Math.min(...items.map((item) => item.getBoundingClientRect().left - atStart.left));
   nav.scrollLeft = before;
 
-  const languageSwitcher = [...document.querySelectorAll('[data-language-switcher]')].find(shown);
-  // На узких ширинах переключатель языка лежит внутри самой полосы, поэтому
-  // его собственные ссылки из перечня разделов надо убрать: иначе они «налезут»
-  // сами на себя.
+  // Переключатель языка теперь всегда сосед полосы, а не её содержимое, но
+  // фильтр оставлен: он описывает намерение «в перечне разделов только разделы»
+  // и не зависит от того, где переключатель лежит сейчас.
+  const languageSwitcher = document.querySelector('[data-language-switcher]');
   const navLinks = [...nav.querySelectorAll('a')].filter((link) => !link.closest('[data-language-switcher]'));
   // Сравнивать надо видимые части: у полосы overflow-x, и хвост пункта за её
   // краем обрезан, хотя getBoundingClientRect по-прежнему считает его целиком.
@@ -71,7 +69,7 @@ const readNavGeometry = `(() => {
     : 0;
 
   return {
-    mode: nav === desktop ? 'desktop' : 'mobile',
+    mode: window.innerWidth >= 768 ? 'desktop' : 'mobile',
     itemsPastStart: items.filter((item) => item.getBoundingClientRect().left < navBox.left - 0.5).length,
     firstItemOffset: Math.round(navLinks[0].getBoundingClientRect().left - navBox.left),
     reachableFromStart: worst >= -0.5,
@@ -147,7 +145,7 @@ test('полоса подсказывает прокрутку затенени�
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto('/ru/');
 
-  const nav = page.getByTestId('header-nav-mobile');
+  const nav = page.getByTestId('header-nav');
   const state = await nav.evaluate((element) => {
     const style = getComputedStyle(element);
     return {

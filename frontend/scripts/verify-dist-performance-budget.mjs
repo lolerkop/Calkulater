@@ -45,6 +45,19 @@ const budgets = {
   // и больше половины веса страницы 404. Порог с большим запасом пропускает
   // локаль и подписи, но возврат массива калькуляторов роняет сборку.
   searchBoxPropsRaw: 512,
+  // ── масштаб полосы разделов ──
+  // Сколько ПОЛНЫХ перечней разделов вправе нести обычная страница. Сейчас их
+  // два: полоса в шапке и перечень в подвале. Третьим был мобильный дубль
+  // шапки — та же таксономия, отрендеренная второй раз в разметке, где 181 B
+  // на раздел уходили на шесть утилит Tailwind, повторённых у каждой ссылки.
+  // Вместе с подвалом раздел стоил три вхождения и ≈58 B gzip на КАЖДОЙ
+  // странице, и обычный маршрут упирался в 15 КиБ уже на шестнадцатом разделе.
+  // Порог ловит именно возврат этой архитектуры: не «многовато байт», а
+  // «таксономия снова размножена по разметке».
+  categoryListsPerRoute: 2,
+  // До скольких разделов архитектура обязана дожить, не выйдя за routeHtmlGzip.
+  // Отдельного потолка здесь НЕТ: проверяется тот же жёсткий 15 КиБ.
+  categoryScaleTarget: 25,
   // Наклон пересчитан после того, как сетку забрал Astro, а из острова ушли
   // сериализованные калькуляторы: 0,14 КиБ на калькулятор на синтетике 48→100
   // и около 0,17 на реальных текстах. Порог 0,20 оставляет запас на разброс
@@ -126,8 +139,78 @@ const isCatalog = (file) => /[/\\]calculators[/\\]index\.html$/.test(file);
 const isLocaleIndex = (file) => /[/\\][a-z]{2}[/\\]index\.html$/.test(file);
 const scalesWithCatalog = (file) => isCatalog(file) || isLocaleIndex(file);
 
+// ── масштаб полосы разделов ──
+//
+// Проверяется СВОЙСТВО собранной страницы, а не текст исходника: сколько раз
+// таксономия целиком разложена по разметке и во что это обойдётся, когда
+// разделов станет вдвое больше. Грепом по Header.astro такое не поймать —
+// дубль может вернуться из любого компонента.
+
+// Полный перечень разделов — это набор ссылок на страницы разделов с общим
+// префиксом data-testid. Раздел опознаётся по АДРЕСУ ссылки, а не по имени
+// testid: иначе вложенные префиксы схлопывают проверку — «header-nav-mobile-math»
+// подходит под шаблон «header-nav-<что-то>», и вернувшийся дубль растворяется
+// в наборе вместо того, чтобы быть замеченным. Это ровно тот случай, на котором
+// первая редакция проверки и провалилась под мутацией.
+const categoryListPrefixes = (html) => {
+  const groups = new Map();
+  const anchor = /<a [^>]*?href="\/[a-z]{2}\/([a-z0-9-]+)\/"[^>]*?data-testid="([a-z0-9-]+)"/g;
+  for (const [, slug, testid] of html.matchAll(anchor)) {
+    if (!testid.endsWith(`-${slug}`)) continue;
+    const prefix = testid.slice(0, -(slug.length + 1));
+    if (!groups.has(prefix)) groups.set(prefix, new Set());
+    groups.get(prefix).add(slug);
+  }
+  if (groups.size === 0) return { slugs: [], prefixes: [] };
+  const widest = Math.max(...[...groups.values()].map((set) => set.size));
+  // Пять — порог шума: хлебные крошки и «похожие» ссылки не образуют перечня.
+  if (widest < 5) return { slugs: [], prefixes: [] };
+  const full = [...groups.entries()].filter(([, set]) => set.size === widest);
+  return { slugs: [...full[0][1]], prefixes: full.map(([prefix]) => prefix) };
+};
+
+// Синтетический рост: настоящая разметка одного раздела клонируется под новые
+// slug и подпись. Байты те же, что выдал бы генератор, — счёт не на глазок.
+// Подписи нарочно длиннее реальных, чтобы оценка была консервативной.
+const SYNTHETIC_LABELS = [
+  ['Недвижимость', 'scale-realty'], ['Путешествия', 'scale-travel'],
+  ['Здоровье и медицина', 'scale-health'], ['Садоводство', 'scale-garden'],
+  ['Инвестиции', 'scale-investing'], ['Налогообложение', 'scale-taxation'],
+  ['Логистика', 'scale-logistics'], ['Энергетика', 'scale-energy'],
+  ['Текстиль и швейное дело', 'scale-textile'], ['Астрономия', 'scale-astronomy'],
+  ['Химия', 'scale-chemistry'], ['Геодезия', 'scale-geodesy'],
+  ['Музыка и звук', 'scale-audio'], ['Фотография', 'scale-photo'],
+  ['Криптовалюты', 'scale-crypto'], ['Страхование', 'scale-insurance'],
+  ['Юриспруденция', 'scale-legal'], ['Метеорология', 'scale-weather'],
+];
+
+const grownToCategories = (html, slug, label, target, present) => {
+  let grown = html;
+  const templates = [
+    new RegExp(`<a [^>]*data-testid="header-nav-${slug}"[^>]*>[\\s\\S]*?</a>`),
+    new RegExp(`<li> <a [^>]*data-testid="footer-link-${slug}"[^>]*>[\\s\\S]*?</a> </li>`),
+  ];
+  for (const pattern of templates) {
+    const found = grown.match(pattern);
+    if (!found) continue;
+    let extra = '';
+    for (let i = 0; i < target - present; i += 1) {
+      const [synthLabel, synthSlug] = SYNTHETIC_LABELS[i % SYNTHETIC_LABELS.length];
+      extra += found[0]
+        .split(`/${slug}/`).join(`/${synthSlug}-${i}/`)
+        .split(`-${slug}"`).join(`-${synthSlug}-${i}"`)
+        .split(label).join(`${synthLabel} ${i}`);
+    }
+    grown = grown.replace(found[0], found[0] + extra);
+  }
+  return grown;
+};
+
 // ── производительность маршрутов ──
 const routes = [];
+const categoryScale = [];
+let categoryScaleReport = null;
+
 for (const file of htmlFiles) {
   const rel = path.relative(root, file);
   const htmlGzip = gzipSize(file);
@@ -141,7 +224,22 @@ for (const file of htmlFiles) {
     issues.push(`${rel}: HTML gzip ${kib(htmlGzip)} exceeds ${kib(budgets.routeHtmlGzip)}`);
   }
 
-  const searchIsland = fs.readFileSync(file, 'utf8').match(/<astro-island[^>]*SearchBox[^>]*>/);
+  const html = fs.readFileSync(file, 'utf8');
+
+  // Сколько раз таксономия целиком разложена по этой странице.
+  if (!scalesWithCatalog(file)) {
+    const { slugs, prefixes } = categoryListPrefixes(html);
+    if (slugs.length > 0 && prefixes.length > budgets.categoryListsPerRoute) {
+      issues.push(
+        `${rel}: полных перечней разделов ${prefixes.length} (${prefixes.sort().join(', ')}) — `
+        + `больше ${budgets.categoryListsPerRoute}; таксономия снова размножена по разметке, `
+        + 'и цена раздела выросла кратно числу копий',
+      );
+    }
+    categoryScale.push({ rel, file, html, slugs, prefixes });
+  }
+
+  const searchIsland = html.match(/<astro-island[^>]*SearchBox[^>]*>/);
   if (searchIsland) {
     const props = (searchIsland[0].match(/props="(.*?)"/s) ?? [])[1] ?? '';
     if (props.length > budgets.searchBoxPropsRaw) {
@@ -149,6 +247,43 @@ for (const file of htmlFiles) {
     }
   }
 }
+
+// Во что обойдётся рост таксономии. Худший обычный маршрут выращивается до
+// целевого числа разделов настоящей разметкой раздела и меряется тем же
+// gzip и тем же порогом routeHtmlGzip — отдельного потолка здесь нет.
+const worstOrdinary = categoryScale
+  .map((entry) => ({ ...entry, gzip: gzipSize(entry.file) }))
+  .sort((a, b) => b.gzip - a.gzip)[0];
+
+if (worstOrdinary && worstOrdinary.slugs.length > 0) {
+  const present = worstOrdinary.slugs.length;
+  const target = budgets.categoryScaleTarget;
+  // Образцом берётся раздел с ПРОСТОЙ текстовой подписью: у ссылки на каталог
+  // подпись разложена по двум span для узкой и широкой раскладки, и клонировать
+  // её как шаблон нельзя — подстановка испортила бы разметку.
+  const sample = worstOrdinary.slugs
+    .map((slug) => {
+      const anchor = worstOrdinary.html.match(
+        new RegExp(`<a [^>]*data-testid="header-nav-${slug}"[^>]*>([^<]+)</a>`),
+      );
+      return anchor ? { slug, label: anchor[1].trim() } : null;
+    })
+    .find((entry) => entry && entry.label.length > 0);
+
+  if (present < target && sample) {
+    const grown = grownToCategories(worstOrdinary.html, sample.slug, sample.label, target, present);
+    const grownGzip = zlib.gzipSync(Buffer.from(grown)).length;
+    categoryScaleReport = { route: worstOrdinary.rel, present, target, now: worstOrdinary.gzip, grown: grownGzip };
+    if (grownGzip > budgets.routeHtmlGzip) {
+      issues.push(
+        `${worstOrdinary.rel}: при ${target} разделах HTML gzip ${kib(grownGzip)} превысит `
+        + `${kib(budgets.routeHtmlGzip)} (сейчас ${kib(worstOrdinary.gzip)} при ${present}) — `
+        + 'цена раздела вернулась к прежнему наклону',
+      );
+    }
+  }
+}
+
 
 // Число опубликованных калькуляторов: каталог перечисляет ровно их.
 let publishedCount = 0;
@@ -277,6 +412,13 @@ console.log(
   `Verified route performance: worst JS closure ${kib(worstJs.jsClosureGzip)} (${worstJs.route}), `
   + `worst HTML ${kib(worstHtml.htmlGzip)} (${worstHtml.route}).`,
 );
+if (categoryScaleReport) {
+  console.log(
+    `Category scale: ${categoryScaleReport.present} sections ${kib(categoryScaleReport.now)}`
+    + ` → ${categoryScaleReport.target} sections ${kib(categoryScaleReport.grown)}`
+    + ` (ceiling ${kib(budgets.routeHtmlGzip)}, ${categoryScaleReport.route}).`,
+  );
+}
 console.log(
   `Architecture: shared island ${kib(report.architecture.sharedIslandGzip)}, `
   + `${runtimeChunks.length} calculator runtimes, largest ${kib(report.architecture.maxCalculatorRuntimeGzip)}.`,

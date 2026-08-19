@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test('full-parity language switcher links resolve to equivalent pages', async ({ page, request }) => {
   await page.goto('/ru/currency/currency-converter/');
 
-  const switcher = page.locator('[data-language-switcher="desktop"]');
+  const switcher = page.locator('[data-language-switcher]');
   const links = switcher.locator('a');
   await expect(links).toHaveCount(3);
   await expect(switcher).toContainText('UA');
@@ -24,7 +24,7 @@ test('full-parity language switcher links resolve to equivalent pages', async ({
 test('RU-only calculator does not link or hreflang to false translations', async ({ page, request }) => {
   await page.goto('/ru/finance/income-tax-calculator/');
 
-  const switcher = page.locator('[data-language-switcher="desktop"]');
+  const switcher = page.locator('[data-language-switcher]');
   await expect(switcher.locator('a')).toHaveCount(1);
   await expect(switcher.locator('[aria-disabled="true"]')).toHaveCount(2);
   await expect(page.getByTestId('locale-specific-notice')).toBeVisible();

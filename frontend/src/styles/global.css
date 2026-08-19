@@ -473,16 +473,78 @@ table {
   box-shadow: 0 8px 20px rgba(103, 88, 243, 0.25);
 }
 
+/* Раскладка шапки.
+   Одна разметка, две раскладки. На узком экране логотип и переключатель языка
+   делят первую строку, полоса разделов занимает вторую целиком; на широком всё
+   встаёт в один ряд. Сетка названа областями, поэтому строка не может
+   «поехать» от нехватки места: логотип сжимается (у него text-fit), а перенос
+   на лишнюю строку невозможен по построению — при flex-wrap на 320px он как
+   раз случался. */
+.header-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'logo logo'
+    'nav  lang';
+  align-items: center;
+  /* Ноль: полоса и переключатель делят вторую строку встык, поэтому линия
+     сверху идёт непрерывно во всю ширину, как было у прежней мобильной
+     строки. Зазор между ними даёт собственный отступ переключателя. */
+  column-gap: 0;
+}
+
+.header-grid > .header-logo { grid-area: logo; }
+.header-grid > .header-lang { grid-area: lang; }
+.header-grid > .header-nav  { grid-area: nav; }
+
+@media (min-width: 768px) {
+  .header-grid {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: 'logo nav lang';
+    column-gap: 0.875rem;
+    /* Тот же ряд, что и прежняя верхняя строка шапки. */
+    min-height: 4rem;
+    padding-block: 0.75rem;
+  }
+}
+
+/* Пункт полосы разделов. Отступы разные по ширине экрана — ровно те, что были
+   у двух прежних полос: 6px в мобильной и 8px в настольной. Так один класс
+   воспроизводит обе прежние раскладки, а не усредняет их. */
 .site-nav-link {
   flex: 0 0 auto;
-  border-radius: 0.75rem;
-  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.75rem;
   font-size: 0.875rem;
   transition: color 0.16s ease, background-color 0.16s ease;
 }
 
+@media (min-width: 768px) {
+  .site-nav-link {
+    border-radius: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
 .site-nav-link:hover {
   background: #F3F1FF;
+  color: var(--accent);
+}
+
+/* Ссылки перечней подвала.
+   Перечень категорий повторяет класс на каждой строке, поэтому набор утилит
+   здесь стоил бы байтами на каждой странице сайта: пятьдесят два символа
+   умножались на число разделов. Один класс — и цена перестаёт зависеть от
+   таксономии. */
+.footer-link {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  color: #25223F;
+  transition: color 0.16s ease;
+}
+
+.footer-link:hover {
   color: var(--accent);
 }
 

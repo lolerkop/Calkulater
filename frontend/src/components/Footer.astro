@@ -72,7 +72,7 @@ const reportIssue = {
           <li>
             <a
               href={`/${locale}/${c.slug}/`}
-              class="text-fit text-ink-800 transition-colors hover:text-accent"
+              class="footer-link"
               data-testid={`footer-link-${c.slug}`}
             >
               {c.name}
@@ -89,7 +89,7 @@ const reportIssue = {
           <li>
             <a
               href={calc.fullPath}
-              class="text-fit text-ink-800 transition-colors hover:text-accent"
+              class="footer-link"
               data-testid={`footer-popular-${calc.slug}`}
             >
               {calc.name}
@@ -105,10 +105,10 @@ const reportIssue = {
         {copy.footerNote}
       </p>
       <nav class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm" aria-label={copy.servicePages}>
-        <a href={`/${locale}/about/`} class="text-fit text-ink-800 transition-colors hover:text-accent">{copy.about}</a>
-        <a href={`/${locale}/contacts/`} class="text-fit text-ink-800 transition-colors hover:text-accent" data-analytics-event="contact_link_clicked">{copy.contacts}</a>
-        <a href={`/${locale}/privacy/`} class="text-fit text-ink-800 transition-colors hover:text-accent">{copy.privacy}</a>
-        <a href={`/${locale}/contacts/#calculation-errors`} class="text-fit text-ink-800 transition-colors hover:text-accent">{reportIssue}</a>
+        <a href={`/${locale}/about/`} class="footer-link">{copy.about}</a>
+        <a href={`/${locale}/contacts/`} class="footer-link" data-analytics-event="contact_link_clicked">{copy.contacts}</a>
+        <a href={`/${locale}/privacy/`} class="footer-link">{copy.privacy}</a>
+        <a href={`/${locale}/contacts/#calculation-errors`} class="footer-link">{reportIssue}</a>
       </nav>
     </div>
   </div>

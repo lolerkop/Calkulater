@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { getCategories } from '../src/lib/i18n';
 
 const viewports = [
   { width: 320, height: 740 },
@@ -82,8 +83,13 @@ test('skip link, FAQ and responsive navigation work from the keyboard', async ({
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('page-main')).toBeFocused();
 
-  await expect(page.getByTestId('header-nav')).toBeHidden();
-  await expect(page.getByTestId('header-nav-mobile')).toBeVisible();
+  // Полоса разделов одна на обе раскладки. Прежде здесь проверялось, что
+  // настольная копия скрыта, а мобильная показана; копий больше нет, поэтому
+  // контракт сильнее: на узком экране полоса видима и несёт ВСЕ разделы.
+  const nav = page.getByTestId('header-nav');
+  await expect(nav).toBeVisible();
+  const разделы = nav.locator('a[data-testid^="header-nav-"]');
+  expect(await разделы.count(), 'разделы в полосе').toBe(getCategories('ru').length + 1);
 
   const summary = page.getByTestId('faq-item-0').locator('summary');
   await summary.focus();

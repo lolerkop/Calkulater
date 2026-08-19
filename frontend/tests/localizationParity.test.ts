@@ -89,8 +89,11 @@ describe('localization parity', () => {
 
   it('renders real switcher links and disabled unavailable locales', () => {
     const header = readFileSync('src/components/Header.astro', 'utf8');
-    expect(header).toContain('data-language-switcher="desktop"');
-    expect(header).toContain('data-language-switcher="mobile"');
+    // Переключатель ОДИН. Прежде их было два — настольный и мобильный, — и
+    // каждая локаль попадала в разметку дважды; значения «desktop»/«mobile»
+    // различали именно копии. Копий нет, и проверка теперь сильнее прежней:
+    // она запрещает им вернуться.
+    expect(header.match(/data-language-switcher/g)).toHaveLength(1);
     expect(header).toContain('aria-disabled="true"');
     expect(header).toContain('item.link.href');
   });

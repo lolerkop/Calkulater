@@ -55,12 +55,28 @@ const navLabel = {
 }[locale];
 ---
 
+{/*
+  Полоса разделов выводится ОДИН раз.
+  
+  Прежде шапка держала два полных перечня категорий — настольный и мобильный, —
+  и каждая категория попадала в HTML дважды: 113 B в компактной настольной
+  разметке и 181 B в мобильной, где шесть утилит Tailwind повторялись на каждой
+  ссылке вместо общего класса. Вместе с перечнем в подвале одна категория стоила
+  три вхождения и ≈58 B gzip на КАЖДОЙ странице, и обычный маршрут упирался в
+  15 КиБ уже на шестнадцатом разделе. Ни один раздел при этом не был лишним —
+  лишними были копии.
+
+  Теперь перечень один, а разница между раскладками выражена CSS: на узком
+  экране полоса переносится на свою строку (order-last + полная ширина с
+  выносом под отступы контейнера), на широком — встаёт в тот же ряд, что и
+  логотип. Переключатель языка по той же причине тоже один.
+*/}
 <header class="sticky top-0 z-40 border-b border-ink-200 bg-white/85 backdrop-blur-xl" data-testid="site-header">
   <div class="mx-auto max-w-page px-4 sm:px-8">
-    <div class="flex min-h-16 items-center justify-between gap-4 py-3">
+    <div class="header-grid">
       <a
         href={localeHome(locale)}
-        class="group flex shrink-0 items-center gap-2.5"
+        class="header-logo group flex min-h-16 items-center gap-2.5 py-3 md:min-h-0 md:py-0"
         aria-label={`${meta.siteName} - ${copy.home}`}
         data-testid="header-logo-link"
       >
@@ -70,139 +86,23 @@ const navLabel = {
         </span>
       </a>
 
-      {/*
-        Полоса категорий прокручивается, переключатель языка закреплён рядом с
-        ней и остаётся на виду: он не часть перечня разделов, и уводить его за
-        край вместе с ними незачем. Отступ обёртки в 14px повторяет прежний
-        зазор: 6px собственного gap полосы плюс 8px от ml-2 переключателя.
-      */}
-      <div class="hidden min-w-0 flex-1 items-center gap-3.5 md:flex">
-        {/*
-          Прижимаем полосу вправо автоотступом первого пункта, а не justify-end.
-          При избытке места auto съедает его целиком и вид совпадает с прежним,
-          а при нехватке auto обнуляется, и лишнее уходит вправо — туда, где до
-          него дотягивается прокрутка. С justify-end лишнее уходило влево, за
-          начало полосы, куда scrollLeft не заходит, и первые пункты пропадали.
-        */}
-        <nav
-          class="nav-scroll flex min-w-0 flex-1 items-center gap-1.5 overflow-x-auto"
-          aria-label={navLabel}
-          data-testid="header-nav"
-        >
-          <a
-            href={catalogPath}
-            class:list={[
-              'site-nav-link ml-auto font-semibold',
-              isAllActive ? 'bg-accent-50 text-accent' : 'text-ink-700',
-            ]}
-            aria-current={isAllActive ? 'page' : undefined}
-            data-testid="header-nav-all-calculators"
-          >
-            {copy.allCalculators}
-          </a>
-          {categories.map((c) => {
-            const categoryPath = `/${locale}/${c.slug}/`;
-            const isActive = currentPath.startsWith(categoryPath);
-            const currentState = isActive
-              ? (currentPath === categoryPath ? 'page' : 'location')
-              : undefined;
-            return (
-              <a
-                href={categoryPath}
-                class:list={[
-                  'site-nav-link font-medium',
-                  isActive ? 'bg-accent-50 font-semibold text-accent' : 'text-ink-600',
-                ]}
-                aria-current={currentState}
-                data-testid={`header-nav-${c.slug}`}
-              >
-                {c.name}
-              </a>
-            );
-          })}
-        </nav>
-        {alternates.length > 0 && (
-          <span class="flex max-w-[280px] shrink-0 items-center gap-1 overflow-x-auto rounded-xl border border-ink-200 bg-ink-50 p-1" data-language-switcher="desktop">
-            {languageOptions.map((item) => item.link ? (
-              <a
-                href={item.link.href}
-                class:list={[
-                  'shrink-0 rounded-lg px-2 py-1.5 text-xs font-semibold transition-colors hover:text-accent',
-                  item.locale === locale ? 'bg-white text-accent shadow-sm' : 'text-ink-500',
-                ]}
-                hreflang={localeMeta[item.locale].htmlLang}
-                aria-label={localeMeta[item.locale].label}
-                data-testid={`header-lang-${item.locale}`}
-                data-analytics-event="language_switch_clicked"
-                data-analytics-target-locale={item.locale}
-              >
-                {localeMeta[item.locale].shortLabel}
-              </a>
-            ) : (
-              <span
-                class="shrink-0 cursor-not-allowed rounded-lg px-2 py-1.5 text-xs font-semibold text-ink-300"
-                aria-disabled="true"
-                aria-label={`${localeMeta[item.locale].label}: ${unavailableLanguage}`}
-                title={unavailableLanguage}
-                data-testid={`header-lang-${item.locale}-unavailable`}
-              >
-                {localeMeta[item.locale].shortLabel}
-              </span>
-            ))}
-          </span>
-        )}
-      </div>
-    </div>
-
-    {/* Мобильная навигация — горизонтальная прокрутка */}
-    <nav
-      class="nav-scroll -mx-4 flex items-center gap-2 overflow-x-auto border-t border-ink-100 px-4 py-2.5 text-sm md:hidden"
-      aria-label={navLabel}
-      data-testid="header-nav-mobile"
-    >
-      <a
-        href={catalogPath}
-        class:list={[
-          'shrink-0 whitespace-nowrap rounded-lg px-3 py-1.5 font-semibold hover:bg-accent-50 hover:text-accent',
-          isAllActive ? 'bg-accent-50 text-accent' : 'text-ink-700',
-        ]}
-        aria-current={isAllActive ? 'page' : undefined}
-        data-testid="header-nav-mobile-all-calculators"
-      >
-        {copy.all}
-      </a>
-      {categories.map((c) => {
-        const categoryPath = `/${locale}/${c.slug}/`;
-        const isActive = currentPath.startsWith(categoryPath);
-        const currentState = isActive
-          ? (currentPath === categoryPath ? 'page' : 'location')
-          : undefined;
-        return (
-          <a
-            href={categoryPath}
-            class:list={[
-              'shrink-0 whitespace-nowrap rounded-lg px-3 py-1.5 hover:bg-accent-50 hover:text-accent',
-              isActive ? 'bg-accent-50 font-semibold text-accent' : 'text-ink-600',
-            ]}
-            aria-current={currentState}
-            data-testid={`header-nav-mobile-${c.slug}`}
-          >
-            {c.name}
-          </a>
-        );
-      })}
       {alternates.length > 0 && (
-        <span class="flex shrink-0 items-center gap-1" data-language-switcher="mobile">
+        <span
+          class="header-lang -mr-4 flex shrink-0 items-center gap-1 border-t border-ink-100 py-2.5 pl-2 pr-4 sm:-mr-8 sm:pr-8 md:mr-0 md:max-w-[280px] md:overflow-x-auto md:rounded-xl md:border md:border-ink-200 md:bg-ink-50 md:p-1 md:pl-1 md:pr-1"
+          data-language-switcher
+        >
           {languageOptions.map((item) => item.link ? (
             <a
               href={item.link.href}
               class:list={[
-                'lang-tap shrink-0 whitespace-nowrap rounded-lg border border-ink-200 px-2.5 py-1 font-semibold hover:text-accent',
-                item.locale === locale ? 'border-accent-100 bg-accent-50 text-accent' : 'bg-white text-ink-600',
+                'lang-tap shrink-0 whitespace-nowrap rounded-lg border border-ink-200 px-2.5 py-1 text-sm font-semibold transition-colors hover:text-accent md:border-0 md:px-2 md:py-1.5 md:text-xs',
+                item.locale === locale
+                  ? 'border-accent-100 bg-accent-50 text-accent md:bg-white md:shadow-sm'
+                  : 'bg-white text-ink-600 md:bg-transparent md:text-ink-500',
               ]}
               hreflang={localeMeta[item.locale].htmlLang}
               aria-label={localeMeta[item.locale].label}
-              data-testid={`header-nav-mobile-lang-${item.locale}`}
+              data-testid={`header-lang-${item.locale}`}
               data-analytics-event="language_switch_clicked"
               data-analytics-target-locale={item.locale}
             >
@@ -210,18 +110,62 @@ const navLabel = {
             </a>
           ) : (
             <span
-              class="shrink-0 cursor-not-allowed whitespace-nowrap rounded-lg border border-ink-100 bg-ink-50 px-2.5 py-1 font-semibold text-ink-300"
+              class="shrink-0 cursor-not-allowed whitespace-nowrap rounded-lg border border-ink-100 bg-ink-50 px-2.5 py-1 text-sm font-semibold text-ink-300 md:border-0 md:bg-transparent md:px-2 md:py-1.5 md:text-xs"
               aria-disabled="true"
               aria-label={`${localeMeta[item.locale].label}: ${unavailableLanguage}`}
               title={unavailableLanguage}
-              data-testid={`header-nav-mobile-lang-${item.locale}-unavailable`}
+              data-testid={`header-lang-${item.locale}-unavailable`}
             >
               {localeMeta[item.locale].shortLabel}
             </span>
           ))}
         </span>
       )}
-    </nav>
+
+      {/*
+        Вынос под отступы контейнера повторяет прежнюю мобильную строку: линия
+        сверху идёт во всю ширину, а пункты доезжают до самого края. На md всё
+        это снимается, и полоса встаёт в общий ряд с логотипом, как раньше.
+      */}
+      <nav
+        class="header-nav nav-scroll -ml-4 flex min-w-0 items-center gap-2 overflow-x-auto border-t border-ink-100 py-2.5 pl-4 sm:-ml-8 sm:pl-8 md:ml-0 md:gap-1.5 md:border-0 md:py-0 md:pl-0"
+        aria-label={navLabel}
+        data-testid="header-nav"
+      >
+        <a
+          href={catalogPath}
+          class:list={[
+            'site-nav-link font-semibold md:ml-auto',
+            isAllActive ? 'bg-accent-50 text-accent' : 'text-ink-700',
+          ]}
+          aria-current={isAllActive ? 'page' : undefined}
+          data-testid="header-nav-all-calculators"
+        >
+          <span class="md:hidden">{copy.all}</span>
+          <span class="hidden md:inline">{copy.allCalculators}</span>
+        </a>
+        {categories.map((c) => {
+          const categoryPath = `/${locale}/${c.slug}/`;
+          const isActive = currentPath.startsWith(categoryPath);
+          const currentState = isActive
+            ? (currentPath === categoryPath ? 'page' : 'location')
+            : undefined;
+          return (
+            <a
+              href={categoryPath}
+              class:list={[
+                'site-nav-link font-medium',
+                isActive ? 'bg-accent-50 font-semibold text-accent' : 'text-ink-600',
+              ]}
+              aria-current={currentState}
+              data-testid={`header-nav-${c.slug}`}
+            >
+              {c.name}
+            </a>
+          );
+        })}
+      </nav>
+    </div>
   </div>
 </header>
 
