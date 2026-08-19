@@ -13,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   compute,
   copy: { en: phPohCopyEn, uk: phPohCopyUk },
   referenceCases: phPohReferenceCases,
-  publishedExample: { inputs: { mode: 'fromH', h: 0.001 }, expected: ['3,00'] },
+  publishedExample: { inputs: { mode: 'fromH', h: 0.0001 }, expected: ['4,00'] },
   presentation: {
     id: 'ph-poh',
     name: 'Калькулятор pH и pOH',
@@ -38,7 +38,9 @@ export const definition: CalculatorDefinitionV2 = {
           { value: 'fromPh', label: 'pH' },
         ],
       },
-      { name: 'h', label: 'Концентрация H⁺, моль/л', type: 'number', defaultValue: 0.001, min: 0, step: 0.0001, showIf: { field: 'mode', equals: 'fromH' } },
+      // Значение по умолчанию намеренно не с тремя знаками после точки: общий
+      // разборщик чисел читает такую запись как разделитель разрядов.
+      { name: 'h', label: 'Концентрация H⁺, моль/л', type: 'number', defaultValue: 0.0001, min: 0, step: 0.0001, showIf: { field: 'mode', equals: 'fromH' } },
       { name: 'ph', label: 'pH', type: 'number', defaultValue: 8.4, min: 0, max: 14, step: 0.1, showIf: { field: 'mode', equals: 'fromPh' } },
     ],
     resultLabels: { ph: 'pH', poh: 'pOH', h: 'Концентрация H⁺', medium: 'Среда' },

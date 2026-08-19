@@ -13,10 +13,10 @@ export const molesCopyEn: CalculatorCopy = {
   howToUse: ['Choose whether you know the mass or the amount of substance.', 'Enter the value.', 'Give the molar mass of the substance from a reference table.'],
   howItWorks:
     'n = m / M — the mass divided by the molar mass. The reverse mode finds the mass as m = n · M. The number of particles is the amount multiplied by the Avogadro constant N_A = 6.02214076×10²³ mol⁻¹.',
-  example: '18 grams of water at a molar mass of 18.015 g/mol gives 0.9992 mol — slightly under one mole.',
+  example: '18 grams of water at a molar mass of 18.02 g/mol gives 0.9989 mol — slightly under one mole.',
   faq: [
     { q: 'Where do I get the molar mass?', a: 'From the periodic table: add up the atomic masses of every atom in the formula. The calculator does not derive it — it does not parse chemical formulas and does not pretend to be a reference.' },
-    { q: 'Why is 18 grams of water not exactly one mole?', a: 'Because the molar mass of water is 18.015, not 18. Exactly one mole is 18.015 grams; the difference is small but visible in the result.' },
+    { q: 'Why is 18 grams of water not exactly one mole?', a: 'Because the molar mass of water is about 18.02, not 18. Exactly one mole is 18.02 grams; the difference is small but visible in the result.' },
     { q: 'What does the number of particles mean?', a: 'How many molecules, atoms or ions that amount of substance contains. It is the amount in moles multiplied by the Avogadro constant.' },
     { q: 'Is the Avogadro constant rounded?', a: 'No. Since 2019 it has been fixed exactly at 6.02214076×10²³ mol⁻¹ — it defines the unit rather than being measured.' },
   ],
