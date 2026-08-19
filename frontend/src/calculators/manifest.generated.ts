@@ -46,6 +46,7 @@ import { definition as def_convert_volume } from './convert-volume/definition';
 import { definition as def_cpm } from './cpm/definition';
 import { definition as def_ctr } from './ctr/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
+import { definition as def_density } from './density/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
 import { definition as def_dividend_yield } from './dividend-yield/definition';
 import { definition as def_divisors } from './divisors/definition';
@@ -56,6 +57,7 @@ import { definition as def_factorial } from './factorial/definition';
 import { definition as def_files_on_disk } from './files-on-disk/definition';
 import { definition as def_final_grade } from './final-grade/definition';
 import { definition as def_fps_frametime } from './fps-frametime/definition';
+import { definition as def_fraction_arith } from './fraction-arith/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
 import { definition as def_geom_circle } from './geom-circle/definition';
 import { definition as def_geom_cone } from './geom-cone/definition';
@@ -75,6 +77,7 @@ import { definition as def_linear_equation } from './linear-equation/definition'
 import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_ltv } from './ltv/definition';
 import { definition as def_modulo } from './modulo/definition';
+import { definition as def_momentum } from './momentum/definition';
 import { definition as def_network_bandwidth } from './network-bandwidth/definition';
 import { definition as def_newton_force } from './newton-force/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
@@ -84,7 +87,9 @@ import { definition as def_physics_power } from './physics-power/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
 import { definition as def_potential_energy } from './potential-energy/definition';
 import { definition as def_power_to_weight } from './power-to-weight/definition';
+import { definition as def_pressure } from './pressure/definition';
 import { definition as def_prime_factorization } from './prime-factorization/definition';
+import { definition as def_probability_basic } from './probability-basic/definition';
 import { definition as def_proportion } from './proportion/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
 import { definition as def_reading_speed } from './reading-speed/definition';
@@ -143,6 +148,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_cpm,
   def_ctr,
   def_day_of_week,
+  def_density,
   def_difference_abs_rel,
   def_dividend_yield,
   def_divisors,
@@ -153,6 +159,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_files_on_disk,
   def_final_grade,
   def_fps_frametime,
+  def_fraction_arith,
   def_fuel_consumption,
   def_geom_circle,
   def_geom_cone,
@@ -172,6 +179,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_logarithm,
   def_ltv,
   def_modulo,
+  def_momentum,
   def_network_bandwidth,
   def_newton_force,
   def_ohms_law,
@@ -181,7 +189,9 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_pool_fill_time,
   def_potential_energy,
   def_power_to_weight,
+  def_pressure,
   def_prime_factorization,
+  def_probability_basic,
   def_proportion,
   def_quadratic_equation,
   def_reading_speed,

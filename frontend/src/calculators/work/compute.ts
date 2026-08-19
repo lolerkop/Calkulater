@@ -1,6 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
+import { formatQuantity } from '../../lib/platform/measurement';
 
 // Механическая работа: W = F · s · cos θ.
 //
@@ -12,16 +12,7 @@ import { formatMeasure } from '../../lib/platform/measurement';
 // Оставить его как есть значило бы показать работу 3·10⁻¹⁵ Дж там, где верный
 // ответ — ровно ноль, поэтому пренебрежимо малый косинус обнуляется.
 
-// Физические величины охватывают более широкий диапазон, чем размеры фигур,
-// поэтому у краёв диапазона включается показательная запись.
-const qty = (value: number): string => {
-  const abs = Math.abs(value);
-  if (abs > 0 && (abs < 1e-4 || abs >= 1e12)) {
-    const [mantissa, exponent] = value.toExponential(3).split('e');
-    return `${mantissa.replace('.', ',')}·10^${Number(exponent)}`;
-  }
-  return formatMeasure(value, fmtNumber);
-};
+const qty = (value: number): string => formatQuantity(value, fmtNumber);
 
 const cosDegrees = (degrees: number): number => {
   const value = Math.cos((degrees * Math.PI) / 180);

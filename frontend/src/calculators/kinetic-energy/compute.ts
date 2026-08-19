@@ -1,6 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
+import { formatQuantity } from '../../lib/platform/measurement';
 
 // Кинетическая энергия: E = ½ · m · v².
 //
@@ -8,17 +8,7 @@ import { formatMeasure } from '../../lib/platform/measurement';
 // нулевой скорости знаменатель обращается в ноль — этот случай отсекается до
 // деления.
 
-// Физические величины охватывают более широкий диапазон, чем размеры фигур,
-// поэтому у краёв диапазона включается показательная запись: 10⁻¹² — законный
-// результат, а обычное оформление показало бы его нулём.
-const qty = (value: number): string => {
-  const abs = Math.abs(value);
-  if (abs > 0 && (abs < 1e-4 || abs >= 1e12)) {
-    const [mantissa, exponent] = value.toExponential(3).split('e');
-    return `${mantissa.replace('.', ',')}·10^${Number(exponent)}`;
-  }
-  return formatMeasure(value, fmtNumber);
-};
+const qty = (value: number): string => formatQuantity(value, fmtNumber);
 
 export const compute: CalcFunction = (inputs) => {
   const mode = toStr(inputs.mode, 'E');

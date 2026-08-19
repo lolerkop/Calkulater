@@ -26,3 +26,26 @@ export const formatMeasure = (
   const text = fmtNumber(Number(value.toFixed(digits)), digits);
   return text.includes(',') ? text.replace(/0+$/, '').replace(/,$/, '') : text;
 };
+
+/**
+ * Оформление физической величины.
+ *
+ * Извлечено ПОСЛЕ восьми реальных потребителей: во всех восьми калькуляторах
+ * физики этот блок стоял побайтово одинаково. Диапазон физических величин шире,
+ * чем у размеров фигур, — сила 10⁻¹² Н законна, а обычное оформление показало
+ * бы её нулём, — поэтому у краёв диапазона включается показательная запись.
+ *
+ * Здесь только оформление. Ни соотношений, ни единиц, ни решателя: Phase 12A
+ * измерила, что сама алгебра (f = m·a, v = √(2E/m)) не повторяется вовсе.
+ */
+export const formatQuantity = (
+  value: number,
+  fmtNumber: (value: number, digits: number) => string,
+): string => {
+  const abs = Math.abs(value);
+  if (abs > 0 && (abs < 1e-4 || abs >= 1e12)) {
+    const [mantissa, exponent] = value.toExponential(3).split('e');
+    return `${mantissa.replace('.', ',')}·10^${Number(exponent)}`;
+  }
+  return formatMeasure(value, fmtNumber);
+};

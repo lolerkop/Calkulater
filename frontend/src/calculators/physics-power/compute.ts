@@ -1,6 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
+import { formatQuantity } from '../../lib/platform/measurement';
 
 // Механическая мощность: P = W ÷ t.
 //
@@ -11,16 +11,7 @@ import { formatMeasure } from '../../lib/platform/measurement';
 // Метрическая лошадиная сила — 735,49875 Вт, а не механическая 745,7.
 const WATTS_PER_PS = 735.49875;
 
-// Физические величины охватывают более широкий диапазон, чем размеры фигур,
-// поэтому у краёв диапазона включается показательная запись.
-const qty = (value: number): string => {
-  const abs = Math.abs(value);
-  if (abs > 0 && (abs < 1e-4 || abs >= 1e12)) {
-    const [mantissa, exponent] = value.toExponential(3).split('e');
-    return `${mantissa.replace('.', ',')}·10^${Number(exponent)}`;
-  }
-  return formatMeasure(value, fmtNumber);
-};
+const qty = (value: number): string => formatQuantity(value, fmtNumber);
 
 export const compute: CalcFunction = (inputs) => {
   const mode = toStr(inputs.mode, 'P');

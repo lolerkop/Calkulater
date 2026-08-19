@@ -40,6 +40,7 @@ import { localization as loc_convert_volume } from './convert-volume/localizatio
 import { localization as loc_cpm } from './cpm/localization';
 import { localization as loc_ctr } from './ctr/localization';
 import { localization as loc_day_of_week } from './day-of-week/localization';
+import { localization as loc_density } from './density/localization';
 import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
 import { localization as loc_dividend_yield } from './dividend-yield/localization';
 import { localization as loc_divisors } from './divisors/localization';
@@ -50,6 +51,7 @@ import { localization as loc_factorial } from './factorial/localization';
 import { localization as loc_files_on_disk } from './files-on-disk/localization';
 import { localization as loc_final_grade } from './final-grade/localization';
 import { localization as loc_fps_frametime } from './fps-frametime/localization';
+import { localization as loc_fraction_arith } from './fraction-arith/localization';
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
 import { localization as loc_geom_circle } from './geom-circle/localization';
 import { localization as loc_geom_cone } from './geom-cone/localization';
@@ -69,6 +71,7 @@ import { localization as loc_linear_equation } from './linear-equation/localizat
 import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_modulo } from './modulo/localization';
+import { localization as loc_momentum } from './momentum/localization';
 import { localization as loc_network_bandwidth } from './network-bandwidth/localization';
 import { localization as loc_newton_force } from './newton-force/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
@@ -76,7 +79,9 @@ import { localization as loc_physics_power } from './physics-power/localization'
 import { localization as loc_pool_fill_time } from './pool-fill-time/localization';
 import { localization as loc_potential_energy } from './potential-energy/localization';
 import { localization as loc_power_to_weight } from './power-to-weight/localization';
+import { localization as loc_pressure } from './pressure/localization';
 import { localization as loc_prime_factorization } from './prime-factorization/localization';
+import { localization as loc_probability_basic } from './probability-basic/localization';
 import { localization as loc_proportion } from './proportion/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
 import { localization as loc_reading_speed } from './reading-speed/localization';
@@ -136,6 +141,7 @@ export const v2Localization: ScopedLocalization = {
     'cpm': loc_cpm.en ?? {},
     'ctr': loc_ctr.en ?? {},
     'day-of-week': loc_day_of_week.en ?? {},
+    'density': loc_density.en ?? {},
     'difference-abs-rel': loc_difference_abs_rel.en ?? {},
     'dividend-yield': loc_dividend_yield.en ?? {},
     'divisors': loc_divisors.en ?? {},
@@ -146,6 +152,7 @@ export const v2Localization: ScopedLocalization = {
     'files-on-disk': loc_files_on_disk.en ?? {},
     'final-grade': loc_final_grade.en ?? {},
     'fps-frametime': loc_fps_frametime.en ?? {},
+    'fraction-arith': loc_fraction_arith.en ?? {},
     'fuel-consumption': loc_fuel_consumption.en ?? {},
     'geom-circle': loc_geom_circle.en ?? {},
     'geom-cone': loc_geom_cone.en ?? {},
@@ -165,6 +172,7 @@ export const v2Localization: ScopedLocalization = {
     'logarithm': loc_logarithm.en ?? {},
     'ltv': loc_ltv.en ?? {},
     'modulo': loc_modulo.en ?? {},
+    'momentum': loc_momentum.en ?? {},
     'network-bandwidth': loc_network_bandwidth.en ?? {},
     'newton-force': loc_newton_force.en ?? {},
     'ohms-law': loc_ohms_law.en ?? {},
@@ -172,7 +180,9 @@ export const v2Localization: ScopedLocalization = {
     'pool-fill-time': loc_pool_fill_time.en ?? {},
     'potential-energy': loc_potential_energy.en ?? {},
     'power-to-weight': loc_power_to_weight.en ?? {},
+    'pressure': loc_pressure.en ?? {},
     'prime-factorization': loc_prime_factorization.en ?? {},
+    'probability-basic': loc_probability_basic.en ?? {},
     'proportion': loc_proportion.en ?? {},
     'quadratic-equation': loc_quadratic_equation.en ?? {},
     'reading-speed': loc_reading_speed.en ?? {},
@@ -231,6 +241,7 @@ export const v2Localization: ScopedLocalization = {
     'cpm': loc_cpm.uk ?? {},
     'ctr': loc_ctr.uk ?? {},
     'day-of-week': loc_day_of_week.uk ?? {},
+    'density': loc_density.uk ?? {},
     'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
     'dividend-yield': loc_dividend_yield.uk ?? {},
     'divisors': loc_divisors.uk ?? {},
@@ -241,6 +252,7 @@ export const v2Localization: ScopedLocalization = {
     'files-on-disk': loc_files_on_disk.uk ?? {},
     'final-grade': loc_final_grade.uk ?? {},
     'fps-frametime': loc_fps_frametime.uk ?? {},
+    'fraction-arith': loc_fraction_arith.uk ?? {},
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
     'geom-circle': loc_geom_circle.uk ?? {},
     'geom-cone': loc_geom_cone.uk ?? {},
@@ -260,6 +272,7 @@ export const v2Localization: ScopedLocalization = {
     'logarithm': loc_logarithm.uk ?? {},
     'ltv': loc_ltv.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
+    'momentum': loc_momentum.uk ?? {},
     'network-bandwidth': loc_network_bandwidth.uk ?? {},
     'newton-force': loc_newton_force.uk ?? {},
     'ohms-law': loc_ohms_law.uk ?? {},
@@ -267,7 +280,9 @@ export const v2Localization: ScopedLocalization = {
     'pool-fill-time': loc_pool_fill_time.uk ?? {},
     'potential-energy': loc_potential_energy.uk ?? {},
     'power-to-weight': loc_power_to_weight.uk ?? {},
+    'pressure': loc_pressure.uk ?? {},
     'prime-factorization': loc_prime_factorization.uk ?? {},
+    'probability-basic': loc_probability_basic.uk ?? {},
     'proportion': loc_proportion.uk ?? {},
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
     'reading-speed': loc_reading_speed.uk ?? {},

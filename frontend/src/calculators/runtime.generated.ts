@@ -50,6 +50,7 @@ import { compute as compute_convert_volume } from './convert-volume/compute';
 import { compute as compute_cpm } from './cpm/compute';
 import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
+import { compute as compute_density } from './density/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
 import { compute as compute_dividend_yield } from './dividend-yield/compute';
 import { compute as compute_divisors } from './divisors/compute';
@@ -61,6 +62,7 @@ import { compute as compute_files_on_disk } from './files-on-disk/compute';
 import { compute as compute_final_grade } from './final-grade/compute';
 import { compute as compute_fps_frametime } from './fps-frametime/compute';
 import { contextualField as ctx_fps_frametime } from './fps-frametime/contextualField';
+import { compute as compute_fraction_arith } from './fraction-arith/compute';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
 import { compute as compute_geom_circle } from './geom-circle/compute';
 import { compute as compute_geom_cone } from './geom-cone/compute';
@@ -81,6 +83,7 @@ import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
 import { compute as compute_modulo } from './modulo/compute';
+import { compute as compute_momentum } from './momentum/compute';
 import { compute as compute_network_bandwidth } from './network-bandwidth/compute';
 import { compute as compute_newton_force } from './newton-force/compute';
 import { compute as compute_ohms_law } from './ohms-law/compute';
@@ -93,7 +96,9 @@ import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_potential_energy } from './potential-energy/compute';
 import { compute as compute_power_to_weight } from './power-to-weight/compute';
+import { compute as compute_pressure } from './pressure/compute';
 import { compute as compute_prime_factorization } from './prime-factorization/compute';
+import { compute as compute_probability_basic } from './probability-basic/compute';
 import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
@@ -154,6 +159,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cpm': compute_cpm,
   'ctr': compute_ctr,
   'day-of-week': compute_day_of_week,
+  'density': compute_density,
   'difference-abs-rel': compute_difference_abs_rel,
   'dividend-yield': compute_dividend_yield,
   'divisors': compute_divisors,
@@ -164,6 +170,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'files-on-disk': compute_files_on_disk,
   'final-grade': compute_final_grade,
   'fps-frametime': compute_fps_frametime,
+  'fraction-arith': compute_fraction_arith,
   'fuel-consumption': compute_fuel_consumption,
   'geom-circle': compute_geom_circle,
   'geom-cone': compute_geom_cone,
@@ -183,6 +190,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'logarithm': compute_logarithm,
   'ltv': compute_ltv,
   'modulo': compute_modulo,
+  'momentum': compute_momentum,
   'network-bandwidth': compute_network_bandwidth,
   'newton-force': compute_newton_force,
   'ohms-law': compute_ohms_law,
@@ -192,7 +200,9 @@ export const v2Runners: Record<string, CalcFunction> = {
   'pool-fill-time': compute_pool_fill_time,
   'potential-energy': compute_potential_energy,
   'power-to-weight': compute_power_to_weight,
+  'pressure': compute_pressure,
   'prime-factorization': compute_prime_factorization,
+  'probability-basic': compute_probability_basic,
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
   'reading-speed': compute_reading_speed,

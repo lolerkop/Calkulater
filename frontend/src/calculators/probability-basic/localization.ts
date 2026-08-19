@@ -1,0 +1,72 @@
+import type { CalculatorLocalization } from '../../lib/platform/types';
+
+export const localization: CalculatorLocalization = {
+  en: {
+    fields: {
+      "mode": "What to compute",
+      "favourable": "Favourable outcomes",
+      "total": "Total outcomes",
+      "favourable2": "Favourable outcomes",
+      "total2": "Total outcomes",
+      "p1": "Probability of the first event",
+      "p2": "Probability of the second event",
+      "p3": "Probability of the first event",
+      "p4": "Probability of the second event",
+    },
+    options: {
+      "single": "probability of an event",
+      "complement": "probability of the complement",
+      "independentBoth": "both independent events",
+      "independentEither": "at least one of the two",
+    },
+    results: {
+      "Вероятность": "Probability",
+      "В процентах": "As a percentage",
+      "Шансы": "Odds",
+      "Противоположное событие": "Complement",
+      "Проверьте данные": "Check the values",
+    },
+    values: {
+      "%": "%",
+      "к 1": "to 1",
+      "Всего исходов должно быть больше нуля": "The total number of outcomes must be greater than zero",
+      "Благоприятных исходов не может быть больше общего числа": "There cannot be more favourable outcomes than outcomes in total",
+      "Исходы должны быть целыми": "The outcomes must be whole numbers",
+      "Вероятность должна быть от 0 до 1": "A probability must be between 0 and 1",
+    },
+  },
+  uk: {
+    fields: {
+      "mode": "Що рахуємо",
+      "favourable": "Сприятливих результатів",
+      "total": "Усього результатів",
+      "favourable2": "Сприятливих результатів",
+      "total2": "Усього результатів",
+      "p1": "Ймовірність першої події",
+      "p2": "Ймовірність другої події",
+      "p3": "Ймовірність першої події",
+      "p4": "Ймовірність другої події",
+    },
+    options: {
+      "single": "ймовірність події",
+      "complement": "ймовірність протилежної",
+      "independentBoth": "обидві незалежні події",
+      "independentEither": "хоча б одна з двох",
+    },
+    results: {
+      "Вероятность": "Ймовірність",
+      "В процентах": "У відсотках",
+      "Шансы": "Шанси",
+      "Противоположное событие": "Протилежна подія",
+      "Проверьте данные": "Перевірте дані",
+    },
+    values: {
+      "%": "%",
+      "к 1": "до 1",
+      "Всего исходов должно быть больше нуля": "Усього результатів має бути більше нуля",
+      "Благоприятных исходов не может быть больше общего числа": "Сприятливих результатів не може бути більше за загальну кількість",
+      "Исходы должны быть целыми": "Результати мають бути цілими",
+      "Вероятность должна быть от 0 до 1": "Ймовірність має бути від 0 до 1",
+    },
+  },
+};

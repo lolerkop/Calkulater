@@ -20,6 +20,16 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  // Волна 3, батч B1. Ожидаемые значения выведены вручную:
+  //   30 / 6 = 5 м/с      ·  2700 · 0,5 = 1350 кг   ·  2000 / 100000 = 0,02 м²
+  //   2/3 · 3/4 = 6/12 -> 1/2          ·  0,5 + 0,5 − 0,25 = 0,75
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  'momentum': { query: { mode: 'v', p: 30, m2: 6 }, result: { primary: '5 м/с', rows: [{ label: 'Импульс', value: '30 кг·м/с' }] } },
+  'density': { query: { mode: 'm', rho: 2700, V2: 0.5 }, result: { primary: '1 350 кг', rows: [{ label: 'Плотность', value: '2 700 кг/м³' }] } },
+  'pressure': { query: { mode: 'A', F2: 2000, p2: 100000 }, result: { primary: '0,02 м²', rows: [{ label: 'Сила', value: '2 000 Н' }] } },
+  'fraction-arith': { query: { op: 'mul', a: 2, b: 3, c: 3, d: 4 }, result: { primary: '1/2', rows: [{ label: 'Сокращено на', value: '6' }] } },
+  'probability-basic': { query: { mode: 'independentEither', p3: 0.5, p4: 0.5 }, result: { primary: '0,75', rows: [{ label: 'Противоположное событие', value: '0,25' }] } },
   // Физика, волна 3. Ожидаемые значения выведены вручную из соотношений:
   //   50 / 5 = 10 кг            ·  √(2·100 / 8) = 5 м/с
   //   98,0665 / (9,80665·2) = 5 кг  ·  10 · 5 · cos 60° = 25 Дж
