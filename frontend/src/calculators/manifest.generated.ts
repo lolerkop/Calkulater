@@ -85,10 +85,12 @@ import { definition as def_geom_square } from './geom-square/definition';
 import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
 import { definition as def_geom_triangle } from './geom-triangle/definition';
 import { definition as def_golden_ratio } from './golden-ratio/definition';
+import { definition as def_heating_power } from './heating-power/definition';
 import { definition as def_hydrostatic_pressure } from './hydrostatic-pressure/definition';
 import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
 import { definition as def_installment } from './installment/definition';
 import { definition as def_insulation } from './insulation/definition';
+import { definition as def_internet_traffic } from './internet-traffic/definition';
 import { definition as def_inventory_turnover } from './inventory-turnover/definition';
 import { definition as def_inverter_power } from './inverter-power/definition';
 import { definition as def_kinetic_energy } from './kinetic-energy/definition';
@@ -144,9 +146,11 @@ import { definition as def_strip_foundation } from './strip-foundation/definitio
 import { definition as def_test_score_percent } from './test-score-percent/definition';
 import { definition as def_time_duration } from './time-duration/definition';
 import { definition as def_tip } from './tip/definition';
+import { definition as def_tire_size } from './tire-size/definition';
 import { definition as def_trip_budget } from './trip-budget/definition';
 import { definition as def_trip_cost } from './trip-cost/definition';
 import { definition as def_unix_timestamp } from './unix-timestamp/definition';
+import { definition as def_video_file_size } from './video-file-size/definition';
 import { definition as def_week_number } from './week-number/definition';
 import { definition as def_weighted_mean } from './weighted-mean/definition';
 import { definition as def_work } from './work/definition';
@@ -227,10 +231,12 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_trapezoid,
   def_geom_triangle,
   def_golden_ratio,
+  def_heating_power,
   def_hydrostatic_pressure,
   def_ideal_gas_law,
   def_installment,
   def_insulation,
+  def_internet_traffic,
   def_inventory_turnover,
   def_inverter_power,
   def_kinetic_energy,
@@ -286,9 +292,11 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_test_score_percent,
   def_time_duration,
   def_tip,
+  def_tire_size,
   def_trip_budget,
   def_trip_cost,
   def_unix_timestamp,
+  def_video_file_size,
   def_week_number,
   def_weighted_mean,
   def_work,

@@ -90,10 +90,12 @@ import { compute as compute_geom_square } from './geom-square/compute';
 import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
 import { compute as compute_geom_triangle } from './geom-triangle/compute';
 import { compute as compute_golden_ratio } from './golden-ratio/compute';
+import { compute as compute_heating_power } from './heating-power/compute';
 import { compute as compute_hydrostatic_pressure } from './hydrostatic-pressure/compute';
 import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
 import { compute as compute_installment } from './installment/compute';
 import { compute as compute_insulation } from './insulation/compute';
+import { compute as compute_internet_traffic } from './internet-traffic/compute';
 import { compute as compute_inventory_turnover } from './inventory-turnover/compute';
 import { compute as compute_inverter_power } from './inverter-power/compute';
 import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
@@ -155,9 +157,11 @@ import { compute as compute_strip_foundation } from './strip-foundation/compute'
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
 import { compute as compute_tip } from './tip/compute';
+import { compute as compute_tire_size } from './tire-size/compute';
 import { compute as compute_trip_budget } from './trip-budget/compute';
 import { compute as compute_trip_cost } from './trip-cost/compute';
 import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
+import { compute as compute_video_file_size } from './video-file-size/compute';
 import { compute as compute_week_number } from './week-number/compute';
 import { compute as compute_weighted_mean } from './weighted-mean/compute';
 import { compute as compute_work } from './work/compute';
@@ -238,10 +242,12 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-trapezoid': compute_geom_trapezoid,
   'geom-triangle': compute_geom_triangle,
   'golden-ratio': compute_golden_ratio,
+  'heating-power': compute_heating_power,
   'hydrostatic-pressure': compute_hydrostatic_pressure,
   'ideal-gas-law': compute_ideal_gas_law,
   'installment': compute_installment,
   'insulation': compute_insulation,
+  'internet-traffic': compute_internet_traffic,
   'inventory-turnover': compute_inventory_turnover,
   'inverter-power': compute_inverter_power,
   'kinetic-energy': compute_kinetic_energy,
@@ -297,9 +303,11 @@ export const v2Runners: Record<string, CalcFunction> = {
   'test-score-percent': compute_test_score_percent,
   'time-duration': compute_time_duration,
   'tip': compute_tip,
+  'tire-size': compute_tire_size,
   'trip-budget': compute_trip_budget,
   'trip-cost': compute_trip_cost,
   'unix-timestamp': compute_unix_timestamp,
+  'video-file-size': compute_video_file_size,
   'week-number': compute_week_number,
   'weighted-mean': compute_weighted_mean,
   'work': compute_work,

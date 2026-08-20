@@ -79,10 +79,12 @@ import { localization as loc_geom_square } from './geom-square/localization';
 import { localization as loc_geom_trapezoid } from './geom-trapezoid/localization';
 import { localization as loc_geom_triangle } from './geom-triangle/localization';
 import { localization as loc_golden_ratio } from './golden-ratio/localization';
+import { localization as loc_heating_power } from './heating-power/localization';
 import { localization as loc_hydrostatic_pressure } from './hydrostatic-pressure/localization';
 import { localization as loc_ideal_gas_law } from './ideal-gas-law/localization';
 import { localization as loc_installment } from './installment/localization';
 import { localization as loc_insulation } from './insulation/localization';
+import { localization as loc_internet_traffic } from './internet-traffic/localization';
 import { localization as loc_inventory_turnover } from './inventory-turnover/localization';
 import { localization as loc_inverter_power } from './inverter-power/localization';
 import { localization as loc_kinetic_energy } from './kinetic-energy/localization';
@@ -136,9 +138,11 @@ import { localization as loc_strip_foundation } from './strip-foundation/localiz
 import { localization as loc_test_score_percent } from './test-score-percent/localization';
 import { localization as loc_time_duration } from './time-duration/localization';
 import { localization as loc_tip } from './tip/localization';
+import { localization as loc_tire_size } from './tire-size/localization';
 import { localization as loc_trip_budget } from './trip-budget/localization';
 import { localization as loc_trip_cost } from './trip-cost/localization';
 import { localization as loc_unix_timestamp } from './unix-timestamp/localization';
+import { localization as loc_video_file_size } from './video-file-size/localization';
 import { localization as loc_week_number } from './week-number/localization';
 import { localization as loc_weighted_mean } from './weighted-mean/localization';
 import { localization as loc_work } from './work/localization';
@@ -220,10 +224,12 @@ export const v2Localization: ScopedLocalization = {
     'geom-trapezoid': loc_geom_trapezoid.en ?? {},
     'geom-triangle': loc_geom_triangle.en ?? {},
     'golden-ratio': loc_golden_ratio.en ?? {},
+    'heating-power': loc_heating_power.en ?? {},
     'hydrostatic-pressure': loc_hydrostatic_pressure.en ?? {},
     'ideal-gas-law': loc_ideal_gas_law.en ?? {},
     'installment': loc_installment.en ?? {},
     'insulation': loc_insulation.en ?? {},
+    'internet-traffic': loc_internet_traffic.en ?? {},
     'inventory-turnover': loc_inventory_turnover.en ?? {},
     'inverter-power': loc_inverter_power.en ?? {},
     'kinetic-energy': loc_kinetic_energy.en ?? {},
@@ -277,9 +283,11 @@ export const v2Localization: ScopedLocalization = {
     'test-score-percent': loc_test_score_percent.en ?? {},
     'time-duration': loc_time_duration.en ?? {},
     'tip': loc_tip.en ?? {},
+    'tire-size': loc_tire_size.en ?? {},
     'trip-budget': loc_trip_budget.en ?? {},
     'trip-cost': loc_trip_cost.en ?? {},
     'unix-timestamp': loc_unix_timestamp.en ?? {},
+    'video-file-size': loc_video_file_size.en ?? {},
     'week-number': loc_week_number.en ?? {},
     'weighted-mean': loc_weighted_mean.en ?? {},
     'work': loc_work.en ?? {},
@@ -360,10 +368,12 @@ export const v2Localization: ScopedLocalization = {
     'geom-trapezoid': loc_geom_trapezoid.uk ?? {},
     'geom-triangle': loc_geom_triangle.uk ?? {},
     'golden-ratio': loc_golden_ratio.uk ?? {},
+    'heating-power': loc_heating_power.uk ?? {},
     'hydrostatic-pressure': loc_hydrostatic_pressure.uk ?? {},
     'ideal-gas-law': loc_ideal_gas_law.uk ?? {},
     'installment': loc_installment.uk ?? {},
     'insulation': loc_insulation.uk ?? {},
+    'internet-traffic': loc_internet_traffic.uk ?? {},
     'inventory-turnover': loc_inventory_turnover.uk ?? {},
     'inverter-power': loc_inverter_power.uk ?? {},
     'kinetic-energy': loc_kinetic_energy.uk ?? {},
@@ -417,9 +427,11 @@ export const v2Localization: ScopedLocalization = {
     'test-score-percent': loc_test_score_percent.uk ?? {},
     'time-duration': loc_time_duration.uk ?? {},
     'tip': loc_tip.uk ?? {},
+    'tire-size': loc_tire_size.uk ?? {},
     'trip-budget': loc_trip_budget.uk ?? {},
     'trip-cost': loc_trip_cost.uk ?? {},
     'unix-timestamp': loc_unix_timestamp.uk ?? {},
+    'video-file-size': loc_video_file_size.uk ?? {},
     'week-number': loc_week_number.uk ?? {},
     'weighted-mean': loc_weighted_mean.uk ?? {},
     'work': loc_work.uk ?? {},

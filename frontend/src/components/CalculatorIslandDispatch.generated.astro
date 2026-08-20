@@ -81,10 +81,12 @@ import GeomSquareIsland from '../calculators/geom-square/island';
 import GeomTrapezoidIsland from '../calculators/geom-trapezoid/island';
 import GeomTriangleIsland from '../calculators/geom-triangle/island';
 import GoldenRatioIsland from '../calculators/golden-ratio/island';
+import HeatingPowerIsland from '../calculators/heating-power/island';
 import HydrostaticPressureIsland from '../calculators/hydrostatic-pressure/island';
 import IdealGasLawIsland from '../calculators/ideal-gas-law/island';
 import InstallmentIsland from '../calculators/installment/island';
 import InsulationIsland from '../calculators/insulation/island';
+import InternetTrafficIsland from '../calculators/internet-traffic/island';
 import InventoryTurnoverIsland from '../calculators/inventory-turnover/island';
 import InverterPowerIsland from '../calculators/inverter-power/island';
 import KineticEnergyIsland from '../calculators/kinetic-energy/island';
@@ -140,9 +142,11 @@ import StripFoundationIsland from '../calculators/strip-foundation/island';
 import TestScorePercentIsland from '../calculators/test-score-percent/island';
 import TimeDurationIsland from '../calculators/time-duration/island';
 import TipIsland from '../calculators/tip/island';
+import TireSizeIsland from '../calculators/tire-size/island';
 import TripBudgetIsland from '../calculators/trip-budget/island';
 import TripCostIsland from '../calculators/trip-cost/island';
 import UnixTimestampIsland from '../calculators/unix-timestamp/island';
+import VideoFileSizeIsland from '../calculators/video-file-size/island';
 import WeekNumberIsland from '../calculators/week-number/island';
 import WeightedMeanIsland from '../calculators/weighted-mean/island';
 import WorkIsland from '../calculators/work/island';
@@ -151,7 +155,7 @@ import ZScoreIsland from '../calculators/z-score/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['ad-roi', 'annuity', 'aov', 'aspect-ratio', 'battery-charge-time', 'battery-runtime', 'bike-gear-ratio', 'board-volume', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'combinatorics', 'commission', 'concrete', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cpm', 'crypto-pnl', 'ctr', 'day-of-week', 'density', 'difference-abs-rel', 'dilution', 'dividend-yield', 'divisors', 'down-payment', 'download-time', 'dti', 'electricity-usage', 'engagement-rate', 'factorial', 'fee-chain', 'files-on-disk', 'final-grade', 'fps-frametime', 'fraction-arith', 'freelance-rate', 'fuel-consumption', 'generator-fuel', 'geom-circle', 'geom-cone', 'geom-cuboid', 'geom-cylinder', 'geom-parallelogram', 'geom-rectangle', 'geom-regular-polygon', 'geom-right-triangle', 'geom-sector', 'geom-sphere', 'geom-square', 'geom-trapezoid', 'geom-triangle', 'golden-ratio', 'hydrostatic-pressure', 'ideal-gas-law', 'installment', 'insulation', 'inventory-turnover', 'inverter-power', 'kinetic-energy', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'ltv', 'market-cap', 'modulo', 'molarity', 'moles', 'momentum', 'network-bandwidth', 'newton-force', 'ohms-law', 'paint-calculator', 'percent-calculator', 'ph-poh', 'physics-power', 'physics-torque', 'plaster', 'pool-fill-time', 'potential-energy', 'power-to-weight', 'ppi-dpi', 'pressure', 'price-per-unit', 'prime-factorization', 'print-3d-cost', 'probability-basic', 'proportion', 'quadratic-equation', 'reading-speed', 'real-return', 'rental-yield', 'return-rate', 'revenue-per-employee', 'roas', 'roi', 'roman-numerals', 'roof-area', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'solution-concentration', 'speed-distance-time', 'stats-descriptive', 'stock-duration', 'strip-foundation', 'test-score-percent', 'time-duration', 'tip', 'trip-budget', 'trip-cost', 'unix-timestamp', 'week-number', 'weighted-mean', 'work', 'workday-cost', 'z-score']);
+const V2_IDS = new Set(['ad-roi', 'annuity', 'aov', 'aspect-ratio', 'battery-charge-time', 'battery-runtime', 'bike-gear-ratio', 'board-volume', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'combinatorics', 'commission', 'concrete', 'contribution-margin', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cpm', 'crypto-pnl', 'ctr', 'day-of-week', 'density', 'difference-abs-rel', 'dilution', 'dividend-yield', 'divisors', 'down-payment', 'download-time', 'dti', 'electricity-usage', 'engagement-rate', 'factorial', 'fee-chain', 'files-on-disk', 'final-grade', 'fps-frametime', 'fraction-arith', 'freelance-rate', 'fuel-consumption', 'generator-fuel', 'geom-circle', 'geom-cone', 'geom-cuboid', 'geom-cylinder', 'geom-parallelogram', 'geom-rectangle', 'geom-regular-polygon', 'geom-right-triangle', 'geom-sector', 'geom-sphere', 'geom-square', 'geom-trapezoid', 'geom-triangle', 'golden-ratio', 'heating-power', 'hydrostatic-pressure', 'ideal-gas-law', 'installment', 'insulation', 'internet-traffic', 'inventory-turnover', 'inverter-power', 'kinetic-energy', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'ltv', 'market-cap', 'modulo', 'molarity', 'moles', 'momentum', 'network-bandwidth', 'newton-force', 'ohms-law', 'paint-calculator', 'percent-calculator', 'ph-poh', 'physics-power', 'physics-torque', 'plaster', 'pool-fill-time', 'potential-energy', 'power-to-weight', 'ppi-dpi', 'pressure', 'price-per-unit', 'prime-factorization', 'print-3d-cost', 'probability-basic', 'proportion', 'quadratic-equation', 'reading-speed', 'real-return', 'rental-yield', 'return-rate', 'revenue-per-employee', 'roas', 'roi', 'roman-numerals', 'roof-area', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'solution-concentration', 'speed-distance-time', 'stats-descriptive', 'stock-duration', 'strip-foundation', 'test-score-percent', 'time-duration', 'tip', 'tire-size', 'trip-budget', 'trip-cost', 'unix-timestamp', 'video-file-size', 'week-number', 'weighted-mean', 'work', 'workday-cost', 'z-score']);
 ---
 
 {id === 'ad-roi' && <AdRoiIsland calc={calc} locale={locale} client:load />}
@@ -227,10 +231,12 @@ const V2_IDS = new Set(['ad-roi', 'annuity', 'aov', 'aspect-ratio', 'battery-cha
 {id === 'geom-trapezoid' && <GeomTrapezoidIsland calc={calc} locale={locale} client:load />}
 {id === 'geom-triangle' && <GeomTriangleIsland calc={calc} locale={locale} client:load />}
 {id === 'golden-ratio' && <GoldenRatioIsland calc={calc} locale={locale} client:load />}
+{id === 'heating-power' && <HeatingPowerIsland calc={calc} locale={locale} client:load />}
 {id === 'hydrostatic-pressure' && <HydrostaticPressureIsland calc={calc} locale={locale} client:load />}
 {id === 'ideal-gas-law' && <IdealGasLawIsland calc={calc} locale={locale} client:load />}
 {id === 'installment' && <InstallmentIsland calc={calc} locale={locale} client:load />}
 {id === 'insulation' && <InsulationIsland calc={calc} locale={locale} client:load />}
+{id === 'internet-traffic' && <InternetTrafficIsland calc={calc} locale={locale} client:load />}
 {id === 'inventory-turnover' && <InventoryTurnoverIsland calc={calc} locale={locale} client:load />}
 {id === 'inverter-power' && <InverterPowerIsland calc={calc} locale={locale} client:load />}
 {id === 'kinetic-energy' && <KineticEnergyIsland calc={calc} locale={locale} client:load />}
@@ -286,9 +292,11 @@ const V2_IDS = new Set(['ad-roi', 'annuity', 'aov', 'aspect-ratio', 'battery-cha
 {id === 'test-score-percent' && <TestScorePercentIsland calc={calc} locale={locale} client:load />}
 {id === 'time-duration' && <TimeDurationIsland calc={calc} locale={locale} client:load />}
 {id === 'tip' && <TipIsland calc={calc} locale={locale} client:load />}
+{id === 'tire-size' && <TireSizeIsland calc={calc} locale={locale} client:load />}
 {id === 'trip-budget' && <TripBudgetIsland calc={calc} locale={locale} client:load />}
 {id === 'trip-cost' && <TripCostIsland calc={calc} locale={locale} client:load />}
 {id === 'unix-timestamp' && <UnixTimestampIsland calc={calc} locale={locale} client:load />}
+{id === 'video-file-size' && <VideoFileSizeIsland calc={calc} locale={locale} client:load />}
 {id === 'week-number' && <WeekNumberIsland calc={calc} locale={locale} client:load />}
 {id === 'weighted-mean' && <WeightedMeanIsland calc={calc} locale={locale} client:load />}
 {id === 'work' && <WorkIsland calc={calc} locale={locale} client:load />}
