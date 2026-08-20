@@ -774,6 +774,35 @@ const stateScenarios: Record<string, StateScenario> = {
   'wave': { query: { mode: 'v', f: 250, wavelength: 1.4 }, result: { primary: '350 м/с', rows: [{ label: 'Частота', value: '250 Гц' }, { label: 'Длина волны', value: '1,4 м' }, { label: 'Период', value: '0,004 с' }] } },
   'css-units': { query: { value: 2, fromUnit: 'em', toUnit: 'px', rootSize: 16, parentSize: 20 }, result: { primary: '40', rows: [{ label: 'В пикселях', value: '40 px' }, { label: 'В rem', value: '2,5' }, { label: 'В пунктах', value: '30' }] } },
   'employee-cost': { query: { gross: 250000, taxPct: 15, overhead: 40000 }, result: { primary: '327 500,00 ₽', rows: [{ label: 'Взносы', value: '37 500,00 ₽' }, { label: 'Накладные', value: '40 000,00 ₽' }, { label: 'Множитель к окладу', value: '1,31' }] } },
+
+  // Волна 7, подпартия 17B2.
+  // Ожидаемые значения выведены вручную, а для early-repayment — НЕЗАВИСИМОЙ
+  // моделью Phase 17P на Python, потому что помесячную цепочку в уме не пройти:
+  //   60 000 / 15 = 4 000 кликов; 5 % = 200 заказов; × 2 000 = 400 000; ROAS 6,6667
+  //   500 000 под 10 % на 3 года с доплатой 5 000 -> 27 платежей вместо 36
+  //   пролёт 12, подъём 3: √(6² + 3²) = 6,7082 + 0,6 свеса = 7,308; угол atan 0,5
+  //   встать в 6:00 при 5 циклах и 10 мин засыпания -> лечь в 22:20 (460 мин назад)
+  //   24 дня / 12 = 2 в месяц; за 4 месяца 8; минус 10 использованных = −2
+  //   5 последовательно × 3,2 В = 16 В; 4 параллельно × 5 А·ч = 20 А·ч; 320 Вт·ч
+  //   60 000 × 4 = 240 000 цель; 90 000 покрывают 1,5 месяца и 37,5 %
+  //   треугольная призма: апофема 1/tg60° = 0,5774; основание 1,732; объём 8,66
+  //   шестиугольная пирамида: апофема основания 1/tg30° = 1,7321; боковая √19 = 4,359
+  //   1 200 и 900 кг на 5 м: F = G·m₁·m₂/r² = 2,883·10⁻⁶ Н; ускорение 2,403·10⁻⁹
+  //   Массы планет здесь недопустимы: показательная запись — законно ОТКЛОНЯЕМЫЙ
+  //   парсером ввод (Phase 14), и такой сценарий проверял бы не расчёт, а обход поля.
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  // У sleep-time выбран НЕ умолчальный режим.
+  'ad-budget-funnel': { query: { budget: 60000, cpc: 15, crPct: 5, aov: 2000 }, result: { primary: '400 000,00 ₽', rows: [{ label: 'Кликов', value: '4 000' }, { label: 'Заказов', value: '200' }, { label: 'ROAS', value: '6,6667' }, { label: 'Цена заказа', value: '300,00 ₽' }] } },
+  'early-repayment': { query: { amount: 500000, rate: 10, years: 3, extra: 5000 }, result: { primary: '21 563,17 ₽', rows: [{ label: 'Платёж по графику', value: '16 133,59 ₽' }, { label: 'Платежей вместо графика', value: '27' }, { label: 'Всего выплат', value: '559 246,20 ₽' }] } },
+  'rafters': { query: { span: 12, rise: 3, overhang: 0.6 }, result: { primary: '7,308 м', rows: [{ label: 'Угол наклона', value: '26,565°' }, { label: 'Заложение', value: '6 м' }, { label: 'Уклон', value: '50,00%' }] } },
+  'sleep-time': { query: { mode: 'wake', hour: 6, minute: 0, cycles: 5, fallAsleep: 10 }, result: { primary: '22:20', rows: [{ label: 'Всего в постели', value: '460 мин' }, { label: 'Чистый сон', value: '450 мин' }, { label: 'Циклов', value: '5' }] } },
+  'vacation-accrual': { query: { daysPerYear: 24, monthsWorked: 4, daysUsed: 10 }, result: { primary: '-2 дн.', rows: [{ label: 'Накоплено', value: '8 дн.' }, { label: 'За месяц', value: '2 дн.' }, { label: 'Использовано', value: '10 дн.' }] } },
+  'battery-series-parallel': { query: { cells: 20, cellVoltage: 3.2, cellCapacity: 5, series: 5, parallel: 4 }, result: { primary: '16 В', rows: [{ label: 'Ёмкость сборки', value: '20 А·ч' }, { label: 'Энергия', value: '320 Вт·ч' }, { label: 'Ячеек', value: '20' }] } },
+  'emergency-fund': { query: { monthlyExpenses: 60000, months: 4, saved: 90000 }, result: { primary: '240 000,00 ₽', rows: [{ label: 'Не хватает', value: '150 000,00 ₽' }, { label: 'Уже покрыто месяцев', value: '1,5' }, { label: 'Готовность', value: '37,50%' }] } },
+  'geom-prism': { query: { unit: 'm', sides: 3, side: 2, height: 5 }, result: { primary: '8,66 м³', rows: [{ label: 'Площадь основания', value: '1,732 м²' }, { label: 'Боковая поверхность', value: '30 м²' }, { label: 'Периметр основания', value: '6 м' }] } },
+  'geom-pyramid': { query: { unit: 'm', sides: 6, side: 2, height: 4 }, result: { primary: '13,856 м³', rows: [{ label: 'Площадь основания', value: '10,392 м²' }, { label: 'Апофема', value: '4,359 м' }, { label: 'Боковая поверхность', value: '26,153 м²' }] } },
+  'gravitational-force': { query: { m1: 1200, m2: 900, r: 5 }, result: { primary: '2,883·10^-6 Н', rows: [{ label: 'Ускорение первого тела', value: '2,403·10^-9 м/с²' }, { label: 'Расстояние', value: '5 м' }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));

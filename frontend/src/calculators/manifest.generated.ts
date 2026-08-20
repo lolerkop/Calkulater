@@ -14,6 +14,7 @@ import { isPublished } from '../lib/platform/types';
 
 import { definition as def_acceleration } from './acceleration/definition';
 import { definition as def_activity_calories } from './activity-calories/definition';
+import { definition as def_ad_budget_funnel } from './ad-budget-funnel/definition';
 import { definition as def_ad_roi } from './ad-roi/definition';
 import { definition as def_annuity } from './annuity/definition';
 import { definition as def_aov } from './aov/definition';
@@ -26,6 +27,7 @@ import { definition as def_audience_growth } from './audience-growth/definition'
 import { definition as def_bakers_percentage } from './bakers-percentage/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
 import { definition as def_battery_runtime } from './battery-runtime/definition';
+import { definition as def_battery_series_parallel } from './battery-series-parallel/definition';
 import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
 import { definition as def_binomial_probability } from './binomial-probability/definition';
 import { definition as def_board_volume } from './board-volume/definition';
@@ -87,8 +89,10 @@ import { definition as def_divisors } from './divisors/definition';
 import { definition as def_down_payment } from './down-payment/definition';
 import { definition as def_download_time } from './download-time/definition';
 import { definition as def_dti } from './dti/definition';
+import { definition as def_early_repayment } from './early-repayment/definition';
 import { definition as def_electricity_usage } from './electricity-usage/definition';
 import { definition as def_email_metrics } from './email-metrics/definition';
+import { definition as def_emergency_fund } from './emergency-fund/definition';
 import { definition as def_employee_cost } from './employee-cost/definition';
 import { definition as def_engagement_rate } from './engagement-rate/definition';
 import { definition as def_factorial } from './factorial/definition';
@@ -111,6 +115,8 @@ import { definition as def_geom_cylinder } from './geom-cylinder/definition';
 import { definition as def_geom_ellipse } from './geom-ellipse/definition';
 import { definition as def_geom_frustum } from './geom-frustum/definition';
 import { definition as def_geom_parallelogram } from './geom-parallelogram/definition';
+import { definition as def_geom_prism } from './geom-prism/definition';
+import { definition as def_geom_pyramid } from './geom-pyramid/definition';
 import { definition as def_geom_rectangle } from './geom-rectangle/definition';
 import { definition as def_geom_regular_polygon } from './geom-regular-polygon/definition';
 import { definition as def_geom_rhombus } from './geom-rhombus/definition';
@@ -122,6 +128,7 @@ import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
 import { definition as def_geom_triangle } from './geom-triangle/definition';
 import { definition as def_golden_ratio } from './golden-ratio/definition';
 import { definition as def_gpa } from './gpa/definition';
+import { definition as def_gravitational_force } from './gravitational-force/definition';
 import { definition as def_heating_power } from './heating-power/definition';
 import { definition as def_hydrostatic_pressure } from './hydrostatic-pressure/definition';
 import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
@@ -176,6 +183,7 @@ import { definition as def_probability_basic } from './probability-basic/definit
 import { definition as def_profit } from './profit/definition';
 import { definition as def_proportion } from './proportion/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
+import { definition as def_rafters } from './rafters/definition';
 import { definition as def_raid } from './raid/definition';
 import { definition as def_ratio } from './ratio/definition';
 import { definition as def_reading_speed } from './reading-speed/definition';
@@ -200,6 +208,7 @@ import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
 import { definition as def_single_phase } from './single-phase/definition';
+import { definition as def_sleep_time } from './sleep-time/definition';
 import { definition as def_slope } from './slope/definition';
 import { definition as def_solution_concentration } from './solution-concentration/definition';
 import { definition as def_speed_distance_time } from './speed-distance-time/definition';
@@ -217,6 +226,7 @@ import { definition as def_tire_size } from './tire-size/definition';
 import { definition as def_trip_budget } from './trip-budget/definition';
 import { definition as def_trip_cost } from './trip-cost/definition';
 import { definition as def_unix_timestamp } from './unix-timestamp/definition';
+import { definition as def_vacation_accrual } from './vacation-accrual/definition';
 import { definition as def_video_file_size } from './video-file-size/definition';
 import { definition as def_vo2max } from './vo2max/definition';
 import { definition as def_water_intake } from './water-intake/definition';
@@ -231,6 +241,7 @@ import { definition as def_z_score } from './z-score/definition';
 export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_acceleration,
   def_activity_calories,
+  def_ad_budget_funnel,
   def_ad_roi,
   def_annuity,
   def_aov,
@@ -243,6 +254,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_bakers_percentage,
   def_battery_charge_time,
   def_battery_runtime,
+  def_battery_series_parallel,
   def_bike_gear_ratio,
   def_binomial_probability,
   def_board_volume,
@@ -304,8 +316,10 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_down_payment,
   def_download_time,
   def_dti,
+  def_early_repayment,
   def_electricity_usage,
   def_email_metrics,
+  def_emergency_fund,
   def_employee_cost,
   def_engagement_rate,
   def_factorial,
@@ -328,6 +342,8 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_ellipse,
   def_geom_frustum,
   def_geom_parallelogram,
+  def_geom_prism,
+  def_geom_pyramid,
   def_geom_rectangle,
   def_geom_regular_polygon,
   def_geom_rhombus,
@@ -339,6 +355,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_triangle,
   def_golden_ratio,
   def_gpa,
+  def_gravitational_force,
   def_heating_power,
   def_hydrostatic_pressure,
   def_ideal_gas_law,
@@ -393,6 +410,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_profit,
   def_proportion,
   def_quadratic_equation,
+  def_rafters,
   def_raid,
   def_ratio,
   def_reading_speed,
@@ -417,6 +435,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_shipping_per_unit,
   def_simple_interest,
   def_single_phase,
+  def_sleep_time,
   def_slope,
   def_solution_concentration,
   def_speed_distance_time,
@@ -434,6 +453,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_trip_budget,
   def_trip_cost,
   def_unix_timestamp,
+  def_vacation_accrual,
   def_video_file_size,
   def_vo2max,
   def_water_intake,

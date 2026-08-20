@@ -16,6 +16,7 @@ import { v2Localization } from './localization.generated';
 
 import { compute as compute_acceleration } from './acceleration/compute';
 import { compute as compute_activity_calories } from './activity-calories/compute';
+import { compute as compute_ad_budget_funnel } from './ad-budget-funnel/compute';
 import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
@@ -28,6 +29,7 @@ import { compute as compute_audience_growth } from './audience-growth/compute';
 import { compute as compute_bakers_percentage } from './bakers-percentage/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
+import { compute as compute_battery_series_parallel } from './battery-series-parallel/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
 import { compute as compute_binomial_probability } from './binomial-probability/compute';
 import { compute as compute_board_volume } from './board-volume/compute';
@@ -91,8 +93,10 @@ import { compute as compute_divisors } from './divisors/compute';
 import { compute as compute_down_payment } from './down-payment/compute';
 import { compute as compute_download_time } from './download-time/compute';
 import { compute as compute_dti } from './dti/compute';
+import { compute as compute_early_repayment } from './early-repayment/compute';
 import { compute as compute_electricity_usage } from './electricity-usage/compute';
 import { compute as compute_email_metrics } from './email-metrics/compute';
+import { compute as compute_emergency_fund } from './emergency-fund/compute';
 import { compute as compute_employee_cost } from './employee-cost/compute';
 import { compute as compute_engagement_rate } from './engagement-rate/compute';
 import { compute as compute_factorial } from './factorial/compute';
@@ -116,6 +120,8 @@ import { compute as compute_geom_cylinder } from './geom-cylinder/compute';
 import { compute as compute_geom_ellipse } from './geom-ellipse/compute';
 import { compute as compute_geom_frustum } from './geom-frustum/compute';
 import { compute as compute_geom_parallelogram } from './geom-parallelogram/compute';
+import { compute as compute_geom_prism } from './geom-prism/compute';
+import { compute as compute_geom_pyramid } from './geom-pyramid/compute';
 import { compute as compute_geom_rectangle } from './geom-rectangle/compute';
 import { compute as compute_geom_regular_polygon } from './geom-regular-polygon/compute';
 import { compute as compute_geom_rhombus } from './geom-rhombus/compute';
@@ -127,6 +133,7 @@ import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
 import { compute as compute_geom_triangle } from './geom-triangle/compute';
 import { compute as compute_golden_ratio } from './golden-ratio/compute';
 import { compute as compute_gpa } from './gpa/compute';
+import { compute as compute_gravitational_force } from './gravitational-force/compute';
 import { compute as compute_heating_power } from './heating-power/compute';
 import { compute as compute_hydrostatic_pressure } from './hydrostatic-pressure/compute';
 import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
@@ -186,6 +193,7 @@ import { compute as compute_profit } from './profit/compute';
 import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
+import { compute as compute_rafters } from './rafters/compute';
 import { compute as compute_raid } from './raid/compute';
 import { compute as compute_ratio } from './ratio/compute';
 import { compute as compute_reading_speed } from './reading-speed/compute';
@@ -210,6 +218,7 @@ import { compute as compute_savings_rate } from './savings-rate/compute';
 import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_single_phase } from './single-phase/compute';
+import { compute as compute_sleep_time } from './sleep-time/compute';
 import { compute as compute_slope } from './slope/compute';
 import { compute as compute_solution_concentration } from './solution-concentration/compute';
 import { compute as compute_speed_distance_time } from './speed-distance-time/compute';
@@ -228,6 +237,7 @@ import { compute as compute_tire_size } from './tire-size/compute';
 import { compute as compute_trip_budget } from './trip-budget/compute';
 import { compute as compute_trip_cost } from './trip-cost/compute';
 import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
+import { compute as compute_vacation_accrual } from './vacation-accrual/compute';
 import { compute as compute_video_file_size } from './video-file-size/compute';
 import { compute as compute_vo2max } from './vo2max/compute';
 import { compute as compute_water_intake } from './water-intake/compute';
@@ -242,6 +252,7 @@ import { compute as compute_z_score } from './z-score/compute';
 export const v2Runners: Record<string, CalcFunction> = {
   'acceleration': compute_acceleration,
   'activity-calories': compute_activity_calories,
+  'ad-budget-funnel': compute_ad_budget_funnel,
   'ad-roi': compute_ad_roi,
   'annuity': compute_annuity,
   'aov': compute_aov,
@@ -254,6 +265,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'bakers-percentage': compute_bakers_percentage,
   'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
+  'battery-series-parallel': compute_battery_series_parallel,
   'bike-gear-ratio': compute_bike_gear_ratio,
   'binomial-probability': compute_binomial_probability,
   'board-volume': compute_board_volume,
@@ -315,8 +327,10 @@ export const v2Runners: Record<string, CalcFunction> = {
   'down-payment': compute_down_payment,
   'download-time': compute_download_time,
   'dti': compute_dti,
+  'early-repayment': compute_early_repayment,
   'electricity-usage': compute_electricity_usage,
   'email-metrics': compute_email_metrics,
+  'emergency-fund': compute_emergency_fund,
   'employee-cost': compute_employee_cost,
   'engagement-rate': compute_engagement_rate,
   'factorial': compute_factorial,
@@ -339,6 +353,8 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-ellipse': compute_geom_ellipse,
   'geom-frustum': compute_geom_frustum,
   'geom-parallelogram': compute_geom_parallelogram,
+  'geom-prism': compute_geom_prism,
+  'geom-pyramid': compute_geom_pyramid,
   'geom-rectangle': compute_geom_rectangle,
   'geom-regular-polygon': compute_geom_regular_polygon,
   'geom-rhombus': compute_geom_rhombus,
@@ -350,6 +366,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-triangle': compute_geom_triangle,
   'golden-ratio': compute_golden_ratio,
   'gpa': compute_gpa,
+  'gravitational-force': compute_gravitational_force,
   'heating-power': compute_heating_power,
   'hydrostatic-pressure': compute_hydrostatic_pressure,
   'ideal-gas-law': compute_ideal_gas_law,
@@ -404,6 +421,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'profit': compute_profit,
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
+  'rafters': compute_rafters,
   'raid': compute_raid,
   'ratio': compute_ratio,
   'reading-speed': compute_reading_speed,
@@ -428,6 +446,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
   'single-phase': compute_single_phase,
+  'sleep-time': compute_sleep_time,
   'slope': compute_slope,
   'solution-concentration': compute_solution_concentration,
   'speed-distance-time': compute_speed_distance_time,
@@ -445,6 +464,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'trip-budget': compute_trip_budget,
   'trip-cost': compute_trip_cost,
   'unix-timestamp': compute_unix_timestamp,
+  'vacation-accrual': compute_vacation_accrual,
   'video-file-size': compute_video_file_size,
   'vo2max': compute_vo2max,
   'water-intake': compute_water_intake,
