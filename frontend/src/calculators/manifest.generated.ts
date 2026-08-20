@@ -12,6 +12,7 @@ import type {
 } from '../lib/platform/types';
 import { isPublished } from '../lib/platform/types';
 
+import { definition as def_activity_calories } from './activity-calories/definition';
 import { definition as def_ad_roi } from './ad-roi/definition';
 import { definition as def_annuity } from './annuity/definition';
 import { definition as def_aov } from './aov/definition';
@@ -19,6 +20,7 @@ import { definition as def_aspect_ratio } from './aspect-ratio/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
 import { definition as def_battery_runtime } from './battery-runtime/definition';
 import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
+import { definition as def_binomial_probability } from './binomial-probability/definition';
 import { definition as def_board_volume } from './board-volume/definition';
 import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition';
 import { definition as def_cac } from './cac/definition';
@@ -27,6 +29,7 @@ import { definition as def_calories_from_macros } from './calories-from-macros/d
 import { definition as def_combinatorics } from './combinatorics/definition';
 import { definition as def_commission } from './commission/definition';
 import { definition as def_concrete } from './concrete/definition';
+import { definition as def_confidence_interval } from './confidence-interval/definition';
 import { definition as def_contribution_margin } from './contribution-margin/definition';
 import { definition as def_convert_angle } from './convert-angle/definition';
 import { definition as def_convert_area } from './convert-area/definition';
@@ -48,8 +51,12 @@ import { definition as def_convert_temperature } from './convert-temperature/def
 import { definition as def_convert_time } from './convert-time/definition';
 import { definition as def_convert_torque } from './convert-torque/definition';
 import { definition as def_convert_volume } from './convert-volume/definition';
+import { definition as def_cooked_weight } from './cooked-weight/definition';
+import { definition as def_correlation } from './correlation/definition';
 import { definition as def_cpm } from './cpm/definition';
+import { definition as def_crypto_pnl } from './crypto-pnl/definition';
 import { definition as def_ctr } from './ctr/definition';
+import { definition as def_currency_exchange_fee } from './currency-exchange-fee/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_density } from './density/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
@@ -62,10 +69,12 @@ import { definition as def_dti } from './dti/definition';
 import { definition as def_electricity_usage } from './electricity-usage/definition';
 import { definition as def_engagement_rate } from './engagement-rate/definition';
 import { definition as def_factorial } from './factorial/definition';
+import { definition as def_fee_chain } from './fee-chain/definition';
 import { definition as def_files_on_disk } from './files-on-disk/definition';
 import { definition as def_final_grade } from './final-grade/definition';
 import { definition as def_fps_frametime } from './fps-frametime/definition';
 import { definition as def_fraction_arith } from './fraction-arith/definition';
+import { definition as def_freelance_rate } from './freelance-rate/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
 import { definition as def_generator_fuel } from './generator-fuel/definition';
 import { definition as def_geom_circle } from './geom-circle/definition';
@@ -82,12 +91,16 @@ import { definition as def_geom_square } from './geom-square/definition';
 import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
 import { definition as def_geom_triangle } from './geom-triangle/definition';
 import { definition as def_golden_ratio } from './golden-ratio/definition';
+import { definition as def_gpa } from './gpa/definition';
+import { definition as def_heating_power } from './heating-power/definition';
 import { definition as def_hydrostatic_pressure } from './hydrostatic-pressure/definition';
 import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
 import { definition as def_installment } from './installment/definition';
 import { definition as def_insulation } from './insulation/definition';
+import { definition as def_internet_traffic } from './internet-traffic/definition';
 import { definition as def_inventory_turnover } from './inventory-turnover/definition';
 import { definition as def_inverter_power } from './inverter-power/definition';
+import { definition as def_ipv4_subnet } from './ipv4-subnet/definition';
 import { definition as def_kinetic_energy } from './kinetic-energy/definition';
 import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
@@ -95,7 +108,9 @@ import { definition as def_linear_equation } from './linear-equation/definition'
 import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_ltv } from './ltv/definition';
 import { definition as def_market_cap } from './market-cap/definition';
+import { definition as def_max_heart_rate } from './max-heart-rate/definition';
 import { definition as def_modulo } from './modulo/definition';
+import { definition as def_molar_mass } from './molar-mass/definition';
 import { definition as def_molarity } from './molarity/definition';
 import { definition as def_moles } from './moles/definition';
 import { definition as def_momentum } from './momentum/definition';
@@ -109,12 +124,14 @@ import { definition as def_physics_power } from './physics-power/definition';
 import { definition as def_physics_torque } from './physics-torque/definition';
 import { definition as def_plaster } from './plaster/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
+import { definition as def_position_size } from './position-size/definition';
 import { definition as def_potential_energy } from './potential-energy/definition';
 import { definition as def_power_to_weight } from './power-to-weight/definition';
 import { definition as def_ppi_dpi } from './ppi-dpi/definition';
 import { definition as def_pressure } from './pressure/definition';
 import { definition as def_price_per_unit } from './price-per-unit/definition';
 import { definition as def_prime_factorization } from './prime-factorization/definition';
+import { definition as def_print_3d_cost } from './print-3d-cost/definition';
 import { definition as def_probability_basic } from './probability-basic/definition';
 import { definition as def_proportion } from './proportion/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
@@ -123,6 +140,7 @@ import { definition as def_real_return } from './real-return/definition';
 import { definition as def_rental_yield } from './rental-yield/definition';
 import { definition as def_return_rate } from './return-rate/definition';
 import { definition as def_revenue_per_employee } from './revenue-per-employee/definition';
+import { definition as def_risk_reward } from './risk-reward/definition';
 import { definition as def_roas } from './roas/definition';
 import { definition as def_roi } from './roi/definition';
 import { definition as def_roman_numerals } from './roman-numerals/definition';
@@ -138,17 +156,25 @@ import { definition as def_stats_descriptive } from './stats-descriptive/definit
 import { definition as def_stock_duration } from './stock-duration/definition';
 import { definition as def_strip_foundation } from './strip-foundation/definition';
 import { definition as def_test_score_percent } from './test-score-percent/definition';
+import { definition as def_text_reading_time } from './text-reading-time/definition';
+import { definition as def_text_word_char_count } from './text-word-char-count/definition';
 import { definition as def_time_duration } from './time-duration/definition';
+import { definition as def_timezone_difference } from './timezone-difference/definition';
 import { definition as def_tip } from './tip/definition';
+import { definition as def_tire_size } from './tire-size/definition';
+import { definition as def_trip_budget } from './trip-budget/definition';
 import { definition as def_trip_cost } from './trip-cost/definition';
 import { definition as def_unix_timestamp } from './unix-timestamp/definition';
+import { definition as def_video_file_size } from './video-file-size/definition';
 import { definition as def_week_number } from './week-number/definition';
 import { definition as def_weighted_mean } from './weighted-mean/definition';
 import { definition as def_work } from './work/definition';
+import { definition as def_work_hours } from './work-hours/definition';
 import { definition as def_workday_cost } from './workday-cost/definition';
 import { definition as def_z_score } from './z-score/definition';
 
 export const v2Definitions: readonly CalculatorDefinitionV2[] = [
+  def_activity_calories,
   def_ad_roi,
   def_annuity,
   def_aov,
@@ -156,6 +182,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_battery_charge_time,
   def_battery_runtime,
   def_bike_gear_ratio,
+  def_binomial_probability,
   def_board_volume,
   def_budget_50_30_20,
   def_cac,
@@ -164,6 +191,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_combinatorics,
   def_commission,
   def_concrete,
+  def_confidence_interval,
   def_contribution_margin,
   def_convert_angle,
   def_convert_area,
@@ -185,8 +213,12 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_time,
   def_convert_torque,
   def_convert_volume,
+  def_cooked_weight,
+  def_correlation,
   def_cpm,
+  def_crypto_pnl,
   def_ctr,
+  def_currency_exchange_fee,
   def_day_of_week,
   def_density,
   def_difference_abs_rel,
@@ -199,10 +231,12 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_electricity_usage,
   def_engagement_rate,
   def_factorial,
+  def_fee_chain,
   def_files_on_disk,
   def_final_grade,
   def_fps_frametime,
   def_fraction_arith,
+  def_freelance_rate,
   def_fuel_consumption,
   def_generator_fuel,
   def_geom_circle,
@@ -219,12 +253,16 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_trapezoid,
   def_geom_triangle,
   def_golden_ratio,
+  def_gpa,
+  def_heating_power,
   def_hydrostatic_pressure,
   def_ideal_gas_law,
   def_installment,
   def_insulation,
+  def_internet_traffic,
   def_inventory_turnover,
   def_inverter_power,
+  def_ipv4_subnet,
   def_kinetic_energy,
   def_leap_year,
   def_led_resistor,
@@ -232,7 +270,9 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_logarithm,
   def_ltv,
   def_market_cap,
+  def_max_heart_rate,
   def_modulo,
+  def_molar_mass,
   def_molarity,
   def_moles,
   def_momentum,
@@ -246,12 +286,14 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_physics_torque,
   def_plaster,
   def_pool_fill_time,
+  def_position_size,
   def_potential_energy,
   def_power_to_weight,
   def_ppi_dpi,
   def_pressure,
   def_price_per_unit,
   def_prime_factorization,
+  def_print_3d_cost,
   def_probability_basic,
   def_proportion,
   def_quadratic_equation,
@@ -260,6 +302,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_rental_yield,
   def_return_rate,
   def_revenue_per_employee,
+  def_risk_reward,
   def_roas,
   def_roi,
   def_roman_numerals,
@@ -275,13 +318,20 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_stock_duration,
   def_strip_foundation,
   def_test_score_percent,
+  def_text_reading_time,
+  def_text_word_char_count,
   def_time_duration,
+  def_timezone_difference,
   def_tip,
+  def_tire_size,
+  def_trip_budget,
   def_trip_cost,
   def_unix_timestamp,
+  def_video_file_size,
   def_week_number,
   def_weighted_mean,
   def_work,
+  def_work_hours,
   def_workday_cost,
   def_z_score,
 ];

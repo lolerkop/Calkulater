@@ -1,0 +1,66 @@
+import type { CalculatorLocalization } from '../../lib/platform/types';
+
+export const localization: CalculatorLocalization = {
+  en: {
+    fields: {
+      "nights": "Hotel nights",
+      "days": "Trip days",
+      "people": "Travellers",
+      "hotelPerNight": "Accommodation per night, $",
+      "foodPerDayPerPerson": "Food per person per day, $",
+      "transport": "Transport for the trip, $",
+      "activities": "Activities for the trip, $",
+      "other": "Other costs, $",
+    },
+    options: {},
+    results: {
+      "Бюджет поездки": "Trip budget",
+      "На человека": "Per traveller",
+      "В день": "Per day",
+      "Проживание": "Accommodation",
+      "Питание": "Food",
+      "Транспорт": "Transport",
+      "Развлечения": "Activities",
+      "Прочее": "Other",
+      "Проверьте данные": "Check the values",
+    },
+    values: {
+      "₽": "$",
+      "Число дней должно быть больше нуля": "The number of days must be greater than zero",
+      "Число человек должно быть больше нуля": "The number of travellers must be greater than zero",
+      "Число ночей не может быть отрицательным": "The number of nights cannot be negative",
+      "Сумма не может быть отрицательной": "An amount cannot be negative",
+    },
+  },
+  uk: {
+    fields: {
+      "nights": "Ночей у готелі",
+      "days": "Днів подорожі",
+      "people": "Людей",
+      "hotelPerNight": "Проживання за ніч, ₴",
+      "foodPerDayPerPerson": "Харчування на людину на день, ₴",
+      "transport": "Транспорт за подорож, ₴",
+      "activities": "Розваги за подорож, ₴",
+      "other": "Інші витрати, ₴",
+    },
+    options: {},
+    results: {
+      "Бюджет поездки": "Бюджет подорожі",
+      "На человека": "На людину",
+      "В день": "На день",
+      "Проживание": "Проживання",
+      "Питание": "Харчування",
+      "Транспорт": "Транспорт",
+      "Развлечения": "Розваги",
+      "Прочее": "Інше",
+      "Проверьте данные": "Перевірте дані",
+    },
+    values: {
+      "₽": "₴",
+      "Число дней должно быть больше нуля": "Кількість днів має бути більшою за нуль",
+      "Число человек должно быть больше нуля": "Кількість людей має бути більшою за нуль",
+      "Число ночей не может быть отрицательным": "Кількість ночей не може бути від'ємною",
+      "Сумма не может быть отрицательной": "Сума не може бути від'ємною",
+    },
+  },
+};

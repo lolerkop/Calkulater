@@ -1,0 +1,66 @@
+import type { CalculatorLocalization } from '../../lib/platform/types';
+
+export const localization: CalculatorLocalization = {
+  en: {
+    fields: {
+      "grams": "Part weight, g",
+      "spoolPrice": "Spool price, $",
+      "spoolWeight": "Spool weight, g",
+      "hours": "Print time, h",
+      "powerW": "Printer power, W",
+      "kwhPrice": "Price per kWh, $",
+      "wearPerHour": "Wear per hour, $",
+      "markupPct": "Markup, %",
+    },
+    options: {},
+    results: {
+      "Себестоимость печати": "Cost of the print",
+      "Пластик": "Filament",
+      "Электричество": "Electricity",
+      "Амортизация принтера": "Printer wear",
+      "Наценка": "Markup",
+      "Израсходовано энергии": "Energy used",
+      "Цена грамма пластика": "Price per gram",
+      "Проверьте данные": "Check the values",
+    },
+    values: {
+      "₽": "$",
+      "кВт·ч": "kWh",
+      "Вес детали должен быть больше нуля": "The part weight must be greater than zero",
+      "Вес катушки должен быть больше нуля": "The spool weight must be greater than zero",
+      "Время печати должно быть больше нуля": "The print time must be greater than zero",
+      "Значение не может быть отрицательным": "A value cannot be negative",
+    },
+  },
+  uk: {
+    fields: {
+      "grams": "Вага деталі, г",
+      "spoolPrice": "Ціна котушки, ₴",
+      "spoolWeight": "Вага котушки, г",
+      "hours": "Час друку, год",
+      "powerW": "Потужність принтера, Вт",
+      "kwhPrice": "Ціна кіловат-години, ₴",
+      "wearPerHour": "Амортизація за годину, ₴",
+      "markupPct": "Націнка, %",
+    },
+    options: {},
+    results: {
+      "Себестоимость печати": "Собівартість друку",
+      "Пластик": "Пластик",
+      "Электричество": "Електрика",
+      "Амортизация принтера": "Амортизація принтера",
+      "Наценка": "Націнка",
+      "Израсходовано энергии": "Витрачено енергії",
+      "Цена грамма пластика": "Ціна грама пластику",
+      "Проверьте данные": "Перевірте дані",
+    },
+    values: {
+      "₽": "₴",
+      "кВт·ч": "кВт·год",
+      "Вес детали должен быть больше нуля": "Вага деталі має бути більшою за нуль",
+      "Вес катушки должен быть больше нуля": "Вага котушки має бути більшою за нуль",
+      "Время печати должно быть больше нуля": "Час друку має бути більшим за нуль",
+      "Значение не может быть отрицательным": "Значення не може бути від'ємним",
+    },
+  },
+};

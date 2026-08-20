@@ -14,6 +14,7 @@ import type { CalculatorContextualField, CalculatorValidator } from '../lib/plat
 import type { CalculatorClientRuntime } from '../lib/platform/runtime';
 import { v2Localization } from './localization.generated';
 
+import { compute as compute_activity_calories } from './activity-calories/compute';
 import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
@@ -21,6 +22,7 @@ import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
+import { compute as compute_binomial_probability } from './binomial-probability/compute';
 import { compute as compute_board_volume } from './board-volume/compute';
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
@@ -31,6 +33,7 @@ import { compute as compute_commission } from './commission/compute';
 import { validate as validate_commission } from './commission/validate';
 import { contextualField as ctx_commission } from './commission/contextualField';
 import { compute as compute_concrete } from './concrete/compute';
+import { compute as compute_confidence_interval } from './confidence-interval/compute';
 import { compute as compute_contribution_margin } from './contribution-margin/compute';
 import { compute as compute_convert_angle } from './convert-angle/compute';
 import { compute as compute_convert_area } from './convert-area/compute';
@@ -52,8 +55,12 @@ import { compute as compute_convert_temperature } from './convert-temperature/co
 import { compute as compute_convert_time } from './convert-time/compute';
 import { compute as compute_convert_torque } from './convert-torque/compute';
 import { compute as compute_convert_volume } from './convert-volume/compute';
+import { compute as compute_cooked_weight } from './cooked-weight/compute';
+import { compute as compute_correlation } from './correlation/compute';
 import { compute as compute_cpm } from './cpm/compute';
+import { compute as compute_crypto_pnl } from './crypto-pnl/compute';
 import { compute as compute_ctr } from './ctr/compute';
+import { compute as compute_currency_exchange_fee } from './currency-exchange-fee/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_density } from './density/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
@@ -66,11 +73,13 @@ import { compute as compute_dti } from './dti/compute';
 import { compute as compute_electricity_usage } from './electricity-usage/compute';
 import { compute as compute_engagement_rate } from './engagement-rate/compute';
 import { compute as compute_factorial } from './factorial/compute';
+import { compute as compute_fee_chain } from './fee-chain/compute';
 import { compute as compute_files_on_disk } from './files-on-disk/compute';
 import { compute as compute_final_grade } from './final-grade/compute';
 import { compute as compute_fps_frametime } from './fps-frametime/compute';
 import { contextualField as ctx_fps_frametime } from './fps-frametime/contextualField';
 import { compute as compute_fraction_arith } from './fraction-arith/compute';
+import { compute as compute_freelance_rate } from './freelance-rate/compute';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
 import { compute as compute_generator_fuel } from './generator-fuel/compute';
 import { compute as compute_geom_circle } from './geom-circle/compute';
@@ -87,12 +96,16 @@ import { compute as compute_geom_square } from './geom-square/compute';
 import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
 import { compute as compute_geom_triangle } from './geom-triangle/compute';
 import { compute as compute_golden_ratio } from './golden-ratio/compute';
+import { compute as compute_gpa } from './gpa/compute';
+import { compute as compute_heating_power } from './heating-power/compute';
 import { compute as compute_hydrostatic_pressure } from './hydrostatic-pressure/compute';
 import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
 import { compute as compute_installment } from './installment/compute';
 import { compute as compute_insulation } from './insulation/compute';
+import { compute as compute_internet_traffic } from './internet-traffic/compute';
 import { compute as compute_inventory_turnover } from './inventory-turnover/compute';
 import { compute as compute_inverter_power } from './inverter-power/compute';
+import { compute as compute_ipv4_subnet } from './ipv4-subnet/compute';
 import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
@@ -101,7 +114,9 @@ import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
 import { compute as compute_market_cap } from './market-cap/compute';
+import { compute as compute_max_heart_rate } from './max-heart-rate/compute';
 import { compute as compute_modulo } from './modulo/compute';
+import { compute as compute_molar_mass } from './molar-mass/compute';
 import { compute as compute_molarity } from './molarity/compute';
 import { compute as compute_moles } from './moles/compute';
 import { compute as compute_momentum } from './momentum/compute';
@@ -118,12 +133,14 @@ import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_physics_torque } from './physics-torque/compute';
 import { compute as compute_plaster } from './plaster/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
+import { compute as compute_position_size } from './position-size/compute';
 import { compute as compute_potential_energy } from './potential-energy/compute';
 import { compute as compute_power_to_weight } from './power-to-weight/compute';
 import { compute as compute_ppi_dpi } from './ppi-dpi/compute';
 import { compute as compute_pressure } from './pressure/compute';
 import { compute as compute_price_per_unit } from './price-per-unit/compute';
 import { compute as compute_prime_factorization } from './prime-factorization/compute';
+import { compute as compute_print_3d_cost } from './print-3d-cost/compute';
 import { compute as compute_probability_basic } from './probability-basic/compute';
 import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
@@ -133,6 +150,7 @@ import { compute as compute_real_return } from './real-return/compute';
 import { compute as compute_rental_yield } from './rental-yield/compute';
 import { compute as compute_return_rate } from './return-rate/compute';
 import { compute as compute_revenue_per_employee } from './revenue-per-employee/compute';
+import { compute as compute_risk_reward } from './risk-reward/compute';
 import { compute as compute_roas } from './roas/compute';
 import { compute as compute_roi } from './roi/compute';
 import { compute as compute_roman_numerals } from './roman-numerals/compute';
@@ -149,17 +167,25 @@ import { compute as compute_stats_descriptive } from './stats-descriptive/comput
 import { compute as compute_stock_duration } from './stock-duration/compute';
 import { compute as compute_strip_foundation } from './strip-foundation/compute';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
+import { compute as compute_text_reading_time } from './text-reading-time/compute';
+import { compute as compute_text_word_char_count } from './text-word-char-count/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
+import { compute as compute_timezone_difference } from './timezone-difference/compute';
 import { compute as compute_tip } from './tip/compute';
+import { compute as compute_tire_size } from './tire-size/compute';
+import { compute as compute_trip_budget } from './trip-budget/compute';
 import { compute as compute_trip_cost } from './trip-cost/compute';
 import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
+import { compute as compute_video_file_size } from './video-file-size/compute';
 import { compute as compute_week_number } from './week-number/compute';
 import { compute as compute_weighted_mean } from './weighted-mean/compute';
 import { compute as compute_work } from './work/compute';
+import { compute as compute_work_hours } from './work-hours/compute';
 import { compute as compute_workday_cost } from './workday-cost/compute';
 import { compute as compute_z_score } from './z-score/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
+  'activity-calories': compute_activity_calories,
   'ad-roi': compute_ad_roi,
   'annuity': compute_annuity,
   'aov': compute_aov,
@@ -167,6 +193,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
   'bike-gear-ratio': compute_bike_gear_ratio,
+  'binomial-probability': compute_binomial_probability,
   'board-volume': compute_board_volume,
   'budget-50-30-20': compute_budget_50_30_20,
   'cac': compute_cac,
@@ -175,6 +202,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'combinatorics': compute_combinatorics,
   'commission': compute_commission,
   'concrete': compute_concrete,
+  'confidence-interval': compute_confidence_interval,
   'contribution-margin': compute_contribution_margin,
   'convert-angle': compute_convert_angle,
   'convert-area': compute_convert_area,
@@ -196,8 +224,12 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-time': compute_convert_time,
   'convert-torque': compute_convert_torque,
   'convert-volume': compute_convert_volume,
+  'cooked-weight': compute_cooked_weight,
+  'correlation': compute_correlation,
   'cpm': compute_cpm,
+  'crypto-pnl': compute_crypto_pnl,
   'ctr': compute_ctr,
+  'currency-exchange-fee': compute_currency_exchange_fee,
   'day-of-week': compute_day_of_week,
   'density': compute_density,
   'difference-abs-rel': compute_difference_abs_rel,
@@ -210,10 +242,12 @@ export const v2Runners: Record<string, CalcFunction> = {
   'electricity-usage': compute_electricity_usage,
   'engagement-rate': compute_engagement_rate,
   'factorial': compute_factorial,
+  'fee-chain': compute_fee_chain,
   'files-on-disk': compute_files_on_disk,
   'final-grade': compute_final_grade,
   'fps-frametime': compute_fps_frametime,
   'fraction-arith': compute_fraction_arith,
+  'freelance-rate': compute_freelance_rate,
   'fuel-consumption': compute_fuel_consumption,
   'generator-fuel': compute_generator_fuel,
   'geom-circle': compute_geom_circle,
@@ -230,12 +264,16 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-trapezoid': compute_geom_trapezoid,
   'geom-triangle': compute_geom_triangle,
   'golden-ratio': compute_golden_ratio,
+  'gpa': compute_gpa,
+  'heating-power': compute_heating_power,
   'hydrostatic-pressure': compute_hydrostatic_pressure,
   'ideal-gas-law': compute_ideal_gas_law,
   'installment': compute_installment,
   'insulation': compute_insulation,
+  'internet-traffic': compute_internet_traffic,
   'inventory-turnover': compute_inventory_turnover,
   'inverter-power': compute_inverter_power,
+  'ipv4-subnet': compute_ipv4_subnet,
   'kinetic-energy': compute_kinetic_energy,
   'leap-year': compute_leap_year,
   'led-resistor': compute_led_resistor,
@@ -243,7 +281,9 @@ export const v2Runners: Record<string, CalcFunction> = {
   'logarithm': compute_logarithm,
   'ltv': compute_ltv,
   'market-cap': compute_market_cap,
+  'max-heart-rate': compute_max_heart_rate,
   'modulo': compute_modulo,
+  'molar-mass': compute_molar_mass,
   'molarity': compute_molarity,
   'moles': compute_moles,
   'momentum': compute_momentum,
@@ -257,12 +297,14 @@ export const v2Runners: Record<string, CalcFunction> = {
   'physics-torque': compute_physics_torque,
   'plaster': compute_plaster,
   'pool-fill-time': compute_pool_fill_time,
+  'position-size': compute_position_size,
   'potential-energy': compute_potential_energy,
   'power-to-weight': compute_power_to_weight,
   'ppi-dpi': compute_ppi_dpi,
   'pressure': compute_pressure,
   'price-per-unit': compute_price_per_unit,
   'prime-factorization': compute_prime_factorization,
+  'print-3d-cost': compute_print_3d_cost,
   'probability-basic': compute_probability_basic,
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
@@ -271,6 +313,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'rental-yield': compute_rental_yield,
   'return-rate': compute_return_rate,
   'revenue-per-employee': compute_revenue_per_employee,
+  'risk-reward': compute_risk_reward,
   'roas': compute_roas,
   'roi': compute_roi,
   'roman-numerals': compute_roman_numerals,
@@ -286,13 +329,20 @@ export const v2Runners: Record<string, CalcFunction> = {
   'stock-duration': compute_stock_duration,
   'strip-foundation': compute_strip_foundation,
   'test-score-percent': compute_test_score_percent,
+  'text-reading-time': compute_text_reading_time,
+  'text-word-char-count': compute_text_word_char_count,
   'time-duration': compute_time_duration,
+  'timezone-difference': compute_timezone_difference,
   'tip': compute_tip,
+  'tire-size': compute_tire_size,
+  'trip-budget': compute_trip_budget,
   'trip-cost': compute_trip_cost,
   'unix-timestamp': compute_unix_timestamp,
+  'video-file-size': compute_video_file_size,
   'week-number': compute_week_number,
   'weighted-mean': compute_weighted_mean,
   'work': compute_work,
+  'work-hours': compute_work_hours,
   'workday-cost': compute_workday_cost,
   'z-score': compute_z_score,
 };
