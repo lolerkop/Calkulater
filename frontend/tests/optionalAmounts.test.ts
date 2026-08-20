@@ -72,6 +72,7 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['print-3d-cost', 'markupPct'],
   ['freelance-rate', 'expenses'],
   ['internet-traffic', 'quotaGb'],
+  ['currency-exchange-fee', 'feeFixed'],
 ];
 
 describe('необязательные суммы', () => {

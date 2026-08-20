@@ -20,6 +20,7 @@ import { definition as def_aspect_ratio } from './aspect-ratio/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
 import { definition as def_battery_runtime } from './battery-runtime/definition';
 import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
+import { definition as def_binomial_probability } from './binomial-probability/definition';
 import { definition as def_board_volume } from './board-volume/definition';
 import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition';
 import { definition as def_cac } from './cac/definition';
@@ -28,6 +29,7 @@ import { definition as def_calories_from_macros } from './calories-from-macros/d
 import { definition as def_combinatorics } from './combinatorics/definition';
 import { definition as def_commission } from './commission/definition';
 import { definition as def_concrete } from './concrete/definition';
+import { definition as def_confidence_interval } from './confidence-interval/definition';
 import { definition as def_contribution_margin } from './contribution-margin/definition';
 import { definition as def_convert_angle } from './convert-angle/definition';
 import { definition as def_convert_area } from './convert-area/definition';
@@ -53,6 +55,7 @@ import { definition as def_cooked_weight } from './cooked-weight/definition';
 import { definition as def_cpm } from './cpm/definition';
 import { definition as def_crypto_pnl } from './crypto-pnl/definition';
 import { definition as def_ctr } from './ctr/definition';
+import { definition as def_currency_exchange_fee } from './currency-exchange-fee/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_density } from './density/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
@@ -132,6 +135,7 @@ import { definition as def_real_return } from './real-return/definition';
 import { definition as def_rental_yield } from './rental-yield/definition';
 import { definition as def_return_rate } from './return-rate/definition';
 import { definition as def_revenue_per_employee } from './revenue-per-employee/definition';
+import { definition as def_risk_reward } from './risk-reward/definition';
 import { definition as def_roas } from './roas/definition';
 import { definition as def_roi } from './roi/definition';
 import { definition as def_roman_numerals } from './roman-numerals/definition';
@@ -170,6 +174,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_battery_charge_time,
   def_battery_runtime,
   def_bike_gear_ratio,
+  def_binomial_probability,
   def_board_volume,
   def_budget_50_30_20,
   def_cac,
@@ -178,6 +183,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_combinatorics,
   def_commission,
   def_concrete,
+  def_confidence_interval,
   def_contribution_margin,
   def_convert_angle,
   def_convert_area,
@@ -203,6 +209,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_cpm,
   def_crypto_pnl,
   def_ctr,
+  def_currency_exchange_fee,
   def_day_of_week,
   def_density,
   def_difference_abs_rel,
@@ -282,6 +289,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_rental_yield,
   def_return_rate,
   def_revenue_per_employee,
+  def_risk_reward,
   def_roas,
   def_roi,
   def_roman_numerals,

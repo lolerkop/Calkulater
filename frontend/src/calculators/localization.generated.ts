@@ -14,6 +14,7 @@ import { localization as loc_aspect_ratio } from './aspect-ratio/localization';
 import { localization as loc_battery_charge_time } from './battery-charge-time/localization';
 import { localization as loc_battery_runtime } from './battery-runtime/localization';
 import { localization as loc_bike_gear_ratio } from './bike-gear-ratio/localization';
+import { localization as loc_binomial_probability } from './binomial-probability/localization';
 import { localization as loc_board_volume } from './board-volume/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
 import { localization as loc_cac } from './cac/localization';
@@ -22,6 +23,7 @@ import { localization as loc_calories_from_macros } from './calories-from-macros
 import { localization as loc_combinatorics } from './combinatorics/localization';
 import { localization as loc_commission } from './commission/localization';
 import { localization as loc_concrete } from './concrete/localization';
+import { localization as loc_confidence_interval } from './confidence-interval/localization';
 import { localization as loc_contribution_margin } from './contribution-margin/localization';
 import { localization as loc_convert_angle } from './convert-angle/localization';
 import { localization as loc_convert_area } from './convert-area/localization';
@@ -47,6 +49,7 @@ import { localization as loc_cooked_weight } from './cooked-weight/localization'
 import { localization as loc_cpm } from './cpm/localization';
 import { localization as loc_crypto_pnl } from './crypto-pnl/localization';
 import { localization as loc_ctr } from './ctr/localization';
+import { localization as loc_currency_exchange_fee } from './currency-exchange-fee/localization';
 import { localization as loc_day_of_week } from './day-of-week/localization';
 import { localization as loc_density } from './density/localization';
 import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
@@ -124,6 +127,7 @@ import { localization as loc_real_return } from './real-return/localization';
 import { localization as loc_rental_yield } from './rental-yield/localization';
 import { localization as loc_return_rate } from './return-rate/localization';
 import { localization as loc_revenue_per_employee } from './revenue-per-employee/localization';
+import { localization as loc_risk_reward } from './risk-reward/localization';
 import { localization as loc_roas } from './roas/localization';
 import { localization as loc_roi } from './roi/localization';
 import { localization as loc_roman_numerals } from './roman-numerals/localization';
@@ -163,6 +167,7 @@ export const v2Localization: ScopedLocalization = {
     'battery-charge-time': loc_battery_charge_time.en ?? {},
     'battery-runtime': loc_battery_runtime.en ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.en ?? {},
+    'binomial-probability': loc_binomial_probability.en ?? {},
     'board-volume': loc_board_volume.en ?? {},
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
     'cac': loc_cac.en ?? {},
@@ -171,6 +176,7 @@ export const v2Localization: ScopedLocalization = {
     'combinatorics': loc_combinatorics.en ?? {},
     'commission': loc_commission.en ?? {},
     'concrete': loc_concrete.en ?? {},
+    'confidence-interval': loc_confidence_interval.en ?? {},
     'contribution-margin': loc_contribution_margin.en ?? {},
     'convert-angle': loc_convert_angle.en ?? {},
     'convert-area': loc_convert_area.en ?? {},
@@ -196,6 +202,7 @@ export const v2Localization: ScopedLocalization = {
     'cpm': loc_cpm.en ?? {},
     'crypto-pnl': loc_crypto_pnl.en ?? {},
     'ctr': loc_ctr.en ?? {},
+    'currency-exchange-fee': loc_currency_exchange_fee.en ?? {},
     'day-of-week': loc_day_of_week.en ?? {},
     'density': loc_density.en ?? {},
     'difference-abs-rel': loc_difference_abs_rel.en ?? {},
@@ -273,6 +280,7 @@ export const v2Localization: ScopedLocalization = {
     'rental-yield': loc_rental_yield.en ?? {},
     'return-rate': loc_return_rate.en ?? {},
     'revenue-per-employee': loc_revenue_per_employee.en ?? {},
+    'risk-reward': loc_risk_reward.en ?? {},
     'roas': loc_roas.en ?? {},
     'roi': loc_roi.en ?? {},
     'roman-numerals': loc_roman_numerals.en ?? {},
@@ -311,6 +319,7 @@ export const v2Localization: ScopedLocalization = {
     'battery-charge-time': loc_battery_charge_time.uk ?? {},
     'battery-runtime': loc_battery_runtime.uk ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.uk ?? {},
+    'binomial-probability': loc_binomial_probability.uk ?? {},
     'board-volume': loc_board_volume.uk ?? {},
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
     'cac': loc_cac.uk ?? {},
@@ -319,6 +328,7 @@ export const v2Localization: ScopedLocalization = {
     'combinatorics': loc_combinatorics.uk ?? {},
     'commission': loc_commission.uk ?? {},
     'concrete': loc_concrete.uk ?? {},
+    'confidence-interval': loc_confidence_interval.uk ?? {},
     'contribution-margin': loc_contribution_margin.uk ?? {},
     'convert-angle': loc_convert_angle.uk ?? {},
     'convert-area': loc_convert_area.uk ?? {},
@@ -344,6 +354,7 @@ export const v2Localization: ScopedLocalization = {
     'cpm': loc_cpm.uk ?? {},
     'crypto-pnl': loc_crypto_pnl.uk ?? {},
     'ctr': loc_ctr.uk ?? {},
+    'currency-exchange-fee': loc_currency_exchange_fee.uk ?? {},
     'day-of-week': loc_day_of_week.uk ?? {},
     'density': loc_density.uk ?? {},
     'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
@@ -421,6 +432,7 @@ export const v2Localization: ScopedLocalization = {
     'rental-yield': loc_rental_yield.uk ?? {},
     'return-rate': loc_return_rate.uk ?? {},
     'revenue-per-employee': loc_revenue_per_employee.uk ?? {},
+    'risk-reward': loc_risk_reward.uk ?? {},
     'roas': loc_roas.uk ?? {},
     'roi': loc_roi.uk ?? {},
     'roman-numerals': loc_roman_numerals.uk ?? {},

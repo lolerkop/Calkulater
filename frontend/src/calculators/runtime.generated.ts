@@ -22,6 +22,7 @@ import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
+import { compute as compute_binomial_probability } from './binomial-probability/compute';
 import { compute as compute_board_volume } from './board-volume/compute';
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
@@ -32,6 +33,7 @@ import { compute as compute_commission } from './commission/compute';
 import { validate as validate_commission } from './commission/validate';
 import { contextualField as ctx_commission } from './commission/contextualField';
 import { compute as compute_concrete } from './concrete/compute';
+import { compute as compute_confidence_interval } from './confidence-interval/compute';
 import { compute as compute_contribution_margin } from './contribution-margin/compute';
 import { compute as compute_convert_angle } from './convert-angle/compute';
 import { compute as compute_convert_area } from './convert-area/compute';
@@ -57,6 +59,7 @@ import { compute as compute_cooked_weight } from './cooked-weight/compute';
 import { compute as compute_cpm } from './cpm/compute';
 import { compute as compute_crypto_pnl } from './crypto-pnl/compute';
 import { compute as compute_ctr } from './ctr/compute';
+import { compute as compute_currency_exchange_fee } from './currency-exchange-fee/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_density } from './density/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
@@ -142,6 +145,7 @@ import { compute as compute_real_return } from './real-return/compute';
 import { compute as compute_rental_yield } from './rental-yield/compute';
 import { compute as compute_return_rate } from './return-rate/compute';
 import { compute as compute_revenue_per_employee } from './revenue-per-employee/compute';
+import { compute as compute_risk_reward } from './risk-reward/compute';
 import { compute as compute_roas } from './roas/compute';
 import { compute as compute_roi } from './roi/compute';
 import { compute as compute_roman_numerals } from './roman-numerals/compute';
@@ -181,6 +185,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
   'bike-gear-ratio': compute_bike_gear_ratio,
+  'binomial-probability': compute_binomial_probability,
   'board-volume': compute_board_volume,
   'budget-50-30-20': compute_budget_50_30_20,
   'cac': compute_cac,
@@ -189,6 +194,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'combinatorics': compute_combinatorics,
   'commission': compute_commission,
   'concrete': compute_concrete,
+  'confidence-interval': compute_confidence_interval,
   'contribution-margin': compute_contribution_margin,
   'convert-angle': compute_convert_angle,
   'convert-area': compute_convert_area,
@@ -214,6 +220,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cpm': compute_cpm,
   'crypto-pnl': compute_crypto_pnl,
   'ctr': compute_ctr,
+  'currency-exchange-fee': compute_currency_exchange_fee,
   'day-of-week': compute_day_of_week,
   'density': compute_density,
   'difference-abs-rel': compute_difference_abs_rel,
@@ -293,6 +300,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'rental-yield': compute_rental_yield,
   'return-rate': compute_return_rate,
   'revenue-per-employee': compute_revenue_per_employee,
+  'risk-reward': compute_risk_reward,
   'roas': compute_roas,
   'roi': compute_roi,
   'roman-numerals': compute_roman_numerals,
