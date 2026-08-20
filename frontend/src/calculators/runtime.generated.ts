@@ -19,6 +19,7 @@ import { compute as compute_activity_calories } from './activity-calories/comput
 import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
+import { compute as compute_apr_apy } from './apr-apy/compute';
 import { compute as compute_aquarium_water_change } from './aquarium-water-change/compute';
 import { compute as compute_arithmetic_progression } from './arithmetic-progression/compute';
 import { compute as compute_arpu_arppu } from './arpu-arppu/compute';
@@ -30,11 +31,13 @@ import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
 import { compute as compute_binomial_probability } from './binomial-probability/compute';
 import { compute as compute_board_volume } from './board-volume/compute';
+import { compute as compute_bonus } from './bonus/compute';
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
 import { compute as compute_calories_from_macros } from './calories-from-macros/compute';
 import { compute as compute_car_depreciation } from './car-depreciation/compute';
+import { compute as compute_centripetal_force } from './centripetal-force/compute';
 import { compute as compute_churn_retention } from './churn-retention/compute';
 import { compute as compute_cogs } from './cogs/compute';
 import { compute as compute_cogs_unit_cost } from './cogs-unit-cost/compute';
@@ -71,6 +74,7 @@ import { compute as compute_convert_volume } from './convert-volume/compute';
 import { compute as compute_cooked_weight } from './cooked-weight/compute';
 import { compute as compute_correlation } from './correlation/compute';
 import { compute as compute_cpa_cpl_cpi } from './cpa-cpl-cpi/compute';
+import { compute as compute_cpc } from './cpc/compute';
 import { compute as compute_cpm } from './cpm/compute';
 import { compute as compute_crypto_pnl } from './crypto-pnl/compute';
 import { compute as compute_ctr } from './ctr/compute';
@@ -78,6 +82,7 @@ import { compute as compute_currency_exchange_fee } from './currency-exchange-fe
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_dca } from './dca/compute';
 import { compute as compute_density } from './density/compute';
+import { compute as compute_dice_probability } from './dice-probability/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
 import { compute as compute_dilution } from './dilution/compute';
 import { compute as compute_dividend_yield } from './dividend-yield/compute';
@@ -86,6 +91,7 @@ import { compute as compute_down_payment } from './down-payment/compute';
 import { compute as compute_download_time } from './download-time/compute';
 import { compute as compute_dti } from './dti/compute';
 import { compute as compute_electricity_usage } from './electricity-usage/compute';
+import { compute as compute_email_metrics } from './email-metrics/compute';
 import { compute as compute_engagement_rate } from './engagement-rate/compute';
 import { compute as compute_factorial } from './factorial/compute';
 import { compute as compute_fee_chain } from './fee-chain/compute';
@@ -132,6 +138,7 @@ import { compute as compute_ipv4_subnet } from './ipv4-subnet/compute';
 import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
+import { compute as compute_leverage } from './leverage/compute';
 import { compute as compute_linear_equation } from './linear-equation/compute';
 import { compute as compute_linear_system } from './linear-system/compute';
 import { compute as compute_logarithm } from './logarithm/compute';
@@ -140,6 +147,7 @@ import { compute as compute_ltv } from './ltv/compute';
 import { compute as compute_market_cap } from './market-cap/compute';
 import { compute as compute_max_heart_rate } from './max-heart-rate/compute';
 import { compute as compute_max_loan } from './max-loan/compute';
+import { compute as compute_modular_scale } from './modular-scale/compute';
 import { compute as compute_modulo } from './modulo/compute';
 import { compute as compute_molar_mass } from './molar-mass/compute';
 import { compute as compute_molarity } from './molarity/compute';
@@ -154,6 +162,8 @@ import { compute as compute_paint_calculator } from './paint-calculator/compute'
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
 import { contextualField as ctx_percent_calculator } from './percent-calculator/contextualField';
+import { compute as compute_pet_age } from './pet-age/compute';
+import { compute as compute_pet_food } from './pet-food/compute';
 import { compute as compute_ph_poh } from './ph-poh/compute';
 import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_physics_torque } from './physics-torque/compute';
@@ -225,6 +235,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ad-roi': compute_ad_roi,
   'annuity': compute_annuity,
   'aov': compute_aov,
+  'apr-apy': compute_apr_apy,
   'aquarium-water-change': compute_aquarium_water_change,
   'arithmetic-progression': compute_arithmetic_progression,
   'arpu-arppu': compute_arpu_arppu,
@@ -236,11 +247,13 @@ export const v2Runners: Record<string, CalcFunction> = {
   'bike-gear-ratio': compute_bike_gear_ratio,
   'binomial-probability': compute_binomial_probability,
   'board-volume': compute_board_volume,
+  'bonus': compute_bonus,
   'budget-50-30-20': compute_budget_50_30_20,
   'cac': compute_cac,
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
   'car-depreciation': compute_car_depreciation,
+  'centripetal-force': compute_centripetal_force,
   'churn-retention': compute_churn_retention,
   'cogs': compute_cogs,
   'cogs-unit-cost': compute_cogs_unit_cost,
@@ -275,6 +288,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cooked-weight': compute_cooked_weight,
   'correlation': compute_correlation,
   'cpa-cpl-cpi': compute_cpa_cpl_cpi,
+  'cpc': compute_cpc,
   'cpm': compute_cpm,
   'crypto-pnl': compute_crypto_pnl,
   'ctr': compute_ctr,
@@ -282,6 +296,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'day-of-week': compute_day_of_week,
   'dca': compute_dca,
   'density': compute_density,
+  'dice-probability': compute_dice_probability,
   'difference-abs-rel': compute_difference_abs_rel,
   'dilution': compute_dilution,
   'dividend-yield': compute_dividend_yield,
@@ -290,6 +305,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'download-time': compute_download_time,
   'dti': compute_dti,
   'electricity-usage': compute_electricity_usage,
+  'email-metrics': compute_email_metrics,
   'engagement-rate': compute_engagement_rate,
   'factorial': compute_factorial,
   'fee-chain': compute_fee_chain,
@@ -335,6 +351,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'kinetic-energy': compute_kinetic_energy,
   'leap-year': compute_leap_year,
   'led-resistor': compute_led_resistor,
+  'leverage': compute_leverage,
   'linear-equation': compute_linear_equation,
   'linear-system': compute_linear_system,
   'logarithm': compute_logarithm,
@@ -342,6 +359,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'market-cap': compute_market_cap,
   'max-heart-rate': compute_max_heart_rate,
   'max-loan': compute_max_loan,
+  'modular-scale': compute_modular_scale,
   'modulo': compute_modulo,
   'molar-mass': compute_molar_mass,
   'molarity': compute_molarity,
@@ -353,6 +371,8 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ohms-law': compute_ohms_law,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
+  'pet-age': compute_pet_age,
+  'pet-food': compute_pet_food,
   'ph-poh': compute_ph_poh,
   'physics-power': compute_physics_power,
   'physics-torque': compute_physics_torque,

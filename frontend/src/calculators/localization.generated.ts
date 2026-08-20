@@ -11,6 +11,7 @@ import { localization as loc_activity_calories } from './activity-calories/local
 import { localization as loc_ad_roi } from './ad-roi/localization';
 import { localization as loc_annuity } from './annuity/localization';
 import { localization as loc_aov } from './aov/localization';
+import { localization as loc_apr_apy } from './apr-apy/localization';
 import { localization as loc_aquarium_water_change } from './aquarium-water-change/localization';
 import { localization as loc_arithmetic_progression } from './arithmetic-progression/localization';
 import { localization as loc_arpu_arppu } from './arpu-arppu/localization';
@@ -22,11 +23,13 @@ import { localization as loc_battery_runtime } from './battery-runtime/localizat
 import { localization as loc_bike_gear_ratio } from './bike-gear-ratio/localization';
 import { localization as loc_binomial_probability } from './binomial-probability/localization';
 import { localization as loc_board_volume } from './board-volume/localization';
+import { localization as loc_bonus } from './bonus/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
 import { localization as loc_calories_from_macros } from './calories-from-macros/localization';
 import { localization as loc_car_depreciation } from './car-depreciation/localization';
+import { localization as loc_centripetal_force } from './centripetal-force/localization';
 import { localization as loc_churn_retention } from './churn-retention/localization';
 import { localization as loc_cogs } from './cogs/localization';
 import { localization as loc_cogs_unit_cost } from './cogs-unit-cost/localization';
@@ -61,6 +64,7 @@ import { localization as loc_convert_volume } from './convert-volume/localizatio
 import { localization as loc_cooked_weight } from './cooked-weight/localization';
 import { localization as loc_correlation } from './correlation/localization';
 import { localization as loc_cpa_cpl_cpi } from './cpa-cpl-cpi/localization';
+import { localization as loc_cpc } from './cpc/localization';
 import { localization as loc_cpm } from './cpm/localization';
 import { localization as loc_crypto_pnl } from './crypto-pnl/localization';
 import { localization as loc_ctr } from './ctr/localization';
@@ -68,6 +72,7 @@ import { localization as loc_currency_exchange_fee } from './currency-exchange-f
 import { localization as loc_day_of_week } from './day-of-week/localization';
 import { localization as loc_dca } from './dca/localization';
 import { localization as loc_density } from './density/localization';
+import { localization as loc_dice_probability } from './dice-probability/localization';
 import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
 import { localization as loc_dilution } from './dilution/localization';
 import { localization as loc_dividend_yield } from './dividend-yield/localization';
@@ -76,6 +81,7 @@ import { localization as loc_down_payment } from './down-payment/localization';
 import { localization as loc_download_time } from './download-time/localization';
 import { localization as loc_dti } from './dti/localization';
 import { localization as loc_electricity_usage } from './electricity-usage/localization';
+import { localization as loc_email_metrics } from './email-metrics/localization';
 import { localization as loc_engagement_rate } from './engagement-rate/localization';
 import { localization as loc_factorial } from './factorial/localization';
 import { localization as loc_fee_chain } from './fee-chain/localization';
@@ -121,6 +127,7 @@ import { localization as loc_ipv4_subnet } from './ipv4-subnet/localization';
 import { localization as loc_kinetic_energy } from './kinetic-energy/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_led_resistor } from './led-resistor/localization';
+import { localization as loc_leverage } from './leverage/localization';
 import { localization as loc_linear_equation } from './linear-equation/localization';
 import { localization as loc_linear_system } from './linear-system/localization';
 import { localization as loc_logarithm } from './logarithm/localization';
@@ -128,6 +135,7 @@ import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_market_cap } from './market-cap/localization';
 import { localization as loc_max_heart_rate } from './max-heart-rate/localization';
 import { localization as loc_max_loan } from './max-loan/localization';
+import { localization as loc_modular_scale } from './modular-scale/localization';
 import { localization as loc_modulo } from './modulo/localization';
 import { localization as loc_molar_mass } from './molar-mass/localization';
 import { localization as loc_molarity } from './molarity/localization';
@@ -137,6 +145,8 @@ import { localization as loc_mrr_arr } from './mrr-arr/localization';
 import { localization as loc_network_bandwidth } from './network-bandwidth/localization';
 import { localization as loc_newton_force } from './newton-force/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
+import { localization as loc_pet_age } from './pet-age/localization';
+import { localization as loc_pet_food } from './pet-food/localization';
 import { localization as loc_ph_poh } from './ph-poh/localization';
 import { localization as loc_physics_power } from './physics-power/localization';
 import { localization as loc_physics_torque } from './physics-torque/localization';
@@ -207,6 +217,7 @@ export const v2Localization: ScopedLocalization = {
     'ad-roi': loc_ad_roi.en ?? {},
     'annuity': loc_annuity.en ?? {},
     'aov': loc_aov.en ?? {},
+    'apr-apy': loc_apr_apy.en ?? {},
     'aquarium-water-change': loc_aquarium_water_change.en ?? {},
     'arithmetic-progression': loc_arithmetic_progression.en ?? {},
     'arpu-arppu': loc_arpu_arppu.en ?? {},
@@ -218,11 +229,13 @@ export const v2Localization: ScopedLocalization = {
     'bike-gear-ratio': loc_bike_gear_ratio.en ?? {},
     'binomial-probability': loc_binomial_probability.en ?? {},
     'board-volume': loc_board_volume.en ?? {},
+    'bonus': loc_bonus.en ?? {},
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
     'calories-from-macros': loc_calories_from_macros.en ?? {},
     'car-depreciation': loc_car_depreciation.en ?? {},
+    'centripetal-force': loc_centripetal_force.en ?? {},
     'churn-retention': loc_churn_retention.en ?? {},
     'cogs': loc_cogs.en ?? {},
     'cogs-unit-cost': loc_cogs_unit_cost.en ?? {},
@@ -257,6 +270,7 @@ export const v2Localization: ScopedLocalization = {
     'cooked-weight': loc_cooked_weight.en ?? {},
     'correlation': loc_correlation.en ?? {},
     'cpa-cpl-cpi': loc_cpa_cpl_cpi.en ?? {},
+    'cpc': loc_cpc.en ?? {},
     'cpm': loc_cpm.en ?? {},
     'crypto-pnl': loc_crypto_pnl.en ?? {},
     'ctr': loc_ctr.en ?? {},
@@ -264,6 +278,7 @@ export const v2Localization: ScopedLocalization = {
     'day-of-week': loc_day_of_week.en ?? {},
     'dca': loc_dca.en ?? {},
     'density': loc_density.en ?? {},
+    'dice-probability': loc_dice_probability.en ?? {},
     'difference-abs-rel': loc_difference_abs_rel.en ?? {},
     'dilution': loc_dilution.en ?? {},
     'dividend-yield': loc_dividend_yield.en ?? {},
@@ -272,6 +287,7 @@ export const v2Localization: ScopedLocalization = {
     'download-time': loc_download_time.en ?? {},
     'dti': loc_dti.en ?? {},
     'electricity-usage': loc_electricity_usage.en ?? {},
+    'email-metrics': loc_email_metrics.en ?? {},
     'engagement-rate': loc_engagement_rate.en ?? {},
     'factorial': loc_factorial.en ?? {},
     'fee-chain': loc_fee_chain.en ?? {},
@@ -317,6 +333,7 @@ export const v2Localization: ScopedLocalization = {
     'kinetic-energy': loc_kinetic_energy.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
     'led-resistor': loc_led_resistor.en ?? {},
+    'leverage': loc_leverage.en ?? {},
     'linear-equation': loc_linear_equation.en ?? {},
     'linear-system': loc_linear_system.en ?? {},
     'logarithm': loc_logarithm.en ?? {},
@@ -324,6 +341,7 @@ export const v2Localization: ScopedLocalization = {
     'market-cap': loc_market_cap.en ?? {},
     'max-heart-rate': loc_max_heart_rate.en ?? {},
     'max-loan': loc_max_loan.en ?? {},
+    'modular-scale': loc_modular_scale.en ?? {},
     'modulo': loc_modulo.en ?? {},
     'molar-mass': loc_molar_mass.en ?? {},
     'molarity': loc_molarity.en ?? {},
@@ -333,6 +351,8 @@ export const v2Localization: ScopedLocalization = {
     'network-bandwidth': loc_network_bandwidth.en ?? {},
     'newton-force': loc_newton_force.en ?? {},
     'ohms-law': loc_ohms_law.en ?? {},
+    'pet-age': loc_pet_age.en ?? {},
+    'pet-food': loc_pet_food.en ?? {},
     'ph-poh': loc_ph_poh.en ?? {},
     'physics-power': loc_physics_power.en ?? {},
     'physics-torque': loc_physics_torque.en ?? {},
@@ -402,6 +422,7 @@ export const v2Localization: ScopedLocalization = {
     'ad-roi': loc_ad_roi.uk ?? {},
     'annuity': loc_annuity.uk ?? {},
     'aov': loc_aov.uk ?? {},
+    'apr-apy': loc_apr_apy.uk ?? {},
     'aquarium-water-change': loc_aquarium_water_change.uk ?? {},
     'arithmetic-progression': loc_arithmetic_progression.uk ?? {},
     'arpu-arppu': loc_arpu_arppu.uk ?? {},
@@ -413,11 +434,13 @@ export const v2Localization: ScopedLocalization = {
     'bike-gear-ratio': loc_bike_gear_ratio.uk ?? {},
     'binomial-probability': loc_binomial_probability.uk ?? {},
     'board-volume': loc_board_volume.uk ?? {},
+    'bonus': loc_bonus.uk ?? {},
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
     'calories-from-macros': loc_calories_from_macros.uk ?? {},
     'car-depreciation': loc_car_depreciation.uk ?? {},
+    'centripetal-force': loc_centripetal_force.uk ?? {},
     'churn-retention': loc_churn_retention.uk ?? {},
     'cogs': loc_cogs.uk ?? {},
     'cogs-unit-cost': loc_cogs_unit_cost.uk ?? {},
@@ -452,6 +475,7 @@ export const v2Localization: ScopedLocalization = {
     'cooked-weight': loc_cooked_weight.uk ?? {},
     'correlation': loc_correlation.uk ?? {},
     'cpa-cpl-cpi': loc_cpa_cpl_cpi.uk ?? {},
+    'cpc': loc_cpc.uk ?? {},
     'cpm': loc_cpm.uk ?? {},
     'crypto-pnl': loc_crypto_pnl.uk ?? {},
     'ctr': loc_ctr.uk ?? {},
@@ -459,6 +483,7 @@ export const v2Localization: ScopedLocalization = {
     'day-of-week': loc_day_of_week.uk ?? {},
     'dca': loc_dca.uk ?? {},
     'density': loc_density.uk ?? {},
+    'dice-probability': loc_dice_probability.uk ?? {},
     'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
     'dilution': loc_dilution.uk ?? {},
     'dividend-yield': loc_dividend_yield.uk ?? {},
@@ -467,6 +492,7 @@ export const v2Localization: ScopedLocalization = {
     'download-time': loc_download_time.uk ?? {},
     'dti': loc_dti.uk ?? {},
     'electricity-usage': loc_electricity_usage.uk ?? {},
+    'email-metrics': loc_email_metrics.uk ?? {},
     'engagement-rate': loc_engagement_rate.uk ?? {},
     'factorial': loc_factorial.uk ?? {},
     'fee-chain': loc_fee_chain.uk ?? {},
@@ -512,6 +538,7 @@ export const v2Localization: ScopedLocalization = {
     'kinetic-energy': loc_kinetic_energy.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
     'led-resistor': loc_led_resistor.uk ?? {},
+    'leverage': loc_leverage.uk ?? {},
     'linear-equation': loc_linear_equation.uk ?? {},
     'linear-system': loc_linear_system.uk ?? {},
     'logarithm': loc_logarithm.uk ?? {},
@@ -519,6 +546,7 @@ export const v2Localization: ScopedLocalization = {
     'market-cap': loc_market_cap.uk ?? {},
     'max-heart-rate': loc_max_heart_rate.uk ?? {},
     'max-loan': loc_max_loan.uk ?? {},
+    'modular-scale': loc_modular_scale.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
     'molar-mass': loc_molar_mass.uk ?? {},
     'molarity': loc_molarity.uk ?? {},
@@ -528,6 +556,8 @@ export const v2Localization: ScopedLocalization = {
     'network-bandwidth': loc_network_bandwidth.uk ?? {},
     'newton-force': loc_newton_force.uk ?? {},
     'ohms-law': loc_ohms_law.uk ?? {},
+    'pet-age': loc_pet_age.uk ?? {},
+    'pet-food': loc_pet_food.uk ?? {},
     'ph-poh': loc_ph_poh.uk ?? {},
     'physics-power': loc_physics_power.uk ?? {},
     'physics-torque': loc_physics_torque.uk ?? {},

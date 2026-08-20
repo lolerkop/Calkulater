@@ -724,6 +724,31 @@ const stateScenarios: Record<string, StateScenario> = {
   'single-phase': { query: { mode: 'current', voltage: 220, power: 2200, powerFactor: 0.8 }, result: { primary: '12,5 А', rows: [{ label: 'Активная мощность', value: '2 200 Вт' }, { label: 'Полная мощность', value: '2 750 ВА' }, { label: 'Реактивная мощность', value: '1 650 вар' }] } },
   'profit': { query: { revenue: 250000, cost: 100000 }, result: { primary: '150 000,00 ₽', rows: [{ label: 'Маржа', value: '60,00%' }, { label: 'Наценка', value: '150,00%' }] } },
   'acceleration': { query: { mode: 'v', v0: 5, a: 2.5, t: 6 }, result: { primary: '20 м/с', rows: [{ label: 'Изменение скорости', value: '15 м/с' }, { label: 'Пройденный путь', value: '75 м' }, { label: 'Время', value: '6 с' }] } },
+  // Волна 7, подпартия 17A2.
+  // Ожидаемые значения выведены вручную:
+  //   20 · 1,5³ = 67,5 вверх и 20 / 1,5 = 13,333 вниз; ступеней 1 + 3 + 1 = 5
+  //   3d8 на 12: C(11,2) − 3·C(3,2) = 55 − 9 = 46 из 8³ = 512 -> 8,984375 %
+  //   крупная собака 10 лет: 15 + 9 + 7 · 8 = 80
+  //   RER = 70 · 6^0,75 = 268,356; × 1,2 = 322,027 ккал; / 400 · 100 = 80,507 г
+  //   APY 12 % при четырёх начислениях: (1,12^0,25 − 1) · 4 = 11,4949 % номинальных
+  //   премия 50 % от 90 000 = 45 000; налог 13 % = 5 850; на руки 39 150
+  //   F = 0,2 · 4² / 0,8 = 4 Н; ω = 5 рад/с; T = 2π · 0,8 / 4 = 1,257 с
+  //   12 000 / 500 = 24 за клик; CPM 300; CTR 500 / 40 000 = 1,25 %
+  //   4 750 / 5 000 = 95 %; 1 900 / 4 750 = 40 %; 285 / 1 900 = 15 %
+  //   позиция 20 000 · 10 = 200 000; ликвидация 500 · (1 − 0,1 + 0,01) = 455
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  // У apr-apy выбран НЕ умолчальный режим: так проверяется обратный перевод.
+  'modular-scale': { query: { base: 20, ratio: 1.5, stepsUp: 3, stepsDown: 1 }, result: { primary: '67,5', rows: [{ label: 'Наименьший размер', value: '13,333' }, { label: 'Ступеней', value: '5' }, { label: 'База', value: '20' }] } },
+  'dice-probability': { query: { count: 3, sides: 8, target: 12 }, result: { primary: '8,98%', rows: [{ label: 'Благоприятных исходов', value: '46' }, { label: 'Всего исходов', value: '512' }, { label: 'Ожидаемая сумма', value: '13,5' }] } },
+  'pet-age': { query: { species: 'dog-large', years: 10 }, result: { primary: '80', rows: [{ label: 'Возраст питомца, лет', value: '10' }, { label: 'Прибавка за каждый следующий год', value: '7' }] } },
+  'pet-food': { query: { weight: 6, factor: 1.2, kcalPer100: 400 }, result: { primary: '80,507 г', rows: [{ label: 'Потребность в энергии', value: '322,03 ккал' }, { label: 'Обмен покоя (RER)', value: '268,36 ккал' }, { label: 'Масса питомца', value: '6 кг' }] } },
+  'apr-apy': { query: { mode: 'toApr', rate: 12, periods: 4 }, result: { primary: '11,49%', rows: [{ label: 'Эффективная ставка (APY)', value: '12,00%' }, { label: 'Ставка за период', value: '2,87%' }, { label: 'Множитель за год', value: '1,12' }] } },
+  'bonus': { query: { salary: 90000, bonusPct: 50, taxPct: 13 }, result: { primary: '39 150,00 ₽', rows: [{ label: 'Премия до налога', value: '45 000,00 ₽' }, { label: 'Налог', value: '5 850,00 ₽' }] } },
+  'centripetal-force': { query: { m: 0.2, v: 4, r: 0.8 }, result: { primary: '4 Н', rows: [{ label: 'Центростремительное ускорение', value: '20 м/с²' }, { label: 'Угловая скорость', value: '5 рад/с' }, { label: 'Период обращения', value: '1,257 с' }] } },
+  'cpc': { query: { cost: 12000, clicks: 500, impressions: 40000 }, result: { primary: '24,00 ₽', rows: [{ label: 'Кликов', value: '500' }, { label: 'CPM', value: '300,00 ₽' }, { label: 'Кликабельность', value: '1,25%' }] } },
+  'email-metrics': { query: { sent: 5000, delivered: 4750, opened: 1900, clicked: 285 }, result: { primary: '95,00%', rows: [{ label: 'Открываемость', value: '40,00%' }, { label: 'Кликабельность', value: '6,00%' }, { label: 'Кликов на открытие', value: '15,00%' }] } },
+  'leverage': { query: { equity: 20000, leverage: 10, entry: 500, maintenancePct: 1 }, result: { primary: '200 000,00 ₽', rows: [{ label: 'Единиц позиции', value: '400' }, { label: 'Цена ликвидации', value: '455,00 ₽' }, { label: 'Падение до ликвидации', value: '9,00%' }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));

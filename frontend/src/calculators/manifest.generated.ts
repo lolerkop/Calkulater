@@ -17,6 +17,7 @@ import { definition as def_activity_calories } from './activity-calories/definit
 import { definition as def_ad_roi } from './ad-roi/definition';
 import { definition as def_annuity } from './annuity/definition';
 import { definition as def_aov } from './aov/definition';
+import { definition as def_apr_apy } from './apr-apy/definition';
 import { definition as def_aquarium_water_change } from './aquarium-water-change/definition';
 import { definition as def_arithmetic_progression } from './arithmetic-progression/definition';
 import { definition as def_arpu_arppu } from './arpu-arppu/definition';
@@ -28,11 +29,13 @@ import { definition as def_battery_runtime } from './battery-runtime/definition'
 import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
 import { definition as def_binomial_probability } from './binomial-probability/definition';
 import { definition as def_board_volume } from './board-volume/definition';
+import { definition as def_bonus } from './bonus/definition';
 import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition';
 import { definition as def_cac } from './cac/definition';
 import { definition as def_cagr } from './cagr/definition';
 import { definition as def_calories_from_macros } from './calories-from-macros/definition';
 import { definition as def_car_depreciation } from './car-depreciation/definition';
+import { definition as def_centripetal_force } from './centripetal-force/definition';
 import { definition as def_churn_retention } from './churn-retention/definition';
 import { definition as def_cogs } from './cogs/definition';
 import { definition as def_cogs_unit_cost } from './cogs-unit-cost/definition';
@@ -67,6 +70,7 @@ import { definition as def_convert_volume } from './convert-volume/definition';
 import { definition as def_cooked_weight } from './cooked-weight/definition';
 import { definition as def_correlation } from './correlation/definition';
 import { definition as def_cpa_cpl_cpi } from './cpa-cpl-cpi/definition';
+import { definition as def_cpc } from './cpc/definition';
 import { definition as def_cpm } from './cpm/definition';
 import { definition as def_crypto_pnl } from './crypto-pnl/definition';
 import { definition as def_ctr } from './ctr/definition';
@@ -74,6 +78,7 @@ import { definition as def_currency_exchange_fee } from './currency-exchange-fee
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_dca } from './dca/definition';
 import { definition as def_density } from './density/definition';
+import { definition as def_dice_probability } from './dice-probability/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
 import { definition as def_dilution } from './dilution/definition';
 import { definition as def_dividend_yield } from './dividend-yield/definition';
@@ -82,6 +87,7 @@ import { definition as def_down_payment } from './down-payment/definition';
 import { definition as def_download_time } from './download-time/definition';
 import { definition as def_dti } from './dti/definition';
 import { definition as def_electricity_usage } from './electricity-usage/definition';
+import { definition as def_email_metrics } from './email-metrics/definition';
 import { definition as def_engagement_rate } from './engagement-rate/definition';
 import { definition as def_factorial } from './factorial/definition';
 import { definition as def_fee_chain } from './fee-chain/definition';
@@ -127,6 +133,7 @@ import { definition as def_ipv4_subnet } from './ipv4-subnet/definition';
 import { definition as def_kinetic_energy } from './kinetic-energy/definition';
 import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
+import { definition as def_leverage } from './leverage/definition';
 import { definition as def_linear_equation } from './linear-equation/definition';
 import { definition as def_linear_system } from './linear-system/definition';
 import { definition as def_logarithm } from './logarithm/definition';
@@ -134,6 +141,7 @@ import { definition as def_ltv } from './ltv/definition';
 import { definition as def_market_cap } from './market-cap/definition';
 import { definition as def_max_heart_rate } from './max-heart-rate/definition';
 import { definition as def_max_loan } from './max-loan/definition';
+import { definition as def_modular_scale } from './modular-scale/definition';
 import { definition as def_modulo } from './modulo/definition';
 import { definition as def_molar_mass } from './molar-mass/definition';
 import { definition as def_molarity } from './molarity/definition';
@@ -145,6 +153,8 @@ import { definition as def_newton_force } from './newton-force/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
+import { definition as def_pet_age } from './pet-age/definition';
+import { definition as def_pet_food } from './pet-food/definition';
 import { definition as def_ph_poh } from './ph-poh/definition';
 import { definition as def_physics_power } from './physics-power/definition';
 import { definition as def_physics_torque } from './physics-torque/definition';
@@ -214,6 +224,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ad_roi,
   def_annuity,
   def_aov,
+  def_apr_apy,
   def_aquarium_water_change,
   def_arithmetic_progression,
   def_arpu_arppu,
@@ -225,11 +236,13 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_bike_gear_ratio,
   def_binomial_probability,
   def_board_volume,
+  def_bonus,
   def_budget_50_30_20,
   def_cac,
   def_cagr,
   def_calories_from_macros,
   def_car_depreciation,
+  def_centripetal_force,
   def_churn_retention,
   def_cogs,
   def_cogs_unit_cost,
@@ -264,6 +277,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_cooked_weight,
   def_correlation,
   def_cpa_cpl_cpi,
+  def_cpc,
   def_cpm,
   def_crypto_pnl,
   def_ctr,
@@ -271,6 +285,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_day_of_week,
   def_dca,
   def_density,
+  def_dice_probability,
   def_difference_abs_rel,
   def_dilution,
   def_dividend_yield,
@@ -279,6 +294,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_download_time,
   def_dti,
   def_electricity_usage,
+  def_email_metrics,
   def_engagement_rate,
   def_factorial,
   def_fee_chain,
@@ -324,6 +340,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_kinetic_energy,
   def_leap_year,
   def_led_resistor,
+  def_leverage,
   def_linear_equation,
   def_linear_system,
   def_logarithm,
@@ -331,6 +348,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_market_cap,
   def_max_heart_rate,
   def_max_loan,
+  def_modular_scale,
   def_modulo,
   def_molar_mass,
   def_molarity,
@@ -342,6 +360,8 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ohms_law,
   def_paint_calculator,
   def_percent_calculator,
+  def_pet_age,
+  def_pet_food,
   def_ph_poh,
   def_physics_power,
   def_physics_torque,
