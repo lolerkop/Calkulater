@@ -20,6 +20,20 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  // Волна 5, батч A1 — комиссии площадки, бюджет поездки, сделка, печать и ставка.
+  // Ожидаемые значения выведены вручную:
+  //   3200 · 15 % = 480; 3200 · 2,5 % = 80; удержано 480 + 80 + 90 + 20 = 670 -> выплата 2530
+  //   6 · 4200 = 25 200; 7 · 3 · 1000 = 21 000; +21 000 +9000 +1500 = 77 700; на троих 25 900
+  //   шорт: (2400 − 2000) · 2 = 800; комиссия (4800 + 4000) · 0,15 % = 13,2 -> 786,8
+  //   пластик 120 · 2100/750 = 336; энергия 0,2 · 9 · 4,8 = 8,64; износ 18; +10 % -> 398,904
+  //   оплачиваемых 22 · 8 · 60 % = 105,6; (200 000 + 20 000) / 0,93 = 236 559,1398 -> /105,6
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  'fee-chain': { query: { price: 3200, commissionPct: 15, acquiringPct: 2.5, logistics: 90, storage: 20, cost: 1500 }, result: { primary: '2 530,00 ₽', rows: [{ label: 'Комиссия площадки', value: '480,00 ₽' }, { label: 'Хранение', value: '20,00 ₽' }] } },
+  'trip-budget': { query: { nights: 6, days: 7, people: 3, hotelPerNight: 4200, foodPerDayPerPerson: 1000, transport: 21000, activities: 9000, other: 1500 }, result: { primary: '77 700,00 ₽', rows: [{ label: 'На человека', value: '25 900,00 ₽' }, { label: 'Прочее', value: '1 500,00 ₽' }] } },
+  'crypto-pnl': { query: { direction: 'short', entry: 2400, exit: 2000, qty: 2, feePct: 0.15, leverage: 3 }, result: { primary: '786,80 ₽', rows: [{ label: 'Результат до комиссий', value: '800,00 ₽' }, { label: 'Вложено', value: '1 600,00 ₽' }] } },
+  'print-3d-cost': { query: { grams: 120, spoolPrice: 2100, spoolWeight: 750, hours: 9, powerW: 200, kwhPrice: 4.8, wearPerHour: 2, markupPct: 10 }, result: { primary: '398,90 ₽', rows: [{ label: 'Пластик', value: '336,00 ₽' }, { label: 'Амортизация принтера', value: '18,00 ₽' }] } },
+  'freelance-rate': { query: { targetIncome: 200000, workDays: 22, hoursPerDay: 8, billablePct: 60, expenses: 20000, taxPct: 7 }, result: { primary: '2 240,14 ₽', rows: [{ label: 'Оплачиваемых часов', value: '105,6 ч' }, { label: 'Нужно выставить счетов', value: '236 559,14 ₽' }] } },
   // Волна 4, батч B3 — золотое сечение, физика и генератор.
   // Ожидаемые значения выведены вручную:
   //   34 × φ = 34 × 1,6180339887… = 55,01316

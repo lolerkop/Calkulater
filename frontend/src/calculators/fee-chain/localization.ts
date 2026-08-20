@@ -1,0 +1,62 @@
+import type { CalculatorLocalization } from '../../lib/platform/types';
+
+export const localization: CalculatorLocalization = {
+  en: {
+    fields: {
+      "price": "Item price, $",
+      "commissionPct": "Platform commission, %",
+      "acquiringPct": "Card processing, %",
+      "logistics": "Shipping per parcel, $",
+      "storage": "Storage per parcel, $",
+      "cost": "Cost of goods, $",
+    },
+    options: {},
+    results: {
+      "Выплата продавцу": "Seller payout",
+      "Комиссия площадки": "Platform commission",
+      "Эквайринг": "Card processing",
+      "Логистика": "Shipping",
+      "Хранение": "Storage",
+      "Удержано всего": "Total deducted",
+      "Доля удержаний": "Share of the price",
+      "Прибыль": "Profit",
+      "Рентабельность к цене": "Return on price",
+      "Проверьте данные": "Check the values",
+    },
+    values: {
+      "₽": "$",
+      "Цена товара должна быть больше нуля": "The item price must be greater than zero",
+      "Ставка удержания не может быть отрицательной": "A deduction rate cannot be negative",
+      "Сумма не может быть отрицательной": "An amount cannot be negative",
+    },
+  },
+  uk: {
+    fields: {
+      "price": "Ціна товару, ₴",
+      "commissionPct": "Комісія майданчика, %",
+      "acquiringPct": "Еквайринг, %",
+      "logistics": "Логістика за відправлення, ₴",
+      "storage": "Зберігання за відправлення, ₴",
+      "cost": "Собівартість товару, ₴",
+    },
+    options: {},
+    results: {
+      "Выплата продавцу": "Виплата продавцю",
+      "Комиссия площадки": "Комісія майданчика",
+      "Эквайринг": "Еквайринг",
+      "Логистика": "Логістика",
+      "Хранение": "Зберігання",
+      "Удержано всего": "Утримано всього",
+      "Доля удержаний": "Частка утримань",
+      "Прибыль": "Прибуток",
+      "Рентабельность к цене": "Рентабельність до ціни",
+      "Проверьте данные": "Перевірте дані",
+    },
+    values: {
+      "₽": "₴",
+      "Цена товара должна быть больше нуля": "Ціна товару має бути більшою за нуль",
+      "Ставка удержания не может быть отрицательной": "Ставка утримання не може бути від'ємною",
+      "Сумма не может быть отрицательной": "Сума не може бути від'ємною",
+    },
+  },
+};

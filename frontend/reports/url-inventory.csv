@@ -91,6 +91,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/converters/convert-torque/,ru,calculator,true,/ru/converters/convert-torque/,calculator:convert-torque,src/pages/[locale]/[category]/[calculator].astro
 /ru/converters/convert-volume/,ru,calculator,true,/ru/converters/convert-volume/,calculator:convert-volume,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/cpm/,ru,calculator,true,/ru/business/cpm/,calculator:cpm,src/pages/[locale]/[category]/[calculator].astro
+/ru/finance/crypto-pnl/,ru,calculator,true,/ru/finance/crypto-pnl/,calculator:crypto-pnl,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/ctr/,ru,calculator,true,/ru/business/ctr/,calculator:ctr,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/day-of-week/,ru,calculator,true,/ru/date-time/day-of-week/,calculator:day-of-week,src/pages/[locale]/[category]/[calculator].astro
 /ru/physics/density/,ru,calculator,true,/ru/physics/density/,calculator:density,src/pages/[locale]/[category]/[calculator].astro
@@ -104,10 +105,12 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/household/electricity-usage/,ru,calculator,true,/ru/household/electricity-usage/,calculator:electricity-usage,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/engagement-rate/,ru,calculator,true,/ru/business/engagement-rate/,calculator:engagement-rate,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/factorial/,ru,calculator,true,/ru/math/factorial/,calculator:factorial,src/pages/[locale]/[category]/[calculator].astro
+/ru/business/fee-chain/,ru,calculator,true,/ru/business/fee-chain/,calculator:fee-chain,src/pages/[locale]/[category]/[calculator].astro
 /ru/computers/files-on-disk/,ru,calculator,true,/ru/computers/files-on-disk/,calculator:files-on-disk,src/pages/[locale]/[category]/[calculator].astro
 /ru/education/final-grade/,ru,calculator,true,/ru/education/final-grade/,calculator:final-grade,src/pages/[locale]/[category]/[calculator].astro
 /ru/computers/fps-frametime/,ru,calculator,true,/ru/computers/fps-frametime/,calculator:fps-frametime,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/fractions/,ru,calculator,true,/ru/math/fractions/,calculator:fraction-arith,src/pages/[locale]/[category]/[calculator].astro
+/ru/finance/freelance-rate/,ru,calculator,true,/ru/finance/freelance-rate/,calculator:freelance-rate,src/pages/[locale]/[category]/[calculator].astro
 /ru/automotive/fuel-consumption/,ru,calculator,true,/ru/automotive/fuel-consumption/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/generator-fuel/,ru,calculator,true,/ru/household/generator-fuel/,calculator:generator-fuel,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/circle/,ru,calculator,true,/ru/geometry/circle/,calculator:geom-circle,src/pages/[locale]/[category]/[calculator].astro
@@ -155,6 +158,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/physics/pressure/,ru,calculator,true,/ru/physics/pressure/,calculator:pressure,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/price-per-unit/,ru,calculator,true,/ru/household/price-per-unit/,calculator:price-per-unit,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/prime-factorization/,ru,calculator,true,/ru/math/prime-factorization/,calculator:prime-factorization,src/pages/[locale]/[category]/[calculator].astro
+/ru/household/print-3d-cost/,ru,calculator,true,/ru/household/print-3d-cost/,calculator:print-3d-cost,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/probability/,ru,calculator,true,/ru/math/probability/,calculator:probability-basic,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/proportion/,ru,calculator,true,/ru/math/proportion/,calculator:proportion,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/quadratic-equation/,ru,calculator,true,/ru/math/quadratic-equation/,calculator:quadratic-equation,src/pages/[locale]/[category]/[calculator].astro
@@ -180,6 +184,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/education/test-score-percent/,ru,calculator,true,/ru/education/test-score-percent/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/time-duration/,ru,calculator,true,/ru/date-time/time-duration/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/tip/,ru,calculator,true,/ru/household/tip/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro
+/ru/household/trip-budget/,ru,calculator,true,/ru/household/trip-budget/,calculator:trip-budget,src/pages/[locale]/[category]/[calculator].astro
 /ru/automotive/trip-cost/,ru,calculator,true,/ru/automotive/trip-cost/,calculator:trip-cost,src/pages/[locale]/[category]/[calculator].astro
 /ru/computers/unix-timestamp/,ru,calculator,true,/ru/computers/unix-timestamp/,calculator:unix-timestamp,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/week-number/,ru,calculator,true,/ru/date-time/week-number/,calculator:week-number,src/pages/[locale]/[category]/[calculator].astro
@@ -274,6 +279,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/converters/torque-converter/,en,calculator,true,/en/converters/torque-converter/,calculator:convert-torque,src/pages/[locale]/[category]/[calculator].astro
 /en/converters/volume-converter/,en,calculator,true,/en/converters/volume-converter/,calculator:convert-volume,src/pages/[locale]/[category]/[calculator].astro
 /en/business/cpm-calculator/,en,calculator,true,/en/business/cpm-calculator/,calculator:cpm,src/pages/[locale]/[category]/[calculator].astro
+/en/finance/crypto-profit-calculator/,en,calculator,true,/en/finance/crypto-profit-calculator/,calculator:crypto-pnl,src/pages/[locale]/[category]/[calculator].astro
 /en/business/ctr-calculator/,en,calculator,true,/en/business/ctr-calculator/,calculator:ctr,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/day-of-week/,en,calculator,true,/en/date-time/day-of-week/,calculator:day-of-week,src/pages/[locale]/[category]/[calculator].astro
 /en/physics/density-calculator/,en,calculator,true,/en/physics/density-calculator/,calculator:density,src/pages/[locale]/[category]/[calculator].astro
@@ -287,10 +293,12 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/household/electricity-usage-calculator/,en,calculator,true,/en/household/electricity-usage-calculator/,calculator:electricity-usage,src/pages/[locale]/[category]/[calculator].astro
 /en/business/engagement-rate-calculator/,en,calculator,true,/en/business/engagement-rate-calculator/,calculator:engagement-rate,src/pages/[locale]/[category]/[calculator].astro
 /en/math/factorial-calculator/,en,calculator,true,/en/math/factorial-calculator/,calculator:factorial,src/pages/[locale]/[category]/[calculator].astro
+/en/business/marketplace-fee-calculator/,en,calculator,true,/en/business/marketplace-fee-calculator/,calculator:fee-chain,src/pages/[locale]/[category]/[calculator].astro
 /en/computers/files-on-disk-calculator/,en,calculator,true,/en/computers/files-on-disk-calculator/,calculator:files-on-disk,src/pages/[locale]/[category]/[calculator].astro
 /en/education/final-grade-calculator/,en,calculator,true,/en/education/final-grade-calculator/,calculator:final-grade,src/pages/[locale]/[category]/[calculator].astro
 /en/computers/fps-frame-time-calculator/,en,calculator,true,/en/computers/fps-frame-time-calculator/,calculator:fps-frametime,src/pages/[locale]/[category]/[calculator].astro
 /en/math/fraction-calculator/,en,calculator,true,/en/math/fraction-calculator/,calculator:fraction-arith,src/pages/[locale]/[category]/[calculator].astro
+/en/finance/freelance-rate-calculator/,en,calculator,true,/en/finance/freelance-rate-calculator/,calculator:freelance-rate,src/pages/[locale]/[category]/[calculator].astro
 /en/automotive/fuel-consumption-calculator/,en,calculator,true,/en/automotive/fuel-consumption-calculator/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
 /en/household/generator-fuel-calculator/,en,calculator,true,/en/household/generator-fuel-calculator/,calculator:generator-fuel,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/circle-calculator/,en,calculator,true,/en/geometry/circle-calculator/,calculator:geom-circle,src/pages/[locale]/[category]/[calculator].astro
@@ -338,6 +346,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/physics/pressure-calculator/,en,calculator,true,/en/physics/pressure-calculator/,calculator:pressure,src/pages/[locale]/[category]/[calculator].astro
 /en/household/price-per-unit-calculator/,en,calculator,true,/en/household/price-per-unit-calculator/,calculator:price-per-unit,src/pages/[locale]/[category]/[calculator].astro
 /en/math/prime-factorisation/,en,calculator,true,/en/math/prime-factorisation/,calculator:prime-factorization,src/pages/[locale]/[category]/[calculator].astro
+/en/household/3d-printing-cost-calculator/,en,calculator,true,/en/household/3d-printing-cost-calculator/,calculator:print-3d-cost,src/pages/[locale]/[category]/[calculator].astro
 /en/math/probability-calculator/,en,calculator,true,/en/math/probability-calculator/,calculator:probability-basic,src/pages/[locale]/[category]/[calculator].astro
 /en/math/proportion-calculator/,en,calculator,true,/en/math/proportion-calculator/,calculator:proportion,src/pages/[locale]/[category]/[calculator].astro
 /en/math/quadratic-equation/,en,calculator,true,/en/math/quadratic-equation/,calculator:quadratic-equation,src/pages/[locale]/[category]/[calculator].astro
@@ -363,6 +372,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/education/test-score-percentage-calculator/,en,calculator,true,/en/education/test-score-percentage-calculator/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/time-duration-calculator/,en,calculator,true,/en/date-time/time-duration-calculator/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
 /en/household/tip-calculator/,en,calculator,true,/en/household/tip-calculator/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro
+/en/household/trip-budget-calculator/,en,calculator,true,/en/household/trip-budget-calculator/,calculator:trip-budget,src/pages/[locale]/[category]/[calculator].astro
 /en/automotive/trip-cost-calculator/,en,calculator,true,/en/automotive/trip-cost-calculator/,calculator:trip-cost,src/pages/[locale]/[category]/[calculator].astro
 /en/computers/unix-timestamp-converter/,en,calculator,true,/en/computers/unix-timestamp-converter/,calculator:unix-timestamp,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/week-number-calculator/,en,calculator,true,/en/date-time/week-number-calculator/,calculator:week-number,src/pages/[locale]/[category]/[calculator].astro
@@ -457,6 +467,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/konvertery/konverter-krutnoho-momentu/,uk,calculator,true,/uk/konvertery/konverter-krutnoho-momentu/,calculator:convert-torque,src/pages/[locale]/[category]/[calculator].astro
 /uk/konvertery/konverter-obyemu/,uk,calculator,true,/uk/konvertery/konverter-obyemu/,calculator:convert-volume,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/cpm/,uk,calculator,true,/uk/business/cpm/,calculator:cpm,src/pages/[locale]/[category]/[calculator].astro
+/uk/finansy/prybutok-kryptovalyuty/,uk,calculator,true,/uk/finansy/prybutok-kryptovalyuty/,calculator:crypto-pnl,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/ctr/,uk,calculator,true,/uk/business/ctr/,calculator:ctr,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/den-tyzhnya/,uk,calculator,true,/uk/daty/den-tyzhnya/,calculator:day-of-week,src/pages/[locale]/[category]/[calculator].astro
 /uk/fizyka/hustyna/,uk,calculator,true,/uk/fizyka/hustyna/,calculator:density,src/pages/[locale]/[category]/[calculator].astro
@@ -470,10 +481,12 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/pobut/vytrata-elektroenergiyi/,uk,calculator,true,/uk/pobut/vytrata-elektroenergiyi/,calculator:electricity-usage,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/zaluchenist/,uk,calculator,true,/uk/business/zaluchenist/,calculator:engagement-rate,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/faktorial/,uk,calculator,true,/uk/math/faktorial/,calculator:factorial,src/pages/[locale]/[category]/[calculator].astro
+/uk/business/komisiya-marketpleysu/,uk,calculator,true,/uk/business/komisiya-marketpleysu/,calculator:fee-chain,src/pages/[locale]/[category]/[calculator].astro
 /uk/kompyutery/fayly-na-nosiyi/,uk,calculator,true,/uk/kompyutery/fayly-na-nosiyi/,calculator:files-on-disk,src/pages/[locale]/[category]/[calculator].astro
 /uk/navchannya/potribna-otsinka/,uk,calculator,true,/uk/navchannya/potribna-otsinka/,calculator:final-grade,src/pages/[locale]/[category]/[calculator].astro
 /uk/kompyutery/fps-chas-kadru/,uk,calculator,true,/uk/kompyutery/fps-chas-kadru/,calculator:fps-frametime,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/drobi/,uk,calculator,true,/uk/math/drobi/,calculator:fraction-arith,src/pages/[locale]/[category]/[calculator].astro
+/uk/finansy/stavka-frilansera/,uk,calculator,true,/uk/finansy/stavka-frilansera/,calculator:freelance-rate,src/pages/[locale]/[category]/[calculator].astro
 /uk/avtomobili/vytrata-palyva/,uk,calculator,true,/uk/avtomobili/vytrata-palyva/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/vytrata-palnoho-heneratora/,uk,calculator,true,/uk/pobut/vytrata-palnoho-heneratora/,calculator:generator-fuel,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/kolo/,uk,calculator,true,/uk/heometriya/kolo/,calculator:geom-circle,src/pages/[locale]/[category]/[calculator].astro
@@ -521,6 +534,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/fizyka/tysk/,uk,calculator,true,/uk/fizyka/tysk/,calculator:pressure,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/tsina-za-odynytsyu/,uk,calculator,true,/uk/pobut/tsina-za-odynytsyu/,calculator:price-per-unit,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/rozklad-na-prosti-mnozhnyky/,uk,calculator,true,/uk/math/rozklad-na-prosti-mnozhnyky/,calculator:prime-factorization,src/pages/[locale]/[category]/[calculator].astro
+/uk/pobut/vartist-3d-druku/,uk,calculator,true,/uk/pobut/vartist-3d-druku/,calculator:print-3d-cost,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/ymovirnist/,uk,calculator,true,/uk/math/ymovirnist/,calculator:probability-basic,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/kalkulyator-proportsii/,uk,calculator,true,/uk/math/kalkulyator-proportsii/,calculator:proportion,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/kvadratne-rivnyannya/,uk,calculator,true,/uk/math/kvadratne-rivnyannya/,calculator:quadratic-equation,src/pages/[locale]/[category]/[calculator].astro
@@ -546,6 +560,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/navchannya/vidsotok-za-test/,uk,calculator,true,/uk/navchannya/vidsotok-za-test/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-tryvalosti-chasu/,uk,calculator,true,/uk/daty/kalkulyator-tryvalosti-chasu/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/chayovi/,uk,calculator,true,/uk/pobut/chayovi/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro
+/uk/pobut/byudzhet-podorozhi/,uk,calculator,true,/uk/pobut/byudzhet-podorozhi/,calculator:trip-budget,src/pages/[locale]/[category]/[calculator].astro
 /uk/avtomobili/vartist-poyizdky/,uk,calculator,true,/uk/avtomobili/vartist-poyizdky/,calculator:trip-cost,src/pages/[locale]/[category]/[calculator].astro
 /uk/kompyutery/unix-chas/,uk,calculator,true,/uk/kompyutery/unix-chas/,calculator:unix-timestamp,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-nomera-tyzhnya/,uk,calculator,true,/uk/daty/kalkulyator-nomera-tyzhnya/,calculator:week-number,src/pages/[locale]/[category]/[calculator].astro

@@ -53,6 +53,7 @@ import { compute as compute_convert_time } from './convert-time/compute';
 import { compute as compute_convert_torque } from './convert-torque/compute';
 import { compute as compute_convert_volume } from './convert-volume/compute';
 import { compute as compute_cpm } from './cpm/compute';
+import { compute as compute_crypto_pnl } from './crypto-pnl/compute';
 import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_density } from './density/compute';
@@ -66,11 +67,13 @@ import { compute as compute_dti } from './dti/compute';
 import { compute as compute_electricity_usage } from './electricity-usage/compute';
 import { compute as compute_engagement_rate } from './engagement-rate/compute';
 import { compute as compute_factorial } from './factorial/compute';
+import { compute as compute_fee_chain } from './fee-chain/compute';
 import { compute as compute_files_on_disk } from './files-on-disk/compute';
 import { compute as compute_final_grade } from './final-grade/compute';
 import { compute as compute_fps_frametime } from './fps-frametime/compute';
 import { contextualField as ctx_fps_frametime } from './fps-frametime/contextualField';
 import { compute as compute_fraction_arith } from './fraction-arith/compute';
+import { compute as compute_freelance_rate } from './freelance-rate/compute';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
 import { compute as compute_generator_fuel } from './generator-fuel/compute';
 import { compute as compute_geom_circle } from './geom-circle/compute';
@@ -124,6 +127,7 @@ import { compute as compute_ppi_dpi } from './ppi-dpi/compute';
 import { compute as compute_pressure } from './pressure/compute';
 import { compute as compute_price_per_unit } from './price-per-unit/compute';
 import { compute as compute_prime_factorization } from './prime-factorization/compute';
+import { compute as compute_print_3d_cost } from './print-3d-cost/compute';
 import { compute as compute_probability_basic } from './probability-basic/compute';
 import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
@@ -151,6 +155,7 @@ import { compute as compute_strip_foundation } from './strip-foundation/compute'
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
 import { compute as compute_tip } from './tip/compute';
+import { compute as compute_trip_budget } from './trip-budget/compute';
 import { compute as compute_trip_cost } from './trip-cost/compute';
 import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
 import { compute as compute_week_number } from './week-number/compute';
@@ -197,6 +202,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-torque': compute_convert_torque,
   'convert-volume': compute_convert_volume,
   'cpm': compute_cpm,
+  'crypto-pnl': compute_crypto_pnl,
   'ctr': compute_ctr,
   'day-of-week': compute_day_of_week,
   'density': compute_density,
@@ -210,10 +216,12 @@ export const v2Runners: Record<string, CalcFunction> = {
   'electricity-usage': compute_electricity_usage,
   'engagement-rate': compute_engagement_rate,
   'factorial': compute_factorial,
+  'fee-chain': compute_fee_chain,
   'files-on-disk': compute_files_on_disk,
   'final-grade': compute_final_grade,
   'fps-frametime': compute_fps_frametime,
   'fraction-arith': compute_fraction_arith,
+  'freelance-rate': compute_freelance_rate,
   'fuel-consumption': compute_fuel_consumption,
   'generator-fuel': compute_generator_fuel,
   'geom-circle': compute_geom_circle,
@@ -263,6 +271,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'pressure': compute_pressure,
   'price-per-unit': compute_price_per_unit,
   'prime-factorization': compute_prime_factorization,
+  'print-3d-cost': compute_print_3d_cost,
   'probability-basic': compute_probability_basic,
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
@@ -288,6 +297,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'test-score-percent': compute_test_score_percent,
   'time-duration': compute_time_duration,
   'tip': compute_tip,
+  'trip-budget': compute_trip_budget,
   'trip-cost': compute_trip_cost,
   'unix-timestamp': compute_unix_timestamp,
   'week-number': compute_week_number,

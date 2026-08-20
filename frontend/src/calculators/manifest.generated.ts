@@ -49,6 +49,7 @@ import { definition as def_convert_time } from './convert-time/definition';
 import { definition as def_convert_torque } from './convert-torque/definition';
 import { definition as def_convert_volume } from './convert-volume/definition';
 import { definition as def_cpm } from './cpm/definition';
+import { definition as def_crypto_pnl } from './crypto-pnl/definition';
 import { definition as def_ctr } from './ctr/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_density } from './density/definition';
@@ -62,10 +63,12 @@ import { definition as def_dti } from './dti/definition';
 import { definition as def_electricity_usage } from './electricity-usage/definition';
 import { definition as def_engagement_rate } from './engagement-rate/definition';
 import { definition as def_factorial } from './factorial/definition';
+import { definition as def_fee_chain } from './fee-chain/definition';
 import { definition as def_files_on_disk } from './files-on-disk/definition';
 import { definition as def_final_grade } from './final-grade/definition';
 import { definition as def_fps_frametime } from './fps-frametime/definition';
 import { definition as def_fraction_arith } from './fraction-arith/definition';
+import { definition as def_freelance_rate } from './freelance-rate/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
 import { definition as def_generator_fuel } from './generator-fuel/definition';
 import { definition as def_geom_circle } from './geom-circle/definition';
@@ -115,6 +118,7 @@ import { definition as def_ppi_dpi } from './ppi-dpi/definition';
 import { definition as def_pressure } from './pressure/definition';
 import { definition as def_price_per_unit } from './price-per-unit/definition';
 import { definition as def_prime_factorization } from './prime-factorization/definition';
+import { definition as def_print_3d_cost } from './print-3d-cost/definition';
 import { definition as def_probability_basic } from './probability-basic/definition';
 import { definition as def_proportion } from './proportion/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
@@ -140,6 +144,7 @@ import { definition as def_strip_foundation } from './strip-foundation/definitio
 import { definition as def_test_score_percent } from './test-score-percent/definition';
 import { definition as def_time_duration } from './time-duration/definition';
 import { definition as def_tip } from './tip/definition';
+import { definition as def_trip_budget } from './trip-budget/definition';
 import { definition as def_trip_cost } from './trip-cost/definition';
 import { definition as def_unix_timestamp } from './unix-timestamp/definition';
 import { definition as def_week_number } from './week-number/definition';
@@ -186,6 +191,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_torque,
   def_convert_volume,
   def_cpm,
+  def_crypto_pnl,
   def_ctr,
   def_day_of_week,
   def_density,
@@ -199,10 +205,12 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_electricity_usage,
   def_engagement_rate,
   def_factorial,
+  def_fee_chain,
   def_files_on_disk,
   def_final_grade,
   def_fps_frametime,
   def_fraction_arith,
+  def_freelance_rate,
   def_fuel_consumption,
   def_generator_fuel,
   def_geom_circle,
@@ -252,6 +260,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_pressure,
   def_price_per_unit,
   def_prime_factorization,
+  def_print_3d_cost,
   def_probability_basic,
   def_proportion,
   def_quadratic_equation,
@@ -277,6 +286,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_test_score_percent,
   def_time_duration,
   def_tip,
+  def_trip_budget,
   def_trip_cost,
   def_unix_timestamp,
   def_week_number,

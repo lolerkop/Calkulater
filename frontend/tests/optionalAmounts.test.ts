@@ -66,6 +66,11 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['board-volume', 'pricePerM3'],
   ['generator-fuel', 'price'],
   ['hydrostatic-pressure', 'p0'],
+  ['fee-chain', 'storage'],
+  ['trip-budget', 'other'],
+  ['print-3d-cost', 'wearPerHour'],
+  ['print-3d-cost', 'markupPct'],
+  ['freelance-rate', 'expenses'],
 ];
 
 describe('необязательные суммы', () => {

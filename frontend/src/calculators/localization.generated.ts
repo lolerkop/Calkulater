@@ -43,6 +43,7 @@ import { localization as loc_convert_time } from './convert-time/localization';
 import { localization as loc_convert_torque } from './convert-torque/localization';
 import { localization as loc_convert_volume } from './convert-volume/localization';
 import { localization as loc_cpm } from './cpm/localization';
+import { localization as loc_crypto_pnl } from './crypto-pnl/localization';
 import { localization as loc_ctr } from './ctr/localization';
 import { localization as loc_day_of_week } from './day-of-week/localization';
 import { localization as loc_density } from './density/localization';
@@ -56,10 +57,12 @@ import { localization as loc_dti } from './dti/localization';
 import { localization as loc_electricity_usage } from './electricity-usage/localization';
 import { localization as loc_engagement_rate } from './engagement-rate/localization';
 import { localization as loc_factorial } from './factorial/localization';
+import { localization as loc_fee_chain } from './fee-chain/localization';
 import { localization as loc_files_on_disk } from './files-on-disk/localization';
 import { localization as loc_final_grade } from './final-grade/localization';
 import { localization as loc_fps_frametime } from './fps-frametime/localization';
 import { localization as loc_fraction_arith } from './fraction-arith/localization';
+import { localization as loc_freelance_rate } from './freelance-rate/localization';
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
 import { localization as loc_generator_fuel } from './generator-fuel/localization';
 import { localization as loc_geom_circle } from './geom-circle/localization';
@@ -107,6 +110,7 @@ import { localization as loc_ppi_dpi } from './ppi-dpi/localization';
 import { localization as loc_pressure } from './pressure/localization';
 import { localization as loc_price_per_unit } from './price-per-unit/localization';
 import { localization as loc_prime_factorization } from './prime-factorization/localization';
+import { localization as loc_print_3d_cost } from './print-3d-cost/localization';
 import { localization as loc_probability_basic } from './probability-basic/localization';
 import { localization as loc_proportion } from './proportion/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
@@ -132,6 +136,7 @@ import { localization as loc_strip_foundation } from './strip-foundation/localiz
 import { localization as loc_test_score_percent } from './test-score-percent/localization';
 import { localization as loc_time_duration } from './time-duration/localization';
 import { localization as loc_tip } from './tip/localization';
+import { localization as loc_trip_budget } from './trip-budget/localization';
 import { localization as loc_trip_cost } from './trip-cost/localization';
 import { localization as loc_unix_timestamp } from './unix-timestamp/localization';
 import { localization as loc_week_number } from './week-number/localization';
@@ -179,6 +184,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-torque': loc_convert_torque.en ?? {},
     'convert-volume': loc_convert_volume.en ?? {},
     'cpm': loc_cpm.en ?? {},
+    'crypto-pnl': loc_crypto_pnl.en ?? {},
     'ctr': loc_ctr.en ?? {},
     'day-of-week': loc_day_of_week.en ?? {},
     'density': loc_density.en ?? {},
@@ -192,10 +198,12 @@ export const v2Localization: ScopedLocalization = {
     'electricity-usage': loc_electricity_usage.en ?? {},
     'engagement-rate': loc_engagement_rate.en ?? {},
     'factorial': loc_factorial.en ?? {},
+    'fee-chain': loc_fee_chain.en ?? {},
     'files-on-disk': loc_files_on_disk.en ?? {},
     'final-grade': loc_final_grade.en ?? {},
     'fps-frametime': loc_fps_frametime.en ?? {},
     'fraction-arith': loc_fraction_arith.en ?? {},
+    'freelance-rate': loc_freelance_rate.en ?? {},
     'fuel-consumption': loc_fuel_consumption.en ?? {},
     'generator-fuel': loc_generator_fuel.en ?? {},
     'geom-circle': loc_geom_circle.en ?? {},
@@ -243,6 +251,7 @@ export const v2Localization: ScopedLocalization = {
     'pressure': loc_pressure.en ?? {},
     'price-per-unit': loc_price_per_unit.en ?? {},
     'prime-factorization': loc_prime_factorization.en ?? {},
+    'print-3d-cost': loc_print_3d_cost.en ?? {},
     'probability-basic': loc_probability_basic.en ?? {},
     'proportion': loc_proportion.en ?? {},
     'quadratic-equation': loc_quadratic_equation.en ?? {},
@@ -268,6 +277,7 @@ export const v2Localization: ScopedLocalization = {
     'test-score-percent': loc_test_score_percent.en ?? {},
     'time-duration': loc_time_duration.en ?? {},
     'tip': loc_tip.en ?? {},
+    'trip-budget': loc_trip_budget.en ?? {},
     'trip-cost': loc_trip_cost.en ?? {},
     'unix-timestamp': loc_unix_timestamp.en ?? {},
     'week-number': loc_week_number.en ?? {},
@@ -314,6 +324,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-torque': loc_convert_torque.uk ?? {},
     'convert-volume': loc_convert_volume.uk ?? {},
     'cpm': loc_cpm.uk ?? {},
+    'crypto-pnl': loc_crypto_pnl.uk ?? {},
     'ctr': loc_ctr.uk ?? {},
     'day-of-week': loc_day_of_week.uk ?? {},
     'density': loc_density.uk ?? {},
@@ -327,10 +338,12 @@ export const v2Localization: ScopedLocalization = {
     'electricity-usage': loc_electricity_usage.uk ?? {},
     'engagement-rate': loc_engagement_rate.uk ?? {},
     'factorial': loc_factorial.uk ?? {},
+    'fee-chain': loc_fee_chain.uk ?? {},
     'files-on-disk': loc_files_on_disk.uk ?? {},
     'final-grade': loc_final_grade.uk ?? {},
     'fps-frametime': loc_fps_frametime.uk ?? {},
     'fraction-arith': loc_fraction_arith.uk ?? {},
+    'freelance-rate': loc_freelance_rate.uk ?? {},
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
     'generator-fuel': loc_generator_fuel.uk ?? {},
     'geom-circle': loc_geom_circle.uk ?? {},
@@ -378,6 +391,7 @@ export const v2Localization: ScopedLocalization = {
     'pressure': loc_pressure.uk ?? {},
     'price-per-unit': loc_price_per_unit.uk ?? {},
     'prime-factorization': loc_prime_factorization.uk ?? {},
+    'print-3d-cost': loc_print_3d_cost.uk ?? {},
     'probability-basic': loc_probability_basic.uk ?? {},
     'proportion': loc_proportion.uk ?? {},
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
@@ -403,6 +417,7 @@ export const v2Localization: ScopedLocalization = {
     'test-score-percent': loc_test_score_percent.uk ?? {},
     'time-duration': loc_time_duration.uk ?? {},
     'tip': loc_tip.uk ?? {},
+    'trip-budget': loc_trip_budget.uk ?? {},
     'trip-cost': loc_trip_cost.uk ?? {},
     'unix-timestamp': loc_unix_timestamp.uk ?? {},
     'week-number': loc_week_number.uk ?? {},
