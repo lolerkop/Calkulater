@@ -17,6 +17,7 @@ import { definition as def_ad_roi } from './ad-roi/definition';
 import { definition as def_annuity } from './annuity/definition';
 import { definition as def_aov } from './aov/definition';
 import { definition as def_aspect_ratio } from './aspect-ratio/definition';
+import { definition as def_bakers_percentage } from './bakers-percentage/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
 import { definition as def_battery_runtime } from './battery-runtime/definition';
 import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
@@ -76,6 +77,7 @@ import { definition as def_fps_frametime } from './fps-frametime/definition';
 import { definition as def_fraction_arith } from './fraction-arith/definition';
 import { definition as def_freelance_rate } from './freelance-rate/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
+import { definition as def_gcd_lcm } from './gcd-lcm/definition';
 import { definition as def_generator_fuel } from './generator-fuel/definition';
 import { definition as def_geom_circle } from './geom-circle/definition';
 import { definition as def_geom_cone } from './geom-cone/definition';
@@ -137,7 +139,10 @@ import { definition as def_proportion } from './proportion/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
 import { definition as def_reading_speed } from './reading-speed/definition';
 import { definition as def_real_return } from './real-return/definition';
+import { definition as def_recipe_cost } from './recipe-cost/definition';
+import { definition as def_recipe_scale } from './recipe-scale/definition';
 import { definition as def_rental_yield } from './rental-yield/definition';
+import { definition as def_resistor_network } from './resistor-network/definition';
 import { definition as def_return_rate } from './return-rate/definition';
 import { definition as def_revenue_per_employee } from './revenue-per-employee/definition';
 import { definition as def_risk_reward } from './risk-reward/definition';
@@ -179,6 +184,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_annuity,
   def_aov,
   def_aspect_ratio,
+  def_bakers_percentage,
   def_battery_charge_time,
   def_battery_runtime,
   def_bike_gear_ratio,
@@ -238,6 +244,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_fraction_arith,
   def_freelance_rate,
   def_fuel_consumption,
+  def_gcd_lcm,
   def_generator_fuel,
   def_geom_circle,
   def_geom_cone,
@@ -299,7 +306,10 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_quadratic_equation,
   def_reading_speed,
   def_real_return,
+  def_recipe_cost,
+  def_recipe_scale,
   def_rental_yield,
+  def_resistor_network,
   def_return_rate,
   def_revenue_per_employee,
   def_risk_reward,

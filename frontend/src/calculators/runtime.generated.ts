@@ -19,6 +19,7 @@ import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
 import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
+import { compute as compute_bakers_percentage } from './bakers-percentage/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
@@ -81,6 +82,7 @@ import { contextualField as ctx_fps_frametime } from './fps-frametime/contextual
 import { compute as compute_fraction_arith } from './fraction-arith/compute';
 import { compute as compute_freelance_rate } from './freelance-rate/compute';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
+import { compute as compute_gcd_lcm } from './gcd-lcm/compute';
 import { compute as compute_generator_fuel } from './generator-fuel/compute';
 import { compute as compute_geom_circle } from './geom-circle/compute';
 import { compute as compute_geom_cone } from './geom-cone/compute';
@@ -147,7 +149,10 @@ import { contextualField as ctx_proportion } from './proportion/contextualField'
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
 import { compute as compute_reading_speed } from './reading-speed/compute';
 import { compute as compute_real_return } from './real-return/compute';
+import { compute as compute_recipe_cost } from './recipe-cost/compute';
+import { compute as compute_recipe_scale } from './recipe-scale/compute';
 import { compute as compute_rental_yield } from './rental-yield/compute';
+import { compute as compute_resistor_network } from './resistor-network/compute';
 import { compute as compute_return_rate } from './return-rate/compute';
 import { compute as compute_revenue_per_employee } from './revenue-per-employee/compute';
 import { compute as compute_risk_reward } from './risk-reward/compute';
@@ -190,6 +195,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'annuity': compute_annuity,
   'aov': compute_aov,
   'aspect-ratio': compute_aspect_ratio,
+  'bakers-percentage': compute_bakers_percentage,
   'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
   'bike-gear-ratio': compute_bike_gear_ratio,
@@ -249,6 +255,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'fraction-arith': compute_fraction_arith,
   'freelance-rate': compute_freelance_rate,
   'fuel-consumption': compute_fuel_consumption,
+  'gcd-lcm': compute_gcd_lcm,
   'generator-fuel': compute_generator_fuel,
   'geom-circle': compute_geom_circle,
   'geom-cone': compute_geom_cone,
@@ -310,7 +317,10 @@ export const v2Runners: Record<string, CalcFunction> = {
   'quadratic-equation': compute_quadratic_equation,
   'reading-speed': compute_reading_speed,
   'real-return': compute_real_return,
+  'recipe-cost': compute_recipe_cost,
+  'recipe-scale': compute_recipe_scale,
   'rental-yield': compute_rental_yield,
+  'resistor-network': compute_resistor_network,
   'return-rate': compute_return_rate,
   'revenue-per-employee': compute_revenue_per_employee,
   'risk-reward': compute_risk_reward,

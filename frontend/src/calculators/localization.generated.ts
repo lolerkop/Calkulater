@@ -11,6 +11,7 @@ import { localization as loc_ad_roi } from './ad-roi/localization';
 import { localization as loc_annuity } from './annuity/localization';
 import { localization as loc_aov } from './aov/localization';
 import { localization as loc_aspect_ratio } from './aspect-ratio/localization';
+import { localization as loc_bakers_percentage } from './bakers-percentage/localization';
 import { localization as loc_battery_charge_time } from './battery-charge-time/localization';
 import { localization as loc_battery_runtime } from './battery-runtime/localization';
 import { localization as loc_bike_gear_ratio } from './bike-gear-ratio/localization';
@@ -70,6 +71,7 @@ import { localization as loc_fps_frametime } from './fps-frametime/localization'
 import { localization as loc_fraction_arith } from './fraction-arith/localization';
 import { localization as loc_freelance_rate } from './freelance-rate/localization';
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
+import { localization as loc_gcd_lcm } from './gcd-lcm/localization';
 import { localization as loc_generator_fuel } from './generator-fuel/localization';
 import { localization as loc_geom_circle } from './geom-circle/localization';
 import { localization as loc_geom_cone } from './geom-cone/localization';
@@ -129,7 +131,10 @@ import { localization as loc_proportion } from './proportion/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
 import { localization as loc_reading_speed } from './reading-speed/localization';
 import { localization as loc_real_return } from './real-return/localization';
+import { localization as loc_recipe_cost } from './recipe-cost/localization';
+import { localization as loc_recipe_scale } from './recipe-scale/localization';
 import { localization as loc_rental_yield } from './rental-yield/localization';
+import { localization as loc_resistor_network } from './resistor-network/localization';
 import { localization as loc_return_rate } from './return-rate/localization';
 import { localization as loc_revenue_per_employee } from './revenue-per-employee/localization';
 import { localization as loc_risk_reward } from './risk-reward/localization';
@@ -172,6 +177,7 @@ export const v2Localization: ScopedLocalization = {
     'annuity': loc_annuity.en ?? {},
     'aov': loc_aov.en ?? {},
     'aspect-ratio': loc_aspect_ratio.en ?? {},
+    'bakers-percentage': loc_bakers_percentage.en ?? {},
     'battery-charge-time': loc_battery_charge_time.en ?? {},
     'battery-runtime': loc_battery_runtime.en ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.en ?? {},
@@ -231,6 +237,7 @@ export const v2Localization: ScopedLocalization = {
     'fraction-arith': loc_fraction_arith.en ?? {},
     'freelance-rate': loc_freelance_rate.en ?? {},
     'fuel-consumption': loc_fuel_consumption.en ?? {},
+    'gcd-lcm': loc_gcd_lcm.en ?? {},
     'generator-fuel': loc_generator_fuel.en ?? {},
     'geom-circle': loc_geom_circle.en ?? {},
     'geom-cone': loc_geom_cone.en ?? {},
@@ -290,7 +297,10 @@ export const v2Localization: ScopedLocalization = {
     'quadratic-equation': loc_quadratic_equation.en ?? {},
     'reading-speed': loc_reading_speed.en ?? {},
     'real-return': loc_real_return.en ?? {},
+    'recipe-cost': loc_recipe_cost.en ?? {},
+    'recipe-scale': loc_recipe_scale.en ?? {},
     'rental-yield': loc_rental_yield.en ?? {},
+    'resistor-network': loc_resistor_network.en ?? {},
     'return-rate': loc_return_rate.en ?? {},
     'revenue-per-employee': loc_revenue_per_employee.en ?? {},
     'risk-reward': loc_risk_reward.en ?? {},
@@ -332,6 +342,7 @@ export const v2Localization: ScopedLocalization = {
     'annuity': loc_annuity.uk ?? {},
     'aov': loc_aov.uk ?? {},
     'aspect-ratio': loc_aspect_ratio.uk ?? {},
+    'bakers-percentage': loc_bakers_percentage.uk ?? {},
     'battery-charge-time': loc_battery_charge_time.uk ?? {},
     'battery-runtime': loc_battery_runtime.uk ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.uk ?? {},
@@ -391,6 +402,7 @@ export const v2Localization: ScopedLocalization = {
     'fraction-arith': loc_fraction_arith.uk ?? {},
     'freelance-rate': loc_freelance_rate.uk ?? {},
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
+    'gcd-lcm': loc_gcd_lcm.uk ?? {},
     'generator-fuel': loc_generator_fuel.uk ?? {},
     'geom-circle': loc_geom_circle.uk ?? {},
     'geom-cone': loc_geom_cone.uk ?? {},
@@ -450,7 +462,10 @@ export const v2Localization: ScopedLocalization = {
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
     'reading-speed': loc_reading_speed.uk ?? {},
     'real-return': loc_real_return.uk ?? {},
+    'recipe-cost': loc_recipe_cost.uk ?? {},
+    'recipe-scale': loc_recipe_scale.uk ?? {},
     'rental-yield': loc_rental_yield.uk ?? {},
+    'resistor-network': loc_resistor_network.uk ?? {},
     'return-rate': loc_return_rate.uk ?? {},
     'revenue-per-employee': loc_revenue_per_employee.uk ?? {},
     'risk-reward': loc_risk_reward.uk ?? {},

@@ -20,6 +20,11 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  'bakers-percentage': { query: { flour: 900, ingredients: 'water 72\nsalt 2\nyeast 0.8' }, result: { primary: '1 573,2 г', rows: [{ label: 'Гидратация', value: '72,00%' }, { label: 'Мука', value: '900 г' }] } },
+  'gcd-lcm': { query: { numbers: '15 25 35' }, result: { primary: '5', rows: [{ label: 'НОК', value: '525' }, { label: 'Чисел', value: '3' }, { label: 'Взаимно простые', value: 'нет' }] } },
+  'recipe-cost': { query: { ingredients: 'flour 1.2 60\nbutter 0.4 750\nsugar 0.25 90', servings: 6 }, result: { primary: '65,75 ₽', rows: [{ label: 'Стоимость всего', value: '394,50 ₽' }, { label: 'Ингредиентов', value: '3' }, { label: 'Самый дорогой', value: 'butter' }] } },
+  'recipe-scale': { query: { ingredients: 'flour 800\nwater 520\nsalt 16', fromServings: 6, toServings: 10 }, result: { primary: '1,6667', rows: [{ label: 'Ингредиентов', value: '3' }, { label: 'Было всего', value: '1 336' }, { label: 'Стало всего', value: '2 226,67' }] } },
+  'resistor-network': { query: { resistances: '470 680 1000', mode: 'parallel' }, result: { primary: '217,47 Ом', rows: [{ label: 'Резисторов', value: '3' }, { label: 'Наименьший', value: '470 Ом' }, { label: 'Наибольший', value: '1 000 Ом' }] } },
   // Волна 5, батч B3 — подсеть, средний балл, корреляция и молярная масса.
   // Ожидаемые значения выведены вручную:
   //   /26: маска 255.255.255.192; 172.16.34.200 & маска = .192; узлов 2⁶ − 2 = 62
