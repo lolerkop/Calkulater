@@ -74,6 +74,7 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['internet-traffic', 'quotaGb'],
   ['currency-exchange-fee', 'feeFixed'],
   ['ratio', 'total'],
+  ['conversion-rate', 'cost'],
 ];
 
 describe('необязательные суммы', () => {

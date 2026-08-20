@@ -21,8 +21,11 @@ type StateScenario = {
 
 const stateScenarios: Record<string, StateScenario> = {
   'arithmetic-progression': { query: { a1: 100, d: -7, n: 15 }, result: { primary: '2', rows: [{ label: 'Сумма ряда', value: '765' }, { label: 'Разность', value: '-7' }] } },
+  'arpu-arppu': { query: { revenue: 1200000, users: 40000, payingUsers: 5200 }, result: { primary: '30,00 ₽', rows: [{ label: 'ARPPU', value: '230,77 ₽' }, { label: 'Доля платящих', value: '13,00%' }, { label: 'Выручка', value: '1 200 000,00 ₽' }] } },
   'bakers-percentage': { query: { flour: 900, ingredients: 'water 72\nsalt 2\nyeast 0.8' }, result: { primary: '1 573,2 г', rows: [{ label: 'Гидратация', value: '72,00%' }, { label: 'Мука', value: '900 г' }] } },
+  'churn-retention': { query: { startCustomers: 4200, lost: 315, gained: 210 }, result: { primary: '7,50%', rows: [{ label: 'Удержание', value: '92,50%' }, { label: 'Клиентов на конец', value: '4 095' }, { label: 'Чистый прирост', value: '-2,50%' }] } },
   'color-convert': { query: { hex: '#F0A' }, result: { primary: 'rgb(255, 0, 170)', rows: [{ label: 'HSL', value: 'hsl(320, 100,00%, 50,00%)' }, { label: 'HEX', value: '#FF00AA' }, { label: 'Яркость', value: '50,00' }] } },
+  'conversion-rate': { query: { visitors: 1500, conversions: 27, cost: 45000 }, result: { primary: '1,80%', rows: [{ label: 'Конверсий', value: '27' }, { label: 'Визитов', value: '1 500' }, { label: 'Цена конверсии', value: '1 666,67 ₽' }] } },
   'dca': { query: { monthly: 5000, months: 24, priceGrowthPct: -1, startPrice: 200 }, result: { primary: '107 160,93 ₽', rows: [{ label: 'Вложено всего', value: '120 000,00 ₽' }, { label: 'Куплено единиц', value: '675,14' }, { label: 'Средняя цена', value: '177,74 ₽' }] } },
   'fibonacci': { query: { n: 30 }, result: { primary: '514 229', rows: [{ label: 'Сумма ряда', value: '1 346 268' }, { label: 'Отношение к предыдущему', value: '1,618' }] } },
   'gcd-lcm': { query: { numbers: '15 25 35' }, result: { primary: '5', rows: [{ label: 'НОК', value: '525' }, { label: 'Чисел', value: '3' }, { label: 'Взаимно простые', value: 'нет' }] } },
@@ -31,6 +34,7 @@ const stateScenarios: Record<string, StateScenario> = {
   'geom-ellipse': { query: { unit: 'm', a: 10, b: 4 }, result: { primary: '125,66 м²', rows: [{ label: 'Периметр (Рамануджан)', value: '46,026 м' }, { label: 'Эксцентриситет', value: '0,9165' }, { label: 'Расстояние между фокусами', value: '18,33 м' }] } },
   'geom-frustum': { query: { unit: 'm', R: 8, r: 5, h: 6 }, result: { primary: '810,53 м³', rows: [{ label: 'Образующая', value: '6,708 м' }, { label: 'Боковая поверхность', value: '273,97 м²' }, { label: 'Полная поверхность', value: '553,57 м²' }] } },
   'geom-rhombus': { query: { unit: 'm', d1: 10, d2: 24 }, result: { primary: '120 м²', rows: [{ label: 'Сторона', value: '13 м' }, { label: 'Периметр', value: '52 м' }, { label: 'Высота', value: '9,231 м' }] } },
+  'mrr-arr': { query: { subscribers: 1850, arpuMonth: 690, growthPct: 7.5 }, result: { primary: '1 276 500,00 ₽', rows: [{ label: 'ARR', value: '15 318 000,00 ₽' }, { label: 'MRR через месяц', value: '1 372 237,50 ₽' }, { label: 'Прирост за месяц', value: '95 737,50 ₽' }] } },
   'power-root': { query: { mode: 'root', base: 27, exponent: 3 }, result: { primary: '3', rows: [{ label: 'Основание', value: '27' }, { label: 'Показатель', value: '3' }] } },
   'raid': { query: { level: '6', disks: 8, sizeTb: 12 }, result: { primary: '72 ТБ', rows: [{ label: 'Сырая ёмкость', value: '96 ТБ' }, { label: 'Допустимо отказов', value: '2' }, { label: 'Эффективность', value: '75,00%' }] } },
   'ratio': { query: { parts: '12 18', total: 4500 }, result: { primary: '2:3', rows: [{ label: 'Сумма частей', value: '30' }, { label: 'Доля первой части', value: '40,00%' }, { label: 'Разбиение суммы', value: '1 800 · 2 700' }] } },

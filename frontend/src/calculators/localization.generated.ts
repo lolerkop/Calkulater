@@ -11,6 +11,7 @@ import { localization as loc_ad_roi } from './ad-roi/localization';
 import { localization as loc_annuity } from './annuity/localization';
 import { localization as loc_aov } from './aov/localization';
 import { localization as loc_arithmetic_progression } from './arithmetic-progression/localization';
+import { localization as loc_arpu_arppu } from './arpu-arppu/localization';
 import { localization as loc_aspect_ratio } from './aspect-ratio/localization';
 import { localization as loc_bakers_percentage } from './bakers-percentage/localization';
 import { localization as loc_battery_charge_time } from './battery-charge-time/localization';
@@ -22,12 +23,14 @@ import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localizat
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
 import { localization as loc_calories_from_macros } from './calories-from-macros/localization';
+import { localization as loc_churn_retention } from './churn-retention/localization';
 import { localization as loc_color_convert } from './color-convert/localization';
 import { localization as loc_combinatorics } from './combinatorics/localization';
 import { localization as loc_commission } from './commission/localization';
 import { localization as loc_concrete } from './concrete/localization';
 import { localization as loc_confidence_interval } from './confidence-interval/localization';
 import { localization as loc_contribution_margin } from './contribution-margin/localization';
+import { localization as loc_conversion_rate } from './conversion-rate/localization';
 import { localization as loc_convert_angle } from './convert-angle/localization';
 import { localization as loc_convert_area } from './convert-area/localization';
 import { localization as loc_convert_cooking_volume } from './convert-cooking-volume/localization';
@@ -119,6 +122,7 @@ import { localization as loc_molar_mass } from './molar-mass/localization';
 import { localization as loc_molarity } from './molarity/localization';
 import { localization as loc_moles } from './moles/localization';
 import { localization as loc_momentum } from './momentum/localization';
+import { localization as loc_mrr_arr } from './mrr-arr/localization';
 import { localization as loc_network_bandwidth } from './network-bandwidth/localization';
 import { localization as loc_newton_force } from './newton-force/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
@@ -189,6 +193,7 @@ export const v2Localization: ScopedLocalization = {
     'annuity': loc_annuity.en ?? {},
     'aov': loc_aov.en ?? {},
     'arithmetic-progression': loc_arithmetic_progression.en ?? {},
+    'arpu-arppu': loc_arpu_arppu.en ?? {},
     'aspect-ratio': loc_aspect_ratio.en ?? {},
     'bakers-percentage': loc_bakers_percentage.en ?? {},
     'battery-charge-time': loc_battery_charge_time.en ?? {},
@@ -200,12 +205,14 @@ export const v2Localization: ScopedLocalization = {
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
     'calories-from-macros': loc_calories_from_macros.en ?? {},
+    'churn-retention': loc_churn_retention.en ?? {},
     'color-convert': loc_color_convert.en ?? {},
     'combinatorics': loc_combinatorics.en ?? {},
     'commission': loc_commission.en ?? {},
     'concrete': loc_concrete.en ?? {},
     'confidence-interval': loc_confidence_interval.en ?? {},
     'contribution-margin': loc_contribution_margin.en ?? {},
+    'conversion-rate': loc_conversion_rate.en ?? {},
     'convert-angle': loc_convert_angle.en ?? {},
     'convert-area': loc_convert_area.en ?? {},
     'convert-cooking-volume': loc_convert_cooking_volume.en ?? {},
@@ -297,6 +304,7 @@ export const v2Localization: ScopedLocalization = {
     'molarity': loc_molarity.en ?? {},
     'moles': loc_moles.en ?? {},
     'momentum': loc_momentum.en ?? {},
+    'mrr-arr': loc_mrr_arr.en ?? {},
     'network-bandwidth': loc_network_bandwidth.en ?? {},
     'newton-force': loc_newton_force.en ?? {},
     'ohms-law': loc_ohms_law.en ?? {},
@@ -366,6 +374,7 @@ export const v2Localization: ScopedLocalization = {
     'annuity': loc_annuity.uk ?? {},
     'aov': loc_aov.uk ?? {},
     'arithmetic-progression': loc_arithmetic_progression.uk ?? {},
+    'arpu-arppu': loc_arpu_arppu.uk ?? {},
     'aspect-ratio': loc_aspect_ratio.uk ?? {},
     'bakers-percentage': loc_bakers_percentage.uk ?? {},
     'battery-charge-time': loc_battery_charge_time.uk ?? {},
@@ -377,12 +386,14 @@ export const v2Localization: ScopedLocalization = {
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
     'calories-from-macros': loc_calories_from_macros.uk ?? {},
+    'churn-retention': loc_churn_retention.uk ?? {},
     'color-convert': loc_color_convert.uk ?? {},
     'combinatorics': loc_combinatorics.uk ?? {},
     'commission': loc_commission.uk ?? {},
     'concrete': loc_concrete.uk ?? {},
     'confidence-interval': loc_confidence_interval.uk ?? {},
     'contribution-margin': loc_contribution_margin.uk ?? {},
+    'conversion-rate': loc_conversion_rate.uk ?? {},
     'convert-angle': loc_convert_angle.uk ?? {},
     'convert-area': loc_convert_area.uk ?? {},
     'convert-cooking-volume': loc_convert_cooking_volume.uk ?? {},
@@ -474,6 +485,7 @@ export const v2Localization: ScopedLocalization = {
     'molarity': loc_molarity.uk ?? {},
     'moles': loc_moles.uk ?? {},
     'momentum': loc_momentum.uk ?? {},
+    'mrr-arr': loc_mrr_arr.uk ?? {},
     'network-bandwidth': loc_network_bandwidth.uk ?? {},
     'newton-force': loc_newton_force.uk ?? {},
     'ohms-law': loc_ohms_law.uk ?? {},

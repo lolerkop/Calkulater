@@ -19,6 +19,7 @@ import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
 import { compute as compute_arithmetic_progression } from './arithmetic-progression/compute';
+import { compute as compute_arpu_arppu } from './arpu-arppu/compute';
 import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
 import { compute as compute_bakers_percentage } from './bakers-percentage/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
@@ -30,6 +31,7 @@ import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
 import { compute as compute_calories_from_macros } from './calories-from-macros/compute';
+import { compute as compute_churn_retention } from './churn-retention/compute';
 import { compute as compute_color_convert } from './color-convert/compute';
 import { compute as compute_combinatorics } from './combinatorics/compute';
 import { compute as compute_commission } from './commission/compute';
@@ -38,6 +40,7 @@ import { contextualField as ctx_commission } from './commission/contextualField'
 import { compute as compute_concrete } from './concrete/compute';
 import { compute as compute_confidence_interval } from './confidence-interval/compute';
 import { compute as compute_contribution_margin } from './contribution-margin/compute';
+import { compute as compute_conversion_rate } from './conversion-rate/compute';
 import { compute as compute_convert_angle } from './convert-angle/compute';
 import { compute as compute_convert_area } from './convert-area/compute';
 import { compute as compute_convert_cooking_volume } from './convert-cooking-volume/compute';
@@ -131,6 +134,7 @@ import { compute as compute_molar_mass } from './molar-mass/compute';
 import { compute as compute_molarity } from './molarity/compute';
 import { compute as compute_moles } from './moles/compute';
 import { compute as compute_momentum } from './momentum/compute';
+import { compute as compute_mrr_arr } from './mrr-arr/compute';
 import { compute as compute_network_bandwidth } from './network-bandwidth/compute';
 import { compute as compute_newton_force } from './newton-force/compute';
 import { compute as compute_ohms_law } from './ohms-law/compute';
@@ -207,6 +211,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'annuity': compute_annuity,
   'aov': compute_aov,
   'arithmetic-progression': compute_arithmetic_progression,
+  'arpu-arppu': compute_arpu_arppu,
   'aspect-ratio': compute_aspect_ratio,
   'bakers-percentage': compute_bakers_percentage,
   'battery-charge-time': compute_battery_charge_time,
@@ -218,12 +223,14 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cac': compute_cac,
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
+  'churn-retention': compute_churn_retention,
   'color-convert': compute_color_convert,
   'combinatorics': compute_combinatorics,
   'commission': compute_commission,
   'concrete': compute_concrete,
   'confidence-interval': compute_confidence_interval,
   'contribution-margin': compute_contribution_margin,
+  'conversion-rate': compute_conversion_rate,
   'convert-angle': compute_convert_angle,
   'convert-area': compute_convert_area,
   'convert-cooking-volume': compute_convert_cooking_volume,
@@ -315,6 +322,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'molarity': compute_molarity,
   'moles': compute_moles,
   'momentum': compute_momentum,
+  'mrr-arr': compute_mrr_arr,
   'network-bandwidth': compute_network_bandwidth,
   'newton-force': compute_newton_force,
   'ohms-law': compute_ohms_law,

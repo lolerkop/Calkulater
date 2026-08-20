@@ -17,6 +17,7 @@ import { definition as def_ad_roi } from './ad-roi/definition';
 import { definition as def_annuity } from './annuity/definition';
 import { definition as def_aov } from './aov/definition';
 import { definition as def_arithmetic_progression } from './arithmetic-progression/definition';
+import { definition as def_arpu_arppu } from './arpu-arppu/definition';
 import { definition as def_aspect_ratio } from './aspect-ratio/definition';
 import { definition as def_bakers_percentage } from './bakers-percentage/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
@@ -28,12 +29,14 @@ import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition'
 import { definition as def_cac } from './cac/definition';
 import { definition as def_cagr } from './cagr/definition';
 import { definition as def_calories_from_macros } from './calories-from-macros/definition';
+import { definition as def_churn_retention } from './churn-retention/definition';
 import { definition as def_color_convert } from './color-convert/definition';
 import { definition as def_combinatorics } from './combinatorics/definition';
 import { definition as def_commission } from './commission/definition';
 import { definition as def_concrete } from './concrete/definition';
 import { definition as def_confidence_interval } from './confidence-interval/definition';
 import { definition as def_contribution_margin } from './contribution-margin/definition';
+import { definition as def_conversion_rate } from './conversion-rate/definition';
 import { definition as def_convert_angle } from './convert-angle/definition';
 import { definition as def_convert_area } from './convert-area/definition';
 import { definition as def_convert_cooking_volume } from './convert-cooking-volume/definition';
@@ -125,6 +128,7 @@ import { definition as def_molar_mass } from './molar-mass/definition';
 import { definition as def_molarity } from './molarity/definition';
 import { definition as def_moles } from './moles/definition';
 import { definition as def_momentum } from './momentum/definition';
+import { definition as def_mrr_arr } from './mrr-arr/definition';
 import { definition as def_network_bandwidth } from './network-bandwidth/definition';
 import { definition as def_newton_force } from './newton-force/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
@@ -196,6 +200,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_annuity,
   def_aov,
   def_arithmetic_progression,
+  def_arpu_arppu,
   def_aspect_ratio,
   def_bakers_percentage,
   def_battery_charge_time,
@@ -207,12 +212,14 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_cac,
   def_cagr,
   def_calories_from_macros,
+  def_churn_retention,
   def_color_convert,
   def_combinatorics,
   def_commission,
   def_concrete,
   def_confidence_interval,
   def_contribution_margin,
+  def_conversion_rate,
   def_convert_angle,
   def_convert_area,
   def_convert_cooking_volume,
@@ -304,6 +311,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_molarity,
   def_moles,
   def_momentum,
+  def_mrr_arr,
   def_network_bandwidth,
   def_newton_force,
   def_ohms_law,
