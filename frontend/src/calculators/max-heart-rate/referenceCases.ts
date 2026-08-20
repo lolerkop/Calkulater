@@ -8,20 +8,20 @@ export const maxHeartRateReferenceCases: readonly CalculatorReferenceCase[] = [
   {
     name: "возраст 35, формула 220 − возраст, пульс покоя 60",
     inputs: { "age": 35, "formula": "220-age", "restingHr": 60 },
-    expectPrimary: "185",
-    expectSecondary: [{ label: "Резерв сердца", value: "125" }, { label: "Пульс покоя", value: "60" }, { label: "Аэробная зона 70–80 %", value: "148–160" }],
+    expectPrimary: "185 уд/мин",
+    expectSecondary: [{ label: "Резерв сердца", value: "125 уд/мин" }, { label: "Пульс покоя", value: "60 уд/мин" }, { label: "Аэробная зона 70–80 %", value: "148–160 уд/мин" }],
   },
   {
     name: "возраст 42, формула Танаки, пульс покоя 55",
     inputs: { "age": 42, "formula": "tanaka", "restingHr": 55 },
-    expectPrimary: "179",
-    expectSecondary: [{ label: "Резерв сердца", value: "124" }, { label: "Аэробная зона 70–80 %", value: "142–154" }],
+    expectPrimary: "179 уд/мин",
+    expectSecondary: [{ label: "Резерв сердца", value: "124 уд/мин" }, { label: "Аэробная зона 70–80 %", value: "142–154 уд/мин" }],
   },
   {
     name: "граница: пульс покоя не задан — зоны считаются долями максимума",
     inputs: { "age": 30, "formula": "220-age", "restingHr": 0 },
-    expectPrimary: "190",
-    expectSecondary: [{ label: "Резерв сердца", value: "190" }, { label: "Аэробная зона 70–80 %", value: "133–152" }],
+    expectPrimary: "190 уд/мин",
+    expectSecondary: [{ label: "Резерв сердца", value: "190 уд/мин" }, { label: "Аэробная зона 70–80 %", value: "133–152 уд/мин" }],
   },
   {
     name: "пульс покоя выше максимального отклоняется",

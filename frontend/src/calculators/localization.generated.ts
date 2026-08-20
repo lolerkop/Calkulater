@@ -99,6 +99,7 @@ import { localization as loc_linear_equation } from './linear-equation/localizat
 import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_market_cap } from './market-cap/localization';
+import { localization as loc_max_heart_rate } from './max-heart-rate/localization';
 import { localization as loc_modulo } from './modulo/localization';
 import { localization as loc_molarity } from './molarity/localization';
 import { localization as loc_moles } from './moles/localization';
@@ -143,7 +144,10 @@ import { localization as loc_stats_descriptive } from './stats-descriptive/local
 import { localization as loc_stock_duration } from './stock-duration/localization';
 import { localization as loc_strip_foundation } from './strip-foundation/localization';
 import { localization as loc_test_score_percent } from './test-score-percent/localization';
+import { localization as loc_text_reading_time } from './text-reading-time/localization';
+import { localization as loc_text_word_char_count } from './text-word-char-count/localization';
 import { localization as loc_time_duration } from './time-duration/localization';
+import { localization as loc_timezone_difference } from './timezone-difference/localization';
 import { localization as loc_tip } from './tip/localization';
 import { localization as loc_tire_size } from './tire-size/localization';
 import { localization as loc_trip_budget } from './trip-budget/localization';
@@ -252,6 +256,7 @@ export const v2Localization: ScopedLocalization = {
     'logarithm': loc_logarithm.en ?? {},
     'ltv': loc_ltv.en ?? {},
     'market-cap': loc_market_cap.en ?? {},
+    'max-heart-rate': loc_max_heart_rate.en ?? {},
     'modulo': loc_modulo.en ?? {},
     'molarity': loc_molarity.en ?? {},
     'moles': loc_moles.en ?? {},
@@ -296,7 +301,10 @@ export const v2Localization: ScopedLocalization = {
     'stock-duration': loc_stock_duration.en ?? {},
     'strip-foundation': loc_strip_foundation.en ?? {},
     'test-score-percent': loc_test_score_percent.en ?? {},
+    'text-reading-time': loc_text_reading_time.en ?? {},
+    'text-word-char-count': loc_text_word_char_count.en ?? {},
     'time-duration': loc_time_duration.en ?? {},
+    'timezone-difference': loc_timezone_difference.en ?? {},
     'tip': loc_tip.en ?? {},
     'tire-size': loc_tire_size.en ?? {},
     'trip-budget': loc_trip_budget.en ?? {},
@@ -404,6 +412,7 @@ export const v2Localization: ScopedLocalization = {
     'logarithm': loc_logarithm.uk ?? {},
     'ltv': loc_ltv.uk ?? {},
     'market-cap': loc_market_cap.uk ?? {},
+    'max-heart-rate': loc_max_heart_rate.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
     'molarity': loc_molarity.uk ?? {},
     'moles': loc_moles.uk ?? {},
@@ -448,7 +457,10 @@ export const v2Localization: ScopedLocalization = {
     'stock-duration': loc_stock_duration.uk ?? {},
     'strip-foundation': loc_strip_foundation.uk ?? {},
     'test-score-percent': loc_test_score_percent.uk ?? {},
+    'text-reading-time': loc_text_reading_time.uk ?? {},
+    'text-word-char-count': loc_text_word_char_count.uk ?? {},
     'time-duration': loc_time_duration.uk ?? {},
+    'timezone-difference': loc_timezone_difference.uk ?? {},
     'tip': loc_tip.uk ?? {},
     'tire-size': loc_tire_size.uk ?? {},
     'trip-budget': loc_trip_budget.uk ?? {},

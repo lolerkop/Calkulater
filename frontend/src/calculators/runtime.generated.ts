@@ -111,6 +111,7 @@ import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
 import { compute as compute_market_cap } from './market-cap/compute';
+import { compute as compute_max_heart_rate } from './max-heart-rate/compute';
 import { compute as compute_modulo } from './modulo/compute';
 import { compute as compute_molarity } from './molarity/compute';
 import { compute as compute_moles } from './moles/compute';
@@ -162,7 +163,10 @@ import { compute as compute_stats_descriptive } from './stats-descriptive/comput
 import { compute as compute_stock_duration } from './stock-duration/compute';
 import { compute as compute_strip_foundation } from './strip-foundation/compute';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
+import { compute as compute_text_reading_time } from './text-reading-time/compute';
+import { compute as compute_text_word_char_count } from './text-word-char-count/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
+import { compute as compute_timezone_difference } from './timezone-difference/compute';
 import { compute as compute_tip } from './tip/compute';
 import { compute as compute_tire_size } from './tire-size/compute';
 import { compute as compute_trip_budget } from './trip-budget/compute';
@@ -270,6 +274,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'logarithm': compute_logarithm,
   'ltv': compute_ltv,
   'market-cap': compute_market_cap,
+  'max-heart-rate': compute_max_heart_rate,
   'modulo': compute_modulo,
   'molarity': compute_molarity,
   'moles': compute_moles,
@@ -316,7 +321,10 @@ export const v2Runners: Record<string, CalcFunction> = {
   'stock-duration': compute_stock_duration,
   'strip-foundation': compute_strip_foundation,
   'test-score-percent': compute_test_score_percent,
+  'text-reading-time': compute_text_reading_time,
+  'text-word-char-count': compute_text_word_char_count,
   'time-duration': compute_time_duration,
+  'timezone-difference': compute_timezone_difference,
   'tip': compute_tip,
   'tire-size': compute_tire_size,
   'trip-budget': compute_trip_budget,

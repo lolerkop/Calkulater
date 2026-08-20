@@ -147,6 +147,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/math/logarithm/,ru,calculator,true,/ru/math/logarithm/,calculator:logarithm,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/ltv/,ru,calculator,true,/ru/business/ltv/,calculator:ltv,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/market-cap/,ru,calculator,true,/ru/finance/market-cap/,calculator:market-cap,src/pages/[locale]/[category]/[calculator].astro
+/ru/sport/max-heart-rate/,ru,calculator,true,/ru/sport/max-heart-rate/,calculator:max-heart-rate,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/modulo/,ru,calculator,true,/ru/math/modulo/,calculator:modulo,src/pages/[locale]/[category]/[calculator].astro
 /ru/chemistry/molarity/,ru,calculator,true,/ru/chemistry/molarity/,calculator:molarity,src/pages/[locale]/[category]/[calculator].astro
 /ru/chemistry/moles/,ru,calculator,true,/ru/chemistry/moles/,calculator:moles,src/pages/[locale]/[category]/[calculator].astro
@@ -191,7 +192,10 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/household/stock-duration/,ru,calculator,true,/ru/household/stock-duration/,calculator:stock-duration,src/pages/[locale]/[category]/[calculator].astro
 /ru/building/strip-foundation/,ru,calculator,true,/ru/building/strip-foundation/,calculator:strip-foundation,src/pages/[locale]/[category]/[calculator].astro
 /ru/education/test-score-percent/,ru,calculator,true,/ru/education/test-score-percent/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
+/ru/education/text-reading-time/,ru,calculator,true,/ru/education/text-reading-time/,calculator:text-reading-time,src/pages/[locale]/[category]/[calculator].astro
+/ru/computers/text-word-char-count/,ru,calculator,true,/ru/computers/text-word-char-count/,calculator:text-word-char-count,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/time-duration/,ru,calculator,true,/ru/date-time/time-duration/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
+/ru/date-time/timezone-difference/,ru,calculator,true,/ru/date-time/timezone-difference/,calculator:timezone-difference,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/tip/,ru,calculator,true,/ru/household/tip/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro
 /ru/automotive/tire-size/,ru,calculator,true,/ru/automotive/tire-size/,calculator:tire-size,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/trip-budget/,ru,calculator,true,/ru/household/trip-budget/,calculator:trip-budget,src/pages/[locale]/[category]/[calculator].astro
@@ -347,6 +351,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/math/logarithm-calculator/,en,calculator,true,/en/math/logarithm-calculator/,calculator:logarithm,src/pages/[locale]/[category]/[calculator].astro
 /en/business/ltv-calculator/,en,calculator,true,/en/business/ltv-calculator/,calculator:ltv,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/market-cap-calculator/,en,calculator,true,/en/finance/market-cap-calculator/,calculator:market-cap,src/pages/[locale]/[category]/[calculator].astro
+/en/fitness/maximum-heart-rate-calculator/,en,calculator,true,/en/fitness/maximum-heart-rate-calculator/,calculator:max-heart-rate,src/pages/[locale]/[category]/[calculator].astro
 /en/math/remainder-calculator/,en,calculator,true,/en/math/remainder-calculator/,calculator:modulo,src/pages/[locale]/[category]/[calculator].astro
 /en/chemistry/molarity-calculator/,en,calculator,true,/en/chemistry/molarity-calculator/,calculator:molarity,src/pages/[locale]/[category]/[calculator].astro
 /en/chemistry/moles-calculator/,en,calculator,true,/en/chemistry/moles-calculator/,calculator:moles,src/pages/[locale]/[category]/[calculator].astro
@@ -391,7 +396,10 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/household/stock-duration-calculator/,en,calculator,true,/en/household/stock-duration-calculator/,calculator:stock-duration,src/pages/[locale]/[category]/[calculator].astro
 /en/home-improvement/strip-foundation-calculator/,en,calculator,true,/en/home-improvement/strip-foundation-calculator/,calculator:strip-foundation,src/pages/[locale]/[category]/[calculator].astro
 /en/education/test-score-percentage-calculator/,en,calculator,true,/en/education/test-score-percentage-calculator/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
+/en/education/reading-time-calculator/,en,calculator,true,/en/education/reading-time-calculator/,calculator:text-reading-time,src/pages/[locale]/[category]/[calculator].astro
+/en/computers/word-and-character-counter/,en,calculator,true,/en/computers/word-and-character-counter/,calculator:text-word-char-count,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/time-duration-calculator/,en,calculator,true,/en/date-time/time-duration-calculator/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
+/en/date-time/time-zone-difference-calculator/,en,calculator,true,/en/date-time/time-zone-difference-calculator/,calculator:timezone-difference,src/pages/[locale]/[category]/[calculator].astro
 /en/household/tip-calculator/,en,calculator,true,/en/household/tip-calculator/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro
 /en/automotive/tire-size-calculator/,en,calculator,true,/en/automotive/tire-size-calculator/,calculator:tire-size,src/pages/[locale]/[category]/[calculator].astro
 /en/household/trip-budget-calculator/,en,calculator,true,/en/household/trip-budget-calculator/,calculator:trip-budget,src/pages/[locale]/[category]/[calculator].astro
@@ -547,6 +555,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/math/kalkulyator-logaryfma/,uk,calculator,true,/uk/math/kalkulyator-logaryfma/,calculator:logarithm,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/ltv/,uk,calculator,true,/uk/business/ltv/,calculator:ltv,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/rynkova-kapitalizatsiya/,uk,calculator,true,/uk/finansy/rynkova-kapitalizatsiya/,calculator:market-cap,src/pages/[locale]/[category]/[calculator].astro
+/uk/fitness/maksymalnyy-puls/,uk,calculator,true,/uk/fitness/maksymalnyy-puls/,calculator:max-heart-rate,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/kalkulyator-ostachi/,uk,calculator,true,/uk/math/kalkulyator-ostachi/,calculator:modulo,src/pages/[locale]/[category]/[calculator].astro
 /uk/himiya/moliarnist/,uk,calculator,true,/uk/himiya/moliarnist/,calculator:molarity,src/pages/[locale]/[category]/[calculator].astro
 /uk/himiya/kilkist-rechovyny/,uk,calculator,true,/uk/himiya/kilkist-rechovyny/,calculator:moles,src/pages/[locale]/[category]/[calculator].astro
@@ -591,7 +600,10 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/pobut/zapas-produktu/,uk,calculator,true,/uk/pobut/zapas-produktu/,calculator:stock-duration,src/pages/[locale]/[category]/[calculator].astro
 /uk/remont/strichkovyi-fundament/,uk,calculator,true,/uk/remont/strichkovyi-fundament/,calculator:strip-foundation,src/pages/[locale]/[category]/[calculator].astro
 /uk/navchannya/vidsotok-za-test/,uk,calculator,true,/uk/navchannya/vidsotok-za-test/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
+/uk/navchannya/chas-chytannya-tekstu/,uk,calculator,true,/uk/navchannya/chas-chytannya-tekstu/,calculator:text-reading-time,src/pages/[locale]/[category]/[calculator].astro
+/uk/kompyutery/lichylnyk-sliv-i-symvoliv/,uk,calculator,true,/uk/kompyutery/lichylnyk-sliv-i-symvoliv/,calculator:text-word-char-count,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-tryvalosti-chasu/,uk,calculator,true,/uk/daty/kalkulyator-tryvalosti-chasu/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
+/uk/daty/riznytsya-chasovyh-poyasiv/,uk,calculator,true,/uk/daty/riznytsya-chasovyh-poyasiv/,calculator:timezone-difference,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/chayovi/,uk,calculator,true,/uk/pobut/chayovi/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro
 /uk/avtomobili/rozmir-shyn/,uk,calculator,true,/uk/avtomobili/rozmir-shyn/,calculator:tire-size,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/byudzhet-podorozhi/,uk,calculator,true,/uk/pobut/byudzhet-podorozhi/,calculator:trip-budget,src/pages/[locale]/[category]/[calculator].astro

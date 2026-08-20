@@ -105,6 +105,7 @@ import { definition as def_linear_equation } from './linear-equation/definition'
 import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_ltv } from './ltv/definition';
 import { definition as def_market_cap } from './market-cap/definition';
+import { definition as def_max_heart_rate } from './max-heart-rate/definition';
 import { definition as def_modulo } from './modulo/definition';
 import { definition as def_molarity } from './molarity/definition';
 import { definition as def_moles } from './moles/definition';
@@ -151,7 +152,10 @@ import { definition as def_stats_descriptive } from './stats-descriptive/definit
 import { definition as def_stock_duration } from './stock-duration/definition';
 import { definition as def_strip_foundation } from './strip-foundation/definition';
 import { definition as def_test_score_percent } from './test-score-percent/definition';
+import { definition as def_text_reading_time } from './text-reading-time/definition';
+import { definition as def_text_word_char_count } from './text-word-char-count/definition';
 import { definition as def_time_duration } from './time-duration/definition';
+import { definition as def_timezone_difference } from './timezone-difference/definition';
 import { definition as def_tip } from './tip/definition';
 import { definition as def_tire_size } from './tire-size/definition';
 import { definition as def_trip_budget } from './trip-budget/definition';
@@ -259,6 +263,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_logarithm,
   def_ltv,
   def_market_cap,
+  def_max_heart_rate,
   def_modulo,
   def_molarity,
   def_moles,
@@ -305,7 +310,10 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_stock_duration,
   def_strip_foundation,
   def_test_score_percent,
+  def_text_reading_time,
+  def_text_word_char_count,
   def_time_duration,
+  def_timezone_difference,
   def_tip,
   def_tire_size,
   def_trip_budget,
