@@ -67,6 +67,7 @@ convert-time,/ru/converters/convert-time/,/en/converters/time-converter/,/uk/kon
 convert-torque,/ru/converters/convert-torque/,/en/converters/torque-converter/,/uk/konvertery/konverter-krutnoho-momentu/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 convert-volume,/ru/converters/convert-volume/,/en/converters/volume-converter/,/uk/konvertery/konverter-obyemu/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 cooked-weight,/ru/household/cooked-weight/,/en/household/raw-to-cooked-weight-calculator/,/uk/pobut/suha-ta-hotova-vaha/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+correlation,/ru/math/correlation/,/en/math/correlation-coefficient-calculator/,/uk/math/korelyatsiya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 cpm,/ru/business/cpm/,/en/business/cpm-calculator/,/uk/business/cpm/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 crypto-pnl,/ru/finance/crypto-pnl/,/en/finance/crypto-profit-calculator/,/uk/finansy/prybutok-kryptovalyuty/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 ctr,/ru/business/ctr/,/en/business/ctr-calculator/,/uk/business/ctr/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -105,6 +106,7 @@ geom-square,/ru/geometry/square/,/en/geometry/square-calculator/,/uk/heometriya/
 geom-trapezoid,/ru/geometry/trapezoid/,/en/geometry/trapezoid-calculator/,/uk/heometriya/trapetsiya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 geom-triangle,/ru/geometry/triangle/,/en/geometry/triangle-calculator/,/uk/heometriya/trykutnyk/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 golden-ratio,/ru/geometry/golden-ratio/,/en/geometry/golden-ratio-calculator/,/uk/heometriya/zolotyi-pereriz/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+gpa,/ru/education/gpa/,/en/education/gpa-calculator/,/uk/navchannya/seredniy-bal/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 heating-power,/ru/household/heating-power/,/en/household/heating-power-calculator/,/uk/pobut/potuzhnist-opalennya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 hydrostatic-pressure,/ru/physics/hydrostatic-pressure/,/en/physics/hydrostatic-pressure-calculator/,/uk/fizyka/hidrostatychnyi-tysk/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 ideal-gas-law,/ru/chemistry/ideal-gas-law/,/en/chemistry/ideal-gas-law-calculator/,/uk/himiya/rivniannia-stanu-hazu/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -113,6 +115,7 @@ insulation,/ru/building/insulation/,/en/home-improvement/insulation-calculator/,
 internet-traffic,/ru/computers/internet-traffic/,/en/computers/internet-data-usage-calculator/,/uk/kompyutery/internet-trafik/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 inventory-turnover,/ru/business/inventory-turnover/,/en/business/inventory-turnover-calculator/,/uk/business/oborotnist-zapasiv/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 inverter-power,/ru/electronics/inverter-power/,/en/electronics/inverter-power-calculator/,/uk/elektronika/potuzhnist-invertora/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+ipv4-subnet,/ru/computers/ipv4-subnet/,/en/computers/ipv4-subnet-calculator/,/uk/kompyutery/pidmerezha-ipv4/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 kinetic-energy,/ru/physics/kinetic-energy/,/en/physics/kinetic-energy-calculator/,/uk/fizyka/kinetychna-enerhiya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 leap-year,/ru/date-time/leap-year/,/en/date-time/leap-year/,/uk/daty/vysokosnyi-rik/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 led-resistor,/ru/electronics/led-resistor/,/en/electronics/led-resistor-calculator/,/uk/elektronika/rezystor-dlya-svitlodioda/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -122,6 +125,7 @@ ltv,/ru/business/ltv/,/en/business/ltv-calculator/,/uk/business/ltv/,ru-only,Nee
 market-cap,/ru/finance/market-cap/,/en/finance/market-cap-calculator/,/uk/finansy/rynkova-kapitalizatsiya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 max-heart-rate,/ru/sport/max-heart-rate/,/en/fitness/maximum-heart-rate-calculator/,/uk/fitness/maksymalnyy-puls/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 modulo,/ru/math/modulo/,/en/math/remainder-calculator/,/uk/math/kalkulyator-ostachi/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+molar-mass,/ru/chemistry/molar-mass/,/en/chemistry/molar-mass-calculator/,/uk/himiya/molyarna-masa/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 molarity,/ru/chemistry/molarity/,/en/chemistry/molarity-calculator/,/uk/himiya/moliarnist/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 moles,/ru/chemistry/moles/,/en/chemistry/moles-calculator/,/uk/himiya/kilkist-rechovyny/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 momentum,/ru/physics/momentum/,/en/physics/momentum-calculator/,/uk/fizyka/impuls/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.

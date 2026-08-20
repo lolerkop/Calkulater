@@ -52,6 +52,7 @@ import { definition as def_convert_time } from './convert-time/definition';
 import { definition as def_convert_torque } from './convert-torque/definition';
 import { definition as def_convert_volume } from './convert-volume/definition';
 import { definition as def_cooked_weight } from './cooked-weight/definition';
+import { definition as def_correlation } from './correlation/definition';
 import { definition as def_cpm } from './cpm/definition';
 import { definition as def_crypto_pnl } from './crypto-pnl/definition';
 import { definition as def_ctr } from './ctr/definition';
@@ -90,6 +91,7 @@ import { definition as def_geom_square } from './geom-square/definition';
 import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
 import { definition as def_geom_triangle } from './geom-triangle/definition';
 import { definition as def_golden_ratio } from './golden-ratio/definition';
+import { definition as def_gpa } from './gpa/definition';
 import { definition as def_heating_power } from './heating-power/definition';
 import { definition as def_hydrostatic_pressure } from './hydrostatic-pressure/definition';
 import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
@@ -98,6 +100,7 @@ import { definition as def_insulation } from './insulation/definition';
 import { definition as def_internet_traffic } from './internet-traffic/definition';
 import { definition as def_inventory_turnover } from './inventory-turnover/definition';
 import { definition as def_inverter_power } from './inverter-power/definition';
+import { definition as def_ipv4_subnet } from './ipv4-subnet/definition';
 import { definition as def_kinetic_energy } from './kinetic-energy/definition';
 import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
@@ -107,6 +110,7 @@ import { definition as def_ltv } from './ltv/definition';
 import { definition as def_market_cap } from './market-cap/definition';
 import { definition as def_max_heart_rate } from './max-heart-rate/definition';
 import { definition as def_modulo } from './modulo/definition';
+import { definition as def_molar_mass } from './molar-mass/definition';
 import { definition as def_molarity } from './molarity/definition';
 import { definition as def_moles } from './moles/definition';
 import { definition as def_momentum } from './momentum/definition';
@@ -210,6 +214,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_torque,
   def_convert_volume,
   def_cooked_weight,
+  def_correlation,
   def_cpm,
   def_crypto_pnl,
   def_ctr,
@@ -248,6 +253,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_trapezoid,
   def_geom_triangle,
   def_golden_ratio,
+  def_gpa,
   def_heating_power,
   def_hydrostatic_pressure,
   def_ideal_gas_law,
@@ -256,6 +262,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_internet_traffic,
   def_inventory_turnover,
   def_inverter_power,
+  def_ipv4_subnet,
   def_kinetic_energy,
   def_leap_year,
   def_led_resistor,
@@ -265,6 +272,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_market_cap,
   def_max_heart_rate,
   def_modulo,
+  def_molar_mass,
   def_molarity,
   def_moles,
   def_momentum,

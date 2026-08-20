@@ -46,6 +46,7 @@ import { localization as loc_convert_time } from './convert-time/localization';
 import { localization as loc_convert_torque } from './convert-torque/localization';
 import { localization as loc_convert_volume } from './convert-volume/localization';
 import { localization as loc_cooked_weight } from './cooked-weight/localization';
+import { localization as loc_correlation } from './correlation/localization';
 import { localization as loc_cpm } from './cpm/localization';
 import { localization as loc_crypto_pnl } from './crypto-pnl/localization';
 import { localization as loc_ctr } from './ctr/localization';
@@ -84,6 +85,7 @@ import { localization as loc_geom_square } from './geom-square/localization';
 import { localization as loc_geom_trapezoid } from './geom-trapezoid/localization';
 import { localization as loc_geom_triangle } from './geom-triangle/localization';
 import { localization as loc_golden_ratio } from './golden-ratio/localization';
+import { localization as loc_gpa } from './gpa/localization';
 import { localization as loc_heating_power } from './heating-power/localization';
 import { localization as loc_hydrostatic_pressure } from './hydrostatic-pressure/localization';
 import { localization as loc_ideal_gas_law } from './ideal-gas-law/localization';
@@ -92,6 +94,7 @@ import { localization as loc_insulation } from './insulation/localization';
 import { localization as loc_internet_traffic } from './internet-traffic/localization';
 import { localization as loc_inventory_turnover } from './inventory-turnover/localization';
 import { localization as loc_inverter_power } from './inverter-power/localization';
+import { localization as loc_ipv4_subnet } from './ipv4-subnet/localization';
 import { localization as loc_kinetic_energy } from './kinetic-energy/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_led_resistor } from './led-resistor/localization';
@@ -101,6 +104,7 @@ import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_market_cap } from './market-cap/localization';
 import { localization as loc_max_heart_rate } from './max-heart-rate/localization';
 import { localization as loc_modulo } from './modulo/localization';
+import { localization as loc_molar_mass } from './molar-mass/localization';
 import { localization as loc_molarity } from './molarity/localization';
 import { localization as loc_moles } from './moles/localization';
 import { localization as loc_momentum } from './momentum/localization';
@@ -203,6 +207,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-torque': loc_convert_torque.en ?? {},
     'convert-volume': loc_convert_volume.en ?? {},
     'cooked-weight': loc_cooked_weight.en ?? {},
+    'correlation': loc_correlation.en ?? {},
     'cpm': loc_cpm.en ?? {},
     'crypto-pnl': loc_crypto_pnl.en ?? {},
     'ctr': loc_ctr.en ?? {},
@@ -241,6 +246,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-trapezoid': loc_geom_trapezoid.en ?? {},
     'geom-triangle': loc_geom_triangle.en ?? {},
     'golden-ratio': loc_golden_ratio.en ?? {},
+    'gpa': loc_gpa.en ?? {},
     'heating-power': loc_heating_power.en ?? {},
     'hydrostatic-pressure': loc_hydrostatic_pressure.en ?? {},
     'ideal-gas-law': loc_ideal_gas_law.en ?? {},
@@ -249,6 +255,7 @@ export const v2Localization: ScopedLocalization = {
     'internet-traffic': loc_internet_traffic.en ?? {},
     'inventory-turnover': loc_inventory_turnover.en ?? {},
     'inverter-power': loc_inverter_power.en ?? {},
+    'ipv4-subnet': loc_ipv4_subnet.en ?? {},
     'kinetic-energy': loc_kinetic_energy.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
     'led-resistor': loc_led_resistor.en ?? {},
@@ -258,6 +265,7 @@ export const v2Localization: ScopedLocalization = {
     'market-cap': loc_market_cap.en ?? {},
     'max-heart-rate': loc_max_heart_rate.en ?? {},
     'modulo': loc_modulo.en ?? {},
+    'molar-mass': loc_molar_mass.en ?? {},
     'molarity': loc_molarity.en ?? {},
     'moles': loc_moles.en ?? {},
     'momentum': loc_momentum.en ?? {},
@@ -359,6 +367,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-torque': loc_convert_torque.uk ?? {},
     'convert-volume': loc_convert_volume.uk ?? {},
     'cooked-weight': loc_cooked_weight.uk ?? {},
+    'correlation': loc_correlation.uk ?? {},
     'cpm': loc_cpm.uk ?? {},
     'crypto-pnl': loc_crypto_pnl.uk ?? {},
     'ctr': loc_ctr.uk ?? {},
@@ -397,6 +406,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-trapezoid': loc_geom_trapezoid.uk ?? {},
     'geom-triangle': loc_geom_triangle.uk ?? {},
     'golden-ratio': loc_golden_ratio.uk ?? {},
+    'gpa': loc_gpa.uk ?? {},
     'heating-power': loc_heating_power.uk ?? {},
     'hydrostatic-pressure': loc_hydrostatic_pressure.uk ?? {},
     'ideal-gas-law': loc_ideal_gas_law.uk ?? {},
@@ -405,6 +415,7 @@ export const v2Localization: ScopedLocalization = {
     'internet-traffic': loc_internet_traffic.uk ?? {},
     'inventory-turnover': loc_inventory_turnover.uk ?? {},
     'inverter-power': loc_inverter_power.uk ?? {},
+    'ipv4-subnet': loc_ipv4_subnet.uk ?? {},
     'kinetic-energy': loc_kinetic_energy.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
     'led-resistor': loc_led_resistor.uk ?? {},
@@ -414,6 +425,7 @@ export const v2Localization: ScopedLocalization = {
     'market-cap': loc_market_cap.uk ?? {},
     'max-heart-rate': loc_max_heart_rate.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
+    'molar-mass': loc_molar_mass.uk ?? {},
     'molarity': loc_molarity.uk ?? {},
     'moles': loc_moles.uk ?? {},
     'momentum': loc_momentum.uk ?? {},
