@@ -698,6 +698,32 @@ const stateScenarios: Record<string, StateScenario> = {
     },
     result: { primary: '2026-01-02' },
   },
+  // Волна 7, подпартия 17A1.
+  // Ожидаемые значения выведены вручную:
+  //   150 000 + 640 000 = 790 000 доступно; 790 000 − 285 000 = 505 000
+  //   120 000 + 45 000 + 15 000 = 180 000 на 600 шт -> 300; доля материалов 2/3
+  //   1 200 000 × 0,75 = 900 000; × 0,9² = 729 000; потеряно 471 000 = 39,25 %
+  //   Δ = 3·(−4) − 1·2 = −14; x = (16·(−4) + 4·2)/(−14) = 4; y = (3·(−4) − 16)/(−14) = 2
+  //   120 × 0,9 = 108 чистой воды; 30 % от неё = 32,4; остаётся 75,6
+  //   2000/800 = 2,5 -> общий рост 150 %; 2,5^(1/4) = 1,2574334 -> 25,74 % за период
+  //   60 000 / 250 = 240 за заявку; на тысячу 240 000
+  //   I = 2200 / (220 · 0,8) = 12,5 А; S = 2750 ВА; Q = √(2750² − 2200²) = 1650 вар
+  //   250 000 − 100 000 = 150 000; маржа 60 %, наценка 150 %
+  //   v = 5 + 2,5 · 6 = 20 м/с; путь (5 + 20)/2 · 6 = 75 м
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  // У single-phase и acceleration выбран НЕ умолчальный режим: так проверяется
+  // и обратное направление формулы, и переключение показываемых полей.
+  'cogs': { query: { beginInventory: 150000, purchases: 640000, endInventory: 285000 }, result: { primary: '505 000,00 ₽', rows: [{ label: 'Доступно к продаже', value: '790 000,00 ₽' }, { label: 'Запас на начало', value: '150 000,00 ₽' }] } },
+  'cogs-unit-cost': { query: { materials: 120000, labor: 45000, overhead: 15000, units: 600 }, result: { primary: '300,00 ₽', rows: [{ label: 'Всего затрат', value: '180 000,00 ₽' }, { label: 'Единиц', value: '600' }, { label: 'Доля материалов', value: '66,67%' }] } },
+  'car-depreciation': { query: { price: 1200000, years: 3, ratePct: 10, firstYearPct: 25 }, result: { primary: '729 000,00 ₽', rows: [{ label: 'Потеряно в деньгах', value: '471 000,00 ₽' }, { label: 'Потеряно, доля', value: '39,25%' }] } },
+  'linear-system': { query: { a1: 3, b1: 2, c1: 16, a2: 1, b2: -4, c2: -4 }, result: { primary: 'x = 4', rows: [{ label: 'y', value: '2' }, { label: 'Определитель', value: '-14' }] } },
+  'aquarium-water-change': { query: { volume: 120, changePct: 30, decorPct: 10 }, result: { primary: '32,4 л', rows: [{ label: 'Чистый объём воды', value: '108 л' }, { label: 'Останется', value: '75,6 л' }] } },
+  'audience-growth': { query: { start: 800, end: 2000, periods: 4 }, result: { primary: '150,00%', rows: [{ label: 'Рост за период', value: '25,74%' }, { label: 'Прирост', value: '1 200' }, { label: 'Множитель', value: '2,5' }] } },
+  'cpa-cpl-cpi': { query: { mode: 'cpl', cost: 60000, actions: 250 }, result: { primary: '240,00 ₽', rows: [{ label: 'Бюджет', value: '60 000,00 ₽' }, { label: 'Действий', value: '250' }, { label: 'На тысячу действий', value: '240 000,00 ₽' }] } },
+  'single-phase': { query: { mode: 'current', voltage: 220, power: 2200, powerFactor: 0.8 }, result: { primary: '12,5 А', rows: [{ label: 'Активная мощность', value: '2 200 Вт' }, { label: 'Полная мощность', value: '2 750 ВА' }, { label: 'Реактивная мощность', value: '1 650 вар' }] } },
+  'profit': { query: { revenue: 250000, cost: 100000 }, result: { primary: '150 000,00 ₽', rows: [{ label: 'Маржа', value: '60,00%' }, { label: 'Наценка', value: '150,00%' }] } },
+  'acceleration': { query: { mode: 'v', v0: 5, a: 2.5, t: 6 }, result: { primary: '20 м/с', rows: [{ label: 'Изменение скорости', value: '15 м/с' }, { label: 'Пройденный путь', value: '75 м' }, { label: 'Время', value: '6 с' }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));

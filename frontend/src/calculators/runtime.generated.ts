@@ -14,13 +14,16 @@ import type { CalculatorContextualField, CalculatorValidator } from '../lib/plat
 import type { CalculatorClientRuntime } from '../lib/platform/runtime';
 import { v2Localization } from './localization.generated';
 
+import { compute as compute_acceleration } from './acceleration/compute';
 import { compute as compute_activity_calories } from './activity-calories/compute';
 import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
+import { compute as compute_aquarium_water_change } from './aquarium-water-change/compute';
 import { compute as compute_arithmetic_progression } from './arithmetic-progression/compute';
 import { compute as compute_arpu_arppu } from './arpu-arppu/compute';
 import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
+import { compute as compute_audience_growth } from './audience-growth/compute';
 import { compute as compute_bakers_percentage } from './bakers-percentage/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
@@ -31,7 +34,10 @@ import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
 import { compute as compute_calories_from_macros } from './calories-from-macros/compute';
+import { compute as compute_car_depreciation } from './car-depreciation/compute';
 import { compute as compute_churn_retention } from './churn-retention/compute';
+import { compute as compute_cogs } from './cogs/compute';
+import { compute as compute_cogs_unit_cost } from './cogs-unit-cost/compute';
 import { compute as compute_color_convert } from './color-convert/compute';
 import { compute as compute_combinatorics } from './combinatorics/compute';
 import { compute as compute_commission } from './commission/compute';
@@ -64,6 +70,7 @@ import { compute as compute_convert_torque } from './convert-torque/compute';
 import { compute as compute_convert_volume } from './convert-volume/compute';
 import { compute as compute_cooked_weight } from './cooked-weight/compute';
 import { compute as compute_correlation } from './correlation/compute';
+import { compute as compute_cpa_cpl_cpi } from './cpa-cpl-cpi/compute';
 import { compute as compute_cpm } from './cpm/compute';
 import { compute as compute_crypto_pnl } from './crypto-pnl/compute';
 import { compute as compute_ctr } from './ctr/compute';
@@ -126,6 +133,7 @@ import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
 import { compute as compute_linear_equation } from './linear-equation/compute';
+import { compute as compute_linear_system } from './linear-system/compute';
 import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
@@ -161,6 +169,7 @@ import { compute as compute_price_per_unit } from './price-per-unit/compute';
 import { compute as compute_prime_factorization } from './prime-factorization/compute';
 import { compute as compute_print_3d_cost } from './print-3d-cost/compute';
 import { compute as compute_probability_basic } from './probability-basic/compute';
+import { compute as compute_profit } from './profit/compute';
 import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
@@ -184,6 +193,7 @@ import { compute as compute_rule_of_72 } from './rule-of-72/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
 import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
+import { compute as compute_single_phase } from './single-phase/compute';
 import { compute as compute_solution_concentration } from './solution-concentration/compute';
 import { compute as compute_speed_distance_time } from './speed-distance-time/compute';
 import { contextualField as ctx_speed_distance_time } from './speed-distance-time/contextualField';
@@ -210,13 +220,16 @@ import { compute as compute_workday_cost } from './workday-cost/compute';
 import { compute as compute_z_score } from './z-score/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
+  'acceleration': compute_acceleration,
   'activity-calories': compute_activity_calories,
   'ad-roi': compute_ad_roi,
   'annuity': compute_annuity,
   'aov': compute_aov,
+  'aquarium-water-change': compute_aquarium_water_change,
   'arithmetic-progression': compute_arithmetic_progression,
   'arpu-arppu': compute_arpu_arppu,
   'aspect-ratio': compute_aspect_ratio,
+  'audience-growth': compute_audience_growth,
   'bakers-percentage': compute_bakers_percentage,
   'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
@@ -227,7 +240,10 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cac': compute_cac,
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
+  'car-depreciation': compute_car_depreciation,
   'churn-retention': compute_churn_retention,
+  'cogs': compute_cogs,
+  'cogs-unit-cost': compute_cogs_unit_cost,
   'color-convert': compute_color_convert,
   'combinatorics': compute_combinatorics,
   'commission': compute_commission,
@@ -258,6 +274,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-volume': compute_convert_volume,
   'cooked-weight': compute_cooked_weight,
   'correlation': compute_correlation,
+  'cpa-cpl-cpi': compute_cpa_cpl_cpi,
   'cpm': compute_cpm,
   'crypto-pnl': compute_crypto_pnl,
   'ctr': compute_ctr,
@@ -319,6 +336,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'leap-year': compute_leap_year,
   'led-resistor': compute_led_resistor,
   'linear-equation': compute_linear_equation,
+  'linear-system': compute_linear_system,
   'logarithm': compute_logarithm,
   'ltv': compute_ltv,
   'market-cap': compute_market_cap,
@@ -350,6 +368,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'prime-factorization': compute_prime_factorization,
   'print-3d-cost': compute_print_3d_cost,
   'probability-basic': compute_probability_basic,
+  'profit': compute_profit,
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
   'raid': compute_raid,
@@ -372,6 +391,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'savings-rate': compute_savings_rate,
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
+  'single-phase': compute_single_phase,
   'solution-concentration': compute_solution_concentration,
   'speed-distance-time': compute_speed_distance_time,
   'stats-descriptive': compute_stats_descriptive,

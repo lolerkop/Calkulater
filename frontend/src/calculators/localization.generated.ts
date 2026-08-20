@@ -6,13 +6,16 @@
 
 import type { ScopedLocalization } from '../lib/platform/types';
 
+import { localization as loc_acceleration } from './acceleration/localization';
 import { localization as loc_activity_calories } from './activity-calories/localization';
 import { localization as loc_ad_roi } from './ad-roi/localization';
 import { localization as loc_annuity } from './annuity/localization';
 import { localization as loc_aov } from './aov/localization';
+import { localization as loc_aquarium_water_change } from './aquarium-water-change/localization';
 import { localization as loc_arithmetic_progression } from './arithmetic-progression/localization';
 import { localization as loc_arpu_arppu } from './arpu-arppu/localization';
 import { localization as loc_aspect_ratio } from './aspect-ratio/localization';
+import { localization as loc_audience_growth } from './audience-growth/localization';
 import { localization as loc_bakers_percentage } from './bakers-percentage/localization';
 import { localization as loc_battery_charge_time } from './battery-charge-time/localization';
 import { localization as loc_battery_runtime } from './battery-runtime/localization';
@@ -23,7 +26,10 @@ import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localizat
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
 import { localization as loc_calories_from_macros } from './calories-from-macros/localization';
+import { localization as loc_car_depreciation } from './car-depreciation/localization';
 import { localization as loc_churn_retention } from './churn-retention/localization';
+import { localization as loc_cogs } from './cogs/localization';
+import { localization as loc_cogs_unit_cost } from './cogs-unit-cost/localization';
 import { localization as loc_color_convert } from './color-convert/localization';
 import { localization as loc_combinatorics } from './combinatorics/localization';
 import { localization as loc_commission } from './commission/localization';
@@ -54,6 +60,7 @@ import { localization as loc_convert_torque } from './convert-torque/localizatio
 import { localization as loc_convert_volume } from './convert-volume/localization';
 import { localization as loc_cooked_weight } from './cooked-weight/localization';
 import { localization as loc_correlation } from './correlation/localization';
+import { localization as loc_cpa_cpl_cpi } from './cpa-cpl-cpi/localization';
 import { localization as loc_cpm } from './cpm/localization';
 import { localization as loc_crypto_pnl } from './crypto-pnl/localization';
 import { localization as loc_ctr } from './ctr/localization';
@@ -115,6 +122,7 @@ import { localization as loc_kinetic_energy } from './kinetic-energy/localizatio
 import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_led_resistor } from './led-resistor/localization';
 import { localization as loc_linear_equation } from './linear-equation/localization';
+import { localization as loc_linear_system } from './linear-system/localization';
 import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_market_cap } from './market-cap/localization';
@@ -144,6 +152,7 @@ import { localization as loc_price_per_unit } from './price-per-unit/localizatio
 import { localization as loc_prime_factorization } from './prime-factorization/localization';
 import { localization as loc_print_3d_cost } from './print-3d-cost/localization';
 import { localization as loc_probability_basic } from './probability-basic/localization';
+import { localization as loc_profit } from './profit/localization';
 import { localization as loc_proportion } from './proportion/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
 import { localization as loc_raid } from './raid/localization';
@@ -166,6 +175,7 @@ import { localization as loc_rule_of_72 } from './rule-of-72/localization';
 import { localization as loc_savings_rate } from './savings-rate/localization';
 import { localization as loc_shipping_per_unit } from './shipping-per-unit/localization';
 import { localization as loc_simple_interest } from './simple-interest/localization';
+import { localization as loc_single_phase } from './single-phase/localization';
 import { localization as loc_solution_concentration } from './solution-concentration/localization';
 import { localization as loc_speed_distance_time } from './speed-distance-time/localization';
 import { localization as loc_stats_descriptive } from './stats-descriptive/localization';
@@ -192,13 +202,16 @@ import { localization as loc_z_score } from './z-score/localization';
 
 export const v2Localization: ScopedLocalization = {
   en: {
+    'acceleration': loc_acceleration.en ?? {},
     'activity-calories': loc_activity_calories.en ?? {},
     'ad-roi': loc_ad_roi.en ?? {},
     'annuity': loc_annuity.en ?? {},
     'aov': loc_aov.en ?? {},
+    'aquarium-water-change': loc_aquarium_water_change.en ?? {},
     'arithmetic-progression': loc_arithmetic_progression.en ?? {},
     'arpu-arppu': loc_arpu_arppu.en ?? {},
     'aspect-ratio': loc_aspect_ratio.en ?? {},
+    'audience-growth': loc_audience_growth.en ?? {},
     'bakers-percentage': loc_bakers_percentage.en ?? {},
     'battery-charge-time': loc_battery_charge_time.en ?? {},
     'battery-runtime': loc_battery_runtime.en ?? {},
@@ -209,7 +222,10 @@ export const v2Localization: ScopedLocalization = {
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
     'calories-from-macros': loc_calories_from_macros.en ?? {},
+    'car-depreciation': loc_car_depreciation.en ?? {},
     'churn-retention': loc_churn_retention.en ?? {},
+    'cogs': loc_cogs.en ?? {},
+    'cogs-unit-cost': loc_cogs_unit_cost.en ?? {},
     'color-convert': loc_color_convert.en ?? {},
     'combinatorics': loc_combinatorics.en ?? {},
     'commission': loc_commission.en ?? {},
@@ -240,6 +256,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-volume': loc_convert_volume.en ?? {},
     'cooked-weight': loc_cooked_weight.en ?? {},
     'correlation': loc_correlation.en ?? {},
+    'cpa-cpl-cpi': loc_cpa_cpl_cpi.en ?? {},
     'cpm': loc_cpm.en ?? {},
     'crypto-pnl': loc_crypto_pnl.en ?? {},
     'ctr': loc_ctr.en ?? {},
@@ -301,6 +318,7 @@ export const v2Localization: ScopedLocalization = {
     'leap-year': loc_leap_year.en ?? {},
     'led-resistor': loc_led_resistor.en ?? {},
     'linear-equation': loc_linear_equation.en ?? {},
+    'linear-system': loc_linear_system.en ?? {},
     'logarithm': loc_logarithm.en ?? {},
     'ltv': loc_ltv.en ?? {},
     'market-cap': loc_market_cap.en ?? {},
@@ -330,6 +348,7 @@ export const v2Localization: ScopedLocalization = {
     'prime-factorization': loc_prime_factorization.en ?? {},
     'print-3d-cost': loc_print_3d_cost.en ?? {},
     'probability-basic': loc_probability_basic.en ?? {},
+    'profit': loc_profit.en ?? {},
     'proportion': loc_proportion.en ?? {},
     'quadratic-equation': loc_quadratic_equation.en ?? {},
     'raid': loc_raid.en ?? {},
@@ -352,6 +371,7 @@ export const v2Localization: ScopedLocalization = {
     'savings-rate': loc_savings_rate.en ?? {},
     'shipping-per-unit': loc_shipping_per_unit.en ?? {},
     'simple-interest': loc_simple_interest.en ?? {},
+    'single-phase': loc_single_phase.en ?? {},
     'solution-concentration': loc_solution_concentration.en ?? {},
     'speed-distance-time': loc_speed_distance_time.en ?? {},
     'stats-descriptive': loc_stats_descriptive.en ?? {},
@@ -377,13 +397,16 @@ export const v2Localization: ScopedLocalization = {
     'z-score': loc_z_score.en ?? {},
   },
   uk: {
+    'acceleration': loc_acceleration.uk ?? {},
     'activity-calories': loc_activity_calories.uk ?? {},
     'ad-roi': loc_ad_roi.uk ?? {},
     'annuity': loc_annuity.uk ?? {},
     'aov': loc_aov.uk ?? {},
+    'aquarium-water-change': loc_aquarium_water_change.uk ?? {},
     'arithmetic-progression': loc_arithmetic_progression.uk ?? {},
     'arpu-arppu': loc_arpu_arppu.uk ?? {},
     'aspect-ratio': loc_aspect_ratio.uk ?? {},
+    'audience-growth': loc_audience_growth.uk ?? {},
     'bakers-percentage': loc_bakers_percentage.uk ?? {},
     'battery-charge-time': loc_battery_charge_time.uk ?? {},
     'battery-runtime': loc_battery_runtime.uk ?? {},
@@ -394,7 +417,10 @@ export const v2Localization: ScopedLocalization = {
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
     'calories-from-macros': loc_calories_from_macros.uk ?? {},
+    'car-depreciation': loc_car_depreciation.uk ?? {},
     'churn-retention': loc_churn_retention.uk ?? {},
+    'cogs': loc_cogs.uk ?? {},
+    'cogs-unit-cost': loc_cogs_unit_cost.uk ?? {},
     'color-convert': loc_color_convert.uk ?? {},
     'combinatorics': loc_combinatorics.uk ?? {},
     'commission': loc_commission.uk ?? {},
@@ -425,6 +451,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-volume': loc_convert_volume.uk ?? {},
     'cooked-weight': loc_cooked_weight.uk ?? {},
     'correlation': loc_correlation.uk ?? {},
+    'cpa-cpl-cpi': loc_cpa_cpl_cpi.uk ?? {},
     'cpm': loc_cpm.uk ?? {},
     'crypto-pnl': loc_crypto_pnl.uk ?? {},
     'ctr': loc_ctr.uk ?? {},
@@ -486,6 +513,7 @@ export const v2Localization: ScopedLocalization = {
     'leap-year': loc_leap_year.uk ?? {},
     'led-resistor': loc_led_resistor.uk ?? {},
     'linear-equation': loc_linear_equation.uk ?? {},
+    'linear-system': loc_linear_system.uk ?? {},
     'logarithm': loc_logarithm.uk ?? {},
     'ltv': loc_ltv.uk ?? {},
     'market-cap': loc_market_cap.uk ?? {},
@@ -515,6 +543,7 @@ export const v2Localization: ScopedLocalization = {
     'prime-factorization': loc_prime_factorization.uk ?? {},
     'print-3d-cost': loc_print_3d_cost.uk ?? {},
     'probability-basic': loc_probability_basic.uk ?? {},
+    'profit': loc_profit.uk ?? {},
     'proportion': loc_proportion.uk ?? {},
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
     'raid': loc_raid.uk ?? {},
@@ -537,6 +566,7 @@ export const v2Localization: ScopedLocalization = {
     'savings-rate': loc_savings_rate.uk ?? {},
     'shipping-per-unit': loc_shipping_per_unit.uk ?? {},
     'simple-interest': loc_simple_interest.uk ?? {},
+    'single-phase': loc_single_phase.uk ?? {},
     'solution-concentration': loc_solution_concentration.uk ?? {},
     'speed-distance-time': loc_speed_distance_time.uk ?? {},
     'stats-descriptive': loc_stats_descriptive.uk ?? {},

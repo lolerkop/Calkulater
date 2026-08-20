@@ -8,13 +8,16 @@
 //
 // Легаси-калькуляторы рендерят общий остров и берут расчёт из общего реестра.
 import CalculatorIsland from './islands/CalculatorIsland';
+import AccelerationIsland from '../calculators/acceleration/island';
 import ActivityCaloriesIsland from '../calculators/activity-calories/island';
 import AdRoiIsland from '../calculators/ad-roi/island';
 import AnnuityIsland from '../calculators/annuity/island';
 import AovIsland from '../calculators/aov/island';
+import AquariumWaterChangeIsland from '../calculators/aquarium-water-change/island';
 import ArithmeticProgressionIsland from '../calculators/arithmetic-progression/island';
 import ArpuArppuIsland from '../calculators/arpu-arppu/island';
 import AspectRatioIsland from '../calculators/aspect-ratio/island';
+import AudienceGrowthIsland from '../calculators/audience-growth/island';
 import BakersPercentageIsland from '../calculators/bakers-percentage/island';
 import BatteryChargeTimeIsland from '../calculators/battery-charge-time/island';
 import BatteryRuntimeIsland from '../calculators/battery-runtime/island';
@@ -25,7 +28,10 @@ import Budget503020Island from '../calculators/budget-50-30-20/island';
 import CacIsland from '../calculators/cac/island';
 import CagrIsland from '../calculators/cagr/island';
 import CaloriesFromMacrosIsland from '../calculators/calories-from-macros/island';
+import CarDepreciationIsland from '../calculators/car-depreciation/island';
 import ChurnRetentionIsland from '../calculators/churn-retention/island';
+import CogsIsland from '../calculators/cogs/island';
+import CogsUnitCostIsland from '../calculators/cogs-unit-cost/island';
 import ColorConvertIsland from '../calculators/color-convert/island';
 import CombinatoricsIsland from '../calculators/combinatorics/island';
 import CommissionIsland from '../calculators/commission/island';
@@ -56,6 +62,7 @@ import ConvertTorqueIsland from '../calculators/convert-torque/island';
 import ConvertVolumeIsland from '../calculators/convert-volume/island';
 import CookedWeightIsland from '../calculators/cooked-weight/island';
 import CorrelationIsland from '../calculators/correlation/island';
+import CpaCplCpiIsland from '../calculators/cpa-cpl-cpi/island';
 import CpmIsland from '../calculators/cpm/island';
 import CryptoPnlIsland from '../calculators/crypto-pnl/island';
 import CtrIsland from '../calculators/ctr/island';
@@ -117,6 +124,7 @@ import KineticEnergyIsland from '../calculators/kinetic-energy/island';
 import LeapYearIsland from '../calculators/leap-year/island';
 import LedResistorIsland from '../calculators/led-resistor/island';
 import LinearEquationIsland from '../calculators/linear-equation/island';
+import LinearSystemIsland from '../calculators/linear-system/island';
 import LogarithmIsland from '../calculators/logarithm/island';
 import LtvIsland from '../calculators/ltv/island';
 import MarketCapIsland from '../calculators/market-cap/island';
@@ -148,6 +156,7 @@ import PricePerUnitIsland from '../calculators/price-per-unit/island';
 import PrimeFactorizationIsland from '../calculators/prime-factorization/island';
 import Print3dCostIsland from '../calculators/print-3d-cost/island';
 import ProbabilityBasicIsland from '../calculators/probability-basic/island';
+import ProfitIsland from '../calculators/profit/island';
 import ProportionIsland from '../calculators/proportion/island';
 import QuadraticEquationIsland from '../calculators/quadratic-equation/island';
 import RaidIsland from '../calculators/raid/island';
@@ -170,6 +179,7 @@ import RuleOf72Island from '../calculators/rule-of-72/island';
 import SavingsRateIsland from '../calculators/savings-rate/island';
 import ShippingPerUnitIsland from '../calculators/shipping-per-unit/island';
 import SimpleInterestIsland from '../calculators/simple-interest/island';
+import SinglePhaseIsland from '../calculators/single-phase/island';
 import SolutionConcentrationIsland from '../calculators/solution-concentration/island';
 import SpeedDistanceTimeIsland from '../calculators/speed-distance-time/island';
 import StatsDescriptiveIsland from '../calculators/stats-descriptive/island';
@@ -196,16 +206,19 @@ import ZScoreIsland from '../calculators/z-score/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithmetic-progression', 'arpu-arppu', 'aspect-ratio', 'bakers-percentage', 'battery-charge-time', 'battery-runtime', 'bike-gear-ratio', 'binomial-probability', 'board-volume', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'churn-retention', 'color-convert', 'combinatorics', 'commission', 'concrete', 'confidence-interval', 'contribution-margin', 'conversion-rate', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-fuel-economy', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cooked-weight', 'correlation', 'cpm', 'crypto-pnl', 'ctr', 'currency-exchange-fee', 'day-of-week', 'dca', 'density', 'difference-abs-rel', 'dilution', 'dividend-yield', 'divisors', 'down-payment', 'download-time', 'dti', 'electricity-usage', 'engagement-rate', 'factorial', 'fee-chain', 'fibonacci', 'files-on-disk', 'final-grade', 'fps-frametime', 'fraction-arith', 'freelance-rate', 'fuel-consumption', 'gcd-lcm', 'generator-fuel', 'geom-annulus', 'geom-circle', 'geom-cone', 'geom-cube', 'geom-cuboid', 'geom-cylinder', 'geom-ellipse', 'geom-frustum', 'geom-parallelogram', 'geom-rectangle', 'geom-regular-polygon', 'geom-rhombus', 'geom-right-triangle', 'geom-sector', 'geom-sphere', 'geom-square', 'geom-trapezoid', 'geom-triangle', 'golden-ratio', 'gpa', 'heating-power', 'hydrostatic-pressure', 'ideal-gas-law', 'inflation', 'installment', 'insulation', 'internet-traffic', 'inventory-turnover', 'inverter-power', 'ipv4-subnet', 'kinetic-energy', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'ltv', 'market-cap', 'max-heart-rate', 'max-loan', 'modulo', 'molar-mass', 'molarity', 'moles', 'momentum', 'mrr-arr', 'network-bandwidth', 'newton-force', 'ohms-law', 'paint-calculator', 'percent-calculator', 'ph-poh', 'physics-power', 'physics-torque', 'plaster', 'pool-fill-time', 'position-size', 'potential-energy', 'power-root', 'power-to-weight', 'ppi-dpi', 'pressure', 'price-per-unit', 'prime-factorization', 'print-3d-cost', 'probability-basic', 'proportion', 'quadratic-equation', 'raid', 'ratio', 'reading-speed', 'real-return', 'recipe-cost', 'recipe-scale', 'rental-yield', 'resistor-network', 'return-rate', 'revenue-per-employee', 'risk-reward', 'roas', 'roi', 'roman-numerals', 'roof-area', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'solution-concentration', 'speed-distance-time', 'stats-descriptive', 'stock-duration', 'strip-foundation', 'test-score-percent', 'text-reading-time', 'text-word-char-count', 'time-duration', 'time-value-money', 'timezone-difference', 'tip', 'tire-size', 'trip-budget', 'trip-cost', 'unix-timestamp', 'video-file-size', 'week-number', 'weighted-mean', 'work', 'work-hours', 'workday-cost', 'z-score']);
+const V2_IDS = new Set(['acceleration', 'activity-calories', 'ad-roi', 'annuity', 'aov', 'aquarium-water-change', 'arithmetic-progression', 'arpu-arppu', 'aspect-ratio', 'audience-growth', 'bakers-percentage', 'battery-charge-time', 'battery-runtime', 'bike-gear-ratio', 'binomial-probability', 'board-volume', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'car-depreciation', 'churn-retention', 'cogs', 'cogs-unit-cost', 'color-convert', 'combinatorics', 'commission', 'concrete', 'confidence-interval', 'contribution-margin', 'conversion-rate', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-fuel-economy', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cooked-weight', 'correlation', 'cpa-cpl-cpi', 'cpm', 'crypto-pnl', 'ctr', 'currency-exchange-fee', 'day-of-week', 'dca', 'density', 'difference-abs-rel', 'dilution', 'dividend-yield', 'divisors', 'down-payment', 'download-time', 'dti', 'electricity-usage', 'engagement-rate', 'factorial', 'fee-chain', 'fibonacci', 'files-on-disk', 'final-grade', 'fps-frametime', 'fraction-arith', 'freelance-rate', 'fuel-consumption', 'gcd-lcm', 'generator-fuel', 'geom-annulus', 'geom-circle', 'geom-cone', 'geom-cube', 'geom-cuboid', 'geom-cylinder', 'geom-ellipse', 'geom-frustum', 'geom-parallelogram', 'geom-rectangle', 'geom-regular-polygon', 'geom-rhombus', 'geom-right-triangle', 'geom-sector', 'geom-sphere', 'geom-square', 'geom-trapezoid', 'geom-triangle', 'golden-ratio', 'gpa', 'heating-power', 'hydrostatic-pressure', 'ideal-gas-law', 'inflation', 'installment', 'insulation', 'internet-traffic', 'inventory-turnover', 'inverter-power', 'ipv4-subnet', 'kinetic-energy', 'leap-year', 'led-resistor', 'linear-equation', 'linear-system', 'logarithm', 'ltv', 'market-cap', 'max-heart-rate', 'max-loan', 'modulo', 'molar-mass', 'molarity', 'moles', 'momentum', 'mrr-arr', 'network-bandwidth', 'newton-force', 'ohms-law', 'paint-calculator', 'percent-calculator', 'ph-poh', 'physics-power', 'physics-torque', 'plaster', 'pool-fill-time', 'position-size', 'potential-energy', 'power-root', 'power-to-weight', 'ppi-dpi', 'pressure', 'price-per-unit', 'prime-factorization', 'print-3d-cost', 'probability-basic', 'profit', 'proportion', 'quadratic-equation', 'raid', 'ratio', 'reading-speed', 'real-return', 'recipe-cost', 'recipe-scale', 'rental-yield', 'resistor-network', 'return-rate', 'revenue-per-employee', 'risk-reward', 'roas', 'roi', 'roman-numerals', 'roof-area', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'single-phase', 'solution-concentration', 'speed-distance-time', 'stats-descriptive', 'stock-duration', 'strip-foundation', 'test-score-percent', 'text-reading-time', 'text-word-char-count', 'time-duration', 'time-value-money', 'timezone-difference', 'tip', 'tire-size', 'trip-budget', 'trip-cost', 'unix-timestamp', 'video-file-size', 'week-number', 'weighted-mean', 'work', 'work-hours', 'workday-cost', 'z-score']);
 ---
 
+{id === 'acceleration' && <AccelerationIsland calc={calc} locale={locale} client:load />}
 {id === 'activity-calories' && <ActivityCaloriesIsland calc={calc} locale={locale} client:load />}
 {id === 'ad-roi' && <AdRoiIsland calc={calc} locale={locale} client:load />}
 {id === 'annuity' && <AnnuityIsland calc={calc} locale={locale} client:load />}
 {id === 'aov' && <AovIsland calc={calc} locale={locale} client:load />}
+{id === 'aquarium-water-change' && <AquariumWaterChangeIsland calc={calc} locale={locale} client:load />}
 {id === 'arithmetic-progression' && <ArithmeticProgressionIsland calc={calc} locale={locale} client:load />}
 {id === 'arpu-arppu' && <ArpuArppuIsland calc={calc} locale={locale} client:load />}
 {id === 'aspect-ratio' && <AspectRatioIsland calc={calc} locale={locale} client:load />}
+{id === 'audience-growth' && <AudienceGrowthIsland calc={calc} locale={locale} client:load />}
 {id === 'bakers-percentage' && <BakersPercentageIsland calc={calc} locale={locale} client:load />}
 {id === 'battery-charge-time' && <BatteryChargeTimeIsland calc={calc} locale={locale} client:load />}
 {id === 'battery-runtime' && <BatteryRuntimeIsland calc={calc} locale={locale} client:load />}
@@ -216,7 +229,10 @@ const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithm
 {id === 'cac' && <CacIsland calc={calc} locale={locale} client:load />}
 {id === 'cagr' && <CagrIsland calc={calc} locale={locale} client:load />}
 {id === 'calories-from-macros' && <CaloriesFromMacrosIsland calc={calc} locale={locale} client:load />}
+{id === 'car-depreciation' && <CarDepreciationIsland calc={calc} locale={locale} client:load />}
 {id === 'churn-retention' && <ChurnRetentionIsland calc={calc} locale={locale} client:load />}
+{id === 'cogs' && <CogsIsland calc={calc} locale={locale} client:load />}
+{id === 'cogs-unit-cost' && <CogsUnitCostIsland calc={calc} locale={locale} client:load />}
 {id === 'color-convert' && <ColorConvertIsland calc={calc} locale={locale} client:load />}
 {id === 'combinatorics' && <CombinatoricsIsland calc={calc} locale={locale} client:load />}
 {id === 'commission' && <CommissionIsland calc={calc} locale={locale} client:load />}
@@ -247,6 +263,7 @@ const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithm
 {id === 'convert-volume' && <ConvertVolumeIsland calc={calc} locale={locale} client:load />}
 {id === 'cooked-weight' && <CookedWeightIsland calc={calc} locale={locale} client:load />}
 {id === 'correlation' && <CorrelationIsland calc={calc} locale={locale} client:load />}
+{id === 'cpa-cpl-cpi' && <CpaCplCpiIsland calc={calc} locale={locale} client:load />}
 {id === 'cpm' && <CpmIsland calc={calc} locale={locale} client:load />}
 {id === 'crypto-pnl' && <CryptoPnlIsland calc={calc} locale={locale} client:load />}
 {id === 'ctr' && <CtrIsland calc={calc} locale={locale} client:load />}
@@ -308,6 +325,7 @@ const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithm
 {id === 'leap-year' && <LeapYearIsland calc={calc} locale={locale} client:load />}
 {id === 'led-resistor' && <LedResistorIsland calc={calc} locale={locale} client:load />}
 {id === 'linear-equation' && <LinearEquationIsland calc={calc} locale={locale} client:load />}
+{id === 'linear-system' && <LinearSystemIsland calc={calc} locale={locale} client:load />}
 {id === 'logarithm' && <LogarithmIsland calc={calc} locale={locale} client:load />}
 {id === 'ltv' && <LtvIsland calc={calc} locale={locale} client:load />}
 {id === 'market-cap' && <MarketCapIsland calc={calc} locale={locale} client:load />}
@@ -339,6 +357,7 @@ const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithm
 {id === 'prime-factorization' && <PrimeFactorizationIsland calc={calc} locale={locale} client:load />}
 {id === 'print-3d-cost' && <Print3dCostIsland calc={calc} locale={locale} client:load />}
 {id === 'probability-basic' && <ProbabilityBasicIsland calc={calc} locale={locale} client:load />}
+{id === 'profit' && <ProfitIsland calc={calc} locale={locale} client:load />}
 {id === 'proportion' && <ProportionIsland calc={calc} locale={locale} client:load />}
 {id === 'quadratic-equation' && <QuadraticEquationIsland calc={calc} locale={locale} client:load />}
 {id === 'raid' && <RaidIsland calc={calc} locale={locale} client:load />}
@@ -361,6 +380,7 @@ const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithm
 {id === 'savings-rate' && <SavingsRateIsland calc={calc} locale={locale} client:load />}
 {id === 'shipping-per-unit' && <ShippingPerUnitIsland calc={calc} locale={locale} client:load />}
 {id === 'simple-interest' && <SimpleInterestIsland calc={calc} locale={locale} client:load />}
+{id === 'single-phase' && <SinglePhaseIsland calc={calc} locale={locale} client:load />}
 {id === 'solution-concentration' && <SolutionConcentrationIsland calc={calc} locale={locale} client:load />}
 {id === 'speed-distance-time' && <SpeedDistanceTimeIsland calc={calc} locale={locale} client:load />}
 {id === 'stats-descriptive' && <StatsDescriptiveIsland calc={calc} locale={locale} client:load />}
