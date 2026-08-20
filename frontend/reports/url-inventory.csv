@@ -89,6 +89,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/converters/convert-flow/,ru,calculator,true,/ru/converters/convert-flow/,calculator:convert-flow,src/pages/[locale]/[category]/[calculator].astro
 /ru/converters/convert-force/,ru,calculator,true,/ru/converters/convert-force/,calculator:convert-force,src/pages/[locale]/[category]/[calculator].astro
 /ru/converters/convert-frequency/,ru,calculator,true,/ru/converters/convert-frequency/,calculator:convert-frequency,src/pages/[locale]/[category]/[calculator].astro
+/ru/converters/convert-fuel-economy/,ru,calculator,true,/ru/converters/convert-fuel-economy/,calculator:convert-fuel-economy,src/pages/[locale]/[category]/[calculator].astro
 /ru/converters/convert-illuminance/,ru,calculator,true,/ru/converters/convert-illuminance/,calculator:convert-illuminance,src/pages/[locale]/[category]/[calculator].astro
 /ru/converters/convert-length/,ru,calculator,true,/ru/converters/convert-length/,calculator:convert-length,src/pages/[locale]/[category]/[calculator].astro
 /ru/converters/convert-mass/,ru,calculator,true,/ru/converters/convert-mass/,calculator:convert-mass,src/pages/[locale]/[category]/[calculator].astro
@@ -151,6 +152,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/household/heating-power/,ru,calculator,true,/ru/household/heating-power/,calculator:heating-power,src/pages/[locale]/[category]/[calculator].astro
 /ru/physics/hydrostatic-pressure/,ru,calculator,true,/ru/physics/hydrostatic-pressure/,calculator:hydrostatic-pressure,src/pages/[locale]/[category]/[calculator].astro
 /ru/chemistry/ideal-gas-law/,ru,calculator,true,/ru/chemistry/ideal-gas-law/,calculator:ideal-gas-law,src/pages/[locale]/[category]/[calculator].astro
+/ru/finance/inflation/,ru,calculator,true,/ru/finance/inflation/,calculator:inflation,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/installment/,ru,calculator,true,/ru/finance/installment/,calculator:installment,src/pages/[locale]/[category]/[calculator].astro
 /ru/building/insulation/,ru,calculator,true,/ru/building/insulation/,calculator:insulation,src/pages/[locale]/[category]/[calculator].astro
 /ru/computers/internet-traffic/,ru,calculator,true,/ru/computers/internet-traffic/,calculator:internet-traffic,src/pages/[locale]/[category]/[calculator].astro
@@ -165,6 +167,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/business/ltv/,ru,calculator,true,/ru/business/ltv/,calculator:ltv,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/market-cap/,ru,calculator,true,/ru/finance/market-cap/,calculator:market-cap,src/pages/[locale]/[category]/[calculator].astro
 /ru/sport/max-heart-rate/,ru,calculator,true,/ru/sport/max-heart-rate/,calculator:max-heart-rate,src/pages/[locale]/[category]/[calculator].astro
+/ru/finance/max-loan/,ru,calculator,true,/ru/finance/max-loan/,calculator:max-loan,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/modulo/,ru,calculator,true,/ru/math/modulo/,calculator:modulo,src/pages/[locale]/[category]/[calculator].astro
 /ru/chemistry/molar-mass/,ru,calculator,true,/ru/chemistry/molar-mass/,calculator:molar-mass,src/pages/[locale]/[category]/[calculator].astro
 /ru/chemistry/molarity/,ru,calculator,true,/ru/chemistry/molarity/,calculator:molarity,src/pages/[locale]/[category]/[calculator].astro
@@ -220,6 +223,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/education/text-reading-time/,ru,calculator,true,/ru/education/text-reading-time/,calculator:text-reading-time,src/pages/[locale]/[category]/[calculator].astro
 /ru/computers/text-word-char-count/,ru,calculator,true,/ru/computers/text-word-char-count/,calculator:text-word-char-count,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/time-duration/,ru,calculator,true,/ru/date-time/time-duration/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
+/ru/finance/time-value-money/,ru,calculator,true,/ru/finance/time-value-money/,calculator:time-value-money,src/pages/[locale]/[category]/[calculator].astro
 /ru/date-time/timezone-difference/,ru,calculator,true,/ru/date-time/timezone-difference/,calculator:timezone-difference,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/tip/,ru,calculator,true,/ru/household/tip/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro
 /ru/automotive/tire-size/,ru,calculator,true,/ru/automotive/tire-size/,calculator:tire-size,src/pages/[locale]/[category]/[calculator].astro
@@ -318,6 +322,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/converters/flow-rate-converter/,en,calculator,true,/en/converters/flow-rate-converter/,calculator:convert-flow,src/pages/[locale]/[category]/[calculator].astro
 /en/converters/force-converter/,en,calculator,true,/en/converters/force-converter/,calculator:convert-force,src/pages/[locale]/[category]/[calculator].astro
 /en/converters/frequency-converter/,en,calculator,true,/en/converters/frequency-converter/,calculator:convert-frequency,src/pages/[locale]/[category]/[calculator].astro
+/en/converters/fuel-economy-converter/,en,calculator,true,/en/converters/fuel-economy-converter/,calculator:convert-fuel-economy,src/pages/[locale]/[category]/[calculator].astro
 /en/converters/illuminance-converter/,en,calculator,true,/en/converters/illuminance-converter/,calculator:convert-illuminance,src/pages/[locale]/[category]/[calculator].astro
 /en/converters/length-converter/,en,calculator,true,/en/converters/length-converter/,calculator:convert-length,src/pages/[locale]/[category]/[calculator].astro
 /en/converters/mass-converter/,en,calculator,true,/en/converters/mass-converter/,calculator:convert-mass,src/pages/[locale]/[category]/[calculator].astro
@@ -380,6 +385,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/household/heating-power-calculator/,en,calculator,true,/en/household/heating-power-calculator/,calculator:heating-power,src/pages/[locale]/[category]/[calculator].astro
 /en/physics/hydrostatic-pressure-calculator/,en,calculator,true,/en/physics/hydrostatic-pressure-calculator/,calculator:hydrostatic-pressure,src/pages/[locale]/[category]/[calculator].astro
 /en/chemistry/ideal-gas-law-calculator/,en,calculator,true,/en/chemistry/ideal-gas-law-calculator/,calculator:ideal-gas-law,src/pages/[locale]/[category]/[calculator].astro
+/en/finance/inflation-calculator/,en,calculator,true,/en/finance/inflation-calculator/,calculator:inflation,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/installment-calculator/,en,calculator,true,/en/finance/installment-calculator/,calculator:installment,src/pages/[locale]/[category]/[calculator].astro
 /en/home-improvement/insulation-calculator/,en,calculator,true,/en/home-improvement/insulation-calculator/,calculator:insulation,src/pages/[locale]/[category]/[calculator].astro
 /en/computers/internet-data-usage-calculator/,en,calculator,true,/en/computers/internet-data-usage-calculator/,calculator:internet-traffic,src/pages/[locale]/[category]/[calculator].astro
@@ -394,6 +400,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/business/ltv-calculator/,en,calculator,true,/en/business/ltv-calculator/,calculator:ltv,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/market-cap-calculator/,en,calculator,true,/en/finance/market-cap-calculator/,calculator:market-cap,src/pages/[locale]/[category]/[calculator].astro
 /en/fitness/maximum-heart-rate-calculator/,en,calculator,true,/en/fitness/maximum-heart-rate-calculator/,calculator:max-heart-rate,src/pages/[locale]/[category]/[calculator].astro
+/en/finance/maximum-loan-calculator/,en,calculator,true,/en/finance/maximum-loan-calculator/,calculator:max-loan,src/pages/[locale]/[category]/[calculator].astro
 /en/math/remainder-calculator/,en,calculator,true,/en/math/remainder-calculator/,calculator:modulo,src/pages/[locale]/[category]/[calculator].astro
 /en/chemistry/molar-mass-calculator/,en,calculator,true,/en/chemistry/molar-mass-calculator/,calculator:molar-mass,src/pages/[locale]/[category]/[calculator].astro
 /en/chemistry/molarity-calculator/,en,calculator,true,/en/chemistry/molarity-calculator/,calculator:molarity,src/pages/[locale]/[category]/[calculator].astro
@@ -449,6 +456,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/education/reading-time-calculator/,en,calculator,true,/en/education/reading-time-calculator/,calculator:text-reading-time,src/pages/[locale]/[category]/[calculator].astro
 /en/computers/word-and-character-counter/,en,calculator,true,/en/computers/word-and-character-counter/,calculator:text-word-char-count,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/time-duration-calculator/,en,calculator,true,/en/date-time/time-duration-calculator/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
+/en/finance/time-value-of-money-calculator/,en,calculator,true,/en/finance/time-value-of-money-calculator/,calculator:time-value-money,src/pages/[locale]/[category]/[calculator].astro
 /en/date-time/time-zone-difference-calculator/,en,calculator,true,/en/date-time/time-zone-difference-calculator/,calculator:timezone-difference,src/pages/[locale]/[category]/[calculator].astro
 /en/household/tip-calculator/,en,calculator,true,/en/household/tip-calculator/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro
 /en/automotive/tire-size-calculator/,en,calculator,true,/en/automotive/tire-size-calculator/,calculator:tire-size,src/pages/[locale]/[category]/[calculator].astro
@@ -547,6 +555,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/konvertery/konverter-vytraty/,uk,calculator,true,/uk/konvertery/konverter-vytraty/,calculator:convert-flow,src/pages/[locale]/[category]/[calculator].astro
 /uk/konvertery/konverter-syly/,uk,calculator,true,/uk/konvertery/konverter-syly/,calculator:convert-force,src/pages/[locale]/[category]/[calculator].astro
 /uk/konvertery/konverter-chastoty/,uk,calculator,true,/uk/konvertery/konverter-chastoty/,calculator:convert-frequency,src/pages/[locale]/[category]/[calculator].astro
+/uk/konvertery/vytrata-palyva/,uk,calculator,true,/uk/konvertery/vytrata-palyva/,calculator:convert-fuel-economy,src/pages/[locale]/[category]/[calculator].astro
 /uk/konvertery/konverter-osvitlenosti/,uk,calculator,true,/uk/konvertery/konverter-osvitlenosti/,calculator:convert-illuminance,src/pages/[locale]/[category]/[calculator].astro
 /uk/konvertery/konverter-dovzhyny/,uk,calculator,true,/uk/konvertery/konverter-dovzhyny/,calculator:convert-length,src/pages/[locale]/[category]/[calculator].astro
 /uk/konvertery/konverter-masy/,uk,calculator,true,/uk/konvertery/konverter-masy/,calculator:convert-mass,src/pages/[locale]/[category]/[calculator].astro
@@ -609,6 +618,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/pobut/potuzhnist-opalennya/,uk,calculator,true,/uk/pobut/potuzhnist-opalennya/,calculator:heating-power,src/pages/[locale]/[category]/[calculator].astro
 /uk/fizyka/hidrostatychnyi-tysk/,uk,calculator,true,/uk/fizyka/hidrostatychnyi-tysk/,calculator:hydrostatic-pressure,src/pages/[locale]/[category]/[calculator].astro
 /uk/himiya/rivniannia-stanu-hazu/,uk,calculator,true,/uk/himiya/rivniannia-stanu-hazu/,calculator:ideal-gas-law,src/pages/[locale]/[category]/[calculator].astro
+/uk/finansy/inflyatsiya/,uk,calculator,true,/uk/finansy/inflyatsiya/,calculator:inflation,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/rozstrochka/,uk,calculator,true,/uk/finansy/rozstrochka/,calculator:installment,src/pages/[locale]/[category]/[calculator].astro
 /uk/remont/utepliuvach/,uk,calculator,true,/uk/remont/utepliuvach/,calculator:insulation,src/pages/[locale]/[category]/[calculator].astro
 /uk/kompyutery/internet-trafik/,uk,calculator,true,/uk/kompyutery/internet-trafik/,calculator:internet-traffic,src/pages/[locale]/[category]/[calculator].astro
@@ -623,6 +633,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/business/ltv/,uk,calculator,true,/uk/business/ltv/,calculator:ltv,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/rynkova-kapitalizatsiya/,uk,calculator,true,/uk/finansy/rynkova-kapitalizatsiya/,calculator:market-cap,src/pages/[locale]/[category]/[calculator].astro
 /uk/fitness/maksymalnyy-puls/,uk,calculator,true,/uk/fitness/maksymalnyy-puls/,calculator:max-heart-rate,src/pages/[locale]/[category]/[calculator].astro
+/uk/finansy/maksymalna-suma-kredytu/,uk,calculator,true,/uk/finansy/maksymalna-suma-kredytu/,calculator:max-loan,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/kalkulyator-ostachi/,uk,calculator,true,/uk/math/kalkulyator-ostachi/,calculator:modulo,src/pages/[locale]/[category]/[calculator].astro
 /uk/himiya/molyarna-masa/,uk,calculator,true,/uk/himiya/molyarna-masa/,calculator:molar-mass,src/pages/[locale]/[category]/[calculator].astro
 /uk/himiya/moliarnist/,uk,calculator,true,/uk/himiya/moliarnist/,calculator:molarity,src/pages/[locale]/[category]/[calculator].astro
@@ -678,6 +689,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/navchannya/chas-chytannya-tekstu/,uk,calculator,true,/uk/navchannya/chas-chytannya-tekstu/,calculator:text-reading-time,src/pages/[locale]/[category]/[calculator].astro
 /uk/kompyutery/lichylnyk-sliv-i-symvoliv/,uk,calculator,true,/uk/kompyutery/lichylnyk-sliv-i-symvoliv/,calculator:text-word-char-count,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/kalkulyator-tryvalosti-chasu/,uk,calculator,true,/uk/daty/kalkulyator-tryvalosti-chasu/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
+/uk/finansy/vartist-hroshey-u-chasi/,uk,calculator,true,/uk/finansy/vartist-hroshey-u-chasi/,calculator:time-value-money,src/pages/[locale]/[category]/[calculator].astro
 /uk/daty/riznytsya-chasovyh-poyasiv/,uk,calculator,true,/uk/daty/riznytsya-chasovyh-poyasiv/,calculator:timezone-difference,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/chayovi/,uk,calculator,true,/uk/pobut/chayovi/,calculator:tip,src/pages/[locale]/[category]/[calculator].astro
 /uk/avtomobili/rozmir-shyn/,uk,calculator,true,/uk/avtomobili/rozmir-shyn/,calculator:tire-size,src/pages/[locale]/[category]/[calculator].astro

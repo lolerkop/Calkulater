@@ -51,6 +51,7 @@ import { compute as compute_convert_energy } from './convert-energy/compute';
 import { compute as compute_convert_flow } from './convert-flow/compute';
 import { compute as compute_convert_force } from './convert-force/compute';
 import { compute as compute_convert_frequency } from './convert-frequency/compute';
+import { compute as compute_convert_fuel_economy } from './convert-fuel-economy/compute';
 import { compute as compute_convert_illuminance } from './convert-illuminance/compute';
 import { compute as compute_convert_length } from './convert-length/compute';
 import { compute as compute_convert_mass } from './convert-mass/compute';
@@ -114,6 +115,7 @@ import { compute as compute_gpa } from './gpa/compute';
 import { compute as compute_heating_power } from './heating-power/compute';
 import { compute as compute_hydrostatic_pressure } from './hydrostatic-pressure/compute';
 import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
+import { compute as compute_inflation } from './inflation/compute';
 import { compute as compute_installment } from './installment/compute';
 import { compute as compute_insulation } from './insulation/compute';
 import { compute as compute_internet_traffic } from './internet-traffic/compute';
@@ -129,6 +131,7 @@ import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
 import { compute as compute_market_cap } from './market-cap/compute';
 import { compute as compute_max_heart_rate } from './max-heart-rate/compute';
+import { compute as compute_max_loan } from './max-loan/compute';
 import { compute as compute_modulo } from './modulo/compute';
 import { compute as compute_molar_mass } from './molar-mass/compute';
 import { compute as compute_molarity } from './molarity/compute';
@@ -191,6 +194,7 @@ import { compute as compute_test_score_percent } from './test-score-percent/comp
 import { compute as compute_text_reading_time } from './text-reading-time/compute';
 import { compute as compute_text_word_char_count } from './text-word-char-count/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
+import { compute as compute_time_value_money } from './time-value-money/compute';
 import { compute as compute_timezone_difference } from './timezone-difference/compute';
 import { compute as compute_tip } from './tip/compute';
 import { compute as compute_tire_size } from './tire-size/compute';
@@ -241,6 +245,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-flow': compute_convert_flow,
   'convert-force': compute_convert_force,
   'convert-frequency': compute_convert_frequency,
+  'convert-fuel-economy': compute_convert_fuel_economy,
   'convert-illuminance': compute_convert_illuminance,
   'convert-length': compute_convert_length,
   'convert-mass': compute_convert_mass,
@@ -303,6 +308,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'heating-power': compute_heating_power,
   'hydrostatic-pressure': compute_hydrostatic_pressure,
   'ideal-gas-law': compute_ideal_gas_law,
+  'inflation': compute_inflation,
   'installment': compute_installment,
   'insulation': compute_insulation,
   'internet-traffic': compute_internet_traffic,
@@ -317,6 +323,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ltv': compute_ltv,
   'market-cap': compute_market_cap,
   'max-heart-rate': compute_max_heart_rate,
+  'max-loan': compute_max_loan,
   'modulo': compute_modulo,
   'molar-mass': compute_molar_mass,
   'molarity': compute_molarity,
@@ -374,6 +381,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'text-reading-time': compute_text_reading_time,
   'text-word-char-count': compute_text_word_char_count,
   'time-duration': compute_time_duration,
+  'time-value-money': compute_time_value_money,
   'timezone-difference': compute_timezone_difference,
   'tip': compute_tip,
   'tire-size': compute_tire_size,

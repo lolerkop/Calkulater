@@ -47,6 +47,7 @@ import { definition as def_convert_energy } from './convert-energy/definition';
 import { definition as def_convert_flow } from './convert-flow/definition';
 import { definition as def_convert_force } from './convert-force/definition';
 import { definition as def_convert_frequency } from './convert-frequency/definition';
+import { definition as def_convert_fuel_economy } from './convert-fuel-economy/definition';
 import { definition as def_convert_illuminance } from './convert-illuminance/definition';
 import { definition as def_convert_length } from './convert-length/definition';
 import { definition as def_convert_mass } from './convert-mass/definition';
@@ -109,6 +110,7 @@ import { definition as def_gpa } from './gpa/definition';
 import { definition as def_heating_power } from './heating-power/definition';
 import { definition as def_hydrostatic_pressure } from './hydrostatic-pressure/definition';
 import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
+import { definition as def_inflation } from './inflation/definition';
 import { definition as def_installment } from './installment/definition';
 import { definition as def_insulation } from './insulation/definition';
 import { definition as def_internet_traffic } from './internet-traffic/definition';
@@ -123,6 +125,7 @@ import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_ltv } from './ltv/definition';
 import { definition as def_market_cap } from './market-cap/definition';
 import { definition as def_max_heart_rate } from './max-heart-rate/definition';
+import { definition as def_max_loan } from './max-loan/definition';
 import { definition as def_modulo } from './modulo/definition';
 import { definition as def_molar_mass } from './molar-mass/definition';
 import { definition as def_molarity } from './molarity/definition';
@@ -180,6 +183,7 @@ import { definition as def_test_score_percent } from './test-score-percent/defin
 import { definition as def_text_reading_time } from './text-reading-time/definition';
 import { definition as def_text_word_char_count } from './text-word-char-count/definition';
 import { definition as def_time_duration } from './time-duration/definition';
+import { definition as def_time_value_money } from './time-value-money/definition';
 import { definition as def_timezone_difference } from './timezone-difference/definition';
 import { definition as def_tip } from './tip/definition';
 import { definition as def_tire_size } from './tire-size/definition';
@@ -230,6 +234,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_flow,
   def_convert_force,
   def_convert_frequency,
+  def_convert_fuel_economy,
   def_convert_illuminance,
   def_convert_length,
   def_convert_mass,
@@ -292,6 +297,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_heating_power,
   def_hydrostatic_pressure,
   def_ideal_gas_law,
+  def_inflation,
   def_installment,
   def_insulation,
   def_internet_traffic,
@@ -306,6 +312,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ltv,
   def_market_cap,
   def_max_heart_rate,
+  def_max_loan,
   def_modulo,
   def_molar_mass,
   def_molarity,
@@ -363,6 +370,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_text_reading_time,
   def_text_word_char_count,
   def_time_duration,
+  def_time_value_money,
   def_timezone_difference,
   def_tip,
   def_tire_size,

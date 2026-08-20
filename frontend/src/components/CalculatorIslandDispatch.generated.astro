@@ -43,6 +43,7 @@ import ConvertEnergyIsland from '../calculators/convert-energy/island';
 import ConvertFlowIsland from '../calculators/convert-flow/island';
 import ConvertForceIsland from '../calculators/convert-force/island';
 import ConvertFrequencyIsland from '../calculators/convert-frequency/island';
+import ConvertFuelEconomyIsland from '../calculators/convert-fuel-economy/island';
 import ConvertIlluminanceIsland from '../calculators/convert-illuminance/island';
 import ConvertLengthIsland from '../calculators/convert-length/island';
 import ConvertMassIsland from '../calculators/convert-mass/island';
@@ -105,6 +106,7 @@ import GpaIsland from '../calculators/gpa/island';
 import HeatingPowerIsland from '../calculators/heating-power/island';
 import HydrostaticPressureIsland from '../calculators/hydrostatic-pressure/island';
 import IdealGasLawIsland from '../calculators/ideal-gas-law/island';
+import InflationIsland from '../calculators/inflation/island';
 import InstallmentIsland from '../calculators/installment/island';
 import InsulationIsland from '../calculators/insulation/island';
 import InternetTrafficIsland from '../calculators/internet-traffic/island';
@@ -119,6 +121,7 @@ import LogarithmIsland from '../calculators/logarithm/island';
 import LtvIsland from '../calculators/ltv/island';
 import MarketCapIsland from '../calculators/market-cap/island';
 import MaxHeartRateIsland from '../calculators/max-heart-rate/island';
+import MaxLoanIsland from '../calculators/max-loan/island';
 import ModuloIsland from '../calculators/modulo/island';
 import MolarMassIsland from '../calculators/molar-mass/island';
 import MolarityIsland from '../calculators/molarity/island';
@@ -176,6 +179,7 @@ import TestScorePercentIsland from '../calculators/test-score-percent/island';
 import TextReadingTimeIsland from '../calculators/text-reading-time/island';
 import TextWordCharCountIsland from '../calculators/text-word-char-count/island';
 import TimeDurationIsland from '../calculators/time-duration/island';
+import TimeValueMoneyIsland from '../calculators/time-value-money/island';
 import TimezoneDifferenceIsland from '../calculators/timezone-difference/island';
 import TipIsland from '../calculators/tip/island';
 import TireSizeIsland from '../calculators/tire-size/island';
@@ -192,7 +196,7 @@ import ZScoreIsland from '../calculators/z-score/island';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
-const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithmetic-progression', 'arpu-arppu', 'aspect-ratio', 'bakers-percentage', 'battery-charge-time', 'battery-runtime', 'bike-gear-ratio', 'binomial-probability', 'board-volume', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'churn-retention', 'color-convert', 'combinatorics', 'commission', 'concrete', 'confidence-interval', 'contribution-margin', 'conversion-rate', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cooked-weight', 'correlation', 'cpm', 'crypto-pnl', 'ctr', 'currency-exchange-fee', 'day-of-week', 'dca', 'density', 'difference-abs-rel', 'dilution', 'dividend-yield', 'divisors', 'down-payment', 'download-time', 'dti', 'electricity-usage', 'engagement-rate', 'factorial', 'fee-chain', 'fibonacci', 'files-on-disk', 'final-grade', 'fps-frametime', 'fraction-arith', 'freelance-rate', 'fuel-consumption', 'gcd-lcm', 'generator-fuel', 'geom-annulus', 'geom-circle', 'geom-cone', 'geom-cube', 'geom-cuboid', 'geom-cylinder', 'geom-ellipse', 'geom-frustum', 'geom-parallelogram', 'geom-rectangle', 'geom-regular-polygon', 'geom-rhombus', 'geom-right-triangle', 'geom-sector', 'geom-sphere', 'geom-square', 'geom-trapezoid', 'geom-triangle', 'golden-ratio', 'gpa', 'heating-power', 'hydrostatic-pressure', 'ideal-gas-law', 'installment', 'insulation', 'internet-traffic', 'inventory-turnover', 'inverter-power', 'ipv4-subnet', 'kinetic-energy', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'ltv', 'market-cap', 'max-heart-rate', 'modulo', 'molar-mass', 'molarity', 'moles', 'momentum', 'mrr-arr', 'network-bandwidth', 'newton-force', 'ohms-law', 'paint-calculator', 'percent-calculator', 'ph-poh', 'physics-power', 'physics-torque', 'plaster', 'pool-fill-time', 'position-size', 'potential-energy', 'power-root', 'power-to-weight', 'ppi-dpi', 'pressure', 'price-per-unit', 'prime-factorization', 'print-3d-cost', 'probability-basic', 'proportion', 'quadratic-equation', 'raid', 'ratio', 'reading-speed', 'real-return', 'recipe-cost', 'recipe-scale', 'rental-yield', 'resistor-network', 'return-rate', 'revenue-per-employee', 'risk-reward', 'roas', 'roi', 'roman-numerals', 'roof-area', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'solution-concentration', 'speed-distance-time', 'stats-descriptive', 'stock-duration', 'strip-foundation', 'test-score-percent', 'text-reading-time', 'text-word-char-count', 'time-duration', 'timezone-difference', 'tip', 'tire-size', 'trip-budget', 'trip-cost', 'unix-timestamp', 'video-file-size', 'week-number', 'weighted-mean', 'work', 'work-hours', 'workday-cost', 'z-score']);
+const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithmetic-progression', 'arpu-arppu', 'aspect-ratio', 'bakers-percentage', 'battery-charge-time', 'battery-runtime', 'bike-gear-ratio', 'binomial-probability', 'board-volume', 'budget-50-30-20', 'cac', 'cagr', 'calories-from-macros', 'churn-retention', 'color-convert', 'combinatorics', 'commission', 'concrete', 'confidence-interval', 'contribution-margin', 'conversion-rate', 'convert-angle', 'convert-area', 'convert-cooking-volume', 'convert-data-rate', 'convert-density', 'convert-digital', 'convert-energy', 'convert-flow', 'convert-force', 'convert-frequency', 'convert-fuel-economy', 'convert-illuminance', 'convert-length', 'convert-mass', 'convert-power', 'convert-pressure', 'convert-speed', 'convert-temperature', 'convert-time', 'convert-torque', 'convert-volume', 'cooked-weight', 'correlation', 'cpm', 'crypto-pnl', 'ctr', 'currency-exchange-fee', 'day-of-week', 'dca', 'density', 'difference-abs-rel', 'dilution', 'dividend-yield', 'divisors', 'down-payment', 'download-time', 'dti', 'electricity-usage', 'engagement-rate', 'factorial', 'fee-chain', 'fibonacci', 'files-on-disk', 'final-grade', 'fps-frametime', 'fraction-arith', 'freelance-rate', 'fuel-consumption', 'gcd-lcm', 'generator-fuel', 'geom-annulus', 'geom-circle', 'geom-cone', 'geom-cube', 'geom-cuboid', 'geom-cylinder', 'geom-ellipse', 'geom-frustum', 'geom-parallelogram', 'geom-rectangle', 'geom-regular-polygon', 'geom-rhombus', 'geom-right-triangle', 'geom-sector', 'geom-sphere', 'geom-square', 'geom-trapezoid', 'geom-triangle', 'golden-ratio', 'gpa', 'heating-power', 'hydrostatic-pressure', 'ideal-gas-law', 'inflation', 'installment', 'insulation', 'internet-traffic', 'inventory-turnover', 'inverter-power', 'ipv4-subnet', 'kinetic-energy', 'leap-year', 'led-resistor', 'linear-equation', 'logarithm', 'ltv', 'market-cap', 'max-heart-rate', 'max-loan', 'modulo', 'molar-mass', 'molarity', 'moles', 'momentum', 'mrr-arr', 'network-bandwidth', 'newton-force', 'ohms-law', 'paint-calculator', 'percent-calculator', 'ph-poh', 'physics-power', 'physics-torque', 'plaster', 'pool-fill-time', 'position-size', 'potential-energy', 'power-root', 'power-to-weight', 'ppi-dpi', 'pressure', 'price-per-unit', 'prime-factorization', 'print-3d-cost', 'probability-basic', 'proportion', 'quadratic-equation', 'raid', 'ratio', 'reading-speed', 'real-return', 'recipe-cost', 'recipe-scale', 'rental-yield', 'resistor-network', 'return-rate', 'revenue-per-employee', 'risk-reward', 'roas', 'roi', 'roman-numerals', 'roof-area', 'room-volume', 'rule-of-72', 'savings-rate', 'shipping-per-unit', 'simple-interest', 'solution-concentration', 'speed-distance-time', 'stats-descriptive', 'stock-duration', 'strip-foundation', 'test-score-percent', 'text-reading-time', 'text-word-char-count', 'time-duration', 'time-value-money', 'timezone-difference', 'tip', 'tire-size', 'trip-budget', 'trip-cost', 'unix-timestamp', 'video-file-size', 'week-number', 'weighted-mean', 'work', 'work-hours', 'workday-cost', 'z-score']);
 ---
 
 {id === 'activity-calories' && <ActivityCaloriesIsland calc={calc} locale={locale} client:load />}
@@ -230,6 +234,7 @@ const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithm
 {id === 'convert-flow' && <ConvertFlowIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-force' && <ConvertForceIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-frequency' && <ConvertFrequencyIsland calc={calc} locale={locale} client:load />}
+{id === 'convert-fuel-economy' && <ConvertFuelEconomyIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-illuminance' && <ConvertIlluminanceIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-length' && <ConvertLengthIsland calc={calc} locale={locale} client:load />}
 {id === 'convert-mass' && <ConvertMassIsland calc={calc} locale={locale} client:load />}
@@ -292,6 +297,7 @@ const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithm
 {id === 'heating-power' && <HeatingPowerIsland calc={calc} locale={locale} client:load />}
 {id === 'hydrostatic-pressure' && <HydrostaticPressureIsland calc={calc} locale={locale} client:load />}
 {id === 'ideal-gas-law' && <IdealGasLawIsland calc={calc} locale={locale} client:load />}
+{id === 'inflation' && <InflationIsland calc={calc} locale={locale} client:load />}
 {id === 'installment' && <InstallmentIsland calc={calc} locale={locale} client:load />}
 {id === 'insulation' && <InsulationIsland calc={calc} locale={locale} client:load />}
 {id === 'internet-traffic' && <InternetTrafficIsland calc={calc} locale={locale} client:load />}
@@ -306,6 +312,7 @@ const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithm
 {id === 'ltv' && <LtvIsland calc={calc} locale={locale} client:load />}
 {id === 'market-cap' && <MarketCapIsland calc={calc} locale={locale} client:load />}
 {id === 'max-heart-rate' && <MaxHeartRateIsland calc={calc} locale={locale} client:load />}
+{id === 'max-loan' && <MaxLoanIsland calc={calc} locale={locale} client:load />}
 {id === 'modulo' && <ModuloIsland calc={calc} locale={locale} client:load />}
 {id === 'molar-mass' && <MolarMassIsland calc={calc} locale={locale} client:load />}
 {id === 'molarity' && <MolarityIsland calc={calc} locale={locale} client:load />}
@@ -363,6 +370,7 @@ const V2_IDS = new Set(['activity-calories', 'ad-roi', 'annuity', 'aov', 'arithm
 {id === 'text-reading-time' && <TextReadingTimeIsland calc={calc} locale={locale} client:load />}
 {id === 'text-word-char-count' && <TextWordCharCountIsland calc={calc} locale={locale} client:load />}
 {id === 'time-duration' && <TimeDurationIsland calc={calc} locale={locale} client:load />}
+{id === 'time-value-money' && <TimeValueMoneyIsland calc={calc} locale={locale} client:load />}
 {id === 'timezone-difference' && <TimezoneDifferenceIsland calc={calc} locale={locale} client:load />}
 {id === 'tip' && <TipIsland calc={calc} locale={locale} client:load />}
 {id === 'tire-size' && <TireSizeIsland calc={calc} locale={locale} client:load />}

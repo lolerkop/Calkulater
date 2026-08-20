@@ -41,6 +41,7 @@ import { localization as loc_convert_energy } from './convert-energy/localizatio
 import { localization as loc_convert_flow } from './convert-flow/localization';
 import { localization as loc_convert_force } from './convert-force/localization';
 import { localization as loc_convert_frequency } from './convert-frequency/localization';
+import { localization as loc_convert_fuel_economy } from './convert-fuel-economy/localization';
 import { localization as loc_convert_illuminance } from './convert-illuminance/localization';
 import { localization as loc_convert_length } from './convert-length/localization';
 import { localization as loc_convert_mass } from './convert-mass/localization';
@@ -103,6 +104,7 @@ import { localization as loc_gpa } from './gpa/localization';
 import { localization as loc_heating_power } from './heating-power/localization';
 import { localization as loc_hydrostatic_pressure } from './hydrostatic-pressure/localization';
 import { localization as loc_ideal_gas_law } from './ideal-gas-law/localization';
+import { localization as loc_inflation } from './inflation/localization';
 import { localization as loc_installment } from './installment/localization';
 import { localization as loc_insulation } from './insulation/localization';
 import { localization as loc_internet_traffic } from './internet-traffic/localization';
@@ -117,6 +119,7 @@ import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_market_cap } from './market-cap/localization';
 import { localization as loc_max_heart_rate } from './max-heart-rate/localization';
+import { localization as loc_max_loan } from './max-loan/localization';
 import { localization as loc_modulo } from './modulo/localization';
 import { localization as loc_molar_mass } from './molar-mass/localization';
 import { localization as loc_molarity } from './molarity/localization';
@@ -172,6 +175,7 @@ import { localization as loc_test_score_percent } from './test-score-percent/loc
 import { localization as loc_text_reading_time } from './text-reading-time/localization';
 import { localization as loc_text_word_char_count } from './text-word-char-count/localization';
 import { localization as loc_time_duration } from './time-duration/localization';
+import { localization as loc_time_value_money } from './time-value-money/localization';
 import { localization as loc_timezone_difference } from './timezone-difference/localization';
 import { localization as loc_tip } from './tip/localization';
 import { localization as loc_tire_size } from './tire-size/localization';
@@ -223,6 +227,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-flow': loc_convert_flow.en ?? {},
     'convert-force': loc_convert_force.en ?? {},
     'convert-frequency': loc_convert_frequency.en ?? {},
+    'convert-fuel-economy': loc_convert_fuel_economy.en ?? {},
     'convert-illuminance': loc_convert_illuminance.en ?? {},
     'convert-length': loc_convert_length.en ?? {},
     'convert-mass': loc_convert_mass.en ?? {},
@@ -285,6 +290,7 @@ export const v2Localization: ScopedLocalization = {
     'heating-power': loc_heating_power.en ?? {},
     'hydrostatic-pressure': loc_hydrostatic_pressure.en ?? {},
     'ideal-gas-law': loc_ideal_gas_law.en ?? {},
+    'inflation': loc_inflation.en ?? {},
     'installment': loc_installment.en ?? {},
     'insulation': loc_insulation.en ?? {},
     'internet-traffic': loc_internet_traffic.en ?? {},
@@ -299,6 +305,7 @@ export const v2Localization: ScopedLocalization = {
     'ltv': loc_ltv.en ?? {},
     'market-cap': loc_market_cap.en ?? {},
     'max-heart-rate': loc_max_heart_rate.en ?? {},
+    'max-loan': loc_max_loan.en ?? {},
     'modulo': loc_modulo.en ?? {},
     'molar-mass': loc_molar_mass.en ?? {},
     'molarity': loc_molarity.en ?? {},
@@ -354,6 +361,7 @@ export const v2Localization: ScopedLocalization = {
     'text-reading-time': loc_text_reading_time.en ?? {},
     'text-word-char-count': loc_text_word_char_count.en ?? {},
     'time-duration': loc_time_duration.en ?? {},
+    'time-value-money': loc_time_value_money.en ?? {},
     'timezone-difference': loc_timezone_difference.en ?? {},
     'tip': loc_tip.en ?? {},
     'tire-size': loc_tire_size.en ?? {},
@@ -404,6 +412,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-flow': loc_convert_flow.uk ?? {},
     'convert-force': loc_convert_force.uk ?? {},
     'convert-frequency': loc_convert_frequency.uk ?? {},
+    'convert-fuel-economy': loc_convert_fuel_economy.uk ?? {},
     'convert-illuminance': loc_convert_illuminance.uk ?? {},
     'convert-length': loc_convert_length.uk ?? {},
     'convert-mass': loc_convert_mass.uk ?? {},
@@ -466,6 +475,7 @@ export const v2Localization: ScopedLocalization = {
     'heating-power': loc_heating_power.uk ?? {},
     'hydrostatic-pressure': loc_hydrostatic_pressure.uk ?? {},
     'ideal-gas-law': loc_ideal_gas_law.uk ?? {},
+    'inflation': loc_inflation.uk ?? {},
     'installment': loc_installment.uk ?? {},
     'insulation': loc_insulation.uk ?? {},
     'internet-traffic': loc_internet_traffic.uk ?? {},
@@ -480,6 +490,7 @@ export const v2Localization: ScopedLocalization = {
     'ltv': loc_ltv.uk ?? {},
     'market-cap': loc_market_cap.uk ?? {},
     'max-heart-rate': loc_max_heart_rate.uk ?? {},
+    'max-loan': loc_max_loan.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
     'molar-mass': loc_molar_mass.uk ?? {},
     'molarity': loc_molarity.uk ?? {},
@@ -535,6 +546,7 @@ export const v2Localization: ScopedLocalization = {
     'text-reading-time': loc_text_reading_time.uk ?? {},
     'text-word-char-count': loc_text_word_char_count.uk ?? {},
     'time-duration': loc_time_duration.uk ?? {},
+    'time-value-money': loc_time_value_money.uk ?? {},
     'timezone-difference': loc_timezone_difference.uk ?? {},
     'tip': loc_tip.uk ?? {},
     'tire-size': loc_tire_size.uk ?? {},
