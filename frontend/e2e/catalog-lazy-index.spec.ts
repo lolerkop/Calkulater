@@ -61,15 +61,25 @@ test.describe('ленивый индекс каталога', () => {
   });
 
   test('запрос, набранный до прихода индекса, не теряется', async ({ page }) => {
-    await page.route(INDEX, async (route) => {
-      await new Promise((r) => setTimeout(r, 1200));
-      await route.continue();
-    });
+    // Ответ держится ЯВНО, а не таймером: сон фиксированной длины под
+    // параллельной нагрузкой сдвигает окно проверки и делает тест шатким —
+    // ровно это и случилось при первом прогоне всей пачки.
+    let release: () => void = () => {};
+    const held = new Promise<void>((resolve) => { release = resolve; });
+    await page.route(INDEX, async (route) => { await held; await route.continue(); });
+
     await page.goto(CATALOG, { waitUntil: 'domcontentloaded' });
+    // Ждём, пока остров возьмёт сетку: предмет проверки — граница загрузки
+    // индекса, а не ввод до гидратации (он проверяется отдельно и работает).
+    // Без этого ожидания fill() состязается с монтированием React.
+    await expect(page.locator('[data-testid="catalog-result-count"]')).toBeVisible({ timeout: 20000 });
     await page.locator(search).fill('аннуитет');
-    // Пока индекс летит, «ничего не найдено» показывать нельзя.
-    await page.waitForTimeout(400);
+    // Пока индекс заведомо в пути, «ничего не найдено» показывать нельзя:
+    // часть совпадений живёт именно в ключевых словах.
     await expect(page.locator('[data-testid="catalog-empty"]')).toHaveCount(0);
+    await expect(page.locator(search)).toHaveValue('аннуитет');
+
+    release();
     // После прихода запрос по ключевому слову обязан сработать.
     await expect.poll(() => page.locator(visible).count(), { timeout: 15000 }).toBeGreaterThan(0);
     await expect(page.locator(search)).toHaveValue('аннуитет');
