@@ -19,7 +19,7 @@ export const gravitationalForceCopyEn: CalculatorCopy = {
   ],
   howItWorks:
     'F = G × m₁ × m₂ ÷ r², with G = 6.674·10⁻¹¹ N·m²/kg². The acceleration of the first body is that force divided by its own mass, which reduces to G × m₂ ÷ r².',
-  example: 'Two 1,000 kg masses two metres apart attract with 1.668·10⁻⁵ N.',
+  example: 'Two 50,000-tonne ships a hundred metres apart attract with 16.685 N.',
   faq: [
     {
       q: 'Why is the distance measured between centres?',

@@ -10,10 +10,10 @@ export const gravitationalForceReferenceCases: readonly CalculatorReferenceCase[
     expectSecondary: [{ label: "Ускорение первого тела", value: "1,668·10^-8 м/с²" }, { label: "Расстояние", value: "2 м" }],
   },
   {
-    name: "масса Земли и 70 кг на радиусе Земли",
-    inputs: {"m1": 5.972e+24, "m2": 70, "r": 6371000},
-    expectPrimary: "687,37 Н",
-    expectSecondary: [{ label: "Ускорение первого тела", value: "1,151·10^-22 м/с²" }, { label: "Расстояние", value: "6 371 000 м" }],
+    name: "два судна по 50 000 тонн на расстоянии 100 м",
+    inputs: {"m1": 50000000, "m2": 50000000, "r": 100},
+    expectPrimary: "16,685 Н",
+    expectSecondary: [{ label: "Ускорение первого тела", value: "3,337·10^-7 м/с²" }, { label: "Расстояние", value: "100 м" }],
   },
   {
     name: "малые массы на большом расстоянии",

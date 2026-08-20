@@ -12,8 +12,8 @@ export const definition: CalculatorDefinitionV2 = {
   copy: { en: gravitationalForceCopyEn, uk: gravitationalForceCopyUk },
   referenceCases: gravitationalForceReferenceCases,
   publishedExample: {
-    inputs: { m1: 1000, m2: 1000, r: 2 },
-    expected: ['1,668·10^-5 Н'],
+    inputs: { m1: 50000000, m2: 50000000, r: 100 },
+    expected: ['16,685 Н'],
   },
   presentation: {
     id: 'gravitational-force',
@@ -33,8 +33,12 @@ export const definition: CalculatorDefinitionV2 = {
     h1: 'Калькулятор гравитационной силы',
     keywords: ['гравитационная сила', 'закон всемирного тяготения', 'постоянная G', 'притяжение тел'],
     fields: [
-      { name: 'm1', label: 'Первая масса, кг', type: 'number', defaultValue: 1000, min: 0, step: 100 },
-      { name: 'm2', label: 'Вторая масса, кг', type: 'number', defaultValue: 1000, min: 0, step: 100 },
+      // Потолок 10¹⁸ кг — не физика, а граница платформы: остров возвращает
+      // число в поле через String(), а тот с 10²¹ переходит на показательную
+      // запись, которую парсер отвергает с Phase 14. Всё, что ниже потолка,
+      // переживает и адрес, и перезагрузку; выше — молча теряло бы значение.
+      { name: 'm1', label: 'Первая масса, кг', type: 'number', defaultValue: 1000, min: 0, max: 1e18, step: 100 },
+      { name: 'm2', label: 'Вторая масса, кг', type: 'number', defaultValue: 1000, min: 0, max: 1e18, step: 100 },
       { name: 'r', label: 'Расстояние между центрами, м', type: 'number', defaultValue: 2, min: 0, step: 0.5 },
     ],
     resultLabels: {
@@ -50,7 +54,7 @@ export const definition: CalculatorDefinitionV2 = {
     ],
     howItWorks:
       'F = G × m₁ × m₂ ÷ r², где G = 6,674·10⁻¹¹ Н·м²/кг². Ускорение первого тела — эта сила, делённая на его массу, что сводится к G × m₂ ÷ r².',
-    example: 'Две массы по 1 000 кг на расстоянии двух метров притягиваются с силой 1,668·10⁻⁵ Н.',
+    example: 'Два судна по 50 000 тонн в ста метрах друг от друга притягиваются с силой 16,685 Н.',
     faq: [
       {
         q: 'Почему расстояние мерится между центрами?',
