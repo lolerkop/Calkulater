@@ -32,6 +32,13 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import { routeClosureSize } from './lib/assetClosure.mjs';
 
+import {
+  CATALOG_HTML_CEILING_GZIP,
+  CATALOG_SCALE_LOOKAHEAD_CARDS,
+  CATALOG_SCALE_TARGET_CARDS,
+  catalogScaleTarget,
+} from './catalog-scale.mjs';
+
 const root = path.resolve('dist');
 const astro = path.join(root, '_astro');
 
@@ -64,11 +71,23 @@ const budgets = {
   // копирайта, но ловит возврат второго представления каталога.
   catalogHtmlBaseGzip: 8 * 1024,
   catalogHtmlPerCardGzip: 0.2 * 1024,
-  catalogHtmlCeilingGzip: 30 * 1024,
+  catalogHtmlCeilingGzip: CATALOG_HTML_CEILING_GZIP,
   // ── масштаб каталога ──
   // До скольких калькуляторов подборка обязана дожить, не выйдя за
   // catalogHtmlCeilingGzip. Своего потолка здесь НЕТ: проверяется тот же 30 КиБ.
-  catalogScaleTargetCards: 200,
+  //
+  // Phase 17S подняла цель с 200 до 300 — это НЕ послабление бюджета: потолок
+  // остался тем же, изменилось лишь то, как далеко вперёд обязана смотреть
+  // проверка.
+  catalogScaleTargetCards: CATALOG_SCALE_TARGET_CARDS,
+  // Задел вперёд от ТЕКУЩЕГО числа карточек.
+  //
+  // Нужен потому, что фиксированная цель однажды остаётся позади. Ровно это и
+  // случилось: при 200 в настройке и 203 на сайте прогноз молча выключился —
+  // помощник возвращал null, строка отчёта исчезла, и проверка стала пустой в
+  // тот самый момент, когда предупреждение было нужнее всего. Теперь проверка
+  // всегда смотрит минимум на столько карточек вперёд, сколько бы их ни стало.
+  catalogScaleLookaheadCards: CATALOG_SCALE_LOOKAHEAD_CARDS,
   // Сколько калькуляторов вправе перечислять ItemList каталога. Разметка не
   // должна расти вместе с подборкой: полный перечень стоил 6,75 КиБ gzip —
   // четверть страницы — и повторял имя, описание и адрес каждой карточки,
@@ -302,9 +321,16 @@ let publishedCount = 0;
 // а уникальный текст не даёт gzip схлопнуть клоны и делает оценку строгой.
 const CATALOG_CARD = /<a href="[^"]*"[^>]*data-catalog-card[\s\S]*?<\/a>/g;
 
+/**
+ * Выращивает подборку до `target` карточек настоящей разметкой карточки.
+ *
+ * Условие `cards.length >= target` здесь СОЗНАТЕЛЬНО отсутствует: именно оно
+ * гасило прогноз, как только сайт перерастал цель. Вызывающая сторона обязана
+ * передавать target больше текущего числа карточек (см. catalogScaleTarget).
+ */
 function grownToCards(html, target) {
   const cards = html.match(CATALOG_CARD);
-  if (!cards || cards.length === 0 || cards.length >= target) return null;
+  if (!cards || cards.length === 0 || target <= cards.length) return null;
   const last = cards[cards.length - 1];
   let extra = '';
   for (let i = 0; i < target - cards.length; i += 1) {
@@ -368,15 +394,21 @@ for (const file of htmlFiles.filter(isCatalog)) {
   // Во что обойдётся рост подборки. Страница выращивается до целевого числа
   // карточек НАСТОЯЩЕЙ разметкой карточки и меряется тем же gzip и тем же
   // потолком catalogHtmlCeilingGzip — отдельного порога здесь нет.
-  const grown = grownToCards(html, budgets.catalogScaleTargetCards);
-  if (grown) {
+  const scaleTarget = catalogScaleTarget(cards);
+  const grown = grownToCards(html, scaleTarget);
+  if (!grown) {
+    issues.push(
+      `${rel}: прогноз масштаба подборки не построен при ${cards} карточках — `
+      + 'проверка масштаба стала бы пустой',
+    );
+  } else {
     const grownGzip = zlib.gzipSync(Buffer.from(grown)).length;
     if (!catalogScaleReport || grownGzip > catalogScaleReport.grown) {
-      catalogScaleReport = { route: rel, cards, target: budgets.catalogScaleTargetCards, now: size, grown: grownGzip };
+      catalogScaleReport = { route: rel, cards, target: scaleTarget, now: size, grown: grownGzip };
     }
     if (grownGzip > budgets.catalogHtmlCeilingGzip) {
       issues.push(
-        `${rel}: при ${budgets.catalogScaleTargetCards} калькуляторах HTML gzip ${kib(grownGzip)} превысит `
+        `${rel}: при ${scaleTarget} калькуляторах HTML gzip ${kib(grownGzip)} превысит `
         + `${kib(budgets.catalogHtmlCeilingGzip)} (сейчас ${kib(size)} при ${cards}) — `
         + 'цена карточки вернулась к прежнему наклону',
       );

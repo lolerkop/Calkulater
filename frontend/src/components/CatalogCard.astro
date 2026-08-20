@@ -10,23 +10,36 @@
 // рисует Astro один раз, а остров только показывает и прячет уже готовые
 // карточки.
 //
-// Атрибуты `data-*` несут ровно то, чего нет в видимом тексте: ключевые слова,
-// идентификатор категории, признаки популярности и новизны. Имя и описание не
-// дублируются — контроллер читает их из заголовка и абзаца самой карточки.
-// Порядок по алфавиту тоже не дублируется: контроллер получает его из тех же
-// заголовков через localeCompare, и атрибут на каждой карточке не нужен.
-// Псевдонимы категорий и токены новизны — общие таблицы, они живут в
-// контроллере и на карточках не повторяются.
+// Phase 17S сняла с карточки всё, что выводится из уже имеющегося.
+// Замер на 211 карточках показал, где живут байты (gzip, на карточку):
+// описание 29,5 · ключевые слова 24,4 · ссылка 12,0 · заголовок 7,2 —
+// остальное вместе меньше десяти. Поэтому убраны:
 //
-// Ни классов-утилит, ни собственного data-testid карточка не несёт: и то и
-// другое повторялось сотнями раз. Вид держит общий класс `.catalog-card`,
-// а адресуются карточки атрибутом `data-catalog-card` — им и пользуются
-// и контроллер, и тесты.
+//   data-keywords   — единственные данные карточки, которых нет в видимом
+//                     тексте. Нужны только текстовому поиску, поэтому
+//                     подгружаются лениво из общего индекса локали, а не лежат
+//                     в разметке у каждой из сотен карточек.
+//   data-category   — выводится из самой ссылки: сегмент категории в пути
+//                     сопоставляется со слагами, которые остров и так получает.
+//   data-popular    — выводится из наличия бейджа.
+//   data-new        — выводится из наличия бейджа.
+//
+// Имена классов у внутренних узлов тоже сняты: вид держится селекторами
+// потомков от `.catalog-card`. Порядок узлов фиксирован разметкой, поэтому
+// `:first-child` и `:last-child` однозначны. Классы бейджей ОСТАВЛЕНЫ: два
+// разных span-а лежат рядом, и структурой их не различить.
+//
+// Что НЕ убрано и почему: подпись «Открыть» со стрелкой повторяется дословно на
+// каждой карточке, и вынос её в CSS измеренно экономит НОЛЬ байт — gzip уже
+// схлопывает точные повторы. Платить за это доступностью незачем.
+//
+// Адресуются карточки атрибутом `data-catalog-card` — решение Phase 11S,
+// на нём держатся и контроллер, и тесты; стоит оно 0,4 B на карточку.
 
 import type { CalculatorDef } from '../lib/types';
 
 type Props = {
-  calc: Pick<CalculatorDef, 'id' | 'name' | 'shortDescription' | 'fullPath' | 'keywords' | 'category' | 'popularity' | 'isNew'>;
+  calc: Pick<CalculatorDef, 'id' | 'name' | 'shortDescription' | 'fullPath' | 'category' | 'popularity' | 'isNew'>;
   categoryName: string;
   newBadge: string;
   popularBadge: string;
@@ -37,18 +50,10 @@ const { calc, categoryName, newBadge, popularBadge, openLabel } = Astro.props;
 const isPopular = calc.popularity >= 80;
 ---
 
-<a
-  href={calc.fullPath}
-  class="catalog-card"
-  data-catalog-card
-  data-category={calc.category}
-  data-popular={isPopular ? '1' : '0'}
-  data-new={calc.isNew ? '1' : '0'}
-  data-keywords={(calc.keywords ?? []).join(' ')}
->
+<a href={calc.fullPath} class="catalog-card" data-catalog-card>
   <div>
-    <div class="catalog-card-badges">
-      <div class="catalog-card-badges-inner">
+    <div>
+      <div>
         {calc.isNew && (
           <span class="catalog-badge-new">
             {newBadge}
@@ -61,21 +66,21 @@ const isPopular = calc.popularity >= 80;
         )}
       </div>
     </div>
-    <h3 class="catalog-card-title">
+    <h3>
       {calc.name}
     </h3>
-    <p class="catalog-card-desc">
+    <p>
       {calc.shortDescription}
     </p>
   </div>
 
-  <div class="catalog-card-foot">
-    <span class="catalog-card-cat">
+  <div>
+    <span>
       {categoryName}
     </span>
-    <span class="catalog-card-cta">
+    <span>
       {openLabel}
-      <svg class="catalog-card-arrow" aria-hidden="true"><use href="#arrow-right"></use></svg>
+      <svg aria-hidden="true"><use href="#arrow-right"></use></svg>
     </span>
   </div>
 </a>

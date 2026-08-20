@@ -1,5 +1,5 @@
 import { ArrowRight, ListFilter, Search, X } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { categoryAliases, normalizeSearchText, queryNeedles } from '../../lib/search';
 import type { CategoryId } from '../../lib/types';
 import { clientUi, type Locale } from '../../lib/clientI18n';
@@ -30,27 +30,55 @@ type CardHandle = {
   readonly isPopular: boolean;
   readonly isNew: boolean;
   readonly title: string;
+  readonly path: string;
   nameOrder: number;
+  /** Всё, что есть в самой разметке: имя, описание, категория, псевдонимы. */
   readonly haystack: string;
 };
 
+/**
+ * Категория карточки выводится из её ссылки.
+ *
+ * В пути стоит ЛОКАЛИЗОВАННЫЙ слаг категории (`/uk/heometriya/...`), а отбору
+ * нужен идентификатор (`geometry`), поэтому сегмент сопоставляется со слагами,
+ * которые остров и так получает в props. Атрибут на каждой карточке для этого
+ * не нужен.
+ */
+function categoryFromPath(path: string, bySlug: Map<string, CategoryId>): CategoryId {
+  const parts = path.split('/').filter(Boolean);
+  for (const part of parts) {
+    const id = bySlug.get(part);
+    if (id) return id;
+  }
+  return '' as CategoryId;
+}
+
 function readCards(categories: CatalogCategory[], locale: Locale): CardHandle[] {
   const names = new Map(categories.map((category) => [category.id, category.name]));
+  const bySlug = new Map(categories.map((category) => [category.slug, category.id]));
   const cards = [...document.querySelectorAll<HTMLElement>('[data-catalog-card]')].map((element) => {
-    const category = (element.dataset.category ?? '') as CategoryId;
-    const isNew = element.dataset.new === '1';
+    const path = element.getAttribute('href') ?? '';
+    const category = categoryFromPath(path, bySlug);
+    // Признаки новизны и популярности видны по самим бейджам: раз бейдж
+    // отрисован, повторять его булевым атрибутом незачем.
+    const isNew = element.querySelector('.catalog-badge-new') !== null;
+    const isPopular = element.querySelector('.catalog-badge-popular') !== null;
     const title = element.querySelector('h3')?.textContent?.trim() ?? '';
     return {
       element,
       category,
       title,
-      isPopular: element.dataset.popular === '1',
+      path,
+      isPopular,
       isNew,
       nameOrder: 0,
       // Имя и описание берутся из самой карточки: это те же два поля, по
       // которым искал прежний отбор, и повторять их атрибутом незачем. Бейджи
       // и подпись ссылки в счёт не идут — иначе запрос «открыть» начал бы
       // совпадать со всеми карточками.
+      //
+      // Ключевых слов здесь нет намеренно: они не видны на карточке и нужны
+      // только текстовому поиску, поэтому подгружаются лениво (см. ниже).
       haystack: normalizeSearchText([
         element.querySelector('h3')?.textContent ?? '',
         element.querySelector('p')?.textContent ?? '',
@@ -58,7 +86,6 @@ function readCards(categories: CatalogCategory[], locale: Locale): CardHandle[] 
         names.get(category) ?? '',
         isNew ? 'новый новые свежее' : '',
         categoryAliases[category] ?? '',
-        element.dataset.keywords ?? '',
       ].join(' ')),
     };
   });
@@ -540,6 +567,55 @@ export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) 
   const [cards, setCards] = useState<CardHandle[]>([]);
   useEffect(() => { setCards(readCards(categories, locale)); }, [categories, locale]);
 
+  // Ленивые ключевые слова.
+  //
+  // Это единственные данные карточки, которых нет в её видимом тексте, и стоили
+  // они 24,4 B на карточку по gzip — вторая по величине статья всей страницы.
+  // Отбор по категории, метке и сортировка их не требуют, поэтому индекс
+  // забирается только при ПЕРВОМ текстовом запросе.
+  //
+  // Данные берутся из уже существующего индекса локали. Это общий статический
+  // файл, а не общее поведение: у каталога свой повод загрузки, своё состояние
+  // и свой разбор — с поиском в шапке он ничем не связан.
+  const [keywordsByPath, setKeywordsByPath] = useState<Map<string, string> | null>(null);
+  const [keywordsState, setKeywordsState] = useState<'idle' | 'loading' | 'ready' | 'failed'>('idle');
+  const needsKeywords = query.trim().length > 0;
+  // Признак «загрузка уже начата» держится ссылкой, а не состоянием.
+  //
+  // Состояние здесь не годится: эффект, зависящий от него, перезапускается от
+  // собственной же записи, и его очистка отменяет свой ещё летящий запрос —
+  // индекс тогда не приходит никогда. Ссылка меняется без перезапуска эффекта.
+  const keywordsStarted = useRef(false);
+
+  useEffect(() => {
+    if (!needsKeywords || keywordsStarted.current) return;
+    keywordsStarted.current = true;
+    let cancelled = false;
+    setKeywordsState('loading');
+    fetch(`/search-index/${locale}.json`)
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error(String(response.status)))))
+      .then((entries: Array<{ fullPath?: string; keywords?: string[] }>) => {
+        if (cancelled) return;
+        const map = new Map<string, string>();
+        for (const entry of entries) {
+          if (!entry?.fullPath) continue;
+          map.set(entry.fullPath, normalizeSearchText((entry.keywords ?? []).join(' ')));
+        }
+        setKeywordsByPath(map);
+        setKeywordsState('ready');
+      })
+      .catch(() => {
+        // Отказ сети не должен ломать страницу: отбор продолжает работать по
+        // видимому тексту, просто без ключевых слов.
+        if (!cancelled) setKeywordsState('failed');
+      });
+    return () => { cancelled = true; };
+  }, [locale, needsKeywords]);
+
+  // Пока индекс в пути, судить о «ничего не найдено» рано: часть совпадений
+  // живёт именно в ключевых словах.
+  const keywordsPending = needsKeywords && (keywordsState === 'idle' || keywordsState === 'loading');
+
   const categoryCounts = useMemo(() => {
     const counts: Partial<Record<CategoryId, number>> = {};
     for (const card of cards) counts[card.category] = (counts[card.category] ?? 0) + 1;
@@ -561,9 +637,11 @@ export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) 
       if (tagFilter === 'new' && !card.isNew) return false;
       if (tagFilter === 'popular' && !card.isPopular) return false;
       if (needles.length === 0) return true;
-      return needles.some((needle) => card.haystack.includes(needle));
+      const extra = keywordsByPath?.get(card.path);
+      const haystack = extra ? `${card.haystack} ${extra}` : card.haystack;
+      return needles.some((needle) => haystack.includes(needle));
     });
-  }, [activeCategory, cards, query, tagFilter]);
+  }, [activeCategory, cards, keywordsByPath, query, tagFilter]);
 
   const hasActiveFilters =
     query.trim() || activeCategory !== allCategory || sortMode !== defaultSort || tagFilter !== allTag;
@@ -831,7 +909,7 @@ export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) 
         </div>
       </div>
 
-      {cards.length > 0 && visibleCards.length === 0 && (
+      {cards.length > 0 && visibleCards.length === 0 && !keywordsPending && (
         <div
           className="border border-ink-200 bg-ink-50 px-5 py-8 text-center"
           data-testid="catalog-empty"
