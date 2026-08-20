@@ -555,7 +555,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/konvertery/konverter-vytraty/,uk,calculator,true,/uk/konvertery/konverter-vytraty/,calculator:convert-flow,src/pages/[locale]/[category]/[calculator].astro
 /uk/konvertery/konverter-syly/,uk,calculator,true,/uk/konvertery/konverter-syly/,calculator:convert-force,src/pages/[locale]/[category]/[calculator].astro
 /uk/konvertery/konverter-chastoty/,uk,calculator,true,/uk/konvertery/konverter-chastoty/,calculator:convert-frequency,src/pages/[locale]/[category]/[calculator].astro
-/uk/konvertery/vytrata-palyva/,uk,calculator,true,/uk/konvertery/vytrata-palyva/,calculator:convert-fuel-economy,src/pages/[locale]/[category]/[calculator].astro
+/uk/konvertery/konverter-vytraty-palyva/,uk,calculator,true,/uk/konvertery/konverter-vytraty-palyva/,calculator:convert-fuel-economy,src/pages/[locale]/[category]/[calculator].astro
 /uk/konvertery/konverter-osvitlenosti/,uk,calculator,true,/uk/konvertery/konverter-osvitlenosti/,calculator:convert-illuminance,src/pages/[locale]/[category]/[calculator].astro
 /uk/konvertery/konverter-dovzhyny/,uk,calculator,true,/uk/konvertery/konverter-dovzhyny/,calculator:convert-length,src/pages/[locale]/[category]/[calculator].astro
 /uk/konvertery/konverter-masy/,uk,calculator,true,/uk/konvertery/konverter-masy/,calculator:convert-mass,src/pages/[locale]/[category]/[calculator].astro
