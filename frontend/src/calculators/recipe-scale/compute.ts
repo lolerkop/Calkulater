@@ -31,9 +31,9 @@ export const compute: CalcFunction = (inputs) => {
     const text = line.trim();
     if (!text) continue;
     const tokens = tokenize(text);
-    if (tokens.length < 2) return fail(`Строка «${text}»: нужны название и количество`);
+    if (tokens.length < 2) return fail(`Нужны название и количество в строке: ${text}`);
     const qty = parseLocalizedNumber(tokens[tokens.length - 1], 'ru');
-    if (qty === null) return fail(`Строка «${text}»: количество должно быть числом`);
+    if (qty === null) return fail(`Количество должно быть числом в строке: ${text}`);
     if (qty < 0) return fail('Количество не может быть отрицательным');
     rows.push({ name: tokens.slice(0, -1).join(' '), qty });
   }

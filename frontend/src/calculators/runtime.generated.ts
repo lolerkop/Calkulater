@@ -18,6 +18,7 @@ import { compute as compute_activity_calories } from './activity-calories/comput
 import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
+import { compute as compute_arithmetic_progression } from './arithmetic-progression/compute';
 import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
 import { compute as compute_bakers_percentage } from './bakers-percentage/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
@@ -63,6 +64,7 @@ import { compute as compute_crypto_pnl } from './crypto-pnl/compute';
 import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_currency_exchange_fee } from './currency-exchange-fee/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
+import { compute as compute_dca } from './dca/compute';
 import { compute as compute_density } from './density/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
 import { compute as compute_dilution } from './dilution/compute';
@@ -75,6 +77,7 @@ import { compute as compute_electricity_usage } from './electricity-usage/comput
 import { compute as compute_engagement_rate } from './engagement-rate/compute';
 import { compute as compute_factorial } from './factorial/compute';
 import { compute as compute_fee_chain } from './fee-chain/compute';
+import { compute as compute_fibonacci } from './fibonacci/compute';
 import { compute as compute_files_on_disk } from './files-on-disk/compute';
 import { compute as compute_final_grade } from './final-grade/compute';
 import { compute as compute_fps_frametime } from './fps-frametime/compute';
@@ -147,6 +150,7 @@ import { compute as compute_probability_basic } from './probability-basic/comput
 import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
+import { compute as compute_raid } from './raid/compute';
 import { compute as compute_reading_speed } from './reading-speed/compute';
 import { compute as compute_real_return } from './real-return/compute';
 import { compute as compute_recipe_cost } from './recipe-cost/compute';
@@ -194,6 +198,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ad-roi': compute_ad_roi,
   'annuity': compute_annuity,
   'aov': compute_aov,
+  'arithmetic-progression': compute_arithmetic_progression,
   'aspect-ratio': compute_aspect_ratio,
   'bakers-percentage': compute_bakers_percentage,
   'battery-charge-time': compute_battery_charge_time,
@@ -237,6 +242,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ctr': compute_ctr,
   'currency-exchange-fee': compute_currency_exchange_fee,
   'day-of-week': compute_day_of_week,
+  'dca': compute_dca,
   'density': compute_density,
   'difference-abs-rel': compute_difference_abs_rel,
   'dilution': compute_dilution,
@@ -249,6 +255,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'engagement-rate': compute_engagement_rate,
   'factorial': compute_factorial,
   'fee-chain': compute_fee_chain,
+  'fibonacci': compute_fibonacci,
   'files-on-disk': compute_files_on_disk,
   'final-grade': compute_final_grade,
   'fps-frametime': compute_fps_frametime,
@@ -315,6 +322,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'probability-basic': compute_probability_basic,
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
+  'raid': compute_raid,
   'reading-speed': compute_reading_speed,
   'real-return': compute_real_return,
   'recipe-cost': compute_recipe_cost,

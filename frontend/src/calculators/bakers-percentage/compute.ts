@@ -30,9 +30,9 @@ export const compute: CalcFunction = (inputs) => {
     const text = line.trim();
     if (!text) continue;
     const tokens = tokenize(text);
-    if (tokens.length < 2) return fail(`Строка «${text}»: нужны название и процент`);
+    if (tokens.length < 2) return fail(`Нужны название и процент в строке: ${text}`);
     const percent = parseLocalizedNumber(tokens[tokens.length - 1], 'ru');
-    if (percent === null) return fail(`Строка «${text}»: процент должен быть числом`);
+    if (percent === null) return fail(`Процент должен быть числом в строке: ${text}`);
     if (percent < 0) return fail('Процент не может быть отрицательным');
     rows.push({ name: tokens.slice(0, -1).join(' '), percent, weight: (flour * percent) / 100 });
   }

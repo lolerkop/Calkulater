@@ -25,7 +25,7 @@ export const compute: CalcFunction = (inputs) => {
   const values: number[] = [];
   for (const token of tokenize(toStr(inputs.resistances, ''))) {
     const value = parseLocalizedNumber(token, 'ru');
-    if (value === null) return fail(`«${token}» — не число`);
+    if (value === null) return fail(`Не число: ${token}`);
     if (!(value > 0)) return fail('Сопротивление должно быть больше нуля');
     values.push(value);
   }

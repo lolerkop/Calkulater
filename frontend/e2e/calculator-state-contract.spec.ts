@@ -20,8 +20,12 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  'arithmetic-progression': { query: { a1: 100, d: -7, n: 15 }, result: { primary: '2', rows: [{ label: 'Сумма ряда', value: '765' }, { label: 'Разность', value: '-7' }] } },
   'bakers-percentage': { query: { flour: 900, ingredients: 'water 72\nsalt 2\nyeast 0.8' }, result: { primary: '1 573,2 г', rows: [{ label: 'Гидратация', value: '72,00%' }, { label: 'Мука', value: '900 г' }] } },
+  'dca': { query: { monthly: 5000, months: 24, priceGrowthPct: -1, startPrice: 200 }, result: { primary: '107 160,93 ₽', rows: [{ label: 'Вложено всего', value: '120 000,00 ₽' }, { label: 'Куплено единиц', value: '675,14' }, { label: 'Средняя цена', value: '177,74 ₽' }] } },
+  'fibonacci': { query: { n: 30 }, result: { primary: '514 229', rows: [{ label: 'Сумма ряда', value: '1 346 268' }, { label: 'Отношение к предыдущему', value: '1,618' }] } },
   'gcd-lcm': { query: { numbers: '15 25 35' }, result: { primary: '5', rows: [{ label: 'НОК', value: '525' }, { label: 'Чисел', value: '3' }, { label: 'Взаимно простые', value: 'нет' }] } },
+  'raid': { query: { level: '6', disks: 8, sizeTb: 12 }, result: { primary: '72 ТБ', rows: [{ label: 'Сырая ёмкость', value: '96 ТБ' }, { label: 'Допустимо отказов', value: '2' }, { label: 'Эффективность', value: '75,00%' }] } },
   'recipe-cost': { query: { ingredients: 'flour 1.2 60\nbutter 0.4 750\nsugar 0.25 90', servings: 6 }, result: { primary: '65,75 ₽', rows: [{ label: 'Стоимость всего', value: '394,50 ₽' }, { label: 'Ингредиентов', value: '3' }, { label: 'Самый дорогой', value: 'butter' }] } },
   'recipe-scale': { query: { ingredients: 'flour 800\nwater 520\nsalt 16', fromServings: 6, toServings: 10 }, result: { primary: '1,6667', rows: [{ label: 'Ингредиентов', value: '3' }, { label: 'Было всего', value: '1 336' }, { label: 'Стало всего', value: '2 226,67' }] } },
   'resistor-network': { query: { resistances: '470 680 1000', mode: 'parallel' }, result: { primary: '217,47 Ом', rows: [{ label: 'Резисторов', value: '3' }, { label: 'Наименьший', value: '470 Ом' }, { label: 'Наибольший', value: '1 000 Ом' }] } },

@@ -31,8 +31,8 @@ export const compute: CalcFunction = (inputs) => {
   const numbers: number[] = [];
   for (const token of tokenize(toStr(inputs.numbers, ''))) {
     const value = parseLocalizedNumber(token, 'ru');
-    if (value === null) return fail(`«${token}» — не число`);
-    if (!Number.isInteger(value)) return fail(`«${token}» — не целое число`);
+    if (value === null) return fail(`Не число: ${token}`);
+    if (!Number.isInteger(value)) return fail(`Не целое число: ${token}`);
     if (value <= 0) return fail('Числа должны быть больше нуля');
     numbers.push(value);
   }

@@ -21,6 +21,8 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      "Нужны название, количество и цена в строке:": "Name, quantity and price are required on the line:",
+      "Количество и цена должны быть числами в строке:": "Quantity and price must be numbers on the line:",
       "₽": "$",
       "Число порций должно быть больше нуля": "The number of servings must be greater than zero",
       "Количество и цена не могут быть отрицательными": "Quantity and price cannot be negative",
@@ -47,6 +49,8 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      "Нужны название, количество и цена в строке:": "Потрібні назва, кількість і ціна в рядку:",
+      "Количество и цена должны быть числами в строке:": "Кількість і ціна мають бути числами в рядку:",
       "₽": "₴",
       "Число порций должно быть больше нуля": "Кількість порцій має бути більшою за нуль",
       "Количество и цена не могут быть отрицательными": "Кількість і ціна не можуть бути від'ємними",

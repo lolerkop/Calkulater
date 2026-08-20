@@ -31,6 +31,7 @@ activity-calories,/ru/sport/activity-calories/,/en/fitness/exercise-calorie-calc
 ad-roi,/ru/business/ad-roi/,/en/business/advertising-roi/,/uk/business/roi-reklamy/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 annuity,/ru/finance/annuity/,/en/finance/annuity-calculator/,/uk/finansy/anuitet/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 aov,/ru/business/aov/,/en/business/average-order-value/,/uk/business/serednii-chek/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+arithmetic-progression,/ru/math/arithmetic-progression/,/en/math/arithmetic-progression-calculator/,/uk/math/aryfmetychna-progresiya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 aspect-ratio,/ru/computers/aspect-ratio/,/en/computers/aspect-ratio-calculator/,/uk/kompyutery/spivvidnoshennya-storin/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 bakers-percentage,/ru/household/bakers-percentage/,/en/household/bakers-percentage-calculator/,/uk/pobut/pekarski-vidsotky/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 battery-charge-time,/ru/electronics/battery-charge-time/,/en/electronics/battery-charge-time-calculator/,/uk/elektronika/chas-zaryadzhannya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -74,6 +75,7 @@ crypto-pnl,/ru/finance/crypto-pnl/,/en/finance/crypto-profit-calculator/,/uk/fin
 ctr,/ru/business/ctr/,/en/business/ctr-calculator/,/uk/business/ctr/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 currency-exchange-fee,/ru/currency/currency-exchange-fee/,/en/currency/currency-exchange-cost-calculator/,/uk/valyuty/vartist-obminu-valyuty/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 day-of-week,/ru/date-time/day-of-week/,/en/date-time/day-of-week/,/uk/daty/den-tyzhnya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+dca,/ru/finance/dca/,/en/finance/dollar-cost-averaging-calculator/,/uk/finansy/userednennya-tsiny-dca/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 density,/ru/physics/density/,/en/physics/density-calculator/,/uk/fizyka/hustyna/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 difference-abs-rel,/ru/math/difference-abs-rel/,/en/math/absolute-relative-difference/,/uk/math/abs-rel-riznytsya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 dilution,/ru/chemistry/dilution/,/en/chemistry/dilution-calculator/,/uk/himiya/rozvedennia/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -86,6 +88,7 @@ electricity-usage,/ru/household/electricity-usage/,/en/household/electricity-usa
 engagement-rate,/ru/business/engagement-rate/,/en/business/engagement-rate-calculator/,/uk/business/zaluchenist/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 factorial,/ru/math/factorial/,/en/math/factorial-calculator/,/uk/math/faktorial/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 fee-chain,/ru/business/fee-chain/,/en/business/marketplace-fee-calculator/,/uk/business/komisiya-marketpleysu/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+fibonacci,/ru/math/fibonacci/,/en/math/fibonacci-calculator/,/uk/math/chysla-fibonachchi/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 files-on-disk,/ru/computers/files-on-disk/,/en/computers/files-on-disk-calculator/,/uk/kompyutery/fayly-na-nosiyi/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 final-grade,/ru/education/final-grade/,/en/education/final-grade-calculator/,/uk/navchannya/potribna-otsinka/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 fps-frametime,/ru/computers/fps-frametime/,/en/computers/fps-frame-time-calculator/,/uk/kompyutery/fps-chas-kadru/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -150,6 +153,7 @@ print-3d-cost,/ru/household/print-3d-cost/,/en/household/3d-printing-cost-calcul
 probability-basic,/ru/math/probability/,/en/math/probability-calculator/,/uk/math/ymovirnist/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 proportion,/ru/math/proportion/,/en/math/proportion-calculator/,/uk/math/kalkulyator-proportsii/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 quadratic-equation,/ru/math/quadratic-equation/,/en/math/quadratic-equation/,/uk/math/kvadratne-rivnyannya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+raid,/ru/computers/raid/,/en/computers/raid-calculator/,/uk/kompyutery/raid-masyv/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 reading-speed,/ru/education/reading-speed/,/en/education/reading-speed-calculator/,/uk/navchannya/shvydkist-chytannya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 real-return,/ru/finance/real-return/,/en/finance/real-return-calculator/,/uk/finansy/realna-dokhidnist/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 recipe-cost,/ru/household/recipe-cost/,/en/household/recipe-cost-calculator/,/uk/pobut/vartist-retsepta/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.

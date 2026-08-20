@@ -16,6 +16,7 @@ import { definition as def_activity_calories } from './activity-calories/definit
 import { definition as def_ad_roi } from './ad-roi/definition';
 import { definition as def_annuity } from './annuity/definition';
 import { definition as def_aov } from './aov/definition';
+import { definition as def_arithmetic_progression } from './arithmetic-progression/definition';
 import { definition as def_aspect_ratio } from './aspect-ratio/definition';
 import { definition as def_bakers_percentage } from './bakers-percentage/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
@@ -59,6 +60,7 @@ import { definition as def_crypto_pnl } from './crypto-pnl/definition';
 import { definition as def_ctr } from './ctr/definition';
 import { definition as def_currency_exchange_fee } from './currency-exchange-fee/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
+import { definition as def_dca } from './dca/definition';
 import { definition as def_density } from './density/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
 import { definition as def_dilution } from './dilution/definition';
@@ -71,6 +73,7 @@ import { definition as def_electricity_usage } from './electricity-usage/definit
 import { definition as def_engagement_rate } from './engagement-rate/definition';
 import { definition as def_factorial } from './factorial/definition';
 import { definition as def_fee_chain } from './fee-chain/definition';
+import { definition as def_fibonacci } from './fibonacci/definition';
 import { definition as def_files_on_disk } from './files-on-disk/definition';
 import { definition as def_final_grade } from './final-grade/definition';
 import { definition as def_fps_frametime } from './fps-frametime/definition';
@@ -137,6 +140,7 @@ import { definition as def_print_3d_cost } from './print-3d-cost/definition';
 import { definition as def_probability_basic } from './probability-basic/definition';
 import { definition as def_proportion } from './proportion/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
+import { definition as def_raid } from './raid/definition';
 import { definition as def_reading_speed } from './reading-speed/definition';
 import { definition as def_real_return } from './real-return/definition';
 import { definition as def_recipe_cost } from './recipe-cost/definition';
@@ -183,6 +187,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ad_roi,
   def_annuity,
   def_aov,
+  def_arithmetic_progression,
   def_aspect_ratio,
   def_bakers_percentage,
   def_battery_charge_time,
@@ -226,6 +231,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ctr,
   def_currency_exchange_fee,
   def_day_of_week,
+  def_dca,
   def_density,
   def_difference_abs_rel,
   def_dilution,
@@ -238,6 +244,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_engagement_rate,
   def_factorial,
   def_fee_chain,
+  def_fibonacci,
   def_files_on_disk,
   def_final_grade,
   def_fps_frametime,
@@ -304,6 +311,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_probability_basic,
   def_proportion,
   def_quadratic_equation,
+  def_raid,
   def_reading_speed,
   def_real_return,
   def_recipe_cost,

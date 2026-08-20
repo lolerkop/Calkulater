@@ -22,6 +22,8 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      "Нужны название и количество в строке:": "Name and quantity are required on the line:",
+      "Количество должно быть числом в строке:": "The quantity must be a number on the line:",
       "Исходное число порций должно быть больше нуля": "The original number of servings must be greater than zero",
       "Нужное число порций должно быть больше нуля": "The required number of servings must be greater than zero",
       "Количество не может быть отрицательным": "Quantity cannot be negative",
@@ -49,6 +51,8 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      "Нужны название и количество в строке:": "Потрібні назва і кількість у рядку:",
+      "Количество должно быть числом в строке:": "Кількість має бути числом у рядку:",
       "Исходное число порций должно быть больше нуля": "Початкова кількість порцій має бути більшою за нуль",
       "Нужное число порций должно быть больше нуля": "Потрібна кількість порцій має бути більшою за нуль",
       "Количество не может быть отрицательным": "Кількість не може бути від'ємною",

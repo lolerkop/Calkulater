@@ -36,10 +36,10 @@ export const compute: CalcFunction = (inputs) => {
     const text = line.trim();
     if (!text) continue;
     const tokens = tokenize(text);
-    if (tokens.length < 3) return fail(`Строка «${text}»: нужны название, количество и цена`);
+    if (tokens.length < 3) return fail(`Нужны название, количество и цена в строке: ${text}`);
     const price = parseLocalizedNumber(tokens[tokens.length - 1], 'ru');
     const qty = parseLocalizedNumber(tokens[tokens.length - 2], 'ru');
-    if (qty === null || price === null) return fail(`Строка «${text}»: количество и цена должны быть числами`);
+    if (qty === null || price === null) return fail(`Количество и цена должны быть числами в строке: ${text}`);
     if (qty < 0 || price < 0) return fail('Количество и цена не могут быть отрицательными');
     rows.push({ name: tokens.slice(0, -2).join(' '), qty, price });
   }

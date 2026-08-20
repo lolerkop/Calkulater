@@ -19,6 +19,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      "Не число:": "Not a number:",
       "Ом": "Ω",
       "последовательное": "series",
       "параллельное": "parallel",
@@ -44,6 +45,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      "Не число:": "Не число:",
       "последовательное": "послідовне",
       "параллельное": "паралельне",
       "Сопротивление должно быть больше нуля": "Опір має бути більшим за нуль",

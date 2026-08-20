@@ -19,6 +19,8 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      "Нужны название и процент в строке:": "Name and percentage are required on the line:",
+      "Процент должен быть числом в строке:": "The percentage must be a number on the line:",
       "г": "g",
       "Мука всегда принимается за 100 %, поэтому сумма процентов больше ста — это норма.":
         "Flour is always taken as 100%, so the percentages adding up to more than a hundred is normal.",
@@ -45,6 +47,8 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      "Нужны название и процент в строке:": "Потрібні назва і відсоток у рядку:",
+      "Процент должен быть числом в строке:": "Відсоток має бути числом у рядку:",
       "Мука всегда принимается за 100 %, поэтому сумма процентов больше ста — это норма.":
         "Борошно завжди дорівнює 100 %, тож сума відсотків понад сто — це норма.",
       "Вес муки должен быть больше нуля": "Вага борошна має бути більшою за нуль",

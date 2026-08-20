@@ -10,6 +10,7 @@ import { localization as loc_activity_calories } from './activity-calories/local
 import { localization as loc_ad_roi } from './ad-roi/localization';
 import { localization as loc_annuity } from './annuity/localization';
 import { localization as loc_aov } from './aov/localization';
+import { localization as loc_arithmetic_progression } from './arithmetic-progression/localization';
 import { localization as loc_aspect_ratio } from './aspect-ratio/localization';
 import { localization as loc_bakers_percentage } from './bakers-percentage/localization';
 import { localization as loc_battery_charge_time } from './battery-charge-time/localization';
@@ -53,6 +54,7 @@ import { localization as loc_crypto_pnl } from './crypto-pnl/localization';
 import { localization as loc_ctr } from './ctr/localization';
 import { localization as loc_currency_exchange_fee } from './currency-exchange-fee/localization';
 import { localization as loc_day_of_week } from './day-of-week/localization';
+import { localization as loc_dca } from './dca/localization';
 import { localization as loc_density } from './density/localization';
 import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
 import { localization as loc_dilution } from './dilution/localization';
@@ -65,6 +67,7 @@ import { localization as loc_electricity_usage } from './electricity-usage/local
 import { localization as loc_engagement_rate } from './engagement-rate/localization';
 import { localization as loc_factorial } from './factorial/localization';
 import { localization as loc_fee_chain } from './fee-chain/localization';
+import { localization as loc_fibonacci } from './fibonacci/localization';
 import { localization as loc_files_on_disk } from './files-on-disk/localization';
 import { localization as loc_final_grade } from './final-grade/localization';
 import { localization as loc_fps_frametime } from './fps-frametime/localization';
@@ -129,6 +132,7 @@ import { localization as loc_print_3d_cost } from './print-3d-cost/localization'
 import { localization as loc_probability_basic } from './probability-basic/localization';
 import { localization as loc_proportion } from './proportion/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
+import { localization as loc_raid } from './raid/localization';
 import { localization as loc_reading_speed } from './reading-speed/localization';
 import { localization as loc_real_return } from './real-return/localization';
 import { localization as loc_recipe_cost } from './recipe-cost/localization';
@@ -176,6 +180,7 @@ export const v2Localization: ScopedLocalization = {
     'ad-roi': loc_ad_roi.en ?? {},
     'annuity': loc_annuity.en ?? {},
     'aov': loc_aov.en ?? {},
+    'arithmetic-progression': loc_arithmetic_progression.en ?? {},
     'aspect-ratio': loc_aspect_ratio.en ?? {},
     'bakers-percentage': loc_bakers_percentage.en ?? {},
     'battery-charge-time': loc_battery_charge_time.en ?? {},
@@ -219,6 +224,7 @@ export const v2Localization: ScopedLocalization = {
     'ctr': loc_ctr.en ?? {},
     'currency-exchange-fee': loc_currency_exchange_fee.en ?? {},
     'day-of-week': loc_day_of_week.en ?? {},
+    'dca': loc_dca.en ?? {},
     'density': loc_density.en ?? {},
     'difference-abs-rel': loc_difference_abs_rel.en ?? {},
     'dilution': loc_dilution.en ?? {},
@@ -231,6 +237,7 @@ export const v2Localization: ScopedLocalization = {
     'engagement-rate': loc_engagement_rate.en ?? {},
     'factorial': loc_factorial.en ?? {},
     'fee-chain': loc_fee_chain.en ?? {},
+    'fibonacci': loc_fibonacci.en ?? {},
     'files-on-disk': loc_files_on_disk.en ?? {},
     'final-grade': loc_final_grade.en ?? {},
     'fps-frametime': loc_fps_frametime.en ?? {},
@@ -295,6 +302,7 @@ export const v2Localization: ScopedLocalization = {
     'probability-basic': loc_probability_basic.en ?? {},
     'proportion': loc_proportion.en ?? {},
     'quadratic-equation': loc_quadratic_equation.en ?? {},
+    'raid': loc_raid.en ?? {},
     'reading-speed': loc_reading_speed.en ?? {},
     'real-return': loc_real_return.en ?? {},
     'recipe-cost': loc_recipe_cost.en ?? {},
@@ -341,6 +349,7 @@ export const v2Localization: ScopedLocalization = {
     'ad-roi': loc_ad_roi.uk ?? {},
     'annuity': loc_annuity.uk ?? {},
     'aov': loc_aov.uk ?? {},
+    'arithmetic-progression': loc_arithmetic_progression.uk ?? {},
     'aspect-ratio': loc_aspect_ratio.uk ?? {},
     'bakers-percentage': loc_bakers_percentage.uk ?? {},
     'battery-charge-time': loc_battery_charge_time.uk ?? {},
@@ -384,6 +393,7 @@ export const v2Localization: ScopedLocalization = {
     'ctr': loc_ctr.uk ?? {},
     'currency-exchange-fee': loc_currency_exchange_fee.uk ?? {},
     'day-of-week': loc_day_of_week.uk ?? {},
+    'dca': loc_dca.uk ?? {},
     'density': loc_density.uk ?? {},
     'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
     'dilution': loc_dilution.uk ?? {},
@@ -396,6 +406,7 @@ export const v2Localization: ScopedLocalization = {
     'engagement-rate': loc_engagement_rate.uk ?? {},
     'factorial': loc_factorial.uk ?? {},
     'fee-chain': loc_fee_chain.uk ?? {},
+    'fibonacci': loc_fibonacci.uk ?? {},
     'files-on-disk': loc_files_on_disk.uk ?? {},
     'final-grade': loc_final_grade.uk ?? {},
     'fps-frametime': loc_fps_frametime.uk ?? {},
@@ -460,6 +471,7 @@ export const v2Localization: ScopedLocalization = {
     'probability-basic': loc_probability_basic.uk ?? {},
     'proportion': loc_proportion.uk ?? {},
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
+    'raid': loc_raid.uk ?? {},
     'reading-speed': loc_reading_speed.uk ?? {},
     'real-return': loc_real_return.uk ?? {},
     'recipe-cost': loc_recipe_cost.uk ?? {},

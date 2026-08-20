@@ -14,6 +14,8 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      "Не целое число:": "Not a whole number:",
+      "Не число:": "Not a number:",
       "да": "yes",
       "нет": "no",
       "Числа должны быть больше нуля": "The numbers must be greater than zero",
@@ -34,6 +36,8 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      "Не целое число:": "Не ціле число:",
+      "Не число:": "Не число:",
       "да": "так",
       "нет": "ні",
       "Числа должны быть больше нуля": "Числа мають бути більшими за нуль",
