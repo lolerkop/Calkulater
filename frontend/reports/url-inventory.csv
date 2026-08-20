@@ -70,6 +70,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/business/cac/,ru,calculator,true,/ru/business/cac/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/cagr/,ru,calculator,true,/ru/finance/cagr/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
 /ru/sport/calories-from-macros/,ru,calculator,true,/ru/sport/calories-from-macros/,calculator:calories-from-macros,src/pages/[locale]/[category]/[calculator].astro
+/ru/computers/color-convert/,ru,calculator,true,/ru/computers/color-convert/,calculator:color-convert,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/combinatorics/,ru,calculator,true,/ru/math/combinatorics/,calculator:combinatorics,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/commission/,ru,calculator,true,/ru/finance/commission/,calculator:commission,src/pages/[locale]/[category]/[calculator].astro
 /ru/building/concrete/,ru,calculator,true,/ru/building/concrete/,calculator:concrete,src/pages/[locale]/[category]/[calculator].astro
@@ -171,6 +172,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/household/pool-fill-time/,ru,calculator,true,/ru/household/pool-fill-time/,calculator:pool-fill-time,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/position-size/,ru,calculator,true,/ru/finance/position-size/,calculator:position-size,src/pages/[locale]/[category]/[calculator].astro
 /ru/physics/potential-energy/,ru,calculator,true,/ru/physics/potential-energy/,calculator:potential-energy,src/pages/[locale]/[category]/[calculator].astro
+/ru/math/power-root/,ru,calculator,true,/ru/math/power-root/,calculator:power-root,src/pages/[locale]/[category]/[calculator].astro
 /ru/automotive/power-to-weight/,ru,calculator,true,/ru/automotive/power-to-weight/,calculator:power-to-weight,src/pages/[locale]/[category]/[calculator].astro
 /ru/computers/ppi/,ru,calculator,true,/ru/computers/ppi/,calculator:ppi-dpi,src/pages/[locale]/[category]/[calculator].astro
 /ru/physics/pressure/,ru,calculator,true,/ru/physics/pressure/,calculator:pressure,src/pages/[locale]/[category]/[calculator].astro
@@ -181,6 +183,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/math/proportion/,ru,calculator,true,/ru/math/proportion/,calculator:proportion,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/quadratic-equation/,ru,calculator,true,/ru/math/quadratic-equation/,calculator:quadratic-equation,src/pages/[locale]/[category]/[calculator].astro
 /ru/computers/raid/,ru,calculator,true,/ru/computers/raid/,calculator:raid,src/pages/[locale]/[category]/[calculator].astro
+/ru/math/ratio/,ru,calculator,true,/ru/math/ratio/,calculator:ratio,src/pages/[locale]/[category]/[calculator].astro
 /ru/education/reading-speed/,ru,calculator,true,/ru/education/reading-speed/,calculator:reading-speed,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/real-return/,ru,calculator,true,/ru/finance/real-return/,calculator:real-return,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/recipe-cost/,ru,calculator,true,/ru/household/recipe-cost/,calculator:recipe-cost,src/pages/[locale]/[category]/[calculator].astro
@@ -287,6 +290,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/business/customer-acquisition-cost/,en,calculator,true,/en/business/customer-acquisition-cost/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/cagr-calculator/,en,calculator,true,/en/finance/cagr-calculator/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
 /en/fitness/calories-from-macros-calculator/,en,calculator,true,/en/fitness/calories-from-macros-calculator/,calculator:calories-from-macros,src/pages/[locale]/[category]/[calculator].astro
+/en/computers/hex-rgb-hsl-converter/,en,calculator,true,/en/computers/hex-rgb-hsl-converter/,calculator:color-convert,src/pages/[locale]/[category]/[calculator].astro
 /en/math/combinations-permutations-calculator/,en,calculator,true,/en/math/combinations-permutations-calculator/,calculator:combinatorics,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/commission-calculator/,en,calculator,true,/en/finance/commission-calculator/,calculator:commission,src/pages/[locale]/[category]/[calculator].astro
 /en/home-improvement/concrete-calculator/,en,calculator,true,/en/home-improvement/concrete-calculator/,calculator:concrete,src/pages/[locale]/[category]/[calculator].astro
@@ -388,6 +392,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/household/pool-fill-time-calculator/,en,calculator,true,/en/household/pool-fill-time-calculator/,calculator:pool-fill-time,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/position-size-calculator/,en,calculator,true,/en/finance/position-size-calculator/,calculator:position-size,src/pages/[locale]/[category]/[calculator].astro
 /en/physics/potential-energy-calculator/,en,calculator,true,/en/physics/potential-energy-calculator/,calculator:potential-energy,src/pages/[locale]/[category]/[calculator].astro
+/en/math/power-and-root-calculator/,en,calculator,true,/en/math/power-and-root-calculator/,calculator:power-root,src/pages/[locale]/[category]/[calculator].astro
 /en/automotive/power-to-weight-calculator/,en,calculator,true,/en/automotive/power-to-weight-calculator/,calculator:power-to-weight,src/pages/[locale]/[category]/[calculator].astro
 /en/computers/ppi-calculator/,en,calculator,true,/en/computers/ppi-calculator/,calculator:ppi-dpi,src/pages/[locale]/[category]/[calculator].astro
 /en/physics/pressure-calculator/,en,calculator,true,/en/physics/pressure-calculator/,calculator:pressure,src/pages/[locale]/[category]/[calculator].astro
@@ -398,6 +403,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/math/proportion-calculator/,en,calculator,true,/en/math/proportion-calculator/,calculator:proportion,src/pages/[locale]/[category]/[calculator].astro
 /en/math/quadratic-equation/,en,calculator,true,/en/math/quadratic-equation/,calculator:quadratic-equation,src/pages/[locale]/[category]/[calculator].astro
 /en/computers/raid-calculator/,en,calculator,true,/en/computers/raid-calculator/,calculator:raid,src/pages/[locale]/[category]/[calculator].astro
+/en/math/ratio-calculator/,en,calculator,true,/en/math/ratio-calculator/,calculator:ratio,src/pages/[locale]/[category]/[calculator].astro
 /en/education/reading-speed-calculator/,en,calculator,true,/en/education/reading-speed-calculator/,calculator:reading-speed,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/real-return-calculator/,en,calculator,true,/en/finance/real-return-calculator/,calculator:real-return,src/pages/[locale]/[category]/[calculator].astro
 /en/household/recipe-cost-calculator/,en,calculator,true,/en/household/recipe-cost-calculator/,calculator:recipe-cost,src/pages/[locale]/[category]/[calculator].astro
@@ -504,6 +510,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/business/vartist-zaluchennya-kliyenta/,uk,calculator,true,/uk/business/vartist-zaluchennya-kliyenta/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/cagr-kalkulyator/,uk,calculator,true,/uk/finansy/cagr-kalkulyator/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
 /uk/fitness/kalkulyator-kaloriy-z-bzhv/,uk,calculator,true,/uk/fitness/kalkulyator-kaloriy-z-bzhv/,calculator:calories-from-macros,src/pages/[locale]/[category]/[calculator].astro
+/uk/kompyutery/konverter-koloriv/,uk,calculator,true,/uk/kompyutery/konverter-koloriv/,calculator:color-convert,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/spoluchennya-rozmishchennya/,uk,calculator,true,/uk/math/spoluchennya-rozmishchennya/,calculator:combinatorics,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/kalkulyator-komisiyi/,uk,calculator,true,/uk/finansy/kalkulyator-komisiyi/,calculator:commission,src/pages/[locale]/[category]/[calculator].astro
 /uk/remont/beton/,uk,calculator,true,/uk/remont/beton/,calculator:concrete,src/pages/[locale]/[category]/[calculator].astro
@@ -605,6 +612,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/pobut/napovnennya-baseynu/,uk,calculator,true,/uk/pobut/napovnennya-baseynu/,calculator:pool-fill-time,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/rozmir-pozytsii/,uk,calculator,true,/uk/finansy/rozmir-pozytsii/,calculator:position-size,src/pages/[locale]/[category]/[calculator].astro
 /uk/fizyka/potentsialna-enerhiya/,uk,calculator,true,/uk/fizyka/potentsialna-enerhiya/,calculator:potential-energy,src/pages/[locale]/[category]/[calculator].astro
+/uk/math/stepeni-ta-koreni/,uk,calculator,true,/uk/math/stepeni-ta-koreni/,calculator:power-root,src/pages/[locale]/[category]/[calculator].astro
 /uk/avtomobili/potuzhnist-do-masy/,uk,calculator,true,/uk/avtomobili/potuzhnist-do-masy/,calculator:power-to-weight,src/pages/[locale]/[category]/[calculator].astro
 /uk/kompyutery/ppi/,uk,calculator,true,/uk/kompyutery/ppi/,calculator:ppi-dpi,src/pages/[locale]/[category]/[calculator].astro
 /uk/fizyka/tysk/,uk,calculator,true,/uk/fizyka/tysk/,calculator:pressure,src/pages/[locale]/[category]/[calculator].astro
@@ -615,6 +623,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/math/kalkulyator-proportsii/,uk,calculator,true,/uk/math/kalkulyator-proportsii/,calculator:proportion,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/kvadratne-rivnyannya/,uk,calculator,true,/uk/math/kvadratne-rivnyannya/,calculator:quadratic-equation,src/pages/[locale]/[category]/[calculator].astro
 /uk/kompyutery/raid-masyv/,uk,calculator,true,/uk/kompyutery/raid-masyv/,calculator:raid,src/pages/[locale]/[category]/[calculator].astro
+/uk/math/vidnoshennya/,uk,calculator,true,/uk/math/vidnoshennya/,calculator:ratio,src/pages/[locale]/[category]/[calculator].astro
 /uk/navchannya/shvydkist-chytannya/,uk,calculator,true,/uk/navchannya/shvydkist-chytannya/,calculator:reading-speed,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/realna-dokhidnist/,uk,calculator,true,/uk/finansy/realna-dokhidnist/,calculator:real-return,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/vartist-retsepta/,uk,calculator,true,/uk/pobut/vartist-retsepta/,calculator:recipe-cost,src/pages/[locale]/[category]/[calculator].astro

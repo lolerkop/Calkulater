@@ -22,6 +22,7 @@ import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localizat
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
 import { localization as loc_calories_from_macros } from './calories-from-macros/localization';
+import { localization as loc_color_convert } from './color-convert/localization';
 import { localization as loc_combinatorics } from './combinatorics/localization';
 import { localization as loc_commission } from './commission/localization';
 import { localization as loc_concrete } from './concrete/localization';
@@ -123,6 +124,7 @@ import { localization as loc_plaster } from './plaster/localization';
 import { localization as loc_pool_fill_time } from './pool-fill-time/localization';
 import { localization as loc_position_size } from './position-size/localization';
 import { localization as loc_potential_energy } from './potential-energy/localization';
+import { localization as loc_power_root } from './power-root/localization';
 import { localization as loc_power_to_weight } from './power-to-weight/localization';
 import { localization as loc_ppi_dpi } from './ppi-dpi/localization';
 import { localization as loc_pressure } from './pressure/localization';
@@ -133,6 +135,7 @@ import { localization as loc_probability_basic } from './probability-basic/local
 import { localization as loc_proportion } from './proportion/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
 import { localization as loc_raid } from './raid/localization';
+import { localization as loc_ratio } from './ratio/localization';
 import { localization as loc_reading_speed } from './reading-speed/localization';
 import { localization as loc_real_return } from './real-return/localization';
 import { localization as loc_recipe_cost } from './recipe-cost/localization';
@@ -192,6 +195,7 @@ export const v2Localization: ScopedLocalization = {
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
     'calories-from-macros': loc_calories_from_macros.en ?? {},
+    'color-convert': loc_color_convert.en ?? {},
     'combinatorics': loc_combinatorics.en ?? {},
     'commission': loc_commission.en ?? {},
     'concrete': loc_concrete.en ?? {},
@@ -293,6 +297,7 @@ export const v2Localization: ScopedLocalization = {
     'pool-fill-time': loc_pool_fill_time.en ?? {},
     'position-size': loc_position_size.en ?? {},
     'potential-energy': loc_potential_energy.en ?? {},
+    'power-root': loc_power_root.en ?? {},
     'power-to-weight': loc_power_to_weight.en ?? {},
     'ppi-dpi': loc_ppi_dpi.en ?? {},
     'pressure': loc_pressure.en ?? {},
@@ -303,6 +308,7 @@ export const v2Localization: ScopedLocalization = {
     'proportion': loc_proportion.en ?? {},
     'quadratic-equation': loc_quadratic_equation.en ?? {},
     'raid': loc_raid.en ?? {},
+    'ratio': loc_ratio.en ?? {},
     'reading-speed': loc_reading_speed.en ?? {},
     'real-return': loc_real_return.en ?? {},
     'recipe-cost': loc_recipe_cost.en ?? {},
@@ -361,6 +367,7 @@ export const v2Localization: ScopedLocalization = {
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
     'calories-from-macros': loc_calories_from_macros.uk ?? {},
+    'color-convert': loc_color_convert.uk ?? {},
     'combinatorics': loc_combinatorics.uk ?? {},
     'commission': loc_commission.uk ?? {},
     'concrete': loc_concrete.uk ?? {},
@@ -462,6 +469,7 @@ export const v2Localization: ScopedLocalization = {
     'pool-fill-time': loc_pool_fill_time.uk ?? {},
     'position-size': loc_position_size.uk ?? {},
     'potential-energy': loc_potential_energy.uk ?? {},
+    'power-root': loc_power_root.uk ?? {},
     'power-to-weight': loc_power_to_weight.uk ?? {},
     'ppi-dpi': loc_ppi_dpi.uk ?? {},
     'pressure': loc_pressure.uk ?? {},
@@ -472,6 +480,7 @@ export const v2Localization: ScopedLocalization = {
     'proportion': loc_proportion.uk ?? {},
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
     'raid': loc_raid.uk ?? {},
+    'ratio': loc_ratio.uk ?? {},
     'reading-speed': loc_reading_speed.uk ?? {},
     'real-return': loc_real_return.uk ?? {},
     'recipe-cost': loc_recipe_cost.uk ?? {},

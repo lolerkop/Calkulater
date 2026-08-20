@@ -73,6 +73,7 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['freelance-rate', 'expenses'],
   ['internet-traffic', 'quotaGb'],
   ['currency-exchange-fee', 'feeFixed'],
+  ['ratio', 'total'],
 ];
 
 describe('необязательные суммы', () => {

@@ -30,6 +30,7 @@ import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
 import { compute as compute_calories_from_macros } from './calories-from-macros/compute';
+import { compute as compute_color_convert } from './color-convert/compute';
 import { compute as compute_combinatorics } from './combinatorics/compute';
 import { compute as compute_commission } from './commission/compute';
 import { validate as validate_commission } from './commission/validate';
@@ -140,6 +141,7 @@ import { compute as compute_plaster } from './plaster/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_position_size } from './position-size/compute';
 import { compute as compute_potential_energy } from './potential-energy/compute';
+import { compute as compute_power_root } from './power-root/compute';
 import { compute as compute_power_to_weight } from './power-to-weight/compute';
 import { compute as compute_ppi_dpi } from './ppi-dpi/compute';
 import { compute as compute_pressure } from './pressure/compute';
@@ -151,6 +153,7 @@ import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
 import { compute as compute_raid } from './raid/compute';
+import { compute as compute_ratio } from './ratio/compute';
 import { compute as compute_reading_speed } from './reading-speed/compute';
 import { compute as compute_real_return } from './real-return/compute';
 import { compute as compute_recipe_cost } from './recipe-cost/compute';
@@ -210,6 +213,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cac': compute_cac,
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
+  'color-convert': compute_color_convert,
   'combinatorics': compute_combinatorics,
   'commission': compute_commission,
   'concrete': compute_concrete,
@@ -313,6 +317,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'pool-fill-time': compute_pool_fill_time,
   'position-size': compute_position_size,
   'potential-energy': compute_potential_energy,
+  'power-root': compute_power_root,
   'power-to-weight': compute_power_to_weight,
   'ppi-dpi': compute_ppi_dpi,
   'pressure': compute_pressure,
@@ -323,6 +328,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
   'raid': compute_raid,
+  'ratio': compute_ratio,
   'reading-speed': compute_reading_speed,
   'real-return': compute_real_return,
   'recipe-cost': compute_recipe_cost,

@@ -28,6 +28,7 @@ import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition'
 import { definition as def_cac } from './cac/definition';
 import { definition as def_cagr } from './cagr/definition';
 import { definition as def_calories_from_macros } from './calories-from-macros/definition';
+import { definition as def_color_convert } from './color-convert/definition';
 import { definition as def_combinatorics } from './combinatorics/definition';
 import { definition as def_commission } from './commission/definition';
 import { definition as def_concrete } from './concrete/definition';
@@ -131,6 +132,7 @@ import { definition as def_plaster } from './plaster/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
 import { definition as def_position_size } from './position-size/definition';
 import { definition as def_potential_energy } from './potential-energy/definition';
+import { definition as def_power_root } from './power-root/definition';
 import { definition as def_power_to_weight } from './power-to-weight/definition';
 import { definition as def_ppi_dpi } from './ppi-dpi/definition';
 import { definition as def_pressure } from './pressure/definition';
@@ -141,6 +143,7 @@ import { definition as def_probability_basic } from './probability-basic/definit
 import { definition as def_proportion } from './proportion/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
 import { definition as def_raid } from './raid/definition';
+import { definition as def_ratio } from './ratio/definition';
 import { definition as def_reading_speed } from './reading-speed/definition';
 import { definition as def_real_return } from './real-return/definition';
 import { definition as def_recipe_cost } from './recipe-cost/definition';
@@ -199,6 +202,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_cac,
   def_cagr,
   def_calories_from_macros,
+  def_color_convert,
   def_combinatorics,
   def_commission,
   def_concrete,
@@ -302,6 +306,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_pool_fill_time,
   def_position_size,
   def_potential_energy,
+  def_power_root,
   def_power_to_weight,
   def_ppi_dpi,
   def_pressure,
@@ -312,6 +317,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_proportion,
   def_quadratic_equation,
   def_raid,
+  def_ratio,
   def_reading_speed,
   def_real_return,
   def_recipe_cost,
