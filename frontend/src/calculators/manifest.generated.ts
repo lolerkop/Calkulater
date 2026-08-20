@@ -83,13 +83,18 @@ import { definition as def_freelance_rate } from './freelance-rate/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
 import { definition as def_gcd_lcm } from './gcd-lcm/definition';
 import { definition as def_generator_fuel } from './generator-fuel/definition';
+import { definition as def_geom_annulus } from './geom-annulus/definition';
 import { definition as def_geom_circle } from './geom-circle/definition';
 import { definition as def_geom_cone } from './geom-cone/definition';
+import { definition as def_geom_cube } from './geom-cube/definition';
 import { definition as def_geom_cuboid } from './geom-cuboid/definition';
 import { definition as def_geom_cylinder } from './geom-cylinder/definition';
+import { definition as def_geom_ellipse } from './geom-ellipse/definition';
+import { definition as def_geom_frustum } from './geom-frustum/definition';
 import { definition as def_geom_parallelogram } from './geom-parallelogram/definition';
 import { definition as def_geom_rectangle } from './geom-rectangle/definition';
 import { definition as def_geom_regular_polygon } from './geom-regular-polygon/definition';
+import { definition as def_geom_rhombus } from './geom-rhombus/definition';
 import { definition as def_geom_right_triangle } from './geom-right-triangle/definition';
 import { definition as def_geom_sector } from './geom-sector/definition';
 import { definition as def_geom_sphere } from './geom-sphere/definition';
@@ -257,13 +262,18 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_fuel_consumption,
   def_gcd_lcm,
   def_generator_fuel,
+  def_geom_annulus,
   def_geom_circle,
   def_geom_cone,
+  def_geom_cube,
   def_geom_cuboid,
   def_geom_cylinder,
+  def_geom_ellipse,
+  def_geom_frustum,
   def_geom_parallelogram,
   def_geom_rectangle,
   def_geom_regular_polygon,
+  def_geom_rhombus,
   def_geom_right_triangle,
   def_geom_sector,
   def_geom_sphere,

@@ -77,13 +77,18 @@ import { localization as loc_freelance_rate } from './freelance-rate/localizatio
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
 import { localization as loc_gcd_lcm } from './gcd-lcm/localization';
 import { localization as loc_generator_fuel } from './generator-fuel/localization';
+import { localization as loc_geom_annulus } from './geom-annulus/localization';
 import { localization as loc_geom_circle } from './geom-circle/localization';
 import { localization as loc_geom_cone } from './geom-cone/localization';
+import { localization as loc_geom_cube } from './geom-cube/localization';
 import { localization as loc_geom_cuboid } from './geom-cuboid/localization';
 import { localization as loc_geom_cylinder } from './geom-cylinder/localization';
+import { localization as loc_geom_ellipse } from './geom-ellipse/localization';
+import { localization as loc_geom_frustum } from './geom-frustum/localization';
 import { localization as loc_geom_parallelogram } from './geom-parallelogram/localization';
 import { localization as loc_geom_rectangle } from './geom-rectangle/localization';
 import { localization as loc_geom_regular_polygon } from './geom-regular-polygon/localization';
+import { localization as loc_geom_rhombus } from './geom-rhombus/localization';
 import { localization as loc_geom_right_triangle } from './geom-right-triangle/localization';
 import { localization as loc_geom_sector } from './geom-sector/localization';
 import { localization as loc_geom_sphere } from './geom-sphere/localization';
@@ -250,13 +255,18 @@ export const v2Localization: ScopedLocalization = {
     'fuel-consumption': loc_fuel_consumption.en ?? {},
     'gcd-lcm': loc_gcd_lcm.en ?? {},
     'generator-fuel': loc_generator_fuel.en ?? {},
+    'geom-annulus': loc_geom_annulus.en ?? {},
     'geom-circle': loc_geom_circle.en ?? {},
     'geom-cone': loc_geom_cone.en ?? {},
+    'geom-cube': loc_geom_cube.en ?? {},
     'geom-cuboid': loc_geom_cuboid.en ?? {},
     'geom-cylinder': loc_geom_cylinder.en ?? {},
+    'geom-ellipse': loc_geom_ellipse.en ?? {},
+    'geom-frustum': loc_geom_frustum.en ?? {},
     'geom-parallelogram': loc_geom_parallelogram.en ?? {},
     'geom-rectangle': loc_geom_rectangle.en ?? {},
     'geom-regular-polygon': loc_geom_regular_polygon.en ?? {},
+    'geom-rhombus': loc_geom_rhombus.en ?? {},
     'geom-right-triangle': loc_geom_right_triangle.en ?? {},
     'geom-sector': loc_geom_sector.en ?? {},
     'geom-sphere': loc_geom_sphere.en ?? {},
@@ -422,13 +432,18 @@ export const v2Localization: ScopedLocalization = {
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
     'gcd-lcm': loc_gcd_lcm.uk ?? {},
     'generator-fuel': loc_generator_fuel.uk ?? {},
+    'geom-annulus': loc_geom_annulus.uk ?? {},
     'geom-circle': loc_geom_circle.uk ?? {},
     'geom-cone': loc_geom_cone.uk ?? {},
+    'geom-cube': loc_geom_cube.uk ?? {},
     'geom-cuboid': loc_geom_cuboid.uk ?? {},
     'geom-cylinder': loc_geom_cylinder.uk ?? {},
+    'geom-ellipse': loc_geom_ellipse.uk ?? {},
+    'geom-frustum': loc_geom_frustum.uk ?? {},
     'geom-parallelogram': loc_geom_parallelogram.uk ?? {},
     'geom-rectangle': loc_geom_rectangle.uk ?? {},
     'geom-regular-polygon': loc_geom_regular_polygon.uk ?? {},
+    'geom-rhombus': loc_geom_rhombus.uk ?? {},
     'geom-right-triangle': loc_geom_right_triangle.uk ?? {},
     'geom-sector': loc_geom_sector.uk ?? {},
     'geom-sphere': loc_geom_sphere.uk ?? {},

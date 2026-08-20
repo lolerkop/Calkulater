@@ -88,13 +88,18 @@ import { compute as compute_freelance_rate } from './freelance-rate/compute';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
 import { compute as compute_gcd_lcm } from './gcd-lcm/compute';
 import { compute as compute_generator_fuel } from './generator-fuel/compute';
+import { compute as compute_geom_annulus } from './geom-annulus/compute';
 import { compute as compute_geom_circle } from './geom-circle/compute';
 import { compute as compute_geom_cone } from './geom-cone/compute';
+import { compute as compute_geom_cube } from './geom-cube/compute';
 import { compute as compute_geom_cuboid } from './geom-cuboid/compute';
 import { compute as compute_geom_cylinder } from './geom-cylinder/compute';
+import { compute as compute_geom_ellipse } from './geom-ellipse/compute';
+import { compute as compute_geom_frustum } from './geom-frustum/compute';
 import { compute as compute_geom_parallelogram } from './geom-parallelogram/compute';
 import { compute as compute_geom_rectangle } from './geom-rectangle/compute';
 import { compute as compute_geom_regular_polygon } from './geom-regular-polygon/compute';
+import { compute as compute_geom_rhombus } from './geom-rhombus/compute';
 import { compute as compute_geom_right_triangle } from './geom-right-triangle/compute';
 import { compute as compute_geom_sector } from './geom-sector/compute';
 import { compute as compute_geom_sphere } from './geom-sphere/compute';
@@ -268,13 +273,18 @@ export const v2Runners: Record<string, CalcFunction> = {
   'fuel-consumption': compute_fuel_consumption,
   'gcd-lcm': compute_gcd_lcm,
   'generator-fuel': compute_generator_fuel,
+  'geom-annulus': compute_geom_annulus,
   'geom-circle': compute_geom_circle,
   'geom-cone': compute_geom_cone,
+  'geom-cube': compute_geom_cube,
   'geom-cuboid': compute_geom_cuboid,
   'geom-cylinder': compute_geom_cylinder,
+  'geom-ellipse': compute_geom_ellipse,
+  'geom-frustum': compute_geom_frustum,
   'geom-parallelogram': compute_geom_parallelogram,
   'geom-rectangle': compute_geom_rectangle,
   'geom-regular-polygon': compute_geom_regular_polygon,
+  'geom-rhombus': compute_geom_rhombus,
   'geom-right-triangle': compute_geom_right_triangle,
   'geom-sector': compute_geom_sector,
   'geom-sphere': compute_geom_sphere,
