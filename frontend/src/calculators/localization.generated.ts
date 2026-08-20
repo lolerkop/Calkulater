@@ -67,6 +67,7 @@ import { localization as loc_cpa_cpl_cpi } from './cpa-cpl-cpi/localization';
 import { localization as loc_cpc } from './cpc/localization';
 import { localization as loc_cpm } from './cpm/localization';
 import { localization as loc_crypto_pnl } from './crypto-pnl/localization';
+import { localization as loc_css_units } from './css-units/localization';
 import { localization as loc_ctr } from './ctr/localization';
 import { localization as loc_currency_exchange_fee } from './currency-exchange-fee/localization';
 import { localization as loc_day_of_week } from './day-of-week/localization';
@@ -82,6 +83,7 @@ import { localization as loc_download_time } from './download-time/localization'
 import { localization as loc_dti } from './dti/localization';
 import { localization as loc_electricity_usage } from './electricity-usage/localization';
 import { localization as loc_email_metrics } from './email-metrics/localization';
+import { localization as loc_employee_cost } from './employee-cost/localization';
 import { localization as loc_engagement_rate } from './engagement-rate/localization';
 import { localization as loc_factorial } from './factorial/localization';
 import { localization as loc_fee_chain } from './fee-chain/localization';
@@ -145,6 +147,7 @@ import { localization as loc_mrr_arr } from './mrr-arr/localization';
 import { localization as loc_network_bandwidth } from './network-bandwidth/localization';
 import { localization as loc_newton_force } from './newton-force/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
+import { localization as loc_overtime } from './overtime/localization';
 import { localization as loc_pet_age } from './pet-age/localization';
 import { localization as loc_pet_food } from './pet-food/localization';
 import { localization as loc_ph_poh } from './ph-poh/localization';
@@ -181,11 +184,15 @@ import { localization as loc_roi } from './roi/localization';
 import { localization as loc_roman_numerals } from './roman-numerals/localization';
 import { localization as loc_roof_area } from './roof-area/localization';
 import { localization as loc_room_volume } from './room-volume/localization';
+import { localization as loc_rounding } from './rounding/localization';
 import { localization as loc_rule_of_72 } from './rule-of-72/localization';
+import { localization as loc_salary_convert } from './salary-convert/localization';
+import { localization as loc_salary_raise } from './salary-raise/localization';
 import { localization as loc_savings_rate } from './savings-rate/localization';
 import { localization as loc_shipping_per_unit } from './shipping-per-unit/localization';
 import { localization as loc_simple_interest } from './simple-interest/localization';
 import { localization as loc_single_phase } from './single-phase/localization';
+import { localization as loc_slope } from './slope/localization';
 import { localization as loc_solution_concentration } from './solution-concentration/localization';
 import { localization as loc_speed_distance_time } from './speed-distance-time/localization';
 import { localization as loc_stats_descriptive } from './stats-descriptive/localization';
@@ -203,6 +210,9 @@ import { localization as loc_trip_budget } from './trip-budget/localization';
 import { localization as loc_trip_cost } from './trip-cost/localization';
 import { localization as loc_unix_timestamp } from './unix-timestamp/localization';
 import { localization as loc_video_file_size } from './video-file-size/localization';
+import { localization as loc_vo2max } from './vo2max/localization';
+import { localization as loc_water_intake } from './water-intake/localization';
+import { localization as loc_wave } from './wave/localization';
 import { localization as loc_week_number } from './week-number/localization';
 import { localization as loc_weighted_mean } from './weighted-mean/localization';
 import { localization as loc_work } from './work/localization';
@@ -273,6 +283,7 @@ export const v2Localization: ScopedLocalization = {
     'cpc': loc_cpc.en ?? {},
     'cpm': loc_cpm.en ?? {},
     'crypto-pnl': loc_crypto_pnl.en ?? {},
+    'css-units': loc_css_units.en ?? {},
     'ctr': loc_ctr.en ?? {},
     'currency-exchange-fee': loc_currency_exchange_fee.en ?? {},
     'day-of-week': loc_day_of_week.en ?? {},
@@ -288,6 +299,7 @@ export const v2Localization: ScopedLocalization = {
     'dti': loc_dti.en ?? {},
     'electricity-usage': loc_electricity_usage.en ?? {},
     'email-metrics': loc_email_metrics.en ?? {},
+    'employee-cost': loc_employee_cost.en ?? {},
     'engagement-rate': loc_engagement_rate.en ?? {},
     'factorial': loc_factorial.en ?? {},
     'fee-chain': loc_fee_chain.en ?? {},
@@ -351,6 +363,7 @@ export const v2Localization: ScopedLocalization = {
     'network-bandwidth': loc_network_bandwidth.en ?? {},
     'newton-force': loc_newton_force.en ?? {},
     'ohms-law': loc_ohms_law.en ?? {},
+    'overtime': loc_overtime.en ?? {},
     'pet-age': loc_pet_age.en ?? {},
     'pet-food': loc_pet_food.en ?? {},
     'ph-poh': loc_ph_poh.en ?? {},
@@ -387,11 +400,15 @@ export const v2Localization: ScopedLocalization = {
     'roman-numerals': loc_roman_numerals.en ?? {},
     'roof-area': loc_roof_area.en ?? {},
     'room-volume': loc_room_volume.en ?? {},
+    'rounding': loc_rounding.en ?? {},
     'rule-of-72': loc_rule_of_72.en ?? {},
+    'salary-convert': loc_salary_convert.en ?? {},
+    'salary-raise': loc_salary_raise.en ?? {},
     'savings-rate': loc_savings_rate.en ?? {},
     'shipping-per-unit': loc_shipping_per_unit.en ?? {},
     'simple-interest': loc_simple_interest.en ?? {},
     'single-phase': loc_single_phase.en ?? {},
+    'slope': loc_slope.en ?? {},
     'solution-concentration': loc_solution_concentration.en ?? {},
     'speed-distance-time': loc_speed_distance_time.en ?? {},
     'stats-descriptive': loc_stats_descriptive.en ?? {},
@@ -409,6 +426,9 @@ export const v2Localization: ScopedLocalization = {
     'trip-cost': loc_trip_cost.en ?? {},
     'unix-timestamp': loc_unix_timestamp.en ?? {},
     'video-file-size': loc_video_file_size.en ?? {},
+    'vo2max': loc_vo2max.en ?? {},
+    'water-intake': loc_water_intake.en ?? {},
+    'wave': loc_wave.en ?? {},
     'week-number': loc_week_number.en ?? {},
     'weighted-mean': loc_weighted_mean.en ?? {},
     'work': loc_work.en ?? {},
@@ -478,6 +498,7 @@ export const v2Localization: ScopedLocalization = {
     'cpc': loc_cpc.uk ?? {},
     'cpm': loc_cpm.uk ?? {},
     'crypto-pnl': loc_crypto_pnl.uk ?? {},
+    'css-units': loc_css_units.uk ?? {},
     'ctr': loc_ctr.uk ?? {},
     'currency-exchange-fee': loc_currency_exchange_fee.uk ?? {},
     'day-of-week': loc_day_of_week.uk ?? {},
@@ -493,6 +514,7 @@ export const v2Localization: ScopedLocalization = {
     'dti': loc_dti.uk ?? {},
     'electricity-usage': loc_electricity_usage.uk ?? {},
     'email-metrics': loc_email_metrics.uk ?? {},
+    'employee-cost': loc_employee_cost.uk ?? {},
     'engagement-rate': loc_engagement_rate.uk ?? {},
     'factorial': loc_factorial.uk ?? {},
     'fee-chain': loc_fee_chain.uk ?? {},
@@ -556,6 +578,7 @@ export const v2Localization: ScopedLocalization = {
     'network-bandwidth': loc_network_bandwidth.uk ?? {},
     'newton-force': loc_newton_force.uk ?? {},
     'ohms-law': loc_ohms_law.uk ?? {},
+    'overtime': loc_overtime.uk ?? {},
     'pet-age': loc_pet_age.uk ?? {},
     'pet-food': loc_pet_food.uk ?? {},
     'ph-poh': loc_ph_poh.uk ?? {},
@@ -592,11 +615,15 @@ export const v2Localization: ScopedLocalization = {
     'roman-numerals': loc_roman_numerals.uk ?? {},
     'roof-area': loc_roof_area.uk ?? {},
     'room-volume': loc_room_volume.uk ?? {},
+    'rounding': loc_rounding.uk ?? {},
     'rule-of-72': loc_rule_of_72.uk ?? {},
+    'salary-convert': loc_salary_convert.uk ?? {},
+    'salary-raise': loc_salary_raise.uk ?? {},
     'savings-rate': loc_savings_rate.uk ?? {},
     'shipping-per-unit': loc_shipping_per_unit.uk ?? {},
     'simple-interest': loc_simple_interest.uk ?? {},
     'single-phase': loc_single_phase.uk ?? {},
+    'slope': loc_slope.uk ?? {},
     'solution-concentration': loc_solution_concentration.uk ?? {},
     'speed-distance-time': loc_speed_distance_time.uk ?? {},
     'stats-descriptive': loc_stats_descriptive.uk ?? {},
@@ -614,6 +641,9 @@ export const v2Localization: ScopedLocalization = {
     'trip-cost': loc_trip_cost.uk ?? {},
     'unix-timestamp': loc_unix_timestamp.uk ?? {},
     'video-file-size': loc_video_file_size.uk ?? {},
+    'vo2max': loc_vo2max.uk ?? {},
+    'water-intake': loc_water_intake.uk ?? {},
+    'wave': loc_wave.uk ?? {},
     'week-number': loc_week_number.uk ?? {},
     'weighted-mean': loc_weighted_mean.uk ?? {},
     'work': loc_work.uk ?? {},

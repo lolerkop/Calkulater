@@ -73,6 +73,7 @@ import { definition as def_cpa_cpl_cpi } from './cpa-cpl-cpi/definition';
 import { definition as def_cpc } from './cpc/definition';
 import { definition as def_cpm } from './cpm/definition';
 import { definition as def_crypto_pnl } from './crypto-pnl/definition';
+import { definition as def_css_units } from './css-units/definition';
 import { definition as def_ctr } from './ctr/definition';
 import { definition as def_currency_exchange_fee } from './currency-exchange-fee/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
@@ -88,6 +89,7 @@ import { definition as def_download_time } from './download-time/definition';
 import { definition as def_dti } from './dti/definition';
 import { definition as def_electricity_usage } from './electricity-usage/definition';
 import { definition as def_email_metrics } from './email-metrics/definition';
+import { definition as def_employee_cost } from './employee-cost/definition';
 import { definition as def_engagement_rate } from './engagement-rate/definition';
 import { definition as def_factorial } from './factorial/definition';
 import { definition as def_fee_chain } from './fee-chain/definition';
@@ -151,6 +153,7 @@ import { definition as def_mrr_arr } from './mrr-arr/definition';
 import { definition as def_network_bandwidth } from './network-bandwidth/definition';
 import { definition as def_newton_force } from './newton-force/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
+import { definition as def_overtime } from './overtime/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
 import { definition as def_pet_age } from './pet-age/definition';
@@ -189,11 +192,15 @@ import { definition as def_roi } from './roi/definition';
 import { definition as def_roman_numerals } from './roman-numerals/definition';
 import { definition as def_roof_area } from './roof-area/definition';
 import { definition as def_room_volume } from './room-volume/definition';
+import { definition as def_rounding } from './rounding/definition';
 import { definition as def_rule_of_72 } from './rule-of-72/definition';
+import { definition as def_salary_convert } from './salary-convert/definition';
+import { definition as def_salary_raise } from './salary-raise/definition';
 import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
 import { definition as def_single_phase } from './single-phase/definition';
+import { definition as def_slope } from './slope/definition';
 import { definition as def_solution_concentration } from './solution-concentration/definition';
 import { definition as def_speed_distance_time } from './speed-distance-time/definition';
 import { definition as def_stats_descriptive } from './stats-descriptive/definition';
@@ -211,6 +218,9 @@ import { definition as def_trip_budget } from './trip-budget/definition';
 import { definition as def_trip_cost } from './trip-cost/definition';
 import { definition as def_unix_timestamp } from './unix-timestamp/definition';
 import { definition as def_video_file_size } from './video-file-size/definition';
+import { definition as def_vo2max } from './vo2max/definition';
+import { definition as def_water_intake } from './water-intake/definition';
+import { definition as def_wave } from './wave/definition';
 import { definition as def_week_number } from './week-number/definition';
 import { definition as def_weighted_mean } from './weighted-mean/definition';
 import { definition as def_work } from './work/definition';
@@ -280,6 +290,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_cpc,
   def_cpm,
   def_crypto_pnl,
+  def_css_units,
   def_ctr,
   def_currency_exchange_fee,
   def_day_of_week,
@@ -295,6 +306,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_dti,
   def_electricity_usage,
   def_email_metrics,
+  def_employee_cost,
   def_engagement_rate,
   def_factorial,
   def_fee_chain,
@@ -358,6 +370,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_network_bandwidth,
   def_newton_force,
   def_ohms_law,
+  def_overtime,
   def_paint_calculator,
   def_percent_calculator,
   def_pet_age,
@@ -396,11 +409,15 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_roman_numerals,
   def_roof_area,
   def_room_volume,
+  def_rounding,
   def_rule_of_72,
+  def_salary_convert,
+  def_salary_raise,
   def_savings_rate,
   def_shipping_per_unit,
   def_simple_interest,
   def_single_phase,
+  def_slope,
   def_solution_concentration,
   def_speed_distance_time,
   def_stats_descriptive,
@@ -418,6 +435,9 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_trip_cost,
   def_unix_timestamp,
   def_video_file_size,
+  def_vo2max,
+  def_water_intake,
+  def_wave,
   def_week_number,
   def_weighted_mean,
   def_work,

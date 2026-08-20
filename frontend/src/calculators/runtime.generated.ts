@@ -77,6 +77,7 @@ import { compute as compute_cpa_cpl_cpi } from './cpa-cpl-cpi/compute';
 import { compute as compute_cpc } from './cpc/compute';
 import { compute as compute_cpm } from './cpm/compute';
 import { compute as compute_crypto_pnl } from './crypto-pnl/compute';
+import { compute as compute_css_units } from './css-units/compute';
 import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_currency_exchange_fee } from './currency-exchange-fee/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
@@ -92,6 +93,7 @@ import { compute as compute_download_time } from './download-time/compute';
 import { compute as compute_dti } from './dti/compute';
 import { compute as compute_electricity_usage } from './electricity-usage/compute';
 import { compute as compute_email_metrics } from './email-metrics/compute';
+import { compute as compute_employee_cost } from './employee-cost/compute';
 import { compute as compute_engagement_rate } from './engagement-rate/compute';
 import { compute as compute_factorial } from './factorial/compute';
 import { compute as compute_fee_chain } from './fee-chain/compute';
@@ -158,6 +160,7 @@ import { compute as compute_network_bandwidth } from './network-bandwidth/comput
 import { compute as compute_newton_force } from './newton-force/compute';
 import { compute as compute_ohms_law } from './ohms-law/compute';
 import { contextualField as ctx_ohms_law } from './ohms-law/contextualField';
+import { compute as compute_overtime } from './overtime/compute';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
@@ -199,11 +202,15 @@ import { compute as compute_roi } from './roi/compute';
 import { compute as compute_roman_numerals } from './roman-numerals/compute';
 import { compute as compute_roof_area } from './roof-area/compute';
 import { compute as compute_room_volume } from './room-volume/compute';
+import { compute as compute_rounding } from './rounding/compute';
 import { compute as compute_rule_of_72 } from './rule-of-72/compute';
+import { compute as compute_salary_convert } from './salary-convert/compute';
+import { compute as compute_salary_raise } from './salary-raise/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
 import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_single_phase } from './single-phase/compute';
+import { compute as compute_slope } from './slope/compute';
 import { compute as compute_solution_concentration } from './solution-concentration/compute';
 import { compute as compute_speed_distance_time } from './speed-distance-time/compute';
 import { contextualField as ctx_speed_distance_time } from './speed-distance-time/contextualField';
@@ -222,6 +229,9 @@ import { compute as compute_trip_budget } from './trip-budget/compute';
 import { compute as compute_trip_cost } from './trip-cost/compute';
 import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
 import { compute as compute_video_file_size } from './video-file-size/compute';
+import { compute as compute_vo2max } from './vo2max/compute';
+import { compute as compute_water_intake } from './water-intake/compute';
+import { compute as compute_wave } from './wave/compute';
 import { compute as compute_week_number } from './week-number/compute';
 import { compute as compute_weighted_mean } from './weighted-mean/compute';
 import { compute as compute_work } from './work/compute';
@@ -291,6 +301,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cpc': compute_cpc,
   'cpm': compute_cpm,
   'crypto-pnl': compute_crypto_pnl,
+  'css-units': compute_css_units,
   'ctr': compute_ctr,
   'currency-exchange-fee': compute_currency_exchange_fee,
   'day-of-week': compute_day_of_week,
@@ -306,6 +317,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'dti': compute_dti,
   'electricity-usage': compute_electricity_usage,
   'email-metrics': compute_email_metrics,
+  'employee-cost': compute_employee_cost,
   'engagement-rate': compute_engagement_rate,
   'factorial': compute_factorial,
   'fee-chain': compute_fee_chain,
@@ -369,6 +381,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'network-bandwidth': compute_network_bandwidth,
   'newton-force': compute_newton_force,
   'ohms-law': compute_ohms_law,
+  'overtime': compute_overtime,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
   'pet-age': compute_pet_age,
@@ -407,11 +420,15 @@ export const v2Runners: Record<string, CalcFunction> = {
   'roman-numerals': compute_roman_numerals,
   'roof-area': compute_roof_area,
   'room-volume': compute_room_volume,
+  'rounding': compute_rounding,
   'rule-of-72': compute_rule_of_72,
+  'salary-convert': compute_salary_convert,
+  'salary-raise': compute_salary_raise,
   'savings-rate': compute_savings_rate,
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
   'single-phase': compute_single_phase,
+  'slope': compute_slope,
   'solution-concentration': compute_solution_concentration,
   'speed-distance-time': compute_speed_distance_time,
   'stats-descriptive': compute_stats_descriptive,
@@ -429,6 +446,9 @@ export const v2Runners: Record<string, CalcFunction> = {
   'trip-cost': compute_trip_cost,
   'unix-timestamp': compute_unix_timestamp,
   'video-file-size': compute_video_file_size,
+  'vo2max': compute_vo2max,
+  'water-intake': compute_water_intake,
+  'wave': compute_wave,
   'week-number': compute_week_number,
   'weighted-mean': compute_weighted_mean,
   'work': compute_work,

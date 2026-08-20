@@ -749,6 +749,31 @@ const stateScenarios: Record<string, StateScenario> = {
   'cpc': { query: { cost: 12000, clicks: 500, impressions: 40000 }, result: { primary: '24,00 ₽', rows: [{ label: 'Кликов', value: '500' }, { label: 'CPM', value: '300,00 ₽' }, { label: 'Кликабельность', value: '1,25%' }] } },
   'email-metrics': { query: { sent: 5000, delivered: 4750, opened: 1900, clicked: 285 }, result: { primary: '95,00%', rows: [{ label: 'Открываемость', value: '40,00%' }, { label: 'Кликабельность', value: '6,00%' }, { label: 'Кликов на открытие', value: '15,00%' }] } },
   'leverage': { query: { equity: 20000, leverage: 10, entry: 500, maintenancePct: 1 }, result: { primary: '200 000,00 ₽', rows: [{ label: 'Единиц позиции', value: '400' }, { label: 'Цена ликвидации', value: '455,00 ₽' }, { label: 'Падение до ликвидации', value: '9,00%' }] } },
+  // Волна 7, подпартия 17B1.
+  // Ожидаемые значения выведены вручную:
+  //   15,3 · 195 / 50 = 59,67 мл/кг/мин
+  //   90 · 0,033 = 2,97; 60/30 · 0,35 = 0,7; (2,97 + 0,7) · 1,1 = 4,037; /0,25 = 16,148
+  //   900 · 120 = 108 000; 900 · 2 · 20 = 36 000; 144 000 / 140 = 1 028,57
+  //   12,3401 вверх до двух знаков: ceil(1 234,01)/100 = 12,35
+  //   1 000 в час → 8 000 в день, 168 000 в месяц, 2 016 000 в год
+  //   90 000 · 1,12 = 100 800; разница 10 800
+  //   2,5/10 = 25 %; atan 0,25 = 14,036°; √(2,5² + 10²) = 10,308
+  //   250 Гц · 1,4 м = 350 м/с; период 1/250 = 0,004 с
+  //   2 em при родителе 20 = 40 px = 2,5 rem = 30 pt
+  //   250 000 · 15 % = 37 500; итого 327 500; множитель 1,31
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  // У vo2max, rounding, salary-raise и wave выбран НЕ умолчальный режим.
+  'vo2max': { query: { mode: 'hr', hrRest: 50, hrMax: 195 }, result: { primary: '59,67 мл/кг/мин', rows: [{ label: 'Метод', value: 'по пульсу' }, { label: 'Пульс покоя', value: '50' }, { label: 'Максимальный пульс', value: '195' }] } },
+  'water-intake': { query: { weight: 90, activityMinutes: 60, hotWeather: 'yes' }, result: { primary: '4,037 л', rows: [{ label: 'Базовая норма', value: '2,97 л' }, { label: 'Надбавка за нагрузку', value: '0,7 л' }, { label: 'Стаканов по 250 мл', value: '16,148' }] } },
+  'overtime': { query: { rate: 900, normalHours: 120, overtimeHours: 20, multiplier: 2 }, result: { primary: '144 000,00 ₽', rows: [{ label: 'Оплата обычных часов', value: '108 000,00 ₽' }, { label: 'Оплата сверхурочных', value: '36 000,00 ₽' }, { label: 'Средняя ставка за час', value: '1 028,57 ₽' }] } },
+  'rounding': { query: { value: 12.3401, digits: 2, mode: 'up' }, result: { primary: '12,35', rows: [{ label: 'Исходное значение', value: '12,3401' }, { label: 'Знаков', value: '2' }] } },
+  'salary-convert': { query: { amount: 1000, fromPeriod: 'hour', toPeriod: 'day' }, result: { primary: '8 000,00 ₽', rows: [{ label: 'В час', value: '1 000,00 ₽' }, { label: 'В месяц', value: '168 000,00 ₽' }, { label: 'В год', value: '2 016 000,00 ₽' }] } },
+  'salary-raise': { query: { mode: 'fromPct', oldSalary: 90000, raisePct: 12 }, result: { primary: '100 800,00 ₽', rows: [{ label: 'Разница', value: '10 800,00 ₽' }, { label: 'Было', value: '90 000,00 ₽' }, { label: 'Множитель', value: '1,12' }] } },
+  'slope': { query: { rise: 2.5, run: 10 }, result: { primary: '25,00%', rows: [{ label: 'Угол', value: '14,036°' }, { label: 'Отношение', value: '0,25' }, { label: 'Длина наклона', value: '10,308 м' }] } },
+  'wave': { query: { mode: 'v', f: 250, wavelength: 1.4 }, result: { primary: '350 м/с', rows: [{ label: 'Частота', value: '250 Гц' }, { label: 'Длина волны', value: '1,4 м' }, { label: 'Период', value: '0,004 с' }] } },
+  'css-units': { query: { value: 2, fromUnit: 'em', toUnit: 'px', rootSize: 16, parentSize: 20 }, result: { primary: '40', rows: [{ label: 'В пикселях', value: '40 px' }, { label: 'В rem', value: '2,5' }, { label: 'В пунктах', value: '30' }] } },
+  'employee-cost': { query: { gross: 250000, taxPct: 15, overhead: 40000 }, result: { primary: '327 500,00 ₽', rows: [{ label: 'Взносы', value: '37 500,00 ₽' }, { label: 'Накладные', value: '40 000,00 ₽' }, { label: 'Множитель к окладу', value: '1,31' }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));
