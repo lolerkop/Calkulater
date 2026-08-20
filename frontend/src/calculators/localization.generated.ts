@@ -6,6 +6,7 @@
 
 import type { ScopedLocalization } from '../lib/platform/types';
 
+import { localization as loc_activity_calories } from './activity-calories/localization';
 import { localization as loc_ad_roi } from './ad-roi/localization';
 import { localization as loc_annuity } from './annuity/localization';
 import { localization as loc_aov } from './aov/localization';
@@ -42,6 +43,7 @@ import { localization as loc_convert_temperature } from './convert-temperature/l
 import { localization as loc_convert_time } from './convert-time/localization';
 import { localization as loc_convert_torque } from './convert-torque/localization';
 import { localization as loc_convert_volume } from './convert-volume/localization';
+import { localization as loc_cooked_weight } from './cooked-weight/localization';
 import { localization as loc_cpm } from './cpm/localization';
 import { localization as loc_crypto_pnl } from './crypto-pnl/localization';
 import { localization as loc_ctr } from './ctr/localization';
@@ -106,6 +108,7 @@ import { localization as loc_physics_power } from './physics-power/localization'
 import { localization as loc_physics_torque } from './physics-torque/localization';
 import { localization as loc_plaster } from './plaster/localization';
 import { localization as loc_pool_fill_time } from './pool-fill-time/localization';
+import { localization as loc_position_size } from './position-size/localization';
 import { localization as loc_potential_energy } from './potential-energy/localization';
 import { localization as loc_power_to_weight } from './power-to-weight/localization';
 import { localization as loc_ppi_dpi } from './ppi-dpi/localization';
@@ -146,11 +149,13 @@ import { localization as loc_video_file_size } from './video-file-size/localizat
 import { localization as loc_week_number } from './week-number/localization';
 import { localization as loc_weighted_mean } from './weighted-mean/localization';
 import { localization as loc_work } from './work/localization';
+import { localization as loc_work_hours } from './work-hours/localization';
 import { localization as loc_workday_cost } from './workday-cost/localization';
 import { localization as loc_z_score } from './z-score/localization';
 
 export const v2Localization: ScopedLocalization = {
   en: {
+    'activity-calories': loc_activity_calories.en ?? {},
     'ad-roi': loc_ad_roi.en ?? {},
     'annuity': loc_annuity.en ?? {},
     'aov': loc_aov.en ?? {},
@@ -187,6 +192,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-time': loc_convert_time.en ?? {},
     'convert-torque': loc_convert_torque.en ?? {},
     'convert-volume': loc_convert_volume.en ?? {},
+    'cooked-weight': loc_cooked_weight.en ?? {},
     'cpm': loc_cpm.en ?? {},
     'crypto-pnl': loc_crypto_pnl.en ?? {},
     'ctr': loc_ctr.en ?? {},
@@ -251,6 +257,7 @@ export const v2Localization: ScopedLocalization = {
     'physics-torque': loc_physics_torque.en ?? {},
     'plaster': loc_plaster.en ?? {},
     'pool-fill-time': loc_pool_fill_time.en ?? {},
+    'position-size': loc_position_size.en ?? {},
     'potential-energy': loc_potential_energy.en ?? {},
     'power-to-weight': loc_power_to_weight.en ?? {},
     'ppi-dpi': loc_ppi_dpi.en ?? {},
@@ -291,10 +298,12 @@ export const v2Localization: ScopedLocalization = {
     'week-number': loc_week_number.en ?? {},
     'weighted-mean': loc_weighted_mean.en ?? {},
     'work': loc_work.en ?? {},
+    'work-hours': loc_work_hours.en ?? {},
     'workday-cost': loc_workday_cost.en ?? {},
     'z-score': loc_z_score.en ?? {},
   },
   uk: {
+    'activity-calories': loc_activity_calories.uk ?? {},
     'ad-roi': loc_ad_roi.uk ?? {},
     'annuity': loc_annuity.uk ?? {},
     'aov': loc_aov.uk ?? {},
@@ -331,6 +340,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-time': loc_convert_time.uk ?? {},
     'convert-torque': loc_convert_torque.uk ?? {},
     'convert-volume': loc_convert_volume.uk ?? {},
+    'cooked-weight': loc_cooked_weight.uk ?? {},
     'cpm': loc_cpm.uk ?? {},
     'crypto-pnl': loc_crypto_pnl.uk ?? {},
     'ctr': loc_ctr.uk ?? {},
@@ -395,6 +405,7 @@ export const v2Localization: ScopedLocalization = {
     'physics-torque': loc_physics_torque.uk ?? {},
     'plaster': loc_plaster.uk ?? {},
     'pool-fill-time': loc_pool_fill_time.uk ?? {},
+    'position-size': loc_position_size.uk ?? {},
     'potential-energy': loc_potential_energy.uk ?? {},
     'power-to-weight': loc_power_to_weight.uk ?? {},
     'ppi-dpi': loc_ppi_dpi.uk ?? {},
@@ -435,6 +446,7 @@ export const v2Localization: ScopedLocalization = {
     'week-number': loc_week_number.uk ?? {},
     'weighted-mean': loc_weighted_mean.uk ?? {},
     'work': loc_work.uk ?? {},
+    'work-hours': loc_work_hours.uk ?? {},
     'workday-cost': loc_workday_cost.uk ?? {},
     'z-score': loc_z_score.uk ?? {},
   },

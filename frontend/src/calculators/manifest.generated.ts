@@ -12,6 +12,7 @@ import type {
 } from '../lib/platform/types';
 import { isPublished } from '../lib/platform/types';
 
+import { definition as def_activity_calories } from './activity-calories/definition';
 import { definition as def_ad_roi } from './ad-roi/definition';
 import { definition as def_annuity } from './annuity/definition';
 import { definition as def_aov } from './aov/definition';
@@ -48,6 +49,7 @@ import { definition as def_convert_temperature } from './convert-temperature/def
 import { definition as def_convert_time } from './convert-time/definition';
 import { definition as def_convert_torque } from './convert-torque/definition';
 import { definition as def_convert_volume } from './convert-volume/definition';
+import { definition as def_cooked_weight } from './cooked-weight/definition';
 import { definition as def_cpm } from './cpm/definition';
 import { definition as def_crypto_pnl } from './crypto-pnl/definition';
 import { definition as def_ctr } from './ctr/definition';
@@ -114,6 +116,7 @@ import { definition as def_physics_power } from './physics-power/definition';
 import { definition as def_physics_torque } from './physics-torque/definition';
 import { definition as def_plaster } from './plaster/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
+import { definition as def_position_size } from './position-size/definition';
 import { definition as def_potential_energy } from './potential-energy/definition';
 import { definition as def_power_to_weight } from './power-to-weight/definition';
 import { definition as def_ppi_dpi } from './ppi-dpi/definition';
@@ -154,10 +157,12 @@ import { definition as def_video_file_size } from './video-file-size/definition'
 import { definition as def_week_number } from './week-number/definition';
 import { definition as def_weighted_mean } from './weighted-mean/definition';
 import { definition as def_work } from './work/definition';
+import { definition as def_work_hours } from './work-hours/definition';
 import { definition as def_workday_cost } from './workday-cost/definition';
 import { definition as def_z_score } from './z-score/definition';
 
 export const v2Definitions: readonly CalculatorDefinitionV2[] = [
+  def_activity_calories,
   def_ad_roi,
   def_annuity,
   def_aov,
@@ -194,6 +199,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_time,
   def_convert_torque,
   def_convert_volume,
+  def_cooked_weight,
   def_cpm,
   def_crypto_pnl,
   def_ctr,
@@ -260,6 +266,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_physics_torque,
   def_plaster,
   def_pool_fill_time,
+  def_position_size,
   def_potential_energy,
   def_power_to_weight,
   def_ppi_dpi,
@@ -300,6 +307,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_week_number,
   def_weighted_mean,
   def_work,
+  def_work_hours,
   def_workday_cost,
   def_z_score,
 ];

@@ -20,6 +20,18 @@ type StateScenario = {
 };
 
 const stateScenarios: Record<string, StateScenario> = {
+  // Волна 5, батч A3 — активность, разварка, смены и размер позиции.
+  // Ожидаемые значения выведены вручную:
+  //   бег MET 9,8: 9,8 × 3,5 × 82 / 200 = 14,063 в минуту; × 30 = 421,89 -> 422
+  //   900 г готового / 2,2 = 409,0909… г сухого
+  //   8:30–17:15 = 525 мин; минус 45 -> 480 мин = 8 ч; × 18 = 144 ч
+  //   250 000 × 1,5 % = 3750; |480 − 460| = 20; 3750 / 20 = 187,5 -> целых 187
+  // Наборы намеренно отличаются от значений по умолчанию: контракт reset
+  // проверяет, что сброс возвращает форму к исходному состоянию.
+  'activity-calories': { query: { activity: 'running', weightKg: 82, minutes: 30 }, result: { primary: '422 ккал', rows: [{ label: 'Коэффициент MET', value: '9,8' }, { label: 'Расход в час', value: '844 ккал' }] } },
+  'cooked-weight': { query: { mode: 'cookedToRaw', cooked: 900, factor: 2.2, kcalPer100Raw: 330 }, result: { primary: '409,09 г', rows: [{ label: 'Готовый вес', value: '900 г' }, { label: 'Коэффициент разварки', value: '2,2' }] } },
+  'work-hours': { query: { startHour: 8, startMin: 30, endHour: 17, endMin: 15, breakMin: 45, days: 18, ratePerHour: 650 }, result: { primary: '144 ч', rows: [{ label: 'В часах и минутах', value: '8 ч 0 мин' }, { label: 'Длина смены до перерыва', value: '8 ч 45 мин' }] } },
+  'position-size': { query: { deposit: 250000, riskPct: 1.5, entry: 480, stop: 460 }, result: { primary: '187,5 шт', rows: [{ label: 'Целых единиц', value: '187 шт' }, { label: 'Сумма риска', value: '3 750,00 ₽' }] } },
   // Волна 5, батч A2 — размер видео, трафик, отопление и шины.
   // Ожидаемые значения выведены вручную:
   //   (12 · 1000 + 192) · 1000 · 2700 / 8 = 4 114 800 000 байт = 4,1148 ГБ

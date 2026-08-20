@@ -14,6 +14,7 @@ import type { CalculatorContextualField, CalculatorValidator } from '../lib/plat
 import type { CalculatorClientRuntime } from '../lib/platform/runtime';
 import { v2Localization } from './localization.generated';
 
+import { compute as compute_activity_calories } from './activity-calories/compute';
 import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
@@ -52,6 +53,7 @@ import { compute as compute_convert_temperature } from './convert-temperature/co
 import { compute as compute_convert_time } from './convert-time/compute';
 import { compute as compute_convert_torque } from './convert-torque/compute';
 import { compute as compute_convert_volume } from './convert-volume/compute';
+import { compute as compute_cooked_weight } from './cooked-weight/compute';
 import { compute as compute_cpm } from './cpm/compute';
 import { compute as compute_crypto_pnl } from './crypto-pnl/compute';
 import { compute as compute_ctr } from './ctr/compute';
@@ -123,6 +125,7 @@ import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_physics_torque } from './physics-torque/compute';
 import { compute as compute_plaster } from './plaster/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
+import { compute as compute_position_size } from './position-size/compute';
 import { compute as compute_potential_energy } from './potential-energy/compute';
 import { compute as compute_power_to_weight } from './power-to-weight/compute';
 import { compute as compute_ppi_dpi } from './ppi-dpi/compute';
@@ -165,10 +168,12 @@ import { compute as compute_video_file_size } from './video-file-size/compute';
 import { compute as compute_week_number } from './week-number/compute';
 import { compute as compute_weighted_mean } from './weighted-mean/compute';
 import { compute as compute_work } from './work/compute';
+import { compute as compute_work_hours } from './work-hours/compute';
 import { compute as compute_workday_cost } from './workday-cost/compute';
 import { compute as compute_z_score } from './z-score/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
+  'activity-calories': compute_activity_calories,
   'ad-roi': compute_ad_roi,
   'annuity': compute_annuity,
   'aov': compute_aov,
@@ -205,6 +210,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-time': compute_convert_time,
   'convert-torque': compute_convert_torque,
   'convert-volume': compute_convert_volume,
+  'cooked-weight': compute_cooked_weight,
   'cpm': compute_cpm,
   'crypto-pnl': compute_crypto_pnl,
   'ctr': compute_ctr,
@@ -271,6 +277,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'physics-torque': compute_physics_torque,
   'plaster': compute_plaster,
   'pool-fill-time': compute_pool_fill_time,
+  'position-size': compute_position_size,
   'potential-energy': compute_potential_energy,
   'power-to-weight': compute_power_to_weight,
   'ppi-dpi': compute_ppi_dpi,
@@ -311,6 +318,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'week-number': compute_week_number,
   'weighted-mean': compute_weighted_mean,
   'work': compute_work,
+  'work-hours': compute_work_hours,
   'workday-cost': compute_workday_cost,
   'z-score': compute_z_score,
 };
