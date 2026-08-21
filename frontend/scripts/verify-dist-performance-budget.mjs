@@ -38,6 +38,12 @@ import {
   CATALOG_SCALE_TARGET_CARDS,
   catalogScaleTarget,
 } from './catalog-scale.mjs';
+import {
+  CATEGORY_ITEM_LIST_MAX,
+  CATEGORY_MEMBERSHIP_LOOKAHEAD,
+  CATEGORY_MEMBERSHIP_TARGET,
+  categoryMembershipTarget,
+} from './category-membership-scale.mjs';
 
 const root = path.resolve('dist');
 const astro = path.join(root, '_astro');
@@ -93,6 +99,17 @@ const budgets = {
   // четверть страницы — и повторял имя, описание и адрес каждой карточки,
   // тогда как обходчик берёт их из настоящих ссылок.
   catalogItemListMax: 24,
+  // ── масштаб ОДНОГО раздела ──
+  // Страница раздела обязана вывести всех своих членов прямой ссылкой: это её
+  // работа и для читателя, и для обходчика. Значит всё, что стоит на карточке,
+  // повторяется столько раз, сколько в разделе калькуляторов, и ровно столько
+  // же раз повторяется запись ItemList. Раздел — второе после каталога место,
+  // где вес определяется размером САЙТА, а не содержимым страницы.
+  //
+  // Своего потолка здесь нет: прогноз меряется тем же routeHtmlGzip.
+  categoryMembershipTarget: CATEGORY_MEMBERSHIP_TARGET,
+  categoryMembershipLookahead: CATEGORY_MEMBERSHIP_LOOKAHEAD,
+  categoryItemListMax: CATEGORY_ITEM_LIST_MAX,
   // Локальная главная — вторая страница, размер которой определяется числом
   // калькуляторов, а не собственным содержимым: она встраивает JSON-LD со всем
   // каталогом и данные поиска по всем калькуляторам. Плоский маршрутный бюджет
@@ -416,6 +433,206 @@ for (const file of htmlFiles.filter(isCatalog)) {
   }
 }
 
+// ── масштаб одного раздела: рост вместе с числом его калькуляторов ──
+//
+// Растить надо ВСЁ, что растёт вместе с членством: и карточки, и то, что
+// объявляет о них разметка. Вырастить одно, не вырастив другое, — ошибка,
+// которая занижает цену члена вдвое.
+//
+// Расти надо ПОДЛИННЫМИ текстами. Первая редакция этой проверки клонировала
+// карточки самого раздела, дописывая к заголовку номер. gzip такие клоны
+// схлопывает: цена члена вышла 36 B при настоящих 84–101 на живой прозе, и
+// проверка обещала сотню калькуляторов там, где страница ломалась на
+// девяноста. Поэтому пул берётся со ВСЕХ разделов сборки: заголовки различны,
+// проза живая, и оценка не льстит. Она, наоборот, строга: доноры приходят из
+// чужих разделов и делят с разделом меньше слов, чем делили бы настоящие
+// новые члены.
+//
+// Раздел опознаётся по СВОЙСТВАМ собранной страницы, а не по списку slug:
+// адрес вида /<локаль>/<раздел>/, карточки калькуляторов, все ссылки которых
+// ведут внутрь этого же раздела, и ItemList, который не длиннее показанного.
+// Расхождение — не повод молча пропустить страницу, а поломка самой выборки:
+// измерять после этого нечего, и проверка обязана упасть.
+
+const isCategoryIndex = (file) => /[/\\][a-z]{2}[/\\][a-z0-9-]+[/\\]index\.html$/.test(file)
+  && !isCatalog(file) && !isLocaleIndex(file);
+
+const CATEGORY_CARD = /<a [^>]*class="[^"]*calculator-card-shell[^"]*"[^>]*>[\s\S]*?<\/a>/g;
+const CALCULATOR_HREF = /^\/[a-z]{2}\/[a-z0-9-]+\/[a-z0-9-]+\/$/;
+const cardHref = (card) => (card.match(/href="([^"]*)"/) ?? [])[1] ?? '';
+const cardTitle = (card) => (card.match(/<h3[^>]*>\s*([^<]*?)\s*<\/h3>/) ?? [])[1] ?? '';
+const cardDescription = (card) => (card.match(/<p[^>]*>\s*([^<]*?)\s*<\/p>/) ?? [])[1] ?? '';
+
+const jsonLdRaw = (html) => [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
+  .map((match) => { try { return { raw: match[1], data: JSON.parse(match[1]) }; } catch { return null; } })
+  .filter(Boolean);
+
+// Клон записи ItemList, не зависящий от её формы: и плоский ListItem, и
+// вложенный WebApplication обновляются одинаково. Форма — не дело этой
+// проверки; её дело — чтобы записей стало столько, сколько объявила бы
+// выросшая страница.
+const cloneListEntry = (entry, position, url, name, description) => {
+  const walk = (value) => {
+    if (Array.isArray(value)) return value.map(walk);
+    if (value && typeof value === 'object') {
+      const out = {};
+      for (const [key, inner] of Object.entries(value)) {
+        if (key === 'position') out[key] = position;
+        else if (key === 'url') out[key] = url;
+        else if (key === 'name') out[key] = name;
+        else if (key === 'description') out[key] = description;
+        else out[key] = walk(inner);
+      }
+      return out;
+    }
+    return value;
+  };
+  return walk(entry);
+};
+
+const categoryMembership = [];
+
+for (const file of htmlFiles.filter(isCategoryIndex)) {
+  const rel = path.relative(root, file);
+  const [, locale, slug] = rel.replace(/\\/g, '/').match(/^([a-z]{2})\/([a-z0-9-]+)\/index\.html$/);
+  const html = fs.readFileSync(file, 'utf8');
+  const cards = html.match(CATEGORY_CARD) ?? [];
+  const list = jsonLdRaw(html).find((block) => block.data['@type'] === 'ItemList');
+  // Раздел от статической страницы отличает наличие ItemList: у «о проекте»,
+  // «контактов» и «политики» карточек нет и списка тоже.
+  if (cards.length === 0 && !list) continue;
+
+  if (!list) {
+    issues.push(`${rel}: раздел выводит ${cards.length} карточек, но не объявляет ItemList`);
+    continue;
+  }
+  if (cards.length === 0) {
+    issues.push(
+      `${rel}: ItemList объявляет ${list.data.itemListElement.length} калькуляторов, `
+      + 'а выборка не нашла ни одной карточки — измерять нечего',
+    );
+    continue;
+  }
+  const outside = cards.map(cardHref).filter((href) => !(href.startsWith(`/${locale}/${slug}/`) && CALCULATOR_HREF.test(href)));
+  if (outside.length > 0) {
+    issues.push(
+      `${rel}: выборка карточек захватила ${outside.length} ссылок вне раздела `
+      + `(${outside.slice(0, 3).join(', ')}) — считается не членство, а что-то другое`,
+    );
+    continue;
+  }
+  const declared = list.data.itemListElement.length;
+  if (declared > cards.length) {
+    issues.push(
+      `${rel}: ItemList объявляет ${declared} калькуляторов, а страница показывает ${cards.length} — `
+      + 'разметка описывает то, чего читатель не видит',
+    );
+    continue;
+  }
+  if (declared > budgets.categoryItemListMax) {
+    issues.push(
+      `${rel}: ItemList перечисляет ${declared} калькуляторов при пределе ${budgets.categoryItemListMax} — `
+      + 'разметка снова растёт вместе с разделом',
+    );
+    continue;
+  }
+  categoryMembership.push({
+    rel, file, html, cards, list, declared, members: cards.length, gzip: gzipSize(file),
+  });
+}
+
+// Пул подлинных карточек со всех разделов: заголовки различны, тексты живые.
+const membershipPool = [];
+const poolTitles = new Set();
+for (const entry of categoryMembership) {
+  for (const card of entry.cards) {
+    const title = cardTitle(card);
+    if (!title || poolTitles.has(title)) continue;
+    poolTitles.add(title);
+    membershipPool.push(card);
+  }
+}
+
+let categoryMembershipReport = null;
+
+if (categoryMembership.length === 0) {
+  issues.push('масштаб раздела: не найдено ни одной страницы раздела — проверка стала бы пустой');
+} else {
+  // Цель одна для всех разделов, поэтому задел вперёд считается от самого
+  // крупного: иначе он окажется единственным, кого прогноз перестанет догонять.
+  const largest = Math.max(...categoryMembership.map((entry) => entry.members));
+  const target = categoryMembershipTarget(
+    largest, budgets.categoryMembershipTarget, budgets.categoryMembershipLookahead,
+  );
+
+  for (const entry of categoryMembership) {
+    // Свои карточки из пула исключаются: раздел не может вырасти сам собой.
+    const own = new Set(entry.cards.map(cardHref));
+    const donors = membershipPool.filter((card) => !own.has(cardHref(card)));
+    const need = target - entry.members;
+    if (donors.length < need) {
+      issues.push(
+        `${entry.rel}: подлинных карточек для роста ${donors.length}, нужно ${need} — `
+        + 'прогноз пришлось бы строить на повторах, и оценка вышла бы льстивой',
+      );
+      continue;
+    }
+
+    // Список растёт по тому же правилу, по которому его строит страница:
+    // перечисляется верх подборки, не длиннее предела. Раздел, который сейчас
+    // мельче предела, объявляет всех — но, дорастив до цели, объявит предел, и
+    // прогноз обязан считать именно так. Считать иначе значит либо льстить
+    // (оставить список коротким там, где он вырос бы), либо пугать (растить
+    // список там, где страница его ограничивает).
+    const listTarget = Math.min(target, budgets.categoryItemListMax);
+    const items = [...entry.list.data.itemListElement];
+    let extra = '';
+    for (let i = 0; i < need; i += 1) {
+      const donor = donors[i];
+      const href = `/${entry.rel.replace(/\\/g, '/').replace(/index\.html$/, '')}${cardHref(donor).split('/').filter(Boolean).pop()}/`;
+      const name = cardTitle(donor);
+      const about = cardDescription(donor);
+      extra += donor.replace(/href="[^"]*"/, `href="${href}"`);
+      if (items.length < listTarget) {
+        items.push(cloneListEntry(
+          entry.list.data.itemListElement[i % entry.list.data.itemListElement.length],
+          items.length + 1, `https://calcuway.com${href}`, name, about,
+        ));
+      }
+    }
+    const template = entry.cards[entry.cards.length - 1];
+    const grown = entry.html
+      .replace(template, template + extra)
+      .replace(entry.list.raw, JSON.stringify({ ...entry.list.data, numberOfItems: items.length, itemListElement: items }));
+
+    // Прогноз обязан ЧТО-ТО вырастить. Пустой рост — не «запас есть», а
+    // сломанная выборка.
+    const expectedItems = Math.max(entry.declared, listTarget);
+    if (extra.length === 0 || items.length !== expectedItems || grown.length <= entry.html.length) {
+      issues.push(
+        `${entry.rel}: прогноз масштаба раздела не построен (${entry.members} → ${target}, `
+        + `прирост разметки ${grown.length - entry.html.length} B, записей ${items.length} `
+        + `при ожидаемых ${expectedItems}) — проверка масштаба стала бы пустой`,
+      );
+      continue;
+    }
+
+    const grownGzip = zlib.gzipSync(Buffer.from(grown)).length;
+    if (!categoryMembershipReport || grownGzip > categoryMembershipReport.grown) {
+      categoryMembershipReport = {
+        route: entry.rel, members: entry.members, target, now: entry.gzip, grown: grownGzip,
+      };
+    }
+    if (grownGzip > budgets.routeHtmlGzip) {
+      issues.push(
+        `${entry.rel}: при ${target} калькуляторах в разделе HTML gzip ${kib(grownGzip)} превысит `
+        + `${kib(budgets.routeHtmlGzip)} (сейчас ${kib(entry.gzip)} при ${entry.members}) — `
+        + 'цена члена раздела вернулась к прежнему наклону',
+      );
+    }
+  }
+}
+
 // ── главная локали: тот же наклонный бюджет, своя пара коэффициентов ──
 for (const file of htmlFiles.filter(isLocaleIndex)) {
   const rel = path.relative(root, file);
@@ -515,6 +732,13 @@ if (categoryScaleReport) {
     `Category scale: ${categoryScaleReport.present} sections ${kib(categoryScaleReport.now)}`
     + ` → ${categoryScaleReport.target} sections ${kib(categoryScaleReport.grown)}`
     + ` (ceiling ${kib(budgets.routeHtmlGzip)}, ${categoryScaleReport.route}).`,
+  );
+}
+if (categoryMembershipReport) {
+  console.log(
+    `Category membership scale: ${categoryMembershipReport.members} calculators ${kib(categoryMembershipReport.now)}`
+    + ` → ${categoryMembershipReport.target} calculators ${kib(categoryMembershipReport.grown)}`
+    + ` (ceiling ${kib(budgets.routeHtmlGzip)}, ${categoryMembershipReport.route}).`,
   );
 }
 console.log(

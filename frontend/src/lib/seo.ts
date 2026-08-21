@@ -191,6 +191,20 @@ export function itemListJsonLd(params: {
   name: string;
   path: string;
   items: ListItem[];
+  /**
+   * Плоская запись `ListItem` вместо вложенного `WebApplication`.
+   *
+   * Развёрнутая запись держит одно и то же дважды: адрес стоит и в
+   * `ListItem.url`, и в `item.url`, а описание слово в слово повторяет текст
+   * карточки, отрисованной рядом на той же странице. Схема допускает
+   * `ListItem` с `name` и `url`; ни числа записей, ни порядка, ни адресов не
+   * убавляется — убавляется только повторение. На списке из двух десятков
+   * записей это устойчивые 0,25 КиБ gzip.
+   *
+   * Признак необязательный: форма по умолчанию не меняется ни для одной из
+   * уже выпущенных страниц.
+   */
+  compact?: boolean;
 }): Json {
   return {
     '@context': 'https://schema.org',
@@ -199,19 +213,26 @@ export function itemListJsonLd(params: {
     name: params.name,
     url: absUrl(params.path),
     numberOfItems: params.items.length,
-    itemListElement: params.items.map((item, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      url: absUrl(item.path),
-      item: {
-        '@type': 'WebApplication',
+    itemListElement: params.items.map((item, i) => (params.compact
+      ? {
+        '@type': 'ListItem',
+        position: i + 1,
         name: item.name,
-        ...(item.description ? { description: item.description } : {}),
         url: absUrl(item.path),
-        applicationCategory: 'UtilitiesApplication',
-        operatingSystem: 'Any',
-      },
-    })),
+      }
+      : {
+        '@type': 'ListItem',
+        position: i + 1,
+        url: absUrl(item.path),
+        item: {
+          '@type': 'WebApplication',
+          name: item.name,
+          ...(item.description ? { description: item.description } : {}),
+          url: absUrl(item.path),
+          applicationCategory: 'UtilitiesApplication',
+          operatingSystem: 'Any',
+        },
+      })),
   };
 }
 

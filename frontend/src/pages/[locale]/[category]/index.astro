@@ -97,6 +97,11 @@ const calculatorItems = calculators.map((calculator) => ({
 const categoryPath = `/${locale}/${category.slug}/`;
 const alternates = getAlternatesForCategory(category.id);
 
+// Сколько калькуляторов перечисляет ItemList раздела. Величина постоянная:
+// структурированные данные не должны расти вместе с разделом. Ровно та же
+// величина, что и у каталога.
+const categoryItemListSize = 24;
+
 const jsonLd = [
   collectionPageJsonLd({
     name: category.h1,
@@ -108,7 +113,25 @@ const jsonLd = [
   itemListJsonLd({
     name: `${category.name}: ${copy.allCalculators}`,
     path: categoryPath,
-    items: calculatorItems,
+    // Перечисляется ВЕРХ раздела, а не весь он — тем же решением и по той же
+    // причине, что и в каталоге.
+    //
+    // Раздел обязан вывести всех своих членов настоящими ссылками, и он их
+    // выводит: ни одна не убрана. Но ItemList повторял имя, адрес и описание
+    // КАЖДОГО члена второй раз, и этот повтор рос вместе с сайтом: на
+    // подлинных текстах развёрнутая запись стоила около 87 B gzip на члена,
+    // плоская — около 25. Обходчик берёт имена и адреса из самих ссылок, так
+    // что второй экземпляр списка не добавляет ему ничего. Проверка
+    // verify-dist-structured-data-scale требует не объявлять БОЛЬШЕ
+    // показанного; объявить меньше она разрешает, и это ровно тот случай.
+    //
+    // Берётся начало того же порядка, в котором страница показывает карточки,
+    // поэтому список описывает именно то, что видно сверху.
+    items: calculatorItems.slice(0, categoryItemListSize),
+    // Плоская запись вместо вложенного WebApplication: адрес перестаёт
+    // дублироваться внутри записи, а описание — повторять видимый текст
+    // карточки. На ограниченном списке это устойчивые 0,25 КиБ.
+    compact: true,
   }),
   faqJsonLd(category.faq),
   breadcrumbsJsonLd([
@@ -191,7 +214,7 @@ const jsonLd = [
       </div>
       <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {calculators.map((calculator) => (
-          <CalculatorCard calc={calculator} showCategory={false} locale={locale} />
+          <CalculatorCard calc={calculator} locale={locale} />
         ))}
       </div>
     </div>

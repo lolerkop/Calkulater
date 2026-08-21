@@ -126,7 +126,10 @@ svg {
   flex-shrink: 0;
 }
 
-:where(.grid > *, .flex > *) {
+/* Карточка калькулятора и её подвал раньше несли служебный класс `flex` и
+   попадали сюда именно через него; классов у них больше нет, а правило должно
+   действовать по-прежнему. */
+:where(.grid > *, .flex > *, .calculator-card-shell > *, .calculator-card-shell > div > *) {
   min-width: 0;
 }
 
@@ -694,6 +697,9 @@ table {
 }
 
 .calculator-card-shell {
+  /* сюда же переехали flex и flex-col с самой ссылки */
+  display: flex;
+  flex-direction: column;
   min-height: 11.5rem;
   min-width: 0;
   overflow: hidden;
@@ -709,6 +715,154 @@ table {
   transform: translateY(-0.25rem);
   border-color: #E8E4FF;
   box-shadow: 0 18px 42px rgba(61, 48, 133, 0.12);
+}
+
+/* Внутренности карточки калькулятора.
+   Тем же приёмом, что уже применён выше к карточке каталога: строка утилит
+   занимала около восьмисот символов НА КАЖДОЙ карточке, а страница категории
+   выводит их десятками. Значения не подобраны на глаз, а выписаны из собранной
+   таблицы Tailwind — из тех самых правил, которые давали утилиты. Вид не
+   меняется, меняется только место объявления. Селекторы структурные, потому
+   что классов у внутренних узлов больше нет; структура карточки фиксирована:
+   шапка, заголовок, описание, подвал. */
+.calculator-card-shell > div:first-child {
+  /* flex min-w-0 items-start justify-between gap-3 */
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.calculator-card-shell > div:first-child > span:first-child {
+  /* min-w-0 text-[10px] uppercase tracking-wider text-ink-500 text-fit.
+     tracking-wider в этом проекте = letter-spacing 0, а не 0.05em: шкала
+     letterSpacing переопределена в tailwind.config. Высоту строки не задаёт
+     ни одна из утилит — она наследуется, и 10px * 1.5 даёт 15px. */
+  min-width: 0;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: rgb(113 109 132);
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.calculator-card-shell > div:first-child > span:last-child {
+  /* flex shrink-0 flex-wrap justify-end gap-1.5 */
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.375rem;
+}
+
+/* Значки остаются с data-testid: он же и есть их опора для стиля, поэтому
+   лишних байтов не добавляет. */
+.calculator-card-shell [data-testid='calculator-card-new'],
+.calculator-card-shell [data-testid='calculator-card-popular'] {
+  /* rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider */
+  border-radius: 9999px;
+  padding: 0.25rem 0.625rem;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.calculator-card-shell [data-testid='calculator-card-new'] {
+  /* bg-ink-900 text-white */
+  background-color: rgb(23 21 47);
+  color: rgb(255 255 255);
+}
+
+.calculator-card-shell [data-testid='calculator-card-popular'] {
+  /* bg-accent-50 text-accent */
+  background-color: rgb(243 241 255);
+  color: rgb(95 78 232);
+}
+
+.calculator-card-shell h3 {
+  /* mt-3 text-lg font-bold leading-snug tracking-[-0.02em] text-ink-900
+     transition-colors text-fit */
+  margin-top: 0.75rem;
+  font-size: 1.125rem;
+  line-height: 1.375;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgb(23 21 47);
+  min-width: 0;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+
+.calculator-card-shell:hover h3 {
+  /* group-hover:text-accent */
+  color: rgb(95 78 232);
+}
+
+.calculator-card-shell p {
+  /* mt-2 text-sm text-ink-500 leading-relaxed line-clamp-2 */
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: rgb(113 109 132);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.calculator-card-shell > div:last-child {
+  /* mt-auto flex items-center justify-between gap-4 border-t border-ink-100 pt-4.
+     border-ink-100 задаёт цвет всем четырём сторонам, ширину даёт только
+     border-t — так и было у утилит. */
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-color: rgb(240 238 246);
+  border-top-width: 1px;
+  padding-top: 1rem;
+}
+
+.calculator-card-shell > div:last-child > span:first-child {
+  /* min-w-0 text-sm font-medium text-accent text-fit */
+  min-width: 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: rgb(95 78 232);
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.calculator-card-shell > div:last-child > span:last-child {
+  /* inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent-50
+     text-accent transition-all */
+  display: inline-flex;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: rgb(243 241 255);
+  color: rgb(95 78 232);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+
+.calculator-card-shell:hover > div:last-child > span:last-child {
+  /* group-hover:translate-x-0.5 group-hover:bg-accent group-hover:text-white.
+     Сдвиг держался на служебном классе group, который карточке больше не нужен. */
+  transform: translateX(0.125rem);
+  background-color: rgb(95 78 232);
+  color: rgb(255 255 255);
 }
 
 .category-card-shell {

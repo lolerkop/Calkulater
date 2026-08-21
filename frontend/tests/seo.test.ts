@@ -199,6 +199,36 @@ describe('seo.itemListJsonLd', () => {
     expect(list[0].position).toBe(1);
     expect((list[0].item as Record<string, unknown>)['@type']).toBe('WebApplication');
   });
+
+  // Плоская форма нужна там, где список перечисляет ВСЕХ членов раздела и
+  // повтор растёт вместе с сайтом. Проверяется главное: ссылок и порядка не
+  // убавилось, убавился только повтор.
+  it('в плоской форме сохраняет число, порядок и адреса, но не дублирует их', () => {
+    const items = [
+      { name: 'Кредитный калькулятор', description: 'Расчет кредита', path: '/finance/credit-calculator/' },
+      { name: 'Калькулятор НДС', description: 'Расчет НДС', path: '/finance/vat-calculator/' },
+    ];
+    const full = itemListJsonLd({ name: 'Финансы', path: '/finance/', items });
+    const compact = itemListJsonLd({ name: 'Финансы', path: '/finance/', items, compact: true });
+
+    const fullList = full.itemListElement as Array<Record<string, unknown>>;
+    const compactList = compact.itemListElement as Array<Record<string, unknown>>;
+
+    expect(compact.numberOfItems).toBe(full.numberOfItems);
+    expect(compactList.map((entry) => entry.position)).toEqual(fullList.map((entry) => entry.position));
+    expect(compactList.map((entry) => entry.url)).toEqual(fullList.map((entry) => entry.url));
+    expect(compactList.map((entry) => entry.name)).toEqual(
+      fullList.map((entry) => (entry.item as Record<string, unknown>).name),
+    );
+    for (const entry of compactList) {
+      expect(entry['@type']).toBe('ListItem');
+      expect(entry.item).toBeUndefined();
+    }
+    // Развёрнутая форма остаётся формой ПО УМОЛЧАНИЮ: главная и каталог её
+    // не меняли.
+    expect((fullList[0].item as Record<string, unknown>)['@type']).toBe('WebApplication');
+    expect(JSON.stringify(compact).length).toBeLessThan(JSON.stringify(full).length);
+  });
 });
 
 describe('seo.collectionPageJsonLd', () => {
