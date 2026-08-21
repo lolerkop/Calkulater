@@ -45,6 +45,22 @@ const stateScenarios: Record<string, StateScenario> = {
   'recipe-scale': { query: { ingredients: 'flour 800\nwater 520\nsalt 16', fromServings: 6, toServings: 10 }, result: { primary: '1,6667', rows: [{ label: 'Ингредиентов', value: '3' }, { label: 'Было всего', value: '1 336' }, { label: 'Стало всего', value: '2 226,67' }] } },
   'resistor-network': { query: { resistances: '470 680 1000', mode: 'parallel' }, result: { primary: '217,47 Ом', rows: [{ label: 'Резисторов', value: '3' }, { label: 'Наименьший', value: '470 Ом' }, { label: 'Наибольший', value: '1 000 Ом' }] } },
   'time-value-money': { query: { mode: 'pv', amount: 500000, rate: 9, years: 8, compounding: 'year' }, result: { primary: '250 933,14 ₽', rows: [{ label: 'Множитель роста', value: '1,9926' }, { label: 'Эффективная годовая ставка', value: '9,00%' }, { label: 'Периодов начисления', value: '8' }] } },
+  // Волна 19, партия A1. Ожидаемые значения выведены независимой моделью
+  // Phase 19P (refmodel.py) на НЕумолчальных входах:
+  //   45 000 при доходах 60 : 90 : 30 -> 15 000, 22 500, 7 500
+  //   250 г риса по 344 и 300 г курицы по 190 = 860 + 570 = 1430 на 3 порции
+  //   180·6,2 + 12·52 = 1116 + 624 = 1740, плюс 900 постоянных
+  //   499/1 + 3600/12 = 499 + 300 = 799 в месяц
+  //   пятиугольник 0 0 / 6 0 / 6 4 / 3 7 / 0 4: площадь 33, периметр 22,485
+  //   (142,5 − 20)/2 = 61,25 -> 25×2 + 10 + 1,25
+  //   300 000 при 20 000 и взносе 8 000 под 5 % -> 33 месяца
+  'budget-split': { query: { total: 45000, incomes: 'анна 60000\nборис 90000\nвера 30000', mode: 'income' }, result: { primary: '22 500,00 ₽', rows: [{ label: 'Наименьший взнос', value: '7 500,00 ₽' }, { label: 'Участников', value: '3' }, { label: 'Проверка суммы', value: '45 000,00 ₽' }] } },
+  'calories-per-serving': { query: { ingredients: 'рис 250 344\nкурица 300 190', servings: 3 }, result: { primary: '477 ккал', rows: [{ label: 'Всего калорий', value: '1 430 ккал' }, { label: 'Ингредиентов', value: '2' }, { label: 'Самый калорийный', value: 'рис' }] } },
+  'utility-total': { query: { meters: 'электричество 180 6,2\nвода 12 52', fixed: 900 }, result: { primary: '2 640,00 ₽', rows: [{ label: 'Переменная часть', value: '1 740,00 ₽' }, { label: 'Постоянная часть', value: '900,00 ₽' }, { label: 'Самая дорогая услуга', value: 'электричество' }] } },
+  'subscriptions-cost': { query: { items: 'стриминг 499 1\nхостинг 3600 12' }, result: { primary: '799,00 ₽', rows: [{ label: 'В год', value: '9 588,00 ₽' }, { label: 'Подписок', value: '2' }, { label: 'Самая дорогая', value: 'стриминг' }] } },
+  'geom-polygon-coords': { query: { points: '0 0\n6 0\n6 4\n3 7\n0 4' }, result: { primary: '33', rows: [{ label: 'Периметр', value: '22,485' }, { label: 'Вершин', value: '5' }, { label: 'Обход', value: 'против часовой' }] } },
+  'barbell-plates': { query: { target: 142.5, bar: 20, plates: '25 20 15 10 5 2,5 1,25' }, result: { primary: '25×2 + 10×1 + 1,25×1', rows: [{ label: 'Фактический вес', value: '142,5 кг' }, { label: 'На сторону', value: '61,25 кг' }, { label: 'Блинов на сторону', value: '4' }] } },
+  'savings-goal': { query: { mode: 'term', goal: 300000, initial: 20000, rate: 5, monthly: 8000 }, result: { primary: '33 мес', rows: [{ label: 'Итоговая сумма', value: '305 323,52 ₽' }, { label: 'Всего взносов', value: '264 000,00 ₽' }, { label: 'Цель', value: '300 000,00 ₽' }] } },
   // Волна 5, батч B3 — подсеть, средний балл, корреляция и молярная масса.
   // Ожидаемые значения выведены вручную:
   //   /26: маска 255.255.255.192; 172.16.34.200 & маска = .192; узлов 2⁶ − 2 = 62

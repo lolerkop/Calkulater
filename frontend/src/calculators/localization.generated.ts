@@ -19,6 +19,7 @@ import { localization as loc_arpu_arppu } from './arpu-arppu/localization';
 import { localization as loc_aspect_ratio } from './aspect-ratio/localization';
 import { localization as loc_audience_growth } from './audience-growth/localization';
 import { localization as loc_bakers_percentage } from './bakers-percentage/localization';
+import { localization as loc_barbell_plates } from './barbell-plates/localization';
 import { localization as loc_battery_charge_time } from './battery-charge-time/localization';
 import { localization as loc_battery_runtime } from './battery-runtime/localization';
 import { localization as loc_battery_series_parallel } from './battery-series-parallel/localization';
@@ -27,9 +28,11 @@ import { localization as loc_binomial_probability } from './binomial-probability
 import { localization as loc_board_volume } from './board-volume/localization';
 import { localization as loc_bonus } from './bonus/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
+import { localization as loc_budget_split } from './budget-split/localization';
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
 import { localization as loc_calories_from_macros } from './calories-from-macros/localization';
+import { localization as loc_calories_per_serving } from './calories-per-serving/localization';
 import { localization as loc_car_depreciation } from './car-depreciation/localization';
 import { localization as loc_centripetal_force } from './centripetal-force/localization';
 import { localization as loc_churn_retention } from './churn-retention/localization';
@@ -109,6 +112,7 @@ import { localization as loc_geom_cylinder } from './geom-cylinder/localization'
 import { localization as loc_geom_ellipse } from './geom-ellipse/localization';
 import { localization as loc_geom_frustum } from './geom-frustum/localization';
 import { localization as loc_geom_parallelogram } from './geom-parallelogram/localization';
+import { localization as loc_geom_polygon_coords } from './geom-polygon-coords/localization';
 import { localization as loc_geom_prism } from './geom-prism/localization';
 import { localization as loc_geom_pyramid } from './geom-pyramid/localization';
 import { localization as loc_geom_rectangle } from './geom-rectangle/localization';
@@ -196,6 +200,7 @@ import { localization as loc_rounding } from './rounding/localization';
 import { localization as loc_rule_of_72 } from './rule-of-72/localization';
 import { localization as loc_salary_convert } from './salary-convert/localization';
 import { localization as loc_salary_raise } from './salary-raise/localization';
+import { localization as loc_savings_goal } from './savings-goal/localization';
 import { localization as loc_savings_rate } from './savings-rate/localization';
 import { localization as loc_shipping_per_unit } from './shipping-per-unit/localization';
 import { localization as loc_simple_interest } from './simple-interest/localization';
@@ -207,6 +212,7 @@ import { localization as loc_speed_distance_time } from './speed-distance-time/l
 import { localization as loc_stats_descriptive } from './stats-descriptive/localization';
 import { localization as loc_stock_duration } from './stock-duration/localization';
 import { localization as loc_strip_foundation } from './strip-foundation/localization';
+import { localization as loc_subscriptions_cost } from './subscriptions-cost/localization';
 import { localization as loc_test_score_percent } from './test-score-percent/localization';
 import { localization as loc_text_reading_time } from './text-reading-time/localization';
 import { localization as loc_text_word_char_count } from './text-word-char-count/localization';
@@ -218,6 +224,7 @@ import { localization as loc_tire_size } from './tire-size/localization';
 import { localization as loc_trip_budget } from './trip-budget/localization';
 import { localization as loc_trip_cost } from './trip-cost/localization';
 import { localization as loc_unix_timestamp } from './unix-timestamp/localization';
+import { localization as loc_utility_total } from './utility-total/localization';
 import { localization as loc_vacation_accrual } from './vacation-accrual/localization';
 import { localization as loc_video_file_size } from './video-file-size/localization';
 import { localization as loc_vo2max } from './vo2max/localization';
@@ -245,6 +252,7 @@ export const v2Localization: ScopedLocalization = {
     'aspect-ratio': loc_aspect_ratio.en ?? {},
     'audience-growth': loc_audience_growth.en ?? {},
     'bakers-percentage': loc_bakers_percentage.en ?? {},
+    'barbell-plates': loc_barbell_plates.en ?? {},
     'battery-charge-time': loc_battery_charge_time.en ?? {},
     'battery-runtime': loc_battery_runtime.en ?? {},
     'battery-series-parallel': loc_battery_series_parallel.en ?? {},
@@ -253,9 +261,11 @@ export const v2Localization: ScopedLocalization = {
     'board-volume': loc_board_volume.en ?? {},
     'bonus': loc_bonus.en ?? {},
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
+    'budget-split': loc_budget_split.en ?? {},
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
     'calories-from-macros': loc_calories_from_macros.en ?? {},
+    'calories-per-serving': loc_calories_per_serving.en ?? {},
     'car-depreciation': loc_car_depreciation.en ?? {},
     'centripetal-force': loc_centripetal_force.en ?? {},
     'churn-retention': loc_churn_retention.en ?? {},
@@ -335,6 +345,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-ellipse': loc_geom_ellipse.en ?? {},
     'geom-frustum': loc_geom_frustum.en ?? {},
     'geom-parallelogram': loc_geom_parallelogram.en ?? {},
+    'geom-polygon-coords': loc_geom_polygon_coords.en ?? {},
     'geom-prism': loc_geom_prism.en ?? {},
     'geom-pyramid': loc_geom_pyramid.en ?? {},
     'geom-rectangle': loc_geom_rectangle.en ?? {},
@@ -422,6 +433,7 @@ export const v2Localization: ScopedLocalization = {
     'rule-of-72': loc_rule_of_72.en ?? {},
     'salary-convert': loc_salary_convert.en ?? {},
     'salary-raise': loc_salary_raise.en ?? {},
+    'savings-goal': loc_savings_goal.en ?? {},
     'savings-rate': loc_savings_rate.en ?? {},
     'shipping-per-unit': loc_shipping_per_unit.en ?? {},
     'simple-interest': loc_simple_interest.en ?? {},
@@ -433,6 +445,7 @@ export const v2Localization: ScopedLocalization = {
     'stats-descriptive': loc_stats_descriptive.en ?? {},
     'stock-duration': loc_stock_duration.en ?? {},
     'strip-foundation': loc_strip_foundation.en ?? {},
+    'subscriptions-cost': loc_subscriptions_cost.en ?? {},
     'test-score-percent': loc_test_score_percent.en ?? {},
     'text-reading-time': loc_text_reading_time.en ?? {},
     'text-word-char-count': loc_text_word_char_count.en ?? {},
@@ -444,6 +457,7 @@ export const v2Localization: ScopedLocalization = {
     'trip-budget': loc_trip_budget.en ?? {},
     'trip-cost': loc_trip_cost.en ?? {},
     'unix-timestamp': loc_unix_timestamp.en ?? {},
+    'utility-total': loc_utility_total.en ?? {},
     'vacation-accrual': loc_vacation_accrual.en ?? {},
     'video-file-size': loc_video_file_size.en ?? {},
     'vo2max': loc_vo2max.en ?? {},
@@ -470,6 +484,7 @@ export const v2Localization: ScopedLocalization = {
     'aspect-ratio': loc_aspect_ratio.uk ?? {},
     'audience-growth': loc_audience_growth.uk ?? {},
     'bakers-percentage': loc_bakers_percentage.uk ?? {},
+    'barbell-plates': loc_barbell_plates.uk ?? {},
     'battery-charge-time': loc_battery_charge_time.uk ?? {},
     'battery-runtime': loc_battery_runtime.uk ?? {},
     'battery-series-parallel': loc_battery_series_parallel.uk ?? {},
@@ -478,9 +493,11 @@ export const v2Localization: ScopedLocalization = {
     'board-volume': loc_board_volume.uk ?? {},
     'bonus': loc_bonus.uk ?? {},
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
+    'budget-split': loc_budget_split.uk ?? {},
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
     'calories-from-macros': loc_calories_from_macros.uk ?? {},
+    'calories-per-serving': loc_calories_per_serving.uk ?? {},
     'car-depreciation': loc_car_depreciation.uk ?? {},
     'centripetal-force': loc_centripetal_force.uk ?? {},
     'churn-retention': loc_churn_retention.uk ?? {},
@@ -560,6 +577,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-ellipse': loc_geom_ellipse.uk ?? {},
     'geom-frustum': loc_geom_frustum.uk ?? {},
     'geom-parallelogram': loc_geom_parallelogram.uk ?? {},
+    'geom-polygon-coords': loc_geom_polygon_coords.uk ?? {},
     'geom-prism': loc_geom_prism.uk ?? {},
     'geom-pyramid': loc_geom_pyramid.uk ?? {},
     'geom-rectangle': loc_geom_rectangle.uk ?? {},
@@ -647,6 +665,7 @@ export const v2Localization: ScopedLocalization = {
     'rule-of-72': loc_rule_of_72.uk ?? {},
     'salary-convert': loc_salary_convert.uk ?? {},
     'salary-raise': loc_salary_raise.uk ?? {},
+    'savings-goal': loc_savings_goal.uk ?? {},
     'savings-rate': loc_savings_rate.uk ?? {},
     'shipping-per-unit': loc_shipping_per_unit.uk ?? {},
     'simple-interest': loc_simple_interest.uk ?? {},
@@ -658,6 +677,7 @@ export const v2Localization: ScopedLocalization = {
     'stats-descriptive': loc_stats_descriptive.uk ?? {},
     'stock-duration': loc_stock_duration.uk ?? {},
     'strip-foundation': loc_strip_foundation.uk ?? {},
+    'subscriptions-cost': loc_subscriptions_cost.uk ?? {},
     'test-score-percent': loc_test_score_percent.uk ?? {},
     'text-reading-time': loc_text_reading_time.uk ?? {},
     'text-word-char-count': loc_text_word_char_count.uk ?? {},
@@ -669,6 +689,7 @@ export const v2Localization: ScopedLocalization = {
     'trip-budget': loc_trip_budget.uk ?? {},
     'trip-cost': loc_trip_cost.uk ?? {},
     'unix-timestamp': loc_unix_timestamp.uk ?? {},
+    'utility-total': loc_utility_total.uk ?? {},
     'vacation-accrual': loc_vacation_accrual.uk ?? {},
     'video-file-size': loc_video_file_size.uk ?? {},
     'vo2max': loc_vo2max.uk ?? {},

@@ -1,0 +1,68 @@
+import type { CalculatorLocalization } from '../../lib/platform/types';
+
+export const localization: CalculatorLocalization = {
+  en: {
+    fields: {
+      "mode": "What to work out",
+      "goal": "Goal amount",
+      "initial": "Already saved",
+      "rate": "Annual rate, %",
+      "years": "Term, years",
+      "monthly": "Monthly contribution",
+    },
+    options: { "payment": "Monthly contribution", "term": "How long it takes" },
+    results: {
+      "Взнос в месяц": "Monthly contribution",
+      "Срок": "Term",
+      "В годах": "In years",
+      "Месяцев": "Months",
+      "Всего взносов": "Contributions in total",
+      "Начислено процентов": "Interest earned",
+      "Итоговая сумма": "Final amount",
+      "Цель": "Goal",
+      "Проверьте данные": "Check the values",
+    },
+    values: {
+      "₽": "$",
+      "мес": "mo",
+      "Цель должна быть больше нуля": "The goal must be greater than zero",
+      "Начальная сумма не может быть отрицательной": "The starting amount cannot be negative",
+      "Ставка должна быть от 0 до 100 % годовых": "The rate must be between 0 and 100 % a year",
+      "Ежемесячный взнос должен быть больше нуля": "The monthly contribution must be greater than zero",
+      "За сто лет цель не достигается: увеличьте взнос": "The goal is not reached within a hundred years — increase the contribution",
+      "Срок должен быть не меньше месяца": "The term must be at least one month",
+    },
+  },
+  uk: {
+    fields: {
+      "mode": "Що порахувати",
+      "goal": "Сума цілі",
+      "initial": "Уже накопичено",
+      "rate": "Річна ставка, %",
+      "years": "Строк, років",
+      "monthly": "Щомісячний внесок",
+    },
+    options: { "payment": "Щомісячний внесок", "term": "За скільки накопиться" },
+    results: {
+      "Взнос в месяц": "Внесок на місяць",
+      "Срок": "Строк",
+      "В годах": "У роках",
+      "Месяцев": "Місяців",
+      "Всего взносов": "Усього внесків",
+      "Начислено процентов": "Нараховано відсотків",
+      "Итоговая сумма": "Підсумкова сума",
+      "Цель": "Ціль",
+      "Проверьте данные": "Перевірте дані",
+    },
+    values: {
+      "₽": "₴",
+      "мес": "міс",
+      "Цель должна быть больше нуля": "Ціль має бути більшою за нуль",
+      "Начальная сумма не может быть отрицательной": "Початкова сума не може бути від'ємною",
+      "Ставка должна быть от 0 до 100 % годовых": "Ставка має бути від 0 до 100 % річних",
+      "Ежемесячный взнос должен быть больше нуля": "Щомісячний внесок має бути більшим за нуль",
+      "За сто лет цель не достигается: увеличьте взнос": "За сто років ціль не досягається — збільште внесок",
+      "Срок должен быть не меньше месяца": "Строк має бути щонайменше місяць",
+    },
+  },
+};

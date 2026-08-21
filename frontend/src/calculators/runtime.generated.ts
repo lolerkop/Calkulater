@@ -27,6 +27,7 @@ import { compute as compute_arpu_arppu } from './arpu-arppu/compute';
 import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
 import { compute as compute_audience_growth } from './audience-growth/compute';
 import { compute as compute_bakers_percentage } from './bakers-percentage/compute';
+import { compute as compute_barbell_plates } from './barbell-plates/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_battery_series_parallel } from './battery-series-parallel/compute';
@@ -35,9 +36,11 @@ import { compute as compute_binomial_probability } from './binomial-probability/
 import { compute as compute_board_volume } from './board-volume/compute';
 import { compute as compute_bonus } from './bonus/compute';
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
+import { compute as compute_budget_split } from './budget-split/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
 import { compute as compute_calories_from_macros } from './calories-from-macros/compute';
+import { compute as compute_calories_per_serving } from './calories-per-serving/compute';
 import { compute as compute_car_depreciation } from './car-depreciation/compute';
 import { compute as compute_centripetal_force } from './centripetal-force/compute';
 import { compute as compute_churn_retention } from './churn-retention/compute';
@@ -120,6 +123,7 @@ import { compute as compute_geom_cylinder } from './geom-cylinder/compute';
 import { compute as compute_geom_ellipse } from './geom-ellipse/compute';
 import { compute as compute_geom_frustum } from './geom-frustum/compute';
 import { compute as compute_geom_parallelogram } from './geom-parallelogram/compute';
+import { compute as compute_geom_polygon_coords } from './geom-polygon-coords/compute';
 import { compute as compute_geom_prism } from './geom-prism/compute';
 import { compute as compute_geom_pyramid } from './geom-pyramid/compute';
 import { compute as compute_geom_rectangle } from './geom-rectangle/compute';
@@ -214,6 +218,7 @@ import { compute as compute_rounding } from './rounding/compute';
 import { compute as compute_rule_of_72 } from './rule-of-72/compute';
 import { compute as compute_salary_convert } from './salary-convert/compute';
 import { compute as compute_salary_raise } from './salary-raise/compute';
+import { compute as compute_savings_goal } from './savings-goal/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
 import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
@@ -226,6 +231,7 @@ import { contextualField as ctx_speed_distance_time } from './speed-distance-tim
 import { compute as compute_stats_descriptive } from './stats-descriptive/compute';
 import { compute as compute_stock_duration } from './stock-duration/compute';
 import { compute as compute_strip_foundation } from './strip-foundation/compute';
+import { compute as compute_subscriptions_cost } from './subscriptions-cost/compute';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
 import { compute as compute_text_reading_time } from './text-reading-time/compute';
 import { compute as compute_text_word_char_count } from './text-word-char-count/compute';
@@ -237,6 +243,7 @@ import { compute as compute_tire_size } from './tire-size/compute';
 import { compute as compute_trip_budget } from './trip-budget/compute';
 import { compute as compute_trip_cost } from './trip-cost/compute';
 import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
+import { compute as compute_utility_total } from './utility-total/compute';
 import { compute as compute_vacation_accrual } from './vacation-accrual/compute';
 import { compute as compute_video_file_size } from './video-file-size/compute';
 import { compute as compute_vo2max } from './vo2max/compute';
@@ -263,6 +270,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'aspect-ratio': compute_aspect_ratio,
   'audience-growth': compute_audience_growth,
   'bakers-percentage': compute_bakers_percentage,
+  'barbell-plates': compute_barbell_plates,
   'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
   'battery-series-parallel': compute_battery_series_parallel,
@@ -271,9 +279,11 @@ export const v2Runners: Record<string, CalcFunction> = {
   'board-volume': compute_board_volume,
   'bonus': compute_bonus,
   'budget-50-30-20': compute_budget_50_30_20,
+  'budget-split': compute_budget_split,
   'cac': compute_cac,
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
+  'calories-per-serving': compute_calories_per_serving,
   'car-depreciation': compute_car_depreciation,
   'centripetal-force': compute_centripetal_force,
   'churn-retention': compute_churn_retention,
@@ -353,6 +363,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-ellipse': compute_geom_ellipse,
   'geom-frustum': compute_geom_frustum,
   'geom-parallelogram': compute_geom_parallelogram,
+  'geom-polygon-coords': compute_geom_polygon_coords,
   'geom-prism': compute_geom_prism,
   'geom-pyramid': compute_geom_pyramid,
   'geom-rectangle': compute_geom_rectangle,
@@ -442,6 +453,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'rule-of-72': compute_rule_of_72,
   'salary-convert': compute_salary_convert,
   'salary-raise': compute_salary_raise,
+  'savings-goal': compute_savings_goal,
   'savings-rate': compute_savings_rate,
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
@@ -453,6 +465,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'stats-descriptive': compute_stats_descriptive,
   'stock-duration': compute_stock_duration,
   'strip-foundation': compute_strip_foundation,
+  'subscriptions-cost': compute_subscriptions_cost,
   'test-score-percent': compute_test_score_percent,
   'text-reading-time': compute_text_reading_time,
   'text-word-char-count': compute_text_word_char_count,
@@ -464,6 +477,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'trip-budget': compute_trip_budget,
   'trip-cost': compute_trip_cost,
   'unix-timestamp': compute_unix_timestamp,
+  'utility-total': compute_utility_total,
   'vacation-accrual': compute_vacation_accrual,
   'video-file-size': compute_video_file_size,
   'vo2max': compute_vo2max,

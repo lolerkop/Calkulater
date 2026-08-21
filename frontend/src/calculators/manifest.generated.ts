@@ -25,6 +25,7 @@ import { definition as def_arpu_arppu } from './arpu-arppu/definition';
 import { definition as def_aspect_ratio } from './aspect-ratio/definition';
 import { definition as def_audience_growth } from './audience-growth/definition';
 import { definition as def_bakers_percentage } from './bakers-percentage/definition';
+import { definition as def_barbell_plates } from './barbell-plates/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
 import { definition as def_battery_runtime } from './battery-runtime/definition';
 import { definition as def_battery_series_parallel } from './battery-series-parallel/definition';
@@ -33,9 +34,11 @@ import { definition as def_binomial_probability } from './binomial-probability/d
 import { definition as def_board_volume } from './board-volume/definition';
 import { definition as def_bonus } from './bonus/definition';
 import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition';
+import { definition as def_budget_split } from './budget-split/definition';
 import { definition as def_cac } from './cac/definition';
 import { definition as def_cagr } from './cagr/definition';
 import { definition as def_calories_from_macros } from './calories-from-macros/definition';
+import { definition as def_calories_per_serving } from './calories-per-serving/definition';
 import { definition as def_car_depreciation } from './car-depreciation/definition';
 import { definition as def_centripetal_force } from './centripetal-force/definition';
 import { definition as def_churn_retention } from './churn-retention/definition';
@@ -115,6 +118,7 @@ import { definition as def_geom_cylinder } from './geom-cylinder/definition';
 import { definition as def_geom_ellipse } from './geom-ellipse/definition';
 import { definition as def_geom_frustum } from './geom-frustum/definition';
 import { definition as def_geom_parallelogram } from './geom-parallelogram/definition';
+import { definition as def_geom_polygon_coords } from './geom-polygon-coords/definition';
 import { definition as def_geom_prism } from './geom-prism/definition';
 import { definition as def_geom_pyramid } from './geom-pyramid/definition';
 import { definition as def_geom_rectangle } from './geom-rectangle/definition';
@@ -204,6 +208,7 @@ import { definition as def_rounding } from './rounding/definition';
 import { definition as def_rule_of_72 } from './rule-of-72/definition';
 import { definition as def_salary_convert } from './salary-convert/definition';
 import { definition as def_salary_raise } from './salary-raise/definition';
+import { definition as def_savings_goal } from './savings-goal/definition';
 import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
@@ -215,6 +220,7 @@ import { definition as def_speed_distance_time } from './speed-distance-time/def
 import { definition as def_stats_descriptive } from './stats-descriptive/definition';
 import { definition as def_stock_duration } from './stock-duration/definition';
 import { definition as def_strip_foundation } from './strip-foundation/definition';
+import { definition as def_subscriptions_cost } from './subscriptions-cost/definition';
 import { definition as def_test_score_percent } from './test-score-percent/definition';
 import { definition as def_text_reading_time } from './text-reading-time/definition';
 import { definition as def_text_word_char_count } from './text-word-char-count/definition';
@@ -226,6 +232,7 @@ import { definition as def_tire_size } from './tire-size/definition';
 import { definition as def_trip_budget } from './trip-budget/definition';
 import { definition as def_trip_cost } from './trip-cost/definition';
 import { definition as def_unix_timestamp } from './unix-timestamp/definition';
+import { definition as def_utility_total } from './utility-total/definition';
 import { definition as def_vacation_accrual } from './vacation-accrual/definition';
 import { definition as def_video_file_size } from './video-file-size/definition';
 import { definition as def_vo2max } from './vo2max/definition';
@@ -252,6 +259,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_aspect_ratio,
   def_audience_growth,
   def_bakers_percentage,
+  def_barbell_plates,
   def_battery_charge_time,
   def_battery_runtime,
   def_battery_series_parallel,
@@ -260,9 +268,11 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_board_volume,
   def_bonus,
   def_budget_50_30_20,
+  def_budget_split,
   def_cac,
   def_cagr,
   def_calories_from_macros,
+  def_calories_per_serving,
   def_car_depreciation,
   def_centripetal_force,
   def_churn_retention,
@@ -342,6 +352,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_ellipse,
   def_geom_frustum,
   def_geom_parallelogram,
+  def_geom_polygon_coords,
   def_geom_prism,
   def_geom_pyramid,
   def_geom_rectangle,
@@ -431,6 +442,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_rule_of_72,
   def_salary_convert,
   def_salary_raise,
+  def_savings_goal,
   def_savings_rate,
   def_shipping_per_unit,
   def_simple_interest,
@@ -442,6 +454,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_stats_descriptive,
   def_stock_duration,
   def_strip_foundation,
+  def_subscriptions_cost,
   def_test_score_percent,
   def_text_reading_time,
   def_text_word_char_count,
@@ -453,6 +466,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_trip_budget,
   def_trip_cost,
   def_unix_timestamp,
+  def_utility_total,
   def_vacation_accrual,
   def_video_file_size,
   def_vo2max,

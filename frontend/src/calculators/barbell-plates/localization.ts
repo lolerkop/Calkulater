@@ -1,0 +1,60 @@
+import type { CalculatorLocalization } from '../../lib/platform/types';
+
+export const localization: CalculatorLocalization = {
+  en: {
+    fields: {
+      "target": "Target weight, kg",
+      "bar": "Bar weight, kg",
+      "plates": "Available plates, one weight per token",
+    },
+    options: {},
+    results: {
+      "Блины на сторону": "Plates per side",
+      "Фактический вес": "Actual weight",
+      "Недобор": "Short by",
+      "На сторону": "Per side",
+      "Блинов на сторону": "Plates per side, count",
+      "Набор на одну сторону": "Loading for one side",
+      "Блин": "Plate",
+      "Штук на сторону": "Count per side",
+      "Всего": "Total",
+      "Проверьте данные": "Check the values",
+    },
+    values: {
+      "кг": "kg",
+      "Вес блина должен быть числом:": "The plate weight must be a number:",
+      "Вес блина должен быть больше нуля": "The plate weight must be greater than zero",
+      "Введите доступные блины": "Enter the plates you have",
+      "Вес грифа не может быть отрицательным": "The bar weight cannot be negative",
+      "Целевой вес меньше грифа": "The target weight is lighter than the bar",
+    },
+  },
+  uk: {
+    fields: {
+      "target": "Цільова вага, кг",
+      "bar": "Вага грифа, кг",
+      "plates": "Доступні млинці, по одній вазі на токен",
+    },
+    options: {},
+    results: {
+      "Блины на сторону": "Млинці на сторону",
+      "Фактический вес": "Фактична вага",
+      "Недобор": "Не вистачає",
+      "На сторону": "На сторону",
+      "Блинов на сторону": "Млинців на сторону, штук",
+      "Набор на одну сторону": "Набір на одну сторону",
+      "Блин": "Млинець",
+      "Штук на сторону": "Штук на сторону",
+      "Всего": "Усього",
+      "Проверьте данные": "Перевірте дані",
+    },
+    values: {
+      "кг": "кг",
+      "Вес блина должен быть числом:": "Вага млинця має бути числом:",
+      "Вес блина должен быть больше нуля": "Вага млинця має бути більшою за нуль",
+      "Введите доступные блины": "Введіть наявні млинці",
+      "Вес грифа не может быть отрицательным": "Вага грифа не може бути від'ємною",
+      "Целевой вес меньше грифа": "Цільова вага менша за гриф",
+    },
+  },
+};
