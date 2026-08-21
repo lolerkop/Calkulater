@@ -93,6 +93,7 @@ import { definition as def_dividend_yield } from './dividend-yield/definition';
 import { definition as def_divisors } from './divisors/definition';
 import { definition as def_down_payment } from './down-payment/definition';
 import { definition as def_download_time } from './download-time/definition';
+import { definition as def_drywall } from './drywall/definition';
 import { definition as def_dti } from './dti/definition';
 import { definition as def_early_repayment } from './early-repayment/definition';
 import { definition as def_electricity_usage } from './electricity-usage/definition';
@@ -150,8 +151,10 @@ import { definition as def_kinetic_energy } from './kinetic-energy/definition';
 import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
 import { definition as def_leverage } from './leverage/definition';
+import { definition as def_lighting } from './lighting/definition';
 import { definition as def_linear_equation } from './linear-equation/definition';
 import { definition as def_linear_system } from './linear-system/definition';
+import { definition as def_linoleum } from './linoleum/definition';
 import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_ltv } from './ltv/definition';
 import { definition as def_market_cap } from './market-cap/definition';
@@ -237,15 +240,18 @@ import { definition as def_tip } from './tip/definition';
 import { definition as def_tire_size } from './tire-size/definition';
 import { definition as def_trip_budget } from './trip-budget/definition';
 import { definition as def_trip_cost } from './trip-cost/definition';
+import { definition as def_underfloor_heating } from './underfloor-heating/definition';
 import { definition as def_unix_timestamp } from './unix-timestamp/definition';
 import { definition as def_utility_total } from './utility-total/definition';
 import { definition as def_vacation_accrual } from './vacation-accrual/definition';
 import { definition as def_video_file_size } from './video-file-size/definition';
 import { definition as def_vo2max } from './vo2max/definition';
+import { definition as def_voltage_drop } from './voltage-drop/definition';
 import { definition as def_water_intake } from './water-intake/definition';
 import { definition as def_wave } from './wave/definition';
 import { definition as def_week_number } from './week-number/definition';
 import { definition as def_weighted_mean } from './weighted-mean/definition';
+import { definition as def_wood_weight } from './wood-weight/definition';
 import { definition as def_work } from './work/definition';
 import { definition as def_work_hours } from './work-hours/definition';
 import { definition as def_workday_cost } from './workday-cost/definition';
@@ -333,6 +339,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_divisors,
   def_down_payment,
   def_download_time,
+  def_drywall,
   def_dti,
   def_early_repayment,
   def_electricity_usage,
@@ -390,8 +397,10 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_leap_year,
   def_led_resistor,
   def_leverage,
+  def_lighting,
   def_linear_equation,
   def_linear_system,
+  def_linoleum,
   def_logarithm,
   def_ltv,
   def_market_cap,
@@ -477,15 +486,18 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_tire_size,
   def_trip_budget,
   def_trip_cost,
+  def_underfloor_heating,
   def_unix_timestamp,
   def_utility_total,
   def_vacation_accrual,
   def_video_file_size,
   def_vo2max,
+  def_voltage_drop,
   def_water_intake,
   def_wave,
   def_week_number,
   def_weighted_mean,
+  def_wood_weight,
   def_work,
   def_work_hours,
   def_workday_cost,

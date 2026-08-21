@@ -97,6 +97,7 @@ import { compute as compute_dividend_yield } from './dividend-yield/compute';
 import { compute as compute_divisors } from './divisors/compute';
 import { compute as compute_down_payment } from './down-payment/compute';
 import { compute as compute_download_time } from './download-time/compute';
+import { compute as compute_drywall } from './drywall/compute';
 import { compute as compute_dti } from './dti/compute';
 import { compute as compute_early_repayment } from './early-repayment/compute';
 import { compute as compute_electricity_usage } from './electricity-usage/compute';
@@ -155,8 +156,10 @@ import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
 import { compute as compute_leverage } from './leverage/compute';
+import { compute as compute_lighting } from './lighting/compute';
 import { compute as compute_linear_equation } from './linear-equation/compute';
 import { compute as compute_linear_system } from './linear-system/compute';
+import { compute as compute_linoleum } from './linoleum/compute';
 import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
@@ -248,15 +251,18 @@ import { compute as compute_tip } from './tip/compute';
 import { compute as compute_tire_size } from './tire-size/compute';
 import { compute as compute_trip_budget } from './trip-budget/compute';
 import { compute as compute_trip_cost } from './trip-cost/compute';
+import { compute as compute_underfloor_heating } from './underfloor-heating/compute';
 import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
 import { compute as compute_utility_total } from './utility-total/compute';
 import { compute as compute_vacation_accrual } from './vacation-accrual/compute';
 import { compute as compute_video_file_size } from './video-file-size/compute';
 import { compute as compute_vo2max } from './vo2max/compute';
+import { compute as compute_voltage_drop } from './voltage-drop/compute';
 import { compute as compute_water_intake } from './water-intake/compute';
 import { compute as compute_wave } from './wave/compute';
 import { compute as compute_week_number } from './week-number/compute';
 import { compute as compute_weighted_mean } from './weighted-mean/compute';
+import { compute as compute_wood_weight } from './wood-weight/compute';
 import { compute as compute_work } from './work/compute';
 import { compute as compute_work_hours } from './work-hours/compute';
 import { compute as compute_workday_cost } from './workday-cost/compute';
@@ -344,6 +350,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'divisors': compute_divisors,
   'down-payment': compute_down_payment,
   'download-time': compute_download_time,
+  'drywall': compute_drywall,
   'dti': compute_dti,
   'early-repayment': compute_early_repayment,
   'electricity-usage': compute_electricity_usage,
@@ -401,8 +408,10 @@ export const v2Runners: Record<string, CalcFunction> = {
   'leap-year': compute_leap_year,
   'led-resistor': compute_led_resistor,
   'leverage': compute_leverage,
+  'lighting': compute_lighting,
   'linear-equation': compute_linear_equation,
   'linear-system': compute_linear_system,
+  'linoleum': compute_linoleum,
   'logarithm': compute_logarithm,
   'ltv': compute_ltv,
   'market-cap': compute_market_cap,
@@ -488,15 +497,18 @@ export const v2Runners: Record<string, CalcFunction> = {
   'tire-size': compute_tire_size,
   'trip-budget': compute_trip_budget,
   'trip-cost': compute_trip_cost,
+  'underfloor-heating': compute_underfloor_heating,
   'unix-timestamp': compute_unix_timestamp,
   'utility-total': compute_utility_total,
   'vacation-accrual': compute_vacation_accrual,
   'video-file-size': compute_video_file_size,
   'vo2max': compute_vo2max,
+  'voltage-drop': compute_voltage_drop,
   'water-intake': compute_water_intake,
   'wave': compute_wave,
   'week-number': compute_week_number,
   'weighted-mean': compute_weighted_mean,
+  'wood-weight': compute_wood_weight,
   'work': compute_work,
   'work-hours': compute_work_hours,
   'workday-cost': compute_workday_cost,

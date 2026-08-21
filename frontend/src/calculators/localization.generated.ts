@@ -87,6 +87,7 @@ import { localization as loc_dividend_yield } from './dividend-yield/localizatio
 import { localization as loc_divisors } from './divisors/localization';
 import { localization as loc_down_payment } from './down-payment/localization';
 import { localization as loc_download_time } from './download-time/localization';
+import { localization as loc_drywall } from './drywall/localization';
 import { localization as loc_dti } from './dti/localization';
 import { localization as loc_early_repayment } from './early-repayment/localization';
 import { localization as loc_electricity_usage } from './electricity-usage/localization';
@@ -144,8 +145,10 @@ import { localization as loc_kinetic_energy } from './kinetic-energy/localizatio
 import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_led_resistor } from './led-resistor/localization';
 import { localization as loc_leverage } from './leverage/localization';
+import { localization as loc_lighting } from './lighting/localization';
 import { localization as loc_linear_equation } from './linear-equation/localization';
 import { localization as loc_linear_system } from './linear-system/localization';
+import { localization as loc_linoleum } from './linoleum/localization';
 import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_market_cap } from './market-cap/localization';
@@ -229,15 +232,18 @@ import { localization as loc_tip } from './tip/localization';
 import { localization as loc_tire_size } from './tire-size/localization';
 import { localization as loc_trip_budget } from './trip-budget/localization';
 import { localization as loc_trip_cost } from './trip-cost/localization';
+import { localization as loc_underfloor_heating } from './underfloor-heating/localization';
 import { localization as loc_unix_timestamp } from './unix-timestamp/localization';
 import { localization as loc_utility_total } from './utility-total/localization';
 import { localization as loc_vacation_accrual } from './vacation-accrual/localization';
 import { localization as loc_video_file_size } from './video-file-size/localization';
 import { localization as loc_vo2max } from './vo2max/localization';
+import { localization as loc_voltage_drop } from './voltage-drop/localization';
 import { localization as loc_water_intake } from './water-intake/localization';
 import { localization as loc_wave } from './wave/localization';
 import { localization as loc_week_number } from './week-number/localization';
 import { localization as loc_weighted_mean } from './weighted-mean/localization';
+import { localization as loc_wood_weight } from './wood-weight/localization';
 import { localization as loc_work } from './work/localization';
 import { localization as loc_work_hours } from './work-hours/localization';
 import { localization as loc_workday_cost } from './workday-cost/localization';
@@ -326,6 +332,7 @@ export const v2Localization: ScopedLocalization = {
     'divisors': loc_divisors.en ?? {},
     'down-payment': loc_down_payment.en ?? {},
     'download-time': loc_download_time.en ?? {},
+    'drywall': loc_drywall.en ?? {},
     'dti': loc_dti.en ?? {},
     'early-repayment': loc_early_repayment.en ?? {},
     'electricity-usage': loc_electricity_usage.en ?? {},
@@ -383,8 +390,10 @@ export const v2Localization: ScopedLocalization = {
     'leap-year': loc_leap_year.en ?? {},
     'led-resistor': loc_led_resistor.en ?? {},
     'leverage': loc_leverage.en ?? {},
+    'lighting': loc_lighting.en ?? {},
     'linear-equation': loc_linear_equation.en ?? {},
     'linear-system': loc_linear_system.en ?? {},
+    'linoleum': loc_linoleum.en ?? {},
     'logarithm': loc_logarithm.en ?? {},
     'ltv': loc_ltv.en ?? {},
     'market-cap': loc_market_cap.en ?? {},
@@ -468,15 +477,18 @@ export const v2Localization: ScopedLocalization = {
     'tire-size': loc_tire_size.en ?? {},
     'trip-budget': loc_trip_budget.en ?? {},
     'trip-cost': loc_trip_cost.en ?? {},
+    'underfloor-heating': loc_underfloor_heating.en ?? {},
     'unix-timestamp': loc_unix_timestamp.en ?? {},
     'utility-total': loc_utility_total.en ?? {},
     'vacation-accrual': loc_vacation_accrual.en ?? {},
     'video-file-size': loc_video_file_size.en ?? {},
     'vo2max': loc_vo2max.en ?? {},
+    'voltage-drop': loc_voltage_drop.en ?? {},
     'water-intake': loc_water_intake.en ?? {},
     'wave': loc_wave.en ?? {},
     'week-number': loc_week_number.en ?? {},
     'weighted-mean': loc_weighted_mean.en ?? {},
+    'wood-weight': loc_wood_weight.en ?? {},
     'work': loc_work.en ?? {},
     'work-hours': loc_work_hours.en ?? {},
     'workday-cost': loc_workday_cost.en ?? {},
@@ -564,6 +576,7 @@ export const v2Localization: ScopedLocalization = {
     'divisors': loc_divisors.uk ?? {},
     'down-payment': loc_down_payment.uk ?? {},
     'download-time': loc_download_time.uk ?? {},
+    'drywall': loc_drywall.uk ?? {},
     'dti': loc_dti.uk ?? {},
     'early-repayment': loc_early_repayment.uk ?? {},
     'electricity-usage': loc_electricity_usage.uk ?? {},
@@ -621,8 +634,10 @@ export const v2Localization: ScopedLocalization = {
     'leap-year': loc_leap_year.uk ?? {},
     'led-resistor': loc_led_resistor.uk ?? {},
     'leverage': loc_leverage.uk ?? {},
+    'lighting': loc_lighting.uk ?? {},
     'linear-equation': loc_linear_equation.uk ?? {},
     'linear-system': loc_linear_system.uk ?? {},
+    'linoleum': loc_linoleum.uk ?? {},
     'logarithm': loc_logarithm.uk ?? {},
     'ltv': loc_ltv.uk ?? {},
     'market-cap': loc_market_cap.uk ?? {},
@@ -706,15 +721,18 @@ export const v2Localization: ScopedLocalization = {
     'tire-size': loc_tire_size.uk ?? {},
     'trip-budget': loc_trip_budget.uk ?? {},
     'trip-cost': loc_trip_cost.uk ?? {},
+    'underfloor-heating': loc_underfloor_heating.uk ?? {},
     'unix-timestamp': loc_unix_timestamp.uk ?? {},
     'utility-total': loc_utility_total.uk ?? {},
     'vacation-accrual': loc_vacation_accrual.uk ?? {},
     'video-file-size': loc_video_file_size.uk ?? {},
     'vo2max': loc_vo2max.uk ?? {},
+    'voltage-drop': loc_voltage_drop.uk ?? {},
     'water-intake': loc_water_intake.uk ?? {},
     'wave': loc_wave.uk ?? {},
     'week-number': loc_week_number.uk ?? {},
     'weighted-mean': loc_weighted_mean.uk ?? {},
+    'wood-weight': loc_wood_weight.uk ?? {},
     'work': loc_work.uk ?? {},
     'work-hours': loc_work_hours.uk ?? {},
     'workday-cost': loc_workday_cost.uk ?? {},

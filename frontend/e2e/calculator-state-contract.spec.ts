@@ -75,6 +75,20 @@ const stateScenarios: Record<string, StateScenario> = {
   'steps-distance-calories': { query: { mode: 'stride', steps: 12500, stride: 78, weight: 62, kcalPerKgKm: 0.53 }, result: { primary: '9,75 км', rows: [{ label: 'Калории', value: '320 ккал' }, { label: 'Длина шага', value: '78 см' }, { label: 'Шагов на километр', value: '1 282' }] } },
   'bike-wheel-size': { query: { mode: 'etrto', etrtoRim: 559, etrtoTire: 40 }, result: { primary: '2 007,48 мм', rows: [{ label: 'Диаметр', value: '639 мм' }, { label: 'Оборотов на километр', value: '498,14' }, { label: 'Радиус', value: '319,5 мм' }] } },
   'slab-foundation': { query: { length: 12, width: 9, thickness: 0.25, meshStep: 0.25, rebarDiameter: 14, waste: 7 }, result: { primary: '28,89 м³', rows: [{ label: 'Площадь плиты', value: '108 м²' }, { label: 'Чистый объём', value: '27 м³' }, { label: 'Вес арматуры', value: '2 138,89 кг' }] } },
+  // Волна 19, партия B1. Ожидаемые значения выведены независимой моделью
+  // Phase 19P (refmodel.py) на НЕумолчальных входах:
+  //   медь 0,0175: R = 0,0175·35/4 = 0,1531 Ом; три фазы -> √3·0,1531·25 = 6,631 В
+  //   берёза при 18 %: 650 × 1,06 = 689 кг/м³, ×3,2 м³ = 2204,8 кг
+  //   (26/0,2 + 6/0,15) × 1,08 = (130 + 40) × 1,08 = 183,6 м, петель 2
+  //   24 × 200 / 0,85 = 5647,06 лм; ламп ⌈5647,06/1500⌉ = 4
+  //   58 × 2 × 1,08 = 125,28 м²; лист 3×1,2 = 3,6; ⌈125,28/3,6⌉ = 35 листов
+  //   ⌈4,2/3,5⌉ = 2 полосы × 6,5 × 1,07 = 13,91 погонных метра
+  'voltage-drop': { query: { current: 25, length: 35, section: 4, material: 'copper', phase: 'three', voltage: 400 }, result: { primary: '6,631 В', rows: [{ label: 'Напряжение у нагрузки', value: '393,37 В' }, { label: 'Сопротивление линии', value: '0,1531 Ом' }, { label: 'Потери мощности', value: '165,76 Вт' }] } },
+  'wood-weight': { query: { volume: 3.2, species: 'birch', moisture: 18 }, result: { primary: '2 204,8 кг', rows: [{ label: 'Плотность при заданной влажности', value: '689 кг/м³' }, { label: 'Базовая плотность при 12 %', value: '650 кг/м³' }, { label: 'Объём', value: '3,2 м³' }] } },
+  'underfloor-heating': { query: { area: 32, step: 0.2, loopMax: 100, edgeZone: 6, edgeStep: 0.15, waste: 8 }, result: { primary: '183,6 м', rows: [{ label: 'Петель', value: '2' }, { label: 'На петлю', value: '91,8 м' }, { label: 'Краевая зона', value: '6 м²' }] } },
+  'lighting': { query: { area: 24, norm: 200, lampLumens: 1500, lossFactor: 0.85 }, result: { primary: '5 647,06 лм', rows: [{ label: 'Ламп', value: '4' }, { label: 'Люмен на квадратный метр', value: '235,29' }, { label: 'Установленный поток', value: '6 000 лм' }] } },
+  'drywall': { query: { area: 58, sheetLength: 3, sheetWidth: 1.2, layers: 2, profileStep: 0.4, waste: 8 }, result: { primary: '35', rows: [{ label: 'С запасом', value: '125,28 м²' }, { label: 'Площадь листа', value: '3,6 м²' }, { label: 'Саморезов', value: '4 200' }] } },
+  'linoleum': { query: { length: 6.5, width: 4.2, rollWidth: 3.5, reserve: 7 }, result: { primary: '13,91 м', rows: [{ label: 'Полос', value: '2' }, { label: 'Площадь пола', value: '27,3 м²' }, { label: 'Швов', value: '1' }] } },
   // Волна 5, батч B3 — подсеть, средний балл, корреляция и молярная масса.
   // Ожидаемые значения выведены вручную:
   //   /26: маска 255.255.255.192; 172.16.34.200 & маска = .192; узлов 2⁶ − 2 = 62
