@@ -89,6 +89,19 @@ const stateScenarios: Record<string, StateScenario> = {
   'lighting': { query: { area: 24, norm: 200, lampLumens: 1500, lossFactor: 0.85 }, result: { primary: '5 647,06 лм', rows: [{ label: 'Ламп', value: '4' }, { label: 'Люмен на квадратный метр', value: '235,29' }, { label: 'Установленный поток', value: '6 000 лм' }] } },
   'drywall': { query: { area: 58, sheetLength: 3, sheetWidth: 1.2, layers: 2, profileStep: 0.4, waste: 8 }, result: { primary: '35', rows: [{ label: 'С запасом', value: '125,28 м²' }, { label: 'Площадь листа', value: '3,6 м²' }, { label: 'Саморезов', value: '4 200' }] } },
   'linoleum': { query: { length: 6.5, width: 4.2, rollWidth: 3.5, reserve: 7 }, result: { primary: '13,91 м', rows: [{ label: 'Полос', value: '2' }, { label: 'Площадь пола', value: '27,3 м²' }, { label: 'Швов', value: '1' }] } },
+  // Волна 19, партия B2. Ожидаемые значения выведены независимой моделью
+  // Phase 19P (refmodel.py) на НЕумолчальных входах:
+  //   ⌈64/3⌉ = 22 секции, столбов 22 + 1 + 2 ворот = 25; фактический шаг 2,909
+  //   95/0,4 × 1,12 = 266 м; брусков ⌈266/4,5⌉ = 60
+  //   свая π·0,175²·2,2 = 0,2117 м³, ×20 = 4,233; ростверк 44·0,5·0,5 = 11
+  //   женщина 172 см: дюймов свыше пяти футов 7,717; среднее четырёх 62,859
+  //   102/183 = 0,5574 — повышенный; 4,5 мкЗв = 4500 нЗв
+  'fence': { query: { length: 64, span: 3, height: 2, rails: 3, gates: 2 }, result: { primary: '25', rows: [{ label: 'Секций', value: '22' }, { label: 'Метров лаг', value: '198' }, { label: 'Фактический шаг столбов', value: '2,909 м' }] } },
+  'roof-battens': { query: { area: 95, step: 0.4, battenLength: 4.5, sectionWidth: 40, sectionHeight: 60, waste: 12 }, result: { primary: '266 м', rows: [{ label: 'Брусков', value: '60' }, { label: 'Объём древесины', value: '0,6384 м³' }, { label: 'Метров на квадратный метр', value: '2,5' }] } },
+  'pile-foundation': { query: { count: 20, diameter: 0.35, depth: 2.2, grillageLength: 44, grillageWidth: 0.5, grillageHeight: 0.5, waste: 8 }, result: { primary: '16,452 м³', rows: [{ label: 'Объём свай', value: '4,233 м³' }, { label: 'Объём ростверка', value: '11 м³' }, { label: 'Объём одной сваи', value: '0,2117 м³' }] } },
+  'ideal-weight': { query: { sex: 'female', height: 172 }, result: { primary: '62,859 кг', rows: [{ label: 'Девайн', value: '63,248 кг' }, { label: 'Миллер', value: '63,594 кг' }, { label: 'Хамви', value: '62,476 кг' }] } },
+  'waist-ratio': { query: { waist: 102, hip: 106, height: 183 }, result: { primary: '0,5574', rows: [{ label: 'Отношение талии к бёдрам', value: '0,9623' }, { label: 'Категория', value: 'повышенный' }, { label: 'Обхват талии', value: '102 см' }] } },
+  'convert-radiation': { query: { value: 4.5, from: 'uSv', to: 'nSv' }, result: { primary: '4 500', rows: [{ label: 'Исходное значение', value: '4,5' }, { label: 'Соотношение', value: '1 000' }] } },
   // Волна 5, батч B3 — подсеть, средний балл, корреляция и молярная масса.
   // Ожидаемые значения выведены вручную:
   //   /26: маска 255.255.255.192; 172.16.34.200 & маска = .192; узлов 2⁶ − 2 = 62

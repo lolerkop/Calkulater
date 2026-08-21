@@ -73,6 +73,7 @@ import { compute as compute_convert_length } from './convert-length/compute';
 import { compute as compute_convert_mass } from './convert-mass/compute';
 import { compute as compute_convert_power } from './convert-power/compute';
 import { compute as compute_convert_pressure } from './convert-pressure/compute';
+import { compute as compute_convert_radiation } from './convert-radiation/compute';
 import { compute as compute_convert_speed } from './convert-speed/compute';
 import { compute as compute_convert_temperature } from './convert-temperature/compute';
 import { compute as compute_convert_time } from './convert-time/compute';
@@ -107,6 +108,7 @@ import { compute as compute_employee_cost } from './employee-cost/compute';
 import { compute as compute_engagement_rate } from './engagement-rate/compute';
 import { compute as compute_factorial } from './factorial/compute';
 import { compute as compute_fee_chain } from './fee-chain/compute';
+import { compute as compute_fence } from './fence/compute';
 import { compute as compute_fibonacci } from './fibonacci/compute';
 import { compute as compute_files_on_disk } from './files-on-disk/compute';
 import { compute as compute_final_grade } from './final-grade/compute';
@@ -145,6 +147,7 @@ import { compute as compute_gravitational_force } from './gravitational-force/co
 import { compute as compute_heating_power } from './heating-power/compute';
 import { compute as compute_hydrostatic_pressure } from './hydrostatic-pressure/compute';
 import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
+import { compute as compute_ideal_weight } from './ideal-weight/compute';
 import { compute as compute_inflation } from './inflation/compute';
 import { compute as compute_installment } from './installment/compute';
 import { compute as compute_insulation } from './insulation/compute';
@@ -187,6 +190,7 @@ import { compute as compute_pet_food } from './pet-food/compute';
 import { compute as compute_ph_poh } from './ph-poh/compute';
 import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_physics_torque } from './physics-torque/compute';
+import { compute as compute_pile_foundation } from './pile-foundation/compute';
 import { compute as compute_plaster } from './plaster/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_position_size } from './position-size/compute';
@@ -220,6 +224,7 @@ import { compute as compute_roas } from './roas/compute';
 import { compute as compute_roi } from './roi/compute';
 import { compute as compute_roman_numerals } from './roman-numerals/compute';
 import { compute as compute_roof_area } from './roof-area/compute';
+import { compute as compute_roof_battens } from './roof-battens/compute';
 import { compute as compute_room_volume } from './room-volume/compute';
 import { compute as compute_rounding } from './rounding/compute';
 import { compute as compute_rule_of_72 } from './rule-of-72/compute';
@@ -258,6 +263,7 @@ import { compute as compute_vacation_accrual } from './vacation-accrual/compute'
 import { compute as compute_video_file_size } from './video-file-size/compute';
 import { compute as compute_vo2max } from './vo2max/compute';
 import { compute as compute_voltage_drop } from './voltage-drop/compute';
+import { compute as compute_waist_ratio } from './waist-ratio/compute';
 import { compute as compute_water_intake } from './water-intake/compute';
 import { compute as compute_wave } from './wave/compute';
 import { compute as compute_week_number } from './week-number/compute';
@@ -326,6 +332,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-mass': compute_convert_mass,
   'convert-power': compute_convert_power,
   'convert-pressure': compute_convert_pressure,
+  'convert-radiation': compute_convert_radiation,
   'convert-speed': compute_convert_speed,
   'convert-temperature': compute_convert_temperature,
   'convert-time': compute_convert_time,
@@ -360,6 +367,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'engagement-rate': compute_engagement_rate,
   'factorial': compute_factorial,
   'fee-chain': compute_fee_chain,
+  'fence': compute_fence,
   'fibonacci': compute_fibonacci,
   'files-on-disk': compute_files_on_disk,
   'final-grade': compute_final_grade,
@@ -397,6 +405,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'heating-power': compute_heating_power,
   'hydrostatic-pressure': compute_hydrostatic_pressure,
   'ideal-gas-law': compute_ideal_gas_law,
+  'ideal-weight': compute_ideal_weight,
   'inflation': compute_inflation,
   'installment': compute_installment,
   'insulation': compute_insulation,
@@ -435,6 +444,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ph-poh': compute_ph_poh,
   'physics-power': compute_physics_power,
   'physics-torque': compute_physics_torque,
+  'pile-foundation': compute_pile_foundation,
   'plaster': compute_plaster,
   'pool-fill-time': compute_pool_fill_time,
   'position-size': compute_position_size,
@@ -467,6 +477,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'roi': compute_roi,
   'roman-numerals': compute_roman_numerals,
   'roof-area': compute_roof_area,
+  'roof-battens': compute_roof_battens,
   'room-volume': compute_room_volume,
   'rounding': compute_rounding,
   'rule-of-72': compute_rule_of_72,
@@ -504,6 +515,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'video-file-size': compute_video_file_size,
   'vo2max': compute_vo2max,
   'voltage-drop': compute_voltage_drop,
+  'waist-ratio': compute_waist_ratio,
   'water-intake': compute_water_intake,
   'wave': compute_wave,
   'week-number': compute_week_number,

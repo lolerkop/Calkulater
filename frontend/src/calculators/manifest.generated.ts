@@ -69,6 +69,7 @@ import { definition as def_convert_length } from './convert-length/definition';
 import { definition as def_convert_mass } from './convert-mass/definition';
 import { definition as def_convert_power } from './convert-power/definition';
 import { definition as def_convert_pressure } from './convert-pressure/definition';
+import { definition as def_convert_radiation } from './convert-radiation/definition';
 import { definition as def_convert_speed } from './convert-speed/definition';
 import { definition as def_convert_temperature } from './convert-temperature/definition';
 import { definition as def_convert_time } from './convert-time/definition';
@@ -103,6 +104,7 @@ import { definition as def_employee_cost } from './employee-cost/definition';
 import { definition as def_engagement_rate } from './engagement-rate/definition';
 import { definition as def_factorial } from './factorial/definition';
 import { definition as def_fee_chain } from './fee-chain/definition';
+import { definition as def_fence } from './fence/definition';
 import { definition as def_fibonacci } from './fibonacci/definition';
 import { definition as def_files_on_disk } from './files-on-disk/definition';
 import { definition as def_final_grade } from './final-grade/definition';
@@ -140,6 +142,7 @@ import { definition as def_gravitational_force } from './gravitational-force/def
 import { definition as def_heating_power } from './heating-power/definition';
 import { definition as def_hydrostatic_pressure } from './hydrostatic-pressure/definition';
 import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
+import { definition as def_ideal_weight } from './ideal-weight/definition';
 import { definition as def_inflation } from './inflation/definition';
 import { definition as def_installment } from './installment/definition';
 import { definition as def_insulation } from './insulation/definition';
@@ -178,6 +181,7 @@ import { definition as def_pet_food } from './pet-food/definition';
 import { definition as def_ph_poh } from './ph-poh/definition';
 import { definition as def_physics_power } from './physics-power/definition';
 import { definition as def_physics_torque } from './physics-torque/definition';
+import { definition as def_pile_foundation } from './pile-foundation/definition';
 import { definition as def_plaster } from './plaster/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
 import { definition as def_position_size } from './position-size/definition';
@@ -210,6 +214,7 @@ import { definition as def_roas } from './roas/definition';
 import { definition as def_roi } from './roi/definition';
 import { definition as def_roman_numerals } from './roman-numerals/definition';
 import { definition as def_roof_area } from './roof-area/definition';
+import { definition as def_roof_battens } from './roof-battens/definition';
 import { definition as def_room_volume } from './room-volume/definition';
 import { definition as def_rounding } from './rounding/definition';
 import { definition as def_rule_of_72 } from './rule-of-72/definition';
@@ -247,6 +252,7 @@ import { definition as def_vacation_accrual } from './vacation-accrual/definitio
 import { definition as def_video_file_size } from './video-file-size/definition';
 import { definition as def_vo2max } from './vo2max/definition';
 import { definition as def_voltage_drop } from './voltage-drop/definition';
+import { definition as def_waist_ratio } from './waist-ratio/definition';
 import { definition as def_water_intake } from './water-intake/definition';
 import { definition as def_wave } from './wave/definition';
 import { definition as def_week_number } from './week-number/definition';
@@ -315,6 +321,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_mass,
   def_convert_power,
   def_convert_pressure,
+  def_convert_radiation,
   def_convert_speed,
   def_convert_temperature,
   def_convert_time,
@@ -349,6 +356,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_engagement_rate,
   def_factorial,
   def_fee_chain,
+  def_fence,
   def_fibonacci,
   def_files_on_disk,
   def_final_grade,
@@ -386,6 +394,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_heating_power,
   def_hydrostatic_pressure,
   def_ideal_gas_law,
+  def_ideal_weight,
   def_inflation,
   def_installment,
   def_insulation,
@@ -424,6 +433,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ph_poh,
   def_physics_power,
   def_physics_torque,
+  def_pile_foundation,
   def_plaster,
   def_pool_fill_time,
   def_position_size,
@@ -456,6 +466,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_roi,
   def_roman_numerals,
   def_roof_area,
+  def_roof_battens,
   def_room_volume,
   def_rounding,
   def_rule_of_72,
@@ -493,6 +504,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_video_file_size,
   def_vo2max,
   def_voltage_drop,
+  def_waist_ratio,
   def_water_intake,
   def_wave,
   def_week_number,

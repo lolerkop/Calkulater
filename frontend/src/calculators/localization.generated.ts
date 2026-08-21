@@ -63,6 +63,7 @@ import { localization as loc_convert_length } from './convert-length/localizatio
 import { localization as loc_convert_mass } from './convert-mass/localization';
 import { localization as loc_convert_power } from './convert-power/localization';
 import { localization as loc_convert_pressure } from './convert-pressure/localization';
+import { localization as loc_convert_radiation } from './convert-radiation/localization';
 import { localization as loc_convert_speed } from './convert-speed/localization';
 import { localization as loc_convert_temperature } from './convert-temperature/localization';
 import { localization as loc_convert_time } from './convert-time/localization';
@@ -97,6 +98,7 @@ import { localization as loc_employee_cost } from './employee-cost/localization'
 import { localization as loc_engagement_rate } from './engagement-rate/localization';
 import { localization as loc_factorial } from './factorial/localization';
 import { localization as loc_fee_chain } from './fee-chain/localization';
+import { localization as loc_fence } from './fence/localization';
 import { localization as loc_fibonacci } from './fibonacci/localization';
 import { localization as loc_files_on_disk } from './files-on-disk/localization';
 import { localization as loc_final_grade } from './final-grade/localization';
@@ -134,6 +136,7 @@ import { localization as loc_gravitational_force } from './gravitational-force/l
 import { localization as loc_heating_power } from './heating-power/localization';
 import { localization as loc_hydrostatic_pressure } from './hydrostatic-pressure/localization';
 import { localization as loc_ideal_gas_law } from './ideal-gas-law/localization';
+import { localization as loc_ideal_weight } from './ideal-weight/localization';
 import { localization as loc_inflation } from './inflation/localization';
 import { localization as loc_installment } from './installment/localization';
 import { localization as loc_insulation } from './insulation/localization';
@@ -170,6 +173,7 @@ import { localization as loc_pet_food } from './pet-food/localization';
 import { localization as loc_ph_poh } from './ph-poh/localization';
 import { localization as loc_physics_power } from './physics-power/localization';
 import { localization as loc_physics_torque } from './physics-torque/localization';
+import { localization as loc_pile_foundation } from './pile-foundation/localization';
 import { localization as loc_plaster } from './plaster/localization';
 import { localization as loc_pool_fill_time } from './pool-fill-time/localization';
 import { localization as loc_position_size } from './position-size/localization';
@@ -202,6 +206,7 @@ import { localization as loc_roas } from './roas/localization';
 import { localization as loc_roi } from './roi/localization';
 import { localization as loc_roman_numerals } from './roman-numerals/localization';
 import { localization as loc_roof_area } from './roof-area/localization';
+import { localization as loc_roof_battens } from './roof-battens/localization';
 import { localization as loc_room_volume } from './room-volume/localization';
 import { localization as loc_rounding } from './rounding/localization';
 import { localization as loc_rule_of_72 } from './rule-of-72/localization';
@@ -239,6 +244,7 @@ import { localization as loc_vacation_accrual } from './vacation-accrual/localiz
 import { localization as loc_video_file_size } from './video-file-size/localization';
 import { localization as loc_vo2max } from './vo2max/localization';
 import { localization as loc_voltage_drop } from './voltage-drop/localization';
+import { localization as loc_waist_ratio } from './waist-ratio/localization';
 import { localization as loc_water_intake } from './water-intake/localization';
 import { localization as loc_wave } from './wave/localization';
 import { localization as loc_week_number } from './week-number/localization';
@@ -308,6 +314,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-mass': loc_convert_mass.en ?? {},
     'convert-power': loc_convert_power.en ?? {},
     'convert-pressure': loc_convert_pressure.en ?? {},
+    'convert-radiation': loc_convert_radiation.en ?? {},
     'convert-speed': loc_convert_speed.en ?? {},
     'convert-temperature': loc_convert_temperature.en ?? {},
     'convert-time': loc_convert_time.en ?? {},
@@ -342,6 +349,7 @@ export const v2Localization: ScopedLocalization = {
     'engagement-rate': loc_engagement_rate.en ?? {},
     'factorial': loc_factorial.en ?? {},
     'fee-chain': loc_fee_chain.en ?? {},
+    'fence': loc_fence.en ?? {},
     'fibonacci': loc_fibonacci.en ?? {},
     'files-on-disk': loc_files_on_disk.en ?? {},
     'final-grade': loc_final_grade.en ?? {},
@@ -379,6 +387,7 @@ export const v2Localization: ScopedLocalization = {
     'heating-power': loc_heating_power.en ?? {},
     'hydrostatic-pressure': loc_hydrostatic_pressure.en ?? {},
     'ideal-gas-law': loc_ideal_gas_law.en ?? {},
+    'ideal-weight': loc_ideal_weight.en ?? {},
     'inflation': loc_inflation.en ?? {},
     'installment': loc_installment.en ?? {},
     'insulation': loc_insulation.en ?? {},
@@ -415,6 +424,7 @@ export const v2Localization: ScopedLocalization = {
     'ph-poh': loc_ph_poh.en ?? {},
     'physics-power': loc_physics_power.en ?? {},
     'physics-torque': loc_physics_torque.en ?? {},
+    'pile-foundation': loc_pile_foundation.en ?? {},
     'plaster': loc_plaster.en ?? {},
     'pool-fill-time': loc_pool_fill_time.en ?? {},
     'position-size': loc_position_size.en ?? {},
@@ -447,6 +457,7 @@ export const v2Localization: ScopedLocalization = {
     'roi': loc_roi.en ?? {},
     'roman-numerals': loc_roman_numerals.en ?? {},
     'roof-area': loc_roof_area.en ?? {},
+    'roof-battens': loc_roof_battens.en ?? {},
     'room-volume': loc_room_volume.en ?? {},
     'rounding': loc_rounding.en ?? {},
     'rule-of-72': loc_rule_of_72.en ?? {},
@@ -484,6 +495,7 @@ export const v2Localization: ScopedLocalization = {
     'video-file-size': loc_video_file_size.en ?? {},
     'vo2max': loc_vo2max.en ?? {},
     'voltage-drop': loc_voltage_drop.en ?? {},
+    'waist-ratio': loc_waist_ratio.en ?? {},
     'water-intake': loc_water_intake.en ?? {},
     'wave': loc_wave.en ?? {},
     'week-number': loc_week_number.en ?? {},
@@ -552,6 +564,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-mass': loc_convert_mass.uk ?? {},
     'convert-power': loc_convert_power.uk ?? {},
     'convert-pressure': loc_convert_pressure.uk ?? {},
+    'convert-radiation': loc_convert_radiation.uk ?? {},
     'convert-speed': loc_convert_speed.uk ?? {},
     'convert-temperature': loc_convert_temperature.uk ?? {},
     'convert-time': loc_convert_time.uk ?? {},
@@ -586,6 +599,7 @@ export const v2Localization: ScopedLocalization = {
     'engagement-rate': loc_engagement_rate.uk ?? {},
     'factorial': loc_factorial.uk ?? {},
     'fee-chain': loc_fee_chain.uk ?? {},
+    'fence': loc_fence.uk ?? {},
     'fibonacci': loc_fibonacci.uk ?? {},
     'files-on-disk': loc_files_on_disk.uk ?? {},
     'final-grade': loc_final_grade.uk ?? {},
@@ -623,6 +637,7 @@ export const v2Localization: ScopedLocalization = {
     'heating-power': loc_heating_power.uk ?? {},
     'hydrostatic-pressure': loc_hydrostatic_pressure.uk ?? {},
     'ideal-gas-law': loc_ideal_gas_law.uk ?? {},
+    'ideal-weight': loc_ideal_weight.uk ?? {},
     'inflation': loc_inflation.uk ?? {},
     'installment': loc_installment.uk ?? {},
     'insulation': loc_insulation.uk ?? {},
@@ -659,6 +674,7 @@ export const v2Localization: ScopedLocalization = {
     'ph-poh': loc_ph_poh.uk ?? {},
     'physics-power': loc_physics_power.uk ?? {},
     'physics-torque': loc_physics_torque.uk ?? {},
+    'pile-foundation': loc_pile_foundation.uk ?? {},
     'plaster': loc_plaster.uk ?? {},
     'pool-fill-time': loc_pool_fill_time.uk ?? {},
     'position-size': loc_position_size.uk ?? {},
@@ -691,6 +707,7 @@ export const v2Localization: ScopedLocalization = {
     'roi': loc_roi.uk ?? {},
     'roman-numerals': loc_roman_numerals.uk ?? {},
     'roof-area': loc_roof_area.uk ?? {},
+    'roof-battens': loc_roof_battens.uk ?? {},
     'room-volume': loc_room_volume.uk ?? {},
     'rounding': loc_rounding.uk ?? {},
     'rule-of-72': loc_rule_of_72.uk ?? {},
@@ -728,6 +745,7 @@ export const v2Localization: ScopedLocalization = {
     'video-file-size': loc_video_file_size.uk ?? {},
     'vo2max': loc_vo2max.uk ?? {},
     'voltage-drop': loc_voltage_drop.uk ?? {},
+    'waist-ratio': loc_waist_ratio.uk ?? {},
     'water-intake': loc_water_intake.uk ?? {},
     'wave': loc_wave.uk ?? {},
     'week-number': loc_week_number.uk ?? {},
