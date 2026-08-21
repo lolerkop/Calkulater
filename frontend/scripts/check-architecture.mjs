@@ -91,10 +91,43 @@ function registryLineRange(source) {
 }
 
 /**
+ * Дешёвая отсечка перед перебором калькуляторов.
+ *
+ * Строка способна дать нарушение только двумя способами, и оба оставляют
+ * след, который виден без знания конкретного id:
+ *   · ветвление требует один из `===`, `!==`, `==`, `!=` — каждый содержит
+ *     либо `==`, либо `!=`, — или литеральное `case`;
+ *   · регистрация требует, чтобы строка начиналась с кавычки после отступа.
+ *
+ * Поэтому строка, не прошедшая отсечку, не может совпасть НИ С ОДНИМ id.
+ * Отсечка — надмножество обеих проверок, а не выборка: семантика не меняется,
+ * меняется только объём работы. На нынешних пяти файлах она оставляет
+ * 184 строки из 8633.
+ */
+const MAY_BRANCH = /[=!]=|case/;
+const MAY_REGISTER = /^\s*['"]/;
+
+/**
  * Возвращает нарушения: ветвление по id калькулятора V2 в общих файлах
  * и ручную регистрацию в реестрах, которые должен наполнять манифест.
+ *
+ * Регулярные выражения готовятся ОДИН раз на калькулятор. Прежняя версия
+ * строила их заново внутри двойного цикла: на 250 калькуляторах и 8633
+ * строках это 4 316 500 построений RegExp и около трёх секунд — вплотную к
+ * пятисекундному пределу Vitest, который срывался под нагрузкой полного
+ * прогона. Множество проверяемых файлов, множество калькуляторов и правила
+ * совпадения не изменились.
  */
 export function findViolations(root = ROOT, files = GUARDED_FILES, ids = v2CalculatorIds(root)) {
+  const matchers = ids.map((id) => {
+    const quoted = `['"]${id.replace(/[-]/g, '\\-')}['"]`;
+    return {
+      id,
+      branching: new RegExp(`(===|!==|==|!=)\\s*${quoted}|case\\s+${quoted}\\s*:`),
+      registration: new RegExp(`^\\s*${quoted}\\s*:`),
+    };
+  });
+
   const violations = [];
   for (const rel of files) {
     let source;
@@ -106,15 +139,13 @@ export function findViolations(root = ROOT, files = GUARDED_FILES, ids = v2Calcu
       const line = stripComment(rawLine);
       const lineNumber = index + 1;
       const inRegistry = registries.some(([from, to]) => lineNumber >= from && lineNumber <= to);
+      if (!MAY_BRANCH.test(line) && !(inRegistry && MAY_REGISTER.test(line))) return;
 
-      for (const id of ids) {
-        const quoted = `['"]${id.replace(/[-]/g, '\\-')}['"]`;
-        const branching = new RegExp(`(===|!==|==|!=)\\s*${quoted}|case\\s+${quoted}\\s*:`);
+      for (const { id, branching, registration } of matchers) {
         if (branching.test(line)) {
           violations.push({ file: rel, line: lineNumber, id, kind: 'ветвление', text: rawLine.trim() });
           continue;
         }
-        const registration = new RegExp(`^\\s*${quoted}\\s*:`);
         if (inRegistry && registration.test(line)) {
           violations.push({ file: rel, line: lineNumber, id, kind: 'ручная регистрация', text: rawLine.trim() });
         }

@@ -39,6 +39,22 @@ async function дождатьсяГидратации(page: Page) {
   await page.waitForFunction(гидрирован, undefined, { timeout: 25000 });
 }
 
+/**
+ * Запросы ленивого поискового индекса в порядке поступления.
+ *
+ * Продуктовый контракт: до взаимодействия индекс не загружается, после —
+ * загружается ровно один и именно нужной локали. Тест обязан синхронизироваться
+ * с этим контрактом, а не с часами.
+ */
+function следитьЗаИндексом(page: Page): string[] {
+  const запросы: string[] = [];
+  page.on('request', (r) => {
+    const { pathname } = new URL(r.url());
+    if (/^\/search-index\/[a-z]{2}\.json$/.test(pathname)) запросы.push(pathname);
+  });
+  return запросы;
+}
+
 const состояние = (page: Page) => page.evaluate(() => {
   const input = document.querySelector('[data-testid="search-input"]') as HTMLInputElement;
   const style = getComputedStyle(input);
@@ -141,10 +157,12 @@ test.describe('поиск сохраняет ввод, сделанный до �
   });
 
   test('набор продолжается через гидратацию без потерь', async ({ page }) => {
+    const запросы = следитьЗаИндексом(page);
     const отпустить = await задержатьГидратацию(page);
     await page.goto('/en/', { waitUntil: 'commit' });
     const input = page.getByTestId('search-input');
     await input.waitFor({ timeout: 20000 });
+    expect(запросы, 'до взаимодействия индекс не загружается').toHaveLength(0);
     await input.click();
     await page.keyboard.type('loa');
     expect(await input.inputValue()).toBe('loa');
@@ -154,10 +172,44 @@ test.describe('поиск сохраняет ввод, сделанный до �
     // Дописываем последнюю букву уже после гидратации.
     await page.keyboard.type('n');
     await expect(input).toHaveValue('loan');
+    // Список наполняется ЛЕНИВО загруженным индексом, поэтому ждать нужно
+    // видимого результата, а не мгновения после нажатия клавиши.
+    await expect(page.getByTestId('search-result-0')).toBeVisible();
     const s = await состояние(page);
     expect(s.domValue, 'ни одна буква не потерялась и не удвоилась').toBe('loan');
     expect(s.clear).toBe(1);
     expect(s.results).toBeGreaterThan(0);
+    expect(запросы, 'индекс загружен ровно один раз и именно английский').toEqual(['/search-index/en.json']);
+  });
+
+  // Тот же контракт при медленном индексе. До Phase 19T тест выше читал список
+  // синхронно сразу после нажатия клавиши: при задержке ответа в 400 мс он
+  // видел ноль результатов при полностью верном значении поля и падал. Здесь
+  // задержка задана явно, чтобы гонка не могла вернуться незамеченной.
+  test('набор переживает медленный индекс', async ({ page }) => {
+    const запросы = следитьЗаИндексом(page);
+    await page.route('**/search-index/*.json', async (route) => {
+      await new Promise((r) => { setTimeout(r, 1500); });
+      await route.continue();
+    });
+    const отпустить = await задержатьГидратацию(page);
+    await page.goto('/en/', { waitUntil: 'commit' });
+    const input = page.getByTestId('search-input');
+    await input.waitFor({ timeout: 20000 });
+    await input.click();
+    await page.keyboard.type('loa');
+    expect(await input.inputValue(), 'набранное до гидратации').toBe('loa');
+
+    отпустить();
+    await дождатьсяГидратации(page);
+    await page.keyboard.type('n');
+    await expect(input).toHaveValue('loan');
+    await expect(page.getByTestId('search-result-0')).toBeVisible({ timeout: 15000 });
+    const s = await состояние(page);
+    expect(s.domValue, 'запрос не обрезан и не сброшен ожиданием индекса').toBe('loan');
+    expect(s.clear).toBe(1);
+    expect(s.results).toBeGreaterThan(0);
+    expect(запросы, 'медленный ответ не приводит к повторной загрузке').toEqual(['/search-index/en.json']);
   });
 
   test('длинный запрос переживает гидратацию и прокручивается', async ({ page }) => {
