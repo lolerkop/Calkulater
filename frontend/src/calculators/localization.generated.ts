@@ -24,6 +24,7 @@ import { localization as loc_battery_charge_time } from './battery-charge-time/l
 import { localization as loc_battery_runtime } from './battery-runtime/localization';
 import { localization as loc_battery_series_parallel } from './battery-series-parallel/localization';
 import { localization as loc_bike_gear_ratio } from './bike-gear-ratio/localization';
+import { localization as loc_bike_wheel_size } from './bike-wheel-size/localization';
 import { localization as loc_binomial_probability } from './binomial-probability/localization';
 import { localization as loc_board_volume } from './board-volume/localization';
 import { localization as loc_bonus } from './bonus/localization';
@@ -48,6 +49,7 @@ import { localization as loc_conversion_rate } from './conversion-rate/localizat
 import { localization as loc_convert_angle } from './convert-angle/localization';
 import { localization as loc_convert_area } from './convert-area/localization';
 import { localization as loc_convert_cooking_volume } from './convert-cooking-volume/localization';
+import { localization as loc_convert_cooking_weight } from './convert-cooking-weight/localization';
 import { localization as loc_convert_data_rate } from './convert-data-rate/localization';
 import { localization as loc_convert_density } from './convert-density/localization';
 import { localization as loc_convert_digital } from './convert-digital/localization';
@@ -124,6 +126,7 @@ import { localization as loc_geom_sphere } from './geom-sphere/localization';
 import { localization as loc_geom_square } from './geom-square/localization';
 import { localization as loc_geom_trapezoid } from './geom-trapezoid/localization';
 import { localization as loc_geom_triangle } from './geom-triangle/localization';
+import { localization as loc_geometric_progression } from './geometric-progression/localization';
 import { localization as loc_golden_ratio } from './golden-ratio/localization';
 import { localization as loc_gpa } from './gpa/localization';
 import { localization as loc_gravitational_force } from './gravitational-force/localization';
@@ -186,6 +189,7 @@ import { localization as loc_reading_speed } from './reading-speed/localization'
 import { localization as loc_real_return } from './real-return/localization';
 import { localization as loc_recipe_cost } from './recipe-cost/localization';
 import { localization as loc_recipe_scale } from './recipe-scale/localization';
+import { localization as loc_refinancing } from './refinancing/localization';
 import { localization as loc_rental_yield } from './rental-yield/localization';
 import { localization as loc_resistor_network } from './resistor-network/localization';
 import { localization as loc_return_rate } from './return-rate/localization';
@@ -205,11 +209,13 @@ import { localization as loc_savings_rate } from './savings-rate/localization';
 import { localization as loc_shipping_per_unit } from './shipping-per-unit/localization';
 import { localization as loc_simple_interest } from './simple-interest/localization';
 import { localization as loc_single_phase } from './single-phase/localization';
+import { localization as loc_slab_foundation } from './slab-foundation/localization';
 import { localization as loc_sleep_time } from './sleep-time/localization';
 import { localization as loc_slope } from './slope/localization';
 import { localization as loc_solution_concentration } from './solution-concentration/localization';
 import { localization as loc_speed_distance_time } from './speed-distance-time/localization';
 import { localization as loc_stats_descriptive } from './stats-descriptive/localization';
+import { localization as loc_steps_distance_calories } from './steps-distance-calories/localization';
 import { localization as loc_stock_duration } from './stock-duration/localization';
 import { localization as loc_strip_foundation } from './strip-foundation/localization';
 import { localization as loc_subscriptions_cost } from './subscriptions-cost/localization';
@@ -257,6 +263,7 @@ export const v2Localization: ScopedLocalization = {
     'battery-runtime': loc_battery_runtime.en ?? {},
     'battery-series-parallel': loc_battery_series_parallel.en ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.en ?? {},
+    'bike-wheel-size': loc_bike_wheel_size.en ?? {},
     'binomial-probability': loc_binomial_probability.en ?? {},
     'board-volume': loc_board_volume.en ?? {},
     'bonus': loc_bonus.en ?? {},
@@ -281,6 +288,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-angle': loc_convert_angle.en ?? {},
     'convert-area': loc_convert_area.en ?? {},
     'convert-cooking-volume': loc_convert_cooking_volume.en ?? {},
+    'convert-cooking-weight': loc_convert_cooking_weight.en ?? {},
     'convert-data-rate': loc_convert_data_rate.en ?? {},
     'convert-density': loc_convert_density.en ?? {},
     'convert-digital': loc_convert_digital.en ?? {},
@@ -357,6 +365,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-square': loc_geom_square.en ?? {},
     'geom-trapezoid': loc_geom_trapezoid.en ?? {},
     'geom-triangle': loc_geom_triangle.en ?? {},
+    'geometric-progression': loc_geometric_progression.en ?? {},
     'golden-ratio': loc_golden_ratio.en ?? {},
     'gpa': loc_gpa.en ?? {},
     'gravitational-force': loc_gravitational_force.en ?? {},
@@ -419,6 +428,7 @@ export const v2Localization: ScopedLocalization = {
     'real-return': loc_real_return.en ?? {},
     'recipe-cost': loc_recipe_cost.en ?? {},
     'recipe-scale': loc_recipe_scale.en ?? {},
+    'refinancing': loc_refinancing.en ?? {},
     'rental-yield': loc_rental_yield.en ?? {},
     'resistor-network': loc_resistor_network.en ?? {},
     'return-rate': loc_return_rate.en ?? {},
@@ -438,11 +448,13 @@ export const v2Localization: ScopedLocalization = {
     'shipping-per-unit': loc_shipping_per_unit.en ?? {},
     'simple-interest': loc_simple_interest.en ?? {},
     'single-phase': loc_single_phase.en ?? {},
+    'slab-foundation': loc_slab_foundation.en ?? {},
     'sleep-time': loc_sleep_time.en ?? {},
     'slope': loc_slope.en ?? {},
     'solution-concentration': loc_solution_concentration.en ?? {},
     'speed-distance-time': loc_speed_distance_time.en ?? {},
     'stats-descriptive': loc_stats_descriptive.en ?? {},
+    'steps-distance-calories': loc_steps_distance_calories.en ?? {},
     'stock-duration': loc_stock_duration.en ?? {},
     'strip-foundation': loc_strip_foundation.en ?? {},
     'subscriptions-cost': loc_subscriptions_cost.en ?? {},
@@ -489,6 +501,7 @@ export const v2Localization: ScopedLocalization = {
     'battery-runtime': loc_battery_runtime.uk ?? {},
     'battery-series-parallel': loc_battery_series_parallel.uk ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.uk ?? {},
+    'bike-wheel-size': loc_bike_wheel_size.uk ?? {},
     'binomial-probability': loc_binomial_probability.uk ?? {},
     'board-volume': loc_board_volume.uk ?? {},
     'bonus': loc_bonus.uk ?? {},
@@ -513,6 +526,7 @@ export const v2Localization: ScopedLocalization = {
     'convert-angle': loc_convert_angle.uk ?? {},
     'convert-area': loc_convert_area.uk ?? {},
     'convert-cooking-volume': loc_convert_cooking_volume.uk ?? {},
+    'convert-cooking-weight': loc_convert_cooking_weight.uk ?? {},
     'convert-data-rate': loc_convert_data_rate.uk ?? {},
     'convert-density': loc_convert_density.uk ?? {},
     'convert-digital': loc_convert_digital.uk ?? {},
@@ -589,6 +603,7 @@ export const v2Localization: ScopedLocalization = {
     'geom-square': loc_geom_square.uk ?? {},
     'geom-trapezoid': loc_geom_trapezoid.uk ?? {},
     'geom-triangle': loc_geom_triangle.uk ?? {},
+    'geometric-progression': loc_geometric_progression.uk ?? {},
     'golden-ratio': loc_golden_ratio.uk ?? {},
     'gpa': loc_gpa.uk ?? {},
     'gravitational-force': loc_gravitational_force.uk ?? {},
@@ -651,6 +666,7 @@ export const v2Localization: ScopedLocalization = {
     'real-return': loc_real_return.uk ?? {},
     'recipe-cost': loc_recipe_cost.uk ?? {},
     'recipe-scale': loc_recipe_scale.uk ?? {},
+    'refinancing': loc_refinancing.uk ?? {},
     'rental-yield': loc_rental_yield.uk ?? {},
     'resistor-network': loc_resistor_network.uk ?? {},
     'return-rate': loc_return_rate.uk ?? {},
@@ -670,11 +686,13 @@ export const v2Localization: ScopedLocalization = {
     'shipping-per-unit': loc_shipping_per_unit.uk ?? {},
     'simple-interest': loc_simple_interest.uk ?? {},
     'single-phase': loc_single_phase.uk ?? {},
+    'slab-foundation': loc_slab_foundation.uk ?? {},
     'sleep-time': loc_sleep_time.uk ?? {},
     'slope': loc_slope.uk ?? {},
     'solution-concentration': loc_solution_concentration.uk ?? {},
     'speed-distance-time': loc_speed_distance_time.uk ?? {},
     'stats-descriptive': loc_stats_descriptive.uk ?? {},
+    'steps-distance-calories': loc_steps_distance_calories.uk ?? {},
     'stock-duration': loc_stock_duration.uk ?? {},
     'strip-foundation': loc_strip_foundation.uk ?? {},
     'subscriptions-cost': loc_subscriptions_cost.uk ?? {},

@@ -32,6 +32,7 @@ import { compute as compute_battery_charge_time } from './battery-charge-time/co
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_battery_series_parallel } from './battery-series-parallel/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
+import { compute as compute_bike_wheel_size } from './bike-wheel-size/compute';
 import { compute as compute_binomial_probability } from './binomial-probability/compute';
 import { compute as compute_board_volume } from './board-volume/compute';
 import { compute as compute_bonus } from './bonus/compute';
@@ -58,6 +59,7 @@ import { compute as compute_conversion_rate } from './conversion-rate/compute';
 import { compute as compute_convert_angle } from './convert-angle/compute';
 import { compute as compute_convert_area } from './convert-area/compute';
 import { compute as compute_convert_cooking_volume } from './convert-cooking-volume/compute';
+import { compute as compute_convert_cooking_weight } from './convert-cooking-weight/compute';
 import { compute as compute_convert_data_rate } from './convert-data-rate/compute';
 import { compute as compute_convert_density } from './convert-density/compute';
 import { compute as compute_convert_digital } from './convert-digital/compute';
@@ -135,6 +137,7 @@ import { compute as compute_geom_sphere } from './geom-sphere/compute';
 import { compute as compute_geom_square } from './geom-square/compute';
 import { compute as compute_geom_trapezoid } from './geom-trapezoid/compute';
 import { compute as compute_geom_triangle } from './geom-triangle/compute';
+import { compute as compute_geometric_progression } from './geometric-progression/compute';
 import { compute as compute_golden_ratio } from './golden-ratio/compute';
 import { compute as compute_gpa } from './gpa/compute';
 import { compute as compute_gravitational_force } from './gravitational-force/compute';
@@ -204,6 +207,7 @@ import { compute as compute_reading_speed } from './reading-speed/compute';
 import { compute as compute_real_return } from './real-return/compute';
 import { compute as compute_recipe_cost } from './recipe-cost/compute';
 import { compute as compute_recipe_scale } from './recipe-scale/compute';
+import { compute as compute_refinancing } from './refinancing/compute';
 import { compute as compute_rental_yield } from './rental-yield/compute';
 import { compute as compute_resistor_network } from './resistor-network/compute';
 import { compute as compute_return_rate } from './return-rate/compute';
@@ -223,12 +227,14 @@ import { compute as compute_savings_rate } from './savings-rate/compute';
 import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_single_phase } from './single-phase/compute';
+import { compute as compute_slab_foundation } from './slab-foundation/compute';
 import { compute as compute_sleep_time } from './sleep-time/compute';
 import { compute as compute_slope } from './slope/compute';
 import { compute as compute_solution_concentration } from './solution-concentration/compute';
 import { compute as compute_speed_distance_time } from './speed-distance-time/compute';
 import { contextualField as ctx_speed_distance_time } from './speed-distance-time/contextualField';
 import { compute as compute_stats_descriptive } from './stats-descriptive/compute';
+import { compute as compute_steps_distance_calories } from './steps-distance-calories/compute';
 import { compute as compute_stock_duration } from './stock-duration/compute';
 import { compute as compute_strip_foundation } from './strip-foundation/compute';
 import { compute as compute_subscriptions_cost } from './subscriptions-cost/compute';
@@ -275,6 +281,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'battery-runtime': compute_battery_runtime,
   'battery-series-parallel': compute_battery_series_parallel,
   'bike-gear-ratio': compute_bike_gear_ratio,
+  'bike-wheel-size': compute_bike_wheel_size,
   'binomial-probability': compute_binomial_probability,
   'board-volume': compute_board_volume,
   'bonus': compute_bonus,
@@ -299,6 +306,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'convert-angle': compute_convert_angle,
   'convert-area': compute_convert_area,
   'convert-cooking-volume': compute_convert_cooking_volume,
+  'convert-cooking-weight': compute_convert_cooking_weight,
   'convert-data-rate': compute_convert_data_rate,
   'convert-density': compute_convert_density,
   'convert-digital': compute_convert_digital,
@@ -375,6 +383,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'geom-square': compute_geom_square,
   'geom-trapezoid': compute_geom_trapezoid,
   'geom-triangle': compute_geom_triangle,
+  'geometric-progression': compute_geometric_progression,
   'golden-ratio': compute_golden_ratio,
   'gpa': compute_gpa,
   'gravitational-force': compute_gravitational_force,
@@ -439,6 +448,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'real-return': compute_real_return,
   'recipe-cost': compute_recipe_cost,
   'recipe-scale': compute_recipe_scale,
+  'refinancing': compute_refinancing,
   'rental-yield': compute_rental_yield,
   'resistor-network': compute_resistor_network,
   'return-rate': compute_return_rate,
@@ -458,11 +468,13 @@ export const v2Runners: Record<string, CalcFunction> = {
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
   'single-phase': compute_single_phase,
+  'slab-foundation': compute_slab_foundation,
   'sleep-time': compute_sleep_time,
   'slope': compute_slope,
   'solution-concentration': compute_solution_concentration,
   'speed-distance-time': compute_speed_distance_time,
   'stats-descriptive': compute_stats_descriptive,
+  'steps-distance-calories': compute_steps_distance_calories,
   'stock-duration': compute_stock_duration,
   'strip-foundation': compute_strip_foundation,
   'subscriptions-cost': compute_subscriptions_cost,

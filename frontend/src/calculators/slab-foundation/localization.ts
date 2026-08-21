@@ -1,0 +1,66 @@
+import type { CalculatorLocalization } from '../../lib/platform/types';
+
+export const localization: CalculatorLocalization = {
+  en: {
+    fields: {
+      "length": "Slab length, m",
+      "width": "Slab width, m",
+      "thickness": "Slab thickness, m",
+      "meshStep": "Mesh spacing, m",
+      "rebarDiameter": "Rebar diameter, mm",
+      "waste": "Allowance, %",
+    },
+    options: {},
+    results: {
+      "Объём бетона": "Concrete volume",
+      "Площадь плиты": "Slab area",
+      "Чистый объём": "Net volume",
+      "Запас": "Allowance",
+      "Длина арматуры": "Rebar length",
+      "Вес арматуры": "Rebar weight",
+      "Прутков": "Bars",
+      "Проверьте данные": "Check the values",
+    },
+    values: {
+      "м³": "m³",
+      "м²": "m²",
+      "м": "m",
+      "кг": "kg",
+      "Размеры плиты должны быть больше нуля": "The slab dimensions must be greater than zero",
+      "Шаг сетки должен быть больше нуля": "The mesh spacing must be greater than zero",
+      "Диаметр арматуры должен быть больше нуля": "The rebar diameter must be greater than zero",
+      "Запас должен быть от 0 до 50 %": "The allowance must be between 0 and 50 %",
+    },
+  },
+  uk: {
+    fields: {
+      "length": "Довжина плити, м",
+      "width": "Ширина плити, м",
+      "thickness": "Товщина плити, м",
+      "meshStep": "Крок сітки, м",
+      "rebarDiameter": "Діаметр арматури, мм",
+      "waste": "Запас, %",
+    },
+    options: {},
+    results: {
+      "Объём бетона": "Об’єм бетону",
+      "Площадь плиты": "Площа плити",
+      "Чистый объём": "Чистий об’єм",
+      "Запас": "Запас",
+      "Длина арматуры": "Довжина арматури",
+      "Вес арматуры": "Вага арматури",
+      "Прутков": "Прутків",
+      "Проверьте данные": "Перевірте дані",
+    },
+    values: {
+      "м³": "м³",
+      "м²": "м²",
+      "м": "м",
+      "кг": "кг",
+      "Размеры плиты должны быть больше нуля": "Розміри плити мають бути більшими за нуль",
+      "Шаг сетки должен быть больше нуля": "Крок сітки має бути більшим за нуль",
+      "Диаметр арматуры должен быть больше нуля": "Діаметр арматури має бути більшим за нуль",
+      "Запас должен быть от 0 до 50 %": "Запас має бути від 0 до 50 %",
+    },
+  },
+};

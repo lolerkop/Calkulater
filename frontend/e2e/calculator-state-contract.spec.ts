@@ -61,6 +61,20 @@ const stateScenarios: Record<string, StateScenario> = {
   'geom-polygon-coords': { query: { points: '0 0\n6 0\n6 4\n3 7\n0 4' }, result: { primary: '33', rows: [{ label: 'Периметр', value: '22,485' }, { label: 'Вершин', value: '5' }, { label: 'Обход', value: 'против часовой' }] } },
   'barbell-plates': { query: { target: 142.5, bar: 20, plates: '25 20 15 10 5 2,5 1,25' }, result: { primary: '25×2 + 10×1 + 1,25×1', rows: [{ label: 'Фактический вес', value: '142,5 кг' }, { label: 'На сторону', value: '61,25 кг' }, { label: 'Блинов на сторону', value: '4' }] } },
   'savings-goal': { query: { mode: 'term', goal: 300000, initial: 20000, rate: 5, monthly: 8000 }, result: { primary: '33 мес', rows: [{ label: 'Итоговая сумма', value: '305 323,52 ₽' }, { label: 'Всего взносов', value: '264 000,00 ₽' }, { label: 'Цель', value: '300 000,00 ₽' }] } },
+  // Волна 19, партия A2. Ожидаемые значения выведены независимой моделью
+  // Phase 19P (refmodel.py) на НЕумолчальных входах:
+  //   1 500 000 под 16 % и 12 % на 84 месяца при расходах 15 000 -> 263 375,72
+  //   3 столовые ложки мёда: 45 мл × 1,42 = 63,9 г
+  //   5 при r = −2 и n = 12: член −10 240, сумма −6 825 (знаки чередуются)
+  //   12 500 шагов по 78 см = 9,75 км; 0,53 × 62 × 9,75 = 320 ккал
+  //   ETRTO 40-559: 559 + 80 = 639 мм, окружность 2 007,48
+  //   плита 12×9×0,25 = 27 м³, плюс 7 % -> 28,89
+  'refinancing': { query: { balance: 1500000, oldRate: 16, oldMonths: 84, newRate: 12, newMonths: 84, fee: 15000 }, result: { primary: '263 375,72 ₽', rows: [{ label: 'Платёж сейчас', value: '29 793,10 ₽' }, { label: 'Платёж после', value: '26 479,10 ₽' }, { label: 'Расходы на сделку', value: '15 000,00 ₽' }] } },
+  'convert-cooking-weight': { query: { value: 3, unit: 'tbsp', product: 'honey', direction: 'toGrams' }, result: { primary: '63,9', rows: [{ label: 'Плотность продукта', value: '1,42 г/мл' }, { label: 'В миллилитрах', value: '45 мл' }] } },
+  'geometric-progression': { query: { a1: 5, r: -2, n: 12 }, result: { primary: '-10 240', rows: [{ label: 'Сумма ряда', value: '-6 825' }, { label: 'Знаменатель', value: '-2' }, { label: 'Членов', value: '12' }] } },
+  'steps-distance-calories': { query: { mode: 'stride', steps: 12500, stride: 78, weight: 62, kcalPerKgKm: 0.53 }, result: { primary: '9,75 км', rows: [{ label: 'Калории', value: '320 ккал' }, { label: 'Длина шага', value: '78 см' }, { label: 'Шагов на километр', value: '1 282' }] } },
+  'bike-wheel-size': { query: { mode: 'etrto', etrtoRim: 559, etrtoTire: 40 }, result: { primary: '2 007,48 мм', rows: [{ label: 'Диаметр', value: '639 мм' }, { label: 'Оборотов на километр', value: '498,14' }, { label: 'Радиус', value: '319,5 мм' }] } },
+  'slab-foundation': { query: { length: 12, width: 9, thickness: 0.25, meshStep: 0.25, rebarDiameter: 14, waste: 7 }, result: { primary: '28,89 м³', rows: [{ label: 'Площадь плиты', value: '108 м²' }, { label: 'Чистый объём', value: '27 м³' }, { label: 'Вес арматуры', value: '2 138,89 кг' }] } },
   // Волна 5, батч B3 — подсеть, средний балл, корреляция и молярная масса.
   // Ожидаемые значения выведены вручную:
   //   /26: маска 255.255.255.192; 172.16.34.200 & маска = .192; узлов 2⁶ − 2 = 62

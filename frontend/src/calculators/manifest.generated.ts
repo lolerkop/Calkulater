@@ -30,6 +30,7 @@ import { definition as def_battery_charge_time } from './battery-charge-time/def
 import { definition as def_battery_runtime } from './battery-runtime/definition';
 import { definition as def_battery_series_parallel } from './battery-series-parallel/definition';
 import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
+import { definition as def_bike_wheel_size } from './bike-wheel-size/definition';
 import { definition as def_binomial_probability } from './binomial-probability/definition';
 import { definition as def_board_volume } from './board-volume/definition';
 import { definition as def_bonus } from './bonus/definition';
@@ -54,6 +55,7 @@ import { definition as def_conversion_rate } from './conversion-rate/definition'
 import { definition as def_convert_angle } from './convert-angle/definition';
 import { definition as def_convert_area } from './convert-area/definition';
 import { definition as def_convert_cooking_volume } from './convert-cooking-volume/definition';
+import { definition as def_convert_cooking_weight } from './convert-cooking-weight/definition';
 import { definition as def_convert_data_rate } from './convert-data-rate/definition';
 import { definition as def_convert_density } from './convert-density/definition';
 import { definition as def_convert_digital } from './convert-digital/definition';
@@ -130,6 +132,7 @@ import { definition as def_geom_sphere } from './geom-sphere/definition';
 import { definition as def_geom_square } from './geom-square/definition';
 import { definition as def_geom_trapezoid } from './geom-trapezoid/definition';
 import { definition as def_geom_triangle } from './geom-triangle/definition';
+import { definition as def_geometric_progression } from './geometric-progression/definition';
 import { definition as def_golden_ratio } from './golden-ratio/definition';
 import { definition as def_gpa } from './gpa/definition';
 import { definition as def_gravitational_force } from './gravitational-force/definition';
@@ -194,6 +197,7 @@ import { definition as def_reading_speed } from './reading-speed/definition';
 import { definition as def_real_return } from './real-return/definition';
 import { definition as def_recipe_cost } from './recipe-cost/definition';
 import { definition as def_recipe_scale } from './recipe-scale/definition';
+import { definition as def_refinancing } from './refinancing/definition';
 import { definition as def_rental_yield } from './rental-yield/definition';
 import { definition as def_resistor_network } from './resistor-network/definition';
 import { definition as def_return_rate } from './return-rate/definition';
@@ -213,11 +217,13 @@ import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
 import { definition as def_single_phase } from './single-phase/definition';
+import { definition as def_slab_foundation } from './slab-foundation/definition';
 import { definition as def_sleep_time } from './sleep-time/definition';
 import { definition as def_slope } from './slope/definition';
 import { definition as def_solution_concentration } from './solution-concentration/definition';
 import { definition as def_speed_distance_time } from './speed-distance-time/definition';
 import { definition as def_stats_descriptive } from './stats-descriptive/definition';
+import { definition as def_steps_distance_calories } from './steps-distance-calories/definition';
 import { definition as def_stock_duration } from './stock-duration/definition';
 import { definition as def_strip_foundation } from './strip-foundation/definition';
 import { definition as def_subscriptions_cost } from './subscriptions-cost/definition';
@@ -264,6 +270,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_battery_runtime,
   def_battery_series_parallel,
   def_bike_gear_ratio,
+  def_bike_wheel_size,
   def_binomial_probability,
   def_board_volume,
   def_bonus,
@@ -288,6 +295,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_angle,
   def_convert_area,
   def_convert_cooking_volume,
+  def_convert_cooking_weight,
   def_convert_data_rate,
   def_convert_density,
   def_convert_digital,
@@ -364,6 +372,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_geom_square,
   def_geom_trapezoid,
   def_geom_triangle,
+  def_geometric_progression,
   def_golden_ratio,
   def_gpa,
   def_gravitational_force,
@@ -428,6 +437,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_real_return,
   def_recipe_cost,
   def_recipe_scale,
+  def_refinancing,
   def_rental_yield,
   def_resistor_network,
   def_return_rate,
@@ -447,11 +457,13 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_shipping_per_unit,
   def_simple_interest,
   def_single_phase,
+  def_slab_foundation,
   def_sleep_time,
   def_slope,
   def_solution_concentration,
   def_speed_distance_time,
   def_stats_descriptive,
+  def_steps_distance_calories,
   def_stock_duration,
   def_strip_foundation,
   def_subscriptions_cost,
