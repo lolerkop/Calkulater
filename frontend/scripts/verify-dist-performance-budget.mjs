@@ -16,9 +16,14 @@
 //   МАСШТАБ АРХИТЕКТУРЫ — жёсткие блокеры. Ловят вырождение разделения:
 //   раздувшийся общий чанк или чанк калькулятора, проглотивший весь остров.
 //
-//   МАСШТАБ СБОРКИ — наблюдение с запасом. Суммарный выпуск важен для
-//   хостинга и как сигнал о патологическом дублировании, но не является
-//   мерой того, что чувствует посетитель.
+//   МАСШТАБ ВЫПУСКА — жёсткие блокеры, но НОРМИРОВАННЫЕ НА ЧИСЛЕННОСТЬ.
+//   Суммарный выпуск сам по себе мерой не является: он растёт линейно с
+//   числом калькуляторов (1266 Б на калькулятор, R² = 0,99933 по девяти
+//   историческим сборкам), потому что архитектура намеренно даёт каждому
+//   калькулятору отдельный чанк. Абсолютный потолок на такой величине
+//   измеряет численность продукта, а не дефект, и Phase 19S заменила его
+//   наклонным бюджетом плюс прямыми мерами дублирования. Выведение
+//   постоянных — в `js-scale.mjs`.
 //
 // Каталог вынесен отдельно намеренно. Это одна настоящая страница, и её вес
 // растёт вместе с числом карточек — на 0,42 КиБ gzip на калькулятор по
@@ -38,6 +43,18 @@ import {
   CATALOG_SCALE_TARGET_CARDS,
   catalogScaleTarget,
 } from './catalog-scale.mjs';
+import {
+  JS_ASSET_BYTES_CEILING,
+  JS_DEPLOY_FILE_CEILING,
+  JS_OWN_MEDIAN_GZIP,
+  JS_OWN_P95_GZIP,
+  JS_PER_CALCULATOR_GZIP,
+  JS_SHARED_GZIP_CEILING,
+  JS_UBIQUITOUS_BYTES_PER_CHUNK,
+  jsScaleBudget,
+  percentile,
+  ubiquitousMass,
+} from './js-scale.mjs';
 import {
   CATEGORY_ITEM_LIST_MAX,
   CATEGORY_MEMBERSHIP_LOOKAHEAD,
@@ -136,8 +153,14 @@ const budgets = {
   sharedIslandGzip: 30 * 1024,
   calculatorRuntimeGzip: 8 * 1024,
 
-  // ── масштаб сборки (наблюдение, щедрый потолок) ──
-  totalJsGzipCeiling: 400 * 1024,
+  // ── масштаб выпуска (нормирован на число калькуляторов, см. js-scale.mjs) ──
+  jsSharedGzipCeiling: JS_SHARED_GZIP_CEILING,
+  jsPerCalculatorGzip: JS_PER_CALCULATOR_GZIP,
+  jsOwnMedianGzip: JS_OWN_MEDIAN_GZIP,
+  jsOwnP95Gzip: JS_OWN_P95_GZIP,
+  jsUbiquitousBytesPerChunk: JS_UBIQUITOUS_BYTES_PER_CHUNK,
+  deployFileCeiling: JS_DEPLOY_FILE_CEILING,
+  assetBytesCeiling: JS_ASSET_BYTES_CEILING,
   totalHtmlGzipPerRoute: 12 * 1024,
 
   // ── ассеты (без изменений) ──
@@ -671,15 +694,59 @@ for (const file of runtimeChunks) {
   }
 }
 
-// ── масштаб сборки (наблюдение) ──
+// ── масштаб выпуска (нормирован на численность) ──
 const totalJsGzip = jsFiles.reduce((sum, file) => sum + gzipSize(file), 0);
+const ownChunkGzip = runtimeChunks.map(gzipSize).sort((a, b) => a - b);
+const ownSumGzip = ownChunkGzip.reduce((sum, size) => sum + size, 0);
+const sharedJsGzip = totalJsGzip - ownSumGzip;
+const jsBudget = jsScaleBudget(runtimeChunks.length, budgets.jsSharedGzipCeiling, budgets.jsPerCalculatorGzip);
+const ubiquitous = ubiquitousMass(runtimeChunks.map((file) => fs.readFileSync(file, 'utf8')));
+const ownMedianGzip = percentile(ownChunkGzip, 0.5);
+const ownP95Gzip = percentile(ownChunkGzip, 0.95);
+const largestAsset = files.reduce((a, b) => (fs.statSync(b).size > fs.statSync(a).size ? b : a), files[0]);
+const largestAssetBytes = fs.statSync(largestAsset).size;
 const totalHtmlGzip = htmlFiles.reduce((sum, file) => sum + gzipSize(file), 0);
 const totalCssGzip = cssFiles.reduce((sum, file) => sum + gzipSize(file), 0);
 const totalFontGzip = fontFiles.reduce((sum, file) => sum + gzipSize(file), 0);
 const totalImageGzip = imageFiles.reduce((sum, file) => sum + gzipSize(file), 0);
 
-if (totalJsGzip > budgets.totalJsGzipCeiling) {
-  issues.push(`total emitted JS gzip ${kib(totalJsGzip)} exceeds the ${kib(budgets.totalJsGzipCeiling)} architecture ceiling — check for duplicated shared code`);
+// Наклонный бюджет вместо абсолютного потолка: постоянная часть общего кода
+// плюс надбавка на каждый выпущенный калькулятор. Один новый калькулятор,
+// получивший один изолированный чанк, не может провалить эту проверку.
+if (totalJsGzip > jsBudget) {
+  issues.push(
+    `total emitted JS gzip ${kib(totalJsGzip)} exceeds the ${kib(jsBudget)} scale budget for `
+    + `${runtimeChunks.length} calculators (${kib(budgets.jsSharedGzipCeiling)} shared + `
+    + `${kib(budgets.jsPerCalculatorGzip)} each) — shared code is being duplicated into calculator chunks`,
+  );
+}
+// Постоянная часть отдельно: иначе стоимость можно перенести из чанков
+// в общий код и пролезть под надбавкой.
+if (sharedJsGzip > budgets.jsSharedGzipCeiling) {
+  issues.push(`shared JS gzip ${kib(sharedJsGzip)} exceeds ${kib(budgets.jsSharedGzipCeiling)} — code shared by every route must not grow with the catalogue`);
+}
+// Форма распределения: среднее размывается, медиана и p95 — нет.
+if (ownMedianGzip > budgets.jsOwnMedianGzip) {
+  issues.push(`median calculator chunk gzip ${kib(ownMedianGzip)} exceeds ${kib(budgets.jsOwnMedianGzip)} — a typical calculator runtime should not carry shared UI`);
+}
+if (ownP95Gzip > budgets.jsOwnP95Gzip) {
+  issues.push(`p95 calculator chunk gzip ${kib(ownP95Gzip)} exceeds ${kib(budgets.jsOwnP95Gzip)} — the heavy tail of calculator runtimes is growing`);
+}
+// Прямая мера дублирования: сколько байт несёт КАЖДЫЙ калькулятор.
+// Сегодня это три строки импорта и обёртка острова.
+if (ubiquitous.bytes > budgets.jsUbiquitousBytesPerChunk) {
+  const worst = ubiquitous.fragments.slice(0, 3).map((f) => `${f.bytes} B in ${f.count} chunks`).join(', ');
+  issues.push(
+    `every calculator chunk carries ${ubiquitous.bytes} B of shared code, above ${budgets.jsUbiquitousBytesPerChunk} B `
+    + `(${ubiquitous.fragments.length} fragments; largest: ${worst}) — shared code is inlined instead of imported`,
+  );
+}
+// Хостинг — теми ограничениями, которые у платформы действительно есть.
+if (files.length > budgets.deployFileCeiling) {
+  issues.push(`deployment holds ${files.length} files, above the ${budgets.deployFileCeiling} Cloudflare Pages limit`);
+}
+if (largestAssetBytes > budgets.assetBytesCeiling) {
+  issues.push(`${path.relative(root, largestAsset)}: ${kib(largestAssetBytes)} exceeds the ${kib(budgets.assetBytesCeiling)} Cloudflare Pages per-asset limit`);
 }
 const htmlTotalBudget = htmlFiles.length * budgets.totalHtmlGzipPerRoute;
 if (totalHtmlGzip > htmlTotalBudget) {
@@ -707,6 +774,19 @@ const report = {
     maxCalculatorRuntimeGzip: runtimeChunks.length > 0 ? Math.max(...runtimeChunks.map(gzipSize)) : 0,
   },
   buildScale: { routes: htmlFiles.length, jsFiles: jsFiles.length, totalJsGzip, totalHtmlGzip, totalCssGzip },
+  jsScale: {
+    calculators: runtimeChunks.length,
+    totalJsGzip,
+    budgetGzip: jsBudget,
+    sharedJsGzip,
+    ownSumGzip,
+    ownMedianGzip,
+    ownP95Gzip,
+    ubiquitousBytes: ubiquitous.bytes,
+    ubiquitousFragments: ubiquitous.fragments.length,
+    deployFiles: files.length,
+    largestAssetBytes,
+  },
 };
 fs.writeFileSync(path.join(root, 'performance-budget.json'), `${JSON.stringify(report, null, 2)}\n`);
 
@@ -748,4 +828,10 @@ console.log(
 console.log(
   `Build scale (monitoring): ${htmlFiles.length} routes, ${jsFiles.length} JS files, `
   + `JS ${kib(totalJsGzip)}, HTML ${kib(totalHtmlGzip)}, CSS ${kib(totalCssGzip)} gzip.`,
+);
+console.log(
+  `JS scale: ${runtimeChunks.length} calculators, total ${kib(totalJsGzip)} of ${kib(jsBudget)} budget `
+  + `(shared ${kib(sharedJsGzip)} of ${kib(budgets.jsSharedGzipCeiling)}, own median ${kib(ownMedianGzip)}, `
+  + `p95 ${kib(ownP95Gzip)}), every chunk carries ${ubiquitous.bytes} B of ${budgets.jsUbiquitousBytesPerChunk} B shared, `
+  + `${files.length} deployed files of ${budgets.deployFileCeiling}.`,
 );
