@@ -7,13 +7,7 @@ import { thermalConductionReferenceCases } from './referenceCases';
 export const definition: CalculatorDefinitionV2 = {
   id: "thermal-conduction",
   definitionVersion: 1,
-  // Реализован полностью и проверен эталонными случаями, но НЕ публикуется.
-  // Гейт масштаба подборки (потолок 30 КиБ gzip на прогноз до `cards + 50`)
-  // при 273 украинских карточках оставлял 0,485 КиБ запаса — это ровно пять
-  // новых калькуляторов по 0,085 КиБ каждый; шестой уводит прогноз за потолок.
-  // Публикация ждёт инфраструктурной фазы масштаба подборки. Сам калькулятор
-  // готов: снятие моратория — одно слово в этой строке.
-  lifecycle: 'implemented',
+  lifecycle: 'released',
   compute,
   copy: { en: thermalConductionCopyEn, uk: thermalConductionCopyUk },
   referenceCases: thermalConductionReferenceCases,
@@ -61,6 +55,11 @@ export const definition: CalculatorDefinitionV2 = {
       { q: "Чем это отличается от расчёта мощности отопления?", a: "Там считают, сколько тепла нужно подать в помещение по его объёму. Здесь считают, сколько уходит через конкретную конструкцию по её теплопроводности." },
       { q: "Почему перепад можно задать отрицательным?", a: "Потому что поток может идти внутрь: летом улица теплее помещения. Знак показывает направление, величина от этого не меняется." },
     ],
-    relatedCalculatorIds: ["heating-power", "insulation", "underfloor-heating"],
+    // `physics-power` — сосед по разделу: тепловой поток измеряется ваттами,
+    // то есть той же мощностью. Связь добавлена при публикации: правило
+    // «со страницы виден хотя бы один родственник по разделу» проверяется
+    // только у публичных калькуляторов, и пока волна была удержана,
+    // проверить его было не на чем.
+    relatedCalculatorIds: ["heating-power", "physics-power", "insulation", "underfloor-heating"],
   },
 };

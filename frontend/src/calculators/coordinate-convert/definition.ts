@@ -7,13 +7,7 @@ import { coordinateConvertReferenceCases } from './referenceCases';
 export const definition: CalculatorDefinitionV2 = {
   id: "coordinate-convert",
   definitionVersion: 1,
-  // Реализован полностью и проверен эталонными случаями, но НЕ публикуется.
-  // Гейт масштаба подборки (потолок 30 КиБ gzip на прогноз до `cards + 50`)
-  // при 273 украинских карточках оставлял 0,485 КиБ запаса — это ровно пять
-  // новых калькуляторов по 0,085 КиБ каждый; шестой уводит прогноз за потолок.
-  // Публикация ждёт инфраструктурной фазы масштаба подборки. Сам калькулятор
-  // готов: снятие моратория — одно слово в этой строке.
-  lifecycle: 'implemented',
+  lifecycle: 'released',
   compute,
   copy: { en: coordinateConvertCopyEn, uk: coordinateConvertCopyUk },
   referenceCases: coordinateConvertReferenceCases,
