@@ -43,6 +43,7 @@ import { definition as def_calories_per_serving } from './calories-per-serving/d
 import { definition as def_car_depreciation } from './car-depreciation/definition';
 import { definition as def_centripetal_force } from './centripetal-force/definition';
 import { definition as def_churn_retention } from './churn-retention/definition';
+import { definition as def_cladding_boards } from './cladding-boards/definition';
 import { definition as def_cogs } from './cogs/definition';
 import { definition as def_cogs_unit_cost } from './cogs-unit-cost/definition';
 import { definition as def_color_convert } from './color-convert/definition';
@@ -76,10 +77,12 @@ import { definition as def_convert_time } from './convert-time/definition';
 import { definition as def_convert_torque } from './convert-torque/definition';
 import { definition as def_convert_volume } from './convert-volume/definition';
 import { definition as def_cooked_weight } from './cooked-weight/definition';
+import { definition as def_coordinate_convert } from './coordinate-convert/definition';
 import { definition as def_correlation } from './correlation/definition';
 import { definition as def_cpa_cpl_cpi } from './cpa-cpl-cpi/definition';
 import { definition as def_cpc } from './cpc/definition';
 import { definition as def_cpm } from './cpm/definition';
+import { definition as def_credit_card_payoff } from './credit-card-payoff/definition';
 import { definition as def_crypto_pnl } from './crypto-pnl/definition';
 import { definition as def_css_units } from './css-units/definition';
 import { definition as def_ctr } from './ctr/definition';
@@ -112,6 +115,7 @@ import { definition as def_fps_frametime } from './fps-frametime/definition';
 import { definition as def_fraction_arith } from './fraction-arith/definition';
 import { definition as def_freelance_rate } from './freelance-rate/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
+import { definition as def_gas_laws } from './gas-laws/definition';
 import { definition as def_gcd_lcm } from './gcd-lcm/definition';
 import { definition as def_generator_fuel } from './generator-fuel/definition';
 import { definition as def_geom_annulus } from './geom-annulus/definition';
@@ -163,6 +167,7 @@ import { definition as def_ltv } from './ltv/definition';
 import { definition as def_market_cap } from './market-cap/definition';
 import { definition as def_max_heart_rate } from './max-heart-rate/definition';
 import { definition as def_max_loan } from './max-loan/definition';
+import { definition as def_metal_weight } from './metal-weight/definition';
 import { definition as def_modular_scale } from './modular-scale/definition';
 import { definition as def_modulo } from './modulo/definition';
 import { definition as def_molar_mass } from './molar-mass/definition';
@@ -206,6 +211,7 @@ import { definition as def_recipe_cost } from './recipe-cost/definition';
 import { definition as def_recipe_scale } from './recipe-scale/definition';
 import { definition as def_refinancing } from './refinancing/definition';
 import { definition as def_rental_yield } from './rental-yield/definition';
+import { definition as def_resistor_color } from './resistor-color/definition';
 import { definition as def_resistor_network } from './resistor-network/definition';
 import { definition as def_return_rate } from './return-rate/definition';
 import { definition as def_revenue_per_employee } from './revenue-per-employee/definition';
@@ -230,6 +236,7 @@ import { definition as def_sleep_time } from './sleep-time/definition';
 import { definition as def_slope } from './slope/definition';
 import { definition as def_solution_concentration } from './solution-concentration/definition';
 import { definition as def_speed_distance_time } from './speed-distance-time/definition';
+import { definition as def_stairs } from './stairs/definition';
 import { definition as def_stats_descriptive } from './stats-descriptive/definition';
 import { definition as def_steps_distance_calories } from './steps-distance-calories/definition';
 import { definition as def_stock_duration } from './stock-duration/definition';
@@ -295,6 +302,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_car_depreciation,
   def_centripetal_force,
   def_churn_retention,
+  def_cladding_boards,
   def_cogs,
   def_cogs_unit_cost,
   def_color_convert,
@@ -328,10 +336,12 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_convert_torque,
   def_convert_volume,
   def_cooked_weight,
+  def_coordinate_convert,
   def_correlation,
   def_cpa_cpl_cpi,
   def_cpc,
   def_cpm,
+  def_credit_card_payoff,
   def_crypto_pnl,
   def_css_units,
   def_ctr,
@@ -364,6 +374,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_fraction_arith,
   def_freelance_rate,
   def_fuel_consumption,
+  def_gas_laws,
   def_gcd_lcm,
   def_generator_fuel,
   def_geom_annulus,
@@ -415,6 +426,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_market_cap,
   def_max_heart_rate,
   def_max_loan,
+  def_metal_weight,
   def_modular_scale,
   def_modulo,
   def_molar_mass,
@@ -458,6 +470,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_recipe_scale,
   def_refinancing,
   def_rental_yield,
+  def_resistor_color,
   def_resistor_network,
   def_return_rate,
   def_revenue_per_employee,
@@ -482,6 +495,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_slope,
   def_solution_concentration,
   def_speed_distance_time,
+  def_stairs,
   def_stats_descriptive,
   def_steps_distance_calories,
   def_stock_duration,

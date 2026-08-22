@@ -37,6 +37,7 @@ import { localization as loc_calories_per_serving } from './calories-per-serving
 import { localization as loc_car_depreciation } from './car-depreciation/localization';
 import { localization as loc_centripetal_force } from './centripetal-force/localization';
 import { localization as loc_churn_retention } from './churn-retention/localization';
+import { localization as loc_cladding_boards } from './cladding-boards/localization';
 import { localization as loc_cogs } from './cogs/localization';
 import { localization as loc_cogs_unit_cost } from './cogs-unit-cost/localization';
 import { localization as loc_color_convert } from './color-convert/localization';
@@ -106,6 +107,7 @@ import { localization as loc_fps_frametime } from './fps-frametime/localization'
 import { localization as loc_fraction_arith } from './fraction-arith/localization';
 import { localization as loc_freelance_rate } from './freelance-rate/localization';
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
+import { localization as loc_gas_laws } from './gas-laws/localization';
 import { localization as loc_gcd_lcm } from './gcd-lcm/localization';
 import { localization as loc_generator_fuel } from './generator-fuel/localization';
 import { localization as loc_geom_annulus } from './geom-annulus/localization';
@@ -198,6 +200,7 @@ import { localization as loc_recipe_cost } from './recipe-cost/localization';
 import { localization as loc_recipe_scale } from './recipe-scale/localization';
 import { localization as loc_refinancing } from './refinancing/localization';
 import { localization as loc_rental_yield } from './rental-yield/localization';
+import { localization as loc_resistor_color } from './resistor-color/localization';
 import { localization as loc_resistor_network } from './resistor-network/localization';
 import { localization as loc_return_rate } from './return-rate/localization';
 import { localization as loc_revenue_per_employee } from './revenue-per-employee/localization';
@@ -288,6 +291,7 @@ export const v2Localization: ScopedLocalization = {
     'car-depreciation': loc_car_depreciation.en ?? {},
     'centripetal-force': loc_centripetal_force.en ?? {},
     'churn-retention': loc_churn_retention.en ?? {},
+    'cladding-boards': loc_cladding_boards.en ?? {},
     'cogs': loc_cogs.en ?? {},
     'cogs-unit-cost': loc_cogs_unit_cost.en ?? {},
     'color-convert': loc_color_convert.en ?? {},
@@ -357,6 +361,7 @@ export const v2Localization: ScopedLocalization = {
     'fraction-arith': loc_fraction_arith.en ?? {},
     'freelance-rate': loc_freelance_rate.en ?? {},
     'fuel-consumption': loc_fuel_consumption.en ?? {},
+    'gas-laws': loc_gas_laws.en ?? {},
     'gcd-lcm': loc_gcd_lcm.en ?? {},
     'generator-fuel': loc_generator_fuel.en ?? {},
     'geom-annulus': loc_geom_annulus.en ?? {},
@@ -449,6 +454,7 @@ export const v2Localization: ScopedLocalization = {
     'recipe-scale': loc_recipe_scale.en ?? {},
     'refinancing': loc_refinancing.en ?? {},
     'rental-yield': loc_rental_yield.en ?? {},
+    'resistor-color': loc_resistor_color.en ?? {},
     'resistor-network': loc_resistor_network.en ?? {},
     'return-rate': loc_return_rate.en ?? {},
     'revenue-per-employee': loc_revenue_per_employee.en ?? {},
@@ -538,6 +544,7 @@ export const v2Localization: ScopedLocalization = {
     'car-depreciation': loc_car_depreciation.uk ?? {},
     'centripetal-force': loc_centripetal_force.uk ?? {},
     'churn-retention': loc_churn_retention.uk ?? {},
+    'cladding-boards': loc_cladding_boards.uk ?? {},
     'cogs': loc_cogs.uk ?? {},
     'cogs-unit-cost': loc_cogs_unit_cost.uk ?? {},
     'color-convert': loc_color_convert.uk ?? {},
@@ -607,6 +614,7 @@ export const v2Localization: ScopedLocalization = {
     'fraction-arith': loc_fraction_arith.uk ?? {},
     'freelance-rate': loc_freelance_rate.uk ?? {},
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
+    'gas-laws': loc_gas_laws.uk ?? {},
     'gcd-lcm': loc_gcd_lcm.uk ?? {},
     'generator-fuel': loc_generator_fuel.uk ?? {},
     'geom-annulus': loc_geom_annulus.uk ?? {},
@@ -699,6 +707,7 @@ export const v2Localization: ScopedLocalization = {
     'recipe-scale': loc_recipe_scale.uk ?? {},
     'refinancing': loc_refinancing.uk ?? {},
     'rental-yield': loc_rental_yield.uk ?? {},
+    'resistor-color': loc_resistor_color.uk ?? {},
     'resistor-network': loc_resistor_network.uk ?? {},
     'return-rate': loc_return_rate.uk ?? {},
     'revenue-per-employee': loc_revenue_per_employee.uk ?? {},

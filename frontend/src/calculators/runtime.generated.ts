@@ -45,6 +45,7 @@ import { compute as compute_calories_per_serving } from './calories-per-serving/
 import { compute as compute_car_depreciation } from './car-depreciation/compute';
 import { compute as compute_centripetal_force } from './centripetal-force/compute';
 import { compute as compute_churn_retention } from './churn-retention/compute';
+import { compute as compute_cladding_boards } from './cladding-boards/compute';
 import { compute as compute_cogs } from './cogs/compute';
 import { compute as compute_cogs_unit_cost } from './cogs-unit-cost/compute';
 import { compute as compute_color_convert } from './color-convert/compute';
@@ -117,6 +118,8 @@ import { contextualField as ctx_fps_frametime } from './fps-frametime/contextual
 import { compute as compute_fraction_arith } from './fraction-arith/compute';
 import { compute as compute_freelance_rate } from './freelance-rate/compute';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
+import { compute as compute_gas_laws } from './gas-laws/compute';
+import { contextualField as ctx_gas_laws } from './gas-laws/contextualField';
 import { compute as compute_gcd_lcm } from './gcd-lcm/compute';
 import { compute as compute_generator_fuel } from './generator-fuel/compute';
 import { compute as compute_geom_annulus } from './geom-annulus/compute';
@@ -216,6 +219,7 @@ import { compute as compute_recipe_cost } from './recipe-cost/compute';
 import { compute as compute_recipe_scale } from './recipe-scale/compute';
 import { compute as compute_refinancing } from './refinancing/compute';
 import { compute as compute_rental_yield } from './rental-yield/compute';
+import { compute as compute_resistor_color } from './resistor-color/compute';
 import { compute as compute_resistor_network } from './resistor-network/compute';
 import { compute as compute_return_rate } from './return-rate/compute';
 import { compute as compute_revenue_per_employee } from './revenue-per-employee/compute';
@@ -306,6 +310,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'car-depreciation': compute_car_depreciation,
   'centripetal-force': compute_centripetal_force,
   'churn-retention': compute_churn_retention,
+  'cladding-boards': compute_cladding_boards,
   'cogs': compute_cogs,
   'cogs-unit-cost': compute_cogs_unit_cost,
   'color-convert': compute_color_convert,
@@ -375,6 +380,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'fraction-arith': compute_fraction_arith,
   'freelance-rate': compute_freelance_rate,
   'fuel-consumption': compute_fuel_consumption,
+  'gas-laws': compute_gas_laws,
   'gcd-lcm': compute_gcd_lcm,
   'generator-fuel': compute_generator_fuel,
   'geom-annulus': compute_geom_annulus,
@@ -469,6 +475,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'recipe-scale': compute_recipe_scale,
   'refinancing': compute_refinancing,
   'rental-yield': compute_rental_yield,
+  'resistor-color': compute_resistor_color,
   'resistor-network': compute_resistor_network,
   'return-rate': compute_return_rate,
   'revenue-per-employee': compute_revenue_per_employee,
@@ -535,6 +542,7 @@ export const v2Validators: Record<string, CalculatorValidator> = {
 export const v2ContextualFields: Record<string, CalculatorContextualField> = {
   'commission': ctx_commission,
   'fps-frametime': ctx_fps_frametime,
+  'gas-laws': ctx_gas_laws,
   'logarithm': ctx_logarithm,
   'ohms-law': ctx_ohms_law,
   'percent-calculator': ctx_percent_calculator,

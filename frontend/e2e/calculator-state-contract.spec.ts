@@ -860,6 +860,15 @@ const stateScenarios: Record<string, StateScenario> = {
   'geom-prism': { query: { unit: 'm', sides: 3, side: 2, height: 5 }, result: { primary: '8,66 м³', rows: [{ label: 'Площадь основания', value: '1,732 м²' }, { label: 'Боковая поверхность', value: '30 м²' }, { label: 'Периметр основания', value: '6 м' }] } },
   'geom-pyramid': { query: { unit: 'm', sides: 6, side: 2, height: 4 }, result: { primary: '13,856 м³', rows: [{ label: 'Площадь основания', value: '10,392 м²' }, { label: 'Апофема', value: '4,359 м' }, { label: 'Боковая поверхность', value: '26,153 м²' }] } },
   'gravitational-force': { query: { m1: 1200, m2: 900, r: 5 }, result: { primary: '2,883·10^-6 Н', rows: [{ label: 'Ускорение первого тела', value: '2,403·10^-9 м/с²' }, { label: 'Расстояние', value: '5 м' }] } },
+  // Волна 20, партия A1. Ожидаемые значения выведены независимой моделью
+  // Phase 20P (refmodel.py) на НЕумолчальных входах; наборы намеренно
+  // отличаются от значений по умолчанию — сброс обязан вернуть форму назад.
+  //   (2·10 + 2)·10¹ = 220 Ом, поле ±1 % -> 217,8 … 222,2
+  'resistor-color': { query: { b1: 2, b2: 2, mult: 1, tol: 1 }, result: { primary: '220 Ом', rows: [{ label: 'Допуск', value: '±1 %' }, { label: 'Наименьшее допустимое', value: '217,8 Ом' }, { label: 'Наибольшее допустимое', value: '222,2 Ом' }] } },
+  //   200·5·500 / (250·100) = 20 л; p·V/T первого состояния = 4
+  'gas-laws': { query: { mode: 'v2', p1: 200, v1: 5, t1: 250, p2: 100, v2: 1, t2: 500 }, result: { primary: '20 л', rows: [{ label: 'Состояние 1: p·V/T', value: '4 кПа·л/К' }, { label: 'Первое состояние', value: '200 кПа · 5 л · 250 К' }] } },
+  //   полезная 0,22 − 0,03 = 0,19; 45 × 1,05 = 47,25; 47,25 / (4 × 0,19) = 62,2 -> 63
+  'cladding-boards': { query: { wall_area: 45, board_len: 4, board_width: 0.22, overlap: 0.03, waste: 5 }, result: { primary: '63 шт', rows: [{ label: 'Полезная ширина доски', value: '0,19 м' }, { label: 'Площадь с запасом', value: '47,25 м²' }, { label: 'Погонных метров доски', value: '252 м' }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));
