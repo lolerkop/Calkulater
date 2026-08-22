@@ -11,6 +11,7 @@ import CalculatorCatalog from './islands/CalculatorCatalog';
 import CatalogCard from './CatalogCard.astro';
 import CatalogPagination from './CatalogPagination.astro';
 import { clientUi } from '../lib/clientI18n';
+import { CATALOG_PAGE_SIZE } from '../lib/catalogPagination';
 import { ui, type Locale } from '../lib/i18n';
 import type { CalculatorDef, CategoryId } from '../lib/types';
 
@@ -100,6 +101,8 @@ const LABELS = ({
           class="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3"
           aria-label={copy.allCalculators}
           data-catalog-ssr-grid
+          data-catalog-page-size={CATALOG_PAGE_SIZE}
+          data-catalog-total={total}
         >
           {rows.map((calculator) => (
             <CatalogCard

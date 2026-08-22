@@ -451,13 +451,22 @@ for (const file of htmlFiles.filter(isCatalog)) {
 // называет весь каталог, а не срез.
 for (const [rel, entry] of catalogPageSizes) {
   if (!/\/calculators\/index\.html$/.test(rel)) continue;
-  const declared = entry.html.match(/([0-9]+)\s*<\/span>/);
-  const total = declared ? Number(declared[1]) : entry.cards;
+  // Численность и размер страницы объявляет сама разметка.
+  //
+  // Считать размер страницы по ФАКТИЧЕСКОМУ заполнению нельзя: пока каталог
+  // меньше размера страницы, страница неполна, и модель мерила бы сегодняшнее
+  // положение дел вместо параметра архитектуры. Ровно на этом проверка и
+  // промолчала бы, если бы размер страницы подняли до пятисот, — мутационная
+  // проверка это и показала.
+  const declaredTotal = entry.html.match(/data-catalog-total="(\d+)"/);
+  const declaredSize = entry.html.match(/data-catalog-page-size="(\d+)"/);
+  if (!declaredTotal || !declaredSize) {
+    issues.push(`${rel}: подборка не объявляет размер страницы и численность — масштаб измерить нечем`);
+    continue;
+  }
+  const total = Number(declaredTotal[1]);
   publishedCount = Math.max(publishedCount, total);
-
-  // Размер страницы — это срез корня подборки; если страниц одна, он равен
-  // численности, и модель всё равно строит набор на целевой численности.
-  const pageSize = Math.max(entry.cards, 1);
+  const pageSize = Math.max(Number(declaredSize[1]), 1);
   const target = catalogScaleTarget(total);
   const model = worstCatalogPage(entry.html, target, pageSize);
   if (!model) {
