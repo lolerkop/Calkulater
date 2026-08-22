@@ -20,6 +20,7 @@ export const localization: CalculatorLocalization = {
     options: { energy: 'the energy', deltaT: 'the temperature change', mass: 'the mass' },
     results: RESULTS_EN,
     values: {
+      'Энергия и изменение температуры должны быть одного знака': 'The energy and the temperature change must have the same sign',
       'Дж/(кг·К)': 'J/(kg·K)', 'кВт·ч': 'kWh', 'Дж': 'J', 'кг': 'kg', 'К': 'K',
       'Удельная теплоёмкость должна быть больше нуля': 'The specific heat capacity must be greater than zero',
       'Масса должна быть больше нуля': 'The mass must be greater than zero',
@@ -34,6 +35,7 @@ export const localization: CalculatorLocalization = {
     options: { energy: 'енергію', deltaT: 'зміну температури', mass: 'масу' },
     results: RESULTS_UK,
     values: {
+      'Энергия и изменение температуры должны быть одного знака': 'Енергія і зміна температури мають бути одного знака',
       'Дж/(кг·К)': 'Дж/(кг·К)', 'кВт·ч': 'кВт·год', 'Дж': 'Дж', 'кг': 'кг', 'К': 'К',
       'Удельная теплоёмкость должна быть больше нуля': 'Питома теплоємність має бути більшою за нуль',
       'Масса должна быть больше нуля': 'Маса має бути більшою за нуль',

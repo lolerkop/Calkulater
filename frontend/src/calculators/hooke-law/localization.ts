@@ -15,6 +15,7 @@ export const localization: CalculatorLocalization = {
     options: { force: 'the spring force', extension: 'the extension', stiffness: 'the spring rate' },
     results: RESULTS_EN,
     values: {
+      'Сила и деформация должны быть направлены в одну сторону': 'The force and the deformation must point the same way',
       'Н/м': 'N/m', 'Н': 'N', 'Дж': 'J', 'м': 'm',
       'Жёсткость должна быть больше нуля': 'The spring rate must be greater than zero',
       'Удлинение не может быть нулевым: делить на него нечего': 'The extension cannot be zero: there is nothing to divide by',
@@ -25,6 +26,7 @@ export const localization: CalculatorLocalization = {
     options: { force: 'силу пружності', extension: 'видовження', stiffness: 'жорсткість' },
     results: RESULTS_UK,
     values: {
+      'Сила и деформация должны быть направлены в одну сторону': 'Сила і деформація мають бути напрямлені в один бік',
       'Н/м': 'Н/м', 'Н': 'Н', 'Дж': 'Дж', 'м': 'м',
       'Жёсткость должна быть больше нуля': 'Жорсткість має бути більшою за нуль',
       'Удлинение не может быть нулевым: делить на него нечего': 'Видовження не може бути нульовим: ділити на нього нічого',

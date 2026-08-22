@@ -15,6 +15,7 @@ export const localization: CalculatorLocalization = {
     options: { charge: 'the charge', voltage: 'the voltage', capacitance: 'the capacitance' },
     results: RESULTS_EN,
     values: {
+      'Заряд и напряжение должны быть одного знака': 'The charge and the voltage must have the same sign',
       'мкКл': 'µC', 'мкФ': 'µF', 'Дж': 'J', 'В': 'V',
       'Ёмкость должна быть больше нуля': 'The capacitance must be greater than zero',
       'Напряжение не может быть нулевым: делить на него нечего': 'The voltage cannot be zero: there is nothing to divide by',
@@ -25,6 +26,7 @@ export const localization: CalculatorLocalization = {
     options: { charge: 'заряд', voltage: 'напругу', capacitance: 'ємність' },
     results: RESULTS_UK,
     values: {
+      'Заряд и напряжение должны быть одного знака': 'Заряд і напруга мають бути одного знака',
       'мкКл': 'мкКл', 'мкФ': 'мкФ', 'Дж': 'Дж', 'В': 'В',
       'Ёмкость должна быть больше нуля': 'Ємність має бути більшою за нуль',
       'Напряжение не может быть нулевым: делить на него нечего': 'Напруга не може бути нульовою: ділити на неї нічого',
