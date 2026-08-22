@@ -909,6 +909,20 @@ const stateScenarios: Record<string, StateScenario> = {
   'alcohol-units': { query: { volume_ml: 500, abv: 5.4, standard_g: 14 }, result: { primary: '1,52', rows: [{ label: 'Чистого спирта по массе', value: '21,303 г' }, { label: 'Чистого спирта по объёму', value: '27 мл' }, { label: 'Норма единицы', value: '14 г' }] } },
   //   2400 мм со стойкой 60 при пределе 90: 15 мало (92,5), 16 даёт 84,71
   'baluster-spacing': { query: { run: 2400, baluster_width: 60, max_gap: 90 }, result: { primary: '16 шт', rows: [{ label: 'Фактический просвет', value: '84,706 мм' }, { label: 'Шаг между осями', value: '146,16 мм' }, { label: 'Просветов', value: '17 шт' }] } },
+  // Волна 21, подпартия 21A1. Значения выведены независимой моделью Phase 21P
+  // на НЕумолчальных входах; решаемое поле в набор не входит.
+  //   модель 72 мм в масштабе 1:72 -> натура 5184 мм
+  'scale-model': { query: { mode: 'toReal', model: 72, scale: 72 }, result: { primary: '5 184 мм', rows: [{ label: 'Масштаб', value: '1:72' }, { label: 'Размер модели', value: '72 мм' }, { label: 'Натура больше модели во столько раз', value: '72' }] } },
+  //   те же долги снежным комом: 27 месяцев против 26 у лавины
+  'debt-snowball-avalanche': { query: { debts: 'small 40000 12 2000\nbig 200000 26 6000', extra: 4000, strategy: 'snowball' }, result: { primary: '27 мес', rows: [{ label: 'Переплата процентами', value: '75 082,64 ₽' }, { label: 'Долгов', value: '2' }] } },
+  //   2 000 105 -> «два миллиона сто пять», семь знаков в трёх триадах
+  'number-to-words': { query: { value: 2000105 }, result: { primary: 'два миллиона сто пять', rows: [{ label: 'Цифрами', value: '2 000 105' }, { label: 'Триад в записи', value: '3' }, { label: 'Знаков в числе', value: '7' }] } },
+  //   сумма чисел лет, первый год: 5/15 от базы 1 000 000 = 333 333,33
+  'depreciation-methods': { query: { cost: 1200000, salvage: 200000, life: 5, method: 'syd', year: 1 }, result: { primary: '333 333,33 ₽', rows: [{ label: 'Остаточная стоимость', value: '866 666,67 ₽' }, { label: 'Амортизируемая база', value: '1 000 000,00 ₽' }] } },
+  //   горизонтальная цистерна: четверть высоты даёт заметно меньше четверти объёма
+  'tank-volume': { query: { shape: 'horizontal-cylinder', d: 2, len: 4, level: 0.5 }, result: { primary: '2,457 м³', rows: [{ label: 'Полный объём', value: '12,566 м³' }, { label: 'Заполнено', value: '19,5501 %' }, { label: 'В литрах', value: '2 456,74 л' }] } },
+  //   отношение мощностей 1:10 — ровно 10 дБ
+  'decibel': { query: { mode: 'ratio', p1: 1, p2: 10, kind: 'power' }, result: { primary: '10 дБ', rows: [{ label: 'Во сколько раз по мощности', value: '10' }, { label: 'Во сколько раз по амплитуде', value: '3,162' }] } },
   // Волна 20B, партия 2. Те же правила: значения выведены независимой моделью,
   // решаемое поле в набор не входит.
   //   25 °C при 45 % -> γ = 0,84479, точка росы 12,229, разрыв 12,771

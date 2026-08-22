@@ -94,7 +94,10 @@ import { definition as def_ctr } from './ctr/definition';
 import { definition as def_currency_exchange_fee } from './currency-exchange-fee/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_dca } from './dca/definition';
+import { definition as def_debt_snowball_avalanche } from './debt-snowball-avalanche/definition';
+import { definition as def_decibel } from './decibel/definition';
 import { definition as def_density } from './density/definition';
+import { definition as def_depreciation_methods } from './depreciation-methods/definition';
 import { definition as def_dew_point } from './dew-point/definition';
 import { definition as def_dice_probability } from './dice-probability/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
@@ -187,6 +190,7 @@ import { definition as def_momentum } from './momentum/definition';
 import { definition as def_mrr_arr } from './mrr-arr/definition';
 import { definition as def_network_bandwidth } from './network-bandwidth/definition';
 import { definition as def_newton_force } from './newton-force/definition';
+import { definition as def_number_to_words } from './number-to-words/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
 import { definition as def_overtime } from './overtime/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
@@ -241,6 +245,7 @@ import { definition as def_salary_convert } from './salary-convert/definition';
 import { definition as def_salary_raise } from './salary-raise/definition';
 import { definition as def_savings_goal } from './savings-goal/definition';
 import { definition as def_savings_rate } from './savings-rate/definition';
+import { definition as def_scale_model } from './scale-model/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
 import { definition as def_single_phase } from './single-phase/definition';
@@ -257,6 +262,7 @@ import { definition as def_stock_duration } from './stock-duration/definition';
 import { definition as def_stress_strain } from './stress-strain/definition';
 import { definition as def_strip_foundation } from './strip-foundation/definition';
 import { definition as def_subscriptions_cost } from './subscriptions-cost/definition';
+import { definition as def_tank_volume } from './tank-volume/definition';
 import { definition as def_test_score_percent } from './test-score-percent/definition';
 import { definition as def_text_reading_time } from './text-reading-time/definition';
 import { definition as def_text_word_char_count } from './text-word-char-count/definition';
@@ -371,7 +377,10 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_currency_exchange_fee,
   def_day_of_week,
   def_dca,
+  def_debt_snowball_avalanche,
+  def_decibel,
   def_density,
+  def_depreciation_methods,
   def_dew_point,
   def_dice_probability,
   def_difference_abs_rel,
@@ -464,6 +473,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_mrr_arr,
   def_network_bandwidth,
   def_newton_force,
+  def_number_to_words,
   def_ohms_law,
   def_overtime,
   def_paint_calculator,
@@ -518,6 +528,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_salary_raise,
   def_savings_goal,
   def_savings_rate,
+  def_scale_model,
   def_shipping_per_unit,
   def_simple_interest,
   def_single_phase,
@@ -534,6 +545,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_stress_strain,
   def_strip_foundation,
   def_subscriptions_cost,
+  def_tank_volume,
   def_test_score_percent,
   def_text_reading_time,
   def_text_word_char_count,

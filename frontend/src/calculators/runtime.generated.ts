@@ -100,7 +100,10 @@ import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_currency_exchange_fee } from './currency-exchange-fee/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_dca } from './dca/compute';
+import { compute as compute_debt_snowball_avalanche } from './debt-snowball-avalanche/compute';
+import { compute as compute_decibel } from './decibel/compute';
 import { compute as compute_density } from './density/compute';
+import { compute as compute_depreciation_methods } from './depreciation-methods/compute';
 import { compute as compute_dew_point } from './dew-point/compute';
 import { compute as compute_dice_probability } from './dice-probability/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
@@ -199,6 +202,7 @@ import { compute as compute_momentum } from './momentum/compute';
 import { compute as compute_mrr_arr } from './mrr-arr/compute';
 import { compute as compute_network_bandwidth } from './network-bandwidth/compute';
 import { compute as compute_newton_force } from './newton-force/compute';
+import { compute as compute_number_to_words } from './number-to-words/compute';
 import { compute as compute_ohms_law } from './ohms-law/compute';
 import { contextualField as ctx_ohms_law } from './ohms-law/contextualField';
 import { compute as compute_overtime } from './overtime/compute';
@@ -257,6 +261,8 @@ import { compute as compute_salary_convert } from './salary-convert/compute';
 import { compute as compute_salary_raise } from './salary-raise/compute';
 import { compute as compute_savings_goal } from './savings-goal/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
+import { compute as compute_scale_model } from './scale-model/compute';
+import { contextualField as ctx_scale_model } from './scale-model/contextualField';
 import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_single_phase } from './single-phase/compute';
@@ -276,6 +282,7 @@ import { compute as compute_stress_strain } from './stress-strain/compute';
 import { contextualField as ctx_stress_strain } from './stress-strain/contextualField';
 import { compute as compute_strip_foundation } from './strip-foundation/compute';
 import { compute as compute_subscriptions_cost } from './subscriptions-cost/compute';
+import { compute as compute_tank_volume } from './tank-volume/compute';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
 import { compute as compute_text_reading_time } from './text-reading-time/compute';
 import { compute as compute_text_word_char_count } from './text-word-char-count/compute';
@@ -390,7 +397,10 @@ export const v2Runners: Record<string, CalcFunction> = {
   'currency-exchange-fee': compute_currency_exchange_fee,
   'day-of-week': compute_day_of_week,
   'dca': compute_dca,
+  'debt-snowball-avalanche': compute_debt_snowball_avalanche,
+  'decibel': compute_decibel,
   'density': compute_density,
+  'depreciation-methods': compute_depreciation_methods,
   'dew-point': compute_dew_point,
   'dice-probability': compute_dice_probability,
   'difference-abs-rel': compute_difference_abs_rel,
@@ -483,6 +493,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'mrr-arr': compute_mrr_arr,
   'network-bandwidth': compute_network_bandwidth,
   'newton-force': compute_newton_force,
+  'number-to-words': compute_number_to_words,
   'ohms-law': compute_ohms_law,
   'overtime': compute_overtime,
   'paint-calculator': compute_paint_calculator,
@@ -537,6 +548,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'salary-raise': compute_salary_raise,
   'savings-goal': compute_savings_goal,
   'savings-rate': compute_savings_rate,
+  'scale-model': compute_scale_model,
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
   'single-phase': compute_single_phase,
@@ -553,6 +565,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'stress-strain': compute_stress_strain,
   'strip-foundation': compute_strip_foundation,
   'subscriptions-cost': compute_subscriptions_cost,
+  'tank-volume': compute_tank_volume,
   'test-score-percent': compute_test_score_percent,
   'text-reading-time': compute_text_reading_time,
   'text-word-char-count': compute_text_word_char_count,
@@ -603,6 +616,7 @@ export const v2ContextualFields: Record<string, CalculatorContextualField> = {
   'ohms-law': ctx_ohms_law,
   'percent-calculator': ctx_percent_calculator,
   'proportion': ctx_proportion,
+  'scale-model': ctx_scale_model,
   'specific-heat': ctx_specific_heat,
   'speed-distance-time': ctx_speed_distance_time,
   'stress-strain': ctx_stress_strain,
