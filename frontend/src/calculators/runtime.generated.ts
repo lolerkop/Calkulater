@@ -44,6 +44,7 @@ import { contextualField as ctx_brew_ratio } from './brew-ratio/contextualField'
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_budget_split } from './budget-split/compute';
 import { compute as compute_bulk_material_volume } from './bulk-material-volume/compute';
+import { compute as compute_buoyancy } from './buoyancy/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
 import { compute as compute_calories_from_macros } from './calories-from-macros/compute';
@@ -125,6 +126,7 @@ import { compute as compute_email_metrics } from './email-metrics/compute';
 import { compute as compute_emergency_fund } from './emergency-fund/compute';
 import { compute as compute_employee_cost } from './employee-cost/compute';
 import { compute as compute_engagement_rate } from './engagement-rate/compute';
+import { compute as compute_engine_displacement } from './engine-displacement/compute';
 import { compute as compute_escape_velocity } from './escape-velocity/compute';
 import { compute as compute_factorial } from './factorial/compute';
 import { compute as compute_fee_chain } from './fee-chain/compute';
@@ -138,6 +140,7 @@ import { compute as compute_fraction_arith } from './fraction-arith/compute';
 import { compute as compute_free_fall } from './free-fall/compute';
 import { compute as compute_freelance_rate } from './freelance-rate/compute';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
+import { compute as compute_fuel_oil_mix } from './fuel-oil-mix/compute';
 import { compute as compute_gas_laws } from './gas-laws/compute';
 import { contextualField as ctx_gas_laws } from './gas-laws/contextualField';
 import { compute as compute_gcd_lcm } from './gcd-lcm/compute';
@@ -174,6 +177,7 @@ import { contextualField as ctx_hooke_law } from './hooke-law/contextualField';
 import { compute as compute_hydrostatic_pressure } from './hydrostatic-pressure/compute';
 import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
 import { compute as compute_ideal_weight } from './ideal-weight/compute';
+import { compute as compute_inclined_plane } from './inclined-plane/compute';
 import { compute as compute_inflation } from './inflation/compute';
 import { compute as compute_installment } from './installment/compute';
 import { compute as compute_insulation } from './insulation/compute';
@@ -185,6 +189,7 @@ import { compute as compute_ipv4_subnet } from './ipv4-subnet/compute';
 import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
 import { compute as compute_kva_kw } from './kva-kw/compute';
 import { contextualField as ctx_kva_kw } from './kva-kw/contextualField';
+import { compute as compute_lc_resonance } from './lc-resonance/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
 import { compute as compute_lever_moment } from './lever-moment/compute';
@@ -197,10 +202,12 @@ import { compute as compute_linoleum } from './linoleum/compute';
 import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
+import { compute as compute_luggage_linear } from './luggage-linear/compute';
 import { compute as compute_market_cap } from './market-cap/compute';
 import { compute as compute_max_heart_rate } from './max-heart-rate/compute';
 import { compute as compute_max_loan } from './max-loan/compute';
 import { compute as compute_metal_weight } from './metal-weight/compute';
+import { compute as compute_miter_angle } from './miter-angle/compute';
 import { compute as compute_modular_scale } from './modular-scale/compute';
 import { compute as compute_modulo } from './modulo/compute';
 import { compute as compute_molar_mass } from './molar-mass/compute';
@@ -356,6 +363,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'budget-50-30-20': compute_budget_50_30_20,
   'budget-split': compute_budget_split,
   'bulk-material-volume': compute_bulk_material_volume,
+  'buoyancy': compute_buoyancy,
   'cac': compute_cac,
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
@@ -434,6 +442,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'emergency-fund': compute_emergency_fund,
   'employee-cost': compute_employee_cost,
   'engagement-rate': compute_engagement_rate,
+  'engine-displacement': compute_engine_displacement,
   'escape-velocity': compute_escape_velocity,
   'factorial': compute_factorial,
   'fee-chain': compute_fee_chain,
@@ -446,6 +455,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'free-fall': compute_free_fall,
   'freelance-rate': compute_freelance_rate,
   'fuel-consumption': compute_fuel_consumption,
+  'fuel-oil-mix': compute_fuel_oil_mix,
   'gas-laws': compute_gas_laws,
   'gcd-lcm': compute_gcd_lcm,
   'generator-fuel': compute_generator_fuel,
@@ -480,6 +490,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'hydrostatic-pressure': compute_hydrostatic_pressure,
   'ideal-gas-law': compute_ideal_gas_law,
   'ideal-weight': compute_ideal_weight,
+  'inclined-plane': compute_inclined_plane,
   'inflation': compute_inflation,
   'installment': compute_installment,
   'insulation': compute_insulation,
@@ -490,6 +501,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ipv4-subnet': compute_ipv4_subnet,
   'kinetic-energy': compute_kinetic_energy,
   'kva-kw': compute_kva_kw,
+  'lc-resonance': compute_lc_resonance,
   'leap-year': compute_leap_year,
   'led-resistor': compute_led_resistor,
   'lever-moment': compute_lever_moment,
@@ -500,10 +512,12 @@ export const v2Runners: Record<string, CalcFunction> = {
   'linoleum': compute_linoleum,
   'logarithm': compute_logarithm,
   'ltv': compute_ltv,
+  'luggage-linear': compute_luggage_linear,
   'market-cap': compute_market_cap,
   'max-heart-rate': compute_max_heart_rate,
   'max-loan': compute_max_loan,
   'metal-weight': compute_metal_weight,
+  'miter-angle': compute_miter_angle,
   'modular-scale': compute_modular_scale,
   'modulo': compute_modulo,
   'molar-mass': compute_molar_mass,

@@ -35,6 +35,7 @@ import { localization as loc_brew_ratio } from './brew-ratio/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
 import { localization as loc_budget_split } from './budget-split/localization';
 import { localization as loc_bulk_material_volume } from './bulk-material-volume/localization';
+import { localization as loc_buoyancy } from './buoyancy/localization';
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
 import { localization as loc_calories_from_macros } from './calories-from-macros/localization';
@@ -113,6 +114,7 @@ import { localization as loc_email_metrics } from './email-metrics/localization'
 import { localization as loc_emergency_fund } from './emergency-fund/localization';
 import { localization as loc_employee_cost } from './employee-cost/localization';
 import { localization as loc_engagement_rate } from './engagement-rate/localization';
+import { localization as loc_engine_displacement } from './engine-displacement/localization';
 import { localization as loc_escape_velocity } from './escape-velocity/localization';
 import { localization as loc_factorial } from './factorial/localization';
 import { localization as loc_fee_chain } from './fee-chain/localization';
@@ -125,6 +127,7 @@ import { localization as loc_fraction_arith } from './fraction-arith/localizatio
 import { localization as loc_free_fall } from './free-fall/localization';
 import { localization as loc_freelance_rate } from './freelance-rate/localization';
 import { localization as loc_fuel_consumption } from './fuel-consumption/localization';
+import { localization as loc_fuel_oil_mix } from './fuel-oil-mix/localization';
 import { localization as loc_gas_laws } from './gas-laws/localization';
 import { localization as loc_gcd_lcm } from './gcd-lcm/localization';
 import { localization as loc_generator_fuel } from './generator-fuel/localization';
@@ -159,6 +162,7 @@ import { localization as loc_hooke_law } from './hooke-law/localization';
 import { localization as loc_hydrostatic_pressure } from './hydrostatic-pressure/localization';
 import { localization as loc_ideal_gas_law } from './ideal-gas-law/localization';
 import { localization as loc_ideal_weight } from './ideal-weight/localization';
+import { localization as loc_inclined_plane } from './inclined-plane/localization';
 import { localization as loc_inflation } from './inflation/localization';
 import { localization as loc_installment } from './installment/localization';
 import { localization as loc_insulation } from './insulation/localization';
@@ -169,6 +173,7 @@ import { localization as loc_inverter_power } from './inverter-power/localizatio
 import { localization as loc_ipv4_subnet } from './ipv4-subnet/localization';
 import { localization as loc_kinetic_energy } from './kinetic-energy/localization';
 import { localization as loc_kva_kw } from './kva-kw/localization';
+import { localization as loc_lc_resonance } from './lc-resonance/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_led_resistor } from './led-resistor/localization';
 import { localization as loc_lever_moment } from './lever-moment/localization';
@@ -179,10 +184,12 @@ import { localization as loc_linear_system } from './linear-system/localization'
 import { localization as loc_linoleum } from './linoleum/localization';
 import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_ltv } from './ltv/localization';
+import { localization as loc_luggage_linear } from './luggage-linear/localization';
 import { localization as loc_market_cap } from './market-cap/localization';
 import { localization as loc_max_heart_rate } from './max-heart-rate/localization';
 import { localization as loc_max_loan } from './max-loan/localization';
 import { localization as loc_metal_weight } from './metal-weight/localization';
+import { localization as loc_miter_angle } from './miter-angle/localization';
 import { localization as loc_modular_scale } from './modular-scale/localization';
 import { localization as loc_modulo } from './modulo/localization';
 import { localization as loc_molar_mass } from './molar-mass/localization';
@@ -329,6 +336,7 @@ export const v2Localization: ScopedLocalization = {
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
     'budget-split': loc_budget_split.en ?? {},
     'bulk-material-volume': loc_bulk_material_volume.en ?? {},
+    'buoyancy': loc_buoyancy.en ?? {},
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
     'calories-from-macros': loc_calories_from_macros.en ?? {},
@@ -407,6 +415,7 @@ export const v2Localization: ScopedLocalization = {
     'emergency-fund': loc_emergency_fund.en ?? {},
     'employee-cost': loc_employee_cost.en ?? {},
     'engagement-rate': loc_engagement_rate.en ?? {},
+    'engine-displacement': loc_engine_displacement.en ?? {},
     'escape-velocity': loc_escape_velocity.en ?? {},
     'factorial': loc_factorial.en ?? {},
     'fee-chain': loc_fee_chain.en ?? {},
@@ -419,6 +428,7 @@ export const v2Localization: ScopedLocalization = {
     'free-fall': loc_free_fall.en ?? {},
     'freelance-rate': loc_freelance_rate.en ?? {},
     'fuel-consumption': loc_fuel_consumption.en ?? {},
+    'fuel-oil-mix': loc_fuel_oil_mix.en ?? {},
     'gas-laws': loc_gas_laws.en ?? {},
     'gcd-lcm': loc_gcd_lcm.en ?? {},
     'generator-fuel': loc_generator_fuel.en ?? {},
@@ -453,6 +463,7 @@ export const v2Localization: ScopedLocalization = {
     'hydrostatic-pressure': loc_hydrostatic_pressure.en ?? {},
     'ideal-gas-law': loc_ideal_gas_law.en ?? {},
     'ideal-weight': loc_ideal_weight.en ?? {},
+    'inclined-plane': loc_inclined_plane.en ?? {},
     'inflation': loc_inflation.en ?? {},
     'installment': loc_installment.en ?? {},
     'insulation': loc_insulation.en ?? {},
@@ -463,6 +474,7 @@ export const v2Localization: ScopedLocalization = {
     'ipv4-subnet': loc_ipv4_subnet.en ?? {},
     'kinetic-energy': loc_kinetic_energy.en ?? {},
     'kva-kw': loc_kva_kw.en ?? {},
+    'lc-resonance': loc_lc_resonance.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
     'led-resistor': loc_led_resistor.en ?? {},
     'lever-moment': loc_lever_moment.en ?? {},
@@ -473,10 +485,12 @@ export const v2Localization: ScopedLocalization = {
     'linoleum': loc_linoleum.en ?? {},
     'logarithm': loc_logarithm.en ?? {},
     'ltv': loc_ltv.en ?? {},
+    'luggage-linear': loc_luggage_linear.en ?? {},
     'market-cap': loc_market_cap.en ?? {},
     'max-heart-rate': loc_max_heart_rate.en ?? {},
     'max-loan': loc_max_loan.en ?? {},
     'metal-weight': loc_metal_weight.en ?? {},
+    'miter-angle': loc_miter_angle.en ?? {},
     'modular-scale': loc_modular_scale.en ?? {},
     'modulo': loc_modulo.en ?? {},
     'molar-mass': loc_molar_mass.en ?? {},
@@ -622,6 +636,7 @@ export const v2Localization: ScopedLocalization = {
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
     'budget-split': loc_budget_split.uk ?? {},
     'bulk-material-volume': loc_bulk_material_volume.uk ?? {},
+    'buoyancy': loc_buoyancy.uk ?? {},
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
     'calories-from-macros': loc_calories_from_macros.uk ?? {},
@@ -700,6 +715,7 @@ export const v2Localization: ScopedLocalization = {
     'emergency-fund': loc_emergency_fund.uk ?? {},
     'employee-cost': loc_employee_cost.uk ?? {},
     'engagement-rate': loc_engagement_rate.uk ?? {},
+    'engine-displacement': loc_engine_displacement.uk ?? {},
     'escape-velocity': loc_escape_velocity.uk ?? {},
     'factorial': loc_factorial.uk ?? {},
     'fee-chain': loc_fee_chain.uk ?? {},
@@ -712,6 +728,7 @@ export const v2Localization: ScopedLocalization = {
     'free-fall': loc_free_fall.uk ?? {},
     'freelance-rate': loc_freelance_rate.uk ?? {},
     'fuel-consumption': loc_fuel_consumption.uk ?? {},
+    'fuel-oil-mix': loc_fuel_oil_mix.uk ?? {},
     'gas-laws': loc_gas_laws.uk ?? {},
     'gcd-lcm': loc_gcd_lcm.uk ?? {},
     'generator-fuel': loc_generator_fuel.uk ?? {},
@@ -746,6 +763,7 @@ export const v2Localization: ScopedLocalization = {
     'hydrostatic-pressure': loc_hydrostatic_pressure.uk ?? {},
     'ideal-gas-law': loc_ideal_gas_law.uk ?? {},
     'ideal-weight': loc_ideal_weight.uk ?? {},
+    'inclined-plane': loc_inclined_plane.uk ?? {},
     'inflation': loc_inflation.uk ?? {},
     'installment': loc_installment.uk ?? {},
     'insulation': loc_insulation.uk ?? {},
@@ -756,6 +774,7 @@ export const v2Localization: ScopedLocalization = {
     'ipv4-subnet': loc_ipv4_subnet.uk ?? {},
     'kinetic-energy': loc_kinetic_energy.uk ?? {},
     'kva-kw': loc_kva_kw.uk ?? {},
+    'lc-resonance': loc_lc_resonance.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
     'led-resistor': loc_led_resistor.uk ?? {},
     'lever-moment': loc_lever_moment.uk ?? {},
@@ -766,10 +785,12 @@ export const v2Localization: ScopedLocalization = {
     'linoleum': loc_linoleum.uk ?? {},
     'logarithm': loc_logarithm.uk ?? {},
     'ltv': loc_ltv.uk ?? {},
+    'luggage-linear': loc_luggage_linear.uk ?? {},
     'market-cap': loc_market_cap.uk ?? {},
     'max-heart-rate': loc_max_heart_rate.uk ?? {},
     'max-loan': loc_max_loan.uk ?? {},
     'metal-weight': loc_metal_weight.uk ?? {},
+    'miter-angle': loc_miter_angle.uk ?? {},
     'modular-scale': loc_modular_scale.uk ?? {},
     'modulo': loc_modulo.uk ?? {},
     'molar-mass': loc_molar_mass.uk ?? {},

@@ -41,6 +41,7 @@ import { definition as def_brew_ratio } from './brew-ratio/definition';
 import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition';
 import { definition as def_budget_split } from './budget-split/definition';
 import { definition as def_bulk_material_volume } from './bulk-material-volume/definition';
+import { definition as def_buoyancy } from './buoyancy/definition';
 import { definition as def_cac } from './cac/definition';
 import { definition as def_cagr } from './cagr/definition';
 import { definition as def_calories_from_macros } from './calories-from-macros/definition';
@@ -119,6 +120,7 @@ import { definition as def_email_metrics } from './email-metrics/definition';
 import { definition as def_emergency_fund } from './emergency-fund/definition';
 import { definition as def_employee_cost } from './employee-cost/definition';
 import { definition as def_engagement_rate } from './engagement-rate/definition';
+import { definition as def_engine_displacement } from './engine-displacement/definition';
 import { definition as def_escape_velocity } from './escape-velocity/definition';
 import { definition as def_factorial } from './factorial/definition';
 import { definition as def_fee_chain } from './fee-chain/definition';
@@ -131,6 +133,7 @@ import { definition as def_fraction_arith } from './fraction-arith/definition';
 import { definition as def_free_fall } from './free-fall/definition';
 import { definition as def_freelance_rate } from './freelance-rate/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
+import { definition as def_fuel_oil_mix } from './fuel-oil-mix/definition';
 import { definition as def_gas_laws } from './gas-laws/definition';
 import { definition as def_gcd_lcm } from './gcd-lcm/definition';
 import { definition as def_generator_fuel } from './generator-fuel/definition';
@@ -165,6 +168,7 @@ import { definition as def_hooke_law } from './hooke-law/definition';
 import { definition as def_hydrostatic_pressure } from './hydrostatic-pressure/definition';
 import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
 import { definition as def_ideal_weight } from './ideal-weight/definition';
+import { definition as def_inclined_plane } from './inclined-plane/definition';
 import { definition as def_inflation } from './inflation/definition';
 import { definition as def_installment } from './installment/definition';
 import { definition as def_insulation } from './insulation/definition';
@@ -175,6 +179,7 @@ import { definition as def_inverter_power } from './inverter-power/definition';
 import { definition as def_ipv4_subnet } from './ipv4-subnet/definition';
 import { definition as def_kinetic_energy } from './kinetic-energy/definition';
 import { definition as def_kva_kw } from './kva-kw/definition';
+import { definition as def_lc_resonance } from './lc-resonance/definition';
 import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
 import { definition as def_lever_moment } from './lever-moment/definition';
@@ -185,10 +190,12 @@ import { definition as def_linear_system } from './linear-system/definition';
 import { definition as def_linoleum } from './linoleum/definition';
 import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_ltv } from './ltv/definition';
+import { definition as def_luggage_linear } from './luggage-linear/definition';
 import { definition as def_market_cap } from './market-cap/definition';
 import { definition as def_max_heart_rate } from './max-heart-rate/definition';
 import { definition as def_max_loan } from './max-loan/definition';
 import { definition as def_metal_weight } from './metal-weight/definition';
+import { definition as def_miter_angle } from './miter-angle/definition';
 import { definition as def_modular_scale } from './modular-scale/definition';
 import { definition as def_modulo } from './modulo/definition';
 import { definition as def_molar_mass } from './molar-mass/definition';
@@ -336,6 +343,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_budget_50_30_20,
   def_budget_split,
   def_bulk_material_volume,
+  def_buoyancy,
   def_cac,
   def_cagr,
   def_calories_from_macros,
@@ -414,6 +422,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_emergency_fund,
   def_employee_cost,
   def_engagement_rate,
+  def_engine_displacement,
   def_escape_velocity,
   def_factorial,
   def_fee_chain,
@@ -426,6 +435,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_free_fall,
   def_freelance_rate,
   def_fuel_consumption,
+  def_fuel_oil_mix,
   def_gas_laws,
   def_gcd_lcm,
   def_generator_fuel,
@@ -460,6 +470,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_hydrostatic_pressure,
   def_ideal_gas_law,
   def_ideal_weight,
+  def_inclined_plane,
   def_inflation,
   def_installment,
   def_insulation,
@@ -470,6 +481,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ipv4_subnet,
   def_kinetic_energy,
   def_kva_kw,
+  def_lc_resonance,
   def_leap_year,
   def_led_resistor,
   def_lever_moment,
@@ -480,10 +492,12 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_linoleum,
   def_logarithm,
   def_ltv,
+  def_luggage_linear,
   def_market_cap,
   def_max_heart_rate,
   def_max_loan,
   def_metal_weight,
+  def_miter_angle,
   def_modular_scale,
   def_modulo,
   def_molar_mass,
