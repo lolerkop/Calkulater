@@ -7,7 +7,12 @@ import { bulkMaterialVolumeReferenceCases } from './referenceCases';
 export const definition: CalculatorDefinitionV2 = {
   id: "bulk-material-volume",
   definitionVersion: 1,
-  lifecycle: 'released',
+  // Реализован полностью и проверен эталонными случаями, но НЕ публикуется.
+  // Публикацию всей волны 20A удерживает Catalog Scale 4: подборка обязана
+  // сначала получить архитектуру, выдерживающую 500 калькуляторов. Пятеро
+  // выпущенных были максимумом, который держал прежний гейт; выпускать волну
+  // по частям решено не будет. Снятие удержания — одно слово в этой строке.
+  lifecycle: 'implemented',
   compute,
   copy: { en: bulkMaterialVolumeCopyEn, uk: bulkMaterialVolumeCopyUk },
   referenceCases: bulkMaterialVolumeReferenceCases,

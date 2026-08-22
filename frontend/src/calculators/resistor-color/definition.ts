@@ -32,7 +32,12 @@ const COLOR_BANDS = [
 export const definition: CalculatorDefinitionV2 = {
   id: "resistor-color",
   definitionVersion: 1,
-  lifecycle: 'released',
+  // Реализован полностью и проверен эталонными случаями, но НЕ публикуется.
+  // Публикацию всей волны 20A удерживает Catalog Scale 4: подборка обязана
+  // сначала получить архитектуру, выдерживающую 500 калькуляторов. Пятеро
+  // выпущенных были максимумом, который держал прежний гейт; выпускать волну
+  // по частям решено не будет. Снятие удержания — одно слово в этой строке.
+  lifecycle: 'implemented',
   compute,
   copy: { en: resistorColorCopyEn, uk: resistorColorCopyUk },
   referenceCases: resistorColorReferenceCases,

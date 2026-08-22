@@ -76,10 +76,8 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/math/binomial-probability/,ru,calculator,true,/ru/math/binomial-probability/,calculator:binomial-probability,src/pages/[locale]/[category]/[calculator].astro
 /ru/building/board-volume/,ru,calculator,true,/ru/building/board-volume/,calculator:board-volume,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/bonus/,ru,calculator,true,/ru/finance/bonus/,calculator:bonus,src/pages/[locale]/[category]/[calculator].astro
-/ru/household/sootnoshenie-kofe-i-vody/,ru,calculator,true,/ru/household/sootnoshenie-kofe-i-vody/,calculator:brew-ratio,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/budget-50-30-20/,ru,calculator,true,/ru/finance/budget-50-30-20/,calculator:budget-50-30-20,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/delenie-byudzheta/,ru,calculator,true,/ru/finance/delenie-byudzheta/,calculator:budget-split,src/pages/[locale]/[category]/[calculator].astro
-/ru/building/sypuchiy-material/,ru,calculator,true,/ru/building/sypuchiy-material/,calculator:bulk-material-volume,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/cac/,ru,calculator,true,/ru/business/cac/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/cagr/,ru,calculator,true,/ru/finance/cagr/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
 /ru/sport/calories-from-macros/,ru,calculator,true,/ru/sport/calories-from-macros/,calculator:calories-from-macros,src/pages/[locale]/[category]/[calculator].astro
@@ -87,7 +85,6 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/automotive/car-depreciation/,ru,calculator,true,/ru/automotive/car-depreciation/,calculator:car-depreciation,src/pages/[locale]/[category]/[calculator].astro
 /ru/physics/centripetal-force/,ru,calculator,true,/ru/physics/centripetal-force/,calculator:centripetal-force,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/churn-retention/,ru,calculator,true,/ru/business/churn-retention/,calculator:churn-retention,src/pages/[locale]/[category]/[calculator].astro
-/ru/building/obshivka-doskoy/,ru,calculator,true,/ru/building/obshivka-doskoy/,calculator:cladding-boards,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/cogs/,ru,calculator,true,/ru/business/cogs/,calculator:cogs,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/unit-cost/,ru,calculator,true,/ru/business/unit-cost/,calculator:cogs-unit-cost,src/pages/[locale]/[category]/[calculator].astro
 /ru/computers/color-convert/,ru,calculator,true,/ru/computers/color-convert/,calculator:color-convert,src/pages/[locale]/[category]/[calculator].astro
@@ -157,7 +154,6 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/math/fractions/,ru,calculator,true,/ru/math/fractions/,calculator:fraction-arith,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/freelance-rate/,ru,calculator,true,/ru/finance/freelance-rate/,calculator:freelance-rate,src/pages/[locale]/[category]/[calculator].astro
 /ru/automotive/fuel-consumption/,ru,calculator,true,/ru/automotive/fuel-consumption/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
-/ru/chemistry/gazovye-zakony/,ru,calculator,true,/ru/chemistry/gazovye-zakony/,calculator:gas-laws,src/pages/[locale]/[category]/[calculator].astro
 /ru/math/gcd-lcm/,ru,calculator,true,/ru/math/gcd-lcm/,calculator:gcd-lcm,src/pages/[locale]/[category]/[calculator].astro
 /ru/household/generator-fuel/,ru,calculator,true,/ru/household/generator-fuel/,calculator:generator-fuel,src/pages/[locale]/[category]/[calculator].astro
 /ru/geometry/geom-annulus/,ru,calculator,true,/ru/geometry/geom-annulus/,calculator:geom-annulus,src/pages/[locale]/[category]/[calculator].astro
@@ -250,7 +246,6 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/household/recipe-scale/,ru,calculator,true,/ru/household/recipe-scale/,calculator:recipe-scale,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/refinansirovanie/,ru,calculator,true,/ru/finance/refinansirovanie/,calculator:refinancing,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/rental-yield/,ru,calculator,true,/ru/finance/rental-yield/,calculator:rental-yield,src/pages/[locale]/[category]/[calculator].astro
-/ru/electronics/cvetovaya-markirovka-rezistora/,ru,calculator,true,/ru/electronics/cvetovaya-markirovka-rezistora/,calculator:resistor-color,src/pages/[locale]/[category]/[calculator].astro
 /ru/electronics/resistor-network/,ru,calculator,true,/ru/electronics/resistor-network/,calculator:resistor-network,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/return-rate/,ru,calculator,true,/ru/business/return-rate/,calculator:return-rate,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/revenue-per-employee/,ru,calculator,true,/ru/business/revenue-per-employee/,calculator:revenue-per-employee,src/pages/[locale]/[category]/[calculator].astro
@@ -379,10 +374,8 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/math/binomial-probability-calculator/,en,calculator,true,/en/math/binomial-probability-calculator/,calculator:binomial-probability,src/pages/[locale]/[category]/[calculator].astro
 /en/home-improvement/board-volume-calculator/,en,calculator,true,/en/home-improvement/board-volume-calculator/,calculator:board-volume,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/bonus-calculator/,en,calculator,true,/en/finance/bonus-calculator/,calculator:bonus,src/pages/[locale]/[category]/[calculator].astro
-/en/household/coffee-brew-ratio/,en,calculator,true,/en/household/coffee-brew-ratio/,calculator:brew-ratio,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/budget-50-30-20-calculator/,en,calculator,true,/en/finance/budget-50-30-20-calculator/,calculator:budget-50-30-20,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/budget-split/,en,calculator,true,/en/finance/budget-split/,calculator:budget-split,src/pages/[locale]/[category]/[calculator].astro
-/en/home-improvement/bulk-material-volume/,en,calculator,true,/en/home-improvement/bulk-material-volume/,calculator:bulk-material-volume,src/pages/[locale]/[category]/[calculator].astro
 /en/business/customer-acquisition-cost/,en,calculator,true,/en/business/customer-acquisition-cost/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/cagr-calculator/,en,calculator,true,/en/finance/cagr-calculator/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
 /en/fitness/calories-from-macros-calculator/,en,calculator,true,/en/fitness/calories-from-macros-calculator/,calculator:calories-from-macros,src/pages/[locale]/[category]/[calculator].astro
@@ -390,7 +383,6 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/automotive/car-depreciation-calculator/,en,calculator,true,/en/automotive/car-depreciation-calculator/,calculator:car-depreciation,src/pages/[locale]/[category]/[calculator].astro
 /en/physics/centripetal-force-calculator/,en,calculator,true,/en/physics/centripetal-force-calculator/,calculator:centripetal-force,src/pages/[locale]/[category]/[calculator].astro
 /en/business/churn-retention-calculator/,en,calculator,true,/en/business/churn-retention-calculator/,calculator:churn-retention,src/pages/[locale]/[category]/[calculator].astro
-/en/home-improvement/cladding-boards/,en,calculator,true,/en/home-improvement/cladding-boards/,calculator:cladding-boards,src/pages/[locale]/[category]/[calculator].astro
 /en/business/cogs-calculator/,en,calculator,true,/en/business/cogs-calculator/,calculator:cogs,src/pages/[locale]/[category]/[calculator].astro
 /en/business/unit-cost-calculator/,en,calculator,true,/en/business/unit-cost-calculator/,calculator:cogs-unit-cost,src/pages/[locale]/[category]/[calculator].astro
 /en/computers/hex-rgb-hsl-converter/,en,calculator,true,/en/computers/hex-rgb-hsl-converter/,calculator:color-convert,src/pages/[locale]/[category]/[calculator].astro
@@ -460,7 +452,6 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/math/fraction-calculator/,en,calculator,true,/en/math/fraction-calculator/,calculator:fraction-arith,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/freelance-rate-calculator/,en,calculator,true,/en/finance/freelance-rate-calculator/,calculator:freelance-rate,src/pages/[locale]/[category]/[calculator].astro
 /en/automotive/fuel-consumption-calculator/,en,calculator,true,/en/automotive/fuel-consumption-calculator/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
-/en/chemistry/combined-gas-law/,en,calculator,true,/en/chemistry/combined-gas-law/,calculator:gas-laws,src/pages/[locale]/[category]/[calculator].astro
 /en/math/gcd-and-lcm-calculator/,en,calculator,true,/en/math/gcd-and-lcm-calculator/,calculator:gcd-lcm,src/pages/[locale]/[category]/[calculator].astro
 /en/household/generator-fuel-calculator/,en,calculator,true,/en/household/generator-fuel-calculator/,calculator:generator-fuel,src/pages/[locale]/[category]/[calculator].astro
 /en/geometry/annulus-calculator/,en,calculator,true,/en/geometry/annulus-calculator/,calculator:geom-annulus,src/pages/[locale]/[category]/[calculator].astro
@@ -553,7 +544,6 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/household/recipe-scaling-calculator/,en,calculator,true,/en/household/recipe-scaling-calculator/,calculator:recipe-scale,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/refinancing/,en,calculator,true,/en/finance/refinancing/,calculator:refinancing,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/rental-yield-calculator/,en,calculator,true,/en/finance/rental-yield-calculator/,calculator:rental-yield,src/pages/[locale]/[category]/[calculator].astro
-/en/electronics/resistor-color-code/,en,calculator,true,/en/electronics/resistor-color-code/,calculator:resistor-color,src/pages/[locale]/[category]/[calculator].astro
 /en/electronics/resistor-network-calculator/,en,calculator,true,/en/electronics/resistor-network-calculator/,calculator:resistor-network,src/pages/[locale]/[category]/[calculator].astro
 /en/business/return-rate/,en,calculator,true,/en/business/return-rate/,calculator:return-rate,src/pages/[locale]/[category]/[calculator].astro
 /en/business/revenue-per-employee/,en,calculator,true,/en/business/revenue-per-employee/,calculator:revenue-per-employee,src/pages/[locale]/[category]/[calculator].astro
@@ -682,10 +672,8 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/math/binomialna-ymovirnist/,uk,calculator,true,/uk/math/binomialna-ymovirnist/,calculator:binomial-probability,src/pages/[locale]/[category]/[calculator].astro
 /uk/remont/kubatura-doshok/,uk,calculator,true,/uk/remont/kubatura-doshok/,calculator:board-volume,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/premiya/,uk,calculator,true,/uk/finansy/premiya/,calculator:bonus,src/pages/[locale]/[category]/[calculator].astro
-/uk/pobut/spivvidnoshennya-kavy-ta-vody/,uk,calculator,true,/uk/pobut/spivvidnoshennya-kavy-ta-vody/,calculator:brew-ratio,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/kalkulyator-byudzhetu-50-30-20/,uk,calculator,true,/uk/finansy/kalkulyator-byudzhetu-50-30-20/,calculator:budget-50-30-20,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/podil-byudzhetu/,uk,calculator,true,/uk/finansy/podil-byudzhetu/,calculator:budget-split,src/pages/[locale]/[category]/[calculator].astro
-/uk/remont/sypkyy-material/,uk,calculator,true,/uk/remont/sypkyy-material/,calculator:bulk-material-volume,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/vartist-zaluchennya-kliyenta/,uk,calculator,true,/uk/business/vartist-zaluchennya-kliyenta/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/cagr-kalkulyator/,uk,calculator,true,/uk/finansy/cagr-kalkulyator/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
 /uk/fitness/kalkulyator-kaloriy-z-bzhv/,uk,calculator,true,/uk/fitness/kalkulyator-kaloriy-z-bzhv/,calculator:calories-from-macros,src/pages/[locale]/[category]/[calculator].astro
@@ -693,7 +681,6 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/avtomobili/amortyzatsiya-avto/,uk,calculator,true,/uk/avtomobili/amortyzatsiya-avto/,calculator:car-depreciation,src/pages/[locale]/[category]/[calculator].astro
 /uk/fizyka/dotsentrova-syla/,uk,calculator,true,/uk/fizyka/dotsentrova-syla/,calculator:centripetal-force,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/vidtik-utrymannya/,uk,calculator,true,/uk/business/vidtik-utrymannya/,calculator:churn-retention,src/pages/[locale]/[category]/[calculator].astro
-/uk/remont/obshyvka-doshkoyu/,uk,calculator,true,/uk/remont/obshyvka-doshkoyu/,calculator:cladding-boards,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/sobivartist-prodazhiv/,uk,calculator,true,/uk/business/sobivartist-prodazhiv/,calculator:cogs,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/sobivartist-odynytsi/,uk,calculator,true,/uk/business/sobivartist-odynytsi/,calculator:cogs-unit-cost,src/pages/[locale]/[category]/[calculator].astro
 /uk/kompyutery/konverter-koloriv/,uk,calculator,true,/uk/kompyutery/konverter-koloriv/,calculator:color-convert,src/pages/[locale]/[category]/[calculator].astro
@@ -763,7 +750,6 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/math/drobi/,uk,calculator,true,/uk/math/drobi/,calculator:fraction-arith,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/stavka-frilansera/,uk,calculator,true,/uk/finansy/stavka-frilansera/,calculator:freelance-rate,src/pages/[locale]/[category]/[calculator].astro
 /uk/avtomobili/vytrata-palyva/,uk,calculator,true,/uk/avtomobili/vytrata-palyva/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
-/uk/himiya/hazovi-zakony/,uk,calculator,true,/uk/himiya/hazovi-zakony/,calculator:gas-laws,src/pages/[locale]/[category]/[calculator].astro
 /uk/math/nsd-nsk/,uk,calculator,true,/uk/math/nsd-nsk/,calculator:gcd-lcm,src/pages/[locale]/[category]/[calculator].astro
 /uk/pobut/vytrata-palnoho-heneratora/,uk,calculator,true,/uk/pobut/vytrata-palnoho-heneratora/,calculator:generator-fuel,src/pages/[locale]/[category]/[calculator].astro
 /uk/heometriya/kiltse/,uk,calculator,true,/uk/heometriya/kiltse/,calculator:geom-annulus,src/pages/[locale]/[category]/[calculator].astro
@@ -856,7 +842,6 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/pobut/masshtabuvannya-retsepta/,uk,calculator,true,/uk/pobut/masshtabuvannya-retsepta/,calculator:recipe-scale,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/refinansuvannya/,uk,calculator,true,/uk/finansy/refinansuvannya/,calculator:refinancing,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/orendna-dokhidnist/,uk,calculator,true,/uk/finansy/orendna-dokhidnist/,calculator:rental-yield,src/pages/[locale]/[category]/[calculator].astro
-/uk/elektronika/kolirne-markuvannya-rezystora/,uk,calculator,true,/uk/elektronika/kolirne-markuvannya-rezystora/,calculator:resistor-color,src/pages/[locale]/[category]/[calculator].astro
 /uk/elektronika/zednannya-rezystoriv/,uk,calculator,true,/uk/elektronika/zednannya-rezystoriv/,calculator:resistor-network,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/chastka-povernen/,uk,calculator,true,/uk/business/chastka-povernen/,calculator:return-rate,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/vytorh-na-spivrobitnyka/,uk,calculator,true,/uk/business/vytorh-na-spivrobitnyka/,calculator:revenue-per-employee,src/pages/[locale]/[category]/[calculator].astro
