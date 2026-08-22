@@ -1058,3 +1058,45 @@ table {
 [data-catalog-card][hidden] {
   display: none;
 }
+
+/* Навигация по страницам подборки.
+   Появилась вместе со страничностью: одна плотная страница со всеми
+   калькуляторами росла как O(численности) и упиралась в потолок маршрута
+   раньше, чем в неё переставали помещаться описания. Ссылки настоящие, поэтому
+   переход работает и без JavaScript; текущая страница помечается
+   `aria-current`, а не только видом. */
+.catalog-pagination {
+  @apply flex flex-wrap items-center justify-center gap-2 pt-2;
+}
+
+.catalog-pagination-list {
+  @apply flex flex-wrap items-center justify-center gap-1.5;
+}
+
+.catalog-pagination a {
+  @apply inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-ink-200 bg-white px-3 text-sm font-semibold leading-none text-ink-700 transition-colors;
+}
+
+.catalog-pagination a:hover {
+  @apply border-accent-100 bg-accent-50 text-accent;
+}
+
+.catalog-pagination a[aria-current='page'] {
+  @apply border-accent bg-accent text-white;
+}
+
+.catalog-pagination-step {
+  @apply font-medium;
+}
+
+/* `hidden` обязан побеждать раскладку.
+   Preflight объявляет `[hidden] { display: none }` до утилит, поэтому у узла с
+   `display: grid` или `inline-flex` атрибут переставал что-либо значить: узел
+   оставался видимым и доступным клавиатуре. Селекторы ниже адреснее одного
+   класса, поэтому выигрывают, и правило не расползается на всю страницу. */
+[data-catalog-ssr-grid][hidden],
+[data-catalog-global-grid][hidden],
+.catalog-pagination[hidden],
+.catalog-pagination a[hidden] {
+  display: none;
+}

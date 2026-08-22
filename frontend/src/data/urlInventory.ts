@@ -6,6 +6,7 @@ import {
   type Locale,
 } from '../lib/i18n';
 import { isRuOnlyCalculator } from './localizationParity';
+import { catalogPageCount, catalogPagePath } from '../lib/catalogPagination';
 
 export type UrlInventoryEntry = {
   url: string;
@@ -62,6 +63,24 @@ for (const locale of locales) {
       sourceFile: 'src/pages/[locale]/calculators.astro',
     },
   );
+
+  // Страницы подборки со второй и далее. Подборка страничная: одна плотная
+  // страница со всеми калькуляторами росла как O(численности) и упиралась в
+  // потолок маршрута раньше, чем в неё переставали помещаться описания.
+  // Каждая страница самоканонична: это разные наборы калькуляторов, а не
+  // варианты одного и того же.
+  const catalogPages = catalogPageCount(getCalculators(locale).length);
+  for (let page = 2; page <= catalogPages; page += 1) {
+    entries.push({
+      url: catalogPagePath(localeCatalog(locale), page),
+      locale,
+      pageType: 'catalog',
+      indexableExpected: true,
+      canonicalExpected: catalogPagePath(localeCatalog(locale), page),
+      hreflangCluster: `catalog-page-${page}`,
+      sourceFile: 'src/pages/[locale]/calculators/page/[page].astro',
+    });
+  }
 
   for (const param of facetParams) {
     entries.push({

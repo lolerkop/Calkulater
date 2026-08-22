@@ -1,0 +1,66 @@
+---
+// Навигация по страницам подборки.
+//
+// Все страницы перечислены ссылками, а не только «назад/вперёд»: так глубина
+// перехода от корня подборки до любого калькулятора остаётся ровно два клика
+// при любом числе страниц, и обходчику не приходится идти по цепочке.
+// Ссылки настоящие: страничность работает без JavaScript.
+import { catalogPagePath } from '../lib/catalogPagination';
+
+type Props = {
+  catalogPath: string;
+  page: number;
+  pageCount: number;
+  copy: { label: string; previous: string; next: string; page: string; of: string };
+};
+
+const { catalogPath, page, pageCount, copy } = Astro.props;
+const pages = Array.from({ length: pageCount }, (_, index) => index + 1);
+---
+
+{pageCount > 1 && (
+  <nav class="catalog-pagination" aria-label={copy.label} data-testid="catalog-pagination">
+    {/*
+      Шага назад с первой страницы и шага вперёд с последней НЕ существует,
+      поэтому ссылка не рисуется вовсе. Спрятанная ссылка осталась бы мёртвым
+      адресом в разметке: `hidden` убирает её от читателя, но не от обходчика,
+      и проверка ссылок справедливо считает такой адрес битым.
+    */}
+    {page > 1 && (
+      <a
+        class="catalog-pagination-step"
+        href={catalogPagePath(catalogPath, page - 1)}
+        rel="prev"
+        data-testid="catalog-pagination-prev"
+      >
+        {copy.previous}
+      </a>
+    )}
+
+    <ol class="catalog-pagination-list">
+      {pages.map((item) => (
+        <li>
+          <a
+            href={catalogPagePath(catalogPath, item)}
+            aria-current={item === page ? 'page' : undefined}
+            aria-label={`${copy.page} ${item} ${copy.of} ${pageCount}`}
+            data-testid={`catalog-pagination-page-${item}`}
+          >
+            {item}
+          </a>
+        </li>
+      ))}
+    </ol>
+
+    {page < pageCount && (
+      <a
+        class="catalog-pagination-step"
+        href={catalogPagePath(catalogPath, page + 1)}
+        rel="next"
+        data-testid="catalog-pagination-next"
+      >
+        {copy.next}
+      </a>
+    )}
+  </nav>
+)}

@@ -38,9 +38,10 @@ import zlib from 'node:zlib';
 import { routeClosureSize } from './lib/assetClosure.mjs';
 
 import {
+  CATALOG_CERTIFIED_TOTAL,
   CATALOG_HTML_CEILING_GZIP,
-  CATALOG_SCALE_LOOKAHEAD_CARDS,
-  CATALOG_SCALE_TARGET_CARDS,
+  CATALOG_SCALE_RESERVE,
+  catalogPageCountFor,
   catalogScaleTarget,
 } from './catalog-scale.mjs';
 import {
@@ -102,7 +103,7 @@ const budgets = {
   // Phase 17S подняла цель с 200 до 300 — это НЕ послабление бюджета: потолок
   // остался тем же, изменилось лишь то, как далеко вперёд обязана смотреть
   // проверка.
-  catalogScaleTargetCards: CATALOG_SCALE_TARGET_CARDS,
+  catalogCertifiedTotal: CATALOG_CERTIFIED_TOTAL,
   // Задел вперёд от ТЕКУЩЕГО числа карточек.
   //
   // Нужен потому, что фиксированная цель однажды остаётся позади. Ровно это и
@@ -110,7 +111,7 @@ const budgets = {
   // помощник возвращал null, строка отчёта исчезла, и проверка стала пустой в
   // тот самый момент, когда предупреждение было нужнее всего. Теперь проверка
   // всегда смотрит минимум на столько карточек вперёд, сколько бы их ни стало.
-  catalogScaleLookaheadCards: CATALOG_SCALE_LOOKAHEAD_CARDS,
+  catalogScaleReserve: CATALOG_SCALE_RESERVE,
   // Сколько калькуляторов вправе перечислять ItemList каталога. Разметка не
   // должна расти вместе с подборкой: полный перечень стоил 6,75 КиБ gzip —
   // четверть страницы — и повторял имя, описание и адрес каждой карточки,
@@ -202,7 +203,9 @@ const cssFiles = files.filter((file) => file.endsWith('.css'));
 const fontFiles = files.filter((file) => file.endsWith('.woff2'));
 const imageFiles = files.filter((file) => /\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(file));
 
-const isCatalog = (file) => /[/\\]calculators[/\\]index\.html$/.test(file);
+// Подборка — это КОРЕНЬ и все её страницы: бюджет маршрута и потолок
+// одинаково относятся к каждой из них.
+const isCatalog = (file) => /[/\\]calculators[/\\](page[/\\]\d+[/\\])?index\.html$/.test(file);
 // Главная локали: dist/<locale>/index.html и только она.
 const isLocaleIndex = (file) => /[/\\][a-z]{2}[/\\]index\.html$/.test(file);
 const scalesWithCatalog = (file) => isCatalog(file) || isLocaleIndex(file);
@@ -353,52 +356,68 @@ if (worstOrdinary && worstOrdinary.slugs.length > 0) {
 }
 
 
-// Число опубликованных калькуляторов: каталог перечисляет ровно их.
+// Число опубликованных калькуляторов: подборка перечисляет ровно их, но теперь
+// не одной страницей, а набором страниц.
 let publishedCount = 0;
 
-// Синтетический рост подборки: настоящая разметка карточки клонируется под
-// новые адреса и уникальный видимый текст. Байты те же, что выдал бы генератор,
-// а уникальный текст не даёт gzip схлопнуть клоны и делает оценку строгой.
 const CATALOG_CARD = /<a href="[^"]*"[^>]*data-catalog-card[\s\S]*?<\/a>/g;
+const PAGINATION = /<nav class="catalog-pagination"[\s\S]*?<\/nav>/;
 
 /**
- * Выращивает подборку до `target` карточек настоящей разметкой карточки.
+ * Худшая страница подборки при заданной численности каталога.
  *
- * Условие `cards.length >= target` здесь СОЗНАТЕЛЬНО отсутствует: именно оно
- * гасило прогноз, как только сайт перерастал цель. Вызывающая сторона обязана
- * передавать target больше текущего числа карточек (см. catalogScaleTarget).
+ * Модель строится из НАСТОЯЩЕЙ страницы: берётся её каркас, заполняется САМЫМИ
+ * ТЯЖЁЛЫМИ настоящими карточками до полного размера страницы и снабжается
+ * навигацией на нужное число страниц. Заполнение самыми тяжёлыми карточками —
+ * сознательно пессимистичная калибровка: настоящая страница смешивает тяжёлые
+ * и лёгкие, поэтому модель не может оказаться оптимистичнее факта.
+ *
+ * Синтетика живёт в памяти проверки: ни одного адреса, идентификатора или файла
+ * из неё не попадает ни в исходники, ни в сборку, ни в карту сайта.
  */
-function grownToCards(html, target) {
+function worstCatalogPage(html, totalTarget, pageSize) {
   const cards = html.match(CATALOG_CARD);
-  if (!cards || cards.length === 0 || target <= cards.length) return null;
-  const last = cards[cards.length - 1];
-  let extra = '';
-  for (let i = 0; i < target - cards.length; i += 1) {
-    extra += cards[i % cards.length]
-      .replace(/href="\/([a-z]{2})\/([a-z0-9-]+)\/([a-z0-9-]+)\/"/, (m, l, cat, slug) => `href="/${l}/${cat}/${slug}-scale${i}/"`)
-      .replace(/(<h3[^>]*>\s*)([^<]+?)(\s*<\/h3>)/, (m, a, t, b) => `${a}${t} ${i}${b}`)
-      .replace(/(<p[^>]*>\s*)([^<]+?)(\s*<\/p>)/, (m, a, t, b) => `${a}${t} ${i}.${b}`);
+  if (!cards || cards.length === 0) return null;
+  const pageCount = catalogPageCountFor(totalTarget, pageSize);
+  const heaviest = [...cards].sort((a, b) => b.length - a.length);
+  const fill = Array.from({ length: pageSize }, (_, index) => {
+    const donor = heaviest[index % heaviest.length];
+    return donor
+      .replace(/href="\/([a-z]{2})\/([a-z0-9-]+)\/([a-z0-9-]+)\/"/, (m, l, cat, slug) => `href="/${l}/${cat}/${slug}-scale${index}/"`)
+      .replace(/(<h3[^>]*>\s*)([^<]+?)(\s*<\/h3>)/, (m, a, t, b) => `${a}${t} ${index}${b}`)
+      .replace(/(<p[^>]*>\s*)([^<]+?)(\s*<\/p>)/, (m, a, t, b) => `${a}${t} ${index}.${b}`);
+  }).join('');
+
+  // Навигация растёт вместе с ЧИСЛОМ страниц: перечислены все, чтобы глубина
+  // перехода оставалась в два клика.
+  const navMatch = html.match(PAGINATION);
+  let nav = navMatch ? navMatch[0] : '';
+  if (nav) {
+    const item = nav.match(/<li>[\s\S]*?<\/li>/);
+    if (item) {
+      const items = Array.from({ length: pageCount }, (_, index) =>
+        item[0].replace(/page\/\d+\//, `page/${index + 1}/`).replace(/>(\d+)</, `>${index + 1}<`)).join('');
+      nav = nav.replace(/<ol class="catalog-pagination-list">[\s\S]*?<\/ol>/, `<ol class="catalog-pagination-list">${items}</ol>`);
+    }
   }
-  return html.replace(last, last + extra);
+
+  let grown = html.replace(cards.join(''), fill);
+  if (grown === html) grown = html.replace(cards[cards.length - 1], fill);
+  if (navMatch) grown = grown.replace(navMatch[0], nav);
+  return { html: grown, pageCount };
 }
 
 let catalogScaleReport = null;
+const catalogPageSizes = new Map();
 
-// ── каталог: наклонный бюджет ──
+// ── подборка: ограниченная страница плюс сертификация набора страниц ──
 for (const file of htmlFiles.filter(isCatalog)) {
   const rel = path.relative(root, file);
   const html = fs.readFileSync(file, 'utf8');
-  // Карточка опознаётся по ссылке на калькулятор, а не по классу разметки.
-  // Класс `calculator-card-shell` принадлежал астро-карточкам из блока
-  // <noscript>, который дублировал уже отрисованный на сервере остров; блок
-  // удалён, и счёт по классу дал бы ноль. Уникальная ссылка на калькулятор —
-  // то, что каталог обязан вывести при любом рендерере.
-  const cards = new Set([...html.matchAll(/href="\/[a-z]{2}\/[a-z0-9-]+\/[a-z0-9-]+\/"/g)].map((m) => m[0])).size;
-  publishedCount = Math.max(publishedCount, cards);
+  const cards = (html.match(CATALOG_CARD) ?? []).length;
+  const size = gzipSize(file);
 
-  // Сетку рисует Astro; остров только показывает и прячет готовые карточки.
-  // Признак — размер сериализованных props, а не имя файла: имена содержат хеш
-  // и меняются от сборки к сборке.
+  // Гидратационные props обязаны оставаться O(категорий + размера страницы).
   const propsRaw = [...html.matchAll(/props="([^"]*)"/g)].reduce((sum, match) => sum + Buffer.byteLength(match[1]), 0);
   if (propsRaw > budgets.catalogPropsRaw) {
     issues.push(
@@ -406,21 +425,15 @@ for (const file of htmlFiles.filter(isCatalog)) {
       + 'the full calculator array is being serialised into the island again',
     );
   }
-  const allowed = budgets.catalogHtmlBaseGzip + cards * budgets.catalogHtmlPerCardGzip;
-  const size = gzipSize(file);
+
   if (size > budgets.catalogHtmlCeilingGzip) {
     issues.push(
-      `${rel}: catalog HTML gzip ${kib(size)} exceeds the ${kib(budgets.catalogHtmlCeilingGzip)} ceiling — `
-      + 'the all-cards catalog needs a scale redesign before more calculators',
-    );
-  } else if (size > allowed) {
-    issues.push(
-      `${rel}: catalog HTML gzip ${kib(size)} exceeds ${kib(allowed)} allowed for ${cards} cards `
-      + `(${kib(budgets.catalogHtmlPerCardGzip)}/card) — a card grew, not the catalogue`,
+      `${rel}: catalog HTML gzip ${kib(size)} exceeds the ${kib(budgets.catalogHtmlCeilingGzip)} ceiling`,
     );
   }
 
-  // Структурированные данные каталога не растут вместе с подборкой.
+  // Структурированные данные подборки не растут ни вместе с ней, ни вместе со
+  // страницей.
   const itemList = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
     .map((match) => { try { return JSON.parse(match[1]); } catch { return null; } })
     .find((block) => block && block['@type'] === 'ItemList');
@@ -431,28 +444,38 @@ for (const file of htmlFiles.filter(isCatalog)) {
     );
   }
 
-  // Во что обойдётся рост подборки. Страница выращивается до целевого числа
-  // карточек НАСТОЯЩЕЙ разметкой карточки и меряется тем же gzip и тем же
-  // потолком catalogHtmlCeilingGzip — отдельного порога здесь нет.
-  const scaleTarget = catalogScaleTarget(cards);
-  const grown = grownToCards(html, scaleTarget);
-  if (!grown) {
+  catalogPageSizes.set(rel, { html, cards, size });
+}
+
+// Численность подборки считается по КОРНЮ подборки: там стоит счётчик, и он
+// называет весь каталог, а не срез.
+for (const [rel, entry] of catalogPageSizes) {
+  if (!/\/calculators\/index\.html$/.test(rel)) continue;
+  const declared = entry.html.match(/([0-9]+)\s*<\/span>/);
+  const total = declared ? Number(declared[1]) : entry.cards;
+  publishedCount = Math.max(publishedCount, total);
+
+  // Размер страницы — это срез корня подборки; если страниц одна, он равен
+  // численности, и модель всё равно строит набор на целевой численности.
+  const pageSize = Math.max(entry.cards, 1);
+  const target = catalogScaleTarget(total);
+  const model = worstCatalogPage(entry.html, target, pageSize);
+  if (!model) {
+    issues.push(`${rel}: модель масштаба подборки не построена — проверка стала бы пустой`);
+    continue;
+  }
+  const worst = zlib.gzipSync(Buffer.from(model.html)).length;
+  if (!catalogScaleReport || worst > catalogScaleReport.worst) {
+    catalogScaleReport = {
+      route: rel, total, pageSize, now: entry.size, target, pages: model.pageCount, worst,
+    };
+  }
+  if (worst > budgets.catalogHtmlCeilingGzip) {
     issues.push(
-      `${rel}: прогноз масштаба подборки не построен при ${cards} карточках — `
-      + 'проверка масштаба стала бы пустой',
+      `${rel}: при ${target} калькуляторах худшая страница подборки ${kib(worst)} превысит `
+      + `${kib(budgets.catalogHtmlCeilingGzip)} (сейчас ${kib(entry.size)} при ${entry.cards} карточках на странице, `
+      + `${model.pageCount} страниц) — размер страницы или вес карточки выросли`,
     );
-  } else {
-    const grownGzip = zlib.gzipSync(Buffer.from(grown)).length;
-    if (!catalogScaleReport || grownGzip > catalogScaleReport.grown) {
-      catalogScaleReport = { route: rel, cards, target: scaleTarget, now: size, grown: grownGzip };
-    }
-    if (grownGzip > budgets.catalogHtmlCeilingGzip) {
-      issues.push(
-        `${rel}: при ${scaleTarget} калькуляторах HTML gzip ${kib(grownGzip)} превысит `
-        + `${kib(budgets.catalogHtmlCeilingGzip)} (сейчас ${kib(size)} при ${cards}) — `
-        + 'цена карточки вернулась к прежнему наклону',
-      );
-    }
   }
 }
 
@@ -802,9 +825,10 @@ console.log(
 );
 if (catalogScaleReport) {
   console.log(
-    `Catalog scale: ${catalogScaleReport.cards} calculators ${kib(catalogScaleReport.now)}`
-    + ` → ${catalogScaleReport.target} calculators ${kib(catalogScaleReport.grown)}`
-    + ` (ceiling ${kib(budgets.catalogHtmlCeilingGzip)}, ${catalogScaleReport.route}).`,
+    `Catalog scale: ${catalogScaleReport.total} calculators on ${catalogScaleReport.pageSize}-card pages`
+    + ` ${kib(catalogScaleReport.now)} → certified at ${catalogScaleReport.target} calculators`
+    + ` (${catalogScaleReport.pages} pages, worst page ${kib(catalogScaleReport.worst)},`
+    + ` ceiling ${kib(budgets.catalogHtmlCeilingGzip)}, ${catalogScaleReport.route}).`,
   );
 }
 if (categoryScaleReport) {
