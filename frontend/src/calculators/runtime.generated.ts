@@ -36,8 +36,11 @@ import { compute as compute_bike_wheel_size } from './bike-wheel-size/compute';
 import { compute as compute_binomial_probability } from './binomial-probability/compute';
 import { compute as compute_board_volume } from './board-volume/compute';
 import { compute as compute_bonus } from './bonus/compute';
+import { compute as compute_brew_ratio } from './brew-ratio/compute';
+import { contextualField as ctx_brew_ratio } from './brew-ratio/contextualField';
 import { compute as compute_budget_50_30_20 } from './budget-50-30-20/compute';
 import { compute as compute_budget_split } from './budget-split/compute';
+import { compute as compute_bulk_material_volume } from './bulk-material-volume/compute';
 import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
 import { compute as compute_calories_from_macros } from './calories-from-macros/compute';
@@ -301,8 +304,10 @@ export const v2Runners: Record<string, CalcFunction> = {
   'binomial-probability': compute_binomial_probability,
   'board-volume': compute_board_volume,
   'bonus': compute_bonus,
+  'brew-ratio': compute_brew_ratio,
   'budget-50-30-20': compute_budget_50_30_20,
   'budget-split': compute_budget_split,
+  'bulk-material-volume': compute_bulk_material_volume,
   'cac': compute_cac,
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
@@ -540,6 +545,7 @@ export const v2Validators: Record<string, CalculatorValidator> = {
 };
 
 export const v2ContextualFields: Record<string, CalculatorContextualField> = {
+  'brew-ratio': ctx_brew_ratio,
   'commission': ctx_commission,
   'fps-frametime': ctx_fps_frametime,
   'gas-laws': ctx_gas_laws,

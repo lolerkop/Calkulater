@@ -76,8 +76,10 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/math/binomial-probability/,ru,calculator,true,/ru/math/binomial-probability/,calculator:binomial-probability,src/pages/[locale]/[category]/[calculator].astro
 /ru/building/board-volume/,ru,calculator,true,/ru/building/board-volume/,calculator:board-volume,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/bonus/,ru,calculator,true,/ru/finance/bonus/,calculator:bonus,src/pages/[locale]/[category]/[calculator].astro
+/ru/household/sootnoshenie-kofe-i-vody/,ru,calculator,true,/ru/household/sootnoshenie-kofe-i-vody/,calculator:brew-ratio,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/budget-50-30-20/,ru,calculator,true,/ru/finance/budget-50-30-20/,calculator:budget-50-30-20,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/delenie-byudzheta/,ru,calculator,true,/ru/finance/delenie-byudzheta/,calculator:budget-split,src/pages/[locale]/[category]/[calculator].astro
+/ru/building/sypuchiy-material/,ru,calculator,true,/ru/building/sypuchiy-material/,calculator:bulk-material-volume,src/pages/[locale]/[category]/[calculator].astro
 /ru/business/cac/,ru,calculator,true,/ru/business/cac/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /ru/finance/cagr/,ru,calculator,true,/ru/finance/cagr/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
 /ru/sport/calories-from-macros/,ru,calculator,true,/ru/sport/calories-from-macros/,calculator:calories-from-macros,src/pages/[locale]/[category]/[calculator].astro
@@ -377,8 +379,10 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/math/binomial-probability-calculator/,en,calculator,true,/en/math/binomial-probability-calculator/,calculator:binomial-probability,src/pages/[locale]/[category]/[calculator].astro
 /en/home-improvement/board-volume-calculator/,en,calculator,true,/en/home-improvement/board-volume-calculator/,calculator:board-volume,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/bonus-calculator/,en,calculator,true,/en/finance/bonus-calculator/,calculator:bonus,src/pages/[locale]/[category]/[calculator].astro
+/en/household/coffee-brew-ratio/,en,calculator,true,/en/household/coffee-brew-ratio/,calculator:brew-ratio,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/budget-50-30-20-calculator/,en,calculator,true,/en/finance/budget-50-30-20-calculator/,calculator:budget-50-30-20,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/budget-split/,en,calculator,true,/en/finance/budget-split/,calculator:budget-split,src/pages/[locale]/[category]/[calculator].astro
+/en/home-improvement/bulk-material-volume/,en,calculator,true,/en/home-improvement/bulk-material-volume/,calculator:bulk-material-volume,src/pages/[locale]/[category]/[calculator].astro
 /en/business/customer-acquisition-cost/,en,calculator,true,/en/business/customer-acquisition-cost/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /en/finance/cagr-calculator/,en,calculator,true,/en/finance/cagr-calculator/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
 /en/fitness/calories-from-macros-calculator/,en,calculator,true,/en/fitness/calories-from-macros-calculator/,calculator:calories-from-macros,src/pages/[locale]/[category]/[calculator].astro
@@ -678,8 +682,10 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /uk/math/binomialna-ymovirnist/,uk,calculator,true,/uk/math/binomialna-ymovirnist/,calculator:binomial-probability,src/pages/[locale]/[category]/[calculator].astro
 /uk/remont/kubatura-doshok/,uk,calculator,true,/uk/remont/kubatura-doshok/,calculator:board-volume,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/premiya/,uk,calculator,true,/uk/finansy/premiya/,calculator:bonus,src/pages/[locale]/[category]/[calculator].astro
+/uk/pobut/spivvidnoshennya-kavy-ta-vody/,uk,calculator,true,/uk/pobut/spivvidnoshennya-kavy-ta-vody/,calculator:brew-ratio,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/kalkulyator-byudzhetu-50-30-20/,uk,calculator,true,/uk/finansy/kalkulyator-byudzhetu-50-30-20/,calculator:budget-50-30-20,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/podil-byudzhetu/,uk,calculator,true,/uk/finansy/podil-byudzhetu/,calculator:budget-split,src/pages/[locale]/[category]/[calculator].astro
+/uk/remont/sypkyy-material/,uk,calculator,true,/uk/remont/sypkyy-material/,calculator:bulk-material-volume,src/pages/[locale]/[category]/[calculator].astro
 /uk/business/vartist-zaluchennya-kliyenta/,uk,calculator,true,/uk/business/vartist-zaluchennya-kliyenta/,calculator:cac,src/pages/[locale]/[category]/[calculator].astro
 /uk/finansy/cagr-kalkulyator/,uk,calculator,true,/uk/finansy/cagr-kalkulyator/,calculator:cagr,src/pages/[locale]/[category]/[calculator].astro
 /uk/fitness/kalkulyator-kaloriy-z-bzhv/,uk,calculator,true,/uk/fitness/kalkulyator-kaloriy-z-bzhv/,calculator:calories-from-macros,src/pages/[locale]/[category]/[calculator].astro

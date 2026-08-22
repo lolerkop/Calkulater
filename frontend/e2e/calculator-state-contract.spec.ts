@@ -869,6 +869,10 @@ const stateScenarios: Record<string, StateScenario> = {
   'gas-laws': { query: { mode: 'v2', p1: 200, v1: 5, t1: 250, p2: 100, v2: 1, t2: 500 }, result: { primary: '20 л', rows: [{ label: 'Состояние 1: p·V/T', value: '4 кПа·л/К' }, { label: 'Первое состояние', value: '200 кПа · 5 л · 250 К' }] } },
   //   полезная 0,22 − 0,03 = 0,19; 45 × 1,05 = 47,25; 47,25 / (4 × 0,19) = 62,2 -> 63
   'cladding-boards': { query: { wall_area: 45, board_len: 4, board_width: 0.22, overlap: 0.03, waste: 5 }, result: { primary: '63 шт', rows: [{ label: 'Полезная ширина доски', value: '0,19 м' }, { label: 'Площадь с запасом', value: '47,25 м²' }, { label: 'Погонных метров доски', value: '252 м' }] } },
+  //   1:12,5 при 18 г кофе -> 225 мл воды
+  'brew-ratio': { query: { mode: 'water', water: 500, coffee: 18, ratio: 12.5 }, result: { primary: '225 мл', rows: [{ label: 'Вода', value: '225 мл' }, { label: 'Кофе', value: '18 г' }, { label: 'Соотношение', value: '1:12,5' }] } },
+  //   8 × 2,5 × 0,15 = 3 м³; +12 % -> 3,36; × 1,35 = 4,536 т; мешков ⌈181,44⌉ = 182
+  'bulk-material-volume': { query: { length: 8, width: 2.5, depth: 15, density: 1.35, waste: 12 }, result: { primary: '3,36 м³', rows: [{ label: 'Чистый объём', value: '3 м³' }, { label: 'Масса', value: '4,536 т' }, { label: 'Мешков по 25 кг', value: '182 шт' }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));

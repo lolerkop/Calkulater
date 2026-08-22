@@ -28,8 +28,10 @@ import { localization as loc_bike_wheel_size } from './bike-wheel-size/localizat
 import { localization as loc_binomial_probability } from './binomial-probability/localization';
 import { localization as loc_board_volume } from './board-volume/localization';
 import { localization as loc_bonus } from './bonus/localization';
+import { localization as loc_brew_ratio } from './brew-ratio/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
 import { localization as loc_budget_split } from './budget-split/localization';
+import { localization as loc_bulk_material_volume } from './bulk-material-volume/localization';
 import { localization as loc_cac } from './cac/localization';
 import { localization as loc_cagr } from './cagr/localization';
 import { localization as loc_calories_from_macros } from './calories-from-macros/localization';
@@ -282,8 +284,10 @@ export const v2Localization: ScopedLocalization = {
     'binomial-probability': loc_binomial_probability.en ?? {},
     'board-volume': loc_board_volume.en ?? {},
     'bonus': loc_bonus.en ?? {},
+    'brew-ratio': loc_brew_ratio.en ?? {},
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
     'budget-split': loc_budget_split.en ?? {},
+    'bulk-material-volume': loc_bulk_material_volume.en ?? {},
     'cac': loc_cac.en ?? {},
     'cagr': loc_cagr.en ?? {},
     'calories-from-macros': loc_calories_from_macros.en ?? {},
@@ -535,8 +539,10 @@ export const v2Localization: ScopedLocalization = {
     'binomial-probability': loc_binomial_probability.uk ?? {},
     'board-volume': loc_board_volume.uk ?? {},
     'bonus': loc_bonus.uk ?? {},
+    'brew-ratio': loc_brew_ratio.uk ?? {},
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
     'budget-split': loc_budget_split.uk ?? {},
+    'bulk-material-volume': loc_bulk_material_volume.uk ?? {},
     'cac': loc_cac.uk ?? {},
     'cagr': loc_cagr.uk ?? {},
     'calories-from-macros': loc_calories_from_macros.uk ?? {},
