@@ -14,15 +14,22 @@ const expected = (query: string) => ROWS.filter((c) => matchesCalculatorSearch(c
 
 // Контракт фильтра каталога.
 //
-// Сетку карточек рисует Astro один раз, а остров только показывает и прячет
-// уже готовые карточки. До этой правки остров получал все калькуляторы
-// сериализованными props и перерисовывал сетку на клиенте; при 48
-// калькуляторах это стоило 33 878 сырых байт на каждой локали. Тест закрепляет
-// то, что от смены владельца разметки не должно измениться: результаты отбора,
-// доступность спрятанных карточек, пустое состояние, сброс и фокус.
+// Подборка СТРАНИЧНАЯ (Catalog Scale 4). Сервер отдаёт срез страницы настоящей
+// разметкой, и без JavaScript работают и он, и переходы между страницами. Как
+// только появляется отбор, ответом становится ГЛОБАЛЬНЫЙ список — он не
+// помещается в один срез, — поэтому серверная сетка скрывается, а результат
+// рисует клиентская сетка из того же ленивого индекса локали.
+//
+// Тест закрепляет то, что от страничности измениться не должно: результаты
+// отбора совпадают с прежней функцией по ВСЕМУ каталогу, спрятанное недоступно
+// клавиатуре, пустое состояние, сброс и фокус.
 
-const visible = '[data-catalog-card]:not([hidden])';
+// «Видимая карточка» — та, которую читатель сейчас видит: либо серверная в
+// нескрытой сетке, либо клиентская в сетке результатов.
+const visible = '[data-catalog-ssr-grid]:not([hidden]) [data-catalog-card]:not([hidden]), [data-catalog-global-grid] [data-catalog-card]';
 const all = '[data-catalog-card]';
+const PAGE_SIZE = 150;
+const firstPage = Math.min(PAGE_SIZE, TOTAL);
 
 test.describe('фильтр каталога', () => {
   test.beforeEach(async ({ page }) => {
@@ -30,20 +37,32 @@ test.describe('фильтр каталога', () => {
     // Поле поиска присутствует в разметке до гидратации, поэтому его видимость
     // ничего не доказывает. Счётчик найденного заполняет уже контроллер, прочитав
     // карточки из DOM: его появление и есть признак того, что фильтр готов.
-    await expect(page.locator('[data-testid="catalog-result-count"]')).toContainText(String(TOTAL));
+    // Разметку подборки целиком отдаёт сервер, поэтому счётчик найденного стоит
+    // в ней ДО гидратации и ничего не доказывает. Признак оживания острова —
+    // атрибут, который ставит его эффект.
+    await expect(page.locator('[data-catalog-ready]')).toBeAttached({ timeout: 20000 });
   });
 
-  test('карточки отдаёт сервер, а не клиент', async ({ page }) => {
-    // Разметка присутствует в ответе до какой-либо гидратации.
-    const raw = await (await page.request.get('/ru/calculators/')).text();
+  test('карточки отдаёт сервер, а не клиент, и страницы покрывают подборку ровно один раз', async ({ page }) => {
     void calculators;
-    const links = new Set([...raw.matchAll(/href="(\/ru\/[a-z0-9-]+\/[a-z0-9-]+\/)"/g)].map((m) => m[1]));
-    expect(links.size).toBe(TOTAL);
-    expect(raw).not.toContain('<noscript><div class="space-y-12">');
+    // Разметка присутствует в ответе до какой-либо гидратации — на каждой странице.
+    const seen: string[] = [];
+    const pageCount = Math.ceil(TOTAL / PAGE_SIZE);
+    for (let index = 1; index <= pageCount; index += 1) {
+      const url = index === 1 ? '/ru/calculators/' : `/ru/calculators/page/${index}/`;
+      const raw = await (await page.request.get(url)).text();
+      const links = [...raw.matchAll(/<a href="(\/ru\/[a-z0-9-]+\/[a-z0-9-]+\/)"[^>]*data-catalog-card/g)].map((m) => m[1]);
+      expect(links.length, `${url}: срез не больше размера страницы`).toBeLessThanOrEqual(PAGE_SIZE);
+      expect(raw).not.toContain('<noscript><div class="space-y-12">');
+      seen.push(...links);
+    }
+    // Точное разбиение: каждый калькулятор ровно на одной странице.
+    expect(seen.length).toBe(TOTAL);
+    expect(new Set(seen).size).toBe(TOTAL);
   });
 
-  test('отбор по запросу совпадает с прежним', async ({ page }) => {
-    await expect(page.locator(visible)).toHaveCount(TOTAL);
+  test('отбор по запросу совпадает с прежним и охватывает весь каталог', async ({ page }) => {
+    await expect(page.locator(visible)).toHaveCount(firstPage);
 
     const search = page.locator('[data-testid="catalog-search"]');
     await search.fill('конвертер');
@@ -57,7 +76,7 @@ test.describe('фильтр каталога', () => {
     await expect(page.locator(visible)).toHaveCount(expected('кредит'));
 
     await search.fill('');
-    await expect(page.locator(visible)).toHaveCount(TOTAL);
+    await expect(page.locator(visible)).toHaveCount(firstPage);
   });
 
   test('бейджи и подпись ссылки не участвуют в поиске', async ({ page }) => {
@@ -66,13 +85,16 @@ test.describe('фильтр каталога', () => {
     await expect(page.locator(visible)).toHaveCount(0);
   });
 
-  test('спрятанная карточка недоступна ни клавиатуре, ни поиску по странице', async ({ page }) => {
+  test('серверная сетка при отборе скрыта целиком и недоступна клавиатуре', async ({ page }) => {
     await page.locator('[data-testid="catalog-search"]').fill('кредит');
-    const hidden = page.locator('[data-catalog-card][hidden]').first();
-    await expect(hidden).toBeHidden();
-    expect(await page.locator(all).count()).toBe(TOTAL);
-    // hidden выключает элемент целиком: он не в порядке обхода и не читается.
-    expect(await hidden.evaluate((el) => el.hasAttribute('hidden'))).toBe(true);
+    await expect(page.locator(visible)).toHaveCount(expected('кредит'));
+    const ssrGrid = page.locator('[data-catalog-ssr-grid]');
+    await expect(ssrGrid).toBeHidden();
+    // hidden выключает узел целиком: он не в порядке обхода и не читается.
+    expect(await ssrGrid.evaluate((el) => el.hasAttribute('hidden'))).toBe(true);
+    const tabbable = await page.locator(`${all}`).evaluateAll((nodes) =>
+      nodes.filter((node) => (node as HTMLElement).offsetParent !== null).length);
+    expect(tabbable, 'видимых карточек ровно столько, сколько найдено').toBe(expected('кредит'));
   });
 
   test('пустое состояние и сброс', async ({ page }) => {
@@ -83,7 +105,7 @@ test.describe('фильтр каталога', () => {
     await expect(page.locator('[data-testid="catalog-empty"]')).toBeVisible({ timeout: 15000 });
 
     await page.locator('[data-testid="catalog-empty-reset"]').click();
-    await expect(page.locator(visible)).toHaveCount(TOTAL);
+    await expect(page.locator(visible)).toHaveCount(firstPage);
     await expect(page.locator('[data-testid="catalog-empty"]')).toHaveCount(0);
   });
 
@@ -96,21 +118,23 @@ test.describe('фильтр каталога', () => {
     await expect(page.locator(visible)).toHaveCount(expected('кредит'));
   });
 
-  test('метка «новые» и сортировка по имени', async ({ page }) => {
+  test('метка «новые» и сортировка по имени охватывают весь каталог', async ({ page }) => {
+    const newTotal = ROWS.filter((row) => row.isNew).length;
     await page.locator('[data-testid="catalog-tag-new"]').click();
-    const newCount = await page.locator(visible).count();
-    expect(newCount).toBeGreaterThan(0);
-    expect(newCount).toBeLessThan(TOTAL);
+    await expect(page.locator(visible)).toHaveCount(newTotal);
+    expect(newTotal).toBeGreaterThan(0);
+    expect(newTotal).toBeLessThan(TOTAL);
 
     await page.locator('[data-testid="catalog-tag-all"]').click();
-    await expect(page.locator(visible)).toHaveCount(TOTAL);
+    await expect(page.locator(visible)).toHaveCount(firstPage);
 
+    // Сортировка по имени идёт по ВСЕЙ подборке, а не по срезу страницы:
+    // клиентская сетка перечисляет все калькуляторы в алфавитном порядке.
     await page.locator('[data-testid="catalog-sort"]').selectOption('name');
-    // Порядок задаётся CSS-свойством order, разметка не пересобирается.
-    const orders = await page.locator(visible).evaluateAll((nodes) =>
-      nodes.map((node) => Number(getComputedStyle(node).order)));
-    expect(orders.some((value) => value !== 0)).toBe(true);
     await expect(page.locator(visible)).toHaveCount(TOTAL);
+    const titles = await page.locator(`${visible} h3`).allTextContents();
+    const sorted = [...titles].sort((a, b) => a.localeCompare(b, 'ru'));
+    expect(titles.join('|')).toBe(sorted.join('|'));
   });
 
   test('состояние переживает перезагрузку через адрес', async ({ page }) => {

@@ -1,6 +1,7 @@
 import { ArrowRight, ListFilter, Search, X } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { categoryAliases, normalizeSearchText, queryNeedles } from '../../lib/search';
+import { loadSearchIndex } from '../../lib/searchIndexClient';
 import type { CategoryId } from '../../lib/types';
 import { clientUi, type Locale } from '../../lib/clientI18n';
 
@@ -13,6 +14,44 @@ type CatalogCategory = {
 type Props = {
   categories: CatalogCategory[];
   locale?: Locale;
+  /** Численность ВСЕЙ подборки, а не текущей страницы. */
+  total?: number;
+  /** Глобальные счётчики: считает сервер, потому что остров видит только срез. */
+  counts?: { total: number; fresh: number; popular: number; byCategory: Record<string, number> };
+  page?: number;
+  pageCount?: number;
+  catalogPath?: string;
+};
+
+/**
+ * Строка глобальной подборки, собранная из ленивого индекса локали.
+ *
+ * Подборка страничная: сервер отдаёт только срез, а отбор и сортировка обязаны
+ * работать по ВСЕМУ каталогу. Данных для этого достаточно в уже существующем
+ * индексе поиска — имя, описание, адрес, категория, ключевые слова,
+ * популярность и признак новизны, — поэтому нового артефакта не заводится.
+ */
+type GlobalRow = {
+  readonly path: string;
+  readonly title: string;
+  readonly description: string;
+  readonly category: CategoryId;
+  readonly categoryName: string;
+  readonly isNew: boolean;
+  readonly isPopular: boolean;
+  readonly popularity: number;
+  readonly haystack: string;
+};
+
+type IndexEntry = {
+  fullPath?: string;
+  name?: string;
+  shortDescription?: string;
+  category?: string;
+  categoryName?: string;
+  keywords?: string[];
+  popularity?: number;
+  isNew?: boolean;
 };
 
 /**
@@ -56,7 +95,9 @@ function categoryFromPath(path: string, bySlug: Map<string, CategoryId>): Catego
 function readCards(categories: CatalogCategory[], locale: Locale): CardHandle[] {
   const names = new Map(categories.map((category) => [category.id, category.name]));
   const bySlug = new Map(categories.map((category) => [category.slug, category.id]));
-  const cards = [...document.querySelectorAll<HTMLElement>('[data-catalog-card]')].map((element) => {
+  // Только СЕРВЕРНЫЕ карточки: клиентская сетка использует ту же разметку,
+  // и общий селектор захватил бы её собственные результаты.
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-catalog-ssr-grid] [data-catalog-card]')].map((element) => {
     const path = element.getAttribute('href') ?? '';
     const category = categoryFromPath(path, bySlug);
     // Признаки новизны и популярности видны по самим бейджам: раз бейдж
@@ -547,7 +588,14 @@ function initialTag(): TagFilter {
   return value === 'new' || value === 'popular' ? value : allTag;
 }
 
-export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) {
+export default function CalculatorCatalog({
+  categories,
+  locale = 'ru',
+  total,
+  counts,
+  page = 1,
+  pageCount = 1,
+}: Props) {
   const copy = clientUi[locale];
   const catalogCopy = catalogCopyByLocale[locale];
   const quickQueries = quickQueriesByLocale[locale];
@@ -567,102 +615,174 @@ export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) 
   const [cards, setCards] = useState<CardHandle[]>([]);
   useEffect(() => { setCards(readCards(categories, locale)); }, [categories, locale]);
 
-  // Ленивые ключевые слова.
+  // Глобальная подборка из ленивого индекса локали.
   //
-  // Это единственные данные карточки, которых нет в её видимом тексте, и стоили
-  // они 24,4 B на карточку по gzip — вторая по величине статья всей страницы.
-  // Отбор по категории, метке и сортировка их не требуют, поэтому индекс
-  // забирается только при ПЕРВОМ текстовом запросе.
+  // Сервер отдаёт только срез страницы, поэтому отбор по видимым карточкам стал
+  // бы отбором по одной странице — а это ровно та подмена смысла, которой
+  // страничность не имеет права допускать. Полная подборка забирается ОДИН раз
+  // при первом же взаимодействии, из того же статического индекса, что уже
+  // обслуживал ключевые слова: он несёт имя, описание, адрес, категорию,
+  // ключевые слова, популярность и признак новизны — этого хватает и на отбор,
+  // и на отрисовку карточки. Нового артефакта не заводится.
   //
-  // Данные берутся из уже существующего индекса локали. Это общий статический
-  // файл, а не общее поведение: у каталога свой повод загрузки, своё состояние
-  // и свой разбор — с поиском в шапке он ничем не связан.
-  const [keywordsByPath, setKeywordsByPath] = useState<Map<string, string> | null>(null);
-  const [keywordsState, setKeywordsState] = useState<'idle' | 'loading' | 'ready' | 'failed'>('idle');
-  const needsKeywords = query.trim().length > 0;
-  // Признак «загрузка уже начата» держится ссылкой, а не состоянием.
-  //
-  // Состояние здесь не годится: эффект, зависящий от него, перезапускается от
-  // собственной же записи, и его очистка отменяет свой ещё летящий запрос —
-  // индекс тогда не приходит никогда. Ссылка меняется без перезапуска эффекта.
-  const keywordsStarted = useRef(false);
+  // До взаимодействия запроса нет вовсе. Карточки текущей страницы остаются
+  // запасным вариантом на случай отказа сети: отбор тогда работает по видимому,
+  // а не отваливается совсем.
+  const [globalRows, setGlobalRows] = useState<GlobalRow[] | null>(null);
+  const [indexState, setIndexState] = useState<'idle' | 'loading' | 'ready' | 'failed'>('idle');
+  const hasActiveFilters =
+    query.trim() !== '' || activeCategory !== allCategory || sortMode !== defaultSort || tagFilter !== allTag;
+  // Признак «загрузка уже начата» держится ссылкой, а не состоянием: эффект,
+  // зависящий от него, перезапускался бы от собственной записи, и его очистка
+  // отменяла бы свой ещё летящий запрос.
+  const indexStarted = useRef(false);
 
   useEffect(() => {
-    if (!needsKeywords || keywordsStarted.current) return;
-    keywordsStarted.current = true;
+    if (!hasActiveFilters || indexStarted.current) return;
+    indexStarted.current = true;
     let cancelled = false;
-    setKeywordsState('loading');
-    fetch(`/search-index/${locale}.json`)
-      .then((response) => (response.ok ? response.json() : Promise.reject(new Error(String(response.status)))))
-      .then((entries: Array<{ fullPath?: string; keywords?: string[] }>) => {
+    setIndexState('loading');
+    const names = new Map(categories.map((category) => [category.id, category.name]));
+    const bySlug = new Map(categories.map((category) => [category.slug, category.id]));
+    loadSearchIndex(locale)
+      .then((entries) => {
         if (cancelled) return;
-        const map = new Map<string, string>();
-        for (const entry of entries) {
-          if (!entry?.fullPath) continue;
-          map.set(entry.fullPath, normalizeSearchText((entry.keywords ?? []).join(' ')));
+        const rows: GlobalRow[] = [];
+        for (const raw of entries as unknown as IndexEntry[]) {
+          if (!raw?.fullPath) continue;
+          const category = (raw.category as CategoryId | undefined)
+            ?? categoryFromPath(raw.fullPath, bySlug);
+          const categoryName = raw.categoryName ?? names.get(category) ?? '';
+          const isNew = raw.isNew === true;
+          rows.push({
+            path: raw.fullPath,
+            title: raw.name ?? '',
+            description: raw.shortDescription ?? '',
+            category,
+            categoryName,
+            isNew,
+            isPopular: (raw.popularity ?? 0) >= 80,
+            popularity: raw.popularity ?? 0,
+            // Стог тот же, что собирает разметочный путь: имя, описание,
+            // категория, её имя, токены новизны и псевдонимы — плюс ключевые
+            // слова, которых на карточке не видно.
+            haystack: normalizeSearchText([
+              raw.name ?? '',
+              raw.shortDescription ?? '',
+              category,
+              categoryName,
+              isNew ? 'новый новые свежее' : '',
+              categoryAliases[category] ?? '',
+              (raw.keywords ?? []).join(' '),
+            ].join(' ')),
+          });
         }
-        setKeywordsByPath(map);
-        setKeywordsState('ready');
+        // Порядок ГЛОБАЛЬНОЙ подборки — тот же, в котором сервер режет страницы:
+        // популярность, затем имя. Порядок записей в файле индекса — не он, и
+        // выводить результат в нём значило бы показывать один порядок на
+        // странице и другой в выдаче.
+        rows.sort((a, b) => b.popularity - a.popularity || a.title.localeCompare(b.title, locale));
+        setGlobalRows(rows);
+        setIndexState('ready');
       })
       .catch(() => {
         // Отказ сети не должен ломать страницу: отбор продолжает работать по
-        // видимому тексту, просто без ключевых слов.
-        if (!cancelled) setKeywordsState('failed');
+        // карточкам текущей страницы.
+        if (!cancelled) setIndexState('failed');
       });
     return () => { cancelled = true; };
-  }, [locale, needsKeywords]);
+  }, [categories, hasActiveFilters, locale]);
 
-  // Пока индекс в пути, судить о «ничего не найдено» рано: часть совпадений
-  // живёт именно в ключевых словах.
-  const keywordsPending = needsKeywords && (keywordsState === 'idle' || keywordsState === 'loading');
+  // Пока индекс в пути, судить о «ничего не найдено» рано.
+  const indexPending = hasActiveFilters && globalRows === null && indexState !== 'failed';
 
-  const categoryCounts = useMemo(() => {
-    const counts: Partial<Record<CategoryId, number>> = {};
-    for (const card of cards) counts[card.category] = (counts[card.category] ?? 0) + 1;
-    return counts;
-  }, [cards]);
+  // Вселенная отбора: глобальная, когда индекс пришёл, и карточки страницы,
+  // пока он в пути или не пришёл вовсе.
+  const universe: GlobalRow[] = useMemo(() => {
+    if (globalRows) return globalRows;
+    return cards.map((card) => ({
+      path: card.path,
+      title: card.title,
+      description: '',
+      category: card.category,
+      categoryName: '',
+      isNew: card.isNew,
+      isPopular: card.isPopular,
+      popularity: card.isPopular ? 100 : 0,
+      haystack: card.haystack,
+    }));
+  }, [cards, globalRows]);
+
+  // Счётчики берутся из props: их посчитал сервер по всей подборке. Считать их
+  // по видимым карточкам значило бы называть числа одной страницы.
+  const categoryCounts = useMemo(
+    () => (counts?.byCategory ?? {}) as Partial<Record<CategoryId, number>>,
+    [counts],
+  );
 
   const tagCounts = useMemo(() => ({
-    all: cards.length,
-    new: cards.filter((card) => card.isNew).length,
-    popular: cards.filter((card) => card.isPopular).length,
-  }), [cards]);
+    all: counts?.total ?? total ?? cards.length,
+    new: counts?.fresh ?? 0,
+    popular: counts?.popular ?? 0,
+  }), [cards.length, counts, total]);
 
-  // Тот же отбор, что был у React-версии, только над уже готовыми карточками:
-  // категория, метка, поиск. Совпадение ищется по тем же иглам запроса.
-  const visibleCards = useMemo(() => {
+  // Тот же отбор, что был: категория, метка, поиск по тем же иглам запроса.
+  const matches = useMemo(() => {
     const needles = queryNeedles(query);
-    return cards.filter((card) => {
-      if (activeCategory !== allCategory && card.category !== activeCategory) return false;
-      if (tagFilter === 'new' && !card.isNew) return false;
-      if (tagFilter === 'popular' && !card.isPopular) return false;
+    const found = universe.filter((row) => {
+      if (activeCategory !== allCategory && row.category !== activeCategory) return false;
+      if (tagFilter === 'new' && !row.isNew) return false;
+      if (tagFilter === 'popular' && !row.isPopular) return false;
       if (needles.length === 0) return true;
-      const extra = keywordsByPath?.get(card.path);
-      const haystack = extra ? `${card.haystack} ${extra}` : card.haystack;
-      return needles.some((needle) => haystack.includes(needle));
+      return needles.some((needle) => row.haystack.includes(needle));
     });
-  }, [activeCategory, cards, keywordsByPath, query, tagFilter]);
+    return sortMode === 'name'
+      ? [...found].sort((a, b) => a.title.localeCompare(b.title, locale))
+      : found;
+  }, [activeCategory, locale, query, sortMode, tagFilter, universe]);
 
-  const hasActiveFilters =
-    query.trim() || activeCategory !== allCategory || sortMode !== defaultSort || tagFilter !== allTag;
+  // Показывать клиентскую сетку можно только тогда, когда вселенная
+  // действительно глобальная: иначе результат был бы отбором по одной странице.
+  const showGlobalGrid = hasActiveFilters && globalRows !== null;
 
-  // Показ и порядок применяются к разметке, а не пересобирают её. `hidden`
-  // выключает карточку и для клавиатуры, и для скринридера — в отличие от
-  // прозрачности или выноса за экран.
+  // Две сетки, и в каждый момент видна ровно одна.
+  //
+  // Пока отбора нет, страницу показывает СЕРВЕРНАЯ сетка — та самая разметка,
+  // что работает без JavaScript, вместе с навигацией по страницам. Как только
+  // отбор появился, ответом становится глобальный список, которого на текущей
+  // странице целиком нет, поэтому серверная сетка и страничность скрываются, а
+  // результат рисует клиентская сетка. `hidden` выключает узел и для
+  // клавиатуры, и для скринридера — в отличие от прозрачности.
   useEffect(() => {
-    if (cards.length === 0) return;
-    const shown = new Set(visibleCards.map((card) => card.element));
-    for (const card of cards) {
-      const isVisible = shown.has(card.element);
-      card.element.toggleAttribute('hidden', !isVisible);
-      card.element.style.order = sortMode === 'name' ? String(card.nameOrder) : '';
-    }
-    const grid = document.getElementById('catalog-results');
+    const grid = document.querySelector<HTMLElement>('[data-catalog-ssr-grid]');
+    const pagination = document.querySelector<HTMLElement>('[data-testid="catalog-pagination"]');
+    // Признак того, что остров ОЖИЛ.
+    //
+    // Нужен проверкам. Разметку подборки целиком отдаёт сервер — вместе со
+    // счётчиком найденного, — поэтому по ней невозможно отличить страницу до
+    // гидратации от страницы после. Тесты ждали появления счётчика и тем самым
+    // не ждали ничего: клик по ещё не оживлённой кнопке проходил мимо
+    // обработчика, и под нагрузкой это давало ложные падения. Атрибут ставит
+    // эффект, а эффекты выполняются только на клиенте.
+    grid?.setAttribute('data-catalog-ready', '');
     if (grid) {
-      grid.toggleAttribute('hidden', visibleCards.length === 0);
+      grid.toggleAttribute('hidden', showGlobalGrid);
       grid.setAttribute('aria-label', hasActiveFilters ? catalogCopy.filteredCalculators : copy.allCalculators);
     }
-  }, [cards, catalogCopy, copy, hasActiveFilters, sortMode, visibleCards]);
+    pagination?.toggleAttribute('hidden', showGlobalGrid);
+    if (showGlobalGrid) return;
+
+    // Глобального списка ещё (или уже) нет: индекс в пути либо не пришёл вовсе.
+    // Отбор всё равно обязан сужать показанное — по тому, что есть на срезе.
+    // Сужение монотонно: глобальный набор надмножество страничного, поэтому
+    // карточки могут только добавиться, но не исчезнуть, и ложного «ничего не
+    // найдено» из этого не выходит.
+    const shown = new Set(matches.map((row) => row.path));
+    for (const card of cards) {
+      card.element.toggleAttribute('hidden', !shown.has(card.path));
+      card.element.style.order = '';
+    }
+  }, [cards, catalogCopy, copy, hasActiveFilters, matches, showGlobalGrid]);
 
 
   useEffect(() => {
@@ -714,7 +834,10 @@ export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) 
   };
 
   const focusCatalogCard = (index: number) => {
-    (visibleCards[index]?.element as HTMLAnchorElement | undefined)?.focus();
+    const selector = showGlobalGrid
+      ? `[data-catalog-global-grid] [data-catalog-card]`
+      : `[data-catalog-ssr-grid] [data-catalog-card]:not([hidden])`;
+    document.querySelectorAll<HTMLAnchorElement>(selector)[index]?.focus();
   };
 
   const activeCategoryName =
@@ -753,7 +876,7 @@ export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) 
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 onKeyDown={(event) => {
-                  if (event.key === 'ArrowDown' && visibleCards.length > 0) {
+                  if (event.key === 'ArrowDown' && matches.length > 0) {
                     event.preventDefault();
                     focusCatalogCard(0);
                   }
@@ -801,7 +924,7 @@ export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) 
           </div>
 
           <div className="min-w-0 text-sm text-ink-500 text-fit" aria-live="polite" data-testid="catalog-result-count">
-            {catalogCopy.found}: <span className="font-mono text-ink-900">{visibleCards.length}</span>
+            {catalogCopy.found}: <span className="font-mono text-ink-900">{hasActiveFilters ? matches.length : (total ?? cards.length)}</span>
           </div>
         </div>
 
@@ -864,7 +987,7 @@ export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) 
             aria-pressed={activeCategory === allCategory}
             onClick={() => setActiveCategory(allCategory)}
           >
-            {copy.all} <span className="ml-1 font-mono text-xs opacity-70">{cards.length}</span>
+            {copy.all} <span className="ml-1 font-mono text-xs opacity-70">{tagCounts.all}</span>
           </button>
           {categories.map((category) => (
             <button
@@ -909,7 +1032,38 @@ export default function CalculatorCatalog({ categories, locale = 'ru' }: Props) 
         </div>
       </div>
 
-      {cards.length > 0 && visibleCards.length === 0 && !keywordsPending && (
+      {showGlobalGrid && (
+        <div
+          id="catalog-global-results"
+          className="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3"
+          aria-label={catalogCopy.filteredCalculators}
+          data-catalog-global-grid
+        >
+          {matches.map((row) => (
+            <a key={row.path} href={row.path} className="catalog-card" data-catalog-card>
+              <div>
+                <div>
+                  <div>
+                    {row.isNew && <span className="catalog-badge-new">{copy.newBadge}</span>}
+                    {row.isPopular && <span className="catalog-badge-popular">{copy.popularBadge}</span>}
+                  </div>
+                </div>
+                <h3>{row.title}</h3>
+                <p>{row.description}</p>
+              </div>
+              <div>
+                <span>{row.categoryName}</span>
+                <span>
+                  {copy.open}
+                  <svg aria-hidden="true"><use href="#arrow-right"></use></svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+
+      {hasActiveFilters && matches.length === 0 && !indexPending && (
         <div
           className="border border-ink-200 bg-ink-50 px-5 py-8 text-center"
           data-testid="catalog-empty"

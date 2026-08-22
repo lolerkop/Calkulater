@@ -1,12 +1,16 @@
 import { expect, test } from '@playwright/test';
 
-// Ленивые ключевые слова каталога.
+// Ленивая ГЛОБАЛЬНАЯ подборка каталога.
 //
-// Ключевые слова — единственные данные карточки, которых нет в её видимом
-// тексте, и в разметке они стоили 24,4 B на карточку по gzip: вторая по
-// величине статья страницы после описаний. Отбор по категории, метке и
-// сортировка их не требуют, поэтому индекс забирается только при первом
-// ТЕКСТОВОМ запросе.
+// Контракт изменён Catalog Scale 4 и это записано намеренно. Раньше сервер
+// отдавал все карточки одной страницей, и отбор по категории, метке и
+// сортировка обходились разметкой: индекс требовался только текстовому запросу
+// ради ключевых слов. Теперь подборка страничная, сервер отдаёт срез, и ЛЮБОЙ
+// отбор обязан работать по всему каталогу — иначе «искать по калькуляторам»
+// молча превратилось бы в «искать по текущей странице».
+//
+// Поэтому индекс забирается при ПЕРВОМ взаимодействии любого рода. До
+// взаимодействия — по-прежнему ни одного запроса, и после — ровно один.
 //
 // Граница асинхронности проверяется так же строго, как у поиска в шапке:
 // главная ошибка здесь — сказать «ничего не найдено», пока данные, по которым
@@ -14,7 +18,7 @@ import { expect, test } from '@playwright/test';
 
 const CATALOG = '/ru/calculators/';
 const INDEX = /\/search-index\/ru\.json/;
-const visible = '[data-catalog-card]:not([hidden])';
+const visible = '[data-catalog-ssr-grid]:not([hidden]) [data-catalog-card]:not([hidden]), [data-catalog-global-grid] [data-catalog-card]';
 const search = '[data-testid="catalog-search"]';
 
 test.describe('ленивый индекс каталога', () => {
@@ -26,23 +30,31 @@ test.describe('ленивый индекс каталога', () => {
     expect(hits, 'индекс не нужен до текстового запроса').toEqual([]);
   });
 
-  test('категория и сортировка работают без индекса', async ({ page }) => {
+  test('категория и сортировка забирают индекс ровно один раз и работают глобально', async ({ page }) => {
     const hits: string[] = [];
     page.on('request', (r) => { if (INDEX.test(r.url())) hits.push(r.url()); });
     await page.goto(CATALOG, { waitUntil: 'networkidle' });
-    const total = await page.locator(visible).count();
+    // Остров гидратируется по `client:idle`: под параллельной нагрузкой это
+    // происходит заметно позже networkidle, и клик по ещё не оживлённой кнопке
+    // не даёт ничего. Признак готовности — заполненный счётчик найденного.
+    await expect(page.locator('[data-catalog-ready]')).toBeAttached({ timeout: 20000 });
+    const onPage = await page.locator(visible).count();
 
     // Кнопки категорий не имеют собственных testid: они перечисляются внутри
     // общей полосы. Берём вторую (первая — «все»).
     await page.locator('[data-testid="category-filter"] button').nth(1).click();
-    await expect.poll(() => page.locator(visible).count()).toBeLessThan(total);
+    await expect.poll(() => hits.length, { timeout: 15000 }).toBe(1);
     const filtered = await page.locator(visible).count();
     expect(filtered).toBeGreaterThan(0);
+    // Отбор идёт по ВСЕМУ каталогу: у крупнейшего раздела членов больше, чем
+    // помещается на одну страницу среза, и это обязано быть видно.
+    expect(filtered).toBeLessThan(276);
 
     await page.locator('[data-testid="catalog-sort"]').selectOption('name');
     await expect.poll(() => page.locator(visible).count()).toBe(filtered);
 
-    expect(hits, 'ни категория, ни сортировка индекс не требуют').toEqual([]);
+    expect(hits.length, 'индекс забирается один раз, повторов нет').toBe(1);
+    void onPage;
   });
 
   test('первый текстовый запрос забирает индекс ровно один раз', async ({ page }) => {
@@ -72,7 +84,7 @@ test.describe('ленивый индекс каталога', () => {
     // Ждём, пока остров возьмёт сетку: предмет проверки — граница загрузки
     // индекса, а не ввод до гидратации (он проверяется отдельно и работает).
     // Без этого ожидания fill() состязается с монтированием React.
-    await expect(page.locator('[data-testid="catalog-result-count"]')).toBeVisible({ timeout: 20000 });
+    await expect(page.locator('[data-catalog-ready]')).toBeAttached({ timeout: 20000 });
     await page.locator(search).fill('аннуитет');
     // Пока индекс заведомо в пути, «ничего не найдено» показывать нельзя:
     // часть совпадений живёт именно в ключевых словах.
@@ -119,7 +131,7 @@ test.describe('ленивый индекс каталога', () => {
     await expect(page.locator('[data-testid="catalog-empty"]')).toHaveCount(0);
   });
 
-  test('отказ индекса не ломает страницу: отбор идёт по видимому тексту', async ({ page }) => {
+  test('отказ индекса не ломает страницу: отбор идёт по видимому тексту среза', async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.route(INDEX, (route) => route.abort());

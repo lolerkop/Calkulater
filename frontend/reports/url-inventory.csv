@@ -3,6 +3,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /404.html,x-default,error,false,,none,src/pages/404.astro
 /ru/,ru,home,true,/ru/,home,src/pages/[locale]/index.astro
 /ru/calculators/,ru,catalog,true,/ru/calculators/,catalog,src/pages/[locale]/calculators.astro
+/ru/calculators/page/2/,ru,catalog,true,/ru/calculators/page/2/,catalog-page-2,src/pages/[locale]/calculators/page/[page].astro
 /ru/calculators/?tag=*,ru,facet,false,/ru/calculators/,none,functions/[locale]/calculators.js
 /ru/calculators/?category=*,ru,facet,false,/ru/calculators/,none,functions/[locale]/calculators.js
 /ru/calculators/?sort=*,ru,facet,false,/ru/calculators/,none,functions/[locale]/calculators.js
@@ -304,6 +305,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /ru/math/z-score/,ru,calculator,true,/ru/math/z-score/,calculator:z-score,src/pages/[locale]/[category]/[calculator].astro
 /en/,en,home,true,/en/,home,src/pages/[locale]/index.astro
 /en/calculators/,en,catalog,true,/en/calculators/,catalog,src/pages/[locale]/calculators.astro
+/en/calculators/page/2/,en,catalog,true,/en/calculators/page/2/,catalog-page-2,src/pages/[locale]/calculators/page/[page].astro
 /en/calculators/?tag=*,en,facet,false,/en/calculators/,none,functions/[locale]/calculators.js
 /en/calculators/?category=*,en,facet,false,/en/calculators/,none,functions/[locale]/calculators.js
 /en/calculators/?sort=*,en,facet,false,/en/calculators/,none,functions/[locale]/calculators.js
@@ -602,6 +604,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /en/math/z-score-calculator/,en,calculator,true,/en/math/z-score-calculator/,calculator:z-score,src/pages/[locale]/[category]/[calculator].astro
 /uk/,uk,home,true,/uk/,home,src/pages/[locale]/index.astro
 /uk/calculators/,uk,catalog,true,/uk/calculators/,catalog,src/pages/[locale]/calculators.astro
+/uk/calculators/page/2/,uk,catalog,true,/uk/calculators/page/2/,catalog-page-2,src/pages/[locale]/calculators/page/[page].astro
 /uk/calculators/?tag=*,uk,facet,false,/uk/calculators/,none,functions/[locale]/calculators.js
 /uk/calculators/?category=*,uk,facet,false,/uk/calculators/,none,functions/[locale]/calculators.js
 /uk/calculators/?sort=*,uk,facet,false,/uk/calculators/,none,functions/[locale]/calculators.js

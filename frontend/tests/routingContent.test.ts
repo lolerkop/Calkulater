@@ -45,11 +45,22 @@ describe('routing content: i18n routes', () => {
 
   it('builds localized catalog, category and calculator pages', async () => {
     const catalog = await import('../src/pages/[locale]/calculators.astro?raw');
+    // Подборка страничная: тело страницы общее у первой страницы и остальных,
+    // поэтому остров и сетка живут в нём, а маршруты только режут срез.
+    const catalogBody = await import('../src/components/CatalogPageBody.astro?raw');
+    const catalogPage = await import('../src/pages/[locale]/calculators/page/[page].astro?raw');
     const category = await import('../src/pages/[locale]/[category]/index.astro?raw');
     const calculator = await import('../src/pages/[locale]/[category]/[calculator].astro?raw');
 
-    expect(catalog.default).toContain('CalculatorCatalog');
-    expect(catalog.default).toContain('locale={locale}');
+    expect(catalogBody.default).toContain('CalculatorCatalog');
+    expect(catalogBody.default).toContain('locale={locale}');
+    expect(catalogBody.default).toContain('CatalogPagination');
+    expect(catalog.default).toContain('CatalogPageBody');
+    expect(catalog.default).toContain('catalogPageSlice(rows, 1)');
+    expect(catalogPage.default).toContain('CatalogPageBody');
+    expect(catalogPage.default).toContain('catalogPageSlice(rows, page)');
+    // Алиаса page/1/ быть не должно: у первой страницы канонический адрес подборки.
+    expect(catalogPage.default).toContain('index + 2');
     expect(category.default).toContain('getCategories(locale)');
     expect(category.default).toContain('getCalculatorsByCategory(category.id, locale)');
     expect(calculator.default).toContain('findCalculatorBySlug');

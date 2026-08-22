@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { SITE } from '../config/site';
+import { catalogPageCount, catalogPagePath } from '../lib/catalogPagination';
 import {
   getAlternatesForCalculator,
   getAlternatesForCategory,
@@ -56,6 +57,27 @@ export const GET: APIRoute = () => {
   for (const locale of locales) {
     entries.push(urlXml(`/${locale}/`, homeAlternates));
     entries.push(urlXml(localeCatalog(locale), getAlternatesForPage(localePathMap('/calculators/'))));
+
+    // Страницы подборки со второй и далее.
+    //
+    // Они включены сознательно. Каждая — самостоятельный индексируемый адрес с
+    // собственным каноническим адресом и собственным набором калькуляторов, а
+    // действующий контракт сайта прост: индексируемое обязано быть в карте
+    // сайта, и проверка покрытия его же и требует. Исключить их значило бы
+    // завести исключение из общего правила ради экономии трёх строк.
+    //
+    // Соответствие между локалями держится по НОМЕРУ страницы; если у локали
+    // столько страниц нет, ссылка на неё не выводится, иначе hreflang указывал
+    // бы на 404.
+    const pageCount = catalogPageCount(getCalculators(locale).length);
+    for (let page = 2; page <= pageCount; page += 1) {
+      const alternates = getAlternatesForPage(Object.fromEntries(
+        locales
+          .filter((item) => catalogPageCount(getCalculators(item).length) >= page)
+          .map((item) => [item, catalogPagePath(localeCatalog(item), page)]),
+      ));
+      entries.push(urlXml(catalogPagePath(localeCatalog(locale), page), alternates));
+    }
     entries.push(urlXml(`/${locale}/about/`, getAlternatesForPage(localePathMap('/about/'))));
     entries.push(urlXml(`/${locale}/contacts/`, getAlternatesForPage(localePathMap('/contacts/'))));
     entries.push(urlXml(`/${locale}/privacy/`, getAlternatesForPage(localePathMap('/privacy/'))));

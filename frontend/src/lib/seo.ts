@@ -205,7 +205,17 @@ export function itemListJsonLd(params: {
    * уже выпущенных страниц.
    */
   compact?: boolean;
+  /**
+   * Номер первой записи в ГЛОБАЛЬНОЙ последовательности.
+   *
+   * Нужен страничной подборке: её страницы — срезы одного упорядоченного
+   * списка, и первый калькулятор второй страницы стоит на своём настоящем
+   * месте, а не снова на первом. По умолчанию единица, поэтому ни одна из уже
+   * выпущенных страниц не меняется ни на байт.
+   */
+  startPosition?: number;
 }): Json {
+  const start = params.startPosition ?? 1;
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -216,13 +226,13 @@ export function itemListJsonLd(params: {
     itemListElement: params.items.map((item, i) => (params.compact
       ? {
         '@type': 'ListItem',
-        position: i + 1,
+        position: start + i,
         name: item.name,
         url: absUrl(item.path),
       }
       : {
         '@type': 'ListItem',
-        position: i + 1,
+        position: start + i,
         url: absUrl(item.path),
         item: {
           '@type': 'WebApplication',

@@ -1,0 +1,127 @@
+---
+// Тело страницы подборки: шапка, остров управления, сетка карточек и
+// навигация по страницам.
+//
+// Вынесено в общий компонент, чтобы первая страница и страницы 2..N выводились
+// ОДНОЙ разметкой. Разойдясь, они дали бы разный вид у карточек и разные
+// селекторы у контроллера — а проверка вида сравнивает вычисленные стили между
+// страницами.
+import Breadcrumbs from './Breadcrumbs.astro';
+import CalculatorCatalog from './islands/CalculatorCatalog';
+import CatalogCard from './CatalogCard.astro';
+import CatalogPagination from './CatalogPagination.astro';
+import { clientUi } from '../lib/clientI18n';
+import { CATALOG_PAGE_SIZE } from '../lib/catalogPagination';
+import { ui, type Locale } from '../lib/i18n';
+import type { CalculatorDef, CategoryId } from '../lib/types';
+
+type CatalogRow = Pick<CalculatorDef, 'id' | 'name' | 'shortDescription' | 'fullPath' | 'category' | 'popularity' | 'isNew'> & {
+  categoryName?: string;
+};
+
+type Props = {
+  locale: Locale;
+  catalogPath: string;
+  page: number;
+  pageCount: number;
+  total: number;
+  rows: CatalogRow[];
+  categories: { id: CategoryId; name: string; slug: string }[];
+  counts: { total: number; fresh: number; popular: number; byCategory: Record<string, number> };
+};
+
+const { locale, catalogPath, page, pageCount, total, rows, categories, counts } = Astro.props;
+const copy = ui[locale];
+const cardCopy = clientUi[locale];
+
+const LABELS = ({
+  ru: { breadcrumbs: 'Хлебные крошки', pagination: 'Страницы подборки', previous: 'Назад', next: 'Вперёд', page: 'Страница', of: 'из' },
+  en: { breadcrumbs: 'Breadcrumbs', pagination: 'Catalog pages', previous: 'Previous', next: 'Next', page: 'Page', of: 'of' },
+  uk: { breadcrumbs: 'Навігаційний ланцюжок', pagination: 'Сторінки добірки', previous: 'Назад', next: 'Далі', page: 'Сторінка', of: 'з' },
+} as Partial<Record<Locale, { breadcrumbs: string; pagination: string; previous: string; next: string; page: string; of: string }>>)[locale]
+  ?? { breadcrumbs: 'Breadcrumbs', pagination: 'Catalog pages', previous: 'Previous', next: 'Next', page: 'Page', of: 'of' };
+---
+
+<section class="hero-mesh border-b border-ink-200" data-testid="calculators-page">
+  <div class="mx-auto max-w-page px-5 pb-10 pt-9 sm:px-8 sm:pb-14 sm:pt-12">
+    <Breadcrumbs
+      label={LABELS.breadcrumbs}
+      items={page === 1
+        ? [{ label: copy.home, href: `/${locale}/` }, { label: copy.allCalculators }]
+        : [{ label: copy.home, href: `/${locale}/` }, { label: copy.allCalculators, href: catalogPath }, { label: `${LABELS.page} ${page}` }]}
+    />
+
+    <div class="mt-5 flex min-w-0 flex-wrap items-baseline gap-3 sm:mt-6 sm:gap-4">
+      <span class="font-mono text-fit text-sm text-ink-500">/{locale}/calculators</span>
+      <span class="text-fit text-xs uppercase tracking-wider text-ink-500">
+        {total} {copy.instruments}
+      </span>
+    </div>
+
+    <h1 class="mt-3 text-fit text-4xl font-extrabold leading-tight tracking-[-0.05em] text-ink-900 sm:text-5xl">
+      {copy.catalogTitle}
+    </h1>
+    <p class="mt-3 max-w-3xl text-fit text-base leading-relaxed text-ink-500 sm:mt-4 sm:text-lg">
+      {copy.catalogLead}
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="mx-auto max-w-page space-y-10 px-5 py-10 sm:px-8 sm:py-14 sm:space-y-12">
+      <section class="space-y-5 sm:space-y-6" data-testid="calculator-catalog">
+        <div class="contents">
+          <CalculatorCatalog
+            categories={categories}
+            locale={locale}
+            total={total}
+            counts={counts}
+            page={page}
+            pageCount={pageCount}
+            catalogPath={catalogPath}
+            client:idle
+          />
+        </div>
+
+        {/*
+          Стрелка карточки объявляется один раз и переиспользуется через <use>:
+          полная разметка иконки повторялась на каждой карточке и росла вместе с
+          подборкой. Символ стоит СНАРУЖИ сетки: серверную сетку скрывают при
+          глобальном отборе, и ссылка из клиентских карточек должна остаться
+          разрешимой.
+        */}
+        <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+          <symbol id="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+          </symbol>
+        </svg>
+
+        <div
+          id="catalog-results"
+          class="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3"
+          aria-label={copy.allCalculators}
+          data-catalog-ssr-grid
+          data-catalog-page-size={CATALOG_PAGE_SIZE}
+          data-catalog-total={total}
+        >
+          {rows.map((calculator) => (
+            <CatalogCard
+              calc={calculator}
+              categoryName={calculator.categoryName ?? calculator.category}
+              newBadge={cardCopy.newBadge}
+              popularBadge={cardCopy.popularBadge}
+              openLabel={cardCopy.open}
+            />
+          ))}
+        </div>
+
+        <CatalogPagination
+          catalogPath={catalogPath}
+          page={page}
+          pageCount={pageCount}
+          copy={{ label: LABELS.pagination, previous: LABELS.previous, next: LABELS.next, page: LABELS.page, of: LABELS.of }}
+        />
+      </section>
+
+  </div>
+</section>

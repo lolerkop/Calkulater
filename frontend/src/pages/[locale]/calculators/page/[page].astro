@@ -1,0 +1,85 @@
+---
+// Страницы подборки со второй и далее.
+//
+// Первая страница сохраняет канонический адрес подборки и живёт в
+// `calculators.astro`; алиаса `page/1/` здесь намеренно нет — он был бы вторым
+// адресом одного и того же содержимого. Номера вне диапазона просто не
+// порождаются, поэтому дают 404 обычным путём статической сборки.
+import Layout from '../../../../components/Layout.astro';
+import CatalogPageBody from '../../../../components/CatalogPageBody.astro';
+import {
+  getAlternatesForPage,
+  isLocale,
+  localeCatalog,
+  localeHome,
+  locales,
+  ui,
+  type Locale,
+} from '../../../../lib/i18n';
+import { catalogPageCount, catalogPagePath, catalogPageSlice } from '../../../../lib/catalogPagination';
+import { catalogRows, catalogCategoryRows, catalogCounts, catalogJsonLd, pageWordFor } from '../../../../lib/catalogPageData';
+
+export function getStaticPaths() {
+  return locales.flatMap((locale) => {
+    const pageCount = catalogPageCount(catalogRows(locale).length);
+    return Array.from({ length: Math.max(0, pageCount - 1) }, (_, index) => ({
+      params: { locale, page: String(index + 2) },
+      props: { locale, page: index + 2 },
+    }));
+  });
+}
+
+const locale = (Astro.props.locale ?? 'ru') as Locale;
+const page = Astro.props.page as number;
+if (!isLocale(locale)) return Astro.redirect('/404');
+
+const copy = ui[locale];
+const catalogPath = localeCatalog(locale);
+const rows = catalogRows(locale);
+const pageCount = catalogPageCount(rows.length);
+const pagePath = catalogPagePath(catalogPath, page);
+
+// Соответствие между локалями держится по НОМЕРУ страницы: страница 2 украинской
+// подборки — это страница 2 русской. Если у локали столько страниц нет, ссылки
+// на неё не выводится вовсе, иначе hreflang указывал бы на 404.
+const alternates = getAlternatesForPage(Object.fromEntries(
+  locales
+    .filter((item) => catalogPageCount(catalogRows(item).length) >= page)
+    .map((item) => [item, catalogPagePath(localeCatalog(item), page)]),
+));
+
+const jsonLd = catalogJsonLd({
+  locale,
+  page,
+  pageCount,
+  catalogPath,
+  rows,
+  homeLabel: copy.home,
+  homePath: localeHome(locale),
+  title: copy.catalogTitle,
+  description: copy.catalogDescription,
+  catalogLabel: copy.allCalculators,
+});
+
+const PAGE_WORD = pageWordFor(locale);
+---
+
+<Layout
+  title={`${copy.catalogTitle} — ${PAGE_WORD} ${page}`}
+  description={`${copy.catalogDescription} ${PAGE_WORD} ${page}/${pageCount}.`}
+  canonical={pagePath}
+  locale={locale}
+  alternates={alternates}
+  jsonLd={jsonLd}
+>
+  <CatalogPageBody
+    locale={locale}
+    catalogPath={catalogPath}
+    page={page}
+    pageCount={pageCount}
+    total={rows.length}
+    rows={catalogPageSlice(rows, page)}
+    categories={catalogCategoryRows(locale)}
+    counts={catalogCounts(rows)}
+  />
+</Layout>
