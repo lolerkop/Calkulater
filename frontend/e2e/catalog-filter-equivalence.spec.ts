@@ -66,7 +66,7 @@ for (const locale of locales) {
     const queries = corpus(locale);
 
     await page.goto(CATALOG[locale], { waitUntil: 'networkidle' });
-    await expect(page.locator('[data-testid="catalog-result-count"]')).toContainText(String(rows.length), { timeout: 20000 });
+    await expect(page.locator('[data-catalog-ready]')).toBeAttached({ timeout: 20000 });
     // Прогреть ленивый индекс: он и есть источник глобальной подборки.
     await page.locator('[data-testid="catalog-search"]').fill('a');
     await expect.poll(() => page.locator('[data-catalog-global-grid]').count(), { timeout: 20000 }).toBe(1);

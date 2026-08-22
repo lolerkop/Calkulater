@@ -756,6 +756,15 @@ export default function CalculatorCatalog({
   useEffect(() => {
     const grid = document.querySelector<HTMLElement>('[data-catalog-ssr-grid]');
     const pagination = document.querySelector<HTMLElement>('[data-testid="catalog-pagination"]');
+    // Признак того, что остров ОЖИЛ.
+    //
+    // Нужен проверкам. Разметку подборки целиком отдаёт сервер — вместе со
+    // счётчиком найденного, — поэтому по ней невозможно отличить страницу до
+    // гидратации от страницы после. Тесты ждали появления счётчика и тем самым
+    // не ждали ничего: клик по ещё не оживлённой кнопке проходил мимо
+    // обработчика, и под нагрузкой это давало ложные падения. Атрибут ставит
+    // эффект, а эффекты выполняются только на клиенте.
+    grid?.setAttribute('data-catalog-ready', '');
     if (grid) {
       grid.toggleAttribute('hidden', showGlobalGrid);
       grid.setAttribute('aria-label', hasActiveFilters ? catalogCopy.filteredCalculators : copy.allCalculators);

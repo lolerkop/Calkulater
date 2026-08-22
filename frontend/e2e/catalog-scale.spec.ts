@@ -59,7 +59,7 @@ test('глобальный отбор охватывает весь катало
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('/ru/calculators/', { waitUntil: 'networkidle' });
-  await expect(page.locator('[data-testid="catalog-result-count"]')).toContainText(String(TOTAL), { timeout: 20000 });
+  await expect(page.locator('[data-catalog-ready]')).toBeAttached({ timeout: 20000 });
   expect(await page.locator(SSR).count()).toBe(Math.min(CATALOG_PAGE_SIZE, TOTAL));
 
   // Сортировка по имени выводит ВЕСЬ каталог одной клиентской сеткой.

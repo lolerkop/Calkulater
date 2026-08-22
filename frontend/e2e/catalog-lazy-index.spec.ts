@@ -37,7 +37,7 @@ test.describe('ленивый индекс каталога', () => {
     // Остров гидратируется по `client:idle`: под параллельной нагрузкой это
     // происходит заметно позже networkidle, и клик по ещё не оживлённой кнопке
     // не даёт ничего. Признак готовности — заполненный счётчик найденного.
-    await expect(page.locator('[data-testid="catalog-result-count"]')).toContainText('276', { timeout: 20000 });
+    await expect(page.locator('[data-catalog-ready]')).toBeAttached({ timeout: 20000 });
     const onPage = await page.locator(visible).count();
 
     // Кнопки категорий не имеют собственных testid: они перечисляются внутри
@@ -84,7 +84,7 @@ test.describe('ленивый индекс каталога', () => {
     // Ждём, пока остров возьмёт сетку: предмет проверки — граница загрузки
     // индекса, а не ввод до гидратации (он проверяется отдельно и работает).
     // Без этого ожидания fill() состязается с монтированием React.
-    await expect(page.locator('[data-testid="catalog-result-count"]')).toBeVisible({ timeout: 20000 });
+    await expect(page.locator('[data-catalog-ready]')).toBeAttached({ timeout: 20000 });
     await page.locator(search).fill('аннуитет');
     // Пока индекс заведомо в пути, «ничего не найдено» показывать нельзя:
     // часть совпадений живёт именно в ключевых словах.
