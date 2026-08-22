@@ -48,6 +48,7 @@ import { definition as def_calories_per_serving } from './calories-per-serving/d
 import { definition as def_capacitor_basics } from './capacitor-basics/definition';
 import { definition as def_capacitor_network } from './capacitor-network/definition';
 import { definition as def_car_depreciation } from './car-depreciation/definition';
+import { definition as def_carnot } from './carnot/definition';
 import { definition as def_centripetal_force } from './centripetal-force/definition';
 import { definition as def_churn_retention } from './churn-retention/definition';
 import { definition as def_cladding_boards } from './cladding-boards/definition';
@@ -96,6 +97,7 @@ import { definition as def_ctr } from './ctr/definition';
 import { definition as def_currency_exchange_fee } from './currency-exchange-fee/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_dca } from './dca/definition';
+import { definition as def_de_broglie } from './de-broglie/definition';
 import { definition as def_debt_snowball_avalanche } from './debt-snowball-avalanche/definition';
 import { definition as def_decibel } from './decibel/definition';
 import { definition as def_density } from './density/definition';
@@ -106,6 +108,7 @@ import { definition as def_difference_abs_rel } from './difference-abs-rel/defin
 import { definition as def_dilution } from './dilution/definition';
 import { definition as def_dividend_yield } from './dividend-yield/definition';
 import { definition as def_divisors } from './divisors/definition';
+import { definition as def_doppler } from './doppler/definition';
 import { definition as def_down_payment } from './down-payment/definition';
 import { definition as def_download_time } from './download-time/definition';
 import { definition as def_drywall } from './drywall/definition';
@@ -116,6 +119,7 @@ import { definition as def_email_metrics } from './email-metrics/definition';
 import { definition as def_emergency_fund } from './emergency-fund/definition';
 import { definition as def_employee_cost } from './employee-cost/definition';
 import { definition as def_engagement_rate } from './engagement-rate/definition';
+import { definition as def_escape_velocity } from './escape-velocity/definition';
 import { definition as def_factorial } from './factorial/definition';
 import { definition as def_fee_chain } from './fee-chain/definition';
 import { definition as def_fence } from './fence/definition';
@@ -166,6 +170,7 @@ import { definition as def_installment } from './installment/definition';
 import { definition as def_insulation } from './insulation/definition';
 import { definition as def_internet_traffic } from './internet-traffic/definition';
 import { definition as def_inventory_turnover } from './inventory-turnover/definition';
+import { definition as def_inverse_square } from './inverse-square/definition';
 import { definition as def_inverter_power } from './inverter-power/definition';
 import { definition as def_ipv4_subnet } from './ipv4-subnet/definition';
 import { definition as def_kinetic_energy } from './kinetic-energy/definition';
@@ -197,6 +202,7 @@ import { definition as def_newton_force } from './newton-force/definition';
 import { definition as def_number_scale_names } from './number-scale-names/definition';
 import { definition as def_number_to_words } from './number-to-words/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
+import { definition as def_orbital_period } from './orbital-period/definition';
 import { definition as def_overtime } from './overtime/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
@@ -337,6 +343,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_capacitor_basics,
   def_capacitor_network,
   def_car_depreciation,
+  def_carnot,
   def_centripetal_force,
   def_churn_retention,
   def_cladding_boards,
@@ -385,6 +392,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_currency_exchange_fee,
   def_day_of_week,
   def_dca,
+  def_de_broglie,
   def_debt_snowball_avalanche,
   def_decibel,
   def_density,
@@ -395,6 +403,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_dilution,
   def_dividend_yield,
   def_divisors,
+  def_doppler,
   def_down_payment,
   def_download_time,
   def_drywall,
@@ -405,6 +414,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_emergency_fund,
   def_employee_cost,
   def_engagement_rate,
+  def_escape_velocity,
   def_factorial,
   def_fee_chain,
   def_fence,
@@ -455,6 +465,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_insulation,
   def_internet_traffic,
   def_inventory_turnover,
+  def_inverse_square,
   def_inverter_power,
   def_ipv4_subnet,
   def_kinetic_energy,
@@ -486,6 +497,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_number_scale_names,
   def_number_to_words,
   def_ohms_law,
+  def_orbital_period,
   def_overtime,
   def_paint_calculator,
   def_percent_calculator,

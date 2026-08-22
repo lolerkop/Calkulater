@@ -42,6 +42,7 @@ import { localization as loc_calories_per_serving } from './calories-per-serving
 import { localization as loc_capacitor_basics } from './capacitor-basics/localization';
 import { localization as loc_capacitor_network } from './capacitor-network/localization';
 import { localization as loc_car_depreciation } from './car-depreciation/localization';
+import { localization as loc_carnot } from './carnot/localization';
 import { localization as loc_centripetal_force } from './centripetal-force/localization';
 import { localization as loc_churn_retention } from './churn-retention/localization';
 import { localization as loc_cladding_boards } from './cladding-boards/localization';
@@ -90,6 +91,7 @@ import { localization as loc_ctr } from './ctr/localization';
 import { localization as loc_currency_exchange_fee } from './currency-exchange-fee/localization';
 import { localization as loc_day_of_week } from './day-of-week/localization';
 import { localization as loc_dca } from './dca/localization';
+import { localization as loc_de_broglie } from './de-broglie/localization';
 import { localization as loc_debt_snowball_avalanche } from './debt-snowball-avalanche/localization';
 import { localization as loc_decibel } from './decibel/localization';
 import { localization as loc_density } from './density/localization';
@@ -100,6 +102,7 @@ import { localization as loc_difference_abs_rel } from './difference-abs-rel/loc
 import { localization as loc_dilution } from './dilution/localization';
 import { localization as loc_dividend_yield } from './dividend-yield/localization';
 import { localization as loc_divisors } from './divisors/localization';
+import { localization as loc_doppler } from './doppler/localization';
 import { localization as loc_down_payment } from './down-payment/localization';
 import { localization as loc_download_time } from './download-time/localization';
 import { localization as loc_drywall } from './drywall/localization';
@@ -110,6 +113,7 @@ import { localization as loc_email_metrics } from './email-metrics/localization'
 import { localization as loc_emergency_fund } from './emergency-fund/localization';
 import { localization as loc_employee_cost } from './employee-cost/localization';
 import { localization as loc_engagement_rate } from './engagement-rate/localization';
+import { localization as loc_escape_velocity } from './escape-velocity/localization';
 import { localization as loc_factorial } from './factorial/localization';
 import { localization as loc_fee_chain } from './fee-chain/localization';
 import { localization as loc_fence } from './fence/localization';
@@ -160,6 +164,7 @@ import { localization as loc_installment } from './installment/localization';
 import { localization as loc_insulation } from './insulation/localization';
 import { localization as loc_internet_traffic } from './internet-traffic/localization';
 import { localization as loc_inventory_turnover } from './inventory-turnover/localization';
+import { localization as loc_inverse_square } from './inverse-square/localization';
 import { localization as loc_inverter_power } from './inverter-power/localization';
 import { localization as loc_ipv4_subnet } from './ipv4-subnet/localization';
 import { localization as loc_kinetic_energy } from './kinetic-energy/localization';
@@ -191,6 +196,7 @@ import { localization as loc_newton_force } from './newton-force/localization';
 import { localization as loc_number_scale_names } from './number-scale-names/localization';
 import { localization as loc_number_to_words } from './number-to-words/localization';
 import { localization as loc_ohms_law } from './ohms-law/localization';
+import { localization as loc_orbital_period } from './orbital-period/localization';
 import { localization as loc_overtime } from './overtime/localization';
 import { localization as loc_pet_age } from './pet-age/localization';
 import { localization as loc_pet_food } from './pet-food/localization';
@@ -330,6 +336,7 @@ export const v2Localization: ScopedLocalization = {
     'capacitor-basics': loc_capacitor_basics.en ?? {},
     'capacitor-network': loc_capacitor_network.en ?? {},
     'car-depreciation': loc_car_depreciation.en ?? {},
+    'carnot': loc_carnot.en ?? {},
     'centripetal-force': loc_centripetal_force.en ?? {},
     'churn-retention': loc_churn_retention.en ?? {},
     'cladding-boards': loc_cladding_boards.en ?? {},
@@ -378,6 +385,7 @@ export const v2Localization: ScopedLocalization = {
     'currency-exchange-fee': loc_currency_exchange_fee.en ?? {},
     'day-of-week': loc_day_of_week.en ?? {},
     'dca': loc_dca.en ?? {},
+    'de-broglie': loc_de_broglie.en ?? {},
     'debt-snowball-avalanche': loc_debt_snowball_avalanche.en ?? {},
     'decibel': loc_decibel.en ?? {},
     'density': loc_density.en ?? {},
@@ -388,6 +396,7 @@ export const v2Localization: ScopedLocalization = {
     'dilution': loc_dilution.en ?? {},
     'dividend-yield': loc_dividend_yield.en ?? {},
     'divisors': loc_divisors.en ?? {},
+    'doppler': loc_doppler.en ?? {},
     'down-payment': loc_down_payment.en ?? {},
     'download-time': loc_download_time.en ?? {},
     'drywall': loc_drywall.en ?? {},
@@ -398,6 +407,7 @@ export const v2Localization: ScopedLocalization = {
     'emergency-fund': loc_emergency_fund.en ?? {},
     'employee-cost': loc_employee_cost.en ?? {},
     'engagement-rate': loc_engagement_rate.en ?? {},
+    'escape-velocity': loc_escape_velocity.en ?? {},
     'factorial': loc_factorial.en ?? {},
     'fee-chain': loc_fee_chain.en ?? {},
     'fence': loc_fence.en ?? {},
@@ -448,6 +458,7 @@ export const v2Localization: ScopedLocalization = {
     'insulation': loc_insulation.en ?? {},
     'internet-traffic': loc_internet_traffic.en ?? {},
     'inventory-turnover': loc_inventory_turnover.en ?? {},
+    'inverse-square': loc_inverse_square.en ?? {},
     'inverter-power': loc_inverter_power.en ?? {},
     'ipv4-subnet': loc_ipv4_subnet.en ?? {},
     'kinetic-energy': loc_kinetic_energy.en ?? {},
@@ -479,6 +490,7 @@ export const v2Localization: ScopedLocalization = {
     'number-scale-names': loc_number_scale_names.en ?? {},
     'number-to-words': loc_number_to_words.en ?? {},
     'ohms-law': loc_ohms_law.en ?? {},
+    'orbital-period': loc_orbital_period.en ?? {},
     'overtime': loc_overtime.en ?? {},
     'pet-age': loc_pet_age.en ?? {},
     'pet-food': loc_pet_food.en ?? {},
@@ -617,6 +629,7 @@ export const v2Localization: ScopedLocalization = {
     'capacitor-basics': loc_capacitor_basics.uk ?? {},
     'capacitor-network': loc_capacitor_network.uk ?? {},
     'car-depreciation': loc_car_depreciation.uk ?? {},
+    'carnot': loc_carnot.uk ?? {},
     'centripetal-force': loc_centripetal_force.uk ?? {},
     'churn-retention': loc_churn_retention.uk ?? {},
     'cladding-boards': loc_cladding_boards.uk ?? {},
@@ -665,6 +678,7 @@ export const v2Localization: ScopedLocalization = {
     'currency-exchange-fee': loc_currency_exchange_fee.uk ?? {},
     'day-of-week': loc_day_of_week.uk ?? {},
     'dca': loc_dca.uk ?? {},
+    'de-broglie': loc_de_broglie.uk ?? {},
     'debt-snowball-avalanche': loc_debt_snowball_avalanche.uk ?? {},
     'decibel': loc_decibel.uk ?? {},
     'density': loc_density.uk ?? {},
@@ -675,6 +689,7 @@ export const v2Localization: ScopedLocalization = {
     'dilution': loc_dilution.uk ?? {},
     'dividend-yield': loc_dividend_yield.uk ?? {},
     'divisors': loc_divisors.uk ?? {},
+    'doppler': loc_doppler.uk ?? {},
     'down-payment': loc_down_payment.uk ?? {},
     'download-time': loc_download_time.uk ?? {},
     'drywall': loc_drywall.uk ?? {},
@@ -685,6 +700,7 @@ export const v2Localization: ScopedLocalization = {
     'emergency-fund': loc_emergency_fund.uk ?? {},
     'employee-cost': loc_employee_cost.uk ?? {},
     'engagement-rate': loc_engagement_rate.uk ?? {},
+    'escape-velocity': loc_escape_velocity.uk ?? {},
     'factorial': loc_factorial.uk ?? {},
     'fee-chain': loc_fee_chain.uk ?? {},
     'fence': loc_fence.uk ?? {},
@@ -735,6 +751,7 @@ export const v2Localization: ScopedLocalization = {
     'insulation': loc_insulation.uk ?? {},
     'internet-traffic': loc_internet_traffic.uk ?? {},
     'inventory-turnover': loc_inventory_turnover.uk ?? {},
+    'inverse-square': loc_inverse_square.uk ?? {},
     'inverter-power': loc_inverter_power.uk ?? {},
     'ipv4-subnet': loc_ipv4_subnet.uk ?? {},
     'kinetic-energy': loc_kinetic_energy.uk ?? {},
@@ -766,6 +783,7 @@ export const v2Localization: ScopedLocalization = {
     'number-scale-names': loc_number_scale_names.uk ?? {},
     'number-to-words': loc_number_to_words.uk ?? {},
     'ohms-law': loc_ohms_law.uk ?? {},
+    'orbital-period': loc_orbital_period.uk ?? {},
     'overtime': loc_overtime.uk ?? {},
     'pet-age': loc_pet_age.uk ?? {},
     'pet-food': loc_pet_food.uk ?? {},

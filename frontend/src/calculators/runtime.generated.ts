@@ -52,6 +52,7 @@ import { compute as compute_capacitor_basics } from './capacitor-basics/compute'
 import { contextualField as ctx_capacitor_basics } from './capacitor-basics/contextualField';
 import { compute as compute_capacitor_network } from './capacitor-network/compute';
 import { compute as compute_car_depreciation } from './car-depreciation/compute';
+import { compute as compute_carnot } from './carnot/compute';
 import { compute as compute_centripetal_force } from './centripetal-force/compute';
 import { compute as compute_churn_retention } from './churn-retention/compute';
 import { compute as compute_cladding_boards } from './cladding-boards/compute';
@@ -102,6 +103,7 @@ import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_currency_exchange_fee } from './currency-exchange-fee/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_dca } from './dca/compute';
+import { compute as compute_de_broglie } from './de-broglie/compute';
 import { compute as compute_debt_snowball_avalanche } from './debt-snowball-avalanche/compute';
 import { compute as compute_decibel } from './decibel/compute';
 import { compute as compute_density } from './density/compute';
@@ -112,6 +114,7 @@ import { compute as compute_difference_abs_rel } from './difference-abs-rel/comp
 import { compute as compute_dilution } from './dilution/compute';
 import { compute as compute_dividend_yield } from './dividend-yield/compute';
 import { compute as compute_divisors } from './divisors/compute';
+import { compute as compute_doppler } from './doppler/compute';
 import { compute as compute_down_payment } from './down-payment/compute';
 import { compute as compute_download_time } from './download-time/compute';
 import { compute as compute_drywall } from './drywall/compute';
@@ -122,6 +125,7 @@ import { compute as compute_email_metrics } from './email-metrics/compute';
 import { compute as compute_emergency_fund } from './emergency-fund/compute';
 import { compute as compute_employee_cost } from './employee-cost/compute';
 import { compute as compute_engagement_rate } from './engagement-rate/compute';
+import { compute as compute_escape_velocity } from './escape-velocity/compute';
 import { compute as compute_factorial } from './factorial/compute';
 import { compute as compute_fee_chain } from './fee-chain/compute';
 import { compute as compute_fence } from './fence/compute';
@@ -175,6 +179,7 @@ import { compute as compute_installment } from './installment/compute';
 import { compute as compute_insulation } from './insulation/compute';
 import { compute as compute_internet_traffic } from './internet-traffic/compute';
 import { compute as compute_inventory_turnover } from './inventory-turnover/compute';
+import { compute as compute_inverse_square } from './inverse-square/compute';
 import { compute as compute_inverter_power } from './inverter-power/compute';
 import { compute as compute_ipv4_subnet } from './ipv4-subnet/compute';
 import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
@@ -210,6 +215,7 @@ import { compute as compute_number_scale_names } from './number-scale-names/comp
 import { compute as compute_number_to_words } from './number-to-words/compute';
 import { compute as compute_ohms_law } from './ohms-law/compute';
 import { contextualField as ctx_ohms_law } from './ohms-law/contextualField';
+import { compute as compute_orbital_period } from './orbital-period/compute';
 import { compute as compute_overtime } from './overtime/compute';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
@@ -357,6 +363,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'capacitor-basics': compute_capacitor_basics,
   'capacitor-network': compute_capacitor_network,
   'car-depreciation': compute_car_depreciation,
+  'carnot': compute_carnot,
   'centripetal-force': compute_centripetal_force,
   'churn-retention': compute_churn_retention,
   'cladding-boards': compute_cladding_boards,
@@ -405,6 +412,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'currency-exchange-fee': compute_currency_exchange_fee,
   'day-of-week': compute_day_of_week,
   'dca': compute_dca,
+  'de-broglie': compute_de_broglie,
   'debt-snowball-avalanche': compute_debt_snowball_avalanche,
   'decibel': compute_decibel,
   'density': compute_density,
@@ -415,6 +423,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'dilution': compute_dilution,
   'dividend-yield': compute_dividend_yield,
   'divisors': compute_divisors,
+  'doppler': compute_doppler,
   'down-payment': compute_down_payment,
   'download-time': compute_download_time,
   'drywall': compute_drywall,
@@ -425,6 +434,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'emergency-fund': compute_emergency_fund,
   'employee-cost': compute_employee_cost,
   'engagement-rate': compute_engagement_rate,
+  'escape-velocity': compute_escape_velocity,
   'factorial': compute_factorial,
   'fee-chain': compute_fee_chain,
   'fence': compute_fence,
@@ -475,6 +485,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'insulation': compute_insulation,
   'internet-traffic': compute_internet_traffic,
   'inventory-turnover': compute_inventory_turnover,
+  'inverse-square': compute_inverse_square,
   'inverter-power': compute_inverter_power,
   'ipv4-subnet': compute_ipv4_subnet,
   'kinetic-energy': compute_kinetic_energy,
@@ -506,6 +517,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'number-scale-names': compute_number_scale_names,
   'number-to-words': compute_number_to_words,
   'ohms-law': compute_ohms_law,
+  'orbital-period': compute_orbital_period,
   'overtime': compute_overtime,
   'paint-calculator': compute_paint_calculator,
   'percent-calculator': compute_percent_calculator,
