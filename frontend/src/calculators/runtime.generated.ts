@@ -33,6 +33,7 @@ import { compute as compute_barbell_plates } from './barbell-plates/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_battery_series_parallel } from './battery-series-parallel/compute';
+import { compute as compute_beam_stress } from './beam-stress/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
 import { compute as compute_bike_wheel_size } from './bike-wheel-size/compute';
 import { compute as compute_binomial_probability } from './binomial-probability/compute';
@@ -49,6 +50,7 @@ import { compute as compute_calories_from_macros } from './calories-from-macros/
 import { compute as compute_calories_per_serving } from './calories-per-serving/compute';
 import { compute as compute_capacitor_basics } from './capacitor-basics/compute';
 import { contextualField as ctx_capacitor_basics } from './capacitor-basics/contextualField';
+import { compute as compute_capacitor_network } from './capacitor-network/compute';
 import { compute as compute_car_depreciation } from './car-depreciation/compute';
 import { compute as compute_centripetal_force } from './centripetal-force/compute';
 import { compute as compute_churn_retention } from './churn-retention/compute';
@@ -129,6 +131,7 @@ import { compute as compute_final_grade } from './final-grade/compute';
 import { compute as compute_fps_frametime } from './fps-frametime/compute';
 import { contextualField as ctx_fps_frametime } from './fps-frametime/contextualField';
 import { compute as compute_fraction_arith } from './fraction-arith/compute';
+import { compute as compute_free_fall } from './free-fall/compute';
 import { compute as compute_freelance_rate } from './freelance-rate/compute';
 import { compute as compute_fuel_consumption } from './fuel-consumption/compute';
 import { compute as compute_gas_laws } from './gas-laws/compute';
@@ -198,10 +201,12 @@ import { compute as compute_modulo } from './modulo/compute';
 import { compute as compute_molar_mass } from './molar-mass/compute';
 import { compute as compute_molarity } from './molarity/compute';
 import { compute as compute_moles } from './moles/compute';
+import { compute as compute_moment_of_inertia } from './moment-of-inertia/compute';
 import { compute as compute_momentum } from './momentum/compute';
 import { compute as compute_mrr_arr } from './mrr-arr/compute';
 import { compute as compute_network_bandwidth } from './network-bandwidth/compute';
 import { compute as compute_newton_force } from './newton-force/compute';
+import { compute as compute_number_scale_names } from './number-scale-names/compute';
 import { compute as compute_number_to_words } from './number-to-words/compute';
 import { compute as compute_ohms_law } from './ohms-law/compute';
 import { contextualField as ctx_ohms_law } from './ohms-law/contextualField';
@@ -292,6 +297,7 @@ import { compute as compute_time_value_money } from './time-value-money/compute'
 import { compute as compute_timezone_difference } from './timezone-difference/compute';
 import { compute as compute_tip } from './tip/compute';
 import { compute as compute_tire_size } from './tire-size/compute';
+import { compute as compute_transformer_ratio } from './transformer-ratio/compute';
 import { compute as compute_trip_budget } from './trip-budget/compute';
 import { compute as compute_trip_cost } from './trip-cost/compute';
 import { compute as compute_underfloor_heating } from './underfloor-heating/compute';
@@ -334,6 +340,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
   'battery-series-parallel': compute_battery_series_parallel,
+  'beam-stress': compute_beam_stress,
   'bike-gear-ratio': compute_bike_gear_ratio,
   'bike-wheel-size': compute_bike_wheel_size,
   'binomial-probability': compute_binomial_probability,
@@ -348,6 +355,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'calories-from-macros': compute_calories_from_macros,
   'calories-per-serving': compute_calories_per_serving,
   'capacitor-basics': compute_capacitor_basics,
+  'capacitor-network': compute_capacitor_network,
   'car-depreciation': compute_car_depreciation,
   'centripetal-force': compute_centripetal_force,
   'churn-retention': compute_churn_retention,
@@ -425,6 +433,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'final-grade': compute_final_grade,
   'fps-frametime': compute_fps_frametime,
   'fraction-arith': compute_fraction_arith,
+  'free-fall': compute_free_fall,
   'freelance-rate': compute_freelance_rate,
   'fuel-consumption': compute_fuel_consumption,
   'gas-laws': compute_gas_laws,
@@ -489,10 +498,12 @@ export const v2Runners: Record<string, CalcFunction> = {
   'molar-mass': compute_molar_mass,
   'molarity': compute_molarity,
   'moles': compute_moles,
+  'moment-of-inertia': compute_moment_of_inertia,
   'momentum': compute_momentum,
   'mrr-arr': compute_mrr_arr,
   'network-bandwidth': compute_network_bandwidth,
   'newton-force': compute_newton_force,
+  'number-scale-names': compute_number_scale_names,
   'number-to-words': compute_number_to_words,
   'ohms-law': compute_ohms_law,
   'overtime': compute_overtime,
@@ -575,6 +586,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'timezone-difference': compute_timezone_difference,
   'tip': compute_tip,
   'tire-size': compute_tire_size,
+  'transformer-ratio': compute_transformer_ratio,
   'trip-budget': compute_trip_budget,
   'trip-cost': compute_trip_cost,
   'underfloor-heating': compute_underfloor_heating,

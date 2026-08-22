@@ -923,6 +923,19 @@ const stateScenarios: Record<string, StateScenario> = {
   'tank-volume': { query: { shape: 'horizontal-cylinder', d: 2, len: 4, level: 0.5 }, result: { primary: '2,457 м³', rows: [{ label: 'Полный объём', value: '12,566 м³' }, { label: 'Заполнено', value: '19,5501 %' }, { label: 'В литрах', value: '2 456,74 л' }] } },
   //   отношение мощностей 1:10 — ровно 10 дБ
   'decibel': { query: { mode: 'ratio', p1: 1, p2: 10, kind: 'power' }, result: { primary: '10 дБ', rows: [{ label: 'Во сколько раз по мощности', value: '10' }, { label: 'Во сколько раз по амплитуде', value: '3,162' }] } },
+  // Волна 21, подпартия 21A2.
+  //   5 кроров в миллиарды: 5·10⁷ / 10⁹ = 0,05
+  'number-scale-names': { query: { value: 5, from: 'crore', to: 'billion' }, result: { primary: '0,05', rows: [{ label: 'В единицах', value: '50 000 000' }, { label: 'В лакхах', value: '500' }, { label: 'В крорах', value: '5' }] } },
+  //   те же номиналы параллельно: ёмкости складываются
+  'capacitor-network': { query: { capacitances: '100 220 470', mode: 'parallel' }, result: { primary: '790 мкФ', rows: [{ label: 'Конденсаторов', value: '3' }, { label: 'Соединение', value: 'параллельное' }] } },
+  //   стержень через конец: mL²/3 = 3·1,44/3
+  'moment-of-inertia': { query: { shape: 'rod-end', m: 3, r: 1.2 }, result: { primary: '1,44 кг·м²', rows: [{ label: 'Радиус инерции', value: '0,6928 м' }, { label: 'Тело', value: 'стержень через конец' }] } },
+  //   сечение 50×150 при 9 кН·м: W = 187 500 мм³
+  'beam-stress': { query: { moment: 9000, section: 'rect', b: 50, h: 150 }, result: { primary: '48 МПа', rows: [{ label: 'Момент сопротивления', value: '187 500 мм³' }, { label: 'Определяющий размер сечения', value: '150 мм' }] } },
+  //   пять секунд падения при лунном ускорении 1,62
+  'free-fall': { query: { mode: 'fromTime', t: 5, g: 1.62 }, result: { primary: '8,1 м/с', rows: [{ label: 'Высота падения', value: '20,25 м' }, { label: 'В километрах в час', value: '29,16 км/ч' }] } },
+  //   повышающий 200/1000 витков: 12 В -> 60 В, ток падает впятеро
+  'transformer-ratio': { query: { mode: 'secondaryVoltage', n1: 200, n2: 1000, v1: 12, i1: 5 }, result: { primary: '60 В', rows: [{ label: 'Отношение витков', value: '5' }, { label: 'Вторичный ток', value: '1 А' }, { label: 'Тип', value: 'повышающий' }] } },
   // Волна 20B, партия 2. Те же правила: значения выведены независимой моделью,
   // решаемое поле в набор не входит.
   //   25 °C при 45 % -> γ = 0,84479, точка росы 12,229, разрыв 12,771

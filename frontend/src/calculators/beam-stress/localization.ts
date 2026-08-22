@@ -1,0 +1,44 @@
+import type { CalculatorLocalization } from '../../lib/platform/types';
+
+export const localization: CalculatorLocalization = {
+  en: {
+    fields: {
+      moment: 'Bending moment, N·m', section: 'Cross-section', b: 'Section width, mm',
+      h: 'Section height, mm', d: 'Diameter, mm',
+    },
+    options: { rect: 'rectangle', circle: 'circle' },
+    results: {
+      'Напряжение изгиба': 'Bending stress', 'Момент сопротивления': 'Section modulus',
+      'Изгибающий момент': 'Bending moment', 'Сечение': 'Cross-section',
+      'Определяющий размер сечения': 'Governing section size', 'Проверьте данные': 'Check the values',
+    },
+    values: {
+      'МПа': 'MPa', 'Н·м': 'N·m', 'мм³': 'mm³', 'мм': 'mm',
+      'прямоугольник': 'rectangle', 'круг': 'circle',
+      'Изгибающий момент должен быть больше нуля': 'The bending moment must be greater than zero',
+      'Диаметр должен быть больше нуля': 'The diameter must be greater than zero',
+      'Ширина сечения должна быть больше нуля': 'The section width must be greater than zero',
+      'Высота сечения должна быть больше нуля': 'The section height must be greater than zero',
+    },
+  },
+  uk: {
+    fields: {
+      moment: 'Згинальний момент, Н·м', section: 'Переріз', b: 'Ширина перерізу, мм',
+      h: 'Висота перерізу, мм', d: 'Діаметр, мм',
+    },
+    options: { rect: 'прямокутник', circle: 'коло' },
+    results: {
+      'Напряжение изгиба': 'Напруження згину', 'Момент сопротивления': 'Момент опору',
+      'Изгибающий момент': 'Згинальний момент', 'Сечение': 'Переріз',
+      'Определяющий размер сечения': 'Визначальний розмір перерізу', 'Проверьте данные': 'Перевірте дані',
+    },
+    values: {
+      'МПа': 'МПа', 'Н·м': 'Н·м', 'мм³': 'мм³', 'мм': 'мм',
+      'прямоугольник': 'прямокутник', 'круг': 'коло',
+      'Изгибающий момент должен быть больше нуля': 'Згинальний момент має бути більшим за нуль',
+      'Диаметр должен быть больше нуля': 'Діаметр має бути більшим за нуль',
+      'Ширина сечения должна быть больше нуля': 'Ширина перерізу має бути більшою за нуль',
+      'Высота сечения должна быть больше нуля': 'Висота перерізу має бути більшою за нуль',
+    },
+  },
+};

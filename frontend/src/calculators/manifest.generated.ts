@@ -31,6 +31,7 @@ import { definition as def_barbell_plates } from './barbell-plates/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
 import { definition as def_battery_runtime } from './battery-runtime/definition';
 import { definition as def_battery_series_parallel } from './battery-series-parallel/definition';
+import { definition as def_beam_stress } from './beam-stress/definition';
 import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
 import { definition as def_bike_wheel_size } from './bike-wheel-size/definition';
 import { definition as def_binomial_probability } from './binomial-probability/definition';
@@ -45,6 +46,7 @@ import { definition as def_cagr } from './cagr/definition';
 import { definition as def_calories_from_macros } from './calories-from-macros/definition';
 import { definition as def_calories_per_serving } from './calories-per-serving/definition';
 import { definition as def_capacitor_basics } from './capacitor-basics/definition';
+import { definition as def_capacitor_network } from './capacitor-network/definition';
 import { definition as def_car_depreciation } from './car-depreciation/definition';
 import { definition as def_centripetal_force } from './centripetal-force/definition';
 import { definition as def_churn_retention } from './churn-retention/definition';
@@ -122,6 +124,7 @@ import { definition as def_files_on_disk } from './files-on-disk/definition';
 import { definition as def_final_grade } from './final-grade/definition';
 import { definition as def_fps_frametime } from './fps-frametime/definition';
 import { definition as def_fraction_arith } from './fraction-arith/definition';
+import { definition as def_free_fall } from './free-fall/definition';
 import { definition as def_freelance_rate } from './freelance-rate/definition';
 import { definition as def_fuel_consumption } from './fuel-consumption/definition';
 import { definition as def_gas_laws } from './gas-laws/definition';
@@ -186,10 +189,12 @@ import { definition as def_modulo } from './modulo/definition';
 import { definition as def_molar_mass } from './molar-mass/definition';
 import { definition as def_molarity } from './molarity/definition';
 import { definition as def_moles } from './moles/definition';
+import { definition as def_moment_of_inertia } from './moment-of-inertia/definition';
 import { definition as def_momentum } from './momentum/definition';
 import { definition as def_mrr_arr } from './mrr-arr/definition';
 import { definition as def_network_bandwidth } from './network-bandwidth/definition';
 import { definition as def_newton_force } from './newton-force/definition';
+import { definition as def_number_scale_names } from './number-scale-names/definition';
 import { definition as def_number_to_words } from './number-to-words/definition';
 import { definition as def_ohms_law } from './ohms-law/definition';
 import { definition as def_overtime } from './overtime/definition';
@@ -272,6 +277,7 @@ import { definition as def_time_value_money } from './time-value-money/definitio
 import { definition as def_timezone_difference } from './timezone-difference/definition';
 import { definition as def_tip } from './tip/definition';
 import { definition as def_tire_size } from './tire-size/definition';
+import { definition as def_transformer_ratio } from './transformer-ratio/definition';
 import { definition as def_trip_budget } from './trip-budget/definition';
 import { definition as def_trip_cost } from './trip-cost/definition';
 import { definition as def_underfloor_heating } from './underfloor-heating/definition';
@@ -314,6 +320,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_battery_charge_time,
   def_battery_runtime,
   def_battery_series_parallel,
+  def_beam_stress,
   def_bike_gear_ratio,
   def_bike_wheel_size,
   def_binomial_probability,
@@ -328,6 +335,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_calories_from_macros,
   def_calories_per_serving,
   def_capacitor_basics,
+  def_capacitor_network,
   def_car_depreciation,
   def_centripetal_force,
   def_churn_retention,
@@ -405,6 +413,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_final_grade,
   def_fps_frametime,
   def_fraction_arith,
+  def_free_fall,
   def_freelance_rate,
   def_fuel_consumption,
   def_gas_laws,
@@ -469,10 +478,12 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_molar_mass,
   def_molarity,
   def_moles,
+  def_moment_of_inertia,
   def_momentum,
   def_mrr_arr,
   def_network_bandwidth,
   def_newton_force,
+  def_number_scale_names,
   def_number_to_words,
   def_ohms_law,
   def_overtime,
@@ -555,6 +566,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_timezone_difference,
   def_tip,
   def_tire_size,
+  def_transformer_ratio,
   def_trip_budget,
   def_trip_cost,
   def_underfloor_heating,
