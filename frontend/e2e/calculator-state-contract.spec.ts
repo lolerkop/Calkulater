@@ -894,6 +894,21 @@ const stateScenarios: Record<string, StateScenario> = {
   'thermal-conduction': { query: { area: 25, thickness: 0.15, k: 0.7, dt: 18 }, result: { primary: '2 100 Вт', rows: [{ label: 'Плотность потока', value: '84 Вт/м²' }, { label: 'Сопротивление слоя', value: '0,2143 м²·К/Вт' }, { label: 'Коэффициент теплопередачи', value: '4,667 Вт/(м²·К)' }] } },
   //   15 + 55 × 1,8 = 114 мин = 1 ч 54 мин; отдых 10 % = 11,4 мин
   'roast-time': { query: { weight: 1.8, minutes_per_kg: 55, base_minutes: 15, rest_pct: 10 }, result: { primary: '1 ч 54 мин', rows: [{ label: 'Минут готовки', value: '114 мин' }, { label: 'Отдых после духовки', value: '11,4 мин' }, { label: 'Всего с отдыхом', value: '125,4 мин' }] } },
+  // Волна 20B, партия 1. Значения выведены независимой моделью Phase 20P на
+  // НЕумолчальных входах; решаемое поле в набор не входит — оно только для
+  // чтения и получает своё значение из расчёта.
+  //   жёсткость по паре 90 Н / 0,12 м -> 750 Н/м, энергия 90·0,12/2 = 5,4 Дж
+  'hooke-law': { query: { mode: 'stiffness', f: 90, x: 0.12 }, result: { primary: '750 Н/м', rows: [{ label: 'Энергия пружины', value: '5,4 Дж' }, { label: 'Удлинение', value: '0,12 м' }, { label: 'Сила', value: '90 Н' }] } },
+  //   напряжение по 1410 мкКл на 47 мкФ -> 30 В, энергия 47e−6·900/2 = 0,02115 Дж
+  'capacitor-basics': { query: { mode: 'voltage', c: 47, q: 1410 }, result: { primary: '30 В', rows: [{ label: 'Энергия поля', value: '0,0211 Дж' }, { label: 'Ёмкость', value: '47 мкФ' }, { label: 'Заряд', value: '1 410 мкКл' }] } },
+  //   второе плечо по 250 Н · 1,5 м против 1000 Н -> 0,375 м, выигрыш 4
+  'lever-moment': { query: { mode: 'distance2', f1: 250, d1: 1.5, f2: 1000 }, result: { primary: '0,375 м', rows: [{ label: 'Выигрыш в силе', value: '4' }, { label: 'Момент первой силы', value: '375 Н·м' }, { label: 'Первое плечо', value: '1,5 м' }] } },
+  //   масса алюминия по 100 000 Дж при c 900 и ΔT 25 -> 4,4444 кг
+  'specific-heat': { query: { mode: 'mass', q: 100000, c: 900, dt: 25 }, result: { primary: '4,444 кг', rows: [{ label: 'В киловатт-часах', value: '0,0278 кВт·ч' }, { label: 'Изменение температуры', value: '25 К' }, { label: 'Удельная теплоёмкость', value: '900 Дж/(кг·К)' }] } },
+  //   500 мл пива 5,4 % -> 27 мл спирта -> 21,303 г -> 1,52 единицы по 14 г
+  'alcohol-units': { query: { volume_ml: 500, abv: 5.4, standard_g: 14 }, result: { primary: '1,52', rows: [{ label: 'Чистого спирта по массе', value: '21,303 г' }, { label: 'Чистого спирта по объёму', value: '27 мл' }, { label: 'Норма единицы', value: '14 г' }] } },
+  //   2400 мм со стойкой 60 при пределе 90: 15 мало (92,5), 16 даёт 84,71
+  'baluster-spacing': { query: { run: 2400, baluster_width: 60, max_gap: 90 }, result: { primary: '16 шт', rows: [{ label: 'Фактический просвет', value: '84,706 мм' }, { label: 'Шаг между осями', value: '146,16 мм' }, { label: 'Просветов', value: '17 шт' }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));

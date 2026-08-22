@@ -18,6 +18,7 @@ import { compute as compute_acceleration } from './acceleration/compute';
 import { compute as compute_activity_calories } from './activity-calories/compute';
 import { compute as compute_ad_budget_funnel } from './ad-budget-funnel/compute';
 import { compute as compute_ad_roi } from './ad-roi/compute';
+import { compute as compute_alcohol_units } from './alcohol-units/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
 import { compute as compute_apr_apy } from './apr-apy/compute';
@@ -27,6 +28,7 @@ import { compute as compute_arpu_arppu } from './arpu-arppu/compute';
 import { compute as compute_aspect_ratio } from './aspect-ratio/compute';
 import { compute as compute_audience_growth } from './audience-growth/compute';
 import { compute as compute_bakers_percentage } from './bakers-percentage/compute';
+import { compute as compute_baluster_spacing } from './baluster-spacing/compute';
 import { compute as compute_barbell_plates } from './barbell-plates/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
@@ -45,6 +47,8 @@ import { compute as compute_cac } from './cac/compute';
 import { compute as compute_cagr } from './cagr/compute';
 import { compute as compute_calories_from_macros } from './calories-from-macros/compute';
 import { compute as compute_calories_per_serving } from './calories-per-serving/compute';
+import { compute as compute_capacitor_basics } from './capacitor-basics/compute';
+import { contextualField as ctx_capacitor_basics } from './capacitor-basics/contextualField';
 import { compute as compute_car_depreciation } from './car-depreciation/compute';
 import { compute as compute_centripetal_force } from './centripetal-force/compute';
 import { compute as compute_churn_retention } from './churn-retention/compute';
@@ -154,6 +158,8 @@ import { compute as compute_gpa } from './gpa/compute';
 import { compute as compute_gravitational_force } from './gravitational-force/compute';
 import { compute as compute_heat_index } from './heat-index/compute';
 import { compute as compute_heating_power } from './heating-power/compute';
+import { compute as compute_hooke_law } from './hooke-law/compute';
+import { contextualField as ctx_hooke_law } from './hooke-law/contextualField';
 import { compute as compute_hydrostatic_pressure } from './hydrostatic-pressure/compute';
 import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
 import { compute as compute_ideal_weight } from './ideal-weight/compute';
@@ -167,6 +173,8 @@ import { compute as compute_ipv4_subnet } from './ipv4-subnet/compute';
 import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
+import { compute as compute_lever_moment } from './lever-moment/compute';
+import { contextualField as ctx_lever_moment } from './lever-moment/contextualField';
 import { compute as compute_leverage } from './leverage/compute';
 import { compute as compute_lighting } from './lighting/compute';
 import { compute as compute_linear_equation } from './linear-equation/compute';
@@ -252,6 +260,8 @@ import { compute as compute_slab_foundation } from './slab-foundation/compute';
 import { compute as compute_sleep_time } from './sleep-time/compute';
 import { compute as compute_slope } from './slope/compute';
 import { compute as compute_solution_concentration } from './solution-concentration/compute';
+import { compute as compute_specific_heat } from './specific-heat/compute';
+import { contextualField as ctx_specific_heat } from './specific-heat/contextualField';
 import { compute as compute_speed_distance_time } from './speed-distance-time/compute';
 import { contextualField as ctx_speed_distance_time } from './speed-distance-time/contextualField';
 import { compute as compute_stairs } from './stairs/compute';
@@ -294,6 +304,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'activity-calories': compute_activity_calories,
   'ad-budget-funnel': compute_ad_budget_funnel,
   'ad-roi': compute_ad_roi,
+  'alcohol-units': compute_alcohol_units,
   'annuity': compute_annuity,
   'aov': compute_aov,
   'apr-apy': compute_apr_apy,
@@ -303,6 +314,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'aspect-ratio': compute_aspect_ratio,
   'audience-growth': compute_audience_growth,
   'bakers-percentage': compute_bakers_percentage,
+  'baluster-spacing': compute_baluster_spacing,
   'barbell-plates': compute_barbell_plates,
   'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
@@ -320,6 +332,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cagr': compute_cagr,
   'calories-from-macros': compute_calories_from_macros,
   'calories-per-serving': compute_calories_per_serving,
+  'capacitor-basics': compute_capacitor_basics,
   'car-depreciation': compute_car_depreciation,
   'centripetal-force': compute_centripetal_force,
   'churn-retention': compute_churn_retention,
@@ -425,6 +438,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'gravitational-force': compute_gravitational_force,
   'heat-index': compute_heat_index,
   'heating-power': compute_heating_power,
+  'hooke-law': compute_hooke_law,
   'hydrostatic-pressure': compute_hydrostatic_pressure,
   'ideal-gas-law': compute_ideal_gas_law,
   'ideal-weight': compute_ideal_weight,
@@ -438,6 +452,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'kinetic-energy': compute_kinetic_energy,
   'leap-year': compute_leap_year,
   'led-resistor': compute_led_resistor,
+  'lever-moment': compute_lever_moment,
   'leverage': compute_leverage,
   'lighting': compute_lighting,
   'linear-equation': compute_linear_equation,
@@ -518,6 +533,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'sleep-time': compute_sleep_time,
   'slope': compute_slope,
   'solution-concentration': compute_solution_concentration,
+  'specific-heat': compute_specific_heat,
   'speed-distance-time': compute_speed_distance_time,
   'stairs': compute_stairs,
   'stats-descriptive': compute_stats_descriptive,
@@ -562,13 +578,17 @@ export const v2Validators: Record<string, CalculatorValidator> = {
 
 export const v2ContextualFields: Record<string, CalculatorContextualField> = {
   'brew-ratio': ctx_brew_ratio,
+  'capacitor-basics': ctx_capacitor_basics,
   'commission': ctx_commission,
   'fps-frametime': ctx_fps_frametime,
   'gas-laws': ctx_gas_laws,
+  'hooke-law': ctx_hooke_law,
+  'lever-moment': ctx_lever_moment,
   'logarithm': ctx_logarithm,
   'ohms-law': ctx_ohms_law,
   'percent-calculator': ctx_percent_calculator,
   'proportion': ctx_proportion,
+  'specific-heat': ctx_specific_heat,
   'speed-distance-time': ctx_speed_distance_time,
 };
 

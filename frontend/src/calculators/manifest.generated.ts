@@ -16,6 +16,7 @@ import { definition as def_acceleration } from './acceleration/definition';
 import { definition as def_activity_calories } from './activity-calories/definition';
 import { definition as def_ad_budget_funnel } from './ad-budget-funnel/definition';
 import { definition as def_ad_roi } from './ad-roi/definition';
+import { definition as def_alcohol_units } from './alcohol-units/definition';
 import { definition as def_annuity } from './annuity/definition';
 import { definition as def_aov } from './aov/definition';
 import { definition as def_apr_apy } from './apr-apy/definition';
@@ -25,6 +26,7 @@ import { definition as def_arpu_arppu } from './arpu-arppu/definition';
 import { definition as def_aspect_ratio } from './aspect-ratio/definition';
 import { definition as def_audience_growth } from './audience-growth/definition';
 import { definition as def_bakers_percentage } from './bakers-percentage/definition';
+import { definition as def_baluster_spacing } from './baluster-spacing/definition';
 import { definition as def_barbell_plates } from './barbell-plates/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
 import { definition as def_battery_runtime } from './battery-runtime/definition';
@@ -42,6 +44,7 @@ import { definition as def_cac } from './cac/definition';
 import { definition as def_cagr } from './cagr/definition';
 import { definition as def_calories_from_macros } from './calories-from-macros/definition';
 import { definition as def_calories_per_serving } from './calories-per-serving/definition';
+import { definition as def_capacitor_basics } from './capacitor-basics/definition';
 import { definition as def_car_depreciation } from './car-depreciation/definition';
 import { definition as def_centripetal_force } from './centripetal-force/definition';
 import { definition as def_churn_retention } from './churn-retention/definition';
@@ -147,6 +150,7 @@ import { definition as def_gpa } from './gpa/definition';
 import { definition as def_gravitational_force } from './gravitational-force/definition';
 import { definition as def_heat_index } from './heat-index/definition';
 import { definition as def_heating_power } from './heating-power/definition';
+import { definition as def_hooke_law } from './hooke-law/definition';
 import { definition as def_hydrostatic_pressure } from './hydrostatic-pressure/definition';
 import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
 import { definition as def_ideal_weight } from './ideal-weight/definition';
@@ -160,6 +164,7 @@ import { definition as def_ipv4_subnet } from './ipv4-subnet/definition';
 import { definition as def_kinetic_energy } from './kinetic-energy/definition';
 import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
+import { definition as def_lever_moment } from './lever-moment/definition';
 import { definition as def_leverage } from './leverage/definition';
 import { definition as def_lighting } from './lighting/definition';
 import { definition as def_linear_equation } from './linear-equation/definition';
@@ -240,6 +245,7 @@ import { definition as def_slab_foundation } from './slab-foundation/definition'
 import { definition as def_sleep_time } from './sleep-time/definition';
 import { definition as def_slope } from './slope/definition';
 import { definition as def_solution_concentration } from './solution-concentration/definition';
+import { definition as def_specific_heat } from './specific-heat/definition';
 import { definition as def_speed_distance_time } from './speed-distance-time/definition';
 import { definition as def_stairs } from './stairs/definition';
 import { definition as def_stats_descriptive } from './stats-descriptive/definition';
@@ -281,6 +287,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_activity_calories,
   def_ad_budget_funnel,
   def_ad_roi,
+  def_alcohol_units,
   def_annuity,
   def_aov,
   def_apr_apy,
@@ -290,6 +297,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_aspect_ratio,
   def_audience_growth,
   def_bakers_percentage,
+  def_baluster_spacing,
   def_barbell_plates,
   def_battery_charge_time,
   def_battery_runtime,
@@ -307,6 +315,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_cagr,
   def_calories_from_macros,
   def_calories_per_serving,
+  def_capacitor_basics,
   def_car_depreciation,
   def_centripetal_force,
   def_churn_retention,
@@ -412,6 +421,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_gravitational_force,
   def_heat_index,
   def_heating_power,
+  def_hooke_law,
   def_hydrostatic_pressure,
   def_ideal_gas_law,
   def_ideal_weight,
@@ -425,6 +435,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_kinetic_energy,
   def_leap_year,
   def_led_resistor,
+  def_lever_moment,
   def_leverage,
   def_lighting,
   def_linear_equation,
@@ -505,6 +516,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_sleep_time,
   def_slope,
   def_solution_concentration,
+  def_specific_heat,
   def_speed_distance_time,
   def_stairs,
   def_stats_descriptive,
