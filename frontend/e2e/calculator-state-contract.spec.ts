@@ -909,6 +909,20 @@ const stateScenarios: Record<string, StateScenario> = {
   'alcohol-units': { query: { volume_ml: 500, abv: 5.4, standard_g: 14 }, result: { primary: '1,52', rows: [{ label: 'Чистого спирта по массе', value: '21,303 г' }, { label: 'Чистого спирта по объёму', value: '27 мл' }, { label: 'Норма единицы', value: '14 г' }] } },
   //   2400 мм со стойкой 60 при пределе 90: 15 мало (92,5), 16 даёт 84,71
   'baluster-spacing': { query: { run: 2400, baluster_width: 60, max_gap: 90 }, result: { primary: '16 шт', rows: [{ label: 'Фактический просвет', value: '84,706 мм' }, { label: 'Шаг между осями', value: '146,16 мм' }, { label: 'Просветов', value: '17 шт' }] } },
+  // Волна 20B, партия 2. Те же правила: значения выведены независимой моделью,
+  // решаемое поле в набор не входит.
+  //   25 °C при 45 % -> γ = 0,84479, точка росы 12,229, разрыв 12,771
+  'dew-point': { query: { t: 25, rh: 45 }, result: { primary: '12,229 °C', rows: [{ label: 'Разрыв с температурой', value: '12,771 °C' }, { label: 'Относительная влажность', value: '45 %' }, { label: 'Точка росы в градусах Фаренгейта', value: '54,012 °F' }] } },
+  //   −5 °C при 35 км/ч -> −13,571, вклад ветра −8,571
+  'wind-chill': { query: { t: -5, v: 35 }, result: { primary: '-13,571 °C', rows: [{ label: 'Разница с термометром', value: '-8,571 °C' }, { label: 'Скорость ветра', value: '35 км/ч' }, { label: 'Ощущаемая в градусах Фаренгейта', value: '7,572 °F' }] } },
+  //   20 кВА при cosφ 0,9 -> 18 кВт, реактив √(400 − 324) = 8,718 квар
+  'kva-kw': { query: { mode: 'kw', kva: 20, pf: 0.9 }, result: { primary: '18 кВт', rows: [{ label: 'Реактивная мощность', value: '8,718 квар' }, { label: 'Полная мощность', value: '20 кВА' }, { label: 'Коэффициент мощности', value: '0,9' }] } },
+  //   4,7 кОм и 22 нФ -> τ = 103,4 мкс, срез 1 539,22 Гц
+  'rc-filter': { query: { r: 4700, c: 22 }, result: { primary: '1 539,22 Гц', rows: [{ label: 'Постоянная времени', value: '0,000103 с' }, { label: 'Сопротивление', value: '4 700 Ом' }, { label: 'Ёмкость', value: '22 нФ' }] } },
+  //   9 В на 2,2 к и 3,3 к -> ровно 60 % входного, 5,4 В при 1,636 мА
+  'voltage-divider': { query: { vin: 9, r1: 2200, r2: 3300 }, result: { primary: '5,4 В', rows: [{ label: 'Доля от входного', value: '60 %' }, { label: 'Ток через делитель', value: '1,636 мА' }, { label: 'Мощность нижнего плеча', value: '8,836 мВт' }] } },
+  //   алюминий E = 70 000: 25 кН на 200 мм² -> 125 МПа, ε = 0,0017857, 4,464 мм
+  'stress-strain': { query: { mode: 'elongation', force: 25000, area: 200, length: 2500, e: 70000 }, result: { primary: '4,464 мм', rows: [{ label: 'Напряжение', value: '125 МПа' }, { label: 'Относительная деформация', value: '0,001786' }, { label: 'Модуль Юнга', value: '70 000 МПа' }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));

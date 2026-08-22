@@ -110,6 +110,7 @@ currency-exchange-fee,/ru/currency/currency-exchange-fee/,/en/currency/currency-
 day-of-week,/ru/date-time/day-of-week/,/en/date-time/day-of-week/,/uk/daty/den-tyzhnya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 dca,/ru/finance/dca/,/en/finance/dollar-cost-averaging-calculator/,/uk/finansy/userednennya-tsiny-dca/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 density,/ru/physics/density/,/en/physics/density-calculator/,/uk/fizyka/hustyna/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+dew-point,/ru/physics/tochka-rosy/,/en/physics/dew-point/,/uk/fizyka/tochka-rosy/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 dice-probability,/ru/math/dice-probability/,/en/math/dice-probability-calculator/,/uk/math/imovirnist-kubykiv/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 difference-abs-rel,/ru/math/difference-abs-rel/,/en/math/absolute-relative-difference/,/uk/math/abs-rel-riznytsya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 dilution,/ru/chemistry/dilution/,/en/chemistry/dilution-calculator/,/uk/himiya/rozvedennia/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -177,6 +178,7 @@ inventory-turnover,/ru/business/inventory-turnover/,/en/business/inventory-turno
 inverter-power,/ru/electronics/inverter-power/,/en/electronics/inverter-power-calculator/,/uk/elektronika/potuzhnist-invertora/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 ipv4-subnet,/ru/computers/ipv4-subnet/,/en/computers/ipv4-subnet-calculator/,/uk/kompyutery/pidmerezha-ipv4/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 kinetic-energy,/ru/physics/kinetic-energy/,/en/physics/kinetic-energy-calculator/,/uk/fizyka/kinetychna-enerhiya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+kva-kw,/ru/electronics/kva-v-kvt/,/en/electronics/kva-to-kw/,/uk/elektronika/kva-v-kvt/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 leap-year,/ru/date-time/leap-year/,/en/date-time/leap-year/,/uk/daty/vysokosnyi-rik/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 led-resistor,/ru/electronics/led-resistor/,/en/electronics/led-resistor-calculator/,/uk/elektronika/rezystor-dlya-svitlodioda/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 lever-moment,/ru/physics/rychag-i-vyigrysh-v-sile/,/en/physics/lever-mechanical-advantage/,/uk/fizyka/vazhil-i-vyihrash-u-syli/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -227,6 +229,7 @@ quadratic-equation,/ru/math/quadratic-equation/,/en/math/quadratic-equation/,/uk
 rafters,/ru/building/rafters/,/en/home-improvement/rafter-length-calculator/,/uk/remont/krokvy/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 raid,/ru/computers/raid/,/en/computers/raid-calculator/,/uk/kompyutery/raid-masyv/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 ratio,/ru/math/ratio/,/en/math/ratio-calculator/,/uk/math/vidnoshennya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+rc-filter,/ru/electronics/rc-filtr/,/en/electronics/rc-filter-cutoff/,/uk/elektronika/rc-filtr/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 reading-speed,/ru/education/reading-speed/,/en/education/reading-speed-calculator/,/uk/navchannya/shvydkist-chytannya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 real-return,/ru/finance/real-return/,/en/finance/real-return-calculator/,/uk/finansy/realna-dokhidnist/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 recipe-cost,/ru/household/recipe-cost/,/en/household/recipe-cost-calculator/,/uk/pobut/vartist-retsepta/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -264,6 +267,7 @@ stairs,/ru/building/raschet-lestnicy/,/en/home-improvement/stair-rise-run/,/uk/r
 stats-descriptive,/ru/math/descriptive-statistics/,/en/math/descriptive-statistics-calculator/,/uk/math/serednie-znachennia/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 steps-distance-calories,/ru/sport/shagi-rasstoyanie-kalorii/,/en/fitness/steps-to-distance/,/uk/fitness/kroky-vidstan-kalorii/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 stock-duration,/ru/household/stock-duration/,/en/household/stock-duration-calculator/,/uk/pobut/zapas-produktu/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+stress-strain,/ru/physics/napryazhenie-i-deformaciya/,/en/physics/stress-strain/,/uk/fizyka/napruha-i-deformaciya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 strip-foundation,/ru/building/strip-foundation/,/en/home-improvement/strip-foundation-calculator/,/uk/remont/strichkovyi-fundament/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 subscriptions-cost,/ru/household/stoimost-podpisok/,/en/household/subscriptions-cost/,/uk/pobut/vartist-pidpysok/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 test-score-percent,/ru/education/test-score-percent/,/en/education/test-score-percentage-calculator/,/uk/navchannya/vidsotok-za-test/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
@@ -283,12 +287,14 @@ utility-total,/ru/household/kommunalnye-platezhi/,/en/household/utility-bills/,/
 vacation-accrual,/ru/finance/vacation-accrual/,/en/finance/vacation-accrual-calculator/,/uk/finansy/nakopychennya-vidpustky/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 video-file-size,/ru/computers/video-file-size/,/en/computers/video-file-size-calculator/,/uk/kompyutery/rozmir-videofaylu/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 vo2max,/ru/sport/vo2max/,/en/fitness/vo2-max-calculator/,/uk/fitness/vo2max/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+voltage-divider,/ru/electronics/delitel-napryazheniya/,/en/electronics/voltage-divider/,/uk/elektronika/dilnyk-napruhy/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 voltage-drop,/ru/electronics/padenie-napryazheniya/,/en/electronics/voltage-drop/,/uk/elektronika/padinnya-naprugy/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 waist-ratio,/ru/sport/sootnoshenie-talii/,/en/fitness/waist-ratio/,/uk/fitness/spivvidnoshennya-talii/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 water-intake,/ru/sport/water-intake/,/en/fitness/water-intake-calculator/,/uk/fitness/norma-vody/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 wave,/ru/physics/wave-frequency/,/en/physics/wave-frequency-calculator/,/uk/fizyka/khvylya-chastota/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 week-number,/ru/date-time/week-number/,/en/date-time/week-number-calculator/,/uk/daty/kalkulyator-nomera-tyzhnya/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 weighted-mean,/ru/math/weighted-average/,/en/math/weighted-average-calculator/,/uk/math/serednozvazhene/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
+wind-chill,/ru/physics/oshchushchaemaya-temperatura/,/en/physics/wind-chill/,/uk/fizyka/vidchutna-temperatura/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 wood-weight,/ru/building/ves-drevesiny/,/en/home-improvement/wood-weight/,/uk/remont/vaga-derevyny/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 work,/ru/physics/work/,/en/physics/work-physics-calculator/,/uk/fizyka/mekhanichna-robota/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.
 work-hours,/ru/date-time/work-hours/,/en/date-time/work-hours-calculator/,/uk/daty/robochi-hodyny/,ru-only,Needs review.,ru,RU remains active; EN and UA are disabled with a locale-specific explanation.

@@ -95,6 +95,7 @@ import { definition as def_currency_exchange_fee } from './currency-exchange-fee
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_dca } from './dca/definition';
 import { definition as def_density } from './density/definition';
+import { definition as def_dew_point } from './dew-point/definition';
 import { definition as def_dice_probability } from './dice-probability/definition';
 import { definition as def_difference_abs_rel } from './difference-abs-rel/definition';
 import { definition as def_dilution } from './dilution/definition';
@@ -162,6 +163,7 @@ import { definition as def_inventory_turnover } from './inventory-turnover/defin
 import { definition as def_inverter_power } from './inverter-power/definition';
 import { definition as def_ipv4_subnet } from './ipv4-subnet/definition';
 import { definition as def_kinetic_energy } from './kinetic-energy/definition';
+import { definition as def_kva_kw } from './kva-kw/definition';
 import { definition as def_leap_year } from './leap-year/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
 import { definition as def_lever_moment } from './lever-moment/definition';
@@ -214,6 +216,7 @@ import { definition as def_quadratic_equation } from './quadratic-equation/defin
 import { definition as def_rafters } from './rafters/definition';
 import { definition as def_raid } from './raid/definition';
 import { definition as def_ratio } from './ratio/definition';
+import { definition as def_rc_filter } from './rc-filter/definition';
 import { definition as def_reading_speed } from './reading-speed/definition';
 import { definition as def_real_return } from './real-return/definition';
 import { definition as def_recipe_cost } from './recipe-cost/definition';
@@ -251,6 +254,7 @@ import { definition as def_stairs } from './stairs/definition';
 import { definition as def_stats_descriptive } from './stats-descriptive/definition';
 import { definition as def_steps_distance_calories } from './steps-distance-calories/definition';
 import { definition as def_stock_duration } from './stock-duration/definition';
+import { definition as def_stress_strain } from './stress-strain/definition';
 import { definition as def_strip_foundation } from './strip-foundation/definition';
 import { definition as def_subscriptions_cost } from './subscriptions-cost/definition';
 import { definition as def_test_score_percent } from './test-score-percent/definition';
@@ -270,12 +274,14 @@ import { definition as def_utility_total } from './utility-total/definition';
 import { definition as def_vacation_accrual } from './vacation-accrual/definition';
 import { definition as def_video_file_size } from './video-file-size/definition';
 import { definition as def_vo2max } from './vo2max/definition';
+import { definition as def_voltage_divider } from './voltage-divider/definition';
 import { definition as def_voltage_drop } from './voltage-drop/definition';
 import { definition as def_waist_ratio } from './waist-ratio/definition';
 import { definition as def_water_intake } from './water-intake/definition';
 import { definition as def_wave } from './wave/definition';
 import { definition as def_week_number } from './week-number/definition';
 import { definition as def_weighted_mean } from './weighted-mean/definition';
+import { definition as def_wind_chill } from './wind-chill/definition';
 import { definition as def_wood_weight } from './wood-weight/definition';
 import { definition as def_work } from './work/definition';
 import { definition as def_work_hours } from './work-hours/definition';
@@ -366,6 +372,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_day_of_week,
   def_dca,
   def_density,
+  def_dew_point,
   def_dice_probability,
   def_difference_abs_rel,
   def_dilution,
@@ -433,6 +440,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_inverter_power,
   def_ipv4_subnet,
   def_kinetic_energy,
+  def_kva_kw,
   def_leap_year,
   def_led_resistor,
   def_lever_moment,
@@ -485,6 +493,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_rafters,
   def_raid,
   def_ratio,
+  def_rc_filter,
   def_reading_speed,
   def_real_return,
   def_recipe_cost,
@@ -522,6 +531,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_stats_descriptive,
   def_steps_distance_calories,
   def_stock_duration,
+  def_stress_strain,
   def_strip_foundation,
   def_subscriptions_cost,
   def_test_score_percent,
@@ -541,12 +551,14 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_vacation_accrual,
   def_video_file_size,
   def_vo2max,
+  def_voltage_divider,
   def_voltage_drop,
   def_waist_ratio,
   def_water_intake,
   def_wave,
   def_week_number,
   def_weighted_mean,
+  def_wind_chill,
   def_wood_weight,
   def_work,
   def_work_hours,

@@ -101,6 +101,7 @@ import { compute as compute_currency_exchange_fee } from './currency-exchange-fe
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_dca } from './dca/compute';
 import { compute as compute_density } from './density/compute';
+import { compute as compute_dew_point } from './dew-point/compute';
 import { compute as compute_dice_probability } from './dice-probability/compute';
 import { compute as compute_difference_abs_rel } from './difference-abs-rel/compute';
 import { compute as compute_dilution } from './dilution/compute';
@@ -171,6 +172,8 @@ import { compute as compute_inventory_turnover } from './inventory-turnover/comp
 import { compute as compute_inverter_power } from './inverter-power/compute';
 import { compute as compute_ipv4_subnet } from './ipv4-subnet/compute';
 import { compute as compute_kinetic_energy } from './kinetic-energy/compute';
+import { compute as compute_kva_kw } from './kva-kw/compute';
+import { contextualField as ctx_kva_kw } from './kva-kw/contextualField';
 import { compute as compute_leap_year } from './leap-year/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
 import { compute as compute_lever_moment } from './lever-moment/compute';
@@ -229,6 +232,7 @@ import { compute as compute_quadratic_equation } from './quadratic-equation/comp
 import { compute as compute_rafters } from './rafters/compute';
 import { compute as compute_raid } from './raid/compute';
 import { compute as compute_ratio } from './ratio/compute';
+import { compute as compute_rc_filter } from './rc-filter/compute';
 import { compute as compute_reading_speed } from './reading-speed/compute';
 import { compute as compute_real_return } from './real-return/compute';
 import { compute as compute_recipe_cost } from './recipe-cost/compute';
@@ -268,6 +272,8 @@ import { compute as compute_stairs } from './stairs/compute';
 import { compute as compute_stats_descriptive } from './stats-descriptive/compute';
 import { compute as compute_steps_distance_calories } from './steps-distance-calories/compute';
 import { compute as compute_stock_duration } from './stock-duration/compute';
+import { compute as compute_stress_strain } from './stress-strain/compute';
+import { contextualField as ctx_stress_strain } from './stress-strain/contextualField';
 import { compute as compute_strip_foundation } from './strip-foundation/compute';
 import { compute as compute_subscriptions_cost } from './subscriptions-cost/compute';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
@@ -287,12 +293,14 @@ import { compute as compute_utility_total } from './utility-total/compute';
 import { compute as compute_vacation_accrual } from './vacation-accrual/compute';
 import { compute as compute_video_file_size } from './video-file-size/compute';
 import { compute as compute_vo2max } from './vo2max/compute';
+import { compute as compute_voltage_divider } from './voltage-divider/compute';
 import { compute as compute_voltage_drop } from './voltage-drop/compute';
 import { compute as compute_waist_ratio } from './waist-ratio/compute';
 import { compute as compute_water_intake } from './water-intake/compute';
 import { compute as compute_wave } from './wave/compute';
 import { compute as compute_week_number } from './week-number/compute';
 import { compute as compute_weighted_mean } from './weighted-mean/compute';
+import { compute as compute_wind_chill } from './wind-chill/compute';
 import { compute as compute_wood_weight } from './wood-weight/compute';
 import { compute as compute_work } from './work/compute';
 import { compute as compute_work_hours } from './work-hours/compute';
@@ -383,6 +391,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'day-of-week': compute_day_of_week,
   'dca': compute_dca,
   'density': compute_density,
+  'dew-point': compute_dew_point,
   'dice-probability': compute_dice_probability,
   'difference-abs-rel': compute_difference_abs_rel,
   'dilution': compute_dilution,
@@ -450,6 +459,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'inverter-power': compute_inverter_power,
   'ipv4-subnet': compute_ipv4_subnet,
   'kinetic-energy': compute_kinetic_energy,
+  'kva-kw': compute_kva_kw,
   'leap-year': compute_leap_year,
   'led-resistor': compute_led_resistor,
   'lever-moment': compute_lever_moment,
@@ -502,6 +512,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'rafters': compute_rafters,
   'raid': compute_raid,
   'ratio': compute_ratio,
+  'rc-filter': compute_rc_filter,
   'reading-speed': compute_reading_speed,
   'real-return': compute_real_return,
   'recipe-cost': compute_recipe_cost,
@@ -539,6 +550,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'stats-descriptive': compute_stats_descriptive,
   'steps-distance-calories': compute_steps_distance_calories,
   'stock-duration': compute_stock_duration,
+  'stress-strain': compute_stress_strain,
   'strip-foundation': compute_strip_foundation,
   'subscriptions-cost': compute_subscriptions_cost,
   'test-score-percent': compute_test_score_percent,
@@ -558,12 +570,14 @@ export const v2Runners: Record<string, CalcFunction> = {
   'vacation-accrual': compute_vacation_accrual,
   'video-file-size': compute_video_file_size,
   'vo2max': compute_vo2max,
+  'voltage-divider': compute_voltage_divider,
   'voltage-drop': compute_voltage_drop,
   'waist-ratio': compute_waist_ratio,
   'water-intake': compute_water_intake,
   'wave': compute_wave,
   'week-number': compute_week_number,
   'weighted-mean': compute_weighted_mean,
+  'wind-chill': compute_wind_chill,
   'wood-weight': compute_wood_weight,
   'work': compute_work,
   'work-hours': compute_work_hours,
@@ -583,6 +597,7 @@ export const v2ContextualFields: Record<string, CalculatorContextualField> = {
   'fps-frametime': ctx_fps_frametime,
   'gas-laws': ctx_gas_laws,
   'hooke-law': ctx_hooke_law,
+  'kva-kw': ctx_kva_kw,
   'lever-moment': ctx_lever_moment,
   'logarithm': ctx_logarithm,
   'ohms-law': ctx_ohms_law,
@@ -590,6 +605,7 @@ export const v2ContextualFields: Record<string, CalculatorContextualField> = {
   'proportion': ctx_proportion,
   'specific-heat': ctx_specific_heat,
   'speed-distance-time': ctx_speed_distance_time,
+  'stress-strain': ctx_stress_strain,
 };
 
 /**

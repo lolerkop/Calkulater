@@ -89,6 +89,7 @@ import { localization as loc_currency_exchange_fee } from './currency-exchange-f
 import { localization as loc_day_of_week } from './day-of-week/localization';
 import { localization as loc_dca } from './dca/localization';
 import { localization as loc_density } from './density/localization';
+import { localization as loc_dew_point } from './dew-point/localization';
 import { localization as loc_dice_probability } from './dice-probability/localization';
 import { localization as loc_difference_abs_rel } from './difference-abs-rel/localization';
 import { localization as loc_dilution } from './dilution/localization';
@@ -156,6 +157,7 @@ import { localization as loc_inventory_turnover } from './inventory-turnover/loc
 import { localization as loc_inverter_power } from './inverter-power/localization';
 import { localization as loc_ipv4_subnet } from './ipv4-subnet/localization';
 import { localization as loc_kinetic_energy } from './kinetic-energy/localization';
+import { localization as loc_kva_kw } from './kva-kw/localization';
 import { localization as loc_leap_year } from './leap-year/localization';
 import { localization as loc_led_resistor } from './led-resistor/localization';
 import { localization as loc_lever_moment } from './lever-moment/localization';
@@ -206,6 +208,7 @@ import { localization as loc_quadratic_equation } from './quadratic-equation/loc
 import { localization as loc_rafters } from './rafters/localization';
 import { localization as loc_raid } from './raid/localization';
 import { localization as loc_ratio } from './ratio/localization';
+import { localization as loc_rc_filter } from './rc-filter/localization';
 import { localization as loc_reading_speed } from './reading-speed/localization';
 import { localization as loc_real_return } from './real-return/localization';
 import { localization as loc_recipe_cost } from './recipe-cost/localization';
@@ -243,6 +246,7 @@ import { localization as loc_stairs } from './stairs/localization';
 import { localization as loc_stats_descriptive } from './stats-descriptive/localization';
 import { localization as loc_steps_distance_calories } from './steps-distance-calories/localization';
 import { localization as loc_stock_duration } from './stock-duration/localization';
+import { localization as loc_stress_strain } from './stress-strain/localization';
 import { localization as loc_strip_foundation } from './strip-foundation/localization';
 import { localization as loc_subscriptions_cost } from './subscriptions-cost/localization';
 import { localization as loc_test_score_percent } from './test-score-percent/localization';
@@ -262,12 +266,14 @@ import { localization as loc_utility_total } from './utility-total/localization'
 import { localization as loc_vacation_accrual } from './vacation-accrual/localization';
 import { localization as loc_video_file_size } from './video-file-size/localization';
 import { localization as loc_vo2max } from './vo2max/localization';
+import { localization as loc_voltage_divider } from './voltage-divider/localization';
 import { localization as loc_voltage_drop } from './voltage-drop/localization';
 import { localization as loc_waist_ratio } from './waist-ratio/localization';
 import { localization as loc_water_intake } from './water-intake/localization';
 import { localization as loc_wave } from './wave/localization';
 import { localization as loc_week_number } from './week-number/localization';
 import { localization as loc_weighted_mean } from './weighted-mean/localization';
+import { localization as loc_wind_chill } from './wind-chill/localization';
 import { localization as loc_wood_weight } from './wood-weight/localization';
 import { localization as loc_work } from './work/localization';
 import { localization as loc_work_hours } from './work-hours/localization';
@@ -359,6 +365,7 @@ export const v2Localization: ScopedLocalization = {
     'day-of-week': loc_day_of_week.en ?? {},
     'dca': loc_dca.en ?? {},
     'density': loc_density.en ?? {},
+    'dew-point': loc_dew_point.en ?? {},
     'dice-probability': loc_dice_probability.en ?? {},
     'difference-abs-rel': loc_difference_abs_rel.en ?? {},
     'dilution': loc_dilution.en ?? {},
@@ -426,6 +433,7 @@ export const v2Localization: ScopedLocalization = {
     'inverter-power': loc_inverter_power.en ?? {},
     'ipv4-subnet': loc_ipv4_subnet.en ?? {},
     'kinetic-energy': loc_kinetic_energy.en ?? {},
+    'kva-kw': loc_kva_kw.en ?? {},
     'leap-year': loc_leap_year.en ?? {},
     'led-resistor': loc_led_resistor.en ?? {},
     'lever-moment': loc_lever_moment.en ?? {},
@@ -476,6 +484,7 @@ export const v2Localization: ScopedLocalization = {
     'rafters': loc_rafters.en ?? {},
     'raid': loc_raid.en ?? {},
     'ratio': loc_ratio.en ?? {},
+    'rc-filter': loc_rc_filter.en ?? {},
     'reading-speed': loc_reading_speed.en ?? {},
     'real-return': loc_real_return.en ?? {},
     'recipe-cost': loc_recipe_cost.en ?? {},
@@ -513,6 +522,7 @@ export const v2Localization: ScopedLocalization = {
     'stats-descriptive': loc_stats_descriptive.en ?? {},
     'steps-distance-calories': loc_steps_distance_calories.en ?? {},
     'stock-duration': loc_stock_duration.en ?? {},
+    'stress-strain': loc_stress_strain.en ?? {},
     'strip-foundation': loc_strip_foundation.en ?? {},
     'subscriptions-cost': loc_subscriptions_cost.en ?? {},
     'test-score-percent': loc_test_score_percent.en ?? {},
@@ -532,12 +542,14 @@ export const v2Localization: ScopedLocalization = {
     'vacation-accrual': loc_vacation_accrual.en ?? {},
     'video-file-size': loc_video_file_size.en ?? {},
     'vo2max': loc_vo2max.en ?? {},
+    'voltage-divider': loc_voltage_divider.en ?? {},
     'voltage-drop': loc_voltage_drop.en ?? {},
     'waist-ratio': loc_waist_ratio.en ?? {},
     'water-intake': loc_water_intake.en ?? {},
     'wave': loc_wave.en ?? {},
     'week-number': loc_week_number.en ?? {},
     'weighted-mean': loc_weighted_mean.en ?? {},
+    'wind-chill': loc_wind_chill.en ?? {},
     'wood-weight': loc_wood_weight.en ?? {},
     'work': loc_work.en ?? {},
     'work-hours': loc_work_hours.en ?? {},
@@ -628,6 +640,7 @@ export const v2Localization: ScopedLocalization = {
     'day-of-week': loc_day_of_week.uk ?? {},
     'dca': loc_dca.uk ?? {},
     'density': loc_density.uk ?? {},
+    'dew-point': loc_dew_point.uk ?? {},
     'dice-probability': loc_dice_probability.uk ?? {},
     'difference-abs-rel': loc_difference_abs_rel.uk ?? {},
     'dilution': loc_dilution.uk ?? {},
@@ -695,6 +708,7 @@ export const v2Localization: ScopedLocalization = {
     'inverter-power': loc_inverter_power.uk ?? {},
     'ipv4-subnet': loc_ipv4_subnet.uk ?? {},
     'kinetic-energy': loc_kinetic_energy.uk ?? {},
+    'kva-kw': loc_kva_kw.uk ?? {},
     'leap-year': loc_leap_year.uk ?? {},
     'led-resistor': loc_led_resistor.uk ?? {},
     'lever-moment': loc_lever_moment.uk ?? {},
@@ -745,6 +759,7 @@ export const v2Localization: ScopedLocalization = {
     'rafters': loc_rafters.uk ?? {},
     'raid': loc_raid.uk ?? {},
     'ratio': loc_ratio.uk ?? {},
+    'rc-filter': loc_rc_filter.uk ?? {},
     'reading-speed': loc_reading_speed.uk ?? {},
     'real-return': loc_real_return.uk ?? {},
     'recipe-cost': loc_recipe_cost.uk ?? {},
@@ -782,6 +797,7 @@ export const v2Localization: ScopedLocalization = {
     'stats-descriptive': loc_stats_descriptive.uk ?? {},
     'steps-distance-calories': loc_steps_distance_calories.uk ?? {},
     'stock-duration': loc_stock_duration.uk ?? {},
+    'stress-strain': loc_stress_strain.uk ?? {},
     'strip-foundation': loc_strip_foundation.uk ?? {},
     'subscriptions-cost': loc_subscriptions_cost.uk ?? {},
     'test-score-percent': loc_test_score_percent.uk ?? {},
@@ -801,12 +817,14 @@ export const v2Localization: ScopedLocalization = {
     'vacation-accrual': loc_vacation_accrual.uk ?? {},
     'video-file-size': loc_video_file_size.uk ?? {},
     'vo2max': loc_vo2max.uk ?? {},
+    'voltage-divider': loc_voltage_divider.uk ?? {},
     'voltage-drop': loc_voltage_drop.uk ?? {},
     'waist-ratio': loc_waist_ratio.uk ?? {},
     'water-intake': loc_water_intake.uk ?? {},
     'wave': loc_wave.uk ?? {},
     'week-number': loc_week_number.uk ?? {},
     'weighted-mean': loc_weighted_mean.uk ?? {},
+    'wind-chill': loc_wind_chill.uk ?? {},
     'wood-weight': loc_wood_weight.uk ?? {},
     'work': loc_work.uk ?? {},
     'work-hours': loc_work_hours.uk ?? {},
