@@ -10,7 +10,9 @@ import type { CalculatorReferenceCase } from '../../lib/platform/types';
 export const resistorColorReferenceCases: readonly CalculatorReferenceCase[] = [
   {
     name: "4,7 кОм ±5 %",
-    inputs: { b1: 4, b2: 7, mult: 2, tol: 5 },
+    // Допуск подставляется тем же значением, что отдаёт поле выбора: '5,0'
+    // отличает золотистую полосу от зелёной цифры 5 и разбирается в те же 5 %.
+    inputs: { b1: 4, b2: 7, mult: 2, tol: '5,0' },
     expectPrimary: "4,7 кОм",
     expectSecondary: [
       { label: "Наименьшее допустимое", value: "4,465 кОм" },
