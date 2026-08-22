@@ -97,3 +97,40 @@ test.describe('подборка без JavaScript', () => {
     expect(reachable, 'весь каталог достижим за два клика').toBe(total);
   });
 });
+
+// Доступность самой страничности. Контрол новый, поэтому базы для сравнения у
+// него нет: требования заданы прямо.
+test.describe('доступность страничности', () => {
+  test('клавиатура, фокус, размер цели и отсутствие переполнения', async ({ page }) => {
+    for (const width of [320, 375, 430, 768, 1024, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto('/ru/calculators/', { waitUntil: 'domcontentloaded' });
+      const overflow = await page.evaluate(() =>
+        document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      expect(overflow, `${width}px: горизонтальное переполнение`).toBeLessThanOrEqual(0);
+      const boxes = await page.locator('[data-testid="catalog-pagination"] a').evaluateAll((els) =>
+        els.map((e) => { const b = e.getBoundingClientRect(); return { w: Math.round(b.width), h: Math.round(b.height) }; }));
+      expect(boxes.length, `${width}px: ссылки страничности есть`).toBeGreaterThan(0);
+      for (const box of boxes) {
+        expect(box.w, `${width}px: ширина цели`).toBeGreaterThanOrEqual(44);
+        expect(box.h, `${width}px: высота цели`).toBeGreaterThanOrEqual(44);
+      }
+    }
+
+    // Обход табом доходит до страничности, фокус виден, переход работает.
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto('/ru/calculators/', { waitUntil: 'domcontentloaded' });
+    const next = page.locator('[data-testid="catalog-pagination-next"]');
+    await next.focus();
+    await expect(next).toBeFocused();
+    const outline = await next.evaluate((el) => {
+      const s = getComputedStyle(el);
+      return { outline: s.outlineStyle, width: s.outlineWidth, shadow: s.boxShadow };
+    });
+    expect(outline.outline !== 'none' || outline.shadow !== 'none', 'фокус виден').toBe(true);
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(/\/ru\/calculators\/page\/2\/$/);
+    // Текущая страница объявлена скринридеру.
+    await expect(page.locator('[data-testid="catalog-pagination-page-2"]')).toHaveAttribute('aria-current', 'page');
+  });
+});
