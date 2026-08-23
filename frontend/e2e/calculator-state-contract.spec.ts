@@ -1026,6 +1026,14 @@ const stateScenarios: Record<string, StateScenario> = {
   'home-equity': { query: { value: 5000000, balance: 0, ltv: 70, rate: 15, years: 5 }, result: { primary: "3 500 000 ₽", rows: [{ label: "Собственный капитал в жилье", value: "5 000 000 ₽" }, { label: "Предел по доле залога", value: "3 500 000 ₽" }, { label: "Доля собственного капитала", value: "100 %" }] } },
   'terminal-velocity': { query: { m: 0.145, a: 0.00426, cd: 0.47, rho: 1.225 }, result: { primary: "34,052 м/с", rows: [{ label: "В километрах в час", value: "122,59 км/ч" }, { label: "Сила сопротивления при этой скорости", value: "1,422 Н" }, { label: "Время разгона до 95 процентов", value: "6,36 с" }] } },
   'bernoulli': { query: { p1: 101.325, v1: 0, h1: 10, v2: 4, h2: 0, rho: 1000 }, result: { primary: "191,39 кПа", rows: [{ label: "Изменение давления", value: "90,067 кПа" }, { label: "Динамический напор в первом сечении", value: "0 кПа" }, { label: "Динамический напор во втором сечении", value: "8 кПа" }] } },
+  // Волна 23, подпартия 23B1. Значения выведены независимой моделью Phase 23P
+  // на НЕумолчальных входах; ожидания взяты из неё, а не набраны руками.
+  'pipe-weight': { query: { d: 32, wall: 3.2, len: 12, rho: 950 }, result: { primary: "3,301 кг", rows: [{ label: "Масса погонного метра", value: "0,2751 кг/м" }, { label: "Внутренний диаметр", value: "25,6 мм" }, { label: "Площадь сечения металла", value: "2,895 см²" }] } },
+  'skirting': { query: { length: 4, width: 4, doors: 1, doorWidth: 0.8, plank: 2, waste: 10 }, result: { primary: "16,72 м", rows: [{ label: "Периметр комнаты", value: "16 м" }, { label: "Вычет на проёмы", value: "0,8 м" }, { label: "Планок", value: "9 шт" }] } },
+  'speed-of-sound': { query: { t: -30 }, result: { primary: "312,58 м/с", rows: [{ label: "В километрах в час", value: "1 125,28 км/ч" }, { label: "Километр звук пройдёт за", value: "3,199 с" }, { label: "За три секунды", value: "937,73 м" }] } },
+  'boiling-point': { query: { h: 0 }, result: { primary: "100 °C", rows: [{ label: "Давление на высоте", value: "101,33 кПа" }, { label: "В миллиметрах ртутного столба", value: "760 мм рт. ст." }, { label: "Доля от давления на уровне моря", value: "100 %" }] } },
+  'rainfall-volume': { query: { area: 120, depth: 8, coeff: 0.85 }, result: { primary: "816 л", rows: [{ label: "В кубометрах", value: "0,816 м³" }, { label: "Бочек по 200 литров", value: "5 шт" }, { label: "Собрано с квадратного метра", value: "6,8 л" }] } },
+  'air-pressure-at-altitude': { query: { h: 0 }, result: { primary: "101,33 кПа", rows: [{ label: "В миллиметрах ртутного столба", value: "760 мм рт. ст." }, { label: "Доля от уровня моря", value: "100 %" }, { label: "Температура по стандартной атмосфере", value: "15 °C" }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));

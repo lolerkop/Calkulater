@@ -13,6 +13,7 @@ import { localization as loc_ad_budget_funnel } from './ad-budget-funnel/localiz
 import { localization as loc_ad_roi } from './ad-roi/localization';
 import { localization as loc_air_density } from './air-density/localization';
 import { localization as loc_air_exchange } from './air-exchange/localization';
+import { localization as loc_air_pressure_at_altitude } from './air-pressure-at-altitude/localization';
 import { localization as loc_alcohol_units } from './alcohol-units/localization';
 import { localization as loc_annuity } from './annuity/localization';
 import { localization as loc_aov } from './aov/localization';
@@ -36,6 +37,7 @@ import { localization as loc_bike_gear_ratio } from './bike-gear-ratio/localizat
 import { localization as loc_bike_wheel_size } from './bike-wheel-size/localization';
 import { localization as loc_binomial_probability } from './binomial-probability/localization';
 import { localization as loc_board_volume } from './board-volume/localization';
+import { localization as loc_boiling_point } from './boiling-point/localization';
 import { localization as loc_bonus } from './bonus/localization';
 import { localization as loc_brew_ratio } from './brew-ratio/localization';
 import { localization as loc_budget_50_30_20 } from './budget-50-30-20/localization';
@@ -237,6 +239,7 @@ import { localization as loc_physics_torque } from './physics-torque/localizatio
 import { localization as loc_picture_frame_mat } from './picture-frame-mat/localization';
 import { localization as loc_pile_foundation } from './pile-foundation/localization';
 import { localization as loc_pipe_flow } from './pipe-flow/localization';
+import { localization as loc_pipe_weight } from './pipe-weight/localization';
 import { localization as loc_plaster } from './plaster/localization';
 import { localization as loc_pool_fill_time } from './pool-fill-time/localization';
 import { localization as loc_position_size } from './position-size/localization';
@@ -256,6 +259,7 @@ import { localization as loc_quadratic_equation } from './quadratic-equation/loc
 import { localization as loc_quartile } from './quartile/localization';
 import { localization as loc_rafters } from './rafters/localization';
 import { localization as loc_raid } from './raid/localization';
+import { localization as loc_rainfall_volume } from './rainfall-volume/localization';
 import { localization as loc_ratio } from './ratio/localization';
 import { localization as loc_rc_filter } from './rc-filter/localization';
 import { localization as loc_reading_speed } from './reading-speed/localization';
@@ -289,12 +293,14 @@ import { localization as loc_scale_model } from './scale-model/localization';
 import { localization as loc_shipping_per_unit } from './shipping-per-unit/localization';
 import { localization as loc_simple_interest } from './simple-interest/localization';
 import { localization as loc_single_phase } from './single-phase/localization';
+import { localization as loc_skirting } from './skirting/localization';
 import { localization as loc_slab_foundation } from './slab-foundation/localization';
 import { localization as loc_sleep_time } from './sleep-time/localization';
 import { localization as loc_slope } from './slope/localization';
 import { localization as loc_solution_concentration } from './solution-concentration/localization';
 import { localization as loc_specific_heat } from './specific-heat/localization';
 import { localization as loc_speed_distance_time } from './speed-distance-time/localization';
+import { localization as loc_speed_of_sound } from './speed-of-sound/localization';
 import { localization as loc_stairs } from './stairs/localization';
 import { localization as loc_stats_descriptive } from './stats-descriptive/localization';
 import { localization as loc_steps_distance_calories } from './steps-distance-calories/localization';
@@ -352,6 +358,7 @@ export const v2Localization: ScopedLocalization = {
     'ad-roi': loc_ad_roi.en ?? {},
     'air-density': loc_air_density.en ?? {},
     'air-exchange': loc_air_exchange.en ?? {},
+    'air-pressure-at-altitude': loc_air_pressure_at_altitude.en ?? {},
     'alcohol-units': loc_alcohol_units.en ?? {},
     'annuity': loc_annuity.en ?? {},
     'aov': loc_aov.en ?? {},
@@ -375,6 +382,7 @@ export const v2Localization: ScopedLocalization = {
     'bike-wheel-size': loc_bike_wheel_size.en ?? {},
     'binomial-probability': loc_binomial_probability.en ?? {},
     'board-volume': loc_board_volume.en ?? {},
+    'boiling-point': loc_boiling_point.en ?? {},
     'bonus': loc_bonus.en ?? {},
     'brew-ratio': loc_brew_ratio.en ?? {},
     'budget-50-30-20': loc_budget_50_30_20.en ?? {},
@@ -576,6 +584,7 @@ export const v2Localization: ScopedLocalization = {
     'picture-frame-mat': loc_picture_frame_mat.en ?? {},
     'pile-foundation': loc_pile_foundation.en ?? {},
     'pipe-flow': loc_pipe_flow.en ?? {},
+    'pipe-weight': loc_pipe_weight.en ?? {},
     'plaster': loc_plaster.en ?? {},
     'pool-fill-time': loc_pool_fill_time.en ?? {},
     'position-size': loc_position_size.en ?? {},
@@ -595,6 +604,7 @@ export const v2Localization: ScopedLocalization = {
     'quartile': loc_quartile.en ?? {},
     'rafters': loc_rafters.en ?? {},
     'raid': loc_raid.en ?? {},
+    'rainfall-volume': loc_rainfall_volume.en ?? {},
     'ratio': loc_ratio.en ?? {},
     'rc-filter': loc_rc_filter.en ?? {},
     'reading-speed': loc_reading_speed.en ?? {},
@@ -628,12 +638,14 @@ export const v2Localization: ScopedLocalization = {
     'shipping-per-unit': loc_shipping_per_unit.en ?? {},
     'simple-interest': loc_simple_interest.en ?? {},
     'single-phase': loc_single_phase.en ?? {},
+    'skirting': loc_skirting.en ?? {},
     'slab-foundation': loc_slab_foundation.en ?? {},
     'sleep-time': loc_sleep_time.en ?? {},
     'slope': loc_slope.en ?? {},
     'solution-concentration': loc_solution_concentration.en ?? {},
     'specific-heat': loc_specific_heat.en ?? {},
     'speed-distance-time': loc_speed_distance_time.en ?? {},
+    'speed-of-sound': loc_speed_of_sound.en ?? {},
     'stairs': loc_stairs.en ?? {},
     'stats-descriptive': loc_stats_descriptive.en ?? {},
     'steps-distance-calories': loc_steps_distance_calories.en ?? {},
@@ -690,6 +702,7 @@ export const v2Localization: ScopedLocalization = {
     'ad-roi': loc_ad_roi.uk ?? {},
     'air-density': loc_air_density.uk ?? {},
     'air-exchange': loc_air_exchange.uk ?? {},
+    'air-pressure-at-altitude': loc_air_pressure_at_altitude.uk ?? {},
     'alcohol-units': loc_alcohol_units.uk ?? {},
     'annuity': loc_annuity.uk ?? {},
     'aov': loc_aov.uk ?? {},
@@ -713,6 +726,7 @@ export const v2Localization: ScopedLocalization = {
     'bike-wheel-size': loc_bike_wheel_size.uk ?? {},
     'binomial-probability': loc_binomial_probability.uk ?? {},
     'board-volume': loc_board_volume.uk ?? {},
+    'boiling-point': loc_boiling_point.uk ?? {},
     'bonus': loc_bonus.uk ?? {},
     'brew-ratio': loc_brew_ratio.uk ?? {},
     'budget-50-30-20': loc_budget_50_30_20.uk ?? {},
@@ -914,6 +928,7 @@ export const v2Localization: ScopedLocalization = {
     'picture-frame-mat': loc_picture_frame_mat.uk ?? {},
     'pile-foundation': loc_pile_foundation.uk ?? {},
     'pipe-flow': loc_pipe_flow.uk ?? {},
+    'pipe-weight': loc_pipe_weight.uk ?? {},
     'plaster': loc_plaster.uk ?? {},
     'pool-fill-time': loc_pool_fill_time.uk ?? {},
     'position-size': loc_position_size.uk ?? {},
@@ -933,6 +948,7 @@ export const v2Localization: ScopedLocalization = {
     'quartile': loc_quartile.uk ?? {},
     'rafters': loc_rafters.uk ?? {},
     'raid': loc_raid.uk ?? {},
+    'rainfall-volume': loc_rainfall_volume.uk ?? {},
     'ratio': loc_ratio.uk ?? {},
     'rc-filter': loc_rc_filter.uk ?? {},
     'reading-speed': loc_reading_speed.uk ?? {},
@@ -966,12 +982,14 @@ export const v2Localization: ScopedLocalization = {
     'shipping-per-unit': loc_shipping_per_unit.uk ?? {},
     'simple-interest': loc_simple_interest.uk ?? {},
     'single-phase': loc_single_phase.uk ?? {},
+    'skirting': loc_skirting.uk ?? {},
     'slab-foundation': loc_slab_foundation.uk ?? {},
     'sleep-time': loc_sleep_time.uk ?? {},
     'slope': loc_slope.uk ?? {},
     'solution-concentration': loc_solution_concentration.uk ?? {},
     'specific-heat': loc_specific_heat.uk ?? {},
     'speed-distance-time': loc_speed_distance_time.uk ?? {},
+    'speed-of-sound': loc_speed_of_sound.uk ?? {},
     'stairs': loc_stairs.uk ?? {},
     'stats-descriptive': loc_stats_descriptive.uk ?? {},
     'steps-distance-calories': loc_steps_distance_calories.uk ?? {},

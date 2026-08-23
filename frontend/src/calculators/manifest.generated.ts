@@ -19,6 +19,7 @@ import { definition as def_ad_budget_funnel } from './ad-budget-funnel/definitio
 import { definition as def_ad_roi } from './ad-roi/definition';
 import { definition as def_air_density } from './air-density/definition';
 import { definition as def_air_exchange } from './air-exchange/definition';
+import { definition as def_air_pressure_at_altitude } from './air-pressure-at-altitude/definition';
 import { definition as def_alcohol_units } from './alcohol-units/definition';
 import { definition as def_annuity } from './annuity/definition';
 import { definition as def_aov } from './aov/definition';
@@ -42,6 +43,7 @@ import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition'
 import { definition as def_bike_wheel_size } from './bike-wheel-size/definition';
 import { definition as def_binomial_probability } from './binomial-probability/definition';
 import { definition as def_board_volume } from './board-volume/definition';
+import { definition as def_boiling_point } from './boiling-point/definition';
 import { definition as def_bonus } from './bonus/definition';
 import { definition as def_brew_ratio } from './brew-ratio/definition';
 import { definition as def_budget_50_30_20 } from './budget-50-30-20/definition';
@@ -245,6 +247,7 @@ import { definition as def_physics_torque } from './physics-torque/definition';
 import { definition as def_picture_frame_mat } from './picture-frame-mat/definition';
 import { definition as def_pile_foundation } from './pile-foundation/definition';
 import { definition as def_pipe_flow } from './pipe-flow/definition';
+import { definition as def_pipe_weight } from './pipe-weight/definition';
 import { definition as def_plaster } from './plaster/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
 import { definition as def_position_size } from './position-size/definition';
@@ -264,6 +267,7 @@ import { definition as def_quadratic_equation } from './quadratic-equation/defin
 import { definition as def_quartile } from './quartile/definition';
 import { definition as def_rafters } from './rafters/definition';
 import { definition as def_raid } from './raid/definition';
+import { definition as def_rainfall_volume } from './rainfall-volume/definition';
 import { definition as def_ratio } from './ratio/definition';
 import { definition as def_rc_filter } from './rc-filter/definition';
 import { definition as def_reading_speed } from './reading-speed/definition';
@@ -297,12 +301,14 @@ import { definition as def_scale_model } from './scale-model/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
 import { definition as def_single_phase } from './single-phase/definition';
+import { definition as def_skirting } from './skirting/definition';
 import { definition as def_slab_foundation } from './slab-foundation/definition';
 import { definition as def_sleep_time } from './sleep-time/definition';
 import { definition as def_slope } from './slope/definition';
 import { definition as def_solution_concentration } from './solution-concentration/definition';
 import { definition as def_specific_heat } from './specific-heat/definition';
 import { definition as def_speed_distance_time } from './speed-distance-time/definition';
+import { definition as def_speed_of_sound } from './speed-of-sound/definition';
 import { definition as def_stairs } from './stairs/definition';
 import { definition as def_stats_descriptive } from './stats-descriptive/definition';
 import { definition as def_steps_distance_calories } from './steps-distance-calories/definition';
@@ -359,6 +365,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ad_roi,
   def_air_density,
   def_air_exchange,
+  def_air_pressure_at_altitude,
   def_alcohol_units,
   def_annuity,
   def_aov,
@@ -382,6 +389,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_bike_wheel_size,
   def_binomial_probability,
   def_board_volume,
+  def_boiling_point,
   def_bonus,
   def_brew_ratio,
   def_budget_50_30_20,
@@ -585,6 +593,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_picture_frame_mat,
   def_pile_foundation,
   def_pipe_flow,
+  def_pipe_weight,
   def_plaster,
   def_pool_fill_time,
   def_position_size,
@@ -604,6 +613,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_quartile,
   def_rafters,
   def_raid,
+  def_rainfall_volume,
   def_ratio,
   def_rc_filter,
   def_reading_speed,
@@ -637,12 +647,14 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_shipping_per_unit,
   def_simple_interest,
   def_single_phase,
+  def_skirting,
   def_slab_foundation,
   def_sleep_time,
   def_slope,
   def_solution_concentration,
   def_specific_heat,
   def_speed_distance_time,
+  def_speed_of_sound,
   def_stairs,
   def_stats_descriptive,
   def_steps_distance_calories,

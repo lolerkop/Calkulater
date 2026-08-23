@@ -21,6 +21,7 @@ import { compute as compute_ad_budget_funnel } from './ad-budget-funnel/compute'
 import { compute as compute_ad_roi } from './ad-roi/compute';
 import { compute as compute_air_density } from './air-density/compute';
 import { compute as compute_air_exchange } from './air-exchange/compute';
+import { compute as compute_air_pressure_at_altitude } from './air-pressure-at-altitude/compute';
 import { compute as compute_alcohol_units } from './alcohol-units/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
@@ -44,6 +45,7 @@ import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
 import { compute as compute_bike_wheel_size } from './bike-wheel-size/compute';
 import { compute as compute_binomial_probability } from './binomial-probability/compute';
 import { compute as compute_board_volume } from './board-volume/compute';
+import { compute as compute_boiling_point } from './boiling-point/compute';
 import { compute as compute_bonus } from './bonus/compute';
 import { compute as compute_brew_ratio } from './brew-ratio/compute';
 import { contextualField as ctx_brew_ratio } from './brew-ratio/contextualField';
@@ -260,6 +262,7 @@ import { compute as compute_physics_torque } from './physics-torque/compute';
 import { compute as compute_picture_frame_mat } from './picture-frame-mat/compute';
 import { compute as compute_pile_foundation } from './pile-foundation/compute';
 import { compute as compute_pipe_flow } from './pipe-flow/compute';
+import { compute as compute_pipe_weight } from './pipe-weight/compute';
 import { compute as compute_plaster } from './plaster/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_position_size } from './position-size/compute';
@@ -280,6 +283,7 @@ import { compute as compute_quadratic_equation } from './quadratic-equation/comp
 import { compute as compute_quartile } from './quartile/compute';
 import { compute as compute_rafters } from './rafters/compute';
 import { compute as compute_raid } from './raid/compute';
+import { compute as compute_rainfall_volume } from './rainfall-volume/compute';
 import { compute as compute_ratio } from './ratio/compute';
 import { compute as compute_rc_filter } from './rc-filter/compute';
 import { compute as compute_reading_speed } from './reading-speed/compute';
@@ -314,6 +318,7 @@ import { contextualField as ctx_scale_model } from './scale-model/contextualFiel
 import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_single_phase } from './single-phase/compute';
+import { compute as compute_skirting } from './skirting/compute';
 import { compute as compute_slab_foundation } from './slab-foundation/compute';
 import { compute as compute_sleep_time } from './sleep-time/compute';
 import { compute as compute_slope } from './slope/compute';
@@ -322,6 +327,7 @@ import { compute as compute_specific_heat } from './specific-heat/compute';
 import { contextualField as ctx_specific_heat } from './specific-heat/contextualField';
 import { compute as compute_speed_distance_time } from './speed-distance-time/compute';
 import { contextualField as ctx_speed_distance_time } from './speed-distance-time/contextualField';
+import { compute as compute_speed_of_sound } from './speed-of-sound/compute';
 import { compute as compute_stairs } from './stairs/compute';
 import { compute as compute_stats_descriptive } from './stats-descriptive/compute';
 import { compute as compute_steps_distance_calories } from './steps-distance-calories/compute';
@@ -379,6 +385,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ad-roi': compute_ad_roi,
   'air-density': compute_air_density,
   'air-exchange': compute_air_exchange,
+  'air-pressure-at-altitude': compute_air_pressure_at_altitude,
   'alcohol-units': compute_alcohol_units,
   'annuity': compute_annuity,
   'aov': compute_aov,
@@ -402,6 +409,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'bike-wheel-size': compute_bike_wheel_size,
   'binomial-probability': compute_binomial_probability,
   'board-volume': compute_board_volume,
+  'boiling-point': compute_boiling_point,
   'bonus': compute_bonus,
   'brew-ratio': compute_brew_ratio,
   'budget-50-30-20': compute_budget_50_30_20,
@@ -605,6 +613,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'picture-frame-mat': compute_picture_frame_mat,
   'pile-foundation': compute_pile_foundation,
   'pipe-flow': compute_pipe_flow,
+  'pipe-weight': compute_pipe_weight,
   'plaster': compute_plaster,
   'pool-fill-time': compute_pool_fill_time,
   'position-size': compute_position_size,
@@ -624,6 +633,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'quartile': compute_quartile,
   'rafters': compute_rafters,
   'raid': compute_raid,
+  'rainfall-volume': compute_rainfall_volume,
   'ratio': compute_ratio,
   'rc-filter': compute_rc_filter,
   'reading-speed': compute_reading_speed,
@@ -657,12 +667,14 @@ export const v2Runners: Record<string, CalcFunction> = {
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
   'single-phase': compute_single_phase,
+  'skirting': compute_skirting,
   'slab-foundation': compute_slab_foundation,
   'sleep-time': compute_sleep_time,
   'slope': compute_slope,
   'solution-concentration': compute_solution_concentration,
   'specific-heat': compute_specific_heat,
   'speed-distance-time': compute_speed_distance_time,
+  'speed-of-sound': compute_speed_of_sound,
   'stairs': compute_stairs,
   'stats-descriptive': compute_stats_descriptive,
   'steps-distance-calories': compute_steps_distance_calories,
