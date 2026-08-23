@@ -15,7 +15,7 @@ export const localization: CalculatorLocalization = {
       'Перерыв, мин': 'Break, min', 'Часов': 'Hours',
     },
     values: {
-      'ч': 'h', 'мин': 'min', '₽': '',
+      'ч': 'h', 'мин': 'min',
       'Ставка не может быть отрицательной': 'The rate cannot be negative',
       'Норма часов не может быть отрицательной': 'The standard hours cannot be negative',
       'В строке нужны начало и конец через запятую': 'A line needs a start and an end separated by a comma',

@@ -5,7 +5,7 @@ export const localization: CalculatorLocalization = {
     fields: { drops: 'Drips per minute', price: 'Water price per m³', dropMl: 'Drop volume, ml' },
     options: {  },
     results: { 'Утекает за сутки': 'Lost per day', 'За месяц': 'Per month', 'За год': 'Per year', 'В кубометрах за год': 'In cubic metres per year', 'Стоимость за год': 'Cost per year', 'Проверьте данные': 'Check the values' },
-    values: { 'л': 'l', 'м³': 'm³', '₽': '', 'Число капель в минуту должно быть больше нуля': 'The drips per minute must be greater than zero', 'Объём капли должен быть больше нуля': 'The drop volume must be greater than zero', 'Цена воды не может быть отрицательной': 'The price of water cannot be negative' },
+    values: { 'л': 'l', 'м³': 'm³', 'Число капель в минуту должно быть больше нуля': 'The drips per minute must be greater than zero', 'Объём капли должен быть больше нуля': 'The drop volume must be greater than zero', 'Цена воды не может быть отрицательной': 'The price of water cannot be negative' },
   },
   uk: {
     fields: { drops: 'Крапель за хвилину', price: 'Ціна води, ₴ за м³', dropMl: 'Обʼєм краплі, мл' },

@@ -13,7 +13,7 @@ export const localization: CalculatorLocalization = {
       'Платёж по такому кредиту': 'Payment on that loan', 'Проверьте данные': 'Check the values',
     },
     values: {
-      '₽': '', '%': '%',
+      '%': '%',
       'Стоимость жилья должна быть больше нуля': 'The value of the home must be greater than zero',
       'Остаток долга не может быть отрицательным': 'The outstanding balance cannot be negative',
       'Остаток долга не может превышать стоимость жилья': 'The outstanding balance cannot exceed the value of the home',

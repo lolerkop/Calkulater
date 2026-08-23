@@ -13,7 +13,6 @@ export const localization: CalculatorLocalization = {
       'Всего выплат с авансом': 'Total paid including the down payment', 'Проверьте данные': 'Check the values',
     },
     values: {
-      '₽': '',
       'Стоимость предмета лизинга должна быть больше нуля': 'The asset price must be greater than zero',
       'Аванс не может быть отрицательным': 'The down payment cannot be negative',
       'Аванс не может быть больше стоимости или равен ей': 'The down payment cannot reach the asset price',
