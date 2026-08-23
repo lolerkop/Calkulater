@@ -196,7 +196,20 @@ describe('project configuration', () => {
 
     expect(packageJson.devDependencies.lighthouse).toBe('13.4.1');
     expect(budget.runs).toBe(3);
-    expect(budget.targets).toHaveLength(6);
+    // Целей семь: к шести исходным добавлена страница с таблицей результата и
+    // сноской об усечении — профиль, которого в наборе не было. Закрепляется не
+    // только число, но и состав: подмена цели без изменения их количества
+    // раньше прошла бы незамеченной.
+    expect(budget.targets).toHaveLength(7);
+    expect(budget.targets.map((target: { slug: string }) => target.slug)).toEqual([
+      'root',
+      'ru-home',
+      'currency',
+      'income-tax',
+      'tile',
+      'table-note',
+      'uk-bmi',
+    ]);
     expect(budget.budgets.largestContentfulPaintMs).toBe(2500);
     expect(budget.budgets.cumulativeLayoutShift).toBe(0.1);
     expect(runner).toContain("ReportGenerator.generateReport(report, 'html')");

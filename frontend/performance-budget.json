@@ -6,6 +6,7 @@
     { "slug": "currency", "path": "/ru/currency/currency-converter/" },
     { "slug": "income-tax", "path": "/ru/finance/income-tax-calculator/" },
     { "slug": "tile", "path": "/ru/building/tile-calculator/" },
+    { "slug": "table-note", "path": "/ru/finance/pogashenie-kreditnoy-karty/?balance=500000&apr=25&payment=12000" },
     { "slug": "uk-bmi", "path": "/uk/fitness/kalkulyator-bmi/" }
   ],
   "budgets": {
