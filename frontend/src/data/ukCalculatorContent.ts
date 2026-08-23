@@ -1,8 +1,11 @@
-import type { CalculatorDef } from '../lib/types';
+import type { UkDetailedContent } from './ukContent/types';
+import { ukGeometryContent } from './ukContent/geometry';
 
-type DetailedContent = Pick<CalculatorDef, 'longDescription' | 'howToUse' | 'howItWorks' | 'example' | 'faq'>;
+type DetailedContent = UkDetailedContent;
 
-export const ukCalculatorContent: Partial<Record<string, DetailedContent>> = {
+// Історичні записи лежать тут; нові партії Phase 26UK — у ukContent/<категорія>.ts,
+// щоб diff однієї партії читався окремо від решти.
+const ukLegacyDetailedContent: Partial<Record<string, DetailedContent>> = {
   'brick-calculator': {
     longDescription: 'Калькулятор рахує, скільки цеглин або блоків закриють стіну за кладки в один шар. Кожному каменю належить один шов праворуч і один згори, тому розрахунковий модуль дорівнює розміру каменю плюс товщина шва по кожній стороні. Площа прорізів віднімається від площі стіни, а запас додається окремим рядком, щоб було видно, скільки каменів іде саме на нього.',
     howToUse: [
@@ -135,4 +138,9 @@ export const ukCalculatorContent: Partial<Record<string, DetailedContent>> = {
       { q: 'Чи є результат медичним діагнозом?', a: 'Ні. Це загальний орієнтир. Для оцінки здоров’я потрібні інші показники та консультація фахівця.' },
     ],
   },
+};
+
+export const ukCalculatorContent: Partial<Record<string, DetailedContent>> = {
+  ...ukLegacyDetailedContent,
+  ...ukGeometryContent,
 };
