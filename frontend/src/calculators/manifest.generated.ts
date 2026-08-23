@@ -34,6 +34,7 @@ import { definition as def_battery_runtime } from './battery-runtime/definition'
 import { definition as def_battery_series_parallel } from './battery-series-parallel/definition';
 import { definition as def_beam_deflection } from './beam-deflection/definition';
 import { definition as def_beam_stress } from './beam-stress/definition';
+import { definition as def_belt_length } from './belt-length/definition';
 import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
 import { definition as def_bike_wheel_size } from './bike-wheel-size/definition';
 import { definition as def_binomial_probability } from './binomial-probability/definition';
@@ -60,6 +61,7 @@ import { definition as def_cogs_unit_cost } from './cogs-unit-cost/definition';
 import { definition as def_color_convert } from './color-convert/definition';
 import { definition as def_combinatorics } from './combinatorics/definition';
 import { definition as def_commission } from './commission/definition';
+import { definition as def_compression_ratio } from './compression-ratio/definition';
 import { definition as def_concrete } from './concrete/definition';
 import { definition as def_confidence_interval } from './confidence-interval/definition';
 import { definition as def_contribution_margin } from './contribution-margin/definition';
@@ -90,6 +92,7 @@ import { definition as def_convert_volume } from './convert-volume/definition';
 import { definition as def_cooked_weight } from './cooked-weight/definition';
 import { definition as def_coordinate_convert } from './coordinate-convert/definition';
 import { definition as def_correlation } from './correlation/definition';
+import { definition as def_coulomb } from './coulomb/definition';
 import { definition as def_cpa_cpl_cpi } from './cpa-cpl-cpi/definition';
 import { definition as def_cpc } from './cpc/definition';
 import { definition as def_cpm } from './cpm/definition';
@@ -225,6 +228,7 @@ import { definition as def_ph_poh } from './ph-poh/definition';
 import { definition as def_physics_power } from './physics-power/definition';
 import { definition as def_physics_torque } from './physics-torque/definition';
 import { definition as def_pile_foundation } from './pile-foundation/definition';
+import { definition as def_pipe_flow } from './pipe-flow/definition';
 import { definition as def_plaster } from './plaster/definition';
 import { definition as def_pool_fill_time } from './pool-fill-time/definition';
 import { definition as def_position_size } from './position-size/definition';
@@ -267,6 +271,7 @@ import { definition as def_rounding } from './rounding/definition';
 import { definition as def_rule_of_72 } from './rule-of-72/definition';
 import { definition as def_salary_convert } from './salary-convert/definition';
 import { definition as def_salary_raise } from './salary-raise/definition';
+import { definition as def_sample_size } from './sample-size/definition';
 import { definition as def_savings_goal } from './savings-goal/definition';
 import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_scale_model } from './scale-model/definition';
@@ -312,6 +317,7 @@ import { definition as def_water_intake } from './water-intake/definition';
 import { definition as def_wave } from './wave/definition';
 import { definition as def_week_number } from './week-number/definition';
 import { definition as def_weighted_mean } from './weighted-mean/definition';
+import { definition as def_wheel_offset } from './wheel-offset/definition';
 import { definition as def_wind_chill } from './wind-chill/definition';
 import { definition as def_wood_weight } from './wood-weight/definition';
 import { definition as def_work } from './work/definition';
@@ -342,6 +348,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_battery_series_parallel,
   def_beam_deflection,
   def_beam_stress,
+  def_belt_length,
   def_bike_gear_ratio,
   def_bike_wheel_size,
   def_binomial_probability,
@@ -368,6 +375,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_color_convert,
   def_combinatorics,
   def_commission,
+  def_compression_ratio,
   def_concrete,
   def_confidence_interval,
   def_contribution_margin,
@@ -398,6 +406,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_cooked_weight,
   def_coordinate_convert,
   def_correlation,
+  def_coulomb,
   def_cpa_cpl_cpi,
   def_cpc,
   def_cpm,
@@ -533,6 +542,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_physics_power,
   def_physics_torque,
   def_pile_foundation,
+  def_pipe_flow,
   def_plaster,
   def_pool_fill_time,
   def_position_size,
@@ -575,6 +585,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_rule_of_72,
   def_salary_convert,
   def_salary_raise,
+  def_sample_size,
   def_savings_goal,
   def_savings_rate,
   def_scale_model,
@@ -620,6 +631,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_wave,
   def_week_number,
   def_weighted_mean,
+  def_wheel_offset,
   def_wind_chill,
   def_wood_weight,
   def_work,

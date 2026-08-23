@@ -36,6 +36,7 @@ import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_battery_series_parallel } from './battery-series-parallel/compute';
 import { compute as compute_beam_deflection } from './beam-deflection/compute';
 import { compute as compute_beam_stress } from './beam-stress/compute';
+import { compute as compute_belt_length } from './belt-length/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
 import { compute as compute_bike_wheel_size } from './bike-wheel-size/compute';
 import { compute as compute_binomial_probability } from './binomial-probability/compute';
@@ -66,6 +67,7 @@ import { compute as compute_combinatorics } from './combinatorics/compute';
 import { compute as compute_commission } from './commission/compute';
 import { validate as validate_commission } from './commission/validate';
 import { contextualField as ctx_commission } from './commission/contextualField';
+import { compute as compute_compression_ratio } from './compression-ratio/compute';
 import { compute as compute_concrete } from './concrete/compute';
 import { compute as compute_confidence_interval } from './confidence-interval/compute';
 import { compute as compute_contribution_margin } from './contribution-margin/compute';
@@ -96,6 +98,7 @@ import { compute as compute_convert_volume } from './convert-volume/compute';
 import { compute as compute_cooked_weight } from './cooked-weight/compute';
 import { compute as compute_coordinate_convert } from './coordinate-convert/compute';
 import { compute as compute_correlation } from './correlation/compute';
+import { compute as compute_coulomb } from './coulomb/compute';
 import { compute as compute_cpa_cpl_cpi } from './cpa-cpl-cpi/compute';
 import { compute as compute_cpc } from './cpc/compute';
 import { compute as compute_cpm } from './cpm/compute';
@@ -240,6 +243,7 @@ import { compute as compute_ph_poh } from './ph-poh/compute';
 import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_physics_torque } from './physics-torque/compute';
 import { compute as compute_pile_foundation } from './pile-foundation/compute';
+import { compute as compute_pipe_flow } from './pipe-flow/compute';
 import { compute as compute_plaster } from './plaster/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_position_size } from './position-size/compute';
@@ -283,6 +287,7 @@ import { compute as compute_rounding } from './rounding/compute';
 import { compute as compute_rule_of_72 } from './rule-of-72/compute';
 import { compute as compute_salary_convert } from './salary-convert/compute';
 import { compute as compute_salary_raise } from './salary-raise/compute';
+import { compute as compute_sample_size } from './sample-size/compute';
 import { compute as compute_savings_goal } from './savings-goal/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
 import { compute as compute_scale_model } from './scale-model/compute';
@@ -332,6 +337,7 @@ import { compute as compute_water_intake } from './water-intake/compute';
 import { compute as compute_wave } from './wave/compute';
 import { compute as compute_week_number } from './week-number/compute';
 import { compute as compute_weighted_mean } from './weighted-mean/compute';
+import { compute as compute_wheel_offset } from './wheel-offset/compute';
 import { compute as compute_wind_chill } from './wind-chill/compute';
 import { compute as compute_wood_weight } from './wood-weight/compute';
 import { compute as compute_work } from './work/compute';
@@ -362,6 +368,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'battery-series-parallel': compute_battery_series_parallel,
   'beam-deflection': compute_beam_deflection,
   'beam-stress': compute_beam_stress,
+  'belt-length': compute_belt_length,
   'bike-gear-ratio': compute_bike_gear_ratio,
   'bike-wheel-size': compute_bike_wheel_size,
   'binomial-probability': compute_binomial_probability,
@@ -388,6 +395,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'color-convert': compute_color_convert,
   'combinatorics': compute_combinatorics,
   'commission': compute_commission,
+  'compression-ratio': compute_compression_ratio,
   'concrete': compute_concrete,
   'confidence-interval': compute_confidence_interval,
   'contribution-margin': compute_contribution_margin,
@@ -418,6 +426,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cooked-weight': compute_cooked_weight,
   'coordinate-convert': compute_coordinate_convert,
   'correlation': compute_correlation,
+  'coulomb': compute_coulomb,
   'cpa-cpl-cpi': compute_cpa_cpl_cpi,
   'cpc': compute_cpc,
   'cpm': compute_cpm,
@@ -553,6 +562,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'physics-power': compute_physics_power,
   'physics-torque': compute_physics_torque,
   'pile-foundation': compute_pile_foundation,
+  'pipe-flow': compute_pipe_flow,
   'plaster': compute_plaster,
   'pool-fill-time': compute_pool_fill_time,
   'position-size': compute_position_size,
@@ -595,6 +605,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'rule-of-72': compute_rule_of_72,
   'salary-convert': compute_salary_convert,
   'salary-raise': compute_salary_raise,
+  'sample-size': compute_sample_size,
   'savings-goal': compute_savings_goal,
   'savings-rate': compute_savings_rate,
   'scale-model': compute_scale_model,
@@ -640,6 +651,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'wave': compute_wave,
   'week-number': compute_week_number,
   'weighted-mean': compute_weighted_mean,
+  'wheel-offset': compute_wheel_offset,
   'wind-chill': compute_wind_chill,
   'wood-weight': compute_wood_weight,
   'work': compute_work,
