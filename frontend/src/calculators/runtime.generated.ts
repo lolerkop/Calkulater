@@ -14,10 +14,13 @@ import type { CalculatorContextualField, CalculatorValidator } from '../lib/plat
 import type { CalculatorClientRuntime } from '../lib/platform/runtime';
 import { v2Localization } from './localization.generated';
 
+import { compute as compute_abv_alcohol } from './abv-alcohol/compute';
 import { compute as compute_acceleration } from './acceleration/compute';
 import { compute as compute_activity_calories } from './activity-calories/compute';
 import { compute as compute_ad_budget_funnel } from './ad-budget-funnel/compute';
 import { compute as compute_ad_roi } from './ad-roi/compute';
+import { compute as compute_air_density } from './air-density/compute';
+import { compute as compute_air_exchange } from './air-exchange/compute';
 import { compute as compute_alcohol_units } from './alcohol-units/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
@@ -33,7 +36,9 @@ import { compute as compute_barbell_plates } from './barbell-plates/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_battery_series_parallel } from './battery-series-parallel/compute';
+import { compute as compute_beam_deflection } from './beam-deflection/compute';
 import { compute as compute_beam_stress } from './beam-stress/compute';
+import { compute as compute_belt_length } from './belt-length/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
 import { compute as compute_bike_wheel_size } from './bike-wheel-size/compute';
 import { compute as compute_binomial_probability } from './binomial-probability/compute';
@@ -64,6 +69,7 @@ import { compute as compute_combinatorics } from './combinatorics/compute';
 import { compute as compute_commission } from './commission/compute';
 import { validate as validate_commission } from './commission/validate';
 import { contextualField as ctx_commission } from './commission/contextualField';
+import { compute as compute_compression_ratio } from './compression-ratio/compute';
 import { compute as compute_concrete } from './concrete/compute';
 import { compute as compute_confidence_interval } from './confidence-interval/compute';
 import { compute as compute_contribution_margin } from './contribution-margin/compute';
@@ -94,6 +100,7 @@ import { compute as compute_convert_volume } from './convert-volume/compute';
 import { compute as compute_cooked_weight } from './cooked-weight/compute';
 import { compute as compute_coordinate_convert } from './coordinate-convert/compute';
 import { compute as compute_correlation } from './correlation/compute';
+import { compute as compute_coulomb } from './coulomb/compute';
 import { compute as compute_cpa_cpl_cpi } from './cpa-cpl-cpi/compute';
 import { compute as compute_cpc } from './cpc/compute';
 import { compute as compute_cpm } from './cpm/compute';
@@ -102,6 +109,8 @@ import { compute as compute_crypto_pnl } from './crypto-pnl/compute';
 import { compute as compute_css_units } from './css-units/compute';
 import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_currency_exchange_fee } from './currency-exchange-fee/compute';
+import { compute as compute_curtain_size } from './curtain-size/compute';
+import { compute as compute_cycle_time } from './cycle-time/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_dca } from './dca/compute';
 import { compute as compute_de_broglie } from './de-broglie/compute';
@@ -127,6 +136,7 @@ import { compute as compute_emergency_fund } from './emergency-fund/compute';
 import { compute as compute_employee_cost } from './employee-cost/compute';
 import { compute as compute_engagement_rate } from './engagement-rate/compute';
 import { compute as compute_engine_displacement } from './engine-displacement/compute';
+import { compute as compute_epoxy_volume } from './epoxy-volume/compute';
 import { compute as compute_escape_velocity } from './escape-velocity/compute';
 import { compute as compute_factorial } from './factorial/compute';
 import { compute as compute_fee_chain } from './fee-chain/compute';
@@ -170,10 +180,12 @@ import { compute as compute_geometric_progression } from './geometric-progressio
 import { compute as compute_golden_ratio } from './golden-ratio/compute';
 import { compute as compute_gpa } from './gpa/compute';
 import { compute as compute_gravitational_force } from './gravitational-force/compute';
+import { compute as compute_headphone_power } from './headphone-power/compute';
 import { compute as compute_heat_index } from './heat-index/compute';
 import { compute as compute_heating_power } from './heating-power/compute';
 import { compute as compute_hooke_law } from './hooke-law/compute';
 import { contextualField as ctx_hooke_law } from './hooke-law/contextualField';
+import { compute as compute_humidity_convert } from './humidity-convert/compute';
 import { compute as compute_hydrostatic_pressure } from './hydrostatic-pressure/compute';
 import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
 import { compute as compute_ideal_weight } from './ideal-weight/compute';
@@ -191,6 +203,7 @@ import { compute as compute_kva_kw } from './kva-kw/compute';
 import { contextualField as ctx_kva_kw } from './kva-kw/contextualField';
 import { compute as compute_lc_resonance } from './lc-resonance/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
+import { compute as compute_lease_payment } from './lease-payment/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
 import { compute as compute_lever_moment } from './lever-moment/compute';
 import { contextualField as ctx_lever_moment } from './lever-moment/contextualField';
@@ -225,15 +238,22 @@ import { contextualField as ctx_ohms_law } from './ohms-law/contextualField';
 import { compute as compute_orbital_period } from './orbital-period/compute';
 import { compute as compute_overtime } from './overtime/compute';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
+import { compute as compute_paper_quantity } from './paper-quantity/compute';
+import { compute as compute_password_entropy } from './password-entropy/compute';
+import { compute as compute_payback_period } from './payback-period/compute';
+import { compute as compute_pendulum } from './pendulum/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
 import { contextualField as ctx_percent_calculator } from './percent-calculator/contextualField';
 import { compute as compute_pet_age } from './pet-age/compute';
 import { compute as compute_pet_food } from './pet-food/compute';
 import { compute as compute_ph_poh } from './ph-poh/compute';
+import { compute as compute_photon_energy } from './photon-energy/compute';
 import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_physics_torque } from './physics-torque/compute';
+import { compute as compute_picture_frame_mat } from './picture-frame-mat/compute';
 import { compute as compute_pile_foundation } from './pile-foundation/compute';
+import { compute as compute_pipe_flow } from './pipe-flow/compute';
 import { compute as compute_plaster } from './plaster/compute';
 import { compute as compute_pool_fill_time } from './pool-fill-time/compute';
 import { compute as compute_position_size } from './position-size/compute';
@@ -260,6 +280,7 @@ import { compute as compute_real_return } from './real-return/compute';
 import { compute as compute_recipe_cost } from './recipe-cost/compute';
 import { compute as compute_recipe_scale } from './recipe-scale/compute';
 import { compute as compute_refinancing } from './refinancing/compute';
+import { compute as compute_relativity_dilation } from './relativity-dilation/compute';
 import { compute as compute_rental_yield } from './rental-yield/compute';
 import { compute as compute_resistor_color } from './resistor-color/compute';
 import { compute as compute_resistor_network } from './resistor-network/compute';
@@ -277,6 +298,7 @@ import { compute as compute_rounding } from './rounding/compute';
 import { compute as compute_rule_of_72 } from './rule-of-72/compute';
 import { compute as compute_salary_convert } from './salary-convert/compute';
 import { compute as compute_salary_raise } from './salary-raise/compute';
+import { compute as compute_sample_size } from './sample-size/compute';
 import { compute as compute_savings_goal } from './savings-goal/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
 import { compute as compute_scale_model } from './scale-model/compute';
@@ -296,6 +318,7 @@ import { compute as compute_stairs } from './stairs/compute';
 import { compute as compute_stats_descriptive } from './stats-descriptive/compute';
 import { compute as compute_steps_distance_calories } from './steps-distance-calories/compute';
 import { compute as compute_stock_duration } from './stock-duration/compute';
+import { compute as compute_stopping_distance } from './stopping-distance/compute';
 import { compute as compute_stress_strain } from './stress-strain/compute';
 import { contextualField as ctx_stress_strain } from './stress-strain/contextualField';
 import { compute as compute_strip_foundation } from './strip-foundation/compute';
@@ -322,10 +345,12 @@ import { compute as compute_vo2max } from './vo2max/compute';
 import { compute as compute_voltage_divider } from './voltage-divider/compute';
 import { compute as compute_voltage_drop } from './voltage-drop/compute';
 import { compute as compute_waist_ratio } from './waist-ratio/compute';
+import { compute as compute_water_heating } from './water-heating/compute';
 import { compute as compute_water_intake } from './water-intake/compute';
 import { compute as compute_wave } from './wave/compute';
 import { compute as compute_week_number } from './week-number/compute';
 import { compute as compute_weighted_mean } from './weighted-mean/compute';
+import { compute as compute_wheel_offset } from './wheel-offset/compute';
 import { compute as compute_wind_chill } from './wind-chill/compute';
 import { compute as compute_wood_weight } from './wood-weight/compute';
 import { compute as compute_work } from './work/compute';
@@ -334,10 +359,13 @@ import { compute as compute_workday_cost } from './workday-cost/compute';
 import { compute as compute_z_score } from './z-score/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
+  'abv-alcohol': compute_abv_alcohol,
   'acceleration': compute_acceleration,
   'activity-calories': compute_activity_calories,
   'ad-budget-funnel': compute_ad_budget_funnel,
   'ad-roi': compute_ad_roi,
+  'air-density': compute_air_density,
+  'air-exchange': compute_air_exchange,
   'alcohol-units': compute_alcohol_units,
   'annuity': compute_annuity,
   'aov': compute_aov,
@@ -353,7 +381,9 @@ export const v2Runners: Record<string, CalcFunction> = {
   'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
   'battery-series-parallel': compute_battery_series_parallel,
+  'beam-deflection': compute_beam_deflection,
   'beam-stress': compute_beam_stress,
+  'belt-length': compute_belt_length,
   'bike-gear-ratio': compute_bike_gear_ratio,
   'bike-wheel-size': compute_bike_wheel_size,
   'binomial-probability': compute_binomial_probability,
@@ -380,6 +410,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'color-convert': compute_color_convert,
   'combinatorics': compute_combinatorics,
   'commission': compute_commission,
+  'compression-ratio': compute_compression_ratio,
   'concrete': compute_concrete,
   'confidence-interval': compute_confidence_interval,
   'contribution-margin': compute_contribution_margin,
@@ -410,6 +441,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'cooked-weight': compute_cooked_weight,
   'coordinate-convert': compute_coordinate_convert,
   'correlation': compute_correlation,
+  'coulomb': compute_coulomb,
   'cpa-cpl-cpi': compute_cpa_cpl_cpi,
   'cpc': compute_cpc,
   'cpm': compute_cpm,
@@ -418,6 +450,8 @@ export const v2Runners: Record<string, CalcFunction> = {
   'css-units': compute_css_units,
   'ctr': compute_ctr,
   'currency-exchange-fee': compute_currency_exchange_fee,
+  'curtain-size': compute_curtain_size,
+  'cycle-time': compute_cycle_time,
   'day-of-week': compute_day_of_week,
   'dca': compute_dca,
   'de-broglie': compute_de_broglie,
@@ -443,6 +477,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'employee-cost': compute_employee_cost,
   'engagement-rate': compute_engagement_rate,
   'engine-displacement': compute_engine_displacement,
+  'epoxy-volume': compute_epoxy_volume,
   'escape-velocity': compute_escape_velocity,
   'factorial': compute_factorial,
   'fee-chain': compute_fee_chain,
@@ -484,9 +519,11 @@ export const v2Runners: Record<string, CalcFunction> = {
   'golden-ratio': compute_golden_ratio,
   'gpa': compute_gpa,
   'gravitational-force': compute_gravitational_force,
+  'headphone-power': compute_headphone_power,
   'heat-index': compute_heat_index,
   'heating-power': compute_heating_power,
   'hooke-law': compute_hooke_law,
+  'humidity-convert': compute_humidity_convert,
   'hydrostatic-pressure': compute_hydrostatic_pressure,
   'ideal-gas-law': compute_ideal_gas_law,
   'ideal-weight': compute_ideal_weight,
@@ -503,6 +540,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'kva-kw': compute_kva_kw,
   'lc-resonance': compute_lc_resonance,
   'leap-year': compute_leap_year,
+  'lease-payment': compute_lease_payment,
   'led-resistor': compute_led_resistor,
   'lever-moment': compute_lever_moment,
   'leverage': compute_leverage,
@@ -534,13 +572,20 @@ export const v2Runners: Record<string, CalcFunction> = {
   'orbital-period': compute_orbital_period,
   'overtime': compute_overtime,
   'paint-calculator': compute_paint_calculator,
+  'paper-quantity': compute_paper_quantity,
+  'password-entropy': compute_password_entropy,
+  'payback-period': compute_payback_period,
+  'pendulum': compute_pendulum,
   'percent-calculator': compute_percent_calculator,
   'pet-age': compute_pet_age,
   'pet-food': compute_pet_food,
   'ph-poh': compute_ph_poh,
+  'photon-energy': compute_photon_energy,
   'physics-power': compute_physics_power,
   'physics-torque': compute_physics_torque,
+  'picture-frame-mat': compute_picture_frame_mat,
   'pile-foundation': compute_pile_foundation,
+  'pipe-flow': compute_pipe_flow,
   'plaster': compute_plaster,
   'pool-fill-time': compute_pool_fill_time,
   'position-size': compute_position_size,
@@ -566,6 +611,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'recipe-cost': compute_recipe_cost,
   'recipe-scale': compute_recipe_scale,
   'refinancing': compute_refinancing,
+  'relativity-dilation': compute_relativity_dilation,
   'rental-yield': compute_rental_yield,
   'resistor-color': compute_resistor_color,
   'resistor-network': compute_resistor_network,
@@ -583,6 +629,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'rule-of-72': compute_rule_of_72,
   'salary-convert': compute_salary_convert,
   'salary-raise': compute_salary_raise,
+  'sample-size': compute_sample_size,
   'savings-goal': compute_savings_goal,
   'savings-rate': compute_savings_rate,
   'scale-model': compute_scale_model,
@@ -599,6 +646,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'stats-descriptive': compute_stats_descriptive,
   'steps-distance-calories': compute_steps_distance_calories,
   'stock-duration': compute_stock_duration,
+  'stopping-distance': compute_stopping_distance,
   'stress-strain': compute_stress_strain,
   'strip-foundation': compute_strip_foundation,
   'subscriptions-cost': compute_subscriptions_cost,
@@ -624,10 +672,12 @@ export const v2Runners: Record<string, CalcFunction> = {
   'voltage-divider': compute_voltage_divider,
   'voltage-drop': compute_voltage_drop,
   'waist-ratio': compute_waist_ratio,
+  'water-heating': compute_water_heating,
   'water-intake': compute_water_intake,
   'wave': compute_wave,
   'week-number': compute_week_number,
   'weighted-mean': compute_weighted_mean,
+  'wheel-offset': compute_wheel_offset,
   'wind-chill': compute_wind_chill,
   'wood-weight': compute_wood_weight,
   'work': compute_work,
