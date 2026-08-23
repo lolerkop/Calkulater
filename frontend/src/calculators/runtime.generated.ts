@@ -109,6 +109,7 @@ import { compute as compute_crypto_pnl } from './crypto-pnl/compute';
 import { compute as compute_css_units } from './css-units/compute';
 import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_currency_exchange_fee } from './currency-exchange-fee/compute';
+import { compute as compute_curtain_size } from './curtain-size/compute';
 import { compute as compute_cycle_time } from './cycle-time/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_dca } from './dca/compute';
@@ -135,6 +136,7 @@ import { compute as compute_emergency_fund } from './emergency-fund/compute';
 import { compute as compute_employee_cost } from './employee-cost/compute';
 import { compute as compute_engagement_rate } from './engagement-rate/compute';
 import { compute as compute_engine_displacement } from './engine-displacement/compute';
+import { compute as compute_epoxy_volume } from './epoxy-volume/compute';
 import { compute as compute_escape_velocity } from './escape-velocity/compute';
 import { compute as compute_factorial } from './factorial/compute';
 import { compute as compute_fee_chain } from './fee-chain/compute';
@@ -183,6 +185,7 @@ import { compute as compute_heat_index } from './heat-index/compute';
 import { compute as compute_heating_power } from './heating-power/compute';
 import { compute as compute_hooke_law } from './hooke-law/compute';
 import { contextualField as ctx_hooke_law } from './hooke-law/contextualField';
+import { compute as compute_humidity_convert } from './humidity-convert/compute';
 import { compute as compute_hydrostatic_pressure } from './hydrostatic-pressure/compute';
 import { compute as compute_ideal_gas_law } from './ideal-gas-law/compute';
 import { compute as compute_ideal_weight } from './ideal-weight/compute';
@@ -200,6 +203,7 @@ import { compute as compute_kva_kw } from './kva-kw/compute';
 import { contextualField as ctx_kva_kw } from './kva-kw/contextualField';
 import { compute as compute_lc_resonance } from './lc-resonance/compute';
 import { compute as compute_leap_year } from './leap-year/compute';
+import { compute as compute_lease_payment } from './lease-payment/compute';
 import { compute as compute_led_resistor } from './led-resistor/compute';
 import { compute as compute_lever_moment } from './lever-moment/compute';
 import { contextualField as ctx_lever_moment } from './lever-moment/contextualField';
@@ -236,6 +240,7 @@ import { compute as compute_overtime } from './overtime/compute';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
 import { compute as compute_paper_quantity } from './paper-quantity/compute';
 import { compute as compute_password_entropy } from './password-entropy/compute';
+import { compute as compute_payback_period } from './payback-period/compute';
 import { compute as compute_pendulum } from './pendulum/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
@@ -246,6 +251,7 @@ import { compute as compute_ph_poh } from './ph-poh/compute';
 import { compute as compute_photon_energy } from './photon-energy/compute';
 import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_physics_torque } from './physics-torque/compute';
+import { compute as compute_picture_frame_mat } from './picture-frame-mat/compute';
 import { compute as compute_pile_foundation } from './pile-foundation/compute';
 import { compute as compute_pipe_flow } from './pipe-flow/compute';
 import { compute as compute_plaster } from './plaster/compute';
@@ -312,6 +318,7 @@ import { compute as compute_stairs } from './stairs/compute';
 import { compute as compute_stats_descriptive } from './stats-descriptive/compute';
 import { compute as compute_steps_distance_calories } from './steps-distance-calories/compute';
 import { compute as compute_stock_duration } from './stock-duration/compute';
+import { compute as compute_stopping_distance } from './stopping-distance/compute';
 import { compute as compute_stress_strain } from './stress-strain/compute';
 import { contextualField as ctx_stress_strain } from './stress-strain/contextualField';
 import { compute as compute_strip_foundation } from './strip-foundation/compute';
@@ -443,6 +450,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'css-units': compute_css_units,
   'ctr': compute_ctr,
   'currency-exchange-fee': compute_currency_exchange_fee,
+  'curtain-size': compute_curtain_size,
   'cycle-time': compute_cycle_time,
   'day-of-week': compute_day_of_week,
   'dca': compute_dca,
@@ -469,6 +477,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'employee-cost': compute_employee_cost,
   'engagement-rate': compute_engagement_rate,
   'engine-displacement': compute_engine_displacement,
+  'epoxy-volume': compute_epoxy_volume,
   'escape-velocity': compute_escape_velocity,
   'factorial': compute_factorial,
   'fee-chain': compute_fee_chain,
@@ -514,6 +523,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'heat-index': compute_heat_index,
   'heating-power': compute_heating_power,
   'hooke-law': compute_hooke_law,
+  'humidity-convert': compute_humidity_convert,
   'hydrostatic-pressure': compute_hydrostatic_pressure,
   'ideal-gas-law': compute_ideal_gas_law,
   'ideal-weight': compute_ideal_weight,
@@ -530,6 +540,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'kva-kw': compute_kva_kw,
   'lc-resonance': compute_lc_resonance,
   'leap-year': compute_leap_year,
+  'lease-payment': compute_lease_payment,
   'led-resistor': compute_led_resistor,
   'lever-moment': compute_lever_moment,
   'leverage': compute_leverage,
@@ -563,6 +574,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'paint-calculator': compute_paint_calculator,
   'paper-quantity': compute_paper_quantity,
   'password-entropy': compute_password_entropy,
+  'payback-period': compute_payback_period,
   'pendulum': compute_pendulum,
   'percent-calculator': compute_percent_calculator,
   'pet-age': compute_pet_age,
@@ -571,6 +583,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'photon-energy': compute_photon_energy,
   'physics-power': compute_physics_power,
   'physics-torque': compute_physics_torque,
+  'picture-frame-mat': compute_picture_frame_mat,
   'pile-foundation': compute_pile_foundation,
   'pipe-flow': compute_pipe_flow,
   'plaster': compute_plaster,
@@ -633,6 +646,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'stats-descriptive': compute_stats_descriptive,
   'steps-distance-calories': compute_steps_distance_calories,
   'stock-duration': compute_stock_duration,
+  'stopping-distance': compute_stopping_distance,
   'stress-strain': compute_stress_strain,
   'strip-foundation': compute_strip_foundation,
   'subscriptions-cost': compute_subscriptions_cost,

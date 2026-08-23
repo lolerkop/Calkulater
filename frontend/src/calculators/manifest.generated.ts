@@ -103,6 +103,7 @@ import { definition as def_crypto_pnl } from './crypto-pnl/definition';
 import { definition as def_css_units } from './css-units/definition';
 import { definition as def_ctr } from './ctr/definition';
 import { definition as def_currency_exchange_fee } from './currency-exchange-fee/definition';
+import { definition as def_curtain_size } from './curtain-size/definition';
 import { definition as def_cycle_time } from './cycle-time/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_dca } from './dca/definition';
@@ -129,6 +130,7 @@ import { definition as def_emergency_fund } from './emergency-fund/definition';
 import { definition as def_employee_cost } from './employee-cost/definition';
 import { definition as def_engagement_rate } from './engagement-rate/definition';
 import { definition as def_engine_displacement } from './engine-displacement/definition';
+import { definition as def_epoxy_volume } from './epoxy-volume/definition';
 import { definition as def_escape_velocity } from './escape-velocity/definition';
 import { definition as def_factorial } from './factorial/definition';
 import { definition as def_fee_chain } from './fee-chain/definition';
@@ -174,6 +176,7 @@ import { definition as def_headphone_power } from './headphone-power/definition'
 import { definition as def_heat_index } from './heat-index/definition';
 import { definition as def_heating_power } from './heating-power/definition';
 import { definition as def_hooke_law } from './hooke-law/definition';
+import { definition as def_humidity_convert } from './humidity-convert/definition';
 import { definition as def_hydrostatic_pressure } from './hydrostatic-pressure/definition';
 import { definition as def_ideal_gas_law } from './ideal-gas-law/definition';
 import { definition as def_ideal_weight } from './ideal-weight/definition';
@@ -190,6 +193,7 @@ import { definition as def_kinetic_energy } from './kinetic-energy/definition';
 import { definition as def_kva_kw } from './kva-kw/definition';
 import { definition as def_lc_resonance } from './lc-resonance/definition';
 import { definition as def_leap_year } from './leap-year/definition';
+import { definition as def_lease_payment } from './lease-payment/definition';
 import { definition as def_led_resistor } from './led-resistor/definition';
 import { definition as def_lever_moment } from './lever-moment/definition';
 import { definition as def_leverage } from './leverage/definition';
@@ -223,6 +227,7 @@ import { definition as def_overtime } from './overtime/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_paper_quantity } from './paper-quantity/definition';
 import { definition as def_password_entropy } from './password-entropy/definition';
+import { definition as def_payback_period } from './payback-period/definition';
 import { definition as def_pendulum } from './pendulum/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
 import { definition as def_pet_age } from './pet-age/definition';
@@ -231,6 +236,7 @@ import { definition as def_ph_poh } from './ph-poh/definition';
 import { definition as def_photon_energy } from './photon-energy/definition';
 import { definition as def_physics_power } from './physics-power/definition';
 import { definition as def_physics_torque } from './physics-torque/definition';
+import { definition as def_picture_frame_mat } from './picture-frame-mat/definition';
 import { definition as def_pile_foundation } from './pile-foundation/definition';
 import { definition as def_pipe_flow } from './pipe-flow/definition';
 import { definition as def_plaster } from './plaster/definition';
@@ -293,6 +299,7 @@ import { definition as def_stairs } from './stairs/definition';
 import { definition as def_stats_descriptive } from './stats-descriptive/definition';
 import { definition as def_steps_distance_calories } from './steps-distance-calories/definition';
 import { definition as def_stock_duration } from './stock-duration/definition';
+import { definition as def_stopping_distance } from './stopping-distance/definition';
 import { definition as def_stress_strain } from './stress-strain/definition';
 import { definition as def_strip_foundation } from './strip-foundation/definition';
 import { definition as def_subscriptions_cost } from './subscriptions-cost/definition';
@@ -423,6 +430,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_css_units,
   def_ctr,
   def_currency_exchange_fee,
+  def_curtain_size,
   def_cycle_time,
   def_day_of_week,
   def_dca,
@@ -449,6 +457,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_employee_cost,
   def_engagement_rate,
   def_engine_displacement,
+  def_epoxy_volume,
   def_escape_velocity,
   def_factorial,
   def_fee_chain,
@@ -494,6 +503,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_heat_index,
   def_heating_power,
   def_hooke_law,
+  def_humidity_convert,
   def_hydrostatic_pressure,
   def_ideal_gas_law,
   def_ideal_weight,
@@ -510,6 +520,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_kva_kw,
   def_lc_resonance,
   def_leap_year,
+  def_lease_payment,
   def_led_resistor,
   def_lever_moment,
   def_leverage,
@@ -543,6 +554,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_paint_calculator,
   def_paper_quantity,
   def_password_entropy,
+  def_payback_period,
   def_pendulum,
   def_percent_calculator,
   def_pet_age,
@@ -551,6 +563,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_photon_energy,
   def_physics_power,
   def_physics_torque,
+  def_picture_frame_mat,
   def_pile_foundation,
   def_pipe_flow,
   def_plaster,
@@ -613,6 +626,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_stats_descriptive,
   def_steps_distance_calories,
   def_stock_duration,
+  def_stopping_distance,
   def_stress_strain,
   def_strip_foundation,
   def_subscriptions_cost,
