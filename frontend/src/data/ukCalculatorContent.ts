@@ -2,6 +2,7 @@ import type { UkDetailedContent } from './ukContent/types';
 import { ukGeometryContent } from './ukContent/geometry';
 import { ukMathContent } from './ukContent/math';
 import { ukPhysics1Content } from './ukContent/physics1';
+import { ukPhysics2Content } from './ukContent/physics2';
 
 type DetailedContent = UkDetailedContent;
 
@@ -147,4 +148,5 @@ export const ukCalculatorContent: Partial<Record<string, DetailedContent>> = {
   ...ukGeometryContent,
   ...ukMathContent,
   ...ukPhysics1Content,
+  ...ukPhysics2Content,
 };
