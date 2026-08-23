@@ -180,6 +180,7 @@ import { compute as compute_geometric_progression } from './geometric-progressio
 import { compute as compute_golden_ratio } from './golden-ratio/compute';
 import { compute as compute_gpa } from './gpa/compute';
 import { compute as compute_gravitational_force } from './gravitational-force/compute';
+import { compute as compute_half_life } from './half-life/compute';
 import { compute as compute_headphone_power } from './headphone-power/compute';
 import { compute as compute_heat_index } from './heat-index/compute';
 import { compute as compute_heating_power } from './heating-power/compute';
@@ -217,6 +218,7 @@ import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
 import { compute as compute_luggage_linear } from './luggage-linear/compute';
 import { compute as compute_market_cap } from './market-cap/compute';
+import { compute as compute_mass_energy } from './mass-energy/compute';
 import { compute as compute_max_heart_rate } from './max-heart-rate/compute';
 import { compute as compute_max_loan } from './max-loan/compute';
 import { compute as compute_metal_weight } from './metal-weight/compute';
@@ -271,6 +273,7 @@ import { compute as compute_projectile_motion } from './projectile-motion/comput
 import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
+import { compute as compute_quartile } from './quartile/compute';
 import { compute as compute_rafters } from './rafters/compute';
 import { compute as compute_raid } from './raid/compute';
 import { compute as compute_ratio } from './ratio/compute';
@@ -287,6 +290,7 @@ import { compute as compute_resistor_network } from './resistor-network/compute'
 import { compute as compute_return_rate } from './return-rate/compute';
 import { compute as compute_revenue_per_employee } from './revenue-per-employee/compute';
 import { compute as compute_risk_reward } from './risk-reward/compute';
+import { compute as compute_rms_voltage } from './rms-voltage/compute';
 import { compute as compute_roas } from './roas/compute';
 import { compute as compute_roast_time } from './roast-time/compute';
 import { compute as compute_roi } from './roi/compute';
@@ -328,8 +332,10 @@ import { compute as compute_test_score_percent } from './test-score-percent/comp
 import { compute as compute_text_reading_time } from './text-reading-time/compute';
 import { compute as compute_text_word_char_count } from './text-word-char-count/compute';
 import { compute as compute_thermal_conduction } from './thermal-conduction/compute';
+import { compute as compute_thin_lens } from './thin-lens/compute';
 import { compute as compute_time_duration } from './time-duration/compute';
 import { compute as compute_time_value_money } from './time-value-money/compute';
+import { compute as compute_timesheet_week } from './timesheet-week/compute';
 import { compute as compute_timezone_difference } from './timezone-difference/compute';
 import { compute as compute_tip } from './tip/compute';
 import { compute as compute_tire_size } from './tire-size/compute';
@@ -356,6 +362,7 @@ import { compute as compute_wood_weight } from './wood-weight/compute';
 import { compute as compute_work } from './work/compute';
 import { compute as compute_work_hours } from './work-hours/compute';
 import { compute as compute_workday_cost } from './workday-cost/compute';
+import { compute as compute_yeast_convert } from './yeast-convert/compute';
 import { compute as compute_z_score } from './z-score/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
@@ -519,6 +526,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'golden-ratio': compute_golden_ratio,
   'gpa': compute_gpa,
   'gravitational-force': compute_gravitational_force,
+  'half-life': compute_half_life,
   'headphone-power': compute_headphone_power,
   'heat-index': compute_heat_index,
   'heating-power': compute_heating_power,
@@ -552,6 +560,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'ltv': compute_ltv,
   'luggage-linear': compute_luggage_linear,
   'market-cap': compute_market_cap,
+  'mass-energy': compute_mass_energy,
   'max-heart-rate': compute_max_heart_rate,
   'max-loan': compute_max_loan,
   'metal-weight': compute_metal_weight,
@@ -602,6 +611,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'projectile-motion': compute_projectile_motion,
   'proportion': compute_proportion,
   'quadratic-equation': compute_quadratic_equation,
+  'quartile': compute_quartile,
   'rafters': compute_rafters,
   'raid': compute_raid,
   'ratio': compute_ratio,
@@ -618,6 +628,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'return-rate': compute_return_rate,
   'revenue-per-employee': compute_revenue_per_employee,
   'risk-reward': compute_risk_reward,
+  'rms-voltage': compute_rms_voltage,
   'roas': compute_roas,
   'roast-time': compute_roast_time,
   'roi': compute_roi,
@@ -655,8 +666,10 @@ export const v2Runners: Record<string, CalcFunction> = {
   'text-reading-time': compute_text_reading_time,
   'text-word-char-count': compute_text_word_char_count,
   'thermal-conduction': compute_thermal_conduction,
+  'thin-lens': compute_thin_lens,
   'time-duration': compute_time_duration,
   'time-value-money': compute_time_value_money,
+  'timesheet-week': compute_timesheet_week,
   'timezone-difference': compute_timezone_difference,
   'tip': compute_tip,
   'tire-size': compute_tire_size,
@@ -683,6 +696,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'work': compute_work,
   'work-hours': compute_work_hours,
   'workday-cost': compute_workday_cost,
+  'yeast-convert': compute_yeast_convert,
   'z-score': compute_z_score,
 };
 

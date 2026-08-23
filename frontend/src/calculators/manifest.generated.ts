@@ -172,6 +172,7 @@ import { definition as def_geometric_progression } from './geometric-progression
 import { definition as def_golden_ratio } from './golden-ratio/definition';
 import { definition as def_gpa } from './gpa/definition';
 import { definition as def_gravitational_force } from './gravitational-force/definition';
+import { definition as def_half_life } from './half-life/definition';
 import { definition as def_headphone_power } from './headphone-power/definition';
 import { definition as def_heat_index } from './heat-index/definition';
 import { definition as def_heating_power } from './heating-power/definition';
@@ -205,6 +206,7 @@ import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_ltv } from './ltv/definition';
 import { definition as def_luggage_linear } from './luggage-linear/definition';
 import { definition as def_market_cap } from './market-cap/definition';
+import { definition as def_mass_energy } from './mass-energy/definition';
 import { definition as def_max_heart_rate } from './max-heart-rate/definition';
 import { definition as def_max_loan } from './max-loan/definition';
 import { definition as def_metal_weight } from './metal-weight/definition';
@@ -255,6 +257,7 @@ import { definition as def_profit } from './profit/definition';
 import { definition as def_projectile_motion } from './projectile-motion/definition';
 import { definition as def_proportion } from './proportion/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
+import { definition as def_quartile } from './quartile/definition';
 import { definition as def_rafters } from './rafters/definition';
 import { definition as def_raid } from './raid/definition';
 import { definition as def_ratio } from './ratio/definition';
@@ -271,6 +274,7 @@ import { definition as def_resistor_network } from './resistor-network/definitio
 import { definition as def_return_rate } from './return-rate/definition';
 import { definition as def_revenue_per_employee } from './revenue-per-employee/definition';
 import { definition as def_risk_reward } from './risk-reward/definition';
+import { definition as def_rms_voltage } from './rms-voltage/definition';
 import { definition as def_roas } from './roas/definition';
 import { definition as def_roast_time } from './roast-time/definition';
 import { definition as def_roi } from './roi/definition';
@@ -308,8 +312,10 @@ import { definition as def_test_score_percent } from './test-score-percent/defin
 import { definition as def_text_reading_time } from './text-reading-time/definition';
 import { definition as def_text_word_char_count } from './text-word-char-count/definition';
 import { definition as def_thermal_conduction } from './thermal-conduction/definition';
+import { definition as def_thin_lens } from './thin-lens/definition';
 import { definition as def_time_duration } from './time-duration/definition';
 import { definition as def_time_value_money } from './time-value-money/definition';
+import { definition as def_timesheet_week } from './timesheet-week/definition';
 import { definition as def_timezone_difference } from './timezone-difference/definition';
 import { definition as def_tip } from './tip/definition';
 import { definition as def_tire_size } from './tire-size/definition';
@@ -336,6 +342,7 @@ import { definition as def_wood_weight } from './wood-weight/definition';
 import { definition as def_work } from './work/definition';
 import { definition as def_work_hours } from './work-hours/definition';
 import { definition as def_workday_cost } from './workday-cost/definition';
+import { definition as def_yeast_convert } from './yeast-convert/definition';
 import { definition as def_z_score } from './z-score/definition';
 
 export const v2Definitions: readonly CalculatorDefinitionV2[] = [
@@ -499,6 +506,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_golden_ratio,
   def_gpa,
   def_gravitational_force,
+  def_half_life,
   def_headphone_power,
   def_heat_index,
   def_heating_power,
@@ -532,6 +540,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_ltv,
   def_luggage_linear,
   def_market_cap,
+  def_mass_energy,
   def_max_heart_rate,
   def_max_loan,
   def_metal_weight,
@@ -582,6 +591,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_projectile_motion,
   def_proportion,
   def_quadratic_equation,
+  def_quartile,
   def_rafters,
   def_raid,
   def_ratio,
@@ -598,6 +608,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_return_rate,
   def_revenue_per_employee,
   def_risk_reward,
+  def_rms_voltage,
   def_roas,
   def_roast_time,
   def_roi,
@@ -635,8 +646,10 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_text_reading_time,
   def_text_word_char_count,
   def_thermal_conduction,
+  def_thin_lens,
   def_time_duration,
   def_time_value_money,
+  def_timesheet_week,
   def_timezone_difference,
   def_tip,
   def_tire_size,
@@ -663,6 +676,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_work,
   def_work_hours,
   def_workday_cost,
+  def_yeast_convert,
   def_z_score,
 ];
 

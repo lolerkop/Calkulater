@@ -1009,6 +1009,15 @@ const stateScenarios: Record<string, StateScenario> = {
   'voltage-divider': { query: { vin: 9, r1: 2200, r2: 3300 }, result: { primary: '5,4 В', rows: [{ label: 'Доля от входного', value: '60 %' }, { label: 'Ток через делитель', value: '1,636 мА' }, { label: 'Мощность нижнего плеча', value: '8,836 мВт' }] } },
   //   алюминий E = 70 000: 25 кН на 200 мм² -> 125 МПа, ε = 0,0017857, 4,464 мм
   'stress-strain': { query: { mode: 'elongation', force: 25000, area: 200, length: 2500, e: 70000 }, result: { primary: '4,464 мм', rows: [{ label: 'Напряжение', value: '125 МПа' }, { label: 'Относительная деформация', value: '0,001786' }, { label: 'Модуль Юнга', value: '70 000 МПа' }] } },
+  // Волна 23, подпартия 23A1. Значения выведены независимой моделью Phase 23P
+  // на НЕумолчальных входах; ожидания взяты из неё, а не набраны руками.
+  'thin-lens': { query: { mode: "image", f: 10, do: 5 }, result: { primary: "-10 см", rows: [{ label: "Увеличение", value: "2" }, { label: "Тип изображения", value: "мнимое прямое" }, { label: "Фокусное расстояние", value: "10 см" }] } },
+  'timesheet-week': { query: { lines: "22:00,06:00,30", rate: 700, normal: 40 }, result: { primary: "7,5 ч", rows: [{ label: "Дней в табеле", value: "1" }, { label: "В часах и минутах", value: "7 ч 30 мин" }, { label: "Сверхурочных", value: "0 ч" }] } },
+  'half-life': { query: { mode: "remaining", n0: 8, half: 30.17, t: 90 }, result: { primary: "1,012 г", rows: [{ label: "Распалось", value: "6,988 г" }, { label: "Осталось доли", value: "12,647 %" }, { label: "Периодов полураспада прошло", value: "2,983" }] } },
+  'quartile': { query: { values: "1 2 3 4 5 6 7 8 9 100" }, result: { primary: "5,5", rows: [{ label: "Первый квартиль", value: "3,25" }, { label: "Третий квартиль", value: "7,75" }, { label: "Межквартильный размах", value: "4,5" }] } },
+  'rms-voltage': { query: { mode: "pp", value: 10, wave: "square" }, result: { primary: "5 В", rows: [{ label: "Амплитудное значение", value: "5 В" }, { label: "Размах", value: "10 В" }, { label: "Коэффициент амплитуды", value: "1" }] } },
+  'mass-energy': { query: { massG: 0.5 }, result: { primary: "4,494·10^13 Дж", rows: [{ label: "В киловатт-часах", value: "12 482 710,82 кВт·ч" }, { label: "В тоннах тротилового эквивалента", value: "10 740,38 т" }, { label: "Масса", value: "0,0005 кг" }] } },
+  'yeast-convert': { query: { value: 7, from: "instant", to: "fresh" }, result: { primary: "28 г", rows: [{ label: "В пересчёте на прессованные", value: "28 г" }, { label: "Сухие активные", value: "9,333 г" }, { label: "Быстродействующие", value: "7 г" }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));

@@ -166,6 +166,7 @@ import { localization as loc_geometric_progression } from './geometric-progressi
 import { localization as loc_golden_ratio } from './golden-ratio/localization';
 import { localization as loc_gpa } from './gpa/localization';
 import { localization as loc_gravitational_force } from './gravitational-force/localization';
+import { localization as loc_half_life } from './half-life/localization';
 import { localization as loc_headphone_power } from './headphone-power/localization';
 import { localization as loc_heat_index } from './heat-index/localization';
 import { localization as loc_heating_power } from './heating-power/localization';
@@ -199,6 +200,7 @@ import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_luggage_linear } from './luggage-linear/localization';
 import { localization as loc_market_cap } from './market-cap/localization';
+import { localization as loc_mass_energy } from './mass-energy/localization';
 import { localization as loc_max_heart_rate } from './max-heart-rate/localization';
 import { localization as loc_max_loan } from './max-loan/localization';
 import { localization as loc_metal_weight } from './metal-weight/localization';
@@ -247,6 +249,7 @@ import { localization as loc_profit } from './profit/localization';
 import { localization as loc_projectile_motion } from './projectile-motion/localization';
 import { localization as loc_proportion } from './proportion/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
+import { localization as loc_quartile } from './quartile/localization';
 import { localization as loc_rafters } from './rafters/localization';
 import { localization as loc_raid } from './raid/localization';
 import { localization as loc_ratio } from './ratio/localization';
@@ -263,6 +266,7 @@ import { localization as loc_resistor_network } from './resistor-network/localiz
 import { localization as loc_return_rate } from './return-rate/localization';
 import { localization as loc_revenue_per_employee } from './revenue-per-employee/localization';
 import { localization as loc_risk_reward } from './risk-reward/localization';
+import { localization as loc_rms_voltage } from './rms-voltage/localization';
 import { localization as loc_roas } from './roas/localization';
 import { localization as loc_roast_time } from './roast-time/localization';
 import { localization as loc_roi } from './roi/localization';
@@ -300,8 +304,10 @@ import { localization as loc_test_score_percent } from './test-score-percent/loc
 import { localization as loc_text_reading_time } from './text-reading-time/localization';
 import { localization as loc_text_word_char_count } from './text-word-char-count/localization';
 import { localization as loc_thermal_conduction } from './thermal-conduction/localization';
+import { localization as loc_thin_lens } from './thin-lens/localization';
 import { localization as loc_time_duration } from './time-duration/localization';
 import { localization as loc_time_value_money } from './time-value-money/localization';
+import { localization as loc_timesheet_week } from './timesheet-week/localization';
 import { localization as loc_timezone_difference } from './timezone-difference/localization';
 import { localization as loc_tip } from './tip/localization';
 import { localization as loc_tire_size } from './tire-size/localization';
@@ -328,6 +334,7 @@ import { localization as loc_wood_weight } from './wood-weight/localization';
 import { localization as loc_work } from './work/localization';
 import { localization as loc_work_hours } from './work-hours/localization';
 import { localization as loc_workday_cost } from './workday-cost/localization';
+import { localization as loc_yeast_convert } from './yeast-convert/localization';
 import { localization as loc_z_score } from './z-score/localization';
 
 export const v2Localization: ScopedLocalization = {
@@ -492,6 +499,7 @@ export const v2Localization: ScopedLocalization = {
     'golden-ratio': loc_golden_ratio.en ?? {},
     'gpa': loc_gpa.en ?? {},
     'gravitational-force': loc_gravitational_force.en ?? {},
+    'half-life': loc_half_life.en ?? {},
     'headphone-power': loc_headphone_power.en ?? {},
     'heat-index': loc_heat_index.en ?? {},
     'heating-power': loc_heating_power.en ?? {},
@@ -525,6 +533,7 @@ export const v2Localization: ScopedLocalization = {
     'ltv': loc_ltv.en ?? {},
     'luggage-linear': loc_luggage_linear.en ?? {},
     'market-cap': loc_market_cap.en ?? {},
+    'mass-energy': loc_mass_energy.en ?? {},
     'max-heart-rate': loc_max_heart_rate.en ?? {},
     'max-loan': loc_max_loan.en ?? {},
     'metal-weight': loc_metal_weight.en ?? {},
@@ -573,6 +582,7 @@ export const v2Localization: ScopedLocalization = {
     'projectile-motion': loc_projectile_motion.en ?? {},
     'proportion': loc_proportion.en ?? {},
     'quadratic-equation': loc_quadratic_equation.en ?? {},
+    'quartile': loc_quartile.en ?? {},
     'rafters': loc_rafters.en ?? {},
     'raid': loc_raid.en ?? {},
     'ratio': loc_ratio.en ?? {},
@@ -589,6 +599,7 @@ export const v2Localization: ScopedLocalization = {
     'return-rate': loc_return_rate.en ?? {},
     'revenue-per-employee': loc_revenue_per_employee.en ?? {},
     'risk-reward': loc_risk_reward.en ?? {},
+    'rms-voltage': loc_rms_voltage.en ?? {},
     'roas': loc_roas.en ?? {},
     'roast-time': loc_roast_time.en ?? {},
     'roi': loc_roi.en ?? {},
@@ -626,8 +637,10 @@ export const v2Localization: ScopedLocalization = {
     'text-reading-time': loc_text_reading_time.en ?? {},
     'text-word-char-count': loc_text_word_char_count.en ?? {},
     'thermal-conduction': loc_thermal_conduction.en ?? {},
+    'thin-lens': loc_thin_lens.en ?? {},
     'time-duration': loc_time_duration.en ?? {},
     'time-value-money': loc_time_value_money.en ?? {},
+    'timesheet-week': loc_timesheet_week.en ?? {},
     'timezone-difference': loc_timezone_difference.en ?? {},
     'tip': loc_tip.en ?? {},
     'tire-size': loc_tire_size.en ?? {},
@@ -654,6 +667,7 @@ export const v2Localization: ScopedLocalization = {
     'work': loc_work.en ?? {},
     'work-hours': loc_work_hours.en ?? {},
     'workday-cost': loc_workday_cost.en ?? {},
+    'yeast-convert': loc_yeast_convert.en ?? {},
     'z-score': loc_z_score.en ?? {},
   },
   uk: {
@@ -817,6 +831,7 @@ export const v2Localization: ScopedLocalization = {
     'golden-ratio': loc_golden_ratio.uk ?? {},
     'gpa': loc_gpa.uk ?? {},
     'gravitational-force': loc_gravitational_force.uk ?? {},
+    'half-life': loc_half_life.uk ?? {},
     'headphone-power': loc_headphone_power.uk ?? {},
     'heat-index': loc_heat_index.uk ?? {},
     'heating-power': loc_heating_power.uk ?? {},
@@ -850,6 +865,7 @@ export const v2Localization: ScopedLocalization = {
     'ltv': loc_ltv.uk ?? {},
     'luggage-linear': loc_luggage_linear.uk ?? {},
     'market-cap': loc_market_cap.uk ?? {},
+    'mass-energy': loc_mass_energy.uk ?? {},
     'max-heart-rate': loc_max_heart_rate.uk ?? {},
     'max-loan': loc_max_loan.uk ?? {},
     'metal-weight': loc_metal_weight.uk ?? {},
@@ -898,6 +914,7 @@ export const v2Localization: ScopedLocalization = {
     'projectile-motion': loc_projectile_motion.uk ?? {},
     'proportion': loc_proportion.uk ?? {},
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
+    'quartile': loc_quartile.uk ?? {},
     'rafters': loc_rafters.uk ?? {},
     'raid': loc_raid.uk ?? {},
     'ratio': loc_ratio.uk ?? {},
@@ -914,6 +931,7 @@ export const v2Localization: ScopedLocalization = {
     'return-rate': loc_return_rate.uk ?? {},
     'revenue-per-employee': loc_revenue_per_employee.uk ?? {},
     'risk-reward': loc_risk_reward.uk ?? {},
+    'rms-voltage': loc_rms_voltage.uk ?? {},
     'roas': loc_roas.uk ?? {},
     'roast-time': loc_roast_time.uk ?? {},
     'roi': loc_roi.uk ?? {},
@@ -951,8 +969,10 @@ export const v2Localization: ScopedLocalization = {
     'text-reading-time': loc_text_reading_time.uk ?? {},
     'text-word-char-count': loc_text_word_char_count.uk ?? {},
     'thermal-conduction': loc_thermal_conduction.uk ?? {},
+    'thin-lens': loc_thin_lens.uk ?? {},
     'time-duration': loc_time_duration.uk ?? {},
     'time-value-money': loc_time_value_money.uk ?? {},
+    'timesheet-week': loc_timesheet_week.uk ?? {},
     'timezone-difference': loc_timezone_difference.uk ?? {},
     'tip': loc_tip.uk ?? {},
     'tire-size': loc_tire_size.uk ?? {},
@@ -979,6 +999,7 @@ export const v2Localization: ScopedLocalization = {
     'work': loc_work.uk ?? {},
     'work-hours': loc_work_hours.uk ?? {},
     'workday-cost': loc_workday_cost.uk ?? {},
+    'yeast-convert': loc_yeast_convert.uk ?? {},
     'z-score': loc_z_score.uk ?? {},
   },
 };
