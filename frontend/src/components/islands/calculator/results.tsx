@@ -3,6 +3,7 @@
 // модуль не занимается: он получает уже подготовленный CalcResult через props,
 // поэтому translateLabel/localizeResult/resultToText остаются в островe.
 
+import { useId } from 'react';
 import type { CSSProperties } from 'react';
 import {
   AlertCircle,
@@ -32,6 +33,9 @@ function ResultBlock({
   locale: Locale;
 }) {
   const copy = calculatorCopy(locale);
+  // Идентификатор для aria-describedby таблицы. useId даёт одинаковое значение
+  // на сервере и после гидратации, поэтому связь не рвётся при takeover.
+  const tableNoteId = `${useId()}table-note`;
 
   return (
     <div
@@ -134,7 +138,10 @@ function ResultBlock({
               {result.table.title}
             </div>
           )}
-          <table className="min-w-max w-full text-sm">
+          <table
+            className="min-w-max w-full text-sm"
+            aria-describedby={result.table.note ? tableNoteId : undefined}
+          >
             <caption className="sr-only">
               {result.table.title ?? copy.tableCaption}
             </caption>
@@ -164,6 +171,20 @@ function ResultBlock({
             </tbody>
           </table>
         </div>
+      )}
+
+      {/* Сноска принадлежит таблице, поэтому идёт сразу за ней и без верхней
+          границы: граница отделяет уже следующий блок. Вынесена ЗА пределы
+          горизонтально прокручиваемого контейнера — иначе на узком экране
+          текст уезжал бы вбок вместе с таблицей вместо переноса по словам. */}
+      {result.table?.note && (
+        <p
+          id={tableNoteId}
+          data-testid="calc-result-table-note"
+          className="px-4 pb-3 pt-2 text-xs text-ink-500 sm:px-6"
+        >
+          {result.table.note}
+        </p>
       )}
 
       {result.note && (

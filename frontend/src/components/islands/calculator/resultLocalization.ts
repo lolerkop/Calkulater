@@ -85,10 +85,23 @@ export function resultToText(calc: Pick<CalculatorDef, 'name'>, result: CalcResu
   const secondary = result.secondary
     .map((row) => `${row.label}: ${row.value}`)
     .join('\n');
+  // Таблица — часть результата, а не оформление: копируя расчёт, пользователь
+  // забирал только шапку и терял график целиком вместе со сноской об усечении.
+  // Колонки разделяются табуляцией — так строки вставляются в таблицу
+  // электронной таблицы без дополнительной обработки.
+  const table = result.table
+    ? [
+        result.table.title ?? copy.tableCaption,
+        result.table.columns.join('\t'),
+        ...result.table.rows.map((row) => row.join('\t')),
+        result.table.note ? `${copy.note}: ${result.table.note}` : '',
+      ].filter(Boolean).join('\n')
+    : '';
   return [
     calc.name,
     `${result.primary.label}: ${result.primary.value}`,
     secondary,
+    table,
     result.note ? `${copy.note}: ${result.note}` : '',
   ].filter(Boolean).join('\n');
 }

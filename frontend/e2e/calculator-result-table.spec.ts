@@ -82,3 +82,76 @@ test.describe('результат-таблица: аннуитет и расср
     expect(errors.filter((text) => !/Content Security Policy|beacon|cloudflare/i.test(text))).toEqual([]);
   });
 });
+
+// Сноска таблицы. Она вычислялась и переводилась, но слой отображения читал
+// только result.note верхнего уровня: на боевом график погашения кредитной
+// карты с итогом «99 мес» обрывался на 36-й строке молча. Здесь проверяется
+// именно то, что видит посетитель, включая связь таблицы со сноской.
+test.describe('результат-таблица: сноска', () => {
+  const NOTE = '[data-testid="calc-result-table-note"]';
+
+  test('усечённый график прямо сообщает, что показаны не все строки', async ({ page }) => {
+    await page.goto('/ru/finance/pogashenie-kreditnoy-karty/?balance=500000&apr=25&payment=12000');
+    const table = await resultTable(page);
+    await expect(table.locator('tbody tr')).toHaveCount(36);
+    const note = page.locator(NOTE);
+    await expect(note).toBeVisible();
+    await expect(note).toHaveText(/36/);
+    // Сноска стоит после таблицы и связана с ней.
+    const describedBy = await table.getAttribute('aria-describedby');
+    expect(describedBy).toBeTruthy();
+    // useId выдаёт идентификатор с двоеточиями: для aria-describedby это
+    // законно, а как селектор CSS требует экранирования — берём по атрибуту.
+    await expect(page.locator(`[id="${describedBy}"]`)).toHaveText(await note.innerText());
+  });
+
+  test('безусловная сноска видна и без усечения', async ({ page }) => {
+    await page.goto('/ru/chemistry/molar-mass/');
+    await resultTable(page);
+    await expect(page.locator(NOTE)).toBeVisible();
+    await expect(page.locator(NOTE)).toHaveText(/IUPAC/);
+  });
+
+  for (const [locale, route, expected] of [
+    ['en', '/en/chemistry/molar-mass-calculator/', /IUPAC standard atomic weights/],
+    ['uk', '/uk/himiya/molyarna-masa/', /стандартні атомні ваги/],
+  ] as const) {
+    test(`сноска переведена в ${locale}`, async ({ page }) => {
+      await page.goto(route);
+      await resultTable(page);
+      const note = page.locator(NOTE);
+      await expect(note).toBeVisible();
+      await expect(note).toHaveText(expected);
+      if (locale === 'en') {
+        expect(await note.innerText()).not.toMatch(/[А-Яа-яЁё]/);
+      }
+    });
+  }
+
+  test('таблица без сноски не получает пустого блока', async ({ page }) => {
+    await page.goto('/ru/finance/annuity/?amount=500000&rate=9.5&months=24');
+    await resultTable(page);
+    await expect(page.locator(NOTE)).toHaveCount(0);
+    await expect(page.locator('main table').first()).not.toHaveAttribute('aria-describedby', /./);
+  });
+
+  test('на узком экране сноска переносится, а не уезжает вбок', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 900 });
+    await page.goto('/ru/chemistry/molar-mass/');
+    await resultTable(page);
+    const note = page.locator(NOTE);
+    await expect(note).toBeVisible();
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(1);
+    // Сноска не внутри прокручиваемого контейнера таблицы.
+    const insideScroller = await note.evaluate((node) => {
+      let el: HTMLElement | null = node.parentElement;
+      while (el) {
+        if (getComputedStyle(el).overflowX === 'auto' || getComputedStyle(el).overflowX === 'scroll') return true;
+        el = el.parentElement;
+      }
+      return false;
+    });
+    expect(insideScroller).toBe(false);
+  });
+});
