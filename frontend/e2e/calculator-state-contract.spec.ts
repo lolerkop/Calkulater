@@ -1034,6 +1034,14 @@ const stateScenarios: Record<string, StateScenario> = {
   'boiling-point': { query: { h: 0 }, result: { primary: "100 °C", rows: [{ label: "Давление на высоте", value: "101,33 кПа" }, { label: "В миллиметрах ртутного столба", value: "760 мм рт. ст." }, { label: "Доля от давления на уровне моря", value: "100 %" }] } },
   'rainfall-volume': { query: { area: 120, depth: 8, coeff: 0.85 }, result: { primary: "816 л", rows: [{ label: "В кубометрах", value: "0,816 м³" }, { label: "Бочек по 200 литров", value: "5 шт" }, { label: "Собрано с квадратного метра", value: "6,8 л" }] } },
   'air-pressure-at-altitude': { query: { h: 0 }, result: { primary: "101,33 кПа", rows: [{ label: "В миллиметрах ртутного столба", value: "760 мм рт. ст." }, { label: "Доля от уровня моря", value: "100 %" }, { label: "Температура по стандартной атмосфере", value: "15 °C" }] } },
+  // Волна 23, подпартия 23B2. Значения выведены независимой моделью Phase 23P
+  // на НЕумолчальных входах; ожидания взяты из неё, а не набраны руками.
+  'drip-water-leak': { query: { drops: 60, price: 60, dropMl: 0.04 }, result: { primary: "3,456 л", rows: [{ label: "За месяц", value: "103,68 л" }, { label: "За год", value: "1 261,44 л" }, { label: "В кубометрах за год", value: "1,261 м³" }] } },
+  'quarter-mile-elapsed-time': { query: { power: 500, mass: 1600 }, result: { primary: "11,172 с", rows: [{ label: "Скорость на финише", value: "196,35 км/ч" }, { label: "Удельная мощность", value: "312,5 л.с./т" }, { label: "Масса в фунтах", value: "3 527,4 фунт" }] } },
+  'sealant-volume': { query: { width: 10, depth: 8, length: 5, cart: 600, waste: 5 }, result: { primary: "420 мл", rows: [{ label: "Без запаса", value: "400 мл" }, { label: "Картриджей", value: "1 шт" }, { label: "Метров из одного картриджа", value: "7,5 м" }] } },
+  'wind-power': { query: { d: 50, v: 12, cp: 0.45, rho: 1.2 }, result: { primary: "916,09 кВт", rows: [{ label: "Мощность потока", value: "2 035,75 кВт" }, { label: "Ометаемая площадь", value: "1 963,5 м²" }, { label: "Предел Бетца", value: "1 207,2 кВт" }] } },
+  'coaxial-cable-impedance': { query: { dIn: 1.63, dOut: 7.25, eps: 2.3 }, result: { primary: "58,978 Ом", rows: [{ label: "Ёмкость на метр", value: "85,736 пФ/м" }, { label: "Коэффициент укорочения", value: "0,6594" }, { label: "Задержка на метр", value: "5,059 нс/м" }] } },
+  'pyramid-frustum': { query: { a: 30, b: 12, h: 25 }, result: { primary: "11 700 см³", rows: [{ label: "Апофема", value: "26,571 см" }, { label: "Боковая поверхность", value: "2 231,94 см²" }, { label: "Полная поверхность", value: "3 275,94 см²" }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));

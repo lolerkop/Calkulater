@@ -55,6 +55,7 @@ import { localization as loc_carnot } from './carnot/localization';
 import { localization as loc_centripetal_force } from './centripetal-force/localization';
 import { localization as loc_churn_retention } from './churn-retention/localization';
 import { localization as loc_cladding_boards } from './cladding-boards/localization';
+import { localization as loc_coaxial_cable_impedance } from './coaxial-cable-impedance/localization';
 import { localization as loc_cogs } from './cogs/localization';
 import { localization as loc_cogs_unit_cost } from './cogs-unit-cost/localization';
 import { localization as loc_color_convert } from './color-convert/localization';
@@ -118,6 +119,7 @@ import { localization as loc_divisors } from './divisors/localization';
 import { localization as loc_doppler } from './doppler/localization';
 import { localization as loc_down_payment } from './down-payment/localization';
 import { localization as loc_download_time } from './download-time/localization';
+import { localization as loc_drip_water_leak } from './drip-water-leak/localization';
 import { localization as loc_drywall } from './drywall/localization';
 import { localization as loc_dti } from './dti/localization';
 import { localization as loc_early_repayment } from './early-repayment/localization';
@@ -255,7 +257,9 @@ import { localization as loc_probability_basic } from './probability-basic/local
 import { localization as loc_profit } from './profit/localization';
 import { localization as loc_projectile_motion } from './projectile-motion/localization';
 import { localization as loc_proportion } from './proportion/localization';
+import { localization as loc_pyramid_frustum } from './pyramid-frustum/localization';
 import { localization as loc_quadratic_equation } from './quadratic-equation/localization';
+import { localization as loc_quarter_mile_elapsed_time } from './quarter-mile-elapsed-time/localization';
 import { localization as loc_quartile } from './quartile/localization';
 import { localization as loc_rafters } from './rafters/localization';
 import { localization as loc_raid } from './raid/localization';
@@ -290,6 +294,7 @@ import { localization as loc_sample_size } from './sample-size/localization';
 import { localization as loc_savings_goal } from './savings-goal/localization';
 import { localization as loc_savings_rate } from './savings-rate/localization';
 import { localization as loc_scale_model } from './scale-model/localization';
+import { localization as loc_sealant_volume } from './sealant-volume/localization';
 import { localization as loc_shipping_per_unit } from './shipping-per-unit/localization';
 import { localization as loc_simple_interest } from './simple-interest/localization';
 import { localization as loc_single_phase } from './single-phase/localization';
@@ -342,6 +347,7 @@ import { localization as loc_week_number } from './week-number/localization';
 import { localization as loc_weighted_mean } from './weighted-mean/localization';
 import { localization as loc_wheel_offset } from './wheel-offset/localization';
 import { localization as loc_wind_chill } from './wind-chill/localization';
+import { localization as loc_wind_power } from './wind-power/localization';
 import { localization as loc_wood_weight } from './wood-weight/localization';
 import { localization as loc_work } from './work/localization';
 import { localization as loc_work_hours } from './work-hours/localization';
@@ -400,6 +406,7 @@ export const v2Localization: ScopedLocalization = {
     'centripetal-force': loc_centripetal_force.en ?? {},
     'churn-retention': loc_churn_retention.en ?? {},
     'cladding-boards': loc_cladding_boards.en ?? {},
+    'coaxial-cable-impedance': loc_coaxial_cable_impedance.en ?? {},
     'cogs': loc_cogs.en ?? {},
     'cogs-unit-cost': loc_cogs_unit_cost.en ?? {},
     'color-convert': loc_color_convert.en ?? {},
@@ -463,6 +470,7 @@ export const v2Localization: ScopedLocalization = {
     'doppler': loc_doppler.en ?? {},
     'down-payment': loc_down_payment.en ?? {},
     'download-time': loc_download_time.en ?? {},
+    'drip-water-leak': loc_drip_water_leak.en ?? {},
     'drywall': loc_drywall.en ?? {},
     'dti': loc_dti.en ?? {},
     'early-repayment': loc_early_repayment.en ?? {},
@@ -600,7 +608,9 @@ export const v2Localization: ScopedLocalization = {
     'profit': loc_profit.en ?? {},
     'projectile-motion': loc_projectile_motion.en ?? {},
     'proportion': loc_proportion.en ?? {},
+    'pyramid-frustum': loc_pyramid_frustum.en ?? {},
     'quadratic-equation': loc_quadratic_equation.en ?? {},
+    'quarter-mile-elapsed-time': loc_quarter_mile_elapsed_time.en ?? {},
     'quartile': loc_quartile.en ?? {},
     'rafters': loc_rafters.en ?? {},
     'raid': loc_raid.en ?? {},
@@ -635,6 +645,7 @@ export const v2Localization: ScopedLocalization = {
     'savings-goal': loc_savings_goal.en ?? {},
     'savings-rate': loc_savings_rate.en ?? {},
     'scale-model': loc_scale_model.en ?? {},
+    'sealant-volume': loc_sealant_volume.en ?? {},
     'shipping-per-unit': loc_shipping_per_unit.en ?? {},
     'simple-interest': loc_simple_interest.en ?? {},
     'single-phase': loc_single_phase.en ?? {},
@@ -687,6 +698,7 @@ export const v2Localization: ScopedLocalization = {
     'weighted-mean': loc_weighted_mean.en ?? {},
     'wheel-offset': loc_wheel_offset.en ?? {},
     'wind-chill': loc_wind_chill.en ?? {},
+    'wind-power': loc_wind_power.en ?? {},
     'wood-weight': loc_wood_weight.en ?? {},
     'work': loc_work.en ?? {},
     'work-hours': loc_work_hours.en ?? {},
@@ -744,6 +756,7 @@ export const v2Localization: ScopedLocalization = {
     'centripetal-force': loc_centripetal_force.uk ?? {},
     'churn-retention': loc_churn_retention.uk ?? {},
     'cladding-boards': loc_cladding_boards.uk ?? {},
+    'coaxial-cable-impedance': loc_coaxial_cable_impedance.uk ?? {},
     'cogs': loc_cogs.uk ?? {},
     'cogs-unit-cost': loc_cogs_unit_cost.uk ?? {},
     'color-convert': loc_color_convert.uk ?? {},
@@ -807,6 +820,7 @@ export const v2Localization: ScopedLocalization = {
     'doppler': loc_doppler.uk ?? {},
     'down-payment': loc_down_payment.uk ?? {},
     'download-time': loc_download_time.uk ?? {},
+    'drip-water-leak': loc_drip_water_leak.uk ?? {},
     'drywall': loc_drywall.uk ?? {},
     'dti': loc_dti.uk ?? {},
     'early-repayment': loc_early_repayment.uk ?? {},
@@ -944,7 +958,9 @@ export const v2Localization: ScopedLocalization = {
     'profit': loc_profit.uk ?? {},
     'projectile-motion': loc_projectile_motion.uk ?? {},
     'proportion': loc_proportion.uk ?? {},
+    'pyramid-frustum': loc_pyramid_frustum.uk ?? {},
     'quadratic-equation': loc_quadratic_equation.uk ?? {},
+    'quarter-mile-elapsed-time': loc_quarter_mile_elapsed_time.uk ?? {},
     'quartile': loc_quartile.uk ?? {},
     'rafters': loc_rafters.uk ?? {},
     'raid': loc_raid.uk ?? {},
@@ -979,6 +995,7 @@ export const v2Localization: ScopedLocalization = {
     'savings-goal': loc_savings_goal.uk ?? {},
     'savings-rate': loc_savings_rate.uk ?? {},
     'scale-model': loc_scale_model.uk ?? {},
+    'sealant-volume': loc_sealant_volume.uk ?? {},
     'shipping-per-unit': loc_shipping_per_unit.uk ?? {},
     'simple-interest': loc_simple_interest.uk ?? {},
     'single-phase': loc_single_phase.uk ?? {},
@@ -1031,6 +1048,7 @@ export const v2Localization: ScopedLocalization = {
     'weighted-mean': loc_weighted_mean.uk ?? {},
     'wheel-offset': loc_wheel_offset.uk ?? {},
     'wind-chill': loc_wind_chill.uk ?? {},
+    'wind-power': loc_wind_power.uk ?? {},
     'wood-weight': loc_wood_weight.uk ?? {},
     'work': loc_work.uk ?? {},
     'work-hours': loc_work_hours.uk ?? {},

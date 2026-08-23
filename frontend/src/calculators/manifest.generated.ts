@@ -61,6 +61,7 @@ import { definition as def_carnot } from './carnot/definition';
 import { definition as def_centripetal_force } from './centripetal-force/definition';
 import { definition as def_churn_retention } from './churn-retention/definition';
 import { definition as def_cladding_boards } from './cladding-boards/definition';
+import { definition as def_coaxial_cable_impedance } from './coaxial-cable-impedance/definition';
 import { definition as def_cogs } from './cogs/definition';
 import { definition as def_cogs_unit_cost } from './cogs-unit-cost/definition';
 import { definition as def_color_convert } from './color-convert/definition';
@@ -124,6 +125,7 @@ import { definition as def_divisors } from './divisors/definition';
 import { definition as def_doppler } from './doppler/definition';
 import { definition as def_down_payment } from './down-payment/definition';
 import { definition as def_download_time } from './download-time/definition';
+import { definition as def_drip_water_leak } from './drip-water-leak/definition';
 import { definition as def_drywall } from './drywall/definition';
 import { definition as def_dti } from './dti/definition';
 import { definition as def_early_repayment } from './early-repayment/definition';
@@ -263,7 +265,9 @@ import { definition as def_probability_basic } from './probability-basic/definit
 import { definition as def_profit } from './profit/definition';
 import { definition as def_projectile_motion } from './projectile-motion/definition';
 import { definition as def_proportion } from './proportion/definition';
+import { definition as def_pyramid_frustum } from './pyramid-frustum/definition';
 import { definition as def_quadratic_equation } from './quadratic-equation/definition';
+import { definition as def_quarter_mile_elapsed_time } from './quarter-mile-elapsed-time/definition';
 import { definition as def_quartile } from './quartile/definition';
 import { definition as def_rafters } from './rafters/definition';
 import { definition as def_raid } from './raid/definition';
@@ -298,6 +302,7 @@ import { definition as def_sample_size } from './sample-size/definition';
 import { definition as def_savings_goal } from './savings-goal/definition';
 import { definition as def_savings_rate } from './savings-rate/definition';
 import { definition as def_scale_model } from './scale-model/definition';
+import { definition as def_sealant_volume } from './sealant-volume/definition';
 import { definition as def_shipping_per_unit } from './shipping-per-unit/definition';
 import { definition as def_simple_interest } from './simple-interest/definition';
 import { definition as def_single_phase } from './single-phase/definition';
@@ -350,6 +355,7 @@ import { definition as def_week_number } from './week-number/definition';
 import { definition as def_weighted_mean } from './weighted-mean/definition';
 import { definition as def_wheel_offset } from './wheel-offset/definition';
 import { definition as def_wind_chill } from './wind-chill/definition';
+import { definition as def_wind_power } from './wind-power/definition';
 import { definition as def_wood_weight } from './wood-weight/definition';
 import { definition as def_work } from './work/definition';
 import { definition as def_work_hours } from './work-hours/definition';
@@ -407,6 +413,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_centripetal_force,
   def_churn_retention,
   def_cladding_boards,
+  def_coaxial_cable_impedance,
   def_cogs,
   def_cogs_unit_cost,
   def_color_convert,
@@ -470,6 +477,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_doppler,
   def_down_payment,
   def_download_time,
+  def_drip_water_leak,
   def_drywall,
   def_dti,
   def_early_repayment,
@@ -609,7 +617,9 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_profit,
   def_projectile_motion,
   def_proportion,
+  def_pyramid_frustum,
   def_quadratic_equation,
+  def_quarter_mile_elapsed_time,
   def_quartile,
   def_rafters,
   def_raid,
@@ -644,6 +654,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_savings_goal,
   def_savings_rate,
   def_scale_model,
+  def_sealant_volume,
   def_shipping_per_unit,
   def_simple_interest,
   def_single_phase,
@@ -696,6 +707,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_weighted_mean,
   def_wheel_offset,
   def_wind_chill,
+  def_wind_power,
   def_wood_weight,
   def_work,
   def_work_hours,

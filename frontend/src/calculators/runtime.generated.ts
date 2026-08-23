@@ -65,6 +65,7 @@ import { compute as compute_carnot } from './carnot/compute';
 import { compute as compute_centripetal_force } from './centripetal-force/compute';
 import { compute as compute_churn_retention } from './churn-retention/compute';
 import { compute as compute_cladding_boards } from './cladding-boards/compute';
+import { compute as compute_coaxial_cable_impedance } from './coaxial-cable-impedance/compute';
 import { compute as compute_cogs } from './cogs/compute';
 import { compute as compute_cogs_unit_cost } from './cogs-unit-cost/compute';
 import { compute as compute_color_convert } from './color-convert/compute';
@@ -130,6 +131,7 @@ import { compute as compute_divisors } from './divisors/compute';
 import { compute as compute_doppler } from './doppler/compute';
 import { compute as compute_down_payment } from './down-payment/compute';
 import { compute as compute_download_time } from './download-time/compute';
+import { compute as compute_drip_water_leak } from './drip-water-leak/compute';
 import { compute as compute_drywall } from './drywall/compute';
 import { compute as compute_dti } from './dti/compute';
 import { compute as compute_early_repayment } from './early-repayment/compute';
@@ -279,7 +281,9 @@ import { compute as compute_profit } from './profit/compute';
 import { compute as compute_projectile_motion } from './projectile-motion/compute';
 import { compute as compute_proportion } from './proportion/compute';
 import { contextualField as ctx_proportion } from './proportion/contextualField';
+import { compute as compute_pyramid_frustum } from './pyramid-frustum/compute';
 import { compute as compute_quadratic_equation } from './quadratic-equation/compute';
+import { compute as compute_quarter_mile_elapsed_time } from './quarter-mile-elapsed-time/compute';
 import { compute as compute_quartile } from './quartile/compute';
 import { compute as compute_rafters } from './rafters/compute';
 import { compute as compute_raid } from './raid/compute';
@@ -315,6 +319,7 @@ import { compute as compute_savings_goal } from './savings-goal/compute';
 import { compute as compute_savings_rate } from './savings-rate/compute';
 import { compute as compute_scale_model } from './scale-model/compute';
 import { contextualField as ctx_scale_model } from './scale-model/contextualField';
+import { compute as compute_sealant_volume } from './sealant-volume/compute';
 import { compute as compute_shipping_per_unit } from './shipping-per-unit/compute';
 import { compute as compute_simple_interest } from './simple-interest/compute';
 import { compute as compute_single_phase } from './single-phase/compute';
@@ -370,6 +375,7 @@ import { compute as compute_week_number } from './week-number/compute';
 import { compute as compute_weighted_mean } from './weighted-mean/compute';
 import { compute as compute_wheel_offset } from './wheel-offset/compute';
 import { compute as compute_wind_chill } from './wind-chill/compute';
+import { compute as compute_wind_power } from './wind-power/compute';
 import { compute as compute_wood_weight } from './wood-weight/compute';
 import { compute as compute_work } from './work/compute';
 import { compute as compute_work_hours } from './work-hours/compute';
@@ -427,6 +433,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'centripetal-force': compute_centripetal_force,
   'churn-retention': compute_churn_retention,
   'cladding-boards': compute_cladding_boards,
+  'coaxial-cable-impedance': compute_coaxial_cable_impedance,
   'cogs': compute_cogs,
   'cogs-unit-cost': compute_cogs_unit_cost,
   'color-convert': compute_color_convert,
@@ -490,6 +497,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'doppler': compute_doppler,
   'down-payment': compute_down_payment,
   'download-time': compute_download_time,
+  'drip-water-leak': compute_drip_water_leak,
   'drywall': compute_drywall,
   'dti': compute_dti,
   'early-repayment': compute_early_repayment,
@@ -629,7 +637,9 @@ export const v2Runners: Record<string, CalcFunction> = {
   'profit': compute_profit,
   'projectile-motion': compute_projectile_motion,
   'proportion': compute_proportion,
+  'pyramid-frustum': compute_pyramid_frustum,
   'quadratic-equation': compute_quadratic_equation,
+  'quarter-mile-elapsed-time': compute_quarter_mile_elapsed_time,
   'quartile': compute_quartile,
   'rafters': compute_rafters,
   'raid': compute_raid,
@@ -664,6 +674,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'savings-goal': compute_savings_goal,
   'savings-rate': compute_savings_rate,
   'scale-model': compute_scale_model,
+  'sealant-volume': compute_sealant_volume,
   'shipping-per-unit': compute_shipping_per_unit,
   'simple-interest': compute_simple_interest,
   'single-phase': compute_single_phase,
@@ -716,6 +727,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'weighted-mean': compute_weighted_mean,
   'wheel-offset': compute_wheel_offset,
   'wind-chill': compute_wind_chill,
+  'wind-power': compute_wind_power,
   'wood-weight': compute_wood_weight,
   'work': compute_work,
   'work-hours': compute_work_hours,
