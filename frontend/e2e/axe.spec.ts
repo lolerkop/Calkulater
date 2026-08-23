@@ -1,12 +1,30 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
+// Набор маршрутов расширен по классам страниц. Пять исходных не покрывали
+// подборку и страницы с таблицей результата, и там жили два нарушения уровня
+// serious, приехавшие в Production задолго до этой проверки: слишком слабый
+// контраст счётчика в фишке раздела (белый при прозрачности 70 % на акцентном
+// фоне — 3,65:1 при норме 4,5:1) и прокручиваемая таблица без собственной
+// остановки табуляции.
 for (const route of [
   '/ru/',
   '/ru/contacts/',
   '/ru/privacy/',
   '/ru/finance/income-tax-calculator/',
   '/uk/fitness/kalkulyator-bmi/',
+  '/ru/calculators/',
+  '/ru/calculators/page/2/',
+  '/ru/calculators/page/3/',
+  '/ru/finance/',
+  '/ru/finance/credit-calculator/',
+  '/ru/physics/density/',
+  '/ru/chemistry/molar-mass/',
+  '/ru/household/bakers-percentage/',
+  '/ru/finance/annuity/',
+  '/ru/converters/chislo-propisyu/',
+  '/en/physics/newton-force/',
+  '/ru/takoy-stranicy-net-24f/',
 ]) {
   test(`axe has no WCAG A/AA violations on ${route}`, async ({ page }) => {
     await page.goto(route);

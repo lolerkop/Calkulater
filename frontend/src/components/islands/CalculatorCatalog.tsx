@@ -954,7 +954,7 @@ export default function CalculatorCatalog({
             onClick={() => setTagFilter(allTag)}
             data-testid="catalog-tag-all"
           >
-            {copy.all} <span className="ml-1 font-mono text-xs opacity-70">{tagCounts.all}</span>
+            {copy.all} <span className="ml-1 font-mono text-xs opacity-90">{tagCounts.all}</span>
           </button>
           <button
             type="button"
@@ -963,7 +963,7 @@ export default function CalculatorCatalog({
             onClick={() => setTagFilter('new')}
             data-testid="catalog-tag-new"
           >
-            {copy.newest} <span className="ml-1 font-mono text-xs opacity-70">{tagCounts.new}</span>
+            {copy.newest} <span className="ml-1 font-mono text-xs opacity-90">{tagCounts.new}</span>
           </button>
           <button
             type="button"
@@ -972,7 +972,7 @@ export default function CalculatorCatalog({
             onClick={() => setTagFilter('popular')}
             data-testid="catalog-tag-popular"
           >
-            {copy.popular} <span className="ml-1 font-mono text-xs opacity-70">{tagCounts.popular}</span>
+            {copy.popular} <span className="ml-1 font-mono text-xs opacity-90">{tagCounts.popular}</span>
           </button>
         </div>
 
@@ -987,7 +987,7 @@ export default function CalculatorCatalog({
             aria-pressed={activeCategory === allCategory}
             onClick={() => setActiveCategory(allCategory)}
           >
-            {copy.all} <span className="ml-1 font-mono text-xs opacity-70">{tagCounts.all}</span>
+            {copy.all} <span className="ml-1 font-mono text-xs opacity-90">{tagCounts.all}</span>
           </button>
           {categories.map((category) => (
             <button
@@ -998,7 +998,7 @@ export default function CalculatorCatalog({
               onClick={() => setActiveCategory(category.id)}
             >
               {category.name}
-              <span className="ml-1 font-mono text-xs opacity-70">{categoryCounts[category.id] ?? 0}</span>
+              <span className="ml-1 font-mono text-xs opacity-90">{categoryCounts[category.id] ?? 0}</span>
             </button>
           ))}
         </div>

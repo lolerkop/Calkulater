@@ -132,6 +132,13 @@ function ResultBlock({
           // Панель результата стоит на --surface-soft, а не на фоне шапки:
           // подложке подсказки нужен именно этот цвет, иначе край побелеет.
           style={{ '--nav-veil': 'var(--surface-soft)' } as CSSProperties}
+          // Таблица прокручивается вбок, но фокусируемых элементов внутри нет:
+          // без собственной остановки табуляции клавиатурный посетитель не мог
+          // её прокрутить вовсе. Группе даётся имя, чтобы остановка не была
+          // безымянной.
+          tabIndex={0}
+          role="group"
+          aria-label={result.table.title ?? copy.tableCaption}
         >
           {result.table.title && (
             <div className="px-4 pt-4 text-xs uppercase tracking-wider text-ink-500 sm:px-6">
