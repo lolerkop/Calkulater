@@ -17,7 +17,7 @@ export const paperQuantityCopyEn: CalculatorCopy = {
     "The mass excludes packaging: the box and wrapper add on top.",
   ],
   howItWorks: "Mass = sheet area × grammage × number of sheets.",
-  example: "A ream of 500 A4 sheets at 80 gsm weighs exactly 2 kilograms.",
+  example: "A ream of 500 A4 sheets at 80 gsm weighs exactly 2.5 kilograms.",
   faq: [
     { q: "Why does an A4 ream weigh what it does?", a: "Because A0 is one square metre and A4 is sixteen times smaller. At 80 gsm a sheet weighs 5 grams, so 500 sheets come to 2500 grams of paper; at 64 gsm the same ream lands at 2 kg." },
     { q: "How does grammage differ from thickness?", a: "Grammage is mass per area, while thickness also depends on how bulky the fibre is. Two 80 gsm papers can differ in thickness by half again: loose offset stock is thicker than dense coated stock." },
