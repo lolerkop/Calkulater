@@ -31,6 +31,7 @@ import { localization as loc_battery_series_parallel } from './battery-series-pa
 import { localization as loc_beam_deflection } from './beam-deflection/localization';
 import { localization as loc_beam_stress } from './beam-stress/localization';
 import { localization as loc_belt_length } from './belt-length/localization';
+import { localization as loc_bernoulli } from './bernoulli/localization';
 import { localization as loc_bike_gear_ratio } from './bike-gear-ratio/localization';
 import { localization as loc_bike_wheel_size } from './bike-wheel-size/localization';
 import { localization as loc_binomial_probability } from './binomial-probability/localization';
@@ -170,6 +171,7 @@ import { localization as loc_half_life } from './half-life/localization';
 import { localization as loc_headphone_power } from './headphone-power/localization';
 import { localization as loc_heat_index } from './heat-index/localization';
 import { localization as loc_heating_power } from './heating-power/localization';
+import { localization as loc_home_equity } from './home-equity/localization';
 import { localization as loc_hooke_law } from './hooke-law/localization';
 import { localization as loc_humidity_convert } from './humidity-convert/localization';
 import { localization as loc_hydrostatic_pressure } from './hydrostatic-pressure/localization';
@@ -199,6 +201,7 @@ import { localization as loc_linoleum } from './linoleum/localization';
 import { localization as loc_logarithm } from './logarithm/localization';
 import { localization as loc_ltv } from './ltv/localization';
 import { localization as loc_luggage_linear } from './luggage-linear/localization';
+import { localization as loc_mach_number } from './mach-number/localization';
 import { localization as loc_market_cap } from './market-cap/localization';
 import { localization as loc_mass_energy } from './mass-energy/localization';
 import { localization as loc_max_heart_rate } from './max-heart-rate/localization';
@@ -213,6 +216,7 @@ import { localization as loc_moles } from './moles/localization';
 import { localization as loc_moment_of_inertia } from './moment-of-inertia/localization';
 import { localization as loc_momentum } from './momentum/localization';
 import { localization as loc_mrr_arr } from './mrr-arr/localization';
+import { localization as loc_ne555_timer_astable } from './ne555-timer-astable/localization';
 import { localization as loc_network_bandwidth } from './network-bandwidth/localization';
 import { localization as loc_newton_force } from './newton-force/localization';
 import { localization as loc_number_scale_names } from './number-scale-names/localization';
@@ -300,6 +304,7 @@ import { localization as loc_stress_strain } from './stress-strain/localization'
 import { localization as loc_strip_foundation } from './strip-foundation/localization';
 import { localization as loc_subscriptions_cost } from './subscriptions-cost/localization';
 import { localization as loc_tank_volume } from './tank-volume/localization';
+import { localization as loc_terminal_velocity } from './terminal-velocity/localization';
 import { localization as loc_test_score_percent } from './test-score-percent/localization';
 import { localization as loc_text_reading_time } from './text-reading-time/localization';
 import { localization as loc_text_word_char_count } from './text-word-char-count/localization';
@@ -314,6 +319,7 @@ import { localization as loc_tire_size } from './tire-size/localization';
 import { localization as loc_transformer_ratio } from './transformer-ratio/localization';
 import { localization as loc_trip_budget } from './trip-budget/localization';
 import { localization as loc_trip_cost } from './trip-cost/localization';
+import { localization as loc_tv_monitor_viewing_distance } from './tv-monitor-viewing-distance/localization';
 import { localization as loc_underfloor_heating } from './underfloor-heating/localization';
 import { localization as loc_unix_timestamp } from './unix-timestamp/localization';
 import { localization as loc_utility_total } from './utility-total/localization';
@@ -364,6 +370,7 @@ export const v2Localization: ScopedLocalization = {
     'beam-deflection': loc_beam_deflection.en ?? {},
     'beam-stress': loc_beam_stress.en ?? {},
     'belt-length': loc_belt_length.en ?? {},
+    'bernoulli': loc_bernoulli.en ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.en ?? {},
     'bike-wheel-size': loc_bike_wheel_size.en ?? {},
     'binomial-probability': loc_binomial_probability.en ?? {},
@@ -503,6 +510,7 @@ export const v2Localization: ScopedLocalization = {
     'headphone-power': loc_headphone_power.en ?? {},
     'heat-index': loc_heat_index.en ?? {},
     'heating-power': loc_heating_power.en ?? {},
+    'home-equity': loc_home_equity.en ?? {},
     'hooke-law': loc_hooke_law.en ?? {},
     'humidity-convert': loc_humidity_convert.en ?? {},
     'hydrostatic-pressure': loc_hydrostatic_pressure.en ?? {},
@@ -532,6 +540,7 @@ export const v2Localization: ScopedLocalization = {
     'logarithm': loc_logarithm.en ?? {},
     'ltv': loc_ltv.en ?? {},
     'luggage-linear': loc_luggage_linear.en ?? {},
+    'mach-number': loc_mach_number.en ?? {},
     'market-cap': loc_market_cap.en ?? {},
     'mass-energy': loc_mass_energy.en ?? {},
     'max-heart-rate': loc_max_heart_rate.en ?? {},
@@ -546,6 +555,7 @@ export const v2Localization: ScopedLocalization = {
     'moment-of-inertia': loc_moment_of_inertia.en ?? {},
     'momentum': loc_momentum.en ?? {},
     'mrr-arr': loc_mrr_arr.en ?? {},
+    'ne555-timer-astable': loc_ne555_timer_astable.en ?? {},
     'network-bandwidth': loc_network_bandwidth.en ?? {},
     'newton-force': loc_newton_force.en ?? {},
     'number-scale-names': loc_number_scale_names.en ?? {},
@@ -633,6 +643,7 @@ export const v2Localization: ScopedLocalization = {
     'strip-foundation': loc_strip_foundation.en ?? {},
     'subscriptions-cost': loc_subscriptions_cost.en ?? {},
     'tank-volume': loc_tank_volume.en ?? {},
+    'terminal-velocity': loc_terminal_velocity.en ?? {},
     'test-score-percent': loc_test_score_percent.en ?? {},
     'text-reading-time': loc_text_reading_time.en ?? {},
     'text-word-char-count': loc_text_word_char_count.en ?? {},
@@ -647,6 +658,7 @@ export const v2Localization: ScopedLocalization = {
     'transformer-ratio': loc_transformer_ratio.en ?? {},
     'trip-budget': loc_trip_budget.en ?? {},
     'trip-cost': loc_trip_cost.en ?? {},
+    'tv-monitor-viewing-distance': loc_tv_monitor_viewing_distance.en ?? {},
     'underfloor-heating': loc_underfloor_heating.en ?? {},
     'unix-timestamp': loc_unix_timestamp.en ?? {},
     'utility-total': loc_utility_total.en ?? {},
@@ -696,6 +708,7 @@ export const v2Localization: ScopedLocalization = {
     'beam-deflection': loc_beam_deflection.uk ?? {},
     'beam-stress': loc_beam_stress.uk ?? {},
     'belt-length': loc_belt_length.uk ?? {},
+    'bernoulli': loc_bernoulli.uk ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.uk ?? {},
     'bike-wheel-size': loc_bike_wheel_size.uk ?? {},
     'binomial-probability': loc_binomial_probability.uk ?? {},
@@ -835,6 +848,7 @@ export const v2Localization: ScopedLocalization = {
     'headphone-power': loc_headphone_power.uk ?? {},
     'heat-index': loc_heat_index.uk ?? {},
     'heating-power': loc_heating_power.uk ?? {},
+    'home-equity': loc_home_equity.uk ?? {},
     'hooke-law': loc_hooke_law.uk ?? {},
     'humidity-convert': loc_humidity_convert.uk ?? {},
     'hydrostatic-pressure': loc_hydrostatic_pressure.uk ?? {},
@@ -864,6 +878,7 @@ export const v2Localization: ScopedLocalization = {
     'logarithm': loc_logarithm.uk ?? {},
     'ltv': loc_ltv.uk ?? {},
     'luggage-linear': loc_luggage_linear.uk ?? {},
+    'mach-number': loc_mach_number.uk ?? {},
     'market-cap': loc_market_cap.uk ?? {},
     'mass-energy': loc_mass_energy.uk ?? {},
     'max-heart-rate': loc_max_heart_rate.uk ?? {},
@@ -878,6 +893,7 @@ export const v2Localization: ScopedLocalization = {
     'moment-of-inertia': loc_moment_of_inertia.uk ?? {},
     'momentum': loc_momentum.uk ?? {},
     'mrr-arr': loc_mrr_arr.uk ?? {},
+    'ne555-timer-astable': loc_ne555_timer_astable.uk ?? {},
     'network-bandwidth': loc_network_bandwidth.uk ?? {},
     'newton-force': loc_newton_force.uk ?? {},
     'number-scale-names': loc_number_scale_names.uk ?? {},
@@ -965,6 +981,7 @@ export const v2Localization: ScopedLocalization = {
     'strip-foundation': loc_strip_foundation.uk ?? {},
     'subscriptions-cost': loc_subscriptions_cost.uk ?? {},
     'tank-volume': loc_tank_volume.uk ?? {},
+    'terminal-velocity': loc_terminal_velocity.uk ?? {},
     'test-score-percent': loc_test_score_percent.uk ?? {},
     'text-reading-time': loc_text_reading_time.uk ?? {},
     'text-word-char-count': loc_text_word_char_count.uk ?? {},
@@ -979,6 +996,7 @@ export const v2Localization: ScopedLocalization = {
     'transformer-ratio': loc_transformer_ratio.uk ?? {},
     'trip-budget': loc_trip_budget.uk ?? {},
     'trip-cost': loc_trip_cost.uk ?? {},
+    'tv-monitor-viewing-distance': loc_tv_monitor_viewing_distance.uk ?? {},
     'underfloor-heating': loc_underfloor_heating.uk ?? {},
     'unix-timestamp': loc_unix_timestamp.uk ?? {},
     'utility-total': loc_utility_total.uk ?? {},

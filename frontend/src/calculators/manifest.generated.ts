@@ -37,6 +37,7 @@ import { definition as def_battery_series_parallel } from './battery-series-para
 import { definition as def_beam_deflection } from './beam-deflection/definition';
 import { definition as def_beam_stress } from './beam-stress/definition';
 import { definition as def_belt_length } from './belt-length/definition';
+import { definition as def_bernoulli } from './bernoulli/definition';
 import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
 import { definition as def_bike_wheel_size } from './bike-wheel-size/definition';
 import { definition as def_binomial_probability } from './binomial-probability/definition';
@@ -176,6 +177,7 @@ import { definition as def_half_life } from './half-life/definition';
 import { definition as def_headphone_power } from './headphone-power/definition';
 import { definition as def_heat_index } from './heat-index/definition';
 import { definition as def_heating_power } from './heating-power/definition';
+import { definition as def_home_equity } from './home-equity/definition';
 import { definition as def_hooke_law } from './hooke-law/definition';
 import { definition as def_humidity_convert } from './humidity-convert/definition';
 import { definition as def_hydrostatic_pressure } from './hydrostatic-pressure/definition';
@@ -205,6 +207,7 @@ import { definition as def_linoleum } from './linoleum/definition';
 import { definition as def_logarithm } from './logarithm/definition';
 import { definition as def_ltv } from './ltv/definition';
 import { definition as def_luggage_linear } from './luggage-linear/definition';
+import { definition as def_mach_number } from './mach-number/definition';
 import { definition as def_market_cap } from './market-cap/definition';
 import { definition as def_mass_energy } from './mass-energy/definition';
 import { definition as def_max_heart_rate } from './max-heart-rate/definition';
@@ -219,6 +222,7 @@ import { definition as def_moles } from './moles/definition';
 import { definition as def_moment_of_inertia } from './moment-of-inertia/definition';
 import { definition as def_momentum } from './momentum/definition';
 import { definition as def_mrr_arr } from './mrr-arr/definition';
+import { definition as def_ne555_timer_astable } from './ne555-timer-astable/definition';
 import { definition as def_network_bandwidth } from './network-bandwidth/definition';
 import { definition as def_newton_force } from './newton-force/definition';
 import { definition as def_number_scale_names } from './number-scale-names/definition';
@@ -308,6 +312,7 @@ import { definition as def_stress_strain } from './stress-strain/definition';
 import { definition as def_strip_foundation } from './strip-foundation/definition';
 import { definition as def_subscriptions_cost } from './subscriptions-cost/definition';
 import { definition as def_tank_volume } from './tank-volume/definition';
+import { definition as def_terminal_velocity } from './terminal-velocity/definition';
 import { definition as def_test_score_percent } from './test-score-percent/definition';
 import { definition as def_text_reading_time } from './text-reading-time/definition';
 import { definition as def_text_word_char_count } from './text-word-char-count/definition';
@@ -322,6 +327,7 @@ import { definition as def_tire_size } from './tire-size/definition';
 import { definition as def_transformer_ratio } from './transformer-ratio/definition';
 import { definition as def_trip_budget } from './trip-budget/definition';
 import { definition as def_trip_cost } from './trip-cost/definition';
+import { definition as def_tv_monitor_viewing_distance } from './tv-monitor-viewing-distance/definition';
 import { definition as def_underfloor_heating } from './underfloor-heating/definition';
 import { definition as def_unix_timestamp } from './unix-timestamp/definition';
 import { definition as def_utility_total } from './utility-total/definition';
@@ -371,6 +377,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_beam_deflection,
   def_beam_stress,
   def_belt_length,
+  def_bernoulli,
   def_bike_gear_ratio,
   def_bike_wheel_size,
   def_binomial_probability,
@@ -510,6 +517,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_headphone_power,
   def_heat_index,
   def_heating_power,
+  def_home_equity,
   def_hooke_law,
   def_humidity_convert,
   def_hydrostatic_pressure,
@@ -539,6 +547,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_logarithm,
   def_ltv,
   def_luggage_linear,
+  def_mach_number,
   def_market_cap,
   def_mass_energy,
   def_max_heart_rate,
@@ -553,6 +562,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_moment_of_inertia,
   def_momentum,
   def_mrr_arr,
+  def_ne555_timer_astable,
   def_network_bandwidth,
   def_newton_force,
   def_number_scale_names,
@@ -642,6 +652,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_strip_foundation,
   def_subscriptions_cost,
   def_tank_volume,
+  def_terminal_velocity,
   def_test_score_percent,
   def_text_reading_time,
   def_text_word_char_count,
@@ -656,6 +667,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_transformer_ratio,
   def_trip_budget,
   def_trip_cost,
+  def_tv_monitor_viewing_distance,
   def_underfloor_heating,
   def_unix_timestamp,
   def_utility_total,

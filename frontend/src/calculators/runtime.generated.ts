@@ -39,6 +39,7 @@ import { compute as compute_battery_series_parallel } from './battery-series-par
 import { compute as compute_beam_deflection } from './beam-deflection/compute';
 import { compute as compute_beam_stress } from './beam-stress/compute';
 import { compute as compute_belt_length } from './belt-length/compute';
+import { compute as compute_bernoulli } from './bernoulli/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
 import { compute as compute_bike_wheel_size } from './bike-wheel-size/compute';
 import { compute as compute_binomial_probability } from './binomial-probability/compute';
@@ -184,6 +185,7 @@ import { compute as compute_half_life } from './half-life/compute';
 import { compute as compute_headphone_power } from './headphone-power/compute';
 import { compute as compute_heat_index } from './heat-index/compute';
 import { compute as compute_heating_power } from './heating-power/compute';
+import { compute as compute_home_equity } from './home-equity/compute';
 import { compute as compute_hooke_law } from './hooke-law/compute';
 import { contextualField as ctx_hooke_law } from './hooke-law/contextualField';
 import { compute as compute_humidity_convert } from './humidity-convert/compute';
@@ -217,6 +219,7 @@ import { compute as compute_logarithm } from './logarithm/compute';
 import { contextualField as ctx_logarithm } from './logarithm/contextualField';
 import { compute as compute_ltv } from './ltv/compute';
 import { compute as compute_luggage_linear } from './luggage-linear/compute';
+import { compute as compute_mach_number } from './mach-number/compute';
 import { compute as compute_market_cap } from './market-cap/compute';
 import { compute as compute_mass_energy } from './mass-energy/compute';
 import { compute as compute_max_heart_rate } from './max-heart-rate/compute';
@@ -231,6 +234,7 @@ import { compute as compute_moles } from './moles/compute';
 import { compute as compute_moment_of_inertia } from './moment-of-inertia/compute';
 import { compute as compute_momentum } from './momentum/compute';
 import { compute as compute_mrr_arr } from './mrr-arr/compute';
+import { compute as compute_ne555_timer_astable } from './ne555-timer-astable/compute';
 import { compute as compute_network_bandwidth } from './network-bandwidth/compute';
 import { compute as compute_newton_force } from './newton-force/compute';
 import { compute as compute_number_scale_names } from './number-scale-names/compute';
@@ -328,6 +332,7 @@ import { contextualField as ctx_stress_strain } from './stress-strain/contextual
 import { compute as compute_strip_foundation } from './strip-foundation/compute';
 import { compute as compute_subscriptions_cost } from './subscriptions-cost/compute';
 import { compute as compute_tank_volume } from './tank-volume/compute';
+import { compute as compute_terminal_velocity } from './terminal-velocity/compute';
 import { compute as compute_test_score_percent } from './test-score-percent/compute';
 import { compute as compute_text_reading_time } from './text-reading-time/compute';
 import { compute as compute_text_word_char_count } from './text-word-char-count/compute';
@@ -342,6 +347,7 @@ import { compute as compute_tire_size } from './tire-size/compute';
 import { compute as compute_transformer_ratio } from './transformer-ratio/compute';
 import { compute as compute_trip_budget } from './trip-budget/compute';
 import { compute as compute_trip_cost } from './trip-cost/compute';
+import { compute as compute_tv_monitor_viewing_distance } from './tv-monitor-viewing-distance/compute';
 import { compute as compute_underfloor_heating } from './underfloor-heating/compute';
 import { compute as compute_unix_timestamp } from './unix-timestamp/compute';
 import { compute as compute_utility_total } from './utility-total/compute';
@@ -391,6 +397,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'beam-deflection': compute_beam_deflection,
   'beam-stress': compute_beam_stress,
   'belt-length': compute_belt_length,
+  'bernoulli': compute_bernoulli,
   'bike-gear-ratio': compute_bike_gear_ratio,
   'bike-wheel-size': compute_bike_wheel_size,
   'binomial-probability': compute_binomial_probability,
@@ -530,6 +537,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'headphone-power': compute_headphone_power,
   'heat-index': compute_heat_index,
   'heating-power': compute_heating_power,
+  'home-equity': compute_home_equity,
   'hooke-law': compute_hooke_law,
   'humidity-convert': compute_humidity_convert,
   'hydrostatic-pressure': compute_hydrostatic_pressure,
@@ -559,6 +567,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'logarithm': compute_logarithm,
   'ltv': compute_ltv,
   'luggage-linear': compute_luggage_linear,
+  'mach-number': compute_mach_number,
   'market-cap': compute_market_cap,
   'mass-energy': compute_mass_energy,
   'max-heart-rate': compute_max_heart_rate,
@@ -573,6 +582,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'moment-of-inertia': compute_moment_of_inertia,
   'momentum': compute_momentum,
   'mrr-arr': compute_mrr_arr,
+  'ne555-timer-astable': compute_ne555_timer_astable,
   'network-bandwidth': compute_network_bandwidth,
   'newton-force': compute_newton_force,
   'number-scale-names': compute_number_scale_names,
@@ -662,6 +672,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'strip-foundation': compute_strip_foundation,
   'subscriptions-cost': compute_subscriptions_cost,
   'tank-volume': compute_tank_volume,
+  'terminal-velocity': compute_terminal_velocity,
   'test-score-percent': compute_test_score_percent,
   'text-reading-time': compute_text_reading_time,
   'text-word-char-count': compute_text_word_char_count,
@@ -676,6 +687,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'transformer-ratio': compute_transformer_ratio,
   'trip-budget': compute_trip_budget,
   'trip-cost': compute_trip_cost,
+  'tv-monitor-viewing-distance': compute_tv_monitor_viewing_distance,
   'underfloor-heating': compute_underfloor_heating,
   'unix-timestamp': compute_unix_timestamp,
   'utility-total': compute_utility_total,

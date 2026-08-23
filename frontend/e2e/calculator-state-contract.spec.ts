@@ -1018,6 +1018,14 @@ const stateScenarios: Record<string, StateScenario> = {
   'rms-voltage': { query: { mode: "pp", value: 10, wave: "square" }, result: { primary: "5 В", rows: [{ label: "Амплитудное значение", value: "5 В" }, { label: "Размах", value: "10 В" }, { label: "Коэффициент амплитуды", value: "1" }] } },
   'mass-energy': { query: { massG: 0.5 }, result: { primary: "4,494·10^13 Дж", rows: [{ label: "В киловатт-часах", value: "12 482 710,82 кВт·ч" }, { label: "В тоннах тротилового эквивалента", value: "10 740,38 т" }, { label: "Масса", value: "0,0005 кг" }] } },
   'yeast-convert': { query: { value: 7, from: "instant", to: "fresh" }, result: { primary: "28 г", rows: [{ label: "В пересчёте на прессованные", value: "28 г" }, { label: "Сухие активные", value: "9,333 г" }, { label: "Быстродействующие", value: "7 г" }] } },
+  // Волна 23, подпартия 23A2. Значения выведены независимой моделью Phase 23P
+  // на НЕумолчальных входах; ожидания взяты из неё, а не набраны руками.
+  'mach-number': { query: { v: 2400, t: 15 }, result: { primary: "1,959", rows: [{ label: "Скорость звука", value: "340,28 м/с" }, { label: "Режим", value: "сверхзвуковой" }, { label: "Скорость в метрах в секунду", value: "666,67 м/с" }] } },
+  'tv-monitor-viewing-distance': { query: { diag: 32, ratio: "16:9", lines: 1080 }, result: { primary: "0,9732 м", rows: [{ label: "Комфортное по SMPTE", value: "1,322 м" }, { label: "Ширина экрана", value: "70,842 см" }, { label: "Высота экрана", value: "39,848 см" }] } },
+  'ne555-timer-astable': { query: { r1: 1, r2: 1, c: 10 }, result: { primary: "48 089,83 Гц", rows: [{ label: "Период", value: "0,0208 мс" }, { label: "Время высокого уровня", value: "0,0139 мс" }, { label: "Время низкого уровня", value: "0,006931 мс" }] } },
+  'home-equity': { query: { value: 5000000, balance: 0, ltv: 70, rate: 15, years: 5 }, result: { primary: "3 500 000 ₽", rows: [{ label: "Собственный капитал в жилье", value: "5 000 000 ₽" }, { label: "Предел по доле залога", value: "3 500 000 ₽" }, { label: "Доля собственного капитала", value: "100 %" }] } },
+  'terminal-velocity': { query: { m: 0.145, a: 0.00426, cd: 0.47, rho: 1.225 }, result: { primary: "34,052 м/с", rows: [{ label: "В километрах в час", value: "122,59 км/ч" }, { label: "Сила сопротивления при этой скорости", value: "1,422 Н" }, { label: "Время разгона до 95 процентов", value: "6,36 с" }] } },
+  'bernoulli': { query: { p1: 101.325, v1: 0, h1: 10, v2: 4, h2: 0, rho: 1000 }, result: { primary: "191,39 кПа", rows: [{ label: "Изменение давления", value: "90,067 кПа" }, { label: "Динамический напор в первом сечении", value: "0 кПа" }, { label: "Динамический напор во втором сечении", value: "8 кПа" }] } },
 };
 
 const sourceIds = new Set(calculators.map((calculator) => calculator.id));
