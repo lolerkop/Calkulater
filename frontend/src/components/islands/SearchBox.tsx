@@ -336,7 +336,14 @@ export default function SearchBox({ locale = 'ru' }: Props) {
           <button
             type="button"
             className="absolute right-2 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-lg border border-ink-200 bg-white text-ink-500 transition-colors hover:border-accent-100 hover:text-accent"
-            onClick={() => setQuery('')}
+            onClick={() => {
+              // Кнопка существует только пока поле не пусто, поэтому очистка
+              // размонтирует её вместе с фокусом — и фокус падал на BODY.
+              // Клавиатурный посетитель терял место и начинал обход заново.
+              // Возвращаем фокус в поле: там же он остаётся после Escape.
+              setQuery('');
+              focusSearchInput();
+            }}
             aria-label={searchCopy.clear}
             data-testid="search-clear"
           >

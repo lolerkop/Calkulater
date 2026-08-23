@@ -282,3 +282,49 @@ test.describe('поиск сохраняет ввод, сделанный до �
     expect(активный, 'ArrowDown уводит на первый результат').toBe('search-result-0');
   });
 });
+
+// Очистка поиска и фокус. Кнопка очистки живёт только пока поле не пусто:
+// нажатие размонтировало её вместе с фокусом, и фокус падал на BODY —
+// клавиатурный посетитель терял место в документе и начинал обход заново.
+// Escape вёл себя правильно всегда, потому что фокус при нём не покидал поле.
+test.describe('очистка поиска не теряет фокус', () => {
+  for (const [route, loc] of [['/ru/', 'RU'], ['/en/', 'EN'], ['/uk/', 'UK']] as const) {
+    test(`${loc}: после кнопки очистки фокус возвращается в поле`, async ({ page }) => {
+      await page.goto(route);
+      const input = page.getByTestId('search-input');
+      await input.waitFor({ timeout: 20000 });
+      await input.click();
+      await page.keyboard.type('loan');
+      await page.getByTestId('search-clear').click();
+      await expect(input).toHaveValue('');
+      const focused = await page.evaluate(() => document.activeElement?.getAttribute('data-testid') ?? document.activeElement?.tagName);
+      expect(focused, 'фокус обязан вернуться в поле, а не упасть на BODY').toBe('search-input');
+      await expect(page.getByTestId('search-clear')).toHaveCount(0);
+    });
+
+    test(`${loc}: после Escape фокус тоже остаётся в поле`, async ({ page }) => {
+      await page.goto(route);
+      const input = page.getByTestId('search-input');
+      await input.waitFor({ timeout: 20000 });
+      await input.click();
+      await page.keyboard.type('loan');
+      await page.getByTestId('search-clear').waitFor({ timeout: 20000 });
+      await page.keyboard.press('Escape');
+      await expect(input).toHaveValue('');
+      const focused = await page.evaluate(() => document.activeElement?.getAttribute('data-testid') ?? document.activeElement?.tagName);
+      expect(focused).toBe('search-input');
+    });
+  }
+
+  test('после очистки можно сразу печатать дальше', async ({ page }) => {
+    await page.goto('/en/');
+    const input = page.getByTestId('search-input');
+    await input.waitFor({ timeout: 20000 });
+    await input.click();
+    await page.keyboard.type('loan');
+    await page.getByTestId('search-clear').click();
+    await page.keyboard.type('bmi');
+    await expect(input).toHaveValue('bmi');
+    await expect(page.getByTestId('search-result-0')).toBeVisible();
+  });
+});
