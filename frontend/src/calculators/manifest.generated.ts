@@ -16,6 +16,7 @@ import { definition as def_acceleration } from './acceleration/definition';
 import { definition as def_activity_calories } from './activity-calories/definition';
 import { definition as def_ad_budget_funnel } from './ad-budget-funnel/definition';
 import { definition as def_ad_roi } from './ad-roi/definition';
+import { definition as def_air_exchange } from './air-exchange/definition';
 import { definition as def_alcohol_units } from './alcohol-units/definition';
 import { definition as def_annuity } from './annuity/definition';
 import { definition as def_aov } from './aov/definition';
@@ -31,6 +32,7 @@ import { definition as def_barbell_plates } from './barbell-plates/definition';
 import { definition as def_battery_charge_time } from './battery-charge-time/definition';
 import { definition as def_battery_runtime } from './battery-runtime/definition';
 import { definition as def_battery_series_parallel } from './battery-series-parallel/definition';
+import { definition as def_beam_deflection } from './beam-deflection/definition';
 import { definition as def_beam_stress } from './beam-stress/definition';
 import { definition as def_bike_gear_ratio } from './bike-gear-ratio/definition';
 import { definition as def_bike_wheel_size } from './bike-wheel-size/definition';
@@ -96,6 +98,7 @@ import { definition as def_crypto_pnl } from './crypto-pnl/definition';
 import { definition as def_css_units } from './css-units/definition';
 import { definition as def_ctr } from './ctr/definition';
 import { definition as def_currency_exchange_fee } from './currency-exchange-fee/definition';
+import { definition as def_cycle_time } from './cycle-time/definition';
 import { definition as def_day_of_week } from './day-of-week/definition';
 import { definition as def_dca } from './dca/definition';
 import { definition as def_de_broglie } from './de-broglie/definition';
@@ -162,6 +165,7 @@ import { definition as def_geometric_progression } from './geometric-progression
 import { definition as def_golden_ratio } from './golden-ratio/definition';
 import { definition as def_gpa } from './gpa/definition';
 import { definition as def_gravitational_force } from './gravitational-force/definition';
+import { definition as def_headphone_power } from './headphone-power/definition';
 import { definition as def_heat_index } from './heat-index/definition';
 import { definition as def_heating_power } from './heating-power/definition';
 import { definition as def_hooke_law } from './hooke-law/definition';
@@ -212,6 +216,8 @@ import { definition as def_ohms_law } from './ohms-law/definition';
 import { definition as def_orbital_period } from './orbital-period/definition';
 import { definition as def_overtime } from './overtime/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
+import { definition as def_paper_quantity } from './paper-quantity/definition';
+import { definition as def_password_entropy } from './password-entropy/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
 import { definition as def_pet_age } from './pet-age/definition';
 import { definition as def_pet_food } from './pet-food/definition';
@@ -318,6 +324,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_activity_calories,
   def_ad_budget_funnel,
   def_ad_roi,
+  def_air_exchange,
   def_alcohol_units,
   def_annuity,
   def_aov,
@@ -333,6 +340,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_battery_charge_time,
   def_battery_runtime,
   def_battery_series_parallel,
+  def_beam_deflection,
   def_beam_stress,
   def_bike_gear_ratio,
   def_bike_wheel_size,
@@ -398,6 +406,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_css_units,
   def_ctr,
   def_currency_exchange_fee,
+  def_cycle_time,
   def_day_of_week,
   def_dca,
   def_de_broglie,
@@ -464,6 +473,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_golden_ratio,
   def_gpa,
   def_gravitational_force,
+  def_headphone_power,
   def_heat_index,
   def_heating_power,
   def_hooke_law,
@@ -514,6 +524,8 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_orbital_period,
   def_overtime,
   def_paint_calculator,
+  def_paper_quantity,
+  def_password_entropy,
   def_percent_calculator,
   def_pet_age,
   def_pet_food,

@@ -10,6 +10,7 @@ import { localization as loc_acceleration } from './acceleration/localization';
 import { localization as loc_activity_calories } from './activity-calories/localization';
 import { localization as loc_ad_budget_funnel } from './ad-budget-funnel/localization';
 import { localization as loc_ad_roi } from './ad-roi/localization';
+import { localization as loc_air_exchange } from './air-exchange/localization';
 import { localization as loc_alcohol_units } from './alcohol-units/localization';
 import { localization as loc_annuity } from './annuity/localization';
 import { localization as loc_aov } from './aov/localization';
@@ -25,6 +26,7 @@ import { localization as loc_barbell_plates } from './barbell-plates/localizatio
 import { localization as loc_battery_charge_time } from './battery-charge-time/localization';
 import { localization as loc_battery_runtime } from './battery-runtime/localization';
 import { localization as loc_battery_series_parallel } from './battery-series-parallel/localization';
+import { localization as loc_beam_deflection } from './beam-deflection/localization';
 import { localization as loc_beam_stress } from './beam-stress/localization';
 import { localization as loc_bike_gear_ratio } from './bike-gear-ratio/localization';
 import { localization as loc_bike_wheel_size } from './bike-wheel-size/localization';
@@ -90,6 +92,7 @@ import { localization as loc_crypto_pnl } from './crypto-pnl/localization';
 import { localization as loc_css_units } from './css-units/localization';
 import { localization as loc_ctr } from './ctr/localization';
 import { localization as loc_currency_exchange_fee } from './currency-exchange-fee/localization';
+import { localization as loc_cycle_time } from './cycle-time/localization';
 import { localization as loc_day_of_week } from './day-of-week/localization';
 import { localization as loc_dca } from './dca/localization';
 import { localization as loc_de_broglie } from './de-broglie/localization';
@@ -156,6 +159,7 @@ import { localization as loc_geometric_progression } from './geometric-progressi
 import { localization as loc_golden_ratio } from './golden-ratio/localization';
 import { localization as loc_gpa } from './gpa/localization';
 import { localization as loc_gravitational_force } from './gravitational-force/localization';
+import { localization as loc_headphone_power } from './headphone-power/localization';
 import { localization as loc_heat_index } from './heat-index/localization';
 import { localization as loc_heating_power } from './heating-power/localization';
 import { localization as loc_hooke_law } from './hooke-law/localization';
@@ -205,6 +209,8 @@ import { localization as loc_number_to_words } from './number-to-words/localizat
 import { localization as loc_ohms_law } from './ohms-law/localization';
 import { localization as loc_orbital_period } from './orbital-period/localization';
 import { localization as loc_overtime } from './overtime/localization';
+import { localization as loc_paper_quantity } from './paper-quantity/localization';
+import { localization as loc_password_entropy } from './password-entropy/localization';
 import { localization as loc_pet_age } from './pet-age/localization';
 import { localization as loc_pet_food } from './pet-food/localization';
 import { localization as loc_ph_poh } from './ph-poh/localization';
@@ -311,6 +317,7 @@ export const v2Localization: ScopedLocalization = {
     'activity-calories': loc_activity_calories.en ?? {},
     'ad-budget-funnel': loc_ad_budget_funnel.en ?? {},
     'ad-roi': loc_ad_roi.en ?? {},
+    'air-exchange': loc_air_exchange.en ?? {},
     'alcohol-units': loc_alcohol_units.en ?? {},
     'annuity': loc_annuity.en ?? {},
     'aov': loc_aov.en ?? {},
@@ -326,6 +333,7 @@ export const v2Localization: ScopedLocalization = {
     'battery-charge-time': loc_battery_charge_time.en ?? {},
     'battery-runtime': loc_battery_runtime.en ?? {},
     'battery-series-parallel': loc_battery_series_parallel.en ?? {},
+    'beam-deflection': loc_beam_deflection.en ?? {},
     'beam-stress': loc_beam_stress.en ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.en ?? {},
     'bike-wheel-size': loc_bike_wheel_size.en ?? {},
@@ -391,6 +399,7 @@ export const v2Localization: ScopedLocalization = {
     'css-units': loc_css_units.en ?? {},
     'ctr': loc_ctr.en ?? {},
     'currency-exchange-fee': loc_currency_exchange_fee.en ?? {},
+    'cycle-time': loc_cycle_time.en ?? {},
     'day-of-week': loc_day_of_week.en ?? {},
     'dca': loc_dca.en ?? {},
     'de-broglie': loc_de_broglie.en ?? {},
@@ -457,6 +466,7 @@ export const v2Localization: ScopedLocalization = {
     'golden-ratio': loc_golden_ratio.en ?? {},
     'gpa': loc_gpa.en ?? {},
     'gravitational-force': loc_gravitational_force.en ?? {},
+    'headphone-power': loc_headphone_power.en ?? {},
     'heat-index': loc_heat_index.en ?? {},
     'heating-power': loc_heating_power.en ?? {},
     'hooke-law': loc_hooke_law.en ?? {},
@@ -506,6 +516,8 @@ export const v2Localization: ScopedLocalization = {
     'ohms-law': loc_ohms_law.en ?? {},
     'orbital-period': loc_orbital_period.en ?? {},
     'overtime': loc_overtime.en ?? {},
+    'paper-quantity': loc_paper_quantity.en ?? {},
+    'password-entropy': loc_password_entropy.en ?? {},
     'pet-age': loc_pet_age.en ?? {},
     'pet-food': loc_pet_food.en ?? {},
     'ph-poh': loc_ph_poh.en ?? {},
@@ -611,6 +623,7 @@ export const v2Localization: ScopedLocalization = {
     'activity-calories': loc_activity_calories.uk ?? {},
     'ad-budget-funnel': loc_ad_budget_funnel.uk ?? {},
     'ad-roi': loc_ad_roi.uk ?? {},
+    'air-exchange': loc_air_exchange.uk ?? {},
     'alcohol-units': loc_alcohol_units.uk ?? {},
     'annuity': loc_annuity.uk ?? {},
     'aov': loc_aov.uk ?? {},
@@ -626,6 +639,7 @@ export const v2Localization: ScopedLocalization = {
     'battery-charge-time': loc_battery_charge_time.uk ?? {},
     'battery-runtime': loc_battery_runtime.uk ?? {},
     'battery-series-parallel': loc_battery_series_parallel.uk ?? {},
+    'beam-deflection': loc_beam_deflection.uk ?? {},
     'beam-stress': loc_beam_stress.uk ?? {},
     'bike-gear-ratio': loc_bike_gear_ratio.uk ?? {},
     'bike-wheel-size': loc_bike_wheel_size.uk ?? {},
@@ -691,6 +705,7 @@ export const v2Localization: ScopedLocalization = {
     'css-units': loc_css_units.uk ?? {},
     'ctr': loc_ctr.uk ?? {},
     'currency-exchange-fee': loc_currency_exchange_fee.uk ?? {},
+    'cycle-time': loc_cycle_time.uk ?? {},
     'day-of-week': loc_day_of_week.uk ?? {},
     'dca': loc_dca.uk ?? {},
     'de-broglie': loc_de_broglie.uk ?? {},
@@ -757,6 +772,7 @@ export const v2Localization: ScopedLocalization = {
     'golden-ratio': loc_golden_ratio.uk ?? {},
     'gpa': loc_gpa.uk ?? {},
     'gravitational-force': loc_gravitational_force.uk ?? {},
+    'headphone-power': loc_headphone_power.uk ?? {},
     'heat-index': loc_heat_index.uk ?? {},
     'heating-power': loc_heating_power.uk ?? {},
     'hooke-law': loc_hooke_law.uk ?? {},
@@ -806,6 +822,8 @@ export const v2Localization: ScopedLocalization = {
     'ohms-law': loc_ohms_law.uk ?? {},
     'orbital-period': loc_orbital_period.uk ?? {},
     'overtime': loc_overtime.uk ?? {},
+    'paper-quantity': loc_paper_quantity.uk ?? {},
+    'password-entropy': loc_password_entropy.uk ?? {},
     'pet-age': loc_pet_age.uk ?? {},
     'pet-food': loc_pet_food.uk ?? {},
     'ph-poh': loc_ph_poh.uk ?? {},

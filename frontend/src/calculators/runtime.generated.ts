@@ -18,6 +18,7 @@ import { compute as compute_acceleration } from './acceleration/compute';
 import { compute as compute_activity_calories } from './activity-calories/compute';
 import { compute as compute_ad_budget_funnel } from './ad-budget-funnel/compute';
 import { compute as compute_ad_roi } from './ad-roi/compute';
+import { compute as compute_air_exchange } from './air-exchange/compute';
 import { compute as compute_alcohol_units } from './alcohol-units/compute';
 import { compute as compute_annuity } from './annuity/compute';
 import { compute as compute_aov } from './aov/compute';
@@ -33,6 +34,7 @@ import { compute as compute_barbell_plates } from './barbell-plates/compute';
 import { compute as compute_battery_charge_time } from './battery-charge-time/compute';
 import { compute as compute_battery_runtime } from './battery-runtime/compute';
 import { compute as compute_battery_series_parallel } from './battery-series-parallel/compute';
+import { compute as compute_beam_deflection } from './beam-deflection/compute';
 import { compute as compute_beam_stress } from './beam-stress/compute';
 import { compute as compute_bike_gear_ratio } from './bike-gear-ratio/compute';
 import { compute as compute_bike_wheel_size } from './bike-wheel-size/compute';
@@ -102,6 +104,7 @@ import { compute as compute_crypto_pnl } from './crypto-pnl/compute';
 import { compute as compute_css_units } from './css-units/compute';
 import { compute as compute_ctr } from './ctr/compute';
 import { compute as compute_currency_exchange_fee } from './currency-exchange-fee/compute';
+import { compute as compute_cycle_time } from './cycle-time/compute';
 import { compute as compute_day_of_week } from './day-of-week/compute';
 import { compute as compute_dca } from './dca/compute';
 import { compute as compute_de_broglie } from './de-broglie/compute';
@@ -170,6 +173,7 @@ import { compute as compute_geometric_progression } from './geometric-progressio
 import { compute as compute_golden_ratio } from './golden-ratio/compute';
 import { compute as compute_gpa } from './gpa/compute';
 import { compute as compute_gravitational_force } from './gravitational-force/compute';
+import { compute as compute_headphone_power } from './headphone-power/compute';
 import { compute as compute_heat_index } from './heat-index/compute';
 import { compute as compute_heating_power } from './heating-power/compute';
 import { compute as compute_hooke_law } from './hooke-law/compute';
@@ -225,6 +229,8 @@ import { contextualField as ctx_ohms_law } from './ohms-law/contextualField';
 import { compute as compute_orbital_period } from './orbital-period/compute';
 import { compute as compute_overtime } from './overtime/compute';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
+import { compute as compute_paper_quantity } from './paper-quantity/compute';
+import { compute as compute_password_entropy } from './password-entropy/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
 import { contextualField as ctx_percent_calculator } from './percent-calculator/contextualField';
@@ -338,6 +344,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'activity-calories': compute_activity_calories,
   'ad-budget-funnel': compute_ad_budget_funnel,
   'ad-roi': compute_ad_roi,
+  'air-exchange': compute_air_exchange,
   'alcohol-units': compute_alcohol_units,
   'annuity': compute_annuity,
   'aov': compute_aov,
@@ -353,6 +360,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'battery-charge-time': compute_battery_charge_time,
   'battery-runtime': compute_battery_runtime,
   'battery-series-parallel': compute_battery_series_parallel,
+  'beam-deflection': compute_beam_deflection,
   'beam-stress': compute_beam_stress,
   'bike-gear-ratio': compute_bike_gear_ratio,
   'bike-wheel-size': compute_bike_wheel_size,
@@ -418,6 +426,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'css-units': compute_css_units,
   'ctr': compute_ctr,
   'currency-exchange-fee': compute_currency_exchange_fee,
+  'cycle-time': compute_cycle_time,
   'day-of-week': compute_day_of_week,
   'dca': compute_dca,
   'de-broglie': compute_de_broglie,
@@ -484,6 +493,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'golden-ratio': compute_golden_ratio,
   'gpa': compute_gpa,
   'gravitational-force': compute_gravitational_force,
+  'headphone-power': compute_headphone_power,
   'heat-index': compute_heat_index,
   'heating-power': compute_heating_power,
   'hooke-law': compute_hooke_law,
@@ -534,6 +544,8 @@ export const v2Runners: Record<string, CalcFunction> = {
   'orbital-period': compute_orbital_period,
   'overtime': compute_overtime,
   'paint-calculator': compute_paint_calculator,
+  'paper-quantity': compute_paper_quantity,
+  'password-entropy': compute_password_entropy,
   'percent-calculator': compute_percent_calculator,
   'pet-age': compute_pet_age,
   'pet-food': compute_pet_food,

@@ -950,6 +950,14 @@ const stateScenarios: Record<string, StateScenario> = {
   'inverse-square': { query: { i1: 250, d1: 4, d2: 1.6 }, result: { primary: '1 562,5', rows: [{ label: 'Во сколько раз изменилась', value: '6,25' }, { label: 'Отношение расстояний', value: '0,4' }, { label: 'В процентах от исходной', value: '625 %' }] } },
   //   паровая турбина 811 К / 311 К -> предел 61,65 %, реальная вдвое ниже
   'carnot': { query: { tHot: 811, tCold: 311 }, result: { primary: '61,6523 %', rows: [{ label: 'Полезная работа из 1000 Дж тепла', value: '616,52 Дж' }, { label: 'Отдано холодильнику', value: '383,48 Дж' }, { label: 'Перепад температур', value: '500 К' }] } },
+  // Волна 22, подпартия 22A1. Значения выведены независимой моделью Phase 22P
+  // на НЕумолчальных входах; ожидания взяты из неё, а не набраны руками.
+  'password-entropy': { query: { length: 16, charset: "alnumsym", rate: 100 }, result: { primary: "104,87 бит", rows: [{ label: "Вариантов пароля", value: "3,716·10^31" }, { label: "Средний перебор", value: "1,858·10^20 с" }, { label: "В годах", value: "5,887·10^12" }] } },
+  'paper-quantity': { query: { format: "a3", grammage: 160, sheets: 250 }, result: { primary: "4,99 кг", rows: [{ label: "Масса одного листа", value: "19,958 г" }, { label: "Площадь листа", value: "0,1247 м²" }, { label: "Размер листа", value: "297×420 мм" }] } },
+  'beam-deflection': { query: { scheme: "point", load: 8, span: 5, e: 210, inertia: 3000 }, result: { primary: "3,307 мм", rows: [{ label: "Относительный прогиб", value: "1/1 512" }, { label: "Жёсткость EI", value: "6 300 000 Н·м²" }, { label: "Предел 1/250", value: "20 мм" }] } },
+  'cycle-time': { query: { availableMinutes: 900, demand: 300, actualCycle: 2.8 }, result: { primary: "3 мин/шт", rows: [{ label: "Единиц в час", value: "20" }, { label: "Загрузка такта", value: "93,3333 %" }, { label: "Возможный выпуск за смену", value: "321,43 шт" }] } },
+  'air-exchange': { query: { area: 45, height: 3.2, ach: 6 }, result: { primary: "864 м³/ч", rows: [{ label: "Объём помещения", value: "144 м³" }, { label: "В литрах в секунду", value: "240 л/с" }, { label: "Смен воздуха в сутки", value: "144" }] } },
+  'headphone-power': { query: { sensitivity: 96, impedance: 250, power: 50 }, result: { primary: "112,99 дБ", rows: [{ label: "Прибавка от мощности", value: "16,99 дБ" }, { label: "Напряжение на выходе", value: "3,536 В" }, { label: "Ток", value: "14,142 мА" }] } },
   // Волна 21, подпартия 21B2.
   //   брус 300 кг объёмом 0,3 м³ в дизтопливе (840 кг/м³): вытесняет 252 кг — тонет
   'buoyancy': { query: { volume: 0.3, rhoFluid: 840, mass: 300 }, result: { primary: '2 471,28 Н', rows: [{ label: 'Вес тела', value: '2 941,99 Н' }, { label: 'Равнодействующая', value: '-470,72 Н' }, { label: 'Вытесненная масса', value: '252 кг' }, { label: 'Поведение в жидкости', value: 'тонет' }] } },
