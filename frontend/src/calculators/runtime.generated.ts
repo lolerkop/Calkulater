@@ -14,10 +14,12 @@ import type { CalculatorContextualField, CalculatorValidator } from '../lib/plat
 import type { CalculatorClientRuntime } from '../lib/platform/runtime';
 import { v2Localization } from './localization.generated';
 
+import { compute as compute_abv_alcohol } from './abv-alcohol/compute';
 import { compute as compute_acceleration } from './acceleration/compute';
 import { compute as compute_activity_calories } from './activity-calories/compute';
 import { compute as compute_ad_budget_funnel } from './ad-budget-funnel/compute';
 import { compute as compute_ad_roi } from './ad-roi/compute';
+import { compute as compute_air_density } from './air-density/compute';
 import { compute as compute_air_exchange } from './air-exchange/compute';
 import { compute as compute_alcohol_units } from './alcohol-units/compute';
 import { compute as compute_annuity } from './annuity/compute';
@@ -234,12 +236,14 @@ import { compute as compute_overtime } from './overtime/compute';
 import { compute as compute_paint_calculator } from './paint-calculator/compute';
 import { compute as compute_paper_quantity } from './paper-quantity/compute';
 import { compute as compute_password_entropy } from './password-entropy/compute';
+import { compute as compute_pendulum } from './pendulum/compute';
 import { compute as compute_percent_calculator } from './percent-calculator/compute';
 import { validate as validate_percent_calculator } from './percent-calculator/validate';
 import { contextualField as ctx_percent_calculator } from './percent-calculator/contextualField';
 import { compute as compute_pet_age } from './pet-age/compute';
 import { compute as compute_pet_food } from './pet-food/compute';
 import { compute as compute_ph_poh } from './ph-poh/compute';
+import { compute as compute_photon_energy } from './photon-energy/compute';
 import { compute as compute_physics_power } from './physics-power/compute';
 import { compute as compute_physics_torque } from './physics-torque/compute';
 import { compute as compute_pile_foundation } from './pile-foundation/compute';
@@ -270,6 +274,7 @@ import { compute as compute_real_return } from './real-return/compute';
 import { compute as compute_recipe_cost } from './recipe-cost/compute';
 import { compute as compute_recipe_scale } from './recipe-scale/compute';
 import { compute as compute_refinancing } from './refinancing/compute';
+import { compute as compute_relativity_dilation } from './relativity-dilation/compute';
 import { compute as compute_rental_yield } from './rental-yield/compute';
 import { compute as compute_resistor_color } from './resistor-color/compute';
 import { compute as compute_resistor_network } from './resistor-network/compute';
@@ -333,6 +338,7 @@ import { compute as compute_vo2max } from './vo2max/compute';
 import { compute as compute_voltage_divider } from './voltage-divider/compute';
 import { compute as compute_voltage_drop } from './voltage-drop/compute';
 import { compute as compute_waist_ratio } from './waist-ratio/compute';
+import { compute as compute_water_heating } from './water-heating/compute';
 import { compute as compute_water_intake } from './water-intake/compute';
 import { compute as compute_wave } from './wave/compute';
 import { compute as compute_week_number } from './week-number/compute';
@@ -346,10 +352,12 @@ import { compute as compute_workday_cost } from './workday-cost/compute';
 import { compute as compute_z_score } from './z-score/compute';
 
 export const v2Runners: Record<string, CalcFunction> = {
+  'abv-alcohol': compute_abv_alcohol,
   'acceleration': compute_acceleration,
   'activity-calories': compute_activity_calories,
   'ad-budget-funnel': compute_ad_budget_funnel,
   'ad-roi': compute_ad_roi,
+  'air-density': compute_air_density,
   'air-exchange': compute_air_exchange,
   'alcohol-units': compute_alcohol_units,
   'annuity': compute_annuity,
@@ -555,10 +563,12 @@ export const v2Runners: Record<string, CalcFunction> = {
   'paint-calculator': compute_paint_calculator,
   'paper-quantity': compute_paper_quantity,
   'password-entropy': compute_password_entropy,
+  'pendulum': compute_pendulum,
   'percent-calculator': compute_percent_calculator,
   'pet-age': compute_pet_age,
   'pet-food': compute_pet_food,
   'ph-poh': compute_ph_poh,
+  'photon-energy': compute_photon_energy,
   'physics-power': compute_physics_power,
   'physics-torque': compute_physics_torque,
   'pile-foundation': compute_pile_foundation,
@@ -588,6 +598,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'recipe-cost': compute_recipe_cost,
   'recipe-scale': compute_recipe_scale,
   'refinancing': compute_refinancing,
+  'relativity-dilation': compute_relativity_dilation,
   'rental-yield': compute_rental_yield,
   'resistor-color': compute_resistor_color,
   'resistor-network': compute_resistor_network,
@@ -647,6 +658,7 @@ export const v2Runners: Record<string, CalcFunction> = {
   'voltage-divider': compute_voltage_divider,
   'voltage-drop': compute_voltage_drop,
   'waist-ratio': compute_waist_ratio,
+  'water-heating': compute_water_heating,
   'water-intake': compute_water_intake,
   'wave': compute_wave,
   'week-number': compute_week_number,

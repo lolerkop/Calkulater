@@ -12,10 +12,12 @@ import type {
 } from '../lib/platform/types';
 import { isPublished } from '../lib/platform/types';
 
+import { definition as def_abv_alcohol } from './abv-alcohol/definition';
 import { definition as def_acceleration } from './acceleration/definition';
 import { definition as def_activity_calories } from './activity-calories/definition';
 import { definition as def_ad_budget_funnel } from './ad-budget-funnel/definition';
 import { definition as def_ad_roi } from './ad-roi/definition';
+import { definition as def_air_density } from './air-density/definition';
 import { definition as def_air_exchange } from './air-exchange/definition';
 import { definition as def_alcohol_units } from './alcohol-units/definition';
 import { definition as def_annuity } from './annuity/definition';
@@ -221,10 +223,12 @@ import { definition as def_overtime } from './overtime/definition';
 import { definition as def_paint_calculator } from './paint-calculator/definition';
 import { definition as def_paper_quantity } from './paper-quantity/definition';
 import { definition as def_password_entropy } from './password-entropy/definition';
+import { definition as def_pendulum } from './pendulum/definition';
 import { definition as def_percent_calculator } from './percent-calculator/definition';
 import { definition as def_pet_age } from './pet-age/definition';
 import { definition as def_pet_food } from './pet-food/definition';
 import { definition as def_ph_poh } from './ph-poh/definition';
+import { definition as def_photon_energy } from './photon-energy/definition';
 import { definition as def_physics_power } from './physics-power/definition';
 import { definition as def_physics_torque } from './physics-torque/definition';
 import { definition as def_pile_foundation } from './pile-foundation/definition';
@@ -254,6 +258,7 @@ import { definition as def_real_return } from './real-return/definition';
 import { definition as def_recipe_cost } from './recipe-cost/definition';
 import { definition as def_recipe_scale } from './recipe-scale/definition';
 import { definition as def_refinancing } from './refinancing/definition';
+import { definition as def_relativity_dilation } from './relativity-dilation/definition';
 import { definition as def_rental_yield } from './rental-yield/definition';
 import { definition as def_resistor_color } from './resistor-color/definition';
 import { definition as def_resistor_network } from './resistor-network/definition';
@@ -313,6 +318,7 @@ import { definition as def_vo2max } from './vo2max/definition';
 import { definition as def_voltage_divider } from './voltage-divider/definition';
 import { definition as def_voltage_drop } from './voltage-drop/definition';
 import { definition as def_waist_ratio } from './waist-ratio/definition';
+import { definition as def_water_heating } from './water-heating/definition';
 import { definition as def_water_intake } from './water-intake/definition';
 import { definition as def_wave } from './wave/definition';
 import { definition as def_week_number } from './week-number/definition';
@@ -326,10 +332,12 @@ import { definition as def_workday_cost } from './workday-cost/definition';
 import { definition as def_z_score } from './z-score/definition';
 
 export const v2Definitions: readonly CalculatorDefinitionV2[] = [
+  def_abv_alcohol,
   def_acceleration,
   def_activity_calories,
   def_ad_budget_funnel,
   def_ad_roi,
+  def_air_density,
   def_air_exchange,
   def_alcohol_units,
   def_annuity,
@@ -535,10 +543,12 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_paint_calculator,
   def_paper_quantity,
   def_password_entropy,
+  def_pendulum,
   def_percent_calculator,
   def_pet_age,
   def_pet_food,
   def_ph_poh,
+  def_photon_energy,
   def_physics_power,
   def_physics_torque,
   def_pile_foundation,
@@ -568,6 +578,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_recipe_cost,
   def_recipe_scale,
   def_refinancing,
+  def_relativity_dilation,
   def_rental_yield,
   def_resistor_color,
   def_resistor_network,
@@ -627,6 +638,7 @@ export const v2Definitions: readonly CalculatorDefinitionV2[] = [
   def_voltage_divider,
   def_voltage_drop,
   def_waist_ratio,
+  def_water_heating,
   def_water_intake,
   def_wave,
   def_week_number,
