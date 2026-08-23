@@ -13,7 +13,7 @@ export const localization: CalculatorLocalization = {
       'Объём внутренней полости': 'Internal volume', 'Проверьте данные': 'Check the values',
     },
     values: {
-      'кг': 'kg', 'кг/м': 'kg/m', 'мм': 'mm', 'см²': 'cm²', 'л': 'l',
+      'кг': 'kg', 'кг/м': 'kg/m', 'мм': 'mm', 'см²': 'cm²',
       'Наружный диаметр должен быть больше нуля': 'The outside diameter must be greater than zero',
       'Толщина стенки должна быть больше нуля': 'The wall thickness must be greater than zero',
       'Длина должна быть больше нуля': 'The length must be greater than zero',

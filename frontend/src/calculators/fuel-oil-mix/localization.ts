@@ -9,7 +9,7 @@ export const localization: CalculatorLocalization = {
       'Соотношение': 'Ratio', 'Бензина': 'Petrol', 'Проверьте данные': 'Check the values',
     },
     values: {
-      'мл': 'ml', 'л': 'L',
+      'мл': 'mL', 'л': 'L',
       'Объём топлива должен быть больше нуля': 'The fuel volume must be greater than zero',
       'Пропорция допустима от 1:20 до 1:100': 'The ratio must be between 1:20 and 1:100',
     },

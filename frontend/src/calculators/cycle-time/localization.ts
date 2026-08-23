@@ -13,7 +13,7 @@ export const localization: CalculatorLocalization = {
       'Возможный выпуск за смену': 'Possible output per shift', 'Проверьте данные': 'Check the values',
     },
     values: {
-      'мин/шт': 'min/unit', 'мин': 'min', 'шт': 'units',
+      'мин/шт': 'min/unit', 'мин': 'min', 'шт': 'pcs',
       'Доступное время смены должно быть больше нуля': 'The available shift time must be greater than zero',
       'Спрос — целое число единиц, не меньше одной': 'Demand must be a whole number of units, at least one',
       'Фактический цикл не может быть отрицательным': 'The actual cycle time cannot be negative',

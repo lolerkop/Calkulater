@@ -16,7 +16,6 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Check the values',
     },
     values: {
-      'л': 'l',
       'Масса тела должна быть больше нуля': 'The body weight must be greater than zero',
       'Минуты нагрузки не могут быть отрицательными': 'Activity minutes cannot be negative',
     },

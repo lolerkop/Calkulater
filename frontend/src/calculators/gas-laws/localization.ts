@@ -20,7 +20,7 @@ export const localization: CalculatorLocalization = {
     options: { p2: 'pressure p₂', v2: 'volume V₂', t2: 'temperature T₂' },
     results: RESULTS_EN,
     values: {
-      'кПа·л/К': 'kPa·l/K', 'кПа': 'kPa', 'л': 'l', 'К': 'K',
+      'кПа·л/К': 'kPa·l/K', 'кПа': 'kPa', 'К': 'K',
       'Температура первого состояния должна быть больше нуля кельвинов': 'The first-state temperature must be above zero kelvin',
       'Температура второго состояния должна быть больше нуля кельвинов': 'The second-state temperature must be above zero kelvin',
       'Давление второго состояния должно быть больше нуля': 'The second-state pressure must be greater than zero',

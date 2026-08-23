@@ -15,7 +15,6 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Check the values',
     },
     values: {
-      'л': 'l',
       'Объём аквариума должен быть больше нуля': 'The tank volume must be greater than zero',
       'Доля подмены должна быть больше нуля и не больше ста процентов': 'The change share must be above zero and at most one hundred per cent',
       'Доля грунта и декора должна быть от нуля до ста процентов': 'The substrate and decor share must be between zero and one hundred per cent',

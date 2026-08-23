@@ -10,8 +10,7 @@ export const localization: CalculatorLocalization = {
       'Потеряно на стоке и испарении': 'Lost to runoff and evaporation',
       'Проверьте данные': 'Check the values',
     },
-    values: {
-      'л': 'l', 'м³': 'm³', 'шт': 'pcs',
+    values: { 'м³': 'm³', 'шт': 'pcs',
       'Площадь должна быть больше нуля': 'The area must be greater than zero',
       'Слой осадков должен быть больше нуля': 'The rainfall depth must be greater than zero',
       'Коэффициент стока задаётся от 0 до 1': 'The runoff coefficient runs from 0 to 1',

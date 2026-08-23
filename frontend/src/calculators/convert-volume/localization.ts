@@ -18,7 +18,7 @@ export const localization: CalculatorLocalization = {
     fields: { value: 'Volume', from: 'From unit', to: 'To unit' },
     options: { ml: 'Millilitre (ml)', cm3: 'Cubic centimetre (cm³)', l: 'Litre (l)', m3: 'Cubic metre (m³)', ft3: 'Cubic foot (ft³)', galUS: 'US gallon (gal)', galUK: 'Imperial gallon (gal)', qtUS: 'US quart (qt)', ptUS: 'US pint (pt)' },
     results: RESULTS_EN,
-    values: { ...ERRORS_EN, 'мл': 'ml', 'см³': 'cm³', 'л': 'l', 'м³': 'm³', 'фут³': 'ft³', 'гал. США': 'US gal', 'гал. брит.': 'imp gal', 'кварта США': 'US qt', 'пинта США': 'US pt' },
+    values: { ...ERRORS_EN, 'мл': 'mL', 'см³': 'cm³', 'м³': 'm³', 'фут³': 'ft³', 'гал. США': 'US gal', 'гал. брит.': 'imp gal', 'кварта США': 'US qt', 'пинта США': 'US pt' },
   },
   uk: {
     fields: { value: 'Обʼєм', from: 'З одиниці', to: 'В одиницю' },

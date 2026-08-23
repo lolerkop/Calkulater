@@ -35,7 +35,7 @@ export const localization: CalculatorLocalization = {
     },
     values: {
       "г/мл": "g/ml",
-      "мл": "ml",
+      "мл": "mL",
       "Неизвестный продукт": "Unknown product",
       "Неизвестная единица объёма": "Unknown unit of volume",
       "Неизвестное направление": "Unknown direction",

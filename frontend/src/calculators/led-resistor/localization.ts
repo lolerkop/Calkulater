@@ -20,7 +20,7 @@ export const localization: CalculatorLocalization = {
     options: { ma: 'milliamps (mA)', a: 'amps (A)' },
     results: RESULTS_EN,
     values: {
-      'Ом': 'ohm', 'В': 'V', 'Вт': 'W', 'мА': 'mA',
+      'Ом': 'Ω', 'В': 'V', 'Вт': 'W', 'мА': 'mA',
       'Напряжение питания должно быть больше нуля': 'The supply voltage must be greater than zero',
       'Прямое напряжение должно быть больше нуля': 'The forward voltage must be greater than zero',
       'Прямое напряжение должно быть меньше напряжения питания': 'The forward voltage must be lower than the supply voltage',

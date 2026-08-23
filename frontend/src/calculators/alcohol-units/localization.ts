@@ -17,7 +17,7 @@ export const localization: CalculatorLocalization = {
     options: {},
     results: RESULTS_EN,
     values: {
-      'мл': 'ml', 'г': 'g',
+      'мл': 'mL', 'г': 'g',
       'Объём должен быть больше нуля': 'The volume must be greater than zero',
       'Крепость должна быть от 0 до 100 %': 'The strength must be between 0 and 100%',
       'Норма единицы должна быть больше нуля': 'The unit definition must be greater than zero',

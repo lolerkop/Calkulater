@@ -13,7 +13,7 @@ export const localization: CalculatorLocalization = {
       'Сечение шва': 'Joint section', 'Проверьте данные': 'Check the values',
     },
     values: {
-      'мл': 'ml', 'шт': 'pcs', 'м': 'm', 'мм²': 'mm²',
+      'мл': 'mL', 'шт': 'pcs', 'м': 'm', 'мм²': 'mm²',
       'Ширина шва должна быть больше нуля': 'The joint width must be greater than zero',
       'Глубина шва должна быть больше нуля': 'The joint depth must be greater than zero',
       'Длина шва должна быть больше нуля': 'The joint length must be greater than zero',

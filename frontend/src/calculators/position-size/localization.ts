@@ -20,7 +20,7 @@ export const localization: CalculatorLocalization = {
     },
     values: {
       "₽": "$",
-      "шт": "units",
+      "шт": "pcs",
       "Депозит должен быть больше нуля": "The account balance must be greater than zero",
       "Допустимый риск должен быть больше нуля": "The permitted risk must be greater than zero",
       "Цена входа должна быть больше нуля": "The entry price must be greater than zero",

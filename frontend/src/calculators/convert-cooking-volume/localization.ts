@@ -18,7 +18,7 @@ export const localization: CalculatorLocalization = {
     fields: { value: 'Volume', from: 'From unit', to: 'To unit' },
     options: { ml: 'Millilitre (ml)', l: 'Litre (l)', tspM: 'Teaspoon, metric (5 ml)', tbspM: 'Tablespoon, metric (15 ml)', cupM: 'Cup, metric (250 ml)', tspUS: 'Teaspoon, US', tbspUS: 'Tablespoon, US', cupUS: 'Cup, US', flozUS: 'Fluid ounce, US' },
     results: RESULTS_EN,
-    values: { ...ERRORS_EN, 'мл': 'ml', 'л': 'l', 'ч. л. (метр.)': 'tsp (metric)', 'ст. л. (метр.)': 'tbsp (metric)', 'стакан (метр.)': 'cup (metric)', 'ч. л. (US)': 'tsp (US)', 'ст. л. (US)': 'tbsp (US)', 'стакан (US)': 'cup (US)', 'жидк. унция (US)': 'fl oz (US)' },
+    values: { ...ERRORS_EN, 'мл': 'mL', 'ч. л. (метр.)': 'tsp (metric)', 'ст. л. (метр.)': 'tbsp (metric)', 'стакан (метр.)': 'cup (metric)', 'ч. л. (US)': 'tsp (US)', 'ст. л. (US)': 'tbsp (US)', 'стакан (US)': 'cup (US)', 'жидк. унция (US)': 'fl oz (US)' },
   },
   uk: {
     fields: { value: 'Об’єм', from: 'З одиниці', to: 'В одиницю' },

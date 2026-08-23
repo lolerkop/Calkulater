@@ -16,7 +16,10 @@ export const localization: CalculatorLocalization = {
     fields: { rate: 'Annual rate, %', amount: 'Starting amount' },
     results: RESULTS_EN,
     values: {
-      'лет': 'years', '₽': '$', '% годовых': '% a year',
+      // Платформенный путь значений результата эту фразу не знает — знает
+      // только карта единиц поля. Перевод остаётся здесь, слово в слово с ней.
+      '% годовых': '% yearly',
+      'лет': 'years', '₽': '$',
       'Ставка должна быть больше нуля': 'The rate must be greater than zero',
     },
   },

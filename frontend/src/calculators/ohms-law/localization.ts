@@ -17,7 +17,7 @@ export const localization: CalculatorLocalization = {
     },
     results: RESULTS_EN,
     values: {
-      'Ом': 'ohm', 'В': 'V', 'А': 'A', 'Вт': 'W', '(вычисляется)': '(computed)',
+      'Ом': 'Ω', 'В': 'V', 'А': 'A', 'Вт': 'W', '(вычисляется)': '(computed)',
       'Значения не могут быть отрицательными': 'The values cannot be negative',
       'Ток должен быть больше нуля, иначе сопротивление не определено': 'The current must be greater than zero, otherwise the resistance is undefined',
       'Сопротивление должно быть больше нуля, иначе ток не определён': 'The resistance must be greater than zero, otherwise the current is undefined',

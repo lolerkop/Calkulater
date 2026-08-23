@@ -36,7 +36,7 @@ export const localization: CalculatorLocalization = {
     },
     values: {
       ...COLORS_EN,
-      'Ом': 'ohm', 'кОм': 'kOhm', 'МОм': 'MOhm',
+      'Ом': 'Ω', 'кОм': 'kΩ', 'МОм': 'MΩ',
       'Первая полоса — цифра от 0 до 9': 'The first band is a digit from 0 to 9',
       'Вторая полоса — цифра от 0 до 9': 'The second band is a digit from 0 to 9',
       'Множитель — от серебристого до фиолетового': 'The multiplier runs from silver to violet',

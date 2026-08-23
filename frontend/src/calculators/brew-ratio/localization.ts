@@ -15,7 +15,7 @@ export const localization: CalculatorLocalization = {
     options: { coffee: 'the coffee dose', water: 'the water volume', ratio: 'the ratio' },
     results: RESULTS_EN,
     values: {
-      'мл': 'ml', 'г': 'g',
+      'мл': 'mL', 'г': 'g',
       'Соотношение должно быть больше нуля': 'The ratio must be greater than zero',
       'Масса кофе должна быть больше нуля': 'The coffee dose must be greater than zero',
       'Объём воды должен быть больше нуля': 'The water volume must be greater than zero',

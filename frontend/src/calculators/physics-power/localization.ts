@@ -39,7 +39,7 @@ export const localization: CalculatorLocalization = {
       "Вт": "W",
       "Дж": "J",
       "с": "s",
-      "л.с.": "hp",
+      "л.с.": "PS",
       "Время должно быть больше нуля": "The time must be greater than zero",
       "Работа не может быть отрицательной": "The work cannot be negative",
       "Мощность должна быть больше нуля, иначе время не определено": "The power must be greater than zero, otherwise the time is undetermined",
