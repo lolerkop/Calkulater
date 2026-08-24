@@ -1,0 +1,1497 @@
+{
+ "note": "Одобренная базовая линия украинского слоя после фазы 26UK. Просадка более чем на четверть или потеря вопросов FAQ считается регрессией.",
+ "pages": {
+  "/uk/avtomobili/amortyzatsiya-avto/": {
+   "faq": 4,
+   "words": 496
+  },
+  "/uk/avtomobili/benzyn-z-oliyeyu-dlya-dvotaktnogo/": {
+   "faq": 4,
+   "words": 425
+  },
+  "/uk/avtomobili/chvert-myli/": {
+   "faq": 4,
+   "words": 426
+  },
+  "/uk/avtomobili/galmivnyy-shlyah/": {
+   "faq": 4,
+   "words": 449
+  },
+  "/uk/avtomobili/potuzhnist-do-masy/": {
+   "faq": 4,
+   "words": 441
+  },
+  "/uk/avtomobili/robochyy-obyem-dvyguna/": {
+   "faq": 4,
+   "words": 426
+  },
+  "/uk/avtomobili/rozmir-shyn/": {
+   "faq": 4,
+   "words": 462
+  },
+  "/uk/avtomobili/shvydkist-vidstan-chas/": {
+   "faq": 4,
+   "words": 433
+  },
+  "/uk/avtomobili/stupin-styskannya-dvyguna/": {
+   "faq": 4,
+   "words": 429
+  },
+  "/uk/avtomobili/vartist-poyizdky/": {
+   "faq": 4,
+   "words": 465
+  },
+  "/uk/avtomobili/vylit-dyska/": {
+   "faq": 4,
+   "words": 434
+  },
+  "/uk/avtomobili/vytrata-palyva/": {
+   "faq": 4,
+   "words": 453
+  },
+  "/uk/business/arpu-arppu/": {
+   "faq": 4,
+   "words": 465
+  },
+  "/uk/business/chastka-povernen/": {
+   "faq": 4,
+   "words": 433
+  },
+  "/uk/business/cpa-cpl-cpi/": {
+   "faq": 4,
+   "words": 470
+  },
+  "/uk/business/cpc/": {
+   "faq": 4,
+   "words": 474
+  },
+  "/uk/business/cpm/": {
+   "faq": 4,
+   "words": 428
+  },
+  "/uk/business/ctr/": {
+   "faq": 4,
+   "words": 435
+  },
+  "/uk/business/dostavka-na-odynytsyu/": {
+   "faq": 4,
+   "words": 442
+  },
+  "/uk/business/email-metryky/": {
+   "faq": 4,
+   "words": 432
+  },
+  "/uk/business/komisiya-marketpleysu/": {
+   "faq": 4,
+   "words": 533
+  },
+  "/uk/business/konversiya/": {
+   "faq": 4,
+   "words": 487
+  },
+  "/uk/business/ltv/": {
+   "faq": 4,
+   "words": 529
+  },
+  "/uk/business/marzhynalnyi-dokhid/": {
+   "faq": 4,
+   "words": 511
+  },
+  "/uk/business/mrr-arr/": {
+   "faq": 4,
+   "words": 508
+  },
+  "/uk/business/oborotnist-zapasiv/": {
+   "faq": 4,
+   "words": 512
+  },
+  "/uk/business/prybutok-marzha/": {
+   "faq": 4,
+   "words": 487
+  },
+  "/uk/business/reklamnyy-byudzhet/": {
+   "faq": 4,
+   "words": 507
+  },
+  "/uk/business/roas/": {
+   "faq": 4,
+   "words": 454
+  },
+  "/uk/business/roi-reklamy/": {
+   "faq": 4,
+   "words": 500
+  },
+  "/uk/business/serednii-chek/": {
+   "faq": 4,
+   "words": 448
+  },
+  "/uk/business/sobivartist-odynytsi/": {
+   "faq": 4,
+   "words": 482
+  },
+  "/uk/business/sobivartist-prodazhiv/": {
+   "faq": 4,
+   "words": 503
+  },
+  "/uk/business/tabel-robochogo-chasu/": {
+   "faq": 4,
+   "words": 510
+  },
+  "/uk/business/takt-vyrobnytstva/": {
+   "faq": 4,
+   "words": 491
+  },
+  "/uk/business/termin-okupnosti/": {
+   "faq": 4,
+   "words": 465
+  },
+  "/uk/business/vartist-spivrobitnyka/": {
+   "faq": 4,
+   "words": 492
+  },
+  "/uk/business/vartist-zaluchennya-kliyenta/": {
+   "faq": 4,
+   "words": 462
+  },
+  "/uk/business/vidtik-utrymannya/": {
+   "faq": 4,
+   "words": 504
+  },
+  "/uk/business/vytorh-na-spivrobitnyka/": {
+   "faq": 4,
+   "words": 447
+  },
+  "/uk/business/zaluchenist/": {
+   "faq": 4,
+   "words": 455
+  },
+  "/uk/business/zrostannya-audytorii/": {
+   "faq": 4,
+   "words": 470
+  },
+  "/uk/daty/chas-snu/": {
+   "faq": 4,
+   "words": 457
+  },
+  "/uk/daty/den-tyzhnya/": {
+   "faq": 4,
+   "words": 414
+  },
+  "/uk/daty/kalkulyator-dat/": {
+   "faq": 4,
+   "words": 464
+  },
+  "/uk/daty/kalkulyator-nomera-tyzhnya/": {
+   "faq": 4,
+   "words": 412
+  },
+  "/uk/daty/kalkulyator-robochyh-dniv/": {
+   "faq": 4,
+   "words": 468
+  },
+  "/uk/daty/kalkulyator-tryvalosti-chasu/": {
+   "faq": 4,
+   "words": 438
+  },
+  "/uk/daty/kalkulyator-viku/": {
+   "faq": 4,
+   "words": 415
+  },
+  "/uk/daty/riznytsya-chasovyh-poyasiv/": {
+   "faq": 4,
+   "words": 442
+  },
+  "/uk/daty/robochi-hodyny/": {
+   "faq": 4,
+   "words": 469
+  },
+  "/uk/daty/vysokosnyi-rik/": {
+   "faq": 4,
+   "words": 422
+  },
+  "/uk/elektronika/batareyi-zednannya/": {
+   "faq": 4,
+   "words": 455
+  },
+  "/uk/elektronika/chas-roboty-akumulyatora/": {
+   "faq": 4,
+   "words": 477
+  },
+  "/uk/elektronika/chas-zaryadzhannya/": {
+   "faq": 4,
+   "words": 431
+  },
+  "/uk/elektronika/dilnyk-napruhy/": {
+   "faq": 4,
+   "words": 441
+  },
+  "/uk/elektronika/diyuche-napruga/": {
+   "faq": 4,
+   "words": 428
+  },
+  "/uk/elektronika/hvylovyi-opir-kabelyu/": {
+   "faq": 4,
+   "words": 453
+  },
+  "/uk/elektronika/koeficiyent-transformaciyi/": {
+   "faq": 4,
+   "words": 460
+  },
+  "/uk/elektronika/kolirne-markuvannya-rezystora/": {
+   "faq": 4,
+   "words": 511
+  },
+  "/uk/elektronika/kondensatory-v-koli/": {
+   "faq": 4,
+   "words": 396
+  },
+  "/uk/elektronika/kva-v-kvt/": {
+   "faq": 4,
+   "words": 448
+  },
+  "/uk/elektronika/odnofazna-potuzhnist/": {
+   "faq": 4,
+   "words": 484
+  },
+  "/uk/elektronika/padinnya-naprugy/": {
+   "faq": 4,
+   "words": 477
+  },
+  "/uk/elektronika/potuzhnist-dlya-navushnykiv/": {
+   "faq": 4,
+   "words": 421
+  },
+  "/uk/elektronika/potuzhnist-invertora/": {
+   "faq": 4,
+   "words": 427
+  },
+  "/uk/elektronika/rc-filtr/": {
+   "faq": 4,
+   "words": 428
+  },
+  "/uk/elektronika/rezonansna-chastota-lc/": {
+   "faq": 4,
+   "words": 412
+  },
+  "/uk/elektronika/rezystor-dlya-svitlodioda/": {
+   "faq": 4,
+   "words": 459
+  },
+  "/uk/elektronika/taymer-ne555/": {
+   "faq": 4,
+   "words": 457
+  },
+  "/uk/elektronika/zakon-oma/": {
+   "faq": 4,
+   "words": 456
+  },
+  "/uk/elektronika/zaryad-kondensatora/": {
+   "faq": 4,
+   "words": 423
+  },
+  "/uk/elektronika/zednannya-rezystoriv/": {
+   "faq": 4,
+   "words": 430
+  },
+  "/uk/finansy/amortyzaciya-aktyvu/": {
+   "faq": 4,
+   "words": 483
+  },
+  "/uk/finansy/anuitet/": {
+   "faq": 4,
+   "words": 512
+  },
+  "/uk/finansy/apr-apy/": {
+   "faq": 4,
+   "words": 461
+  },
+  "/uk/finansy/cagr-kalkulyator/": {
+   "faq": 4,
+   "words": 416
+  },
+  "/uk/finansy/dostrokove-pohashennya/": {
+   "faq": 4,
+   "words": 510
+  },
+  "/uk/finansy/dyvidendna-dokhidnist/": {
+   "faq": 4,
+   "words": 433
+  },
+  "/uk/finansy/finansova-meta/": {
+   "faq": 4,
+   "words": 474
+  },
+  "/uk/finansy/finansova-podushka/": {
+   "faq": 4,
+   "words": 469
+  },
+  "/uk/finansy/inflyatsiya/": {
+   "faq": 4,
+   "words": 491
+  },
+  "/uk/finansy/ipotechnyi-kalkulyator/": {
+   "faq": 4,
+   "words": 528
+  },
+  "/uk/finansy/kalkulyator-bezzbytkovosti/": {
+   "faq": 7,
+   "words": 840
+  },
+  "/uk/finansy/kalkulyator-byudzhetu-50-30-20/": {
+   "faq": 4,
+   "words": 420
+  },
+  "/uk/finansy/kalkulyator-komisiyi/": {
+   "faq": 4,
+   "words": 439
+  },
+  "/uk/finansy/kalkulyator-kredytu/": {
+   "faq": 4,
+   "words": 560
+  },
+  "/uk/finansy/kalkulyator-marzhi/": {
+   "faq": 4,
+   "words": 512
+  },
+  "/uk/finansy/kalkulyator-normy-zaoshchadzhen/": {
+   "faq": 4,
+   "words": 445
+  },
+  "/uk/finansy/kalkulyator-skladnyh-vidsotkiv/": {
+   "faq": 4,
+   "words": 474
+  },
+  "/uk/finansy/kalkulyator-vidsotkiv/": {
+   "faq": 4,
+   "words": 438
+  },
+  "/uk/finansy/kalkulyator-znyzhky/": {
+   "faq": 4,
+   "words": 526
+  },
+  "/uk/finansy/konverter-zarplaty/": {
+   "faq": 4,
+   "words": 472
+  },
+  "/uk/finansy/kredyt-pid-zastavu-zhytla/": {
+   "faq": 4,
+   "words": 503
+  },
+  "/uk/finansy/kredytne-navantazhennya/": {
+   "faq": 4,
+   "words": 423
+  },
+  "/uk/finansy/kredytne-plege/": {
+   "faq": 4,
+   "words": 460
+  },
+  "/uk/finansy/maksymalna-suma-kredytu/": {
+   "faq": 4,
+   "words": 475
+  },
+  "/uk/finansy/nadurochni/": {
+   "faq": 4,
+   "words": 448
+  },
+  "/uk/finansy/nakopychennya-vidpustky/": {
+   "faq": 4,
+   "words": 438
+  },
+  "/uk/finansy/orendna-dokhidnist/": {
+   "faq": 4,
+   "words": 472
+  },
+  "/uk/finansy/pershyy-vnesok/": {
+   "faq": 4,
+   "words": 434
+  },
+  "/uk/finansy/pidvyshchennya-zarplaty/": {
+   "faq": 4,
+   "words": 457
+  },
+  "/uk/finansy/platizh-za-lizyngom/": {
+   "faq": 4,
+   "words": 492
+  },
+  "/uk/finansy/podil-byudzhetu/": {
+   "faq": 4,
+   "words": 462
+  },
+  "/uk/finansy/pogashennya-kilkoh-borgiv/": {
+   "faq": 4,
+   "words": 510
+  },
+  "/uk/finansy/pohashennya-kredytnoyi-kartky/": {
+   "faq": 4,
+   "words": 475
+  },
+  "/uk/finansy/pravylo-72/": {
+   "faq": 4,
+   "words": 481
+  },
+  "/uk/finansy/premiya/": {
+   "faq": 4,
+   "words": 428
+  },
+  "/uk/finansy/prosti-vidsotky/": {
+   "faq": 4,
+   "words": 457
+  },
+  "/uk/finansy/prybutok-kryptovalyuty/": {
+   "faq": 4,
+   "words": 479
+  },
+  "/uk/finansy/realna-dokhidnist/": {
+   "faq": 4,
+   "words": 472
+  },
+  "/uk/finansy/refinansuvannya/": {
+   "faq": 4,
+   "words": 530
+  },
+  "/uk/finansy/roi-kalkulyator/": {
+   "faq": 4,
+   "words": 427
+  },
+  "/uk/finansy/rozmir-pozytsii/": {
+   "faq": 4,
+   "words": 490
+  },
+  "/uk/finansy/rozstrochka/": {
+   "faq": 4,
+   "words": 449
+  },
+  "/uk/finansy/rynkova-kapitalizatsiya/": {
+   "faq": 4,
+   "words": 464
+  },
+  "/uk/finansy/ryzyk-prybutok/": {
+   "faq": 4,
+   "words": 483
+  },
+  "/uk/finansy/stavka-frilansera/": {
+   "faq": 4,
+   "words": 546
+  },
+  "/uk/finansy/userednennya-tsiny-dca/": {
+   "faq": 4,
+   "words": 515
+  },
+  "/uk/finansy/vartist-hroshey-u-chasi/": {
+   "faq": 4,
+   "words": 531
+  },
+  "/uk/finansy/vartist-robochoho-dnia/": {
+   "faq": 4,
+   "words": 436
+  },
+  "/uk/fitness/blyny-na-shtangu/": {
+   "faq": 4,
+   "words": 461
+  },
+  "/uk/fitness/idealna-vaga/": {
+   "faq": 4,
+   "words": 430
+  },
+  "/uk/fitness/kalkulyator-1rm/": {
+   "faq": 4,
+   "words": 415
+  },
+  "/uk/fitness/kalkulyator-bmi/": {
+   "faq": 4,
+   "words": 385
+  },
+  "/uk/fitness/kalkulyator-kaloriy-z-bzhv/": {
+   "faq": 4,
+   "words": 406
+  },
+  "/uk/fitness/kalkulyator-kaloriy/": {
+   "faq": 4,
+   "words": 528
+  },
+  "/uk/fitness/kalkulyator-tempu-bigu/": {
+   "faq": 4,
+   "words": 427
+  },
+  "/uk/fitness/kalkulyator-vidsotka-zhyru/": {
+   "faq": 7,
+   "words": 799
+  },
+  "/uk/fitness/kalorii-pry-aktyvnosti/": {
+   "faq": 4,
+   "words": 457
+  },
+  "/uk/fitness/kroky-vidstan-kalorii/": {
+   "faq": 4,
+   "words": 488
+  },
+  "/uk/fitness/maksymalnyy-puls/": {
+   "faq": 4,
+   "words": 442
+  },
+  "/uk/fitness/norma-vody/": {
+   "faq": 4,
+   "words": 436
+  },
+  "/uk/fitness/rozmir-velokolesa/": {
+   "faq": 4,
+   "words": 445
+  },
+  "/uk/fitness/spivvidnoshennya-talii/": {
+   "faq": 4,
+   "words": 444
+  },
+  "/uk/fitness/velosypedna-peredacha/": {
+   "faq": 4,
+   "words": 417
+  },
+  "/uk/fitness/vo2max/": {
+   "faq": 4,
+   "words": 447
+  },
+  "/uk/fizyka/absolyutna-vologist/": {
+   "faq": 4,
+   "words": 480
+  },
+  "/uk/fizyka/chyslo-maha/": {
+   "faq": 4,
+   "words": 485
+  },
+  "/uk/fizyka/decybely/": {
+   "faq": 4,
+   "words": 484
+  },
+  "/uk/fizyka/dotsentrova-syla/": {
+   "faq": 4,
+   "words": 502
+  },
+  "/uk/fizyka/dovzhyna-hvyli-de-broylya/": {
+   "faq": 4,
+   "words": 467
+  },
+  "/uk/fizyka/druga-kosmichna-shvydkist/": {
+   "faq": 4,
+   "words": 485
+  },
+  "/uk/fizyka/efekt-doplera/": {
+   "faq": 4,
+   "words": 505
+  },
+  "/uk/fizyka/energiya-fotona/": {
+   "faq": 4,
+   "words": 468
+  },
+  "/uk/fizyka/energiya-spokoyu/": {
+   "faq": 4,
+   "words": 472
+  },
+  "/uk/fizyka/granychna-shvydkist-padinnya/": {
+   "faq": 4,
+   "words": 514
+  },
+  "/uk/fizyka/gravitatsiyna-syla/": {
+   "faq": 4,
+   "words": 510
+  },
+  "/uk/fizyka/hidrostatychnyi-tysk/": {
+   "faq": 4,
+   "words": 489
+  },
+  "/uk/fizyka/hustyna/": {
+   "faq": 4,
+   "words": 517
+  },
+  "/uk/fizyka/impuls/": {
+   "faq": 4,
+   "words": 526
+  },
+  "/uk/fizyka/indeks-speky/": {
+   "faq": 4,
+   "words": 446
+  },
+  "/uk/fizyka/khvylya-chastota/": {
+   "faq": 4,
+   "words": 492
+  },
+  "/uk/fizyka/kinetychna-enerhiya/": {
+   "faq": 4,
+   "words": 484
+  },
+  "/uk/fizyka/kkd-cyklu-karno/": {
+   "faq": 4,
+   "words": 503
+  },
+  "/uk/fizyka/kydok-pid-kutom/": {
+   "faq": 4,
+   "words": 484
+  },
+  "/uk/fizyka/mekhanichna-potuzhnist/": {
+   "faq": 4,
+   "words": 484
+  },
+  "/uk/fizyka/mekhanichna-robota/": {
+   "faq": 4,
+   "words": 509
+  },
+  "/uk/fizyka/moment-inercii/": {
+   "faq": 4,
+   "words": 494
+  },
+  "/uk/fizyka/moment-syly/": {
+   "faq": 4,
+   "words": 498
+  },
+  "/uk/fizyka/napruha-i-deformaciya/": {
+   "faq": 4,
+   "words": 540
+  },
+  "/uk/fizyka/period-mayatnyka/": {
+   "faq": 4,
+   "words": 458
+  },
+  "/uk/fizyka/period-napivrozpadu/": {
+   "faq": 4,
+   "words": 530
+  },
+  "/uk/fizyka/period-obertannya-po-orbiti/": {
+   "faq": 4,
+   "words": 506
+  },
+  "/uk/fizyka/pohyla-ploshchyna/": {
+   "faq": 4,
+   "words": 489
+  },
+  "/uk/fizyka/potentsialna-enerhiya/": {
+   "faq": 4,
+   "words": 506
+  },
+  "/uk/fizyka/potuzhnist-vitru/": {
+   "faq": 4,
+   "words": 501
+  },
+  "/uk/fizyka/pryskorennya/": {
+   "faq": 4,
+   "words": 511
+  },
+  "/uk/fizyka/pytoma-teployemnist/": {
+   "faq": 4,
+   "words": 506
+  },
+  "/uk/fizyka/rivnyannya-bernulli/": {
+   "faq": 4,
+   "words": 539
+  },
+  "/uk/fizyka/shchilnist-povitrya/": {
+   "faq": 4,
+   "words": 494
+  },
+  "/uk/fizyka/shvydkist-potoku-v-trubi/": {
+   "faq": 4,
+   "words": 506
+  },
+  "/uk/fizyka/shvydkist-zvuku/": {
+   "faq": 4,
+   "words": 487
+  },
+  "/uk/fizyka/spovilnennya-chasu/": {
+   "faq": 4,
+   "words": 464
+  },
+  "/uk/fizyka/syla-nyutona/": {
+   "faq": 4,
+   "words": 561
+  },
+  "/uk/fizyka/temperatura-kypinnya/": {
+   "faq": 4,
+   "words": 489
+  },
+  "/uk/fizyka/teploperedacha-kriz-shar/": {
+   "faq": 4,
+   "words": 522
+  },
+  "/uk/fizyka/tochka-rosy/": {
+   "faq": 4,
+   "words": 502
+  },
+  "/uk/fizyka/tonka-linza/": {
+   "faq": 4,
+   "words": 511
+  },
+  "/uk/fizyka/tysk-na-vysoti/": {
+   "faq": 4,
+   "words": 488
+  },
+  "/uk/fizyka/tysk/": {
+   "faq": 4,
+   "words": 500
+  },
+  "/uk/fizyka/vazhil-i-vyihrash-u-syli/": {
+   "faq": 4,
+   "words": 526
+  },
+  "/uk/fizyka/vidchutna-temperatura/": {
+   "faq": 4,
+   "words": 508
+  },
+  "/uk/fizyka/vilne-padinnya/": {
+   "faq": 4,
+   "words": 469
+  },
+  "/uk/fizyka/vyshtovhuvalna-syla/": {
+   "faq": 4,
+   "words": 487
+  },
+  "/uk/fizyka/zakon-huka/": {
+   "faq": 4,
+   "words": 484
+  },
+  "/uk/fizyka/zakon-kulona/": {
+   "faq": 4,
+   "words": 479
+  },
+  "/uk/fizyka/zakon-obernenyh-kvadrativ/": {
+   "faq": 4,
+   "words": 438
+  },
+  "/uk/heometriya/bagatokutnyk-za-koordynatamy/": {
+   "faq": 5,
+   "words": 587
+  },
+  "/uk/heometriya/dovzhyna-remenya/": {
+   "faq": 5,
+   "words": 618
+  },
+  "/uk/heometriya/elips/": {
+   "faq": 5,
+   "words": 532
+  },
+  "/uk/heometriya/kiltse/": {
+   "faq": 5,
+   "words": 533
+  },
+  "/uk/heometriya/kolo/": {
+   "faq": 4,
+   "words": 503
+  },
+  "/uk/heometriya/konus/": {
+   "faq": 5,
+   "words": 622
+  },
+  "/uk/heometriya/kub/": {
+   "faq": 5,
+   "words": 556
+  },
+  "/uk/heometriya/kulya/": {
+   "faq": 5,
+   "words": 572
+  },
+  "/uk/heometriya/kvadrat/": {
+   "faq": 4,
+   "words": 505
+  },
+  "/uk/heometriya/paralelepiped/": {
+   "faq": 4,
+   "words": 517
+  },
+  "/uk/heometriya/paralelohram/": {
+   "faq": 4,
+   "words": 561
+  },
+  "/uk/heometriya/piramida/": {
+   "faq": 4,
+   "words": 514
+  },
+  "/uk/heometriya/pravylnyy-mnohokutnyk/": {
+   "faq": 4,
+   "words": 500
+  },
+  "/uk/heometriya/pryamokutnyk/": {
+   "faq": 4,
+   "words": 527
+  },
+  "/uk/heometriya/pryamokutnyy-trykutnyk/": {
+   "faq": 4,
+   "words": 507
+  },
+  "/uk/heometriya/pryzma/": {
+   "faq": 5,
+   "words": 568
+  },
+  "/uk/heometriya/romb/": {
+   "faq": 5,
+   "words": 517
+  },
+  "/uk/heometriya/sektor-kola/": {
+   "faq": 4,
+   "words": 476
+  },
+  "/uk/heometriya/trapetsiya/": {
+   "faq": 4,
+   "words": 512
+  },
+  "/uk/heometriya/trykutnyk/": {
+   "faq": 4,
+   "words": 520
+  },
+  "/uk/heometriya/tsylindr/": {
+   "faq": 5,
+   "words": 554
+  },
+  "/uk/heometriya/ukhyl/": {
+   "faq": 4,
+   "words": 510
+  },
+  "/uk/heometriya/zolotyi-pereriz/": {
+   "faq": 4,
+   "words": 519
+  },
+  "/uk/heometriya/zrizana-piramida/": {
+   "faq": 4,
+   "words": 536
+  },
+  "/uk/heometriya/zrizanyy-konus/": {
+   "faq": 5,
+   "words": 559
+  },
+  "/uk/himiya/hazovi-zakony/": {
+   "faq": 4,
+   "words": 519
+  },
+  "/uk/himiya/kilkist-rechovyny/": {
+   "faq": 4,
+   "words": 438
+  },
+  "/uk/himiya/kontsentratsiia-rozchynu/": {
+   "faq": 4,
+   "words": 475
+  },
+  "/uk/himiya/moliarnist/": {
+   "faq": 4,
+   "words": 462
+  },
+  "/uk/himiya/molyarna-masa/": {
+   "faq": 4,
+   "words": 421
+  },
+  "/uk/himiya/ph-poh/": {
+   "faq": 4,
+   "words": 459
+  },
+  "/uk/himiya/rivniannia-stanu-hazu/": {
+   "faq": 4,
+   "words": 473
+  },
+  "/uk/himiya/rozvedennia/": {
+   "faq": 4,
+   "words": 470
+  },
+  "/uk/kompyutery/chas-zavantazhennya/": {
+   "faq": 4,
+   "words": 477
+  },
+  "/uk/kompyutery/css-odynytsi/": {
+   "faq": 4,
+   "words": 476
+  },
+  "/uk/kompyutery/fayly-na-nosiyi/": {
+   "faq": 4,
+   "words": 499
+  },
+  "/uk/kompyutery/fps-chas-kadru/": {
+   "faq": 4,
+   "words": 483
+  },
+  "/uk/kompyutery/internet-trafik/": {
+   "faq": 4,
+   "words": 451
+  },
+  "/uk/kompyutery/konverter-koloriv/": {
+   "faq": 4,
+   "words": 447
+  },
+  "/uk/kompyutery/lichylnyk-sliv-i-symvoliv/": {
+   "faq": 4,
+   "words": 456
+  },
+  "/uk/kompyutery/modulna-shkala/": {
+   "faq": 4,
+   "words": 450
+  },
+  "/uk/kompyutery/pidmerezha-ipv4/": {
+   "faq": 4,
+   "words": 434
+  },
+  "/uk/kompyutery/ppi/": {
+   "faq": 4,
+   "words": 452
+  },
+  "/uk/kompyutery/propuskna-zdatnist/": {
+   "faq": 4,
+   "words": 443
+  },
+  "/uk/kompyutery/raid-masyv/": {
+   "faq": 4,
+   "words": 486
+  },
+  "/uk/kompyutery/rozmir-videofaylu/": {
+   "faq": 4,
+   "words": 445
+  },
+  "/uk/kompyutery/spivvidnoshennya-storin/": {
+   "faq": 4,
+   "words": 469
+  },
+  "/uk/kompyutery/stiykist-parolya/": {
+   "faq": 4,
+   "words": 516
+  },
+  "/uk/kompyutery/unix-chas/": {
+   "faq": 4,
+   "words": 417
+  },
+  "/uk/kompyutery/vidstan-do-televizora/": {
+   "faq": 4,
+   "words": 453
+  },
+  "/uk/konvertery/chyslo-propysom/": {
+   "faq": 4,
+   "words": 426
+  },
+  "/uk/konvertery/konverter-chastoty/": {
+   "faq": 4,
+   "words": 471
+  },
+  "/uk/konvertery/konverter-chasu/": {
+   "faq": 4,
+   "words": 506
+  },
+  "/uk/konvertery/konverter-dovzhyny/": {
+   "faq": 4,
+   "words": 501
+  },
+  "/uk/konvertery/konverter-enerhii/": {
+   "faq": 4,
+   "words": 470
+  },
+  "/uk/konvertery/konverter-hustyny/": {
+   "faq": 4,
+   "words": 510
+  },
+  "/uk/konvertery/konverter-krutnoho-momentu/": {
+   "faq": 4,
+   "words": 450
+  },
+  "/uk/konvertery/konverter-kulinarnykh-mir/": {
+   "faq": 4,
+   "words": 524
+  },
+  "/uk/konvertery/konverter-kutiv/": {
+   "faq": 4,
+   "words": 456
+  },
+  "/uk/konvertery/konverter-masy/": {
+   "faq": 4,
+   "words": 480
+  },
+  "/uk/konvertery/konverter-obsyagu-danykh/": {
+   "faq": 4,
+   "words": 522
+  },
+  "/uk/konvertery/konverter-obyemu/": {
+   "faq": 4,
+   "words": 469
+  },
+  "/uk/konvertery/konverter-osvitlenosti/": {
+   "faq": 4,
+   "words": 475
+  },
+  "/uk/konvertery/konverter-ploshchi/": {
+   "faq": 4,
+   "words": 487
+  },
+  "/uk/konvertery/konverter-potuzhnosti/": {
+   "faq": 4,
+   "words": 488
+  },
+  "/uk/konvertery/konverter-radiacii-ua/": {
+   "faq": 4,
+   "words": 481
+  },
+  "/uk/konvertery/konverter-shvydkosti-peredachi/": {
+   "faq": 4,
+   "words": 528
+  },
+  "/uk/konvertery/konverter-shvydkosti/": {
+   "faq": 4,
+   "words": 474
+  },
+  "/uk/konvertery/konverter-syly/": {
+   "faq": 4,
+   "words": 450
+  },
+  "/uk/konvertery/konverter-temperatury/": {
+   "faq": 4,
+   "words": 485
+  },
+  "/uk/konvertery/konverter-tysku/": {
+   "faq": 4,
+   "words": 495
+  },
+  "/uk/konvertery/konverter-vytraty-palyva/": {
+   "faq": 4,
+   "words": 492
+  },
+  "/uk/konvertery/konverter-vytraty/": {
+   "faq": 4,
+   "words": 492
+  },
+  "/uk/konvertery/koordynaty-hradusy-hvylyny/": {
+   "faq": 4,
+   "words": 496
+  },
+  "/uk/konvertery/kulinarna-vaga/": {
+   "faq": 4,
+   "words": 498
+  },
+  "/uk/konvertery/lakh-i-kror/": {
+   "faq": 4,
+   "words": 449
+  },
+  "/uk/konvertery/masshtab-modeli/": {
+   "faq": 4,
+   "words": 491
+  },
+  "/uk/konvertery/vaga-i-kilkist-paperu/": {
+   "faq": 4,
+   "words": 486
+  },
+  "/uk/math/abs-rel-riznytsya/": {
+   "faq": 4,
+   "words": 464
+  },
+  "/uk/math/aryfmetychna-progresiya/": {
+   "faq": 5,
+   "words": 571
+  },
+  "/uk/math/binomialna-ymovirnist/": {
+   "faq": 5,
+   "words": 514
+  },
+  "/uk/math/chysla-fibonachchi/": {
+   "faq": 4,
+   "words": 532
+  },
+  "/uk/math/dilnyky-chysla/": {
+   "faq": 4,
+   "words": 455
+  },
+  "/uk/math/dovirchyy-interval/": {
+   "faq": 4,
+   "words": 569
+  },
+  "/uk/math/drobi/": {
+   "faq": 4,
+   "words": 498
+  },
+  "/uk/math/faktorial/": {
+   "faq": 4,
+   "words": 415
+  },
+  "/uk/math/geometrychna-progresiya/": {
+   "faq": 4,
+   "words": 520
+  },
+  "/uk/math/imovirnist-kubykiv/": {
+   "faq": 4,
+   "words": 496
+  },
+  "/uk/math/kalkulyator-logaryfma/": {
+   "faq": 4,
+   "words": 479
+  },
+  "/uk/math/kalkulyator-ostachi/": {
+   "faq": 4,
+   "words": 459
+  },
+  "/uk/math/kalkulyator-proportsii/": {
+   "faq": 4,
+   "words": 510
+  },
+  "/uk/math/korelyatsiya/": {
+   "faq": 5,
+   "words": 575
+  },
+  "/uk/math/kvadratne-rivnyannya/": {
+   "faq": 4,
+   "words": 504
+  },
+  "/uk/math/kvartyli/": {
+   "faq": 4,
+   "words": 564
+  },
+  "/uk/math/liniyne-rivnyannya/": {
+   "faq": 4,
+   "words": 508
+  },
+  "/uk/math/nsd-nsk/": {
+   "faq": 5,
+   "words": 569
+  },
+  "/uk/math/okruhlennya/": {
+   "faq": 4,
+   "words": 529
+  },
+  "/uk/math/rozklad-na-prosti-mnozhnyky/": {
+   "faq": 4,
+   "words": 485
+  },
+  "/uk/math/rozmir-vybirky/": {
+   "faq": 4,
+   "words": 590
+  },
+  "/uk/math/rymski-chysla/": {
+   "faq": 4,
+   "words": 525
+  },
+  "/uk/math/serednie-znachennia/": {
+   "faq": 4,
+   "words": 535
+  },
+  "/uk/math/serednozvazhene/": {
+   "faq": 4,
+   "words": 503
+  },
+  "/uk/math/spoluchennya-rozmishchennya/": {
+   "faq": 4,
+   "words": 536
+  },
+  "/uk/math/stepeni-ta-koreni/": {
+   "faq": 5,
+   "words": 575
+  },
+  "/uk/math/systema-rivnyan/": {
+   "faq": 4,
+   "words": 626
+  },
+  "/uk/math/vidnoshennya/": {
+   "faq": 5,
+   "words": 534
+  },
+  "/uk/math/ymovirnist/": {
+   "faq": 4,
+   "words": 547
+  },
+  "/uk/math/z-ocinka/": {
+   "faq": 4,
+   "words": 464
+  },
+  "/uk/navchannya/chas-chytannya-tekstu/": {
+   "faq": 4,
+   "words": 465
+  },
+  "/uk/navchannya/potribna-otsinka/": {
+   "faq": 4,
+   "words": 444
+  },
+  "/uk/navchannya/seredniy-bal/": {
+   "faq": 4,
+   "words": 428
+  },
+  "/uk/navchannya/shvydkist-chytannya/": {
+   "faq": 4,
+   "words": 413
+  },
+  "/uk/navchannya/vidsotok-za-test/": {
+   "faq": 4,
+   "words": 416
+  },
+  "/uk/pobut/byudzhet-podorozhi/": {
+   "faq": 4,
+   "words": 520
+  },
+  "/uk/pobut/chas-nagrivannya-vody/": {
+   "faq": 4,
+   "words": 483
+  },
+  "/uk/pobut/chas-zapikannya/": {
+   "faq": 4,
+   "words": 487
+  },
+  "/uk/pobut/chayovi/": {
+   "faq": 4,
+   "words": 423
+  },
+  "/uk/pobut/kalorii-na-porciyu-ua/": {
+   "faq": 4,
+   "words": 469
+  },
+  "/uk/pobut/komunalni-platezhi/": {
+   "faq": 4,
+   "words": 471
+  },
+  "/uk/pobut/korm-dlya-tvaryny/": {
+   "faq": 4,
+   "words": 484
+  },
+  "/uk/pobut/liniyni-gabaryty-bagazhu/": {
+   "faq": 4,
+   "words": 435
+  },
+  "/uk/pobut/masshtabuvannya-retsepta/": {
+   "faq": 4,
+   "words": 448
+  },
+  "/uk/pobut/mitsnist-za-shchilnistyu/": {
+   "faq": 4,
+   "words": 426
+  },
+  "/uk/pobut/napovnennya-baseynu/": {
+   "faq": 4,
+   "words": 457
+  },
+  "/uk/pobut/odynyci-alkoholyu/": {
+   "faq": 4,
+   "words": 483
+  },
+  "/uk/pobut/osvitlennya-kimnaty/": {
+   "faq": 4,
+   "words": 485
+  },
+  "/uk/pobut/pekarski-vidsotky/": {
+   "faq": 4,
+   "words": 490
+  },
+  "/uk/pobut/pererahunok-drizhdzhiv/": {
+   "faq": 4,
+   "words": 442
+  },
+  "/uk/pobut/pidmina-vody-akvarium/": {
+   "faq": 4,
+   "words": 462
+  },
+  "/uk/pobut/polya-pasparta/": {
+   "faq": 4,
+   "words": 461
+  },
+  "/uk/pobut/potuzhnist-opalennya/": {
+   "faq": 4,
+   "words": 460
+  },
+  "/uk/pobut/protikannya-krana/": {
+   "faq": 4,
+   "words": 499
+  },
+  "/uk/pobut/rozrahunok-shtor/": {
+   "faq": 4,
+   "words": 468
+  },
+  "/uk/pobut/spivvidnoshennya-kavy-ta-vody/": {
+   "faq": 4,
+   "words": 469
+  },
+  "/uk/pobut/suha-ta-hotova-vaha/": {
+   "faq": 4,
+   "words": 513
+  },
+  "/uk/pobut/tsina-za-odynytsyu/": {
+   "faq": 4,
+   "words": 496
+  },
+  "/uk/pobut/vartist-3d-druku/": {
+   "faq": 4,
+   "words": 519
+  },
+  "/uk/pobut/vartist-pidpysok/": {
+   "faq": 4,
+   "words": 467
+  },
+  "/uk/pobut/vartist-retsepta/": {
+   "faq": 4,
+   "words": 463
+  },
+  "/uk/pobut/vik-tvaryny/": {
+   "faq": 4,
+   "words": 437
+  },
+  "/uk/pobut/vytrata-elektroenergiyi/": {
+   "faq": 4,
+   "words": 454
+  },
+  "/uk/pobut/vytrata-palnoho-heneratora/": {
+   "faq": 4,
+   "words": 441
+  },
+  "/uk/pobut/zapas-produktu/": {
+   "faq": 4,
+   "words": 455
+  },
+  "/uk/pobut/zbir-doshchovoyi-vody/": {
+   "faq": 4,
+   "words": 481
+  },
+  "/uk/remont/beton/": {
+   "faq": 4,
+   "words": 505
+  },
+  "/uk/remont/gipsokarton-ua/": {
+   "faq": 4,
+   "words": 457
+  },
+  "/uk/remont/kalkulyator-farby/": {
+   "faq": 4,
+   "words": 483
+  },
+  "/uk/remont/kalkulyator-laminatu/": {
+   "faq": 4,
+   "words": 491
+  },
+  "/uk/remont/kalkulyator-obyemu-prymishchennya/": {
+   "faq": 4,
+   "words": 425
+  },
+  "/uk/remont/kalkulyator-plytky/": {
+   "faq": 4,
+   "words": 532
+  },
+  "/uk/remont/kalkulyator-shpaler/": {
+   "faq": 4,
+   "words": 492
+  },
+  "/uk/remont/kalkulyator-styazhky/": {
+   "faq": 4,
+   "words": 558
+  },
+  "/uk/remont/kalkulyator-tsehly/": {
+   "faq": 7,
+   "words": 856
+  },
+  "/uk/remont/kratnist-povitroobminu/": {
+   "faq": 4,
+   "words": 419
+  },
+  "/uk/remont/krok-balyasyn/": {
+   "faq": 4,
+   "words": 445
+  },
+  "/uk/remont/krokvy/": {
+   "faq": 4,
+   "words": 414
+  },
+  "/uk/remont/kubatura-doshok/": {
+   "faq": 4,
+   "words": 503
+  },
+  "/uk/remont/kut-zapylu/": {
+   "faq": 4,
+   "words": 431
+  },
+  "/uk/remont/linoleum-ua/": {
+   "faq": 4,
+   "words": 452
+  },
+  "/uk/remont/napruha-zgynu-balky/": {
+   "faq": 4,
+   "words": 459
+  },
+  "/uk/remont/obreshitka/": {
+   "faq": 4,
+   "words": 482
+  },
+  "/uk/remont/obshyvka-doshkoyu/": {
+   "faq": 4,
+   "words": 485
+  },
+  "/uk/remont/obyem-epoksydnoyi-smoly/": {
+   "faq": 4,
+   "words": 470
+  },
+  "/uk/remont/obyem-yemnosti/": {
+   "faq": 4,
+   "words": 442
+  },
+  "/uk/remont/parkan/": {
+   "faq": 4,
+   "words": 467
+  },
+  "/uk/remont/plintus/": {
+   "faq": 4,
+   "words": 464
+  },
+  "/uk/remont/ploshcha-dakhu/": {
+   "faq": 4,
+   "words": 491
+  },
+  "/uk/remont/plytnyy-fundament/": {
+   "faq": 4,
+   "words": 480
+  },
+  "/uk/remont/progyn-balky/": {
+   "faq": 4,
+   "words": 450
+  },
+  "/uk/remont/rozrahunok-shodiv/": {
+   "faq": 4,
+   "words": 451
+  },
+  "/uk/remont/shtukaturka/": {
+   "faq": 4,
+   "words": 480
+  },
+  "/uk/remont/stovpchastyy-fundament/": {
+   "faq": 4,
+   "words": 479
+  },
+  "/uk/remont/strichkovyi-fundament/": {
+   "faq": 4,
+   "words": 443
+  },
+  "/uk/remont/sypkyy-material/": {
+   "faq": 4,
+   "words": 466
+  },
+  "/uk/remont/tepla-pidloga/": {
+   "faq": 4,
+   "words": 487
+  },
+  "/uk/remont/utepliuvach/": {
+   "faq": 4,
+   "words": 447
+  },
+  "/uk/remont/vaga-derevyny/": {
+   "faq": 4,
+   "words": 417
+  },
+  "/uk/remont/vaga-truby/": {
+   "faq": 4,
+   "words": 460
+  },
+  "/uk/remont/vaha-metaloprokatu/": {
+   "faq": 4,
+   "words": 459
+  },
+  "/uk/remont/vytrata-germetyka/": {
+   "faq": 4,
+   "words": 488
+  },
+  "/uk/valyuty/eur-v-mdl/": {
+   "faq": 4,
+   "words": 484
+  },
+  "/uk/valyuty/konverter-valyut/": {
+   "faq": 4,
+   "words": 506
+  },
+  "/uk/valyuty/usd-v-eur/": {
+   "faq": 4,
+   "words": 469
+  },
+  "/uk/valyuty/usd-v-mdl/": {
+   "faq": 4,
+   "words": 474
+  },
+  "/uk/valyuty/vartist-obminu-valyuty/": {
+   "faq": 4,
+   "words": 486
+  }
+ }
+}
