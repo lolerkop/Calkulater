@@ -27,11 +27,18 @@ for (const route of [
   '/ru/household/bakers-percentage/',
   '/ru/finance/annuity/',
   '/ru/converters/chislo-propisyu/',
-  '/en/physics/newton-force/',
+  '/en/physics/newtons-second-law-calculator/',
   '/ru/takoy-stranicy-net-24f/',
 ]) {
   test(`axe has no WCAG A/AA violations on ${route}`, async ({ page }) => {
-    await page.goto(route);
+    const response = await page.goto(route);
+    // Адрес в списке был '/en/physics/newton-force/' — английского такого
+    // маршрута нет, слаг локализован как newtons-second-law-calculator, и
+    // проверка молча разбирала страницу 404 вместо страницы калькулятора.
+    // Теперь список не может тихо выродиться: всё, кроме намеренной 404,
+    // обязано отвечать 200.
+    const ожидаемый = route.includes('takoy-stranicy-net') ? 404 : 200;
+    expect(response?.status(), `${route}: код ответа`).toBe(ожидаемый);
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
     const violations = results.violations.map((violation) => ({
       id: violation.id,
