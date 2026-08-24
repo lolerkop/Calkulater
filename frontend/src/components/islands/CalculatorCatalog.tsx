@@ -872,7 +872,7 @@ export default function CalculatorCatalog({
                 data-testid="catalog-search"
                 type="search"
                 className={[
-                  'field-input catalog-search-input py-3',
+                  'field-input field-lead-icon py-3',
                   query ? 'catalog-search-input-clearable' : '',
                 ].join(' ').trim()}
                 placeholder={catalogCopy.placeholder}
@@ -915,7 +915,7 @@ export default function CalculatorCatalog({
               />
               <select
                 id="catalog-sort"
-                className="field-select py-3 pl-10"
+                className="field-select field-lead-icon py-3"
                 value={sortMode}
                 onChange={(event) => setSortMode(event.target.value as SortMode)}
                 data-testid="catalog-sort"
