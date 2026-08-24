@@ -25,7 +25,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 52,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод времени между миллисекундами, секундами, минутами, часами, сутками и неделями.',
     longDescription:
       'Переводит длительность между миллисекундами, секундами, минутами, часами, сутками и неделями. Месяцы и годы сознательно не включены: их длительность непостоянна, и один множитель дал бы правдоподобный, но неверный ответ.',

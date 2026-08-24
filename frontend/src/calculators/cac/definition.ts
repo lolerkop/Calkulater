@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'business',
     icon: 'trending-up',
     popularity: 43,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Во сколько обходится каждый новый клиент и окупается ли это.',
     longDescription:
       'Стоимость привлечения клиента делит расходы на маркетинг и продажи на число клиентов, которых эти усилия принесли. Сама по себе цифра говорит мало; вместе с доходом, который приносит клиент, она показывает, окупается ли привлечение.',

@@ -24,7 +24,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 54,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод скорости между км/ч, м/с, милями в час и узлами.',
     longDescription:
       'Переводит скорость между метрами в секунду, километрами в час, милями в час, узлами и футами в секунду. Узлы используются в морской и авиационной навигации, мили в час — в дорожных знаках США и Великобритании.',

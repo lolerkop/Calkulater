@@ -27,7 +27,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'finance',
     icon: 'piggy-bank',
     popularity: 52,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Какая доля дохода остаётся после расходов.',
     longDescription:
       'Норма сбережений показывает, какую часть дохода вы откладываете. Это базовый показатель личного бюджета: он не зависит от размера дохода и поэтому позволяет сравнивать месяцы между собой и следить за динамикой.',

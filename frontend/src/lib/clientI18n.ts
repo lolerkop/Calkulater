@@ -15,7 +15,7 @@ export const clientUi = {
     newest: 'Новые',
     open: 'Открыть',
     popular: 'Популярное',
-    popularBadge: 'Популярное',
+    popularBadge: 'Популярный',
     newBadge: 'Новый',
   },
   en: {
@@ -141,7 +141,7 @@ export const clientUi = {
     newest: 'Нові',
     open: 'Відкрити',
     popular: 'Популярне',
-    popularBadge: 'Популярне',
+    popularBadge: 'Популярний',
     newBadge: 'Новий',
   },
   sk: {

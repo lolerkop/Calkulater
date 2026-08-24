@@ -27,7 +27,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'building',
     icon: 'square',
     popularity: 49,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Объём комнаты по размерам или площади пола.',
     longDescription:
       'Считает объём помещения по длине, ширине и высоте или по известной площади пола и высоте. В режиме размеров дополнительно показывает периметр и площадь стен — величины, с которых начинается расчёт краски и обоев.',

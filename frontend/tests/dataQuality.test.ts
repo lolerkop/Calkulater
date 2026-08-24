@@ -231,17 +231,12 @@ describe('data quality: calculators', () => {
       .map((calculator) => calculator.id)
       .sort();
 
-    expect(legacyNewIds).toEqual([
-      'body-fat-calculator',
-      'break-even-calculator',
-      'brick-calculator',
-      'date-shift-calculator',
-      'discount-calculator',
-      'income-tax-calculator',
-      'margin-calculator',
-      'screed-calculator',
-      'vat-calculator',
-    ]);
+    // Список опустошён намеренно: девять легаси-калькуляторов — самые старые
+    // на сайте, и значок «Новый» на них давно перестал что-либо означать.
+    // Пин при этом сохраняет смысл: если значок вернётся к старому
+    // калькулятору незаметно, тест это покажет. Общая плотность значков
+    // проверяется отдельно воротами scripts/verify-dist-badges.mjs.
+    expect(legacyNewIds).toEqual([]);
 
     // Каждый калькулятор со значком существует и опубликован.
     for (const calculator of calculators.filter((item) => item.isNew)) {

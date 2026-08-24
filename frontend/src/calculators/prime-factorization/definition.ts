@@ -22,7 +22,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'math',
     icon: 'calculator',
     popularity: 45,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Разложение числа на простые множители и число делителей.',
     longDescription:
       'Раскладывает целое число на простые множители пробным делением и показывает канонический вид со степенями, количество различных простых и число делителей, которое из них следует.',

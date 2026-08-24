@@ -22,7 +22,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: "business",
     icon: "trending-up",
     popularity: 33,
-    isNew: true,
+    isNew: false,
     shortDescription: "Стоимость тысячи показов в любую сторону.",
     longDescription:
       "Делит бюджет на показы и умножает на тысячу либо решает обратную задачу: сколько показов купит бюджет. Знаменатель — то единственное, что отличает CPM от соседних метрик: у CPC внизу клики, у CPA — действия, а формулы похожи достаточно, чтобы подмена дала правдоподобное неверное число.",

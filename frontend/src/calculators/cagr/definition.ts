@@ -24,7 +24,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'finance',
     icon: 'trending-up',
     popularity: 56,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Среднегодовой темп роста между двумя значениями.',
     longDescription:
       'Среднегодовой темп роста распределяет общий рост равномерно по сроку, поэтому удвоение за пять лет читается одним годовым числом, а не общей суммой. Это делает вложения разной длительности сопоставимыми.',

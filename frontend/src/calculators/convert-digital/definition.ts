@@ -25,7 +25,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 58,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод байтов между десятичными и двоичными единицами.',
     longDescription:
       'Переводит объём данных между десятичными единицами (кБ, МБ, ГБ, ТБ) и двоичными (КиБ, МиБ, ГиБ, ТиБ). Системы не совпадают: гигабайт — это миллиард байт, а гибибайт — 1 073 741 824, поэтому диск на 1 ТБ показывается как 931 ГиБ.',

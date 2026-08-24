@@ -22,7 +22,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'math',
     icon: 'calculator',
     popularity: 47,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Решение ax² + bx + c = 0 и дискриминант.',
     longDescription:
       'Решает квадратное уравнение и показывает корни, дискриминант, от которого зависит их количество, и вершину параболы. Нулевой старший коэффициент считается ошибкой ввода, а не поводом молча решить линейное уравнение.',

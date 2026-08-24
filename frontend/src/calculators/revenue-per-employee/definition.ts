@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'business',
     icon: 'trending-up',
     popularity: 39,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Сколько выручки приходится на одного человека в штате.',
     longDescription:
       'Выручка на сотрудника делит годовую выручку на численность. Это самая грубая мера производительности труда и самая простая для сравнения по годам, потому что она не зависит от уровня зарплат и от того, как распределены затраты.',

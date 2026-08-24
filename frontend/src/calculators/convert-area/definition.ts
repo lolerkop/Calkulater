@@ -24,7 +24,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 56,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод площади между метрическими и имперскими единицами.',
     longDescription:
       'Переводит площадь между квадратными миллиметрами, сантиметрами, метрами и километрами, гектарами, квадратными дюймами и футами, а также акрами. Множители второй степени заданы точно, поэтому перевод земельных мер не накапливает погрешность.',

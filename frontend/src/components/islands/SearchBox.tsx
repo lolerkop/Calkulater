@@ -430,22 +430,22 @@ export default function SearchBox({ locale = 'ru' }: Props) {
                         </div>
                         {(c.isNew || c.popularity >= 80) && (
                           <div className="flex max-w-[45%] shrink-0 flex-wrap justify-end gap-1.5" data-testid={`search-result-badges-${i}`}>
-                            {c.isNew && (
-                              <span
-                                className="max-w-full rounded-full bg-ink-900 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-fit text-white"
-                                data-testid={`search-result-new-${i}`}
-                              >
-                                {copy.newBadge}
-                              </span>
-                            )}
-                            {c.popularity >= 80 && (
+                            {/* Один бейдж на строку: «Популярный» важнее «Нового». */}
+                            {c.popularity >= 80 ? (
                               <span
                                 className="max-w-full rounded-full bg-accent-50 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-accent text-fit"
                                 data-testid={`search-result-popular-${i}`}
                               >
                                 {copy.popularBadge}
                               </span>
-                            )}
+                            ) : c.isNew ? (
+                              <span
+                                className="max-w-full rounded-full bg-ink-900 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-fit text-white"
+                                data-testid={`search-result-new-${i}`}
+                              >
+                                {copy.newBadge}
+                              </span>
+                            ) : null}
                           </div>
                         )}
                       </div>

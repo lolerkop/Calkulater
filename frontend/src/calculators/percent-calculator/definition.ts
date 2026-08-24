@@ -31,7 +31,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'finance',
     icon: 'percent',
     popularity: 88,
-    isNew: true,
+    isNew: false,
     shortDescription:
       'Найдите процент от числа, долю в процентах, прибавьте или отнимите процент.',
     longDescription:

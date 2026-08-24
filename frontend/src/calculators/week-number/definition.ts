@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'date-time',
     icon: 'calendar-check',
     popularity: 48,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Номер недели по ISO и день года для любой даты.',
     longDescription:
       'Показывает номер недели по ISO 8601, порядковый день года и сколько дней осталось. Первая неделя — та, что содержит первый четверг года, поэтому начало января может относиться ещё к прошлому году.',

@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'business',
     icon: 'trending-up',
     popularity: 40,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Окупаемость кампании как ROI и ROAS рядом.',
     longDescription:
       'Показывает обе меры окупаемости кампании сразу. Они отвечают на один вопрос в разных шкалах, и путать их дорого: при выручке вдвое больше расходов ROAS равен 2, а ROI — 100 процентов.',

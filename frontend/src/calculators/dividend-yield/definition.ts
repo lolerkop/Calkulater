@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'finance',
     icon: 'percent',
     popularity: 46,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Годовой дивиденд как доля от уплаченной цены.',
     longDescription:
       'Дивидендная доходность соотносит годовой дивиденд с ценой акции. Обе величины вводите вы: доходность к цене покупки — это не доходность к сегодняшней рыночной цене, и калькулятор не станет молча подменять одно другим.',

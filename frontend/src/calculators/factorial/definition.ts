@@ -22,7 +22,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: "math",
     icon: "calculator",
     popularity: 32,
-    isNew: true,
+    isNew: false,
     shortDescription: "Точный n! для целых чисел до 170.",
     longDescription:
       "Перемножает все целые числа до n в точной целочисленной арифметике. Уже на 20! результат выходит за пределы того, что обычные числа браузера хранят безопасно, и всё, кроме точной арифметики, незаметно потеряло бы младшие разряды, выдав округление за ответ.",

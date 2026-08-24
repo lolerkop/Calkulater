@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'finance',
     icon: 'percent',
     popularity: 50,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Какая доля дохода уходит на обслуживание долгов.',
     longDescription:
       'Кредитная нагрузка делит ежемесячные платежи по долгам на месячный доход. Банки читают её как меру оставшегося запаса, а показанные здесь пороги — распространённые ориентиры, а не норма закона.',

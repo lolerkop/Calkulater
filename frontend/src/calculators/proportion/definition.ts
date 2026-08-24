@@ -26,7 +26,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'math',
     icon: 'calculator',
     popularity: 48,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Решение a : b = c : d по любому из четырёх членов.',
     longDescription:
       'Решает пропорцию относительно того члена, который вы выберете. Перекрёстное умножение превращает равенство в одно деление, а калькулятор показывает заполненную пропорцию вместе с проверкой произведений.',

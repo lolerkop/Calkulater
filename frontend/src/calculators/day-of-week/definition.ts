@@ -22,7 +22,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'date-time',
     icon: 'calendar',
     popularity: 44,
-    isNew: true,
+    isNew: false,
     shortDescription: 'На какой день недели приходится дата.',
     longDescription:
       'Показывает день недели для любой даты вместе с её порядковым номером в году, номером недели по ISO и признаком выходного. Даты читаются без сдвига часового пояса, поэтому ответ не зависит от того, где вы находитесь.',

@@ -25,7 +25,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'finance',
     icon: 'percent',
     popularity: 49,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Проценты только на первоначальную сумму, в обе стороны.',
     longDescription:
       'Простые проценты начисляются на первоначальную сумму и никогда — на уже начисленные проценты. Калькулятор работает в обе стороны: находит проценты по известной ставке или ставку, которая даёт известную сумму процентов.',

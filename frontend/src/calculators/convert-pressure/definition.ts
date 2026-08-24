@@ -24,7 +24,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 53,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод давления между паскалями, барами, атмосферами и psi.',
     longDescription:
       'Переводит давление между паскалями, барами, атмосферами, psi и миллиметрами ртутного столба. В одном списке сходятся четыре системы: манометры и шины подписаны в бар или psi, метеосводки — в гектопаскалях, а медицина — в миллиметрах ртутного столба.',

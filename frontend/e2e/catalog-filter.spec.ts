@@ -85,6 +85,33 @@ test.describe('фильтр каталога', () => {
     await expect(page.locator(visible)).toHaveCount(0);
   });
 
+  test('бейдж — подпись, а не управляющий элемент', async ({ page }) => {
+    // Бейдж помечает карточку, но сам ничего не делает: он не должен попадать
+    // в обход по Tab, объявляться кнопкой или ссылкой и перехватывать нажатие.
+    const бейджи = page.locator('.catalog-badge-new, .catalog-badge-popular');
+    const всего = await бейджи.count();
+    expect(всего, 'бейджи на странице есть').toBeGreaterThan(0);
+
+    const разбор = await бейджи.evaluateAll((nodes) => nodes.map((node) => {
+      const el = node as HTMLElement;
+      return {
+        tag: el.tagName.toLowerCase(),
+        role: el.getAttribute('role'),
+        tabindex: el.getAttribute('tabindex'),
+        внутриСсылки: el.querySelector('a, button') !== null,
+        текст: (el.textContent ?? '').trim(),
+      };
+    }));
+
+    for (const б of разбор) {
+      expect(б.tag, 'бейдж остаётся простой подписью').toBe('span');
+      expect(б.role, 'бейджу не назначена роль управления').toBeNull();
+      expect(б.tabindex, 'бейдж не встаёт в обход по Tab').toBeNull();
+      expect(б.внутриСсылки, 'внутри бейджа нет своих ссылок и кнопок').toBe(false);
+      expect(б.текст.length, 'у бейджа есть видимая подпись').toBeGreaterThan(0);
+    }
+  });
+
   test('серверная сетка при отборе скрыта целиком и недоступна клавиатуре', async ({ page }) => {
     await page.locator('[data-testid="catalog-search"]').fill('кредит');
     await expect(page.locator(visible)).toHaveCount(expected('кредит'));

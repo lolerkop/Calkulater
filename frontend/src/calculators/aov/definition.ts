@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'business',
     icon: 'trending-up',
     popularity: 42,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Выручка, делённая на число заказов.',
     longDescription:
       'Средний чек делит выручку на заказы, которые её принесли. Это самый простой рычаг юнит-экономики: поднять средний чек почти ничего не стоит в привлечении, тогда как каждый новый клиент обходится в полную стоимость рекламы и работы продавцов.',

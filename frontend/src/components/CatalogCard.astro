@@ -54,16 +54,17 @@ const isPopular = calc.popularity >= 80;
   <div>
     <div>
       <div>
-        {calc.isNew && (
-          <span class="catalog-badge-new">
-            {newBadge}
-          </span>
-        )}
-        {isPopular && (
+        {/* Один основной бейдж на карточку: «Популярный» важнее «Нового».
+            Иначе редкий сигнал превращается в пару меток на одной карточке. */}
+        {isPopular ? (
           <span class="catalog-badge-popular">
             {popularBadge}
           </span>
-        )}
+        ) : calc.isNew ? (
+          <span class="catalog-badge-new">
+            {newBadge}
+          </span>
+        ) : null}
       </div>
     </div>
     <h3>

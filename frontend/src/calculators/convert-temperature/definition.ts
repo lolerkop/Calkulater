@@ -25,7 +25,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 59,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод между Цельсием, Фаренгейтом, Кельвином и Ранкином.',
     longDescription:
       'Переводит температуру между Цельсием, Фаренгейтом, Кельвином и Ранкином. Температурные шкалы смещены друг относительно друга, а не кратны, поэтому перевод простым умножением даёт неверный ответ.',

@@ -25,7 +25,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 50,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод мощности между ваттами, киловаттами и лошадиными силами.',
     longDescription:
       'Переводит мощность между ваттами, киловаттами, мегаваттами, механическими и метрическими лошадиными силами и BTU в час. Механическая и метрическая лошадиные силы — разные единицы, и конвертер их различает, а не усредняет.',

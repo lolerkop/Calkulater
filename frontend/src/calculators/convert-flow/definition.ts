@@ -26,7 +26,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 46,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод объёмного расхода между м³/ч, литрами в минуту и CFM.',
     longDescription:
       'Переводит объёмный расход между кубометрами в секунду и в час, литрами в секунду, минуту и час, кубическими футами в минуту и галлонами США в минуту. Кубометры в час стоят в характеристиках насосов и вытяжек, CFM — в американской вентиляционной документации.',

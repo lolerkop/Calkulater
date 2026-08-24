@@ -25,7 +25,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 49,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод частоты между герцами, килогерцами, мегагерцами и оборотами в минуту.',
     longDescription:
       'Переводит частоту между герцами, килогерцами, мегагерцами, гигагерцами, миллигерцами и оборотами в минуту. Гигагерцы стоят в характеристиках процессоров и Wi-Fi, обороты в минуту — в паспортах двигателей и насосов.',

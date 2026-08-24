@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'date-time',
     icon: 'calendar',
     popularity: 45,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Високосный ли год и какие високосные рядом.',
     longDescription:
       'Применяет григорианское правило: год, делящийся на четыре, високосный, кроме вековых, которые должны делиться ещё и на четыреста. Именно поэтому 1900 год был обычным, а 2000 — високосным.',

@@ -22,7 +22,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: "computers",
     icon: "monitor",
     popularity: 30,
-    isNew: true,
+    isNew: false,
     shortDescription: "Перевод между Unix-временем и датой UTC в обе стороны.",
     longDescription:
       "Считает секунды от первого января 1970 года и обратно, всегда в UTC. Часовой пояс браузера сюда не попадает намеренно: одно и то же число обязано давать одну и ту же дату у всех, иначе ссылка с результатом показывала бы каждому своё. Отрицательные значения — обычные даты до эпохи.",

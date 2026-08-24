@@ -29,7 +29,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'finance',
     icon: 'receipt',
     popularity: 50,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Комиссия, сумма сделки или ставка — то, чего не хватает.',
     longDescription:
       'Калькулятор считает комиссию по сумме и ставке, восстанавливает сумму сделки по известной комиссии или находит ставку, когда известны обе величины. Режим определяет, что вы вводите, а что получаете.',

@@ -22,7 +22,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: "business",
     icon: "trending-up",
     popularity: 37,
-    isNew: true,
+    isNew: false,
     shortDescription: "Окупаемость рекламных расходов вместе с ROI.",
     longDescription:
       "Делит доход на рекламный расход. ROAS и ROI описывают одну и ту же кампанию, но отличаются ровно на единицу в кратности: четырёхкратная окупаемость — это ROI 300 процентов, и назвать одно вместо другого значит сильно завысить или занизить результат. Обе величины показаны, чтобы разница была видна.",

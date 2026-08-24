@@ -14,6 +14,10 @@ for (const route of [
   '/ru/finance/income-tax-calculator/',
   '/uk/fitness/kalkulyator-bmi/',
   '/ru/calculators/',
+  // Подборка в остальных локалях: подписи бейджей и поля поиска там свои,
+  // а контраст и доступные имена обязаны выполняться во всех трёх.
+  '/en/calculators/',
+  '/uk/calculators/',
   '/ru/calculators/page/2/',
   '/ru/calculators/page/3/',
   '/ru/finance/',

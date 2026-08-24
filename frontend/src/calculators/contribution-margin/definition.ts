@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'business',
     icon: 'trending-up',
     popularity: 44,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Сколько остаётся от цены после переменных затрат.',
     longDescription:
       'Маржинальный доход — это часть цены, которая переживает переменные затраты и идёт на покрытие постоянных расходов и прибыль. Доля в цене важнее абсолютной суммы: она позволяет сравнивать товары с совершенно разными ценниками.',

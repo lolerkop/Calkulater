@@ -25,7 +25,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 60,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод длины между метрическими и имперскими единицами.',
     longDescription:
       'Переводит длину между метрическими и имперскими единицами: миллиметры, сантиметры, метры, километры, дюймы, футы, ярды, мили и морские мили. Направление задаётся выбором единиц, поэтому один конвертер закрывает все пары.',

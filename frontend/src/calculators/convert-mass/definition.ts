@@ -24,7 +24,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 57,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод массы между метрическими и имперскими единицами.',
     longDescription:
       'Переводит массу между миллиграммами, граммами, килограммами, тоннами, унциями, фунтами и стоунами. Имперские единицы заданы точно, поэтому перевод фунтов в граммы не приближённый, а точный по определению.',

@@ -871,7 +871,10 @@ export default function CalculatorCatalog({
                 id="catalog-search"
                 data-testid="catalog-search"
                 type="search"
-                className="field-input py-3 pl-10 pr-11"
+                className={[
+                  'field-input catalog-search-input py-3',
+                  query ? 'catalog-search-input-clearable' : '',
+                ].join(' ').trim()}
                 placeholder={catalogCopy.placeholder}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
@@ -1044,8 +1047,10 @@ export default function CalculatorCatalog({
               <div>
                 <div>
                   <div>
-                    {row.isNew && <span className="catalog-badge-new">{copy.newBadge}</span>}
-                    {row.isPopular && <span className="catalog-badge-popular">{copy.popularBadge}</span>}
+                    {/* Один бейдж на карточку: «Популярный» важнее «Нового». */}
+                    {row.isPopular
+                      ? <span className="catalog-badge-popular">{copy.popularBadge}</span>
+                      : row.isNew ? <span className="catalog-badge-new">{copy.newBadge}</span> : null}
                   </div>
                 </div>
                 <h3>{row.title}</h3>

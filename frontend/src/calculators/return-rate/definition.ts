@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'business',
     icon: 'trending-up',
     popularity: 41,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Какая часть заказов вернулась.',
     longDescription:
       'Доля возвратов делит вернувшиеся заказы на общее число заказов того же периода. Обе величины целые, а возвратов не может быть больше заказов — такое сочетание означает, что цифры взяты из разных периодов.',

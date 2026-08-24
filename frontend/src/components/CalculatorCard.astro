@@ -24,8 +24,12 @@ const isNew = calc.isNew === true;
   <div>
     <span>{category?.name}</span>
     <span>
-      {isNew ? <span data-testid="calculator-card-new">{copy.newBadge}</span> : null}
-      {isPopular ? <span data-testid="calculator-card-popular">{copy.popularBadge}</span> : null}
+      {/* Один бейдж на карточку: «Популярный» важнее «Нового». */}
+      {isPopular ? (
+        <span data-testid="calculator-card-popular">{copy.popularBadge}</span>
+      ) : isNew ? (
+        <span data-testid="calculator-card-new">{copy.newBadge}</span>
+      ) : null}
     </span>
   </div>
   <h3>{calc.name}</h3>

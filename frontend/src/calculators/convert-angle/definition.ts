@@ -25,7 +25,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 49,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод углов между градусами, радианами, градами и оборотами.',
     longDescription:
       'Переводит углы между радианами, градусами, градами, полными оборотами, угловыми минутами и секундами. Все множители выражены через π, а не десятичным приближением, поэтому 180° дают ровно π, а 400 градов — ровно один оборот.',

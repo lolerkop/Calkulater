@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'math',
     icon: 'calculator',
     popularity: 44,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод между римскими и арабскими числами в обе стороны.',
     longDescription:
       'Переводит арабское число в римскую запись и обратно. Диапазон — от 1 до 3999, наибольшего числа, записываемого без черты сверху, а обратный перевод принимает только каноническую форму, чтобы у каждого числа была ровно одна запись.',

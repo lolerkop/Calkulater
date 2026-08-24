@@ -26,7 +26,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 51,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод стаканов, ложек и миллилитров: метрические и американские меры разные.',
     longDescription:
       'Переводит кулинарные меры объёма между миллилитрами, литрами, чайными и столовыми ложками, стаканами и жидкими унциями. Американский стакан — 236,59 мл, метрический — 250 мл, поэтому каждая мера названа явно, а не выбирается молча.',

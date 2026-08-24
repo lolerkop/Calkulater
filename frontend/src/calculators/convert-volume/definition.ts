@@ -24,7 +24,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 55,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод объёма между литрами, кубометрами и галлонами.',
     longDescription:
       'Переводит объём между миллилитрами, литрами, кубическими сантиметрами, метрами и футами, а также американскими и британскими галлонами. Галлоны США и Великобритании различаются примерно на 20 %, поэтому в списке они разделены.',

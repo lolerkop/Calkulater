@@ -27,7 +27,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'date-time',
     icon: 'timer',
     popularity: 47,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Промежуток между моментами или время со сдвигом.',
     longDescription:
       'Считает, сколько времени проходит между двумя моментами, и во сколько получится время после прибавления или вычитания длительности. Переход через полночь обрабатывается как обычный случай, а не как ошибка.',

@@ -22,7 +22,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: "education",
     icon: "graduation-cap",
     popularity: 31,
-    isNew: true,
+    isNew: false,
     shortDescription: "Какой балл нужен на экзамене, чтобы выйти на цель.",
     longDescription:
       "Считает от обратного: текущая оценка вносит свою долю, экзамен — оставшуюся, и разница показывает, что должен дать экзамен. Результат выше ста — это ответ, а не ошибка: он говорит, что цель одним экзаменом уже не берётся, и число сообщает, насколько именно.",

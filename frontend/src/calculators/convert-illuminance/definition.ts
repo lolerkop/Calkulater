@@ -25,7 +25,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'converters',
     icon: 'arrow-left-right',
     popularity: 43,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Перевод освещённости между люксами, фут-канделами и фотами.',
     longDescription:
       'Переводит освещённость между люксами, килолюксами, миллилюксами, фут-канделами, фотами и ноксами. Люксы стоят в строительных нормах освещения рабочих мест, фут-канделы — в американской светотехнической документации.',

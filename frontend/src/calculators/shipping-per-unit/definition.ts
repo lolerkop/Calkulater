@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'business',
     icon: 'trending-up',
     popularity: 38,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Сколько логистика добавляет к себестоимости одного товара.',
     longDescription:
       'Распределяет стоимость доставки, а при необходимости и упаковки, на единицы, которые она везла. Показатель относится к юнит-экономике и стоит рядом с переменными затратами, потому что растёт вместе с объёмом так же, как материалы.',

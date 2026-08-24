@@ -59,11 +59,19 @@ describe('calculator search helpers', () => {
   });
 
   it('finds calculators marked as new', () => {
-    const names = matchingNames('новые').join(' ');
+    // Проверяем контракт, а не список имён: набор помеченных новыми меняется
+    // с каждой волной выпуска, и вписанные сюда названия устаревают молча.
+    // Запрос «новые» обязан возвращать ровно тех, у кого стоит признак.
+    const найденные = searchableCalculators.filter(
+      (calculator) => matchesCalculatorSearch(calculator, 'новые'),
+    );
+    const помеченные = searchableCalculators.filter((calculator) => calculator.isNew);
 
-    expect(names).toContain('НДФЛ');
-    expect(names).toContain('НДС');
-    expect(names).toContain('процент');
-    expect(names).toContain('скид');
+    expect(помеченные.length).toBeGreaterThan(0);
+    // Именно включение, а не равенство: тот же запрос законно ловит и текстовые
+    // совпадения — «новый клиент» у CAC, «силиконовый» у герметика. Важно, что
+    // ни один помеченный калькулятор из выдачи не выпадает.
+    const идентификаторы = new Set(найденные.map((calculator) => calculator.id));
+    expect(помеченные.filter((calculator) => !идентификаторы.has(calculator.id))).toEqual([]);
   });
 });

@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'finance',
     icon: 'wallet',
     popularity: 54,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Деление дохода на нужды, желания и сбережения.',
     longDescription:
       'Правило 50/30/20 делит доход после налогов на три части: половина на обязательные нужды, треть на желания и пятая часть на сбережения. Это ориентир, а не закон: ценность в том, что все три суммы видны сразу и видно, какая категория выбивается.',

@@ -23,7 +23,7 @@ export const definition: CalculatorDefinitionV2 = {
     category: 'math',
     icon: 'calculator',
     popularity: 42,
-    isNew: true,
+    isNew: false,
     shortDescription: 'Насколько отличаются два значения — в единицах и процентах.',
     longDescription:
       'Показывает обе разницы сразу: обычную разность и её размер относительно исходного значения. Знаменателем служит модуль базы, поэтому рост от отрицательного числа читается как рост, а не как отрицательный процент.',
