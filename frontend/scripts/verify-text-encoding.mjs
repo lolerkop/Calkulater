@@ -36,14 +36,39 @@ const mojibakePatterns = [
 const ignoredDirs = new Set(['.astro', 'dist-dev', 'node_modules']);
 const issues = [];
 
+// Некоторые из этих последовательностей законны внутри слова, набранного
+// кириллицей в верхнем регистре: украинские слова вроде «внутрішній» или
+// «пріоритет», записанные капсом, содержат пару Pe + Ukrainian I.
+// Настоящая искажённая кодировка так не выглядит: она даёт смешанный мусор,
+// где заглавные и строчные чередуются и слов не образуется.
+// Поэтому совпадение пропускается только тогда, когда оно целиком лежит внутри
+// непрерывного участка кириллицы в верхнем регистре длиной не меньше трёх.
+const CYRILLIC = /[\u0400-\u04ff]/;
+const CYRILLIC_UPPER = /[\u0400-\u042f\u0401\u0406\u0407\u0490]/;
+
+function insideUppercaseWord(line, at, length) {
+  let start = at;
+  while (start > 0 && CYRILLIC.test(line[start - 1])) start -= 1;
+  let end = at + length;
+  while (end < line.length && CYRILLIC.test(line[end])) end += 1;
+  const word = line.slice(start, end);
+  if (word.length < 3) return false;
+  return [...word].every((char) => CYRILLIC_UPPER.test(char));
+}
+
 function scanFile(filePath) {
   const text = fs.readFileSync(filePath, 'utf8');
   const lines = text.split(/\r?\n/);
 
   lines.forEach((line, index) => {
     for (const [pattern, reason] of mojibakePatterns) {
-      if (line.includes(pattern)) {
-        issues.push(`${filePath}:${index + 1}: found "${pattern}" (${reason})`);
+      let at = line.indexOf(pattern);
+      while (at !== -1) {
+        if (!insideUppercaseWord(line, at, pattern.length)) {
+          issues.push(`${filePath}:${index + 1}: found "${pattern}" (${reason})`);
+          break;
+        }
+        at = line.indexOf(pattern, at + 1);
       }
     }
   });
