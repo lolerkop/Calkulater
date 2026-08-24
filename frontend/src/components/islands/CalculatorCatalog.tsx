@@ -854,7 +854,13 @@ export default function CalculatorCatalog({
   return (
     <>
       <div className="min-w-0 rounded-3xl border border-ink-200 bg-white p-4 shadow-[0_12px_36px_rgba(39,32,85,0.07)] sm:p-6">
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px_auto] lg:items-end">
+        {/* Колонка сортировки расширена с 220px: место под ведущую иконку
+            берётся из ширины самого поля, и при 220px самая длинная подпись
+            («Сначала популярные», 153px) упиралась в системную стрелку select
+            и обрезалась многоточием в RU и UK. 248px = 40 отступ + 153 текст
+            + 14 отступ + 2 рамки + запас под стрелку. Ширина берётся у поля
+            поиска, которое тянется на 1fr. */}
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_248px_auto] lg:items-end">
           <div className="min-w-0">
             <label
               htmlFor="catalog-search"

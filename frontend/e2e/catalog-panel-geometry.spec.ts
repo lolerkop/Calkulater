@@ -198,6 +198,45 @@ test.describe('панель подборки: иконки не заходят �
     }
   });
 
+  test('подпись сортировки помещается целиком во всех локалях', async ({ page }) => {
+    // Место под ведущую иконку берётся из ширины самого поля, поэтому отступ
+    // слева и длина подписи конкурируют за одну и ту же ширину. Когда колонка
+    // была 220px, отступ в 40px оставлял «Сначала популярные» всего 11px до
+    // системной стрелки select, и Chromium резал подпись многоточием в RU и UK.
+    // Стрелку нельзя измерить через DOM — она рисуется браузером, — поэтому
+    // проверяем запас по ширине текста.
+    const ЗАПАС_ПОД_СТРЕЛКУ = 16;
+    for (const [path, loc] of ЛОКАЛИ) {
+      for (const width of [1024, 1280, 1440]) {
+        await page.setViewportSize({ width, height: 900 });
+        await page.goto(path);
+        await дождатьсяПанели(page);
+        const r = await page.evaluate(() => {
+          const sel = document.querySelector('[data-testid="catalog-sort"]') as HTMLSelectElement;
+          const s = getComputedStyle(sel);
+          const rect = sel.getBoundingClientRect();
+          const линейка = document.createElement('span');
+          линейка.style.cssText = `position:absolute;visibility:hidden;white-space:nowrap;font:${s.font}`;
+          document.body.appendChild(линейка);
+          const ширины = [...sel.options].map((o) => {
+            линейка.textContent = o.textContent;
+            return { текст: o.textContent ?? '', w: линейка.getBoundingClientRect().width };
+          });
+          линейка.remove();
+          const доступно = rect.width
+            - parseFloat(s.paddingLeft) - parseFloat(s.paddingRight)
+            - parseFloat(s.borderLeftWidth) - parseFloat(s.borderRightWidth);
+          const самая = ширины.reduce((a, b) => (b.w > a.w ? b : a));
+          return { доступно, самая: самая.текст, ширинаТекста: самая.w };
+        });
+        expect(
+          Math.round(r.доступно - r.ширинаТекста),
+          `${loc} @ ${width}px: «${r.самая}» — запас до системной стрелки`,
+        ).toBeGreaterThanOrEqual(ЗАПАС_ПОД_СТРЕЛКУ);
+      }
+    }
+  });
+
   test('кнопки фильтров и категорий обходятся без иконок', async ({ page }) => {
     // Если иконку когда-нибудь добавят в кнопку фильтра, ей тоже понадобится
     // зарезервированное место — и этот тест заставит об этом вспомнить.
