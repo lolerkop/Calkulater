@@ -11,7 +11,7 @@ import {
   generatedRatesUpdateStatus,
   generatedRatesUsedFallback,
 } from './currencyRatesStatus.generated';
-import { currencyRatesAreStale } from '../lib/currencyFreshness';
+import { currencySetIsStale } from '../lib/currencyFreshness';
 
 export type CurrencyCode =
   | 'USD'
@@ -53,7 +53,9 @@ export const ratesUpdateMessage = generatedRatesUpdateMessage;
 export const ratesUpdateFailed = generatedRatesUpdateStatus === 'failed';
 export const ratesUsedFallback = generatedRatesUsedFallback;
 export const ratesDegradedProviders: readonly string[] = generatedRatesDegradedProviders;
-export const ratesAreStale = currencyRatesAreStale(generatedRatesDate);
+// Считаем по каждому источнику, а не по общей дате: иначе обычное закрытие
+// ЕЦБ на Пасху выглядело бы для посетителя как устаревшие данные.
+export const ratesAreStale = currencySetIsStale(generatedRateSources);
 
 export const ratesStatus = ratesUpdateFailed
   ? 'Не удалось обновить курсы при последней сборке. Используются последние сохранённые данные.'

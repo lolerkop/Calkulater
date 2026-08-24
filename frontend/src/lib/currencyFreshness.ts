@@ -101,6 +101,37 @@ export function currencyRatesAreStale(sourceDate: string, now = new Date()): boo
 /** Насколько далеко вперёд дата источника считается допустимой. */
 export const MAX_PROVIDER_LEAD_HOURS = 72;
 
+// Предельный возраст данных — свой для каждого источника, потому что календари
+// публикации у них разные, и единый порог был бы либо слишком строгим для
+// одних, либо слишком мягким для других.
+//
+// ЕЦБ печатает только в рабочие дни TARGET2. Худшее известное окно — Пасха:
+// Страстная пятница, суббота, воскресенье и Пасхальный понедельник закрыты,
+// поэтому после четверга следующая публикация только во вторник. Обновление
+// ходит в 05:17 UTC, а ЕЦБ публикует около 14:00 UTC, значит во вторник до
+// полудня свежайшими остаются четверговые данные возрастом около 110 часов.
+// Столько же дают Рождество 25–26 декабря и Новый год, если ложатся на
+// четверг с пятницей. При пороге в 96 часов сборка всего сайта вставала бы
+// на несколько часов раз в год — ровно тот отказ, ради устранения которого
+// и уходили от единственного источника.
+//
+// 120 часов покрывают худшее окно с запасом в десять часов и при этом ловят
+// настоящее залипание: пропущенная неделя публикаций — уже провал.
+//
+// Резервный источник обновляется ежедневно, включая выходные и праздники,
+// поэтому ему послаблений не нужно.
+export const PROVIDER_MAX_AGE_HOURS: Record<string, number> = {
+  ecb: 120,
+  nbu: 120,
+  bnm: 120,
+};
+
+export const DEFAULT_PROVIDER_MAX_AGE_HOURS = MAX_CURRENCY_RATE_AGE_HOURS;
+
+export function providerMaxAgeHours(id: string): number {
+  return PROVIDER_MAX_AGE_HOURS[id] ?? DEFAULT_PROVIDER_MAX_AGE_HOURS;
+}
+
 export type ProviderFreshnessReason =
   | 'fresh'
   | 'invalid-date'
@@ -140,10 +171,24 @@ export function assessProviderFreshness(
   if (ageHours < -MAX_PROVIDER_LEAD_HOURS) {
     return { ...base, ageHours, fresh: false, reason: 'too-far-ahead' };
   }
-  if (ageHours > MAX_CURRENCY_RATE_AGE_HOURS) {
+  if (ageHours > providerMaxAgeHours(source.id)) {
     return { ...base, ageHours, fresh: false, reason: 'stale' };
   }
   return { ...base, ageHours, fresh: true, reason: 'fresh' };
+}
+
+/**
+ * Устарел ли набор с точки зрения посетителя.
+ *
+ * Тот же расчёт, что и в воротах: иначе на обычном выходном ЕЦБ сборка
+ * проходила бы, а на странице висело бы предупреждение об устаревании.
+ */
+export function currencySetIsStale(
+  sources: Record<string, { date: string; fallback?: boolean }>,
+  now = new Date(),
+): boolean {
+  return Object.entries(sources).some(([id, meta]) =>
+    !assessProviderFreshness({ id, ...meta }, now).fresh);
 }
 
 /**
