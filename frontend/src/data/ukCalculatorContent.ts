@@ -10,6 +10,7 @@ import { ukFinance2Content } from './ukContent/finance2';
 import { ukBuildingContent } from './ukContent/building';
 import { ukHouseholdContent } from './ukContent/household';
 import { ukElectronicsContent } from './ukContent/electronics';
+import { ukComputersContent } from './ukContent/computers';
 
 type DetailedContent = UkDetailedContent;
 
@@ -163,4 +164,5 @@ export const ukCalculatorContent: Partial<Record<string, DetailedContent>> = {
   ...ukBuildingContent,
   ...ukHouseholdContent,
   ...ukElectronicsContent,
+  ...ukComputersContent,
 };
