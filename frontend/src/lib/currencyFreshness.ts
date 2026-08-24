@@ -88,3 +88,83 @@ export function currencyRateAgeHours(sourceDate: string, now = new Date()): numb
 export function currencyRatesAreStale(sourceDate: string, now = new Date()): boolean {
   return currencyRateAgeHours(sourceDate, now) > MAX_CURRENCY_RATE_AGE_HOURS;
 }
+
+// ── Оценка по каждому источнику ────────────────────────────────────────────
+//
+// Раньше источник был один, и «свежесть» была одним числом. Теперь валюты
+// приходят от трёх центробанков с РАЗНЫМИ календарями публикации: ЕЦБ печатает
+// только по рабочим дням, НБМ — по дате в запросе, а НБУ публикует курс на
+// СЛЕДУЮЩИЙ банковский день, поэтому его дата законно оказывается в будущем.
+// Требовать от них одинаковой даты бессмысленно — надо проверять возраст
+// каждого отдельно.
+
+/** Насколько далеко вперёд дата источника считается допустимой. */
+export const MAX_PROVIDER_LEAD_HOURS = 72;
+
+export type ProviderFreshnessReason =
+  | 'fresh'
+  | 'invalid-date'
+  | 'too-far-ahead'
+  | 'stale';
+
+export interface ProviderFreshness {
+  id: string;
+  date: string;
+  fallback: boolean;
+  ageHours: number;
+  fresh: boolean;
+  reason: ProviderFreshnessReason;
+}
+
+export interface ProvidersFreshnessAssessment {
+  fresh: boolean;
+  providers: ProviderFreshness[];
+  stale: ProviderFreshness[];
+  fallbackProviders: string[];
+}
+
+export function assessProviderFreshness(
+  source: { id: string; date: string; fallback?: boolean },
+  now = new Date(),
+): ProviderFreshness {
+  const base = { id: source.id, date: source.date, fallback: Boolean(source.fallback) };
+  if (!isValidIsoDate(source.date)) {
+    return { ...base, ageHours: Number.NaN, fresh: false, reason: 'invalid-date' };
+  }
+
+  // Дату считаем от конца её суток: курс, опубликованный «на 24-е», не стареет
+  // в полночь 24-го.
+  const endOfDay = Date.parse(`${source.date}T23:59:59.999Z`);
+  const ageHours = (now.getTime() - endOfDay) / 3_600_000;
+
+  if (ageHours < -MAX_PROVIDER_LEAD_HOURS) {
+    return { ...base, ageHours, fresh: false, reason: 'too-far-ahead' };
+  }
+  if (ageHours > MAX_CURRENCY_RATE_AGE_HOURS) {
+    return { ...base, ageHours, fresh: false, reason: 'stale' };
+  }
+  return { ...base, ageHours, fresh: true, reason: 'fresh' };
+}
+
+/**
+ * Сводная оценка набора источников.
+ *
+ * Отсутствие одного основного провайдера само по себе провалом НЕ считается:
+ * если его валюты добраны из резерва, набор полон и пригоден. Провал — это
+ * устаревшие или неразборчивые данные, откуда бы они ни пришли.
+ */
+export function assessProvidersFreshness(
+  sources: Record<string, { date: string; fallback?: boolean }>,
+  now = new Date(),
+): ProvidersFreshnessAssessment {
+  const providers = Object.entries(sources)
+    .map(([id, meta]) => assessProviderFreshness({ id, ...meta }, now))
+    .sort((a, b) => a.id.localeCompare(b.id));
+  const stale = providers.filter((entry) => !entry.fresh);
+  return {
+    fresh: providers.length > 0 && stale.length === 0,
+    providers,
+    stale,
+    fallbackProviders: providers.filter((entry) => entry.fallback).map((entry) => entry.id),
+  };
+}

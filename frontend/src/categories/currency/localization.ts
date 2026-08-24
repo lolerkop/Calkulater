@@ -10,7 +10,7 @@ export const copy: CategoryCopyByLocale = {
     name: "Валюты",
     slug: "currency",
     description: "Конвертер валют и популярные валютные пары по официальным справочным курсам.",
-    longDescription: "Валютные калькуляторы помогают быстро перевести сумму между популярными валютами и открыть отдельные страницы для частых пар вроде USD/EUR, EUR/MDL и USD/MDL. Курсы обновляются при сборке сайта из официальных данных Банка России. Перед обменом сверяйте коммерческий курс и комиссию конкретного банка или обменника.",
+    longDescription: "Валютные калькуляторы помогают быстро перевести сумму между популярными валютами и открыть отдельные страницы для частых пар вроде USD/EUR, EUR/MDL и USD/MDL. Курсы обновляются при сборке сайта из официальных данных центральных банков: Европейского центрального банка, Национального банка Украины и Национального банка Молдовы. Перед обменом сверяйте коммерческий курс и комиссию конкретного банка или обменника.",
     seoTitle: "Конвертер валют — USD, EUR, MDL, RON и другие",
     seoDescription: "Онлайн-конвертер валют для USD, EUR, MDL, RON, UAH, PLN, GBP, CHF, TRY. Официальные справочные курсы с датой обновления.",
     h1: "Валютные калькуляторы",
@@ -19,7 +19,7 @@ export const copy: CategoryCopyByLocale = {
     name: "Currency",
     slug: "currency",
     description: "Currency converter and popular pairs for quick travel, shopping and budget estimates.",
-    longDescription: "Currency calculators convert amounts between common currencies using Bank of Russia reference rates published for the displayed date. Banks and exchange services may use different buy, sell and fee-inclusive rates.",
+    longDescription: "Currency calculators convert amounts between common currencies using official central-bank reference rates published for the displayed date: the European Central Bank, the National Bank of Ukraine and the National Bank of Moldova. Banks and exchange services may use different buy, sell and fee-inclusive rates.",
     seoTitle: "Currency converter — USD, EUR, MDL, RON and more",
     seoDescription: "Online currency converter for USD, EUR, MDL, RON, UAH, PLN, GBP, CHF and TRY. Official reference rates with an update date.",
     h1: "Currency calculators",
@@ -136,7 +136,7 @@ export const copy: CategoryCopyByLocale = {
     name: "Валюти",
     slug: "valyuty",
     description: "Конвертер валют і популярні валютні пари для подорожей, покупок і швидкого бюджету.",
-    longDescription: "Валютні калькулятори переводять суми між поширеними валютами за офіційними довідковими курсами Банку Росії на вказану дату. Це не курси купівлі чи продажу: банки та обмінні сервіси можуть застосовувати власний курс, спред і комісію.",
+    longDescription: "Валютні калькулятори переводять суми між поширеними валютами за офіційними довідковими курсами центральних банків на вказану дату: Європейського центрального банку, Національного банку України та Національного банку Молдови. Це не курси купівлі чи продажу: банки та обмінні сервіси можуть застосовувати власний курс, спред і комісію.",
     seoTitle: "Конвертер валют - USD, EUR, MDL, RON та інші",
     seoDescription: "Онлайн-конвертер для USD, EUR, MDL, RON, UAH, PLN, GBP, CHF і TRY. Офіційні довідкові курси з датою оновлення.",
     h1: "Валютні калькулятори",
@@ -165,7 +165,7 @@ export const faq: CategoryFaqByLocale = {
   ru: [
     {
       q: "Откуда берутся курсы валют?",
-      a: "При сборке сайт загружает последние опубликованные официальные справочные курсы Банка России. Банковские курсы покупки и продажи могут отличаться из-за спреда и комиссии.",
+      a: "При сборке сайт загружает последние опубликованные официальные справочные курсы центральных банков: евро и мажоры берутся у Европейского центрального банка, гривна — у Национального банка Украины, лей — у Национального банка Молдовы. Банковские курсы покупки и продажи могут отличаться из-за спреда и комиссии.",
     },
     {
       q: "Какие валюты поддерживаются?",
@@ -183,7 +183,7 @@ export const faq: CategoryFaqByLocale = {
   en: [
     {
       q: "Are the exchange rates live?",
-      a: "No. The site uses official Bank of Russia reference rates updated during the site build. Check the displayed date and your bank or exchange service before a transaction.",
+      a: "No. The site uses official central-bank reference rates updated during the site build: the European Central Bank for the euro and major currencies, the National Bank of Ukraine for the hryvnia and the National Bank of Moldova for the leu. Check the displayed date and your bank or exchange service before a transaction.",
     },
     {
       q: "Which currencies are supported?",
@@ -365,7 +365,7 @@ export const faq: CategoryFaqByLocale = {
   uk: [
     {
       q: "Курси валют оновлюються в реальному часі?",
-      a: "Ні. Сайт використовує офіційні довідкові курси Банку Росії, оновлені під час складання сайту. Перевіряйте показану дату та курс банку або обмінного сервісу.",
+      a: "Ні. Сайт використовує офіційні довідкові курси центральних банків, оновлені під час складання сайту: євро та основні валюти — від Європейського центрального банку, гривня — від Національного банку України, лей — від Національного банку Молдови. Перевіряйте показану дату та курс банку або обмінного сервісу.",
     },
     {
       q: "Які валюти підтримуються?",

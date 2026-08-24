@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { calcCurrency, convertCurrency } from '../src/lib/calculators/currency';
-import { lastUpdated, ratesSource, ratesToUSD } from '../src/data/currencies';
+import { lastUpdated, rateProvenance, ratesToUSD, sourcesForCurrencies } from '../src/data/currencies';
 
 describe('currency: convertCurrency', () => {
   it('USD → USD = 1:1', () => {
@@ -35,14 +35,44 @@ describe('currency: calcCurrency', () => {
     expect(rateRow?.value).toContain('EUR');
   });
 
-  it('показывает источник и дату официальных справочных курсов', () => {
+  it('показывает дату и тип официальных справочных курсов', () => {
     const r = calcCurrency({ amount: 100, from: 'USD', to: 'EUR' });
 
     expect(r.secondary.find((s) => s.label === 'Тип курса')?.value).toBe('официальный справочный');
     expect(r.secondary.find((s) => s.label === 'Дата курса')?.value).toBe(lastUpdated);
-    expect(r.secondary.find((s) => s.label === 'Источник')?.value).toBe('Банк России');
-    expect(r.secondary.find((s) => s.label === 'Источник')?.href).toBe(ratesSource);
     expect(r.secondary.find((s) => s.label === 'Статус обновления')?.value).toBeTruthy();
-    expect(r.note).toContain('Банка России');
+    expect(r.note).toContain('центральных банков');
+    expect(r.note).not.toContain('Банка России');
+  });
+
+  it('называет источник той валюты, которая участвует в расчёте', () => {
+    // Пара USD/EUR опирается только на ЕЦБ: доллар — база, своего источника
+    // у него нет. Пара EUR/MDL добавляет Национальный банк Молдовы.
+    const pair = calcCurrency({ amount: 100, from: 'USD', to: 'EUR' });
+    const pairSources = pair.secondary.filter((s) => s.label === 'Источник');
+    expect(pairSources).toHaveLength(1);
+    expect(pairSources[0].value).toBe('Европейский центральный банк');
+    expect(pairSources[0].href).toBe(sourcesForCurrencies(['EUR'])[0].url);
+
+    const cross = calcCurrency({ amount: 100, from: 'EUR', to: 'MDL' });
+    const crossSources = cross.secondary.filter((s) => s.label === 'Источник').map((s) => s.value);
+    expect(crossSources).toEqual(['Европейский центральный банк', 'Национальный банк Молдовы']);
+  });
+
+  it('нигде не называет прежний источник', () => {
+    for (const pair of [['USD', 'EUR'], ['USD', 'UAH'], ['EUR', 'MDL']] as const) {
+      const r = calcCurrency({ amount: 100, from: pair[0], to: pair[1] });
+      const text = JSON.stringify(r);
+      expect(text, pair.join('->')).not.toMatch(/Банк России|Банка России|Bank of Russia|cbr\.ru/);
+    }
+  });
+
+  it('происхождение записано для каждой валюты, кроме базовой', () => {
+    for (const code of ['EUR', 'GBP', 'CHF', 'PLN', 'RON', 'TRY'] as const) {
+      expect(rateProvenance[code].provider, code).toBe('ecb');
+    }
+    expect(rateProvenance.UAH.provider).toBe('nbu');
+    expect(rateProvenance.MDL.provider).toBe('bnm');
+    expect(rateProvenance).not.toHaveProperty('USD');
   });
 });

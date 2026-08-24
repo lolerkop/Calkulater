@@ -42,7 +42,7 @@ describe('on-page content quality', () => {
       expect(editorial.limitation.trim()).not.toBe('');
     }
 
-    expect(getCalculatorEditorial(priorityCalculator('ru', 'currency-converter'), 'ru').sources[0].href).toBe('https://www.cbr.ru/currency_base/');
+    expect(getCalculatorEditorial(priorityCalculator('ru', 'currency-converter'), 'ru').sources[0].href).toBe('https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html');
     expect(getCalculatorEditorial(priorityCalculator('ru', 'income-tax-calculator'), 'ru').sources[0].href).toContain('nalog.gov.ru');
     expect(getCalculatorEditorial(priorityCalculator('ru', 'vat-calculator'), 'ru').sources[0].href).toContain('nalog.gov.ru');
     expect(getCalculatorEditorial(priorityCalculator('uk', 'bmi-calculator'), 'uk').sources[0].href).toContain('who.int');

@@ -27,8 +27,10 @@ describe('calculator result localization', () => {
   it('localizes currency source and update status', () => {
     expect(localizedResultLabel('Статус обновления', 'en')).toBe('Update status');
     expect(localizedResultLabel('Последняя попытка обновления', 'uk')).toBe('Остання спроба оновлення');
-    expect(localizedResultText('Банк России', 'en')).toBe('Bank of Russia');
-    expect(localizedResultText('Банк России', 'uk')).toBe('Банк Росії');
+    expect(localizedResultText('Европейский центральный банк', 'en')).toBe('European Central Bank');
+    expect(localizedResultText('Европейский центральный банк', 'uk')).toBe('Європейський центральний банк');
+    expect(localizedResultText('Национальный банк Украины', 'en')).toBe('National Bank of Ukraine');
+    expect(localizedResultText('Национальный банк Молдовы', 'uk')).toBe('Національний банк Молдови');
   });
 
   it('localizes complete age phrases without leaving Russian suffixes', () => {

@@ -1,7 +1,11 @@
 import {
+  allRateSources,
   lastUpdated as currencyRatesDate,
   ratesAreStale,
   ratesUpdateFailed,
+  ratesUsedFallback,
+  sourcesForCurrencies,
+  type CurrencyCode,
 } from './currencies';
 import type { CalculatorDef } from '../lib/types';
 import { categoryDefinitions } from '../categories/manifest.generated';
@@ -90,7 +94,54 @@ export function getCalculatorEditorial(calculator: CalculatorDef, locale: string
     limitation: genericLimitations[lang][calculator.category],
   };
 
+// Названия источников по локалям. Источник называется тот, чьи данные реально
+// участвуют в расчёте этой страницы, а не один на весь сайт.
+const PROVIDER_LABELS: Record<string, { ru: string; en: string; uk: string }> = {
+  ecb: {
+    ru: 'Европейский центральный банк: справочные курсы евро',
+    en: 'European Central Bank: euro foreign exchange reference rates',
+    uk: 'Європейський центральний банк: довідкові курси євро',
+  },
+  nbu: {
+    ru: 'Национальный банк Украины: официальные курсы',
+    en: 'National Bank of Ukraine: official exchange rates',
+    uk: 'Національний банк України: офіційні курси',
+  },
+  bnm: {
+    ru: 'Национальный банк Молдовы: официальные курсы',
+    en: 'National Bank of Moldova: official exchange rates',
+    uk: 'Національний банк Молдови: офіційні курси',
+  },
+  erapi: {
+    ru: 'Exchange Rate API: резервный источник курсов',
+    en: 'Exchange Rate API: fallback rate source',
+    uk: 'Exchange Rate API: резервне джерело курсів',
+  },
+};
+
+function currencyFieldDefault(calculator: CalculatorDef, name: 'from' | 'to'): CurrencyCode | null {
+  const field = calculator.fields?.find((item) => item.name === name);
+  const value = field?.defaultValue;
+  return typeof value === 'string' ? (value as CurrencyCode) : null;
+}
+
+function currencyFieldPinned(calculator: CalculatorDef, name: 'from' | 'to'): boolean {
+  return calculator.fields?.find((item) => item.name === name)?.readOnly === true;
+}
+
   if (calculator.category === 'currency') {
+    const from = currencyFieldDefault(calculator, 'from');
+    const to = currencyFieldDefault(calculator, 'to');
+
+    // Калькулятор стоимости обмена берёт курс из поля пользователя, а не из
+    // нашей таблицы. Приписывать ему центробанки было бы неправдой.
+    if (!from || !to) return base;
+
+    // Страница пары закреплена на двух валютах — называем только их источники.
+    // Общий конвертер работает со всем набором, поэтому перечисляет все.
+    const pinned = currencyFieldPinned(calculator, 'from') && currencyFieldPinned(calculator, 'to');
+    const rateSources = pinned ? sourcesForCurrencies([from, to]) : allRateSources;
+
     return {
       ...base,
       method: `${calculator.howItWorks} ${sourceText(
@@ -99,10 +150,10 @@ export function getCalculatorEditorial(calculator: CalculatorDef, locale: string
         `The calculation uses reference rates dated ${currencyRatesDate}.`,
         `У розрахунку використано курси на ${currencyRatesDate}.`,
       )}`,
-      sources: [{
-        label: sourceText(locale, 'Банк России: база данных по курсам валют', 'Bank of Russia: currency rate database', 'Банк Росії: база даних курсів валют'),
-        href: 'https://www.cbr.ru/currency_base/',
-      }],
+      sources: rateSources.map((source) => ({
+        label: PROVIDER_LABELS[source.id]?.[lang] ?? source.label,
+        href: source.url,
+      })),
       freshnessWarning: ratesUpdateFailed
         ? sourceText(
             locale,
@@ -117,7 +168,14 @@ export function getCalculatorEditorial(calculator: CalculatorDef, locale: string
               'The reference-rate date is more than four days old. The data may be stale.',
               'Дата курсу старша за чотири дні. Дані можуть бути застарілими.',
             )
-          : undefined,
+          : ratesUsedFallback && rateSources.some((source) => source.fallback)
+            ? sourceText(
+                locale,
+                'Основной источник был недоступен, часть курсов получена из резервного.',
+                'A primary source was unavailable, so some rates came from the fallback source.',
+                'Основне джерело було недоступне, тому частину курсів отримано з резервного.',
+              )
+            : undefined,
     };
   }
 

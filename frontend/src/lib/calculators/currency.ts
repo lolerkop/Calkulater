@@ -4,12 +4,12 @@ import {
   ratesToUSD,
   currencyByCode,
   lastUpdated,
-  ratesSource,
   ratesNotice,
   ratesStatus,
   ratesUpdateAttemptedAt,
   ratesUpdateFailed,
   ratesAreStale,
+  sourcesForCurrencies,
   type CurrencyCode,
 } from '../../data/currencies';
 
@@ -36,21 +36,44 @@ export const calcCurrency: CalcFunction = (inputs) => {
   const fromMeta = currencyByCode[from];
   const toMeta = currencyByCode[to];
 
+  // Атрибуция строится по фактически участвующим валютам, а не по одному
+  // источнику на весь сайт: у USD → UAH это Национальный банк Украины,
+  // у EUR → MDL это ЕЦБ и Национальный банк Молдовы.
+  const sources = sourcesForCurrencies([from, to]);
+
+  const secondary: CalcResult['secondary'] = [
+    { label: 'Курс', value: `1 ${from} = ${fmtNumber(rate, 4)} ${to}` },
+    { label: 'Из', value: `${fmtNumber(amount, 2)} ${fromMeta.symbol} (${fromMeta.name})` },
+    { label: 'В', value: `${toMeta.name}` },
+    { label: 'Тип курса', value: 'официальный справочный' },
+    { label: 'Дата курса', value: lastUpdated },
+    { label: 'Статус обновления', value: ratesStatus, accent: ratesUpdateFailed || ratesAreStale ? 'red' : 'neutral' },
+    { label: 'Последняя попытка обновления', value: ratesUpdateAttemptedAt },
+  ];
+
+  for (const source of sources) {
+    secondary.push({
+      label: 'Источник',
+      value: source.name,
+      href: source.url,
+      accent: source.fallback ? 'red' : 'neutral',
+    });
+  }
+
+  if (sources.some((source) => source.fallback)) {
+    secondary.push({
+      label: 'Резервный источник',
+      value: 'Основной источник был недоступен, курс получен из резервного.',
+      accent: 'red',
+    });
+  }
+
   return {
     primary: {
       label: 'Результат',
       value: `${fmtNumber(result, 2)} ${toMeta.symbol}`,
     },
-    secondary: [
-      { label: 'Курс', value: `1 ${from} = ${fmtNumber(rate, 4)} ${to}` },
-      { label: 'Из', value: `${fmtNumber(amount, 2)} ${fromMeta.symbol} (${fromMeta.name})` },
-      { label: 'В', value: `${toMeta.name}` },
-      { label: 'Тип курса', value: 'официальный справочный' },
-      { label: 'Дата курса', value: lastUpdated },
-      { label: 'Статус обновления', value: ratesStatus, accent: ratesUpdateFailed || ratesAreStale ? 'red' : 'neutral' },
-      { label: 'Последняя попытка обновления', value: ratesUpdateAttemptedAt },
-      { label: 'Источник', value: 'Банк России', href: ratesSource },
-    ],
+    secondary,
     note: ratesNotice,
   };
 };

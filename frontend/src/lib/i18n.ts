@@ -1238,7 +1238,7 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     h1: 'Currency converter',
     keywords: ['currency converter', 'exchange rate', 'USD', 'EUR'],
     howToUse: ['Enter the amount.', 'Select source and target currencies.', 'Check the converted amount.'],
-    howItWorks: 'The calculator derives a cross-rate from official Bank of Russia reference rates published for the displayed date.',
+    howItWorks: 'The calculator derives a cross-rate from official central-bank reference rates published for the displayed date.',
     example: 'Convert 100 USD to EUR to estimate a travel budget.',
     faq: faq('currency converter'),
     disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',

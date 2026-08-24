@@ -718,9 +718,16 @@ const islandCalc = {
         <div class="content-card">
           <dt class="font-semibold text-ink-900">{editorial.sourceLabel}</dt>
           <dd class="mt-2 text-fit text-sm leading-relaxed text-ink-600">
-            {editorial.sources.map((source) => source.href
-              ? <a class="text-accent underline-offset-4 hover:underline" href={source.href} rel="noopener noreferrer">{source.label}</a>
-              : <span>{source.label}</span>)}
+            {/* Источников может быть несколько: у пары EUR/MDL это ЕЦБ и
+                Национальный банк Молдовы. Каждый — своей строкой, иначе
+                подписи склеиваются в один нечитаемый поток. */}
+            {editorial.sources.map((source) => (
+              <span class="block">
+                {source.href
+                  ? <a class="text-accent underline-offset-4 hover:underline" href={source.href} rel="noopener noreferrer">{source.label}</a>
+                  : source.label}
+              </span>
+            ))}
           </dd>
         </div>
         <div class="content-card">
