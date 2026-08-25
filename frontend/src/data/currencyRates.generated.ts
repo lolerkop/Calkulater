@@ -10,7 +10,7 @@ export const generatedRatesToUSD = {
   RON: 4.50137174,
   TRY: 48.08136145,
   UAH: 44.7064,
-  MDL: 17.1338,
+  MDL: 17.2482,
 } as const;
 
 export const generatedRateProvenance = {
@@ -21,11 +21,11 @@ export const generatedRateProvenance = {
   RON: { provider: 'ecb', date: '2026-08-24', fallback: false },
   TRY: { provider: 'ecb', date: '2026-08-24', fallback: false },
   UAH: { provider: 'nbu', date: '2026-08-25', fallback: false },
-  MDL: { provider: 'bnm', date: '2026-08-24', fallback: false },
+  MDL: { provider: 'bnm', date: '2026-08-25', fallback: false },
 } as const;
 
 export const generatedRateSources = {
-  bnm: { label: "National Bank of Moldova", url: 'https://www.bnm.md/en/official_exchange_rates', date: '2026-08-24', fallback: false },
+  bnm: { label: "National Bank of Moldova", url: 'https://www.bnm.md/en/official_exchange_rates', date: '2026-08-25', fallback: false },
   ecb: { label: "European Central Bank", url: 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html', date: '2026-08-24', fallback: false },
   nbu: { label: "National Bank of Ukraine", url: 'https://bank.gov.ua/ua/markets/exchangerates', date: '2026-08-25', fallback: false },
 } as const;
