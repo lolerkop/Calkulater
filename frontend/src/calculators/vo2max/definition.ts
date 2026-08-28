@@ -3,6 +3,7 @@ import { SPORT_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { vo2maxCopyEn } from './copy.en';
 import { vo2maxCopyUk } from './copy.uk';
+import { vo2maxCopyDe } from './copy.de';
 import { vo2maxReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: vo2maxCopyEn, uk: vo2maxCopyUk },
+  copy: { en: vo2maxCopyEn, uk: vo2maxCopyUk, de: vo2maxCopyDe },
   referenceCases: vo2maxReferenceCases,
   publishedExample: {
     inputs: { mode: 'cooper', distance: 2600, hrRest: 0, hrMax: 0 },

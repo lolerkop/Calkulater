@@ -21,4 +21,28 @@ export const localization: CalculatorLocalization = {
       'Результат вне допустимого диапазона': 'Результат поза допустимим діапазоном',
     },
   },
+  de: {
+      fields: {
+        'value': 'Temperatur',
+        'from': 'Von Einheit',
+        'to': 'Nach Einheit',
+      },
+      options: {
+        'c': 'Celsius (°C)',
+        'f': 'Fahrenheit (°F)',
+        'k': 'Kelvin (K)',
+        'r': 'Rankine (°Ra)',
+      },
+      results: {
+        'Результат': 'Ergebnis',
+        'Исходное значение': 'Ausgangswert',
+        'Соотношение': 'Zusammenhang',
+        'Проверьте данные': 'Prüfe die Werte',
+      },
+      values: {
+        'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+        'Введите конечное число': 'Gib eine endliche Zahl ein',
+        'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des unterstützten Bereichs',
+      },
+  },
 };

@@ -26,4 +26,23 @@ export const localization: CalculatorLocalization = {
       'При a = 0 уравнение не квадратное': 'За a = 0 рівняння не квадратне',
     },
   },
+  de: {
+      fields: {
+        'a': 'Koeffizient a',
+        'b': 'Koeffizient b',
+        'c': 'Koeffizient c',
+      },
+      options: {},
+      results: {
+        'Корни': 'Lösungen',
+        'Дискриминант': 'Diskriminante',
+        'Число корней': 'Zahl der Lösungen',
+        'Вершина параболы': 'Scheitelpunkt',
+        'Проверьте данные': 'Prüfe die Werte',
+      },
+      values: {
+        'Действительных корней нет': 'Keine reellen Lösungen',
+        'При a = 0 уравнение не квадратное': 'Mit a = 0 ist die Gleichung nicht quadratisch',
+      },
+  },
 };

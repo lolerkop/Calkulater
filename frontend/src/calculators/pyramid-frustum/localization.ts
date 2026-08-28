@@ -31,4 +31,29 @@ export const localization: CalculatorLocalization = {
       'При равных основаниях это призма, а не усечённая пирамида': 'За рівних основ це призма, а не зрізана піраміда',
     },
   },
+  de: {
+      fields: {
+        'a': 'Untere Grundkante, cm',
+        'b': 'Obere Grundkante, cm',
+        'h': 'Höhe, cm',
+      },
+      options: {},
+      results: {
+        'Объём': 'Volumen',
+        'Апофема': 'Seitenhöhe',
+        'Боковая поверхность': 'Mantelfläche',
+        'Полная поверхность': 'Gesamtoberfläche',
+        'Площади оснований': 'Flächen der Grundflächen',
+        'Проверьте данные': 'Prüfe die Werte',
+      },
+      values: {
+        'см³': 'cm³',
+        'см': 'cm',
+        'см²': 'cm²',
+        'и': 'und',
+        'Сторона основания должна быть больше нуля': 'Die Grundkante muss größer als null sein',
+        'Высота должна быть больше нуля': 'Die Höhe muss größer als null sein',
+        'При равных основаниях это призма, а не усечённая пирамида': 'Bei gleichen Grundflächen ist das ein Prisma und kein Pyramidenstumpf',
+      },
+  },
 };

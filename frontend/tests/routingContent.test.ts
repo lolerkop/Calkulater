@@ -73,17 +73,37 @@ describe('routing content: i18n routes', () => {
 
   it('keeps localized public locales scoped to global calculators only', () => {
     const ruOnlyCount = calculators.filter((calculator) => isRuOnlyCalculator(calculator.id)).length;
-    expect(locales).toEqual(['ru', 'en', 'uk']);
+    // Немецкий стал публичной локалью в фазе 27DE-F. В отличие от остальных
+    // он выпускается постепенно: каталог содержит ровно те калькуляторы,
+    // для которых есть настоящий немецкий текст.
+    expect(locales).toEqual(['ru', 'en', 'uk', 'de']);
     expect(allLocales).toContain('es');
     expect(allLocales).toContain('de');
     expect(allLocales).toContain('fr');
+    // Локали с полным паритетом содержат весь глобальный каталог.
     for (const locale of locales) {
-      if (locale === 'ru') continue;
+      if (locale === 'ru' || locale === 'de') continue;
       expect(getCalculatorById('income-tax-calculator', locale)).toBeUndefined();
       expect(getCalculatorById('vat-calculator', locale)).toBeUndefined();
       expect(isCalculatorAvailableInLocale('discount-calculator', locale)).toBe(true);
       // Выводится из состава каталога: пин здесь защищал бы только сам себя.
       expect(getCalculators(locale).length).toBe(calculators.length - ruOnlyCount);
+    }
+
+    // Немецкий выпускается постепенно: в каталоге ровно те калькуляторы, для
+    // которых есть собственный немецкий текст. Русскоязычные по существу
+    // калькуляторы сюда не попадают и здесь — это отдельная гарантия, а не
+    // следствие неполноты.
+    expect(getCalculatorById('income-tax-calculator', 'de')).toBeUndefined();
+    expect(getCalculatorById('vat-calculator', 'de')).toBeUndefined();
+    expect(getCalculatorById('deposit-calculator', 'de')).toBeUndefined();
+    const germanCatalog = getCalculators('de');
+    expect(germanCatalog.length).toBeGreaterThan(0);
+    expect(germanCatalog.length).toBeLessThan(calculators.length - ruOnlyCount);
+    // Каждый немецкий калькулятор обязан иметь немецкий слаг и немецкое имя.
+    for (const calculator of germanCatalog) {
+      expect(calculator.fullPath.startsWith('/de/'), calculator.id).toBe(true);
+      expect(calculator.name.length, calculator.id).toBeGreaterThan(0);
     }
     expect(getCalculatorById('income-tax-calculator', 'ru')).toBeTruthy();
     expect(getCalculatorById('vat-calculator', 'ru')).toBeTruthy();
@@ -125,7 +145,14 @@ describe('routing content: i18n routes', () => {
     expect(getCalculatorById('percent-calculator', 'en')?.fullPath).toBe('/en/finance/percentage-calculator/');
     expect(getCalculatorById('working-days-calculator', 'en')?.fullPath).toBe('/en/date-time/business-days-calculator/');
     expect(getCalculatorById('percent-calculator', 'es')?.fullPath).toBe('/es/finanzas/calculadora-porcentajes/');
-    expect(getCalculatorById('percent-calculator', 'de')?.fullPath).toBe('/de/finanzen/prozentrechner/');
+    // Немецкий больше не спящая локаль, поэтому проверяется калькулятор из
+    // выпущенного набора. Смысл утверждения прежний: слаг локализован, а не
+    // скопирован из английского.
+    expect(getCalculatorById('annuity', 'de')?.fullPath).toBe('/de/finanzen/annuitaetenrechner/');
+    expect(getCalculatorById('density', 'de')?.fullPath).toBe('/de/physik/dichte-rechner/');
+    // Калькулятор без немецкого текста в немецкой локали не существует —
+    // страница-заглушка хуже отсутствия страницы.
+    expect(getCalculatorById('percent-calculator', 'de')).toBeUndefined();
     expect(getCalculatorById('percent-calculator', 'fr')?.fullPath).toBe('/fr/finances/calculateur-pourcentage/');
     expect(getCalculatorById('bmi-calculator', 'fr')?.fullPath).toBe('/fr/sante/calculatrice-imc/');
     expect(getCalculatorById('percent-calculator', 'pt')?.fullPath).toBe('/pt/financas/calculadora-percentagem/');

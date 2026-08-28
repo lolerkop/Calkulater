@@ -59,4 +59,33 @@ export const localization: CalculatorLocalization = {
       "Введите хотя бы одну позицию": "Введіть хоча б одну позицію",
     },
   },
+  de: {
+      fields: {
+        'meters': 'Positionen: Bezeichnung, Verbrauch und Tarif je Zeile',
+        'fixed': 'Feste Grundgebühren je Monat',
+      },
+      options: {},
+      results: {
+        'Итого за месяц': 'Summe je Monat',
+        'Позиций': 'Positionen',
+        'Самая дорогая услуга': 'Teuerste Position',
+        'Переменная часть': 'Verbrauchsabhängiger Teil',
+        'Постоянная часть': 'Fester Teil',
+        'В год': 'Je Jahr',
+        'Расход по услугам': 'Verbrauch nach Position',
+        'Услуга': 'Position',
+        'Расход': 'Verbrauch',
+        'Тариф': 'Tarif',
+        'Сумма': 'Betrag',
+        'Проверьте данные': 'Prüfe die Werte',
+      },
+      values: {
+        '₽': '€',
+        'Нужны услуга, расход и тариф в строке:': 'Position, Verbrauch und Tarif werden benötigt in der Zeile:',
+        'Расход и тариф должны быть числами в строке:': 'Verbrauch und Tarif müssen Zahlen sein in der Zeile:',
+        'Постоянная часть не может быть отрицательной': 'Der feste Teil darf nicht negativ sein',
+        'Расход и тариф не могут быть отрицательными': 'Verbrauch und Tarif dürfen nicht negativ sein',
+        'Введите хотя бы одну позицию': 'Gib mindestens eine Position ein',
+      },
+  },
 };

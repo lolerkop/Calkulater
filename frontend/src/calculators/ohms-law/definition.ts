@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { contextualField } from './contextualField';
 import { ohmsLawCopyEn } from './copy.en';
 import { ohmsLawCopyUk } from './copy.uk';
+import { ohmsLawCopyDe } from './copy.de';
 import { ohmsLawReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: ohmsLawCopyEn, uk: ohmsLawCopyUk },
+  copy: { en: ohmsLawCopyEn, uk: ohmsLawCopyUk, de: ohmsLawCopyDe },
   referenceCases: ohmsLawReferenceCases,
   publishedExample: { inputs: { mode: 'vi', voltage: 12, current: 2 }, expected: ['6,00 Ом'] },
   presentation: {

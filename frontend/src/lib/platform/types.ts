@@ -143,7 +143,7 @@ export type CalculatorLocaleBundle = {
 };
 
 /** Локали сборки, кроме русской: он базовый и переводу не подлежит. */
-export type TranslatedLocale = 'en' | 'uk';
+export type TranslatedLocale = 'en' | 'uk' | 'de';
 
 export type CalculatorLocalization = Readonly<Partial<Record<TranslatedLocale, CalculatorLocaleBundle>>>;
 
@@ -153,7 +153,7 @@ export type ScopedLocalization = Readonly<
 >;
 
 export function isTranslatedLocale(locale: string): locale is TranslatedLocale {
-  return locale === 'en' || locale === 'uk';
+  return locale === 'en' || locale === 'uk' || locale === 'de';
 }
 
 /**
@@ -184,6 +184,7 @@ export type CalculatorDefinitionV2 = {
   readonly copy?: {
     readonly en?: CalculatorCopy;
     readonly uk?: CalculatorSeoCopy;
+    readonly de?: CalculatorSeoCopy;
   };
   readonly referenceCases?: readonly CalculatorReferenceCase[];
   readonly publishedExample?: CalculatorPublishedExample;

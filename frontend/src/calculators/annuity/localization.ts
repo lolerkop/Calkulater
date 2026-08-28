@@ -42,4 +42,33 @@ export const localization: CalculatorLocalization = {
       'Срок не может превышать 480 месяцев': 'Термін не може перевищувати 480 місяців',
     },
   },
+  de: {
+      fields: {
+        'amount': 'Darlehenssumme',
+        'rate': 'Zinssatz',
+        'months': 'Laufzeit, Monate',
+      },
+      options: {},
+      results: {
+        'Ежемесячный платёж': 'Monatliche Rate',
+        'Всего выплат': 'Summe aller Zahlungen',
+        'Переплата': 'Zinskosten',
+        'Первый месяц: проценты': 'Erster Monat: Zinsen',
+        'Первый месяц: тело': 'Erster Monat: Tilgung',
+        'Последний платёж': 'Schlussrate',
+        'Проверьте данные': 'Prüfe die Werte',
+        'График платежей': 'Tilgungsplan',
+        'Месяц': 'Monat',
+        'Платёж': 'Rate',
+        'Проценты': 'Zinsen',
+        'Основной долг': 'Tilgung',
+        'Остаток': 'Restschuld',
+      },
+      values: {
+        'Сумма должна быть больше нуля': 'Der Betrag muss größer als null sein',
+        'Ставка не может быть отрицательной': 'Der Zinssatz darf nicht negativ sein',
+        'Срок должен быть хотя бы один месяц': 'Die Laufzeit muss mindestens einen Monat betragen',
+        'Срок не может превышать 480 месяцев': 'Die Laufzeit darf 480 Monate nicht überschreiten',
+      },
+  },
 };

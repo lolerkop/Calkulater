@@ -70,13 +70,21 @@ const usefulCopy = locale === 'ru'
         newItems: 'Нові калькулятори',
         other: 'Інші розділи',
       }
-    : {
-        heading: 'Choose a calculator in this section',
-        intro: 'Start with a popular calculator or browse the full list. For a different task, open a related category.',
-        popular: 'Popular calculators',
-        newItems: 'New calculators',
-        other: 'Other categories',
-      };
+    : locale === 'de'
+      ? {
+          heading: 'Was sich in diesem Bereich lohnt',
+          intro: 'Beginne mit einem gefragten Rechner oder sieh dir die ganze Liste an. Für eine andere Aufgabe hilft ein benachbarter Bereich weiter.',
+          popular: 'Gefragte Rechner',
+          newItems: 'Neue Rechner',
+          other: 'Weitere Bereiche',
+        }
+      : {
+          heading: 'Choose a calculator in this section',
+          intro: 'Start with a popular calculator or browse the full list. For a different task, open a related category.',
+          popular: 'Popular calculators',
+          newItems: 'New calculators',
+          other: 'Other categories',
+        };
 const category = getCategoriesBySlug(locale)[categorySlug];
 if (!category) return Astro.redirect('/404');
 

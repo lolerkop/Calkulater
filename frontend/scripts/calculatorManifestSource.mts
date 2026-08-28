@@ -121,6 +121,10 @@ export const v2UkCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.uk).map((d) => [d.id, d.copy!.uk!]),
 );
 
+export const v2DeCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
+  published.filter((d) => d.copy?.de).map((d) => [d.id, d.copy!.de!]),
+);
+
 /**
  * Калькулятор доступен во всех локалях сборки, если владеет копирайтом для них.
  * Прежде это решал центральный список идентификаторов — из-за него добавление
@@ -211,8 +215,8 @@ export const v2Runtimes: Record<string, CalculatorClientRuntime> = Object.fromEn
     compute: v2Runners[id],
     validate: v2Validators[id],
     contextualField: v2ContextualFields[id],
-    localization: v2Localization.en[id] || v2Localization.uk[id]
-      ? { en: v2Localization.en[id], uk: v2Localization.uk[id] }
+    localization: v2Localization.en[id] || v2Localization.uk[id] || v2Localization.de[id]
+      ? { en: v2Localization.en[id], uk: v2Localization.uk[id], de: v2Localization.de[id] }
       : undefined,
   }]),
 );
@@ -255,6 +259,9 @@ ${entries('en')}
   },
   uk: {
 ${entries('uk')}
+  },
+  de: {
+${entries('de')}
   },
 };
 `;

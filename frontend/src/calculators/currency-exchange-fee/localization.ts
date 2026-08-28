@@ -67,4 +67,37 @@ export const localization: CalculatorLocalization = {
       "Спред должен быть меньше 100 %": "Спред має бути меншим за 100 %",
     },
   },
+  de: {
+      fields: {
+        'direction': 'Was du vorhast',
+        'amount': 'Umzutauschender Betrag',
+        'rate': 'Wechselkurs',
+        'spreadPct': 'Spread auf den Kurs, %',
+        'feePct': 'Gebühr, %',
+        'feeFixed': 'Festbetrag',
+      },
+      options: {
+        'sell': 'Währung verkaufen',
+        'buy': 'Währung kaufen',
+      },
+      results: {
+        'К получению': 'Auszahlung',
+        'Курс с учётом спреда': 'Kurs nach Spread',
+        'По номинальному курсу': 'Zum Nominalkurs',
+        'Комиссия': 'Gebühr',
+        'Потери на спреде': 'Verlust durch den Spread',
+        'Полная стоимость обмена': 'Gesamtkosten des Umtauschs',
+        'Доля потерь': 'Anteil der Kosten',
+        'Проверьте данные': 'Prüfe die Werte',
+      },
+      values: {
+        '₽': '€',
+        'ед. валюты': 'Währungseinheiten',
+        'Сумма должна быть больше нуля': 'Der Betrag muss größer als null sein',
+        'Курс должен быть больше нуля': 'Der Kurs muss größer als null sein',
+        'Комиссия и спред не могут быть отрицательными': 'Gebühr und Spread dürfen nicht negativ sein',
+        'Комиссия должна быть меньше 100 %': 'Die Gebühr muss unter 100 % liegen',
+        'Спред должен быть меньше 100 %': 'Der Spread muss unter 100 % liegen',
+      },
+  },
 };

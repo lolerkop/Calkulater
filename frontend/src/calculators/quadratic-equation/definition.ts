@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { quadraticEquationCopyEn } from './copy.en';
 import { quadraticEquationCopyUk } from './copy.uk';
+import { quadraticEquationCopyDe } from './copy.de';
 import { quadraticEquationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: quadraticEquationCopyEn, uk: quadraticEquationCopyUk },
+  copy: { en: quadraticEquationCopyEn, uk: quadraticEquationCopyUk, de: quadraticEquationCopyDe },
   referenceCases: quadraticEquationReferenceCases,
   publishedExample: { inputs: { a: 1, b: -5, c: 6 }, expected: ['x₁ = 3, x₂ = 2', '1'] },
   presentation: {

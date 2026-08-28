@@ -5,6 +5,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { weekNumberCopyEn } from './copy.en';
 import { weekNumberCopyUk } from './copy.uk';
+import { weekNumberCopyDe } from './copy.de';
 import { weekNumberReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: weekNumberCopyEn, uk: weekNumberCopyUk },
+  copy: { en: weekNumberCopyEn, uk: weekNumberCopyUk, de: weekNumberCopyDe },
   referenceCases: weekNumberReferenceCases,
   publishedExample: { inputs: { date: '2026-08-18' }, expected: ['34', '230'] },
   presentation: {

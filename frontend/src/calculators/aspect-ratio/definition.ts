@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { aspectRatioCopyEn } from './copy.en';
 import { aspectRatioCopyUk } from './copy.uk';
+import { aspectRatioCopyDe } from './copy.de';
 import { aspectRatioReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: aspectRatioCopyEn, uk: aspectRatioCopyUk },
+  copy: { en: aspectRatioCopyEn, uk: aspectRatioCopyUk, de: aspectRatioCopyDe },
   referenceCases: aspectRatioReferenceCases,
   publishedExample: { inputs: { mode: 'reduce', width: 1920, height: 1080 }, expected: ['16:9'] },
   presentation: {

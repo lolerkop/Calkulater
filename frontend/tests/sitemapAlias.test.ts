@@ -20,7 +20,12 @@ describe('i18n sitemap endpoint', () => {
     expect(body).toContain('/en/finance/loan-calculator/');
     expect(body).toContain('/uk/finansy/kalkulyator-kredytu/');
     expect(body).toContain('/ru/finance/vat-calculator/');
-    for (const hiddenLocale of ['es', 'de', 'fr', 'pt', 'it', 'pl', 'nl', 'ro', 'id', 'tr', 'vi', 'cs', 'sk', 'hu']) {
+    // Немецкий переведён из спящих в публичные в фазе 27DE-F, поэтому его
+    // адреса и hreflang в карте сайта присутствовать обязаны.
+    expect(body).toContain('<loc>https://calcuway.com/de/</loc>');
+    expect(body).toContain('hreflang="de"');
+    expect(body).toContain('/de/finanzen/annuitaetenrechner/');
+    for (const hiddenLocale of ['es', 'fr', 'pt', 'it', 'pl', 'nl', 'ro', 'id', 'tr', 'vi', 'cs', 'sk', 'hu']) {
       expect(body).not.toContain(`<loc>https://calcuway.com/${hiddenLocale}/</loc>`);
       expect(body).not.toContain(`hreflang="${hiddenLocale}"`);
     }
