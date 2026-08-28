@@ -772,8 +772,8 @@ export const v2Runtimes: Record<string, CalculatorClientRuntime> = Object.fromEn
     compute: v2Runners[id],
     validate: v2Validators[id],
     contextualField: v2ContextualFields[id],
-    localization: v2Localization.en[id] || v2Localization.uk[id]
-      ? { en: v2Localization.en[id], uk: v2Localization.uk[id] }
+    localization: v2Localization.en[id] || v2Localization.uk[id] || v2Localization.de[id]
+      ? { en: v2Localization.en[id], uk: v2Localization.uk[id], de: v2Localization.de[id] }
       : undefined,
   }]),
 );

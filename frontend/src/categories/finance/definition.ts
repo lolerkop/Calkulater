@@ -34,5 +34,6 @@ export const definition: CategoryDefinition = {
     ru: "Расчёт справочный: договорные комиссии, льготы и индивидуальные условия учитываются только при наличии соответствующих полей.",
     en: "This is a reference estimate. Contract fees, benefits and individual terms are included only when the form has a matching input.",
     uk: "Результат довідковий: договірні комісії, пільги та індивідуальні умови враховуються лише за наявності відповідних полів.",
+    de: "Das Ergebnis ist eine Orientierungsrechnung. Vertragsgebühren, Förderungen und individuelle Konditionen fließen nur ein, soweit du sie einträgst.",
   },
 };

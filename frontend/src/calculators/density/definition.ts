@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { densityCopyEn } from './copy.en';
 import { densityCopyUk } from './copy.uk';
+import { densityCopyDe } from './copy.de';
 import { densityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: densityCopyEn, uk: densityCopyUk },
+  copy: { en: densityCopyEn, uk: densityCopyUk, de: densityCopyDe },
   referenceCases: densityReferenceCases,
   publishedExample: { inputs: { mode: 'rho', m: 1000, V: 1 }, expected: ["1 000 кг/м³"] },
   presentation: {

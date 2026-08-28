@@ -30,4 +30,24 @@ export const localization: CalculatorLocalization = {
       'Расходы не могут быть отрицательными': 'Витрати не можуть бути від’ємними',
     },
   },
+  de: {
+      fields: {
+        'spend': 'Ausgaben für Marketing und Vertrieb',
+        'customers': 'Gewonnene Kunden',
+        'ltv': 'Durchschnittlicher Umsatz je Kunde',
+      },
+      options: {},
+      results: {
+        'Стоимость привлечения': 'Kundenakquisekosten',
+        'Расходы за период': 'Ausgaben der Periode',
+        'Привлечено клиентов': 'Gewonnene Kunden',
+        'LTV к CAC': 'LTV zu CAC',
+        'Проверьте данные': 'Prüfe die Werte',
+      },
+      values: {
+        'Число клиентов должно быть целым': 'Die Kundenzahl muss eine ganze Zahl sein',
+        'Клиентов должно быть больше нуля': 'Es muss mindestens ein Kunde sein',
+        'Расходы не могут быть отрицательными': 'Die Ausgaben dürfen nicht negativ sein',
+      },
+  },
 };

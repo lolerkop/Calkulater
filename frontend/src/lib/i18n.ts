@@ -1,12 +1,13 @@
 import { categories as baseCategories } from '../data/categories';
 import { categoryDefinitions } from '../categories/manifest.generated';
 import { calculators as baseCalculators } from '../data/calculators';
-import { v2EnCopy, v2FullParityIds, v2UkCopy } from '../calculators/manifest.generated';
+import { v2DeCopy, v2EnCopy, v2FullParityIds, v2UkCopy } from '../calculators/manifest.generated';
 import { v2Localization } from '../calculators/localization.generated';
 import { lookupScoped } from './platform/types';
 import { getCalculatorSeoContent } from '../data/calculatorSeoContent';
 import { fullParityCalculatorIds, isRuOnlyCalculator } from '../data/localizationParity';
 import { ukCalculatorContent } from '../data/ukCalculatorContent';
+import { deCalculatorContent } from '../data/deCalculatorContent';
 import { localizedResultLabel } from './clientI18n';
 import type { CalculatorDef, Category, CategoryId, Field, FaqItem } from './types';
 
@@ -15,7 +16,7 @@ export type Locale = (typeof allLocales)[number];
 
 // Only these locales are public for now. Other localized data stays in the
 // codebase so we can polish and re-enable languages gradually.
-export const locales = ['ru', 'en', 'uk'] as const satisfies readonly Locale[];
+export const locales = ['ru', 'en', 'uk', 'de'] as const satisfies readonly Locale[];
 
 export const defaultLocale: Locale = 'ru';
 
@@ -4421,11 +4422,34 @@ const enCalculatorCopy: Record<string, CalcCopy> = { ...legacyEnCalculatorCopy, 
 const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string, CalculatorSeoCopy>> = {
   ...legacyCalculatorSeoByLocale,
   uk: { ...legacyCalculatorSeoByLocale.uk, ...v2UkCopy },
+  de: { ...legacyCalculatorSeoByLocale.de, ...v2DeCopy },
 };
+
+// Немецкая локаль выпускается постепенно, поэтому её каталог — не весь каталог.
+// Правило то же, что и у остальных: калькулятор существует в локали, если
+// владеет копирайтом для неё. Дополнительное требование глобального паритета
+// не даёт немецкому получить страницы калькуляторов, которые сознательно
+// существуют только по-русски (российские НДФЛ, НДС и вклады).
+// Немецкая страница существует только когда есть и SEO-копирайт, и подробный
+// текст: одного заголовка мало, а общий шаблон вместо содержимого немецкую
+// локаль обесценил бы.
+const germanCalculatorIds = new Set<string>(
+  Object.keys(calculatorSeoByLocale.de).filter((id) => deCalculatorContent[id] !== undefined),
+);
 
 function buildLocalizedCalculatorCopy(id: string, locale: Exclude<Locale, 'ru'>): CalcCopy {
   if (locale === 'en') return enCalculatorCopy[id];
   const copy = calculatorSeoByLocale[locale][id];
+  if (locale === 'de') {
+    // Немецкая страница собирается только из собственного немецкого текста.
+    // Общего шаблона здесь намеренно нет: страница без подробного содержимого
+    // не должна существовать вовсе, и доступность локали это гарантирует.
+    const detailed = deCalculatorContent[id];
+    if (!detailed) {
+      throw new Error(`Немецкий текст калькулятора ${id} отсутствует: страница не должна была попасть в сборку.`);
+    }
+    return { ...copy, ...detailed };
+  }
   if (locale === 'es') {
     return {
       ...copy,
@@ -6256,7 +6280,12 @@ export function isLocale(value: string | undefined): value is Locale {
 }
 
 export function isCalculatorAvailableInLocale(id: string, locale: Locale): boolean {
-  return locale === 'ru' || globalCalculatorIds.has(id);
+  if (locale === 'ru') return true;
+  // Немецкий каталог наполняется постепенно и содержит ровно то, для чего есть
+  // настоящий немецкий текст. Требование глобального паритета сохраняется,
+  // поэтому русскоязычные по существу калькуляторы сюда не попадают.
+  if (locale === 'de') return germanCalculatorIds.has(id) && globalCalculatorIds.has(id);
+  return globalCalculatorIds.has(id);
 }
 
 export function getCategories(locale: Locale): Category[] {

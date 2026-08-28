@@ -45,4 +45,26 @@ export const localization: CalculatorLocalization = {
       "Диаметр диска должен быть больше нуля": "Діаметр диска має бути більшим за нуль",
     },
   },
+  de: {
+      fields: {
+        'width': 'Reifenbreite, mm',
+        'profile': 'Querschnitt, % der Breite',
+        'diameter': 'Felgendurchmesser, Zoll',
+      },
+      options: {},
+      results: {
+        'Внешний диаметр': 'Abrolldurchmesser',
+        'Высота профиля': 'Flankenhöhe',
+        'Длина окружности': 'Umfang',
+        'Оборотов на километр': 'Umdrehungen je Kilometer',
+        'Диаметр в дюймах': 'Durchmesser in Zoll',
+        'Проверьте данные': 'Prüfe die Werte',
+      },
+      values: {
+        'мм': 'mm',
+        'Ширина шины должна быть больше нуля': 'Die Reifenbreite muss größer als null sein',
+        'Профиль должен быть больше нуля': 'Der Querschnitt muss größer als null sein',
+        'Диаметр диска должен быть больше нуля': 'Der Felgendurchmesser muss größer als null sein',
+      },
+  },
 };

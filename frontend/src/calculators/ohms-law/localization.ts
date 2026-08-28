@@ -36,4 +36,35 @@ export const localization: CalculatorLocalization = {
       'Сопротивление должно быть больше нуля, иначе ток не определён': 'Опір має бути більшим за нуль, інакше струм не визначений',
     },
   },
+  de: {
+      fields: {
+        'mode': 'Bekanntes Paar',
+        'voltage': 'Spannung, V',
+        'current': 'Strom, A',
+        'resistance': 'Widerstand, Ω',
+      },
+      options: {
+        'vi': 'Spannung und Strom',
+        'vr': 'Spannung und Widerstand',
+        'ir': 'Strom und Widerstand',
+      },
+      results: {
+        'Результат': 'Ergebnis',
+        'Сопротивление': 'Widerstand',
+        'Ток': 'Strom',
+        'Напряжение': 'Spannung',
+        'Мощность': 'Leistung',
+        'Проверьте данные': 'Prüfe die Werte',
+      },
+      values: {
+        'Ом': 'Ω',
+        'В': 'V',
+        'А': 'A',
+        'Вт': 'W',
+        '(вычисляется)': '(wird berechnet)',
+        'Значения не могут быть отрицательными': 'Die Werte dürfen nicht negativ sein',
+        'Ток должен быть больше нуля, иначе сопротивление не определено': 'Der Strom muss größer als null sein, sonst ist der Widerstand nicht definiert',
+        'Сопротивление должно быть больше нуля, иначе ток не определён': 'Der Widerstand muss größer als null sein, sonst ist der Strom nicht definiert',
+      },
+  },
 };

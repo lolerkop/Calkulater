@@ -11,7 +11,7 @@ export function getStaticPaths() {
 
 const locale = (Astro.props.locale ?? 'ru') as Locale;
 if (!isLocale(locale)) return Astro.redirect('/404');
-const language = locale === 'ru' || locale === 'uk' ? locale : 'en';
+const language = locale === 'ru' || locale === 'uk' || locale === 'de' ? locale : 'en';
 const copy = ui[locale];
 const path = `/${locale}/privacy/`;
 const updatedAt = '2026-06-15';
@@ -86,6 +86,29 @@ const pageCopy = {
       ['contact', 'Контакт із питань приватності', 'Використовуйте зазначений контакт. Публічний канал GitHub не підходить для персональних, фінансових чи інших чутливих даних.'],
       ['updated', 'Дата оновлення', `Політику оновлено ${updatedAt}.`],
       ['changes', 'Зміни політики', 'Зміни способів обробки публікуються тут із новою датою. Істотні зміни згоди не застосовуються заднім числом.'],
+    ],
+  },
+  de: {
+    title: 'Datenschutzerklärung',
+    description: 'Wie Calcuway mit Rechnereingaben, Links mit Parametern, technischen Protokollen und der Analyse-Einwilligung umgeht.',
+    breadcrumbs: 'Brotkrumen',
+    operator: SITE.legalName
+      ? `Betreiber der Website: ${SITE.legalName}${SITE.jurisdiction ? `; Rechtsraum: ${SITE.jurisdiction}` : ''}.`
+      : 'Die Website wird unter dem Namen Calcuway betrieben. Der rechtliche Name des Betreibers und der Rechtsraum sind bisher nicht veröffentlicht; frage sie über den Datenschutzkontakt an.',
+    sections: [
+      ['operator', 'Inhaber und Betreiber', 'Der Betreiber verantwortet diese Erklärung und die Einstellungen zur Datenverarbeitung auf der Website.'],
+      ['data', 'Verarbeitete Daten', 'Rechnerformulare können Zahlen, Daten, Währungen und ausgewählte Optionen enthalten. Die Website hat keine Registrierung, keine Nutzerprofile und keinen Dokumenten-Upload.'],
+      ['local', 'Berechnung im Browser', 'Eingetragene Werte werden von JavaScript in deinem Browser verarbeitet und für die Berechnung nicht an einen Server von Calcuway gesendet.'],
+      ['share-links', 'Links mit Parametern', 'Erst wenn du „Link kopieren“ wählst, können Werte als Abfrageparameter in die URL gelangen. Die URL kann im Browserverlauf, in Lesezeichen, in Protokollen des Empfängers oder in Messengern verbleiben. Trage dort keine sensiblen Werte ein. Zum Zurücksetzen entfernst du alles nach dem Fragezeichen oder öffnest den Rechner ohne Parameter erneut.'],
+      ['storage', 'Cookies und Browserspeicher', 'Rechnereingaben werden nicht automatisch in localStorage oder sessionStorage abgelegt. Ist die Analyse konfiguriert, wird die Einwilligung als calcuway.analytics-consent.v1 in localStorage gespeichert. Eigener Code setzt vor der Einwilligung keine Cookies.'],
+      ['analytics', 'Analyse und Einwilligung', 'Google Analytics 4 und Yandex Metrica laden nur, wenn gültige Kennungen konfiguriert sind und du ausdrücklich einwilligst. Vor der Einwilligung erfolgen keine Anfragen dorthin. Die Auswahl änderst du über die Datenschutzeinstellungen oder indem du die Websitedaten löschst. Ohne diese Kennungen fehlen sowohl der Einwilligungshinweis als auch beide Dienste. Unabhängig davon läuft Cloudflare Web Analytics: Es ist auf Infrastrukturebene von Cloudflare Pages aktiviert und hängt weder von den genannten Kennungen noch vom Einwilligungshinweis ab. Es hilft, Zugriffe und Leistung zu messen, und kann technische Angaben dazu erfassen, wie Seiten geladen und genutzt werden, einschließlich der Web-Vitals-Kennzahlen. Nach dem geprüften Verhalten der Website setzt es keine Cookies und schreibt nichts in localStorage oder sessionStorage.'],
+      ['processors', 'Dienste Dritter', 'Schriften liefert Calcuway selbst aus, ohne Anfrage an Google Fonts. Google Analytics und Yandex Metrica kommen nur nach Einwilligung zum Einsatz. GitHub verarbeitet Daten nur, wenn du den öffentlichen Supportkanal öffnest. Hosting und CDN stellt Cloudflare bereit: Seine Infrastruktur verarbeitet Anfragen, um die Website auszuliefern und zu schützen, und stellt auch Cloudflare Web Analytics bereit.'],
+      ['logs', 'Technische Protokolle', 'Hosting oder CDN können IP-Adresse, User-Agent, Zeitpunkt, angeforderte URL, Antwortstatus und Fehler aufzeichnen. Abfrageparameter geteilter Links können damit in Protokolle gelangen — trage deshalb niemals Geheimnisse in eine URL ein.'],
+      ['retention', 'Aufbewahrung', 'Calcuway bewahrt Rechnerfelder nicht auf seinem Server auf. Eine geteilte URL bleibt dort, wo sie gespeichert oder hingesendet wurde. Die Analyse-Auswahl bleibt bestehen, bis sie gelöscht wird oder sich die Version des Speicherschlüssels ändert. Daten und Protokolle der Anbieter richten sich nach deren Einstellungen und Richtlinien.'],
+      ['rights', 'Deine Rechte', 'Soweit anwendbar kannst du Auskunft, Berichtigung oder Löschung verlangen, der Verarbeitung widersprechen und die Einwilligung widerrufen. Browserspeicher und URLs lassen sich lokal in den Browsereinstellungen entfernen.'],
+      ['contact', 'Datenschutzkontakt', 'Nutze für Datenschutzanfragen den angegebenen Kontakt. Der öffentliche Supportkanal auf GitHub eignet sich nicht für persönliche, finanzielle oder andere sensible Angaben.'],
+      ['updated', 'Letzte Aktualisierung', `Diese Erklärung wurde am ${updatedAt} aktualisiert.`],
+      ['changes', 'Änderungen der Erklärung', 'Änderungen an der Verarbeitung werden hier mit einem neuen Aktualisierungsdatum veröffentlicht. Wesentliche Änderungen der Einwilligung wirken nicht rückwirkend.'],
     ],
   },
 }[language];

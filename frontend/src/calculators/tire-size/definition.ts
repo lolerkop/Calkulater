@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { tireSizeCopyEn } from './copy.en';
 import { tireSizeCopyUk } from './copy.uk';
+import { tireSizeCopyDe } from './copy.de';
 import { tireSizeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: tireSizeCopyEn, uk: tireSizeCopyUk },
+  copy: { en: tireSizeCopyEn, uk: tireSizeCopyUk, de: tireSizeCopyDe },
   referenceCases: tireSizeReferenceCases,
   publishedExample: { inputs: { width: 205, profile: 55, diameter: 16 }, expected: ["631,9 мм"] },
   presentation: {

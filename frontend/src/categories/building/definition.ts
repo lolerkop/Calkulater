@@ -34,5 +34,6 @@ export const definition: CategoryDefinition = {
     ru: "Перед покупкой проверьте фактические замеры, размер упаковки, партию и рекомендации производителя.",
     en: "Before buying, verify the measurements, pack size, production batch and manufacturer instructions.",
     uk: "Перед купівлею перевірте фактичні виміри, розмір упаковки, партію та рекомендації виробника.",
+    de: "Prüfe vor dem Kauf die Maße, die Packungsgröße, die Produktionscharge und die Herstellerangaben. Der Rechner liefert eine Mengenschätzung, keine verbindliche Bestellliste.",
   },
 };

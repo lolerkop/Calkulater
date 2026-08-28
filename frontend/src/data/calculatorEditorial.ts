@@ -52,24 +52,41 @@ const labels = {
     reviewed: 'Дата останньої перевірки',
     limitation: 'Обмеження',
   },
+  de: {
+    heading: 'Quellen und Aktualität',
+    method: 'Rechenweg',
+    source: 'Datenquelle oder Norm',
+    reviewed: 'Zuletzt geprüft',
+    limitation: 'Einschränkung',
+  },
 } as const;
 
 // Оговорки категорий переехали в их модули. Прежняя карта была ориентирована
 // локаль → категория; теперь каждая категория несёт свои переводы, а нужная
 // ориентация собирается здесь.
 const genericLimitations = Object.fromEntries(
-  (['ru', 'en', 'uk'] as const).map((locale) => [
+  (['ru', 'en', 'uk', 'de'] as const).map((locale) => [
     locale,
-    Object.fromEntries(categoryDefinitions.map((definition) => [definition.id, definition.editorial[locale]])),
+    Object.fromEntries(categoryDefinitions.map((definition) => [
+      definition.id,
+      // Категория без немецкой оговорки получает английскую: локаль
+      // добавляется данными, а не правкой этого места.
+      definition.editorial[locale] ?? definition.editorial.en,
+    ])),
   ]),
-) as Record<'ru' | 'en' | 'uk', Record<string, string>>;
+) as Record<'ru' | 'en' | 'uk' | 'de', Record<string, string>>;
 
 function language(locale: string): keyof typeof labels {
-  return locale === 'ru' || locale === 'uk' ? locale : 'en';
+  return locale === 'ru' || locale === 'uk' || locale === 'de' ? locale : 'en';
 }
 
-function sourceText(locale: string, ru: string, en: string, uk: string): string {
-  return locale === 'ru' ? ru : locale === 'uk' ? uk : en;
+// Немецкий вариант необязателен: локали без собственного текста по-прежнему
+// получают английский, поэтому добавление языка не требует править все вызовы.
+function sourceText(locale: string, ru: string, en: string, uk: string, de?: string): string {
+  if (locale === 'ru') return ru;
+  if (locale === 'uk') return uk;
+  if (locale === 'de') return de ?? en;
+  return en;
 }
 
 export function getCalculatorEditorial(calculator: CalculatorDef, locale: string): CalculatorEditorial {
@@ -96,26 +113,30 @@ export function getCalculatorEditorial(calculator: CalculatorDef, locale: string
 
 // Названия источников по локалям. Источник называется тот, чьи данные реально
 // участвуют в расчёте этой страницы, а не один на весь сайт.
-const PROVIDER_LABELS: Record<string, { ru: string; en: string; uk: string }> = {
+const PROVIDER_LABELS: Record<string, { ru: string; en: string; uk: string; de: string }> = {
   ecb: {
     ru: 'Европейский центральный банк: справочные курсы евро',
     en: 'European Central Bank: euro foreign exchange reference rates',
     uk: 'Європейський центральний банк: довідкові курси євро',
+    de: 'Europäische Zentralbank: Euro-Referenzkurse',
   },
   nbu: {
     ru: 'Национальный банк Украины: официальные курсы',
     en: 'National Bank of Ukraine: official exchange rates',
     uk: 'Національний банк України: офіційні курси',
+    de: 'Nationalbank der Ukraine: amtliche Kurse',
   },
   bnm: {
     ru: 'Национальный банк Молдовы: официальные курсы',
     en: 'National Bank of Moldova: official exchange rates',
     uk: 'Національний банк Молдови: офіційні курси',
+    de: 'Nationalbank der Republik Moldau: amtliche Kurse',
   },
   erapi: {
     ru: 'Exchange Rate API: резервный источник курсов',
     en: 'Exchange Rate API: fallback rate source',
     uk: 'Exchange Rate API: резервне джерело курсів',
+    de: 'Exchange Rate API: Reservequelle für Kurse',
   },
 };
 

@@ -53,4 +53,32 @@ export const localization: CalculatorLocalization = {
       "Множитель группы не может быть нулём": "Множник групи не може бути нулем",
     },
   },
+  de: {
+      fields: {
+        'formula': 'Summenformel',
+      },
+      options: {},
+      results: {
+        'Молярная масса': 'Molare Masse',
+        'Атомов всего': 'Atome insgesamt',
+        'Элементов': 'Elemente',
+        'Масса одной молекулы': 'Masse eines Moleküls',
+        'Состав вещества': 'Zusammensetzung',
+        'Элемент': 'Element',
+        'Атомов': 'Atome',
+        'Атомная масса': 'Atommasse',
+        'Вклад в массу': 'Massenbeitrag',
+        'Доля массы': 'Massenanteil',
+        'Проверьте данные': 'Prüfe die Werte',
+      },
+      values: {
+        'г/моль': 'g/mol',
+        '·10⁻²⁴ г': '·10⁻²⁴ g',
+        'Атомные массы — стандартные атомные веса IUPAC в сокращённой записи.': 'Die Atommassen sind die abgekürzten Standard-Atomgewichte der IUPAC.',
+        'Введите химическую формулу': 'Gib eine Summenformel ein',
+        'Лишняя закрывающая скобка': 'Überzählige schließende Klammer',
+        'Не хватает закрывающей скобки': 'Es fehlt eine schließende Klammer',
+        'Множитель группы не может быть нулём': 'Ein Gruppenfaktor darf nicht null sein',
+      },
+  },
 };

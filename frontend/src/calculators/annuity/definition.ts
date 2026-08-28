@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { annuityCopyEn } from './copy.en';
 import { annuityCopyUk } from './copy.uk';
+import { annuityCopyDe } from './copy.de';
 import { annuityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: annuityCopyEn, uk: annuityCopyUk },
+  copy: { en: annuityCopyEn, uk: annuityCopyUk, de: annuityCopyDe },
   referenceCases: annuityReferenceCases,
   publishedExample: { inputs: { amount: 1000000, rate: 12, months: 12 }, expected: ['88 848,79 ₽'] },
   presentation: {

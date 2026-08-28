@@ -39,4 +39,32 @@ export const localization: CalculatorLocalization = {
       'да': 'так', 'нет': 'ні',
     },
   },
+  de: {
+      fields: {
+        'date': 'Datum',
+      },
+      options: {},
+      results: {
+        'Номер недели': 'Kalenderwoche',
+        'Неделя относится к году': 'Woche gehört zum Jahr',
+        'День года': 'Tag des Jahres',
+        'Всего дней в году': 'Tage im Jahr',
+        'День недели': 'Wochentag',
+        'Осталось дней до конца года': 'Verbleibende Tage im Jahr',
+        'Високосный год': 'Schaltjahr',
+        'Проверьте данные': 'Prüfe die Werte',
+      },
+      values: {
+        'Укажите корректную дату': 'Gib ein gültiges Datum ein',
+        'понедельник': 'Montag',
+        'вторник': 'Dienstag',
+        'среда': 'Mittwoch',
+        'четверг': 'Donnerstag',
+        'пятница': 'Freitag',
+        'суббота': 'Samstag',
+        'воскресенье': 'Sonntag',
+        'да': 'ja',
+        'нет': 'nein',
+      },
+  },
 };

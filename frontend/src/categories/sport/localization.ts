@@ -36,11 +36,11 @@ export const copy: CategoryCopyByLocale = {
   de: {
     name: "Fitness",
     slug: "fitness",
-    description: "BMI-, Kalorien-, Laufpace- und 1RM-Rechner für Training und Körperwerte.",
-    longDescription: "Fitnessrechner schätzen BMI, Tageskalorien, Laufpace und ungefähre Kraftwerte. Nutze sie als einfache Planungstools, nicht als medizinische Beratung.",
-    seoTitle: "Fitnessrechner — BMI, Kalorien, Laufpace und 1RM",
-    seoDescription: "Kostenlose Fitnessrechner für BMI, Tageskalorien, Laufpace und One-Rep-Max. Schnelle Tools für Trainingsschätzungen.",
-    h1: "Fitnessrechner",
+    description: "BMI, Kalorien, Lauftempo und Maximalkraft für Training und Körperwerte.",
+    longDescription: "Fitnessrechner helfen, Body-Mass-Index, Tageskalorien, Lauftempo und ungefähre Kraftwerte abzuschätzen. Nutze sie als einfache Planungshilfe, nicht als medizinische oder trainerische Beratung.",
+    seoTitle: "Fitness-Rechner — BMI, Kalorien, Lauftempo und 1RM",
+    seoDescription: "Kostenlose Fitnessrechner für BMI, Tageskalorien, Lauftempo und Maximalkraft. Schnelle Werkzeuge für Trainingsschätzungen.",
+    h1: "Fitness-Rechner",
   },
   fr: {
     name: "Forme",

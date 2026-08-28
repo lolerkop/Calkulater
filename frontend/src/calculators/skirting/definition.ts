@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { skirtingCopyEn } from './copy.en';
 import { skirtingCopyUk } from './copy.uk';
+import { skirtingCopyDe } from './copy.de';
 import { skirtingReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: skirtingCopyEn, uk: skirtingCopyUk },
+  copy: { en: skirtingCopyEn, uk: skirtingCopyUk, de: skirtingCopyDe },
   referenceCases: skirtingReferenceCases,
   publishedExample: { inputs: { length: 5.2, width: 3.4, doors: 2, doorWidth: 0.9, plank: 2.5, waste: 5 }, expected: ["16,17 м"] },
   presentation: {

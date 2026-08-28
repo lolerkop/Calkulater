@@ -35,4 +35,23 @@ export const localization: CalculatorLocalization = {
       "Вес предмета должен быть больше нуля": "Вага предмета має бути більшою за нуль",
     },
   },
+  de: {
+      fields: {
+        'grades': 'Noten: eine je Zeile, Gewicht nach einem Leerzeichen',
+      },
+      options: {},
+      results: {
+        'Средний балл': 'Notendurchschnitt',
+        'Сумма кредитов': 'Summe der Gewichte',
+        'Сумма произведений': 'Summe der Produkte',
+        'Предметов': 'Fächer',
+        'Простое среднее': 'Ungewichtetes Mittel',
+        'Проверьте данные': 'Prüfe die Werte',
+      },
+      values: {
+        'Введите хотя бы одну оценку': 'Gib mindestens eine Note ein',
+        'Оценка не может быть отрицательной': 'Eine Note darf nicht negativ sein',
+        'Вес предмета должен быть больше нуля': 'Das Gewicht eines Fachs muss größer als null sein',
+      },
+  },
 };

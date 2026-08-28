@@ -34,5 +34,6 @@ export const definition: CategoryDefinition = {
     ru: "Для документов и сроков проверьте правила включения дат, праздники и требования конкретной организации.",
     en: "For documents and deadlines, verify inclusion rules, holidays and the requirements of the relevant organization.",
     uk: "Для документів і строків перевірте правила включення дат, свята та вимоги конкретної організації.",
+    de: "Prüfe bei Fristen und Dokumenten, ob der erste und letzte Tag mitzählen, welche Feiertage gelten und was die zuständige Stelle verlangt.",
   },
 };

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { molarMassCopyEn } from './copy.en';
 import { molarMassCopyUk } from './copy.uk';
+import { molarMassCopyDe } from './copy.de';
 import { molarMassReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: molarMassCopyEn, uk: molarMassCopyUk },
+  copy: { en: molarMassCopyEn, uk: molarMassCopyUk, de: molarMassCopyDe },
   referenceCases: molarMassReferenceCases,
   publishedExample: { inputs: { formula: 'H2SO4' }, expected: ["98,072 г/моль"] },
   presentation: {
