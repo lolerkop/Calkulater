@@ -37,8 +37,22 @@ export const queryAliases: Record<string, string[]> = {
   свежее: ['новый'],
 };
 
+// Немецкие умляуты и эстцет разворачиваются в тот вид, которым их набирают без
+// немецкой раскладки: ä → ae, ö → oe, ü → ue, ß → ss. Приведение одно и то же и
+// для запроса, и для текста калькулятора, поэтому «Waehrung» находит
+// «Währungsrechner», а «Währung» продолжает находить его же. До этого немецкая
+// подборка на «Waehrung» отвечала «Найдено: 0».
+const GERMAN_FOLDING: Array<[RegExp, string]> = [
+  [/ä/g, 'ae'],
+  [/ö/g, 'oe'],
+  [/ü/g, 'ue'],
+  [/ß/g, 'ss'],
+];
+
 export function normalizeSearchText(value: string): string {
-  return value.toLowerCase().replace(/ё/g, 'е').replace(/\s+/g, ' ').trim();
+  let text = value.toLowerCase().replace(/ё/g, 'е');
+  for (const [pattern, replacement] of GERMAN_FOLDING) text = text.replace(pattern, replacement);
+  return text.replace(/\s+/g, ' ').trim();
 }
 
 export function queryNeedles(query: string): string[] {

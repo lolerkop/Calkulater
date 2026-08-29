@@ -14,6 +14,7 @@ import { localizeResult } from '../src/components/islands/calculator/resultLocal
 import { v2Runners } from '../src/calculators/runtime.generated';
 import { v2Localization } from '../src/calculators/localization.generated';
 import { runners } from '../src/lib/runners';
+import { matchesCalculatorSearch } from '../src/lib/search';
 
 // Контракт немецкой локали, заложенный в фазе 27DE-F.
 //
@@ -286,5 +287,44 @@ describe('немецкий результат в острове', () => {
       }
     }
     expect([...new Set(broken)]).toEqual([]);
+  });
+});
+
+describe('немецкий поиск', () => {
+  // Немецкую подборку ищут и с умляутами, и без них: без немецкой раскладки
+  // пишут ae, oe, ue и ss. До свёртки запрос «Waehrung» возвращал ноль,
+  // хотя «Währungsrechner» стоял в каталоге.
+  const german = getCalculators('de').map((calculator) => ({
+    id: calculator.id,
+    name: calculator.name,
+    shortDescription: calculator.shortDescription,
+    fullPath: calculator.fullPath,
+    keywords: calculator.keywords,
+    category: calculator.category,
+    popularity: calculator.popularity,
+    isNew: calculator.isNew,
+  }));
+
+  const found = (query: string) => german.filter((c) => matchesCalculatorSearch(c, query)).map((c) => c.id);
+
+  it('запрос без умляутов находит то же, что и с умляутами', () => {
+    for (const [plain, umlaut] of [['Waehrung', 'Währung'], ['Groesse', 'Größe'], ['Ueberstunden', 'Überstunden']]) {
+      expect(found(plain), plain).toEqual(found(umlaut));
+      expect(found(plain).length, plain).toBeGreaterThan(0);
+    }
+  });
+
+  it('немецкие слова находят свои калькуляторы', () => {
+    expect(found('Waehrung')).toContain('currency-converter');
+    expect(found('Fliesen')).toContain('tile-calculator');
+    expect(found('Estrich')).toContain('screed-calculator');
+    expect(found('Ziegel')).toContain('brick-calculator');
+    expect(found('Kalorien')).toContain('calorie-calculator');
+  });
+
+  it('свёртка не задевает другие локали', () => {
+    const russian = getCalculators('ru').map((c) => ({ ...c }));
+    expect(russian.filter((c) => matchesCalculatorSearch(c, 'кредит')).length).toBeGreaterThan(0);
+    expect(russian.filter((c) => matchesCalculatorSearch(c, 'всё')).length).toBeGreaterThanOrEqual(0);
   });
 });

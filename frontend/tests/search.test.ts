@@ -34,6 +34,14 @@ describe('calculator search helpers', () => {
   it('normalizes case, spaces, and letter ё', () => {
     expect(normalizeSearchText('  День   Рождения  ')).toBe('день рождения');
     expect(normalizeSearchText('Всё о процентах')).toBe('все о процентах');
+    // Немецкие умляуты сворачиваются так, как их набирают без немецкой
+    // раскладки. Приведение одно и то же для запроса и для текста, поэтому
+    // «Waehrung» и «Währung» встречаются в одной точке.
+    expect(normalizeSearchText('Währungsrechner')).toBe('waehrungsrechner');
+    expect(normalizeSearchText('Waehrungsrechner')).toBe('waehrungsrechner');
+    expect(normalizeSearchText('Größe')).toBe('groesse');
+    expect(normalizeSearchText('Grösse')).toBe('groesse');
+    expect(normalizeSearchText('Öl Übersicht Ärger')).toBe('oel uebersicht aerger');
   });
 
   it('expands common user aliases', () => {
