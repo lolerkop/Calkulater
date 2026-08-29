@@ -25,6 +25,7 @@ const EXPECTED_LABELS = {
   ru: { new: 'Новый', popular: 'Популярный' },
   en: { new: 'New', popular: 'Popular' },
   uk: { new: 'Новий', popular: 'Популярний' },
+  de: { new: 'Neu', popular: 'Beliebt' },
 };
 
 const problems = [];
@@ -47,7 +48,7 @@ async function catalogPages(locale) {
 
 const итог = {};
 
-for (const locale of ['ru', 'en', 'uk']) {
+for (const locale of ['ru', 'en', 'uk', 'de']) {
   let cards = 0;
   let fresh = 0;
   let popular = 0;
@@ -102,8 +103,8 @@ for (const locale of ['ru', 'en', 'uk']) {
   }
 }
 
-// Локализация обязана существовать во всех трёх локалях.
-for (const locale of ['ru', 'en', 'uk']) {
+// Локализация обязана существовать во всех выпущенных локалях.
+for (const locale of ['ru', 'en', 'uk', 'de']) {
   if (!итог[locale]) report('локаль каталога отсутствует', locale);
 }
 

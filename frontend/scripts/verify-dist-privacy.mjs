@@ -8,7 +8,7 @@ const sectionIds = [
   'logs', 'retention', 'rights', 'contact', 'updated', 'changes',
 ];
 
-for (const locale of ['ru', 'en', 'uk']) {
+for (const locale of ['ru', 'en', 'uk', 'de']) {
   const file = path.join(root, locale, 'privacy', 'index.html');
   if (!fs.existsSync(file)) {
     issues.push(`${locale}/privacy/: missing page`);

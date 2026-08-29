@@ -51,7 +51,7 @@ if (!fs.existsSync(root)) {
   process.exit(1);
 }
 
-for (const locale of ['en', 'uk']) {
+for (const locale of ['en', 'uk', 'de']) {
   const localeRoot = path.join(root, locale);
   for (const filePath of walk(localeRoot).filter((file) => file.endsWith('.html'))) {
     const file = path.relative(root, filePath).replaceAll(path.sep, '/');
@@ -66,6 +66,19 @@ for (const locale of ['en', 'uk']) {
       }
       if (/[\u0400-\u04ff]/u.test(json)) {
         issues.push(`${file}: English JSON-LD contains Cyrillic text`);
+      }
+    }
+
+    if (locale === 'de') {
+      // Немецкая страница не содержит кириллицы вовсе: ни в видимом тексте, ни
+      // в разметке для поисковых систем. Исключение — переключатель языка, где
+      // родные названия локалей написаны своими алфавитами.
+      const normalized = text.replaceAll('Русский', '').replaceAll('Українська', '');
+      if (/[\u0400-\u04ff]/u.test(normalized)) {
+        issues.push(`${file}: visible German content contains Cyrillic text`);
+      }
+      if (/[\u0400-\u04ff]/u.test(json)) {
+        issues.push(`${file}: German JSON-LD contains Cyrillic text`);
       }
     }
 
@@ -91,4 +104,4 @@ if (issues.length) {
   process.exit(1);
 }
 
-console.log('Verified EN/UK HTML and JSON-LD: no forbidden language mixing.');
+console.log('Verified EN/UK/DE HTML and JSON-LD: no forbidden language mixing.');

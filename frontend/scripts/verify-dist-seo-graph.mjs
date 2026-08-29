@@ -24,7 +24,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const CANONICAL_HOST = 'https://calcuway.com';
-const LOCALES = ['ru', 'en', 'uk'];
+const LOCALES = ['ru', 'en', 'uk', 'de'];
 
 if (!existsSync(root) || !statSync(root).isDirectory()) {
   console.error('dist directory is missing. Run astro build before verify-dist-seo-graph.');
@@ -277,6 +277,9 @@ for (const page of pages.values()) {
     }
     if (page.locale === 'uk' && RUSSIAN_ONLY.test(value)) {
       issues.push(`${page.route}: русские буквы ыъэё в ${name} украинской страницы — «${value.slice(0, 60)}»`);
+    }
+    if (page.locale === 'de' && CYRILLIC.test(value)) {
+      issues.push(`${page.route}: кириллица в ${name} немецкой страницы — «${value.slice(0, 60)}»`);
     }
   }
 }

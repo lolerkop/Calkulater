@@ -17,7 +17,7 @@ import { CATEGORY_ITEM_LIST_MAX } from './category-membership-scale.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DIST = join(ROOT, 'dist');
-const LOCALES = ['ru', 'en', 'uk'];
+const LOCALES = ['ru', 'en', 'uk', 'de'];
 
 function jsonLdBlocks(html) {
   return [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]

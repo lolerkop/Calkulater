@@ -1,6 +1,1494 @@
 {
- "note": "Одобренная базовая линия украинского слоя после фазы 26UK. Просадка более чем на четверть или потеря вопросов FAQ считается регрессией.",
+ "note": "Одобренная базовая линия локализованных слоёв: украинский после фазы 26UK, немецкий после фазы 27DE. Просадка более чем на четверть или потеря вопросов FAQ считается регрессией.",
  "pages": {
+  "/de/auto/anhalteweg-rechner/": {
+   "faq": 4,
+   "words": 540
+  },
+  "/de/auto/einpresstiefe-rechner/": {
+   "faq": 4,
+   "words": 574
+  },
+  "/de/auto/fahrtkosten-rechner/": {
+   "faq": 4,
+   "words": 473
+  },
+  "/de/auto/geschwindigkeit-weg-zeit/": {
+   "faq": 4,
+   "words": 438
+  },
+  "/de/auto/hubraum-berechnen/": {
+   "faq": 4,
+   "words": 541
+  },
+  "/de/auto/kraftstoffverbrauch-rechner/": {
+   "faq": 4,
+   "words": 477
+  },
+  "/de/auto/leistungsgewicht-rechner/": {
+   "faq": 4,
+   "words": 455
+  },
+  "/de/auto/reifenrechner/": {
+   "faq": 4,
+   "words": 634
+  },
+  "/de/auto/verdichtungsverhaeltnis/": {
+   "faq": 4,
+   "words": 519
+  },
+  "/de/auto/viertelmeile-rechner/": {
+   "faq": 4,
+   "words": 557
+  },
+  "/de/auto/wertverlust-auto/": {
+   "faq": 4,
+   "words": 651
+  },
+  "/de/auto/zweitakt-mischungsrechner/": {
+   "faq": 4,
+   "words": 586
+  },
+  "/de/business/abwanderungsrate-rechner/": {
+   "faq": 5,
+   "words": 621
+  },
+  "/de/business/amortisationsdauer-rechner/": {
+   "faq": 4,
+   "words": 540
+  },
+  "/de/business/arpu-arppu-rechner/": {
+   "faq": 5,
+   "words": 579
+  },
+  "/de/business/cpa-cpl-cpi-rechner/": {
+   "faq": 4,
+   "words": 570
+  },
+  "/de/business/deckungsbeitrag-rechner/": {
+   "faq": 4,
+   "words": 423
+  },
+  "/de/business/durchschnittlicher-bestellwert/": {
+   "faq": 4,
+   "words": 379
+  },
+  "/de/business/email-kennzahlen-rechner/": {
+   "faq": 4,
+   "words": 589
+  },
+  "/de/business/gewinn-marge-aufschlag/": {
+   "faq": 4,
+   "words": 627
+  },
+  "/de/business/interaktionsrate-rechner/": {
+   "faq": 4,
+   "words": 482
+  },
+  "/de/business/klickpreis-rechner/": {
+   "faq": 4,
+   "words": 539
+  },
+  "/de/business/klickrate-rechner/": {
+   "faq": 4,
+   "words": 418
+  },
+  "/de/business/konversionsrate-rechner/": {
+   "faq": 5,
+   "words": 610
+  },
+  "/de/business/kundenakquisekosten/": {
+   "faq": 4,
+   "words": 591
+  },
+  "/de/business/kundenwert-ltv/": {
+   "faq": 4,
+   "words": 507
+  },
+  "/de/business/lagerumschlag-rechner/": {
+   "faq": 4,
+   "words": 521
+  },
+  "/de/business/marktplatz-gebuehren/": {
+   "faq": 5,
+   "words": 625
+  },
+  "/de/business/mrr-arr-rechner/": {
+   "faq": 5,
+   "words": 639
+  },
+  "/de/business/personalkosten-rechner/": {
+   "faq": 4,
+   "words": 551
+  },
+  "/de/business/publikumswachstum-rechner/": {
+   "faq": 4,
+   "words": 551
+  },
+  "/de/business/roas-rechner/": {
+   "faq": 4,
+   "words": 423
+  },
+  "/de/business/ruecksendequote-rechner/": {
+   "faq": 4,
+   "words": 379
+  },
+  "/de/business/stueckkosten-rechner/": {
+   "faq": 4,
+   "words": 536
+  },
+  "/de/business/taktzeit-rechner/": {
+   "faq": 4,
+   "words": 563
+  },
+  "/de/business/tausendkontaktpreis/": {
+   "faq": 4,
+   "words": 402
+  },
+  "/de/business/umsatz-je-mitarbeiter/": {
+   "faq": 4,
+   "words": 366
+  },
+  "/de/business/versandkosten-je-stueck/": {
+   "faq": 4,
+   "words": 384
+  },
+  "/de/business/wareneinsatz-rechner/": {
+   "faq": 4,
+   "words": 574
+  },
+  "/de/business/werbe-roi-rechner/": {
+   "faq": 4,
+   "words": 404
+  },
+  "/de/business/werbebudget-trichter/": {
+   "faq": 4,
+   "words": 581
+  },
+  "/de/business/wochenstundenzettel/": {
+   "faq": 4,
+   "words": 613
+  },
+  "/de/chemie/allgemeine-gasgleichung/": {
+   "faq": 4,
+   "words": 562
+  },
+  "/de/chemie/ideales-gasgesetz/": {
+   "faq": 4,
+   "words": 621
+  },
+  "/de/chemie/konzentration-loesung/": {
+   "faq": 4,
+   "words": 547
+  },
+  "/de/chemie/molare-masse-rechner/": {
+   "faq": 4,
+   "words": 574
+  },
+  "/de/chemie/molaritaet-rechner/": {
+   "faq": 4,
+   "words": 602
+  },
+  "/de/chemie/ph-wert-rechner/": {
+   "faq": 4,
+   "words": 519
+  },
+  "/de/chemie/stoffmenge-berechnen/": {
+   "faq": 4,
+   "words": 536
+  },
+  "/de/chemie/verduennungsrechner/": {
+   "faq": 4,
+   "words": 512
+  },
+  "/de/computer/bandbreiten-rechner/": {
+   "faq": 4,
+   "words": 449
+  },
+  "/de/computer/css-einheiten-umrechner/": {
+   "faq": 4,
+   "words": 600
+  },
+  "/de/computer/dateien-auf-datentraeger/": {
+   "faq": 4,
+   "words": 509
+  },
+  "/de/computer/datenverbrauch-rechner/": {
+   "faq": 5,
+   "words": 624
+  },
+  "/de/computer/downloadzeit-rechner/": {
+   "faq": 4,
+   "words": 483
+  },
+  "/de/computer/farbcode-umrechner/": {
+   "faq": 5,
+   "words": 606
+  },
+  "/de/computer/fps-frametime-rechner/": {
+   "faq": 4,
+   "words": 419
+  },
+  "/de/computer/modulare-skala-rechner/": {
+   "faq": 4,
+   "words": 594
+  },
+  "/de/computer/passwort-entropie/": {
+   "faq": 4,
+   "words": 627
+  },
+  "/de/computer/ppi-rechner/": {
+   "faq": 4,
+   "words": 502
+  },
+  "/de/computer/raid-rechner/": {
+   "faq": 5,
+   "words": 662
+  },
+  "/de/computer/seitenverhaeltnis-rechner/": {
+   "faq": 4,
+   "words": 617
+  },
+  "/de/computer/sitzabstand-fernseher/": {
+   "faq": 4,
+   "words": 601
+  },
+  "/de/computer/subnetzrechner/": {
+   "faq": 5,
+   "words": 594
+  },
+  "/de/computer/unix-zeitstempel-umrechner/": {
+   "faq": 4,
+   "words": 423
+  },
+  "/de/computer/videodateigroesse-rechner/": {
+   "faq": 5,
+   "words": 604
+  },
+  "/de/computer/zeichenzaehler/": {
+   "faq": 5,
+   "words": 592
+  },
+  "/de/datum-zeit/altersrechner/": {
+   "faq": 4,
+   "words": 520
+  },
+  "/de/datum-zeit/arbeitstage-rechner/": {
+   "faq": 5,
+   "words": 578
+  },
+  "/de/datum-zeit/arbeitszeitrechner/": {
+   "faq": 5,
+   "words": 629
+  },
+  "/de/datum-zeit/datumsrechner/": {
+   "faq": 5,
+   "words": 614
+  },
+  "/de/datum-zeit/kalenderwoche-berechnen/": {
+   "faq": 4,
+   "words": 571
+  },
+  "/de/datum-zeit/schaltjahr-rechner/": {
+   "faq": 4,
+   "words": 388
+  },
+  "/de/datum-zeit/schlafrechner/": {
+   "faq": 4,
+   "words": 582
+  },
+  "/de/datum-zeit/wochentag-berechnen/": {
+   "faq": 4,
+   "words": 394
+  },
+  "/de/datum-zeit/zeitdauer-rechner/": {
+   "faq": 4,
+   "words": 433
+  },
+  "/de/datum-zeit/zeitverschiebung-rechner/": {
+   "faq": 5,
+   "words": 583
+  },
+  "/de/elektronik/akku-ladezeit-rechner/": {
+   "faq": 4,
+   "words": 494
+  },
+  "/de/elektronik/akku-laufzeit-rechner/": {
+   "faq": 4,
+   "words": 454
+  },
+  "/de/elektronik/akkupack-reihe-parallel/": {
+   "faq": 4,
+   "words": 579
+  },
+  "/de/elektronik/effektivwert-spannung/": {
+   "faq": 4,
+   "words": 606
+  },
+  "/de/elektronik/einphasige-leistung/": {
+   "faq": 4,
+   "words": 635
+  },
+  "/de/elektronik/koaxialkabel-impedanz/": {
+   "faq": 4,
+   "words": 583
+  },
+  "/de/elektronik/kondensator-ladung-energie/": {
+   "faq": 4,
+   "words": 558
+  },
+  "/de/elektronik/kondensatoren-reihe-parallel/": {
+   "faq": 4,
+   "words": 542
+  },
+  "/de/elektronik/kopfhoerer-leistung/": {
+   "faq": 4,
+   "words": 603
+  },
+  "/de/elektronik/kva-in-kw/": {
+   "faq": 4,
+   "words": 601
+  },
+  "/de/elektronik/lc-resonanzfrequenz/": {
+   "faq": 4,
+   "words": 535
+  },
+  "/de/elektronik/led-vorwiderstand/": {
+   "faq": 4,
+   "words": 452
+  },
+  "/de/elektronik/ne555-rechner/": {
+   "faq": 4,
+   "words": 610
+  },
+  "/de/elektronik/ohmsches-gesetz-rechner/": {
+   "faq": 4,
+   "words": 614
+  },
+  "/de/elektronik/rc-glied-rechner/": {
+   "faq": 4,
+   "words": 586
+  },
+  "/de/elektronik/spannungsfall-leitung/": {
+   "faq": 5,
+   "words": 632
+  },
+  "/de/elektronik/spannungsteiler-rechner/": {
+   "faq": 4,
+   "words": 615
+  },
+  "/de/elektronik/transformator-uebersetzung/": {
+   "faq": 4,
+   "words": 595
+  },
+  "/de/elektronik/wechselrichter-leistung/": {
+   "faq": 4,
+   "words": 438
+  },
+  "/de/elektronik/widerstaende-reihe-parallel/": {
+   "faq": 5,
+   "words": 606
+  },
+  "/de/elektronik/widerstand-farbcode/": {
+   "faq": 4,
+   "words": 602
+  },
+  "/de/finanzen/50-30-20-budget/": {
+   "faq": 4,
+   "words": 384
+  },
+  "/de/finanzen/abschreibung-rechner/": {
+   "faq": 4,
+   "words": 601
+  },
+  "/de/finanzen/annuitaetenrechner/": {
+   "faq": 4,
+   "words": 571
+  },
+  "/de/finanzen/arbeitstag-wert-rechner/": {
+   "faq": 4,
+   "words": 529
+  },
+  "/de/finanzen/bonus-rechner/": {
+   "faq": 4,
+   "words": 510
+  },
+  "/de/finanzen/cagr-rechner/": {
+   "faq": 4,
+   "words": 369
+  },
+  "/de/finanzen/chance-risiko-verhaeltnis/": {
+   "faq": 5,
+   "words": 611
+  },
+  "/de/finanzen/darlehen-auf-wohneigentum/": {
+   "faq": 4,
+   "words": 648
+  },
+  "/de/finanzen/dividendenrendite-rechner/": {
+   "faq": 4,
+   "words": 374
+  },
+  "/de/finanzen/effektiver-jahreszins/": {
+   "faq": 4,
+   "words": 534
+  },
+  "/de/finanzen/eigenkapital-rechner/": {
+   "faq": 4,
+   "words": 496
+  },
+  "/de/finanzen/einfache-zinsen-rechner/": {
+   "faq": 4,
+   "words": 417
+  },
+  "/de/finanzen/gehalt-umrechnen/": {
+   "faq": 4,
+   "words": 570
+  },
+  "/de/finanzen/gehaltserhoehung-rechner/": {
+   "faq": 4,
+   "words": 533
+  },
+  "/de/finanzen/gemeinsame-kosten-teilen/": {
+   "faq": 5,
+   "words": 648
+  },
+  "/de/finanzen/gewinnschwelle-rechner/": {
+   "faq": 6,
+   "words": 650
+  },
+  "/de/finanzen/hebel-position-rechner/": {
+   "faq": 4,
+   "words": 549
+  },
+  "/de/finanzen/hypothekenrechner/": {
+   "faq": 5,
+   "words": 658
+  },
+  "/de/finanzen/inflation-rechner/": {
+   "faq": 5,
+   "words": 626
+  },
+  "/de/finanzen/kreditkarte-tilgung/": {
+   "faq": 4,
+   "words": 604
+  },
+  "/de/finanzen/kreditrechner/": {
+   "faq": 5,
+   "words": 730
+  },
+  "/de/finanzen/krypto-gewinn-rechner/": {
+   "faq": 5,
+   "words": 631
+  },
+  "/de/finanzen/leasingrate-rechner/": {
+   "faq": 4,
+   "words": 603
+  },
+  "/de/finanzen/marge-aufschlag-rechner/": {
+   "faq": 5,
+   "words": 595
+  },
+  "/de/finanzen/marktkapitalisierung-rechner/": {
+   "faq": 4,
+   "words": 449
+  },
+  "/de/finanzen/maximale-darlehenssumme/": {
+   "faq": 5,
+   "words": 643
+  },
+  "/de/finanzen/mietrendite-rechner/": {
+   "faq": 4,
+   "words": 452
+  },
+  "/de/finanzen/notgroschen-rechner/": {
+   "faq": 4,
+   "words": 556
+  },
+  "/de/finanzen/positionsgroesse-rechner/": {
+   "faq": 5,
+   "words": 617
+  },
+  "/de/finanzen/provision-rechner/": {
+   "faq": 4,
+   "words": 408
+  },
+  "/de/finanzen/prozentrechner/": {
+   "faq": 4,
+   "words": 568
+  },
+  "/de/finanzen/rabattrechner/": {
+   "faq": 4,
+   "words": 555
+  },
+  "/de/finanzen/ratenkauf-rechner/": {
+   "faq": 4,
+   "words": 539
+  },
+  "/de/finanzen/reale-rendite-rechner/": {
+   "faq": 4,
+   "words": 466
+  },
+  "/de/finanzen/regel-von-72-rechner/": {
+   "faq": 4,
+   "words": 445
+  },
+  "/de/finanzen/roi-rechner/": {
+   "faq": 4,
+   "words": 386
+  },
+  "/de/finanzen/schulden-tilgungsstrategie/": {
+   "faq": 4,
+   "words": 625
+  },
+  "/de/finanzen/schuldendienstquote/": {
+   "faq": 4,
+   "words": 400
+  },
+  "/de/finanzen/sondertilgung-rechner/": {
+   "faq": 4,
+   "words": 623
+  },
+  "/de/finanzen/sparplan-durchschnittskosten/": {
+   "faq": 5,
+   "words": 668
+  },
+  "/de/finanzen/sparquote-rechner/": {
+   "faq": 3,
+   "words": 355
+  },
+  "/de/finanzen/sparziel-rechner/": {
+   "faq": 5,
+   "words": 678
+  },
+  "/de/finanzen/stundensatz-freelancer/": {
+   "faq": 5,
+   "words": 664
+  },
+  "/de/finanzen/ueberstunden-rechner/": {
+   "faq": 4,
+   "words": 533
+  },
+  "/de/finanzen/umschuldung-rechner/": {
+   "faq": 5,
+   "words": 674
+  },
+  "/de/finanzen/urlaubsanspruch-rechner/": {
+   "faq": 4,
+   "words": 546
+  },
+  "/de/finanzen/zeitwert-des-geldes/": {
+   "faq": 5,
+   "words": 620
+  },
+  "/de/finanzen/zinseszinsrechner/": {
+   "faq": 5,
+   "words": 587
+  },
+  "/de/fitness/bmi-rechner/": {
+   "faq": 5,
+   "words": 481
+  },
+  "/de/fitness/fahrrad-uebersetzung/": {
+   "faq": 4,
+   "words": 446
+  },
+  "/de/fitness/hantelscheiben-rechner/": {
+   "faq": 5,
+   "words": 600
+  },
+  "/de/fitness/idealgewicht-rechner/": {
+   "faq": 5,
+   "words": 601
+  },
+  "/de/fitness/kalorien-aus-makros/": {
+   "faq": 4,
+   "words": 362
+  },
+  "/de/fitness/kalorienrechner/": {
+   "faq": 5,
+   "words": 679
+  },
+  "/de/fitness/kalorienverbrauch-sport/": {
+   "faq": 5,
+   "words": 600
+  },
+  "/de/fitness/koerperfett-rechner/": {
+   "faq": 6,
+   "words": 654
+  },
+  "/de/fitness/laufpace-rechner/": {
+   "faq": 5,
+   "words": 497
+  },
+  "/de/fitness/laufradgroesse-fahrrad/": {
+   "faq": 5,
+   "words": 606
+  },
+  "/de/fitness/maximalpuls-rechner/": {
+   "faq": 5,
+   "words": 639
+  },
+  "/de/fitness/one-rep-max-rechner/": {
+   "faq": 5,
+   "words": 501
+  },
+  "/de/fitness/schritte-in-kilometer/": {
+   "faq": 5,
+   "words": 633
+  },
+  "/de/fitness/taille-groesse-verhaeltnis/": {
+   "faq": 5,
+   "words": 599
+  },
+  "/de/fitness/vo2max-rechner/": {
+   "faq": 4,
+   "words": 544
+  },
+  "/de/fitness/wasserbedarf-rechner/": {
+   "faq": 4,
+   "words": 584
+  },
+  "/de/geometrie/dreieck-rechner/": {
+   "faq": 4,
+   "words": 551
+  },
+  "/de/geometrie/ellipse-rechner/": {
+   "faq": 5,
+   "words": 618
+  },
+  "/de/geometrie/goldener-schnitt/": {
+   "faq": 4,
+   "words": 590
+  },
+  "/de/geometrie/kegel-rechner/": {
+   "faq": 4,
+   "words": 483
+  },
+  "/de/geometrie/kegelstumpf-rechner/": {
+   "faq": 5,
+   "words": 613
+  },
+  "/de/geometrie/kreis-rechner/": {
+   "faq": 4,
+   "words": 504
+  },
+  "/de/geometrie/kreisring-rechner/": {
+   "faq": 5,
+   "words": 609
+  },
+  "/de/geometrie/kreissektor-rechner/": {
+   "faq": 4,
+   "words": 497
+  },
+  "/de/geometrie/kugel-rechner/": {
+   "faq": 4,
+   "words": 513
+  },
+  "/de/geometrie/parallelogramm-rechner/": {
+   "faq": 4,
+   "words": 565
+  },
+  "/de/geometrie/prisma-rechner/": {
+   "faq": 4,
+   "words": 543
+  },
+  "/de/geometrie/pyramide-rechner/": {
+   "faq": 4,
+   "words": 563
+  },
+  "/de/geometrie/pyramidenstumpf-rechner/": {
+   "faq": 4,
+   "words": 588
+  },
+  "/de/geometrie/quader-rechner/": {
+   "faq": 4,
+   "words": 512
+  },
+  "/de/geometrie/quadrat-rechner/": {
+   "faq": 4,
+   "words": 487
+  },
+  "/de/geometrie/raute-rechner/": {
+   "faq": 5,
+   "words": 564
+  },
+  "/de/geometrie/rechteck-rechner/": {
+   "faq": 4,
+   "words": 545
+  },
+  "/de/geometrie/rechtwinkliges-dreieck/": {
+   "faq": 4,
+   "words": 533
+  },
+  "/de/geometrie/regelmaessiges-vieleck/": {
+   "faq": 4,
+   "words": 515
+  },
+  "/de/geometrie/riemenlaenge-rechner/": {
+   "faq": 4,
+   "words": 522
+  },
+  "/de/geometrie/steigung-rechner/": {
+   "faq": 4,
+   "words": 547
+  },
+  "/de/geometrie/trapez-rechner/": {
+   "faq": 4,
+   "words": 494
+  },
+  "/de/geometrie/vieleckflaeche-koordinaten/": {
+   "faq": 5,
+   "words": 612
+  },
+  "/de/geometrie/wuerfel-rechner/": {
+   "faq": 5,
+   "words": 620
+  },
+  "/de/geometrie/zylinder-rechner/": {
+   "faq": 4,
+   "words": 460
+  },
+  "/de/haushalt/3d-druck-kosten/": {
+   "faq": 5,
+   "words": 709
+  },
+  "/de/haushalt/abokosten-rechner/": {
+   "faq": 5,
+   "words": 595
+  },
+  "/de/haushalt/alkoholeinheiten-rechner/": {
+   "faq": 4,
+   "words": 574
+  },
+  "/de/haushalt/alkoholgehalt-aus-dichte/": {
+   "faq": 4,
+   "words": 537
+  },
+  "/de/haushalt/baeckerprozente-rechner/": {
+   "faq": 5,
+   "words": 678
+  },
+  "/de/haushalt/bratzeit-rechner/": {
+   "faq": 4,
+   "words": 595
+  },
+  "/de/haushalt/futtermenge-rechner/": {
+   "faq": 4,
+   "words": 616
+  },
+  "/de/haushalt/gardinenstoff-rechner/": {
+   "faq": 4,
+   "words": 603
+  },
+  "/de/haushalt/grundpreis-rechner/": {
+   "faq": 4,
+   "words": 537
+  },
+  "/de/haushalt/haustier-alter-rechner/": {
+   "faq": 4,
+   "words": 585
+  },
+  "/de/haushalt/hefe-umrechner/": {
+   "faq": 4,
+   "words": 571
+  },
+  "/de/haushalt/heizleistung-rechner/": {
+   "faq": 5,
+   "words": 643
+  },
+  "/de/haushalt/kaffee-wasser-verhaeltnis/": {
+   "faq": 4,
+   "words": 574
+  },
+  "/de/haushalt/kalorien-je-portion/": {
+   "faq": 5,
+   "words": 640
+  },
+  "/de/haushalt/koffermasse-rechner/": {
+   "faq": 4,
+   "words": 565
+  },
+  "/de/haushalt/nebenkosten-rechner/": {
+   "faq": 4,
+   "words": 564
+  },
+  "/de/haushalt/passepartout-rechner/": {
+   "faq": 4,
+   "words": 605
+  },
+  "/de/haushalt/pool-fuellzeit-rechner/": {
+   "faq": 4,
+   "words": 492
+  },
+  "/de/haushalt/raumbeleuchtung-rechner/": {
+   "faq": 5,
+   "words": 614
+  },
+  "/de/haushalt/regenwasser-rechner/": {
+   "faq": 4,
+   "words": 579
+  },
+  "/de/haushalt/reisebudget-rechner/": {
+   "faq": 5,
+   "words": 665
+  },
+  "/de/haushalt/rezept-umrechnen/": {
+   "faq": 5,
+   "words": 671
+  },
+  "/de/haushalt/rezeptkosten-rechner/": {
+   "faq": 5,
+   "words": 625
+  },
+  "/de/haushalt/rohgewicht-kochgewicht/": {
+   "faq": 5,
+   "words": 644
+  },
+  "/de/haushalt/stromerzeuger-verbrauch/": {
+   "faq": 4,
+   "words": 587
+  },
+  "/de/haushalt/stromverbrauch-rechner/": {
+   "faq": 4,
+   "words": 487
+  },
+  "/de/haushalt/trinkgeld-rechner/": {
+   "faq": 4,
+   "words": 452
+  },
+  "/de/haushalt/tropfender-wasserhahn/": {
+   "faq": 4,
+   "words": 610
+  },
+  "/de/haushalt/vorratsreichweite-rechner/": {
+   "faq": 4,
+   "words": 458
+  },
+  "/de/haushalt/wasser-aufheizzeit/": {
+   "faq": 4,
+   "words": 619
+  },
+  "/de/haushalt/wasserwechsel-aquarium/": {
+   "faq": 4,
+   "words": 599
+  },
+  "/de/heimwerken/bahnenbelag-rechner/": {
+   "faq": 5,
+   "words": 656
+  },
+  "/de/heimwerken/behaeltervolumen-rechner/": {
+   "faq": 4,
+   "words": 614
+  },
+  "/de/heimwerken/beton-rechner/": {
+   "faq": 4,
+   "words": 606
+  },
+  "/de/heimwerken/biegespannung-rechner/": {
+   "faq": 4,
+   "words": 582
+  },
+  "/de/heimwerken/bodenplatte-rechner/": {
+   "faq": 5,
+   "words": 716
+  },
+  "/de/heimwerken/dachflaeche-rechner/": {
+   "faq": 4,
+   "words": 622
+  },
+  "/de/heimwerken/dachlattung-rechner/": {
+   "faq": 5,
+   "words": 631
+  },
+  "/de/heimwerken/daemmstoff-rechner/": {
+   "faq": 4,
+   "words": 546
+  },
+  "/de/heimwerken/dichtstoff-rechner/": {
+   "faq": 4,
+   "words": 620
+  },
+  "/de/heimwerken/durchbiegung-traeger/": {
+   "faq": 4,
+   "words": 580
+  },
+  "/de/heimwerken/epoxidharz-rechner/": {
+   "faq": 4,
+   "words": 634
+  },
+  "/de/heimwerken/estrichrechner/": {
+   "faq": 6,
+   "words": 700
+  },
+  "/de/heimwerken/farbrechner/": {
+   "faq": 5,
+   "words": 678
+  },
+  "/de/heimwerken/fassadenbretter-rechner/": {
+   "faq": 4,
+   "words": 553
+  },
+  "/de/heimwerken/fliesenrechner/": {
+   "faq": 5,
+   "words": 667
+  },
+  "/de/heimwerken/fussbodenheizung-rohr/": {
+   "faq": 5,
+   "words": 627
+  },
+  "/de/heimwerken/gehrungswinkel-rechner/": {
+   "faq": 4,
+   "words": 590
+  },
+  "/de/heimwerken/gelaenderstaebe-abstand/": {
+   "faq": 4,
+   "words": 556
+  },
+  "/de/heimwerken/holz-kubikmeter-rechner/": {
+   "faq": 4,
+   "words": 611
+  },
+  "/de/heimwerken/holzgewicht-rechner/": {
+   "faq": 5,
+   "words": 617
+  },
+  "/de/heimwerken/laminatrechner/": {
+   "faq": 5,
+   "words": 592
+  },
+  "/de/heimwerken/luftwechselrate-rechner/": {
+   "faq": 4,
+   "words": 600
+  },
+  "/de/heimwerken/pfahlfundament-rechner/": {
+   "faq": 5,
+   "words": 680
+  },
+  "/de/heimwerken/putz-rechner/": {
+   "faq": 4,
+   "words": 555
+  },
+  "/de/heimwerken/raumvolumen-rechner/": {
+   "faq": 4,
+   "words": 425
+  },
+  "/de/heimwerken/rohrgewicht-rechner/": {
+   "faq": 4,
+   "words": 554
+  },
+  "/de/heimwerken/schuettgut-rechner/": {
+   "faq": 4,
+   "words": 584
+  },
+  "/de/heimwerken/sockelleisten-rechner/": {
+   "faq": 4,
+   "words": 602
+  },
+  "/de/heimwerken/sparrenlaenge-rechner/": {
+   "faq": 4,
+   "words": 558
+  },
+  "/de/heimwerken/stahlgewicht-rechner/": {
+   "faq": 4,
+   "words": 588
+  },
+  "/de/heimwerken/streifenfundament-rechner/": {
+   "faq": 4,
+   "words": 538
+  },
+  "/de/heimwerken/tapetenrechner/": {
+   "faq": 5,
+   "words": 716
+  },
+  "/de/heimwerken/treppe-steigung-auftritt/": {
+   "faq": 4,
+   "words": 543
+  },
+  "/de/heimwerken/trockenbau-rechner/": {
+   "faq": 5,
+   "words": 654
+  },
+  "/de/heimwerken/zaun-rechner/": {
+   "faq": 5,
+   "words": 617
+  },
+  "/de/heimwerken/ziegelrechner/": {
+   "faq": 6,
+   "words": 747
+  },
+  "/de/lernen/endnote-rechner/": {
+   "faq": 4,
+   "words": 463
+  },
+  "/de/lernen/lesedauer-rechner/": {
+   "faq": 5,
+   "words": 632
+  },
+  "/de/lernen/lesegeschwindigkeit-test/": {
+   "faq": 4,
+   "words": 457
+  },
+  "/de/lernen/notendurchschnitt-rechner/": {
+   "faq": 4,
+   "words": 584
+  },
+  "/de/lernen/testergebnis-prozent/": {
+   "faq": 4,
+   "words": 437
+  },
+  "/de/mathematik/absolute-relative-differenz/": {
+   "faq": 4,
+   "words": 398
+  },
+  "/de/mathematik/arithmetische-folge/": {
+   "faq": 5,
+   "words": 641
+  },
+  "/de/mathematik/binomialverteilung-rechner/": {
+   "faq": 5,
+   "words": 596
+  },
+  "/de/mathematik/bruchrechner/": {
+   "faq": 4,
+   "words": 498
+  },
+  "/de/mathematik/division-mit-rest/": {
+   "faq": 4,
+   "words": 415
+  },
+  "/de/mathematik/fakultaet-rechner/": {
+   "faq": 4,
+   "words": 388
+  },
+  "/de/mathematik/fibonacci-rechner/": {
+   "faq": 5,
+   "words": 652
+  },
+  "/de/mathematik/geometrische-folge/": {
+   "faq": 5,
+   "words": 632
+  },
+  "/de/mathematik/gewichteter-durchschnitt/": {
+   "faq": 4,
+   "words": 569
+  },
+  "/de/mathematik/ggt-kgv-rechner/": {
+   "faq": 5,
+   "words": 634
+  },
+  "/de/mathematik/kombinationen-variationen/": {
+   "faq": 4,
+   "words": 474
+  },
+  "/de/mathematik/konfidenzintervall-rechner/": {
+   "faq": 5,
+   "words": 568
+  },
+  "/de/mathematik/korrelationskoeffizient/": {
+   "faq": 5,
+   "words": 650
+  },
+  "/de/mathematik/lineare-gleichung/": {
+   "faq": 4,
+   "words": 469
+  },
+  "/de/mathematik/lineares-gleichungssystem/": {
+   "faq": 4,
+   "words": 687
+  },
+  "/de/mathematik/logarithmus-rechner/": {
+   "faq": 4,
+   "words": 395
+  },
+  "/de/mathematik/mittelwert-standardabweichung/": {
+   "faq": 4,
+   "words": 633
+  },
+  "/de/mathematik/potenz-wurzel-rechner/": {
+   "faq": 5,
+   "words": 641
+  },
+  "/de/mathematik/primfaktorzerlegung/": {
+   "faq": 4,
+   "words": 382
+  },
+  "/de/mathematik/quadratische-gleichung-loesen/": {
+   "faq": 4,
+   "words": 600
+  },
+  "/de/mathematik/quartile-rechner/": {
+   "faq": 4,
+   "words": 634
+  },
+  "/de/mathematik/roemische-zahlen-umrechner/": {
+   "faq": 4,
+   "words": 393
+  },
+  "/de/mathematik/runden-rechner/": {
+   "faq": 4,
+   "words": 538
+  },
+  "/de/mathematik/stichprobenumfang-rechner/": {
+   "faq": 4,
+   "words": 634
+  },
+  "/de/mathematik/teiler-rechner/": {
+   "faq": 4,
+   "words": 408
+  },
+  "/de/mathematik/verhaeltnis-rechner/": {
+   "faq": 5,
+   "words": 631
+  },
+  "/de/mathematik/verhaeltnisgleichung/": {
+   "faq": 4,
+   "words": 440
+  },
+  "/de/mathematik/wahrscheinlichkeit-rechner/": {
+   "faq": 4,
+   "words": 546
+  },
+  "/de/mathematik/wuerfel-wahrscheinlichkeit/": {
+   "faq": 4,
+   "words": 562
+  },
+  "/de/mathematik/z-wert-rechner/": {
+   "faq": 4,
+   "words": 508
+  },
+  "/de/physik/absolute-luftfeuchte/": {
+   "faq": 4,
+   "words": 551
+  },
+  "/de/physik/abstandsquadratgesetz/": {
+   "faq": 4,
+   "words": 585
+  },
+  "/de/physik/arbeit-berechnen/": {
+   "faq": 4,
+   "words": 584
+  },
+  "/de/physik/auftriebskraft-rechner/": {
+   "faq": 4,
+   "words": 624
+  },
+  "/de/physik/bernoulli-gleichung/": {
+   "faq": 4,
+   "words": 642
+  },
+  "/de/physik/beschleunigung-rechner/": {
+   "faq": 4,
+   "words": 588
+  },
+  "/de/physik/carnot-wirkungsgrad/": {
+   "faq": 4,
+   "words": 608
+  },
+  "/de/physik/coulombsches-gesetz/": {
+   "faq": 4,
+   "words": 548
+  },
+  "/de/physik/de-broglie-wellenlaenge/": {
+   "faq": 4,
+   "words": 561
+  },
+  "/de/physik/dezibel-rechner/": {
+   "faq": 4,
+   "words": 585
+  },
+  "/de/physik/dichte-rechner/": {
+   "faq": 4,
+   "words": 573
+  },
+  "/de/physik/dopplereffekt-rechner/": {
+   "faq": 4,
+   "words": 650
+  },
+  "/de/physik/drehmoment-berechnen/": {
+   "faq": 4,
+   "words": 551
+  },
+  "/de/physik/druck-berechnen/": {
+   "faq": 4,
+   "words": 493
+  },
+  "/de/physik/e-gleich-mc-quadrat/": {
+   "faq": 4,
+   "words": 566
+  },
+  "/de/physik/endgeschwindigkeit-fall/": {
+   "faq": 4,
+   "words": 653
+  },
+  "/de/physik/fluchtgeschwindigkeit-rechner/": {
+   "faq": 4,
+   "words": 605
+  },
+  "/de/physik/freier-fall-rechner/": {
+   "faq": 4,
+   "words": 616
+  },
+  "/de/physik/gravitationskraft-rechner/": {
+   "faq": 4,
+   "words": 618
+  },
+  "/de/physik/halbwertszeit-rechner/": {
+   "faq": 4,
+   "words": 618
+  },
+  "/de/physik/hebel-rechner/": {
+   "faq": 4,
+   "words": 608
+  },
+  "/de/physik/hitzeindex-rechner/": {
+   "faq": 4,
+   "words": 527
+  },
+  "/de/physik/hookesches-gesetz/": {
+   "faq": 4,
+   "words": 565
+  },
+  "/de/physik/hydrostatischer-druck/": {
+   "faq": 4,
+   "words": 555
+  },
+  "/de/physik/impuls-rechner/": {
+   "faq": 4,
+   "words": 511
+  },
+  "/de/physik/kinetische-energie-rechner/": {
+   "faq": 4,
+   "words": 474
+  },
+  "/de/physik/linsengleichung-rechner/": {
+   "faq": 4,
+   "words": 623
+  },
+  "/de/physik/luftdichte-rechner/": {
+   "faq": 4,
+   "words": 518
+  },
+  "/de/physik/luftdruck-hoehe/": {
+   "faq": 4,
+   "words": 612
+  },
+  "/de/physik/mach-zahl-rechner/": {
+   "faq": 4,
+   "words": 576
+  },
+  "/de/physik/mechanische-leistung/": {
+   "faq": 4,
+   "words": 528
+  },
+  "/de/physik/newtonsches-grundgesetz/": {
+   "faq": 4,
+   "words": 541
+  },
+  "/de/physik/pendel-rechner/": {
+   "faq": 4,
+   "words": 562
+  },
+  "/de/physik/photonenenergie-rechner/": {
+   "faq": 4,
+   "words": 528
+  },
+  "/de/physik/potentielle-energie-rechner/": {
+   "faq": 4,
+   "words": 511
+  },
+  "/de/physik/schallgeschwindigkeit-rechner/": {
+   "faq": 4,
+   "words": 614
+  },
+  "/de/physik/schiefe-ebene-rechner/": {
+   "faq": 4,
+   "words": 636
+  },
+  "/de/physik/schiefer-wurf-rechner/": {
+   "faq": 4,
+   "words": 606
+  },
+  "/de/physik/siedepunkt-hoehe/": {
+   "faq": 4,
+   "words": 618
+  },
+  "/de/physik/spannung-dehnung-rechner/": {
+   "faq": 4,
+   "words": 625
+  },
+  "/de/physik/stroemungsgeschwindigkeit-rohr/": {
+   "faq": 4,
+   "words": 534
+  },
+  "/de/physik/taupunkt-rechner/": {
+   "faq": 4,
+   "words": 576
+  },
+  "/de/physik/traegheitsmoment-rechner/": {
+   "faq": 4,
+   "words": 599
+  },
+  "/de/physik/umlaufzeit-rechner/": {
+   "faq": 4,
+   "words": 573
+  },
+  "/de/physik/waermeleitung-rechner/": {
+   "faq": 4,
+   "words": 556
+  },
+  "/de/physik/waermemenge-rechner/": {
+   "faq": 4,
+   "words": 601
+  },
+  "/de/physik/wellenlaenge-frequenz/": {
+   "faq": 4,
+   "words": 587
+  },
+  "/de/physik/windchill-rechner/": {
+   "faq": 4,
+   "words": 580
+  },
+  "/de/physik/windleistung-rechner/": {
+   "faq": 4,
+   "words": 657
+  },
+  "/de/physik/zeitdilatation-rechner/": {
+   "faq": 4,
+   "words": 548
+  },
+  "/de/physik/zentripetalkraft-rechner/": {
+   "faq": 4,
+   "words": 580
+  },
+  "/de/umrechner/beleuchtungsstaerke-umrechner/": {
+   "faq": 4,
+   "words": 349
+  },
+  "/de/umrechner/datenmengen-umrechner/": {
+   "faq": 4,
+   "words": 421
+  },
+  "/de/umrechner/datenrate-umrechner/": {
+   "faq": 4,
+   "words": 422
+  },
+  "/de/umrechner/dichte-umrechner/": {
+   "faq": 4,
+   "words": 418
+  },
+  "/de/umrechner/drehmoment-umrechner/": {
+   "faq": 4,
+   "words": 335
+  },
+  "/de/umrechner/druck-umrechner/": {
+   "faq": 4,
+   "words": 378
+  },
+  "/de/umrechner/durchfluss-umrechner/": {
+   "faq": 4,
+   "words": 377
+  },
+  "/de/umrechner/energie-umrechner/": {
+   "faq": 4,
+   "words": 385
+  },
+  "/de/umrechner/flaechen-umrechner/": {
+   "faq": 4,
+   "words": 357
+  },
+  "/de/umrechner/frequenz-umrechner/": {
+   "faq": 4,
+   "words": 383
+  },
+  "/de/umrechner/geschwindigkeit-umrechner/": {
+   "faq": 4,
+   "words": 376
+  },
+  "/de/umrechner/koordinaten-umrechner/": {
+   "faq": 4,
+   "words": 546
+  },
+  "/de/umrechner/kraft-umrechner/": {
+   "faq": 4,
+   "words": 361
+  },
+  "/de/umrechner/kuechenmasse-gewicht/": {
+   "faq": 5,
+   "words": 609
+  },
+  "/de/umrechner/kuechenmasse-volumen/": {
+   "faq": 4,
+   "words": 408
+  },
+  "/de/umrechner/laengen-umrechner/": {
+   "faq": 4,
+   "words": 386
+  },
+  "/de/umrechner/lakh-crore-umrechner/": {
+   "faq": 4,
+   "words": 495
+  },
+  "/de/umrechner/leistung-umrechner/": {
+   "faq": 4,
+   "words": 373
+  },
+  "/de/umrechner/masse-umrechner/": {
+   "faq": 4,
+   "words": 378
+  },
+  "/de/umrechner/modellmassstab-rechner/": {
+   "faq": 4,
+   "words": 587
+  },
+  "/de/umrechner/papiergewicht-rechner/": {
+   "faq": 4,
+   "words": 572
+  },
+  "/de/umrechner/strahlendosis-umrechner/": {
+   "faq": 5,
+   "words": 585
+  },
+  "/de/umrechner/temperatur-umrechner/": {
+   "faq": 4,
+   "words": 505
+  },
+  "/de/umrechner/verbrauch-umrechner/": {
+   "faq": 5,
+   "words": 638
+  },
+  "/de/umrechner/volumen-umrechner/": {
+   "faq": 4,
+   "words": 358
+  },
+  "/de/umrechner/winkel-umrechner/": {
+   "faq": 4,
+   "words": 378
+  },
+  "/de/umrechner/zeit-umrechner/": {
+   "faq": 4,
+   "words": 372
+  },
+  "/de/waehrungen/eur-in-mdl/": {
+   "faq": 4,
+   "words": 540
+  },
+  "/de/waehrungen/usd-in-eur/": {
+   "faq": 4,
+   "words": 519
+  },
+  "/de/waehrungen/usd-in-mdl/": {
+   "faq": 4,
+   "words": 548
+  },
+  "/de/waehrungen/waehrungsrechner/": {
+   "faq": 5,
+   "words": 590
+  },
+  "/de/waehrungen/wechselkosten-rechner/": {
+   "faq": 4,
+   "words": 618
+  },
   "/uk/avtomobili/amortyzatsiya-avto/": {
    "faq": 4,
    "words": 496
