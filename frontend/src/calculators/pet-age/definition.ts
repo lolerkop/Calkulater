@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { petAgeCopyEn } from './copy.en';
 import { petAgeCopyUk } from './copy.uk';
+import { petAgeCopyDe } from './copy.de';
 import { petAgeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: petAgeCopyEn, uk: petAgeCopyUk },
+  copy: { en: petAgeCopyEn, uk: petAgeCopyUk, de: petAgeCopyDe },
   referenceCases: petAgeReferenceCases,
   publishedExample: {
     inputs: { species: 'cat', years: 7 },

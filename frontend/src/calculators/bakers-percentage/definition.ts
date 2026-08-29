@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { bakersPercentageCopyEn } from './copy.en';
 import { bakersPercentageCopyUk } from './copy.uk';
+import { bakersPercentageCopyDe } from './copy.de';
 import { bakersPercentageReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: bakersPercentageCopyEn, uk: bakersPercentageCopyUk },
+  copy: { en: bakersPercentageCopyEn, uk: bakersPercentageCopyUk, de: bakersPercentageCopyDe },
   referenceCases: bakersPercentageReferenceCases,
   publishedExample: { inputs: { flour: 500, ingredients: 'water 68\nsalt 2\nyeast 1.2' }, expected: ["856 г"] },
   presentation: {

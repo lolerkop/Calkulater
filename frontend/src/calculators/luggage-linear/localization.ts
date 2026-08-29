@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'l': 'Länge, cm',
+      'w': 'Breite, cm',
+      'h': 'Höhe, cm',
+      'limit': 'Grenze der Fluggesellschaft, cm',
+    },
+    results: {
+      'Линейные габариты': 'Gesamtmaße',
+      'Запас до предела': 'Reserve bis zur Grenze',
+      'В дюймах': 'In Zoll',
+      'Объём коробки': 'Rauminhalt',
+      'Норма': 'Freigrenze',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'см': 'cm',
+      'дюйма': 'in',
+      'л': 'l',
+      'проходит': 'innerhalb der Grenze',
+      'превышена': 'über der Grenze',
+      'Все три стороны должны быть больше нуля': 'Alle drei Seiten müssen größer als null sein',
+      'Норма авиакомпании должна быть больше нуля': 'Die Grenze der Fluggesellschaft muss größer als null sein',
+    },
+  },
   en: {
     fields: { l: 'Length, cm', w: 'Width, cm', h: 'Height, cm', limit: 'Airline limit, cm' },
     options: {},

@@ -12,6 +12,28 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'volume_ml': 'Menge der Portion, ml',
+      'abv': 'Stärke, % vol',
+      'standard_g': 'Festlegung der Einheit, g Alkohol',
+    },
+    results: {
+      'Стандартных единиц': 'Standardeinheiten',
+      'Чистого спирта по массе': 'Reiner Alkohol nach Masse',
+      'Чистого спирта по объёму': 'Reiner Alkohol nach Volumen',
+      'Норма единицы': 'Festlegung der Einheit',
+      'Крепость': 'Stärke',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мл': 'ml',
+      'г': 'g',
+      'Объём должен быть больше нуля': 'Die Menge muss größer als null sein',
+      'Крепость должна быть от 0 до 100 %': 'Die Stärke muss zwischen 0 und 100 % liegen',
+      'Норма единицы должна быть больше нуля': 'Die Festlegung der Einheit muss größer als null sein',
+    },
+  },
   en: {
     fields: { volume_ml: 'Serving volume, ml', abv: 'Strength, % ABV', standard_g: 'Unit definition, g of alcohol' },
     options: {},

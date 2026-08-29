@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'weight': 'Körpergewicht, kg',
+      'factor': 'Faktor für den Energiebedarf',
+      'kcalPer100': 'Energiegehalt des Futters, kcal je 100 g',
+    },
+    results: {
+      'Норма корма в сутки': 'Tägliche Futterration',
+      'Потребность в энергии': 'Energiebedarf',
+      'Обмен покоя (RER)': 'Ruheumsatz (RER)',
+      'Масса питомца': 'Körpergewicht',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'г': 'g',
+      'ккал': 'kcal',
+      'кг': 'kg',
+      'Масса питомца должна быть больше нуля': 'Das Körpergewicht muss größer als null sein',
+      'Множитель потребности должен быть больше нуля': 'Der Bedarfsfaktor muss größer als null sein',
+      'Калорийность корма должна быть больше нуля': 'Der Energiegehalt des Futters muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       weight: 'Body weight, kg',

@@ -10,6 +10,33 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'water': 'Wasser, ml',
+      'coffee': 'Kaffee, g',
+      'ratio': 'Verhältnis 1:k',
+    },
+    options: {
+      'coffee': 'die Kaffeedosis',
+      'water': 'die Wassermenge',
+      'ratio': 'das Verhältnis',
+    },
+    results: {
+      'Кофе': 'Kaffee',
+      'Вода': 'Wasser',
+      'Соотношение': 'Verhältnis',
+      'Гуща заберёт воды': 'Vom Satz aufgenommen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мл': 'ml',
+      'г': 'g',
+      'Соотношение должно быть больше нуля': 'Das Verhältnis muss größer als null sein',
+      'Масса кофе должна быть больше нуля': 'Die Kaffeedosis muss größer als null sein',
+      'Объём воды должен быть больше нуля': 'Die Wassermenge muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: 'What to find', water: 'Water, ml', coffee: 'Coffee, g', ratio: 'Ratio 1:k' },
     options: { coffee: 'the coffee dose', water: 'the water volume', ratio: 'the ratio' },

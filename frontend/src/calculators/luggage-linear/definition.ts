@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { luggageLinearCopyEn } from './copy.en';
 import { luggageLinearCopyUk } from './copy.uk';
+import { luggageLinearCopyDe } from './copy.de';
 import { luggageLinearReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: luggageLinearCopyEn, uk: luggageLinearCopyUk },
+  copy: { en: luggageLinearCopyEn, uk: luggageLinearCopyUk, de: luggageLinearCopyDe },
   referenceCases: luggageLinearReferenceCases,
   publishedExample: { inputs: { l: 55, w: 40, h: 23, limit: 158 }, expected: ["118 см"] },
   presentation: {

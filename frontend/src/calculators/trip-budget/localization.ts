@@ -1,6 +1,36 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'nights': 'Übernachtungen',
+      'days': 'Reisetage',
+      'people': 'Reisende',
+      'hotelPerNight': 'Unterkunft je Nacht, €',
+      'foodPerDayPerPerson': 'Essen je Person und Tag, €',
+      'transport': 'Fahrt für die Reise, €',
+      'activities': 'Unternehmungen für die Reise, €',
+      'other': 'Sonstige Kosten, €',
+    },
+    results: {
+      'Бюджет поездки': 'Reisebudget',
+      'На человека': 'Je Reisendem',
+      'В день': 'Je Tag',
+      'Проживание': 'Unterkunft',
+      'Питание': 'Essen',
+      'Транспорт': 'Fahrt',
+      'Развлечения': 'Unternehmungen',
+      'Прочее': 'Sonstiges',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Число дней должно быть больше нуля': 'Die Zahl der Tage muss größer als null sein',
+      'Число человек должно быть больше нуля': 'Die Zahl der Reisenden muss größer als null sein',
+      'Число ночей не может быть отрицательным': 'Die Zahl der Übernachtungen kann nicht negativ sein',
+      'Сумма не может быть отрицательной': 'Ein Betrag kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       "nights": "Hotel nights",

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { rainfallVolumeCopyEn } from './copy.en';
 import { rainfallVolumeCopyUk } from './copy.uk';
+import { rainfallVolumeCopyDe } from './copy.de';
 import { rainfallVolumeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: rainfallVolumeCopyEn, uk: rainfallVolumeCopyUk },
+  copy: { en: rainfallVolumeCopyEn, uk: rainfallVolumeCopyUk, de: rainfallVolumeCopyDe },
   referenceCases: rainfallVolumeReferenceCases,
   publishedExample: { inputs: { area: 60, depth: 25, coeff: 0.9 }, expected: ["1 350 л"] },
   presentation: {

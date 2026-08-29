@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'area': 'Grundfläche, m²',
+      'height': 'Raumhöhe, m',
+      'wattsPerM3': 'Spezifischer Bedarf, W/m³',
+      'windows': 'Zahl der Fenster',
+    },
+    results: {
+      'Требуемая мощность': 'Nötige Leistung',
+      'В ваттах': 'In Watt',
+      'Объём помещения': 'Raumvolumen',
+      'Норма на объём': 'Bedarf je Volumen',
+      'Надбавка на окна': 'Zuschlag für Fenster',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кВт': 'kW',
+      'Вт/м³': 'W/m³',
+      'Вт': 'W',
+      'м³': 'm³',
+      'Площадь должна быть больше нуля': 'Die Grundfläche muss größer als null sein',
+      'Высота потолка должна быть больше нуля': 'Die Raumhöhe muss größer als null sein',
+      'Удельная норма должна быть больше нуля': 'Der spezifische Bedarf muss größer als null sein',
+      'Число окон не может быть отрицательным': 'Die Zahl der Fenster kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       "area": "Floor area, m²",

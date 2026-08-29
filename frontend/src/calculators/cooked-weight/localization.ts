@@ -1,6 +1,35 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was du kennst',
+      'raw': 'Trockengewicht, g',
+      'cooked': 'Kochgewicht, g',
+      'factor': 'Quellfaktor',
+      'kcalPer100Raw': 'kcal je 100 g trocken',
+    },
+    options: {
+      'rawToCooked': 'Trockengewicht — Kochgewicht suchen',
+      'cookedToRaw': 'Kochgewicht — Trockengewicht suchen',
+    },
+    results: {
+      'Готовый вес': 'Kochgewicht',
+      'Сухой вес': 'Trockengewicht',
+      'Коэффициент разварки': 'Quellfaktor',
+      'Калорий всего': 'Kalorien insgesamt',
+      'Ккал на 100 г готового': 'kcal je 100 g gekocht',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'г': 'g',
+      'ккал': 'kcal',
+      'Коэффициент должен быть больше нуля': 'Der Faktor muss größer als null sein',
+      'Калорийность не может быть отрицательной': 'Der Kaloriengehalt kann nicht negativ sein',
+      'Сухой вес должен быть больше нуля': 'Das Trockengewicht muss größer als null sein',
+      'Готовый вес должен быть больше нуля': 'Das Kochgewicht muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       "mode": "What you know",

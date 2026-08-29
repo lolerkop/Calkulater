@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { tripBudgetCopyEn } from './copy.en';
 import { tripBudgetCopyUk } from './copy.uk';
+import { tripBudgetCopyDe } from './copy.de';
 import { tripBudgetReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: tripBudgetCopyEn, uk: tripBudgetCopyUk },
+  copy: { en: tripBudgetCopyEn, uk: tripBudgetCopyUk, de: tripBudgetCopyDe },
   referenceCases: tripBudgetReferenceCases,
   publishedExample: {
     inputs: { nights: 4, days: 5, people: 2, hotelPerNight: 3500, foodPerDayPerPerson: 1200, transport: 12000, activities: 5000, other: 0 },

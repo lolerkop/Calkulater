@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { cookedWeightCopyEn } from './copy.en';
 import { cookedWeightCopyUk } from './copy.uk';
+import { cookedWeightCopyDe } from './copy.de';
 import { cookedWeightReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cookedWeightCopyEn, uk: cookedWeightCopyUk },
+  copy: { en: cookedWeightCopyEn, uk: cookedWeightCopyUk, de: cookedWeightCopyDe },
   referenceCases: cookedWeightReferenceCases,
   publishedExample: {
     inputs: { mode: 'rawToCooked', raw: 200, cooked: 0, factor: 2.5, kcalPer100Raw: 350 },

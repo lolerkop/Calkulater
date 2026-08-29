@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'ingredients': 'Zutaten: Name, Menge und Preis je Zeile',
+      'servings': 'Portionen',
+    },
+    results: {
+      'Стоимость порции': 'Kosten je Portion',
+      'Стоимость всего': 'Kosten insgesamt',
+      'Ингредиентов': 'Zutaten',
+      'Самый дорогой': 'Teuerste Zutat',
+      'Порций': 'Portionen',
+      'Состав и стоимость': 'Zutaten und Kosten',
+      'Ингредиент': 'Zutat',
+      'Количество': 'Menge',
+      'Цена': 'Preis',
+      'Стоимость': 'Kosten',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Нужны название, количество и цена в строке:': 'In der Zeile werden Name, Menge und Preis gebraucht:',
+      'Количество и цена должны быть числами в строке:': 'Menge und Preis müssen Zahlen sein, in der Zeile:',
+      '₽': '€',
+      'Число порций должно быть больше нуля': 'Die Zahl der Portionen muss größer als null sein',
+      'Количество и цена не могут быть отрицательными': 'Menge und Preis können nicht negativ sein',
+      'Введите хотя бы один ингредиент': 'Trage mindestens eine Zutat ein',
+    },
+  },
   en: {
     fields: {
       "ingredients": "Ingredients: name, quantity and price per line",

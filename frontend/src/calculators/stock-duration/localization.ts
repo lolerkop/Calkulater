@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'stock': 'Vorhandener Vorrat',
+      'perDay': 'Tagesverbrauch',
+      'reserveDays': 'Sicherheitsreserve, Tage',
+    },
+    results: {
+      'Хватит на': 'Reicht für',
+      'Заказать через': 'Nachbestellen in',
+      'Расход в сутки': 'Tagesverbrauch',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'дней': 'Tage',
+      'Запас не может быть отрицательным': 'Der Vorrat kann nicht negativ sein',
+      'Расход в сутки должен быть больше нуля': 'Der Tagesverbrauch muss größer als null sein',
+      'Страховой запас больше срока — заказывать нужно уже сейчас': 'Die Reserve übersteigt die Reichweite — es ist schon jetzt nachzubestellen',
+    },
+  },
   en: {
     fields: {
       "stock": "Stock on hand",

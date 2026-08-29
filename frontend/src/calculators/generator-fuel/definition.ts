@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { generatorFuelCopyEn } from './copy.en';
 import { generatorFuelCopyUk } from './copy.uk';
+import { generatorFuelCopyDe } from './copy.de';
 import { generatorFuelReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: generatorFuelCopyEn, uk: generatorFuelCopyUk },
+  copy: { en: generatorFuelCopyEn, uk: generatorFuelCopyUk, de: generatorFuelCopyDe },
   referenceCases: generatorFuelReferenceCases,
   publishedExample: { inputs: { load: 5, sfc: 0.3, hours: 8, price: 60 }, expected: ['12,00 л', '720,00 ₽'] },
   presentation: {

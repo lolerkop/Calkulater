@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'volume': 'Beckenvolumen, l',
+      'changePct': 'Anteil gewechselten Wassers, %',
+      'decorPct': 'Anteil von Bodengrund und Einrichtung, %',
+    },
+    results: {
+      'Объём подмены': 'Zu wechselndes Wasser',
+      'Чистый объём воды': 'Nettowassermenge',
+      'Останется': 'Bleibt im Becken',
+      'Объём аквариума': 'Beckenvolumen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Объём аквариума должен быть больше нуля': 'Das Beckenvolumen muss größer als null sein',
+      'Доля подмены должна быть больше нуля и не больше ста процентов': 'Der Wechselanteil muss über null und höchstens hundert Prozent betragen',
+      'Доля грунта и декора должна быть от нуля до ста процентов': 'Der Anteil von Bodengrund und Einrichtung muss zwischen null und hundert Prozent liegen',
+    },
+  },
   en: {
     fields: {
       volume: 'Tank volume, l',

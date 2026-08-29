@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { contextualField } from './contextualField';
 import { brewRatioCopyEn } from './copy.en';
 import { brewRatioCopyUk } from './copy.uk';
+import { brewRatioCopyDe } from './copy.de';
 import { brewRatioReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: brewRatioCopyEn, uk: brewRatioCopyUk },
+  copy: { en: brewRatioCopyEn, uk: brewRatioCopyUk, de: brewRatioCopyDe },
   referenceCases: brewRatioReferenceCases,
   publishedExample: { inputs: { mode: 'coffee', water: 500, coffee: 30, ratio: 16 }, expected: ["31,25 г"] },
   presentation: {

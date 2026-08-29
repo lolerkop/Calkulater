@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { waterHeatingCopyEn } from './copy.en';
 import { waterHeatingCopyUk } from './copy.uk';
+import { waterHeatingCopyDe } from './copy.de';
 import { waterHeatingReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: waterHeatingCopyEn, uk: waterHeatingCopyUk },
+  copy: { en: waterHeatingCopyEn, uk: waterHeatingCopyUk, de: waterHeatingCopyDe },
   referenceCases: waterHeatingReferenceCases,
   publishedExample: { inputs: { volume: 100, tFrom: 10, tTo: 60, power: 2, efficiency: 95 }, expected: ["3,06 ч"] },
   presentation: {

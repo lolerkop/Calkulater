@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'ingredients': 'Zutaten: Name und Menge je Zeile',
+      'fromServings': 'Portionen im Rezept',
+      'toServings': 'Benötigte Portionen',
+    },
+    results: {
+      'Коэффициент': 'Umrechnungsfaktor',
+      'Ингредиентов': 'Zutaten',
+      'Было всего': 'Ursprüngliche Summe',
+      'Стало всего': 'Neue Summe',
+      'Порций было': 'Portionen vorher',
+      'Порций стало': 'Portionen nachher',
+      'Пересчёт ингредиентов': 'Umgerechnete Zutaten',
+      'Ингредиент': 'Zutat',
+      'Было': 'Vorher',
+      'Стало': 'Nachher',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Нужны название и количество в строке:': 'In der Zeile werden Name und Menge gebraucht:',
+      'Количество должно быть числом в строке:': 'Die Menge muss eine Zahl sein, in der Zeile:',
+      'Исходное число порций должно быть больше нуля': 'Die ursprüngliche Portionszahl muss größer als null sein',
+      'Нужное число порций должно быть больше нуля': 'Die benötigte Portionszahl muss größer als null sein',
+      'Количество не может быть отрицательным': 'Die Menge kann nicht negativ sein',
+      'Введите хотя бы один ингредиент': 'Trage mindestens eine Zutat ein',
+    },
+  },
   en: {
     fields: {
       "ingredients": "Ingredients: name and quantity per line",

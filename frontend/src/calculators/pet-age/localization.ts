@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'species': 'Art und Größe',
+      'years': 'Alter in Jahren',
+    },
+    options: {
+      'cat': 'Katze',
+      'dog-small': 'kleiner Hund, bis 10 kg',
+      'dog-large': 'großer Hund, über 25 kg',
+    },
+    results: {
+      'Возраст в человеческих годах': 'Alter in Menschenjahren',
+      'Возраст питомца, лет': 'Alter des Tieres, Jahre',
+      'Прибавка за каждый следующий год': 'Zuwachs je weiterem Jahr',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите вид питомца из списка': 'Wähle die Art des Tieres aus der Liste',
+      'Возраст должен быть больше нуля': 'Das Alter muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       species: 'Species and size',

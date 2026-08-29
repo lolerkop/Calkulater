@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { tipCopyEn } from './copy.en';
 import { tipCopyUk } from './copy.uk';
+import { tipCopyDe } from './copy.de';
 import { tipReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: tipCopyEn, uk: tipCopyUk },
+  copy: { en: tipCopyEn, uk: tipCopyUk, de: tipCopyDe },
   referenceCases: tipReferenceCases,
   publishedExample: { inputs: { bill: 3200, tipPercent: 10, people: 1 }, expected: ['3 520,00 ₽'] },
   presentation: {

@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { poolFillTimeCopyEn } from './copy.en';
 import { poolFillTimeCopyUk } from './copy.uk';
+import { poolFillTimeCopyDe } from './copy.de';
 import { poolFillTimeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: poolFillTimeCopyEn, uk: poolFillTimeCopyUk },
+  copy: { en: poolFillTimeCopyEn, uk: poolFillTimeCopyUk, de: poolFillTimeCopyDe },
   referenceCases: poolFillTimeReferenceCases,
   publishedExample: { inputs: { mode: 'volume', volume: 32, flow: 20, flowUnit: 'lmin' }, expected: ["26,67 ч"] },
   presentation: {

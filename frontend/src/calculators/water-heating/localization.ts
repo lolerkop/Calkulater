@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'volume': 'Wassermenge, l',
+      'tFrom': 'Anfangstemperatur, °C',
+      'tTo': 'Zieltemperatur, °C',
+      'power': 'Leistung des Erhitzers, kW',
+      'efficiency': 'Wirkungsgrad, %',
+    },
+    results: {
+      'Время нагрева': 'Aufheizzeit',
+      'Часы и минуты': 'Stunden und Minuten',
+      'Энергия': 'Energie',
+      'Полезная мощность': 'Nutzleistung',
+      'Перепад температур': 'Temperaturhub',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'ч': 'h',
+      'мин': 'min',
+      'кВт·ч': 'kWh',
+      'кВт': 'kW',
+      'К': 'K',
+      'Объём воды должен быть больше нуля': 'Die Wassermenge muss größer als null sein',
+      'Мощность нагревателя должна быть больше нуля': 'Die Leistung des Erhitzers muss größer als null sein',
+      'КПД задаётся от 0 до 100 процентов': 'Der Wirkungsgrad liegt zwischen 0 und 100 Prozent',
+      'Конечная температура должна быть выше начальной': 'Die Zieltemperatur muss über der Anfangstemperatur liegen',
+    },
+  },
   en: {
     fields: {
       volume: 'Water volume, L', tFrom: 'Start temperature, °C', tTo: 'Target temperature, °C',

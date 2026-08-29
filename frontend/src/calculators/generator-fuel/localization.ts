@@ -15,6 +15,27 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'load': 'Last, kW',
+      'sfc': 'Spezifischer Verbrauch, l/kWh',
+      'hours': 'Laufzeit, h',
+      'price': 'Kraftstoffpreis je Liter',
+    },
+    results: {
+      'Расход топлива': 'Kraftstoffverbrauch',
+      'Расход в час': 'Verbrauch je Stunde',
+      'Стоимость топлива': 'Kraftstoffkosten',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      ' л/ч': ' l/h',
+      ' л': ' l',
+      'Нагрузка должна быть больше нуля': 'Die Last muss größer als null sein',
+      'Удельный расход должен быть больше нуля': 'Der spezifische Verbrauch muss größer als null sein',
+      'Время работы должно быть больше нуля': 'Die Laufzeit muss größer als null sein',
+    },
+  },
   en: {
     fields: { load: 'Load, kW', sfc: 'Specific consumption, L/kWh', hours: 'Running time, h', price: 'Fuel price per litre', },
     options: { },

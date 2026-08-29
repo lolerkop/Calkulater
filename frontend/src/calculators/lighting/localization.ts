@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'area': 'Raumfläche, m²',
+      'norm': 'Gewünschte Beleuchtungsstärke, lx',
+      'lampLumens': 'Lichtstrom je Leuchtmittel, lm',
+      'lossFactor': 'Wartungsfaktor',
+    },
+    results: {
+      'Нужно люмен': 'Nötige Lumen',
+      'Ламп': 'Leuchtmittel',
+      'Люмен на квадратный метр': 'Lumen je Quadratmeter',
+      'Норма освещённости': 'Gewünschte Beleuchtungsstärke',
+      'Коэффициент запаса': 'Wartungsfaktor',
+      'Установленный поток': 'Installierter Lichtstrom',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'лм': 'lm',
+      'лк': 'lx',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Норма освещённости должна быть больше нуля': 'Die Beleuchtungsstärke muss größer als null sein',
+      'Световой поток лампы должен быть больше нуля': 'Der Lichtstrom des Leuchtmittels muss größer als null sein',
+      'Коэффициент запаса должен быть от 0,4 до 1': 'Der Wartungsfaktor muss zwischen 0,4 und 1 liegen',
+      'Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.': 'Die Beleuchtungsstärke ist eine änderbare Annahme: für ein Wohnzimmer nimmt man meist rund 150 lx, für einen Arbeitsplatz das Dreifache. Normwerte unterscheiden sich von Land zu Land.',
+    },
+  },
   en: {
     fields: { "area": "Room area, m²", "norm": "Target illuminance, lx", "lampLumens": "Lamp output, lm", "lossFactor": "Maintenance factor" },
     options: {},

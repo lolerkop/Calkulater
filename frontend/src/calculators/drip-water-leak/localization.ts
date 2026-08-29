@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'drops': 'Tropfen je Minute',
+      'price': 'Wasserpreis je m³',
+      'dropMl': 'Tropfenvolumen, ml',
+    },
+    results: {
+      'Утекает за сутки': 'Verlust am Tag',
+      'За месяц': 'Im Monat',
+      'За год': 'Im Jahr',
+      'В кубометрах за год': 'In Kubikmetern im Jahr',
+      'Стоимость за год': 'Kosten im Jahr',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м³': 'm³',
+      'Число капель в минуту должно быть больше нуля': 'Die Zahl der Tropfen je Minute muss größer als null sein',
+      'Объём капли должен быть больше нуля': 'Das Tropfenvolumen muss größer als null sein',
+      'Цена воды не может быть отрицательной': 'Der Wasserpreis kann nicht negativ sein',
+    },
+  },
   en: {
     fields: { drops: 'Drips per minute', price: 'Water price per m³', dropMl: 'Drop volume, ml' },
     options: {  },

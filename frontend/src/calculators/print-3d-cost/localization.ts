@@ -1,6 +1,36 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'grams': 'Gewicht des Teils, g',
+      'spoolPrice': 'Preis der Spule, €',
+      'spoolWeight': 'Gewicht der Spule, g',
+      'hours': 'Druckzeit, h',
+      'powerW': 'Leistung des Druckers, W',
+      'kwhPrice': 'Preis je kWh, €',
+      'wearPerHour': 'Verschleiß je Stunde, €',
+      'markupPct': 'Aufschlag, %',
+    },
+    results: {
+      'Себестоимость печати': 'Kosten des Drucks',
+      'Пластик': 'Filament',
+      'Электричество': 'Strom',
+      'Амортизация принтера': 'Verschleiß des Druckers',
+      'Наценка': 'Aufschlag',
+      'Израсходовано энергии': 'Verbrauchte Energie',
+      'Цена грамма пластика': 'Preis je Gramm Filament',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'кВт·ч': 'kWh',
+      'Вес детали должен быть больше нуля': 'Das Gewicht des Teils muss größer als null sein',
+      'Вес катушки должен быть больше нуля': 'Das Gewicht der Spule muss größer als null sein',
+      'Время печати должно быть больше нуля': 'Die Druckzeit muss größer als null sein',
+      'Значение не может быть отрицательным': 'Ein Wert kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       "grams": "Part weight, g",

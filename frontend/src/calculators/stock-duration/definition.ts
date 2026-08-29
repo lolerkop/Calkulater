@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { stockDurationCopyEn } from './copy.en';
 import { stockDurationCopyUk } from './copy.uk';
+import { stockDurationCopyDe } from './copy.de';
 import { stockDurationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: stockDurationCopyEn, uk: stockDurationCopyUk },
+  copy: { en: stockDurationCopyEn, uk: stockDurationCopyUk, de: stockDurationCopyDe },
   referenceCases: stockDurationReferenceCases,
   publishedExample: { inputs: { stock: 30, perDay: 2, reserveDays: 0 }, expected: ["15 дней"] },
   presentation: {

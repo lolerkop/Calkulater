@@ -30,6 +30,11 @@ import { deElectronics3Content } from './deContent/electronics3';
 import { deGeometry1Content } from './deContent/geometry1';
 import { deGeometry2Content } from './deContent/geometry2';
 import { deGeometry3Content } from './deContent/geometry3';
+import { deHousehold1Content } from './deContent/household1';
+import { deHousehold2Content } from './deContent/household2';
+import { deHousehold3Content } from './deContent/household3';
+import { deHousehold4Content } from './deContent/household4';
+import { deHousehold5Content } from './deContent/household5';
 import { deMath1Content } from './deContent/math1';
 import { deMath2Content } from './deContent/math2';
 import { deMath3Content } from './deContent/math3';
@@ -404,6 +409,11 @@ export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
   ...deGeometry1Content,
   ...deGeometry2Content,
   ...deGeometry3Content,
+  ...deHousehold1Content,
+  ...deHousehold2Content,
+  ...deHousehold3Content,
+  ...deHousehold4Content,
+  ...deHousehold5Content,
   ...deMath1Content,
   ...deMath2Content,
   ...deMath3Content,

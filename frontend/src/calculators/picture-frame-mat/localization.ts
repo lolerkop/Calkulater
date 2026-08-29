@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'photoWidth': 'Breite des Fotos, cm',
+      'photoHeight': 'Höhe des Fotos, cm',
+      'border': 'Rand oben und seitlich, cm',
+      'bottomExtra': 'Beschwerung des unteren Randes, cm',
+    },
+    results: {
+      'Размер рамы': 'Rahmengröße',
+      'Нижнее поле': 'Unterer Rand',
+      'Верх и бока': 'Oben und seitlich',
+      'Площадь паспарту': 'Fläche des Passepartouts',
+      'Соотношение сторон рамы': 'Seitenverhältnis des Rahmens',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'см': 'cm',
+      'см²': 'cm²',
+      'Ширина фотографии должна быть больше нуля': 'Die Breite des Fotos muss größer als null sein',
+      'Высота фотографии должна быть больше нуля': 'Die Höhe des Fotos muss größer als null sein',
+      'Поле паспарту должно быть больше нуля': 'Der Rand des Passepartouts muss größer als null sein',
+      'Утяжеление нижнего поля не может быть отрицательным': 'Die Beschwerung des unteren Randes kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       photoWidth: 'Photograph width, cm', photoHeight: 'Photograph height, cm',

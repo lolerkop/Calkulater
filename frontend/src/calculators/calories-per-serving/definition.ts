@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { caloriesPerServingCopyEn } from './copy.en';
 import { caloriesPerServingCopyUk } from './copy.uk';
+import { caloriesPerServingCopyDe } from './copy.de';
 import { caloriesPerServingReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: caloriesPerServingCopyEn, uk: caloriesPerServingCopyUk },
+  copy: { en: caloriesPerServingCopyEn, uk: caloriesPerServingCopyUk, de: caloriesPerServingCopyDe },
   referenceCases: caloriesPerServingReferenceCases,
   publishedExample: { inputs: { ingredients: 'мука 300 364\nмасло 100 717\nсахар 150 387', servings: 4 }, expected: ["597 ккал"] },
   presentation: {

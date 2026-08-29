@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { petFoodCopyEn } from './copy.en';
 import { petFoodCopyUk } from './copy.uk';
+import { petFoodCopyDe } from './copy.de';
 import { petFoodReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: petFoodCopyEn, uk: petFoodCopyUk },
+  copy: { en: petFoodCopyEn, uk: petFoodCopyUk, de: petFoodCopyDe },
   referenceCases: petFoodReferenceCases,
   publishedExample: {
     inputs: { weight: 22, factor: 1.6, kcalPer100: 350 },

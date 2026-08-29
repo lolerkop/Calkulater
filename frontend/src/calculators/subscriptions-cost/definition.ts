@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { subscriptionsCostCopyEn } from './copy.en';
 import { subscriptionsCostCopyUk } from './copy.uk';
+import { subscriptionsCostCopyDe } from './copy.de';
 import { subscriptionsCostReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: subscriptionsCostCopyEn, uk: subscriptionsCostCopyUk },
+  copy: { en: subscriptionsCostCopyEn, uk: subscriptionsCostCopyUk, de: subscriptionsCostCopyDe },
   referenceCases: subscriptionsCostReferenceCases,
   publishedExample: { inputs: { items: 'стриминг 299 1\nоблако 1990 12\nмузыка 169 1' }, expected: ["633,83 ₽"] },
   presentation: {

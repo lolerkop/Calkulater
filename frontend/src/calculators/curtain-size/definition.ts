@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { curtainSizeCopyEn } from './copy.en';
 import { curtainSizeCopyUk } from './copy.uk';
+import { curtainSizeCopyDe } from './copy.de';
 import { curtainSizeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: curtainSizeCopyEn, uk: curtainSizeCopyUk },
+  copy: { en: curtainSizeCopyEn, uk: curtainSizeCopyUk, de: curtainSizeCopyDe },
   referenceCases: curtainSizeReferenceCases,
   publishedExample: { inputs: { windowWidth: 140, fullness: 2, fabricWidth: 280, height: 250, hem: 20 }, expected: ["2,7 м"] },
   presentation: {

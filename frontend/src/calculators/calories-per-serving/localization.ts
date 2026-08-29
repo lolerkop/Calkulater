@@ -1,6 +1,35 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'ingredients': 'Zutaten: Name, Gramm und kcal je 100 g je Zeile',
+      'servings': 'Portionen',
+    },
+    results: {
+      'Калорий в порции': 'Kalorien je Portion',
+      'Всего калорий': 'Kalorien insgesamt',
+      'Ингредиентов': 'Zutaten',
+      'Самый калорийный': 'Kalorienreichste Zutat',
+      'Порций': 'Portionen',
+      'Масса порции': 'Gewicht einer Portion',
+      'Вклад ингредиентов': 'Beitrag der Zutaten',
+      'Ингредиент': 'Zutat',
+      'Граммы': 'Gramm',
+      'Ккал на 100 г': 'kcal je 100 g',
+      'Ккал': 'kcal',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'ккал': 'kcal',
+      'г': 'g',
+      'Нужны название, масса и калорийность в строке:': 'In der Zeile werden Name, Gewicht und Kaloriengehalt gebraucht:',
+      'Масса и калорийность должны быть числами в строке:': 'Gewicht und Kaloriengehalt müssen Zahlen sein, in der Zeile:',
+      'Порций должно быть не меньше одной': 'Es muss mindestens eine Portion sein',
+      'Масса и калорийность не могут быть отрицательными': 'Gewicht und Kaloriengehalt können nicht negativ sein',
+      'Введите хотя бы один ингредиент': 'Trage mindestens eine Zutat ein',
+    },
+  },
   en: {
     fields: {
       "ingredients": "Ingredients: name, grams and kcal per 100 g per line",

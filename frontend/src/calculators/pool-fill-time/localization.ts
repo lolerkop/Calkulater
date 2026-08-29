@@ -20,6 +20,45 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Form des Beckens',
+      'volume': 'Volumen, m³',
+      'length': 'Länge, m',
+      'width': 'Breite, m',
+      'depth': 'Tiefe, m',
+      'diameter': 'Durchmesser, m',
+      'flow': 'Durchfluss',
+      'flowUnit': 'Einheit des Durchflusses',
+    },
+    options: {
+      'volume': 'bekanntes Volumen',
+      'rect': 'rechteckig',
+      'round': 'rund',
+      'lmin': 'l/min',
+      'lhour': 'l/h',
+      'm3hour': 'm³/h',
+    },
+    results: {
+      'Время наполнения': 'Füllzeit',
+      'Часы и минуты': 'Stunden und Minuten',
+      'Всего минут': 'Minuten insgesamt',
+      'Объём чаши': 'Volumen des Beckens',
+      'Объём в литрах': 'Volumen in Litern',
+      'Расход': 'Durchfluss',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'ч': 'h',
+      'мин': 'min',
+      'м³': 'm³',
+      'м³/ч': 'm³/h',
+      'Размеры чаши должны быть больше нуля': 'Die Maße des Beckens müssen größer als null sein',
+      'Диаметр и глубина должны быть больше нуля': 'Durchmesser und Tiefe müssen größer als null sein',
+      'Объём должен быть больше нуля': 'Das Volumen muss größer als null sein',
+      'Расход воды должен быть больше нуля': 'Der Durchfluss muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: "Pool shape", volume: "Volume, m³", length: "Length, m", width: "Width, m", depth: "Depth, m", diameter: "Diameter, m", flow: "Flow rate", flowUnit: "Flow unit" },
     options: { volume: "known volume", rect: "rectangular", round: "round", lmin: "L/min", lhour: "L/h", m3hour: "m³/h" },

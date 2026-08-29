@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { aquariumWaterChangeCopyEn } from './copy.en';
 import { aquariumWaterChangeCopyUk } from './copy.uk';
+import { aquariumWaterChangeCopyDe } from './copy.de';
 import { aquariumWaterChangeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: aquariumWaterChangeCopyEn, uk: aquariumWaterChangeCopyUk },
+  copy: { en: aquariumWaterChangeCopyEn, uk: aquariumWaterChangeCopyUk, de: aquariumWaterChangeCopyDe },
   referenceCases: aquariumWaterChangeReferenceCases,
   publishedExample: {
     inputs: { volume: 240, changePct: 25, decorPct: 12 },

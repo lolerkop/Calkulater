@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'flour': 'Mehl, g',
+      'ingredients': 'Zutaten: Name und Prozent des Mehls je Zeile',
+    },
+    results: {
+      'Вес теста': 'Teiggewicht',
+      'Гидратация': 'Hydratation',
+      'Мука': 'Mehl',
+      'Ингредиентов': 'Zutaten',
+      'Ингредиенты по пекарским процентам': 'Zutaten nach Bäckerprozenten',
+      'Ингредиент': 'Zutat',
+      'Процент': 'Prozent',
+      'Вес, г': 'Gewicht, g',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Нужны название и процент в строке:': 'In der Zeile werden Name und Prozent gebraucht:',
+      'Процент должен быть числом в строке:': 'Der Prozentwert muss eine Zahl sein, in der Zeile:',
+      'г': 'g',
+      'Мука всегда принимается за 100 %, поэтому сумма процентов больше ста — это норма.': 'Das Mehl gilt immer als 100 %, dass die Prozentwerte zusammen über hundert liegen, ist deshalb der Normalfall.',
+      'Вес муки должен быть больше нуля': 'Das Mehlgewicht muss größer als null sein',
+      'Процент не может быть отрицательным': 'Ein Prozentwert kann nicht negativ sein',
+      'Введите хотя бы один ингредиент': 'Trage mindestens eine Zutat ein',
+    },
+  },
   en: {
     fields: {
       "flour": "Flour, g",

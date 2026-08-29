@@ -1,6 +1,26 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'og': 'Anfangsdichte',
+      'fg': 'Enddichte',
+      'factor': 'Umrechnungsfaktor',
+    },
+    results: {
+      'Крепость': 'Alkoholgehalt',
+      'Степень сбраживания': 'Scheinbarer Vergärungsgrad',
+      'Падение плотности': 'Dichteabfall',
+      'Начальная плотность': 'Anfangsdichte',
+      'Конечная плотность': 'Enddichte',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Начальная плотность должна быть больше единицы': 'Die Anfangsdichte muss größer als eins sein',
+      'Конечная плотность должна быть больше нуля': 'Die Enddichte muss größer als null sein',
+      'Конечная плотность не может быть выше начальной': 'Die Enddichte kann die Anfangsdichte nicht übersteigen',
+    },
+  },
   en: {
     fields: { og: 'Original gravity', fg: 'Final gravity', factor: 'Conversion factor' },
     options: {},

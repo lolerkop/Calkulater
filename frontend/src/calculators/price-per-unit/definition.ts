@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { pricePerUnitCopyEn } from './copy.en';
 import { pricePerUnitCopyUk } from './copy.uk';
+import { pricePerUnitCopyDe } from './copy.de';
 import { pricePerUnitReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pricePerUnitCopyEn, uk: pricePerUnitCopyUk },
+  copy: { en: pricePerUnitCopyEn, uk: pricePerUnitCopyUk, de: pricePerUnitCopyDe },
   referenceCases: pricePerUnitReferenceCases,
   publishedExample: { inputs: { mode: 'single', unit: 'kg', price: 150, amount: 0.5 }, expected: ["300,00 ₽ за кг"] },
   presentation: {

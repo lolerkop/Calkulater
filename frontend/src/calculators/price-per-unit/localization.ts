@@ -1,6 +1,46 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was zu tun ist',
+      'unit': 'Einheit',
+      'price': 'Preis der Packung, €',
+      'amount': 'Inhalt der Packung',
+      'priceA': 'Preis der Packung A, €',
+      'amountA': 'Inhalt der Packung A',
+      'priceB': 'Preis der Packung B, €',
+      'amountB': 'Inhalt der Packung B',
+    },
+    options: {
+      'single': 'Preis je Einheit',
+      'compare': 'zwei Packungen vergleichen',
+      'kg': 'Kilogramm',
+      'l': 'Liter',
+      'pcs': 'Stück',
+    },
+    results: {
+      'Цена за единицу': 'Preis je Einheit',
+      'Упаковка A': 'Packung A',
+      'Цена упаковки': 'Preis der Packung',
+      'Количество в упаковке': 'Inhalt der Packung',
+      'Упаковка B': 'Packung B',
+      'Выгоднее': 'Günstiger',
+      'Переплата за единицу': 'Mehrpreis je Einheit',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'за кг': 'je kg',
+      'за л': 'je l',
+      'за шт': 'je Stk',
+      'A': 'A',
+      'B': 'B',
+      'одинаково': 'gleich',
+      'Количество должно быть больше нуля': 'Der Inhalt muss größer als null sein',
+      'Цена должна быть больше нуля': 'Der Preis muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       "mode": "What to do",

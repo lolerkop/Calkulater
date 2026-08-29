@@ -12,6 +12,30 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'weight': 'Gewicht, kg',
+      'minutes_per_kg': 'Minuten je Kilogramm',
+      'base_minutes': 'Fester Anteil, min',
+      'rest_pct': 'Ruhezeit, %',
+    },
+    results: {
+      'Время в духовке': 'Zeit im Ofen',
+      'Минут готовки': 'Garminuten',
+      'Отдых после духовки': 'Ruhezeit nach dem Ofen',
+      'Всего с отдыхом': 'Insgesamt mit Ruhezeit',
+      'Норма на килограмм': 'Richtwert je Kilogramm',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мин': 'min',
+      'ч': 'h',
+      'Масса должна быть больше нуля': 'Das Gewicht muss größer als null sein',
+      'Норма минут на килограмм должна быть больше нуля': 'Die Minuten je Kilogramm müssen größer als null sein',
+      'Постоянная часть не может быть отрицательной': 'Der feste Anteil kann nicht negativ sein',
+      'Отдых должен быть от 0 до 50 %': 'Die Ruhezeit muss zwischen 0 und 50 % liegen',
+    },
+  },
   en: {
     fields: {
       weight: 'Weight, kg', minutes_per_kg: 'Minutes per kilogram',

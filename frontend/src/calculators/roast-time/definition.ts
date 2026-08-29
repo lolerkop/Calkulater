@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { roastTimeCopyEn } from './copy.en';
 import { roastTimeCopyUk } from './copy.uk';
+import { roastTimeCopyDe } from './copy.de';
 import { roastTimeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: roastTimeCopyEn, uk: roastTimeCopyUk },
+  copy: { en: roastTimeCopyEn, uk: roastTimeCopyUk, de: roastTimeCopyDe },
   referenceCases: roastTimeReferenceCases,
   publishedExample: { inputs: { weight: 5, minutes_per_kg: 40, base_minutes: 20, rest_pct: 20 }, expected: ["3 ч 40 мин"] },
   presentation: {

@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { electricityUsageCopyEn } from './copy.en';
 import { electricityUsageCopyUk } from './copy.uk';
+import { electricityUsageCopyDe } from './copy.de';
 import { electricityUsageReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: electricityUsageCopyEn, uk: electricityUsageCopyUk },
+  copy: { en: electricityUsageCopyEn, uk: electricityUsageCopyUk, de: electricityUsageCopyDe },
   referenceCases: electricityUsageReferenceCases,
   publishedExample: { inputs: { power: 2000, powerUnit: 'w', hoursPerDay: 3, days: 30 }, expected: ['180,00 кВт·ч'] },
   presentation: {

@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'area': 'Dachfläche im Grundriss, m²',
+      'depth': 'Niederschlagshöhe, mm',
+      'coeff': 'Abflussbeiwert',
+    },
+    results: {
+      'Соберётся воды': 'Gesammeltes Wasser',
+      'В кубометрах': 'In Kubikmetern',
+      'Бочек по 200 литров': 'Tonnen zu 200 Litern',
+      'Собрано с квадратного метра': 'Je Quadratmeter gesammelt',
+      'Потеряно на стоке и испарении': 'Durch Abfluss und Verdunstung verloren',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м³': 'm³',
+      'шт': 'Stk',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Слой осадков должен быть больше нуля': 'Die Niederschlagshöhe muss größer als null sein',
+      'Коэффициент стока задаётся от 0 до 1': 'Der Abflussbeiwert liegt zwischen 0 und 1',
+    },
+  },
   en: {
     fields: { area: 'Roof area in plan, m²', depth: 'Rainfall depth, mm', coeff: 'Runoff coefficient' },
     options: {},

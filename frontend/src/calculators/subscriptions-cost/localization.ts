@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'items': 'Abonnements: Name, Preis und Zeitraum in Monaten je Zeile',
+    },
+    results: {
+      'В месяц': 'Im Monat',
+      'В год': 'Im Jahr',
+      'Подписок': 'Abonnements',
+      'Самая дорогая': 'Teuerstes',
+      'Её вклад в месяц': 'Sein Anteil im Monat',
+      'Подписки в пересчёте на месяц': 'Abonnements auf den Monat gerechnet',
+      'Подписка': 'Abonnement',
+      'Цена': 'Preis',
+      'Месяцев': 'Monate',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Нужны название, цена и период в месяцах в строке:': 'In der Zeile werden Name, Preis und Zeitraum in Monaten gebraucht:',
+      'Цена и период должны быть числами в строке:': 'Preis und Zeitraum müssen Zahlen sein, in der Zeile:',
+      'Период в месяцах должен быть больше нуля в строке:': 'Der Zeitraum in Monaten muss größer als null sein, in der Zeile:',
+      'Цена не может быть отрицательной': 'Der Preis kann nicht negativ sein',
+      'Введите хотя бы одну подписку': 'Trage mindestens ein Abonnement ein',
+    },
+  },
   en: {
     fields: { "items": "Subscriptions: name, price and period in months per line" },
     options: {},

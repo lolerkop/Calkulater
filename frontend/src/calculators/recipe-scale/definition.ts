@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { recipeScaleCopyEn } from './copy.en';
 import { recipeScaleCopyUk } from './copy.uk';
+import { recipeScaleCopyDe } from './copy.de';
 import { recipeScaleReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: recipeScaleCopyEn, uk: recipeScaleCopyUk },
+  copy: { en: recipeScaleCopyEn, uk: recipeScaleCopyUk, de: recipeScaleCopyDe },
   referenceCases: recipeScaleReferenceCases,
   publishedExample: { inputs: { ingredients: 'flour 500\nwater 320\nsalt 10\nyeast 7', fromServings: 4, toServings: 6 }, expected: ["1,5"] },
   presentation: {

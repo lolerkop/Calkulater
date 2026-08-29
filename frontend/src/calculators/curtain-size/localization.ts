@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'windowWidth': 'Schienenbreite, cm',
+      'fullness': 'Faltenverhältnis',
+      'fabricWidth': 'Stoffbreite, cm',
+      'height': 'Fertige Höhe, cm',
+      'hem': 'Zugabe oben und unten, cm',
+    },
+    results: {
+      'Ткани потребуется': 'Benötigter Stoff',
+      'Полотнищ': 'Bahnen',
+      'Ширина в сборке': 'Breite in Falten',
+      'Длина отреза': 'Zuschnittlänge',
+      'Коэффициент сборки': 'Faltenverhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м': 'm',
+      'см': 'cm',
+      'шт': 'Stk',
+      'Ширина карниза должна быть больше нуля': 'Die Schienenbreite muss größer als null sein',
+      'Коэффициент сборки должен быть больше нуля': 'Das Faltenverhältnis muss größer als null sein',
+      'Ширина полотна должна быть больше нуля': 'Die Stoffbreite muss größer als null sein',
+      'Готовая высота должна быть больше нуля': 'Die fertige Höhe muss größer als null sein',
+      'Припуск не может быть отрицательным': 'Die Zugabe kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       windowWidth: 'Track width, cm', fullness: 'Fullness ratio', fabricWidth: 'Fabric width, cm',

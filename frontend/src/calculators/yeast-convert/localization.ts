@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Menge im Rezept, g',
+      'from': 'Was das Rezept nennt',
+      'to': 'Was du hast',
+    },
+    options: {
+      'fresh': 'frische Hefe',
+      'active': 'Trockenhefe',
+      'instant': 'Instanthefe',
+    },
+    results: {
+      'Нужно дрожжей': 'Nötige Hefe',
+      'В пересчёте на прессованные': 'Umgerechnet auf frische Hefe',
+      'Сухие активные': 'Trockenhefe',
+      'Быстродействующие': 'Instanthefe',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'г': 'g',
+      'Выберите вид дрожжей из списка': 'Wähle eine Hefeart aus der Liste',
+      'Масса должна быть больше нуля': 'Die Menge muss größer als null sein',
+      'Выберите разные виды дрожжей': 'Wähle zwei verschiedene Hefearten',
+    },
+  },
   en: {
     fields: { value: 'Amount in the recipe, g', from: 'What the recipe lists', to: 'What you have' },
     options: { fresh: 'fresh compressed', active: 'active dry', instant: 'instant' },
