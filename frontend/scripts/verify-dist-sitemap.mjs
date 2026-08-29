@@ -14,7 +14,10 @@ function walk(dir) {
 
 function routeFromHtml(filePath) {
   const relativePath = path.relative(root, filePath).replaceAll(path.sep, '/');
-  if (relativePath === '404.html') return null;
+  // Страница «не найдено» маршрутом не является: хостинг отдаёт её вместо
+  // отсутствующей страницы, а не по собственному адресу. Корневая исключалась
+  // и раньше; теперь у каждой локали есть своя, и правило то же.
+  if (relativePath === '404.html' || /^[a-z]{2}\/404\.html$/.test(relativePath)) return null;
   if (relativePath === 'index.html') return '/';
   if (relativePath.endsWith('/index.html')) {
     return `/${relativePath.slice(0, -'index.html'.length)}`;
