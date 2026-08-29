@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'price': 'Preis des Leasingguts',
+      'down': 'Anzahlung',
+      'residualPct': 'Restwertanteil, %',
+      'months': 'Laufzeit, Monate',
+      'rate': 'Jährlicher Aufschlag, %',
+    },
+    results: {
+      'Ежемесячный платёж': 'Monatliche Rate',
+      'Амортизационная часть': 'Abschreibungsanteil',
+      'Процентная часть': 'Zinsanteil',
+      'Остаточная стоимость': 'Restwert',
+      'Всего выплат с авансом': 'Insgesamt gezahlt samt Anzahlung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Стоимость предмета лизинга должна быть больше нуля': 'Der Preis des Leasingguts muss größer als null sein',
+      'Аванс не может быть отрицательным': 'Die Anzahlung kann nicht negativ sein',
+      'Аванс не может быть больше стоимости или равен ей': 'Die Anzahlung kann den Preis nicht erreichen',
+      'Остаточная доля задаётся от 0 до 100 процентов': 'Der Restwertanteil liegt zwischen 0 und 100 Prozent',
+      'Срок — целое число месяцев, не меньше одного': 'Die Laufzeit ist eine ganze Zahl von Monaten, mindestens eins',
+      'Удорожание не может быть отрицательным': 'Der Aufschlag kann nicht negativ sein',
+      'Остаточная стоимость не может быть выше профинансированной суммы': 'Der Restwert kann den finanzierten Betrag nicht übersteigen',
+    },
+  },
   en: {
     fields: {
       price: 'Asset price', down: 'Down payment', residualPct: 'Residual share, %',

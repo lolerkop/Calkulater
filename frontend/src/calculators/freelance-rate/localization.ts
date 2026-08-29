@@ -1,6 +1,35 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'targetIncome': 'Zieleinkommen netto je Monat, €',
+      'workDays': 'Arbeitstage je Monat',
+      'hoursPerDay': 'Arbeitsstunden je Tag',
+      'billablePct': 'Abrechenbarer Anteil der Stunden, %',
+      'expenses': 'Betriebskosten je Monat, €',
+      'taxPct': 'Steuersatz, %',
+    },
+    results: {
+      'Ставка за час': 'Stundensatz',
+      'Оплачиваемых часов': 'Abrechenbare Stunden',
+      'Нужно выставить счетов': 'Zu stellende Rechnungen',
+      'Ставка за день': 'Tagessatz',
+      'Расходы на работу': 'Betriebskosten',
+      'Налог': 'Steuer',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'ч': 'h',
+      'Желаемый доход должен быть больше нуля': 'Das Zieleinkommen muss größer als null sein',
+      'Число рабочих дней должно быть больше нуля': 'Die Zahl der Arbeitstage muss größer als null sein',
+      'Число часов в дне должно быть больше нуля': 'Die Zahl der Stunden je Tag muss größer als null sein',
+      'Оплачиваемая доля должна быть больше нуля': 'Der abrechenbare Anteil muss größer als null sein',
+      'Расходы не могут быть отрицательными': 'Die Kosten können nicht negativ sein',
+      'Ставка налога должна быть меньше 100 %': 'Der Steuersatz muss unter 100 % liegen',
+    },
+  },
   en: {
     fields: {
       "targetIncome": "Target take-home per month, $",

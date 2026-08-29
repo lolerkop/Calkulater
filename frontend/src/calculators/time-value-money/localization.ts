@@ -1,6 +1,38 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was berechnet wird',
+      'amount': 'Betrag, €',
+      'rate': 'Zinssatz, % im Jahr',
+      'years': 'Laufzeit, Jahre',
+      'compounding': 'Verzinsungshäufigkeit',
+    },
+    options: {
+      'fv': 'Endwert',
+      'pv': 'Barwert',
+      'month': 'monatlich',
+      'quarter': 'vierteljährlich',
+      'year': 'jährlich',
+    },
+    results: {
+      'Будущая стоимость': 'Endwert',
+      'Текущая стоимость': 'Barwert',
+      'Множитель роста': 'Wachstumsfaktor',
+      'Эффективная годовая ставка': 'Effektiver Jahreszins',
+      'Периодов начисления': 'Verzinsungsperioden',
+      'Исходная сумма': 'Ausgangsbetrag',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Сумма должна быть больше нуля': 'Der Betrag muss größer als null sein',
+      'Ставка не может быть отрицательной': 'Der Zinssatz kann nicht negativ sein',
+      'Срок должен быть больше нуля': 'Die Laufzeit muss größer als null sein',
+      'Значение слишком велико для расчёта': 'Der Wert ist zu groß für die Berechnung',
+    },
+  },
   en: {
     fields: { "mode": "What to compute", "amount": "Amount, $", "rate": "Rate, % per year", "years": "Term, years", "compounding": "Compounding frequency" },
     options: {

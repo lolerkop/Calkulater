@@ -20,6 +20,29 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'nominal': 'Nominalzins, %',
+      'inflation': 'Inflation, %',
+      'amount': 'Betrag',
+      'years': 'Jahre',
+    },
+    results: {
+      'Реальная доходность': 'Reale Rendite',
+      'Грубая оценка разностью': 'Grobe Schätzung durch Subtraktion',
+      'Расхождение с разностью': 'Abstand zur Subtraktion',
+      'Номинальная ставка': 'Nominalzins',
+      'Инфляция': 'Inflation',
+      'Номинальная сумма': 'Nominaler Betrag',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'п.п.': 'PP',
+      '₽': '€',
+      'Покупательная способность через': 'Kaufkraft nach',
+      'Инфляция должна быть больше минус ста процентов': 'Die Inflation muss über minus hundert Prozent liegen',
+    },
+  },
   en: {
     fields: { nominal: "Nominal rate, %", inflation: "Inflation, %", amount: "Amount", years: "Years" },
     results: RESULTS_EN,

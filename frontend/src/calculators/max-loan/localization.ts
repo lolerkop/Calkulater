@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'income': 'Monatliches Einkommen, €',
+      'dtiPct': 'Vertretbare Schuldendienstquote, %',
+      'rate': 'Zinssatz, % im Jahr',
+      'years': 'Laufzeit, Jahre',
+    },
+    results: {
+      'Максимальная сумма': 'Höchstbetrag',
+      'Допустимый платёж': 'Tragbare Rate',
+      'Всего выплат': 'Summe aller Raten',
+      'Переплата': 'Gezahlte Zinsen',
+      'Платежей': 'Raten',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Доход должен быть больше нуля': 'Das Einkommen muss größer als null sein',
+      'Долговая нагрузка должна быть больше нуля': 'Die Schuldendienstquote muss größer als null sein',
+      'Долговая нагрузка не может превышать ста процентов': 'Die Schuldendienstquote kann hundert Prozent nicht übersteigen',
+      'Ставка не может быть отрицательной': 'Der Zinssatz kann nicht negativ sein',
+      'Срок должен быть больше нуля': 'Die Laufzeit muss größer als null sein',
+    },
+  },
   en: {
     fields: { "income": "Monthly income, $", "dtiPct": "Acceptable debt burden, %", "rate": "Rate, % per year", "years": "Term, years" },
     options: {},

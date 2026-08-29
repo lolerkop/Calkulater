@@ -12,6 +12,32 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'principal': 'Anfangsbetrag',
+      'rate': 'Jahreszins, %',
+      'interest': 'Zinsen über die Laufzeit',
+      'years': 'Laufzeit, Jahre',
+    },
+    options: {
+      'interest': 'Zinsertrag',
+      'rate': 'Nötiger Zinssatz',
+    },
+    results: {
+      'Проценты': 'Zinsen',
+      'Ставка': 'Zinssatz',
+      'Итоговая сумма': 'Endbetrag',
+      'Проценты за год': 'Zinsen je Jahr',
+      'Проценты за срок': 'Zinsen über die Laufzeit',
+      'Начальная сумма': 'Anfangsbetrag',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Сумма должна быть больше нуля': 'Der Betrag muss größer als null sein',
+      'Срок должен быть больше нуля': 'Die Laufzeit muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: 'What to find', principal: 'Initial amount', rate: 'Annual rate, %', interest: 'Interest over the term', years: 'Term, years' },
     options: { interest: 'Interest earned', rate: 'Required rate' },

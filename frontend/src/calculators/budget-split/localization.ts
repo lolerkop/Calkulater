@@ -1,6 +1,39 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'total': 'Zu teilender Betrag',
+      'incomes': 'Beteiligte: Name und Einkommen je Zeile',
+      'mode': 'Wie geteilt wird',
+    },
+    options: {
+      'equal': 'Zu gleichen Teilen',
+      'income': 'Im Verhältnis der Einkommen',
+    },
+    results: {
+      'Наибольший взнос': 'Größter Anteil',
+      'Наименьший взнос': 'Kleinster Anteil',
+      'Участников': 'Beteiligte',
+      'Сумма к делению': 'Zu teilender Betrag',
+      'Проверка суммы': 'Anteile ergeben zusammen',
+      'Кто сколько вносит': 'Wer wie viel zahlt',
+      'Участник': 'Beteiligter',
+      'Доход': 'Einkommen',
+      'Доля': 'Anteil',
+      'Взнос': 'Beitrag',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Нужны имя и доход в строке:': 'In der Zeile werden Name und Einkommen gebraucht:',
+      'Доход должен быть числом в строке:': 'Das Einkommen muss eine Zahl sein, in der Zeile:',
+      '₽': '€',
+      'Сумма к делению должна быть больше нуля': 'Der zu teilende Betrag muss größer als null sein',
+      'Доход не может быть отрицательным': 'Das Einkommen kann nicht negativ sein',
+      'Введите хотя бы одного участника': 'Trage mindestens einen Beteiligten ein',
+      'Суммарный доход равен нулю: делить пропорционально нечему': 'Das Gesamteinkommen ist null: es gibt nichts, wonach sich anteilig teilen ließe',
+    },
+  },
   en: {
     fields: {
       "total": "Amount to split",

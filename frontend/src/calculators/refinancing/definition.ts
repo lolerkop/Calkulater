@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { refinancingCopyEn } from './copy.en';
 import { refinancingCopyUk } from './copy.uk';
+import { refinancingCopyDe } from './copy.de';
 import { refinancingReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: refinancingCopyEn, uk: refinancingCopyUk },
+  copy: { en: refinancingCopyEn, uk: refinancingCopyUk, de: refinancingCopyDe },
   referenceCases: refinancingReferenceCases,
   publishedExample: { inputs: { balance: 2000000, oldRate: 14, oldMonths: 120, newRate: 10, newMonths: 120, fee: 30000 }, expected: ["524 776,76 ₽"] },
   presentation: {

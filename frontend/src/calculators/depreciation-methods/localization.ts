@@ -18,6 +18,40 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'cost': 'Anschaffungswert, €',
+      'salvage': 'Restwert, €',
+      'life': 'Nutzungsdauer, Jahre',
+      'method': 'Verfahren',
+      'year': 'Anzuzeigendes Jahr',
+    },
+    options: {
+      'straight': 'linear',
+      'ddb': 'doppelt degressiv',
+      'syd': 'arithmetisch-degressiv',
+    },
+    results: {
+      'Амортизация за год': 'Abschreibung des Jahres',
+      'Накопленная амортизация': 'Kumulierte Abschreibung',
+      'Остаточная стоимость': 'Buchwert',
+      'Амортизируемая база': 'Abschreibungsgrundlage',
+      'Доля списанного': 'Bereits abgeschriebener Anteil',
+      'Амортизация по годам': 'Abschreibung nach Jahren',
+      'Год': 'Jahr',
+      'За год': 'Im Jahr',
+      'Накоплено': 'Kumuliert',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Стоимость должна быть больше нуля': 'Der Anschaffungswert muss größer als null sein',
+      'Ликвидационная стоимость не может быть отрицательной': 'Der Restwert kann nicht negativ sein',
+      'Ликвидационная стоимость должна быть меньше первоначальной': 'Der Restwert muss unter dem Anschaffungswert liegen',
+      'Срок службы должен быть хотя бы один год': 'Die Nutzungsdauer muss mindestens ein Jahr betragen',
+      'Срок службы не может превышать 50 лет': 'Die Nutzungsdauer kann 50 Jahre nicht übersteigen',
+      'Год должен лежать внутри срока службы': 'Das Jahr muss innerhalb der Nutzungsdauer liegen',
+    },
+  },
   en: {
     fields: {
       cost: 'Initial cost, ₽', salvage: 'Salvage value, ₽', life: 'Useful life, years',

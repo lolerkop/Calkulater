@@ -3,6 +3,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { emergencyFundCopyEn } from './copy.en';
 import { emergencyFundCopyUk } from './copy.uk';
+import { emergencyFundCopyDe } from './copy.de';
 import { emergencyFundReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: emergencyFundCopyEn, uk: emergencyFundCopyUk },
+  copy: { en: emergencyFundCopyEn, uk: emergencyFundCopyUk, de: emergencyFundCopyDe },
   referenceCases: emergencyFundReferenceCases,
   publishedExample: {
     inputs: { monthlyExpenses: 85000, months: 6, saved: 210000 },

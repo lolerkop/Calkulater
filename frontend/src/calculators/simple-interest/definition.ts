@@ -7,6 +7,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { simpleInterestCopyEn } from './copy.en';
 import { simpleInterestCopyUk } from './copy.uk';
+import { simpleInterestCopyDe } from './copy.de';
 import { simpleInterestReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: simpleInterestCopyEn, uk: simpleInterestCopyUk },
+  copy: { en: simpleInterestCopyEn, uk: simpleInterestCopyUk, de: simpleInterestCopyDe },
   referenceCases: simpleInterestReferenceCases,
   publishedExample: { inputs: { mode: 'interest', principal: 100000, rate: 8, years: 3 }, expected: ['24 000 ₽', '124 000 ₽'] },
   presentation: {

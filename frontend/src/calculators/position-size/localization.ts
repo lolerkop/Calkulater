@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'deposit': 'Kontostand, €',
+      'riskPct': 'Zugelassenes Risiko je Handel, %',
+      'entry': 'Einstiegspreis',
+      'stop': 'Stoppkurs',
+    },
+    results: {
+      'Размер позиции': 'Positionsgröße',
+      'Целых единиц': 'Ganze Einheiten',
+      'Сумма риска': 'Risikobetrag',
+      'Риск на единицу': 'Risiko je Einheit',
+      'Стоимость позиции': 'Wert der Position',
+      'Доля депозита': 'Anteil am Konto',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'шт': 'Stk',
+      'Депозит должен быть больше нуля': 'Der Kontostand muss größer als null sein',
+      'Допустимый риск должен быть больше нуля': 'Das zugelassene Risiko muss größer als null sein',
+      'Цена входа должна быть больше нуля': 'Der Einstiegspreis muss größer als null sein',
+      'Цена стопа не может быть отрицательной': 'Der Stoppkurs kann nicht negativ sein',
+      'Стоп не может совпадать с ценой входа': 'Der Stopp kann nicht mit dem Einstiegspreis zusammenfallen',
+    },
+  },
   en: {
     fields: {
       "deposit": "Account balance, $",

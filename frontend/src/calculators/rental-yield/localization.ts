@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'price': 'Kaufpreis, €',
+      'rentMode': 'Die Miete ist angegeben',
+      'annualRent': 'Jahresmiete, €',
+      'monthlyRent': 'Monatsmiete, €',
+      'annualCosts': 'Jährliche Kosten, €',
+    },
+    options: {
+      'annual': 'je Jahr',
+      'monthly': 'je Monat',
+    },
+    results: {
+      'Валовая доходность': 'Bruttorendite',
+      'Чистая доходность': 'Nettorendite',
+      'Аренда за год': 'Jahresmiete',
+      'Окупаемость': 'Amortisationsdauer',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'лет': 'Jahre',
+      'Цена покупки должна быть больше нуля': 'Der Kaufpreis muss größer als null sein',
+      'Аренда не может быть отрицательной': 'Die Miete kann nicht negativ sein',
+      'Расходы не могут превышать арендную плату': 'Die Kosten können die Miete nicht übersteigen',
+    },
+  },
   en: {
     fields: {
       "price": "Purchase price, $",

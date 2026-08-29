@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'salary': 'Grundgehalt, €',
+      'bonusPct': 'Bonus, % des Gehalts',
+      'taxPct': 'Steuersatz, %',
+    },
+    results: {
+      'Премия на руки': 'Bonus nach Steuer',
+      'Премия до налога': 'Bonus vor Steuer',
+      'Налог': 'Einbehaltene Steuer',
+      'Оклад': 'Grundgehalt',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Оклад должен быть больше нуля': 'Das Gehalt muss größer als null sein',
+      'Процент премии не может быть отрицательным': 'Der Bonusprozentsatz kann nicht negativ sein',
+      'Ставка налога должна быть от нуля до ста процентов': 'Der Steuersatz muss zwischen null und hundert Prozent liegen',
+    },
+  },
   en: {
     fields: {
       salary: 'Base salary, ₽',

@@ -5,6 +5,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { budgetCopyEn } from './copy.en';
 import { budgetCopyUk } from './copy.uk';
+import { budgetCopyDe } from './copy.de';
 import { budgetReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: budgetCopyEn, uk: budgetCopyUk },
+  copy: { en: budgetCopyEn, uk: budgetCopyUk, de: budgetCopyDe },
   referenceCases: budgetReferenceCases,
   publishedExample: { inputs: { income: 100000 }, expected: ['50 000 ₽', '30 000 ₽', '20 000 ₽'] },
   presentation: {

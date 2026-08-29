@@ -3,6 +3,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { earlyRepaymentCopyEn } from './copy.en';
 import { earlyRepaymentCopyUk } from './copy.uk';
+import { earlyRepaymentCopyDe } from './copy.de';
 import { earlyRepaymentReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: earlyRepaymentCopyEn, uk: earlyRepaymentCopyUk },
+  copy: { en: earlyRepaymentCopyEn, uk: earlyRepaymentCopyUk, de: earlyRepaymentCopyDe },
   referenceCases: earlyRepaymentReferenceCases,
   publishedExample: {
     inputs: { amount: 3000000, rate: 18, years: 20, extra: 10000 },

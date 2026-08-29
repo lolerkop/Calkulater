@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'price': 'Kaufpreis, €',
+      'percent': 'Eigenkapital, %',
+      'downPayment': 'Ersparter Betrag, €',
+    },
+    options: {
+      'percent': 'der eingebrachte Prozentsatz',
+      'amount': 'der ersparte Betrag',
+    },
+    results: {
+      'Первоначальный взнос': 'Eigenkapital',
+      'Сумма кредита': 'Darlehenssumme',
+      'Доля взноса': 'Eingebrachter Anteil',
+      'Осталось накопить': 'Noch anzusparen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Цена покупки должна быть больше нуля': 'Der Kaufpreis muss größer als null sein',
+      'Доля взноса должна быть от 0 до 100 %': 'Der eingebrachte Anteil muss zwischen 0 und 100 % liegen',
+      'Взнос не может превышать цену покупки': 'Das Eigenkapital kann den Kaufpreis nicht übersteigen',
+    },
+  },
   en: {
     fields: {
       "mode": "What is known",

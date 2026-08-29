@@ -1,6 +1,41 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'goal': 'Zielbetrag',
+      'initial': 'Bereits gespart',
+      'rate': 'Jahreszins, %',
+      'years': 'Laufzeit, Jahre',
+      'monthly': 'Monatlicher Beitrag',
+    },
+    options: {
+      'payment': 'Monatlicher Beitrag',
+      'term': 'Wie lange es dauert',
+    },
+    results: {
+      'Взнос в месяц': 'Beitrag im Monat',
+      'Срок': 'Dauer',
+      'В годах': 'In Jahren',
+      'Месяцев': 'Monate',
+      'Всего взносов': 'Beiträge insgesamt',
+      'Начислено процентов': 'Erhaltene Zinsen',
+      'Итоговая сумма': 'Endbetrag',
+      'Цель': 'Ziel',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'мес': 'Mon.',
+      'Цель должна быть больше нуля': 'Das Ziel muss größer als null sein',
+      'Начальная сумма не может быть отрицательной': 'Der Anfangsbetrag kann nicht negativ sein',
+      'Ставка должна быть от 0 до 100 % годовых': 'Der Zinssatz muss zwischen 0 und 100 % im Jahr liegen',
+      'Ежемесячный взнос должен быть больше нуля': 'Der monatliche Beitrag muss größer als null sein',
+      'За сто лет цель не достигается: увеличьте взнос': 'In hundert Jahren wird das Ziel nicht erreicht — erhöhe den Beitrag',
+      'Срок должен быть не меньше месяца': 'Die Laufzeit muss mindestens einen Monat betragen',
+    },
+  },
   en: {
     fields: {
       "mode": "What to work out",

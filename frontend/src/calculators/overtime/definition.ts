@@ -3,6 +3,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { overtimeCopyEn } from './copy.en';
 import { overtimeCopyUk } from './copy.uk';
+import { overtimeCopyDe } from './copy.de';
 import { overtimeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: overtimeCopyEn, uk: overtimeCopyUk },
+  copy: { en: overtimeCopyEn, uk: overtimeCopyUk, de: overtimeCopyDe },
   referenceCases: overtimeReferenceCases,
   publishedExample: {
     inputs: { rate: 650, normalHours: 160, overtimeHours: 14, multiplier: 1.5 },

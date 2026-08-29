@@ -3,6 +3,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { bonusCopyEn } from './copy.en';
 import { bonusCopyUk } from './copy.uk';
+import { bonusCopyDe } from './copy.de';
 import { bonusReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: bonusCopyEn, uk: bonusCopyUk },
+  copy: { en: bonusCopyEn, uk: bonusCopyUk, de: bonusCopyDe },
   referenceCases: bonusReferenceCases,
   publishedExample: {
     inputs: { salary: 145000, bonusPct: 35, taxPct: 13 },

@@ -3,6 +3,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { vacationAccrualCopyEn } from './copy.en';
 import { vacationAccrualCopyUk } from './copy.uk';
+import { vacationAccrualCopyDe } from './copy.de';
 import { vacationAccrualReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: vacationAccrualCopyEn, uk: vacationAccrualCopyUk },
+  copy: { en: vacationAccrualCopyEn, uk: vacationAccrualCopyUk, de: vacationAccrualCopyDe },
   referenceCases: vacationAccrualReferenceCases,
   publishedExample: {
     inputs: { daysPerYear: 28, monthsWorked: 7, daysUsed: 5 },

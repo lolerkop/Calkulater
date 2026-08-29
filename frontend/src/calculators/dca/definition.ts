@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { dcaCopyEn } from './copy.en';
 import { dcaCopyUk } from './copy.uk';
+import { dcaCopyDe } from './copy.de';
 import { dcaReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: dcaCopyEn, uk: dcaCopyUk },
+  copy: { en: dcaCopyEn, uk: dcaCopyUk, de: dcaCopyDe },
   referenceCases: dcaReferenceCases,
   publishedExample: { inputs: { monthly: 10000, months: 12, priceGrowthPct: 2, startPrice: 5000 }, expected: ["134 120,90 ₽"] },
   presentation: {

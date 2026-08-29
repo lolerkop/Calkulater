@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { marketCapCopyEn } from './copy.en';
 import { marketCapCopyUk } from './copy.uk';
+import { marketCapCopyDe } from './copy.de';
 import { marketCapReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: marketCapCopyEn, uk: marketCapCopyUk },
+  copy: { en: marketCapCopyEn, uk: marketCapCopyUk, de: marketCapCopyDe },
   referenceCases: marketCapReferenceCases,
   publishedExample: { inputs: { mode: 'cap', shares: 1000000, price: 250 }, expected: ["250 000 000,00 ₽"] },
   presentation: {

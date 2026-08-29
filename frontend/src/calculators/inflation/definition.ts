@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { inflationCopyEn } from './copy.en';
 import { inflationCopyUk } from './copy.uk';
+import { inflationCopyDe } from './copy.de';
 import { inflationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: inflationCopyEn, uk: inflationCopyUk },
+  copy: { en: inflationCopyEn, uk: inflationCopyUk, de: inflationCopyDe },
   referenceCases: inflationReferenceCases,
   publishedExample: { inputs: { amount: 100000, ratePct: 8, years: 10 }, expected: ["46 319,35 ₽"] },
   presentation: {

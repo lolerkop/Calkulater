@@ -4,6 +4,24 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'income': 'Einkommen im Zeitraum',
+      'expenses': 'Ausgaben im Zeitraum',
+    },
+    results: {
+      'Норма сбережений': 'Sparquote',
+      'Сбережения за период': 'Im Zeitraum gespart',
+      'Доход': 'Einkommen',
+      'Расходы': 'Ausgaben',
+      'Внимание': 'Achtung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Расходы превышают доход': 'Die Ausgaben übersteigen das Einkommen',
+      'Доход должен быть больше нуля': 'Das Einkommen muss größer als null sein',
+    },
+  },
   en: {
     fields: { income: 'Income for the period', expenses: 'Expenses for the period' },
     results: {

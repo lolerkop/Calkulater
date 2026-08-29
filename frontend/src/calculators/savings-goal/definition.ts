@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { savingsGoalCopyEn } from './copy.en';
 import { savingsGoalCopyUk } from './copy.uk';
+import { savingsGoalCopyDe } from './copy.de';
 import { savingsGoalReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: savingsGoalCopyEn, uk: savingsGoalCopyUk },
+  copy: { en: savingsGoalCopyEn, uk: savingsGoalCopyUk, de: savingsGoalCopyDe },
   referenceCases: savingsGoalReferenceCases,
   publishedExample: { inputs: { mode: 'payment', goal: 1000000, initial: 100000, rate: 8, years: 5, monthly: 15000 }, expected: ["11 582,09 ₽"] },
   presentation: {

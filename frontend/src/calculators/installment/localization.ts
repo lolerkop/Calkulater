@@ -14,6 +14,34 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'price': 'Preis',
+      'down': 'Anzahlung',
+      'months': 'Laufzeit, Monate',
+      'markup': 'Aufschlag',
+    },
+    results: {
+      'Ежемесячный платёж': 'Monatsrate',
+      'Сумма рассрочки': 'Finanzierter Betrag',
+      'Всего к выплате': 'Insgesamt zu zahlen',
+      'Переплата': 'Mehrkosten',
+      'Последний платёж': 'Letzte Rate',
+      'Проверьте данные': 'Prüfe die Werte',
+      'График платежей': 'Zahlungsplan',
+      'Месяц': 'Monat',
+      'Платёж': 'Rate',
+      'Остаток': 'Restbetrag',
+    },
+    values: {
+      'Цена должна быть больше нуля': 'Der Preis muss größer als null sein',
+      'Первоначальный взнос не может быть отрицательным': 'Die Anzahlung kann nicht negativ sein',
+      'Взнос должен быть меньше цены': 'Die Anzahlung muss kleiner als der Preis sein',
+      'Срок должен быть хотя бы один месяц': 'Die Laufzeit muss mindestens einen Monat betragen',
+      'Срок не может превышать 60 месяцев': 'Die Laufzeit kann 60 Monate nicht übersteigen',
+      'Наценка не может быть отрицательной': 'Der Aufschlag kann nicht negativ sein',
+    },
+  },
   en: {
     fields: { price: 'Price', down: 'Down payment', months: 'Term, months', markup: 'Markup' },
     options: {},

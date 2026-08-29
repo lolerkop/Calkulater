@@ -3,6 +3,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { salaryRaiseCopyEn } from './copy.en';
 import { salaryRaiseCopyUk } from './copy.uk';
+import { salaryRaiseCopyDe } from './copy.de';
 import { salaryRaiseReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: salaryRaiseCopyEn, uk: salaryRaiseCopyUk },
+  copy: { en: salaryRaiseCopyEn, uk: salaryRaiseCopyUk, de: salaryRaiseCopyDe },
   referenceCases: salaryRaiseReferenceCases,
   publishedExample: {
     inputs: { mode: 'fromNew', oldSalary: 120000, newSalary: 148000 },

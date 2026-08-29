@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'amount': 'Darlehenssumme, €',
+      'rate': 'Jahreszins, %',
+      'years': 'Laufzeit, Jahre',
+      'extra': 'Sondertilgung je Monat, €',
+    },
+    results: {
+      'Экономия на процентах': 'Ersparte Zinsen',
+      'Платёж по графику': 'Rate nach Plan',
+      'Платежей вместо графика': 'Tatsächlich geleistete Raten',
+      'Платежей по графику': 'Raten nach Plan',
+      'Всего выплат': 'Insgesamt gezahlt',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Сумма кредита должна быть больше нуля': 'Die Darlehenssumme muss größer als null sein',
+      'Ставка не может быть отрицательной': 'Der Zinssatz kann nicht negativ sein',
+      'Срок должен быть больше нуля': 'Die Laufzeit muss größer als null sein',
+      'Доплата не может быть отрицательной': 'Die Sondertilgung kann nicht negativ sein',
+      'Платёж с доплатой не покрывает проценты — долг не уменьшается': 'Die Rate deckt die Zinsen nicht, die Schuld sinkt also nie',
+    },
+  },
   en: {
     fields: {
       amount: 'Loan amount, ₽',

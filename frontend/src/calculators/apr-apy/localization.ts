@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Richtung der Umrechnung',
+      'rate': 'Zinssatz, %',
+      'periods': 'Zinsperioden je Jahr',
+    },
+    options: {
+      'toApy': 'nominal in effektiv',
+      'toApr': 'effektiv in nominal',
+    },
+    results: {
+      'Эффективная ставка (APY)': 'Effektiver Zinssatz',
+      'Номинальная ставка (APR)': 'Nominaler Zinssatz',
+      'Номинальная ставка': 'Nominaler Zinssatz',
+      'Ставка за период': 'Zinssatz je Periode',
+      'Периодов в году': 'Perioden im Jahr',
+      'Множитель за год': 'Jahresfaktor',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Ставка не может быть отрицательной': 'Der Zinssatz kann nicht negativ sein',
+      'Периодов начисления должно быть не меньше одного': 'Es muss mindestens eine Zinsperiode geben',
+    },
+  },
   en: {
     fields: {
       mode: 'Direction of conversion',

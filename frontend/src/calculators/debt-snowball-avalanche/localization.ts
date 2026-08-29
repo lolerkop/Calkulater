@@ -18,6 +18,36 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'debts': 'Schulden: Name, Saldo, Jahreszins, Mindestrate',
+      'extra': 'Freies Geld je Monat, €',
+      'strategy': 'Strategie',
+    },
+    options: {
+      'avalanche': 'Lawine — höchster Zinssatz zuerst',
+      'snowball': 'Schneeball — kleinster Saldo zuerst',
+    },
+    results: {
+      'Срок погашения': 'Tilgungsdauer',
+      'Переплата процентами': 'Gezahlte Zinsen',
+      'Выплачено всего': 'Insgesamt gezahlt',
+      'Первым закрывается': 'Zuerst getilgt',
+      'Долгов': 'Schulden',
+      'Порядок погашения': 'Reihenfolge der Tilgung',
+      'Очередь': 'Reihenfolge',
+      'Долг': 'Schuld',
+      'Закрыт': 'Getilgt',
+      'Проценты по нему': 'Zinsen darauf',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мес': 'Mon.',
+      'Каждая строка: название, сумма, ставка и минимальный платёж': 'Jede Zeile: Name, Saldo, Zinssatz und Mindestrate',
+      'Свободные деньги не могут быть отрицательными': 'Das freie Geld kann nicht negativ sein',
+      'Долги не гасятся: платежей не хватает даже на проценты': 'Die Schulden werden nicht getilgt: die Raten reichen nicht einmal für die Zinsen',
+    },
+  },
   en: {
     fields: {
       debts: 'Debts: name, balance, rate, minimum payment',

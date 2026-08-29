@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { positionSizeCopyEn } from './copy.en';
 import { positionSizeCopyUk } from './copy.uk';
+import { positionSizeCopyDe } from './copy.de';
 import { positionSizeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: positionSizeCopyEn, uk: positionSizeCopyUk },
+  copy: { en: positionSizeCopyEn, uk: positionSizeCopyUk, de: positionSizeCopyDe },
   referenceCases: positionSizeReferenceCases,
   publishedExample: { inputs: { deposit: 100000, riskPct: 1, entry: 250, stop: 240 }, expected: ["100 шт"] },
   presentation: {

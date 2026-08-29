@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'amount': 'Betrag heute, €',
+      'ratePct': 'Inflation, % im Jahr',
+      'years': 'Zeitraum, Jahre',
+    },
+    results: {
+      'Покупательная способность': 'Kaufkraft',
+      'Столько же в будущих деньгах': 'Derselbe Wert in künftigem Geld',
+      'Потеряно покупательной способности': 'Verlorene Kaufkraft',
+      'Доля потери': 'Anteil des Verlusts',
+      'Множитель цен': 'Preisfaktor',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Сумма должна быть больше нуля': 'Der Betrag muss größer als null sein',
+      'Инфляция не может достигать минус ста процентов': 'Die Inflation kann minus hundert Prozent nicht erreichen',
+      'Срок должен быть больше нуля': 'Der Zeitraum muss größer als null sein',
+      'Значение слишком велико для расчёта': 'Der Wert ist zu groß für die Rechnung',
+    },
+  },
   en: {
     fields: { "amount": "Amount today, $", "ratePct": "Inflation, % per year", "years": "Term, years" },
     options: {},

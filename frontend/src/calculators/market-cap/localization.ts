@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'shares': 'Ausstehende Aktien',
+      'price': 'Kurs je Aktie, €',
+      'cap': 'Marktkapitalisierung, €',
+    },
+    options: {
+      'cap': 'die Kapitalisierung',
+      'price': 'der Aktienkurs',
+    },
+    results: {
+      'Капитализация': 'Marktkapitalisierung',
+      'Цена одной акции': 'Kurs je Aktie',
+      'Акций в обращении': 'Ausstehende Aktien',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'шт': 'Stk',
+      'Число акций должно быть больше нуля': 'Die Zahl der Aktien muss größer als null sein',
+      'Цена акции должна быть больше нуля': 'Der Aktienkurs muss größer als null sein',
+      'Капитализация должна быть больше нуля': 'Die Kapitalisierung muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       "mode": "What to find",

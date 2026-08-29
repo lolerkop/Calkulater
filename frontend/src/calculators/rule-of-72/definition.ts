@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { ruleOf72CopyEn } from './copy.en';
 import { ruleOf72CopyUk } from './copy.uk';
+import { ruleOf72CopyDe } from './copy.de';
 import { ruleOf72ReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: ruleOf72CopyEn, uk: ruleOf72CopyUk },
+  copy: { en: ruleOf72CopyEn, uk: ruleOf72CopyUk, de: ruleOf72CopyDe },
   referenceCases: ruleOf72ReferenceCases,
   publishedExample: { inputs: { rate: 8 }, expected: ['9,00 лет'] },
   presentation: {

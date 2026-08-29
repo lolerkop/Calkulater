@@ -12,6 +12,26 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'rate': 'Jahreszins, %',
+      'amount': 'Anfangsbetrag',
+    },
+    results: {
+      'Удвоение по правилу 72': 'Verdopplung nach der Regel von 72',
+      'Точный срок удвоения': 'Genaue Verdopplungszeit',
+      'Расхождение правила': 'Abweichung der Faustregel',
+      'Ставка': 'Zinssatz',
+      'Сумма после удвоения': 'Betrag nach der Verdopplung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '% годовых': '% im Jahr',
+      'лет': 'Jahre',
+      '₽': '€',
+      'Ставка должна быть больше нуля': 'Der Zinssatz muss größer als null sein',
+    },
+  },
   en: {
     fields: { rate: 'Annual rate, %', amount: 'Starting amount' },
     results: RESULTS_EN,

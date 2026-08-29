@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'oldSalary': 'Bisheriges Gehalt, €',
+      'newSalary': 'Neues Gehalt, €',
+      'raisePct': 'Erhöhung, %',
+    },
+    options: {
+      'fromNew': 'das neue Gehalt',
+      'fromPct': 'der Prozentsatz der Erhöhung',
+    },
+    results: {
+      'Изменение': 'Veränderung',
+      'Новая зарплата': 'Neues Gehalt',
+      'Разница': 'Unterschied',
+      'Было': 'Vorher',
+      'Стало': 'Nachher',
+      'Множитель': 'Faktor',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Прежняя зарплата должна быть больше нуля': 'Das bisherige Gehalt muss größer als null sein',
+      'Новая зарплата должна быть больше нуля': 'Das neue Gehalt muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What is known',

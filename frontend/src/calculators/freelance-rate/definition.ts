@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { freelanceRateCopyEn } from './copy.en';
 import { freelanceRateCopyUk } from './copy.uk';
+import { freelanceRateCopyDe } from './copy.de';
 import { freelanceRateReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: freelanceRateCopyEn, uk: freelanceRateCopyUk },
+  copy: { en: freelanceRateCopyEn, uk: freelanceRateCopyUk, de: freelanceRateCopyDe },
   referenceCases: freelanceRateReferenceCases,
   publishedExample: {
     inputs: { targetIncome: 150000, workDays: 21, hoursPerDay: 6, billablePct: 70, expenses: 15000, taxPct: 6 },

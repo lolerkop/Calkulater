@@ -1,6 +1,26 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'daysPerYear': 'Jahresanspruch, Tage',
+      'monthsWorked': 'Gearbeitete Monate',
+      'daysUsed': 'Bereits genommene Tage',
+    },
+    results: {
+      'Остаток отпуска': 'Resturlaub',
+      'Накоплено': 'Erworben',
+      'За месяц': 'Erworben je Monat',
+      'Использовано': 'Genommene Tage',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'дн.': 'Tage',
+      'Годовая норма отпуска должна быть больше нуля': 'Der Jahresanspruch muss größer als null sein',
+      'Отработанные месяцы не могут быть отрицательными': 'Die gearbeiteten Monate können nicht negativ sein',
+      'Использованные дни не могут быть отрицательными': 'Die genommenen Tage können nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       daysPerYear: 'Annual leave entitlement, days',

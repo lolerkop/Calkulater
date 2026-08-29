@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { workdayCostCopyEn } from './copy.en';
 import { workdayCostCopyUk } from './copy.uk';
+import { workdayCostCopyDe } from './copy.de';
 import { workdayCostReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: workdayCostCopyEn, uk: workdayCostCopyUk },
+  copy: { en: workdayCostCopyEn, uk: workdayCostCopyUk, de: workdayCostCopyDe },
   referenceCases: workdayCostReferenceCases,
   publishedExample: { inputs: { salary: 80000, days: 21, hours: 8 }, expected: ['476,19 ₽'] },
   presentation: {

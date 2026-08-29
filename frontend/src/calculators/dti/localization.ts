@@ -12,6 +12,25 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'payments': 'Monatliche Kreditraten',
+      'income': 'Monatliches Einkommen',
+    },
+    results: {
+      'Кредитная нагрузка': 'Schuldendienstquote',
+      'Оценка': 'Einordnung',
+      'Остаётся после платежей': 'Bleibt nach den Raten',
+      'Платежи по долгам': 'Kreditraten',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Комфортная': 'Bequem',
+      'Повышенная': 'Erhöht',
+      'Высокая': 'Hoch',
+      'Доход должен быть больше нуля': 'Das Einkommen muss größer als null sein',
+    },
+  },
   en: {
     fields: { payments: 'Monthly debt payments', income: 'Monthly income' },
     results: RESULTS_EN,

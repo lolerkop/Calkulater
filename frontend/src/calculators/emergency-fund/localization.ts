@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'monthlyExpenses': 'Monatsausgaben, €',
+      'months': 'Gewünschte Deckung, Monate',
+      'saved': 'Bereits zurückgelegt, €',
+    },
+    results: {
+      'Цель подушки': 'Ziel des Notgroschens',
+      'Не хватает': 'Noch fehlend',
+      'Уже покрыто месяцев': 'Bereits gedeckte Monate',
+      'Готовность': 'Fortschritt',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Месячные расходы должны быть больше нуля': 'Die Monatsausgaben müssen größer als null sein',
+      'Запас должен быть не меньше одного месяца': 'Die Deckung muss mindestens einen Monat betragen',
+      'Накопленное не может быть отрицательным': 'Der zurückgelegte Betrag kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       monthlyExpenses: 'Monthly expenses, ₽',

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { downPaymentCopyEn } from './copy.en';
 import { downPaymentCopyUk } from './copy.uk';
+import { downPaymentCopyDe } from './copy.de';
 import { downPaymentReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: downPaymentCopyEn, uk: downPaymentCopyUk },
+  copy: { en: downPaymentCopyEn, uk: downPaymentCopyUk, de: downPaymentCopyDe },
   referenceCases: downPaymentReferenceCases,
   publishedExample: { inputs: { mode: 'percent', price: 5000000, percent: 20 }, expected: ["1 000 000,00 ₽"] },
   presentation: {

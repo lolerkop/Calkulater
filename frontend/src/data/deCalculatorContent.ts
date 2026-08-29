@@ -32,6 +32,12 @@ import { deDatetimeContent } from './deContent/datetime';
 import { deElectronics1Content } from './deContent/electronics1';
 import { deElectronics2Content } from './deContent/electronics2';
 import { deElectronics3Content } from './deContent/electronics3';
+import { deFinance1Content } from './deContent/finance1';
+import { deFinance2Content } from './deContent/finance2';
+import { deFinance3Content } from './deContent/finance3';
+import { deFinance4Content } from './deContent/finance4';
+import { deFinance5Content } from './deContent/finance5';
+import { deFinance6Content } from './deContent/finance6';
 import { deGeometry1Content } from './deContent/geometry1';
 import { deGeometry2Content } from './deContent/geometry2';
 import { deGeometry3Content } from './deContent/geometry3';
@@ -40,6 +46,10 @@ import { deHousehold2Content } from './deContent/household2';
 import { deHousehold3Content } from './deContent/household3';
 import { deHousehold4Content } from './deContent/household4';
 import { deHousehold5Content } from './deContent/household5';
+import { deLegacy1Content } from './deContent/legacy1';
+import { deLegacy2Content } from './deContent/legacy2';
+import { deLegacy3Content } from './deContent/legacy3';
+import { deLegacy4Content } from './deContent/legacy4';
 import { deMath1Content } from './deContent/math1';
 import { deMath2Content } from './deContent/math2';
 import { deMath3Content } from './deContent/math3';
@@ -423,6 +433,12 @@ export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
   ...deElectronics1Content,
   ...deElectronics2Content,
   ...deElectronics3Content,
+  ...deFinance1Content,
+  ...deFinance2Content,
+  ...deFinance3Content,
+  ...deFinance4Content,
+  ...deFinance5Content,
+  ...deFinance6Content,
   ...deGeometry1Content,
   ...deGeometry2Content,
   ...deGeometry3Content,
@@ -431,6 +447,10 @@ export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
   ...deHousehold3Content,
   ...deHousehold4Content,
   ...deHousehold5Content,
+  ...deLegacy1Content,
+  ...deLegacy2Content,
+  ...deLegacy3Content,
+  ...deLegacy4Content,
   ...deMath1Content,
   ...deMath2Content,
   ...deMath3Content,

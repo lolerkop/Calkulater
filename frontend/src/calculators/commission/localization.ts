@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Rechenmodus',
+    },
+    options: {
+      'fromAmount': 'Provision aus dem Betrag',
+      'fromCommission': 'Betrag aus der Provision',
+      'rate': 'Satz aus beidem',
+    },
+    results: {
+      'Комиссия': 'Provision',
+      'Сумма сделки': 'Geschäftsbetrag',
+      'Ставка комиссии': 'Provisionssatz',
+      'К получению': 'Auszahlung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Ставка комиссии должна быть больше нуля': 'Der Provisionssatz muss größer als null sein',
+      'Сумма сделки должна быть больше нуля': 'Der Geschäftsbetrag muss größer als null sein',
+    },
+  },
   en: {
     // Поле `mode` есть и у процентов, и у краски: без области видимости эта
     // подпись перетёрла бы их. Ключ локален, коллизия невозможна структурно.

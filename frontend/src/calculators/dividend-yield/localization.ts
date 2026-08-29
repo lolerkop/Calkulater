@@ -1,6 +1,24 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'dividend': 'Jahresdividende je Aktie',
+      'price': 'Aktienkurs',
+      'shares': 'Zahl der Aktien',
+    },
+    results: {
+      'Дивидендная доходность': 'Dividendenrendite',
+      'Дивиденд на акцию за год': 'Jahresdividende je Aktie',
+      'Дивиденды на пакет': 'Dividenden auf den Bestand',
+      'Стоимость пакета': 'Wert des Bestands',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Цена акции должна быть больше нуля': 'Der Aktienkurs muss größer als null sein',
+      'Дивиденд не может быть отрицательным': 'Die Dividende kann nicht negativ sein',
+    },
+  },
   en: {
     fields: { dividend: 'Annual dividend per share', price: 'Share price', shares: 'Number of shares' },
     results: { 'Дивидендная доходность': 'Dividend yield', 'Дивиденд на акцию за год': 'Annual dividend per share', 'Дивиденды на пакет': 'Dividends on the holding', 'Стоимость пакета': 'Value of the holding', 'Проверьте данные': 'Check the values' },

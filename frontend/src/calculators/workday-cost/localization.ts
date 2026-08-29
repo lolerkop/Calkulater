@@ -10,6 +10,24 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'salary': 'Monatsgehalt',
+      'days': 'Arbeitstage im Monat',
+      'hours': 'Stunden je Arbeitstag',
+    },
+    results: {
+      'Стоимость рабочего дня': 'Wert eines Arbeitstages',
+      'Стоимость часа': 'Wert einer Stunde',
+      'Рабочих часов в месяце': 'Arbeitsstunden im Monat',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Оклад должен быть больше нуля': 'Das Gehalt muss größer als null sein',
+      'Число рабочих дней должно быть больше нуля': 'Die Zahl der Arbeitstage muss größer als null sein',
+      'Число часов в дне должно быть больше нуля': 'Die Zahl der Stunden je Tag muss größer als null sein',
+    },
+  },
   en: {
     fields: { salary: 'Monthly salary', days: 'Working days per month', hours: 'Hours per working day' },
     options: {},

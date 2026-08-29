@@ -1,6 +1,39 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'direction': 'Richtung der Position',
+      'entry': 'Einstiegskurs',
+      'stop': 'Stoppkurs',
+      'target': 'Zielkurs',
+      'qty': 'Größe, Einheiten',
+    },
+    options: {
+      'long': 'long — Stopp darunter, Ziel darüber',
+      'short': 'short — Stopp darüber, Ziel darunter',
+    },
+    results: {
+      'Отношение риск/прибыль': 'Chance-Risiko-Verhältnis',
+      'Риск на единицу': 'Risiko je Einheit',
+      'Прибыль на единицу': 'Ertrag je Einheit',
+      'Риск в деньгах': 'Risiko in Geld',
+      'Прибыль в деньгах': 'Ertrag in Geld',
+      'Безубыточная доля сделок': 'Trefferquote für die Nulllinie',
+      'Внимание': 'Hinweis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'В лонге стоп ставится ниже входа, а цель выше': 'Eine Long-Position setzt den Stopp unter den Einstieg und das Ziel darüber',
+      'В шорте стоп ставится выше входа, а цель ниже': 'Eine Short-Position setzt den Stopp über den Einstieg und das Ziel darunter',
+      'Цена входа должна быть больше нуля': 'Der Einstiegskurs muss größer als null sein',
+      'Цена стоп-приказа должна быть больше нуля': 'Der Stoppkurs muss größer als null sein',
+      'Целевая цена должна быть больше нуля': 'Der Zielkurs muss größer als null sein',
+      'Объём должен быть больше нуля': 'Die Größe muss größer als null sein',
+      'Стоп не может совпадать с ценой входа': 'Der Stopp kann nicht mit dem Einstiegskurs zusammenfallen',
+    },
+  },
   en: {
     fields: {
       "direction": "Trade direction",

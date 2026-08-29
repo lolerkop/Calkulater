@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { riskRewardCopyEn } from './copy.en';
 import { riskRewardCopyUk } from './copy.uk';
+import { riskRewardCopyDe } from './copy.de';
 import { riskRewardReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: riskRewardCopyEn, uk: riskRewardCopyUk },
+  copy: { en: riskRewardCopyEn, uk: riskRewardCopyUk, de: riskRewardCopyDe },
   referenceCases: riskRewardReferenceCases,
   publishedExample: { inputs: { direction: 'long', entry: 250, stop: 240, target: 280, qty: 100 }, expected: ["3"] },
   presentation: {

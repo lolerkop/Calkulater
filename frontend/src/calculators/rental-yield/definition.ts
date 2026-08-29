@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { rentalYieldCopyEn } from './copy.en';
 import { rentalYieldCopyUk } from './copy.uk';
+import { rentalYieldCopyDe } from './copy.de';
 import { rentalYieldReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: rentalYieldCopyEn, uk: rentalYieldCopyUk },
+  copy: { en: rentalYieldCopyEn, uk: rentalYieldCopyUk, de: rentalYieldCopyDe },
   referenceCases: rentalYieldReferenceCases,
   publishedExample: { inputs: { price: 10000000, rentMode: 'annual', annualRent: 600000, annualCosts: 0 }, expected: ["6,00%"] },
   presentation: {

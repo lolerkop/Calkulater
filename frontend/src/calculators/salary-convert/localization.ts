@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'amount': 'Betrag, €',
+      'fromPeriod': 'Zeitraum des Betrags',
+      'toPeriod': 'Umrechnen in',
+    },
+    options: {
+      'hour': 'je Stunde',
+      'day': 'je Tag',
+      'week': 'je Woche',
+      'month': 'je Monat',
+      'year': 'je Jahr',
+    },
+    results: {
+      'Зарплата за выбранный период': 'Gehalt für den gewählten Zeitraum',
+      'В час': 'Je Stunde',
+      'В день': 'Je Tag',
+      'В месяц': 'Je Monat',
+      'В год': 'Je Jahr',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Сумма должна быть больше нуля': 'Der Betrag muss größer als null sein',
+      'Выберите период из списка': 'Wähle einen Zeitraum aus der Liste',
+    },
+  },
   en: {
     fields: {
       amount: 'Amount, ₽',

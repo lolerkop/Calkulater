@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { leasePaymentCopyEn } from './copy.en';
 import { leasePaymentCopyUk } from './copy.uk';
+import { leasePaymentCopyDe } from './copy.de';
 import { leasePaymentReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: leasePaymentCopyEn, uk: leasePaymentCopyUk },
+  copy: { en: leasePaymentCopyEn, uk: leasePaymentCopyUk, de: leasePaymentCopyDe },
   referenceCases: leasePaymentReferenceCases,
   publishedExample: { inputs: { price: 2000000, down: 400000, residualPct: 40, months: 36, rate: 12 }, expected: ["34 222,22 ₽"] },
   presentation: {

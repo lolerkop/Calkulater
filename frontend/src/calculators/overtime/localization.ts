@@ -1,6 +1,26 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'rate': 'Stundensatz, €',
+      'normalHours': 'Reguläre Stunden',
+      'overtimeHours': 'Überstunden',
+      'multiplier': 'Überstundenfaktor',
+    },
+    results: {
+      'Всего к оплате': 'Gesamtvergütung',
+      'Оплата обычных часов': 'Vergütung der regulären Stunden',
+      'Оплата сверхурочных': 'Vergütung der Überstunden',
+      'Средняя ставка за час': 'Tatsächlicher Stundensatz',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Ставка за час должна быть больше нуля': 'Der Stundensatz muss größer als null sein',
+      'Часы не могут быть отрицательными': 'Die Stunden können nicht negativ sein',
+      'Коэффициент сверхурочных не может быть меньше единицы': 'Der Überstundenfaktor kann nicht unter eins liegen',
+    },
+  },
   en: {
     fields: {
       rate: 'Hourly rate, ₽',

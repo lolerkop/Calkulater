@@ -1,6 +1,37 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'monthly': 'Monatlicher Beitrag, €',
+      'months': 'Monate',
+      'startPrice': 'Anfangspreis je Anteil, €',
+      'priceGrowthPct': 'Monatliche Preisänderung, %',
+    },
+    results: {
+      'Итоговая стоимость': 'Endwert',
+      'Вложено всего': 'Insgesamt angelegt',
+      'Куплено единиц': 'Gekaufte Anteile',
+      'Средняя цена': 'Durchschnittlicher Preis',
+      'Результат': 'Ergebnis',
+      'Цена последней покупки': 'Preis des letzten Kaufs',
+      'По месяцам': 'Monat für Monat',
+      'Месяц': 'Monat',
+      'Цена': 'Preis',
+      'Куплено': 'Gekauft',
+      'Накоплено': 'Angesammelt',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Показаны первые 12 месяцев расчёта.': 'Gezeigt werden die ersten 12 Monate der Rechnung.',
+      '₽': '€',
+      'Взнос должен быть больше нуля': 'Der Beitrag muss größer als null sein',
+      'Число месяцев должно быть не меньше единицы': 'Die Zahl der Monate muss mindestens eins sein',
+      'Число месяцев должно быть целым': 'Die Zahl der Monate muss eine ganze Zahl sein',
+      'Начальная цена должна быть больше нуля': 'Der Anfangspreis muss größer als null sein',
+      'Падение цены не может достигать ста процентов': 'Ein Preisrückgang kann hundert Prozent nicht erreichen',
+    },
+  },
   en: {
     fields: {
       "monthly": "Monthly contribution, $",

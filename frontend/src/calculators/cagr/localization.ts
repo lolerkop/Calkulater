@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'begin': 'Anfangswert',
+      'end': 'Endwert',
+      'years': 'Zahl der Jahre',
+    },
+    results: {
+      'Среднегодовой рост': 'Jährliche Wachstumsrate',
+      'Общий рост за срок': 'Gesamtwachstum über den Zeitraum',
+      'Множитель': 'Faktor',
+      'Начальная стоимость': 'Anfangswert',
+      'Конечная стоимость': 'Endwert',
+      'Срок': 'Jahre',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Начальная стоимость должна быть больше нуля': 'Der Anfangswert muss größer als null sein',
+      'Конечная стоимость должна быть больше нуля': 'Der Endwert muss größer als null sein',
+      'Срок должен быть больше нуля': 'Die Zahl der Jahre muss größer als null sein',
+    },
+  },
   en: {
     fields: { begin: 'Starting value', end: 'Ending value', years: 'Number of years' },
     results: {

@@ -1,6 +1,37 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'direction': 'Richtung des Handels',
+      'entry': 'Einstiegspreis',
+      'exit': 'Ausstiegspreis',
+      'qty': 'Menge, Einheiten',
+      'feePct': 'Gebühr je Seite, %',
+      'leverage': 'Hebel',
+    },
+    options: {
+      'long': 'long — gewinnt bei steigendem Preis',
+      'short': 'short — gewinnt bei fallendem Preis',
+    },
+    results: {
+      'Чистый результат': 'Nettoergebnis',
+      'Результат до комиссий': 'Ergebnis vor Gebühren',
+      'Комиссии': 'Gebühren',
+      'Вложено': 'Eingesetzt',
+      'Доходность позиции': 'Rendite der Position',
+      'Изменение цены': 'Preisänderung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Цена входа должна быть больше нуля': 'Der Einstiegspreis muss größer als null sein',
+      'Цена выхода должна быть больше нуля': 'Der Ausstiegspreis muss größer als null sein',
+      'Объём должен быть больше нуля': 'Die Menge muss größer als null sein',
+      'Плечо должно быть больше нуля': 'Der Hebel muss größer als null sein',
+      'Комиссия не может быть отрицательной': 'Die Gebühr kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       "direction": "Trade direction",

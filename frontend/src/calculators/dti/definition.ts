@@ -5,6 +5,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { dtiCopyEn } from './copy.en';
 import { dtiCopyUk } from './copy.uk';
+import { dtiCopyDe } from './copy.de';
 import { dtiReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: dtiCopyEn, uk: dtiCopyUk },
+  copy: { en: dtiCopyEn, uk: dtiCopyUk, de: dtiCopyDe },
   referenceCases: dtiReferenceCases,
   publishedExample: { inputs: { payments: 45000, income: 150000 }, expected: ['30,00 %', 'Комфортная'] },
   presentation: {

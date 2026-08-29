@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'equity': 'Eingesetzte Sicherheit, €',
+      'leverage': 'Hebel, ×',
+      'entry': 'Einstiegspreis, €',
+      'maintenancePct': 'Erhaltungsmarge, %',
+    },
+    results: {
+      'Размер позиции': 'Positionsgröße',
+      'Единиц позиции': 'Gehaltene Einheiten',
+      'Цена ликвидации': 'Liquidationspreis',
+      'Падение до ликвидации': 'Rückgang bis zur Liquidation',
+      'Залог': 'Eingesetzte Sicherheit',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Залог должен быть больше нуля': 'Die Sicherheit muss größer als null sein',
+      'Плечо не может быть меньше единицы': 'Der Hebel kann nicht unter eins liegen',
+      'Цена входа должна быть больше нуля': 'Der Einstiegspreis muss größer als null sein',
+      'Поддерживающая маржа должна быть от нуля до ста процентов': 'Die Erhaltungsmarge muss zwischen null und hundert Prozent liegen',
+    },
+  },
   en: {
     fields: {
       equity: 'Margin posted, ₽',

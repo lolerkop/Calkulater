@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Verkehrswert der Immobilie',
+      'balance': 'Restschuld der Baufinanzierung',
+      'ltv': 'Zulässiger Beleihungsauslauf, %',
+      'rate': 'Jahreszins, %',
+      'years': 'Laufzeit, Jahre',
+    },
+    results: {
+      'Доступная сумма': 'Verfügbarer Betrag',
+      'Собственный капитал в жилье': 'Eigenkapital in der Immobilie',
+      'Предел по доле залога': 'Grenze des Beleihungsauslaufs',
+      'Доля собственного капитала': 'Anteil des Eigenkapitals',
+      'Платёж по такому кредиту': 'Rate für dieses Darlehen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '%': '%',
+      'Стоимость жилья должна быть больше нуля': 'Der Wert der Immobilie muss größer als null sein',
+      'Остаток долга не может быть отрицательным': 'Die Restschuld kann nicht negativ sein',
+      'Остаток долга не может превышать стоимость жилья': 'Die Restschuld kann den Wert der Immobilie nicht übersteigen',
+      'Доля залога задаётся от 0 до 100 процентов': 'Der Beleihungsauslauf liegt zwischen 0 und 100 Prozent',
+      'Ставка не может быть отрицательной': 'Der Zinssatz kann nicht negativ sein',
+      'Срок должен быть больше нуля': 'Die Laufzeit muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       value: 'Market value of the home', balance: 'Outstanding mortgage balance',

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { depreciationMethodsCopyEn } from './copy.en';
 import { depreciationMethodsCopyUk } from './copy.uk';
+import { depreciationMethodsCopyDe } from './copy.de';
 import { depreciationMethodsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: depreciationMethodsCopyEn, uk: depreciationMethodsCopyUk },
+  copy: { en: depreciationMethodsCopyEn, uk: depreciationMethodsCopyUk, de: depreciationMethodsCopyDe },
   referenceCases: depreciationMethodsReferenceCases,
   publishedExample: {
     inputs: { cost: 1200000, salvage: 200000, life: 5, method: 'straight', year: 1 },

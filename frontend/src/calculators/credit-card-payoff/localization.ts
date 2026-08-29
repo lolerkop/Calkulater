@@ -18,6 +18,37 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'balance': 'Saldo der Karte',
+      'apr': 'Jahreszins, %',
+      'payment': 'Monatliche Rate',
+    },
+    results: {
+      'Срок погашения': 'Tilgungsdauer',
+      'Переплата процентами': 'Gezahlte Zinsen',
+      'Выплачено всего': 'Insgesamt gezahlt',
+      'Доля переплаты': 'Zinsen als Anteil der Schuld',
+      'Первый месяц: проценты': 'Erster Monat: Zinsen',
+      'Первый месяц: тело долга': 'Erster Monat: Tilgung',
+      'График погашения': 'Tilgungsplan',
+      'Месяц': 'Monat',
+      'Платёж': 'Rate',
+      'Проценты': 'Zinsen',
+      'Основной долг': 'Tilgung',
+      'Остаток': 'Restschuld',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мес': 'Mon.',
+      'Показаны первые 36 месяцев': 'Gezeigt werden die ersten 36 Monate',
+      'Долг должен быть больше нуля': 'Der Saldo muss größer als null sein',
+      'Ставка не может быть отрицательной': 'Der Zinssatz kann nicht negativ sein',
+      'Платёж должен быть больше нуля': 'Die Rate muss größer als null sein',
+      'Платёж не покрывает даже процент — долг не убывает': 'Die Rate deckt nicht einmal die Zinsen — die Schuld sinkt nie',
+      'Срок превышает 600 месяцев — увеличьте платёж': 'Die Dauer übersteigt 600 Monate — erhöhe die Rate',
+    },
+  },
   en: {
     fields: { balance: 'Card balance', apr: 'Annual rate, %', payment: 'Monthly payment' },
     options: {},

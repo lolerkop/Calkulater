@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { homeEquityCopyEn } from './copy.en';
 import { homeEquityCopyUk } from './copy.uk';
+import { homeEquityCopyDe } from './copy.de';
 import { homeEquityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: homeEquityCopyEn, uk: homeEquityCopyUk },
+  copy: { en: homeEquityCopyEn, uk: homeEquityCopyUk, de: homeEquityCopyDe },
   referenceCases: homeEquityReferenceCases,
   publishedExample: { inputs: { value: 9000000, balance: 3200000, ltv: 80, rate: 18, years: 10 }, expected: ["4 000 000 ₽"] },
   presentation: {

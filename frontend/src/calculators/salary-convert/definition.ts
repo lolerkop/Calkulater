@@ -3,6 +3,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { salaryConvertCopyEn } from './copy.en';
 import { salaryConvertCopyUk } from './copy.uk';
+import { salaryConvertCopyDe } from './copy.de';
 import { salaryConvertReferenceCases } from './referenceCases';
 
 const PERIODS = [
@@ -18,7 +19,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: salaryConvertCopyEn, uk: salaryConvertCopyUk },
+  copy: { en: salaryConvertCopyEn, uk: salaryConvertCopyUk, de: salaryConvertCopyDe },
   referenceCases: salaryConvertReferenceCases,
   publishedExample: {
     inputs: { amount: 180000, fromPeriod: 'month', toPeriod: 'year' },

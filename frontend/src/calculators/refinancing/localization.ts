@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'balance': 'Restschuld',
+      'oldRate': 'Jetziger Zinssatz, % im Jahr',
+      'oldMonths': 'Verbleibende Monate',
+      'newRate': 'Neuer Zinssatz, % im Jahr',
+      'newMonths': 'Neue Laufzeit, Monate',
+      'fee': 'Kosten des Wechsels',
+    },
+    results: {
+      'Выгода от рефинансирования': 'Gewinn durch die Umschuldung',
+      'Платёж сейчас': 'Rate jetzt',
+      'Платёж после': 'Rate danach',
+      'Итого сейчас': 'Summe jetzt',
+      'Итого после': 'Summe danach',
+      'Разница в платеже': 'Unterschied der Rate',
+      'Расходы на сделку': 'Kosten des Wechsels',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Остаток долга должен быть больше нуля': 'Die Restschuld muss größer als null sein',
+      'Срок должен быть не меньше месяца': 'Die Laufzeit muss mindestens einen Monat betragen',
+      'Ставка должна быть от 0 до 100 % годовых': 'Der Zinssatz muss zwischen 0 und 100 % im Jahr liegen',
+      'Расходы на сделку не могут быть отрицательными': 'Die Kosten des Wechsels können nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       "balance": "Outstanding balance",
