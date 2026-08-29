@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { gcdLcmCopyEn } from './copy.en';
 import { gcdLcmCopyUk } from './copy.uk';
+import { gcdLcmCopyDe } from './copy.de';
 import { gcdLcmReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: gcdLcmCopyEn, uk: gcdLcmCopyUk },
+  copy: { en: gcdLcmCopyEn, uk: gcdLcmCopyUk, de: gcdLcmCopyDe },
   referenceCases: gcdLcmReferenceCases,
   publishedExample: { inputs: { numbers: '24 36 60 84' }, expected: ["12"] },
   presentation: {

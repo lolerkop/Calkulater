@@ -10,6 +10,25 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'from': 'Vorher',
+      'to': 'Nachher',
+    },
+    results: {
+      'Абсолютная разница': 'Absolute Differenz',
+      'Относительная разница': 'Relative Differenz',
+      'Было': 'Vorher',
+      'Стало': 'Nachher',
+      'Направление': 'Richtung',
+    },
+    values: {
+      'Рост': 'Anstieg',
+      'Снижение': 'Rückgang',
+      'Без изменений': 'Unverändert',
+      'Не определена при нулевой базе': 'Bei einer Basis von null nicht bestimmt',
+    },
+  },
   en: {
     fields: { from: 'Before', to: 'After' },
     results: RESULTS_EN,

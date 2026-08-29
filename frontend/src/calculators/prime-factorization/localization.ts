@@ -12,6 +12,25 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'n': 'Zahl',
+    },
+    results: {
+      'Разложение': 'Zerlegung',
+      'Различных простых': 'Verschiedene Primzahlen',
+      'Всего делителей': 'Teiler insgesamt',
+      'Простое число': 'Primzahl',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Да': 'Ja',
+      'Нет': 'Nein',
+      'Число должно быть целым': 'Die Zahl muss eine ganze Zahl sein',
+      'Раскладывают числа от двух и больше': 'Zerlegt werden Zahlen ab zwei',
+      'Число слишком велико для точного разложения': 'Die Zahl ist zu groß für eine genaue Zerlegung',
+    },
+  },
   en: {
     fields: { n: 'Number' },
     results: RESULTS_EN,

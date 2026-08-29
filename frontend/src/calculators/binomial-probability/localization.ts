@@ -1,6 +1,39 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'n': 'Zahl der Versuche',
+      'k': 'Zahl der Erfolge',
+      'p': 'Erfolgswahrscheinlichkeit eines Versuchs',
+      'mode': 'Was berechnet wird',
+    },
+    options: {
+      'exactly': 'genau k Erfolge',
+      'atMost': 'höchstens k Erfolge',
+      'atLeast': 'mindestens k Erfolge',
+    },
+    results: {
+      'Вероятность ровно k': 'Wahrscheinlichkeit für genau k',
+      'Вероятность не более k': 'Wahrscheinlichkeit für höchstens k',
+      'Вероятность не менее k': 'Wahrscheinlichkeit für mindestens k',
+      'В процентах': 'In Prozent',
+      'Не более k': 'Höchstens k',
+      'Не менее k': 'Mindestens k',
+      'Число сочетаний': 'Zahl der Kombinationen',
+      'Математическое ожидание': 'Erwartungswert',
+      'Стандартное отклонение': 'Standardabweichung',
+      'Вероятность': 'Wahrscheinlichkeit',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Число испытаний и успехов должно быть целым': 'Zahl der Versuche und der Erfolge müssen ganze Zahlen sein',
+      'Число испытаний должно быть больше нуля': 'Die Zahl der Versuche muss größer als null sein',
+      'Число успехов не может быть отрицательным': 'Die Zahl der Erfolge kann nicht negativ sein',
+      'Число успехов не может превышать число испытаний': 'Die Zahl der Erfolge kann die Zahl der Versuche nicht übersteigen',
+      'Вероятность успеха должна быть от 0 до 1': 'Die Erfolgswahrscheinlichkeit muss zwischen 0 und 1 liegen',
+    },
+  },
   en: {
     fields: {
       "n": "Number of trials",

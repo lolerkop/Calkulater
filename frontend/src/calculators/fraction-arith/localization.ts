@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'op': 'Rechenart',
+      'a': 'Erster Zähler',
+      'b': 'Erster Nenner',
+      'c': 'Zweiter Zähler',
+      'd': 'Zweiter Nenner',
+    },
+    options: {
+      'add': 'Addition',
+      'sub': 'Subtraktion',
+      'mul': 'Multiplikation',
+      'div': 'Division',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Десятичное значение': 'Dezimalwert',
+      'Смешанное число': 'Gemischte Zahl',
+      'Сокращено на': 'Gekürzt durch',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Знаменатель не может быть нулём': 'Ein Nenner kann nicht null sein',
+      'На нулевую дробь делить нельзя': 'Durch einen Bruch mit dem Wert null lässt sich nicht teilen',
+      'Числа должны быть целыми': 'Die Zahlen müssen ganz sein',
+      'Числа слишком велики для точного расчёта': 'Die Zahlen sind zu groß für eine genaue Rechnung',
+    },
+  },
   en: {
     fields: {
       "op": "Operation",

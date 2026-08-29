@@ -5,6 +5,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { romanNumeralsCopyEn } from './copy.en';
 import { romanNumeralsCopyUk } from './copy.uk';
+import { romanNumeralsCopyDe } from './copy.de';
 import { romanNumeralsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: romanNumeralsCopyEn, uk: romanNumeralsCopyUk },
+  copy: { en: romanNumeralsCopyEn, uk: romanNumeralsCopyUk, de: romanNumeralsCopyDe },
   referenceCases: romanNumeralsReferenceCases,
   publishedExample: { inputs: { mode: 'toRoman', arabic: 1994 }, expected: ['MCMXCIV'] },
   presentation: {

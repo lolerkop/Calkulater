@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'numbers': 'Zahlen — eine je Zeile oder mit Leerzeichen getrennt',
+    },
+    results: {
+      'НОД': 'ggT',
+      'НОК': 'kgV',
+      'Чисел': 'Zahlen',
+      'Взаимно простые': 'Teilerfremd',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Не целое число:': 'Keine ganze Zahl:',
+      'Не число:': 'Keine Zahl:',
+      'да': 'ja',
+      'нет': 'nein',
+      'Числа должны быть больше нуля': 'Die Zahlen müssen größer als null sein',
+      'Нужно хотя бы два числа': 'Es werden mindestens zwei Zahlen gebraucht',
+      'НОК этих чисел слишком велик для точного расчёта': 'Das kgV dieser Zahlen ist zu groß für eine genaue Rechnung',
+    },
+  },
   en: {
     fields: {
       "numbers": "Numbers — one per line or separated by spaces",

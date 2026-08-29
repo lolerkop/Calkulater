@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'a1': 'Erstes Glied a₁',
+      'd': 'Differenz d',
+      'n': 'Gliednummer n',
+    },
+    results: {
+      'n-й член': 'n-tes Glied',
+      'Сумма ряда': 'Summe der Reihe',
+      'Разность': 'Differenz',
+      'Первый член': 'Erstes Glied',
+      'Членов': 'Glieder',
+      'Первые члены ряда': 'Erste Glieder der Reihe',
+      '№ члена': 'Nr. des Glieds',
+      'Значение': 'Wert',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Показаны первые 10 членов ряда.': 'Gezeigt werden die ersten 10 Glieder der Reihe.',
+      'Номер члена должен быть не меньше единицы': 'Die Gliednummer muss mindestens eins sein',
+      'Номер члена должен быть целым': 'Die Gliednummer muss eine ganze Zahl sein',
+    },
+  },
   en: {
     fields: { "a1": "First term a₁", "d": "Common difference d", "n": "Term number n" },
     options: {},

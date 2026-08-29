@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { diceProbabilityCopyEn } from './copy.en';
 import { diceProbabilityCopyUk } from './copy.uk';
+import { diceProbabilityCopyDe } from './copy.de';
 import { diceProbabilityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: diceProbabilityCopyEn, uk: diceProbabilityCopyUk },
+  copy: { en: diceProbabilityCopyEn, uk: diceProbabilityCopyUk, de: diceProbabilityCopyDe },
   referenceCases: diceProbabilityReferenceCases,
   publishedExample: {
     inputs: { count: 2, sides: 6, target: 7 },

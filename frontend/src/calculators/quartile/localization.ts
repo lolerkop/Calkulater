@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'values': 'Zahlen mit Leerzeichen oder Zeilenumbrüchen getrennt',
+    },
+    results: {
+      'Медиана': 'Median',
+      'Первый квартиль': 'Erstes Quartil',
+      'Третий квартиль': 'Drittes Quartil',
+      'Межквартильный размах': 'Interquartilsabstand',
+      'Границы усов': 'Whisker-Grenzen',
+      'Выбросов': 'Ausreißer',
+      'Значений': 'Werte',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Введите числа через пробел или с новой строки': 'Trage Zahlen mit Leerzeichen oder Zeilenumbrüchen getrennt ein',
+      'Нужно не меньше четырёх значений': 'Es werden mindestens vier Werte gebraucht',
+    },
+  },
   en: {
     fields: { values: 'Numbers separated by spaces or new lines' },
     options: {},

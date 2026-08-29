@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { primeFactorizationCopyEn } from './copy.en';
 import { primeFactorizationCopyUk } from './copy.uk';
+import { primeFactorizationCopyDe } from './copy.de';
 import { primeFactorizationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: primeFactorizationCopyEn, uk: primeFactorizationCopyUk },
+  copy: { en: primeFactorizationCopyEn, uk: primeFactorizationCopyUk, de: primeFactorizationCopyDe },
   referenceCases: primeFactorizationReferenceCases,
   publishedExample: { inputs: { n: 360 }, expected: ['360 = 2³ · 3² · 5', '24'] },
   presentation: {

@@ -18,6 +18,27 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'n': 'Zahl n',
+    },
+    results: {
+      'Делители': 'Teiler',
+      'Количество делителей': 'Zahl der Teiler',
+      'Сумма делителей': 'Summe der Teiler',
+      'Сумма собственных делителей': 'Summe der echten Teiler',
+      'Это число': 'Diese Zahl ist',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'простое': 'prim',
+      'совершенное': 'vollkommen',
+      'и ещё': 'und weitere',
+      'Число должно быть целым': 'Die Zahl muss eine ganze Zahl sein',
+      'Делители считаются для натуральных чисел, начиная с единицы': 'Teiler werden für natürliche Zahlen ab eins gezählt',
+      'Здесь считаются числа до триллиона': 'Hier werden Zahlen bis zu einer Billion gerechnet',
+    },
+  },
   en: {
     fields: { n: "Number n" },
     results: RESULTS_EN,

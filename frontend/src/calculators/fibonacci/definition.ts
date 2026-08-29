@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { fibonacciCopyEn } from './copy.en';
 import { fibonacciCopyUk } from './copy.uk';
+import { fibonacciCopyDe } from './copy.de';
 import { fibonacciReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: fibonacciCopyEn, uk: fibonacciCopyUk },
+  copy: { en: fibonacciCopyEn, uk: fibonacciCopyUk, de: fibonacciCopyDe },
   referenceCases: fibonacciReferenceCases,
   publishedExample: { inputs: { n: 20 }, expected: ["4 181"] },
   presentation: {

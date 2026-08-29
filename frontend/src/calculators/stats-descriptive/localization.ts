@@ -14,6 +14,33 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'values': 'Zahlen — eine je Zeile oder mit Leerzeichen getrennt',
+      'mode': 'Varianz',
+    },
+    options: {
+      'sample': 'Stichprobe (n−1)',
+      'population': 'Grundgesamtheit (n)',
+    },
+    results: {
+      'Среднее': 'Mittelwert',
+      'Количество': 'Anzahl',
+      'Сумма': 'Summe',
+      'Медиана': 'Median',
+      'Мода': 'Modus',
+      'Минимум': 'Kleinster Wert',
+      'Максимум': 'Größter Wert',
+      'Размах': 'Spannweite',
+      'Дисперсия': 'Varianz',
+      'Стандартное отклонение': 'Standardabweichung',
+      'Проверьте данные': 'Prüfe die Werte',
+      'Не число': 'Keine Zahl',
+    },
+    values: {
+      'Введите хотя бы одно число': 'Trage mindestens eine Zahl ein',
+    },
+  },
   en: {
     fields: { values: 'Numbers — one per line or separated by spaces', mode: 'Variance' },
     options: { sample: 'sample (n−1)', population: 'population (n)' },

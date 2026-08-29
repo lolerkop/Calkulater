@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mean': 'Mittelwert der Stichprobe',
+      'sd': 'Standardabweichung',
+      'n': 'Stichprobenumfang',
+      'confidence': 'Konfidenzniveau',
+    },
+    options: {
+      '90': '90 % — z = 1,645',
+      '95': '95 % — z = 1,96',
+      '99': '99 % — z = 2,576',
+    },
+    results: {
+      'Доверительный интервал': 'Konfidenzintervall',
+      'Предел погрешности': 'Fehlergrenze',
+      'Стандартная ошибка': 'Standardfehler',
+      'Критическое значение z': 'Kritischer Wert z',
+      'Нижняя граница': 'Untere Grenze',
+      'Верхняя граница': 'Obere Grenze',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Стандартное отклонение не может быть отрицательным': 'Die Standardabweichung kann nicht negativ sein',
+      'Объём выборки должен быть не меньше двух': 'Der Stichprobenumfang muss mindestens zwei betragen',
+      'Объём выборки должен быть целым числом': 'Der Stichprobenumfang muss eine ganze Zahl sein',
+    },
+  },
   en: {
     fields: {
       "mean": "Sample mean",

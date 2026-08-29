@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { probabilityBasicCopyEn } from './copy.en';
 import { probabilityBasicCopyUk } from './copy.uk';
+import { probabilityBasicCopyDe } from './copy.de';
 import { probabilityBasicReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: probabilityBasicCopyEn, uk: probabilityBasicCopyUk },
+  copy: { en: probabilityBasicCopyEn, uk: probabilityBasicCopyUk, de: probabilityBasicCopyDe },
   referenceCases: probabilityBasicReferenceCases,
   publishedExample: { inputs: { mode: 'single', favourable: 1, total: 6 }, expected: ["0,1667"] },
   presentation: {

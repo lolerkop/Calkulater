@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { confidenceIntervalCopyEn } from './copy.en';
 import { confidenceIntervalCopyUk } from './copy.uk';
+import { confidenceIntervalCopyDe } from './copy.de';
 import { confidenceIntervalReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: confidenceIntervalCopyEn, uk: confidenceIntervalCopyUk },
+  copy: { en: confidenceIntervalCopyEn, uk: confidenceIntervalCopyUk, de: confidenceIntervalCopyDe },
   referenceCases: confidenceIntervalReferenceCases,
   publishedExample: { inputs: { mean: 100, sd: 15, n: 36, confidence: '95' }, expected: ["95,1 … 104,9"] },
   presentation: {

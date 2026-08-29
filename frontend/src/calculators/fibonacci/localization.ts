@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'n': 'Gliednummer n',
+    },
+    results: {
+      'n-й член': 'n-tes Glied',
+      'Сумма ряда': 'Summe der Reihe',
+      'Отношение к предыдущему': 'Verhältnis zum vorigen Glied',
+      'Предыдущий член': 'Voriges Glied',
+      'Членов': 'Glieder',
+      'Начало ряда': 'Anfang der Reihe',
+      '№': 'Nr.',
+      'Значение': 'Wert',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Показаны первые 10 членов ряда.': 'Gezeigt werden die ersten 10 Glieder der Reihe.',
+      'Номер члена должен быть не меньше единицы': 'Die Gliednummer muss mindestens eins sein',
+      'Номер члена должен быть целым': 'Die Gliednummer muss eine ganze Zahl sein',
+      'Номер члена больше 78 выходит за предел точного расчёта': 'Eine Gliednummer über 78 überschreitet die Grenze der genauen Rechnung',
+    },
+  },
   en: {
     fields: { "n": "Term number n" },
     options: {},

@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { combinatoricsCopyEn } from './copy.en';
 import { combinatoricsCopyUk } from './copy.uk';
+import { combinatoricsCopyDe } from './copy.de';
 import { combinatoricsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: combinatoricsCopyEn, uk: combinatoricsCopyUk },
+  copy: { en: combinatoricsCopyEn, uk: combinatoricsCopyUk, de: combinatoricsCopyDe },
   referenceCases: combinatoricsReferenceCases,
   publishedExample: { inputs: { mode: 'combinations', n: 10, k: 3 }, expected: ['120'] },
   presentation: {

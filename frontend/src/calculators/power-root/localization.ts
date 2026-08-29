@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Rechenart',
+      'base': 'Zahl',
+      'exponent': 'Exponent',
+    },
+    options: {
+      'power': 'In eine Potenz erheben',
+      'root': 'Eine Wurzel ziehen',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Основание': 'Basis',
+      'Показатель': 'Exponent',
+      'Действие': 'Rechenart',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'степень': 'Potenz',
+      'корень': 'Wurzel',
+      'Степень корня должна быть больше нуля': 'Der Wurzelgrad muss größer als null sein',
+      'Корень чётной степени из отрицательного числа не существует': 'Eine Wurzel geraden Grades aus einer negativen Zahl gibt es nicht',
+      'Нуль нельзя возвести в отрицательную степень': 'Null lässt sich nicht in eine negative Potenz erheben',
+      'Отрицательное основание требует целого показателя': 'Eine negative Basis verlangt einen ganzzahligen Exponenten',
+      'Результат слишком велик для точного расчёта': 'Das Ergebnis ist zu groß für eine genaue Rechnung',
+    },
+  },
   en: {
     fields: { "mode": "Operation", "base": "Number", "exponent": "Exponent" },
     options: { "power": "Raise to a power", "root": "Take a root" },

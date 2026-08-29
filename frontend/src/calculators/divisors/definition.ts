@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { divisorsCopyEn } from './copy.en';
 import { divisorsCopyUk } from './copy.uk';
+import { divisorsCopyDe } from './copy.de';
 import { divisorsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: divisorsCopyEn, uk: divisorsCopyUk },
+  copy: { en: divisorsCopyEn, uk: divisorsCopyUk, de: divisorsCopyDe },
   referenceCases: divisorsReferenceCases,
   publishedExample: { inputs: { n: 360 }, expected: ["1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90, 120, 180, 360"] },
   presentation: {

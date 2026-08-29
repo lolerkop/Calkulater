@@ -14,6 +14,37 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gezählt wird',
+      'repetition': 'Wiederholung erlauben',
+      'n': 'Größe der Menge n',
+      'k': 'Größe der Auswahl k',
+    },
+    options: {
+      'combinations': 'Kombinationen',
+      'permutations': 'Variationen',
+      'no': 'Nein',
+      'yes': 'Ja',
+    },
+    results: {
+      'Количество вариантов': 'Zahl der Möglichkeiten',
+      'Формула': 'Formel',
+      'Научная форма': 'Wissenschaftliche Schreibweise',
+      'Порядок важен': 'Reihenfolge zählt',
+      'Повторения разрешены': 'Wiederholung erlaubt',
+      'Размещений из тех же чисел': 'Variationen aus denselben Zahlen',
+      'Сочетаний из тех же чисел': 'Kombinationen aus denselben Zahlen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'да': 'ja',
+      'нет': 'nein',
+      'Оба числа должны быть целыми и неотрицательными': 'Beide Zahlen müssen ganz und nicht negativ sein',
+      'Числа больше тысячи выходят за практический предел расчёта': 'Zahlen über tausend liegen jenseits der praktischen Grenze dieser Rechnung',
+      'Без повторений выборка не может быть больше множества': 'Ohne Wiederholung kann die Auswahl nicht größer als die Menge sein',
+    },
+  },
   en: {
     fields: { mode: 'What to count', repetition: 'Allow repetition', n: 'Set size n', k: 'Sample size k' },
     options: { combinations: 'combinations', permutations: 'permutations', no: 'No', yes: 'Yes' },

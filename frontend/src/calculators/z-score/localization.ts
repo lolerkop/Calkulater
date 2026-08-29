@@ -10,6 +10,25 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'x': 'Wert',
+      'mean': 'Mittelwert',
+      'sd': 'Standardabweichung',
+    },
+    results: {
+      'Z-оценка': 'z-Wert',
+      'Отклонение': 'Abweichung',
+      'Положение': 'Lage',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'выше среднего': 'über dem Mittelwert',
+      'ниже среднего': 'unter dem Mittelwert',
+      'равно среднему': 'gleich dem Mittelwert',
+      'Стандартное отклонение должно быть больше нуля': 'Die Standardabweichung muss größer als null sein',
+    },
+  },
   en: {
     fields: { x: 'Value', mean: 'Mean', sd: 'Standard deviation' },
     options: {},

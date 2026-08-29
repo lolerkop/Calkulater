@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { correlationCopyEn } from './copy.en';
 import { correlationCopyUk } from './copy.uk';
+import { correlationCopyDe } from './copy.de';
 import { correlationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: correlationCopyEn, uk: correlationCopyUk },
+  copy: { en: correlationCopyEn, uk: correlationCopyUk, de: correlationCopyDe },
   referenceCases: correlationReferenceCases,
   publishedExample: { inputs: { xs: '1 2 3 4 5', ys: '2 4 5 4 5' }, expected: ["0,7746"] },
   presentation: {

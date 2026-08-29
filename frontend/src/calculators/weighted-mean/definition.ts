@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { weightedMeanCopyEn } from './copy.en';
 import { weightedMeanCopyUk } from './copy.uk';
+import { weightedMeanCopyDe } from './copy.de';
 import { weightedMeanReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: weightedMeanCopyEn, uk: weightedMeanCopyUk },
+  copy: { en: weightedMeanCopyEn, uk: weightedMeanCopyUk, de: weightedMeanCopyDe },
   referenceCases: weightedMeanReferenceCases,
   publishedExample: { inputs: { pairs: '5 2\n4 3\n3 1' }, expected: ['4,1667'] },
   presentation: {

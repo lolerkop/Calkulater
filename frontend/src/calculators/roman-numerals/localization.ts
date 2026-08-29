@@ -12,6 +12,28 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Richtung',
+      'arabic': 'Arabische Zahl',
+      'roman': 'Römische Zahl',
+    },
+    options: {
+      'toRoman': 'arabisch in römisch',
+      'toArabic': 'römisch in arabisch',
+    },
+    results: {
+      'Римское число': 'Römische Zahl',
+      'Арабское число': 'Arabische Zahl',
+      'Римская запись': 'Römische Schreibweise',
+      'Символов в записи': 'Verwendete Zeichen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Введите каноническую римскую запись от I до MMMCMXCIX': 'Trage eine kanonische römische Schreibweise von I bis MMMCMXCIX ein',
+      'Римские числа записывают от 1 до 3999': 'Römische Zahlen werden von 1 bis 3999 geschrieben',
+    },
+  },
   en: {
     fields: { mode: 'Direction', arabic: 'Arabic number', roman: 'Roman numeral' },
     options: { toRoman: 'Arabic to Roman', toArabic: 'Roman to Arabic' },

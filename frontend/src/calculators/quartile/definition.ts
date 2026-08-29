@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { quartileCopyEn } from './copy.en';
 import { quartileCopyUk } from './copy.uk';
+import { quartileCopyDe } from './copy.de';
 import { quartileReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: quartileCopyEn, uk: quartileCopyUk },
+  copy: { en: quartileCopyEn, uk: quartileCopyUk, de: quartileCopyDe },
   referenceCases: quartileReferenceCases,
   publishedExample: { inputs: { values: "2 4 4 5 7 9 11 12" }, expected: ["6"] },
   presentation: {

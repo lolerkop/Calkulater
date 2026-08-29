@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { roundingCopyEn } from './copy.en';
 import { roundingCopyUk } from './copy.uk';
+import { roundingCopyDe } from './copy.de';
 import { roundingReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: roundingCopyEn, uk: roundingCopyUk },
+  copy: { en: roundingCopyEn, uk: roundingCopyUk, de: roundingCopyDe },
   referenceCases: roundingReferenceCases,
   publishedExample: {
     inputs: { value: 2748.536, digits: 2, mode: 'half' },

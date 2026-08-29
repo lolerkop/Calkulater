@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'count': 'Zahl der Würfel',
+      'sides': 'Seiten je Würfel',
+      'target': 'Zielsumme',
+    },
+    results: {
+      'Вероятность суммы': 'Wahrscheinlichkeit der Summe',
+      'Благоприятных исходов': 'Günstige Ausgänge',
+      'Всего исходов': 'Ausgänge insgesamt',
+      'Ожидаемая сумма': 'Erwartete Summe',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Кубиков должно быть не меньше одного': 'Es muss mindestens ein Würfel sein',
+      'Кубиков не больше десяти': 'Höchstens zehn Würfel',
+      'У кубика должно быть не меньше двух граней': 'Ein Würfel muss mindestens zwei Seiten haben',
+      'Граней не больше ста': 'Höchstens hundert Seiten',
+      'Сумма должна быть от числа кубиков до числа кубиков, умноженного на число граней': 'Die Summe muss zwischen der Zahl der Würfel und der Zahl der Würfel mal der Zahl der Seiten liegen',
+    },
+  },
   en: {
     fields: {
       count: 'Number of dice',

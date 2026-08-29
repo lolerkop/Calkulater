@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Zu rundender Wert',
+      'digits': 'Nachkommastellen',
+      'mode': 'Richtung des Rundens',
+    },
+    options: {
+      'half': 'kaufmännisch',
+      'down': 'abrunden (Boden)',
+      'up': 'aufrunden (Decke)',
+    },
+    results: {
+      'Округлённое значение': 'Gerundeter Wert',
+      'Исходное значение': 'Ausgangswert',
+      'Разница': 'Differenz',
+      'Знаков': 'Nachkommastellen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Число знаков не может быть отрицательным': 'Die Zahl der Nachkommastellen kann nicht negativ sein',
+      'Больше десяти знаков не поддерживается': 'Mehr als zehn Nachkommastellen werden nicht unterstützt',
+    },
+  },
   en: {
     fields: {
       value: 'Value to round',

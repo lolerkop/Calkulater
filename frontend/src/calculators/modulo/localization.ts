@@ -10,6 +10,25 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'a': 'Dividend',
+      'b': 'Divisor',
+    },
+    results: {
+      'Остаток': 'Rest',
+      'Частное': 'Quotient',
+      'Проверка': 'Probe',
+      'Делится нацело': 'Teilt ohne Rest',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Да': 'Ja',
+      'Нет': 'Nein',
+      'Делимое и делитель должны быть целыми': 'Dividend und Divisor müssen ganze Zahlen sein',
+      'Делитель не может быть нулём': 'Der Divisor kann nicht null sein',
+    },
+  },
   en: {
     fields: { a: 'Dividend', b: 'Divisor' },
     results: RESULTS_EN,

@@ -1,6 +1,24 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'a1': 'a₁ — Koeffizient von x in der ersten Gleichung',
+      'b1': 'b₁ — Koeffizient von y in der ersten Gleichung',
+      'c1': 'c₁ — rechte Seite der ersten Gleichung',
+      'a2': 'a₂ — Koeffizient von x in der zweiten Gleichung',
+      'b2': 'b₂ — Koeffizient von y in der zweiten Gleichung',
+      'c2': 'c₂ — rechte Seite der zweiten Gleichung',
+    },
+    results: {
+      'Решение системы': 'Lösung des Systems',
+      'Определитель': 'Hauptdeterminante',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Определитель равен нулю: решение не единственно': 'Die Determinante ist null: die Lösung ist nicht eindeutig',
+    },
+  },
   en: {
     fields: {
       a1: 'a₁ — coefficient of x in the first equation',

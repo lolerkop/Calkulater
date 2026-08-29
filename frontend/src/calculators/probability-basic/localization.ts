@@ -1,6 +1,40 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was berechnet wird',
+      'favourable': 'Günstige Ausgänge',
+      'total': 'Ausgänge insgesamt',
+      'favourable2': 'Günstige Ausgänge',
+      'total2': 'Ausgänge insgesamt',
+      'p1': 'Wahrscheinlichkeit des ersten Ereignisses',
+      'p2': 'Wahrscheinlichkeit des zweiten Ereignisses',
+      'p3': 'Wahrscheinlichkeit des ersten Ereignisses',
+      'p4': 'Wahrscheinlichkeit des zweiten Ereignisses',
+    },
+    options: {
+      'single': 'Wahrscheinlichkeit eines Ereignisses',
+      'complement': 'Wahrscheinlichkeit des Gegenereignisses',
+      'independentBoth': 'beide unabhängigen Ereignisse',
+      'independentEither': 'mindestens eines der beiden',
+    },
+    results: {
+      'Вероятность': 'Wahrscheinlichkeit',
+      'В процентах': 'In Prozent',
+      'Шансы': 'Chancen',
+      'Противоположное событие': 'Gegenereignis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '%': '%',
+      'к 1': 'zu 1',
+      'Всего исходов должно быть больше нуля': 'Die Zahl der Ausgänge insgesamt muss größer als null sein',
+      'Благоприятных исходов не может быть больше общего числа': 'Es kann nicht mehr günstige Ausgänge als Ausgänge insgesamt geben',
+      'Исходы должны быть целыми': 'Die Ausgänge müssen ganze Zahlen sein',
+      'Вероятность должна быть от 0 до 1': 'Eine Wahrscheinlichkeit muss zwischen 0 und 1 liegen',
+    },
+  },
   en: {
     fields: {
       "mode": "What to compute",

@@ -7,6 +7,7 @@ import { compute } from './compute';
 import { contextualField } from './contextualField';
 import { proportionCopyEn } from './copy.en';
 import { proportionCopyUk } from './copy.uk';
+import { proportionCopyDe } from './copy.de';
 import { proportionReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -15,7 +16,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: proportionCopyEn, uk: proportionCopyUk },
+  copy: { en: proportionCopyEn, uk: proportionCopyUk, de: proportionCopyDe },
   referenceCases: proportionReferenceCases,
   publishedExample: { inputs: { find: 'd', a: 2, b: 3, c: 4, d: 0 }, expected: ['6', '2 : 3 = 4 : 6'] },
   presentation: {

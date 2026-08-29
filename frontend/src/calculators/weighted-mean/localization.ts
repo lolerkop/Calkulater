@@ -12,6 +12,23 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'pairs': 'Paare aus Wert und Gewicht — eines je Zeile',
+    },
+    results: {
+      'Взвешенное среднее': 'Gewichteter Durchschnitt',
+      'Сумма весов': 'Summe der Gewichte',
+      'Сумма произведений': 'Summe der Produkte',
+      'Количество пар': 'Paare',
+      'Проверьте данные': 'Prüfe die Werte',
+      'Строка не разобрана': 'Zeile nicht verstanden',
+    },
+    values: {
+      'Введите хотя бы одну пару «значение вес»': 'Trage mindestens ein Paar aus Wert und Gewicht ein',
+      'Сумма весов должна быть больше нуля': 'Die Summe der Gewichte muss größer als null sein',
+    },
+  },
   en: {
     fields: { pairs: 'Value and weight pairs — one per line' },
     options: {},

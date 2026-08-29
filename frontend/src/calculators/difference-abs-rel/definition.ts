@@ -5,6 +5,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { differenceAbsRelCopyEn } from './copy.en';
 import { differenceAbsRelCopyUk } from './copy.uk';
+import { differenceAbsRelCopyDe } from './copy.de';
 import { differenceAbsRelReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: differenceAbsRelCopyEn, uk: differenceAbsRelCopyUk },
+  copy: { en: differenceAbsRelCopyEn, uk: differenceAbsRelCopyUk, de: differenceAbsRelCopyDe },
   referenceCases: differenceAbsRelReferenceCases,
   publishedExample: { inputs: { from: 100, to: 120 }, expected: ['20', '20,00 %'] },
   presentation: {

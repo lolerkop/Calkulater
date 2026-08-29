@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'xs': 'Reihe X: Werte mit Leerzeichen oder Zeilenumbrüchen getrennt',
+      'ys': 'Reihe Y: dieselbe Zahl von Werten',
+    },
+    results: {
+      'Коэффициент корреляции': 'Korrelationskoeffizient',
+      'Коэффициент детерминации': 'Bestimmtheitsmaß',
+      'Ковариация выборки': 'Kovarianz der Stichprobe',
+      'Наклон линии': 'Steigung der Geraden',
+      'Свободный член': 'Achsenabschnitt',
+      'Пар значений': 'Wertepaare',
+      'Среднее X': 'Mittel von X',
+      'Среднее Y': 'Mittel von Y',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'В рядах разное число значений — пары не построить': 'Die Reihen enthalten verschieden viele Werte — Paare lassen sich nicht bilden',
+      'Нужно не меньше трёх пар значений': 'Es werden mindestens drei Wertepaare gebraucht',
+      'Все значения одного из рядов совпадают — корреляция не определена': 'Alle Werte einer der Reihen sind gleich — die Korrelation ist nicht bestimmt',
+    },
+  },
   en: {
     fields: {
       "xs": "Series X: values separated by spaces or line breaks",

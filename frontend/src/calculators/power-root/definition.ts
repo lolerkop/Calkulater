@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { powerRootCopyEn } from './copy.en';
 import { powerRootCopyUk } from './copy.uk';
+import { powerRootCopyDe } from './copy.de';
 import { powerRootReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: powerRootCopyEn, uk: powerRootCopyUk },
+  copy: { en: powerRootCopyEn, uk: powerRootCopyUk, de: powerRootCopyDe },
   referenceCases: powerRootReferenceCases,
   publishedExample: { inputs: { mode: 'power', base: 2, exponent: 10 }, expected: ["1 024"] },
   presentation: {

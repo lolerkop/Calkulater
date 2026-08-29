@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'confidence': 'Konfidenzniveau',
+      'margin': 'Fehlergrenze, %',
+      'proportion': 'Erwarteter Anteil, %',
+      'population': 'Größe der Grundgesamtheit (0 — unendlich)',
+    },
+    options: {
+      '90': '90 %',
+      '95': '95 %',
+      '99': '99 %',
+    },
+    results: {
+      'Размер выборки': 'Stichprobenumfang',
+      'Без поправки на совокупность': 'Ohne Korrektur für die Grundgesamtheit',
+      'Критическое значение z': 'Kritischer Wert z',
+      'Предельная ошибка': 'Fehlergrenze',
+      'Доля от совокупности': 'Anteil an der Grundgesamtheit',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'чел': 'Pers.',
+      'Выберите доверительную вероятность из списка': 'Wähle ein Konfidenzniveau aus der Liste',
+      'Предельная ошибка должна быть больше нуля': 'Die Fehlergrenze muss größer als null sein',
+      'Ожидаемая доля задаётся от 0 до 100 процентов': 'Der erwartete Anteil liegt zwischen 0 und 100 Prozent',
+      'Объём совокупности не может быть отрицательным': 'Die Größe der Grundgesamtheit kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       confidence: 'Confidence level', margin: 'Margin of error, %',

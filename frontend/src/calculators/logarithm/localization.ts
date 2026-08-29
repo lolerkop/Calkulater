@@ -10,6 +10,32 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Art des Logarithmus',
+      'value': 'Zahl',
+      'base': 'Basis',
+    },
+    options: {
+      'log10': 'Zehnerlogarithmus, Basis 10',
+      'ln': 'Natürlicher, Basis e',
+      'custom': 'Eigene Basis',
+    },
+    results: {
+      'Логарифм': 'Logarithmus',
+      'Запись': 'Ausgeschrieben',
+      'Проверка возведением': 'Probe durch Potenzieren',
+      'Натуральный логарифм': 'Natürlicher Logarithmus',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'по основанию': 'zur Basis',
+      'в степени': 'hoch',
+      'Логарифм определён только для положительных чисел': 'Ein Logarithmus ist nur für positive Zahlen festgelegt',
+      'Основание должно быть больше нуля': 'Die Basis muss größer als null sein',
+      'Основание не может быть единицей': 'Die Basis kann nicht eins sein',
+    },
+  },
   en: {
     fields: { mode: 'Logarithm type', value: 'Number', base: 'Base' },
     options: { log10: 'Common, base 10', ln: 'Natural, base e', custom: 'Custom base' },

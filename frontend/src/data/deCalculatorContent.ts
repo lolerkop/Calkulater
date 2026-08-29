@@ -25,6 +25,11 @@ import { deElectronics3Content } from './deContent/electronics3';
 import { deGeometry1Content } from './deContent/geometry1';
 import { deGeometry2Content } from './deContent/geometry2';
 import { deGeometry3Content } from './deContent/geometry3';
+import { deMath1Content } from './deContent/math1';
+import { deMath2Content } from './deContent/math2';
+import { deMath3Content } from './deContent/math3';
+import { deMath4Content } from './deContent/math4';
+import { deMath5Content } from './deContent/math5';
 import { deSport1Content } from './deContent/sport1';
 import { deSport2Content } from './deContent/sport2';
 
@@ -389,6 +394,11 @@ export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
   ...deGeometry1Content,
   ...deGeometry2Content,
   ...deGeometry3Content,
+  ...deMath1Content,
+  ...deMath2Content,
+  ...deMath3Content,
+  ...deMath4Content,
+  ...deMath5Content,
   ...deSport1Content,
   ...deSport2Content,
 };

@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'parts': 'Glieder des Verhältnisses — mit Leerzeichen oder Doppelpunkten getrennt',
+      'total': 'Aufzuteilender Betrag',
+    },
+    results: {
+      'Отношение': 'Verhältnis',
+      'Сумма частей': 'Summe der Glieder',
+      'Доля первой части': 'Anteil des ersten Gliedes',
+      'Частей': 'Glieder',
+      'Сокращено на': 'Gekürzt durch',
+      'Разбиение суммы': 'Aufteilung des Betrags',
+      'Разбор по частям': 'Aufschlüsselung nach Gliedern',
+      'Часть': 'Glied',
+      'Значение': 'Wert',
+      'Доля': 'Anteil',
+      'Сумма': 'Betrag',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Не число:': 'Keine Zahl:',
+      'Каждая часть должна быть больше нуля': 'Jedes Glied muss größer als null sein',
+      'Нужно хотя бы две части': 'Es werden mindestens zwei Glieder gebraucht',
+    },
+  },
   en: {
     fields: { "parts": "Ratio parts — separated by spaces or colons", "total": "Amount to divide" },
     options: {},

@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { linearEquationCopyEn } from './copy.en';
 import { linearEquationCopyUk } from './copy.uk';
+import { linearEquationCopyDe } from './copy.de';
 import { linearEquationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: linearEquationCopyEn, uk: linearEquationCopyUk },
+  copy: { en: linearEquationCopyEn, uk: linearEquationCopyUk, de: linearEquationCopyDe },
   referenceCases: linearEquationReferenceCases,
   publishedExample: { inputs: { a: 3, b: 5, c: 20 }, expected: ['x = 5'] },
   presentation: {
