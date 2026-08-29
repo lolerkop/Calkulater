@@ -12,5 +12,5 @@ export const skirtingCopyDe: CalculatorSeoCopy = {
   seoTitle: 'Sockelleisten-Rechner — Länge und Anzahl der Leisten',
   seoDescription: 'Ermittle die Sockelleistenlänge aus den Raummaßen, abzüglich Türöffnungen, mit Verschnittzuschlag und Anzahl der Leisten.',
   h1: 'Sockelleisten-Rechner',
-  keywords: ['Sockelleisten', 'Fußleisten berechnen', 'Verschnitt', 'Raumumfang'],
+  keywords: ['Sockelleisten', 'Fußleisten berechnen', 'Verschnitt', 'Raumumfang', 'Fussleisten berechnen'],
 };

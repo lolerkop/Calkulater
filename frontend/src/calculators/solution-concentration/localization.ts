@@ -19,6 +19,44 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Form der Konzentration',
+      'solute': 'Masse des Stoffes, g',
+      'solution': 'Masse der Lösung, g',
+      'volume': 'Volumen der Lösung, ml',
+    },
+    options: {
+      'ww': 'Massenprozent',
+      'wv': 'Masse je Volumen',
+    },
+    results: {
+      'Концентрация': 'Konzentration',
+      'Масса растворителя': 'Masse des Lösungsmittels',
+      'В миллионных долях': 'In Teilen je Million',
+      'Масса на литр': 'Masse je Liter',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      ' моль/л': ' mol/l',
+      ' г/моль': ' g/mol',
+      ' моль': ' mol',
+      ' г/л': ' g/l',
+      ' г': ' g',
+      ' мл': ' ml',
+      ' л': ' l',
+      ' кПа': ' kPa',
+      ' атм': ' atm',
+      ' Па': ' Pa',
+      ' К': ' K',
+      ' ppm': ' ppm',
+      'Дж/(моль·К)': 'J/(mol·K)',
+      'Масса вещества должна быть больше нуля': 'Die Masse des Stoffes muss größer als null sein',
+      'Объём раствора должен быть больше нуля': 'Das Volumen der Lösung muss größer als null sein',
+      'Масса раствора должна быть больше нуля': 'Die Masse der Lösung muss größer als null sein',
+      'Вещества не может быть больше, чем раствора': 'Es kann nicht mehr Stoff als Lösung geben',
+    },
+  },
   en: {
     fields: { mode: 'Form of concentration', solute: 'Mass of substance, g', solution: 'Mass of solution, g', volume: 'Volume of solution, mL', },
     options: { ww: 'per cent by mass', wv: 'mass per volume', },

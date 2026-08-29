@@ -12,6 +12,41 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'p1': 'Druck p₁, kPa',
+      'v1': 'Volumen V₁, l',
+      't1': 'Temperatur T₁, K',
+      'p2': 'Druck p₂, kPa',
+      'v2': 'Volumen V₂, l',
+      't2': 'Temperatur T₂, K',
+    },
+    options: {
+      'p2': 'Druck p₂',
+      'v2': 'Volumen V₂',
+      't2': 'Temperatur T₂',
+    },
+    results: {
+      'Давление p₂': 'Druck p₂',
+      'Объём V₂': 'Volumen V₂',
+      'Температура T₂': 'Temperatur T₂',
+      'Состояние 1: p·V/T': 'Zustand 1: p·V/T',
+      'Состояние 2: p·V/T': 'Zustand 2: p·V/T',
+      'Первое состояние': 'Erster Zustand',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кПа·л/К': 'kPa·l/K',
+      'кПа': 'kPa',
+      'К': 'K',
+      'Температура первого состояния должна быть больше нуля кельвинов': 'Die Temperatur des ersten Zustands muss über null Kelvin liegen',
+      'Температура второго состояния должна быть больше нуля кельвинов': 'Die Temperatur des zweiten Zustands muss über null Kelvin liegen',
+      'Давление второго состояния должно быть больше нуля': 'Der Druck des zweiten Zustands muss größer als null sein',
+      'Давление и объём первого состояния должны быть больше нуля': 'Druck und Volumen des ersten Zustands müssen größer als null sein',
+      'Объём второго состояния должен быть больше нуля': 'Das Volumen des zweiten Zustands muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What to find', p1: 'Pressure p₁, kPa', v1: 'Volume V₁, l', t1: 'Temperature T₁, K',

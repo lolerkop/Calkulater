@@ -12,5 +12,5 @@ export const tireSizeCopyDe: CalculatorSeoCopy = {
   seoTitle: 'Reifenrechner — Durchmesser und Umdrehungen',
   seoDescription: 'Berechne aus der Reifengröße den Abrolldurchmesser, die Flankenhöhe, den Umfang und die Umdrehungen je Kilometer.',
   h1: 'Reifenrechner',
-  keywords: ['Reifenrechner', 'Reifengröße', 'Abrolldurchmesser', 'Flankenhöhe'],
+  keywords: ['Reifenrechner', 'Reifengröße', 'Abrolldurchmesser', 'Flankenhöhe', 'Reifengroesse', 'Flankenhoehe'],
 };

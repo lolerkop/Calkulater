@@ -11,13 +11,16 @@
 // а не перенесены из другой локали.
 
 import type { CalculatorDef } from '../lib/types';
+import { deChemistryContent } from './deContent/chemistry';
 
 export type DeDetailedContent = Pick<
   CalculatorDef,
   'longDescription' | 'howToUse' | 'howItWorks' | 'example' | 'faq'
 >;
 
-export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
+// Историческая партия 27DE-F лежит здесь; новые партии — в deContent/<категория>.ts,
+// чтобы diff одной партии читался отдельно от остальных.
+const deFoundationContent: Partial<Record<string, DeDetailedContent>> = {
   'tire-size': {
     longDescription:
       'Aus der Reifengröße an der Flanke — etwa 205/55 R16 — ergeben sich alle Maße, die beim Wechsel der Bereifung zählen: die Höhe der Seitenwand, der Abrolldurchmesser, der Umfang und wie oft sich das Rad auf einem Kilometer dreht. Wer von einer Größe auf eine andere wechselt, sieht damit sofort, ob der Tacho künftig zu viel oder zu wenig anzeigt.',
@@ -353,4 +356,9 @@ export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
       { q: 'Ist der Cooper-Test für Untrainierte geeignet?', a: 'Er verlangt zwölf Minuten maximale Belastung. Wer untrainiert ist oder Vorerkrankungen hat, sollte vorher ärztlichen Rat einholen und stattdessen ein submaximales Verfahren wählen.' },
     ],
   },
+};
+
+export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
+  ...deFoundationContent,
+  ...deChemistryContent,
 };

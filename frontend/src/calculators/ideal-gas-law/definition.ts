@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { idealGasLawCopyEn } from './copy.en';
 import { idealGasLawCopyUk } from './copy.uk';
+import { idealGasLawCopyDe } from './copy.de';
 import { idealGasLawReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: idealGasLawCopyEn, uk: idealGasLawCopyUk },
+  copy: { en: idealGasLawCopyEn, uk: idealGasLawCopyUk, de: idealGasLawCopyDe },
   referenceCases: idealGasLawReferenceCases,
   publishedExample: {
     inputs: { solve: 'p', n: 2, tempUnit: 'k', t: 300, volumeUnit: 'm3', v: 0.05, pressureUnit: 'pa' },

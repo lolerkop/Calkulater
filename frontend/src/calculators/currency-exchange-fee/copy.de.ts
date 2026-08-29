@@ -12,5 +12,5 @@ export const currencyExchangeFeeCopyDe: CalculatorSeoCopy = {
   seoTitle: 'Wechselkosten berechnen — mit Spread und Gebühr',
   seoDescription: 'Berechne, was nach einem Währungsumtausch übrig bleibt, unter Berücksichtigung von Spread, prozentualer Gebühr und Festbetrag.',
   h1: 'Rechner für Wechselkosten',
-  keywords: ['Wechselkosten', 'Spread', 'Umtauschgebühr', 'Geld wechseln'],
+  keywords: ['Wechselkosten', 'Spread', 'Umtauschgebühr', 'Geld wechseln', 'Umtauschgebuehr', 'Rechner fuer Wechselkosten'],
 };

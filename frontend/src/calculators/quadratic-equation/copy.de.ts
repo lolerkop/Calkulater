@@ -12,5 +12,5 @@ export const quadraticEquationCopyDe: CalculatorSeoCopy = {
   seoTitle: 'Quadratische Gleichung lösen — Lösungen und Diskriminante',
   seoDescription: 'Löse ax² + bx + c = 0 online: Lösungen, Diskriminante, Anzahl der Lösungen und der Scheitelpunkt.',
   h1: 'Rechner für quadratische Gleichungen',
-  keywords: ['quadratische Gleichung', 'Diskriminante', 'Mitternachtsformel', 'Scheitelpunkt'],
+  keywords: ['quadratische Gleichung', 'Diskriminante', 'Mitternachtsformel', 'Scheitelpunkt', 'Rechner fuer quadratische Gleichungen'],
 };

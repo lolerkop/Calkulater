@@ -17,6 +17,48 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'moles': 'Stoffmenge, mol',
+      'mass': 'Masse des Stoffes, g',
+      'molarMass': 'Molare Masse, g/mol',
+      'volumeUnit': 'Einheit des Volumens',
+      'volume': 'Volumen der Lösung',
+    },
+    options: {
+      'moles': 'die Stoffmenge',
+      'mass': 'Masse und molare Masse',
+      'ml': 'Milliliter',
+      'l': 'Liter',
+      'm3': 'Kubikmeter',
+    },
+    results: {
+      'Молярная концентрация': 'Molare Konzentration',
+      'Количество вещества': 'Stoffmenge',
+      'Объём раствора': 'Volumen der Lösung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      ' моль/л': ' mol/l',
+      ' г/моль': ' g/mol',
+      ' моль': ' mol',
+      ' г/л': ' g/l',
+      ' г': ' g',
+      ' мл': ' ml',
+      ' л': ' l',
+      ' кПа': ' kPa',
+      ' атм': ' atm',
+      ' Па': ' Pa',
+      ' К': ' K',
+      ' ppm': ' ppm',
+      'Дж/(моль·К)': 'J/(mol·K)',
+      'Объём должен быть больше нуля': 'Das Volumen muss größer als null sein',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Молярная масса должна быть больше нуля': 'Die molare Masse muss größer als null sein',
+      'Количество вещества должно быть больше нуля': 'Die Stoffmenge muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: 'What is known', moles: 'Amount of substance, mol', mass: 'Mass of substance, g', molarMass: 'Molar mass, g/mol', volumeUnit: 'Volume unit', volume: 'Solution volume', },
     options: { moles: 'the amount of substance', mass: 'a mass and a molar mass', ml: 'millilitres', l: 'litres', m3: 'cubic metres', },

@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { phPohCopyEn } from './copy.en';
 import { phPohCopyUk } from './copy.uk';
+import { phPohCopyDe } from './copy.de';
 import { phPohReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: phPohCopyEn, uk: phPohCopyUk },
+  copy: { en: phPohCopyEn, uk: phPohCopyUk, de: phPohCopyDe },
   referenceCases: phPohReferenceCases,
   publishedExample: { inputs: { mode: 'fromH', h: 0.0001 }, expected: ['4,00'] },
   presentation: {

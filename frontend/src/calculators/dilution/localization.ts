@@ -19,6 +19,43 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'solve': 'Was gesucht ist',
+      'c1': 'Ausgangskonzentration',
+      'v1': 'Ausgangsvolumen, ml',
+      'c2': 'Endkonzentration',
+      'v2': 'Endvolumen, ml',
+    },
+    options: {
+      'v2': 'das Endvolumen',
+      'v1': 'das Ausgangsvolumen',
+    },
+    results: {
+      'Конечный объём': 'Endvolumen',
+      'Исходный объём': 'Ausgangsvolumen',
+      'Добавить растворителя': 'Lösungsmittel zugeben',
+      'Результат': 'Ergebnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      ' моль/л': ' mol/l',
+      ' г/моль': ' g/mol',
+      ' моль': ' mol',
+      ' г/л': ' g/l',
+      ' г': ' g',
+      ' мл': ' ml',
+      ' л': ' l',
+      ' кПа': ' kPa',
+      ' атм': ' atm',
+      ' Па': ' Pa',
+      ' К': ' K',
+      ' ppm': ' ppm',
+      'Дж/(моль·К)': 'J/(mol·K)',
+      'Все три известные величины должны быть больше нуля': 'Alle drei bekannten Größen müssen größer als null sein',
+      'Конечная концентрация не может быть выше исходной': 'Die Endkonzentration kann nicht höher als die Ausgangskonzentration sein',
+    },
+  },
   en: {
     fields: { solve: 'What to find', c1: 'Initial concentration', v1: 'Initial volume, mL', c2: 'Final concentration', v2: 'Final volume, mL', },
     options: { v2: 'the final volume', v1: 'the initial volume', },

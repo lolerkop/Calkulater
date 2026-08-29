@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { dilutionCopyEn } from './copy.en';
 import { dilutionCopyUk } from './copy.uk';
+import { dilutionCopyDe } from './copy.de';
 import { dilutionReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: dilutionCopyEn, uk: dilutionCopyUk },
+  copy: { en: dilutionCopyEn, uk: dilutionCopyUk, de: dilutionCopyDe },
   referenceCases: dilutionReferenceCases,
   publishedExample: { inputs: { solve: 'v2', c1: 2, v1: 50, c2: 0.5, v2: 200 }, expected: ['200 мл'] },
   presentation: {

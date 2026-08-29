@@ -12,5 +12,5 @@ export const aspectRatioCopyDe: CalculatorSeoCopy = {
   seoTitle: 'Seitenverhältnis-Rechner — Auflösung und Kantenlänge',
   seoDescription: 'Kürze eine Bildschirmauflösung auf ihr Seitenverhältnis oder bestimme die fehlende Breite oder Höhe zu einem Verhältnis.',
   h1: 'Seitenverhältnis-Rechner',
-  keywords: ['Seitenverhältnis', 'Auflösung', '16:9', 'Bildformat'],
+  keywords: ['Seitenverhältnis', 'Auflösung', '16:9', 'Bildformat', 'Seitenverhaeltnis', 'Aufloesung', 'Seitenverhaeltnis-Rechner'],
 };

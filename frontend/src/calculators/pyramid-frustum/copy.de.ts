@@ -12,5 +12,5 @@ export const pyramidFrustumCopyDe: CalculatorSeoCopy = {
   seoTitle: 'Pyramidenstumpf berechnen — Volumen und Oberfläche',
   seoDescription: 'Berechne Volumen, Seitenhöhe, Mantel- und Gesamtoberfläche eines Pyramidenstumpfs mit quadratischen Grundflächen.',
   h1: 'Pyramidenstumpf-Rechner',
-  keywords: ['Pyramidenstumpf', 'Volumen berechnen', 'Mantelfläche', 'Seitenhöhe'],
+  keywords: ['Pyramidenstumpf', 'Volumen berechnen', 'Mantelfläche', 'Seitenhöhe', 'Mantelflaeche', 'Seitenhoehe'],
 };

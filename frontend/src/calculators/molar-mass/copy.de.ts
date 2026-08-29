@@ -12,5 +12,5 @@ export const molarMassCopyDe: CalculatorSeoCopy = {
   seoTitle: 'Molare Masse berechnen aus der Summenformel',
   seoDescription: 'Berechne die molare Masse aus einer chemischen Formel, mit dem Beitrag jedes Elements und seinem Anteil an der Gesamtmasse.',
   h1: 'Rechner für die molare Masse',
-  keywords: ['molare Masse', 'Molmasse', 'Summenformel', 'Stoffmenge'],
+  keywords: ['molare Masse', 'Molmasse', 'Summenformel', 'Stoffmenge', 'Rechner fuer die molare Masse'],
 };

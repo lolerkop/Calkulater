@@ -12,5 +12,5 @@ export const annuityCopyDe: CalculatorSeoCopy = {
   seoTitle: 'Annuitätenrechner — Rate und Tilgungsplan',
   seoDescription: 'Berechne die Annuitätenrate und erhalte einen Tilgungsplan mit Zinsen, Tilgung und Restschuld für jeden Monat.',
   h1: 'Annuitätenrechner',
-  keywords: ['Annuität', 'Tilgungsplan', 'Kreditrate', 'Restschuld'],
+  keywords: ['Annuität', 'Tilgungsplan', 'Kreditrate', 'Restschuld', 'Annuitaet', 'Annuitaetenrechner'],
 };

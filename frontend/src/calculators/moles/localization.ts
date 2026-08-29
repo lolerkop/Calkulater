@@ -19,6 +19,43 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'mass': 'Masse, g',
+      'moles': 'Stoffmenge, mol',
+      'molarMass': 'Molare Masse, g/mol',
+    },
+    options: {
+      'mass': 'die Masse',
+      'amount': 'die Stoffmenge',
+    },
+    results: {
+      'Количество вещества': 'Stoffmenge',
+      'Масса': 'Masse',
+      'Число частиц': 'Zahl der Teilchen',
+      'Молярная масса': 'Molare Masse',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      ' моль/л': ' mol/l',
+      ' г/моль': ' g/mol',
+      ' моль': ' mol',
+      ' г/л': ' g/l',
+      ' г': ' g',
+      ' мл': ' ml',
+      ' л': ' l',
+      ' кПа': ' kPa',
+      ' атм': ' atm',
+      ' Па': ' Pa',
+      ' К': ' K',
+      ' ppm': ' ppm',
+      'Дж/(моль·К)': 'J/(mol·K)',
+      'Молярная масса должна быть больше нуля': 'Die molare Masse muss größer als null sein',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Количество вещества должно быть больше нуля': 'Die Stoffmenge muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: 'What is known', mass: 'Mass, g', moles: 'Amount of substance, mol', molarMass: 'Molar mass, g/mol', },
     options: { mass: 'the mass', amount: 'the amount of substance', },
