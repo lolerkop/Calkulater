@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { engineDisplacementCopyEn } from './copy.en';
 import { engineDisplacementCopyUk } from './copy.uk';
+import { engineDisplacementCopyDe } from './copy.de';
 import { engineDisplacementReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: engineDisplacementCopyEn, uk: engineDisplacementCopyUk },
+  copy: { en: engineDisplacementCopyEn, uk: engineDisplacementCopyUk, de: engineDisplacementCopyDe },
   referenceCases: engineDisplacementReferenceCases,
   publishedExample: { inputs: { bore: 82, stroke: 86, cylinders: 4 }, expected: ["1 816,67 см³"] },
   presentation: {

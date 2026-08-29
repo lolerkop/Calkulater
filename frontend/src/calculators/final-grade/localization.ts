@@ -18,6 +18,28 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'current': 'Aktuelle Note, %',
+      'target': 'Wunschnote, %',
+      'weight': 'Gewicht der Prüfung, %',
+    },
+    results: {
+      'Нужный балл': 'Nötige Punktzahl',
+      'Вклад текущей оценки': 'Beitrag der aktuellen Note',
+      'Вес экзамена': 'Gewicht der Prüfung',
+      'Цель недостижима': 'Ziel nicht erreichbar',
+      'Цель уже достигнута': 'Ziel bereits erreicht',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального': 'Mit einer Prüfung ist diese Endnote nicht mehr zu erreichen: nötig wäre eine Punktzahl über dem Höchstwert',
+      'Итоговая выйдет не ниже желаемой при любом результате экзамена': 'Die Endnote bleibt bei jedem Prüfungsergebnis mindestens auf dem Wunschwert',
+      'Текущая оценка задаётся в диапазоне от 0 до 100': 'Die aktuelle Note liegt im Bereich von 0 bis 100',
+      'Желаемая оценка задаётся в диапазоне от 0 до 100': 'Die Wunschnote liegt im Bereich von 0 bis 100',
+      'Вес экзамена задаётся в диапазоне от 0 до 100 процентов': 'Das Gewicht der Prüfung liegt im Bereich von 0 bis 100 Prozent',
+    },
+  },
   en: {
     fields: { current: "Current grade, %", target: "Target grade, %", weight: "Exam weight, %" },
     results: RESULTS_EN,

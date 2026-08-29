@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { contextualField } from './contextualField';
 import { speedDistanceTimeCopyEn } from './copy.en';
 import { speedDistanceTimeCopyUk } from './copy.uk';
+import { speedDistanceTimeCopyDe } from './copy.de';
 import { speedDistanceTimeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: speedDistanceTimeCopyEn, uk: speedDistanceTimeCopyUk },
+  copy: { en: speedDistanceTimeCopyEn, uk: speedDistanceTimeCopyUk, de: speedDistanceTimeCopyDe },
   referenceCases: speedDistanceTimeReferenceCases,
   publishedExample: { inputs: { mode: 'speed', distance: 420, time: 5 }, expected: ["84,00 км/ч"] },
   presentation: {

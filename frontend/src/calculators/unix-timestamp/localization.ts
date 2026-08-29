@@ -20,6 +20,44 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Richtung',
+      'timestamp': 'Unix-Zeit, Sekunden',
+      'date': 'Datum (UTC)',
+      'hour': 'Stunde',
+      'minute': 'Minute',
+      'second': 'Sekunde',
+    },
+    options: {
+      'toDate': 'Zeitstempel → Datum',
+      'toTimestamp': 'Datum → Zeitstempel',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Дата и время UTC': 'Datum und Uhrzeit in UTC',
+      'Unix-время': 'Unix-Zeit',
+      'Unix-время, секунды': 'Unix-Zeit, Sekunden',
+      'Дата в ISO 8601': 'Datum nach ISO 8601',
+      'День недели': 'Wochentag',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'воскресенье': 'Sonntag',
+      'понедельник': 'Montag',
+      'вторник': 'Dienstag',
+      'среда': 'Mittwoch',
+      'четверг': 'Donnerstag',
+      'пятница': 'Freitag',
+      'суббота': 'Samstag',
+      'Секунды задаются целым числом': 'Sekunden werden als ganze Zahl angegeben',
+      'Дата задаётся в формате ГГГГ-ММ-ДД': 'Das Datum wird im Format JJJJ-MM-TT angegeben',
+      'Часы задаются в диапазоне от 0 до 23': 'Stunden liegen im Bereich von 0 bis 23',
+      'Минуты задаются в диапазоне от 0 до 59': 'Minuten liegen im Bereich von 0 bis 59',
+      'Секунды задаются в диапазоне от 0 до 59': 'Sekunden liegen im Bereich von 0 bis 59',
+      'Значение выходит за поддерживаемый диапазон дат': 'Der Wert liegt außerhalb des unterstützten Datumsbereichs',
+    },
+  },
   en: {
     fields: { mode: "Direction", timestamp: "Unix time, seconds", date: "Date (UTC)", hour: "Hour", minute: "Minute", second: "Second" },
     options: { toDate: "timestamp → date", toTimestamp: "date → timestamp" },

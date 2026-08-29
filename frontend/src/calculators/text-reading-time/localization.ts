@@ -1,6 +1,35 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was du hast',
+      'words': 'Zahl der Wörter',
+      'text': 'Text',
+      'wpm': 'Stilles Lesetempo, Wörter/min',
+      'speechWpm': 'Sprechtempo, Wörter/min',
+    },
+    options: {
+      'words': 'eine Wortzahl',
+      'text': 'den Text selbst',
+    },
+    results: {
+      'Время чтения': 'Lesedauer',
+      'Время вслух': 'Dauer laut vorgelesen',
+      'Чтение в минутах': 'Lesen in Minuten',
+      'Речь в минутах': 'Rede in Minuten',
+      'Слов': 'Wörter',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мин': 'min',
+      'с': 's',
+      'Вставьте текст — в нём не найдено ни одного слова': 'Füge einen Text ein — darin wurde kein einziges Wort gefunden',
+      'Число слов должно быть больше нуля': 'Die Zahl der Wörter muss größer als null sein',
+      'Скорость чтения должна быть больше нуля': 'Das Lesetempo muss größer als null sein',
+      'Скорость речи должна быть больше нуля': 'Das Sprechtempo muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       "mode": "What you have",

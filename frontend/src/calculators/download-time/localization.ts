@@ -10,6 +10,45 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'size': 'Dateigröße',
+      'sizeUnit': 'Einheit der Größe',
+      'speed': 'Leitungsgeschwindigkeit',
+      'speedUnit': 'Einheit der Geschwindigkeit',
+    },
+    options: {
+      'kb': 'KB (1000 Byte)',
+      'mb': 'MB (10⁶ Byte)',
+      'gb': 'GB (10⁹ Byte)',
+      'tb': 'TB (10¹² Byte)',
+      'kib': 'KiB (1024 Byte)',
+      'mib': 'MiB (1024² Byte)',
+      'gib': 'GiB (1024³ Byte)',
+      'tib': 'TiB (1024⁴ Byte)',
+      'kbit': 'kbit/s',
+      'mbit': 'Mbit/s',
+      'gbit': 'Gbit/s',
+      'mbyte': 'MB/s',
+    },
+    results: {
+      'Время загрузки': 'Downloadzeit',
+      'Всего секунд': 'Sekunden insgesamt',
+      'Размер файла': 'Dateigröße',
+      'Скорость канала': 'Leitungsgeschwindigkeit',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мс': 'ms',
+      'с': 's',
+      'МБ': 'MB',
+      'МиБ': 'MiB',
+      'Мбит/с': 'Mbit/s',
+      'МБ/с': 'MB/s',
+      'Размер файла должен быть больше нуля': 'Die Dateigröße muss größer als null sein',
+      'Скорость должна быть больше нуля': 'Die Geschwindigkeit muss größer als null sein',
+    },
+  },
   en: {
     fields: { size: 'File size', sizeUnit: 'Size unit', speed: 'Connection speed', speedUnit: 'Speed unit' },
     options: {

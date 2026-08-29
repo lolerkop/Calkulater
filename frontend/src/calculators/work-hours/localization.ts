@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'startHour': 'Schichtbeginn, Stunden',
+      'startMin': 'Schichtbeginn, Minuten',
+      'endHour': 'Schichtende, Stunden',
+      'endMin': 'Schichtende, Minuten',
+      'breakMin': 'Pause, Minuten',
+      'days': 'Zahl der Schichten',
+      'ratePerHour': 'Stundensatz, €',
+    },
+    results: {
+      'Часов за период': 'Stunden im Zeitraum',
+      'Часов в смену': 'Stunden je Schicht',
+      'В часах и минутах': 'In Stunden und Minuten',
+      'Длина смены до перерыва': 'Schichtlänge vor der Pause',
+      'Заработок': 'Verdienst',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'ч': 'h',
+      'мин': 'min',
+      'Число смен должно быть больше нуля': 'Die Zahl der Schichten muss größer als null sein',
+      'Перерыв не может быть отрицательным': 'Die Pause kann nicht negativ sein',
+      'Ставка не может быть отрицательной': 'Der Stundensatz kann nicht negativ sein',
+      'Перерыв не может быть длиннее смены': 'Die Pause kann nicht länger als die Schicht sein',
+    },
+  },
   en: {
     fields: {
       "startHour": "Shift start, hours",

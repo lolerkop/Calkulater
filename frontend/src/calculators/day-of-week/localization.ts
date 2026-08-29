@@ -10,6 +10,32 @@ const WEEK_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'date': 'Datum',
+    },
+    results: {
+      'День недели': 'Wochentag',
+      'День года': 'Tag des Jahres',
+      'Номер недели ISO': 'ISO-Kalenderwoche',
+      'Дней в году': 'Tage im Jahr',
+      'Выходной': 'Wochenende',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'понедельник': 'Montag',
+      'вторник': 'Dienstag',
+      'среда': 'Mittwoch',
+      'четверг': 'Donnerstag',
+      'пятница': 'Freitag',
+      'суббота': 'Samstag',
+      'воскресенье': 'Sonntag',
+      'Да': 'Ja',
+      'Нет': 'Nein',
+      'последняя неделя предыдущего года': 'letzte Woche des Vorjahres',
+      'Введите существующую дату': 'Trage ein Datum ein, das es gibt',
+    },
+  },
   en: {
     fields: { date: 'Date' },
     results: { 'День недели': 'Day of the week', 'День года': 'Day of the year', 'Номер недели ISO': 'ISO week number', 'Дней в году': 'Days in the year', 'Выходной': 'Weekend', 'Проверьте данные': 'Check the values' },

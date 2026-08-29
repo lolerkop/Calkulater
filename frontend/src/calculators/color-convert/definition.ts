@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { colorConvertCopyEn } from './copy.en';
 import { colorConvertCopyUk } from './copy.uk';
+import { colorConvertCopyDe } from './copy.de';
 import { colorConvertReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: colorConvertCopyEn, uk: colorConvertCopyUk },
+  copy: { en: colorConvertCopyEn, uk: colorConvertCopyUk, de: colorConvertCopyDe },
   referenceCases: colorConvertReferenceCases,
   publishedExample: { inputs: { hex: '#2E86DE' }, expected: ["rgb(46, 134, 222)"] },
   presentation: {

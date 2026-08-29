@@ -1,6 +1,26 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'fuel': 'Benzin, l',
+      'ratio': 'Verhältnis 1:N',
+    },
+    results: {
+      'Масла': 'Öl',
+      'Объём смеси': 'Volumen des Gemischs',
+      'Доля масла': 'Ölanteil',
+      'Соотношение': 'Verhältnis',
+      'Бензина': 'Benzin',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мл': 'ml',
+      'л': 'l',
+      'Объём топлива должен быть больше нуля': 'Die Kraftstoffmenge muss größer als null sein',
+      'Пропорция допустима от 1:20 до 1:100': 'Das Verhältnis ist von 1:20 bis 1:100 zulässig',
+    },
+  },
   en: {
     fields: { fuel: 'Petrol, L', ratio: 'Ratio 1:N' },
     options: {},

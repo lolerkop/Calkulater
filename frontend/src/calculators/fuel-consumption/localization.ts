@@ -12,6 +12,37 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was berechnet wird',
+      'litres': 'Verbrauchte Liter',
+      'distance': 'Strecke, km',
+      'consumption': 'Verbrauch, l/100 km',
+    },
+    options: {
+      'measure': 'Liter je 100 km',
+      'kml': 'Kilometer je Liter',
+      'need': 'nötiger Kraftstoff für eine Fahrt',
+    },
+    results: {
+      'Расход': 'Verbrauch',
+      'Нужно топлива': 'Nötiger Kraftstoff',
+      'Литров на 100 км': 'Liter je 100 km',
+      'Километров на литр': 'Kilometer je Liter',
+      'Расход на 1000 км': 'Verbrauch auf 1000 km',
+      'Пробег': 'Strecke',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'л/100 км': 'l/100 km',
+      'км/л': 'km/l',
+      'л': 'l',
+      'км': 'km',
+      'Количество литров должно быть больше нуля': 'Die Zahl der Liter muss größer als null sein',
+      'Пробег должен быть больше нуля': 'Die Strecke muss größer als null sein',
+      'Расход должен быть больше нуля': 'Der Verbrauch muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: 'What to calculate', litres: 'Litres used', distance: 'Distance, km', consumption: 'Consumption, L/100 km' },
     options: { measure: 'litres per 100 km', kml: 'kilometres per litre', need: 'fuel needed for a trip' },

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { modularScaleCopyEn } from './copy.en';
 import { modularScaleCopyUk } from './copy.uk';
+import { modularScaleCopyDe } from './copy.de';
 import { modularScaleReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: modularScaleCopyEn, uk: modularScaleCopyUk },
+  copy: { en: modularScaleCopyEn, uk: modularScaleCopyUk, de: modularScaleCopyDe },
   referenceCases: modularScaleReferenceCases,
   publishedExample: {
     inputs: { base: 16, ratio: 1.25, stepsUp: 5, stepsDown: 2 },

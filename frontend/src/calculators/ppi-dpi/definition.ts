@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { ppiDpiCopyEn } from './copy.en';
 import { ppiDpiCopyUk } from './copy.uk';
+import { ppiDpiCopyDe } from './copy.de';
 import { ppiDpiReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: ppiDpiCopyEn, uk: ppiDpiCopyUk },
+  copy: { en: ppiDpiCopyEn, uk: ppiDpiCopyUk, de: ppiDpiCopyDe },
   referenceCases: ppiDpiReferenceCases,
   publishedExample: { inputs: { w: 1920, h: 1080, diagonal: 15.6 }, expected: ["141,21 ppi"] },
   presentation: {

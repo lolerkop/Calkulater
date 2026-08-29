@@ -1,6 +1,24 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'hex': 'Hexadezimaler Farbcode',
+    },
+    results: {
+      'RGB': 'RGB',
+      'HSL': 'HSL',
+      'HEX': 'HEX',
+      'Яркость': 'Helligkeit',
+      'Красный': 'Rot',
+      'Зелёный': 'Grün',
+      'Синий': 'Blau',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Введите три или шесть шестнадцатеричных знаков': 'Trage drei oder sechs hexadezimale Zeichen ein',
+    },
+  },
   en: {
     fields: { "hex": "Hexadecimal colour code" },
     options: {},

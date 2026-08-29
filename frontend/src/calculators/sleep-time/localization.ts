@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'hour': 'Stunde',
+      'minute': 'Minuten',
+      'cycles': 'Schlafzyklen',
+      'fallAsleep': 'Einschlafdauer, min',
+    },
+    options: {
+      'bedtime': 'wann ich ins Bett gehe',
+      'wake': 'wann ich aufstehen muss',
+    },
+    results: {
+      'Когда вставать': 'Aufstehzeit',
+      'Когда лечь': 'Zubettgehzeit',
+      'Всего в постели': 'Insgesamt im Bett',
+      'Чистый сон': 'Reiner Schlaf',
+      'Циклов': 'Zyklen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мин': 'min',
+      'Час должен быть от 0 до 23': 'Die Stunde muss zwischen 0 und 23 liegen',
+      'Минуты должны быть от 0 до 59': 'Die Minuten müssen zwischen 0 und 59 liegen',
+      'Циклов должно быть не меньше одного': 'Es muss mindestens ein Zyklus sein',
+      'Время на засыпание не может быть отрицательным': 'Die Einschlafdauer kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What is known',

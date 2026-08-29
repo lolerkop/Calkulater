@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { contextualField } from './contextualField';
 import { fpsFrametimeCopyEn } from './copy.en';
 import { fpsFrametimeCopyUk } from './copy.uk';
+import { fpsFrametimeCopyDe } from './copy.de';
 import { fpsFrametimeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: fpsFrametimeCopyEn, uk: fpsFrametimeCopyUk },
+  copy: { en: fpsFrametimeCopyEn, uk: fpsFrametimeCopyUk, de: fpsFrametimeCopyDe },
   referenceCases: fpsFrametimeReferenceCases,
   publishedExample: { inputs: { mode: 'fps', fps: 60 }, expected: ['16,667 мс'] },
   presentation: {

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { passwordEntropyCopyEn } from './copy.en';
 import { passwordEntropyCopyUk } from './copy.uk';
+import { passwordEntropyCopyDe } from './copy.de';
 import { passwordEntropyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: passwordEntropyCopyEn, uk: passwordEntropyCopyUk },
+  copy: { en: passwordEntropyCopyEn, uk: passwordEntropyCopyUk, de: passwordEntropyCopyDe },
   referenceCases: passwordEntropyReferenceCases,
   publishedExample: { inputs: { length: 12, charset: "alnum", rate: 10 }, expected: ["71,45 бит"] },
   presentation: {

@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'price': 'Kaufpreis, €',
+      'years': 'Jahre im Besitz',
+      'ratePct': 'Jährlicher Verlust nach dem ersten Jahr, %',
+      'firstYearPct': 'Verlust im ersten Jahr, %',
+    },
+    results: {
+      'Стоимость через срок': 'Wert nach dem Zeitraum',
+      'Потеряно в деньгах': 'Verlorener Wert',
+      'Потеряно, доля': 'Verlorener Anteil',
+      'Цена покупки': 'Kaufpreis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Цена покупки должна быть больше нуля': 'Der Kaufpreis muss größer als null sein',
+      'Срок владения не может быть отрицательным': 'Die Besitzdauer kann nicht negativ sein',
+      'Ставка потери должна быть от нуля до ста процентов': 'Der Verlustsatz muss zwischen null und hundert Prozent liegen',
+      'Потеря за первый год должна быть от нуля до ста процентов': 'Der Verlust im ersten Jahr muss zwischen null und hundert Prozent liegen',
+    },
+  },
   en: {
     fields: {
       price: 'Purchase price, ₽',

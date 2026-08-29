@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'w': 'Waagerechte Auflösung, px',
+      'h': 'Senkrechte Auflösung, px',
+      'diagonal': 'Diagonale, Zoll',
+    },
+    results: {
+      'Плотность пикселей': 'Pixeldichte',
+      'Диагональ в пикселях': 'Diagonale in Pixeln',
+      'Размер пикселя': 'Pixelgröße',
+      'Всего пикселей': 'Pixel insgesamt',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'ppi': 'ppi',
+      'пикс': 'px',
+      'мм': 'mm',
+      'Мпикс': 'MPx',
+      'Диагональ должна быть больше нуля': 'Die Diagonale muss größer als null sein',
+      'Разрешение должно быть целым числом пикселей': 'Die Auflösung muss eine ganze Zahl von Pixeln sein',
+      'Разрешение должно быть больше нуля': 'Die Auflösung muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       "w": "Horizontal resolution, px",

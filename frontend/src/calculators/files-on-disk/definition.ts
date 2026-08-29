@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { filesOnDiskCopyEn } from './copy.en';
 import { filesOnDiskCopyUk } from './copy.uk';
+import { filesOnDiskCopyDe } from './copy.de';
 import { filesOnDiskReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: filesOnDiskCopyEn, uk: filesOnDiskCopyUk },
+  copy: { en: filesOnDiskCopyEn, uk: filesOnDiskCopyUk, de: filesOnDiskCopyDe },
   referenceCases: filesOnDiskReferenceCases,
   publishedExample: { inputs: { capacity: 1000, capacityUnit: 'gb', fileSize: 4, fileUnit: 'mb' }, expected: ["250 000"] },
   presentation: {

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { wheelOffsetCopyEn } from './copy.en';
 import { wheelOffsetCopyUk } from './copy.uk';
+import { wheelOffsetCopyDe } from './copy.de';
 import { wheelOffsetReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: wheelOffsetCopyEn, uk: wheelOffsetCopyUk },
+  copy: { en: wheelOffsetCopyEn, uk: wheelOffsetCopyUk, de: wheelOffsetCopyDe },
   referenceCases: wheelOffsetReferenceCases,
   publishedExample: { inputs: { width: 7, offset: 35, newOffset: 45 }, expected: ["136,6 мм"] },
   presentation: {

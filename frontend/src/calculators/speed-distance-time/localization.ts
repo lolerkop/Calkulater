@@ -20,6 +20,38 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'distance': 'Weg, km',
+      'time': 'Zeit, Stunden',
+      'speed': 'Geschwindigkeit, km/h',
+    },
+    options: {
+      'speed': 'die Geschwindigkeit',
+      'distance': 'der Weg',
+      'time': 'die Zeit',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Скорость': 'Geschwindigkeit',
+      'Расстояние': 'Weg',
+      'Время': 'Zeit',
+      'Время в пути': 'Fahrzeit',
+      'Минут на километр': 'Minuten je Kilometer',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'км/ч': 'km/h',
+      '(вычисляется)': '(wird berechnet)',
+      'км': 'km',
+      'ч': 'h',
+      'мин': 'min',
+      'Значения не могут быть отрицательными': 'Die Werte können nicht negativ sein',
+      'Время должно быть больше нуля': 'Die Zeit muss größer als null sein',
+      'Скорость должна быть больше нуля': 'Die Geschwindigkeit muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: "What to find", distance: "Distance, km", time: "Time, hours", speed: "Speed, km/h" },
     options: { speed: "speed", distance: "distance", time: "time" },

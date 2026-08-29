@@ -22,6 +22,40 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'distance': 'Strecke, km',
+      'consumption': 'Verbrauch, l/100 km',
+      'fuelPrice': 'Kraftstoffpreis',
+      'tolls': 'Maut',
+      'passengers': 'Mitfahrende',
+      'roundTrip': 'Rückfahrt',
+    },
+    options: {
+      'no': 'Nein',
+      'yes': 'Ja',
+    },
+    results: {
+      'Стоимость поездки': 'Kosten der Fahrt',
+      'Топливо': 'Kraftstoff',
+      'Израсходовано литров': 'Verbrauchte Liter',
+      'Пройденное расстояние': 'Zurückgelegte Strecke',
+      'Платные дороги': 'Maut',
+      'На человека': 'Je Person',
+      'Пассажиров': 'Mitfahrende',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'л': 'l',
+      'км': 'km',
+      'Расстояние должно быть больше нуля': 'Die Strecke muss größer als null sein',
+      'Расход должен быть больше нуля': 'Der Verbrauch muss größer als null sein',
+      'Цена топлива должна быть больше нуля': 'Der Kraftstoffpreis muss größer als null sein',
+      'Плата за дороги не может быть отрицательной': 'Die Maut kann nicht negativ sein',
+      'Пассажиров должно быть не меньше одного': 'Es muss mindestens eine Person sein',
+    },
+  },
   en: {
     fields: { distance: "Distance, km", consumption: "Consumption, L/100 km", fuelPrice: "Fuel price", tolls: "Tolls", passengers: "Passengers", roundTrip: "Return trip" },
     options: { no: "No", yes: "Yes" },

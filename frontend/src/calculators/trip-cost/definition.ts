@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { tripCostCopyEn } from './copy.en';
 import { tripCostCopyUk } from './copy.uk';
+import { tripCostCopyDe } from './copy.de';
 import { tripCostReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: tripCostCopyEn, uk: tripCostCopyUk },
+  copy: { en: tripCostCopyEn, uk: tripCostCopyUk, de: tripCostCopyDe },
   referenceCases: tripCostReferenceCases,
   publishedExample: { inputs: { distance: 800, consumption: 7.5, fuelPrice: 62, tolls: 0, passengers: 1 }, expected: ["3 720,00 ₽"] },
   presentation: {

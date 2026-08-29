@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { quarterMileCopyEn } from './copy.en';
 import { quarterMileCopyUk } from './copy.uk';
+import { quarterMileCopyDe } from './copy.de';
 import { quarterMileReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: quarterMileCopyEn, uk: quarterMileCopyUk },
+  copy: { en: quarterMileCopyEn, uk: quarterMileCopyUk, de: quarterMileCopyDe },
   referenceCases: quarterMileReferenceCases,
   publishedExample: { inputs: { power: 150, mass: 1300 }, expected: ["15,572 с"] },
   presentation: {

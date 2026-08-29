@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'base': 'Grundgröße',
+      'ratio': 'Verhältnis der Skala',
+      'stepsUp': 'Stufen über der Grundgröße',
+      'stepsDown': 'Stufen unter der Grundgröße',
+    },
+    results: {
+      'Наибольший размер': 'Größte Größe',
+      'Наименьший размер': 'Kleinste Größe',
+      'Ступеней': 'Stufen',
+      'База': 'Grundgröße',
+      'Ступени шкалы': 'Stufen der Skala',
+      'Ступень': 'Stufe',
+      'Размер': 'Größe',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Показаны первые 12 ступеней шкалы.': 'Gezeigt werden die ersten 12 Stufen der Skala.',
+      'Базовый размер должен быть больше нуля': 'Die Grundgröße muss größer als null sein',
+      'Отношение шкалы должно быть больше единицы': 'Das Verhältnis der Skala muss größer als eins sein',
+      'Число ступеней не может быть отрицательным': 'Die Zahl der Stufen kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       base: 'Base size',

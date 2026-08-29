@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { carDepreciationCopyEn } from './copy.en';
 import { carDepreciationCopyUk } from './copy.uk';
+import { carDepreciationCopyDe } from './copy.de';
 import { carDepreciationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: carDepreciationCopyEn, uk: carDepreciationCopyUk },
+  copy: { en: carDepreciationCopyEn, uk: carDepreciationCopyUk, de: carDepreciationCopyDe },
   referenceCases: carDepreciationReferenceCases,
   publishedExample: {
     inputs: { price: 2400000, years: 4, ratePct: 12, firstYearPct: 20 },

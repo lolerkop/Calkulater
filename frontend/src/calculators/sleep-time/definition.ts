@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { sleepTimeCopyEn } from './copy.en';
 import { sleepTimeCopyUk } from './copy.uk';
+import { sleepTimeCopyDe } from './copy.de';
 import { sleepTimeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: sleepTimeCopyEn, uk: sleepTimeCopyUk },
+  copy: { en: sleepTimeCopyEn, uk: sleepTimeCopyUk, de: sleepTimeCopyDe },
   referenceCases: sleepTimeReferenceCases,
   publishedExample: {
     inputs: { mode: 'bedtime', hour: 23, minute: 0, cycles: 5, fallAsleep: 15 },

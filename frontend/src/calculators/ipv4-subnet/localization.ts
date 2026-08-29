@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'address': 'IPv4-Adresse',
+      'prefix': 'Präfixlänge, Bit',
+    },
+    results: {
+      'Адрес сети': 'Netzadresse',
+      'Маска подсети': 'Subnetzmaske',
+      'Широковещательный': 'Broadcast-Adresse',
+      'Первый узел': 'Erster Host',
+      'Последний узел': 'Letzter Host',
+      'Узлов в сети': 'Nutzbare Hosts',
+      'Обратная маска': 'Wildcard-Maske',
+      'Запись CIDR': 'CIDR-Schreibweise',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'нет': 'keine',
+      'Адрес должен состоять из четырёх октетов через точку': 'Die Adresse muss aus vier durch Punkte getrennten Oktetten bestehen',
+      'Каждый октет должен быть числом от 0 до 255': 'Jedes Oktett muss eine Zahl von 0 bis 255 sein',
+      'Длина префикса должна быть целым числом от 0 до 32': 'Die Präfixlänge muss eine ganze Zahl von 0 bis 32 sein',
+    },
+  },
   en: {
     fields: { "address": "IPv4 address", "prefix": "Prefix length, bits" },
     options: {},

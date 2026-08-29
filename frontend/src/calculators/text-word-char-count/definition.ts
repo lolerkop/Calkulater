@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { textWordCharCountCopyEn } from './copy.en';
 import { textWordCharCountCopyUk } from './copy.uk';
+import { textWordCharCountCopyDe } from './copy.de';
 import { textWordCharCountReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: textWordCharCountCopyEn, uk: textWordCharCountCopyUk },
+  copy: { en: textWordCharCountCopyEn, uk: textWordCharCountCopyUk, de: textWordCharCountCopyDe },
   referenceCases: textWordCharCountReferenceCases,
   publishedExample: {
     inputs: { text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.' },

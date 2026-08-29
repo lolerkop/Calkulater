@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'power': 'Leistung, PS',
+      'mass': 'Leermasse mit Fahrer, kg',
+    },
+    results: {
+      'Время четверти мили': 'Zeit auf der Viertelmeile',
+      'Скорость на финише': 'Endgeschwindigkeit',
+      'Удельная мощность': 'Leistungsgewicht',
+      'Масса в фунтах': 'Masse in Pfund',
+      'Скорость на финише в милях в час': 'Endgeschwindigkeit in Meilen je Stunde',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'с': 's',
+      'км/ч': 'km/h',
+      'л.с./т': 'PS/t',
+      'фунт': 'lb',
+      'миль/ч': 'mph',
+      'Мощность должна быть больше нуля': 'Die Leistung muss größer als null sein',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+    },
+  },
   en: {
     fields: { power: 'Power, hp', mass: 'Kerb mass with driver, kg' },
     options: {},

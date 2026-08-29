@@ -10,6 +10,31 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Richtung',
+      'fps': 'Bildrate, FPS',
+      'frameTime': 'Bildzeit, ms',
+    },
+    options: {
+      'fps': 'Bildrate → Bildzeit',
+      'ms': 'Bildzeit → Bildrate',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Время кадра': 'Bildzeit',
+      'Частота кадров': 'Bildrate',
+      'Кадров за минуту': 'Bilder je Minute',
+      'Для сравнения, мс': 'Zum Vergleich, ms',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мс': 'ms',
+      '(вычисляется)': '(wird berechnet)',
+      'Частота кадров должна быть больше нуля': 'Die Bildrate muss größer als null sein',
+      'Время кадра должно быть больше нуля': 'Die Bildzeit muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: 'Direction', fps: 'Frame rate, FPS', frameTime: 'Frame time, ms' },
     options: { fps: 'frame rate → frame time', ms: 'frame time → frame rate' },

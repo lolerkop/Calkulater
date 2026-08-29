@@ -10,6 +10,29 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'correct': 'Richtige Antworten',
+      'total': 'Fragen insgesamt',
+      'passMark': 'Bestehensgrenze, %',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Правильных': 'Richtig',
+      'Ошибок': 'Falsch',
+      'Доля ошибок': 'Fehleranteil',
+      'Проходной балл': 'Bestehensgrenze',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'из': 'von',
+      'Тест сдан': 'Bestanden',
+      'Тест не сдан': 'Nicht bestanden',
+      'Всего вопросов должно быть больше нуля': 'Die Zahl der Fragen muss größer als null sein',
+      'Число правильных ответов не может быть отрицательным': 'Die Zahl der richtigen Antworten kann nicht negativ sein',
+      'Правильных ответов не может быть больше, чем вопросов': 'Es kann nicht mehr richtige Antworten als Fragen geben',
+    },
+  },
   en: {
     fields: { correct: 'Correct answers', total: 'Questions in total', passMark: 'Pass mark, %' },
     results: RESULTS_EN,

@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { unixTimestampCopyEn } from './copy.en';
 import { unixTimestampCopyUk } from './copy.uk';
+import { unixTimestampCopyDe } from './copy.de';
 import { unixTimestampReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: unixTimestampCopyEn, uk: unixTimestampCopyUk },
+  copy: { en: unixTimestampCopyEn, uk: unixTimestampCopyUk, de: unixTimestampCopyDe },
   referenceCases: unixTimestampReferenceCases,
   publishedExample: { inputs: { mode: 'toDate', timestamp: 1700000000 }, expected: ["2023-11-14 22:13:20 UTC"] },
   presentation: {

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { workHoursCopyEn } from './copy.en';
 import { workHoursCopyUk } from './copy.uk';
+import { workHoursCopyDe } from './copy.de';
 import { workHoursReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: workHoursCopyEn, uk: workHoursCopyUk },
+  copy: { en: workHoursCopyEn, uk: workHoursCopyUk, de: workHoursCopyDe },
   referenceCases: workHoursReferenceCases,
   publishedExample: {
     inputs: { startHour: 9, startMin: 0, endHour: 18, endMin: 0, breakMin: 60, days: 21, ratePerHour: 500 },

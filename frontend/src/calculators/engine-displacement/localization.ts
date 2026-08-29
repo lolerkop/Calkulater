@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'bore': 'Zylinderbohrung, mm',
+      'stroke': 'Kolbenhub, mm',
+      'cylinders': 'Zylinder',
+    },
+    results: {
+      'Рабочий объём': 'Hubraum',
+      'Объём одного цилиндра': 'Volumen eines Zylinders',
+      'В литрах': 'In Litern',
+      'Отношение хода к диаметру': 'Verhältnis Hub zu Bohrung',
+      'Цилиндров': 'Zylinder',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'см³': 'cm³',
+      'л': 'l',
+      'шт': 'Stk',
+      'Диаметр цилиндра должен быть больше нуля': 'Die Zylinderbohrung muss größer als null sein',
+      'Ход поршня должен быть больше нуля': 'Der Kolbenhub muss größer als null sein',
+      'Цилиндров должно быть целое число, не меньше одного': 'Die Zylinderzahl muss eine ganze Zahl von mindestens eins sein',
+    },
+  },
   en: {
     fields: { bore: 'Cylinder bore, mm', stroke: 'Piston stroke, mm', cylinders: 'Cylinders' },
     options: {},

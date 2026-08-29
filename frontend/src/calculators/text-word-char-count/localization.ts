@@ -1,6 +1,24 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'text': 'Text',
+    },
+    results: {
+      'Слов': 'Wörter',
+      'Символов с пробелами': 'Zeichen mit Leerzeichen',
+      'Символов без пробелов': 'Zeichen ohne Leerzeichen',
+      'Предложений': 'Sätze',
+      'Абзацев': 'Absätze',
+      'Средняя длина слова': 'Mittlere Wortlänge',
+      'Слов в предложении': 'Wörter je Satz',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Введите текст': 'Trage einen Text ein',
+    },
+  },
   en: {
     fields: { "text": "Text" },
     options: {},

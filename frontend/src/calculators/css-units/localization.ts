@@ -1,6 +1,38 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Wert',
+      'fromUnit': 'Von Einheit',
+      'toUnit': 'Nach Einheit',
+      'rootSize': 'Wurzelschriftgröße, px',
+      'parentSize': 'Schriftgröße des Elternelements, px',
+    },
+    options: {
+      'px': 'px',
+      'rem': 'rem',
+      'em': 'em',
+      'pt': 'pt',
+      'pc': 'pc',
+      'in': 'in',
+      'cm': 'cm',
+      'mm': 'mm',
+    },
+    results: {
+      'Результат перевода': 'Umgerechneter Wert',
+      'В пикселях': 'In Pixeln',
+      'В rem': 'In rem',
+      'В em': 'In em',
+      'В пунктах': 'In Punkt',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Корневой размер шрифта должен быть больше нуля': 'Die Wurzelschriftgröße muss größer als null sein',
+      'Размер шрифта родителя должен быть больше нуля': 'Die Schriftgröße des Elternelements muss größer als null sein',
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+    },
+  },
   en: {
     fields: {
       value: 'Value',

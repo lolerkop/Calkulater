@@ -20,6 +20,33 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'users': 'Gleichzeitige Nutzer',
+      'perUser': 'Bandbreite je Nutzer, Mbit/s',
+      'overhead': 'Reserve, %',
+      'concurrency': 'Gleichzeitig aktiv, %',
+    },
+    results: {
+      'Требуемая полоса': 'Nötige Bandbreite',
+      'Без запаса': 'Ohne Reserve',
+      'Добавлено запасом': 'Durch die Reserve hinzugefügt',
+      'Одновременно активны': 'Gleichzeitig aktiv',
+      'В мегабайтах в секунду': 'In Megabyte je Sekunde',
+      'В гигабитах': 'In Gigabit',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Мбит/с': 'Mbit/s',
+      'Гбит/с': 'Gbit/s',
+      'МБ/с': 'MB/s',
+      'из': 'von',
+      'Пользователей должно быть не меньше одного': 'Es muss mindestens ein Nutzer sein',
+      'Полоса на пользователя должна быть больше нуля': 'Die Bandbreite je Nutzer muss größer als null sein',
+      'Запас не может быть отрицательным': 'Die Reserve kann nicht negativ sein',
+      'Доля активных задаётся в диапазоне от 0 до 100 процентов': 'Der Anteil der aktiven Nutzer liegt im Bereich von 0 bis 100 Prozent',
+    },
+  },
   en: {
     fields: { users: "Concurrent users", perUser: "Bandwidth per user, Mbit/s", overhead: "Headroom, %", concurrency: "Active at once, %" },
     results: RESULTS_EN,

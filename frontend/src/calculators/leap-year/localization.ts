@@ -12,6 +12,24 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'year': 'Jahr',
+    },
+    results: {
+      'Високосный год': 'Schaltjahr',
+      'Дней в году': 'Tage im Jahr',
+      'Дней в феврале': 'Tage im Februar',
+      'Следующий високосный': 'Nächstes Schaltjahr',
+      'Предыдущий високосный': 'Vorheriges Schaltjahr',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Да': 'Ja',
+      'Нет': 'Nein',
+      'Введите целый год начиная с первого': 'Trage ein ganzes Jahr ab dem Jahr eins ein',
+    },
+  },
   en: {
     fields: { year: 'Year' },
     results: RESULTS_EN,

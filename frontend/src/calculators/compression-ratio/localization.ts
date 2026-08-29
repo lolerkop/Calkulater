@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'displacement': 'Hubraum eines Zylinders, cm³',
+      'chamber': 'Brennraumvolumen, cm³',
+    },
+    results: {
+      'Степень сжатия': 'Verdichtungsverhältnis',
+      'Полный объём цилиндра': 'Gesamtvolumen des Zylinders',
+      'Объём камеры сгорания': 'Brennraumvolumen',
+      'Рабочий объём цилиндра': 'Hubraum eines Zylinders',
+      'Записью': 'Geschrieben als',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'см³': 'cm³',
+      'Рабочий объём цилиндра должен быть больше нуля': 'Der Hubraum eines Zylinders muss größer als null sein',
+      'Объём камеры сгорания должен быть больше нуля': 'Das Brennraumvolumen muss größer als null sein',
+    },
+  },
   en: {
     fields: { displacement: 'Cylinder swept volume, cm³', chamber: 'Combustion chamber volume, cm³' },
     options: {},

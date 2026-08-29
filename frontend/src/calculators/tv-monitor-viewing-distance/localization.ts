@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'diag': 'Diagonale, Zoll',
+      'ratio': 'Seitenverhältnis',
+      'lines': 'Zeilen der Auflösung',
+    },
+    options: {
+      '16:9': '16:9',
+      '21:9': '21:9',
+      '4:3': '4:3',
+    },
+    results: {
+      'Комфортное расстояние по THX': 'Angenehmer Abstand nach THX',
+      'Комфортное по SMPTE': 'Angenehm nach SMPTE',
+      'Ширина экрана': 'Bildschirmbreite',
+      'Высота экрана': 'Bildschirmhöhe',
+      'Дальше этого пиксели не различить': 'Ab hier sind Pixel nicht mehr zu unterscheiden',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м': 'm',
+      'см': 'cm',
+      'Выберите пропорцию экрана из списка': 'Wähle ein Seitenverhältnis aus der Liste',
+      'Диагональ должна быть больше нуля': 'Die Diagonale muss größer als null sein',
+      'Число строк разрешения должно быть больше нуля': 'Die Zahl der Auflösungszeilen muss größer als null sein',
+    },
+  },
   en: {
     fields: { diag: 'Diagonal, inches', ratio: 'Screen ratio', lines: 'Resolution lines' },
     options: { '16:9': '16:9', '21:9': '21:9', '4:3': '4:3' },

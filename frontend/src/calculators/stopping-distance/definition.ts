@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { stoppingDistanceCopyEn } from './copy.en';
 import { stoppingDistanceCopyUk } from './copy.uk';
+import { stoppingDistanceCopyDe } from './copy.de';
 import { stoppingDistanceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: stoppingDistanceCopyEn, uk: stoppingDistanceCopyUk },
+  copy: { en: stoppingDistanceCopyEn, uk: stoppingDistanceCopyUk, de: stoppingDistanceCopyDe },
   referenceCases: stoppingDistanceReferenceCases,
   publishedExample: { inputs: { speed: 90, reaction: 1, mu: 0.7, grade: 0 }, expected: ["70,523 м"] },
   presentation: {

@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { networkBandwidthCopyEn } from './copy.en';
 import { networkBandwidthCopyUk } from './copy.uk';
+import { networkBandwidthCopyDe } from './copy.de';
 import { networkBandwidthReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: networkBandwidthCopyEn, uk: networkBandwidthCopyUk },
+  copy: { en: networkBandwidthCopyEn, uk: networkBandwidthCopyUk, de: networkBandwidthCopyDe },
   referenceCases: networkBandwidthReferenceCases,
   publishedExample: { inputs: { users: 50, perUser: 5, overhead: 20, concurrency: 100 }, expected: ["300,0 Мбит/с"] },
   presentation: {

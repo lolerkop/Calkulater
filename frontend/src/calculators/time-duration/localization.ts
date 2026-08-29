@@ -1,6 +1,37 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was berechnet wird',
+      'startHour': 'Startstunde',
+      'startMinute': 'Startminute',
+      'endHour': 'Endstunde',
+      'endMinute': 'Endminute',
+      'spanHour': 'Dauer, Stunden',
+      'spanMinute': 'Dauer, Minuten',
+    },
+    options: {
+      'difference': 'Dauer zwischen zwei Uhrzeiten',
+      'add': 'Eine Dauer addieren',
+      'subtract': 'Eine Dauer abziehen',
+    },
+    results: {
+      'Продолжительность': 'Dauer',
+      'Всего минут': 'Minuten insgesamt',
+      'Начало': 'Beginn',
+      'Окончание': 'Ende',
+      'Переход через полночь': 'Übergang über Mitternacht',
+      'Время': 'Uhrzeit',
+      'Исходное время': 'Ausgangszeit',
+      'Длительность': 'Dauer',
+      'Предыдущие сутки': 'Vortag',
+      'Следующие сутки': 'Folgetag',
+    },
+    values: {
+      'да': 'ja',
+    },
+  },
   en: {
     fields: {
       mode: 'What to calculate', startHour: 'Start hour', startMinute: 'Start minute',

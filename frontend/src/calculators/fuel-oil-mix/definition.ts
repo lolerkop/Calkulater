@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { fuelOilMixCopyEn } from './copy.en';
 import { fuelOilMixCopyUk } from './copy.uk';
+import { fuelOilMixCopyDe } from './copy.de';
 import { fuelOilMixReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: fuelOilMixCopyEn, uk: fuelOilMixCopyUk },
+  copy: { en: fuelOilMixCopyEn, uk: fuelOilMixCopyUk, de: fuelOilMixCopyDe },
   referenceCases: fuelOilMixReferenceCases,
   publishedExample: { inputs: { fuel: 5, ratio: 50 }, expected: ["100 мл"] },
   presentation: {

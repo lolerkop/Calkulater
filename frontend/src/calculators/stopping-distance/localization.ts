@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'speed': 'Geschwindigkeit, km/h',
+      'reaction': 'Reaktionszeit, s',
+      'mu': 'Reibbeiwert',
+      'grade': 'Fahrbahnneigung, %',
+    },
+    results: {
+      'Полный остановочный путь': 'Gesamter Anhalteweg',
+      'Путь за время реакции': 'Reaktionsweg',
+      'Тормозной путь': 'Bremsweg',
+      'Замедление': 'Verzögerung',
+      'Время торможения': 'Bremszeit',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м': 'm',
+      'м/с²': 'm/s²',
+      'с': 's',
+      'Скорость должна быть больше нуля': 'Die Geschwindigkeit muss größer als null sein',
+      'Время реакции не может быть отрицательным': 'Die Reaktionszeit kann nicht negativ sein',
+      'Коэффициент сцепления должен быть больше нуля': 'Der Reibbeiwert muss größer als null sein',
+      'Спуск круче сцепления: остановиться торможением невозможно': 'Das Gefälle ist steiler als die Haftung: durch Bremsen ist kein Halt möglich',
+    },
+  },
   en: {
     fields: { speed: 'Speed, km/h', reaction: 'Reaction time, s', mu: 'Friction coefficient', grade: 'Road gradient, %' },
     options: {},

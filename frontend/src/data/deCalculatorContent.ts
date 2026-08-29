@@ -11,7 +11,11 @@
 // а не перенесены из другой локали.
 
 import type { CalculatorDef } from '../lib/types';
+import { deAutomotiveContent } from './deContent/automotive';
 import { deChemistryContent } from './deContent/chemistry';
+import { deComputers1Content } from './deContent/computers1';
+import { deComputers2Content } from './deContent/computers2';
+import { deDatetimeContent } from './deContent/datetime';
 
 export type DeDetailedContent = Pick<
   CalculatorDef,
@@ -360,5 +364,9 @@ const deFoundationContent: Partial<Record<string, DeDetailedContent>> = {
 
 export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
   ...deFoundationContent,
+  ...deAutomotiveContent,
   ...deChemistryContent,
+  ...deComputers1Content,
+  ...deComputers2Content,
+  ...deDatetimeContent,
 };

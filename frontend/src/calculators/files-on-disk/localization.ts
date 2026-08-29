@@ -18,6 +18,39 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'capacity': 'Kapazität des Datenträgers',
+      'capacityUnit': 'Einheit der Kapazität',
+      'fileSize': 'Dateigröße',
+      'fileUnit': 'Einheit der Datei',
+      'reserved': 'Reservierter Platz, %',
+    },
+    options: {
+      'mb': 'MB (10⁶)',
+      'gb': 'GB (10⁹)',
+      'tb': 'TB (10¹²)',
+      'mib': 'MiB (1024²)',
+      'gib': 'GiB (1024³)',
+      'tib': 'TiB (1024⁴)',
+      'kb': 'KB (1000)',
+      'kib': 'KiB (1024)',
+    },
+    results: {
+      'Поместится файлов': 'Dateien, die hineinpassen',
+      'Точное частное': 'Genauer Quotient',
+      'Останется свободно': 'Bleibt frei',
+      'Доступно под файлы': 'Für Dateien verfügbar',
+      'Отдано под резерв': 'Als Reserve zurückgelegt',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'ГБ': 'GB',
+      'Ёмкость должна быть больше нуля': 'Die Kapazität muss größer als null sein',
+      'Размер файла должен быть больше нуля': 'Die Dateigröße muss größer als null sein',
+      'Резерв задаётся в диапазоне от 0 до 100 процентов': 'Die Reserve liegt im Bereich von 0 bis 100 Prozent',
+    },
+  },
   en: {
     fields: { capacity: "Drive capacity", capacityUnit: "Capacity unit", fileSize: "File size", fileUnit: "File unit", reserved: "Reserved space, %" },
     options: { mb: "MB (10⁶)", gb: "GB (10⁹)", tb: "TB (10¹²)", mib: "MiB (1024²)", gib: "GiB (1024³)", tib: "TiB (1024⁴)", kb: "KB (1000)", kib: "KiB (1024)" },

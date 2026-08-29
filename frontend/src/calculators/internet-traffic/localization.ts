@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mbps': 'Streamrate, Mbit/s',
+      'hoursPerDay': 'Stunden am Tag',
+      'days': 'Tage im Zeitraum',
+      'quotaGb': 'Datenvolumen, GB',
+    },
+    results: {
+      'Трафик за период': 'Datenverbrauch im Zeitraum',
+      'В день': 'Am Tag',
+      'В час': 'In der Stunde',
+      'Хватит дней при лимите': 'Tage, die das Volumen reicht',
+      'Превышение лимита': 'Über dem Volumen',
+      'Остаток лимита': 'Restliches Volumen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'ГБ': 'GB',
+      'Скорость потока должна быть больше нуля': 'Die Streamrate muss größer als null sein',
+      'Число часов в день должно быть больше нуля': 'Die Stunden am Tag müssen größer als null sein',
+      'Число дней должно быть больше нуля': 'Die Zahl der Tage muss größer als null sein',
+      'Лимит не может быть отрицательным': 'Das Datenvolumen kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       "mbps": "Stream rate, Mbit/s",

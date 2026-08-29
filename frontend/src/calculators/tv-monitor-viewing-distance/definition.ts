@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { tvViewingDistanceCopyEn } from './copy.en';
 import { tvViewingDistanceCopyUk } from './copy.uk';
+import { tvViewingDistanceCopyDe } from './copy.de';
 import { tvViewingDistanceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: tvViewingDistanceCopyEn, uk: tvViewingDistanceCopyUk },
+  copy: { en: tvViewingDistanceCopyEn, uk: tvViewingDistanceCopyUk, de: tvViewingDistanceCopyDe },
   referenceCases: tvViewingDistanceReferenceCases,
   publishedExample: { inputs: { diag: 55, ratio: "16:9", lines: 2160 }, expected: ["1,673 м"] },
   presentation: {

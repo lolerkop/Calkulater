@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { ipv4SubnetCopyEn } from './copy.en';
 import { ipv4SubnetCopyUk } from './copy.uk';
+import { ipv4SubnetCopyDe } from './copy.de';
 import { ipv4SubnetReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: ipv4SubnetCopyEn, uk: ipv4SubnetCopyUk },
+  copy: { en: ipv4SubnetCopyEn, uk: ipv4SubnetCopyUk, de: ipv4SubnetCopyDe },
   referenceCases: ipv4SubnetReferenceCases,
   publishedExample: { inputs: { address: '192.168.1.10', prefix: 24 }, expected: ["192.168.1.0"] },
   presentation: {

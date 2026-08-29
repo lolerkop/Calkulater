@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'videoMbps': 'Videobitrate, Mbit/s',
+      'audioKbps': 'Tonbitrate, kbit/s',
+      'minutes': 'Länge, min',
+    },
+    results: {
+      'Размер файла': 'Dateigröße',
+      'В мегабайтах': 'In Megabyte',
+      'В мебибайтах': 'In Mebibyte',
+      'Суммарный битрейт': 'Gesamtbitrate',
+      'Размер одной минуты': 'Größe einer Minute',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'ГБ': 'GB',
+      'МБ': 'MB',
+      'МиБ': 'MiB',
+      'кбит/с': 'kbit/s',
+      'Битрейт видео должен быть больше нуля': 'Die Videobitrate muss größer als null sein',
+      'Длительность должна быть больше нуля': 'Die Länge muss größer als null sein',
+      'Битрейт звука не может быть отрицательным': 'Die Tonbitrate kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       "videoMbps": "Video bitrate, Mbit/s",

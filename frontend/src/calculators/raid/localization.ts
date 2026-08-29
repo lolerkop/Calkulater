@@ -1,6 +1,44 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'level': 'RAID-Stufe',
+      'disks': 'Zahl der Platten',
+      'sizeTb': 'Größe einer Platte, TB',
+    },
+    options: {
+      '0': 'RAID 0 — Streifen',
+      '1': 'RAID 1 — Spiegel',
+      '5': 'RAID 5 — Parität',
+      '6': 'RAID 6 — doppelte Parität',
+      '10': 'RAID 10 — gestreifter Spiegel',
+    },
+    results: {
+      'Полезная ёмкость': 'Nutzbare Kapazität',
+      'Сырая ёмкость': 'Rohkapazität',
+      'Допустимо отказов': 'Verkraftbare Plattenausfälle',
+      'Эффективность': 'Effizienz',
+      'Тип массива': 'Art des Verbunds',
+      'Ушло на избыточность': 'Für Redundanz aufgewendet',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Нужен хотя бы один диск': 'Es wird mindestens eine Platte gebraucht',
+      'Для этого уровня нужно не меньше двух дисков': 'Diese Stufe braucht mindestens zwei Platten',
+      'Для этого уровня нужно не меньше трёх дисков': 'Diese Stufe braucht mindestens drei Platten',
+      'Для этого уровня нужно не меньше четырёх дисков': 'Diese Stufe braucht mindestens vier Platten',
+      'ТБ': 'TB',
+      'без избыточности': 'ohne Redundanz',
+      'зеркало': 'Spiegel',
+      'чётность': 'Parität',
+      'двойная чётность': 'doppelte Parität',
+      'зеркало с чередованием': 'gestreifter Spiegel',
+      'Число дисков должно быть целым': 'Die Zahl der Platten muss eine ganze Zahl sein',
+      'RAID 10 требует чётного числа дисков': 'RAID 10 verlangt eine gerade Zahl von Platten',
+      'Объём диска должен быть больше нуля': 'Die Plattengröße muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       "level": "RAID level",

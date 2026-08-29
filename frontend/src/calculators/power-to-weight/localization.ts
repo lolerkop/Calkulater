@@ -12,6 +12,38 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'power': 'Motorleistung',
+      'powerUnit': 'Einheit der Leistung',
+      'mass': 'Leergewicht, kg',
+      'payload': 'Zusätzliche Last, kg',
+    },
+    options: {
+      'ps': 'Pferdestärken (PS)',
+      'kw': 'Kilowatt (kW)',
+    },
+    results: {
+      'Удельная мощность': 'Leistungsgewicht',
+      'Лошадиных сил на тонну': 'PS je Tonne',
+      'Килограммов на силу': 'Kilogramm je PS',
+      'Мощность': 'Leistung',
+      'Расчётная масса': 'Verwendete Masse',
+      'Без нагрузки было бы': 'Ohne Last wären es',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кВт/т': 'kW/t',
+      'л.с./т': 'PS/t',
+      'кг/л.с.': 'kg/PS',
+      'кВт': 'kW',
+      'л.с.': 'PS',
+      'кг': 'kg',
+      'Мощность должна быть больше нуля': 'Die Leistung muss größer als null sein',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Дополнительная нагрузка не может быть отрицательной': 'Die zusätzliche Last kann nicht negativ sein',
+    },
+  },
   en: {
     fields: { power: 'Engine power', powerUnit: 'Power unit', mass: 'Kerb weight, kg', payload: 'Extra load, kg' },
     options: { ps: 'metric hp (PS)', kw: 'kilowatts (kW)' },

@@ -5,6 +5,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { leapYearCopyEn } from './copy.en';
 import { leapYearCopyUk } from './copy.uk';
+import { leapYearCopyDe } from './copy.de';
 import { leapYearReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: leapYearCopyEn, uk: leapYearCopyUk },
+  copy: { en: leapYearCopyEn, uk: leapYearCopyUk, de: leapYearCopyDe },
   referenceCases: leapYearReferenceCases,
   publishedExample: { inputs: { year: 2024 }, expected: ['Да', '366'] },
   presentation: {

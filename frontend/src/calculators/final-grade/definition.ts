@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { finalGradeCopyEn } from './copy.en';
 import { finalGradeCopyUk } from './copy.uk';
+import { finalGradeCopyDe } from './copy.de';
 import { finalGradeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: finalGradeCopyEn, uk: finalGradeCopyUk },
+  copy: { en: finalGradeCopyEn, uk: finalGradeCopyUk, de: finalGradeCopyDe },
   referenceCases: finalGradeReferenceCases,
   publishedExample: { inputs: { current: 78, target: 85, weight: 30 }, expected: ["101,33%"] },
   presentation: {
