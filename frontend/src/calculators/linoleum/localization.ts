@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'length': 'Raumlänge, m',
+      'width': 'Raumbreite, m',
+      'rollWidth': 'Bahnenbreite, m',
+      'reserve': 'Zuschlag, %',
+    },
+    results: {
+      'Погонных метров': 'Laufmeter',
+      'Полос': 'Bahnen',
+      'Площадь пола': 'Bodenfläche',
+      'Куплено': 'Gekauft',
+      'Обрезки': 'Verschnitt',
+      'Швов': 'Nähte',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м': 'm',
+      'м²': 'm²',
+      'Размеры комнаты должны быть больше нуля': 'Die Raummaße müssen größer als null sein',
+      'Ширина рулона должна быть больше нуля': 'Die Bahnenbreite muss größer als null sein',
+      'Запас должен быть от 0 до 50 %': 'Der Zuschlag muss zwischen 0 und 50 % liegen',
+    },
+  },
   en: {
     fields: { "length": "Room length, m", "width": "Room width, m", "rollWidth": "Roll width, m", "reserve": "Allowance, %" },
     options: {},

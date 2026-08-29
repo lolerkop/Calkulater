@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'area': 'Zu beplankende Fläche, m²',
+      'sheetLength': 'Plattenlänge, m',
+      'sheetWidth': 'Plattenbreite, m',
+      'layers': 'Lagen',
+      'profileStep': 'Achsabstand der Profile, m',
+      'waste': 'Zuschlag, %',
+    },
+    results: {
+      'Листов': 'Platten',
+      'Площадь': 'Fläche',
+      'С запасом': 'Mit Zuschlag',
+      'Площадь листа': 'Plattenfläche',
+      'Метров профиля': 'Meter Profil',
+      'Саморезов': 'Schrauben',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м²': 'm²',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Размеры листа должны быть больше нуля': 'Die Plattenmaße müssen größer als null sein',
+      'Слоёв должно быть от одного до трёх': 'Es müssen ein bis drei Lagen sein',
+      'Шаг профиля должен быть больше нуля': 'Der Achsabstand der Profile muss größer als null sein',
+      'Запас должен быть от 0 до 50 %': 'Der Zuschlag muss zwischen 0 und 50 % liegen',
+    },
+  },
   en: {
     fields: {
       "area": "Area to cover, m²", "sheetLength": "Sheet length, m", "sheetWidth": "Sheet width, m",

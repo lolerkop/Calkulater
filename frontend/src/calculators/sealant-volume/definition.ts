@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { sealantVolumeCopyEn } from './copy.en';
 import { sealantVolumeCopyUk } from './copy.uk';
+import { sealantVolumeCopyDe } from './copy.de';
 import { sealantVolumeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: sealantVolumeCopyEn, uk: sealantVolumeCopyUk },
+  copy: { en: sealantVolumeCopyEn, uk: sealantVolumeCopyUk, de: sealantVolumeCopyDe },
   referenceCases: sealantVolumeReferenceCases,
   publishedExample: { inputs: { width: 6, depth: 6, length: 12, cart: 310, waste: 10 }, expected: ["475,2 мл"] },
   presentation: {

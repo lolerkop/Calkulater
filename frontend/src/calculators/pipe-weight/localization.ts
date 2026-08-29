@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'd': 'Außendurchmesser, mm',
+      'wall': 'Wandstärke, mm',
+      'len': 'Länge, m',
+      'rho': 'Werkstoffdichte, kg/m³',
+    },
+    results: {
+      'Масса трубы': 'Masse des Rohres',
+      'Масса погонного метра': 'Metergewicht',
+      'Внутренний диаметр': 'Innendurchmesser',
+      'Площадь сечения металла': 'Querschnittsfläche des Metalls',
+      'Объём внутренней полости': 'Innenvolumen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кг': 'kg',
+      'кг/м': 'kg/m',
+      'мм': 'mm',
+      'см²': 'cm²',
+      'Наружный диаметр должен быть больше нуля': 'Der Außendurchmesser muss größer als null sein',
+      'Толщина стенки должна быть больше нуля': 'Die Wandstärke muss größer als null sein',
+      'Длина должна быть больше нуля': 'Die Länge muss größer als null sein',
+      'Плотность должна быть больше нуля': 'Die Dichte muss größer als null sein',
+      'Удвоенная стенка не может быть больше наружного диаметра или равна ему': 'Die doppelte Wandstärke kann den Außendurchmesser nicht erreichen',
+    },
+  },
   en: {
     fields: {
       d: 'Outside diameter, mm', wall: 'Wall thickness, mm',

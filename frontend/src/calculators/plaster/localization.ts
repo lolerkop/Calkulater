@@ -18,6 +18,36 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Wie die Fläche angegeben wird',
+      'area': 'Wandfläche, m²',
+      'length': 'Wandlänge, m',
+      'height': 'Wandhöhe, m',
+      'thickness': 'Schichtdicke, mm',
+      'consumption': 'Verbrauch, kg/m² je 1 mm',
+      'bagWeight': 'Sackgewicht, kg',
+    },
+    options: {
+      'area': 'über die Fläche',
+      'dimensions': 'über Länge und Höhe',
+    },
+    results: {
+      'Масса сухой смеси': 'Masse des Trockenmörtels',
+      'Мешков': 'Säcke',
+      'Расход на м²': 'Verbrauch je m²',
+      'Площадь': 'Fläche',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      ' шт': ' Stk',
+      ' кг': ' kg',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Толщина слоя должна быть больше нуля': 'Die Schichtdicke muss größer als null sein',
+      'Расход смеси должен быть больше нуля': 'Der Verbrauch muss größer als null sein',
+      'Вес мешка должен быть больше нуля': 'Das Sackgewicht muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: 'How to give the area', area: 'Wall area, m²', length: 'Wall length, m', height: 'Wall height, m', thickness: 'Layer thickness, mm', consumption: 'Consumption, kg/m² per 1 mm', bagWeight: 'Bag weight, kg', },
     options: { area: 'by area', dimensions: 'by length and height', },

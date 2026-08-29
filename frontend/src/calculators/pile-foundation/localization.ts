@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'count': 'Zahl der Pfähle',
+      'diameter': 'Durchmesser des Pfahls, m',
+      'depth': 'Tiefe des Pfahls, m',
+      'grillageLength': 'Länge des Rosts, m',
+      'grillageWidth': 'Breite des Rosts, m',
+      'grillageHeight': 'Höhe des Rosts, m',
+      'waste': 'Zuschlag, %',
+    },
+    results: {
+      'Объём бетона': 'Betonvolumen',
+      'Объём свай': 'Volumen der Pfähle',
+      'Объём ростверка': 'Volumen des Rosts',
+      'Чистый объём': 'Nettovolumen',
+      'Запас': 'Zuschlag',
+      'Объём одной сваи': 'Volumen eines Pfahls',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м³': 'm³',
+      'Свай должно быть не меньше одной': 'Es muss mindestens ein Pfahl sein',
+      'Диаметр и глубина сваи должны быть больше нуля': 'Durchmesser und Tiefe des Pfahls müssen größer als null sein',
+      'Размеры ростверка не могут быть отрицательными': 'Die Maße des Rosts können nicht negativ sein',
+      'Запас должен быть от 0 до 50 %': 'Der Zuschlag muss zwischen 0 und 50 % liegen',
+    },
+  },
   en: {
     fields: { "count": "Number of piles", "diameter": "Pile diameter, m", "depth": "Pile depth, m", "grillageLength": "Grillage length, m", "grillageWidth": "Grillage width, m", "grillageHeight": "Grillage height, m", "waste": "Allowance, %" },
     options: {},

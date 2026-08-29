@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { metalWeightCopyEn } from './copy.en';
 import { metalWeightCopyUk } from './copy.uk';
+import { metalWeightCopyDe } from './copy.de';
 import { metalWeightReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: metalWeightCopyEn, uk: metalWeightCopyUk },
+  copy: { en: metalWeightCopyEn, uk: metalWeightCopyUk, de: metalWeightCopyDe },
   referenceCases: metalWeightReferenceCases,
   publishedExample: { inputs: { shape: 'round', density: 7.85, a: 20, b: 0, length: 6 }, expected: ["14,797 кг"] },
   presentation: {

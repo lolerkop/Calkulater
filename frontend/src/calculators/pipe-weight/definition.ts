@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { pipeWeightCopyEn } from './copy.en';
 import { pipeWeightCopyUk } from './copy.uk';
+import { pipeWeightCopyDe } from './copy.de';
 import { pipeWeightReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pipeWeightCopyEn, uk: pipeWeightCopyUk },
+  copy: { en: pipeWeightCopyEn, uk: pipeWeightCopyUk, de: pipeWeightCopyDe },
   referenceCases: pipeWeightReferenceCases,
   publishedExample: { inputs: { d: 108, wall: 4, len: 6, rho: 7850 }, expected: ["61,555 кг"] },
   presentation: {

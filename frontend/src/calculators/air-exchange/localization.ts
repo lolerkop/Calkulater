@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'area': 'Raumfläche, m²',
+      'height': 'Raumhöhe, m',
+      'ach': 'Luftwechsel je Stunde, 1/h',
+    },
+    results: {
+      'Требуемый расход воздуха': 'Nötiger Volumenstrom',
+      'Объём помещения': 'Raumvolumen',
+      'В литрах в секунду': 'In Litern je Sekunde',
+      'Смен воздуха в сутки': 'Luftwechsel je Tag',
+      'В кубометрах в минуту': 'In Kubikmetern je Minute',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м³/ч': 'm³/h',
+      'м³': 'm³',
+      'л/с': 'l/s',
+      'м³/мин': 'm³/min',
+      'Площадь помещения должна быть больше нуля': 'Die Raumfläche muss größer als null sein',
+      'Высота потолка должна быть больше нуля': 'Die Raumhöhe muss größer als null sein',
+      'Кратность воздухообмена должна быть больше нуля': 'Die Luftwechselrate muss größer als null sein',
+    },
+  },
   en: {
     fields: { area: 'Room area, m²', height: 'Ceiling height, m', ach: 'Air changes per hour, 1/h' },
     options: {},

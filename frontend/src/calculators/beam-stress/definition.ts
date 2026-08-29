@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { beamStressCopyEn } from './copy.en';
 import { beamStressCopyUk } from './copy.uk';
+import { beamStressCopyDe } from './copy.de';
 import { beamStressReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: beamStressCopyEn, uk: beamStressCopyUk },
+  copy: { en: beamStressCopyEn, uk: beamStressCopyUk, de: beamStressCopyDe },
   referenceCases: beamStressReferenceCases,
   publishedExample: { inputs: { moment: 4500, section: 'rect', b: 100, h: 200, d: 100 }, expected: ["6,75 МПа"] },
   presentation: {

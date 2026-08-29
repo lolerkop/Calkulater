@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { drywallCopyEn } from './copy.en';
 import { drywallCopyUk } from './copy.uk';
+import { drywallCopyDe } from './copy.de';
 import { drywallReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: drywallCopyEn, uk: drywallCopyUk },
+  copy: { en: drywallCopyEn, uk: drywallCopyUk, de: drywallCopyDe },
   referenceCases: drywallReferenceCases,
   publishedExample: { inputs: { area: 40, sheetLength: 2.5, sheetWidth: 1.2, layers: 1, profileStep: 0.6, waste: 10 }, expected: ["15"] },
   presentation: {

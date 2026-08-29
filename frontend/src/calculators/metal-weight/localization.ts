@@ -12,6 +12,40 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'shape': 'Querschnitt',
+      'a': 'Durchmesser oder Seite, mm',
+      'b': 'Zweite Seite des Flachstahls, mm',
+      'length': 'Länge, m',
+      'density': 'Dichte, g/cm³',
+    },
+    options: {
+      'round': 'Rundstahl',
+      'square': 'Vierkantstahl',
+      'flat': 'Flachstahl',
+    },
+    results: {
+      'Масса': 'Masse',
+      'Площадь сечения': 'Querschnittsfläche',
+      'Объём металла': 'Volumen des Metalls',
+      'Погонная масса': 'Metergewicht',
+      'Метров в тонне': 'Meter je Tonne',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кг/м': 'kg/m',
+      'кг': 'kg',
+      'мм²': 'mm²',
+      'м³': 'm³',
+      'м': 'm',
+      'Плотность должна быть больше нуля': 'Die Dichte muss größer als null sein',
+      'Длина должна быть больше нуля': 'Die Länge muss größer als null sein',
+      'Размер сечения должен быть больше нуля': 'Das Querschnittsmaß muss größer als null sein',
+      'Вторая сторона полосы должна быть больше нуля': 'Die zweite Seite des Flachstahls muss größer als null sein',
+      'Выберите форму сечения из списка': 'Wähle einen Querschnitt aus der Liste',
+    },
+  },
   en: {
     fields: {
       shape: 'Cross-section', a: 'Diameter or side, mm', b: 'Second side of the flat bar, mm',

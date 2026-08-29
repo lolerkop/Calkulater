@@ -1,6 +1,39 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'volume': 'Volumen, m³',
+      'species': 'Holzart',
+      'moisture': 'Holzfeuchte, %',
+    },
+    options: {
+      'pine': 'Kiefer',
+      'spruce': 'Fichte',
+      'birch': 'Birke',
+      'oak': 'Eiche',
+      'larch': 'Lärche',
+      'aspen': 'Espe',
+    },
+    results: {
+      'Масса': 'Gewicht',
+      'Плотность при заданной влажности': 'Dichte bei dieser Feuchte',
+      'Базовая плотность при 12 %': 'Bezugsdichte bei 12 %',
+      'Объём': 'Volumen',
+      'Килограммов на кубометр': 'Kilogramm je Kubikmeter',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кг': 'kg',
+      'кг/м³': 'kg/m³',
+      'м³': 'm³',
+      'Неизвестная порода древесины': 'Unbekannte Holzart',
+      'Объём должен быть больше нуля': 'Das Volumen muss größer als null sein',
+      'Влажность должна быть от 0 до 100 %': 'Die Holzfeuchte muss zwischen 0 und 100 % liegen',
+      'При такой влажности плотность обращается в ноль': 'Bei dieser Feuchte geht die Dichte auf null',
+      'Базовые плотности даны при влажности 12 %. Пересчёт линейный, поэтому для свежесрубленного леса результат приблизителен.': 'Die Bezugsdichten gelten bei 12 % Holzfeuchte. Die Umrechnung ist linear, für frisch geschlagenes Holz ist das Ergebnis deshalb näherungsweise.',
+    },
+  },
   en: {
     fields: { "volume": "Volume, m³", "species": "Species", "moisture": "Moisture content, %" },
     options: { "pine": "Pine",

@@ -19,6 +19,36 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Dachform',
+      'length': 'Länge des Grundrisses, m',
+      'width': 'Breite des Grundrisses, m',
+      'slopeMode': 'Wie die Neigung angegeben ist',
+      'angle': 'Neigung, Grad',
+      'slopePercent': 'Neigung, %',
+    },
+    options: {
+      'shed': 'Pultdach',
+      'gable': 'Satteldach',
+      'hip': 'Walmdach',
+      'degrees': 'in Grad',
+      'percent': 'in Prozent',
+    },
+    results: {
+      'Площадь крыши': 'Dachfläche',
+      'Площадь одного ската': 'Fläche einer Dachfläche',
+      'Скатов': 'Dachflächen',
+      'Площадь основания': 'Grundrissfläche',
+      'Уклон': 'Neigung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Размеры основания должны быть больше нуля': 'Die Maße des Grundrisses müssen größer als null sein',
+      'Уклон не может быть отрицательным': 'Die Neigung kann nicht negativ sein',
+      'Уклон должен быть меньше 90 градусов': 'Die Neigung muss kleiner als 90 Grad sein',
+    },
+  },
   en: {
     fields: { mode: 'Roof shape', length: 'Footprint length, m', width: 'Footprint width, m', slopeMode: 'How the pitch is given', angle: 'Pitch, degrees', slopePercent: 'Pitch, %', },
     options: { shed: 'single-slope', gable: 'gable', hip: 'hip', degrees: 'in degrees', percent: 'as a percentage', },

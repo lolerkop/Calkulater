@@ -1,6 +1,35 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'area': 'Dachfläche, m²',
+      'step': 'Lattenabstand, m',
+      'battenLength': 'Lattenlänge, m',
+      'sectionWidth': 'Breite des Querschnitts, mm',
+      'sectionHeight': 'Höhe des Querschnitts, mm',
+      'waste': 'Zuschlag, %',
+    },
+    results: {
+      'Погонных метров': 'Laufmeter',
+      'Брусков': 'Latten',
+      'Объём древесины': 'Holzvolumen',
+      'Площадь крыши': 'Dachfläche',
+      'Шаг обрешётки': 'Lattenabstand',
+      'Метров на квадратный метр': 'Meter je Quadratmeter',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м': 'm',
+      'м²': 'm²',
+      'м³': 'm³',
+      'Площадь крыши должна быть больше нуля': 'Die Dachfläche muss größer als null sein',
+      'Шаг обрешётки должен быть больше нуля': 'Der Lattenabstand muss größer als null sein',
+      'Длина бруска должна быть больше нуля': 'Die Lattenlänge muss größer als null sein',
+      'Сечение бруска должно быть больше нуля': 'Der Querschnitt der Latte muss größer als null sein',
+      'Запас должен быть от 0 до 50 %': 'Der Zuschlag muss zwischen 0 und 50 % liegen',
+    },
+  },
   en: {
     fields: { "area": "Roof area, m²", "step": "Batten spacing, m", "battenLength": "Batten length, m", "sectionWidth": "Section width, mm", "sectionHeight": "Section height, mm", "waste": "Allowance, %" },
     options: {},

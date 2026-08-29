@@ -1,6 +1,26 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'span': 'Gebäudespannweite, m',
+      'rise': 'Firsthöhe über der Auflage, m',
+      'overhang': 'Dachüberstand, m',
+    },
+    results: {
+      'Длина стропила': 'Sparrenlänge',
+      'Угол наклона': 'Dachneigung',
+      'Заложение': 'Waagerechte Ausladung',
+      'Уклон': 'Gefälle',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м': 'm',
+      'Пролёт должен быть больше нуля': 'Die Spannweite muss größer als null sein',
+      'Подъём должен быть больше нуля': 'Die Firsthöhe muss größer als null sein',
+      'Свес не может быть отрицательным': 'Der Überstand kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       span: 'Building span, m',

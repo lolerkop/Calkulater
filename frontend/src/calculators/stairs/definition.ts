@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { stairsCopyEn } from './copy.en';
 import { stairsCopyUk } from './copy.uk';
+import { stairsCopyDe } from './copy.de';
 import { stairsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: stairsCopyEn, uk: stairsCopyUk },
+  copy: { en: stairsCopyEn, uk: stairsCopyUk, de: stairsCopyDe },
   referenceCases: stairsReferenceCases,
   publishedExample: { inputs: { rise_total: 2.8, tread: 0.28, max_riser: 0.18 }, expected: ["16 шт"] },
   presentation: {

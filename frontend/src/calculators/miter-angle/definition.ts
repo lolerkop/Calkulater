@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { miterAngleCopyEn } from './copy.en';
 import { miterAngleCopyUk } from './copy.uk';
+import { miterAngleCopyDe } from './copy.de';
 import { miterAngleReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: miterAngleCopyEn, uk: miterAngleCopyUk },
+  copy: { en: miterAngleCopyEn, uk: miterAngleCopyUk, de: miterAngleCopyDe },
   referenceCases: miterAngleReferenceCases,
   publishedExample: { inputs: { corner: 90 }, expected: ["45 °"] },
   presentation: {

@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { concreteCopyEn } from './copy.en';
 import { concreteCopyUk } from './copy.uk';
+import { concreteCopyDe } from './copy.de';
 import { concreteReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: concreteCopyEn, uk: concreteCopyUk },
+  copy: { en: concreteCopyEn, uk: concreteCopyUk, de: concreteCopyDe },
   referenceCases: concreteReferenceCases,
   publishedExample: { inputs: { mode: 'slab', length: 6, width: 4, thickness: 0.2, waste: 5 }, expected: ['5,04 м³'] },
   presentation: {

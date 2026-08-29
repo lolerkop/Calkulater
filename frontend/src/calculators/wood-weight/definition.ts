@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { woodWeightCopyEn } from './copy.en';
 import { woodWeightCopyUk } from './copy.uk';
+import { woodWeightCopyDe } from './copy.de';
 import { woodWeightReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: woodWeightCopyEn, uk: woodWeightCopyUk },
+  copy: { en: woodWeightCopyEn, uk: woodWeightCopyUk, de: woodWeightCopyDe },
   referenceCases: woodWeightReferenceCases,
   publishedExample: { inputs: { volume: 1, species: 'pine', moisture: 12 }, expected: ["520 кг"] },
   presentation: {

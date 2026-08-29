@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'length': 'Länge des Gusses, cm',
+      'width': 'Breite des Gusses, cm',
+      'thickness': 'Schichtdicke, mm',
+      'density': 'Dichte der Mischung, g/cm³',
+      'ratio': 'Teile Harz je Teil Härter',
+    },
+    results: {
+      'Всего смеси': 'Mischung insgesamt',
+      'Смолы': 'Harz',
+      'Отвердителя': 'Härter',
+      'Объём заливки': 'Volumen des Gusses',
+      'Площадь заливки': 'Fläche des Gusses',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кг': 'kg',
+      'л': 'l',
+      'м²': 'm²',
+      'Длина заливки должна быть больше нуля': 'Die Länge des Gusses muss größer als null sein',
+      'Ширина заливки должна быть больше нуля': 'Die Breite des Gusses muss größer als null sein',
+      'Толщина слоя должна быть больше нуля': 'Die Schichtdicke muss größer als null sein',
+      'Плотность смеси должна быть больше нуля': 'Die Dichte der Mischung muss größer als null sein',
+      'Пропорция набора должна быть больше нуля': 'Das Mischungsverhältnis muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       length: 'Pour length, cm', width: 'Pour width, cm', thickness: 'Layer thickness, mm',

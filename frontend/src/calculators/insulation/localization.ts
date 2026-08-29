@@ -18,6 +18,29 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'area': 'Zu dämmende Fläche, m²',
+      'thickness': 'Schichtdicke, mm',
+      'slabArea': 'Fläche einer Platte, m²',
+      'perPack': 'Platten je Paket',
+    },
+    results: {
+      'Объём утеплителя': 'Volumen des Dämmstoffs',
+      'Плит': 'Platten',
+      'Упаковок': 'Pakete',
+      'Площадь одной плиты': 'Fläche einer Platte',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      ' шт': ' Stk',
+      ' кг': ' kg',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Толщина должна быть больше нуля': 'Die Dicke muss größer als null sein',
+      'Площадь плиты должна быть больше нуля': 'Die Fläche einer Platte muss größer als null sein',
+      'В упаковке должна быть хотя бы одна плита': 'Ein Paket muss mindestens eine Platte enthalten',
+    },
+  },
   en: {
     fields: { area: 'Area to insulate, m²', thickness: 'Layer thickness, mm', slabArea: 'Area of one slab, m²', perPack: 'Slabs per pack', },
     options: { },

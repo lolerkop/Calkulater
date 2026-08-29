@@ -1,6 +1,36 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'length': 'Länge der Platte, m',
+      'width': 'Breite der Platte, m',
+      'thickness': 'Dicke der Platte, m',
+      'meshStep': 'Mattenabstand, m',
+      'rebarDiameter': 'Durchmesser der Bewehrung, mm',
+      'waste': 'Zuschlag, %',
+    },
+    results: {
+      'Объём бетона': 'Betonvolumen',
+      'Площадь плиты': 'Fläche der Platte',
+      'Чистый объём': 'Nettovolumen',
+      'Запас': 'Zuschlag',
+      'Длина арматуры': 'Länge der Bewehrung',
+      'Вес арматуры': 'Gewicht der Bewehrung',
+      'Прутков': 'Stäbe',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м³': 'm³',
+      'м²': 'm²',
+      'м': 'm',
+      'кг': 'kg',
+      'Размеры плиты должны быть больше нуля': 'Die Maße der Platte müssen größer als null sein',
+      'Шаг сетки должен быть больше нуля': 'Der Mattenabstand muss größer als null sein',
+      'Диаметр арматуры должен быть больше нуля': 'Der Durchmesser der Bewehrung muss größer als null sein',
+      'Запас должен быть от 0 до 50 %': 'Der Zuschlag muss zwischen 0 und 50 % liegen',
+    },
+  },
   en: {
     fields: {
       "length": "Slab length, m",

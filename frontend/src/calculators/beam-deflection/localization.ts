@@ -1,6 +1,37 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'scheme': 'Lastfall',
+      'load': 'Last',
+      'span': 'Stützweite, m',
+      'e': 'Elastizitätsmodul, GPa',
+      'inertia': 'Flächenträgheitsmoment, cm⁴',
+    },
+    options: {
+      'uniform': 'Gleichlast, kN/m',
+      'point': 'Einzellast in Feldmitte, kN',
+    },
+    results: {
+      'Прогиб': 'Durchbiegung',
+      'Относительный прогиб': 'Bezogene Durchbiegung',
+      'Жёсткость EI': 'Steifigkeit EI',
+      'Пролёт': 'Stützweite',
+      'Предел 1/250': 'Grenze 1/250',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'м': 'm',
+      'Н·м²': 'N·m²',
+      'Выберите схему нагружения из списка': 'Wähle einen Lastfall aus der Liste',
+      'Нагрузка должна быть больше нуля': 'Die Last muss größer als null sein',
+      'Пролёт должен быть больше нуля': 'Die Stützweite muss größer als null sein',
+      'Модуль упругости должен быть больше нуля': 'Der Elastizitätsmodul muss größer als null sein',
+      'Момент инерции сечения должен быть больше нуля': 'Das Flächenträgheitsmoment muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       scheme: 'Load scheme', load: 'Load', span: 'Span, m',

@@ -18,6 +18,30 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'length': 'Länge des Brettes, m',
+      'width': 'Breite des Brettes, mm',
+      'thickness': 'Dicke des Brettes, mm',
+      'count': 'Zahl der Bretter',
+      'pricePerM3': 'Preis je Kubikmeter',
+    },
+    results: {
+      'Общий объём': 'Gesamtvolumen',
+      'Объём одной доски': 'Volumen eines Brettes',
+      'Досок в кубометре': 'Bretter je Kubikmeter',
+      'Стоимость': 'Kosten',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      ' шт': ' Stk',
+      ' кг': ' kg',
+      'Длина доски должна быть больше нуля': 'Die Länge des Brettes muss größer als null sein',
+      'Ширина доски должна быть больше нуля': 'Die Breite des Brettes muss größer als null sein',
+      'Толщина доски должна быть больше нуля': 'Die Dicke des Brettes muss größer als null sein',
+      'Количество досок должно быть хотя бы одно': 'Es muss mindestens ein Brett sein',
+    },
+  },
   en: {
     fields: { length: 'Board length, m', width: 'Board width, mm', thickness: 'Board thickness, mm', count: 'Number of boards', pricePerM3: 'Price per cubic metre', },
     options: { },

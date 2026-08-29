@@ -1,6 +1,37 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'shape': 'Form des Behälters',
+      'd': 'Durchmesser oder Seite, m',
+      'len': 'Höhe oder Länge, m',
+      'level': 'Füllstand, m',
+    },
+    options: {
+      'vertical-cylinder': 'stehender Zylinder',
+      'horizontal-cylinder': 'liegender Behälter',
+      'rect': 'rechteckig',
+      'capsule': 'Kapsel',
+    },
+    results: {
+      'Объём налитого': 'Eingefüllte Menge',
+      'Полный объём': 'Gesamtvolumen',
+      'Заполнено': 'Gefüllt',
+      'В литрах': 'In Litern',
+      'Свободно': 'Freier Raum',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м³': 'm³',
+      'л': 'l',
+      'Неизвестная форма ёмкости': 'Unbekannte Form des Behälters',
+      'Размер сечения должен быть больше нуля': 'Das Querschnittsmaß muss größer als null sein',
+      'Длина или высота должна быть больше нуля': 'Länge oder Höhe muss größer als null sein',
+      'Уровень не может быть отрицательным': 'Der Füllstand kann nicht negativ sein',
+      'Уровень не может быть выше самой ёмкости': 'Der Füllstand kann den Behälter nicht übersteigen',
+    },
+  },
   en: {
     fields: {
       shape: 'Tank shape', d: 'Diameter or side, m', len: 'Height or length, m',

@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'width': 'Fugenbreite, mm',
+      'depth': 'Fugentiefe, mm',
+      'length': 'Fugenlänge, m',
+      'cart': 'Inhalt der Kartusche, ml',
+      'waste': 'Zuschlag, %',
+    },
+    results: {
+      'Нужно герметика': 'Nötiger Dichtstoff',
+      'Без запаса': 'Ohne Zuschlag',
+      'Картриджей': 'Kartuschen',
+      'Метров из одного картриджа': 'Meter je Kartusche',
+      'Сечение шва': 'Fugenquerschnitt',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мл': 'ml',
+      'шт': 'Stk',
+      'м': 'm',
+      'мм²': 'mm²',
+      'Ширина шва должна быть больше нуля': 'Die Fugenbreite muss größer als null sein',
+      'Глубина шва должна быть больше нуля': 'Die Fugentiefe muss größer als null sein',
+      'Длина шва должна быть больше нуля': 'Die Fugenlänge muss größer als null sein',
+      'Объём картриджа должен быть больше нуля': 'Der Inhalt der Kartusche muss größer als null sein',
+      'Запас не может быть отрицательным': 'Der Zuschlag kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       width: 'Joint width, mm', depth: 'Joint depth, mm', length: 'Joint length, m',

@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Wie gemessen wird',
+      'length': 'Länge',
+      'width': 'Breite',
+      'height': 'Höhe',
+      'area': 'Bodenfläche',
+    },
+    options: {
+      'dimensions': 'über die Raummaße',
+      'area': 'über die Bodenfläche',
+    },
+    results: {
+      'Объём помещения': 'Raumvolumen',
+      'Площадь пола': 'Bodenfläche',
+      'Высота': 'Höhe',
+      'Периметр': 'Umfang',
+      'Площадь стен': 'Wandfläche',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Высота должна быть больше нуля': 'Die Höhe muss größer als null sein',
+      'Длина и ширина должны быть больше нуля': 'Länge und Breite müssen größer als null sein',
+      'Площадь должна быть больше нуля': 'Die Bodenfläche muss größer als null sein',
+    },
+  },
   en: {
     // Ключи `mode`, `height`, `length`, `width`, `area` совпадают с чужими —
     // область видимости делает столкновение невозможным.

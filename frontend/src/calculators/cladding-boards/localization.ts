@@ -14,6 +14,33 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'wall_area': 'Wandfläche, m²',
+      'board_len': 'Brettlänge, m',
+      'board_width': 'Brettbreite, m',
+      'overlap': 'Überlappung, m',
+      'waste': 'Zuschnittverlust, %',
+    },
+    results: {
+      'Досок': 'Bretter',
+      'Полезная ширина доски': 'Nutzbare Brettbreite',
+      'Площадь с запасом': 'Fläche mit Zuschlag',
+      'Перекроют': 'Sie decken ab',
+      'Погонных метров доски': 'Laufmeter Brett',
+      'Съедает нахлёст': 'Von der Überlappung verbraucht',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'шт': 'Stk',
+      'м²': 'm²',
+      'м': 'm',
+      'Площадь стены должна быть больше нуля': 'Die Wandfläche muss größer als null sein',
+      'Длина доски должна быть больше нуля': 'Die Brettlänge muss größer als null sein',
+      'Нахлёст должен быть меньше ширины доски': 'Die Überlappung muss kleiner als die Brettbreite sein',
+      'Запас должен быть от 0 до 50 %': 'Der Zuschlag muss zwischen 0 und 50 % liegen',
+    },
+  },
   en: {
     fields: {
       wall_area: 'Wall area, m²', board_len: 'Board length, m', board_width: 'Board width, m',

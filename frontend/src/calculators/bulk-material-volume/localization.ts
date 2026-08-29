@@ -12,6 +12,33 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'length': 'Länge der Fläche, m',
+      'width': 'Breite der Fläche, m',
+      'depth': 'Schichtdicke, cm',
+      'density': 'Schüttdichte, t/m³',
+      'waste': 'Zuschlag für Verdichtung, %',
+    },
+    results: {
+      'Нужно материала': 'Nötiges Material',
+      'Чистый объём': 'Nettovolumen',
+      'Масса': 'Masse',
+      'Мешков по 25 кг': 'Säcke zu 25 kg',
+      'Площадь основания': 'Fläche der Tragschicht',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м³': 'm³',
+      'м²': 'm²',
+      'шт': 'Stk',
+      'т': 't',
+      'Длина и ширина должны быть больше нуля': 'Länge und Breite müssen größer als null sein',
+      'Толщина слоя должна быть больше нуля': 'Die Schichtdicke muss größer als null sein',
+      'Насыпная плотность должна быть больше нуля': 'Die Schüttdichte muss größer als null sein',
+      'Запас должен быть от 0 до 50 %': 'Der Zuschlag muss zwischen 0 und 50 % liegen',
+    },
+  },
   en: {
     fields: {
       length: 'Area length, m', width: 'Area width, m', depth: 'Layer thickness, cm',

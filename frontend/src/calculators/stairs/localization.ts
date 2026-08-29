@@ -14,6 +14,32 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'rise_total': 'Gesamte Geschosshöhe, m',
+      'tread': 'Auftrittstiefe, m',
+      'max_riser': 'Höchste Steigungshöhe, m',
+    },
+    results: {
+      'Подступенков': 'Steigungen',
+      'Высота подступенка': 'Steigungshöhe',
+      'Проступей': 'Auftritte',
+      'Длина марша': 'Lauflänge',
+      'Угол наклона': 'Neigungswinkel',
+      'Формула удобства 2h + b': 'Schrittmaßregel 2h + b',
+      'Оценка шага': 'Beurteilung des Schrittmaßes',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'шт': 'Stk',
+      'м': 'm',
+      'в норме': 'im Bereich',
+      'вне нормы 0,60–0,65 м': 'außerhalb des Bereichs 0,60–0,65 m',
+      'Общий подъём должен быть больше нуля': 'Die Geschosshöhe muss größer als null sein',
+      'Проступь должна быть больше нуля': 'Die Auftrittstiefe muss größer als null sein',
+      'Предельная высота ступени должна быть больше нуля': 'Die höchste Steigungshöhe muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       rise_total: 'Total rise, m', tread: 'Tread depth, m', max_riser: 'Maximum riser height, m',

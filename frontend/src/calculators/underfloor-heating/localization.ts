@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'area': 'Beheizte Fläche, m²',
+      'step': 'Verlegeabstand, m',
+      'loopMax': 'Höchstlänge eines Heizkreises, m',
+      'edgeZone': 'Fläche der Randzone, m²',
+      'edgeStep': 'Verlegeabstand in der Randzone, m',
+      'waste': 'Zuschlag, %',
+    },
+    results: {
+      'Длина трубы': 'Rohrlänge',
+      'Петель': 'Heizkreise',
+      'На петлю': 'Je Heizkreis',
+      'Площадь': 'Fläche',
+      'Основная зона': 'Hauptzone',
+      'Краевая зона': 'Randzone',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м': 'm',
+      'м²': 'm²',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Шаг укладки должен быть больше нуля': 'Der Verlegeabstand muss größer als null sein',
+      'Предельная длина петли должна быть больше нуля': 'Die Höchstlänge eines Heizkreises muss größer als null sein',
+      'Краевая зона должна быть меньше всей площади': 'Die Randzone muss kleiner als die ganze Fläche sein',
+      'Запас должен быть от 0 до 50 %': 'Der Zuschlag muss zwischen 0 und 50 % liegen',
+    },
+  },
   en: {
     fields: {
       "area": "Heated area, m²", "step": "Pipe spacing, m", "loopMax": "Maximum loop length, m",

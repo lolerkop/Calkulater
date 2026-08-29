@@ -12,6 +12,31 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'run': 'Lichte Weite zwischen den Pfosten, mm',
+      'baluster_width': 'Stabbreite, mm',
+      'max_gap': 'Höchstlücke, mm',
+    },
+    results: {
+      'Балясин': 'Geländerstäbe',
+      'Фактический просвет': 'Tatsächliche Lücke',
+      'Шаг между осями': 'Achsabstand',
+      'Суммарная ширина стоек': 'Gesamtbreite der Stäbe',
+      'Просветов': 'Lücken',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'шт': 'Stk',
+      'мм': 'mm',
+      'Пролёт должен быть больше нуля': 'Die lichte Weite muss größer als null sein',
+      'Ширина стойки должна быть больше нуля': 'Die Stabbreite muss größer als null sein',
+      'Предельный просвет должен быть больше нуля': 'Die Höchstlücke muss größer als null sein',
+      'Стойка не может быть шире пролёта': 'Ein Stab kann nicht breiter sein als das Feld',
+      'При таком просвете стойки не помещаются в пролёт': 'Bei dieser Lücke passen die Stäbe nicht in das Feld',
+      'Пролёт слишком велик для такого просвета': 'Das Feld ist für diese Lücke zu breit',
+    },
+  },
   en: {
     fields: { run: 'Clear run between posts, mm', baluster_width: 'Baluster width, mm', max_gap: 'Maximum gap, mm' },
     options: {},

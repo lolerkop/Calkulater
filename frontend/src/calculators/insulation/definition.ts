@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { insulationCopyEn } from './copy.en';
 import { insulationCopyUk } from './copy.uk';
+import { insulationCopyDe } from './copy.de';
 import { insulationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: insulationCopyEn, uk: insulationCopyUk },
+  copy: { en: insulationCopyEn, uk: insulationCopyUk, de: insulationCopyDe },
   referenceCases: insulationReferenceCases,
   publishedExample: { inputs: { area: 60, thickness: 100, slabArea: 0.72, perPack: 6 }, expected: ['6 м³'] },
   presentation: {

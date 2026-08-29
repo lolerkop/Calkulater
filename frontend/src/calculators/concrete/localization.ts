@@ -16,6 +16,42 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Form des Betonierens',
+      'length': 'Länge der Platte, m',
+      'width': 'Breite der Platte, m',
+      'thickness': 'Dicke der Platte, m',
+      'perimeter': 'Länge des Streifens, m',
+      'stripWidth': 'Breite des Streifens, m',
+      'depth': 'Tiefe des Streifens, m',
+      'sectionArea': 'Querschnittsfläche der Stütze, m²',
+      'height': 'Höhe der Stütze, m',
+      'count': 'Zahl der Stützen',
+      'waste': 'Zuschlag, %',
+    },
+    options: {
+      'slab': 'eine Platte',
+      'strip': 'ein Streifen',
+      'columns': 'Stützen',
+    },
+    results: {
+      'Объём бетона': 'Betonvolumen',
+      'Чистый объём': 'Nettovolumen',
+      'Запас': 'Zuschlag',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      ' шт': ' Stk',
+      ' кг': ' kg',
+      'Запас не может быть отрицательным': 'Der Zuschlag kann nicht negativ sein',
+      'Запас больше 50 % не рассчитывается': 'Ein Zuschlag über 50 % wird nicht gerechnet',
+      'Все размеры ленты должны быть больше нуля': 'Alle Maße des Streifens müssen größer als null sein',
+      'Сечение и высота должны быть больше нуля': 'Querschnittsfläche und Höhe müssen größer als null sein',
+      'Количество столбов должно быть хотя бы одно': 'Es muss mindestens eine Stütze sein',
+      'Все размеры плиты должны быть больше нуля': 'Alle Maße der Platte müssen größer als null sein',
+    },
+  },
   en: {
     fields: { mode: 'Pour shape', length: 'Slab length, m', width: 'Slab width, m', thickness: 'Slab thickness, m', perimeter: 'Strip length, m', stripWidth: 'Strip width, m', depth: 'Strip depth, m', sectionArea: 'Column section area, m²', height: 'Column height, m', count: 'Number of columns', waste: 'Allowance, %', },
     options: { slab: 'a slab', strip: 'a strip', columns: 'columns', },

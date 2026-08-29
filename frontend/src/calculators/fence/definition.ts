@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { fenceCopyEn } from './copy.en';
 import { fenceCopyUk } from './copy.uk';
+import { fenceCopyDe } from './copy.de';
 import { fenceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: fenceCopyEn, uk: fenceCopyUk },
+  copy: { en: fenceCopyEn, uk: fenceCopyUk, de: fenceCopyDe },
   referenceCases: fenceReferenceCases,
   publishedExample: { inputs: { length: 40, span: 2.5, height: 1.8, rails: 2, gates: 1 }, expected: ["18"] },
   presentation: {

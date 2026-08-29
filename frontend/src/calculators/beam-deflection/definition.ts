@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { beamDeflectionCopyEn } from './copy.en';
 import { beamDeflectionCopyUk } from './copy.uk';
+import { beamDeflectionCopyDe } from './copy.de';
 import { beamDeflectionReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: beamDeflectionCopyEn, uk: beamDeflectionCopyUk },
+  copy: { en: beamDeflectionCopyEn, uk: beamDeflectionCopyUk, de: beamDeflectionCopyDe },
   referenceCases: beamDeflectionReferenceCases,
   publishedExample: { inputs: { scheme: "uniform", load: 2, span: 3, e: 10, inertia: 1000 }, expected: ["21,094 мм"] },
   presentation: {

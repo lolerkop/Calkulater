@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { epoxyVolumeCopyEn } from './copy.en';
 import { epoxyVolumeCopyUk } from './copy.uk';
+import { epoxyVolumeCopyDe } from './copy.de';
 import { epoxyVolumeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: epoxyVolumeCopyEn, uk: epoxyVolumeCopyUk },
+  copy: { en: epoxyVolumeCopyEn, uk: epoxyVolumeCopyUk, de: epoxyVolumeCopyDe },
   referenceCases: epoxyVolumeReferenceCases,
   publishedExample: { inputs: { length: 100, width: 50, thickness: 5, density: 1.1, ratio: 2 }, expected: ["2,75 кг"] },
   presentation: {

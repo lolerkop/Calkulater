@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { claddingBoardsCopyEn } from './copy.en';
 import { claddingBoardsCopyUk } from './copy.uk';
+import { claddingBoardsCopyDe } from './copy.de';
 import { claddingBoardsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: claddingBoardsCopyEn, uk: claddingBoardsCopyUk },
+  copy: { en: claddingBoardsCopyEn, uk: claddingBoardsCopyUk, de: claddingBoardsCopyDe },
   referenceCases: claddingBoardsReferenceCases,
   publishedExample: { inputs: { wall_area: 30, board_len: 3, board_width: 0.19, overlap: 0.02, waste: 10 }, expected: ["65 шт"] },
   presentation: {

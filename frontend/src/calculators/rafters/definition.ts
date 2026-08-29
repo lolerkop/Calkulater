@@ -3,6 +3,7 @@ import { BUILD_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { raftersCopyEn } from './copy.en';
 import { raftersCopyUk } from './copy.uk';
+import { raftersCopyDe } from './copy.de';
 import { raftersReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: raftersCopyEn, uk: raftersCopyUk },
+  copy: { en: raftersCopyEn, uk: raftersCopyUk, de: raftersCopyDe },
   referenceCases: raftersReferenceCases,
   publishedExample: {
     inputs: { span: 8, rise: 2.4, overhang: 0.5 },

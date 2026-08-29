@@ -17,6 +17,28 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'perimeter': 'Gesamtlänge des Streifens, m',
+      'width': 'Breite des Streifens, m',
+      'depth': 'Tiefe des Streifens, m',
+      'waste': 'Zuschlag, %',
+    },
+    results: {
+      'Объём бетона': 'Betonvolumen',
+      'Чистый объём': 'Nettovolumen',
+      'Запас': 'Zuschlag',
+      'Площадь сечения ленты': 'Querschnittsfläche des Streifens',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Длина ленты должна быть больше нуля': 'Die Länge des Streifens muss größer als null sein',
+      'Ширина ленты должна быть больше нуля': 'Die Breite des Streifens muss größer als null sein',
+      'Глубина ленты должна быть больше нуля': 'Die Tiefe des Streifens muss größer als null sein',
+      'Запас не может быть отрицательным': 'Der Zuschlag kann nicht negativ sein',
+      'Запас больше 50 % не рассчитывается': 'Ein Zuschlag über 50 % wird nicht gerechnet',
+    },
+  },
   en: {
     fields: { perimeter: 'Total strip length, m', width: 'Strip width, m', depth: 'Strip depth, m', waste: 'Allowance, %', },
     options: { },

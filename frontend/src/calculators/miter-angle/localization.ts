@@ -1,6 +1,21 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'corner': 'Eckwinkel, °',
+    },
+    results: {
+      'Угол реза': 'Schnittwinkel',
+      'Угол на пиле от 90°': 'Einstellung an der Säge ab 90°',
+      'Угол стыка': 'Eckwinkel',
+      'Сумма двух резов': 'Summe der beiden Schnitte',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Угол стыка задаётся от 1 до 179 градусов': 'Der Eckwinkel liegt zwischen 1 und 179 Grad',
+    },
+  },
   en: {
     fields: { corner: 'Corner angle, °' },
     options: {},

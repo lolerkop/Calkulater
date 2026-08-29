@@ -1,6 +1,39 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'moment': 'Biegemoment, N·m',
+      'section': 'Querschnitt',
+      'b': 'Breite des Querschnitts, mm',
+      'h': 'Höhe des Querschnitts, mm',
+      'd': 'Durchmesser, mm',
+    },
+    options: {
+      'rect': 'Rechteck',
+      'circle': 'Kreis',
+    },
+    results: {
+      'Напряжение изгиба': 'Biegespannung',
+      'Момент сопротивления': 'Widerstandsmoment',
+      'Изгибающий момент': 'Biegemoment',
+      'Сечение': 'Querschnitt',
+      'Определяющий размер сечения': 'Maßgebendes Querschnittsmaß',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'МПа': 'MPa',
+      'Н·м': 'N·m',
+      'мм³': 'mm³',
+      'мм': 'mm',
+      'прямоугольник': 'Rechteck',
+      'круг': 'Kreis',
+      'Изгибающий момент должен быть больше нуля': 'Das Biegemoment muss größer als null sein',
+      'Диаметр должен быть больше нуля': 'Der Durchmesser muss größer als null sein',
+      'Ширина сечения должна быть больше нуля': 'Die Breite des Querschnitts muss größer als null sein',
+      'Высота сечения должна быть больше нуля': 'Die Höhe des Querschnitts muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       moment: 'Bending moment, N·m', section: 'Cross-section', b: 'Section width, mm',

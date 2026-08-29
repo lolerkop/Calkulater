@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { roofAreaCopyEn } from './copy.en';
 import { roofAreaCopyUk } from './copy.uk';
+import { roofAreaCopyDe } from './copy.de';
 import { roofAreaReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: roofAreaCopyEn, uk: roofAreaCopyUk },
+  copy: { en: roofAreaCopyEn, uk: roofAreaCopyUk, de: roofAreaCopyDe },
   referenceCases: roofAreaReferenceCases,
   publishedExample: { inputs: { mode: 'gable', length: 10, width: 8, slopeMode: 'degrees', angle: 30 }, expected: ['92,376 м²'] },
   presentation: {
