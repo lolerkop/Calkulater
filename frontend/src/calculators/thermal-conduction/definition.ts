@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { thermalConductionCopyEn } from './copy.en';
 import { thermalConductionCopyUk } from './copy.uk';
+import { thermalConductionCopyDe } from './copy.de';
 import { thermalConductionReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: thermalConductionCopyEn, uk: thermalConductionCopyUk },
+  copy: { en: thermalConductionCopyEn, uk: thermalConductionCopyUk, de: thermalConductionCopyDe },
   referenceCases: thermalConductionReferenceCases,
   publishedExample: { inputs: { area: 10, thickness: 0.2, k: 0.04, dt: 25 }, expected: ["50 Вт"] },
   presentation: {

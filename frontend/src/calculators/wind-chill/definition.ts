@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { windChillCopyEn } from './copy.en';
 import { windChillCopyUk } from './copy.uk';
+import { windChillCopyDe } from './copy.de';
 import { windChillReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: windChillCopyEn, uk: windChillCopyUk },
+  copy: { en: windChillCopyEn, uk: windChillCopyUk, de: windChillCopyDe },
   referenceCases: windChillReferenceCases,
   publishedExample: { inputs: { t: -10, v: 20 }, expected: ["-17,861 °C"] },
   presentation: {

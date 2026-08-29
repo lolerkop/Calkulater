@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'beta': 'Bruchteil der Lichtgeschwindigkeit',
+      'properTime': 'Eigenzeit, s',
+    },
+    results: {
+      'Замедленное время': 'Gedehnte Zeit',
+      'Множитель Лоренца': 'Lorentzfaktor',
+      'Сокращение длины': 'Längenkontraktion',
+      'Скорость': 'Geschwindigkeit',
+      'Разница во времени': 'Zeitunterschied',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'с': 's',
+      'м/с': 'm/s',
+      'Доля скорости света не может быть отрицательной': 'Der Bruchteil der Lichtgeschwindigkeit kann nicht negativ sein',
+      'Достичь скорости света нельзя: доля должна быть меньше единицы': 'Die Lichtgeschwindigkeit lässt sich nicht erreichen: der Bruchteil muss unter eins liegen',
+      'Собственное время должно быть больше нуля': 'Die Eigenzeit muss größer als null sein',
+    },
+  },
   en: {
     fields: { beta: 'Fraction of the speed of light', properTime: 'Proper time, s' },
     options: {},

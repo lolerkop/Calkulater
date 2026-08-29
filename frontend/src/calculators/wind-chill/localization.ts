@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      't': 'Lufttemperatur, °C',
+      'v': 'Windgeschwindigkeit, km/h',
+    },
+    results: {
+      'Ощущаемая температура': 'Gefühlte Temperatur',
+      'Разница с термометром': 'Abstand zum Thermometer',
+      'Температура воздуха': 'Lufttemperatur',
+      'Скорость ветра': 'Windgeschwindigkeit',
+      'Ощущаемая в градусах Фаренгейта': 'Gefühlt in Grad Fahrenheit',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'км/ч': 'km/h',
+      'Формула работает при температуре не выше 10 °C': 'Die Formel gilt nur bei einer Temperatur von höchstens 10 °C',
+      'Формула работает при ветре не слабее 4,8 км/ч': 'Die Formel gilt nur bei Wind ab 4,8 km/h',
+    },
+  },
   en: {
     fields: { t: 'Air temperature, °C', v: 'Wind speed, km/h' },
     options: {},

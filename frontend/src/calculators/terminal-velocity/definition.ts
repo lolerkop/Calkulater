@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { terminalVelocityCopyEn } from './copy.en';
 import { terminalVelocityCopyUk } from './copy.uk';
+import { terminalVelocityCopyDe } from './copy.de';
 import { terminalVelocityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: terminalVelocityCopyEn, uk: terminalVelocityCopyUk },
+  copy: { en: terminalVelocityCopyEn, uk: terminalVelocityCopyUk, de: terminalVelocityCopyDe },
   referenceCases: terminalVelocityReferenceCases,
   publishedExample: { inputs: { m: 80, a: 0.7, cd: 1, rho: 1.225 }, expected: ["42,776 м/с"] },
   presentation: {

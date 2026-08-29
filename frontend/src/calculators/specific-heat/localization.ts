@@ -12,6 +12,39 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'mass': 'Masse, kg',
+      'c': 'Spezifische Wärmekapazität, J/(kg·K)',
+      'dt': 'Temperaturänderung, K',
+      'q': 'Energie, J',
+    },
+    options: {
+      'energy': 'die Energie',
+      'deltaT': 'die Temperaturänderung',
+      'mass': 'die Masse',
+    },
+    results: {
+      'Энергия': 'Energie',
+      'Изменение температуры': 'Temperaturänderung',
+      'Масса': 'Masse',
+      'В киловатт-часах': 'In Kilowattstunden',
+      'Удельная теплоёмкость': 'Spezifische Wärmekapazität',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Энергия и изменение температуры должны быть одного знака': 'Energie und Temperaturänderung müssen dasselbe Vorzeichen haben',
+      'Дж/(кг·К)': 'J/(kg·K)',
+      'кВт·ч': 'kWh',
+      'Дж': 'J',
+      'кг': 'kg',
+      'К': 'K',
+      'Удельная теплоёмкость должна быть больше нуля': 'Die spezifische Wärmekapazität muss größer als null sein',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Изменение температуры не может быть нулевым: делить на него нечего': 'Die Temperaturänderung kann nicht null sein: dadurch lässt sich nicht teilen',
+    },
+  },
   en: {
     fields: {
       mode: 'What to find', mass: 'Mass, kg', c: 'Specific heat capacity, J/(kg·K)',

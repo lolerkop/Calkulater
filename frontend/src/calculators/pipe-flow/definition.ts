@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { pipeFlowCopyEn } from './copy.en';
 import { pipeFlowCopyUk } from './copy.uk';
+import { pipeFlowCopyDe } from './copy.de';
 import { pipeFlowReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pipeFlowCopyEn, uk: pipeFlowCopyUk },
+  copy: { en: pipeFlowCopyEn, uk: pipeFlowCopyUk, de: pipeFlowCopyDe },
   referenceCases: pipeFlowReferenceCases,
   publishedExample: { inputs: { flow: 10, diameter: 50 }, expected: ["1,415 м/с"] },
   presentation: {

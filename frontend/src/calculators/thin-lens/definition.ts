@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { thinLensCopyEn } from './copy.en';
 import { thinLensCopyUk } from './copy.uk';
+import { thinLensCopyDe } from './copy.de';
 import { thinLensReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: thinLensCopyEn, uk: thinLensCopyUk },
+  copy: { en: thinLensCopyEn, uk: thinLensCopyUk, de: thinLensCopyDe },
   referenceCases: thinLensReferenceCases,
   publishedExample: { inputs: { mode: "image", f: 10, do: 30 }, expected: ["15 см"] },
   presentation: {

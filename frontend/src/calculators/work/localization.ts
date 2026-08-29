@@ -1,6 +1,47 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'F': 'Kraft, N',
+      's': 'Weg, m',
+      'W': 'Arbeit, J',
+      'angleDeg': 'Winkel zwischen Kraft und Weg, °',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+      'W': 'die Arbeit',
+      's': 'der Weg',
+    },
+    results: {
+      'Работа': 'Arbeit',
+      'Сила': 'Kraft',
+      'Перемещение': 'Weg',
+      'Косинус угла': 'Kosinus des Winkels',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Дж': 'J',
+      'Н': 'N',
+      'Сила не может быть отрицательной': 'Die Kraft kann nicht negativ sein',
+      'Перемещение не может быть отрицательным': 'Der Weg kann nicht negativ sein',
+      'Работа не может быть отрицательной': 'Die Arbeit kann nicht negativ sein',
+      'Сила должна быть больше нуля, иначе перемещение не определено': 'Die Kraft muss größer als null sein, sonst ist der Weg nicht bestimmt',
+      'При прямом угле сила работы не совершает, и перемещение из неё не выводится': 'Im rechten Winkel verrichtet die Kraft keine Arbeit, und der Weg lässt sich daraus nicht ableiten',
+    },
+  },
   en: {
     fields: {
       "mode": "What to find",

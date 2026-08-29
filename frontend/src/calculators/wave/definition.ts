@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { waveCopyEn } from './copy.en';
 import { waveCopyUk } from './copy.uk';
+import { waveCopyDe } from './copy.de';
 import { waveReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: waveCopyEn, uk: waveCopyUk },
+  copy: { en: waveCopyEn, uk: waveCopyUk, de: waveCopyDe },
   referenceCases: waveReferenceCases,
   publishedExample: {
     inputs: { mode: 'lambda', v: 343, f: 440, wavelength: 0 },

@@ -1,6 +1,39 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'f': 'Brennweite, cm',
+      'do': 'Gegenstandsweite, cm',
+      'di': 'Bildweite, cm',
+    },
+    options: {
+      'image': 'die Bildweite',
+      'focal': 'die Brennweite',
+    },
+    results: {
+      'Расстояние до изображения': 'Bildweite',
+      'Фокусное расстояние': 'Brennweite',
+      'Увеличение': 'Abbildungsmaßstab',
+      'Тип изображения': 'Bildart',
+      'Оптическая сила': 'Brechkraft',
+      'Расстояние до предмета': 'Gegenstandsweite',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'см': 'cm',
+      'дптр': 'dpt',
+      'действительное перевёрнутое': 'reell und umgekehrt',
+      'мнимое прямое': 'virtuell und aufrecht',
+      'Выберите режим расчёта из списка': 'Wähle einen Rechenmodus aus der Liste',
+      'Расстояние до предмета должно быть больше нуля': 'Die Gegenstandsweite muss größer als null sein',
+      'Фокусное расстояние не может быть нулевым': 'Die Brennweite kann nicht null sein',
+      'Предмет в фокусе — изображения нет': 'Der Gegenstand steht im Brennpunkt — es entsteht kein Bild',
+      'Расстояние до изображения не может быть нулевым': 'Die Bildweite kann nicht null sein',
+      'Такая пара расстояний фокуса не задаёт': 'Dieses Paar von Abständen legt keine Brennweite fest',
+    },
+  },
   en: {
     fields: {
       mode: 'What to find', f: 'Focal length, cm',

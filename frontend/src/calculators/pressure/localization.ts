@@ -1,6 +1,49 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'F': 'Kraft, N',
+      'A': 'Fläche, m²',
+      'p': 'Druck, Pa',
+      'A2': 'Fläche, m²',
+      'F2': 'Kraft, N',
+      'p2': 'Druck, Pa',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+      'p': 'der Druck',
+      'F': 'die Kraft',
+      'A': 'die Fläche',
+    },
+    results: {
+      'Давление': 'Druck',
+      'Сила': 'Kraft',
+      'Площадь': 'Fläche',
+      'В атмосферах': 'In Atmosphären',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Па': 'Pa',
+      'Н': 'N',
+      'атм': 'atm',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Сила должна быть больше нуля': 'Die Kraft muss größer als null sein',
+      'Давление должно быть больше нуля': 'Der Druck muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       "mode": "What to find",

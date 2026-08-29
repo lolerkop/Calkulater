@@ -1,6 +1,35 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'v': 'Wellengeschwindigkeit, m/s',
+      'f': 'Frequenz, Hz',
+      'wavelength': 'Wellenlänge, m',
+    },
+    options: {
+      'lambda': 'die Wellenlänge',
+      'f': 'die Frequenz',
+      'v': 'die Wellengeschwindigkeit',
+    },
+    results: {
+      'Длина волны': 'Wellenlänge',
+      'Частота': 'Frequenz',
+      'Скорость': 'Wellengeschwindigkeit',
+      'Период': 'Periodendauer',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м/с': 'm/s',
+      'Гц': 'Hz',
+      'м': 'm',
+      'с': 's',
+      'Скорость должна быть больше нуля': 'Die Wellengeschwindigkeit muss größer als null sein',
+      'Частота должна быть больше нуля': 'Die Frequenz muss größer als null sein',
+      'Длина волны должна быть больше нуля': 'Die Wellenlänge muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What to find',

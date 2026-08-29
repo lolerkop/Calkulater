@@ -12,6 +12,30 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'v0': 'Anfangsgeschwindigkeit, m/s',
+      'angle': 'Winkel zur Waagerechten, °',
+      'h0': 'Abwurfhöhe, m',
+    },
+    results: {
+      'Дальность': 'Wurfweite',
+      'Время полёта': 'Flugzeit',
+      'Высшая точка': 'Scheitelhöhe',
+      'Горизонтальная составляющая': 'Waagerechte Komponente',
+      'Вертикальная составляющая': 'Senkrechte Komponente',
+      'Время до высшей точки': 'Zeit bis zum Scheitel',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м/с': 'm/s',
+      'м': 'm',
+      'с': 's',
+      'Начальная скорость должна быть больше нуля': 'Die Anfangsgeschwindigkeit muss größer als null sein',
+      'Угол должен быть от 0 до 90 градусов': 'Der Winkel muss zwischen 0 und 90 Grad liegen',
+      'Высота броска не может быть отрицательной': 'Die Abwurfhöhe kann nicht negativ sein',
+    },
+  },
   en: {
     fields: { v0: 'Initial speed, m/s', angle: 'Angle to the horizon, °', h0: 'Launch height, m' },
     options: {},

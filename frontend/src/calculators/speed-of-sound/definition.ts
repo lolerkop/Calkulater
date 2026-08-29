@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { speedOfSoundCopyEn } from './copy.en';
 import { speedOfSoundCopyUk } from './copy.uk';
+import { speedOfSoundCopyDe } from './copy.de';
 import { speedOfSoundReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: speedOfSoundCopyEn, uk: speedOfSoundCopyUk },
+  copy: { en: speedOfSoundCopyEn, uk: speedOfSoundCopyUk, de: speedOfSoundCopyDe },
   referenceCases: speedOfSoundReferenceCases,
   publishedExample: { inputs: { t: 20 }, expected: ["343,21 м/с"] },
   presentation: {

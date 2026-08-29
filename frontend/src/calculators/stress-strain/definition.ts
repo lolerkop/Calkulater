@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { contextualField } from './contextualField';
 import { stressStrainCopyEn } from './copy.en';
 import { stressStrainCopyUk } from './copy.uk';
+import { stressStrainCopyDe } from './copy.de';
 import { stressStrainReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: stressStrainCopyEn, uk: stressStrainCopyUk },
+  copy: { en: stressStrainCopyEn, uk: stressStrainCopyUk, de: stressStrainCopyDe },
   referenceCases: stressStrainReferenceCases,
   publishedExample: { inputs: { mode: 'stress', force: 10000, area: 100, length: 1000, delta: 0.5, e: 200000 }, expected: ["100 МПа"] },
   presentation: {

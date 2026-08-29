@@ -1,6 +1,49 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'm': 'Masse, kg',
+      'h': 'Höhe, m',
+      'E': 'Energie, J',
+      'm2': 'Masse, kg',
+      'E2': 'Energie, J',
+      'h2': 'Höhe, m',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'die Masse',
+      'E': 'die Energie',
+      'h': 'die Höhe',
+    },
+    results: {
+      'Потенциальная энергия': 'Potentielle Energie',
+      'Масса': 'Masse',
+      'Высота': 'Höhe',
+      'Ускорение свободного падения': 'Fallbeschleunigung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Дж': 'J',
+      'кг': 'kg',
+      'м/с²': 'm/s²',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Высота не может быть отрицательной': 'Die Höhe kann nicht negativ sein',
+      'Энергия не может быть отрицательной': 'Die Energie kann nicht negativ sein',
+      'Высота должна быть больше нуля, иначе масса не определена': 'Die Höhe muss größer als null sein, sonst ist die Masse nicht bestimmt',
+    },
+  },
   en: {
     fields: {
       "mode": "What to find",

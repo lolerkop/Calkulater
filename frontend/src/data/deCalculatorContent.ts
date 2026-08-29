@@ -50,6 +50,8 @@ import { dePhysics2Content } from './deContent/physics2';
 import { dePhysics3Content } from './deContent/physics3';
 import { dePhysics4Content } from './deContent/physics4';
 import { dePhysics5Content } from './deContent/physics5';
+import { dePhysics6Content } from './deContent/physics6';
+import { dePhysics7Content } from './deContent/physics7';
 import { deSport1Content } from './deContent/sport1';
 import { deSport2Content } from './deContent/sport2';
 
@@ -439,6 +441,8 @@ export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
   ...dePhysics3Content,
   ...dePhysics4Content,
   ...dePhysics5Content,
+  ...dePhysics6Content,
+  ...dePhysics7Content,
   ...deSport1Content,
   ...deSport2Content,
 };

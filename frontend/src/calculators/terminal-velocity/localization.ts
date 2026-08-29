@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'm': 'Masse, kg',
+      'a': 'Stirnfläche, m²',
+      'cd': 'Widerstandsbeiwert',
+      'rho': 'Luftdichte, kg/m³',
+    },
+    results: {
+      'Предельная скорость': 'Endgeschwindigkeit',
+      'В километрах в час': 'In Kilometern je Stunde',
+      'Сила сопротивления при этой скорости': 'Widerstandskraft bei dieser Geschwindigkeit',
+      'Время разгона до 95 процентов': 'Zeit bis 95 Prozent',
+      'Путь до 95 процентов': 'Weg bis 95 Prozent',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м/с': 'm/s',
+      'км/ч': 'km/h',
+      'Н': 'N',
+      'с': 's',
+      'м': 'm',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Коэффициент сопротивления должен быть больше нуля': 'Der Widerstandsbeiwert muss größer als null sein',
+      'Плотность воздуха должна быть больше нуля': 'Die Luftdichte muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       m: 'Mass, kg', a: 'Frontal area, m²',

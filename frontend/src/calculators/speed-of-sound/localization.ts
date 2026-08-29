@@ -1,6 +1,26 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      't': 'Lufttemperatur, °C',
+    },
+    results: {
+      'Скорость звука': 'Schallgeschwindigkeit',
+      'В километрах в час': 'In Kilometern je Stunde',
+      'Километр звук пройдёт за': 'Einen Kilometer legt der Schall zurück in',
+      'За три секунды': 'In drei Sekunden',
+      'Отклонение от значения при 0 °C': 'Abweichung vom Wert bei 0 °C',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м/с': 'm/s',
+      'км/ч': 'km/h',
+      'с': 's',
+      'м': 'm',
+      'Температура вне диапазона от −80 до 80 °C': 'Die Temperatur liegt außerhalb des Bereichs von −80 bis 80 °C',
+    },
+  },
   en: {
     fields: { t: 'Air temperature, °C' },
     options: {},

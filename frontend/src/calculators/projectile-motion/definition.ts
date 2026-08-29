@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { projectileMotionCopyEn } from './copy.en';
 import { projectileMotionCopyUk } from './copy.uk';
+import { projectileMotionCopyDe } from './copy.de';
 import { projectileMotionReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: projectileMotionCopyEn, uk: projectileMotionCopyUk },
+  copy: { en: projectileMotionCopyEn, uk: projectileMotionCopyUk, de: projectileMotionCopyDe },
   referenceCases: projectileMotionReferenceCases,
   publishedExample: { inputs: { v0: 20, angle: 45, h0: 0 }, expected: ["40,789 м"] },
   presentation: {

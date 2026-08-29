@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'flow': 'Durchfluss, m³/h',
+      'diameter': 'Innendurchmesser, mm',
+    },
+    results: {
+      'Скорость потока': 'Strömungsgeschwindigkeit',
+      'Площадь сечения': 'Querschnittsfläche',
+      'Расход в литрах в секунду': 'Durchfluss in Litern je Sekunde',
+      'Расход в литрах в минуту': 'Durchfluss in Litern je Minute',
+      'Внутренний диаметр': 'Innendurchmesser',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м/с': 'm/s',
+      'мм²': 'mm²',
+      'л/с': 'l/s',
+      'л/мин': 'l/min',
+      'мм': 'mm',
+      'Расход должен быть больше нуля': 'Der Durchfluss muss größer als null sein',
+      'Внутренний диаметр должен быть больше нуля': 'Der Innendurchmesser muss größer als null sein',
+    },
+  },
   en: {
     fields: { flow: 'Flow rate, m³/h', diameter: 'Inner diameter, mm' },
     options: {},

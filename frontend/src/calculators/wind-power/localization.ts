@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'd': 'Rotordurchmesser, m',
+      'v': 'Windgeschwindigkeit, m/s',
+      'cp': 'Leistungsbeiwert',
+      'rho': 'Luftdichte, kg/m³',
+    },
+    results: {
+      'Снимаемая мощность': 'Entnommene Leistung',
+      'Мощность потока': 'Leistung im Wind',
+      'Ометаемая площадь': 'Überstrichene Fläche',
+      'Предел Бетца': 'Betz-Grenze',
+      'Выработка за сутки': 'Ertrag am Tag',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кВт': 'kW',
+      'м²': 'm²',
+      'кВт·ч': 'kWh',
+      'Диаметр должен быть больше нуля': 'Der Durchmesser muss größer als null sein',
+      'Скорость ветра не может быть отрицательной': 'Die Windgeschwindigkeit kann nicht negativ sein',
+      'Плотность воздуха должна быть больше нуля': 'Die Luftdichte muss größer als null sein',
+      'Коэффициент использования не может превышать предел Бетца 0,593': 'Der Leistungsbeiwert kann die Betz-Grenze von 0,593 nicht übersteigen',
+    },
+  },
   en: {
     fields: {
       d: 'Rotor diameter, m', v: 'Wind speed, m/s',

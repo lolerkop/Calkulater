@@ -12,6 +12,32 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'area': 'Fläche, m²',
+      'thickness': 'Schichtdicke, m',
+      'k': 'Wärmeleitfähigkeit λ, W/(m·K)',
+      'dt': 'Temperaturunterschied, K',
+    },
+    results: {
+      'Тепловой поток': 'Wärmestrom',
+      'Плотность потока': 'Wärmestromdichte',
+      'Сопротивление слоя': 'Wärmedurchlasswiderstand',
+      'Коэффициент теплопередачи': 'U-Wert',
+      'За сутки': 'Am Tag',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Вт/(м²·К)': 'W/(m²·K)',
+      'м²·К/Вт': 'm²·K/W',
+      'Вт/м²': 'W/m²',
+      'кВт·ч': 'kWh',
+      'Вт': 'W',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Толщина слоя должна быть больше нуля': 'Die Schichtdicke muss größer als null sein',
+      'Теплопроводность должна быть больше нуля': 'Die Wärmeleitfähigkeit muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       area: 'Area, m²', thickness: 'Layer thickness, m',
