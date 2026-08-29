@@ -9,6 +9,11 @@ import {
   localeMeta,
 } from '../src/lib/i18n';
 import { deCalculatorContent } from '../src/data/deCalculatorContent';
+import { runtimeBucket, runtimeLocale } from '../src/lib/platform/runtime';
+import { localizeResult } from '../src/components/islands/calculator/resultLocalization';
+import { v2Runners } from '../src/calculators/runtime.generated';
+import { v2Localization } from '../src/calculators/localization.generated';
+import { runners } from '../src/lib/runners';
 
 // Контракт немецкой локали, заложенный в фазе 27DE-F.
 //
@@ -189,5 +194,57 @@ describe('немецкий каталог калькуляторов', () => {
   it('немецкие описания не повторяют друг друга дословно', () => {
     const intros = german.map((c) => deCalculatorContent[c.id]!.longDescription);
     expect(new Set(intros).size).toBe(intros.length);
+  });
+});
+
+describe('немецкий результат в острове', () => {
+  // Дефект, найденный в фазе 27DE: рантайм острова выбирал локализацию по
+  // списку локалей, выписанному буквами, и немецкий в этот список не попал.
+  // Немецкая страница показывала русские подписи и значения результата, хотя
+  // немецкий пакет локализации был собран и уже уезжал в браузер. Тест
+  // закрепляет, что признак переводимой локали здесь ровно один.
+  const probe = {
+    compute: (() => ({ primary: { label: '', value: '' }, secondary: [] })) as never,
+    localization: {
+      de: { results: { 'Итого': 'Summe' }, values: { 'шт': 'Stk' } },
+      en: { results: { 'Итого': 'Total' } },
+    },
+  };
+
+  it('немецкая локализация калькулятора доходит до острова', () => {
+    expect(runtimeBucket(probe, 'de', 'results')).toEqual({ 'Итого': 'Summe' });
+    expect(runtimeLocale(probe, 'de', 'results', 'Итого')).toBe('Summe');
+    expect(runtimeBucket(probe, 'de', 'values')).toEqual({ 'шт': 'Stk' });
+  });
+
+  it('остальные переводимые локали не задеты, непереводимые по-прежнему отбрасываются', () => {
+    expect(runtimeLocale(probe, 'en', 'results', 'Итого')).toBe('Total');
+    expect(runtimeBucket(probe, 'ru', 'results')).toBeUndefined();
+    expect(runtimeBucket(probe, 'fr', 'results')).toBeUndefined();
+  });
+
+  it('ни один немецкий результат по умолчанию не остаётся русским', () => {
+    const german = getCalculators('de');
+    const cyrillic = /[А-Яа-яЁёЇїІіЄєҐґ]/;
+    const broken: string[] = [];
+    for (const calculator of german) {
+      const runner = v2Runners[calculator.id] ?? runners[calculator.id];
+      if (!runner) continue;
+      const inputs = Object.fromEntries(
+        calculator.fields.map((f) => [f.name, f.defaultValue ?? f.options?.[0]?.value ?? 0]),
+      );
+      let raw;
+      try { raw = runner(inputs as never); } catch { continue; }
+      const bundle = v2Localization.de[calculator.id];
+      const runtime = bundle ? { compute: runner, localization: { de: bundle } } : undefined;
+      const localized = localizeResult(raw, 'de', calculator.id, runtime);
+      const blob = [
+        localized.primary.label, localized.primary.value,
+        ...localized.secondary.flatMap((row) => [row.label, row.value]),
+        localized.note ?? '',
+      ].join(' ');
+      if (cyrillic.test(blob)) broken.push(`${calculator.id}: ${blob.slice(0, 120)}`);
+    }
+    expect(broken).toEqual([]);
   });
 });

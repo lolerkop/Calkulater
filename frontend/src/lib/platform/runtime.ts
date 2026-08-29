@@ -11,6 +11,7 @@
 // но до прихода рантайма» — не возникает вовсе.
 
 import type { CalcFunction } from '../types';
+import { isTranslatedLocale } from './types';
 import type {
   CalculatorContextualField,
   CalculatorLocaleBundle,
@@ -36,7 +37,11 @@ export function runtimeBucket(
   bucket: keyof CalculatorLocaleBundle,
 ): Readonly<Record<string, string>> | undefined {
   if (!runtime?.localization) return undefined;
-  if (locale !== 'en' && locale !== 'uk') return undefined;
+  // Список локалей здесь когда-то был выписан буквами и отстал от контракта:
+  // немецкий появился в TranslatedLocale, а остров продолжал его отбрасывать и
+  // показывал русские подписи результата на немецкой странице. Теперь признак
+  // ровно один — тот же, что и на стороне сборки.
+  if (!isTranslatedLocale(locale)) return undefined;
   return runtime.localization[locale]?.[bucket];
 }
 
@@ -47,6 +52,6 @@ export function runtimeLocale(
   key: string,
 ): string | undefined {
   if (!runtime?.localization) return undefined;
-  if (locale !== 'en' && locale !== 'uk') return undefined;
+  if (!isTranslatedLocale(locale)) return undefined;
   return runtime.localization[locale]?.[bucket]?.[key];
 }
