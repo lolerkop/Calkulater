@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'q1': 'Erste Ladung, nC',
+      'q2': 'Zweite Ladung, nC',
+      'r': 'Abstand, cm',
+    },
+    results: {
+      'Сила взаимодействия': 'Kraft zwischen den Ladungen',
+      'Характер': 'Art',
+      'Напряжённость поля первого заряда': 'Feldstärke der ersten Ladung',
+      'Потенциальная энергия': 'Potentielle Energie',
+      'Расстояние': 'Abstand',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Н': 'N',
+      'В/м': 'V/m',
+      'Дж': 'J',
+      'см': 'cm',
+      'притяжение': 'Anziehung',
+      'отталкивание': 'Abstoßung',
+      'Расстояние должно быть больше нуля': 'Der Abstand muss größer als null sein',
+      'Первый заряд не может быть нулевым': 'Die erste Ladung kann nicht null sein',
+      'Второй заряд не может быть нулевым': 'Die zweite Ladung kann nicht null sein',
+    },
+  },
   en: {
     fields: { q1: 'First charge, nC', q2: 'Second charge, nC', r: 'Distance, cm' },
     options: {},

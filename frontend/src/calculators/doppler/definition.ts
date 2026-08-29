@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { dopplerCopyEn } from './copy.en';
 import { dopplerCopyUk } from './copy.uk';
+import { dopplerCopyDe } from './copy.de';
 import { dopplerReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: dopplerCopyEn, uk: dopplerCopyUk },
+  copy: { en: dopplerCopyEn, uk: dopplerCopyUk, de: dopplerCopyDe },
   referenceCases: dopplerReferenceCases,
   publishedExample: { inputs: { f: 440, vSource: 20, vObserver: 0, c: 343 }, expected: ["467,24 Гц"] },
   presentation: {

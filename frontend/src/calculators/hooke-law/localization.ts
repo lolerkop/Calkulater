@@ -10,6 +10,35 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'k': 'Federkonstante, N/m',
+      'x': 'Auslenkung, m',
+      'f': 'Kraft, N',
+    },
+    options: {
+      'force': 'die Federkraft',
+      'extension': 'die Auslenkung',
+      'stiffness': 'die Federkonstante',
+    },
+    results: {
+      'Сила': 'Kraft',
+      'Удлинение': 'Auslenkung',
+      'Жёсткость': 'Federkonstante',
+      'Энергия пружины': 'Gespeicherte Energie',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Сила и деформация должны быть направлены в одну сторону': 'Kraft und Verformung müssen in dieselbe Richtung zeigen',
+      'Н/м': 'N/m',
+      'Н': 'N',
+      'Дж': 'J',
+      'м': 'm',
+      'Жёсткость должна быть больше нуля': 'Die Federkonstante muss größer als null sein',
+      'Удлинение не может быть нулевым: делить на него нечего': 'Die Auslenkung kann nicht null sein: dadurch lässt sich nicht teilen',
+    },
+  },
   en: {
     fields: { mode: 'What to find', k: 'Spring rate, N/m', x: 'Extension or compression, m', f: 'Force, N' },
     options: { force: 'the spring force', extension: 'the extension', stiffness: 'the spring rate' },

@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'f': 'Frequenz der Quelle, Hz',
+      'vSource': 'Geschwindigkeit der Quelle auf dich zu, m/s',
+      'vObserver': 'Geschwindigkeit des Zuhörers auf die Quelle zu, m/s',
+      'c': 'Wellengeschwindigkeit im Medium, m/s',
+    },
+    results: {
+      'Наблюдаемая частота': 'Beobachtete Frequenz',
+      'Сдвиг частоты': 'Frequenzverschiebung',
+      'Относительный сдвиг': 'Relative Verschiebung',
+      'Скорость волны': 'Wellengeschwindigkeit',
+      'Исходная частота': 'Frequenz der Quelle',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Гц': 'Hz',
+      'м/с': 'm/s',
+      'Частота источника должна быть больше нуля': 'Die Frequenz der Quelle muss größer als null sein',
+      'Скорость волны должна быть больше нуля': 'Die Wellengeschwindigkeit muss größer als null sein',
+      'Источник не может двигаться быстрее волны: там начинается ударная волна': 'Die Quelle kann nicht schneller sein als die Welle: dort beginnt eine Stoßwelle',
+    },
+  },
   en: {
     fields: {
       f: 'Source frequency, Hz',

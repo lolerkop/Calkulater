@@ -12,6 +12,35 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'f1': 'Kraft am ersten Arm, N',
+      'd1': 'Erster Arm, m',
+      'd2': 'Zweiter Arm, m',
+      'f2': 'Kraft am zweiten Arm, N',
+    },
+    options: {
+      'force2': 'die Kraft am zweiten Arm',
+      'distance2': 'die Länge des zweiten Arms',
+    },
+    results: {
+      'Сила на втором плече': 'Kraft am zweiten Arm',
+      'Второе плечо': 'Zweiter Arm',
+      'Выигрыш в силе': 'Kraftgewinn',
+      'Момент первой силы': 'Moment der ersten Kraft',
+      'Первое плечо': 'Erster Arm',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Н·м': 'N·m',
+      'Н': 'N',
+      'м': 'm',
+      'Первое плечо должно быть больше нуля': 'Der erste Arm muss größer als null sein',
+      'Второе плечо должно быть больше нуля': 'Der zweite Arm muss größer als null sein',
+      'Вторая сила должна быть больше нуля': 'Die zweite Kraft muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What to find', f1: 'Force on the first arm, N', d1: 'First arm, m',

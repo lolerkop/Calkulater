@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { momentumCopyEn } from './copy.en';
 import { momentumCopyUk } from './copy.uk';
+import { momentumCopyDe } from './copy.de';
 import { momentumReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: momentumCopyEn, uk: momentumCopyUk },
+  copy: { en: momentumCopyEn, uk: momentumCopyUk, de: momentumCopyDe },
   referenceCases: momentumReferenceCases,
   publishedExample: { inputs: { mode: 'p', m: 3, v: 4 }, expected: ["12 кг·м/с"] },
   presentation: {

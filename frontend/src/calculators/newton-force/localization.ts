@@ -1,6 +1,50 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'm': 'Masse, kg',
+      'a': 'Beschleunigung, m/s²',
+      'F': 'Kraft, N',
+      'a2': 'Beschleunigung, m/s²',
+      'F2': 'Kraft, N',
+      'm2': 'Masse, kg',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'die Masse',
+      'F': 'die Kraft',
+      'a': 'die Beschleunigung',
+    },
+    results: {
+      'Сила': 'Kraft',
+      'Масса': 'Masse',
+      'Ускорение': 'Beschleunigung',
+      'Вес у поверхности Земли': 'Gewicht an der Erdoberfläche',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Н': 'N',
+      'кг': 'kg',
+      'м/с²': 'm/s²',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Ускорение не может быть отрицательным': 'Die Beschleunigung kann nicht negativ sein',
+      'Сила не может быть отрицательной': 'Die Kraft kann nicht negativ sein',
+      'Ускорение должно быть больше нуля, иначе масса не определена': 'Die Beschleunigung muss größer als null sein, sonst ist die Masse nicht bestimmt',
+      'Масса должна быть больше нуля, иначе ускорение не определено': 'Die Masse muss größer als null sein, sonst ist die Beschleunigung nicht bestimmt',
+    },
+  },
   en: {
     fields: {
       "mode": "What to find",

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { kineticEnergyCopyEn } from './copy.en';
 import { kineticEnergyCopyUk } from './copy.uk';
+import { kineticEnergyCopyDe } from './copy.de';
 import { kineticEnergyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: kineticEnergyCopyEn, uk: kineticEnergyCopyUk },
+  copy: { en: kineticEnergyCopyEn, uk: kineticEnergyCopyUk, de: kineticEnergyCopyDe },
   referenceCases: kineticEnergyReferenceCases,
   publishedExample: { inputs: { mode: 'E', m: 2, v: 3 }, expected: ["9 Дж"] },
   presentation: {

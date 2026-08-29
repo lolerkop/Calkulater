@@ -1,6 +1,39 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'levels': 'Pegel, dB',
+      'p1': 'Ausgangswert',
+      'p2': 'Endwert',
+      'kind': 'Art der Größe',
+    },
+    options: {
+      'sum': 'Summe der Pegel',
+      'ratio': 'Verhältnis in Dezibel',
+      'power': 'Leistung',
+      'amplitude': 'Amplitude',
+    },
+    results: {
+      'Уровень': 'Pegel',
+      'Источников': 'Quellen',
+      'Самый громкий': 'Lauteste Quelle',
+      'Прибавка к самому громкому': 'Zuwachs zur lautesten',
+      'Арифметическая сумма (так НЕ считают)': 'Arithmetische Summe (so wird NICHT gerechnet)',
+      'Во сколько раз по мощности': 'Verhältnis der Leistung',
+      'Во сколько раз по амплитуде': 'Verhältnis der Amplitude',
+      'Исходная величина': 'Ausgangswert',
+      'Конечная величина': 'Endwert',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'дБ': 'dB',
+      'Исходная величина должна быть больше нуля': 'Der Ausgangswert muss größer als null sein',
+      'Конечная величина должна быть больше нуля': 'Der Endwert muss größer als null sein',
+      'Введите хотя бы один уровень в децибелах': 'Trage mindestens einen Pegel in Dezibel ein',
+    },
+  },
   en: {
     fields: {
       mode: 'What to find', levels: 'Levels, dB', p1: 'Initial value', p2: 'Final value',

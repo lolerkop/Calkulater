@@ -1,6 +1,36 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'h': 'Höhe, m',
+      't': 'Fallzeit, s',
+      'g': 'Fallbeschleunigung, m/s²',
+    },
+    options: {
+      'fromHeight': 'die Höhe',
+      'fromTime': 'die Zeit',
+    },
+    results: {
+      'Скорость у земли': 'Aufprallgeschwindigkeit',
+      'Время падения': 'Fallzeit',
+      'Высота падения': 'Fallhöhe',
+      'В километрах в час': 'In Kilometern je Stunde',
+      'Кинетическая энергия на килограмм': 'Kinetische Energie je Kilogramm',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м/с': 'm/s',
+      'с': 's',
+      'м': 'm',
+      'км/ч': 'km/h',
+      'Дж/кг': 'J/kg',
+      'Ускорение свободного падения должно быть больше нуля': 'Die Fallbeschleunigung muss größer als null sein',
+      'Время падения должно быть больше нуля': 'Die Fallzeit muss größer als null sein',
+      'Высота должна быть больше нуля': 'Die Höhe muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What is known', h: 'Height, m', t: 'Fall time, s',

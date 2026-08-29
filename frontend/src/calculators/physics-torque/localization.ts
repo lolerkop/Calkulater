@@ -15,6 +15,25 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'force': 'Kraft, N',
+      'radius': 'Hebelarm, m',
+      'angle': 'Winkel zwischen Kraft und Hebel, Grad',
+    },
+    results: {
+      'Момент силы': 'Drehmoment',
+      'Плечо силы': 'Wirksamer Hebelarm',
+      'Синус угла': 'Sinus des Winkels',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      ' Н·м': ' N·m',
+      'Сила не может быть отрицательной': 'Die Kraft kann nicht negativ sein',
+      'Плечо не может быть отрицательным': 'Der Hebelarm kann nicht negativ sein',
+      'Угол должен лежать в диапазоне от 0 до 180 градусов': 'Der Winkel muss zwischen 0 und 180 Grad liegen',
+    },
+  },
   en: {
     fields: { force: 'Force, N', radius: 'Lever arm, m', angle: 'Angle between force and lever, degrees', },
     options: { },

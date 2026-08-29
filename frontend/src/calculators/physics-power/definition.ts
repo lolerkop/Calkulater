@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { physicsPowerCopyEn } from './copy.en';
 import { physicsPowerCopyUk } from './copy.uk';
+import { physicsPowerCopyDe } from './copy.de';
 import { physicsPowerReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: physicsPowerCopyEn, uk: physicsPowerCopyUk },
+  copy: { en: physicsPowerCopyEn, uk: physicsPowerCopyUk, de: physicsPowerCopyDe },
   referenceCases: physicsPowerReferenceCases,
   publishedExample: { inputs: { mode: 'P', W: 1000, t: 10 }, expected: ["100 Вт"] },
   presentation: {

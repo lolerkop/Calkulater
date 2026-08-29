@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { accelerationCopyEn } from './copy.en';
 import { accelerationCopyUk } from './copy.uk';
+import { accelerationCopyDe } from './copy.de';
 import { accelerationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: accelerationCopyEn, uk: accelerationCopyUk },
+  copy: { en: accelerationCopyEn, uk: accelerationCopyUk, de: accelerationCopyDe },
   referenceCases: accelerationReferenceCases,
   publishedExample: {
     inputs: { mode: 'a', v0: 0, v: 27.8, t: 8.4 },

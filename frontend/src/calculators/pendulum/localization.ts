@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'length': 'Fadenlänge, m',
+      'g': 'Fallbeschleunigung, m/s²',
+    },
+    results: {
+      'Период колебаний': 'Schwingungsdauer',
+      'Частота': 'Frequenz',
+      'Колебаний в минуту': 'Schwingungen je Minute',
+      'Длина для периода 1 с': 'Länge für eine Dauer von 1 s',
+      'Ускорение свободного падения': 'Fallbeschleunigung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'с': 's',
+      'Гц': 'Hz',
+      'м': 'm',
+      'м/с²': 'm/s²',
+      'Длина подвеса должна быть больше нуля': 'Die Fadenlänge muss größer als null sein',
+      'Ускорение свободного падения должно быть больше нуля': 'Die Fallbeschleunigung muss größer als null sein',
+    },
+  },
   en: {
     fields: { length: 'String length, m', g: 'Acceleration of gravity, m/s²' },
     options: {},

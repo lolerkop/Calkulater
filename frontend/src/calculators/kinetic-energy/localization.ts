@@ -1,6 +1,48 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'm': 'Masse, kg',
+      'v': 'Geschwindigkeit, m/s',
+      'E': 'Energie, J',
+      'm2': 'Masse, kg',
+      'E2': 'Energie, J',
+      'v2': 'Geschwindigkeit, m/s',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'die Masse',
+      'E': 'die Energie',
+      'v': 'die Geschwindigkeit',
+    },
+    results: {
+      'Кинетическая энергия': 'Kinetische Energie',
+      'Масса': 'Masse',
+      'Скорость': 'Geschwindigkeit',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Дж': 'J',
+      'кг': 'kg',
+      'м/с': 'm/s',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Скорость не может быть отрицательной': 'Die Geschwindigkeit kann nicht negativ sein',
+      'Энергия не может быть отрицательной': 'Die Energie kann nicht negativ sein',
+      'Скорость должна быть больше нуля, иначе масса не определена': 'Die Geschwindigkeit muss größer als null sein, sonst ist die Masse nicht bestimmt',
+    },
+  },
   en: {
     fields: {
       "mode": "What to find",

@@ -1,6 +1,26 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'i1': 'Intensität im Ausgangsabstand',
+      'd1': 'Ausgangsabstand',
+      'd2': 'Neuer Abstand',
+    },
+    results: {
+      'Интенсивность на новом расстоянии': 'Intensität im neuen Abstand',
+      'Во сколько раз изменилась': 'Änderungsfaktor',
+      'Отношение расстояний': 'Verhältnis der Abstände',
+      'В процентах от исходной': 'In Prozent des Ausgangswerts',
+      'Исходная интенсивность': 'Ausgangsintensität',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Исходная интенсивность должна быть больше нуля': 'Die Ausgangsintensität muss größer als null sein',
+      'Исходное расстояние должно быть больше нуля': 'Der Ausgangsabstand muss größer als null sein',
+      'Новое расстояние должно быть больше нуля': 'Der neue Abstand muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       i1: 'Intensity at the original distance',

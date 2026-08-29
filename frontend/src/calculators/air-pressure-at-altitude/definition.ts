@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { airPressureAtAltitudeCopyEn } from './copy.en';
 import { airPressureAtAltitudeCopyUk } from './copy.uk';
+import { airPressureAtAltitudeCopyDe } from './copy.de';
 import { airPressureAtAltitudeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: airPressureAtAltitudeCopyEn, uk: airPressureAtAltitudeCopyUk },
+  copy: { en: airPressureAtAltitudeCopyEn, uk: airPressureAtAltitudeCopyUk, de: airPressureAtAltitudeCopyDe },
   referenceCases: airPressureAtAltitudeReferenceCases,
   publishedExample: { inputs: { h: 2000 }, expected: ["79,496 кПа"] },
   presentation: {

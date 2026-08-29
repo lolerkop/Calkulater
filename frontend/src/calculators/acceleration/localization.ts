@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'v0': 'Anfangsgeschwindigkeit, m/s',
+      'v': 'Endgeschwindigkeit, m/s',
+      'a': 'Beschleunigung, m/s²',
+      't': 'Zeit, s',
+    },
+    options: {
+      'a': 'die Beschleunigung',
+      'v': 'die Endgeschwindigkeit',
+    },
+    results: {
+      'Ускорение': 'Beschleunigung',
+      'Конечная скорость': 'Endgeschwindigkeit',
+      'Изменение скорости': 'Geschwindigkeitsänderung',
+      'Пройденный путь': 'Zurückgelegter Weg',
+      'Время': 'Zeit',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м/с²': 'm/s²',
+      'м/с': 'm/s',
+      'м': 'm',
+      'с': 's',
+      'Время должно быть больше нуля': 'Die Zeit muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What to find',

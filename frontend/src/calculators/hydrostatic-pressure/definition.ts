@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { hydrostaticPressureCopyEn } from './copy.en';
 import { hydrostaticPressureCopyUk } from './copy.uk';
+import { hydrostaticPressureCopyDe } from './copy.de';
 import { hydrostaticPressureReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: hydrostaticPressureCopyEn, uk: hydrostaticPressureCopyUk },
+  copy: { en: hydrostaticPressureCopyEn, uk: hydrostaticPressureCopyUk, de: hydrostaticPressureCopyDe },
   referenceCases: hydrostaticPressureReferenceCases,
   publishedExample: { inputs: { density: 1000, depth: 10, p0: 0 }, expected: ['0,9807 бар'] },
   presentation: {

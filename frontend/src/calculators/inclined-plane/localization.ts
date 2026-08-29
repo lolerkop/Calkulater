@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'm': 'Masse des Körpers, kg',
+      'angle': 'Neigungswinkel, °',
+      'mu': 'Reibungszahl',
+    },
+    results: {
+      'Скатывающая сила': 'Hangabtriebskraft',
+      'Сила нормального давления': 'Normalkraft',
+      'Сила трения': 'Reibungskraft',
+      'Равнодействующая': 'Resultierende Kraft',
+      'Ускорение': 'Beschleunigung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Н': 'N',
+      'м/с²': 'm/s²',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Угол наклона задаётся от 0 до 90 градусов': 'Der Neigungswinkel liegt zwischen 0 und 90 Grad',
+      'Коэффициент трения не может быть отрицательным': 'Die Reibungszahl kann nicht negativ sein',
+    },
+  },
   en: {
     fields: { m: 'Body mass, kg', angle: 'Slope angle, °', mu: 'Friction coefficient' },
     options: {},

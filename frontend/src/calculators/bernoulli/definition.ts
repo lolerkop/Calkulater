@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { bernoulliCopyEn } from './copy.en';
 import { bernoulliCopyUk } from './copy.uk';
+import { bernoulliCopyDe } from './copy.de';
 import { bernoulliReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: bernoulliCopyEn, uk: bernoulliCopyUk },
+  copy: { en: bernoulliCopyEn, uk: bernoulliCopyUk, de: bernoulliCopyDe },
   referenceCases: bernoulliReferenceCases,
   publishedExample: { inputs: { p1: 300, v1: 2, h1: 0, v2: 6, h2: 0, rho: 1000 }, expected: ["284 кПа"] },
   presentation: {

@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'm': 'Masse, kg',
+      'v': 'Geschwindigkeit auf der Kreisbahn, m/s',
+      'r': 'Radius, m',
+    },
+    results: {
+      'Центростремительная сила': 'Zentripetalkraft',
+      'Центростремительное ускорение': 'Zentripetalbeschleunigung',
+      'Угловая скорость': 'Winkelgeschwindigkeit',
+      'Период обращения': 'Umlaufdauer',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Н': 'N',
+      'м/с²': 'm/s²',
+      'рад/с': 'rad/s',
+      'с': 's',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Радиус должен быть больше нуля': 'Der Radius muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       m: 'Mass, kg',

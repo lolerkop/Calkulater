@@ -1,6 +1,26 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'h': 'Höhe über dem Meeresspiegel, m',
+    },
+    results: {
+      'Температура кипения': 'Siedetemperatur',
+      'Давление на высоте': 'Druck in dieser Höhe',
+      'В миллиметрах ртутного столба': 'In Millimetern Quecksilbersäule',
+      'Доля от давления на уровне моря': 'Anteil des Meeresspiegeldrucks',
+      'Ниже обычных 100 °C на': 'Unter den üblichen 100 °C um',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '°C': '°C',
+      'кПа': 'kPa',
+      'мм рт. ст.': 'mmHg',
+      '%': '%',
+      'Высота вне диапазона от −430 до 9000 м': 'Die Höhe liegt außerhalb des Bereichs von −430 bis 9000 m',
+    },
+  },
   en: {
     fields: { h: 'Altitude above sea level, m' },
     options: {},

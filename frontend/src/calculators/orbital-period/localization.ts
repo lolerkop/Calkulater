@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mass24': 'Masse des Zentralkörpers, ×10²⁴ kg',
+      'radiusKm': 'Bahnradius, km',
+    },
+    results: {
+      'Период обращения': 'Umlaufzeit',
+      'В часах': 'In Stunden',
+      'Орбитальная скорость': 'Bahngeschwindigkeit',
+      'Оборотов в сутки': 'Umläufe je Tag',
+      'Радиус орбиты': 'Bahnradius',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'с': 's',
+      'ч': 'h',
+      'м/с': 'm/s',
+      'км': 'km',
+      'Масса центрального тела должна быть больше нуля': 'Die Masse des Zentralkörpers muss größer als null sein',
+      'Радиус орбиты должен быть больше нуля': 'Der Bahnradius muss größer als null sein',
+    },
+  },
   en: {
     fields: { mass24: 'Central body mass, ×10²⁴ kg', radiusKm: 'Orbit radius, km' },
     options: {},

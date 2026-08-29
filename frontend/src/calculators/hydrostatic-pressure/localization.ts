@@ -17,6 +17,29 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'density': 'Dichte der Flüssigkeit, kg/m³',
+      'depth': 'Tiefe, m',
+      'p0': 'Äußerer Druck, Pa',
+    },
+    results: {
+      'Давление': 'Druck',
+      'В барах': 'In bar',
+      'Тип давления': 'Art des Drucks',
+      'Давление столба': 'Druck der Säule',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      ' Па': ' Pa',
+      ' бар': ' bar',
+      'избыточное': 'Überdruck',
+      'абсолютное': 'absolut',
+      'Плотность должна быть больше нуля': 'Die Dichte muss größer als null sein',
+      'Глубина не может быть отрицательной': 'Die Tiefe kann nicht negativ sein',
+      'Внешнее давление не может быть отрицательным': 'Der äußere Druck kann nicht negativ sein',
+    },
+  },
   en: {
     fields: { density: 'Liquid density, kg/m³', depth: 'Depth, m', p0: 'External pressure, Pa', },
     options: { },

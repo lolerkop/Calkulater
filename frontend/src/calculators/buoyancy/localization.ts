@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'volume': 'Volumen des Körpers, m³',
+      'rhoFluid': 'Dichte des Mediums, kg/m³',
+      'mass': 'Masse des Körpers, kg',
+    },
+    results: {
+      'Выталкивающая сила': 'Auftriebskraft',
+      'Вес тела': 'Gewicht des Körpers',
+      'Равнодействующая': 'Resultierende Kraft',
+      'Вытесненная масса': 'Verdrängte Masse',
+      'Поведение в жидкости': 'Verhalten im Medium',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Н': 'N',
+      'кг': 'kg',
+      'нейтральная плавучесть': 'schwebt',
+      'всплывает': 'steigt auf',
+      'тонет': 'sinkt',
+      'Объём тела должен быть больше нуля': 'Das Volumen des Körpers muss größer als null sein',
+      'Плотность жидкости должна быть больше нуля': 'Die Dichte des Mediums muss größer als null sein',
+      'Масса не может быть отрицательной': 'Die Masse kann nicht negativ sein',
+    },
+  },
   en: {
     fields: { volume: 'Body volume, m³', rhoFluid: 'Fluid density, kg/m³', mass: 'Body mass, kg' },
     options: {},

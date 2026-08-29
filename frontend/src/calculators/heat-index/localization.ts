@@ -12,6 +12,29 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      't': 'Lufttemperatur, °C',
+      'rh': 'Relative Luftfeuchte, %',
+    },
+    results: {
+      'Ощущается как': 'Fühlt sich an wie',
+      'Прибавка к термометру': 'Zuschlag durch die Feuchte',
+      'В градусах Фаренгейта': 'In Grad Fahrenheit',
+      'Термометр по Фаренгейту': 'Thermometer in Fahrenheit',
+      'Опасность': 'Gefahrenstufe',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'крайняя': 'äußerst',
+      'высокая': 'hoch',
+      'умеренная': 'mäßig',
+      'низкая': 'gering',
+      'Влажность должна быть от 0 до 100 %': 'Die Luftfeuchte muss zwischen 0 und 100 % liegen',
+      'Температура должна быть от 20 до 60 °C': 'Die Temperatur muss zwischen 20 und 60 °C liegen',
+      'Индекс жары применим от 26,7 °C — ниже он ничего не описывает': 'Der Hitzeindex gilt ab 26,7 °C — darunter beschreibt er nichts',
+    },
+  },
   en: {
     fields: { t: 'Air temperature, °C', rh: 'Relative humidity, %' },
     options: {},

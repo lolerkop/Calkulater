@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { boilingPointCopyEn } from './copy.en';
 import { boilingPointCopyUk } from './copy.uk';
+import { boilingPointCopyDe } from './copy.de';
 import { boilingPointReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: boilingPointCopyEn, uk: boilingPointCopyUk },
+  copy: { en: boilingPointCopyEn, uk: boilingPointCopyUk, de: boilingPointCopyDe },
   referenceCases: boilingPointReferenceCases,
   publishedExample: { inputs: { h: 1500 }, expected: ["94,919 °C"] },
   presentation: {

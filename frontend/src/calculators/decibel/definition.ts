@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { decibelCopyEn } from './copy.en';
 import { decibelCopyUk } from './copy.uk';
+import { decibelCopyDe } from './copy.de';
 import { decibelReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: decibelCopyEn, uk: decibelCopyUk },
+  copy: { en: decibelCopyEn, uk: decibelCopyUk, de: decibelCopyDe },
   referenceCases: decibelReferenceCases,
   publishedExample: { inputs: { mode: 'sum', levels: '80 80', p1: 1, p2: 2, kind: 'power' }, expected: ["83,01 дБ"] },
   presentation: {

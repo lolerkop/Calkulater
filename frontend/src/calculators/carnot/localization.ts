@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'tHot': 'Temperatur des warmen Reservoirs, K',
+      'tCold': 'Temperatur des kalten Reservoirs, K',
+    },
+    results: {
+      'Предельный КПД': 'Höchstwirkungsgrad',
+      'Полезная работа из 1000 Дж тепла': 'Nutzarbeit aus 1000 J Wärme',
+      'Отдано холодильнику': 'An das kalte Reservoir abgegeben',
+      'Перепад температур': 'Temperaturunterschied',
+      'Отношение температур': 'Verhältnis der Temperaturen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Дж': 'J',
+      'К': 'K',
+      'Температура нагревателя должна быть больше нуля кельвинов': 'Die Temperatur des warmen Reservoirs muss über null Kelvin liegen',
+      'Температура холодильника должна быть больше нуля кельвинов': 'Die Temperatur des kalten Reservoirs muss über null Kelvin liegen',
+      'Холодильник не может быть теплее нагревателя': 'Das kalte Reservoir kann nicht wärmer sein als das warme',
+    },
+  },
   en: {
     fields: { tHot: 'Hot reservoir temperature, K', tCold: 'Cold reservoir temperature, K' },
     options: {},

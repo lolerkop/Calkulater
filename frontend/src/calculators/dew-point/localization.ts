@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      't': 'Lufttemperatur, °C',
+      'rh': 'Relative Luftfeuchte, %',
+    },
+    results: {
+      'Точка росы': 'Taupunkt',
+      'Разрыв с температурой': 'Abstand zur Lufttemperatur',
+      'Температура воздуха': 'Lufttemperatur',
+      'Относительная влажность': 'Relative Luftfeuchte',
+      'Точка росы в градусах Фаренгейта': 'Taupunkt in Grad Fahrenheit',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Влажность должна быть больше нуля': 'Die Luftfeuchte muss größer als null sein',
+      'Влажность не может быть больше 100 %': 'Die Luftfeuchte kann 100 % nicht übersteigen',
+      'Температура вне области применимости формулы': 'Die Temperatur liegt außerhalb des Bereichs, den die Formel abdeckt',
+    },
+  },
   en: {
     fields: { t: 'Air temperature, °C', rh: 'Relative humidity, %' },
     options: {},

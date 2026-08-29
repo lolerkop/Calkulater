@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { dewPointCopyEn } from './copy.en';
 import { dewPointCopyUk } from './copy.uk';
+import { dewPointCopyDe } from './copy.de';
 import { dewPointReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: dewPointCopyEn, uk: dewPointCopyUk },
+  copy: { en: dewPointCopyEn, uk: dewPointCopyUk, de: dewPointCopyDe },
   referenceCases: dewPointReferenceCases,
   publishedExample: { inputs: { t: 20, rh: 60 }, expected: ["11,993 °C"] },
   presentation: {

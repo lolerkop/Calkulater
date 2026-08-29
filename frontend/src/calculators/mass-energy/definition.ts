@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { massEnergyCopyEn } from './copy.en';
 import { massEnergyCopyUk } from './copy.uk';
+import { massEnergyCopyDe } from './copy.de';
 import { massEnergyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: massEnergyCopyEn, uk: massEnergyCopyUk },
+  copy: { en: massEnergyCopyEn, uk: massEnergyCopyUk, de: massEnergyCopyDe },
   referenceCases: massEnergyReferenceCases,
   publishedExample: { inputs: { massG: 1 }, expected: ["8,988·10^13 Дж"] },
   presentation: {

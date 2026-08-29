@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { pendulumCopyEn } from './copy.en';
 import { pendulumCopyUk } from './copy.uk';
+import { pendulumCopyDe } from './copy.de';
 import { pendulumReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pendulumCopyEn, uk: pendulumCopyUk },
+  copy: { en: pendulumCopyEn, uk: pendulumCopyUk, de: pendulumCopyDe },
   referenceCases: pendulumReferenceCases,
   publishedExample: { inputs: { length: 1, g: 9.80665 }, expected: ["2,006 с"] },
   presentation: {

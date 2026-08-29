@@ -1,6 +1,40 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'n0': 'Ausgangsmenge, g',
+      'half': 'Halbwertszeit, Jahre',
+      't': 'Verstrichene Zeit, Jahre',
+      'left': 'Gewünschter Rest, g',
+    },
+    options: {
+      'remaining': 'Rest nach einer Zeit',
+      'time': 'Zeit bis zu einem Rest',
+    },
+    results: {
+      'Остаток': 'Rest',
+      'Время': 'Zeit',
+      'Распалось': 'Zerfallen',
+      'Осталось доли': 'Verbliebener Anteil',
+      'Периодов полураспада прошло': 'Verstrichene Halbwertszeiten',
+      'Периодов полураспада': 'Halbwertszeiten',
+      'Среднее время жизни': 'Mittlere Lebensdauer',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'г': 'g',
+      'лет': 'Jahre',
+      '%': '%',
+      'Выберите режим расчёта из списка': 'Wähle einen Rechenmodus aus der Liste',
+      'Период полураспада должен быть больше нуля': 'Die Halbwertszeit muss größer als null sein',
+      'Исходное количество должно быть больше нуля': 'Die Ausgangsmenge muss größer als null sein',
+      'Время не может быть отрицательным': 'Die verstrichene Zeit kann nicht negativ sein',
+      'Остаток должен быть больше нуля': 'Der Rest muss größer als null sein',
+      'Остаток не может превышать исходное количество': 'Der Rest kann die Ausgangsmenge nicht übersteigen',
+    },
+  },
   en: {
     fields: { mode: 'What to find', n0: 'Initial amount, g', half: 'Half-life, years', t: 'Time elapsed, years', left: 'Remainder wanted, g' },
     options: { remaining: 'remaining after time', time: 'time to remainder' },

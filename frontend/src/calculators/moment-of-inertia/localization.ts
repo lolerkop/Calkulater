@@ -1,6 +1,43 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'shape': 'Körper',
+      'm': 'Masse, kg',
+      'r': 'Radius oder Länge, m',
+    },
+    options: {
+      'rod-center': 'Stab um seine Mitte',
+      'rod-end': 'Stab um sein Ende',
+      'disk': 'Vollscheibe',
+      'ring': 'dünner Ring',
+      'sphere-solid': 'Vollkugel',
+      'sphere-hollow': 'Hohlkugel',
+    },
+    results: {
+      'Момент инерции': 'Trägheitsmoment',
+      'Масса': 'Masse',
+      'Размер': 'Größe',
+      'Радиус инерции': 'Trägheitsradius',
+      'Тело': 'Körper',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кг·м²': 'kg·m²',
+      'кг': 'kg',
+      'м': 'm',
+      'стержень через центр': 'Stab um seine Mitte',
+      'стержень через конец': 'Stab um sein Ende',
+      'сплошной диск': 'Vollscheibe',
+      'тонкое кольцо': 'dünner Ring',
+      'сплошной шар': 'Vollkugel',
+      'полая сфера': 'Hohlkugel',
+      'Неизвестное тело': 'Unbekannter Körper',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Размер должен быть больше нуля': 'Die Größe muss größer als null sein',
+    },
+  },
   en: {
     fields: { shape: 'Body', m: 'Mass, kg', r: 'Radius or length, m' },
     options: {

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { inverseSquareCopyEn } from './copy.en';
 import { inverseSquareCopyUk } from './copy.uk';
+import { inverseSquareCopyDe } from './copy.de';
 import { inverseSquareReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: inverseSquareCopyEn, uk: inverseSquareCopyUk },
+  copy: { en: inverseSquareCopyEn, uk: inverseSquareCopyUk, de: inverseSquareCopyDe },
   referenceCases: inverseSquareReferenceCases,
   publishedExample: { inputs: { i1: 1000, d1: 1, d2: 3 }, expected: ["111,11"] },
   presentation: {

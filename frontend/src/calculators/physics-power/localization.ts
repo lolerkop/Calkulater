@@ -1,6 +1,51 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'W': 'Arbeit, J',
+      't': 'Zeit, s',
+      'W2': 'Arbeit, J',
+      'P': 'Leistung, W',
+      'P2': 'Leistung, W',
+      't2': 'Zeit, s',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+      'P': 'die Leistung',
+      't': 'die Zeit',
+      'W': 'die Arbeit',
+    },
+    results: {
+      'Мощность': 'Leistung',
+      'Работа': 'Arbeit',
+      'Время': 'Zeit',
+      'В метрических лошадиных силах': 'In metrischen Pferdestärken',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Вт': 'W',
+      'Дж': 'J',
+      'с': 's',
+      'л.с.': 'PS',
+      'Время должно быть больше нуля': 'Die Zeit muss größer als null sein',
+      'Работа не может быть отрицательной': 'Die Arbeit kann nicht negativ sein',
+      'Мощность должна быть больше нуля, иначе время не определено': 'Die Leistung muss größer als null sein, sonst ist die Zeit nicht bestimmt',
+      'Мощность не может быть отрицательной': 'Die Leistung kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       "mode": "What to find",

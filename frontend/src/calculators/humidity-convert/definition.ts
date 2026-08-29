@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { humidityConvertCopyEn } from './copy.en';
 import { humidityConvertCopyUk } from './copy.uk';
+import { humidityConvertCopyDe } from './copy.de';
 import { humidityConvertReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: humidityConvertCopyEn, uk: humidityConvertCopyUk },
+  copy: { en: humidityConvertCopyEn, uk: humidityConvertCopyUk, de: humidityConvertCopyDe },
   referenceCases: humidityConvertReferenceCases,
   publishedExample: { inputs: { t: 20, rh: 50, pressure: 1013.25 }, expected: ["8,642 г/м³"] },
   presentation: {

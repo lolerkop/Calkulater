@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mass24': 'Masse des Körpers, ×10²⁴ kg',
+      'radiusKm': 'Radius, km',
+    },
+    results: {
+      'Вторая космическая скорость': 'Fluchtgeschwindigkeit',
+      'Первая космическая скорость': 'Kreisbahngeschwindigkeit',
+      'В километрах в час': 'In Kilometern je Stunde',
+      'Ускорение свободного падения': 'Fallbeschleunigung',
+      'Масса тела': 'Masse des Körpers',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м/с': 'm/s',
+      'км/ч': 'km/h',
+      'м/с²': 'm/s²',
+      'кг': 'kg',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Радиус должен быть больше нуля': 'Der Radius muss größer als null sein',
+    },
+  },
   en: {
     fields: { mass24: 'Body mass, ×10²⁴ kg', radiusKm: 'Radius, km' },
     options: {},

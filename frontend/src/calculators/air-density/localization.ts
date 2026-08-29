@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      't': 'Temperatur, °C',
+      'pressure': 'Luftdruck, hPa',
+      'humidity': 'Relative Luftfeuchte, %',
+    },
+    results: {
+      'Плотность воздуха': 'Luftdichte',
+      'Плотность сухого воздуха': 'Dichte trockener Luft',
+      'Давление водяного пара': 'Wasserdampfdruck',
+      'Давление насыщения': 'Sättigungsdruck',
+      'Отклонение от 1,225': 'Abweichung von 1,225',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кг/м³': 'kg/m³',
+      'гПа': 'hPa',
+      'Атмосферное давление должно быть больше нуля': 'Der Luftdruck muss größer als null sein',
+      'Относительная влажность задаётся от 0 до 100 процентов': 'Die relative Luftfeuchte liegt zwischen 0 und 100 Prozent',
+      'Температура не может быть ниже абсолютного нуля': 'Die Temperatur kann nicht unter dem absoluten Nullpunkt liegen',
+      'Давление пара выше атмосферного: проверьте температуру и давление': 'Der Dampfdruck liegt über dem Luftdruck: prüfe Temperatur und Druck',
+    },
+  },
   en: {
     fields: { t: 'Temperature, °C', pressure: 'Atmospheric pressure, hPa', humidity: 'Relative humidity, %' },
     options: {},

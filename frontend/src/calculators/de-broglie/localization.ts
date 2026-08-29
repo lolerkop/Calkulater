@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mass27': 'Masse des Teilchens, ×10⁻²⁷ kg',
+      'velocityKmS': 'Geschwindigkeit, km/s',
+    },
+    results: {
+      'Длина волны': 'Wellenlänge',
+      'Импульс': 'Impuls',
+      'Частота': 'Frequenz',
+      'В нанометрах': 'In Nanometern',
+      'Кинетическая энергия': 'Kinetische Energie',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м': 'm',
+      'нм': 'nm',
+      'Гц': 'Hz',
+      'кг·м/с': 'kg·m/s',
+      'Дж': 'J',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Скорость должна быть больше нуля': 'Die Geschwindigkeit muss größer als null sein',
+    },
+  },
   en: {
     fields: { mass27: 'Particle mass, ×10⁻²⁷ kg', velocityKmS: 'Speed, km/s' },
     options: {},

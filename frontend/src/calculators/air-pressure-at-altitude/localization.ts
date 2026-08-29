@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'h': 'Höhe über dem Meeresspiegel, m',
+    },
+    results: {
+      'Давление': 'Druck',
+      'В миллиметрах ртутного столба': 'In Millimetern Quecksilbersäule',
+      'Доля от уровня моря': 'Anteil des Meeresspiegelwerts',
+      'Температура по стандартной атмосфере': 'Temperatur nach der Normatmosphäre',
+      'Плотность воздуха': 'Luftdichte',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кПа': 'kPa',
+      'мм рт. ст.': 'mmHg',
+      '%': '%',
+      '°C': '°C',
+      'кг/м³': 'kg/m³',
+      'Высота вне диапазона от −430 до 11 000 м': 'Die Höhe liegt außerhalb des Bereichs von −430 bis 11 000 m',
+    },
+  },
   en: {
     fields: { h: 'Altitude above sea level, m' },
     options: {},

@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'massG': 'Masse, g',
+    },
+    results: {
+      'Энергия покоя': 'Ruheenergie',
+      'В киловатт-часах': 'In Kilowattstunden',
+      'В тоннах тротилового эквивалента': 'In Tonnen TNT-Äquivalent',
+      'Масса': 'Masse',
+      'Хватило бы городу на': 'Reichte einer Stadt für',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Дж': 'J',
+      'кВт·ч': 'kWh',
+      'т': 't',
+      'кг': 'kg',
+      'млн кВт·ч': 'Mio. kWh',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+    },
+  },
   en: {
     fields: { massG: 'Mass, g' },
     options: {},

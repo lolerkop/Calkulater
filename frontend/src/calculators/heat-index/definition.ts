@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { heatIndexCopyEn } from './copy.en';
 import { heatIndexCopyUk } from './copy.uk';
+import { heatIndexCopyDe } from './copy.de';
 import { heatIndexReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: heatIndexCopyEn, uk: heatIndexCopyUk },
+  copy: { en: heatIndexCopyEn, uk: heatIndexCopyUk, de: heatIndexCopyDe },
   referenceCases: heatIndexReferenceCases,
   publishedExample: { inputs: { t: 32, rh: 70 }, expected: ["40,409 °C"] },
   presentation: {

@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'p1': 'Druck im Querschnitt 1, kPa',
+      'v1': 'Geschwindigkeit im Querschnitt 1, m/s',
+      'h1': 'Höhe des Querschnitts 1, m',
+      'v2': 'Geschwindigkeit im Querschnitt 2, m/s',
+      'h2': 'Höhe des Querschnitts 2, m',
+      'rho': 'Dichte des Mediums, kg/m³',
+    },
+    results: {
+      'Давление во втором сечении': 'Druck im zweiten Querschnitt',
+      'Изменение давления': 'Druckänderung',
+      'Динамический напор в первом сечении': 'Staudruck im ersten Querschnitt',
+      'Динамический напор во втором сечении': 'Staudruck im zweiten Querschnitt',
+      'Полный напор': 'Gesamthöhe',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кПа': 'kPa',
+      'Плотность должна быть больше нуля': 'Die Dichte muss größer als null sein',
+      'Скорость не может быть отрицательной': 'Die Geschwindigkeit kann nicht negativ sein',
+      'Давление в первом сечении не может быть отрицательным': 'Der Druck im ersten Querschnitt kann nicht negativ sein',
+      'При таких данных давление во втором сечении отрицательно': 'Bei diesen Werten wird der Druck im zweiten Querschnitt negativ',
+    },
+  },
   en: {
     fields: {
       p1: 'Pressure at section 1, kPa', v1: 'Speed at section 1, m/s', h1: 'Height of section 1, m',

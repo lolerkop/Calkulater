@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { contextualField } from './contextualField';
 import { hookeLawCopyEn } from './copy.en';
 import { hookeLawCopyUk } from './copy.uk';
+import { hookeLawCopyDe } from './copy.de';
 import { hookeLawReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: hookeLawCopyEn, uk: hookeLawCopyUk },
+  copy: { en: hookeLawCopyEn, uk: hookeLawCopyUk, de: hookeLawCopyDe },
   referenceCases: hookeLawReferenceCases,
   publishedExample: { inputs: { mode: 'force', k: 200, x: 0.05, f: 10 }, expected: ["10 Н"] },
   presentation: {

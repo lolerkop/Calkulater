@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { momentOfInertiaCopyEn } from './copy.en';
 import { momentOfInertiaCopyUk } from './copy.uk';
+import { momentOfInertiaCopyDe } from './copy.de';
 import { momentOfInertiaReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: momentOfInertiaCopyEn, uk: momentOfInertiaCopyUk },
+  copy: { en: momentOfInertiaCopyEn, uk: momentOfInertiaCopyUk, de: momentOfInertiaCopyDe },
   referenceCases: momentOfInertiaReferenceCases,
   publishedExample: { inputs: { shape: 'disk', m: 2, r: 0.15 }, expected: ["0,0225 кг·м²"] },
   presentation: {

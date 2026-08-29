@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { halfLifeCopyEn } from './copy.en';
 import { halfLifeCopyUk } from './copy.uk';
+import { halfLifeCopyDe } from './copy.de';
 import { halfLifeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: halfLifeCopyEn, uk: halfLifeCopyUk },
+  copy: { en: halfLifeCopyEn, uk: halfLifeCopyUk, de: halfLifeCopyDe },
   referenceCases: halfLifeReferenceCases,
   publishedExample: { inputs: { mode: "remaining", n0: 100, half: 5730, t: 11460 }, expected: ["25 г"] },
   presentation: {

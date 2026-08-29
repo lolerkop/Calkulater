@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { coulombCopyEn } from './copy.en';
 import { coulombCopyUk } from './copy.uk';
+import { coulombCopyDe } from './copy.de';
 import { coulombReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: coulombCopyEn, uk: coulombCopyUk },
+  copy: { en: coulombCopyEn, uk: coulombCopyUk, de: coulombCopyDe },
   referenceCases: coulombReferenceCases,
   publishedExample: { inputs: { q1: 1, q2: -1, r: 10 }, expected: ["8,988·10^-7 Н"] },
   presentation: {

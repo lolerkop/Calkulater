@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { orbitalPeriodCopyEn } from './copy.en';
 import { orbitalPeriodCopyUk } from './copy.uk';
+import { orbitalPeriodCopyDe } from './copy.de';
 import { orbitalPeriodReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: orbitalPeriodCopyEn, uk: orbitalPeriodCopyUk },
+  copy: { en: orbitalPeriodCopyEn, uk: orbitalPeriodCopyUk, de: orbitalPeriodCopyDe },
   referenceCases: orbitalPeriodReferenceCases,
   publishedExample: { inputs: { mass24: 5.972, radiusKm: 6771 }, expected: ["5 544,93 с"] },
   presentation: {

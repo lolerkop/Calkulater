@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { escapeVelocityCopyEn } from './copy.en';
 import { escapeVelocityCopyUk } from './copy.uk';
+import { escapeVelocityCopyDe } from './copy.de';
 import { escapeVelocityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: escapeVelocityCopyEn, uk: escapeVelocityCopyUk },
+  copy: { en: escapeVelocityCopyEn, uk: escapeVelocityCopyUk, de: escapeVelocityCopyDe },
   referenceCases: escapeVelocityReferenceCases,
   publishedExample: { inputs: { mass24: 5.972, radiusKm: 6371 }, expected: ["11 185,98 м/с"] },
   presentation: {

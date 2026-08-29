@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { newtonForceCopyEn } from './copy.en';
 import { newtonForceCopyUk } from './copy.uk';
+import { newtonForceCopyDe } from './copy.de';
 import { newtonForceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: newtonForceCopyEn, uk: newtonForceCopyUk },
+  copy: { en: newtonForceCopyEn, uk: newtonForceCopyUk, de: newtonForceCopyDe },
   referenceCases: newtonForceReferenceCases,
   publishedExample: { inputs: { mode: 'F', m: 10, a: 2 }, expected: ["20 Н"] },
   presentation: {

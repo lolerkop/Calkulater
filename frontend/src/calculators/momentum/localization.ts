@@ -1,6 +1,50 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'm': 'Masse, kg',
+      'v': 'Geschwindigkeit, m/s',
+      'p': 'Impuls, kg·m/s',
+      'm2': 'Masse, kg',
+      'p2': 'Impuls, kg·m/s',
+      'v2': 'Geschwindigkeit, m/s',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'die Masse',
+      'p': 'der Impuls',
+      'v': 'die Geschwindigkeit',
+    },
+    results: {
+      'Импульс': 'Impuls',
+      'Масса': 'Masse',
+      'Скорость': 'Geschwindigkeit',
+      'Кинетическая энергия': 'Kinetische Energie',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'кг·м/с': 'kg·m/s',
+      'кг': 'kg',
+      'м/с': 'm/s',
+      'Дж': 'J',
+      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
+      'Скорость не может быть отрицательной': 'Die Geschwindigkeit kann nicht negativ sein',
+      'Импульс не может быть отрицательным': 'Der Impuls kann nicht negativ sein',
+      'Скорость должна быть больше нуля, иначе масса не определена': 'Die Geschwindigkeit muss größer als null sein, sonst ist die Masse nicht bestimmt',
+    },
+  },
   en: {
     fields: {
       "mode": "What to find",

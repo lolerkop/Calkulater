@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'm1': 'Erste Masse, kg',
+      'm2': 'Zweite Masse, kg',
+      'r': 'Abstand der Mittelpunkte, m',
+    },
+    results: {
+      'Сила притяжения': 'Gravitationskraft',
+      'Ускорение первого тела': 'Beschleunigung des ersten Körpers',
+      'Расстояние': 'Abstand',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Н': 'N',
+      'м/с²': 'm/s²',
+      'м': 'm',
+      'Первая масса должна быть больше нуля': 'Die erste Masse muss größer als null sein',
+      'Вторая масса должна быть больше нуля': 'Die zweite Masse muss größer als null sein',
+      'Расстояние должно быть больше нуля': 'Der Abstand muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       m1: 'First mass, kg',
