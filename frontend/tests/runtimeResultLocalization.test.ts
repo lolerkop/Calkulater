@@ -5,6 +5,8 @@ import { buildInitialValues } from '../src/lib/shareLink';
 import { getCalculatorById } from '../src/lib/i18n';
 import { v2Runtimes } from '../src/calculators/runtime.generated';
 import { localizeResult, resultToText } from '../src/components/islands/calculator/resultLocalization';
+import { localizedResultLabel, resultLabelPhrases } from '../src/lib/clientI18n';
+import { v2Localization } from '../src/calculators/localization.generated';
 import type { CalcResult, Field } from '../src/lib/types';
 
 // Утечка русского текста в переведённые локали на уровне РЕЗУЛЬТАТА.
@@ -63,11 +65,18 @@ function scenariosFor(fields: Field[]): Array<Record<string, unknown>> {
   const out: Array<Record<string, unknown>> = [base];
   for (const field of fields) {
     if (field.type === 'number') {
-      for (const value of [field.min, field.max, 0, -1].filter((v) => v !== undefined)) {
+      // Положительное значение обязательно: у необязательного поля значение по
+      // умолчанию — ноль, а строка результата, которая появляется только при
+      // непустом поле, при нуле не отрисовывается вовсе. Ровно этой дыры
+      // хватило, чтобы «Фиксированный сбор» и «Покупательная способность
+      // через N» доехали до Production мимо этой проверки.
+      for (const value of [field.min, field.max, 0, -1, 1000].filter((v) => v !== undefined)) {
         out.push({ ...base, [field.name]: value });
       }
     } else if (field.options) {
       for (const option of field.options) out.push({ ...base, [field.name]: option.value });
+    } else if (field.type === 'date') {
+      out.push({ ...base, [field.name]: '2026-08-29' }, { ...base, [field.name]: '' });
     }
   }
   return out;
@@ -75,7 +84,22 @@ function scenariosFor(fields: Field[]): Array<Record<string, unknown>> {
 
 type Leak = { calculator: string; scenario: string; value: string };
 
-function collectLeaks(locale: 'en' | 'uk', onlyIds?: Set<string>): Leak[] {
+// Второй признак утечки — для ПОДПИСЕЙ строк результата, и он точный, а не
+// эвристический. Значение можно оценивать только по виду: «4 шт. × 2,5 л» в
+// украинском законно совпадает с русским. С подписью иначе — у неё либо есть
+// объявленный перевод, либо его нет.
+//
+// Разница не теоретическая. «Покупательная способность через 1» — три слова,
+// то есть ниже порога связной прозы, и русских букв ыъэё в ней нет. Эвристика
+// по значению её не видит, а проверка объявления видит сразу.
+function undeclaredLabel(label: string, locale: 'en' | 'uk' | 'de', calculatorId: string): boolean {
+  if (!CYRILLIC.test(label)) return false;
+  if (v2Localization[locale][calculatorId]?.results?.[label] !== undefined) return false;
+  if (resultLabelPhrases[label]?.[locale] !== undefined) return false;
+  return localizedResultLabel(label, locale) === label;
+}
+
+function collectLeaks(locale: 'en' | 'uk' | 'de', onlyIds?: Set<string>): Leak[] {
   const leaks: Leak[] = [];
   for (const calculator of calculators) {
     if (onlyIds && !onlyIds.has(calculator.id)) continue;
@@ -95,8 +119,19 @@ function collectLeaks(locale: 'en' | 'uk', onlyIds?: Set<string>): Leak[] {
       const localized = localizeResult(russian, locale, calculator.id, v2Runtimes[calculator.id]);
       const scenario = JSON.stringify(inputs).slice(0, 70);
 
+      const labels = [
+        russian.primary.label,
+        ...russian.secondary.map((row) => row.label),
+        ...(russian.table ? [russian.table.title ?? '', ...russian.table.columns] : []),
+      ].filter(Boolean);
+      for (const label of labels) {
+        if (undeclaredLabel(label, locale, calculator.id)) {
+          leaks.push({ calculator: calculator.id, scenario, value: `подпись без перевода: ${label}` });
+        }
+      }
+
       for (const value of visibleStrings(localized)) {
-        const leaked = locale === 'en'
+        const leaked = locale !== 'uk'
           ? CYRILLIC.test(value)
           // В украинском кириллица законна, поэтому признаком утечки служит либо
           // русская буква, которой нет в украинском, либо строка, дословно
@@ -144,29 +179,27 @@ describe('runtime result localization: калькуляторы Expansion Pack #
 });
 
 describe('runtime result localization: остальные опубликованные калькуляторы', () => {
-  // Общий контроль по всему каталогу. Он ловит тот же класс дефекта у любого
-  // калькулятора, а не только у трёх новых. Всё, что уже протекало до этой
-  // задачи, перечислено ниже поимённо: это отдельные находки, а не разрешение.
+  // Общий контроль по всему каталогу: тот же класс дефекта у любого
+  // калькулятора, а не только у трёх новых. Исключений нет — любая утечка
+  // роняет тест.
   //
-  // Эти строки протекали до Expansion Pack #2 и в этой задаче намеренно не
-  // чинятся: правка старых калькуляторов в её область не входит. Список закрыт —
-  // любая новая утечка уронит тест.
-  // Старый долг вычищен: исключений не осталось. Любая утечка runtime-локализации
-  // в любом опубликованном калькуляторе теперь роняет тест.
-  const PRE_EXISTING_EN: string[] = [];
-  const PRE_EXISTING_UK: string[] = [];
+  // Разбит по разделам не ради скорости, а ради предсказуемости: единым тестом
+  // проверка занимала больше пяти секунд под нагрузкой полного прогона и
+  // упиралась в общий предел — на неизменённом main это воспроизводилось.
+  // Покрытие прежнее, работа та же, но каждый тест мелкий, а падение сразу
+  // называет раздел.
+  const categories = [...new Set(calculators.map((item) => item.category))].sort();
 
-  it('английский результат: новых утечек нет', () => {
-    const leaks = collectLeaks('en').filter((l) => !EXPANSION_PACK_2.has(l.calculator));
-    const unexpected = leaks.filter((l) => !PRE_EXISTING_EN.includes(l.value));
-    const shown = unexpected.slice(0, 8).map((l) => `${l.calculator}: «${l.value.slice(0, 70)}»`).join('\n');
-    expect(unexpected, `новых утечек ${unexpected.length}:\n${shown}`).toEqual([]);
-  });
-
-  it('украинский результат: новых утечек нет', () => {
-    const leaks = collectLeaks('uk').filter((l) => !EXPANSION_PACK_2.has(l.calculator));
-    const unexpected = leaks.filter((l) => !PRE_EXISTING_UK.includes(l.value));
-    const shown = unexpected.slice(0, 8).map((l) => `${l.calculator}: «${l.value.slice(0, 70)}»`).join('\n');
-    expect(unexpected, `новых утечек ${unexpected.length}:\n${shown}`).toEqual([]);
-  });
+  for (const locale of ['en', 'uk', 'de'] as const) {
+    for (const category of categories) {
+      const ids = new Set(
+        calculators.filter((item) => item.category === category).map((item) => item.id),
+      );
+      it(`${locale} / ${category}: утечек нет`, () => {
+        const leaks = collectLeaks(locale, ids).filter((l) => !EXPANSION_PACK_2.has(l.calculator));
+        const shown = leaks.slice(0, 8).map((l) => `${l.calculator}: «${l.value.slice(0, 70)}»`).join('\n');
+        expect(leaks, `утечек ${leaks.length}:\n${shown}`).toEqual([]);
+      });
+    }
+  }
 });
