@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { locales } from '../src/lib/i18n';
 
 test('full-parity language switcher links resolve to equivalent pages', async ({ page, request }) => {
   await page.goto('/ru/currency/currency-converter/');
@@ -26,7 +27,11 @@ test('RU-only calculator does not link or hreflang to false translations', async
 
   const switcher = page.locator('[data-language-switcher]');
   await expect(switcher.locator('a')).toHaveCount(1);
-  await expect(switcher.locator('[aria-disabled="true"]')).toHaveCount(2);
+  // По одной отключённой ссылке на каждую локаль, кроме текущей: калькулятор
+  // русскоязычный по существу и в остальных локалях не существует.
+  // Отключены все локали, кроме текущей: калькулятор русскоязычный по существу.
+  // Немецкий среди них — он тоже не предлагает ложного перевода.
+  await expect(switcher.locator('[aria-disabled="true"]')).toHaveCount(locales.length - 1);
   await expect(page.getByTestId('locale-specific-notice')).toBeVisible();
 
   const href = await switcher.locator('a').getAttribute('href');
