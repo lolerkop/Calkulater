@@ -130,13 +130,19 @@ for (const filePath of htmlFiles) {
     issues.push(`${file}: html lang "${htmlLang}" does not match route locale "${pageLocale}"`);
   }
 
+  const robots = metaContent(html, 'name', 'robots');
+  if (!robots) {
+    issues.push(`${file}: missing robots meta`);
+  }
+
+  const isNoIndex = robots.includes('noindex');
+
   if (textLength(title) < 10) {
     issues.push(`${file}: missing or too short <title>`);
   }
   if (textLength(title) > 110) {
     issues.push(`${file}: too long <title>`);
   }
-  rememberUnique(seenTitles, title.trim(), file, 'title');
 
   const description = metaContent(html, 'name', 'description');
   if (textLength(description) < 50) {
@@ -145,14 +151,16 @@ for (const filePath of htmlFiles) {
   if (textLength(description) > 220) {
     issues.push(`${file}: too long meta description`);
   }
-  rememberUnique(seenDescriptions, description.trim(), file, 'meta description');
 
-  const robots = metaContent(html, 'name', 'robots');
-  if (!robots) {
-    issues.push(`${file}: missing robots meta`);
+  // Уникальность заголовка и описания требуется от страниц, которые борются за
+  // место в выдаче. Закрытая от индексации страница ни с кем не конкурирует:
+  // русская `404.html` в корне и `/ru/404.html` — это одна и та же страница на
+  // двух путях, и совпадение их заголовков не дефект. Точно так же уже устроена
+  // проверка каноникала ниже — она тоже пропускает noindex.
+  if (!isNoIndex) {
+    rememberUnique(seenTitles, title.trim(), file, 'title');
+    rememberUnique(seenDescriptions, description.trim(), file, 'meta description');
   }
-
-  const isNoIndex = robots.includes('noindex');
   const canonicalTag = html.match(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i)?.[0];
   const canonical = canonicalTag ? attrValue(canonicalTag, 'href') : '';
   if (!isNoIndex && !canonical) {
