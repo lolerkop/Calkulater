@@ -1899,6 +1899,62 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       h1: 'Arbeitstage-Rechner',
       keywords: ['Arbeitstage Rechner', 'Werktage', 'Datumsrechner'],
     },
+      'margin-calculator': {
+      name: 'Marge- und Aufschlagsrechner',
+      slug: 'marge-aufschlag-rechner',
+      shortDescription: 'Berechne Aufschlag, Marge, Gewinn und Verkaufspreis aus den Selbstkosten.',
+      seoTitle: 'Marge- und Aufschlagsrechner — Preis, Gewinn und Prozente',
+      seoDescription: 'Berechne Aufschlag, Marge, Gewinn und Verkaufspreis aus den Selbstkosten. Drei Modi: aus dem Preis, aus dem Aufschlag und aus der Marge, mit erklärtem Unterschied.',
+      h1: 'Marge- und Aufschlagsrechner',
+      keywords: ['Marge berechnen', 'Aufschlag berechnen', 'Marge oder Aufschlag', 'Verkaufspreis berechnen'],
+    },
+    'break-even-calculator': {
+      name: 'Gewinnschwellenrechner',
+      slug: 'gewinnschwelle-rechner',
+      shortDescription: 'Finde heraus, wie viele Einheiten du verkaufen musst, um die Kosten zu decken.',
+      seoTitle: 'Gewinnschwellenrechner — Menge und Umsatz am Break-even',
+      seoDescription: 'Berechne die Gewinnschwelle in Einheiten und in Geld aus Fixkosten, Stückpreis und variablen Kosten. Mit Deckungsbeitrag, Sicherheitsspanne und Gewinn bei geplanter Menge.',
+      h1: 'Gewinnschwellenrechner',
+      keywords: ['Gewinnschwelle berechnen', 'Break-even-Punkt', 'Deckungsbeitrag', 'Fixkosten und variable Kosten'],
+    },
+    'screed-calculator': {
+      name: 'Estrichrechner',
+      slug: 'estrichrechner',
+      shortDescription: 'Schätze Estrichvolumen und die Zahl der Säcke Trockenmischung für einen Boden.',
+      seoTitle: 'Estrichrechner — Volumen und Säcke Trockenmischung',
+      seoDescription: 'Berechne das Estrichvolumen in Kubikmetern, die Masse der Trockenmischung und die Zahl der Säcke aus Fläche und Schichtdicke.',
+      h1: 'Estrichrechner',
+      keywords: ['Estrichrechner', 'Estrich berechnen', 'wie viele Säcke Estrich', 'Estrichmenge'],
+    },
+    'brick-calculator': {
+      name: 'Ziegel- und Steinrechner',
+      slug: 'ziegelrechner',
+      shortDescription: 'Ziegel oder Steine für eine einschalige Wand.',
+      seoTitle: 'Ziegel- und Steinrechner — Steinbedarf für eine Wand',
+      seoDescription: 'Berechne, wie viele Ziegel oder Steine eine Wand braucht: Wandmaß oder Fläche, Öffnungen, Steinmaß, Fugendicke und Reserve. Einschaliges Mauerwerk.',
+      h1: 'Ziegel- und Steinrechner',
+      keywords: ['Ziegelrechner', 'Steinbedarf berechnen', 'Ziegel pro Quadratmeter', 'Mauerwerk', 'Fugendicke'],
+    },
+    'body-fat-calculator': {
+      name: 'Körperfettrechner',
+      slug: 'koerperfett-rechner',
+      shortDescription: 'Schätze den Körperfettanteil aus Umfängen nach der Methode der US Navy.',
+      seoTitle: 'Körperfettrechner — Umfangmethode der US Navy',
+      seoDescription: 'Schätze deinen Körperfettanteil aus Hals-, Taillen- und Hüftumfang und der Größe. Methode der US Navy nach Hodgdon und Beckett, mit erklärter Genauigkeit.',
+      h1: 'Körperfettrechner',
+      keywords: ['Körperfettanteil berechnen', 'Körperfettrechner', 'Methode der US Navy', 'Umfangmethode'],
+      disclaimer: 'Das ist eine Schätzung aus Umfängen und kein medizinischer Befund.',
+    },
+    'date-shift-calculator': {
+      name: 'Datumsrechner',
+      slug: 'datumsrechner',
+      shortDescription: 'Finde das Datum eine Zahl von Tagen, Wochen, Monaten oder Jahren nach einem Startdatum.',
+      seoTitle: 'Datumsrechner — Tage, Wochen und Monate addieren oder abziehen',
+      seoDescription: 'Finde das Datum nach Addition oder Abzug von Tagen, Wochen, Monaten und Jahren. Zeigt Wochentag, Tag des Jahres und Kalenderwoche nach ISO 8601.',
+      h1: 'Datumsrechner',
+      keywords: ['Datumsrechner', 'Tage zu einem Datum addieren', 'Datum in 90 Tagen', 'Monate abziehen', 'Wochentag'],
+      disclaimer: 'Für gesetzliche Fristen prüfe, wie im maßgeblichen Vertrag, Gesetz oder örtlichen Arbeitskalender gezählt wird.',
+    },
   },
   fr: {
     'credit-calculator': {
@@ -4854,7 +4910,7 @@ const legacyFieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, st
     b: 'Wert B',
     from: 'Ausgangswährung',
     to: 'Zielwährung',
-    height: 'Größe',
+    height: 'Höhe',
     weight: 'Gewicht',
     age: 'Alter',
     gender: 'Geschlecht',
@@ -4892,6 +4948,50 @@ const legacyFieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, st
     capPeriod: 'Kapitalisierungsperiode',
     discountPct: 'Rabatt, %',
     discountAmt: 'Rabattbetrag',
+      extraPayment: 'Zusätzliche Zahlung im Monat',
+    oneTimeFee: 'Einmalige Gebühr',
+    compounding: 'Häufigkeit der Zinsgutschrift',
+    downPaymentMode: 'Anzahlung angegeben als',
+    downPaymentPct: 'Anzahlung',
+    monthlyInsurance: 'Versicherung und Kosten im Monat',
+    secondDiscountPct: 'Zusätzlicher Rabatt, %',
+    quantity: 'Menge',
+    cost: 'Selbstkosten',
+    sellPrice: 'Verkaufspreis',
+    markupPct: 'Aufschlag',
+    marginPct: 'Marge',
+    fixedCosts: 'Fixkosten je Periode',
+    unitPrice: 'Verkaufspreis je Einheit',
+    variableCost: 'Variable Kosten je Einheit',
+    plannedUnits: 'Geplante Absatzmenge',
+    glueConsumption: 'Kleberbedarf, kg/m²',
+    packPrice: 'Preis je Paket',
+    rollPrice: 'Preis je Rolle',
+    canPrice: 'Preis je Dose',
+    underlayPrice: 'Preis der Trittschalldämmung je m²',
+    thickness: 'Schichtdicke, cm',
+    mixConsumption: 'Ergiebigkeit, kg je m² bei 1 cm Schicht',
+    bagWeight: 'Sackgewicht, kg',
+    bagPrice: 'Preis je Sack',
+    wallLength: 'Wandlänge',
+    wallHeight: 'Wandhöhe',
+    openingsArea: 'Fläche der Öffnungen',
+    unitLength: 'Steinlänge',
+    unitHeight: 'Steinhöhe',
+    joint: 'Fugendicke',
+    goalAdjustment: 'Kalorienanpassung für das Ziel, %',
+    proteinPct: 'Anteil Eiweiß, %',
+    fatPct: 'Anteil Fett, %',
+    sex: 'Geschlecht',
+    neck: 'Halsumfang',
+    waist: 'Taillenumfang',
+    hip: 'Hüftumfang',
+    saturdayWorking: 'Samstag als Arbeitstag zählen',
+    shiftDirection: 'Richtung',
+    shiftYears: 'Jahre',
+    shiftMonths: 'Monate',
+    shiftWeeks: 'Wochen',
+    shiftDays: 'Tage',
   },
   fr: {
     amount: 'Montant',
@@ -5740,6 +5840,31 @@ const legacyOptionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, s
     add: 'Prozent hinzufügen',
     subtract: 'Prozent abziehen',
     findOriginal: 'Ausgangswert finden',
+      amount: 'Als Betrag',
+    percent: 'Als Prozentsatz',
+    what: 'Wie viel Prozent ist A von B',
+    addPct: 'Prozent zu einer Zahl addieren',
+    subPct: 'Prozent von einer Zahl abziehen',
+    fromPrice: 'Selbstkosten und Preis',
+    fromMarkup: 'Selbstkosten und Aufschlag',
+    fromMargin: 'Selbstkosten und Marge',
+    dimensions: 'Nach Maßen',
+    '1.2': 'Minimal — sitzende Tätigkeit',
+    '1.375': 'Leicht — 1–3 Einheiten pro Woche',
+    '1.55': 'Mittel — 3–5 Einheiten pro Woche',
+    '1.725': 'Hoch — 6–7 Einheiten pro Woche',
+    '1.9': 'Sehr hoch — körperliche Arbeit',
+    USD: 'USD — US-Dollar',
+    EUR: 'EUR — Euro',
+    MDL: 'MDL — Moldauischer Leu',
+    RON: 'RON — Rumänischer Leu',
+    UAH: 'UAH — Hrywnja',
+    PLN: 'PLN — Polnischer Złoty',
+    GBP: 'GBP — Pfund Sterling',
+    CHF: 'CHF — Schweizer Franken',
+    TRY: 'TRY — Türkische Lira',
+    forward: 'Zum Datum addieren',
+    backward: 'Vom Datum abziehen',
   },
   fr: {
     years: 'Années',
@@ -6177,6 +6302,23 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
     };
     return ukrainianUnits[unit] ?? unit;
   }
+  if (locale === 'de') {
+    // Английская карта переводит «% годовых» как «% yearly»: на немецкой
+    // странице это оставалось английским словом прямо в подписи поля.
+    const germanUnits: Record<string, string> = {
+      '₽': '€',
+      'мм': 'mm',
+      '₽ годовых': '% p. a.',
+      '% годовых': '% p. a.',
+      'кг': 'kg',
+      'г': 'g',
+      'см': 'cm',
+      'м': 'm',
+      'м²': 'm²',
+      'л': 'l',
+    };
+    return germanUnits[unit] ?? unit;
+  }
   const currencyByLocale: Partial<Record<Locale, string>> = {
     en: '$',
     pl: 'zł',
@@ -6196,6 +6338,34 @@ const optionLabelsByLocale = legacyOptionLabelsByLocale;
 
 const fieldLabelsByLocale = legacyFieldLabelsByLocale;
 
+// Немецкие подписи полей, зависящие от калькулятора.
+//
+// Общий словарь легаси-калькуляторов ключуется именем поля, а одно имя у разных
+// калькуляторов значит разное: `height` — это рост человека и высота стены,
+// `price` — цена товара и стоимость недвижимости, `unitPrice` — цена продажи
+// единицы и цена одного камня. Английский обходится нейтральным словом, немецкий
+// нет: «Größe» для стены и «Originalpreis» для квартиры просто неверны. Это тот
+// же принцип области видимости, что и у калькуляторов V2, только для легаси.
+const germanLegacyFieldOverrides: Record<string, Record<string, string>> = {
+  'credit-calculator': { amount: 'Darlehensbetrag', rate: 'Sollzins' },
+  'compound-interest': { rate: 'Jahreszins' },
+  'mortgage-calculator': { price: 'Kaufpreis der Immobilie', rate: 'Sollzins' },
+  'percent-calculator': { mode: 'Aufgabe' },
+  'discount-calculator': { mode: 'Rabatt angegeben als', quantity: 'Anzahl der Artikel' },
+  'margin-calculator': { mode: 'Was ist bekannt' },
+  'tile-calculator': { mode: 'Rechenweg' },
+  'paint-calculator': { mode: 'Rechenweg', height: 'Raumhöhe' },
+  'screed-calculator': { mode: 'Rechenweg' },
+  'wallpaper-calculator': { height: 'Höhe der Wände', length: 'Raumlänge', width: 'Raumbreite' },
+  'laminate-calculator': { length: 'Raumlänge', width: 'Raumbreite' },
+  'brick-calculator': { mode: 'Wand angegeben als', manualArea: 'Wandfläche', unitPrice: 'Preis je Stein' },
+  'bmi-calculator': { height: 'Körpergröße' },
+  'calorie-calculator': { height: 'Körpergröße' },
+  'body-fat-calculator': { height: 'Körpergröße' },
+  'one-rep-max-calculator': { weight: 'Arbeitsgewicht' },
+  'date-shift-calculator': { startDate: 'Ausgangsdatum' },
+};
+
 function localizeField(field: Field, locale: Locale, calculatorId: string): Field {
   if (locale === 'ru') return { ...field };
   const fieldLabels = fieldLabelsByLocale[locale];
@@ -6206,6 +6376,7 @@ function localizeField(field: Field, locale: Locale, calculatorId: string): Fiel
     // Имена полей вроде `mode` встречаются у многих калькуляторов сразу,
     // поэтому обращение к V2-локализации всегда идёт с идентификатором.
     label: lookupScoped(v2Localization, locale, calculatorId, 'fields', field.name)
+      ?? (locale === 'de' ? germanLegacyFieldOverrides[calculatorId]?.[field.name] : undefined)
       ?? fieldLabels[field.name] ?? field.label,
     unit: localizeUnit(field.unit, locale),
     help: field.help,

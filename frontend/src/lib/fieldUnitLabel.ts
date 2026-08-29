@@ -19,17 +19,18 @@ import type { Locale } from './i18n';
 
 type Копия = { noUnit: string; select: string; date: string; toggle: string };
 
-const КОПИЯ: Record<'ru' | 'uk' | 'en', Копия> = {
+const КОПИЯ: Record<'ru' | 'uk' | 'en' | 'de', Копия> = {
   ru: { noUnit: 'без единицы', select: 'вариант из списка', date: 'дата', toggle: 'да или нет' },
   uk: { noUnit: 'без одиниці', select: 'варіант зі списку', date: 'дата', toggle: 'так або ні' },
   en: { noUnit: 'unitless', select: 'list option', date: 'date', toggle: 'yes or no' },
+  de: { noUnit: 'ohne Einheit', select: 'Auswahl aus der Liste', date: 'Datum', toggle: 'ja oder nein' },
 };
 
 /** Варианты переключателя перечисляются через косую черту: «Лет / Месяцев». */
 const РАЗДЕЛИТЕЛЬ = ' / ';
 
 export function fieldUnitCopy(locale: Locale): Копия {
-  return КОПИЯ[locale as 'ru' | 'uk' | 'en'] ?? КОПИЯ.en;
+  return КОПИЯ[locale as 'ru' | 'uk' | 'en' | 'de'] ?? КОПИЯ.en;
 }
 
 export function fieldUnitLabel(field: Field, locale: Locale): string {

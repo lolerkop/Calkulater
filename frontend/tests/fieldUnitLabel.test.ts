@@ -15,7 +15,7 @@ import type { Field } from '../src/lib/types';
 // вместе с полем, поэтому описание верно во всех трёх публичных локалях и само
 // остаётся верным при правке вариантов.
 
-const публичные = ['ru', 'en', 'uk'] as const;
+const публичные = ['ru', 'en', 'uk', 'de'] as const;
 
 const поле = (over: Partial<Field>): Field => ({
   name: 'test', label: 'Тест', type: 'number', defaultValue: 0, ...over,
@@ -48,6 +48,7 @@ describe('fieldUnitLabel: контракт', () => {
     expect(fieldUnitLabel(f, 'ru')).toBe('вариант из списка');
     expect(fieldUnitLabel(f, 'en')).toBe('list option');
     expect(fieldUnitLabel(f, 'uk')).toBe('варіант зі списку');
+    expect(fieldUnitLabel(f, 'de')).toBe('Auswahl aus der Liste');
   });
 
   it('флажок — единственный по-настоящему булев ввод', () => {
@@ -55,6 +56,7 @@ describe('fieldUnitLabel: контракт', () => {
     expect(fieldUnitLabel(f, 'ru')).toBe('да или нет');
     expect(fieldUnitLabel(f, 'en')).toBe('yes or no');
     expect(fieldUnitLabel(f, 'uk')).toBe('так або ні');
+    expect(fieldUnitLabel(f, 'de')).toBe('ja oder nein');
   });
 
   it('остальные типы описываются как прежде', () => {
@@ -63,6 +65,11 @@ describe('fieldUnitLabel: контракт', () => {
     expect(fieldUnitLabel(поле({ type: 'number' }), 'ru')).toBe('без единицы');
     expect(fieldUnitLabel(поле({ type: 'number' }), 'en')).toBe('unitless');
     expect(fieldUnitLabel(поле({ type: 'number' }), 'uk')).toBe('без одиниці');
+    // Немецкая страница раньше писала «unitless», «date» и «list option»:
+    // локаль в карте отсутствовала и молча получала английский запасной путь.
+    expect(fieldUnitLabel(поле({ type: 'number' }), 'de')).toBe('ohne Einheit');
+    expect(fieldUnitLabel(поле({ type: 'date' }), 'de')).toBe('Datum');
+    expect(fieldUnitLabel(поле({ type: 'select' }), 'de')).toBe('Auswahl aus der Liste');
   });
 
   it('лишних пробелов и пустых кусков не появляется', () => {
@@ -73,7 +80,7 @@ describe('fieldUnitLabel: контракт', () => {
 });
 
 describe('fieldUnitLabel: реальные данные', () => {
-  const булево: Record<string, string> = { ru: 'да или нет', en: 'yes or no', uk: 'так або ні' };
+  const булево: Record<string, string> = { ru: 'да или нет', en: 'yes or no', uk: 'так або ні', de: 'ja oder nein' };
 
   it('ни один переключатель в данных не булев по типу', () => {
     // Флажков в проекте нет: если появятся, ветка checkbox их обслужит честно.

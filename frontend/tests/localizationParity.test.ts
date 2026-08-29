@@ -12,6 +12,7 @@ import {
   getCalculators,
   getEquivalentCalculatorPath,
   localeMeta,
+  locales,
 } from '../src/lib/i18n';
 
 describe('localization parity', () => {
@@ -46,10 +47,14 @@ describe('localization parity', () => {
   });
 
   it('creates complete hreflang clusters only for full-parity calculators', () => {
+    // Набор локалей выводится из состава сборки, а не выписан буквами: с
+    // появлением немецкого список пришлось бы править вручную, и утверждение
+    // от этого стало бы слабее. В таком виде оно требует полный кластер по
+    // всем выпущенным локалям — выпадение любой из них здесь и упадёт.
     for (const id of fullParityCalculatorIds) {
       const alternates = getAlternatesForCalculator(id);
-      expect(alternates.map((item) => item.locale)).toEqual(['ru', 'en', 'uk', 'x-default']);
-      for (const locale of ['ru', 'en', 'uk'] as const) {
+      expect(alternates.map((item) => item.locale)).toEqual([...locales, 'x-default']);
+      for (const locale of locales) {
         expect(alternates.find((item) => item.locale === locale)?.href).toBe(getCalculatorById(id, locale)?.fullPath);
       }
     }

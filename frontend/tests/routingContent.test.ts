@@ -150,9 +150,11 @@ describe('routing content: i18n routes', () => {
     // скопирован из английского.
     expect(getCalculatorById('annuity', 'de')?.fullPath).toBe('/de/finanzen/annuitaetenrechner/');
     expect(getCalculatorById('density', 'de')?.fullPath).toBe('/de/physik/dichte-rechner/');
+    expect(getCalculatorById('percent-calculator', 'de')?.fullPath).toBe('/de/finanzen/prozentrechner/');
     // Калькулятор без немецкого текста в немецкой локали не существует —
-    // страница-заглушка хуже отсутствия страницы.
-    expect(getCalculatorById('percent-calculator', 'de')).toBeUndefined();
+    // страница-заглушка хуже отсутствия страницы. Запись числа прописью
+    // исключена сознательно: немецкий порядок слов не собирается подстановкой.
+    expect(getCalculatorById('number-to-words', 'de')).toBeUndefined();
     expect(getCalculatorById('percent-calculator', 'fr')?.fullPath).toBe('/fr/finances/calculateur-pourcentage/');
     expect(getCalculatorById('bmi-calculator', 'fr')?.fullPath).toBe('/fr/sante/calculatrice-imc/');
     expect(getCalculatorById('percent-calculator', 'pt')?.fullPath).toBe('/pt/financas/calculadora-percentagem/');

@@ -185,19 +185,19 @@ function replacePhrasesOnce(value: string, phrases: Record<string, string>): str
 //
 // Число читается из самой строки вместе с неразрывными разделителями тысяч,
 // которые расставил Intl в раннере: «6 784 дн.» — это 6784, а не 784.
-const countWords: Array<{ source: RegExp; en: [string, string]; uk: [string, string, string] }> = [
-  { source: /(\d+(?:\u00a0\d{3})*) (?:года|год|лет)/g, en: ['year', 'years'], uk: ['рік', 'роки', 'років'] },
-  { source: /(\d+(?:\u00a0\d{3})*) (?:месяцев|месяца|месяц)/g, en: ['month', 'months'], uk: ['місяць', 'місяці', 'місяців'] },
-  { source: /(\d+(?:\u00a0\d{3})*) (?:дней|дня|день)/g, en: ['day', 'days'], uk: ['день', 'дні', 'днів'] },
+const countWords: Array<{ source: RegExp; en: [string, string]; de: [string, string]; uk: [string, string, string] }> = [
+  { source: /(\d+(?:\u00a0\d{3})*) (?:года|год|лет)/g, en: ['year', 'years'], de: ['Jahr', 'Jahre'], uk: ['рік', 'роки', 'років'] },
+  { source: /(\d+(?:\u00a0\d{3})*) (?:месяцев|месяца|месяц)/g, en: ['month', 'months'], de: ['Monat', 'Monate'], uk: ['місяць', 'місяці', 'місяців'] },
+  { source: /(\d+(?:\u00a0\d{3})*) (?:дней|дня|день)/g, en: ['day', 'days'], de: ['Tag', 'Tage'], uk: ['день', 'дні', 'днів'] },
   // Сокращение «дн.» не изменяется по числу ни в русском, ни в украинском, но в
-  // английском разворачивается в полное слово, которому форма уже нужна.
-  { source: /(\d+(?:\u00a0\d{3})*) дн\./g, en: ['day', 'days'], uk: ['дн.', 'дн.', 'дн.'] },
+  // английском и немецком разворачивается в полное слово, которому форма уже нужна.
+  { source: /(\d+(?:\u00a0\d{3})*) дн\./g, en: ['day', 'days'], de: ['Tag', 'Tage'], uk: ['дн.', 'дн.', 'дн.'] },
 ];
 
-function localizeCountWords(value: string, locale: 'en' | 'uk'): string {
+function localizeCountWords(value: string, locale: 'en' | 'de' | 'uk'): string {
   return countWords.reduce((text, unit) => text.replace(unit.source, (_match, digits: string) => {
     const count = Number(digits.replace(/\u00a0/g, ''));
-    const word = locale === 'en' ? unit.en[count === 1 ? 0 : 1] : pluralRu(count, unit.uk);
+    const word = locale === 'uk' ? pluralRu(count, unit.uk) : unit[locale][count === 1 ? 0 : 1];
     return `${digits} ${word}`;
   }), value);
 }
@@ -246,13 +246,17 @@ export function localizedResultText(
   // короткому ключу перехватить совпадение у длинного.
   let localized = exact ?? replacePhrasesOnce(value, phrases);
 
-  if (locale === 'en' || locale === 'uk') {
+  if (locale === 'en' || locale === 'uk' || locale === 'de') {
     localized = localizeCountWords(localized, locale);
   }
 
+  // Немецкие сокращения отделены от английских: без этого немецкая страница
+  // писала «5 years» и «12 pcs.» — английские слова внутри немецкого значения.
   const units = locale === 'uk'
     ? { month: 'міс.', year: 'років', day: 'дн.', piece: 'шт.', liter: 'л', gram: 'г', kg: 'кг', cm: 'см', kcal: 'ккал', pace: '/км', hour: 'год', minute: 'хв' }
-    : { month: 'mo.', year: 'years', day: 'days', piece: 'pcs.', liter: 'L', gram: 'g', kg: 'kg', cm: 'cm', kcal: 'kcal', pace: '/km', hour: 'h', minute: 'min' };
+    : locale === 'de'
+      ? { month: 'Mon.', year: 'Jahre', day: 'Tage', piece: 'Stk.', liter: 'l', gram: 'g', kg: 'kg', cm: 'cm', kcal: 'kcal', pace: '/km', hour: 'Std.', minute: 'Min.' }
+      : { month: 'mo.', year: 'years', day: 'days', piece: 'pcs.', liter: 'L', gram: 'g', kg: 'kg', cm: 'cm', kcal: 'kcal', pace: '/km', hour: 'h', minute: 'min' };
 
   return localized
     .replaceAll('₽', currency)
@@ -383,6 +387,107 @@ const resultValueMap: ResultValueMap = {
     'Четверг': 'Thursday',
     'Пятница': 'Friday',
     'Суббота': 'Saturday',
+  },
+  de: {
+    'Введите положительные размеры и толщину': 'Trage positive Maße und eine positive Dicke ein',
+    'Вес мешка должен быть больше нуля': 'Das Sackgewicht muss größer als null sein',
+    'Введите себестоимость больше нуля': 'Trage Selbstkosten größer als null ein',
+    'Маржа должна быть меньше 100%': 'Die Marge muss unter 100 % liegen',
+    'Цена продажи ниже себестоимости, поэтому наценка и маржа отрицательные.': 'Der Verkaufspreis liegt unter den Selbstkosten, deshalb sind Aufschlag und Marge negativ.',
+    'Введите цену больше нуля': 'Trage einen Preis über null ein',
+    'Выберите исходную дату': 'Wähle ein Ausgangsdatum',
+    'Интервал не может быть отрицательным': 'Der Abstand kann nicht negativ sein',
+    'Сумма кредита должна быть положительной': 'Der Darlehensbetrag muss größer als null sein',
+    'Постоянные затраты не могут быть отрицательными': 'Die Fixkosten können nicht negativ sein',
+    'Цена продажи должна быть больше нуля': 'Der Verkaufspreis muss größer als null sein',
+    'Переменные затраты не могут быть отрицательными': 'Die variablen Kosten können nicht negativ sein',
+    'Переменные затраты не ниже цены продажи, поэтому маржинальная прибыль не положительна. При таких условиях увеличение продаж не приводит к безубыточности: сначала нужно поднять цену или снизить переменные затраты.': 'Die variablen Kosten liegen nicht unter dem Verkaufspreis, deshalb ist der Deckungsbeitrag nicht positiv. Unter diesen Bedingungen führt mehr Absatz nie zur Gewinnschwelle: zuerst muss der Preis steigen oder die variablen Kosten müssen sinken.',
+    'Плановый объём меньше точки безубыточности, поэтому запас прочности отрицательный, а расчёт показывает убыток.': 'Die geplante Menge liegt unter der Gewinnschwelle, deshalb ist die Sicherheitsspanne negativ und die Rechnung weist einen Verlust aus.',
+    'Обхваты, метод ВМС США': 'Umfänge, Methode der US Navy',
+    'Это оценка по обхватам, а не измерение. Погрешность метода составляет несколько процентных пунктов и растёт при неточных замерах ленты. Результат не является медицинским заключением.': 'Das ist eine Schätzung aus Umfängen und keine Messung. Die Methode trifft auf wenige Prozentpunkte genau, und der Fehler wächst bei ungenauem Anlegen des Maßbands. Das Ergebnis ist kein medizinischer Befund.',
+    'Обхват талии должен быть больше обхвата шеи': 'Der Taillenumfang muss größer als der Halsumfang sein',
+    'Сумма обхватов талии и бёдер должна быть больше обхвата шеи': 'Taillen- und Hüftumfang zusammen müssen größer als der Halsumfang sein',
+    'Сочетание обхватов выходит за пределы применимости метода — проверьте измерения': 'Diese Kombination von Umfängen liegt außerhalb des Bereichs, in dem die Methode gilt — prüfe die Messungen',
+    'Введите рост больше нуля': 'Trage eine Größe über null ein',
+    'Введите обхват шеи больше нуля': 'Trage einen Halsumfang über null ein',
+    'Введите обхват талии больше нуля': 'Trage einen Taillenumfang über null ein',
+    'Введите обхват бёдер больше нуля': 'Trage einen Hüftumfang über null ein',
+    'Введите положительные размеры стены': 'Trage positive Wandmaße ein',
+    'Введите положительные размеры камня': 'Trage positive Steinmaße ein',
+    'Толщина шва не может быть отрицательной': 'Die Fugendicke kann nicht negativ sein',
+    'Площадь проёмов не может быть отрицательной': 'Die Fläche der Öffnungen kann nicht negativ sein',
+    'Запас не может быть отрицательным': 'Die Reserve kann nicht negativ sein',
+    'Проёмы занимают всю стену — кладка не требуется': 'Die Öffnungen füllen die ganze Wand — es ist nichts zu mauern',
+    'Расчёт выполнен для одного слоя кладки по видимой плоскости стены. Кладка в кирпич и толще, перевязка, простенки и доборные элементы не моделируются, поэтому перед закупкой сверьтесь с проектом.': 'Gerechnet ist eine einschalige Wand, gemessen an der sichtbaren Wandfläche. Wände von einem Stein Dicke und mehr, Verband, Pfeiler und Ergänzungssteine werden nicht abgebildet, prüfe vor dem Einkauf also die Planung.',
+    'официальный справочный': 'amtlicher Referenzkurs',
+    'Это не курс в реальном времени. Используются официальные справочные курсы центральных банков на указанную дату. Банки и обменные пункты могут использовать другие курсы и комиссии.': 'Das sind keine Echtzeitkurse. Verwendet werden die amtlichen Referenzkurse der Zentralbanken zum angezeigten Datum. Banken und Wechselstuben können andere Kurse und Gebühren ansetzen.',
+    'Курсы успешно обновлены при последней сборке сайта.': 'Die Kurse wurden beim letzten Bau der Website erfolgreich aktualisiert.',
+    'Дата курса старше четырёх дней. Данные могут быть устаревшими.': 'Das Kursdatum liegt mehr als vier Tage zurück. Die Daten können veraltet sein.',
+    'Не удалось обновить курсы при последней сборке. Используются последние сохранённые данные.': 'Beim letzten Bau ließen sich die Kurse nicht aktualisieren. Verwendet werden die zuletzt gespeicherten Daten.',
+    'Европейский центральный банк': 'Europäische Zentralbank',
+    'Национальный банк Украины': 'Nationalbank der Ukraine',
+    'Национальный банк Молдовы': 'Nationalbank der Republik Moldau',
+    'Exchange Rate API': 'Exchange Rate API',
+    'Резервный источник': 'Ersatzquelle',
+    'Основной источник был недоступен, курс получен из резервного.': 'Die Hauptquelle war nicht erreichbar, der Kurs stammt aus der Ersatzquelle.',
+    'Курсы обновлены при последней сборке; часть валют получена из резервного источника.': 'Die Kurse wurden beim letzten Bau aktualisiert; ein Teil der Währungen stammt aus der Ersatzquelle.',
+    'Доллар США': 'US-Dollar',
+    'Евро': 'Euro',
+    'Молдавский лей': 'Moldauischer Leu',
+    'Румынский лей': 'Rumänischer Leu',
+    'Гривна': 'Hrywnja',
+    'Польский злотый': 'Polnischer Złoty',
+    'Фунт стерлингов': 'Pfund Sterling',
+    'Швейцарский франк': 'Schweizer Franken',
+    'Турецкая лира': 'Türkische Lira',
+    'Норма': 'Normalbereich',
+    'Недостаток веса': 'Untergewicht',
+    'Выраженный дефицит': 'Starkes Untergewicht',
+    'Избыточный вес': 'Übergewicht',
+    'Ожирение I степени': 'Adipositas Grad I',
+    'Ожирение II степени': 'Adipositas Grad II',
+    'Ожирение III степени': 'Adipositas Grad III',
+    'Поддерживайте текущий режим.': 'Behalte deine derzeitige Routine bei.',
+    'Стоит набрать немного массы.': 'Etwas zuzunehmen wäre sinnvoll.',
+    'Рекомендуется снизить вес.': 'Eine Gewichtsabnahme ist ratsam.',
+    'Обратитесь к специалисту.': 'Wende dich an eine Fachkraft.',
+    'Необходима консультация врача.': 'Eine ärztliche Beratung ist nötig.',
+    'Срочно к врачу.': 'Suche zeitnah ärztlichen Rat.',
+    'Срочно обратитесь к врачу.': 'Suche zeitnah ärztlichen Rat.',
+    'Показан размер первого (наибольшего) платежа. Далее платёж снижается.': 'Gezeigt ist die erste und höchste Rate. Danach sinkt die Rate allmählich.',
+    'Показан размер первого (наибольшего) платежа.': 'Gezeigt ist die erste und höchste Rate.',
+    'Точность формулы снижается при повторениях больше 10.': 'Über 10 Wiederholungen wird die Schätzung ungenauer.',
+    'ИМТ — ориентировочный показатель для взрослых. Он может быть менее точным для спортсменов, беременных и людей старшего возраста.': 'Der BMI ist ein Orientierungswert für Erwachsene. Bei Sportlern, Schwangeren und älteren Menschen kann er weniger genau sein.',
+    'Показаны первые 12 месяцев и последний платеж.': 'Gezeigt sind die ersten 12 Monate und die letzte Rate.',
+    'Таблица предполагает равномерный темп на всей дистанции.': 'Die Tabelle setzt ein gleichmäßiges Tempo über die ganze Strecke voraus.',
+    'Получилось очень низкое значение калорий. Не используйте такой дефицит без консультации врача или диетолога.': 'Der berechnete Kalorienwert ist sehr niedrig. Nutze ein solches Defizit nicht ohne ärztlichen oder ernährungsfachlichen Rat.',
+    'Расчёт служит стартовой оценкой. Корректируйте калорийность по динамике веса за 2–3 недели.': 'Nimm das als Ausgangsschätzung und passe die Kalorien nach dem Gewichtsverlauf über 2–3 Wochen an.',
+    'Введите положительные значения': 'Trage positive Werte ein',
+    'Введите положительные размеры': 'Trage positive Maße ein',
+    'Введите рост и вес': 'Trage Größe und Gewicht ein',
+    'Введите рост, вес и возраст': 'Trage Größe, Gewicht und Alter ein',
+    'Введите дистанцию и время': 'Trage Strecke und Zeit ein',
+    'Введите вес и количество повторений': 'Trage Gewicht und Wiederholungen ein',
+    'Выберите дату рождения': 'Wähle ein Geburtsdatum',
+    'Выберите начало и конец': 'Wähle Anfang und Ende',
+    'Дата конца раньше начала': 'Das Enddatum liegt vor dem Anfangsdatum',
+    'Дата расчёта раньше даты рождения': 'Das Rechendatum liegt vor dem Geburtsdatum',
+    'Неизвестная валюта': 'Unbekannte Währung',
+    'Целое не может быть равно нулю': 'Das Ganze kann nicht null sein',
+    'Исходное значение не может быть равно нулю': 'Der Ausgangswert kann nicht null sein',
+    'Процент от числа': 'Prozent einer Zahl',
+    'Часть от целого': 'Anteil am Ganzen',
+    'Прибавить процент': 'Prozent addieren',
+    'Вычесть процент': 'Prozent abziehen',
+    'Процентное изменение': 'Prozentuale Änderung',
+    'Проценты': 'Prozent',
+    'Воскресенье': 'Sonntag',
+    'Понедельник': 'Montag',
+    'Вторник': 'Dienstag',
+    'Среда': 'Mittwoch',
+    'Четверг': 'Donnerstag',
+    'Пятница': 'Freitag',
+    'Суббота': 'Samstag',
   },
   uk: {
     'Введите положительные размеры и толщину': 'Введіть додатні розміри та товщину',
@@ -843,9 +948,160 @@ const ukrainianResultLabelMap: Record<string, string> = {
   'Итого за товары': 'Разом за всі товари',
 };
 
+// Подписи результата легаси-калькуляторов по-немецки. У калькуляторов V2 своя
+// карта в их собственной локализации; сюда попадает то, что живёт в общем
+// каталоге и иначе вернулось бы английским.
+const germanResultLabelMap: Record<string, string> = {
+  'Ежемесячный платеж': 'Monatliche Rate',
+  'Общая сумма выплат': 'Summe aller Zahlungen',
+  'Переплата': 'Mehrkosten',
+  'Сумма процентов': 'Zinsen insgesamt',
+  'Итоговая сумма': 'Endbetrag',
+  'Внесённая сумма': 'Eingezahlter Betrag',
+  'Прибыль': 'Gewinn',
+  'Сумма кредита': 'Darlehensbetrag',
+  'Общая стоимость': 'Gesamtkosten',
+  'Результат': 'Ergebnis',
+  'Цена со скидкой': 'Preis nach Rabatt',
+  'Размер скидки': 'Rabattbetrag',
+  'Процент скидки': 'Rabatt in Prozent',
+  'Исходная цена': 'Ursprünglicher Preis',
+  'Цена продажи': 'Verkaufspreis',
+  'Себестоимость': 'Selbstkosten',
+  'Прибыль с единицы': 'Gewinn je Einheit',
+  'Наценка': 'Aufschlag',
+  'Маржа': 'Marge',
+  'Точка безубыточности': 'Gewinnschwelle',
+  'Маржинальная прибыль с единицы': 'Deckungsbeitrag je Einheit',
+  'Коэффициент маржинальной прибыли': 'Deckungsbeitragsquote',
+  'Выручка при целом числе единиц': 'Umsatz bei ganzen Einheiten',
+  'Запас прочности': 'Sicherheitsspanne',
+  'Площадь': 'Fläche',
+  'Площадь с запасом': 'Fläche mit Reserve',
+  'Количество плиток': 'Anzahl der Fliesen',
+  'Количество упаковок': 'Anzahl der Pakete',
+  'Примерный расход клея': 'Ungefährer Kleberbedarf',
+  'Площадь стен': 'Wandfläche',
+  'Количество полотен': 'Anzahl der Bahnen',
+  'Количество рулонов': 'Anzahl der Rollen',
+  'Запас': 'Reserve',
+  'Площадь окрашивания': 'Zu streichende Fläche',
+  'Литры краски': 'Farbe in Litern',
+  'Количество банок': 'Anzahl der Dosen',
+  'Площадь пола': 'Bodenfläche',
+  'Объём раствора': 'Estrichvolumen',
+  'Толщина слоя': 'Schichtdicke',
+  'Сухая смесь': 'Trockenmischung',
+  'Мешков': 'Säcke',
+  'Количество камней': 'Anzahl der Steine',
+  'Площадь кладки': 'Mauerwerksfläche',
+  'Камней без запаса': 'Steine ohne Reserve',
+  'ИМТ': 'BMI',
+  'Категория': 'Kategorie',
+  'Комментарий': 'Hinweis',
+  'Базовый обмен (BMR)': 'Grundumsatz (BMR)',
+  'Дневная норма': 'Tagesbedarf',
+  'Белки': 'Eiweiß',
+  'Жиры': 'Fett',
+  'Углеводы': 'Kohlenhydrate',
+  'Процент жира': 'Körperfettanteil',
+  'Метод расчёта': 'Rechenweg',
+  'Обхват талии': 'Taillenumfang',
+  'Обхват шеи': 'Halsumfang',
+  'Темп': 'Tempo',
+  'Средняя скорость': 'Durchschnittsgeschwindigkeit',
+  'Прогноз на 5 км': 'Prognose für 5 km',
+  'Прогноз на 10 км': 'Prognose für 10 km',
+  'Прогноз на полумарафон': 'Prognose für den Halbmarathon',
+  'Примерный 1ПМ': 'Geschätztes 1RM',
+  '50% от 1ПМ': '50 % vom 1RM',
+  '60% от 1ПМ': '60 % vom 1RM',
+  '70% от 1ПМ': '70 % vom 1RM',
+  '80% от 1ПМ': '80 % vom 1RM',
+  '90% от 1ПМ': '90 % vom 1RM',
+  'Курс': 'Wechselkurs',
+  'Дата обновления': 'Stand vom',
+  'Полных лет': 'Volle Jahre',
+  'Месяцев': 'Monate',
+  'Дней': 'Tage',
+  'Всего прожито дней': 'Gelebte Tage insgesamt',
+  'Календарные дни': 'Kalendertage',
+  'Рабочие дни': 'Arbeitstage',
+  'Выходные дни': 'Wochenendtage',
+  'Исключённые даты': 'Ausgeschlossene Daten',
+  'Итоговая дата': 'Ergebnisdatum',
+  'День недели': 'Wochentag',
+  'Всего календарных дней': 'Kalendertage insgesamt',
+  'Номер дня в году': 'Tag des Jahres',
+  'Номер недели (ISO)': 'Kalenderwoche (ISO)',
+  'Возраст': 'Alter',
+  'День недели рождения': 'Wochentag der Geburt',
+  'Дней (сверх месяцев)': 'Tage (über die Monate hinaus)',
+  'До дня рождения': 'Bis zum Geburtstag',
+  'Месяцев (сверх лет)': 'Monate (über die Jahre hinaus)',
+  'Следующий день рождения': 'Nächster Geburtstag',
+  'Вес': 'Gewicht',
+  'Ориентир здорового веса': 'Richtwert für gesundes Gewicht',
+  'Рост': 'Körpergröße',
+  'Обхват бёдер': 'Hüftumfang',
+  'Талия минус шея': 'Taille minus Hals',
+  'Талия плюс бёдра минус шея': 'Taille plus Hüfte minus Hals',
+  'Выручка при расчётном объёме': 'Umsatz bei der rechnerischen Menge',
+  'Расчётный объём без округления': 'Rechnerische Menge ohne Rundung',
+  'Камней на квадратный метр': 'Steine je Quadratmeter',
+  'Расчётный модуль камня': 'Rechenmodul des Steins',
+  'Поддержание веса (TDEE)': 'Gewicht halten (TDEE)',
+  'Срок': 'Laufzeit',
+  'Внесено': 'Eingezahlt',
+  'Год': 'Jahr',
+  'Капитал': 'Kapital',
+  'Месяц': 'Monat',
+  'Основной долг': 'Tilgung',
+  'Остаток': 'Restschuld',
+  'Платеж': 'Rate',
+  'Проценты': 'Zinsen',
+  'В': 'Nach',
+  'Из': 'Von',
+  'Дата курса': 'Kursdatum',
+  'Источник': 'Quelle',
+  'Последняя попытка обновления': 'Letzter Aktualisierungsversuch',
+  'Статус обновления': 'Stand der Aktualisierung',
+  'Тип курса': 'Art des Kurses',
+  'Проверьте данные': 'Prüfe die Werte',
+  'Площадь упаковки': 'Fläche eines Pakets',
+  'Общая стоимость с взносом': 'Gesamtkosten samt Anzahlung',
+  'Первоначальный взнос': 'Anzahlung',
+  'Средняя оценка': 'Mittelwert der Schätzungen',
+  'Формула Бжицки': 'Formel von Brzycki',
+  'Формула Лэндера': 'Formel von Lander',
+  'Прогноз на марафон': 'Prognose für den Marathon',
+  'Темп на милю': 'Tempo je Meile',
+  'Время': 'Zeit',
+  'Дистанция': 'Strecke',
+  'Периметр': 'Umfang',
+  'Полотен из рулона': 'Bahnen je Rolle',
+  'Стоимость обоев': 'Kosten der Tapeten',
+  'Стоимость плитки': 'Kosten der Fliesen',
+  'Стоимость ламината': 'Kosten des Laminats',
+  'Стоимость подложки': 'Kosten der Trittschalldämmung',
+  'Стоимость краски': 'Kosten der Farbe',
+  'Стоимость смеси': 'Kosten der Trockenmischung',
+  'Стоимость камня': 'Kosten der Steine',
+  'Заданный запас': 'Gewählte Reserve',
+  'Остаток из-за целых банок': 'Rest durch ganze Dosen',
+  'Слоёв': 'Anstriche',
+  'Абсолютная разница': 'Absoluter Unterschied',
+  'Значение A': 'Wert A',
+  'Значение B': 'Wert B',
+  'Изменение': 'Veränderung',
+  'Режим': 'Aufgabe',
+};
+
 export function localizedResultLabel(label: string, locale: Locale): string {
   if (locale === 'ru') return label;
-  const map = locale === 'uk' ? ukrainianResultLabelMap : resultLabelMap;
+  const map = locale === 'uk'
+    ? ukrainianResultLabelMap
+    : locale === 'de' ? germanResultLabelMap : resultLabelMap;
   const direct = map[label];
   if (direct) return direct;
 
@@ -856,6 +1112,15 @@ export function localizedResultLabel(label: string, locale: Locale): string {
       .replace(' от ', ' від ')
       .replace(' за мес.', ' за місяць')
       .replace(' за год', ' за рік');
+  }
+
+  if (locale === 'de') {
+    return label
+      .replace('НДС', 'USt.')
+      .replace('НДФЛ', 'Einkommensteuer')
+      .replace(' от ', ' von ')
+      .replace(' за мес.', ' im Monat')
+      .replace(' за год', ' im Jahr');
   }
 
   return label
