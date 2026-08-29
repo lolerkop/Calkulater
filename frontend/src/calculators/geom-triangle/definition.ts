@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomTriangleCopyEn } from './copy.en';
 import { geomTriangleCopyUk } from './copy.uk';
+import { geomTriangleCopyDe } from './copy.de';
 import { geomTriangleReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomTriangleCopyEn, uk: geomTriangleCopyUk },
+  copy: { en: geomTriangleCopyEn, uk: geomTriangleCopyUk, de: geomTriangleCopyDe },
   referenceCases: geomTriangleReferenceCases,
   publishedExample: { inputs: { mode: 'sss', unit: 'm', a: 3, b: 4, c: 5 }, expected: ["6 м²"] },
   presentation: {

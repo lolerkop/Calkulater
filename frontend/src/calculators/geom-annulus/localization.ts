@@ -1,6 +1,40 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'unit': 'Längeneinheit',
+      'R': 'Äußerer Radius',
+      'r': 'Innerer Radius',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+    },
+    results: {
+      'Площадь': 'Fläche',
+      'Ширина кольца': 'Breite des Rings',
+      'Внешняя окружность': 'Äußerer Umfang',
+      'Внутренняя окружность': 'Innerer Umfang',
+      'Средний радиус': 'Mittlerer Radius',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Внешний радиус должен быть больше нуля': 'Der äußere Radius muss größer als null sein',
+      'Внутренний радиус не может быть отрицательным': 'Der innere Radius kann nicht negativ sein',
+      'Внутренний радиус должен быть меньше внешнего': 'Der innere Radius muss kleiner als der äußere sein',
+    },
+  },
   en: {
     fields: { "unit": "Length unit", "R": "Outer radius", "r": "Inner radius" },
     options: {

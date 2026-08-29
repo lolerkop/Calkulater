@@ -1,6 +1,44 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'unit': 'Längeneinheit',
+      'r': 'Radius',
+      'd': 'Durchmesser',
+      'volume': 'Volumen',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+      'radius': 'der Radius',
+      'diameter': 'der Durchmesser',
+      'volume': 'das Volumen',
+    },
+    results: {
+      'Объём': 'Volumen',
+      'Площадь поверхности': 'Oberfläche',
+      'Радиус': 'Radius',
+      'Диаметр': 'Durchmesser',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Радиус должен быть больше нуля': 'Der Radius muss größer als null sein',
+      'Диаметр должен быть больше нуля': 'Der Durchmesser muss größer als null sein',
+      'Объём должен быть больше нуля': 'Das Volumen muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       "mode": "What is known",

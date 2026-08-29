@@ -23,6 +23,49 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'unit': 'Längeneinheit',
+      'mode': 'Was bekannt ist',
+      'a': 'Seite a',
+      'h': 'Höhe zur Seite a',
+      'b': 'Seite b',
+      'angle': 'Winkel zwischen den Seiten, Grad',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+      'height': 'eine Grundseite und eine Höhe',
+      'sides': 'zwei Seiten und ein Winkel',
+    },
+    results: {
+      'Площадь': 'Fläche',
+      'Периметр': 'Umfang',
+      'Высота к стороне a': 'Höhe zur Seite a',
+      'Основание': 'Grundseite',
+      'Высота': 'Höhe',
+      'Большая диагональ': 'Längere Diagonale',
+      'Меньшая диагональ': 'Kürzere Diagonale',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Сторона должна быть больше нуля': 'Die Seite muss größer als null sein',
+      'Вторая сторона должна быть больше нуля': 'Die zweite Seite muss größer als null sein',
+      'Угол должен быть больше 0 и меньше 180 градусов': 'Der Winkel muss größer als 0 und kleiner als 180 Grad sein',
+      'При таком угле параллелограмм вырождается в отрезок': 'Bei diesem Winkel entartet das Parallelogramm zu einer Strecke',
+      'Высота должна быть больше нуля': 'Die Höhe muss größer als null sein',
+    },
+  },
   en: {
     fields: { unit: 'Length unit', mode: 'What is known', a: 'Side a', h: 'Height to side a', b: 'Side b', angle: 'Angle between the sides, degrees', },
     options: { mm: 'millimetres', cm: 'centimetres', m: 'metres', height: 'a base and a height', sides: 'two sides and an angle', },

@@ -1,6 +1,45 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'unit': 'Längeneinheit',
+      'a': 'Erste Seite',
+      'b': 'Zweite Seite',
+      'area': 'Fläche',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+      'sides': 'beide Seiten',
+      'areaSide': 'die Fläche und eine Seite',
+    },
+    results: {
+      'Площадь': 'Fläche',
+      'Первая сторона': 'Erste Seite',
+      'Вторая сторона': 'Zweite Seite',
+      'Периметр': 'Umfang',
+      'Диагональ': 'Diagonale',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Обе стороны должны быть больше нуля': 'Beide Seiten müssen größer als null sein',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Известная сторона должна быть больше нуля': 'Die bekannte Seite muss größer als null sein',
+      'Значение слишком велико для расчёта': 'Der Wert ist zu groß für die Rechnung',
+    },
+  },
   en: {
     fields: {
       "mode": "What is known",

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomEllipseCopyEn } from './copy.en';
 import { geomEllipseCopyUk } from './copy.uk';
+import { geomEllipseCopyDe } from './copy.de';
 import { geomEllipseReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomEllipseCopyEn, uk: geomEllipseCopyUk },
+  copy: { en: geomEllipseCopyEn, uk: geomEllipseCopyUk, de: geomEllipseCopyDe },
   referenceCases: geomEllipseReferenceCases,
   publishedExample: { inputs: { unit: 'cm', a: 5, b: 3 }, expected: ["47,124 см²"] },
   presentation: {

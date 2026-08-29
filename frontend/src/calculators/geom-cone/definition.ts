@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomConeCopyEn } from './copy.en';
 import { geomConeCopyUk } from './copy.uk';
+import { geomConeCopyDe } from './copy.de';
 import { geomConeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomConeCopyEn, uk: geomConeCopyUk },
+  copy: { en: geomConeCopyEn, uk: geomConeCopyUk, de: geomConeCopyDe },
   referenceCases: geomConeReferenceCases,
   publishedExample: { inputs: { unit: 'm', r: 3, h: 4 }, expected: ["37,699 м³"] },
   presentation: {

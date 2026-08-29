@@ -1,6 +1,39 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'unit': 'Längeneinheit',
+      'a': 'Halbachse a',
+      'b': 'Halbachse b',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+    },
+    results: {
+      'Площадь': 'Fläche',
+      'Периметр (Рамануджан)': 'Umfang (Ramanujan)',
+      'Эксцентриситет': 'Exzentrizität',
+      'Расстояние между фокусами': 'Abstand der Brennpunkte',
+      'Большая полуось': 'Große Halbachse',
+      'Малая полуось': 'Kleine Halbachse',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Обе полуоси должны быть больше нуля': 'Beide Halbachsen müssen größer als null sein',
+    },
+  },
   en: {
     fields: { "unit": "Length unit", "a": "Semi-axis a", "b": "Semi-axis b" },
     options: {

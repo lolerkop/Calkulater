@@ -1,6 +1,41 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'unit': 'Längeneinheit',
+      'R': 'Unterer Radius',
+      'r': 'Oberer Radius',
+      'h': 'Höhe',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+    },
+    results: {
+      'Объём': 'Volumen',
+      'Образующая': 'Seitenhöhe',
+      'Боковая поверхность': 'Mantelfläche',
+      'Полная поверхность': 'Gesamtoberfläche',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Нижний радиус должен быть больше нуля': 'Der untere Radius muss größer als null sein',
+      'Верхний радиус не может быть отрицательным': 'Der obere Radius kann nicht negativ sein',
+      'Верхний радиус должен быть меньше нижнего': 'Der obere Radius muss kleiner als der untere sein',
+      'Высота должна быть больше нуля': 'Die Höhe muss größer als null sein',
+    },
+  },
   en: {
     fields: { "unit": "Length unit", "R": "Bottom radius", "r": "Top radius", "h": "Height" },
     options: {

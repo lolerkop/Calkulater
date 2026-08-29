@@ -1,6 +1,40 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'unit': 'Längeneinheit',
+      'n': 'Zahl der Seiten',
+      'side': 'Seitenlänge',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+    },
+    results: {
+      'Площадь': 'Fläche',
+      'Периметр': 'Umfang',
+      'Апофема': 'Apothema',
+      'Внутренний угол': 'Innenwinkel',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Сторон должно быть не меньше трёх': 'Ein Vieleck braucht mindestens drei Seiten',
+      'Число сторон должно быть целым': 'Die Zahl der Seiten muss eine ganze Zahl sein',
+      'Длина стороны должна быть больше нуля': 'Die Seitenlänge muss größer als null sein',
+      '°': '°',
+    },
+  },
   en: {
     fields: {
       "unit": "Length unit",

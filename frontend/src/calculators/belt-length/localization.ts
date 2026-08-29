@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'center': 'Achsabstand, mm',
+      'd1': 'Durchmesser der kleinen Scheibe, mm',
+      'd2': 'Durchmesser der großen Scheibe, mm',
+    },
+    results: {
+      'Длина ремня': 'Riemenlänge',
+      'В метрах': 'In Metern',
+      'Угол обхвата малого шкива': 'Umschlingungswinkel der kleinen Scheibe',
+      'Передаточное отношение': 'Übersetzungsverhältnis',
+      'Межосевое расстояние': 'Achsabstand',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'м': 'm',
+      '°': '°',
+      'Межосевое расстояние должно быть больше нуля': 'Der Achsabstand muss größer als null sein',
+      'Диаметр малого шкива должен быть больше нуля': 'Der Durchmesser der kleinen Scheibe muss größer als null sein',
+      'Диаметр большого шкива должен быть больше нуля': 'Der Durchmesser der großen Scheibe muss größer als null sein',
+      'Шкивы пересекаются: оси не могут быть ближе суммы радиусов': 'Die Scheiben überschneiden sich: die Achsen können nicht näher liegen als die Summe der Radien',
+    },
+  },
   en: {
     fields: { center: 'Centre distance, mm', d1: 'Small pulley diameter, mm', d2: 'Large pulley diameter, mm' },
     options: {},

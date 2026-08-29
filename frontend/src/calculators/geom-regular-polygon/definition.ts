@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomRegularPolygonCopyEn } from './copy.en';
 import { geomRegularPolygonCopyUk } from './copy.uk';
+import { geomRegularPolygonCopyDe } from './copy.de';
 import { geomRegularPolygonReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomRegularPolygonCopyEn, uk: geomRegularPolygonCopyUk },
+  copy: { en: geomRegularPolygonCopyEn, uk: geomRegularPolygonCopyUk, de: geomRegularPolygonCopyDe },
   referenceCases: geomRegularPolygonReferenceCases,
   publishedExample: { inputs: { unit: 'cm', n: 6, side: 2 }, expected: ["10,392 см²"] },
   presentation: {

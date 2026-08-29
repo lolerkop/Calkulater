@@ -1,6 +1,49 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'unit': 'Längeneinheit',
+      'a': 'Seite a',
+      'b': 'Seite b',
+      'c': 'Seite c',
+      'base': 'Grundseite',
+      'height': 'Höhe',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+      'sss': 'drei Seiten',
+      'baseHeight': 'Grundseite und Höhe',
+    },
+    results: {
+      'Площадь': 'Fläche',
+      'Периметр': 'Umfang',
+      'Вид треугольника': 'Art des Dreiecks',
+      'Основание': 'Grundseite',
+      'Высота': 'Höhe',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Все стороны должны быть больше нуля': 'Alle Seiten müssen größer als null sein',
+      'Такого треугольника не существует: сумма двух сторон не превышает третью': 'Ein solches Dreieck gibt es nicht: die Summe zweier Seiten übersteigt die dritte nicht',
+      'Основание и высота должны быть больше нуля': 'Grundseite und Höhe müssen größer als null sein',
+      'прямоугольный': 'rechtwinklig',
+      'остроугольный': 'spitzwinklig',
+      'тупоугольный': 'stumpfwinklig',
+    },
+  },
   en: {
     fields: {
       "mode": "What is known",

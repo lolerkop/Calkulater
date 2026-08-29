@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomSquareCopyEn } from './copy.en';
 import { geomSquareCopyUk } from './copy.uk';
+import { geomSquareCopyDe } from './copy.de';
 import { geomSquareReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomSquareCopyEn, uk: geomSquareCopyUk },
+  copy: { en: geomSquareCopyEn, uk: geomSquareCopyUk, de: geomSquareCopyDe },
   referenceCases: geomSquareReferenceCases,
   publishedExample: { inputs: { mode: 'side', unit: 'cm', side: 5 }, expected: ['25 см²'] },
   presentation: {

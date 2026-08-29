@@ -1,6 +1,44 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'unit': 'Längeneinheit',
+      'a': 'Kathete a',
+      'b': 'Kathete b',
+      'c': 'Hypotenuse',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+      'legs': 'zwei Katheten',
+      'legHyp': 'eine Kathete und die Hypotenuse',
+    },
+    results: {
+      'Гипотенуза': 'Hypotenuse',
+      'Второй катет': 'Fehlende Kathete',
+      'Площадь': 'Fläche',
+      'Периметр': 'Umfang',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Катеты должны быть больше нуля': 'Die Katheten müssen größer als null sein',
+      'Катет и гипотенуза должны быть больше нуля': 'Kathete und Hypotenuse müssen größer als null sein',
+      'Гипотенуза должна быть длиннее катета': 'Die Hypotenuse muss länger als die Kathete sein',
+      'Значение слишком велико для расчёта': 'Der Wert ist zu groß für die Rechnung',
+    },
+  },
   en: {
     fields: {
       "mode": "What is known",

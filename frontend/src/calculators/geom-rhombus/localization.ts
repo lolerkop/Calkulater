@@ -1,6 +1,37 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'unit': 'Längeneinheit',
+      'd1': 'Diagonale d₁',
+      'd2': 'Diagonale d₂',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+    },
+    results: {
+      'Площадь': 'Fläche',
+      'Сторона': 'Seite',
+      'Периметр': 'Umfang',
+      'Высота': 'Höhe',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Обе диагонали должны быть больше нуля': 'Beide Diagonalen müssen größer als null sein',
+    },
+  },
   en: {
     fields: { "unit": "Length unit", "d1": "Diagonal d₁", "d2": "Diagonal d₂" },
     options: {

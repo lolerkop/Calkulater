@@ -17,6 +17,39 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'unit': 'Längeneinheit',
+      'a': 'Kante a',
+      'b': 'Kante b',
+      'c': 'Kante c',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+    },
+    results: {
+      'Объём': 'Volumen',
+      'Площадь поверхности': 'Oberfläche',
+      'Диагональ': 'Diagonale',
+      'Сумма длин рёбер': 'Kantensumme',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Все три ребра должны быть больше нуля': 'Alle drei Kanten müssen größer als null sein',
+      'Значение слишком велико для расчёта': 'Der Wert ist zu groß für die Rechnung',
+    },
+  },
   en: {
     fields: { unit: 'Length unit', a: 'Edge a', b: 'Edge b', c: 'Edge c', },
     options: { mm: 'millimetres', cm: 'centimetres', m: 'metres', },

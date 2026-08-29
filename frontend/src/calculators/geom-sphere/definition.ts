@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomSphereCopyEn } from './copy.en';
 import { geomSphereCopyUk } from './copy.uk';
+import { geomSphereCopyDe } from './copy.de';
 import { geomSphereReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomSphereCopyEn, uk: geomSphereCopyUk },
+  copy: { en: geomSphereCopyEn, uk: geomSphereCopyUk, de: geomSphereCopyDe },
   referenceCases: geomSphereReferenceCases,
   publishedExample: { inputs: { unit: 'm', mode: 'radius', r: 3 }, expected: ["113,1 м³"] },
   presentation: {

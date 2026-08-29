@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomAnnulusCopyEn } from './copy.en';
 import { geomAnnulusCopyUk } from './copy.uk';
+import { geomAnnulusCopyDe } from './copy.de';
 import { geomAnnulusReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomAnnulusCopyEn, uk: geomAnnulusCopyUk },
+  copy: { en: geomAnnulusCopyEn, uk: geomAnnulusCopyUk, de: geomAnnulusCopyDe },
   referenceCases: geomAnnulusReferenceCases,
   publishedExample: { inputs: { unit: 'cm', R: 10, r: 6 }, expected: ["201,06 см²"] },
   presentation: {

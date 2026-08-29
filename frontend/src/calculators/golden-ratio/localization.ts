@@ -19,6 +19,29 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was du brauchst',
+      'total': 'Länge der Strecke',
+      'a': 'Bekannte Größe',
+    },
+    options: {
+      'split': 'eine Strecke teilen',
+      'grow': 'den Partner finden',
+    },
+    results: {
+      'Большая часть': 'Größerer Teil',
+      'Меньшая часть': 'Kleinerer Teil',
+      'Больший отрезок': 'Größere Strecke',
+      'Меньший отрезок': 'Kleinere Strecke',
+      'φ': 'φ',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Значение должно быть больше нуля': 'Der Wert muss größer als null sein',
+      'Длина отрезка должна быть больше нуля': 'Die Länge der Strecke muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: 'What you need', total: 'Segment length', a: 'Known size', },
     options: { split: 'split a segment', grow: 'find the partner', },

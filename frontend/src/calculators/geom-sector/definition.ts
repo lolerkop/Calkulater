@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomSectorCopyEn } from './copy.en';
 import { geomSectorCopyUk } from './copy.uk';
+import { geomSectorCopyDe } from './copy.de';
 import { geomSectorReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomSectorCopyEn, uk: geomSectorCopyUk },
+  copy: { en: geomSectorCopyEn, uk: geomSectorCopyUk, de: geomSectorCopyDe },
   referenceCases: geomSectorReferenceCases,
   publishedExample: { inputs: { unit: 'cm', radius: 5, angle: 60 }, expected: ['13,09 см²'] },
   presentation: {

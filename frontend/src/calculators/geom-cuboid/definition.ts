@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomCuboidCopyEn } from './copy.en';
 import { geomCuboidCopyUk } from './copy.uk';
+import { geomCuboidCopyDe } from './copy.de';
 import { geomCuboidReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomCuboidCopyEn, uk: geomCuboidCopyUk },
+  copy: { en: geomCuboidCopyEn, uk: geomCuboidCopyUk, de: geomCuboidCopyDe },
   referenceCases: geomCuboidReferenceCases,
   publishedExample: { inputs: { unit: 'cm', a: 3, b: 4, c: 5 }, expected: ['60 см³'] },
   presentation: {

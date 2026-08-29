@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomCubeCopyEn } from './copy.en';
 import { geomCubeCopyUk } from './copy.uk';
+import { geomCubeCopyDe } from './copy.de';
 import { geomCubeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomCubeCopyEn, uk: geomCubeCopyUk },
+  copy: { en: geomCubeCopyEn, uk: geomCubeCopyUk, de: geomCubeCopyDe },
   referenceCases: geomCubeReferenceCases,
   publishedExample: { inputs: { unit: 'cm', mode: 'side', side: 3 }, expected: ["27 см³"] },
   presentation: {

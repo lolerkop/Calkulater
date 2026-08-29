@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'points': 'Eckpunkte: x und y je Zeile, der Reihe nach',
+    },
+    results: {
+      'Площадь': 'Fläche',
+      'Периметр': 'Umfang',
+      'Вершин': 'Eckpunkte',
+      'Центроид X': 'Schwerpunkt X',
+      'Центроид Y': 'Schwerpunkt Y',
+      'Обход': 'Umlaufsinn',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'против часовой': 'gegen den Uhrzeigersinn',
+      'по часовой': 'im Uhrzeigersinn',
+      'Нужны две координаты в строке:': 'In der Zeile werden zwei Koordinaten gebraucht:',
+      'Координаты должны быть числами в строке:': 'Die Koordinaten müssen Zahlen sein, in der Zeile:',
+      'Нужно не меньше трёх вершин': 'Es werden mindestens drei Eckpunkte gebraucht',
+      'Вершины лежат на одной прямой: многоугольника нет': 'Die Eckpunkte liegen auf einer Geraden: es gibt kein Vieleck',
+    },
+  },
   en: {
     fields: { "points": "Vertices: x and y per line, in order" },
     options: {},

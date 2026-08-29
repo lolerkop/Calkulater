@@ -1,6 +1,48 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'unit': 'Längeneinheit',
+      'r': 'Radius',
+      'd': 'Durchmesser',
+      'c': 'Umfang',
+      'area': 'Fläche',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+      'radius': 'der Radius',
+      'diameter': 'der Durchmesser',
+      'circumference': 'der Umfang',
+      'area': 'die Fläche',
+    },
+    results: {
+      'Площадь': 'Fläche',
+      'Радиус': 'Radius',
+      'Диаметр': 'Durchmesser',
+      'Длина окружности': 'Umfang',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Радиус должен быть больше нуля': 'Der Radius muss größer als null sein',
+      'Диаметр должен быть больше нуля': 'Der Durchmesser muss größer als null sein',
+      'Длина окружности должна быть больше нуля': 'Der Umfang muss größer als null sein',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Значение слишком велико для расчёта': 'Der Wert ist zu groß für die Rechnung',
+    },
+  },
   en: {
     fields: {
       "mode": "What is known",

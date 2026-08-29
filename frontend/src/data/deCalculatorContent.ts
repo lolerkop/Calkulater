@@ -19,6 +19,9 @@ import { deDatetimeContent } from './deContent/datetime';
 import { deElectronics1Content } from './deContent/electronics1';
 import { deElectronics2Content } from './deContent/electronics2';
 import { deElectronics3Content } from './deContent/electronics3';
+import { deGeometry1Content } from './deContent/geometry1';
+import { deGeometry2Content } from './deContent/geometry2';
+import { deGeometry3Content } from './deContent/geometry3';
 import { deSport1Content } from './deContent/sport1';
 import { deSport2Content } from './deContent/sport2';
 
@@ -377,6 +380,9 @@ export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
   ...deElectronics1Content,
   ...deElectronics2Content,
   ...deElectronics3Content,
+  ...deGeometry1Content,
+  ...deGeometry2Content,
+  ...deGeometry3Content,
   ...deSport1Content,
   ...deSport2Content,
 };

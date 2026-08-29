@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomRectangleCopyEn } from './copy.en';
 import { geomRectangleCopyUk } from './copy.uk';
+import { geomRectangleCopyDe } from './copy.de';
 import { geomRectangleReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomRectangleCopyEn, uk: geomRectangleCopyUk },
+  copy: { en: geomRectangleCopyEn, uk: geomRectangleCopyUk, de: geomRectangleCopyDe },
   referenceCases: geomRectangleReferenceCases,
   publishedExample: { inputs: { mode: 'sides', unit: 'cm', a: 8, b: 3 }, expected: ["24 см²"] },
   presentation: {

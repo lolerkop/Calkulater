@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomParallelogramCopyEn } from './copy.en';
 import { geomParallelogramCopyUk } from './copy.uk';
+import { geomParallelogramCopyDe } from './copy.de';
 import { geomParallelogramReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomParallelogramCopyEn, uk: geomParallelogramCopyUk },
+  copy: { en: geomParallelogramCopyEn, uk: geomParallelogramCopyUk, de: geomParallelogramCopyDe },
   referenceCases: geomParallelogramReferenceCases,
   publishedExample: { inputs: { unit: 'cm', mode: 'height', a: 10, h: 6 }, expected: ['60 см²'] },
   presentation: {

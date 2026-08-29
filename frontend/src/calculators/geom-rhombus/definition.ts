@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomRhombusCopyEn } from './copy.en';
 import { geomRhombusCopyUk } from './copy.uk';
+import { geomRhombusCopyDe } from './copy.de';
 import { geomRhombusReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomRhombusCopyEn, uk: geomRhombusCopyUk },
+  copy: { en: geomRhombusCopyEn, uk: geomRhombusCopyUk, de: geomRhombusCopyDe },
   referenceCases: geomRhombusReferenceCases,
   publishedExample: { inputs: { unit: 'cm', d1: 6, d2: 8 }, expected: ["24 см²"] },
   presentation: {

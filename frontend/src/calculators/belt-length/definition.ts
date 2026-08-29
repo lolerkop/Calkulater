@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { beltLengthCopyEn } from './copy.en';
 import { beltLengthCopyUk } from './copy.uk';
+import { beltLengthCopyDe } from './copy.de';
 import { beltLengthReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: beltLengthCopyEn, uk: beltLengthCopyUk },
+  copy: { en: beltLengthCopyEn, uk: beltLengthCopyUk, de: beltLengthCopyDe },
   referenceCases: beltLengthReferenceCases,
   publishedExample: { inputs: { center: 300, d1: 100, d2: 200 }, expected: ["1 079,57 мм"] },
   presentation: {

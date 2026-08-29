@@ -10,6 +10,45 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'unit': 'Längeneinheit',
+      'side': 'Seite',
+      'area': 'Fläche',
+      'perimeter': 'Umfang',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+      'side': 'die Seite',
+      'area': 'die Fläche',
+      'perimeter': 'der Umfang',
+    },
+    results: {
+      'Площадь': 'Fläche',
+      'Сторона': 'Seite',
+      'Периметр': 'Umfang',
+      'Диагональ': 'Diagonale',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Сторона должна быть больше нуля': 'Die Seite muss größer als null sein',
+      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
+      'Периметр должен быть больше нуля': 'Der Umfang muss größer als null sein',
+      'Значение слишком велико для расчёта': 'Der Wert ist zu groß für die Rechnung',
+    },
+  },
   en: {
     fields: { mode: 'What is known', unit: 'Length unit', side: 'Side', area: 'Area', perimeter: 'Perimeter' },
     options: {

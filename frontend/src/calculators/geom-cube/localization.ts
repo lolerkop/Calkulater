@@ -1,6 +1,47 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'unit': 'Längeneinheit',
+      'mode': 'Was bekannt ist',
+      'side': 'Kante',
+      'volume': 'Volumen',
+      'area': 'Oberfläche',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+      'side': 'die Kante',
+      'volume': 'das Volumen',
+      'area': 'die Oberfläche',
+    },
+    results: {
+      'Объём': 'Volumen',
+      'Ребро': 'Kante',
+      'Площадь поверхности': 'Oberfläche',
+      'Диагональ куба': 'Raumdiagonale',
+      'Диагональ грани': 'Flächendiagonale',
+      'Сумма рёбер': 'Kantensumme',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Ребро должно быть больше нуля': 'Die Kante muss größer als null sein',
+      'Объём должен быть больше нуля': 'Das Volumen muss größer als null sein',
+      'Площадь поверхности должна быть больше нуля': 'Die Oberfläche muss größer als null sein',
+      'Значение слишком велико для расчёта': 'Der Wert ist zu groß für die Rechnung',
+    },
+  },
   en: {
     fields: {
       "unit": "Length unit",

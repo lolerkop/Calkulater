@@ -1,6 +1,36 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'unit': 'Längeneinheit',
+      'sides': 'Seiten der Grundfläche',
+      'side': 'Länge einer Grundseite',
+      'height': 'Höhe des Prismas',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+    },
+    results: {
+      'Объём': 'Volumen',
+      'Площадь основания': 'Grundfläche',
+      'Боковая поверхность': 'Mantelfläche',
+      'Полная поверхность': 'Gesamtoberfläche',
+      'Периметр основания': 'Umfang der Grundfläche',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'Число сторон основания должно быть целым': 'Die Zahl der Grundseiten muss eine ganze Zahl sein',
+      'Сторон основания должно быть не меньше трёх': 'Die Grundfläche muss mindestens drei Seiten haben',
+      'Длина стороны должна быть больше нуля': 'Die Seitenlänge muss größer als null sein',
+      'Высота должна быть больше нуля': 'Die Höhe muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       unit: 'Length unit',

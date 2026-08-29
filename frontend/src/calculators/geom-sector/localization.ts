@@ -19,6 +19,40 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'unit': 'Längeneinheit',
+      'radius': 'Radius',
+      'angle': 'Mittelpunktswinkel, Grad',
+    },
+    options: {
+      'mm': 'Millimeter',
+      'cm': 'Zentimeter',
+      'm': 'Meter',
+    },
+    results: {
+      'Площадь сектора': 'Fläche des Sektors',
+      'Длина дуги': 'Bogenlänge',
+      'Хорда': 'Sehne',
+      'Периметр сектора': 'Umfang des Sektors',
+      'Доля круга': 'Anteil des Kreises',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'мм³': 'mm³',
+      'см³': 'cm³',
+      'м³': 'm³',
+      'Радиус должен быть больше нуля': 'Der Radius muss größer als null sein',
+      'Угол должен быть больше нуля': 'Der Winkel muss größer als null sein',
+      'Угол сектора не может превышать 360 градусов': 'Der Winkel eines Sektors kann 360 Grad nicht übersteigen',
+    },
+  },
   en: {
     fields: { unit: 'Length unit', radius: 'Radius', angle: 'Central angle, degrees', },
     options: { mm: 'millimetres', cm: 'centimetres', m: 'metres', },
