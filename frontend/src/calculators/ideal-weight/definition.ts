@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { idealWeightCopyEn } from './copy.en';
 import { idealWeightCopyUk } from './copy.uk';
+import { idealWeightCopyDe } from './copy.de';
 import { idealWeightReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: idealWeightCopyEn, uk: idealWeightCopyUk },
+  copy: { en: idealWeightCopyEn, uk: idealWeightCopyUk, de: idealWeightCopyDe },
   referenceCases: idealWeightReferenceCases,
   publishedExample: { inputs: { sex: 'male', height: 180 }, expected: ["74,124 кг"] },
   presentation: {

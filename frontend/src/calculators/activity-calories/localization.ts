@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'activity': 'Tätigkeit',
+      'met': 'Eigener MET-Wert',
+      'weightKg': 'Körpergewicht, kg',
+      'minutes': 'Dauer, min',
+    },
+    options: {
+      'walking': 'Gehen, MET 3,5',
+      'cycling': 'Radfahren, MET 7,5',
+      'swimming': 'Schwimmen, MET 8,0',
+      'running': 'Laufen, MET 9,8',
+      'custom': 'eigener MET-Wert',
+    },
+    results: {
+      'Потрачено калорий': 'Verbrannte Kalorien',
+      'Калорий в минуту': 'Kalorien je Minute',
+      'Расход в час': 'Verbrauch je Stunde',
+      'Коэффициент MET': 'MET-Wert',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'ккал': 'kcal',
+      'Коэффициент MET должен быть больше нуля': 'Der MET-Wert muss größer als null sein',
+      'Масса тела должна быть больше нуля': 'Das Körpergewicht muss größer als null sein',
+      'Длительность должна быть больше нуля': 'Die Dauer muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       "activity": "Activity",

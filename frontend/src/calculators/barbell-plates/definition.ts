@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { barbellPlatesCopyEn } from './copy.en';
 import { barbellPlatesCopyUk } from './copy.uk';
+import { barbellPlatesCopyDe } from './copy.de';
 import { barbellPlatesReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: barbellPlatesCopyEn, uk: barbellPlatesCopyUk },
+  copy: { en: barbellPlatesCopyEn, uk: barbellPlatesCopyUk, de: barbellPlatesCopyDe },
   referenceCases: barbellPlatesReferenceCases,
   publishedExample: { inputs: { target: 100, bar: 20, plates: '25 20 15 10 5 2,5 1,25' }, expected: ["25×1 + 15×1"] },
   presentation: {

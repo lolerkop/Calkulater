@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { maxHeartRateCopyEn } from './copy.en';
 import { maxHeartRateCopyUk } from './copy.uk';
+import { maxHeartRateCopyDe } from './copy.de';
 import { maxHeartRateReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: maxHeartRateCopyEn, uk: maxHeartRateCopyUk },
+  copy: { en: maxHeartRateCopyEn, uk: maxHeartRateCopyUk, de: maxHeartRateCopyDe },
   referenceCases: maxHeartRateReferenceCases,
   publishedExample: { inputs: { age: 35, formula: '220-age', restingHr: 60 }, expected: ["185 уд/мин"] },
   presentation: {

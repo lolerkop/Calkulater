@@ -1,6 +1,43 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'age': 'Alter, Jahre',
+      'formula': 'Formel für die Schätzung',
+      'restingHr': 'Ruhepuls, Schläge/min',
+    },
+    options: {
+      '220-age': '220 − Alter, die klassische',
+      'tanaka': 'Tanaka: 208 − 0,7 × Alter',
+      'gulati': 'Gulati: 206 − 0,88 × Alter',
+    },
+    results: {
+      'Максимальный пульс': 'Maximalpuls',
+      'Резерв сердца': 'Herzfrequenzreserve',
+      'Пульс покоя': 'Ruhepuls',
+      'Аэробная зона 70–80 %': 'Aerober Bereich 70–80 %',
+      'Жиросжигающая зона 60–70 %': 'Fettverbrennungsbereich 60–70 %',
+      'Тренировочные зоны': 'Trainingsbereiche',
+      'Зона': 'Bereich',
+      'Доля резерва': 'Anteil der Reserve',
+      'Пульс, уд/мин': 'Puls, Schläge/min',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'уд/мин': 'Schläge/min',
+      'Разминка': 'Aufwärmen',
+      'Жиросжигание': 'Fettverbrennung',
+      'Аэробная': 'Aerob',
+      'Анаэробная': 'Anaerob',
+      'Максимальная': 'Maximal',
+      'Зоны посчитаны по резерву сердца: доля берётся от разности максимума и пульса покоя.': 'Die Bereiche folgen der Herzfrequenzreserve: der Anteil wird aus dem Abstand zwischen Maximalpuls und Ruhepuls genommen.',
+      'Пульс покоя не задан, поэтому зоны — прямые доли максимального пульса.': 'Es wurde kein Ruhepuls angegeben, die Bereiche sind deshalb unmittelbare Anteile des Maximalpulses.',
+      'Возраст должен быть от 1 до 120 лет': 'Das Alter muss zwischen 1 und 120 Jahren liegen',
+      'Пульс покоя не может быть отрицательным': 'Der Ruhepuls kann nicht negativ sein',
+      'Пульс покоя не может быть выше максимального': 'Der Ruhepuls kann nicht über dem Maximalpuls liegen',
+    },
+  },
   en: {
     fields: {
       "age": "Age, years",

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { stepsDistanceCaloriesCopyEn } from './copy.en';
 import { stepsDistanceCaloriesCopyUk } from './copy.uk';
+import { stepsDistanceCaloriesCopyDe } from './copy.de';
 import { stepsDistanceCaloriesReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: stepsDistanceCaloriesCopyEn, uk: stepsDistanceCaloriesCopyUk },
+  copy: { en: stepsDistanceCaloriesCopyEn, uk: stepsDistanceCaloriesCopyUk, de: stepsDistanceCaloriesCopyDe },
   referenceCases: stepsDistanceCaloriesReferenceCases,
   publishedExample: { inputs: { mode: 'height', steps: 10000, height: 175, stride: 70, weight: 70, kcalPerKgKm: 0.53 }, expected: ["7,263 км"] },
   presentation: {

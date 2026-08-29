@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'target': 'Zielgewicht, kg',
+      'bar': 'Gewicht der Stange, kg',
+      'plates': 'Vorhandene Scheiben, ein Gewicht je Eintrag',
+    },
+    results: {
+      'Блины на сторону': 'Scheiben je Seite',
+      'Фактический вес': 'Tatsächliches Gewicht',
+      'Недобор': 'Fehlbetrag',
+      'На сторону': 'Je Seite',
+      'Блинов на сторону': 'Zahl der Scheiben je Seite',
+      'Набор на одну сторону': 'Beladung für eine Seite',
+      'Блин': 'Scheibe',
+      'Штук на сторону': 'Stück je Seite',
+      'Всего': 'Insgesamt',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кг': 'kg',
+      'Вес блина должен быть числом:': 'Das Scheibengewicht muss eine Zahl sein:',
+      'Вес блина должен быть больше нуля': 'Das Scheibengewicht muss größer als null sein',
+      'Введите доступные блины': 'Trage die vorhandenen Scheiben ein',
+      'Вес грифа не может быть отрицательным': 'Das Gewicht der Stange kann nicht negativ sein',
+      'Целевой вес меньше грифа': 'Das Zielgewicht liegt unter dem Gewicht der Stange',
+    },
+  },
   en: {
     fields: {
       "target": "Target weight, kg",

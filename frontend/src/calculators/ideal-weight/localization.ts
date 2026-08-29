@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'sex': 'Geschlecht',
+      'height': 'Größe, cm',
+    },
+    options: {
+      'male': 'männlich',
+      'female': 'weiblich',
+    },
+    results: {
+      'Среднее по формулам': 'Mittel der Formeln',
+      'Девайн': 'Devine',
+      'Робинсон': 'Robinson',
+      'Миллер': 'Miller',
+      'Хамви': 'Hamwi',
+      'Здоровый диапазон по ИМТ, от': 'Gesunder BMI-Bereich, ab',
+      'Здоровый диапазон по ИМТ, до': 'Gesunder BMI-Bereich, bis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кг': 'kg',
+      'Неизвестный пол': 'Unbekanntes Geschlecht',
+      'Рост должен быть от 120 до 230 см': 'Die Größe muss zwischen 120 und 230 cm liegen',
+      'Формулы выведены из статистики середины прошлого века и расходятся между собой на несколько килограммов. Диапазон по ИМТ шире и честнее любой точки.': 'Die Formeln stammen aus Statistiken der Mitte des vorigen Jahrhunderts und gehen um mehrere Kilogramm auseinander. Der BMI-Bereich ist breiter und ehrlicher als jeder einzelne Punkt.',
+    },
+  },
   en: {
     fields: { "sex": "Sex", "height": "Height, cm" },
     options: { "male": "Male", "female": "Female" },

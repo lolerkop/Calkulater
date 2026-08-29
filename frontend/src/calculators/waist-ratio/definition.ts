@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { waistRatioCopyEn } from './copy.en';
 import { waistRatioCopyUk } from './copy.uk';
+import { waistRatioCopyDe } from './copy.de';
 import { waistRatioReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: waistRatioCopyEn, uk: waistRatioCopyUk },
+  copy: { en: waistRatioCopyEn, uk: waistRatioCopyUk, de: waistRatioCopyDe },
   referenceCases: waistRatioReferenceCases,
   publishedExample: { inputs: { waist: 84, hip: 100, height: 178 }, expected: ["0,4719"] },
   presentation: {

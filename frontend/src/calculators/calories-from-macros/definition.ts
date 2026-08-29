@@ -6,6 +6,7 @@ import { SPORT_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { caloriesCopyEn } from './copy.en';
 import { caloriesCopyUk } from './copy.uk';
+import { caloriesCopyDe } from './copy.de';
 import { caloriesReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: caloriesCopyEn, uk: caloriesCopyUk },
+  copy: { en: caloriesCopyEn, uk: caloriesCopyUk, de: caloriesCopyDe },
   referenceCases: caloriesReferenceCases,
   publishedExample: { inputs: { protein: 100, fat: 50, carbs: 200 }, expected: ['1 650 ккал', '24,24 %'] },
   presentation: {

@@ -1,6 +1,23 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'protein': 'Eiweiß, g',
+      'fat': 'Fett, g',
+      'carbs': 'Kohlenhydrate, g',
+    },
+    results: {
+      'Всего калорий': 'Kalorien insgesamt',
+      'Из белков': 'Aus Eiweiß',
+      'Из жиров': 'Aus Fett',
+      'Из углеводов': 'Aus Kohlenhydraten',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Введите хотя бы один макронутриент': 'Trage mindestens einen Makronährstoff ein',
+    },
+  },
   en: {
     fields: { protein: 'Protein, g', fat: 'Fat, g', carbs: 'Carbohydrates, g' },
     results: {

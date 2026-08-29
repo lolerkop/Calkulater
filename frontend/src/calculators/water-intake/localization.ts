@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'weight': 'Körpergewicht, kg',
+      'activityMinutes': 'Bewegungsminuten am Tag',
+      'hotWeather': 'Heißes Wetter',
+    },
+    options: {
+      'no': 'Nein',
+      'yes': 'Ja',
+    },
+    results: {
+      'Норма воды в сутки': 'Wasserbedarf am Tag',
+      'Базовая норма': 'Grundbedarf',
+      'Надбавка за нагрузку': 'Zuschlag für Bewegung',
+      'Стаканов по 250 мл': 'Gläser zu 250 ml',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Масса тела должна быть больше нуля': 'Das Körpergewicht muss größer als null sein',
+      'Минуты нагрузки не могут быть отрицательными': 'Die Bewegungsminuten können nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       weight: 'Body weight, kg',

@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Wie die Größe angegeben ist',
+      'etrtoRim': 'Felgenmaulsitzdurchmesser, mm',
+      'etrtoTire': 'Reifenbreite, mm',
+      'inches': 'Laufraddurchmesser, Zoll',
+    },
+    options: {
+      'etrto': 'ETRTO, in Millimetern',
+      'inches': 'In Zoll',
+    },
+    results: {
+      'Длина окружности': 'Umfang',
+      'Диаметр': 'Durchmesser',
+      'Диаметр в дюймах': 'Durchmesser in Zoll',
+      'Оборотов на километр': 'Umdrehungen je Kilometer',
+      'Радиус': 'Radius',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'Посадочный диаметр обода должен быть больше нуля': 'Der Felgenmaulsitzdurchmesser muss größer als null sein',
+      'Ширина покрышки не может быть отрицательной': 'Die Reifenbreite kann nicht negativ sein',
+      'Диаметр в дюймах должен быть больше нуля': 'Der Durchmesser in Zoll muss größer als null sein',
+      'Неизвестный режим': 'Unbekannter Modus',
+    },
+  },
   en: {
     fields: {
       "mode": "How the size is given",

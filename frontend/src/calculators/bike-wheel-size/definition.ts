@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { bikeWheelSizeCopyEn } from './copy.en';
 import { bikeWheelSizeCopyUk } from './copy.uk';
+import { bikeWheelSizeCopyDe } from './copy.de';
 import { bikeWheelSizeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: bikeWheelSizeCopyEn, uk: bikeWheelSizeCopyUk },
+  copy: { en: bikeWheelSizeCopyEn, uk: bikeWheelSizeCopyUk, de: bikeWheelSizeCopyDe },
   referenceCases: bikeWheelSizeReferenceCases,
   publishedExample: { inputs: { mode: 'etrto', etrtoRim: 622, etrtoTire: 25, inches: 26 }, expected: ["2 111,15 мм"] },
   presentation: {

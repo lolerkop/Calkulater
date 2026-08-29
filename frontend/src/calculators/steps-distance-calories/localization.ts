@@ -1,6 +1,39 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Schrittlänge',
+      'steps': 'Schritte',
+      'height': 'Größe, cm',
+      'stride': 'Schrittlänge, cm',
+      'weight': 'Körpergewicht, kg',
+      'kcalPerKgKm': 'kcal je kg und km',
+    },
+    options: {
+      'height': 'aus der Größe schätzen',
+      'stride': 'ich kenne meine Schrittlänge',
+    },
+    results: {
+      'Расстояние': 'Strecke',
+      'Калории': 'Kalorien',
+      'Длина шага': 'Schrittlänge',
+      'Шагов на километр': 'Schritte je Kilometer',
+      'Ккал на километр': 'kcal je Kilometer',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'км': 'km',
+      'ккал': 'kcal',
+      'см': 'cm',
+      'Число шагов не может быть отрицательным': 'Die Zahl der Schritte kann nicht negativ sein',
+      'Вес должен быть больше нуля': 'Das Gewicht muss größer als null sein',
+      'Расход на километр должен быть больше нуля': 'Der Verbrauch je Kilometer muss größer als null sein',
+      'Рост должен быть от 120 до 230 см': 'Die Größe muss zwischen 120 und 230 cm liegen',
+      'Длина шага должна быть больше нуля': 'Die Schrittlänge muss größer als null sein',
+      'Неизвестный режим': 'Unbekannter Modus',
+    },
+  },
   en: {
     fields: {
       "mode": "Stride length",

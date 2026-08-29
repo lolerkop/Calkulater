@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'chainring': 'Zähne am Kettenblatt',
+      'sprocket': 'Zähne am Ritzel',
+      'wheelCircumference': 'Radumfang, m',
+    },
+    results: {
+      'Передаточное отношение': 'Übersetzungsverhältnis',
+      'Развитие за оборот': 'Entfaltung je Umdrehung',
+      'Оборотов колеса на оборот педалей': 'Radumdrehungen je Pedalumdrehung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'м': 'm',
+      'Число зубьев должно быть целым': 'Die Zähnezahl muss eine ganze Zahl sein',
+      'Зубьев на передней звезде должно быть больше нуля': 'Das Kettenblatt muss mehr als null Zähne haben',
+      'Зубьев на задней звезде должно быть больше нуля': 'Das Ritzel muss mehr als null Zähne haben',
+    },
+  },
   en: {
     fields: {
       "chainring": "Chainring teeth",

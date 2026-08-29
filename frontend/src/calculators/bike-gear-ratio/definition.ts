@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { bikeGearRatioCopyEn } from './copy.en';
 import { bikeGearRatioCopyUk } from './copy.uk';
+import { bikeGearRatioCopyDe } from './copy.de';
 import { bikeGearRatioReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: bikeGearRatioCopyEn, uk: bikeGearRatioCopyUk },
+  copy: { en: bikeGearRatioCopyEn, uk: bikeGearRatioCopyUk, de: bikeGearRatioCopyDe },
   referenceCases: bikeGearRatioReferenceCases,
   publishedExample: { inputs: { chainring: 50, sprocket: 25, wheelCircumference: 0 }, expected: ["2,00"] },
   presentation: {
