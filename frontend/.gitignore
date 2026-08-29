@@ -29,3 +29,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 dev-server*.log
+
+# Черновые скрипты разбора: имена с двумя подчёркиваниями в начале.
+# Пять таких файлов уже уезжали в коммит вместе с `git add -A`.
+__*.mts
+__*.mjs
+__*.config.ts
