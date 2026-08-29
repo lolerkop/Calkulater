@@ -10,7 +10,7 @@ export const deAutomotiveContent: Partial<Record<string, DeDetailedContent>> = {
       'Trage den Verlust im ersten Jahr gesondert ein — er ist gewöhnlich der größte.',
     ],
     howItWorks: 'Wert = Preis × (1 − Verlust im ersten Jahr) × (1 − Jahressatz) hoch der Zahl der Jahre nach dem ersten. Bei null Jahren entspricht der Wert dem Preis.',
-    example: 'Ein für 30.000 € gekauftes Auto verliert im ersten Jahr 20 % und danach 12 % im Jahr: nach vier Jahren ist es 16.355,33 € wert.',
+    example: 'Ein für 30 000 € gekauftes Auto verliert im ersten Jahr 20 % und danach 12 % im Jahr: nach vier Jahren ist es 16 355,33 € wert.',
     faq: [
       { q: 'Warum hat das erste Jahr einen eigenen Satz?', a: 'Weil der Einbruch real und groß ist: Ein Auto hört in dem Moment auf, neu zu sein, in dem es zugelassen wird. Diesen Verlust über den ganzen Zeitraum zu mitteln, würde den Wert jedes zwei- und dreijährigen Autos zu hoch ansetzen.' },
       { q: 'Welcher Jahressatz ist realistisch?', a: 'Bei Volumenmodellen sind zehn bis fünfzehn Prozent im Jahr nach dem ersten üblich. Seltene Modelle, Nutzfahrzeuge und knappe Autos liegen weit daneben — nimm den Vorgabewert als Ausgangspunkt und nicht als Tatsache.' },

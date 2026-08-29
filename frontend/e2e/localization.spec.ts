@@ -6,9 +6,13 @@ test('full-parity language switcher links resolve to equivalent pages', async ({
 
   const switcher = page.locator('[data-language-switcher]');
   const links = switcher.locator('a');
-  await expect(links).toHaveCount(3);
+  // По ссылке на каждую локаль, включая текущую. Число выводится из состава
+  // сборки: с появлением немецкого выписанная буквами тройка устарела бы, а
+  // утверждение стало бы слабее — теперь оно требует полного набора.
+  await expect(links).toHaveCount(locales.length);
   await expect(switcher).toContainText('UA');
   await expect(switcher).not.toContainText('UK');
+  await expect(switcher).toContainText('DE');
 
   const hrefs = await links.evaluateAll((elements) => elements.map((element) => (element as HTMLAnchorElement).href));
   for (const href of hrefs) {
@@ -19,7 +23,30 @@ test('full-parity language switcher links resolve to equivalent pages', async ({
   const hreflangs = await page.locator('link[rel="alternate"][hreflang]').evaluateAll((elements) =>
     elements.map((element) => element.getAttribute('hreflang')),
   );
-  expect(hreflangs).toEqual(['ru', 'en', 'uk', 'x-default']);
+  expect(hreflangs).toEqual([...locales, 'x-default']);
+});
+
+test('немецкая страница полного паритета доступна и связана взаимно', async ({ page }) => {
+  // Немецкая локаль выпускается этой фазой целиком, поэтому у калькулятора
+  // полного паритета есть немецкая страница, а её переключатель ведёт обратно.
+  await page.goto('/de/waehrungen/waehrungsrechner/');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'de');
+
+  const hreflangs = await page.locator('link[rel="alternate"][hreflang]').evaluateAll((elements) =>
+    elements.map((element) => element.getAttribute('hreflang')),
+  );
+  expect(hreflangs).toEqual([...locales, 'x-default']);
+
+  const switcher = page.locator('[data-language-switcher]');
+  await expect(switcher.locator('a')).toHaveCount(locales.length);
+  const back = switcher.locator('a[href^="/ru/"]');
+  await expect(back).toHaveAttribute('href', '/ru/currency/currency-converter/');
+
+  // Кириллицы в видимом тексте немецкой страницы не бывает, включая
+  // результат, который дорисовывает остров после гидратации.
+  await expect(page.getByTestId('calc-result')).toBeVisible();
+  const text = await page.locator('main').innerText();
+  expect(text.match(/[А-Яа-яЁё]+/g) ?? []).toEqual([]);
 });
 
 test('RU-only calculator does not link or hreflang to false translations', async ({ page, request }) => {

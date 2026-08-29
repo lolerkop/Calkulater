@@ -223,28 +223,68 @@ describe('немецкий результат в острове', () => {
     expect(runtimeBucket(probe, 'fr', 'results')).toBeUndefined();
   });
 
-  it('ни один немецкий результат по умолчанию не остаётся русским', () => {
+  it('ни один немецкий результат не остаётся русским ни в одном режиме', () => {
     const german = getCalculators('de');
     const cyrillic = /[А-Яа-яЁёЇїІіЄєҐґ]/;
     const broken: string[] = [];
+    // Значений по умолчанию мало: у калькулятора с режимами каждая ветка даёт
+    // свои подписи, и непереведённая живёт ровно в той, куда по умолчанию не
+    // попадают. Поэтому каждое поле с вариантами перебирается по очереди,
+    // остальные остаются на своих значениях по умолчанию.
+    const scenarios = (calculator: (typeof german)[number]) => {
+      // Пустое поле даты уводит расчёт в ветку «проверьте данные», и все
+      // остальные подписи так и не появляются. Поэтому заполняется каждое
+      // поле: дата — настоящей датой, пустое число — положительным значением.
+      const filled = Object.fromEntries(calculator.fields.map((field) => {
+        const value = field.defaultValue ?? field.options?.[0]?.value;
+        if (value !== undefined && value !== null && value !== '') return [field.name, value];
+        if (field.type === 'date') return [field.name, '2026-08-29'];
+        if (field.type === 'textarea') return [field.name, '2026-09-01'];
+        if (field.type === 'number') return [field.name, 1000];
+        return [field.name, 0];
+      }));
+      const cases: Array<Record<string, unknown>> = [filled];
+      for (const field of calculator.fields) {
+        for (const option of field.options ?? []) {
+          cases.push({ ...filled, [field.name]: option.value });
+        }
+        // Необязательное числовое поле со значением «ноль» открывает или
+        // закрывает собственные строки результата: доплата, комиссия,
+        // страховка, стоимость партии. При одних лишь значениях по умолчанию
+        // половина этих подписей не появляется вовсе.
+        if (field.type === 'number') {
+          cases.push({ ...filled, [field.name]: 0 }, { ...filled, [field.name]: 1000 });
+        }
+        if (field.type === 'date') {
+          cases.push({ ...filled, [field.name]: '' }, { ...filled, [field.name]: '2030-02-29' });
+        }
+      }
+      return cases;
+    };
     for (const calculator of german) {
       const runner = v2Runners[calculator.id] ?? runners[calculator.id];
       if (!runner) continue;
-      const inputs = Object.fromEntries(
-        calculator.fields.map((f) => [f.name, f.defaultValue ?? f.options?.[0]?.value ?? 0]),
-      );
+      for (const inputs of scenarios(calculator)) {
       let raw;
       try { raw = runner(inputs as never); } catch { continue; }
       const bundle = v2Localization.de[calculator.id];
       const runtime = bundle ? { compute: runner, localization: { de: bundle } } : undefined;
       const localized = localizeResult(raw, 'de', calculator.id, runtime);
+      // Таблица — часть результата, а не оформление: её заголовок, колонки,
+      // ячейки и сноска переводятся тем же путём и в первой версии этой
+      // проверки не участвовали. Заголовок «График первых платежей» остался
+      // русским на четырёх немецких страницах именно поэтому.
+      const table = localized.table;
       const blob = [
         localized.primary.label, localized.primary.value,
         ...localized.secondary.flatMap((row) => [row.label, row.value]),
         localized.note ?? '',
+        table?.title ?? '', ...(table?.columns ?? []),
+        ...(table?.rows ?? []).flat(), table?.note ?? '',
       ].join(' ');
       if (cyrillic.test(blob)) broken.push(`${calculator.id}: ${blob.slice(0, 120)}`);
+      }
     }
-    expect(broken).toEqual([]);
+    expect([...new Set(broken)]).toEqual([]);
   });
 });

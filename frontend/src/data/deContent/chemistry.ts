@@ -42,7 +42,7 @@ export const deChemistryContent: Partial<Record<string, DeDetailedContent>> = {
       'Trage die verbleibende Größe in den passenden Einheiten ein und lies das Ergebnis ab.',
     ],
     howItWorks: 'pV = nRT mit R = 8,314462618 J/(mol·K). Diese Konstante gilt in Pascal, Kubikmeter, Mol und Kelvin, deshalb werden die gewählten Einheiten vor dem Einsetzen in die Basiseinheiten umgerechnet und das Ergebnis danach zurückgerechnet. Grad Celsius werden durch Addition von 273,15 zu Kelvin.',
-    example: 'Zwei Mol Gas bei 300 K in 0,05 m³ üben einen Druck von 99.773,55 Pa aus — etwas unter dem Luftdruck.',
+    example: 'Zwei Mol Gas bei 300 K in 0,05 m³ üben einen Druck von 99 773,55 Pa aus — etwas unter dem Luftdruck.',
     faq: [
       { q: 'Warum müssen Einheiten ausgewählt statt frei eingetippt werden?', a: 'Weil die Gaskonstante an ihre Einheiten gebunden ist. In Pascal und Kubikmeter beträgt sie 8,314463; setzt man Liter und Kilopascal in dieselbe Formel ein, kommt eine plausible, falsche Zahl heraus.' },
       { q: 'Muss die Temperatur in Kelvin stehen?', a: 'Die Gleichung braucht die absolute Temperatur, ja. Wenn Celsius bequemer ist, wähle es — die Umrechnung um 273,15 wird für dich übernommen.' },

@@ -159,7 +159,7 @@ export const deDatetimeContent: Partial<Record<string, DeDetailedContent>> = {
       'Setze die Zahl der Schichten im Zeitraum und den Stundensatz.',
     ],
     howItWorks: 'Schichtlänge = Ende minus Beginn, mit einem addierten Tag beim Übergang über Mitternacht. Arbeitszeit = Schichtlänge minus Pause, und die Stunden im Zeitraum sind Arbeitszeit × Zahl der Schichten.',
-    example: 'Eine Schicht von 9:00 bis 18:00 mit einer Stunde Pause ergibt 8 Stunden — bei 21 Schichten 168 Stunden, bei einem Stundensatz von 25 € also 4.200 €.',
+    example: 'Eine Schicht von 9:00 bis 18:00 mit einer Stunde Pause ergibt 8 Stunden — bei 21 Schichten 168 Stunden, bei einem Stundensatz von 25 € also 4200 €.',
     faq: [
       { q: 'Wie wird eine Schicht über Mitternacht behandelt?', a: 'Liegt die Endzeit vor der Startzeit, wird ein Tag zur Differenz addiert. Eine Schicht von 22:00 bis 06:00 ergibt deshalb acht Stunden statt minus sechzehn.' },
       { q: 'Warum wird eine Pause abgewiesen, die länger als die Schicht ist?', a: 'Weil die Arbeitszeit negativ würde. Ein solches Ergebnis sähe plausibel aus, während es in Wahrheit einen Tippfehler anzeigt — deshalb wird es verweigert.' },

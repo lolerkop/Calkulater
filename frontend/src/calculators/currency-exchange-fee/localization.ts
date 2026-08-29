@@ -89,6 +89,7 @@ export const localization: CalculatorLocalization = {
         'Полная стоимость обмена': 'Gesamtkosten des Umtauschs',
         'Доля потерь': 'Anteil der Kosten',
         'Проверьте данные': 'Prüfe die Werte',
+              'Фиксированный сбор': 'Feste Gebühr',
       },
       values: {
         '₽': '€',

@@ -18,6 +18,7 @@ for (const route of [
   // а контраст и доступные имена обязаны выполняться во всех трёх.
   '/en/calculators/',
   '/uk/calculators/',
+  '/de/calculators/',
   '/ru/calculators/page/2/',
   '/ru/calculators/page/3/',
   '/ru/finance/',
@@ -28,6 +29,16 @@ for (const route of [
   '/ru/finance/annuity/',
   '/ru/converters/chislo-propisyu/',
   '/en/physics/newtons-second-law-calculator/',
+  // Немецкая локаль: подборка, раздел, страница с таблицей результата,
+  // страница с переключателями и калькулятор с датами. Классы страниц те же,
+  // что и у остальных локалей, но подписи и длина слов свои — контраст и
+  // доступные имена обязаны выполняться и здесь.
+  '/de/',
+  '/de/finanzen/',
+  '/de/finanzen/kreditrechner/',
+  '/de/heimwerken/ziegelrechner/',
+  '/de/datum-zeit/datumsrechner/',
+  '/de/fitness/koerperfett-rechner/',
   '/ru/takoy-stranicy-net-24f/',
 ]) {
   test(`axe has no WCAG A/AA violations on ${route}`, async ({ page }) => {
