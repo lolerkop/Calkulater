@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { locales } from '../src/lib/i18n';
 
 // Полоса разделов в шапке прокручивается, когда её пункты не помещаются.
 // Прокрутка в CSS дотягивается только до того, что вышло за КОНЕЦ полосы:
@@ -22,7 +23,9 @@ const ROUTES = [
   { path: '/en/', name: 'EN главная' },
   { path: '/uk/', name: 'UK главная' },
   { path: '/ru/finance/', name: 'RU раздел' },
-  { path: '/ru/date-time/working-days-calculator/', name: 'RU калькулятор' },
+  // Немецкий каталог курируется: этого калькулятора в нём нет, поэтому
+  // переключатель показывает на один язык меньше — и это верно.
+  { path: '/ru/date-time/working-days-calculator/', name: 'RU калькулятор', everyLocale: false },
 ];
 
 type NavGeometry = {
@@ -99,7 +102,12 @@ for (const width of WIDTHS) {
 
       // Все разделы и все языки на месте: правка не должна ничего прятать.
       expect(geometry.visibleLinks, `${where}: пропали пункты навигации`).toBeGreaterThanOrEqual(6);
-      expect(geometry.languageLinks, `${where}: пропали языки`).toBe(3);
+        // Переключатель показывает только те локали, где страница существует.
+        // Там, где она есть во всех, требуем все; на курируемой странице — не
+        // меньше трёх. Потерянный язык или пустой переключатель так же поймаются.
+        expect(geometry.languageLinks, `${where}: пропали языки`)
+          .toBeGreaterThanOrEqual(route.everyLocale === false ? locales.length - 1 : locales.length);
+        expect(geometry.languageLinks, `${where}: лишние языки`).toBeLessThanOrEqual(locales.length);
     }
   });
 }

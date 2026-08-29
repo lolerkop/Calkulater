@@ -14,7 +14,7 @@ import { CATALOG_PAGE_SIZE } from '../src/lib/catalogPagination';
 // Сверяются не числа, а списки: совпадение количеств при разном составе —
 // именно тот дефект, который проверка обязана ловить.
 
-const CATALOG = { ru: '/ru/calculators/', en: '/en/calculators/', uk: '/uk/calculators/' } as const;
+const CATALOG = { ru: '/ru/calculators/', en: '/en/calculators/', uk: '/uk/calculators/', de: '/de/calculators/' } as const;
 
 /** Корпус запросов: из настоящих данных, а не выдуманный. */
 function corpus(locale: (typeof locales)[number]): string[] {
