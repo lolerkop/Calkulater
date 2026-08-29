@@ -12,6 +12,32 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'real': 'Maß am Original, mm',
+      'model': 'Maß am Modell, mm',
+      'scale': 'Nenner des Maßstabs, 1:N',
+    },
+    options: {
+      'toModel': 'das Modellmaß',
+      'toReal': 'das Maß am Original',
+      'findScale': 'der Maßstab',
+    },
+    results: {
+      'Размер модели': 'Maß am Modell',
+      'Размер натуры': 'Maß am Original',
+      'Масштаб': 'Maßstab',
+      'Натура больше модели во столько раз': 'Das Original ist größer um den Faktor',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мм': 'mm',
+      'Знаменатель масштаба должен быть больше нуля': 'Der Nenner des Maßstabs muss größer als null sein',
+      'Размер модели должен быть больше нуля': 'Das Maß am Modell muss größer als null sein',
+      'Размер натуры должен быть больше нуля': 'Das Maß am Original muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What to find', real: 'Real size, mm', model: 'Model size, mm',

@@ -15,6 +15,9 @@ import { deAutomotiveContent } from './deContent/automotive';
 import { deChemistryContent } from './deContent/chemistry';
 import { deComputers1Content } from './deContent/computers1';
 import { deComputers2Content } from './deContent/computers2';
+import { deConverters1Content } from './deContent/converters1';
+import { deConverters2Content } from './deContent/converters2';
+import { deConverters3Content } from './deContent/converters3';
 import { deDatetimeContent } from './deContent/datetime';
 import { deElectronics1Content } from './deContent/electronics1';
 import { deElectronics2Content } from './deContent/electronics2';
@@ -376,6 +379,9 @@ export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
   ...deChemistryContent,
   ...deComputers1Content,
   ...deComputers2Content,
+  ...deConverters1Content,
+  ...deConverters2Content,
+  ...deConverters3Content,
   ...deDatetimeContent,
   ...deElectronics1Content,
   ...deElectronics2Content,

@@ -14,6 +14,43 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Volumen',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'ml': 'Milliliter (ml)',
+      'l': 'Liter (l)',
+      'tspM': 'Teelöffel, metrisch (5 ml)',
+      'tbspM': 'Esslöffel, metrisch (15 ml)',
+      'cupM': 'Tasse, metrisch (250 ml)',
+      'tspUS': 'Teelöffel, US',
+      'tbspUS': 'Esslöffel, US',
+      'cupUS': 'Tasse, US',
+      'flozUS': 'Flüssigunze, US',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'мл': 'ml',
+      'ч. л. (метр.)': 'TL (metrisch)',
+      'ст. л. (метр.)': 'EL (metrisch)',
+      'стакан (метр.)': 'Tasse (metrisch)',
+      'ч. л. (US)': 'TL (US)',
+      'ст. л. (US)': 'EL (US)',
+      'стакан (US)': 'Tasse (US)',
+      'жидк. унция (US)': 'fl oz (US)',
+    },
+  },
   en: {
     fields: { value: 'Volume', from: 'From unit', to: 'To unit' },
     options: { ml: 'Millilitre (ml)', l: 'Litre (l)', tspM: 'Teaspoon, metric (5 ml)', tbspM: 'Tablespoon, metric (15 ml)', cupM: 'Cup, metric (250 ml)', tspUS: 'Teaspoon, US', tbspUS: 'Tablespoon, US', cupUS: 'Cup, US', flozUS: 'Fluid ounce, US' },

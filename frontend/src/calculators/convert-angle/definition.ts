@@ -7,6 +7,7 @@ import { compute } from './compute';
 import { angleNames, angleUnits } from './units';
 import { angleCopyEn } from './copy.en';
 import { angleCopyUk } from './copy.uk';
+import { angleCopyDe } from './copy.de';
 import { angleReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: angleCopyEn, uk: angleCopyUk },
+  copy: { en: angleCopyEn, uk: angleCopyUk, de: angleCopyDe },
   referenceCases: angleReferenceCases,
   publishedExample: { inputs: { value: 90, from: 'deg', to: 'rad' }, expected: ['1,5708 рад'] },
   presentation: {

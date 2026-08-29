@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { convertRadiationCopyEn } from './copy.en';
 import { convertRadiationCopyUk } from './copy.uk';
+import { convertRadiationCopyDe } from './copy.de';
 import { convertRadiationReferenceCases } from './referenceCases';
 
 const UNITS = [
@@ -18,7 +19,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: convertRadiationCopyEn, uk: convertRadiationCopyUk },
+  copy: { en: convertRadiationCopyEn, uk: convertRadiationCopyUk, de: convertRadiationCopyDe },
   referenceCases: convertRadiationReferenceCases,
   publishedExample: { inputs: { value: 1, from: 'mSv', to: 'uSv' }, expected: ["1 000"] },
   presentation: {

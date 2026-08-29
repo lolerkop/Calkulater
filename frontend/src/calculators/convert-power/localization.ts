@@ -14,6 +14,37 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Leistung',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'w': 'Watt (W)',
+      'kw': 'Kilowatt (kW)',
+      'mw': 'Megawatt (MW)',
+      'hp': 'Pferdestärke, mechanisch (hp)',
+      'ps': 'Pferdestärke, metrisch (PS)',
+      'btuh': 'BTU je Stunde (BTU/h)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'Вт': 'W',
+      'кВт': 'kW',
+      'МВт': 'MW',
+      'л.с.': 'PS',
+      'BTU/ч': 'BTU/h',
+    },
+  },
   en: {
     fields: { value: 'Power', from: 'From unit', to: 'To unit' },
     options: { w: 'Watt (W)', kw: 'Kilowatt (kW)', mw: 'Megawatt (MW)', hp: 'Horsepower, mechanical (hp)', ps: 'Horsepower, metric (PS)', btuh: 'BTU per hour (BTU/h)' },

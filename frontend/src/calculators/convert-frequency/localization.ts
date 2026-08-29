@@ -14,6 +14,38 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Frequenz',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'hz': 'Hertz (Hz)',
+      'khz': 'Kilohertz (kHz)',
+      'mhz': 'Megahertz (MHz)',
+      'ghz': 'Gigahertz (GHz)',
+      'mhz_milli': 'Millihertz (mHz)',
+      'rpm': 'Umdrehung je Minute (U/min)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'Гц': 'Hz',
+      'кГц': 'kHz',
+      'МГц': 'MHz',
+      'ГГц': 'GHz',
+      'мГц': 'mHz',
+      'об/мин': 'U/min',
+    },
+  },
   en: {
     fields: { value: 'Frequency', from: 'From unit', to: 'To unit' },
     options: { hz: 'Hertz (Hz)', khz: 'Kilohertz (kHz)', mhz: 'Megahertz (MHz)', ghz: 'Gigahertz (GHz)', mhz_milli: 'Millihertz (mHz)', rpm: 'Revolution per minute (rpm)' },

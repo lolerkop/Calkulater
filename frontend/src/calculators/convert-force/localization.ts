@@ -14,6 +14,39 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Kraft',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'n': 'Newton (N)',
+      'kn': 'Kilonewton (kN)',
+      'mn': 'Millinewton (mN)',
+      'kgf': 'Kilopond (kp)',
+      'tf': 'Tonnenkraft (tf)',
+      'lbf': 'Pound-force (lbf)',
+      'dyn': 'Dyn (dyn)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'Н': 'N',
+      'кН': 'kN',
+      'мН': 'mN',
+      'кгс': 'kp',
+      'тс': 'tf',
+      'дин': 'dyn',
+    },
+  },
   en: {
     fields: { value: 'Force', from: 'From unit', to: 'To unit' },
     options: { n: 'Newton (N)', kn: 'Kilonewton (kN)', mn: 'Millinewton (mN)', kgf: 'Kilogram-force (kgf)', tf: 'Tonne-force (tf)', lbf: 'Pound-force (lbf)', dyn: 'Dyne (dyn)' },

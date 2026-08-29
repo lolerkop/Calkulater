@@ -1,6 +1,46 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Größe',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'bit': 'Bit (bit)',
+      'B': 'Byte (B)',
+      'kB': 'Kilobyte (kB)',
+      'MB': 'Megabyte (MB)',
+      'GB': 'Gigabyte (GB)',
+      'TB': 'Terabyte (TB)',
+      'KiB': 'Kibibyte (KiB)',
+      'MiB': 'Mebibyte (MiB)',
+      'GiB': 'Gibibyte (GiB)',
+      'TiB': 'Tebibyte (TiB)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'бит': 'bit',
+      'Б': 'B',
+      'кБ': 'kB',
+      'МБ': 'MB',
+      'ГБ': 'GB',
+      'ТБ': 'TB',
+      'КиБ': 'KiB',
+      'МиБ': 'MiB',
+      'ГиБ': 'GiB',
+      'ТиБ': 'TiB',
+    },
+  },
   en: {
     fields: { value: 'Size', from: 'From unit', to: 'To unit' },
     options: {

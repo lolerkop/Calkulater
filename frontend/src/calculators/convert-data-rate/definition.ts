@@ -8,6 +8,7 @@ import { compute } from './compute';
 import { dataRateNames, dataRateUnits } from './units';
 import { dataRateCopyEn } from './copy.en';
 import { dataRateCopyUk } from './copy.uk';
+import { dataRateCopyDe } from './copy.de';
 import { dataRateReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -15,7 +16,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: dataRateCopyEn, uk: dataRateCopyUk },
+  copy: { en: dataRateCopyEn, uk: dataRateCopyUk, de: dataRateCopyDe },
   referenceCases: dataRateReferenceCases,
   publishedExample: { inputs: { value: 100, from: 'mbits', to: 'mbytes' }, expected: ['12,5000 МБ/с'] },
   presentation: {

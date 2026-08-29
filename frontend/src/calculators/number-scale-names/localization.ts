@@ -1,6 +1,33 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Wert',
+      'from': 'Von Skala',
+      'to': 'Nach Skala',
+    },
+    options: {
+      'unit': 'Einheiten',
+      'thousand': 'Tausender',
+      'lakh': 'Lakh',
+      'million': 'Millionen',
+      'crore': 'Crore',
+      'billion': 'Milliarden',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'В единицах': 'In Einheiten',
+      'В лакхах': 'In Lakh',
+      'В крорах': 'In Crore',
+      'Отношение шкал': 'Verhältnis der Skalen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Значение должно быть больше нуля': 'Der Wert muss größer als null sein',
+      'Неизвестная шкала': 'Unbekannte Skala',
+    },
+  },
   en: {
     fields: { value: 'Value', from: 'From scale', to: 'To scale' },
     options: {

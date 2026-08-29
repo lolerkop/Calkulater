@@ -12,6 +12,38 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Richtung',
+      'deg': 'Grad',
+      'minutes': 'Minuten',
+      'seconds': 'Sekunden',
+      'hemisphere': 'Halbkugel',
+      'decimal': 'Dezimalgrad',
+    },
+    options: {
+      'toDecimal': 'GMS → dezimal',
+      'toDms': 'dezimal → GMS',
+      'N': 'Nord oder Ost',
+      'S': 'Süd oder West',
+    },
+    results: {
+      'Десятичные градусы': 'Dezimalgrad',
+      'Градусы, минуты, секунды': 'Grad, Minuten, Sekunden',
+      'Полушарие': 'Halbkugel',
+      'Только градусы и минуты': 'Nur Grad und Minuten',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'северное или восточное': 'Nord oder Ost',
+      'южное или западное': 'Süd oder West',
+      'Десятичные градусы должны быть от −180 до 180': 'Dezimalgrad müssen zwischen −180 und 180 liegen',
+      'Градусы должны быть от 0 до 180': 'Die Grad müssen zwischen 0 und 180 liegen',
+      'Минуты должны быть от 0 до 59': 'Die Minuten müssen zwischen 0 und 59 liegen',
+      'Секунды должны быть от 0 до 59': 'Die Sekunden müssen zwischen 0 und 59 liegen',
+      'Итог превышает 180 градусов': 'Das Ergebnis übersteigt 180 Grad',
+    },
+  },
   en: {
     fields: {
       mode: 'Direction', deg: 'Degrees', minutes: 'Minutes', seconds: 'Seconds',

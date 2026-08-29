@@ -14,6 +14,40 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Dichte',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'kgm3': 'Kilogramm je Kubikmeter (kg/m³)',
+      'gcm3': 'Gramm je Kubikzentimeter (g/cm³)',
+      'kgl': 'Kilogramm je Liter (kg/l)',
+      'tm3': 'Tonne je Kubikmeter (t/m³)',
+      'gl': 'Gramm je Liter (g/l)',
+      'lbft3': 'Pfund je Kubikfuß (lb/ft³)',
+      'lbgal': 'Pfund je US-Gallone (lb/gal)',
+      'ozin3': 'Unze je Kubikzoll (oz/in³)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'кг/м³': 'kg/m³',
+      'г/см³': 'g/cm³',
+      'кг/л': 'kg/l',
+      'т/м³': 't/m³',
+      'г/л': 'g/l',
+      'lb/гал': 'lb/gal',
+    },
+  },
   en: {
     fields: { value: 'Density', from: 'From unit', to: 'To unit' },
     options: { kgm3: 'Kilogram per cubic metre (kg/m³)', gcm3: 'Gram per cubic centimetre (g/cm³)', kgl: 'Kilogram per litre (kg/L)', tm3: 'Tonne per cubic metre (t/m³)', gl: 'Gram per litre (g/L)', lbft3: 'Pound per cubic foot (lb/ft³)', lbgal: 'Pound per US gallon (lb/gal)', ozin3: 'Ounce per cubic inch (oz/in³)' },

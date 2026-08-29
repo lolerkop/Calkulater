@@ -14,6 +14,40 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Masse',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'mg': 'Milligramm (mg)',
+      'g': 'Gramm (g)',
+      'kg': 'Kilogramm (kg)',
+      't': 'Tonne (t)',
+      'oz': 'Unze (oz)',
+      'lb': 'Pfund (lb)',
+      'st': 'Stone (st)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'мг': 'mg',
+      'г': 'g',
+      'кг': 'kg',
+      'т': 't',
+      'унция': 'oz',
+      'фунт': 'lb',
+      'стоун': 'st',
+    },
+  },
   en: {
     fields: { value: 'Mass', from: 'From unit', to: 'To unit' },
     options: { mg: 'Milligram (mg)', g: 'Gram (g)', kg: 'Kilogram (kg)', t: 'Tonne (t)', oz: 'Ounce (oz)', lb: 'Pound (lb)', st: 'Stone (st)' },

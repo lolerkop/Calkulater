@@ -14,6 +14,43 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Energie',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'j': 'Joule (J)',
+      'kj': 'Kilojoule (kJ)',
+      'mj': 'Megajoule (MJ)',
+      'wh': 'Wattstunde (Wh)',
+      'kwh': 'Kilowattstunde (kWh)',
+      'cal': 'Kalorie (cal)',
+      'kcal': 'Kilokalorie (kcal)',
+      'btu': 'British thermal unit (BTU)',
+      'ev': 'Elektronenvolt (eV)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'Дж': 'J',
+      'кДж': 'kJ',
+      'МДж': 'MJ',
+      'Вт·ч': 'Wh',
+      'кВт·ч': 'kWh',
+      'кал': 'cal',
+      'ккал': 'kcal',
+      'эВ': 'eV',
+    },
+  },
   en: {
     fields: { value: 'Energy', from: 'From unit', to: 'To unit' },
     options: { j: 'Joule (J)', kj: 'Kilojoule (kJ)', mj: 'Megajoule (MJ)', wh: 'Watt-hour (Wh)', kwh: 'Kilowatt-hour (kWh)', cal: 'Calorie (cal)', kcal: 'Kilocalorie (kcal)', btu: 'British thermal unit (BTU)', ev: 'Electronvolt (eV)' },

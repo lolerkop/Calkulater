@@ -1,6 +1,48 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Menge',
+      'unit': 'Einheit des Volumens',
+      'product': 'Zutat',
+      'direction': 'Richtung',
+    },
+    options: {
+      'water': 'Wasser',
+      'milk': 'Milch',
+      'flour': 'Mehl',
+      'sugar': 'Zucker',
+      'salt': 'Salz',
+      'rice': 'Reis',
+      'oil': 'Pflanzenöl',
+      'honey': 'Honig',
+      'butter': 'Butter',
+      'ml': 'Milliliter',
+      'l': 'Liter',
+      'cup': 'Tassen (240 ml)',
+      'tbsp': 'Esslöffel (15 ml)',
+      'tsp': 'Teelöffel (5 ml)',
+      'toGrams': 'Volumen in Gramm',
+      'toVolume': 'Gramm in Volumen',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Плотность продукта': 'Dichte der Zutat',
+      'В миллилитрах': 'In Millilitern',
+      'Исходное значение': 'Ausgangswert',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'г/мл': 'g/ml',
+      'мл': 'ml',
+      'Неизвестный продукт': 'Unbekannte Zutat',
+      'Неизвестная единица объёма': 'Unbekannte Einheit des Volumens',
+      'Неизвестное направление': 'Unbekannte Richtung',
+      'Значение не может быть отрицательным': 'Der Wert kann nicht negativ sein',
+      'Чашка здесь метрическая, 240 мл. Плотности сыпучих продуктов зависят от того, как их насыпали: разброс до четверти — обычное дело.': 'Die Tasse ist hier metrisch, 240 ml. Die Dichte streufähiger Zutaten hängt davon ab, wie sie eingefüllt wurden: eine Streuung bis zu einem Viertel ist gewöhnlich.',
+    },
+  },
   en: {
     fields: {
       "value": "Amount",

@@ -14,6 +14,42 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Fläche',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'mm2': 'Quadratmillimeter (mm²)',
+      'cm2': 'Quadratzentimeter (cm²)',
+      'm2': 'Quadratmeter (m²)',
+      'ha': 'Hektar (ha)',
+      'km2': 'Quadratkilometer (km²)',
+      'in2': 'Quadratzoll (in²)',
+      'ft2': 'Quadratfuß (ft²)',
+      'ac': 'Acre (ac)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'мм²': 'mm²',
+      'см²': 'cm²',
+      'м²': 'm²',
+      'га': 'ha',
+      'км²': 'km²',
+      'дюйм²': 'in²',
+      'фут²': 'ft²',
+      'акр': 'ac',
+    },
+  },
   en: {
     fields: { value: 'Area', from: 'From unit', to: 'To unit' },
     options: { mm2: 'Square millimetre (mm²)', cm2: 'Square centimetre (cm²)', m2: 'Square metre (m²)', ha: 'Hectare (ha)', km2: 'Square kilometre (km²)', in2: 'Square inch (in²)', ft2: 'Square foot (ft²)', ac: 'Acre (ac)' },

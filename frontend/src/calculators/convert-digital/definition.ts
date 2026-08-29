@@ -7,6 +7,7 @@ import { compute } from './compute';
 import { digitalNames, digitalUnits } from './units';
 import { digitalCopyEn } from './copy.en';
 import { digitalCopyUk } from './copy.uk';
+import { digitalCopyDe } from './copy.de';
 import { digitalReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: digitalCopyEn, uk: digitalCopyUk },
+  copy: { en: digitalCopyEn, uk: digitalCopyUk, de: digitalCopyDe },
   referenceCases: digitalReferenceCases,
   publishedExample: { inputs: { value: 1, from: 'TB', to: 'GiB' }, expected: ['931,3226 ГиБ'] },
   presentation: {

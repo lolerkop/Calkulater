@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { contextualField } from './contextualField';
 import { scaleModelCopyEn } from './copy.en';
 import { scaleModelCopyUk } from './copy.uk';
+import { scaleModelCopyDe } from './copy.de';
 import { scaleModelReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: scaleModelCopyEn, uk: scaleModelCopyUk },
+  copy: { en: scaleModelCopyEn, uk: scaleModelCopyUk, de: scaleModelCopyDe },
   referenceCases: scaleModelReferenceCases,
   publishedExample: { inputs: { mode: 'toModel', real: 4350, model: 50, scale: 87 }, expected: ["50 мм"] },
   presentation: {

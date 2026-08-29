@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { paperQuantityCopyEn } from './copy.en';
 import { paperQuantityCopyUk } from './copy.uk';
+import { paperQuantityCopyDe } from './copy.de';
 import { paperQuantityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: paperQuantityCopyEn, uk: paperQuantityCopyUk },
+  copy: { en: paperQuantityCopyEn, uk: paperQuantityCopyUk, de: paperQuantityCopyDe },
   referenceCases: paperQuantityReferenceCases,
   publishedExample: { inputs: { format: "a4", grammage: 80, sheets: 500 }, expected: ["2,495 кг"] },
   presentation: {

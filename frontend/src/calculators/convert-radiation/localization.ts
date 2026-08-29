@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Wert',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'Sv': 'Sievert (Sv)',
+      'mSv': 'Millisievert (mSv)',
+      'uSv': 'Mikrosievert (µSv)',
+      'nSv': 'Nanosievert (nSv)',
+      'rem': 'Rem',
+      'mrem': 'Millirem (mrem)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Неизвестная единица дозы': 'Unbekannte Dosiseinheit',
+      'Доза не может быть отрицательной': 'Die Dosis kann nicht negativ sein',
+      'Переводятся единицы эквивалентной дозы. Поглощённая доза в греях и активность в беккерелях — другие физические величины, и прямого перевода между ними и зивертом нет.': 'Umgerechnet werden Einheiten der Äquivalentdosis. Die Energiedosis in Gray und die Aktivität in Becquerel sind andere physikalische Größen, und eine unmittelbare Umrechnung zwischen ihnen und dem Sievert gibt es nicht.',
+    },
+  },
   en: {
     fields: { "value": "Value", "from": "From unit", "to": "To unit" },
     options: { "Sv": "Sievert (Sv)",

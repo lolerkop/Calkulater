@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { numberScaleNamesCopyEn } from './copy.en';
 import { numberScaleNamesCopyUk } from './copy.uk';
+import { numberScaleNamesCopyDe } from './copy.de';
 import { numberScaleNamesReferenceCases } from './referenceCases';
 
 const SCALE_OPTIONS = [
@@ -18,7 +19,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: numberScaleNamesCopyEn, uk: numberScaleNamesCopyUk },
+  copy: { en: numberScaleNamesCopyEn, uk: numberScaleNamesCopyUk, de: numberScaleNamesCopyDe },
   referenceCases: numberScaleNamesReferenceCases,
   publishedExample: { inputs: { value: 25, from: 'lakh', to: 'million' }, expected: ["2,5"] },
   presentation: {

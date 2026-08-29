@@ -14,6 +14,42 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Druck',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'pa': 'Pascal (Pa)',
+      'kpa': 'Kilopascal (kPa)',
+      'mpa': 'Megapascal (MPa)',
+      'mbar': 'Millibar (mbar)',
+      'bar': 'Bar (bar)',
+      'atm': 'Atmosphäre (atm)',
+      'psi': 'Pfund je Quadratzoll (psi)',
+      'mmhg': 'Millimeter Quecksilbersäule (mmHg)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'Па': 'Pa',
+      'кПа': 'kPa',
+      'МПа': 'MPa',
+      'мбар': 'mbar',
+      'бар': 'bar',
+      'атм': 'atm',
+      'psi': 'psi',
+      'мм рт. ст.': 'mmHg',
+    },
+  },
   en: {
     fields: { value: 'Pressure', from: 'From unit', to: 'To unit' },
     options: { pa: 'Pascal (Pa)', kpa: 'Kilopascal (kPa)', mpa: 'Megapascal (MPa)', mbar: 'Millibar (mbar)', bar: 'Bar (bar)', atm: 'Atmosphere (atm)', psi: 'Pound per square inch (psi)', mmhg: 'Millimetre of mercury (mmHg)' },

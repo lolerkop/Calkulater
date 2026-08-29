@@ -1,6 +1,44 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Wert',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'mm': 'Millimeter (mm)',
+      'cm': 'Zentimeter (cm)',
+      'm': 'Meter (m)',
+      'km': 'Kilometer (km)',
+      'in': 'Zoll (in)',
+      'ft': 'Fuß (ft)',
+      'yd': 'Yard (yd)',
+      'mi': 'Meile (mi)',
+      'nmi': 'Seemeile (nmi)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'мм': 'mm',
+      'см': 'cm',
+      'м': 'm',
+      'км': 'km',
+      'дюйм': 'in',
+      'фут': 'ft',
+      'ярд': 'yd',
+      'миля': 'mi',
+      'мор. миля': 'nmi',
+    },
+  },
   en: {
     fields: { value: 'Value', from: 'From unit', to: 'To unit' },
     options: {

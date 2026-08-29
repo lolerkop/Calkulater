@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { convertCookingWeightCopyEn } from './copy.en';
 import { convertCookingWeightCopyUk } from './copy.uk';
+import { convertCookingWeightCopyDe } from './copy.de';
 import { convertCookingWeightReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: convertCookingWeightCopyEn, uk: convertCookingWeightCopyUk },
+  copy: { en: convertCookingWeightCopyEn, uk: convertCookingWeightCopyUk, de: convertCookingWeightCopyDe },
   referenceCases: convertCookingWeightReferenceCases,
   publishedExample: { inputs: { value: 1, unit: 'cup', product: 'flour', direction: 'toGrams' }, expected: ["127,2"] },
   presentation: {

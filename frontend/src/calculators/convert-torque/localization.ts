@@ -14,6 +14,37 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Drehmoment',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'nm': 'Newtonmeter (N·m)',
+      'knm': 'Kilonewtonmeter (kN·m)',
+      'ncm': 'Newtonzentimeter (N·cm)',
+      'kgfm': 'Kilopondmeter (kp·m)',
+      'lbfft': 'Pound-force-Fuß (lbf·ft)',
+      'lbfin': 'Pound-force-Zoll (lbf·in)',
+      'ozfin': 'Ounce-force-Zoll (ozf·in)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'Н·м': 'N·m',
+      'кН·м': 'kN·m',
+      'Н·см': 'N·cm',
+      'кгс·м': 'kp·m',
+    },
+  },
   en: {
     fields: { value: 'Torque', from: 'From unit', to: 'To unit' },
     options: { nm: 'Newton metre (N·m)', knm: 'Kilonewton metre (kN·m)', ncm: 'Newton centimetre (N·cm)', kgfm: 'Kilogram-force metre (kgf·m)', lbfft: 'Pound-force foot (lbf·ft)', lbfin: 'Pound-force inch (lbf·in)', ozfin: 'Ounce-force inch (ozf·in)' },

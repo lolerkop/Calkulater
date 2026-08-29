@@ -14,6 +14,38 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Dauer',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'ms': 'Millisekunde (ms)',
+      's': 'Sekunde (s)',
+      'min': 'Minute (min)',
+      'h': 'Stunde (h)',
+      'd': 'Tag (d)',
+      'wk': 'Woche (wk)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'мс': 'ms',
+      'мин': 'min',
+      'сут': 'd',
+      'нед': 'wk',
+      'ч': 'h',
+      'с': 's',
+    },
+  },
   en: {
     fields: { value: 'Duration', from: 'From unit', to: 'To unit' },
     options: { ms: 'Millisecond (ms)', s: 'Second (s)', min: 'Minute (min)', h: 'Hour (h)', d: 'Day (d)', wk: 'Week (wk)' },

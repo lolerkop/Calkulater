@@ -7,6 +7,7 @@ import { compute } from './compute';
 import { timeNames, timeUnits } from './units';
 import { timeCopyEn } from './copy.en';
 import { timeCopyUk } from './copy.uk';
+import { timeCopyDe } from './copy.de';
 import { timeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: timeCopyEn, uk: timeCopyUk },
+  copy: { en: timeCopyEn, uk: timeCopyUk, de: timeCopyDe },
   referenceCases: timeReferenceCases,
   publishedExample: { inputs: { value: 2, from: 'h', to: 'min' }, expected: ['120,0000 мин'] },
   presentation: {

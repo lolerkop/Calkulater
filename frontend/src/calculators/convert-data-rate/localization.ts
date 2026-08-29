@@ -14,6 +14,42 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Datenrate',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'bits': 'Bit je Sekunde (bit/s)',
+      'kbits': 'Kilobit je Sekunde (kbit/s)',
+      'mbits': 'Megabit je Sekunde (Mbit/s)',
+      'gbits': 'Gigabit je Sekunde (Gbit/s)',
+      'bytes': 'Byte je Sekunde (B/s)',
+      'kbytes': 'Kilobyte je Sekunde (kB/s)',
+      'mbytes': 'Megabyte je Sekunde (MB/s)',
+      'mibs': 'Mebibyte je Sekunde (MiB/s)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'бит/с': 'bit/s',
+      'кбит/с': 'kbit/s',
+      'Мбит/с': 'Mbit/s',
+      'Гбит/с': 'Gbit/s',
+      'Б/с': 'B/s',
+      'кБ/с': 'kB/s',
+      'МБ/с': 'MB/s',
+      'МиБ/с': 'MiB/s',
+    },
+  },
   en: {
     fields: { value: 'Data rate', from: 'From unit', to: 'To unit' },
     options: { bits: 'Bit per second (bit/s)', kbits: 'Kilobit per second (kbit/s)', mbits: 'Megabit per second (Mbit/s)', gbits: 'Gigabit per second (Gbit/s)', bytes: 'Byte per second (B/s)', kbytes: 'Kilobyte per second (kB/s)', mbytes: 'Megabyte per second (MB/s)', mibs: 'Mebibyte per second (MiB/s)' },

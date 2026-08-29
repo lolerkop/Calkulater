@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { coordinateConvertCopyEn } from './copy.en';
 import { coordinateConvertCopyUk } from './copy.uk';
+import { coordinateConvertCopyDe } from './copy.de';
 import { coordinateConvertReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: coordinateConvertCopyEn, uk: coordinateConvertCopyUk },
+  copy: { en: coordinateConvertCopyEn, uk: coordinateConvertCopyUk, de: coordinateConvertCopyDe },
   referenceCases: coordinateConvertReferenceCases,
   publishedExample: { inputs: { mode: 'toDecimal', deg: 55, minutes: 45, seconds: 30, decimal: 0, hemisphere: 'N' }, expected: ["55,7583°"] },
   presentation: {

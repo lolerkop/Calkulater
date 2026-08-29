@@ -9,6 +9,7 @@ import { compute } from './compute';
 import { forceNames, forceUnits } from './units';
 import { forceCopyEn } from './copy.en';
 import { forceCopyUk } from './copy.uk';
+import { forceCopyDe } from './copy.de';
 import { forceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -16,7 +17,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: forceCopyEn, uk: forceCopyUk },
+  copy: { en: forceCopyEn, uk: forceCopyUk, de: forceCopyDe },
   referenceCases: forceReferenceCases,
   publishedExample: { inputs: { value: 10, from: 'kgf', to: 'n' }, expected: ['98,0665 Н'] },
   presentation: {

@@ -6,6 +6,7 @@ import { compute } from './compute';
 import { massNames, massUnits } from './units';
 import { massCopyEn } from './copy.en';
 import { massCopyUk } from './copy.uk';
+import { massCopyDe } from './copy.de';
 import { massReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: massCopyEn, uk: massCopyUk },
+  copy: { en: massCopyEn, uk: massCopyUk, de: massCopyDe },
   referenceCases: massReferenceCases,
   publishedExample: { inputs: { value: 1, from: 'lb', to: 'g' }, expected: ['453,5924 г'] },
   presentation: {

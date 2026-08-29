@@ -14,6 +14,38 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Beleuchtungsstärke',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'lx': 'Lux (lx)',
+      'klx': 'Kilolux (klx)',
+      'mlx': 'Millilux (mlx)',
+      'fc': 'Footcandle (fc)',
+      'ph': 'Phot (ph)',
+      'nox': 'Nox (nox)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'лк': 'lx',
+      'клк': 'klx',
+      'млк': 'mlx',
+      'фк': 'fc',
+      'фот': 'ph',
+      'нокс': 'nox',
+    },
+  },
   en: {
     fields: { value: 'Illuminance', from: 'From unit', to: 'To unit' },
     options: { lx: 'Lux (lx)', klx: 'Kilolux (klx)', mlx: 'Millilux (mlx)', fc: 'Foot-candle (fc)', ph: 'Phot (ph)', nox: 'Nox (nox)' },

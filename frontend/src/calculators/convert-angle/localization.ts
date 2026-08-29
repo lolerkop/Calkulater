@@ -14,6 +14,35 @@ const ERRORS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'value': 'Winkel',
+      'from': 'Von Einheit',
+      'to': 'Nach Einheit',
+    },
+    options: {
+      'rad': 'Bogenmaß (rad)',
+      'deg': 'Grad (°)',
+      'grad': 'Gon (gon)',
+      'turn': 'Umdrehung (turn)',
+      'arcmin': 'Bogenminute (′)',
+      'arcsec': 'Bogensekunde (″)',
+    },
+    results: {
+      'Результат': 'Ergebnis',
+      'Исходное значение': 'Ausgangswert',
+      'Соотношение': 'Verhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выберите единицы из списка': 'Wähle Einheiten aus der Liste',
+      'Введите конечное число': 'Trage eine endliche Zahl ein',
+      'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des zulässigen Bereichs',
+      'рад': 'rad',
+      'град': 'gon',
+      'об': 'turn',
+    },
+  },
   en: {
     fields: { value: 'Angle', from: 'From unit', to: 'To unit' },
     options: { rad: 'Radian (rad)', deg: 'Degree (°)', grad: 'Gradian (gon)', turn: 'Turn (turn)', arcmin: 'Arcminute (′)', arcsec: 'Arcsecond (″)' },
