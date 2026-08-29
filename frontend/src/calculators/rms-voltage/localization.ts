@@ -1,6 +1,35 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was bekannt ist',
+      'wave': 'Signalform',
+      'value': 'Wert, V',
+    },
+    options: {
+      'peak': 'Scheitelwert',
+      'pp': 'Spitze-Spitze',
+      'rms': 'Effektivwert',
+      'sine': 'Sinus',
+      'square': 'Rechteck',
+      'triangle': 'Dreieck',
+    },
+    results: {
+      'Действующее напряжение': 'Effektivwert der Spannung',
+      'Амплитудное значение': 'Scheitelwert',
+      'Размах': 'Spitze-Spitze',
+      'Коэффициент амплитуды': 'Scheitelfaktor',
+      'Среднее по модулю': 'Gleichrichtwert',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'В': 'V',
+      'Выберите, что задано, из списка': 'Wähle aus der Liste, was gegeben ist',
+      'Выберите форму сигнала из списка': 'Wähle die Signalform aus der Liste',
+      'Значение напряжения должно быть больше нуля': 'Der Spannungswert muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: 'What is known', wave: 'Waveform', value: 'Value, V' },
     options: {

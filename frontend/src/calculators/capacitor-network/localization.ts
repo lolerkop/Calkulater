@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'capacitances': 'Kapazitäten mit Leerzeichen getrennt, µF',
+      'mode': 'Schaltung',
+    },
+    options: {
+      'series': 'Reihe',
+      'parallel': 'parallel',
+    },
+    results: {
+      'Общая ёмкость': 'Gesamtkapazität',
+      'Конденсаторов': 'Kondensatoren',
+      'Наименьший': 'Kleinster',
+      'Наибольший': 'Größter',
+      'Соединение': 'Schaltung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мкФ': 'µF',
+      'последовательное': 'Reihe',
+      'параллельное': 'parallel',
+      'Введите ёмкости через пробел, каждая больше нуля': 'Trage die Kapazitäten mit Leerzeichen getrennt ein, jede größer als null',
+    },
+  },
   en: {
     fields: { capacitances: 'Capacitances separated by spaces, µF', mode: 'Connection' },
     options: { series: 'series', parallel: 'parallel' },

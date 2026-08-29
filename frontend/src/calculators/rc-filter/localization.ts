@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'r': 'Widerstand, Ω',
+      'c': 'Kapazität, nF',
+    },
+    results: {
+      'Частота среза': 'Grenzfrequenz',
+      'Постоянная времени': 'Zeitkonstante',
+      'Заряд почти до конца': 'Ladung nahezu abgeschlossen',
+      'Сопротивление': 'Widerstand',
+      'Ёмкость': 'Kapazität',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Гц': 'Hz',
+      'с': 's',
+      'Ом': 'Ω',
+      'нФ': 'nF',
+      'Сопротивление должно быть больше нуля': 'Der Widerstand muss größer als null sein',
+      'Ёмкость должна быть больше нуля': 'Die Kapazität muss größer als null sein',
+    },
+  },
   en: {
     fields: { r: 'Resistance, Ω', c: 'Capacitance, nF' },
     options: {},

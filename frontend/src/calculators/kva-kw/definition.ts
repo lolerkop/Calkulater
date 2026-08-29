@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { contextualField } from './contextualField';
 import { kvaKwCopyEn } from './copy.en';
 import { kvaKwCopyUk } from './copy.uk';
+import { kvaKwCopyDe } from './copy.de';
 import { kvaKwReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: kvaKwCopyEn, uk: kvaKwCopyUk },
+  copy: { en: kvaKwCopyEn, uk: kvaKwCopyUk, de: kvaKwCopyDe },
   referenceCases: kvaKwReferenceCases,
   publishedExample: { inputs: { mode: 'kva', kw: 10, kva: 0, pf: 0.8 }, expected: ["12,5 кВА"] },
   presentation: {

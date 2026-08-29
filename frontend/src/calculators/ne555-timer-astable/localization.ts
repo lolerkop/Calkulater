@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'r1': 'Widerstand R1, kΩ',
+      'r2': 'Widerstand R2, kΩ',
+      'c': 'Kondensator C, nF',
+    },
+    results: {
+      'Частота': 'Frequenz',
+      'Период': 'Periodendauer',
+      'Время высокого уровня': 'High-Zeit',
+      'Время низкого уровня': 'Low-Zeit',
+      'Скважность': 'Tastverhältnis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Гц': 'Hz',
+      'мс': 'ms',
+      '%': '%',
+      'Сопротивление должно быть больше нуля': 'Der Widerstand muss größer als null sein',
+      'Ёмкость должна быть больше нуля': 'Die Kapazität muss größer als null sein',
+    },
+  },
   en: {
     fields: { r1: 'Resistor R1, kΩ', r2: 'Resistor R2, kΩ', c: 'Capacitor C, nF' },
     options: {},

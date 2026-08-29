@@ -1,6 +1,39 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'current': 'Strom, A',
+      'length': 'Einfache Länge, m',
+      'section': 'Leiterquerschnitt, mm²',
+      'material': 'Leitermaterial',
+      'phase': 'Versorgung',
+      'voltage': 'Nennspannung, V',
+    },
+    options: {
+      'copper': 'Kupfer',
+      'aluminium': 'Aluminium',
+      'single': 'Einphasig',
+      'three': 'Dreiphasig',
+    },
+    results: {
+      'Падение напряжения': 'Spannungsfall',
+      'Доля от номинала': 'Anteil der Nennspannung',
+      'Напряжение у нагрузки': 'Spannung an der Last',
+      'Сопротивление линии': 'Leitungswiderstand',
+      'Потери мощности': 'Verlustleistung in der Leitung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'В': 'V',
+      'Ом': 'Ω',
+      'Вт': 'W',
+      'Неизвестный материал проводника': 'Unbekanntes Leitermaterial',
+      'Неизвестная схема питания': 'Unbekannte Versorgungsart',
+      'Ток, длина, сечение и напряжение должны быть больше нуля': 'Strom, Länge, Querschnitt und Spannung müssen alle größer als null sein',
+      'Удельное сопротивление взято при 20 °C. Нагретый проводник сопротивляется сильнее, поэтому в работе падение будет чуть больше расчётного.': 'Der spezifische Widerstand gilt bei 20 °C. Ein warmer Leiter setzt mehr Widerstand entgegen, im Betrieb fällt der Spannungsfall deshalb etwas größer aus als berechnet.',
+    },
+  },
   en: {
     fields: {
       "current": "Current, A", "length": "One-way run, m", "section": "Conductor cross-section, mm²",

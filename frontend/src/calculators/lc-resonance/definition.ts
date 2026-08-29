@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { lcResonanceCopyEn } from './copy.en';
 import { lcResonanceCopyUk } from './copy.uk';
+import { lcResonanceCopyDe } from './copy.de';
 import { lcResonanceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: lcResonanceCopyEn, uk: lcResonanceCopyUk },
+  copy: { en: lcResonanceCopyEn, uk: lcResonanceCopyUk, de: lcResonanceCopyDe },
   referenceCases: lcResonanceReferenceCases,
   publishedExample: { inputs: { l: 100, c: 100 }, expected: ["50 329,21 Гц"] },
   presentation: {

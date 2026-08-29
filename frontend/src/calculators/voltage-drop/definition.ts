@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { voltageDropCopyEn } from './copy.en';
 import { voltageDropCopyUk } from './copy.uk';
+import { voltageDropCopyDe } from './copy.de';
 import { voltageDropReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: voltageDropCopyEn, uk: voltageDropCopyUk },
+  copy: { en: voltageDropCopyEn, uk: voltageDropCopyUk, de: voltageDropCopyDe },
   referenceCases: voltageDropReferenceCases,
   publishedExample: { inputs: { current: 16, length: 20, section: 2.5, material: 'copper', phase: 'single', voltage: 230 }, expected: ["4,48 В"] },
   presentation: {

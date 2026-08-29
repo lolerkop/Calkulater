@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { inverterPowerCopyEn } from './copy.en';
 import { inverterPowerCopyUk } from './copy.uk';
+import { inverterPowerCopyDe } from './copy.de';
 import { inverterPowerReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: inverterPowerCopyEn, uk: inverterPowerCopyUk },
+  copy: { en: inverterPowerCopyEn, uk: inverterPowerCopyUk, de: inverterPowerCopyDe },
   referenceCases: inverterPowerReferenceCases,
   publishedExample: { inputs: { outputPower: 1000, efficiency: 85, batteryVoltage: 12 }, expected: ["1 176,5 Вт"] },
   presentation: {

@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'l': 'Induktivität, µH',
+      'c': 'Kapazität, nF',
+    },
+    results: {
+      'Резонансная частота': 'Resonanzfrequenz',
+      'В килогерцах': 'In Kilohertz',
+      'Период': 'Periodendauer',
+      'Волновое сопротивление': 'Kennwiderstand',
+      'Индуктивность': 'Induktivität',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Гц': 'Hz',
+      'кГц': 'kHz',
+      'с': 's',
+      'Ом': 'Ω',
+      'мкГн': 'µH',
+      'Индуктивность должна быть больше нуля': 'Die Induktivität muss größer als null sein',
+      'Ёмкость должна быть больше нуля': 'Die Kapazität muss größer als null sein',
+    },
+  },
   en: {
     fields: { l: 'Inductance, µH', c: 'Capacitance, nF' },
     options: {},

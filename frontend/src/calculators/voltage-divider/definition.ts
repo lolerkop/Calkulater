@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { voltageDividerCopyEn } from './copy.en';
 import { voltageDividerCopyUk } from './copy.uk';
+import { voltageDividerCopyDe } from './copy.de';
 import { voltageDividerReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: voltageDividerCopyEn, uk: voltageDividerCopyUk },
+  copy: { en: voltageDividerCopyEn, uk: voltageDividerCopyUk, de: voltageDividerCopyDe },
   referenceCases: voltageDividerReferenceCases,
   publishedExample: { inputs: { vin: 12, r1: 10000, r2: 4700 }, expected: ["3,837 В"] },
   presentation: {

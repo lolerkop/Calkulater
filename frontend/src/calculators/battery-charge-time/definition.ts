@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { batteryChargeTimeCopyEn } from './copy.en';
 import { batteryChargeTimeCopyUk } from './copy.uk';
+import { batteryChargeTimeCopyDe } from './copy.de';
 import { batteryChargeTimeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: batteryChargeTimeCopyEn, uk: batteryChargeTimeCopyUk },
+  copy: { en: batteryChargeTimeCopyEn, uk: batteryChargeTimeCopyUk, de: batteryChargeTimeCopyDe },
   referenceCases: batteryChargeTimeReferenceCases,
   publishedExample: { inputs: { capacityAh: 100, currentA: 10, efficiency: 100 }, expected: ["10 ч 0 мин"] },
   presentation: {

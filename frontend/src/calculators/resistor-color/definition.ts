@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { resistorColorCopyEn } from './copy.en';
 import { resistorColorCopyUk } from './copy.uk';
+import { resistorColorCopyDe } from './copy.de';
 import { resistorColorReferenceCases } from './referenceCases';
 
 // Подписи вариантов — только цвета, и это не экономия текста.
@@ -34,7 +35,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: resistorColorCopyEn, uk: resistorColorCopyUk },
+  copy: { en: resistorColorCopyEn, uk: resistorColorCopyUk, de: resistorColorCopyDe },
   referenceCases: resistorColorReferenceCases,
   publishedExample: { inputs: { b1: 4, b2: 7, mult: 2, tol: 5 }, expected: ["4,7 кОм"] },
   presentation: {

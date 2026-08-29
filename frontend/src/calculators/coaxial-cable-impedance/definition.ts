@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { coaxialCableImpedanceCopyEn } from './copy.en';
 import { coaxialCableImpedanceCopyUk } from './copy.uk';
+import { coaxialCableImpedanceCopyDe } from './copy.de';
 import { coaxialCableImpedanceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: coaxialCableImpedanceCopyEn, uk: coaxialCableImpedanceCopyUk },
+  copy: { en: coaxialCableImpedanceCopyEn, uk: coaxialCableImpedanceCopyUk, de: coaxialCableImpedanceCopyDe },
   referenceCases: coaxialCableImpedanceReferenceCases,
   publishedExample: { inputs: { dIn: 0.9, dOut: 2.95, eps: 2.25 }, expected: ["47,433 Ом"] },
   presentation: {

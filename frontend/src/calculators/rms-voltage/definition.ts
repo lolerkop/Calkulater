@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { rmsVoltageCopyEn } from './copy.en';
 import { rmsVoltageCopyUk } from './copy.uk';
+import { rmsVoltageCopyDe } from './copy.de';
 import { rmsVoltageReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: rmsVoltageCopyEn, uk: rmsVoltageCopyUk },
+  copy: { en: rmsVoltageCopyEn, uk: rmsVoltageCopyUk, de: rmsVoltageCopyDe },
   referenceCases: rmsVoltageReferenceCases,
   publishedExample: { inputs: { mode: "peak", value: 311, wave: "sine" }, expected: ["219,91 В"] },
   presentation: {

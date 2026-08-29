@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'resistances': 'Widerstände in Ohm — einer je Zeile oder mit Leerzeichen getrennt',
+      'mode': 'Schaltung',
+    },
+    options: {
+      'series': 'Reihe',
+      'parallel': 'Parallel',
+    },
+    results: {
+      'Общее сопротивление': 'Gesamtwiderstand',
+      'Резисторов': 'Widerstände',
+      'Наименьший': 'Kleinster',
+      'Наибольший': 'Größter',
+      'Соединение': 'Schaltung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Не число:': 'Keine Zahl:',
+      'Ом': 'Ω',
+      'последовательное': 'Reihe',
+      'параллельное': 'parallel',
+      'Сопротивление должно быть больше нуля': 'Der Widerstand muss größer als null sein',
+      'Нужно хотя бы два резистора': 'Es werden mindestens zwei Widerstände gebraucht',
+    },
+  },
   en: {
     fields: {
       "resistances": "Resistances in ohms — one per line or separated by spaces",

@@ -16,6 +16,32 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'capacity': 'Kapazität, Ah',
+      'voltage': 'Spannung, V',
+      'load': 'Last, W',
+      'dod': 'Entladetiefe, %',
+      'efficiency': 'Wirkungsgrad der Wandlung, %',
+    },
+    results: {
+      'Время работы': 'Laufzeit',
+      'Часы и минуты': 'Stunden und Minuten',
+      'Полезная энергия': 'Nutzbare Energie',
+      'Полная энергия батареи': 'Gesamtenergie des Akkus',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'ч': 'h',
+      'мин': 'min',
+      'Вт·ч': 'Wh',
+      'Ёмкость должна быть больше нуля': 'Die Kapazität muss größer als null sein',
+      'Напряжение должно быть больше нуля': 'Die Spannung muss größer als null sein',
+      'Мощность нагрузки должна быть больше нуля': 'Die Last muss größer als null sein',
+      'Глубина разряда задаётся в диапазоне от 0 до 100 процентов': 'Die Entladetiefe liegt im Bereich von 0 bis 100 Prozent',
+      'КПД задаётся в диапазоне от 0 до 100 процентов': 'Der Wirkungsgrad liegt im Bereich von 0 bis 100 Prozent',
+    },
+  },
   en: {
     fields: { capacity: "Capacity, Ah", voltage: "Voltage, V", load: "Load, W", dod: "Depth of discharge, %", efficiency: "Conversion efficiency, %" },
     results: RESULTS_EN,

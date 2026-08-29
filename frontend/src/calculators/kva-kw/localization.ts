@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'kw': 'Wirkleistung, kW',
+      'kva': 'Scheinleistung, kVA',
+      'pf': 'Leistungsfaktor (cos φ)',
+    },
+    options: {
+      'kva': 'Scheinleistung, kVA',
+      'kw': 'Wirkleistung, kW',
+    },
+    results: {
+      'Полная мощность': 'Scheinleistung',
+      'Активная мощность': 'Wirkleistung',
+      'Реактивная мощность': 'Blindleistung',
+      'Коэффициент мощности': 'Leistungsfaktor',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'кВА': 'kVA',
+      'кВт': 'kW',
+      'квар': 'kvar',
+      'Коэффициент мощности должен быть больше нуля': 'Der Leistungsfaktor muss größer als null sein',
+      'Коэффициент мощности не может быть больше единицы': 'Der Leistungsfaktor kann nicht größer als eins sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What to find', kw: 'Active power, kW', kva: 'Apparent power, kVA',

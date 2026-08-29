@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { timer555CopyEn } from './copy.en';
 import { timer555CopyUk } from './copy.uk';
+import { timer555CopyDe } from './copy.de';
 import { timer555ReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: timer555CopyEn, uk: timer555CopyUk },
+  copy: { en: timer555CopyEn, uk: timer555CopyUk, de: timer555CopyDe },
   referenceCases: timer555ReferenceCases,
   publishedExample: { inputs: { r1: 10, r2: 47, c: 100 }, expected: ["138,72 Гц"] },
   presentation: {

@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'dIn': 'Durchmesser des Innenleiters, mm',
+      'dOut': 'Innendurchmesser des Schirms, mm',
+      'eps': 'Relative Permittivität des Dielektrikums',
+    },
+    results: {
+      'Волновое сопротивление': 'Wellenwiderstand',
+      'Ёмкость на метр': 'Kapazität je Meter',
+      'Коэффициент укорочения': 'Verkürzungsfaktor',
+      'Задержка на метр': 'Laufzeit je Meter',
+      'Отношение диаметров': 'Verhältnis der Durchmesser',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Ом': 'Ω',
+      'пФ/м': 'pF/m',
+      'нс/м': 'ns/m',
+      'Диаметр жилы должен быть больше нуля': 'Der Durchmesser des Innenleiters muss größer als null sein',
+      'Внешний диаметр должен быть больше нуля': 'Der Durchmesser des Schirms muss größer als null sein',
+      'Диэлектрическая проницаемость не может быть меньше единицы': 'Die relative Permittivität kann nicht unter eins liegen',
+      'Внешний диаметр должен быть больше внутреннего': 'Der Durchmesser des Schirms muss größer sein als der des Innenleiters',
+    },
+  },
   en: {
     fields: {
       dIn: 'Centre conductor diameter, mm', dOut: 'Inner diameter of the shield, mm',

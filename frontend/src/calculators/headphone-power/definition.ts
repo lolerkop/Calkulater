@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { headphonePowerCopyEn } from './copy.en';
 import { headphonePowerCopyUk } from './copy.uk';
+import { headphonePowerCopyDe } from './copy.de';
 import { headphonePowerReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: headphonePowerCopyEn, uk: headphonePowerCopyUk },
+  copy: { en: headphonePowerCopyEn, uk: headphonePowerCopyUk, de: headphonePowerCopyDe },
   referenceCases: headphonePowerReferenceCases,
   publishedExample: { inputs: { sensitivity: 100, impedance: 32, power: 10 }, expected: ["110 дБ"] },
   presentation: {

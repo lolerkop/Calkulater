@@ -1,6 +1,36 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'voltage': 'Spannung, V',
+      'current': 'Strom, A',
+      'power': 'Wirkleistung, W',
+      'powerFactor': 'Leistungsfaktor cos φ',
+    },
+    options: {
+      'P': 'Leistung aus dem Strom',
+      'current': 'Strom aus der Leistung',
+    },
+    results: {
+      'Активная мощность': 'Wirkleistung',
+      'Полная мощность': 'Scheinleistung',
+      'Реактивная мощность': 'Blindleistung',
+      'Ток': 'Strom',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Вт': 'W',
+      'ВА': 'VA',
+      'вар': 'var',
+      'А': 'A',
+      'Напряжение должно быть больше нуля': 'Die Spannung muss größer als null sein',
+      'Коэффициент мощности должен быть больше нуля и не больше единицы': 'Der Leistungsfaktor muss über null und höchstens eins sein',
+      'Активная мощность должна быть больше нуля': 'Die Wirkleistung muss größer als null sein',
+      'Ток должен быть больше нуля': 'Der Strom muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What to find',

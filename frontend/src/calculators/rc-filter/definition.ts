@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { rcFilterCopyEn } from './copy.en';
 import { rcFilterCopyUk } from './copy.uk';
+import { rcFilterCopyDe } from './copy.de';
 import { rcFilterReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: rcFilterCopyEn, uk: rcFilterCopyUk },
+  copy: { en: rcFilterCopyEn, uk: rcFilterCopyUk, de: rcFilterCopyDe },
   referenceCases: rcFilterReferenceCases,
   publishedExample: { inputs: { r: 10000, c: 100 }, expected: ["159,15 Гц"] },
   presentation: {

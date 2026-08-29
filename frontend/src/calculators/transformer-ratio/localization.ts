@@ -1,6 +1,41 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'n1': 'Windungen der Primärwicklung',
+      'n2': 'Windungen der Sekundärwicklung',
+      'v1': 'Primärspannung, V',
+      'v2': 'Gewünschte Sekundärspannung, V',
+      'i1': 'Primärstrom, A',
+    },
+    options: {
+      'secondaryVoltage': 'Sekundärspannung',
+      'turnsRatio': 'Windungsverhältnis',
+    },
+    results: {
+      'Вторичное напряжение': 'Sekundärspannung',
+      'Отношение витков': 'Windungsverhältnis',
+      'Вторичный ток': 'Sekundärstrom',
+      'Мощность': 'Leistung',
+      'Тип': 'Art',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'В': 'V',
+      'А': 'A',
+      'Вт': 'W',
+      'повышающий': 'aufwärts',
+      'понижающий': 'abwärts',
+      'разделительный': 'trennend',
+      'Первичное напряжение должно быть больше нуля': 'Die Primärspannung muss größer als null sein',
+      'Первичный ток не может быть отрицательным': 'Der Primärstrom kann nicht negativ sein',
+      'Вторичное напряжение должно быть больше нуля': 'Die Sekundärspannung muss größer als null sein',
+      'Число витков первичной обмотки должно быть больше нуля': 'Die Windungszahl der Primärwicklung muss größer als null sein',
+      'Число витков вторичной обмотки должно быть больше нуля': 'Die Windungszahl der Sekundärwicklung muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What to find', n1: 'Primary turns', n2: 'Secondary turns',

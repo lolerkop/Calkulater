@@ -1,6 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'sensitivity': 'Empfindlichkeit, dB/mW',
+      'impedance': 'Impedanz, Ω',
+      'power': 'Zugeführte Leistung, mW',
+    },
+    results: {
+      'Звуковое давление': 'Schalldruckpegel',
+      'Прибавка от мощности': 'Zugewinn durch die Leistung',
+      'Напряжение на выходе': 'Ausgangsspannung',
+      'Ток': 'Strom',
+      'Импеданс': 'Impedanz',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'дБ': 'dB',
+      'В': 'V',
+      'мА': 'mA',
+      'Ом': 'Ω',
+      'Чувствительность должна быть больше нуля': 'Die Empfindlichkeit muss größer als null sein',
+      'Импеданс должен быть больше нуля': 'Die Impedanz muss größer als null sein',
+      'Подводимая мощность должна быть больше нуля': 'Die zugeführte Leistung muss größer als null sein',
+    },
+  },
   en: {
     fields: { sensitivity: 'Sensitivity, dB/mW', impedance: 'Impedance, Ω', power: 'Applied power, mW' },
     options: {},

@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'cells': 'Zellen insgesamt',
+      'cellVoltage': 'Zellspannung, V',
+      'cellCapacity': 'Zellkapazität, Ah',
+      'series': 'Zellen in Reihe',
+      'parallel': 'Stränge parallel',
+    },
+    results: {
+      'Напряжение сборки': 'Spannung des Packs',
+      'Ёмкость сборки': 'Kapazität des Packs',
+      'Энергия': 'Energie',
+      'Ячеек': 'Zellen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'В': 'V',
+      'А·ч': 'Ah',
+      'Вт·ч': 'Wh',
+      'Ячеек должно быть не меньше одной': 'Es muss mindestens eine Zelle sein',
+      'Напряжение ячейки должно быть больше нуля': 'Die Zellspannung muss größer als null sein',
+      'Ёмкость ячейки должна быть больше нуля': 'Die Zellkapazität muss größer als null sein',
+      'Число групп должно быть не меньше одной': 'Es muss mindestens eine Gruppe sein',
+      'Последовательных × параллельных должно равняться числу ячеек': 'Reihe × parallel muss der Zahl der Zellen entsprechen',
+    },
+  },
   en: {
     fields: {
       cells: 'Total cells',

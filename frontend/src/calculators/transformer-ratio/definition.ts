@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { transformerRatioCopyEn } from './copy.en';
 import { transformerRatioCopyUk } from './copy.uk';
+import { transformerRatioCopyDe } from './copy.de';
 import { transformerRatioReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: transformerRatioCopyEn, uk: transformerRatioCopyUk },
+  copy: { en: transformerRatioCopyEn, uk: transformerRatioCopyUk, de: transformerRatioCopyDe },
   referenceCases: transformerRatioReferenceCases,
   publishedExample: {
     inputs: { mode: 'secondaryVoltage', n1: 500, n2: 100, v1: 220, v2: 44, i1: 2 },

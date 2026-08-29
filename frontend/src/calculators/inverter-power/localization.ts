@@ -16,6 +16,28 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'outputPower': 'Ausgangsleistung, W',
+      'efficiency': 'Wirkungsgrad, %',
+      'batteryVoltage': 'Batteriespannung, V',
+    },
+    results: {
+      'Потребляемая мощность': 'Aufgenommene Leistung',
+      'Ток от батареи': 'Strom aus der Batterie',
+      'Потери': 'Verluste',
+      'Полезная мощность': 'Nutzleistung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Вт': 'W',
+      'А': 'A',
+      'Выходная мощность должна быть больше нуля': 'Die Ausgangsleistung muss größer als null sein',
+      'КПД должен быть больше нуля': 'Der Wirkungsgrad muss größer als null sein',
+      'КПД не может превышать сто процентов': 'Der Wirkungsgrad kann hundert Prozent nicht übersteigen',
+      'Напряжение батареи должно быть больше нуля': 'Die Batteriespannung muss größer als null sein',
+    },
+  },
   en: {
     fields: { outputPower: "Output power, W", efficiency: "Efficiency, %", batteryVoltage: "Battery voltage, V" },
     results: RESULTS_EN,

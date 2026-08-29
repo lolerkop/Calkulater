@@ -10,6 +10,35 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'c': 'Kapazität, µF',
+      'v': 'Spannung, V',
+      'q': 'Ladung, µC',
+    },
+    options: {
+      'charge': 'die Ladung',
+      'voltage': 'die Spannung',
+      'capacitance': 'die Kapazität',
+    },
+    results: {
+      'Заряд': 'Ladung',
+      'Напряжение': 'Spannung',
+      'Ёмкость': 'Kapazität',
+      'Энергия поля': 'Gespeicherte Energie',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Заряд и напряжение должны быть одного знака': 'Ladung und Spannung müssen dasselbe Vorzeichen haben',
+      'мкКл': 'µC',
+      'мкФ': 'µF',
+      'Дж': 'J',
+      'В': 'V',
+      'Ёмкость должна быть больше нуля': 'Die Kapazität muss größer als null sein',
+      'Напряжение не может быть нулевым: делить на него нечего': 'Die Spannung kann nicht null sein: dadurch lässt sich nicht teilen',
+    },
+  },
   en: {
     fields: { mode: 'What to find', c: 'Capacitance, µF', v: 'Voltage, V', q: 'Charge, µC' },
     options: { charge: 'the charge', voltage: 'the voltage', capacitance: 'the capacitance' },

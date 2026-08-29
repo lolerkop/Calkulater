@@ -16,6 +16,9 @@ import { deChemistryContent } from './deContent/chemistry';
 import { deComputers1Content } from './deContent/computers1';
 import { deComputers2Content } from './deContent/computers2';
 import { deDatetimeContent } from './deContent/datetime';
+import { deElectronics1Content } from './deContent/electronics1';
+import { deElectronics2Content } from './deContent/electronics2';
+import { deElectronics3Content } from './deContent/electronics3';
 
 export type DeDetailedContent = Pick<
   CalculatorDef,
@@ -369,4 +372,7 @@ export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
   ...deComputers1Content,
   ...deComputers2Content,
   ...deDatetimeContent,
+  ...deElectronics1Content,
+  ...deElectronics2Content,
+  ...deElectronics3Content,
 };

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { capacitorNetworkCopyEn } from './copy.en';
 import { capacitorNetworkCopyUk } from './copy.uk';
+import { capacitorNetworkCopyDe } from './copy.de';
 import { capacitorNetworkReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: capacitorNetworkCopyEn, uk: capacitorNetworkCopyUk },
+  copy: { en: capacitorNetworkCopyEn, uk: capacitorNetworkCopyUk, de: capacitorNetworkCopyDe },
   referenceCases: capacitorNetworkReferenceCases,
   publishedExample: { inputs: { capacitances: '100 220 470', mode: 'series' }, expected: ["59,977 мкФ"] },
   presentation: {

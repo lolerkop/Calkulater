@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'capacityAh': 'Kapazität des Akkus, Ah',
+      'currentA': 'Ladestrom, A',
+      'efficiency': 'Wirkungsgrad des Ladens, %',
+    },
+    results: {
+      'Время зарядки': 'Ladezeit',
+      'В часах': 'In Stunden',
+      'Передано в батарею': 'In den Akku übertragen',
+      'Отдано зарядным устройством': 'Vom Ladegerät abgegeben',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'ч': 'h',
+      'мин': 'min',
+      'А·ч': 'Ah',
+      'Ёмкость должна быть больше нуля': 'Die Kapazität muss größer als null sein',
+      'Ток зарядки должен быть больше нуля': 'Der Ladestrom muss größer als null sein',
+      'КПД должен быть от 1 до 100 %': 'Der Wirkungsgrad muss zwischen 1 und 100 % liegen',
+    },
+  },
   en: {
     fields: {
       "capacityAh": "Battery capacity, Ah",

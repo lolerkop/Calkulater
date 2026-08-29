@@ -12,6 +12,36 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'supplyVoltage': 'Versorgungsspannung, V',
+      'forwardVoltage': 'Flussspannung der LED, V',
+      'current': 'Durchlassstrom',
+      'currentUnit': 'Einheit des Stroms',
+    },
+    options: {
+      'ma': 'Milliampere (mA)',
+      'a': 'Ampere (A)',
+    },
+    results: {
+      'Сопротивление': 'Widerstand',
+      'Падение на резисторе': 'Spannung am Widerstand',
+      'Мощность на резисторе': 'Leistung im Widerstand',
+      'Мощность на светодиоде': 'Leistung in der LED',
+      'Рабочий ток': 'Betriebsstrom',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Ом': 'Ω',
+      'В': 'V',
+      'Вт': 'W',
+      'мА': 'mA',
+      'Напряжение питания должно быть больше нуля': 'Die Versorgungsspannung muss größer als null sein',
+      'Прямое напряжение должно быть больше нуля': 'Die Flussspannung muss größer als null sein',
+      'Прямое напряжение должно быть меньше напряжения питания': 'Die Flussspannung muss kleiner als die Versorgungsspannung sein',
+      'Ток должен быть больше нуля': 'Der Strom muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       supplyVoltage: 'Supply voltage, V', forwardVoltage: 'LED forward voltage, V',

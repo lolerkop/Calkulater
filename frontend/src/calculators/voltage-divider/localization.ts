@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'vin': 'Eingangsspannung, V',
+      'r1': 'Oberer Widerstand R1, Ω',
+      'r2': 'Unterer Widerstand R2, Ω',
+    },
+    results: {
+      'Выходное напряжение': 'Ausgangsspannung',
+      'Ток через делитель': 'Strom durch den Teiler',
+      'Доля от входного': 'Anteil der Eingangsspannung',
+      'Мощность верхнего плеча': 'Leistung im oberen Zweig',
+      'Мощность нижнего плеча': 'Leistung im unteren Zweig',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'В': 'V',
+      'мА': 'mA',
+      'мВт': 'mW',
+      'Верхнее сопротивление должно быть больше нуля': 'Der obere Widerstand muss größer als null sein',
+      'Нижнее сопротивление должно быть больше нуля': 'Der untere Widerstand muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       vin: 'Input voltage, V', r1: 'Upper resistance R1, Ω', r2: 'Lower resistance R2, Ω',

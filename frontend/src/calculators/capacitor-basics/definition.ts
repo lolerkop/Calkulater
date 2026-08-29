@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { contextualField } from './contextualField';
 import { capacitorBasicsCopyEn } from './copy.en';
 import { capacitorBasicsCopyUk } from './copy.uk';
+import { capacitorBasicsCopyDe } from './copy.de';
 import { capacitorBasicsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: capacitorBasicsCopyEn, uk: capacitorBasicsCopyUk },
+  copy: { en: capacitorBasicsCopyEn, uk: capacitorBasicsCopyUk, de: capacitorBasicsCopyDe },
   referenceCases: capacitorBasicsReferenceCases,
   publishedExample: { inputs: { mode: 'charge', c: 100, v: 12, q: 1200 }, expected: ["1 200 мкКл"] },
   presentation: {
