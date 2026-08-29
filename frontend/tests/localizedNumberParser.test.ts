@@ -118,8 +118,23 @@ describe('форматирование и разбор — обратные оп
       const text = fmtNumber(value, digits);
       const back = parseLocalizedNumber(text, 'ru');
       expect(back).not.toBeNull();
-      // Сравнение по представленной точности: округление вывода — не потеря разбора.
-      expect(Math.abs((back as number) - Number(value.toFixed(digits)))).toBeLessThan(1e-9);
+      // Сравнение идёт по ФАКТИЧЕСКИ показанной точности, а не по запрошенной.
+      // Форматтер расширяет точность, когда запрошенная превратила бы ненулевое
+      // значение в ноль: fmtNumber(0.001, 0) печатает «0,001», а не «0». Сверять
+      // такой вывод с Number(value.toFixed(0)) значило бы требовать обратно ту
+      // самую потерю, ради устранения которой расширение и сделано.
+      const shownDigits = (text.split(',')[1] ?? '').length;
+      expect(Math.abs((back as number) - Number(value.toFixed(shownDigits)))).toBeLessThan(1e-9);
+    }
+  });
+
+  it('ненулевое значение не разбирается обратно в ноль ни при какой точности', () => {
+    for (const value of [0.001, -0.001, 0.000001, 0.5, -0.5]) {
+      for (const digits of [0, 1, 2]) {
+        const back = parseLocalizedNumber(fmtNumber(value, digits), 'ru');
+        expect(back, `${value} при ${digits} знаках`).not.toBe(0);
+        expect(Math.sign(back as number), `${value} при ${digits} знаках: знак`).toBe(Math.sign(value));
+      }
     }
   });
 

@@ -1,3 +1,4 @@
+import { preserveNonZero } from '../format';
 // Оформление измеренной величины.
 //
 // Извлечено ПОСЛЕ десяти реальных потребителей, а не до них: ровно тот же код
@@ -23,7 +24,7 @@ export const formatMeasure = (
 ): string => {
   const abs = Math.abs(value);
   const digits = abs >= 100 ? 2 : abs >= 1 ? 3 : abs >= 0.01 ? 4 : 6;
-  const text = fmtNumber(Number(value.toFixed(digits)), digits);
+  const text = fmtNumber(preserveNonZero(value, digits), digits);
   return text.includes(',') ? text.replace(/0+$/, '').replace(/,$/, '') : text;
 };
 
@@ -66,7 +67,7 @@ export const formatStatistic = (
   value: number,
   fmtNumber: (value: number, digits: number) => string,
 ): string => {
-  const text = fmtNumber(Number(value.toFixed(4)), 4);
+  const text = fmtNumber(preserveNonZero(value, 4), 4);
   return text.includes(',') ? text.replace(/0+$/, '').replace(/,$/, '') : text;
 };
 

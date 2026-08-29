@@ -1,5 +1,5 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber, preserveNonZero, toNumber, toStr } from '../../lib/format';
 
 // Дроби считаются ТОЧНО, целыми числами, без промежуточных десятичных.
 //
@@ -55,7 +55,7 @@ export const compute: CalcFunction = (inputs) => {
   return {
     primary: { label: 'Результат', value: rd === 1 ? `${rn}` : `${rn}/${rd}` },
     secondary: [
-      { label: 'Десятичное значение', value: fmtNumber(Number((rn / rd).toFixed(6)), 6).replace(/0+$/, '').replace(/,$/, '') },
+      { label: 'Десятичное значение', value: fmtNumber(preserveNonZero(rn / rd, 6), 6).replace(/0+$/, '').replace(/,$/, '') },
       { label: 'Смешанное число', value: mixed },
       { label: 'Сокращено на', value: `${divisor}` },
     ],

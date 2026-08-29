@@ -1,5 +1,5 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber, preserveNonZero, toNumber, toStr } from '../../lib/format';
 
 // Запас продукта: на сколько дней хватит при известном суточном расходе.
 //
@@ -7,7 +7,7 @@ import { fmtNumber, toNumber, toStr } from '../../lib/format';
 // бумагах. Единицы не пересчитываются: запас и расход задаются в одних и тех же,
 // и калькулятор работает с их отношением.
 const days = (value: number): string => {
-  const text = fmtNumber(Number(value.toFixed(1)), 1);
+  const text = fmtNumber(preserveNonZero(value, 1), 1);
   return text.includes(',') ? text.replace(/0+$/, '').replace(/,$/, '') : text;
 };
 

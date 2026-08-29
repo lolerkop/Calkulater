@@ -416,7 +416,10 @@ const resultPhrases: Record<string, Partial<Record<Locale, string>>> = {
 //
 // Пустая клетка означает, что для локали перевода нет: тогда работает хвост
 // подстановок в localizedResultLabel, а не чужой язык.
-const resultLabelPhrases: Record<string, Partial<Record<Locale, string>>> = {
+// Экспортируется ради ворот от утечек: тест обязан отличать «перевода нет» от
+// «перевод совпадает с русским». По выводу функции их не различить —
+// «Запас» по-украински тоже «Запас», — а по факту объявления различить можно.
+export const resultLabelPhrases: Record<string, Partial<Record<Locale, string>>> = {
   'Количество камней': { en: 'Units needed', uk: 'Кількість каменів', de: 'Anzahl der Steine' },
   'Площадь кладки': { en: 'Masonry area', uk: 'Площа кладки', de: 'Mauerwerksfläche' },
   'Площадь проёмов': { en: 'Openings area', uk: 'Площа прорізів' },
@@ -606,6 +609,13 @@ const resultLabelPhrases: Record<string, Partial<Record<Locale, string>>> = {
 // каталоге и иначе вернулось бы английским.
 
 
+// Подпись, которую раннер собирает вместе с числом лет: «Покупательная
+// способность через 3». Точного ключа у неё быть не может — их столько, сколько
+// возможных сроков, — поэтому переводится постоянная часть. Русский текст
+// оставался в английской и украинской локалях именно из-за этого: перевод лежал
+// в ведре `values`, а подписи строк ищутся в `results` и точным совпадением.
+const COMPOSED_PURCHASING_POWER = 'Покупательная способность через';
+
 export function localizedResultLabel(label: string, locale: Locale): string {
   if (locale === 'ru') return label;
   const direct = resultLabelPhrases[label]?.[locale];
@@ -615,6 +625,7 @@ export function localizedResultLabel(label: string, locale: Locale): string {
     return label
       .replace('НДС', 'ПДВ')
       .replace('НДФЛ', 'ПДФО')
+      .replace(COMPOSED_PURCHASING_POWER, 'Купівельна спроможність через')
       .replace(' от ', ' від ')
       .replace(' за мес.', ' за місяць')
       .replace(' за год', ' за рік');
@@ -624,9 +635,7 @@ export function localizedResultLabel(label: string, locale: Locale): string {
     return label
       .replace('НДС', 'USt.')
       .replace('НДФЛ', 'Einkommensteuer')
-      // Подпись собирается раннером вместе с числом лет, поэтому точного
-      // совпадения по карте не бывает: подставляется её постоянная часть.
-      .replace('Покупательная способность через', 'Kaufkraft nach')
+      .replace(COMPOSED_PURCHASING_POWER, 'Kaufkraft nach')
       .replace(' от ', ' von ')
       .replace(' за мес.', ' im Monat')
       .replace(' за год', ' im Jahr');
@@ -635,6 +644,7 @@ export function localizedResultLabel(label: string, locale: Locale): string {
   return label
     .replace('НДС', 'VAT')
     .replace('НДФЛ', 'Income tax')
+    .replace(COMPOSED_PURCHASING_POWER, 'Purchasing power after')
     .replace(' от ', ' of ')
     .replace(' за мес.', ' per month')
     .replace(' за год', ' per year');

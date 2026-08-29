@@ -1,5 +1,5 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber, preserveNonZero, toNumber, toStr } from '../../lib/format';
 
 // Закон Ома: U = I·R, и мощность P = U·I.
 //
@@ -12,7 +12,11 @@ import { fmtNumber, toNumber, toStr } from '../../lib/format';
 //
 // Нулевое напряжение при ненулевом сопротивлении — законный случай: ток и
 // мощность равны нулю, схема просто обесточена. Отвергать его нельзя.
-const num = (value: number, digits: number) => fmtNumber(Number(value.toFixed(digits)), digits);
+// Предварительное округление сохранено: оно задаёт привычный разряд у больших
+// величин. Отменяется оно ровно в одном случае — когда обнуляет ненулевое
+// значение: 0,001 Ом превращалось в «0,00 Ом» ещё до форматирования, и спасение
+// по значащим цифрам не могло сработать, потому что число уже было нулём.
+const num = (value: number, digits: number) => fmtNumber(preserveNonZero(value, digits), digits);
 
 export const compute: CalcFunction = (inputs) => {
   const mode = toStr(inputs.mode, 'vi');

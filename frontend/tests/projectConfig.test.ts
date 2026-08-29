@@ -31,7 +31,10 @@ describe('project configuration', () => {
 
     expect(packageJson.scripts.test).toBe('vitest run');
     expect(packageJson.scripts.typecheck).toBe('tsc --noEmit');
-    expect(packageJson.scripts.build).toBe('astro build');
+    // Сборка состоит из двух шагов: Astro и размещение локальных страниц
+    // «не найдено» там, где их ищет хостинг. Второй шаг закрепляется здесь,
+    // иначе его молчаливое исчезновение вернуло бы русскую 404 всем локалям.
+    expect(packageJson.scripts.build).toBe('astro build && node scripts/emit-locale-404.mjs');
     expect(packageJson.scripts['dev:local']).toContain('--port 4321');
     expect(packageJson.scripts['preview:local']).toContain('--port 4322');
     expect(packageJson.scripts.check).toContain('vitest run');
@@ -42,6 +45,7 @@ describe('project configuration', () => {
     expect(packageJson.scripts.check).toContain('verify-public-assets');
     expect(packageJson.scripts.check).toContain('verify-text-encoding');
     expect(packageJson.scripts.check).toContain('verify-dist-content-sanity');
+    expect(packageJson.scripts.check).toContain('verify-dist-locale-404');
     expect(packageJson.scripts.check).toContain('verify-dist-links');
     expect(packageJson.scripts.check).toContain('verify-dist-seo');
     expect(packageJson.scripts.check).toContain('verify-dist-sitemap');

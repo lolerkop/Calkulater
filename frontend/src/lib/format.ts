@@ -1,11 +1,59 @@
 // Утилиты форматирования чисел и валют в локали ru-RU.
 
+/**
+ * Ненулевое значение не имеет права выглядеть нулём.
+ *
+ * Фиксированное число знаков после запятой врёт на малых величинах: 0,001 Ом
+ * при двух знаках печаталось «0,00 Ом», а 0,01 ₽ при нуле знаков — «0 ₽».
+ * Поэтому запрошенная точность остаётся основной, но если при ней ненулевое
+ * значение схлопывается в нули, точность расширяется до двух значащих цифр.
+ *
+ * Расширение идёт значащими цифрами, а не «побольше знаков везде»: 0,001
+ * печатается как «0,001», а не «0,0010», обычные числа не обрастают хвостами,
+ * и экспоненциальная запись не появляется — Intl её в этом режиме не даёт.
+ *
+ * Спасение имеет нижнюю границу. Ниже 10⁻⁷ величина в этом продукте — почти
+ * всегда остаток двоичной арифметики, а не данные: разность двух почти равных
+ * температур даёт 1,8·10⁻¹⁵ °C, а не измерение. Показывать такой хвост хуже,
+ * чем ноль, поэтому ниже границы работает прежнее округление. Самый мелкий
+ * класс, который продукт обязан показывать честно, — 0,000001, и запас до
+ * границы у него десятикратный.
+ */
+const SIGNIFICANT_DIGITS_ON_RESCUE = 2;
+const RESCUE_FLOOR = 1e-7;
+
+function collapsesToZero(n: number, fractionDigits: number): boolean {
+  const abs = Math.abs(n);
+  return n !== 0 && abs >= RESCUE_FLOOR && abs < 0.5 * 10 ** -fractionDigits;
+}
+
+function withSignificantDigits(n: number): string {
+  return new Intl.NumberFormat('ru-RU', {
+    maximumSignificantDigits: SIGNIFICANT_DIGITS_ON_RESCUE,
+  }).format(n);
+}
+
 export function fmtNumber(n: number, fractionDigits = 2): string {
   if (!isFinite(n)) return '—';
+  if (collapsesToZero(n, fractionDigits)) return withSignificantDigits(n);
   return new Intl.NumberFormat('ru-RU', {
     minimumFractionDigits: fractionDigits,
     maximumFractionDigits: fractionDigits,
   }).format(n);
+}
+
+/**
+ * Предварительное округление, не обнуляющее ненулевое значение.
+ *
+ * Калькуляторы округляют значение до печати, чтобы задать привычный разряд.
+ * На малых величинах это округление съедало число целиком, и форматтер получал
+ * уже настоящий ноль — спасать было нечего. Здесь округление сохраняется, но
+ * отменяется ровно в том случае, когда оно превращает ненулевое в ноль.
+ */
+export function preserveNonZero(value: number, fractionDigits: number): number {
+  if (!isFinite(value)) return value;
+  const rounded = Number(value.toFixed(fractionDigits));
+  return rounded === 0 && value !== 0 ? value : rounded;
 }
 
 export function fmtInt(n: number): string {
@@ -13,8 +61,17 @@ export function fmtInt(n: number): string {
   return new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 0 }).format(Math.round(n));
 }
 
+/**
+ * Деньги печатаются целыми — так устроен весь продукт, и это не меняется.
+ *
+ * Меняется одно: сумма меньше денежной единицы не округляется ни до нуля, ни до
+ * целой единицы. 0,50 ₽ печаталось как «1 ₽» — вдвое больше настоящего, а
+ * 0,01 ₽ как «0 ₽» — исчезало совсем. Ниже единицы показываются копейки, а если
+ * и их мало, включается то же расширение по значащим цифрам.
+ */
 export function fmtMoney(n: number, currency = '₽'): string {
-  return `${fmtNumber(n, 0)} ${currency}`.trim();
+  const digits = isFinite(n) && n !== 0 && Math.abs(n) < 1 ? 2 : 0;
+  return `${fmtNumber(n, digits)} ${currency}`.trim();
 }
 
 export function fmtPct(n: number, fractionDigits = 2): string {
