@@ -47,6 +47,15 @@ test.describe('подборка без JavaScript', () => {
         seen.push(...hrefs);
 
         // Навигация — настоящие ссылки на все страницы.
+        // При единственной странице блока страничности нет вовсе, и это верно:
+        // немецкий каталог курируется и пока умещается на одну страницу.
+        if (pages === 1) {
+          await expect(
+            page.locator('[data-testid="catalog-pagination"]'),
+            `${path}: одна страница — страничности быть не должно`,
+          ).toHaveCount(0);
+          continue;
+        }
         for (let other = 1; other <= pages; other += 1) {
           const link = page.locator(`[data-testid="catalog-pagination-page-${other}"]`);
           await expect(link, `${path}: ссылка на страницу ${other}`).toHaveAttribute('href', catalogPagePath(catalogPath, other));
