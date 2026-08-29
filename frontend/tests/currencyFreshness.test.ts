@@ -1,11 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import {
+  DEFAULT_PROVIDER_MAX_LEAD_DAYS,
   MAX_CURRENCY_SOURCE_CHECK_AGE_HOURS,
   assessCurrencySourceFreshness,
+  assessProviderFreshness,
   assessProvidersFreshness,
   currencySetIsStale,
   currencySourceCheckAgeHours,
+  providerLeadDays,
   providerMaxAgeHours,
+  providerMaxLeadDays,
 } from '../src/lib/currencyFreshness';
 
 function assess({
@@ -189,5 +193,123 @@ describe('возраст данных с оглядкой на календар�
 
     const залипание = { ecb: { date: '2027-03-18' }, bnm: { date: '2027-03-27' } };
     expect(currencySetIsStale(залипание, new Date('2027-03-30T05:17:00.000Z'))).toBe(true);
+  });
+});
+
+
+// ── Опережение даты публикации ─────────────────────────────────────────────
+//
+// Дефект, выпущенный в бой и упавший 28.08.2026: порог опережения был один на
+// всех провайдеров и измерялся часами. НБУ публикует курс на СЛЕДУЮЩИЙ
+// БАНКОВСКИЙ день, поэтому в пятницу его дата — понедельник. Часовой порог в
+// 72 часа смешивал календарное опережение публикации со временем запуска
+// обновления: один и тот же пятничный курс проходил в 17:26 (78,6 ч) и не
+// проходил в 05:17 (90,7 ч). Теперь опережение считается в календарных днях,
+// а предел задан по источнику.
+
+describe('опережение даты источника', () => {
+  const at = (iso: string) => new Date(iso);
+  const verdict = (id: string, date: string, now: string) =>
+    assessProviderFreshness({ id, date }, at(now));
+
+  it('A. обычный день НБУ: курс на завтра', () => {
+    const r = verdict('nbu', '2026-08-26', '2026-08-25T05:17:00Z');
+    expect(providerLeadDays('2026-08-26', at('2026-08-25T05:17:00Z'))).toBe(1);
+    expect(r.fresh).toBe(true);
+  });
+
+  it('B. пятница -> понедельник проходит в любое время запуска', () => {
+    // Ровно тот случай, на котором упал прогон 28 августа.
+    for (const now of ['2026-08-28T05:17:00Z', '2026-08-28T17:26:00Z', '2026-08-28T23:50:00Z']) {
+      const r = verdict('nbu', '2026-08-31', now);
+      expect(r.fresh, now).toBe(true);
+      expect(r.reason, now).toBe('fresh');
+    }
+    expect(providerLeadDays('2026-08-31', at('2026-08-28T05:17:00Z'))).toBe(3);
+  });
+
+  it('C. пятница перед праздничными переносами', () => {
+    // Праздничный понедельник сдвигает банковский день на вторник, два
+    // праздничных дня — на среду.
+    expect(verdict('nbu', '2026-09-01', '2026-08-28T05:17:00Z').fresh).toBe(true);
+    expect(verdict('nbu', '2026-09-02', '2026-08-28T05:17:00Z').fresh).toBe(true);
+  });
+
+  it('D. дата на границе окна НБУ принимается', () => {
+    const limit = providerMaxLeadDays('nbu');
+    expect(limit).toBe(6);
+    const edge = '2026-09-03'; // ровно шесть дней вперёд от 28 августа
+    expect(providerLeadDays(edge, at('2026-08-28T05:17:00Z'))).toBe(limit);
+    expect(verdict('nbu', edge, '2026-08-28T05:17:00Z').fresh).toBe(true);
+  });
+
+  it('E. дата за пределом окна НБУ отвергается', () => {
+    for (const [date, days] of [['2026-09-04', 7], ['2026-09-30', 33], ['2027-08-28', 365]] as const) {
+      const r = verdict('nbu', date, '2026-08-28T05:17:00Z');
+      expect(providerLeadDays(date, at('2026-08-28T05:17:00Z')), date).toBe(days);
+      expect(r.fresh, date).toBe(false);
+      expect(r.reason, date).toBe('too-far-ahead');
+    }
+  });
+
+  it('F. ЕЦБ послабления не получает', () => {
+    expect(providerMaxLeadDays('ecb')).toBe(DEFAULT_PROVIDER_MAX_LEAD_DAYS);
+    expect(verdict('ecb', '2026-08-28', '2026-08-28T05:17:00Z').fresh).toBe(true);
+    const r = verdict('ecb', '2026-08-31', '2026-08-28T05:17:00Z');
+    expect(r.fresh).toBe(false);
+    expect(r.reason).toBe('too-far-ahead');
+  });
+
+  it('G. НБМ послабления не получает', () => {
+    expect(providerMaxLeadDays('bnm')).toBe(DEFAULT_PROVIDER_MAX_LEAD_DAYS);
+    expect(verdict('bnm', '2026-08-28', '2026-08-28T05:17:00Z').fresh).toBe(true);
+    expect(verdict('bnm', '2026-08-31', '2026-08-28T05:17:00Z').reason).toBe('too-far-ahead');
+  });
+
+  it('H. резервный источник остаётся строгим', () => {
+    expect(providerMaxLeadDays('erapi')).toBe(DEFAULT_PROVIDER_MAX_LEAD_DAYS);
+    expect(verdict('erapi', '2026-08-28', '2026-08-28T05:17:00Z').fresh).toBe(true);
+    expect(verdict('erapi', '2026-08-31', '2026-08-28T05:17:00Z').reason).toBe('too-far-ahead');
+  });
+
+  it('I. защита от устаревания не ослаблена', () => {
+    // Пропущенная неделя и просто старый курс по-прежнему провал.
+    expect(verdict('ecb', '2026-08-21', '2026-08-28T05:17:00Z').reason).toBe('stale');
+    expect(verdict('nbu', '2026-08-01', '2026-08-28T05:17:00Z').reason).toBe('stale');
+    expect(verdict('erapi', '2026-08-23', '2026-08-28T05:17:00Z').reason).toBe('stale');
+    // Пасхальное окно ЕЦБ по-прежнему проходит: правка опережения его не трогала.
+    expect(verdict('ecb', '2027-03-25', '2027-03-30T13:59:00Z').fresh).toBe(true);
+  });
+
+  it('J. свод по набору источников: пятничный НБУ вместе с остальными', () => {
+    const assessment = assessProvidersFreshness({
+      ecb: { date: '2026-08-28', fallback: false },
+      bnm: { date: '2026-08-28', fallback: false },
+      nbu: { date: '2026-08-31', fallback: false },
+    }, at('2026-08-28T05:17:00Z'));
+    expect(assessment.fresh).toBe(true);
+    expect(assessment.stale).toEqual([]);
+    // Признак устаревания для посетителя считается по тем же правилам.
+    expect(currencySetIsStale({
+      ecb: { date: '2026-08-28' }, nbu: { date: '2026-08-31' },
+    }, at('2026-08-28T05:17:00Z'))).toBe(false);
+  });
+
+  it('контракт последней успешной проверки не затронут', () => {
+    const fresh = assessCurrencySourceFreshness({
+      effectiveDate: '2026-08-28',
+      lastSuccessfulCheckAt: '2026-08-28T05:17:00.000Z',
+      lastSuccessfulEffectiveDate: '2026-08-28',
+      now: at('2026-08-28T09:00:00Z'),
+    });
+    expect(fresh.fresh).toBe(true);
+    const stale = assessCurrencySourceFreshness({
+      effectiveDate: '2026-08-28',
+      lastSuccessfulCheckAt: '2026-08-20T05:17:00.000Z',
+      lastSuccessfulEffectiveDate: '2026-08-28',
+      now: at('2026-08-28T09:00:00Z'),
+    });
+    expect(stale.fresh).toBe(false);
+    expect(stale.reason).toBe('stale-successful-check');
   });
 });
