@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'sent': 'Versandte E-Mails',
+      'delivered': 'Zugestellt',
+      'opened': 'Geöffnet',
+      'clicked': 'Geklickt',
+    },
+    results: {
+      'Доставляемость': 'Zustellrate',
+      'Открываемость': 'Öffnungsrate',
+      'Кликабельность': 'Klickrate',
+      'Кликов на открытие': 'Klicks je Öffnung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Число отправленных писем должно быть больше нуля': 'Die Zahl der versandten E-Mails muss größer als null sein',
+      'Доставлено не может быть больше, чем отправлено': 'Zugestellt kann nicht größer als versandt sein',
+      'Открыто не может быть больше, чем доставлено': 'Geöffnet kann nicht größer als zugestellt sein',
+      'Кликов не может быть больше, чем открытий': 'Klicks können nicht größer als Öffnungen sein',
+    },
+  },
   en: {
     fields: {
       sent: 'Emails sent',

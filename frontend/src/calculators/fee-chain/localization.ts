@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'price': 'Warenpreis, €',
+      'commissionPct': 'Provision der Plattform, %',
+      'acquiringPct': 'Zahlungsabwicklung, %',
+      'logistics': 'Versand je Paket, €',
+      'storage': 'Lagerung je Paket, €',
+      'cost': 'Wareneinsatz, €',
+    },
+    results: {
+      'Выплата продавцу': 'Auszahlung an den Verkäufer',
+      'Комиссия площадки': 'Provision der Plattform',
+      'Эквайринг': 'Zahlungsabwicklung',
+      'Логистика': 'Versand',
+      'Хранение': 'Lagerung',
+      'Удержано всего': 'Insgesamt einbehalten',
+      'Доля удержаний': 'Anteil am Preis',
+      'Прибыль': 'Gewinn',
+      'Рентабельность к цене': 'Rendite auf den Preis',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Цена товара должна быть больше нуля': 'Der Warenpreis muss größer als null sein',
+      'Ставка удержания не может быть отрицательной': 'Ein Abzugssatz kann nicht negativ sein',
+      'Сумма не может быть отрицательной': 'Ein Betrag kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       "price": "Item price, $",

@@ -1,6 +1,34 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'lines': 'Schichten: Beginn, Ende, Pause in Minuten',
+      'rate': 'Stundensatz',
+      'normal': 'Sollstunden für den Zeitraum',
+    },
+    results: {
+      'Всего часов': 'Stunden insgesamt',
+      'Дней в табеле': 'Tage auf dem Zettel',
+      'В часах и минутах': 'In Stunden und Minuten',
+      'Сверхурочных': 'Überstunden',
+      'Начислено': 'Bruttolohn',
+      'Проверьте данные': 'Prüfe die Werte',
+      'Смены': 'Schichten',
+      'Начало': 'Beginn',
+      'Конец': 'Ende',
+      'Перерыв, мин': 'Pause, min',
+      'Часов': 'Stunden',
+    },
+    values: {
+      'ч': 'h',
+      'мин': 'min',
+      'Ставка не может быть отрицательной': 'Der Stundensatz kann nicht negativ sein',
+      'Норма часов не может быть отрицательной': 'Die Sollstunden können nicht negativ sein',
+      'В строке нужны начало и конец через запятую': 'In der Zeile werden Beginn und Ende durch ein Komma getrennt gebraucht',
+      'Введите хотя бы одну строку вида «09:00,18:00,60»': 'Trage mindestens eine Zeile der Form „09:00,18:00,60“ ein',
+    },
+  },
   en: {
     fields: {
       lines: 'Shifts: start, end, break in minutes',

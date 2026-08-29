@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { cycleTimeCopyEn } from './copy.en';
 import { cycleTimeCopyUk } from './copy.uk';
+import { cycleTimeCopyDe } from './copy.de';
 import { cycleTimeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cycleTimeCopyEn, uk: cycleTimeCopyUk },
+  copy: { en: cycleTimeCopyEn, uk: cycleTimeCopyUk, de: cycleTimeCopyDe },
   referenceCases: cycleTimeReferenceCases,
   publishedExample: { inputs: { availableMinutes: 480, demand: 120, actualCycle: 3.5 }, expected: ["4 мин/шт"] },
   presentation: {

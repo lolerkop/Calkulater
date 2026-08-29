@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { ltvCopyEn } from './copy.en';
 import { ltvCopyUk } from './copy.uk';
+import { ltvCopyDe } from './copy.de';
 import { ltvReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: ltvCopyEn, uk: ltvCopyUk },
+  copy: { en: ltvCopyEn, uk: ltvCopyUk, de: ltvCopyDe },
   referenceCases: ltvReferenceCases,
   publishedExample: { inputs: { mode: 'months', arpu: 1200, months: 18, margin: 100 }, expected: ["21 600,00 ₽"] },
   presentation: {

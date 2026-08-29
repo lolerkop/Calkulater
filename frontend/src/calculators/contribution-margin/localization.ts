@@ -12,6 +12,25 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'price': 'Preis je Stück',
+      'variable': 'Variable Kosten je Stück',
+      'volume': 'Menge, Stück',
+    },
+    results: {
+      'Маржинальный доход': 'Deckungsbeitrag',
+      'Доля в цене': 'Anteil am Preis',
+      'Маржинальный доход на объём': 'Deckungsbeitrag auf die Menge',
+      'Переменные затраты': 'Variable Kosten',
+      'Внимание': 'Achtung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Переменные затраты выше цены': 'Die variablen Kosten übersteigen den Preis',
+      'Цена должна быть больше нуля': 'Der Preis muss größer als null sein',
+    },
+  },
   en: {
     fields: { price: 'Price per unit', variable: 'Variable cost per unit', volume: 'Volume, units' },
     results: RESULTS_EN,

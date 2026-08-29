@@ -20,6 +20,38 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Wie die Verweildauer bestimmt wird',
+      'arpu': 'Umsatz je Zeitraum',
+      'months': 'Verweildauer, Monate',
+      'churn': 'Abwanderung je Zeitraum, %',
+      'margin': 'Rohmarge, %',
+      'cac': 'Gewinnungskosten',
+    },
+    options: {
+      'months': 'über die Verweildauer',
+      'churn': 'über die Abwanderung',
+    },
+    results: {
+      'LTV': 'LTV',
+      'Срок жизни клиента': 'Verweildauer des Kunden',
+      'Средний доход за период': 'Mittlerer Umsatz je Zeitraum',
+      'Валовая маржа': 'Rohmarge',
+      'Отношение LTV к CAC': 'Verhältnis LTV zu CAC',
+      'Окупаемость привлечения': 'Amortisation der Gewinnung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'мес': 'Mon.',
+      'Средний доход должен быть больше нуля': 'Der mittlere Umsatz muss größer als null sein',
+      'Маржа задаётся в диапазоне от 0 до 100 процентов': 'Die Marge liegt im Bereich von 0 bis 100 Prozent',
+      'Стоимость привлечения не может быть отрицательной': 'Die Gewinnungskosten können nicht negativ sein',
+      'Отток задаётся в диапазоне от 0 до 100 процентов': 'Die Abwanderung liegt im Bereich von 0 bis 100 Prozent',
+      'Срок жизни должен быть больше нуля': 'Die Verweildauer muss größer als null sein',
+    },
+  },
   en: {
     fields: { mode: "How to derive lifetime", arpu: "Revenue per period", months: "Lifetime, months", churn: "Churn per period, %", margin: "Gross margin, %", cac: "Acquisition cost" },
     options: { months: "by lifetime", churn: "by churn" },

@@ -5,6 +5,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { contributionMarginCopyEn } from './copy.en';
 import { contributionMarginCopyUk } from './copy.uk';
+import { contributionMarginCopyDe } from './copy.de';
 import { contributionMarginReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: contributionMarginCopyEn, uk: contributionMarginCopyUk },
+  copy: { en: contributionMarginCopyEn, uk: contributionMarginCopyUk, de: contributionMarginCopyDe },
   referenceCases: contributionMarginReferenceCases,
   publishedExample: { inputs: { price: 500, variable: 300 }, expected: ['200 ₽', '40,00 %'] },
   presentation: {

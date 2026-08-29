@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gezählt wird',
+      'cost': 'Werbebudget, €',
+      'actions': 'Erhaltene Handlungen',
+    },
+    options: {
+      'cpa': 'beliebige Zielhandlung (CPA)',
+      'cpl': 'Anfrage oder Kontakt (CPL)',
+      'cpi': 'App-Installation (CPI)',
+    },
+    results: {
+      'CPA — цена действия': 'CPA — Kosten je Handlung',
+      'CPL — цена заявки': 'CPL — Kosten je Anfrage',
+      'CPI — цена установки': 'CPI — Kosten je Installation',
+      'Бюджет': 'Budget',
+      'Действий': 'Handlungen',
+      'На тысячу действий': 'Je tausend Handlungen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Бюджет должен быть больше нуля': 'Das Budget muss größer als null sein',
+      'Число действий должно быть больше нуля': 'Die Zahl der Handlungen muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       mode: 'What is being counted',

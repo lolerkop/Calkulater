@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { profitCopyEn } from './copy.en';
 import { profitCopyUk } from './copy.uk';
+import { profitCopyDe } from './copy.de';
 import { profitReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: profitCopyEn, uk: profitCopyUk },
+  copy: { en: profitCopyEn, uk: profitCopyUk, de: profitCopyDe },
   referenceCases: profitReferenceCases,
   publishedExample: {
     inputs: { revenue: 480000, cost: 315000 },

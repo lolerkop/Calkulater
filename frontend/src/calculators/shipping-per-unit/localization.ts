@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'shipping': 'Lieferkosten',
+      'units': 'Stück in der Sendung',
+      'packaging': 'Verpackungskosten',
+    },
+    results: {
+      'Доставка на единицу': 'Versand je Stück',
+      'Всего логистики': 'Logistik insgesamt',
+      'В том числе упаковка': 'Davon Verpackung',
+      'Единиц в партии': 'Stück in der Sendung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Число единиц должно быть целым': 'Die Stückzahl muss eine ganze Zahl sein',
+      'Единиц должно быть больше нуля': 'Es muss mindestens ein Stück sein',
+      'Стоимость доставки не может быть отрицательной': 'Die Lieferkosten können nicht negativ sein',
+    },
+  },
   en: {
     fields: { shipping: 'Shipping cost', units: 'Units in the batch', packaging: 'Packaging cost' },
     results: { 'Доставка на единицу': 'Shipping per unit', 'Всего логистики': 'Total logistics', 'В том числе упаковка': 'Of which packaging', 'Единиц в партии': 'Units in the batch', 'Проверьте данные': 'Check the values' },

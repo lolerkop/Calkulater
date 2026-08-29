@@ -5,6 +5,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { revenuePerEmployeeCopyEn } from './copy.en';
 import { revenuePerEmployeeCopyUk } from './copy.uk';
+import { revenuePerEmployeeCopyDe } from './copy.de';
 import { revenuePerEmployeeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: revenuePerEmployeeCopyEn, uk: revenuePerEmployeeCopyUk },
+  copy: { en: revenuePerEmployeeCopyEn, uk: revenuePerEmployeeCopyUk, de: revenuePerEmployeeCopyDe },
   referenceCases: revenuePerEmployeeReferenceCases,
   publishedExample: { inputs: { revenue: 12000000, employees: 40 }, expected: ['300 000 ₽'] },
   presentation: {

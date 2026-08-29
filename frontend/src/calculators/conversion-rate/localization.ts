@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'visitors': 'Besuche im Zeitraum',
+      'conversions': 'Konversionen',
+      'cost': 'Budget im Zeitraum, €',
+    },
+    results: {
+      'Конверсия': 'Konversionsrate',
+      'Конверсий': 'Konversionen',
+      'Визитов': 'Besuche',
+      'Цена конверсии': 'Kosten je Konversion',
+      'Визитов на одну конверсию': 'Besuche je Konversion',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Число визитов должно быть больше нуля': 'Die Zahl der Besuche muss größer als null sein',
+      'Число конверсий не может быть отрицательным': 'Die Zahl der Konversionen kann nicht negativ sein',
+      'Конверсий не может быть больше, чем визитов': 'Es kann nicht mehr Konversionen als Besuche geben',
+      'Бюджет не может быть отрицательным': 'Das Budget kann nicht negativ sein',
+    },
+  },
   en: {
     fields: { "visitors": "Visits for the period", "conversions": "Conversions", "cost": "Budget for the period, $" },
     options: {},

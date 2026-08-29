@@ -1,6 +1,24 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'revenue': 'Umsatz, €',
+      'cost': 'Kosten, €',
+    },
+    results: {
+      'Прибыль': 'Gewinn',
+      'Маржа': 'Marge',
+      'Наценка': 'Aufschlag',
+      'Выручка': 'Umsatz',
+      'Затраты': 'Kosten',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Выручка должна быть больше нуля': 'Der Umsatz muss größer als null sein',
+      'Затраты не могут быть отрицательными': 'Die Kosten können nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       revenue: 'Revenue, ₽',

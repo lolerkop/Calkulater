@@ -20,6 +20,28 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'revenue': 'Umsatz',
+      'cost': 'Werbeausgaben',
+      'margin': 'Rohmarge, %',
+    },
+    results: {
+      'ROAS': 'ROAS',
+      'ROAS в процентах': 'ROAS in Prozent',
+      'ROI': 'ROI',
+      'Прибыль': 'Gewinn',
+      'Точка окупаемости по доходу': 'Umsatz am Break-even',
+      'ROAS по валовой марже': 'ROAS auf die Rohmarge',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Доход не может быть отрицательным': 'Der Umsatz kann nicht negativ sein',
+      'Расход должен быть больше нуля': 'Die Ausgaben müssen größer als null sein',
+      'Маржинальность задаётся в диапазоне от 0 до 100 процентов': 'Die Marge liegt im Bereich von 0 bis 100 Prozent',
+    },
+  },
   en: {
     fields: { revenue: "Revenue", cost: "Ad spend", margin: "Gross margin, %" },
     results: RESULTS_EN,

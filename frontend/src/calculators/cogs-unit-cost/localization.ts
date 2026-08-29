@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'materials': 'Material, €',
+      'labor': 'Arbeit, €',
+      'overhead': 'Gemeinkosten, €',
+      'units': 'Hergestellte Einheiten',
+    },
+    results: {
+      'Себестоимость единицы': 'Kosten je Einheit',
+      'Всего затрат': 'Gesamtkosten',
+      'Единиц': 'Einheiten',
+      'Доля материалов': 'Materialanteil',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Затраты не могут быть отрицательными': 'Kosten können nicht negativ sein',
+      'Тираж должен быть больше нуля': 'Die Zahl der Einheiten muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       materials: 'Materials, ₽',

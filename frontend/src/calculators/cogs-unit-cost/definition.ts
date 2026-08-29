@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { cogsUnitCostCopyEn } from './copy.en';
 import { cogsUnitCostCopyUk } from './copy.uk';
+import { cogsUnitCostCopyDe } from './copy.de';
 import { cogsUnitCostReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cogsUnitCostCopyEn, uk: cogsUnitCostCopyUk },
+  copy: { en: cogsUnitCostCopyEn, uk: cogsUnitCostCopyUk, de: cogsUnitCostCopyDe },
   referenceCases: cogsUnitCostReferenceCases,
   publishedExample: {
     inputs: { materials: 240000, labor: 96000, overhead: 54000, units: 1500 },

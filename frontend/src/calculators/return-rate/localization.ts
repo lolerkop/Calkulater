@@ -1,6 +1,25 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'returns': 'Zurückgeschickte Bestellungen',
+      'orders': 'Bestellungen insgesamt',
+    },
+    results: {
+      'Доля возвратов': 'Rücksendequote',
+      'Оставлено покупателями': 'Von Kunden behalten',
+      'Возвратов': 'Rücksendungen',
+      'Всего заказов': 'Bestellungen insgesamt',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Заказы и возвраты считаются целыми': 'Bestellungen und Rücksendungen werden in ganzen Zahlen gezählt',
+      'Заказов должно быть больше нуля': 'Es muss mindestens eine Bestellung sein',
+      'Возвратов не может быть меньше нуля': 'Rücksendungen können nicht negativ sein',
+      'Возвратов больше, чем заказов — проверьте период': 'Mehr Rücksendungen als Bestellungen — prüfe den Zeitraum',
+    },
+  },
   en: {
     fields: { returns: 'Returned orders', orders: 'Total orders' },
     results: { 'Доля возвратов': 'Return rate', 'Оставлено покупателями': 'Kept by customers', 'Возвратов': 'Returns', 'Всего заказов': 'Total orders', 'Проверьте данные': 'Check the values' },

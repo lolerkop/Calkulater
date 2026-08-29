@@ -16,6 +16,32 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'mode': 'Was gesucht ist',
+      'cost': 'Budget der Kampagne',
+      'impressions': 'Einblendungen',
+      'cpm': 'CPM',
+    },
+    options: {
+      'cpm': 'CPM',
+      'impressions': 'Einblendungen',
+      'cost': 'Budget',
+    },
+    results: {
+      'CPM': 'CPM',
+      'Показы': 'Einblendungen',
+      'Бюджет': 'Budget',
+      'Стоимость показа': 'Kosten je Einblendung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Бюджет не может быть отрицательным': 'Das Budget kann nicht negativ sein',
+      'CPM должен быть больше нуля': 'Der CPM muss größer als null sein',
+      'Показов должно быть не меньше одного': 'Es muss mindestens eine Einblendung sein',
+    },
+  },
   en: {
     fields: { mode: "What to find", cost: "Campaign budget", impressions: "Impressions", cpm: "CPM" },
     options: { cpm: "CPM", impressions: "impressions", cost: "budget" },

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { churnRetentionCopyEn } from './copy.en';
 import { churnRetentionCopyUk } from './copy.uk';
+import { churnRetentionCopyDe } from './copy.de';
 import { churnRetentionReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: churnRetentionCopyEn, uk: churnRetentionCopyUk },
+  copy: { en: churnRetentionCopyEn, uk: churnRetentionCopyUk, de: churnRetentionCopyDe },
   referenceCases: churnRetentionReferenceCases,
   publishedExample: { inputs: { startCustomers: 1000, lost: 50, gained: 80 }, expected: ["5,00%"] },
   presentation: {

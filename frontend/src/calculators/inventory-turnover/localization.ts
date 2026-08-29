@@ -1,6 +1,32 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'cogs': 'Wareneinsatz im Zeitraum, €',
+      'mode': 'Durchschnittlicher Bestand',
+      'avgInventory': 'Durchschnittlicher Bestand, €',
+      'beginInventory': 'Anfangsbestand, €',
+      'endInventory': 'Endbestand, €',
+    },
+    options: {
+      'direct': 'ist bekannt',
+      'beginEnd': 'aus den Beständen rechnen',
+    },
+    results: {
+      'Оборачиваемость': 'Umschlagshäufigkeit',
+      'Срок хранения': 'Lagerdauer',
+      'Средний запас': 'Durchschnittlicher Bestand',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'раз': 'mal',
+      'дней': 'Tage',
+      'Себестоимость продаж должна быть больше нуля': 'Der Wareneinsatz muss größer als null sein',
+      'Средний запас должен быть больше нуля': 'Der durchschnittliche Bestand muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       "cogs": "Cost of goods sold for the period, $",

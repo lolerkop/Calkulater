@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { inventoryTurnoverCopyEn } from './copy.en';
 import { inventoryTurnoverCopyUk } from './copy.uk';
+import { inventoryTurnoverCopyDe } from './copy.de';
 import { inventoryTurnoverReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: inventoryTurnoverCopyEn, uk: inventoryTurnoverCopyUk },
+  copy: { en: inventoryTurnoverCopyEn, uk: inventoryTurnoverCopyUk, de: inventoryTurnoverCopyDe },
   referenceCases: inventoryTurnoverReferenceCases,
   publishedExample: { inputs: { cogs: 600000, mode: 'direct', avgInventory: 150000 }, expected: ["4,00 раз"] },
   presentation: {

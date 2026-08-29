@@ -4,6 +4,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { cpmCopyEn } from './copy.en';
 import { cpmCopyUk } from './copy.uk';
+import { cpmCopyDe } from './copy.de';
 import { cpmReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cpmCopyEn, uk: cpmCopyUk },
+  copy: { en: cpmCopyEn, uk: cpmCopyUk, de: cpmCopyDe },
   referenceCases: cpmReferenceCases,
   publishedExample: { inputs: { mode: 'cpm', cost: 45000, impressions: 1200000 }, expected: ["37,50 ₽"] },
   presentation: {

@@ -12,6 +12,28 @@ const RESULTS_UK = {
 };
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'clicks': 'Klicks',
+      'impressions': 'Einblendungen',
+      'cost': 'Kosten der Kampagne',
+    },
+    results: {
+      'CTR': 'CTR',
+      'Кликов на показы': 'Klicks zu Einblendungen',
+      'Показов на один клик': 'Einblendungen je Klick',
+      'Цена клика': 'Klickpreis',
+      'Цена тысячи показов': 'Kosten je tausend Einblendungen',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'на': 'von',
+      '₽': '€',
+      'Показов должно быть не меньше одного': 'Es muss mindestens eine Einblendung sein',
+      'Кликов не может быть меньше нуля': 'Die Zahl der Klicks kann nicht negativ sein',
+      'Кликов больше, чем показов — вероятно, цифры взяты за разные периоды': 'Mehr Klicks als Einblendungen — die Zahlen stammen vermutlich aus verschiedenen Zeiträumen',
+    },
+  },
   en: {
     fields: { clicks: 'Clicks', impressions: 'Impressions', cost: 'Campaign spend' },
     results: RESULTS_EN,

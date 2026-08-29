@@ -5,6 +5,7 @@ import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { adRoiCopyEn } from './copy.en';
 import { adRoiCopyUk } from './copy.uk';
+import { adRoiCopyDe } from './copy.de';
 import { adRoiReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: adRoiCopyEn, uk: adRoiCopyUk },
+  copy: { en: adRoiCopyEn, uk: adRoiCopyUk, de: adRoiCopyDe },
   referenceCases: adRoiReferenceCases,
   publishedExample: { inputs: { revenue: 300000, spend: 100000 }, expected: ['200,00 %', '3,00 : 1'] },
   presentation: {

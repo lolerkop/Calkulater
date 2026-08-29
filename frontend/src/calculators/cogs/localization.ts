@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'beginInventory': 'Anfangsbestand, €',
+      'purchases': 'Zukäufe im Zeitraum, €',
+      'endInventory': 'Endbestand, €',
+    },
+    results: {
+      'Себестоимость проданных товаров': 'Wareneinsatz',
+      'Доступно к продаже': 'Zum Verkauf verfügbar',
+      'Запас на начало': 'Anfangsbestand',
+      'Закупки': 'Zukäufe',
+      'Запас на конец': 'Endbestand',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Запас на начало не может быть отрицательным': 'Der Anfangsbestand kann nicht negativ sein',
+      'Закупки не могут быть отрицательными': 'Die Zukäufe können nicht negativ sein',
+      'Запас на конец не может быть отрицательным': 'Der Endbestand kann nicht negativ sein',
+      'Запас на конец больше, чем было доступно к продаже': 'Der Endbestand übersteigt die zum Verkauf verfügbare Ware',
+    },
+  },
   en: {
     fields: {
       beginInventory: 'Opening inventory, ₽',

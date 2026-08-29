@@ -1,6 +1,26 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'gross': 'Bruttogehalt, €',
+      'taxPct': 'Arbeitgeberbeiträge, %',
+      'overhead': 'Gemeinkosten je Zeitraum, €',
+    },
+    results: {
+      'Полная стоимость сотрудника': 'Vollkosten des Mitarbeiters',
+      'Взносы': 'Beiträge',
+      'Оклад': 'Bruttogehalt',
+      'Накладные': 'Gemeinkosten',
+      'Множитель к окладу': 'Faktor zum Gehalt',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Оклад должен быть больше нуля': 'Das Gehalt muss größer als null sein',
+      'Ставка взносов не может быть отрицательной': 'Der Beitragssatz kann nicht negativ sein',
+      'Накладные расходы не могут быть отрицательными': 'Die Gemeinkosten können nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       gross: 'Gross salary, ₽',

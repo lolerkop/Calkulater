@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { adBudgetFunnelCopyEn } from './copy.en';
 import { adBudgetFunnelCopyUk } from './copy.uk';
+import { adBudgetFunnelCopyDe } from './copy.de';
 import { adBudgetFunnelReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: adBudgetFunnelCopyEn, uk: adBudgetFunnelCopyUk },
+  copy: { en: adBudgetFunnelCopyEn, uk: adBudgetFunnelCopyUk, de: adBudgetFunnelCopyDe },
   referenceCases: adBudgetFunnelReferenceCases,
   publishedExample: {
     inputs: { budget: 150000, cpc: 24, crPct: 2.4, aov: 4900 },

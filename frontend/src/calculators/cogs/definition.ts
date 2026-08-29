@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { cogsCopyEn } from './copy.en';
 import { cogsCopyUk } from './copy.uk';
+import { cogsCopyDe } from './copy.de';
 import { cogsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cogsCopyEn, uk: cogsCopyUk },
+  copy: { en: cogsCopyEn, uk: cogsCopyUk, de: cogsCopyDe },
   referenceCases: cogsReferenceCases,
   publishedExample: {
     inputs: { beginInventory: 320000, purchases: 780000, endInventory: 415000 },

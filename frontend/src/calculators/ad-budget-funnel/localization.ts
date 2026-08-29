@@ -1,6 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'budget': 'Werbebudget, €',
+      'cpc': 'Klickpreis, €',
+      'crPct': 'Konversionsrate, %',
+      'aov': 'Durchschnittlicher Bestellwert, €',
+    },
+    results: {
+      'Ожидаемая выручка': 'Erwarteter Umsatz',
+      'Кликов': 'Klicks',
+      'Заказов': 'Bestellungen',
+      'ROAS': 'ROAS',
+      'Цена заказа': 'Kosten je Bestellung',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Бюджет должен быть больше нуля': 'Das Budget muss größer als null sein',
+      'Цена клика должна быть больше нуля': 'Der Klickpreis muss größer als null sein',
+      'Конверсия должна быть больше нуля и не больше ста процентов': 'Die Konversionsrate muss über null und höchstens hundert Prozent betragen',
+      'Средний чек должен быть больше нуля': 'Der durchschnittliche Bestellwert muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       budget: 'Advertising budget, ₽',

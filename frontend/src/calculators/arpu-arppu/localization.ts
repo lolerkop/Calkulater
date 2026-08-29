@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'revenue': 'Umsatz im Zeitraum, €',
+      'users': 'Nutzer insgesamt',
+      'payingUsers': 'Davon zahlend',
+    },
+    results: {
+      'ARPU': 'ARPU',
+      'ARPPU': 'ARPPU',
+      'Доля платящих': 'Anteil der Zahlenden',
+      'Выручка': 'Umsatz',
+      'Пользователей': 'Nutzer',
+      'Платящих': 'Zahlende Nutzer',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Выручка должна быть больше нуля': 'Der Umsatz muss größer als null sein',
+      'Число пользователей должно быть больше нуля': 'Die Zahl der Nutzer muss größer als null sein',
+      'Число платящих не может быть отрицательным': 'Die Zahl der Zahlenden kann nicht negativ sein',
+      'Платящих не может быть больше, чем пользователей': 'Es kann nicht mehr Zahlende als Nutzer geben',
+    },
+  },
   en: {
     fields: { "revenue": "Revenue for the period, $", "users": "Total users", "payingUsers": "Of them paying" },
     options: {},

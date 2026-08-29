@@ -1,6 +1,31 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'engagements': 'Interaktionen insgesamt',
+      'base': 'Berechnen nach',
+      'reach': 'Reichweite des Beitrags',
+      'followers': 'Abonnenten',
+    },
+    options: {
+      'reach': 'Reichweite',
+      'followers': 'Abonnentenzahl',
+    },
+    results: {
+      'Вовлечённость': 'Interaktionsrate',
+      'База расчёта': 'Verwendete Grundlage',
+      'Реакций': 'Interaktionen',
+      'Реакций на тысячу': 'Interaktionen je tausend',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'охват': 'Reichweite',
+      'подписчики': 'Abonnenten',
+      'Реакций не может быть отрицательное число': 'Die Zahl der Interaktionen kann nicht negativ sein',
+      'База должна быть больше нуля': 'Die Grundlage muss größer als null sein',
+    },
+  },
   en: {
     fields: {
       "engagements": "Total engagements",

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { feeChainCopyEn } from './copy.en';
 import { feeChainCopyUk } from './copy.uk';
+import { feeChainCopyDe } from './copy.de';
 import { feeChainReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: feeChainCopyEn, uk: feeChainCopyUk },
+  copy: { en: feeChainCopyEn, uk: feeChainCopyUk, de: feeChainCopyDe },
   referenceCases: feeChainReferenceCases,
   publishedExample: {
     inputs: { price: 2000, commissionPct: 17, acquiringPct: 1.5, logistics: 55, storage: 0, cost: 900 },

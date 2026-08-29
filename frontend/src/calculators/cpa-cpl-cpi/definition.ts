@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { cpaCplCpiCopyEn } from './copy.en';
 import { cpaCplCpiCopyUk } from './copy.uk';
+import { cpaCplCpiCopyDe } from './copy.de';
 import { cpaCplCpiReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cpaCplCpiCopyEn, uk: cpaCplCpiCopyUk },
+  copy: { en: cpaCplCpiCopyEn, uk: cpaCplCpiCopyUk, de: cpaCplCpiCopyDe },
   referenceCases: cpaCplCpiReferenceCases,
   publishedExample: {
     inputs: { mode: 'cpl', cost: 84000, actions: 320 },

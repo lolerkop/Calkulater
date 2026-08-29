@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'availableMinutes': 'Verfügbare Zeit je Schicht, min',
+      'demand': 'Nachfrage je Schicht, Stück',
+      'actualCycle': 'Tatsächliche Zykluszeit, min',
+    },
+    results: {
+      'Такт производства': 'Taktzeit',
+      'Единиц в час': 'Einheiten je Stunde',
+      'Фактический цикл': 'Tatsächliche Zykluszeit',
+      'Загрузка такта': 'Auslastung des Takts',
+      'Возможный выпуск за смену': 'Möglicher Ausstoß je Schicht',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'мин/шт': 'min/Stk',
+      'мин': 'min',
+      'шт': 'Stk',
+      'Доступное время смены должно быть больше нуля': 'Die verfügbare Schichtzeit muss größer als null sein',
+      'Спрос — целое число единиц, не меньше одной': 'Die Nachfrage ist eine ganze Zahl von Einheiten, mindestens eine',
+      'Фактический цикл не может быть отрицательным': 'Die tatsächliche Zykluszeit kann nicht negativ sein',
+    },
+  },
   en: {
     fields: {
       availableMinutes: 'Available time per shift, min', demand: 'Demand per shift, units',

@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { timesheetWeekCopyEn } from './copy.en';
 import { timesheetWeekCopyUk } from './copy.uk';
+import { timesheetWeekCopyDe } from './copy.de';
 import { timesheetWeekReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: timesheetWeekCopyEn, uk: timesheetWeekCopyUk },
+  copy: { en: timesheetWeekCopyEn, uk: timesheetWeekCopyUk, de: timesheetWeekCopyDe },
   referenceCases: timesheetWeekReferenceCases,
   publishedExample: {
     inputs: { lines: "09:00,18:00,60\n09:00,18:00,60\n09:00,17:30,45\n10:00,19:00,60\n09:00,14:00,0", rate: 500, normal: 40 },

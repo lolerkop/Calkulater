@@ -1,6 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'investment': 'Investition',
+      'cashflow': 'Jährlicher Zahlungsstrom',
+      'rate': 'Abzinsungssatz, %',
+    },
+    results: {
+      'Простой срок окупаемости': 'Einfache Amortisationsdauer',
+      'В месяцах': 'In Monaten',
+      'Дисконтированный срок': 'Abgezinste Amortisationsdauer',
+      'Годовой поток': 'Jährlicher Zahlungsstrom',
+      'Возврат за простой срок': 'Rückfluss über die einfache Dauer',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'лет': 'Jahre',
+      'мес': 'Mon.',
+      'Вложение должно быть больше нуля': 'Die Investition muss größer als null sein',
+      'Годовой денежный поток должен быть больше нуля': 'Der jährliche Zahlungsstrom muss größer als null sein',
+      'Ставка дисконтирования не может быть отрицательной': 'Der Abzinsungssatz kann nicht negativ sein',
+      'При такой ставке дисконтированные потоки не покроют вложение никогда': 'Bei diesem Satz decken die abgezinsten Ströme die Investition nie',
+    },
+  },
   en: {
     fields: { investment: 'Investment', cashflow: 'Annual cash flow', rate: 'Discount rate, %' },
     options: {},

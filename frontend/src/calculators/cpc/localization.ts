@@ -1,6 +1,26 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'cost': 'Werbebudget, €',
+      'clicks': 'Erhaltene Klicks',
+      'impressions': 'Einblendungen, 0 wenn unbekannt',
+    },
+    results: {
+      'Цена клика (CPC)': 'Klickpreis (CPC)',
+      'Кликов': 'Klicks',
+      'Бюджет': 'Budget',
+      'CPM': 'CPM',
+      'Кликабельность': 'Klickrate',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      'Бюджет должен быть больше нуля': 'Das Budget muss größer als null sein',
+      'Число кликов должно быть больше нуля': 'Die Zahl der Klicks muss größer als null sein',
+      'Кликов не может быть больше, чем показов': 'Es kann nicht mehr Klicks als Einblendungen geben',
+    },
+  },
   en: {
     fields: {
       cost: 'Advertising budget, ₽',

@@ -1,6 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
+  de: {
+    fields: {
+      'subscribers': 'Abonnenten',
+      'arpuMonth': 'Mittlerer Umsatz je Abonnent und Monat, €',
+      'growthPct': 'Monatliches Wachstum der Basis, %',
+    },
+    results: {
+      'MRR': 'MRR',
+      'ARR': 'ARR',
+      'MRR через месяц': 'MRR in einem Monat',
+      'Прирост за месяц': 'Zuwachs in einem Monat',
+      'Подписчиков': 'Abonnenten',
+      'Проверьте данные': 'Prüfe die Werte',
+    },
+    values: {
+      '₽': '€',
+      'Число подписчиков должно быть больше нуля': 'Die Zahl der Abonnenten muss größer als null sein',
+      'Средний доход с подписчика должен быть больше нуля': 'Der mittlere Umsatz je Abonnent muss größer als null sein',
+      'Падение выручки не может превышать ста процентов': 'Ein Umsatzrückgang kann hundert Prozent nicht übersteigen',
+    },
+  },
   en: {
     fields: { "subscribers": "Subscribers", "arpuMonth": "Average revenue per subscriber per month, $", "growthPct": "Monthly base growth, %" },
     options: {},

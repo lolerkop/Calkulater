@@ -12,6 +12,11 @@
 
 import type { CalculatorDef } from '../lib/types';
 import { deAutomotiveContent } from './deContent/automotive';
+import { deBusiness1Content } from './deContent/business1';
+import { deBusiness2Content } from './deContent/business2';
+import { deBusiness3Content } from './deContent/business3';
+import { deBusiness4Content } from './deContent/business4';
+import { deBusiness5Content } from './deContent/business5';
 import { deChemistryContent } from './deContent/chemistry';
 import { deComputers1Content } from './deContent/computers1';
 import { deComputers2Content } from './deContent/computers2';
@@ -381,6 +386,11 @@ const deFoundationContent: Partial<Record<string, DeDetailedContent>> = {
 export const deCalculatorContent: Partial<Record<string, DeDetailedContent>> = {
   ...deFoundationContent,
   ...deAutomotiveContent,
+  ...deBusiness1Content,
+  ...deBusiness2Content,
+  ...deBusiness3Content,
+  ...deBusiness4Content,
+  ...deBusiness5Content,
   ...deChemistryContent,
   ...deComputers1Content,
   ...deComputers2Content,

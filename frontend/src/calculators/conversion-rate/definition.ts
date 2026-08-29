@@ -2,6 +2,7 @@ import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { conversionRateCopyEn } from './copy.en';
 import { conversionRateCopyUk } from './copy.uk';
+import { conversionRateCopyDe } from './copy.de';
 import { conversionRateReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -9,7 +10,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: conversionRateCopyEn, uk: conversionRateCopyUk },
+  copy: { en: conversionRateCopyEn, uk: conversionRateCopyUk, de: conversionRateCopyDe },
   referenceCases: conversionRateReferenceCases,
   publishedExample: { inputs: { visitors: 8000, conversions: 240, cost: 60000 }, expected: ["3,00%"] },
   presentation: {
