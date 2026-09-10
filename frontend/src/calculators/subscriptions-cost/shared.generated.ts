@@ -42,6 +42,7 @@ export const shared: CalculatorLocalization = {
       'В': 'A',
       'Месяцев': 'Meses',
       'Месяц': 'Mes',
+      'Год': 'Año',
     },
   },
 };

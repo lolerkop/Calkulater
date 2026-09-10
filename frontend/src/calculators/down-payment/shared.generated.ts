@@ -36,7 +36,9 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Сумма кредита': 'Importe del préstamo',
       'В': 'A',
+      'Первоначальный взнос': 'Entrada',
     },
   },
 };

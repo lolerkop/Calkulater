@@ -9,6 +9,7 @@ import { compute } from './compute';
 import { savingsRateCopyEn } from './copy.en';
 import { savingsRateCopyUk } from './copy.uk';
 import { savingsRateCopyDe } from './copy.de';
+import { savingsRateCopyEs } from './copy.es';
 import { savingsRateReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -16,7 +17,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: savingsRateCopyEn, uk: savingsRateCopyUk, de: savingsRateCopyDe },
+  copy: { en: savingsRateCopyEn, uk: savingsRateCopyUk, de: savingsRateCopyDe, es: savingsRateCopyEs },
   referenceCases: savingsRateReferenceCases,
   // Пример со страницы: он же проверяется тестом на соответствие расчёту.
   publishedExample: { inputs: { income: 100000, expenses: 70000 }, expected: ['30,00 %', '30 000 ₽'] },

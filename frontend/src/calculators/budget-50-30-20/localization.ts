@@ -32,4 +32,20 @@ export const localization: CalculatorLocalization = {
     },
     values: { 'Доход должен быть больше нуля': 'Дохід має бути більшим за нуль' },
   },
+  es: {
+    fields: {
+      "income": "Ingresos mensuales netos",
+    },
+    options: {},
+    results: {
+      "Нужды": "Necesidades",
+      "Желания": "Deseos",
+      "Сбережения": "Ahorro",
+      "Доход после налогов": "Ingresos netos",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Доход должен быть больше нуля": "Los ingresos deben ser mayores que cero",
+    },
+  },
 };

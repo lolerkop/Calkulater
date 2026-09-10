@@ -57,10 +57,13 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
       'Введите положительные значения': 'Introduce valores positivos',
+      'Итоговая сумма': 'Importe final',
       'В': 'A',
       'Месяц': 'Mes',
+      'Внесено': 'Aportado',
     },
     values: {
       'Введите положительные значения': 'Introduce valores positivos',

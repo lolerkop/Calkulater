@@ -51,4 +51,25 @@ export const localization: CalculatorLocalization = {
       'Ставка должна быть больше нуля': 'Ставка має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "rate": "Tipo anual, %",
+      "amount": "Cantidad inicial",
+    },
+    options: {},
+    results: {
+      "Удвоение по правилу 72": "Duplicación por la regla del 72",
+      "Точный срок удвоения": "Tiempo exacto de duplicación",
+      "Расхождение правила": "Cuánto se desvía la regla",
+      "Ставка": "Tipo",
+      "Сумма после удвоения": "Cantidad una vez duplicada",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "% годовых": "% anual",
+      "лет": "años",
+      "₽": "€",
+      "Ставка должна быть больше нуля": "El tipo debe ser mayor que cero",
+    },
+  },
 };

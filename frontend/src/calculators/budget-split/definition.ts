@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { budgetSplitCopyEn } from './copy.en';
 import { budgetSplitCopyUk } from './copy.uk';
 import { budgetSplitCopyDe } from './copy.de';
+import { budgetSplitCopyEs } from './copy.es';
 import { budgetSplitReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: budgetSplitCopyEn, uk: budgetSplitCopyUk, de: budgetSplitCopyDe },
+  copy: { en: budgetSplitCopyEn, uk: budgetSplitCopyUk, de: budgetSplitCopyDe, es: budgetSplitCopyEs },
   referenceCases: budgetSplitReferenceCases,
   publishedExample: { inputs: { total: 60000, incomes: 'анна 80000\nборис 120000', mode: 'income' }, expected: ["36 000,00 ₽"] },
   presentation: {

@@ -56,10 +56,14 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
+      'Итоговая сумма': 'Importe final',
       'В': 'A',
       'Месяцев': 'Meses',
       'Месяц': 'Mes',
+      'Проценты': 'Intereses',
+      'Год': 'Año',
     },
   },
 };

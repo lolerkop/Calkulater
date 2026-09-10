@@ -65,7 +65,20 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Прибыль': 'Beneficio',
       'В': 'A',
+      'Цена продажи': 'Precio de venta',
+      'Себестоимость': 'Coste',
+      'Прибыль с единицы': 'Beneficio por unidad',
+      'Наценка': 'Marcado',
+      'Маржа': 'Margen',
+      'Прибыль за партию': 'Beneficio del lote',
+    },
+    values: {
+      'Введите себестоимость больше нуля': 'Introduce un coste mayor que cero',
+      'Маржа должна быть меньше 100%': 'El margen debe ser menor del 100 %',
+      'Цена продажи ниже себестоимости, поэтому наценка и маржа отрицательные.': 'El precio de venta está por debajo del coste, así que el marcado y el margen son negativos.',
+      'Цена продажи должна быть больше нуля': 'El precio de venta debe ser mayor que cero',
     },
   },
 };

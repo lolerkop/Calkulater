@@ -72,4 +72,31 @@ export const localization: CalculatorLocalization = {
         'Залишкова вартість не може перевищувати профінансовану суму',
     },
   },
+  es: {
+    fields: {
+      "price": "Precio del bien",
+      "down": "Entrada",
+      "residualPct": "Proporción residual, %",
+      "months": "Plazo, meses",
+      "rate": "Recargo anual, %",
+    },
+    options: {},
+    results: {
+      "Ежемесячный платёж": "Cuota mensual",
+      "Амортизационная часть": "Parte de amortización",
+      "Процентная часть": "Parte financiera",
+      "Остаточная стоимость": "Valor residual",
+      "Всего выплат с авансом": "Total pagado con la entrada",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Стоимость предмета лизинга должна быть больше нуля": "El precio del bien debe ser mayor que cero",
+      "Аванс не может быть отрицательным": "La entrada no puede ser negativa",
+      "Аванс не может быть больше стоимости или равен ей": "La entrada no puede alcanzar el precio del bien",
+      "Остаточная доля задаётся от 0 до 100 процентов": "La proporción residual va del 0 al 100 por ciento",
+      "Срок — целое число месяцев, не меньше одного": "El plazo debe ser un número entero de meses, al menos uno",
+      "Удорожание не может быть отрицательным": "El recargo no puede ser negativo",
+      "Остаточная стоимость не может быть выше профинансированной суммы": "El valor residual no puede superar al importe financiado",
+    },
+  },
 };

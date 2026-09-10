@@ -58,4 +58,24 @@ export const localization: CalculatorLocalization = {
       'Ставка налога должна быть от нуля до ста процентов': 'Ставка податку має бути від нуля до ста відсотків',
     },
   },
+  es: {
+    fields: {
+      "salary": "Salario base, €",
+      "bonusPct": "Bonus, % del salario",
+      "taxPct": "Tipo de retención, %",
+    },
+    options: {},
+    results: {
+      "Премия на руки": "Bonus neto",
+      "Премия до налога": "Bonus antes de impuestos",
+      "Налог": "Retención",
+      "Оклад": "Salario base",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Оклад должен быть больше нуля": "El salario debe ser mayor que cero",
+      "Процент премии не может быть отрицательным": "El porcentaje del bonus no puede ser negativo",
+      "Ставка налога должна быть от нуля до ста процентов": "El tipo de retención debe estar entre cero y cien por ciento",
+    },
+  },
 };

@@ -41,6 +41,7 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Revisa los datos',
       'В': 'A',
       'Режим': 'Modo',
+      'Остаток': 'Pendiente',
       'Время': 'Tiempo',
     },
   },

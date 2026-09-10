@@ -4,6 +4,7 @@ import { compute } from './compute';
 import { emergencyFundCopyEn } from './copy.en';
 import { emergencyFundCopyUk } from './copy.uk';
 import { emergencyFundCopyDe } from './copy.de';
+import { emergencyFundCopyEs } from './copy.es';
 import { emergencyFundReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: emergencyFundCopyEn, uk: emergencyFundCopyUk, de: emergencyFundCopyDe },
+  copy: { en: emergencyFundCopyEn, uk: emergencyFundCopyUk, de: emergencyFundCopyDe, es: emergencyFundCopyEs },
   referenceCases: emergencyFundReferenceCases,
   publishedExample: {
     inputs: { monthlyExpenses: 85000, months: 6, saved: 210000 },

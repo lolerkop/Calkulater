@@ -38,9 +38,11 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
       'В': 'A',
       'Запас': 'Reserva',
+      'Себестоимость': 'Coste',
     },
   },
 };

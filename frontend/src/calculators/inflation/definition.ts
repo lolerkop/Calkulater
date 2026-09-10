@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { inflationCopyEn } from './copy.en';
 import { inflationCopyUk } from './copy.uk';
 import { inflationCopyDe } from './copy.de';
+import { inflationCopyEs } from './copy.es';
 import { inflationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: inflationCopyEn, uk: inflationCopyUk, de: inflationCopyDe },
+  copy: { en: inflationCopyEn, uk: inflationCopyUk, de: inflationCopyDe, es: inflationCopyEs },
   referenceCases: inflationReferenceCases,
   publishedExample: { inputs: { amount: 100000, ratePct: 8, years: 10 }, expected: ["46 319,35 ₽"] },
   presentation: {

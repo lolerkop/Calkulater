@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { dcaCopyEn } from './copy.en';
 import { dcaCopyUk } from './copy.uk';
 import { dcaCopyDe } from './copy.de';
+import { dcaCopyEs } from './copy.es';
 import { dcaReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: dcaCopyEn, uk: dcaCopyUk, de: dcaCopyDe },
+  copy: { en: dcaCopyEn, uk: dcaCopyUk, de: dcaCopyDe, es: dcaCopyEs },
   referenceCases: dcaReferenceCases,
   publishedExample: { inputs: { monthly: 10000, months: 12, priceGrowthPct: 2, startPrice: 5000 }, expected: ["134 120,90 ₽"] },
   presentation: {

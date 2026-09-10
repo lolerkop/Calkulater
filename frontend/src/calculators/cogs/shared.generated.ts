@@ -38,6 +38,7 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Revisa los datos',
       'В': 'A',
       'Запас': 'Reserva',
+      'Себестоимость': 'Coste',
     },
   },
 };

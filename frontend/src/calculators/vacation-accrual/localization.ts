@@ -61,4 +61,25 @@ export const localization: CalculatorLocalization = {
       'Использованные дни не могут быть отрицательными': 'Використані дні не можуть бути від’ємними',
     },
   },
+  es: {
+    fields: {
+      "daysPerYear": "Derecho anual de vacaciones, días",
+      "monthsWorked": "Meses trabajados",
+      "daysUsed": "Días ya disfrutados",
+    },
+    options: {},
+    results: {
+      "Остаток отпуска": "Saldo de vacaciones",
+      "Накоплено": "Acumulado",
+      "За месяц": "Acumulado por mes",
+      "Использовано": "Días disfrutados",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "дн.": "d",
+      "Годовая норма отпуска должна быть больше нуля": "El derecho anual debe ser mayor que cero",
+      "Отработанные месяцы не могут быть отрицательными": "Los meses trabajados no pueden ser negativos",
+      "Использованные дни не могут быть отрицательными": "Los días disfrutados no pueden ser negativos",
+    },
+  },
 };

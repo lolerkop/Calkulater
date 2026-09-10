@@ -61,4 +61,25 @@ export const localization: CalculatorLocalization = {
       'Коэффициент сверхурочных не может быть меньше единицы': 'Коефіцієнт надурочних не може бути меншим за одиницю',
     },
   },
+  es: {
+    fields: {
+      "rate": "Tarifa por hora, €",
+      "normalHours": "Horas ordinarias",
+      "overtimeHours": "Horas extra",
+      "multiplier": "Multiplicador de horas extra",
+    },
+    options: {},
+    results: {
+      "Всего к оплате": "Total a pagar",
+      "Оплата обычных часов": "Retribución de las horas ordinarias",
+      "Оплата сверхурочных": "Retribución de las horas extra",
+      "Средняя ставка за час": "Tarifa efectiva por hora",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Ставка за час должна быть больше нуля": "La tarifa por hora debe ser mayor que cero",
+      "Часы не могут быть отрицательными": "Las horas no pueden ser negativas",
+      "Коэффициент сверхурочных не может быть меньше единицы": "El multiplicador de horas extra no puede ser menor que uno",
+    },
+  },
 };

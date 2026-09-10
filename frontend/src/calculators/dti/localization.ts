@@ -47,4 +47,24 @@ export const localization: CalculatorLocalization = {
       'Доход должен быть больше нуля': 'Дохід має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "payments": "Cuotas de deuda mensuales",
+      "income": "Ingresos mensuales",
+    },
+    options: {},
+    results: {
+      "Кредитная нагрузка": "Ratio deuda-ingresos",
+      "Оценка": "Valoración",
+      "Остаётся после платежей": "Queda tras las cuotas",
+      "Платежи по долгам": "Cuotas de deuda",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Комфортная": "Cómoda",
+      "Повышенная": "Elevada",
+      "Высокая": "Alta",
+      "Доход должен быть больше нуля": "Los ingresos deben ser mayores que cero",
+    },
+  },
 };

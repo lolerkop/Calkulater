@@ -73,4 +73,28 @@ export const localization: CalculatorLocalization = {
       'Периодов начисления должно быть не меньше одного': 'Періодів нарахування має бути не менше одного',
     },
   },
+  es: {
+    fields: {
+      "mode": "Sentido de la conversión",
+      "rate": "Tipo, %",
+      "periods": "Periodos de capitalización al año",
+    },
+    options: {
+      "toApy": "de nominal (TIN) a efectivo (TAE)",
+      "toApr": "de efectivo (TAE) a nominal (TIN)",
+    },
+    results: {
+      "Эффективная ставка (APY)": "Tipo efectivo (TAE)",
+      "Номинальная ставка (APR)": "Tipo nominal (TIN)",
+      "Номинальная ставка": "Tipo nominal",
+      "Ставка за период": "Tipo por periodo",
+      "Периодов в году": "Periodos al año",
+      "Множитель за год": "Multiplicador anual",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Ставка не может быть отрицательной": "El tipo no puede ser negativo",
+      "Периодов начисления должно быть не меньше одного": "Debe haber al menos un periodo de capitalización",
+    },
+  },
 };

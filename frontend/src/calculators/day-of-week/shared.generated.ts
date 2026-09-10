@@ -42,6 +42,7 @@ export const shared: CalculatorLocalization = {
       'В': 'A',
       'Дней': 'Días',
       'День недели': 'Día de la semana',
+      'Год': 'Año',
     },
   },
 };

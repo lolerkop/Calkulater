@@ -48,7 +48,10 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Прибыль': 'Beneficio',
       'В': 'A',
+      'Себестоимость': 'Coste',
+      'Проценты': 'Intereses',
     },
   },
 };

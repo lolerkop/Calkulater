@@ -8,6 +8,7 @@ import { compute } from './compute';
 import { simpleInterestCopyEn } from './copy.en';
 import { simpleInterestCopyUk } from './copy.uk';
 import { simpleInterestCopyDe } from './copy.de';
+import { simpleInterestCopyEs } from './copy.es';
 import { simpleInterestReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -15,7 +16,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: simpleInterestCopyEn, uk: simpleInterestCopyUk, de: simpleInterestCopyDe },
+  copy: { en: simpleInterestCopyEn, uk: simpleInterestCopyUk, de: simpleInterestCopyDe, es: simpleInterestCopyEs },
   referenceCases: simpleInterestReferenceCases,
   publishedExample: { inputs: { mode: 'interest', principal: 100000, rate: 8, years: 3 }, expected: ['24 000 ₽', '124 000 ₽'] },
   presentation: {

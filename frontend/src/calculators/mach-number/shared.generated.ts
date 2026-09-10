@@ -42,6 +42,7 @@ export const shared: CalculatorLocalization = {
       'В': 'A',
       'Темп': 'Ritmo',
       'Режим': 'Modo',
+      'Год': 'Año',
     },
   },
 };

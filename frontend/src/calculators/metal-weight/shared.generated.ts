@@ -42,6 +42,7 @@ export const shared: CalculatorLocalization = {
       'Из': 'De',
       'В': 'A',
       'Площадь': 'Área',
+      'Год': 'Año',
     },
   },
 };

@@ -51,6 +51,7 @@ export const shared: CalculatorLocalization = {
       'В': 'A',
       'Рост': 'Estatura',
       'Темп': 'Ritmo',
+      'Проценты': 'Intereses',
     },
   },
 };

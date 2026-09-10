@@ -48,4 +48,23 @@ export const localization: CalculatorLocalization = {
       'Число часов в дне должно быть больше нуля': 'Кількість годин у дні має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "salary": "Salario mensual",
+      "days": "Días laborables al mes",
+      "hours": "Horas por día laborable",
+    },
+    options: {},
+    results: {
+      "Стоимость рабочего дня": "Coste de un día de trabajo",
+      "Стоимость часа": "Coste de una hora",
+      "Рабочих часов в месяце": "Horas de trabajo al mes",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Оклад должен быть больше нуля": "El salario debe ser mayor que cero",
+      "Число рабочих дней должно быть больше нуля": "El número de días laborables debe ser mayor que cero",
+      "Число часов в дне должно быть больше нуля": "El número de horas al día debe ser mayor que cero",
+    },
+  },
 };

@@ -94,6 +94,7 @@ export const shared: CalculatorLocalization = {
       'Ошибка': 'Error',
       'Абсолютная разница': 'Diferencia absoluta',
       'Изменение': 'Variación',
+      'Проценты': 'Intereses',
     },
     values: {
       'Процент от числа': 'Porcentaje de un número',

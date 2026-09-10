@@ -59,9 +59,15 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Переплата': 'Intereses totales',
+      'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
       'В': 'A',
       'Месяц': 'Mes',
+      'Основной долг': 'Capital amortizado',
+      'Проценты': 'Intereses',
+      'Остаток': 'Pendiente',
+      'Год': 'Año',
     },
   },
 };

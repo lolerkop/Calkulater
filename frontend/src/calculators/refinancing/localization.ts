@@ -84,4 +84,32 @@ export const localization: CalculatorLocalization = {
       "Расходы на сделку не могут быть отрицательными": "Витрати на перехід не можуть бути від'ємними",
     },
   },
+  es: {
+    fields: {
+      "balance": "Deuda pendiente",
+      "oldRate": "Tipo actual, % anual",
+      "oldMonths": "Meses restantes",
+      "newRate": "Tipo nuevo, % anual",
+      "newMonths": "Plazo nuevo, meses",
+      "fee": "Gastos del cambio",
+    },
+    options: {},
+    results: {
+      "Выгода от рефинансирования": "Ganancia por refinanciar",
+      "Платёж сейчас": "Cuota actual",
+      "Платёж после": "Cuota después",
+      "Итого сейчас": "Total actual",
+      "Итого после": "Total después",
+      "Разница в платеже": "Diferencia de cuota",
+      "Расходы на сделку": "Gastos del cambio",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Остаток долга должен быть больше нуля": "La deuda pendiente debe ser mayor que cero",
+      "Срок должен быть не меньше месяца": "El plazo debe ser de al menos un mes",
+      "Ставка должна быть от 0 до 100 % годовых": "El tipo debe estar entre el 0 y el 100 % anual",
+      "Расходы на сделку не могут быть отрицательными": "Los gastos del cambio no pueden ser negativos",
+    },
+  },
 };

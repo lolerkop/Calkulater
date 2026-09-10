@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { cryptoPnlCopyEn } from './copy.en';
 import { cryptoPnlCopyUk } from './copy.uk';
 import { cryptoPnlCopyDe } from './copy.de';
+import { cryptoPnlCopyEs } from './copy.es';
 import { cryptoPnlReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cryptoPnlCopyEn, uk: cryptoPnlCopyUk, de: cryptoPnlCopyDe },
+  copy: { en: cryptoPnlCopyEn, uk: cryptoPnlCopyUk, de: cryptoPnlCopyDe, es: cryptoPnlCopyEs },
   referenceCases: cryptoPnlReferenceCases,
   publishedExample: {
     inputs: { direction: 'long', entry: 30000, exit: 34500, qty: 0.5, feePct: 0.1, leverage: 1 },

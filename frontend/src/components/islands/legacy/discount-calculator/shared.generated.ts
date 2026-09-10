@@ -53,7 +53,16 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Цена со скидкой': 'Precio con descuento',
+      'Размер скидки': 'Importe del descuento',
+      'Процент скидки': 'Porcentaje de descuento',
+      'Исходная цена': 'Precio original',
       'В': 'A',
+      'Дополнительная скидка': 'Descuento adicional',
+      'Итого за товары': 'Total de los artículos',
+    },
+    values: {
+      'Введите цену больше нуля': 'Introduce un precio mayor que cero',
     },
   },
 };

@@ -4,6 +4,7 @@ import { compute } from './compute';
 import { aprApyCopyEn } from './copy.en';
 import { aprApyCopyUk } from './copy.uk';
 import { aprApyCopyDe } from './copy.de';
+import { aprApyCopyEs } from './copy.es';
 import { aprApyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: aprApyCopyEn, uk: aprApyCopyUk, de: aprApyCopyDe },
+  copy: { en: aprApyCopyEn, uk: aprApyCopyUk, de: aprApyCopyDe, es: aprApyCopyEs },
   referenceCases: aprApyReferenceCases,
   publishedExample: {
     inputs: { mode: 'toApy', rate: 18, periods: 12 },

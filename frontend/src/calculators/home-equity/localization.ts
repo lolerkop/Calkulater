@@ -69,4 +69,31 @@ export const localization: CalculatorLocalization = {
       'Срок должен быть больше нуля': 'Строк має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "value": "Valor de mercado de la vivienda",
+      "balance": "Hipoteca pendiente",
+      "ltv": "Financiación máxima permitida, %",
+      "rate": "Tipo anual, %",
+      "years": "Plazo, años",
+    },
+    options: {},
+    results: {
+      "Доступная сумма": "Importe disponible",
+      "Собственный капитал в жилье": "Patrimonio en la vivienda",
+      "Предел по доле залога": "Límite de financiación",
+      "Доля собственного капитала": "Proporción de patrimonio propio",
+      "Платёж по такому кредиту": "Cuota de ese préstamo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "%": "%",
+      "Стоимость жилья должна быть больше нуля": "El valor de la vivienda debe ser mayor que cero",
+      "Остаток долга не может быть отрицательным": "La deuda pendiente no puede ser negativa",
+      "Остаток долга не может превышать стоимость жилья": "La deuda pendiente no puede superar al valor de la vivienda",
+      "Доля залога задаётся от 0 до 100 процентов": "La financiación va del 0 al 100 por ciento",
+      "Ставка не может быть отрицательной": "El tipo no puede ser negativo",
+      "Срок должен быть больше нуля": "El plazo debe ser mayor que cero",
+    },
+  },
 };

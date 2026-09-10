@@ -47,6 +47,7 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Revisa los datos',
       'Из': 'De',
       'В': 'A',
+      'Проценты': 'Intereses',
     },
   },
 };

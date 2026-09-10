@@ -70,4 +70,28 @@ export const localization: CalculatorLocalization = {
       'Платёж с доплатой не покрывает проценты — долг не уменьшается': 'Платіж не покриває відсотки, тож борг не зменшується',
     },
   },
+  es: {
+    fields: {
+      "amount": "Importe del préstamo, €",
+      "rate": "Tipo anual, %",
+      "years": "Plazo, años",
+      "extra": "Amortización adicional al mes, €",
+    },
+    options: {},
+    results: {
+      "Экономия на процентах": "Intereses ahorrados",
+      "Платёж по графику": "Cuota del cuadro",
+      "Платежей вместо графика": "Cuotas realmente pagadas",
+      "Платежей по графику": "Cuotas previstas",
+      "Всего выплат": "Total pagado",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Сумма кредита должна быть больше нуля": "El importe del préstamo debe ser mayor que cero",
+      "Ставка не может быть отрицательной": "El tipo no puede ser negativo",
+      "Срок должен быть больше нуля": "El plazo debe ser mayor que cero",
+      "Доплата не может быть отрицательной": "La amortización adicional no puede ser negativa",
+      "Платёж с доплатой не покрывает проценты — долг не уменьшается": "La cuota con la amortización adicional no cubre los intereses: la deuda no baja",
+    },
+  },
 };

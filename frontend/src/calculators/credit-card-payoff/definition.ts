@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { creditCardPayoffCopyEn } from './copy.en';
 import { creditCardPayoffCopyUk } from './copy.uk';
 import { creditCardPayoffCopyDe } from './copy.de';
+import { creditCardPayoffCopyEs } from './copy.es';
 import { creditCardPayoffReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: creditCardPayoffCopyEn, uk: creditCardPayoffCopyUk, de: creditCardPayoffCopyDe },
+  copy: { en: creditCardPayoffCopyEn, uk: creditCardPayoffCopyUk, de: creditCardPayoffCopyDe, es: creditCardPayoffCopyEs },
   referenceCases: creditCardPayoffReferenceCases,
   publishedExample: { inputs: { balance: 100000, apr: 24, payment: 5000 }, expected: ["26 мес"] },
   presentation: {

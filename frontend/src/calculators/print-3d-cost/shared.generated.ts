@@ -48,6 +48,8 @@ export const shared: CalculatorLocalization = {
       'Из': 'De',
       'В': 'A',
       'Вес': 'Peso',
+      'Себестоимость': 'Coste',
+      'Наценка': 'Marcado',
       'Время': 'Tiempo',
     },
   },

@@ -6,6 +6,7 @@ import { compute } from './compute';
 import { dividendYieldCopyEn } from './copy.en';
 import { dividendYieldCopyUk } from './copy.uk';
 import { dividendYieldCopyDe } from './copy.de';
+import { dividendYieldCopyEs } from './copy.es';
 import { dividendYieldReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: dividendYieldCopyEn, uk: dividendYieldCopyUk, de: dividendYieldCopyDe },
+  copy: { en: dividendYieldCopyEn, uk: dividendYieldCopyUk, de: dividendYieldCopyDe, es: dividendYieldCopyEs },
   referenceCases: dividendYieldReferenceCases,
   publishedExample: { inputs: { dividend: 12, price: 200 }, expected: ['6,00 %'] },
   presentation: {

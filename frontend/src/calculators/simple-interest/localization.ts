@@ -56,4 +56,30 @@ export const localization: CalculatorLocalization = {
       'Срок должен быть больше нуля': 'Строк має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "principal": "Importe inicial",
+      "rate": "Tipo anual, %",
+      "interest": "Intereses del plazo",
+      "years": "Plazo, años",
+    },
+    options: {
+      "interest": "Intereses generados",
+      "rate": "Tipo necesario",
+    },
+    results: {
+      "Проценты": "Intereses",
+      "Ставка": "Tipo",
+      "Итоговая сумма": "Importe final",
+      "Проценты за год": "Intereses por año",
+      "Проценты за срок": "Intereses del plazo",
+      "Начальная сумма": "Importe inicial",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Сумма должна быть больше нуля": "El importe debe ser mayor que cero",
+      "Срок должен быть больше нуля": "El plazo debe ser mayor que cero",
+    },
+  },
 };

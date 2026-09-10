@@ -39,7 +39,10 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Прибыль': 'Beneficio',
       'В': 'A',
+      'Наценка': 'Marcado',
+      'Маржа': 'Margen',
     },
   },
 };

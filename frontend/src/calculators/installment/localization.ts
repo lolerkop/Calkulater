@@ -68,4 +68,33 @@ export const localization: CalculatorLocalization = {
       'Наценка не может быть отрицательной': 'Націнка не може бути від’ємною',
     },
   },
+  es: {
+    fields: {
+      "price": "Precio",
+      "down": "Entrada",
+      "months": "Plazo, meses",
+      "markup": "Recargo",
+    },
+    options: {},
+    results: {
+      "Ежемесячный платёж": "Cuota mensual",
+      "Сумма рассрочки": "Importe financiado",
+      "Всего к выплате": "Total a pagar",
+      "Переплата": "Recargo total",
+      "Последний платёж": "Última cuota",
+      "График платежей": "Cuadro de pagos",
+      "Месяц": "Mes",
+      "Платёж": "Cuota",
+      "Остаток": "Saldo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Цена должна быть больше нуля": "El precio debe ser mayor que cero",
+      "Первоначальный взнос не может быть отрицательным": "La entrada no puede ser negativa",
+      "Взнос должен быть меньше цены": "La entrada debe ser menor que el precio",
+      "Срок должен быть хотя бы один месяц": "El plazo debe ser de al menos un mes",
+      "Срок не может превышать 60 месяцев": "El plazo no puede superar los 60 meses",
+      "Наценка не может быть отрицательной": "El recargo no puede ser negativo",
+    },
+  },
 };

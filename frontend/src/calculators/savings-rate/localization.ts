@@ -52,4 +52,23 @@ export const localization: CalculatorLocalization = {
       'Доход должен быть больше нуля': 'Дохід має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "income": "Ingresos del periodo",
+      "expenses": "Gastos del periodo",
+    },
+    options: {},
+    results: {
+      "Норма сбережений": "Tasa de ahorro",
+      "Сбережения за период": "Ahorrado en el periodo",
+      "Доход": "Ingresos",
+      "Расходы": "Gastos",
+      "Внимание": "Atención",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Расходы превышают доход": "Los gastos superan a los ingresos",
+      "Доход должен быть больше нуля": "Los ingresos deben ser mayores que cero",
+    },
+  },
 };

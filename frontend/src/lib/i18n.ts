@@ -1754,6 +1754,24 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       h1: "Calculadora de ladrillos y bloques",
       keywords: ["calculadora de ladrillos", "calculadora de bloques", "ladrillos por muro", "fábrica de ladrillo", "junta de mortero"],
     },
+    'margin-calculator': {
+      name: "Calculadora de margen y marcado",
+      slug: "calculadora-de-margen",
+      shortDescription: "Calcula el marcado, el margen, el beneficio y el precio de venta a partir del coste.",
+      seoTitle: "Calculadora de margen y marcado — precio, beneficio y porcentajes",
+      seoDescription: "Calcula el marcado, el margen, el beneficio y el precio de venta a partir del coste. Tres modos: desde el precio, desde el marcado y desde el margen, con la diferencia explicada.",
+      h1: "Calculadora de margen y marcado",
+      keywords: ["calculadora de margen", "calculadora de marcado", "margen frente a marcado", "margen bruto", "precio de venta"],
+    },
+    'break-even-calculator': {
+      name: "Calculadora del punto de equilibrio",
+      slug: "punto-de-equilibrio",
+      shortDescription: "Halla cuántas unidades tienes que vender para cubrir tus costes.",
+      seoTitle: "Calculadora del punto de equilibrio — unidades e ingresos",
+      seoDescription: "Calcula el punto de equilibrio en unidades y en dinero a partir de los costes fijos, el precio unitario y el coste variable. Margen de contribución, margen de seguridad y beneficio a un volumen previsto.",
+      h1: "Calculadora del punto de equilibrio",
+      keywords: ["calculadora del punto de equilibrio", "punto muerto", "margen de contribución", "margen de seguridad", "costes fijos y variables"],
+    },
   },
   de: {
     'credit-calculator': {
@@ -4965,7 +4983,22 @@ const legacyFieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, st
     "unitLength": "Largo de la pieza",
     "unitHeight": "Alto de la pieza",
     "joint": "Junta de mortero",
-    "unitPrice": "Precio de venta por pieza",
+    "extraPayment": "Amortización mensual adicional",
+    "oneTimeFee": "Comisión única",
+    "compounding": "Frecuencia de capitalización",
+    "downPaymentMode": "Formato de la entrada",
+    "downPaymentPct": "Entrada",
+    "monthlyInsurance": "Seguro y gastos mensuales",
+    "secondDiscountPct": "Descuento adicional, %",
+    "quantity": "Cantidad",
+    "cost": "Coste",
+    "sellPrice": "Precio de venta",
+    "markupPct": "Marcado",
+    "marginPct": "Margen",
+    "fixedCosts": "Costes fijos del periodo",
+    "unitPrice": "Precio de venta por unidad",
+    "variableCost": "Coste variable por unidad",
+    "plannedUnits": "Volumen de ventas previsto",
   },
   de: {
     amount: 'Betrag',
@@ -5906,6 +5939,11 @@ const legacyOptionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, s
     "GBP": "GBP — Libra esterlina",
     "CHF": "CHF — Franco suizo",
     "TRY": "TRY — Lira turca",
+    "amount": "Importe",
+    "percent": "Porcentaje",
+    "fromPrice": "Coste y precio",
+    "fromMarkup": "Coste y marcado",
+    "fromMargin": "Coste y margen",
   },
   de: {
     years: 'Jahre',
@@ -6478,6 +6516,38 @@ const germanLegacyFieldOverrides: Record<string, Record<string, string>> = {
   'date-shift-calculator': { startDate: 'Ausgangsdatum' },
 };
 
+// Испанские подписи полей, зависящие от калькулятора.
+//
+// Столкновения имён у испанского те же, что у немецкого: «Altura» подходит стене
+// и не подходит человеку, «Tasa» — слишком общее слово для ставки по кредиту,
+// а `unitPrice` — это и единица товара, и один камень кладки.
+const spanishLegacyFieldOverrides: Record<string, Record<string, string>> = {
+  'credit-calculator': { amount: 'Importe del préstamo', rate: 'Tipo de interés' },
+  'compound-interest': { rate: 'Tipo anual' },
+  'mortgage-calculator': { price: 'Precio del inmueble', rate: 'Tipo de interés' },
+  'percent-calculator': { mode: 'Operación' },
+  'discount-calculator': { mode: 'El descuento se indica como', quantity: 'Número de artículos' },
+  'margin-calculator': { mode: 'Qué se conoce' },
+  'tile-calculator': { mode: 'Método de cálculo' },
+  'paint-calculator': { mode: 'Método de cálculo', height: 'Altura de la habitación' },
+  'screed-calculator': { mode: 'Método de cálculo' },
+  'wallpaper-calculator': { height: 'Altura de las paredes', length: 'Largo de la habitación', width: 'Ancho de la habitación' },
+  'laminate-calculator': { length: 'Largo de la habitación', width: 'Ancho de la habitación' },
+  'brick-calculator': { mode: 'El muro se indica como', manualArea: 'Superficie del muro', unitPrice: 'Precio por pieza' },
+  'bmi-calculator': { height: 'Estatura' },
+  'calorie-calculator': { height: 'Estatura' },
+  'body-fat-calculator': { height: 'Estatura' },
+  'one-rep-max-calculator': { weight: 'Peso de trabajo' },
+  'date-shift-calculator': { startDate: 'Fecha de partida' },
+};
+
+// Карта по локалям: та же схема, что и раньше, только выбор словаря стал данными,
+// а не цепочкой условий. Немецкий результат при этом не меняется.
+const legacyFieldOverridesByLocale: Partial<Record<Locale, Record<string, Record<string, string>>>> = {
+  de: germanLegacyFieldOverrides,
+  es: spanishLegacyFieldOverrides,
+};
+
 function localizeField(field: Field, locale: Locale, calculatorId: string): Field {
   if (locale === 'ru') return { ...field };
   const fieldLabels = fieldLabelsByLocale[locale];
@@ -6488,7 +6558,7 @@ function localizeField(field: Field, locale: Locale, calculatorId: string): Fiel
     // Имена полей вроде `mode` встречаются у многих калькуляторов сразу,
     // поэтому обращение к V2-локализации всегда идёт с идентификатором.
     label: lookupScoped(v2Localization, locale, calculatorId, 'fields', field.name)
-      ?? (locale === 'de' ? germanLegacyFieldOverrides[calculatorId]?.[field.name] : undefined)
+      ?? legacyFieldOverridesByLocale[locale]?.[calculatorId]?.[field.name]
       ?? fieldLabels[field.name] ?? field.label,
     unit: localizeUnit(field.unit, locale),
     help: field.help,

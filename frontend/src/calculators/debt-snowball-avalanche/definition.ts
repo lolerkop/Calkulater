@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { debtSnowballAvalancheCopyEn } from './copy.en';
 import { debtSnowballAvalancheCopyUk } from './copy.uk';
 import { debtSnowballAvalancheCopyDe } from './copy.de';
+import { debtSnowballAvalancheCopyEs } from './copy.es';
 import { debtSnowballAvalancheReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: debtSnowballAvalancheCopyEn, uk: debtSnowballAvalancheCopyUk, de: debtSnowballAvalancheCopyDe },
+  copy: { en: debtSnowballAvalancheCopyEn, uk: debtSnowballAvalancheCopyUk, de: debtSnowballAvalancheCopyDe, es: debtSnowballAvalancheCopyEs },
   referenceCases: debtSnowballAvalancheReferenceCases,
   publishedExample: {
     inputs: { debts: 'small 40000 12 2000\nbig 200000 26 6000', extra: 4000, strategy: 'avalanche' },

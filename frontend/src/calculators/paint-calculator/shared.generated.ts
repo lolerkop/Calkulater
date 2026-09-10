@@ -78,6 +78,7 @@ export const shared: CalculatorLocalization = {
       'Площадь окрашивания': 'Superficie a pintar',
       'Слоёв': 'Manos',
       'Количество банок': 'Número de botes',
+      'Остаток': 'Pendiente',
       'Стоимость краски': 'Coste de la pintura',
     },
     values: {

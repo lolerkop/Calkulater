@@ -6,6 +6,7 @@ import { compute } from './compute';
 import { roiCopyEn } from './copy.en';
 import { roiCopyUk } from './copy.uk';
 import { roiCopyDe } from './copy.de';
+import { roiCopyEs } from './copy.es';
 import { roiReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: roiCopyEn, uk: roiCopyUk, de: roiCopyDe },
+  copy: { en: roiCopyEn, uk: roiCopyUk, de: roiCopyDe, es: roiCopyEs },
   referenceCases: roiReferenceCases,
   publishedExample: { inputs: { received: 130000, invested: 100000 }, expected: ['30,00 %'] },
   presentation: {

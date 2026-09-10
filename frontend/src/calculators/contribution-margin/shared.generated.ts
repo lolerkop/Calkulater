@@ -31,6 +31,7 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Переменные затраты на единицу': 'Coste variable por unidad',
       'Проверьте данные': 'Revisa los datos',
       'В': 'A',
     },

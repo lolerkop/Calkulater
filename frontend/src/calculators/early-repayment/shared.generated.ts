@@ -41,8 +41,12 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
+      'Сумма кредита': 'Importe del préstamo',
       'В': 'A',
+      'Платеж': 'Cuota',
+      'Год': 'Año',
     },
   },
 };

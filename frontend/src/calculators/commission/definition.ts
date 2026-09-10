@@ -10,6 +10,7 @@ import { validate } from './validate';
 import { commissionCopyEn } from './copy.en';
 import { commissionCopyUk } from './copy.uk';
 import { commissionCopyDe } from './copy.de';
+import { commissionCopyEs } from './copy.es';
 import { commissionReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -19,7 +20,7 @@ export const definition: CalculatorDefinitionV2 = {
   compute,
   validate,
   contextualField,
-  copy: { en: commissionCopyEn, uk: commissionCopyUk, de: commissionCopyDe },
+  copy: { en: commissionCopyEn, uk: commissionCopyUk, de: commissionCopyDe, es: commissionCopyEs },
   referenceCases: commissionReferenceCases,
   publishedExample: { inputs: { mode: 'fromAmount', a: 100000, b: 2.5 }, expected: ['2 500 ₽', '97 500 ₽'] },
   presentation: {

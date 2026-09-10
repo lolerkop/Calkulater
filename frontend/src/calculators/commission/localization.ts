@@ -56,4 +56,27 @@ export const localization: CalculatorLocalization = {
       'Сумма сделки должна быть больше нуля': 'Сума угоди має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Modo de cálculo",
+      "a": "Valor A",
+      "b": "Valor B",
+    },
+    options: {
+      "fromAmount": "Comisión a partir del importe",
+      "fromCommission": "Importe a partir de la comisión",
+      "rate": "Tipo a partir de ambos",
+    },
+    results: {
+      "Комиссия": "Comisión",
+      "Сумма сделки": "Importe de la operación",
+      "Ставка комиссии": "Tipo de comisión",
+      "К получению": "A recibir",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Ставка комиссии должна быть больше нуля": "El tipo de comisión debe ser mayor que cero",
+      "Сумма сделки должна быть больше нуля": "El importe de la operación debe ser mayor que cero",
+    },
+  },
 };

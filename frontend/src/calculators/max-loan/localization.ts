@@ -65,4 +65,29 @@ export const localization: CalculatorLocalization = {
       "Срок должен быть больше нуля": "Строк має бути більшим за нуль",
     },
   },
+  es: {
+    fields: {
+      "income": "Ingresos mensuales, €",
+      "dtiPct": "Carga de deuda admisible, %",
+      "rate": "Tipo, % anual",
+      "years": "Plazo, años",
+    },
+    options: {},
+    results: {
+      "Максимальная сумма": "Importe máximo",
+      "Допустимый платёж": "Cuota admisible",
+      "Всего выплат": "Total pagado",
+      "Переплата": "Intereses pagados",
+      "Платежей": "Cuotas",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Доход должен быть больше нуля": "Los ingresos deben ser mayores que cero",
+      "Долговая нагрузка должна быть больше нуля": "La carga de deuda debe ser mayor que cero",
+      "Долговая нагрузка не может превышать ста процентов": "La carga de deuda no puede superar el cien por cien",
+      "Ставка не может быть отрицательной": "El tipo no puede ser negativo",
+      "Срок должен быть больше нуля": "El plazo debe ser mayor que cero",
+    },
+  },
 };

@@ -41,9 +41,12 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Переплата': 'Intereses totales',
+      'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
       'Результат': 'Resultado',
       'В': 'A',
+      'Платеж': 'Cuota',
     },
   },
 };

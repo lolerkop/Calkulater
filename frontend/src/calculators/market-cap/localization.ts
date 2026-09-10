@@ -76,4 +76,29 @@ export const localization: CalculatorLocalization = {
       "Капитализация должна быть больше нуля": "Капіталізація має бути більшою за нуль",
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "shares": "Acciones en circulación",
+      "price": "Precio por acción, €",
+      "cap": "Capitalización bursátil, €",
+    },
+    options: {
+      "cap": "la capitalización",
+      "price": "el precio de la acción",
+    },
+    results: {
+      "Капитализация": "Capitalización bursátil",
+      "Цена одной акции": "Precio por acción",
+      "Акций в обращении": "Acciones en circulación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "шт": "uds.",
+      "Число акций должно быть больше нуля": "El número de acciones debe ser mayor que cero",
+      "Цена акции должна быть больше нуля": "El precio de la acción debe ser mayor que cero",
+      "Капитализация должна быть больше нуля": "La capitalización debe ser mayor que cero",
+    },
+  },
 };

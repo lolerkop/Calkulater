@@ -76,4 +76,34 @@ export const localization: CalculatorLocalization = {
       'Долги не гасятся: платежей не хватает даже на проценты': 'Борги не гасяться: платежів не вистачає навіть на відсотки',
     },
   },
+  es: {
+    fields: {
+      "debts": "Deudas: nombre, saldo, tipo y cuota mínima",
+      "extra": "Dinero disponible al mes, €",
+      "strategy": "Estrategia",
+    },
+    options: {
+      "avalanche": "avalancha — primero el tipo más alto",
+      "snowball": "bola de nieve — primero el saldo más pequeño",
+    },
+    results: {
+      "Срок погашения": "Plazo de amortización",
+      "Переплата процентами": "Intereses pagados",
+      "Выплачено всего": "Total pagado",
+      "Первым закрывается": "Primera deuda cerrada",
+      "Долгов": "Deudas",
+      "Порядок погашения": "Orden de amortización",
+      "Очередь": "Orden",
+      "Долг": "Deuda",
+      "Закрыт": "Cerrada",
+      "Проценты по нему": "Intereses de esa deuda",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мес": "mes",
+      "Каждая строка: название, сумма, ставка и минимальный платёж": "Cada línea: nombre, saldo, tipo y cuota mínima",
+      "Свободные деньги не могут быть отрицательными": "El dinero disponible no puede ser negativo",
+      "Долги не гасятся: платежей не хватает даже на проценты": "Las deudas no se liquidan: las cuotas no alcanzan ni para los intereses",
+    },
+  },
 };

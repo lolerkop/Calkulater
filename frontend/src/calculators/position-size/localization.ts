@@ -81,4 +81,31 @@ export const localization: CalculatorLocalization = {
       "Стоп не может совпадать с ценой входа": "Стоп не може збігатися з ціною входу",
     },
   },
+  es: {
+    fields: {
+      "deposit": "Saldo de la cuenta, €",
+      "riskPct": "Riesgo permitido por operación, %",
+      "entry": "Precio de entrada",
+      "stop": "Precio del stop",
+    },
+    options: {},
+    results: {
+      "Размер позиции": "Tamaño de la posición",
+      "Целых единиц": "Unidades enteras",
+      "Сумма риска": "Importe en riesgo",
+      "Риск на единицу": "Riesgo por unidad",
+      "Стоимость позиции": "Valor de la posición",
+      "Доля депозита": "Proporción de la cuenta",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "шт": "uds.",
+      "Депозит должен быть больше нуля": "El saldo de la cuenta debe ser mayor que cero",
+      "Допустимый риск должен быть больше нуля": "El riesgo permitido debe ser mayor que cero",
+      "Цена входа должна быть больше нуля": "El precio de entrada debe ser mayor que cero",
+      "Цена стопа не может быть отрицательной": "El precio del stop no puede ser negativo",
+      "Стоп не может совпадать с ценой входа": "El stop no puede coincidir con el precio de entrada",
+    },
+  },
 };

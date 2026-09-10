@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { realReturnCopyEn } from './copy.en';
 import { realReturnCopyUk } from './copy.uk';
 import { realReturnCopyDe } from './copy.de';
+import { realReturnCopyEs } from './copy.es';
 import { realReturnReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: realReturnCopyEn, uk: realReturnCopyUk, de: realReturnCopyDe },
+  copy: { en: realReturnCopyEn, uk: realReturnCopyUk, de: realReturnCopyDe, es: realReturnCopyEs },
   referenceCases: realReturnReferenceCases,
   publishedExample: { inputs: { nominal: 12, inflation: 7 }, expected: ["4,67%"] },
   presentation: {
