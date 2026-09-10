@@ -49,4 +49,23 @@ export const localization: CalculatorLocalization = {
     },
     values: { "Введите текст": "Введіть текст" },
   },
+  es: {
+    fields: {
+      "text": "Texto",
+    },
+    options: {},
+    results: {
+      "Слов": "Palabras",
+      "Символов с пробелами": "Caracteres con espacios",
+      "Символов без пробелов": "Caracteres sin espacios",
+      "Предложений": "Frases",
+      "Абзацев": "Párrafos",
+      "Средняя длина слова": "Longitud media de palabra",
+      "Слов в предложении": "Palabras por frase",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Введите текст": "Introduce un texto",
+    },
+  },
 };

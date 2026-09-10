@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { networkBandwidthCopyEn } from './copy.en';
 import { networkBandwidthCopyUk } from './copy.uk';
 import { networkBandwidthCopyDe } from './copy.de';
+import { networkBandwidthCopyEs } from './copy.es';
 import { networkBandwidthReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: networkBandwidthCopyEn, uk: networkBandwidthCopyUk, de: networkBandwidthCopyDe },
+  copy: { en: networkBandwidthCopyEn, uk: networkBandwidthCopyUk, de: networkBandwidthCopyDe, es: networkBandwidthCopyEs },
   referenceCases: networkBandwidthReferenceCases,
   publishedExample: { inputs: { users: 50, perUser: 5, overhead: 20, concurrency: 100 }, expected: ["300,0 Мбит/с"] },
   presentation: {

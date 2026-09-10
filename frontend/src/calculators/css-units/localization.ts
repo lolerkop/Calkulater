@@ -83,4 +83,36 @@ export const localization: CalculatorLocalization = {
       'Выберите единицы из списка': 'Оберіть одиниці зі списку',
     },
   },
+  es: {
+    fields: {
+      "value": "Valor",
+      "fromUnit": "Unidad de origen",
+      "toUnit": "Unidad de destino",
+      "rootSize": "Tamaño de fuente raíz, px",
+      "parentSize": "Tamaño de fuente del padre, px",
+    },
+    options: {
+      "px": "px",
+      "rem": "rem",
+      "em": "em",
+      "pt": "pt",
+      "pc": "pc",
+      "in": "in",
+      "cm": "cm",
+      "mm": "mm",
+    },
+    results: {
+      "Результат перевода": "Valor convertido",
+      "В пикселях": "En píxeles",
+      "В rem": "En rem",
+      "В em": "En em",
+      "В пунктах": "En puntos",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Корневой размер шрифта должен быть больше нуля": "El tamaño de fuente raíz debe ser mayor que cero",
+      "Размер шрифта родителя должен быть больше нуля": "El tamaño de fuente del padre debe ser mayor que cero",
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+    },
+  },
 };

@@ -73,4 +73,29 @@ export const localization: CalculatorLocalization = {
       'Число ступеней не может быть отрицательным': 'Кількість ступенів не може бути від’ємною',
     },
   },
+  es: {
+    fields: {
+      "base": "Tamaño base",
+      "ratio": "Razón de la escala",
+      "stepsUp": "Pasos por encima de la base",
+      "stepsDown": "Pasos por debajo de la base",
+    },
+    options: {},
+    results: {
+      "Наибольший размер": "Tamaño mayor",
+      "Наименьший размер": "Tamaño menor",
+      "Ступеней": "Pasos",
+      "База": "Base",
+      "Ступени шкалы": "Pasos de la escala",
+      "Ступень": "Paso",
+      "Размер": "Tamaño",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Показаны первые 12 ступеней шкалы.": "Se muestran los 12 primeros pasos de la escala.",
+      "Базовый размер должен быть больше нуля": "El tamaño base debe ser mayor que cero",
+      "Отношение шкалы должно быть больше единицы": "La razón de la escala debe ser mayor que uno",
+      "Число ступеней не может быть отрицательным": "El número de pasos no puede ser negativo",
+    },
+  },
 };

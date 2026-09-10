@@ -1638,6 +1638,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/presion-atmosferica-por-altitud/,es,calculator,true,/es/fisica/presion-atmosferica-por-altitud/,calculator:air-pressure-at-altitude,src/pages/[locale]/[category]/[calculator].astro
 /es/finanzas/cuota-francesa/,es,calculator,true,/es/finanzas/cuota-francesa/,calculator:annuity,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/progresion-aritmetica/,es,calculator,true,/es/matematicas/progresion-aritmetica/,calculator:arithmetic-progression,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/relacion-de-aspecto/,es,calculator,true,/es/informatica/relacion-de-aspecto/,calculator:aspect-ratio,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/tiempo-de-carga-de-bateria/,es,calculator,true,/es/electronica/tiempo-de-carga-de-bateria/,calculator:battery-charge-time,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/autonomia-de-bateria/,es,calculator,true,/es/electronica/autonomia-de-bateria/,calculator:battery-runtime,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/baterias-en-serie-y-paralelo/,es,calculator,true,/es/electronica/baterias-en-serie-y-paralelo/,calculator:battery-series-parallel,src/pages/[locale]/[category]/[calculator].astro
@@ -1652,6 +1653,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/rendimiento-de-carnot/,es,calculator,true,/es/fisica/rendimiento-de-carnot/,calculator:carnot,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/fuerza-centripeta/,es,calculator,true,/es/fisica/fuerza-centripeta/,calculator:centripetal-force,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/impedancia-de-cable-coaxial/,es,calculator,true,/es/electronica/impedancia-de-cable-coaxial/,calculator:coaxial-cable-impedance,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/conversor-hex-rgb-hsl/,es,calculator,true,/es/informatica/conversor-hex-rgb-hsl/,calculator:color-convert,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/combinaciones-y-permutaciones/,es,calculator,true,/es/matematicas/combinaciones-y-permutaciones/,calculator:combinatorics,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/intervalo-de-confianza/,es,calculator,true,/es/matematicas/intervalo-de-confianza/,calculator:confidence-interval,src/pages/[locale]/[category]/[calculator].astro
 /es/conversores/conversor-de-angulos/,es,calculator,true,/es/conversores/conversor-de-angulos/,calculator:convert-angle,src/pages/[locale]/[category]/[calculator].astro
@@ -1680,6 +1682,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/conversores/coordenadas-gms-decimales/,es,calculator,true,/es/conversores/coordenadas-gms-decimales/,calculator:coordinate-convert,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/coeficiente-de-correlacion/,es,calculator,true,/es/matematicas/coeficiente-de-correlacion/,calculator:correlation,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/ley-de-coulomb/,es,calculator,true,/es/fisica/ley-de-coulomb/,calculator:coulomb,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/conversor-de-unidades-css/,es,calculator,true,/es/informatica/conversor-de-unidades-css/,calculator:css-units,src/pages/[locale]/[category]/[calculator].astro
 /es/divisas/coste-de-cambio-de-divisas/,es,calculator,true,/es/divisas/coste-de-cambio-de-divisas/,calculator:currency-exchange-fee,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/longitud-de-onda-de-de-broglie/,es,calculator,true,/es/fisica/longitud-de-onda-de-de-broglie/,calculator:de-broglie,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/calculadora-de-decibelios/,es,calculator,true,/es/fisica/calculadora-de-decibelios/,calculator:decibel,src/pages/[locale]/[category]/[calculator].astro
@@ -1690,9 +1693,12 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/quimica/calculadora-de-diluciones/,es,calculator,true,/es/quimica/calculadora-de-diluciones/,calculator:dilution,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-divisores/,es,calculator,true,/es/matematicas/calculadora-de-divisores/,calculator:divisors,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/efecto-doppler/,es,calculator,true,/es/fisica/efecto-doppler/,calculator:doppler,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/tiempo-de-descarga/,es,calculator,true,/es/informatica/tiempo-de-descarga/,calculator:download-time,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/velocidad-de-escape/,es,calculator,true,/es/fisica/velocidad-de-escape/,calculator:escape-velocity,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-factorial/,es,calculator,true,/es/matematicas/calculadora-de-factorial/,calculator:factorial,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-fibonacci/,es,calculator,true,/es/matematicas/calculadora-de-fibonacci/,calculator:fibonacci,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/archivos-en-un-disco/,es,calculator,true,/es/informatica/archivos-en-un-disco/,calculator:files-on-disk,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/fps-a-tiempo-de-fotograma/,es,calculator,true,/es/informatica/fps-a-tiempo-de-fotograma/,calculator:fps-frametime,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-fracciones/,es,calculator,true,/es/matematicas/calculadora-de-fracciones/,calculator:fraction-arith,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/caida-libre/,es,calculator,true,/es/fisica/caida-libre/,calculator:free-fall,src/pages/[locale]/[category]/[calculator].astro
 /es/vehiculos/consumo-de-combustible/,es,calculator,true,/es/vehiculos/consumo-de-combustible/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
@@ -1731,6 +1737,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/presion-hidrostatica/,es,calculator,true,/es/fisica/presion-hidrostatica/,calculator:hydrostatic-pressure,src/pages/[locale]/[category]/[calculator].astro
 /es/quimica/ley-de-los-gases-ideales/,es,calculator,true,/es/quimica/ley-de-los-gases-ideales/,calculator:ideal-gas-law,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/plano-inclinado/,es,calculator,true,/es/fisica/plano-inclinado/,calculator:inclined-plane,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/consumo-de-datos-de-internet/,es,calculator,true,/es/informatica/consumo-de-datos-de-internet/,calculator:internet-traffic,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/ley-de-la-inversa-del-cuadrado/,es,calculator,true,/es/fisica/ley-de-la-inversa-del-cuadrado/,calculator:inverse-square,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/potencia-de-un-inversor/,es,calculator,true,/es/electronica/potencia-de-un-inversor/,calculator:inverter-power,src/pages/[locale]/[category]/[calculator].astro
 /es/informatica/calculadora-de-subredes-ipv4/,es,calculator,true,/es/informatica/calculadora-de-subredes-ipv4/,calculator:ipv4-subnet,src/pages/[locale]/[category]/[calculator].astro
@@ -1744,6 +1751,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/matematicas/calculadora-de-logaritmos/,es,calculator,true,/es/matematicas/calculadora-de-logaritmos/,calculator:logarithm,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/numero-de-mach/,es,calculator,true,/es/fisica/numero-de-mach/,calculator:mach-number,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/equivalencia-masa-energia/,es,calculator,true,/es/fisica/equivalencia-masa-energia/,calculator:mass-energy,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/escala-modular/,es,calculator,true,/es/informatica/escala-modular/,calculator:modular-scale,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-resto/,es,calculator,true,/es/matematicas/calculadora-de-resto/,calculator:modulo,src/pages/[locale]/[category]/[calculator].astro
 /es/quimica/calculadora-de-masa-molar/,es,calculator,true,/es/quimica/calculadora-de-masa-molar/,calculator:molar-mass,src/pages/[locale]/[category]/[calculator].astro
 /es/quimica/calculadora-de-molaridad/,es,calculator,true,/es/quimica/calculadora-de-molaridad/,calculator:molarity,src/pages/[locale]/[category]/[calculator].astro
@@ -1751,11 +1759,13 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/momento-de-inercia/,es,calculator,true,/es/fisica/momento-de-inercia/,calculator:moment-of-inertia,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/momento-lineal/,es,calculator,true,/es/fisica/momento-lineal/,calculator:momentum,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/temporizador-astable-ne555/,es,calculator,true,/es/electronica/temporizador-astable-ne555/,calculator:ne555-timer-astable,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/ancho-de-banda-de-red/,es,calculator,true,/es/informatica/ancho-de-banda-de-red/,calculator:network-bandwidth,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/segunda-ley-de-newton/,es,calculator,true,/es/fisica/segunda-ley-de-newton/,calculator:newton-force,src/pages/[locale]/[category]/[calculator].astro
 /es/conversores/conversor-lakh-crore/,es,calculator,true,/es/conversores/conversor-lakh-crore/,calculator:number-scale-names,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/ley-de-ohm/,es,calculator,true,/es/electronica/ley-de-ohm/,calculator:ohms-law,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/periodo-orbital/,es,calculator,true,/es/fisica/periodo-orbital/,calculator:orbital-period,src/pages/[locale]/[category]/[calculator].astro
 /es/conversores/peso-del-papel-y-hojas/,es,calculator,true,/es/conversores/peso-del-papel-y-hojas/,calculator:paper-quantity,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/entropia-de-contrasenas/,es,calculator,true,/es/informatica/entropia-de-contrasenas/,calculator:password-entropy,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/periodo-de-un-pendulo/,es,calculator,true,/es/fisica/periodo-de-un-pendulo/,calculator:pendulum,src/pages/[locale]/[category]/[calculator].astro
 /es/quimica/calculadora-de-ph-y-poh/,es,calculator,true,/es/quimica/calculadora-de-ph-y-poh/,calculator:ph-poh,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/energia-de-un-foton/,es,calculator,true,/es/fisica/energia-de-un-foton/,calculator:photon-energy,src/pages/[locale]/[category]/[calculator].astro
@@ -1764,6 +1774,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/velocidad-del-agua-en-tuberia/,es,calculator,true,/es/fisica/velocidad-del-agua-en-tuberia/,calculator:pipe-flow,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/energia-potencial/,es,calculator,true,/es/fisica/energia-potencial/,calculator:potential-energy,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/potencias-y-raices/,es,calculator,true,/es/matematicas/potencias-y-raices/,calculator:power-root,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/calculadora-de-ppi/,es,calculator,true,/es/informatica/calculadora-de-ppi/,calculator:ppi-dpi,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/calculadora-de-presion/,es,calculator,true,/es/fisica/calculadora-de-presion/,calculator:pressure,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/factorizacion-en-primos/,es,calculator,true,/es/matematicas/factorizacion-en-primos/,calculator:prime-factorization,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-probabilidad/,es,calculator,true,/es/matematicas/calculadora-de-probabilidad/,calculator:probability-basic,src/pages/[locale]/[category]/[calculator].astro
@@ -1772,6 +1783,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/geometria/tronco-de-piramide/,es,calculator,true,/es/geometria/tronco-de-piramide/,calculator:pyramid-frustum,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/ecuacion-de-segundo-grado/,es,calculator,true,/es/matematicas/ecuacion-de-segundo-grado/,calculator:quadratic-equation,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/cuartiles-y-percentiles/,es,calculator,true,/es/matematicas/cuartiles-y-percentiles/,calculator:quartile,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/calculadora-de-raid/,es,calculator,true,/es/informatica/calculadora-de-raid/,calculator:raid,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-razones/,es,calculator,true,/es/matematicas/calculadora-de-razones/,calculator:ratio,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/circuito-rc/,es,calculator,true,/es/electronica/circuito-rc/,calculator:rc-filter,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/dilatacion-del-tiempo/,es,calculator,true,/es/fisica/dilatacion-del-tiempo/,calculator:relativity-dilation,src/pages/[locale]/[category]/[calculator].astro
@@ -1790,10 +1802,14 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/matematicas/estadistica-descriptiva/,es,calculator,true,/es/matematicas/estadistica-descriptiva/,calculator:stats-descriptive,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/tension-deformacion-y-modulo-de-young/,es,calculator,true,/es/fisica/tension-deformacion-y-modulo-de-young/,calculator:stress-strain,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/velocidad-limite/,es,calculator,true,/es/fisica/velocidad-limite/,calculator:terminal-velocity,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/contador-de-palabras-y-caracteres/,es,calculator,true,/es/informatica/contador-de-palabras-y-caracteres/,calculator:text-word-char-count,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/conduccion-termica/,es,calculator,true,/es/fisica/conduccion-termica/,calculator:thermal-conduction,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/lente-delgada/,es,calculator,true,/es/fisica/lente-delgada/,calculator:thin-lens,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/relacion-de-transformacion/,es,calculator,true,/es/electronica/relacion-de-transformacion/,calculator:transformer-ratio,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/distancia-de-vision-a-un-televisor/,es,calculator,true,/es/informatica/distancia-de-vision-a-un-televisor/,calculator:tv-monitor-viewing-distance,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/conversor-de-marca-de-tiempo-unix/,es,calculator,true,/es/informatica/conversor-de-marca-de-tiempo-unix/,calculator:unix-timestamp,src/pages/[locale]/[category]/[calculator].astro
 /es/hogar/facturas-del-hogar/,es,calculator,true,/es/hogar/facturas-del-hogar/,calculator:utility-total,src/pages/[locale]/[category]/[calculator].astro
+/es/informatica/tamano-de-archivo-de-video/,es,calculator,true,/es/informatica/tamano-de-archivo-de-video/,calculator:video-file-size,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/divisor-de-tension/,es,calculator,true,/es/electronica/divisor-de-tension/,calculator:voltage-divider,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/caida-de-tension/,es,calculator,true,/es/electronica/caida-de-tension/,calculator:voltage-drop,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/longitud-de-onda-y-frecuencia/,es,calculator,true,/es/fisica/longitud-de-onda-y-frecuencia/,calculator:wave,src/pages/[locale]/[category]/[calculator].astro

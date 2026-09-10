@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { cssUnitsCopyEn } from './copy.en';
 import { cssUnitsCopyUk } from './copy.uk';
 import { cssUnitsCopyDe } from './copy.de';
+import { cssUnitsCopyEs } from './copy.es';
 import { cssUnitsReferenceCases } from './referenceCases';
 
 const UNITS = [
@@ -21,7 +22,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cssUnitsCopyEn, uk: cssUnitsCopyUk, de: cssUnitsCopyDe },
+  copy: { en: cssUnitsCopyEn, uk: cssUnitsCopyUk, de: cssUnitsCopyDe, es: cssUnitsCopyEs },
   referenceCases: cssUnitsReferenceCases,
   publishedExample: {
     inputs: { value: 24, fromUnit: 'px', toUnit: 'rem', rootSize: 16, parentSize: 16 },

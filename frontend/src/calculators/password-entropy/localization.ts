@@ -62,4 +62,35 @@ export const localization: CalculatorLocalization = {
       'Скорость перебора должна быть больше нуля': 'Швидкість перебору має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "length": "Longitud de la contraseña, caracteres",
+      "charset": "Alfabeto",
+      "rate": "Velocidad de prueba, miles de millones por segundo",
+    },
+    options: {
+      "digits": "solo cifras (10)",
+      "lower": "latinas minúsculas (26)",
+      "loweralnum": "minúsculas y cifras (36)",
+      "mixed": "minúsculas y mayúsculas (52)",
+      "alnum": "letras y cifras (62)",
+      "alnumsym": "letras, cifras y símbolos (94)",
+    },
+    results: {
+      "Энтропия": "Entropía",
+      "Вариантов пароля": "Contraseñas posibles",
+      "Средний перебор": "Tiempo medio de búsqueda",
+      "В годах": "En años",
+      "Размер алфавита": "Tamaño del alfabeto",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "бит": "bits",
+      "знаков": "caracteres",
+      "с": "s",
+      "Длина пароля — целое число знаков, не меньше одного": "La longitud debe ser un número entero de caracteres, al menos uno",
+      "Выберите алфавит из списка": "Elige un alfabeto de la lista",
+      "Скорость перебора должна быть больше нуля": "La velocidad de prueba debe ser mayor que cero",
+    },
+  },
 };

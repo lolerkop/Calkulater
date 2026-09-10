@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { colorConvertCopyEn } from './copy.en';
 import { colorConvertCopyUk } from './copy.uk';
 import { colorConvertCopyDe } from './copy.de';
+import { colorConvertCopyEs } from './copy.es';
 import { colorConvertReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: colorConvertCopyEn, uk: colorConvertCopyUk, de: colorConvertCopyDe },
+  copy: { en: colorConvertCopyEn, uk: colorConvertCopyUk, de: colorConvertCopyDe, es: colorConvertCopyEs },
   referenceCases: colorConvertReferenceCases,
   publishedExample: { inputs: { hex: '#2E86DE' }, expected: ["rgb(46, 134, 222)"] },
   presentation: {

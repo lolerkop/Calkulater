@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { raidCopyEn } from './copy.en';
 import { raidCopyUk } from './copy.uk';
 import { raidCopyDe } from './copy.de';
+import { raidCopyEs } from './copy.es';
 import { raidReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: raidCopyEn, uk: raidCopyUk, de: raidCopyDe },
+  copy: { en: raidCopyEn, uk: raidCopyUk, de: raidCopyDe, es: raidCopyEs },
   referenceCases: raidReferenceCases,
   publishedExample: { inputs: { level: '5', disks: 6, sizeTb: 4 }, expected: ["20 ТБ"] },
   presentation: {

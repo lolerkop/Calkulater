@@ -55,4 +55,29 @@ export const localization: CalculatorLocalization = {
       'Время кадра должно быть больше нуля': 'Час кадру має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Sentido",
+      "fps": "Tasa de fotogramas, FPS",
+      "frameTime": "Tiempo de fotograma, ms",
+    },
+    options: {
+      "fps": "tasa de fotogramas → tiempo de fotograma",
+      "ms": "tiempo de fotograma → tasa de fotogramas",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Время кадра": "Tiempo de fotograma",
+      "Частота кадров": "Tasa de fotogramas",
+      "Кадров за минуту": "Fotogramas por minuto",
+      "Для сравнения, мс": "Para comparar, ms",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мс": "ms",
+      "(вычисляется)": "(se calcula)",
+      "Частота кадров должна быть больше нуля": "La tasa de fotogramas debe ser mayor que cero",
+      "Время кадра должно быть больше нуля": "El tiempo de fotograma debe ser mayor que cero",
+    },
+  },
 };
