@@ -78,4 +78,30 @@ export const localization: CalculatorLocalization = {
       "Нужно хотя бы два резистора": "Потрібно щонайменше два резистори",
     },
   },
+  es: {
+    fields: {
+      "resistances": "Resistencias en ohmios: una por línea o separadas por espacios",
+      "mode": "Conexión",
+    },
+    options: {
+      "series": "En serie",
+      "parallel": "En paralelo",
+    },
+    results: {
+      "Общее сопротивление": "Resistencia total",
+      "Резисторов": "Resistencias",
+      "Наименьший": "La menor",
+      "Наибольший": "La mayor",
+      "Соединение": "Conexión",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Не число:": "No es un número:",
+      "Ом": "Ω",
+      "последовательное": "en serie",
+      "параллельное": "en paralelo",
+      "Сопротивление должно быть больше нуля": "La resistencia debe ser mayor que cero",
+      "Нужно хотя бы два резистора": "Hacen falta al menos dos resistencias",
+    },
+  },
 };

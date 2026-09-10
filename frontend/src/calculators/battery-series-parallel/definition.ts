@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { batterySeriesParallelCopyEn } from './copy.en';
 import { batterySeriesParallelCopyUk } from './copy.uk';
 import { batterySeriesParallelCopyDe } from './copy.de';
+import { batterySeriesParallelCopyEs } from './copy.es';
 import { batterySeriesParallelReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: batterySeriesParallelCopyEn, uk: batterySeriesParallelCopyUk, de: batterySeriesParallelCopyDe },
+  copy: { en: batterySeriesParallelCopyEn, uk: batterySeriesParallelCopyUk, de: batterySeriesParallelCopyDe, es: batterySeriesParallelCopyEs },
   referenceCases: batterySeriesParallelReferenceCases,
   publishedExample: {
     inputs: { cells: 12, cellVoltage: 3.7, cellCapacity: 3.4, series: 4, parallel: 3 },

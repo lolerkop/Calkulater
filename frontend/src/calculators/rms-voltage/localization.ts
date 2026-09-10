@@ -66,4 +66,33 @@ export const localization: CalculatorLocalization = {
       'Значение напряжения должно быть больше нуля': 'Значення напруги має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué se conoce",
+      "wave": "Forma de onda",
+      "value": "Valor, V",
+    },
+    options: {
+      "peak": "valor de pico",
+      "pp": "pico a pico",
+      "rms": "valor eficaz",
+      "sine": "senoidal",
+      "square": "cuadrada",
+      "triangle": "triangular",
+    },
+    results: {
+      "Действующее напряжение": "Tensión eficaz",
+      "Амплитудное значение": "Valor de pico",
+      "Размах": "Pico a pico",
+      "Коэффициент амплитуды": "Factor de cresta",
+      "Среднее по модулю": "Valor medio absoluto",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "В": "V",
+      "Выберите, что задано, из списка": "Elige de la lista qué dato tienes",
+      "Выберите форму сигнала из списка": "Elige la forma de onda de la lista",
+      "Значение напряжения должно быть больше нуля": "La tensión debe ser mayor que cero",
+    },
+  },
 };

@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { capacitorNetworkCopyEn } from './copy.en';
 import { capacitorNetworkCopyUk } from './copy.uk';
 import { capacitorNetworkCopyDe } from './copy.de';
+import { capacitorNetworkCopyEs } from './copy.es';
 import { capacitorNetworkReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: capacitorNetworkCopyEn, uk: capacitorNetworkCopyUk, de: capacitorNetworkCopyDe },
+  copy: { en: capacitorNetworkCopyEn, uk: capacitorNetworkCopyUk, de: capacitorNetworkCopyDe, es: capacitorNetworkCopyEs },
   referenceCases: capacitorNetworkReferenceCases,
   publishedExample: { inputs: { capacitances: '100 220 470', mode: 'series' }, expected: ["59,977 мкФ"] },
   presentation: {

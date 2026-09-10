@@ -51,4 +51,27 @@ export const localization: CalculatorLocalization = {
       'Ёмкость должна быть больше нуля': 'Ємність має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "r": "Resistencia, Ω",
+      "c": "Capacidad, nF",
+    },
+    options: {},
+    results: {
+      "Частота среза": "Frecuencia de corte",
+      "Постоянная времени": "Constante de tiempo",
+      "Заряд почти до конца": "Carga casi completa",
+      "Сопротивление": "Resistencia",
+      "Ёмкость": "Capacidad",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Гц": "Hz",
+      "с": "s",
+      "Ом": "Ω",
+      "нФ": "nF",
+      "Сопротивление должно быть больше нуля": "La resistencia debe ser mayor que cero",
+      "Ёмкость должна быть больше нуля": "La capacidad debe ser mayor que cero",
+    },
+  },
 };

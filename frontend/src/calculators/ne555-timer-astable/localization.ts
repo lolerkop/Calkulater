@@ -51,4 +51,27 @@ export const localization: CalculatorLocalization = {
       'Ёмкость должна быть больше нуля': 'Ємність має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "r1": "Resistencia R1, kΩ",
+      "r2": "Resistencia R2, kΩ",
+      "c": "Condensador C, nF",
+    },
+    options: {},
+    results: {
+      "Частота": "Frecuencia",
+      "Период": "Periodo",
+      "Время высокого уровня": "Tiempo en alto",
+      "Время низкого уровня": "Tiempo en bajo",
+      "Скважность": "Ciclo de trabajo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Гц": "Hz",
+      "мс": "ms",
+      "%": "%",
+      "Сопротивление должно быть больше нуля": "La resistencia debe ser mayor que cero",
+      "Ёмкость должна быть больше нуля": "La capacidad debe ser mayor que cero",
+    },
+  },
 };

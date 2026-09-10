@@ -49,4 +49,28 @@ export const localization: CalculatorLocalization = {
       'Введите ёмкости через пробел, каждая больше нуля': 'Введіть ємності через пробіл, кожна більша за нуль',
     },
   },
+  es: {
+    fields: {
+      "capacitances": "Capacidades separadas por espacios, µF",
+      "mode": "Conexión",
+    },
+    options: {
+      "series": "serie",
+      "parallel": "paralelo",
+    },
+    results: {
+      "Общая ёмкость": "Capacidad total",
+      "Конденсаторов": "Condensadores",
+      "Наименьший": "El menor",
+      "Наибольший": "El mayor",
+      "Соединение": "Conexión",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мкФ": "µF",
+      "последовательное": "en serie",
+      "параллельное": "en paralelo",
+      "Введите ёмкости через пробел, каждая больше нуля": "Introduce las capacidades separadas por espacios, cada una mayor que cero",
+    },
+  },
 };

@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { batteryRuntimeCopyEn } from './copy.en';
 import { batteryRuntimeCopyUk } from './copy.uk';
 import { batteryRuntimeCopyDe } from './copy.de';
+import { batteryRuntimeCopyEs } from './copy.es';
 import { batteryRuntimeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: batteryRuntimeCopyEn, uk: batteryRuntimeCopyUk, de: batteryRuntimeCopyDe },
+  copy: { en: batteryRuntimeCopyEn, uk: batteryRuntimeCopyUk, de: batteryRuntimeCopyDe, es: batteryRuntimeCopyEs },
   referenceCases: batteryRuntimeReferenceCases,
   publishedExample: { inputs: { capacity: 100, voltage: 12, load: 200, dod: 80, efficiency: 90 }, expected: ["4,32 ч"] },
   presentation: {

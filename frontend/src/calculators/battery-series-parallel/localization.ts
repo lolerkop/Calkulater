@@ -75,4 +75,31 @@ export const localization: CalculatorLocalization = {
       'Последовательных × параллельных должно равняться числу ячеек': 'Послідовних × паралельних має дорівнювати кількості комірок',
     },
   },
+  es: {
+    fields: {
+      "cells": "Celdas en total",
+      "cellVoltage": "Tensión de la celda, V",
+      "cellCapacity": "Capacidad de la celda, Ah",
+      "series": "Celdas en serie",
+      "parallel": "Ramas en paralelo",
+    },
+    options: {},
+    results: {
+      "Напряжение сборки": "Tensión del pack",
+      "Ёмкость сборки": "Capacidad del pack",
+      "Энергия": "Energía",
+      "Ячеек": "Celdas",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "В": "V",
+      "А·ч": "Ah",
+      "Вт·ч": "Wh",
+      "Ячеек должно быть не меньше одной": "Debe haber al menos una celda",
+      "Напряжение ячейки должно быть больше нуля": "La tensión de la celda debe ser mayor que cero",
+      "Ёмкость ячейки должна быть больше нуля": "La capacidad de la celda debe ser mayor que cero",
+      "Число групп должно быть не меньше одной": "Debe haber al menos un grupo",
+      "Последовательных × параллельных должно равняться числу ячеек": "Serie × paralelo debe ser igual al número total de celdas",
+    },
+  },
 };

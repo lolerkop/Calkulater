@@ -52,4 +52,28 @@ export const localization: CalculatorLocalization = {
       'Ёмкость должна быть больше нуля': 'Ємність має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "l": "Inductancia, µH",
+      "c": "Capacidad, nF",
+    },
+    options: {},
+    results: {
+      "Резонансная частота": "Frecuencia de resonancia",
+      "В килогерцах": "En kilohercios",
+      "Период": "Periodo",
+      "Волновое сопротивление": "Impedancia característica",
+      "Индуктивность": "Inductancia",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Гц": "Hz",
+      "кГц": "kHz",
+      "с": "s",
+      "Ом": "Ω",
+      "мкГн": "µH",
+      "Индуктивность должна быть больше нуля": "La inductancia debe ser mayor que cero",
+      "Ёмкость должна быть больше нуля": "La capacidad debe ser mayor que cero",
+    },
+  },
 };

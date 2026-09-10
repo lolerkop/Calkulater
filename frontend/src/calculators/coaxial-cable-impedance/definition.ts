@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { coaxialCableImpedanceCopyEn } from './copy.en';
 import { coaxialCableImpedanceCopyUk } from './copy.uk';
 import { coaxialCableImpedanceCopyDe } from './copy.de';
+import { coaxialCableImpedanceCopyEs } from './copy.es';
 import { coaxialCableImpedanceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: coaxialCableImpedanceCopyEn, uk: coaxialCableImpedanceCopyUk, de: coaxialCableImpedanceCopyDe },
+  copy: { en: coaxialCableImpedanceCopyEn, uk: coaxialCableImpedanceCopyUk, de: coaxialCableImpedanceCopyDe, es: coaxialCableImpedanceCopyEs },
   referenceCases: coaxialCableImpedanceReferenceCases,
   publishedExample: { inputs: { dIn: 0.9, dOut: 2.95, eps: 2.25 }, expected: ["47,433 Ом"] },
   presentation: {

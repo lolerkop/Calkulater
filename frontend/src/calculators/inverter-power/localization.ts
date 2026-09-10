@@ -62,4 +62,27 @@ export const localization: CalculatorLocalization = {
     "Напряжение батареи должно быть больше нуля": "Напруга батареї має бути більшою за нуль",
     },
   },
+  es: {
+    fields: {
+      "outputPower": "Potencia de salida, W",
+      "efficiency": "Rendimiento, %",
+      "batteryVoltage": "Tensión de la batería, V",
+    },
+    options: {},
+    results: {
+      "Потребляемая мощность": "Potencia consumida",
+      "Ток от батареи": "Corriente de la batería",
+      "Потери": "Pérdidas",
+      "Полезная мощность": "Potencia útil",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Вт": "W",
+      "А": "A",
+      "Выходная мощность должна быть больше нуля": "La potencia de salida debe ser mayor que cero",
+      "КПД должен быть больше нуля": "El rendimiento debe ser mayor que cero",
+      "КПД не может превышать сто процентов": "El rendimiento no puede superar el cien por cien",
+      "Напряжение батареи должно быть больше нуля": "La tensión de la batería debe ser mayor que cero",
+    },
+  },
 };

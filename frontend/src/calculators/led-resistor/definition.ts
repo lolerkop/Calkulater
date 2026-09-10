@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { ledResistorCopyEn } from './copy.en';
 import { ledResistorCopyUk } from './copy.uk';
 import { ledResistorCopyDe } from './copy.de';
+import { ledResistorCopyEs } from './copy.es';
 import { ledResistorReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: ledResistorCopyEn, uk: ledResistorCopyUk, de: ledResistorCopyDe },
+  copy: { en: ledResistorCopyEn, uk: ledResistorCopyUk, de: ledResistorCopyDe, es: ledResistorCopyEs },
   referenceCases: ledResistorReferenceCases,
   publishedExample: {
     inputs: { supplyVoltage: 5, forwardVoltage: 2, current: 20, currentUnit: 'ma' },

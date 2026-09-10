@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { rcFilterCopyEn } from './copy.en';
 import { rcFilterCopyUk } from './copy.uk';
 import { rcFilterCopyDe } from './copy.de';
+import { rcFilterCopyEs } from './copy.es';
 import { rcFilterReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: rcFilterCopyEn, uk: rcFilterCopyUk, de: rcFilterCopyDe },
+  copy: { en: rcFilterCopyEn, uk: rcFilterCopyUk, de: rcFilterCopyDe, es: rcFilterCopyEs },
   referenceCases: rcFilterReferenceCases,
   publishedExample: { inputs: { r: 10000, c: 100 }, expected: ["159,15 Гц"] },
   presentation: {

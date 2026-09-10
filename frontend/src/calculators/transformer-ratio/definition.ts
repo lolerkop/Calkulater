@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { transformerRatioCopyEn } from './copy.en';
 import { transformerRatioCopyUk } from './copy.uk';
 import { transformerRatioCopyDe } from './copy.de';
+import { transformerRatioCopyEs } from './copy.es';
 import { transformerRatioReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: transformerRatioCopyEn, uk: transformerRatioCopyUk, de: transformerRatioCopyDe },
+  copy: { en: transformerRatioCopyEn, uk: transformerRatioCopyUk, de: transformerRatioCopyDe, es: transformerRatioCopyEs },
   referenceCases: transformerRatioReferenceCases,
   publishedExample: {
     inputs: { mode: 'secondaryVoltage', n1: 500, n2: 100, v1: 220, v2: 44, i1: 2 },
