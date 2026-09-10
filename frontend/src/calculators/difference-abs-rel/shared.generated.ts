@@ -41,6 +41,7 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'В': 'A',
       'Рост': 'Estatura',
       'Абсолютная разница': 'Diferencia absoluta',
     },

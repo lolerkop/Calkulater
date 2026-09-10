@@ -98,6 +98,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Возраст': 'Edad',
       'Полных лет': 'Años cumplidos',
       'Месяцев (сверх лет)': 'Meses (además de los años)',

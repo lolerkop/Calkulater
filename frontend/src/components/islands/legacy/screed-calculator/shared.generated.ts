@@ -65,6 +65,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Вес': 'Peso',
       'Площадь': 'Área',
       'Объём раствора': 'Volumen de mortero',

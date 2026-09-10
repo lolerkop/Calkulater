@@ -45,6 +45,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Периметр': 'Perímetro',
       'Запас': 'Reserva',
     },

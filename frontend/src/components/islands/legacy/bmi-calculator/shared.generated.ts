@@ -101,6 +101,8 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Из': 'De',
+      'В': 'A',
       'ИМТ': 'IMC',
       'Категория': 'Categoría',
       'Комментарий': 'Comentario',

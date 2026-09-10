@@ -80,6 +80,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Итоговая дата': 'Fecha resultante',
       'День недели': 'Día de la semana',
       'Исходная дата': 'Fecha de partida',

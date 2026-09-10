@@ -59,6 +59,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Дневная норма': 'Ración diaria',
       'Базовый обмен (BMR)': 'Metabolismo basal (TMB)',
       'Белки': 'Proteínas',

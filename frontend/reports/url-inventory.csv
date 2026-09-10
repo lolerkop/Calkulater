@@ -1631,6 +1631,10 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/,es,category,true,/es/fisica/,category:physics,src/pages/[locale]/[category]/index.astro
 /es/quimica/,es,category,true,/es/quimica/,category:chemistry,src/pages/[locale]/[category]/index.astro
 /es/finanzas/calculadora-porcentajes/,es,calculator,true,/es/finanzas/calculadora-porcentajes/,calculator:percent-calculator,src/pages/[locale]/[category]/[calculator].astro
+/es/divisas/conversor-divisas/,es,calculator,true,/es/divisas/conversor-divisas/,calculator:currency-converter,src/pages/[locale]/[category]/[calculator].astro
+/es/divisas/usd-a-eur/,es,calculator,true,/es/divisas/usd-a-eur/,calculator:usd-to-eur,src/pages/[locale]/[category]/[calculator].astro
+/es/divisas/eur-a-mdl/,es,calculator,true,/es/divisas/eur-a-mdl/,calculator:eur-to-mdl,src/pages/[locale]/[category]/[calculator].astro
+/es/divisas/usd-a-mdl/,es,calculator,true,/es/divisas/usd-a-mdl/,calculator:usd-to-mdl,src/pages/[locale]/[category]/[calculator].astro
 /es/fitness/calculadora-imc/,es,calculator,true,/es/fitness/calculadora-imc/,calculator:bmi-calculator,src/pages/[locale]/[category]/[calculator].astro
 /es/fitness/calculadora-calorias/,es,calculator,true,/es/fitness/calculadora-calorias/,calculator:calorie-calculator,src/pages/[locale]/[category]/[calculator].astro
 /es/fitness/porcentaje-de-grasa-corporal/,es,calculator,true,/es/fitness/porcentaje-de-grasa-corporal/,calculator:body-fat-calculator,src/pages/[locale]/[category]/[calculator].astro

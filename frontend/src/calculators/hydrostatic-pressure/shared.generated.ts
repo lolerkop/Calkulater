@@ -33,6 +33,8 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Из': 'De',
+      'В': 'A',
     },
   },
 };

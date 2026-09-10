@@ -53,6 +53,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Количество плиток': 'Número de azulejos',
       'Площадь': 'Área',
       'Площадь с запасом': 'Área con reserva',

@@ -42,6 +42,8 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Из': 'De',
+      'В': 'A',
       'Площадь': 'Área',
       'Толщина слоя': 'Espesor de la capa',
       'Ошибка': 'Error',

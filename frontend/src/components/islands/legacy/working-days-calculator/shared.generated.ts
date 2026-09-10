@@ -54,6 +54,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Рабочие дни': 'Días laborables',
       'Календарные дни': 'Días naturales',
       'Выходные дни': 'Días de fin de semana',

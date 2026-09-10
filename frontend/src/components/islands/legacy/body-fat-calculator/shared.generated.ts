@@ -94,6 +94,7 @@ export const shared: CalculatorLocalization = {
       'Талия плюс бёдра минус шея': 'Cintura más cadera menos cuello',
       'Проверьте данные': 'Revisa los datos',
       'Результат': 'Resultado',
+      'В': 'A',
       'Рост': 'Estatura',
     },
     values: {

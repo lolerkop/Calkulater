@@ -88,6 +88,7 @@ export const shared: CalculatorLocalization = {
       'Расчётный модуль камня': 'Módulo de cálculo de la pieza',
       'Камней на квадратный метр': 'Piezas por metro cuadrado',
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Площадь': 'Área',
       'Запас': 'Reserva',
       'Ориентировочная стоимость': 'Coste aproximado',

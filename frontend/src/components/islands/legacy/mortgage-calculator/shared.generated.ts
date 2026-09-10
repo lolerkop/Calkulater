@@ -118,6 +118,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Введите положительные значения': 'Introduce valores positivos',
+      'В': 'A',
       'Месяц': 'Mes',
     },
     values: {

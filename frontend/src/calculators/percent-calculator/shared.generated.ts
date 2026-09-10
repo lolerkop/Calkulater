@@ -86,6 +86,8 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Результат': 'Resultado',
+      'Из': 'De',
+      'В': 'A',
       'Режим': 'Modo',
       'Значение A': 'Valor A',
       'Значение B': 'Valor B',

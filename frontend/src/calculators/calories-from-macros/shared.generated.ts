@@ -42,6 +42,8 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Из': 'De',
+      'В': 'A',
       'Белки': 'Proteínas',
       'Жиры': 'Grasas',
       'Углеводы': 'Hidratos de carbono',

@@ -56,6 +56,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Площадь': 'Área',
       'Площадь с запасом': 'Área con reserva',
       'Количество упаковок': 'Número de paquetes',

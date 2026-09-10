@@ -50,6 +50,8 @@ export const shared: CalculatorLocalization = {
       'Обхват талии': 'Perímetro de la cintura',
       'Обхват бёдер': 'Perímetro de la cadera',
       'Проверьте данные': 'Revisa los datos',
+      'Из': 'De',
+      'В': 'A',
       'ИМТ': 'IMC',
       'Категория': 'Categoría',
       'Рост': 'Estatura',

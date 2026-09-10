@@ -68,6 +68,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Темп': 'Ritmo',
       'Средняя скорость': 'Velocidad media',
       'Прогноз на 5 км': 'Previsión para 5 km',

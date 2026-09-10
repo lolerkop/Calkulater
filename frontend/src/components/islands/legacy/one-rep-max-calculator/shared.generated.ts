@@ -65,6 +65,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Примерный 1ПМ': '1RM aproximado',
       '50% от 1ПМ': '50 % del 1RM',
       '60% от 1ПМ': '60 % del 1RM',

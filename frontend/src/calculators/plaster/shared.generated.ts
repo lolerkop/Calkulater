@@ -54,6 +54,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'В': 'A',
       'Вес': 'Peso',
       'Площадь': 'Área',
       'Площадь стен': 'Superficie de las paredes',

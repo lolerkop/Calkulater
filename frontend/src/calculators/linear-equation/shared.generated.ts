@@ -24,4 +24,9 @@ export const shared: CalculatorLocalization = {
       'В': 'Nach',
     },
   },
+  es: {
+    results: {
+      'В': 'A',
+    },
+  },
 };
