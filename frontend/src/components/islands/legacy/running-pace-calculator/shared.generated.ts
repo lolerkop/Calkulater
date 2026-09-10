@@ -65,4 +65,9 @@ export const shared: CalculatorLocalization = {
       'Введите дистанцию и время': 'Trage Strecke und Zeit ein',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

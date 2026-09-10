@@ -39,4 +39,10 @@ export const shared: CalculatorLocalization = {
       'Платеж': 'Rate',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
+    },
+  },
 };

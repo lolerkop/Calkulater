@@ -33,4 +33,11 @@ export const shared: CalculatorLocalization = {
       'Дней': 'Tage',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Вес': 'Peso',
+      'Дней': 'Días',
+    },
+  },
 };

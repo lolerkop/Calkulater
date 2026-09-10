@@ -62,4 +62,9 @@ export const shared: CalculatorLocalization = {
       'Введите вес и количество повторений': 'Trage Gewicht und Wiederholungen ein',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

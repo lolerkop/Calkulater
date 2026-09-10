@@ -36,4 +36,12 @@ export const shared: CalculatorLocalization = {
       'Норма': 'Normalbereich',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+    values: {
+      'Норма': 'Normal',
+    },
+  },
 };

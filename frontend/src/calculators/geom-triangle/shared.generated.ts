@@ -33,4 +33,10 @@ export const shared: CalculatorLocalization = {
       'Периметр': 'Umfang',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Площадь': 'Área',
+    },
+  },
 };

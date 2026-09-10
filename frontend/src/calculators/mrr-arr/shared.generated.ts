@@ -30,4 +30,10 @@ export const shared: CalculatorLocalization = {
       'Рост': 'Körpergröße',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Рост': 'Estatura',
+    },
+  },
 };

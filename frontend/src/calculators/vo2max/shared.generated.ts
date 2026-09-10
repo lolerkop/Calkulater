@@ -30,4 +30,9 @@ export const shared: CalculatorLocalization = {
       'Дистанция': 'Strecke',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

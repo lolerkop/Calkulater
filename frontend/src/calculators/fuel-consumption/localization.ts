@@ -65,4 +65,35 @@ export const localization: CalculatorLocalization = {
       'Расход должен быть больше нуля': 'Витрата має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué quieres calcular",
+      "litres": "Litros repostados",
+      "distance": "Distancia, km",
+      "consumption": "Consumo, l/100 km",
+    },
+    options: {
+      "measure": "litros a los 100 km",
+      "kml": "kilómetros por litro",
+      "need": "combustible necesario para un viaje",
+    },
+    results: {
+      "Расход": "Consumo",
+      "Нужно топлива": "Combustible necesario",
+      "Литров на 100 км": "Litros a los 100 km",
+      "Километров на литр": "Kilómetros por litro",
+      "Расход на 1000 км": "Consumo en 1000 km",
+      "Пробег": "Distancia",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "л/100 км": "l/100 km",
+      "км/л": "km/l",
+      "л": "l",
+      "км": "km",
+      "Количество литров должно быть больше нуля": "Los litros deben ser un número mayor que cero",
+      "Пробег должен быть больше нуля": "La distancia debe ser mayor que cero",
+      "Расход должен быть больше нуля": "El consumo debe ser mayor que cero",
+    },
+  },
 };

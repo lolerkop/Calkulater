@@ -573,6 +573,7 @@ export function calculatorCopy(locale: Locale): CalculatorCopy {
 export function swapCopy(locale: Locale): string {
   if (locale === 'uk') return 'Поміняти валюти місцями';
   if (locale === 'ru') return 'Поменять валюты местами';
+  if (locale === 'es') return 'Intercambiar las divisas';
   return 'Swap currencies';
 }
 
@@ -591,6 +592,14 @@ export function excludedDatesCopy(locale: Locale) {
       add: 'Додати дату',
       list: 'Виключені дати',
       remove: 'Видалити дату',
+    };
+  }
+  if (locale === 'es') {
+    return {
+      help: 'Elige una fecha y añádela a la lista. Cada fecha se puede quitar por separado.',
+      add: 'Añadir fecha',
+      list: 'Fechas excluidas',
+      remove: 'Quitar fecha',
     };
   }
   return {

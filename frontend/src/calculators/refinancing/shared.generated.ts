@@ -33,4 +33,9 @@ export const shared: CalculatorLocalization = {
       'Остаток': 'Restschuld',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

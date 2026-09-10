@@ -33,4 +33,10 @@ export const shared: CalculatorLocalization = {
       'Вес': 'Gewicht',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Вес': 'Peso',
+    },
+  },
 };

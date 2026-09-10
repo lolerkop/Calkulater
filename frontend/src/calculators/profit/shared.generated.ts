@@ -36,4 +36,9 @@ export const shared: CalculatorLocalization = {
       'Маржа': 'Marge',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

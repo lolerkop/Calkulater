@@ -25,13 +25,13 @@ export const copy: CategoryCopyByLocale = {
     h1: "Physics calculators",
   },
   es: {
-    name: "Physics calculators",
-    slug: "physics",
-    description: "Force, energy, work, power and motion in SI units.",
-    longDescription: "School and workshop physics solved in whichever direction you need: force from mass and acceleration, or the mass that a known force implies. Each relation is stated explicitly and every quantity carries its SI unit, so a result is never a bare number whose meaning you have to reconstruct. Where gravity is involved the standard value 9.80665 m/s² is used rather than a rounded 9.8.",
-    seoTitle: "Physics calculators — force, energy, work, power",
-    seoDescription: "Online physics calculators: Newton's second law, kinetic and potential energy, work and power, solved for any variable in SI units.",
-    h1: "Physics calculators",
+    name: "Física",
+    slug: "fisica",
+    description: "Fuerza, energía, trabajo, potencia y movimiento en unidades del SI.",
+    longDescription: "Física de clase y de taller resuelta en la dirección que necesites: la fuerza a partir de la masa y la aceleración, o la masa que implica una fuerza conocida. Cada relación se enuncia de forma explícita y toda magnitud lleva su unidad del SI, así que un resultado nunca es un número desnudo cuyo significado haya que reconstruir. Donde interviene la gravedad se usa el valor normal 9,80665 m/s² y no un 9,8 redondeado.",
+    seoTitle: "Calculadoras de física — fuerza, energía, trabajo y potencia",
+    seoDescription: "Calculadoras de física online: segunda ley de Newton, energía cinética y potencial, trabajo y potencia, resueltas para cualquier variable en unidades del SI.",
+    h1: "Calculadoras de física",
   },
   de: {
     name: "Physik",
@@ -200,20 +200,20 @@ export const faq: CategoryFaqByLocale = {
   ],
   es: [
     {
-      q: "Why 9.80665 and not 9.8?",
-      a: "That is the standard acceleration of free fall, fixed by definition. Rounding it to 9.8 shifts the third digit of the result, which shows up when the mass is large.",
+      q: "¿Por qué 9,80665 y no 9,8?",
+      a: "Es la aceleración normal de la gravedad, fijada por definición. Redondearla a 9,8 desplaza la tercera cifra del resultado, y eso se nota cuando la masa es grande.",
     },
     {
-      q: "Can I solve in any direction?",
-      a: "Yes. Each relation is solved for whichever quantity you leave unknown: force and acceleration give mass, work and time give power.",
+      q: "¿Se puede resolver en cualquier dirección?",
+      a: "Sí. Cada relación se despeja para la magnitud que dejes sin indicar: fuerza y aceleración dan la masa; trabajo y tiempo dan la potencia.",
     },
     {
-      q: "Are friction and air resistance included?",
-      a: "No. The calculations are idealised and rest only on the values you enter; losses, friction and drag are not modelled.",
+      q: "¿Se incluyen el rozamiento y la resistencia del aire?",
+      a: "No. Los cálculos son idealizados y parten solo de los valores introducidos; ni las pérdidas, ni el rozamiento, ni la resistencia aerodinámica están modelados.",
     },
     {
-      q: "Which units should I use?",
-      a: "SI units: kilograms, metres, seconds, newtons, joules and watts. The unit is written into the label of every field.",
+      q: "¿Qué unidades debo usar?",
+      a: "Las del SI: kilogramos, metros, segundos, newtons, julios y vatios. La unidad está escrita en la etiqueta de cada campo.",
     },
   ],
   de: [

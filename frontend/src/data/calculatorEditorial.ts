@@ -59,13 +59,20 @@ const labels = {
     reviewed: 'Zuletzt geprüft',
     limitation: 'Einschränkung',
   },
+  es: {
+    heading: 'Fuentes y vigencia',
+    method: 'Método de cálculo',
+    source: 'Fuente de datos o norma',
+    reviewed: 'Última revisión',
+    limitation: 'Limitación',
+  },
 } as const;
 
 // Оговорки категорий переехали в их модули. Прежняя карта была ориентирована
 // локаль → категория; теперь каждая категория несёт свои переводы, а нужная
 // ориентация собирается здесь.
 const genericLimitations = Object.fromEntries(
-  (['ru', 'en', 'uk', 'de'] as const).map((locale) => [
+  (['ru', 'en', 'uk', 'de', 'es'] as const).map((locale) => [
     locale,
     Object.fromEntries(categoryDefinitions.map((definition) => [
       definition.id,
@@ -74,18 +81,22 @@ const genericLimitations = Object.fromEntries(
       definition.editorial[locale] ?? definition.editorial.en,
     ])),
   ]),
-) as Record<'ru' | 'en' | 'uk' | 'de', Record<string, string>>;
+) as Record<'ru' | 'en' | 'uk' | 'de' | 'es', Record<string, string>>;
 
 function language(locale: string): keyof typeof labels {
-  return locale === 'ru' || locale === 'uk' || locale === 'de' ? locale : 'en';
+  return locale === 'ru' || locale === 'uk' || locale === 'de' || locale === 'es' ? locale : 'en';
 }
 
-// Немецкий вариант необязателен: локали без собственного текста по-прежнему
-// получают английский, поэтому добавление языка не требует править все вызовы.
-function sourceText(locale: string, ru: string, en: string, uk: string, de?: string): string {
+// Немецкий и испанский варианты необязательны: локали без собственного текста
+// по-прежнему получают английский, поэтому добавление языка не требует править
+// все вызовы разом.
+function sourceText(
+  locale: string, ru: string, en: string, uk: string, de?: string, es?: string,
+): string {
   if (locale === 'ru') return ru;
   if (locale === 'uk') return uk;
   if (locale === 'de') return de ?? en;
+  if (locale === 'es') return es ?? en;
   return en;
 }
 
@@ -113,30 +124,34 @@ export function getCalculatorEditorial(calculator: CalculatorDef, locale: string
 
 // Названия источников по локалям. Источник называется тот, чьи данные реально
 // участвуют в расчёте этой страницы, а не один на весь сайт.
-const PROVIDER_LABELS: Record<string, { ru: string; en: string; uk: string; de: string }> = {
+const PROVIDER_LABELS: Record<string, { ru: string; en: string; uk: string; de: string; es: string }> = {
   ecb: {
     ru: 'Европейский центральный банк: справочные курсы евро',
     en: 'European Central Bank: euro foreign exchange reference rates',
     uk: 'Європейський центральний банк: довідкові курси євро',
     de: 'Europäische Zentralbank: Euro-Referenzkurse',
+    es: 'Banco Central Europeo: tipos de cambio de referencia del euro',
   },
   nbu: {
     ru: 'Национальный банк Украины: официальные курсы',
     en: 'National Bank of Ukraine: official exchange rates',
     uk: 'Національний банк України: офіційні курси',
     de: 'Nationalbank der Ukraine: amtliche Kurse',
+    es: 'Banco Nacional de Ucrania: tipos de cambio oficiales',
   },
   bnm: {
     ru: 'Национальный банк Молдовы: официальные курсы',
     en: 'National Bank of Moldova: official exchange rates',
     uk: 'Національний банк Молдови: офіційні курси',
     de: 'Nationalbank der Republik Moldau: amtliche Kurse',
+    es: 'Banco Nacional de Moldavia: tipos de cambio oficiales',
   },
   erapi: {
     ru: 'Exchange Rate API: резервный источник курсов',
     en: 'Exchange Rate API: fallback rate source',
     uk: 'Exchange Rate API: резервне джерело курсів',
     de: 'Exchange Rate API: Reservequelle für Kurse',
+    es: 'Exchange Rate API: fuente de reserva de tipos de cambio',
   },
 };
 
@@ -170,6 +185,8 @@ function currencyFieldPinned(calculator: CalculatorDef, name: 'from' | 'to'): bo
         `В расчёте используются курсы на ${currencyRatesDate}.`,
         `The calculation uses reference rates dated ${currencyRatesDate}.`,
         `У розрахунку використано курси на ${currencyRatesDate}.`,
+        undefined,
+        `El cálculo utiliza los tipos de cambio del ${currencyRatesDate}.`,
       )}`,
       sources: rateSources.map((source) => ({
         label: PROVIDER_LABELS[source.id]?.[lang] ?? source.label,
@@ -181,6 +198,8 @@ function currencyFieldPinned(calculator: CalculatorDef, name: 'from' | 'to'): bo
             'Не удалось обновить курсы при последней сборке. Используются последние сохранённые данные.',
             'The rates could not be updated during the latest build. The last saved data is being used.',
             'Не вдалося оновити курси під час останньої збірки. Використовуються останні збережені дані.',
+            undefined,
+            'No se han podido actualizar los tipos de cambio en la última compilación. Se usan los últimos datos guardados.',
           )
         : ratesAreStale
           ? sourceText(
@@ -188,6 +207,8 @@ function currencyFieldPinned(calculator: CalculatorDef, name: 'from' | 'to'): bo
               'Дата курса старше четырёх дней. Данные могут быть устаревшими.',
               'The reference-rate date is more than four days old. The data may be stale.',
               'Дата курсу старша за чотири дні. Дані можуть бути застарілими.',
+              undefined,
+              'La fecha de los tipos de cambio tiene más de cuatro días. Los datos pueden estar desactualizados.',
             )
           : ratesUsedFallback && rateSources.some((source) => source.fallback)
             ? sourceText(
@@ -195,6 +216,8 @@ function currencyFieldPinned(calculator: CalculatorDef, name: 'from' | 'to'): bo
                 'Основной источник был недоступен, часть курсов получена из резервного.',
                 'A primary source was unavailable, so some rates came from the fallback source.',
                 'Основне джерело було недоступне, тому частину курсів отримано з резервного.',
+                undefined,
+                'La fuente principal no estaba disponible, así que parte de los tipos proviene de la fuente de reserva.',
               )
             : undefined,
     };

@@ -77,4 +77,20 @@ export const shared: CalculatorLocalization = {
       'Суббота': 'Samstag',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'День недели': 'Día de la semana',
+      'Ошибка': 'Error',
+    },
+    values: {
+      'Воскресенье': 'domingo',
+      'Понедельник': 'lunes',
+      'Вторник': 'martes',
+      'Среда': 'miércoles',
+      'Четверг': 'jueves',
+      'Пятница': 'viernes',
+      'Суббота': 'sábado',
+    },
+  },
 };

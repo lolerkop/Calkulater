@@ -6,6 +6,7 @@ import { compute } from './compute';
 import { cacCopyEn } from './copy.en';
 import { cacCopyUk } from './copy.uk';
 import { cacCopyDe } from './copy.de';
+import { cacCopyEs } from './copy.es';
 import { cacReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cacCopyEn, uk: cacCopyUk, de: cacCopyDe },
+  copy: { en: cacCopyEn, uk: cacCopyUk, de: cacCopyDe, es: cacCopyEs },
   referenceCases: cacReferenceCases,
   publishedExample: { inputs: { spend: 100000, customers: 50 }, expected: ['2 000 ₽'] },
   presentation: {

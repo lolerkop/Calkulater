@@ -33,4 +33,10 @@ export const shared: CalculatorLocalization = {
       'Возраст': 'Alter',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Возраст': 'Edad',
+    },
+  },
 };

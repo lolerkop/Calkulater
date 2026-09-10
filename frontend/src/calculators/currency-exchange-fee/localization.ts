@@ -103,4 +103,38 @@ export const localization: CalculatorLocalization = {
         'Спред должен быть меньше 100 %': 'Der Spread muss unter 100 % liegen',
       },
   },
+  es: {
+    fields: {
+      "direction": "Qué vas a hacer",
+      "amount": "Importe a cambiar",
+      "rate": "Tipo de cambio",
+      "spreadPct": "Diferencial sobre el tipo, %",
+      "feePct": "Comisión, %",
+      "feeFixed": "Cargo fijo",
+    },
+    options: {
+      "sell": "vender divisa a cambio de moneda local",
+      "buy": "comprar divisa con moneda local",
+    },
+    results: {
+      "К получению": "Recibes",
+      "Курс с учётом спреда": "Tipo con el diferencial aplicado",
+      "По номинальному курсу": "Al tipo nominal",
+      "Комиссия": "Comisión",
+      "Фиксированный сбор": "Cargo fijo",
+      "Потери на спреде": "Pérdida por el diferencial",
+      "Полная стоимость обмена": "Coste total del cambio",
+      "Доля потерь": "Porcentaje de pérdida",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "ед. валюты": "unidades de divisa",
+      "Сумма должна быть больше нуля": "El importe debe ser mayor que cero",
+      "Курс должен быть больше нуля": "El tipo de cambio debe ser mayor que cero",
+      "Комиссия и спред не могут быть отрицательными": "Ni la comisión ni el diferencial pueden ser negativos",
+      "Комиссия должна быть меньше 100 %": "La comisión debe ser inferior al 100 %",
+      "Спред должен быть меньше 100 %": "El diferencial debe ser inferior al 100 %",
+    },
+  },
 };

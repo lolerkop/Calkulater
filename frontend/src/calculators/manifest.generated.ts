@@ -739,6 +739,10 @@ export const v2DeCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.de).map((d) => [d.id, d.copy!.de!]),
 );
 
+export const v2EsCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
+  published.filter((d) => d.copy?.es).map((d) => [d.id, d.copy!.es!]),
+);
+
 /**
  * Калькулятор доступен во всех локалях сборки, если владеет копирайтом для них.
  * Прежде это решал центральный список идентификаторов — из-за него добавление

@@ -36,4 +36,12 @@ export const shared: CalculatorLocalization = {
       'Среда': 'Mittwoch',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+    values: {
+      'Среда': 'miércoles',
+    },
+  },
 };

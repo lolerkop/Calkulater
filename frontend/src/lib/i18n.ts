@@ -1,13 +1,14 @@
 import { categories as baseCategories } from '../data/categories';
 import { categoryDefinitions } from '../categories/manifest.generated';
 import { calculators as baseCalculators } from '../data/calculators';
-import { v2DeCopy, v2EnCopy, v2FullParityIds, v2UkCopy } from '../calculators/manifest.generated';
+import { v2DeCopy, v2EnCopy, v2EsCopy, v2FullParityIds, v2UkCopy } from '../calculators/manifest.generated';
 import { v2Localization } from '../calculators/localization.generated';
 import { lookupScoped } from './platform/types';
 import { getCalculatorSeoContent } from '../data/calculatorSeoContent';
 import { fullParityCalculatorIds, isRuOnlyCalculator } from '../data/localizationParity';
 import { ukCalculatorContent } from '../data/ukCalculatorContent';
 import { deCalculatorContent } from '../data/deCalculatorContent';
+import { esCalculatorContent } from '../data/esCalculatorContent';
 import { localizedResultLabel } from './resultPhrases';
 import type { CalculatorDef, Category, CategoryId, Field, FaqItem } from './types';
 
@@ -16,7 +17,7 @@ export type Locale = (typeof allLocales)[number];
 
 // Only these locales are public for now. Other localized data stays in the
 // codebase so we can polish and re-enable languages gradually.
-export const locales = ['ru', 'en', 'uk', 'de'] as const satisfies readonly Locale[];
+export const locales = ['ru', 'en', 'uk', 'de', 'es'] as const satisfies readonly Locale[];
 
 export const defaultLocale: Locale = 'ru';
 
@@ -4479,6 +4480,7 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
   ...legacyCalculatorSeoByLocale,
   uk: { ...legacyCalculatorSeoByLocale.uk, ...v2UkCopy },
   de: { ...legacyCalculatorSeoByLocale.de, ...v2DeCopy },
+  es: { ...legacyCalculatorSeoByLocale.es, ...v2EsCopy },
 };
 
 // Немецкая локаль выпускается постепенно, поэтому её каталог — не весь каталог.
@@ -4491,6 +4493,14 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
 // локаль обесценил бы.
 const germanCalculatorIds = new Set<string>(
   Object.keys(calculatorSeoByLocale.de).filter((id) => deCalculatorContent[id] !== undefined),
+);
+
+// Испанская локаль наполняется тем же правилом, что и немецкая: страница
+// существует, только если у калькулятора есть и собственный испанский
+// копирайт, и подробный испанский текст. Общего шаблона нет намеренно —
+// страница без своего текста не собирается, а падает.
+const spanishCalculatorIds = new Set<string>(
+  Object.keys(calculatorSeoByLocale.es).filter((id) => esCalculatorContent[id] !== undefined),
 );
 
 function buildLocalizedCalculatorCopy(id: string, locale: Exclude<Locale, 'ru'>): CalcCopy {
@@ -4507,15 +4517,15 @@ function buildLocalizedCalculatorCopy(id: string, locale: Exclude<Locale, 'ru'>)
     return { ...copy, ...detailed };
   }
   if (locale === 'es') {
-    return {
-      ...copy,
-      longDescription: `Usa ${copy.name.toLowerCase()} para obtener una estimación rápida y comparar escenarios sin salir del navegador.`,
-      howToUse: ['Introduce los datos principales.', 'Ajusta las opciones si es necesario.', 'Revisa el resultado y copia el enlace si quieres compartirlo.'],
-      howItWorks: 'La calculadora aplica la fórmula correspondiente a los valores introducidos y muestra el resultado al instante.',
-      example: `Prueba ${copy.name.toLowerCase()} con valores de ejemplo para ver cómo cambia el resultado al modificar una entrada.`,
-      faq: faqForLocale(copy.name.toLowerCase(), locale),
-      disclaimer: copy.disclaimer ?? 'Los resultados son estimaciones orientativas. Verifica los datos antes de tomar decisiones importantes.',
-    };
+    // Испанская страница собирается только из собственного испанского текста.
+    // Общий шаблон, который стоял здесь раньше, писал «Usa … para obtener una
+    // estimación rápida» — один и тот же абзац на три сотни страниц. Заглушка
+    // хуже отсутствия страницы, поэтому её отсутствие — ошибка сборки.
+    const detailed = esCalculatorContent[id];
+    if (!detailed) {
+      throw new Error(`Испанский текст калькулятора ${id} отсутствует: страница не должна была попасть в сборку.`);
+    }
+    return { ...copy, ...detailed };
   }
   if (locale === 'fr') {
     return {
@@ -4891,6 +4901,8 @@ const legacyFieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, st
     capPeriod: 'Periodo de capitalización',
     discountPct: 'Descuento, %',
     discountAmt: 'Importe del descuento',
+    glueConsumption: 'Consumo de adhesivo, kg/m²',
+    packPrice: 'Precio del paquete',
   },
   de: {
     amount: 'Betrag',
@@ -5811,6 +5823,9 @@ const legacyOptionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, s
     add: 'Añadir porcentaje',
     subtract: 'Restar porcentaje',
     findOriginal: 'Encontrar valor original',
+    what: '¿Qué porcentaje es A de B?',
+    addPct: 'Sumar un porcentaje a un número',
+    subPct: 'Restar un porcentaje de un número',
   },
   de: {
     years: 'Jahre',
@@ -6319,6 +6334,23 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
     };
     return germanUnits[unit] ?? unit;
   }
+  if (locale === 'es') {
+    // Английская карта переводит «% годовых» как «% yearly»: на испанской
+    // странице это оставалось английским словом прямо в подписи поля.
+    const spanishUnits: Record<string, string> = {
+      '₽': '€',
+      'мм': 'mm',
+      '₽ годовых': '% anual',
+      '% годовых': '% anual',
+      'кг': 'kg',
+      'г': 'g',
+      'см': 'cm',
+      'м': 'm',
+      'м²': 'm²',
+      'л': 'l',
+    };
+    return spanishUnits[unit] ?? unit;
+  }
   const currencyByLocale: Partial<Record<Locale, string>> = {
     en: '$',
     pl: 'zł',
@@ -6439,7 +6471,9 @@ function localizeCalculator(calculator: CalculatorDef, locale: Locale): Calculat
     ),
     disclaimer: copy.disclaimer ?? (locale === 'uk'
       ? 'Результати є орієнтовними оцінками. Перед важливими рішеннями перевіряйте вихідні дані.'
-      : 'Results are reference estimates. Verify the inputs before making important decisions.'),
+      : locale === 'es'
+        ? 'Los resultados son estimaciones orientativas. Verifica los datos de partida antes de tomar decisiones importantes.'
+        : 'Results are reference estimates. Verify the inputs before making important decisions.'),
     relatedCalculatorIds: calculator.relatedCalculatorIds.filter((id) => globalCalculatorIds.has(id)),
   };
   const seoContent = getCalculatorSeoContent(localizedCalculator, locale);
@@ -6456,6 +6490,7 @@ export function isCalculatorAvailableInLocale(id: string, locale: Locale): boole
   // настоящий немецкий текст. Требование глобального паритета сохраняется,
   // поэтому русскоязычные по существу калькуляторы сюда не попадают.
   if (locale === 'de') return germanCalculatorIds.has(id) && globalCalculatorIds.has(id);
+  if (locale === 'es') return spanishCalculatorIds.has(id) && globalCalculatorIds.has(id);
   return globalCalculatorIds.has(id);
 }
 

@@ -30,4 +30,9 @@ export const shared: CalculatorLocalization = {
       'Капитал': 'Kapital',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

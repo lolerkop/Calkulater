@@ -25,13 +25,13 @@ export const copy: CategoryCopyByLocale = {
     h1: "Unit converters",
   },
   es: {
-    name: "Unit converters",
-    slug: "converters",
-    description: "Convert length, mass, temperature, pressure and other quantities between units.",
-    longDescription: "Unit converters translate a value from one unit into another: metres into feet, Celsius into Fahrenheit, gigabytes into gibibytes. Each converter works both ways — the direction comes from the unit selection rather than a separate calculator.",
-    seoTitle: "Unit converters — length, mass, temperature, pressure",
-    seoDescription: "Online unit converters: length, mass, temperature, area, volume, speed, pressure, energy, power, time and angle.",
-    h1: "Unit converters",
+    name: "Conversores de unidades",
+    slug: "conversores",
+    description: "Convierte longitud, masa, temperatura, presión y otras magnitudes entre unidades.",
+    longDescription: "Los conversores traducen un valor de una unidad a otra: metros a pies, grados Celsius a Fahrenheit, gigabytes a gibibytes. Cada conversor funciona en ambos sentidos: la dirección la marca la elección de unidades, no una calculadora aparte.",
+    seoTitle: "Conversores de unidades — longitud, masa, temperatura y presión",
+    seoDescription: "Conversores de unidades online: longitud, masa, temperatura, superficie, volumen, velocidad, presión, energía, potencia, tiempo y ángulo.",
+    h1: "Conversores de unidades",
   },
   de: {
     name: "Umrechner",
@@ -200,20 +200,20 @@ export const faq: CategoryFaqByLocale = {
   ],
   es: [
     {
-      q: "Do converters work both ways?",
-      a: "Yes. The direction comes from the source and target unit, so no separate calculator is needed for the reverse conversion.",
+      q: "¿Los conversores funcionan en ambos sentidos?",
+      a: "Sí. La dirección la marcan la unidad de origen y la de destino, así que no hace falta una calculadora aparte para la conversión inversa.",
     },
     {
-      q: "What is the difference between a gigabyte and a gibibyte?",
-      a: "A gigabyte is 1,000,000,000 bytes and a gibibyte is 1,073,741,824. The gap is about 7% and it shows up on drive capacities.",
+      q: "¿Qué diferencia hay entre un gigabyte y un gibibyte?",
+      a: "Un gigabyte son 1.000.000.000 de bytes y un gibibyte, 1.073.741.824. La diferencia ronda el 7 % y se nota en la capacidad de los discos.",
     },
     {
-      q: "Why are US and UK gallons different?",
-      a: "They are historically different measures: the US gallon is 3.785 litres and the UK gallon is 4.546. The volume converter carries both.",
+      q: "¿Por qué el galón estadounidense y el británico no coinciden?",
+      a: "Son medidas históricamente distintas: el galón estadounidense equivale a 3,785 litros y el británico, a 4,546. El conversor de volumen incluye los dos.",
     },
     {
-      q: "How accurate are the conversions?",
-      a: "They use international unit definitions. Where a unit is defined exactly — an inch is exactly 2.54 centimetres — the conversion is exact by definition.",
+      q: "¿Qué precisión tienen las conversiones?",
+      a: "Usan las definiciones internacionales de cada unidad. Cuando una unidad está definida de forma exacta —una pulgada son exactamente 2,54 centímetros—, la conversión es exacta por definición.",
     },
   ],
   de: [

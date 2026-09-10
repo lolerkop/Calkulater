@@ -36,4 +36,9 @@ export const shared: CalculatorLocalization = {
       'Себестоимость': 'Selbstkosten',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

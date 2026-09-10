@@ -51,4 +51,10 @@ export const shared: CalculatorLocalization = {
       'Дата конца раньше начала': 'Das Enddatum liegt vor dem Anfangsdatum',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Ошибка': 'Error',
+    },
+  },
 };

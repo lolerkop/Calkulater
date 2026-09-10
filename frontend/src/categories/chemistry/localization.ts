@@ -25,13 +25,13 @@ export const copy: CategoryCopyByLocale = {
     h1: "Chemistry calculators",
   },
   es: {
-    name: "Chemistry calculators",
-    slug: "chemistry",
-    description: "Concentration, moles, dilution, pH and the ideal gas law.",
-    longDescription: "Everyday laboratory arithmetic done properly: molarity from moles or from a mass and a molar mass, percentage and ppm concentration, the C₁V₁ = C₂V₂ dilution rule, pH against pOH, and the ideal gas law solved for whichever quantity is missing. Units are stated on every field and converted before the formula is applied, so a volume in litres and a pressure in kilopascals cannot quietly produce a number that looks plausible and is wrong.",
-    seoTitle: "Chemistry calculators — molarity, dilution, pH, ideal gas",
-    seoDescription: "Online chemistry calculators: molarity, amount of substance, solution concentration, dilution, pH and pOH, and the ideal gas law.",
-    h1: "Chemistry calculators",
+    name: "Química",
+    slug: "quimica",
+    description: "Concentración, moles, dilución, pH y ley de los gases ideales.",
+    longDescription: "La aritmética de laboratorio de cada día, hecha como corresponde: molaridad a partir de los moles o de una masa y una masa molar, concentración en porcentaje y en ppm, la regla de dilución C₁V₁ = C₂V₂, el pH frente al pOH y la ley de los gases ideales despejada para la magnitud que falte. Cada campo indica su unidad y la convierte antes de aplicar la fórmula, de modo que un volumen en litros y una presión en kilopascales no puedan producir en silencio un número verosímil y equivocado.",
+    seoTitle: "Calculadoras de química — molaridad, dilución, pH y gases ideales",
+    seoDescription: "Calculadoras de química online: molaridad, cantidad de sustancia, concentración de disoluciones, dilución, pH y pOH, y ley de los gases ideales.",
+    h1: "Calculadoras de química",
   },
   de: {
     name: "Chemie",
@@ -200,20 +200,20 @@ export const faq: CategoryFaqByLocale = {
   ],
   es: [
     {
-      q: "Which units should I use?",
-      a: "The ones written on each field. Where a unit can be chosen — litres or cubic metres, kilopascals or atmospheres — the value is converted to the base unit before the formula is applied, so units cannot be mixed inside one calculation.",
+      q: "¿Qué unidades debo usar?",
+      a: "Las que indica cada campo. Cuando la unidad se puede elegir —litros o metros cúbicos, kilopascales o atmósferas—, el valor se convierte a la unidad base antes de aplicar la fórmula, así que no es posible mezclar unidades dentro de un mismo cálculo.",
     },
     {
-      q: "Why do pH and pOH add up to 14?",
-      a: "Because that is the ion product of water at 25 °C. At other temperatures the sum differs, and the calculator says so rather than presenting 14 as a universal law.",
+      q: "¿Por qué el pH y el pOH suman 14?",
+      a: "Porque ese es el producto iónico del agua a 25 °C. A otras temperaturas la suma cambia, y la calculadora lo indica en lugar de presentar el 14 como una ley universal.",
     },
     {
-      q: "Do I need a periodic table?",
-      a: "No. The molar mass is entered as an ordinary number: you take it from a reference or work it out separately, and the calculator does not pretend to know what your substance is made of.",
+      q: "¿Hace falta una tabla periódica?",
+      a: "No. La masa molar se introduce como un número corriente: la tomas de una referencia o la calculas aparte, y la calculadora no finge saber de qué está hecha tu sustancia.",
     },
     {
-      q: "Are real solutions and non-ideal gases handled?",
-      a: "No. The calculations are idealised: gases are treated as ideal, solutions as dilute, and volumes as additive on mixing. Check the applicability conditions for precise laboratory work.",
+      q: "¿Se contemplan las disoluciones reales y los gases no ideales?",
+      a: "No. Los cálculos son idealizados: los gases se tratan como ideales, las disoluciones como diluidas y los volúmenes como aditivos al mezclar. Para trabajo de laboratorio preciso, comprueba las condiciones de aplicabilidad.",
     },
   ],
   de: [

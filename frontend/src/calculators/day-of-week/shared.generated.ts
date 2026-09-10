@@ -36,4 +36,11 @@ export const shared: CalculatorLocalization = {
       'Год': 'Jahr',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Дней': 'Días',
+      'День недели': 'Día de la semana',
+    },
+  },
 };

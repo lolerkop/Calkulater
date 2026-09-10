@@ -250,6 +250,10 @@ export const v2DeCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.de).map((d) => [d.id, d.copy!.de!]),
 );
 
+export const v2EsCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
+  published.filter((d) => d.copy?.es).map((d) => [d.id, d.copy!.es!]),
+);
+
 /**
  * Калькулятор доступен во всех локалях сборки, если владеет копирайтом для них.
  * Прежде это решал центральный список идентификаторов — из-за него добавление
@@ -330,6 +334,7 @@ import type { CalculatorContextualField, CalculatorValidator } from '../lib/plat
 import type { CalculatorClientRuntime } from '../lib/platform/runtime';
 import type { CalculatorLocalization } from '../lib/platform/types';
 import { withSharedPhrases } from '../lib/platform/runtime';
+import { TRANSLATED_LOCALES } from '../lib/platform/types';
 import { v2Localization } from './localization.generated';
 
 ${imports.join('\n')}
@@ -363,9 +368,11 @@ export const v2Runtimes: Record<string, CalculatorClientRuntime> = Object.fromEn
     validate: v2Validators[id],
     contextualField: v2ContextualFields[id],
     localization: withSharedPhrases(
-      v2Localization.en[id] || v2Localization.uk[id] || v2Localization.de[id]
-        ? { en: v2Localization.en[id], uk: v2Localization.uk[id], de: v2Localization.de[id] }
-        : undefined,
+      Object.fromEntries(
+        TRANSLATED_LOCALES
+          .filter((locale) => v2Localization[locale][id])
+          .map((locale) => [locale, v2Localization[locale][id]]),
+      ),
       v2SharedPhrases[id] ?? {},
     ),
   }]),
@@ -427,6 +434,9 @@ ${entries('uk')}
   },
   de: {
 ${entries('de')}
+  },
+  es: {
+${entries('es')}
   },
 };
 `;

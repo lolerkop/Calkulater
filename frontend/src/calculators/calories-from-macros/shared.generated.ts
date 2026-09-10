@@ -39,4 +39,9 @@ export const shared: CalculatorLocalization = {
       'Углеводы': 'Kohlenhydrate',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

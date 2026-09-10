@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { distLocales } from './lib/locales.mjs';
 
 const root = path.resolve('dist');
 const issues = [];
@@ -51,7 +52,7 @@ if (!fs.existsSync(root)) {
   process.exit(1);
 }
 
-for (const locale of ['en', 'uk', 'de']) {
+for (const locale of distLocales(root).filter((item) => item !== 'ru')) {
   const localeRoot = path.join(root, locale);
   for (const filePath of walk(localeRoot).filter((file) => file.endsWith('.html'))) {
     const file = path.relative(root, filePath).replaceAll(path.sep, '/');

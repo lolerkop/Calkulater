@@ -36,7 +36,7 @@ export const definition: CategoryDefinition = {
   editorial: {
     ru: "Расчёты опираются только на введённые значения и не учитывают стиль вождения, рельеф, загрузку и погоду. Мощность считается в метрических лошадиных силах (735,49875 Вт).",
     en: "The calculations use only the values you enter and ignore driving style, terrain, load and weather. Power is expressed in metric horsepower (735.49875 W).",
-    es: "The calculations use only the values you enter and ignore driving style, terrain, load and weather. Power is expressed in metric horsepower (735.49875 W).",
+    es: "La potencia se expresa en caballos métricos (CV). Los cálculos usan solo los números que introduces: el estilo de conducción y el terreno no están modelados.",
     de: "The calculations use only the values you enter and ignore driving style, terrain, load and weather. Power is expressed in metric horsepower (735.49875 W).",
     fr: "The calculations use only the values you enter and ignore driving style, terrain, load and weather. Power is expressed in metric horsepower (735.49875 W).",
     it: "The calculations use only the values you enter and ignore driving style, terrain, load and weather. Power is expressed in metric horsepower (735.49875 W).",

@@ -1,15 +1,21 @@
 import { expect, test } from '@playwright/test';
-import { locales } from '../src/lib/i18n';
+import { getCalculatorById, locales } from '../src/lib/i18n';
+
+// Локали, в которых существует страница конвертера валют. Требовать полный
+// набор локалей сборки нельзя: локаль, выпускаемая постепенно, содержит не весь
+// каталог, и ссылка на неё вела бы на несуществующий адрес. Утверждение при
+// этом не слабеет — оно по-прежнему требует и полного набора выпущенных
+// целиком локалей, и отсутствия ссылок сверх него.
+const converterLocales = locales.filter((locale) => getCalculatorById('currency-converter', locale) !== undefined);
 
 test('full-parity language switcher links resolve to equivalent pages', async ({ page, request }) => {
   await page.goto('/ru/currency/currency-converter/');
 
   const switcher = page.locator('[data-language-switcher]');
   const links = switcher.locator('a');
-  // По ссылке на каждую локаль, включая текущую. Число выводится из состава
-  // сборки: с появлением немецкого выписанная буквами тройка устарела бы, а
-  // утверждение стало бы слабее — теперь оно требует полного набора.
-  await expect(links).toHaveCount(locales.length);
+  // По ссылке на каждую локаль, где страница существует, включая текущую.
+  expect(converterLocales).toEqual(expect.arrayContaining(['ru', 'en', 'uk', 'de']));
+  await expect(links).toHaveCount(converterLocales.length);
   await expect(switcher).toContainText('UA');
   await expect(switcher).not.toContainText('UK');
   await expect(switcher).toContainText('DE');
@@ -23,7 +29,7 @@ test('full-parity language switcher links resolve to equivalent pages', async ({
   const hreflangs = await page.locator('link[rel="alternate"][hreflang]').evaluateAll((elements) =>
     elements.map((element) => element.getAttribute('hreflang')),
   );
-  expect(hreflangs).toEqual([...locales, 'x-default']);
+  expect(hreflangs).toEqual([...converterLocales, 'x-default']);
 });
 
 test('немецкая страница полного паритета доступна и связана взаимно', async ({ page }) => {
@@ -35,10 +41,10 @@ test('немецкая страница полного паритета дост
   const hreflangs = await page.locator('link[rel="alternate"][hreflang]').evaluateAll((elements) =>
     elements.map((element) => element.getAttribute('hreflang')),
   );
-  expect(hreflangs).toEqual([...locales, 'x-default']);
+  expect(hreflangs).toEqual([...converterLocales, 'x-default']);
 
   const switcher = page.locator('[data-language-switcher]');
-  await expect(switcher.locator('a')).toHaveCount(locales.length);
+  await expect(switcher.locator('a')).toHaveCount(converterLocales.length);
   const back = switcher.locator('a[href^="/ru/"]');
   await expect(back).toHaveAttribute('href', '/ru/currency/currency-converter/');
 

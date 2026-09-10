@@ -54,4 +54,23 @@ export const localization: CalculatorLocalization = {
         'Вес предмета должен быть больше нуля': 'Das Gewicht eines Fachs muss größer als null sein',
       },
   },
+  es: {
+    fields: {
+      "grades": "Notas: una por línea, el peso tras un espacio",
+    },
+    options: {},
+    results: {
+      "Средний балл": "Nota media",
+      "Сумма кредитов": "Suma de pesos",
+      "Сумма произведений": "Suma de productos",
+      "Предметов": "Asignaturas",
+      "Простое среднее": "Media simple",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Введите хотя бы одну оценку": "Introduce al menos una nota",
+      "Оценка не может быть отрицательной": "Una nota no puede ser negativa",
+      "Вес предмета должен быть больше нуля": "El peso de la asignatura debe ser mayor que cero",
+    },
+  },
 };

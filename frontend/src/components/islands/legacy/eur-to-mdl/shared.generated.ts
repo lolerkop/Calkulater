@@ -122,4 +122,10 @@ export const shared: CalculatorLocalization = {
       'Неизвестная валюта': 'Unbekannte Währung',
     },
   },
+  es: {
+    results: {
+      'Результат': 'Resultado',
+      'Ошибка': 'Error',
+    },
+  },
 };

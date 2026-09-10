@@ -65,9 +65,14 @@ describe('SEO URL inventory', () => {
   it('keeps dedicated currency pairs indexable with self-canonical URLs', () => {
     for (const id of currencyPairIds) {
       const pairPages = urlInventory.filter((entry) => entry.hreflangCluster === `calculator:${id}`);
-      // По странице на локаль. Число выводится из состава сборки, иначе
-      // добавление языка ломало бы тест, ничего не сломав в продукте.
-      expect(pairPages).toHaveLength(locales.length);
+      // По странице на каждую локаль, где эта страница существует. Число
+      // выводится из состава каталога, а не из числа локалей: локаль,
+      // выпускаемая постепенно, содержит не весь каталог, и требовать от неё
+      // страницу пары значило бы требовать несуществующий адрес.
+      const present = locales.filter((locale) => getCalculatorById(id, locale) !== undefined);
+      expect(present, `${id}: пара обязана существовать в ru, en, uk и de`)
+        .toEqual(expect.arrayContaining(['ru', 'en', 'uk', 'de']));
+      expect(pairPages).toHaveLength(present.length);
       expect(pairPages.every((entry) => entry.indexableExpected && entry.url === entry.canonicalExpected)).toBe(true);
     }
   });

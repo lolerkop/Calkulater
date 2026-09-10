@@ -36,7 +36,7 @@ export const definition: CategoryDefinition = {
   editorial: {
     ru: "Расчёты опираются на введённые значения и не учитывают многотарифные счётчики, циклы работы техники и потери. Тариф и цены берите из своих документов.",
     en: "The calculations use the values you enter and ignore multi-rate meters, appliance duty cycles and losses. Take tariffs and prices from your own paperwork.",
-    es: "The calculations use the values you enter and ignore multi-rate meters, appliance duty cycles and losses. Take tariffs and prices from your own paperwork.",
+    es: "Las tarifas y los precios los introduces tú. Los aparatos que funcionan por ciclos consumen en la práctica menos que su potencia nominal.",
     de: "The calculations use the values you enter and ignore multi-rate meters, appliance duty cycles and losses. Take tariffs and prices from your own paperwork.",
     fr: "The calculations use the values you enter and ignore multi-rate meters, appliance duty cycles and losses. Take tariffs and prices from your own paperwork.",
     it: "The calculations use the values you enter and ignore multi-rate meters, appliance duty cycles and losses. Take tariffs and prices from your own paperwork.",

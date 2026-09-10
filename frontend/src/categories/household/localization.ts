@@ -25,13 +25,13 @@ export const copy: CategoryCopyByLocale = {
     h1: "Household calculators",
   },
   es: {
-    name: "Household calculators",
-    slug: "household",
-    description: "Electricity use, tips and filling a pool.",
-    longDescription: "Everyday calculations that come up around the house: how much electricity an appliance uses and what that costs at your tariff, how to split a bill with a tip across a group, and how long a pool takes to fill at a known flow rate. Every assumption is visible, and the rates and prices are yours to enter.",
-    seoTitle: "Household calculators — electricity, tips, pool filling",
-    seoDescription: "Online household calculators: electricity consumption and cost, tip and bill splitting, pool filling time.",
-    h1: "Household calculators",
+    name: "Hogar",
+    slug: "hogar",
+    description: "Consumo eléctrico, propinas y llenado de una piscina.",
+    longDescription: "Cálculos cotidianos que surgen en casa: cuánta electricidad consume un aparato y cuánto cuesta con tu tarifa, cómo repartir una cuenta con propina entre varias personas y cuánto tarda en llenarse una piscina con un caudal conocido. Todas las suposiciones quedan a la vista, y las tarifas y los precios los pones tú.",
+    seoTitle: "Calculadoras para el hogar — electricidad, propinas y piscina",
+    seoDescription: "Calculadoras para el hogar online: consumo y coste de electricidad, propina y reparto de la cuenta, tiempo de llenado de una piscina.",
+    h1: "Calculadoras para el hogar",
   },
   de: {
     name: "Haushalt",
@@ -200,20 +200,20 @@ export const faq: CategoryFaqByLocale = {
   ],
   es: [
     {
-      q: "Where do I find my electricity tariff?",
-      a: "On your bill: it gives the price per kilowatt-hour. Multi-rate meters are not modelled, so calculate each rate band separately.",
+      q: "¿Dónde encuentro mi tarifa eléctrica?",
+      a: "En la factura: indica el precio por kilovatio hora. Los contadores con varias tarifas no están modelados, así que calcula cada tramo por separado.",
     },
     {
-      q: "Is appliance power the number on the label?",
-      a: "Yes, the rated power. Anything that cycles, such as a fridge, will use less in practice because it does not run continuously.",
+      q: "¿La potencia del aparato es la de la etiqueta?",
+      a: "Sí, la potencia nominal. Lo que funciona por ciclos, como un frigorífico, consumirá menos en la práctica porque no está en marcha de forma continua.",
     },
     {
-      q: "How much should I tip?",
-      a: "That depends on the country and the venue, so the percentage is yours to set. The calculator does not suggest a norm or fill one in for you.",
+      q: "¿Cuánta propina conviene dejar?",
+      a: "Depende del país y del local, así que el porcentaje lo eliges tú. La calculadora no sugiere una norma ni la rellena por ti.",
     },
     {
-      q: "What do I need for the pool calculation?",
-      a: "Either the volume in cubic metres, or the dimensions of a rectangular or round pool, plus the flow rate. Arbitrary shapes are not supported.",
+      q: "¿Qué necesito para el cálculo de la piscina?",
+      a: "El volumen en metros cúbicos, o bien las medidas de una piscina rectangular o redonda, más el caudal. Las formas arbitrarias no están contempladas.",
     },
   ],
   de: [

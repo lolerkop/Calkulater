@@ -88,4 +88,9 @@ export const shared: CalculatorLocalization = {
       'Плановый объём меньше точки безубыточности, поэтому запас прочности отрицательный, а расчёт показывает убыток.': 'Die geplante Menge liegt unter der Gewinnschwelle, deshalb ist die Sicherheitsspanne negativ und die Rechnung weist einen Verlust aus.',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

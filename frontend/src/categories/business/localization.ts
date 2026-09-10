@@ -25,13 +25,13 @@ export const copy: CategoryCopyByLocale = {
     h1: "Business metric calculators",
   },
   es: {
-    name: "Business and marketing",
-    slug: "business",
-    description: "Contribution margin, customer acquisition cost, average order value, returns and ad ROI.",
-    longDescription: "The metrics a business uses to tell earning from spending: contribution margin and its share of the price, customer acquisition cost, average order value, return rate, advertising payback and revenue per employee. Every figure comes from data that any bookkeeping already holds.",
-    seoTitle: "Business calculators — margin, CAC, average order value, ROI",
-    seoDescription: "Online business metric calculators: contribution margin, customer acquisition cost, average order value, return rate, ad ROI and revenue per employee.",
-    h1: "Business metric calculators",
+    name: "Negocios y marketing",
+    slug: "negocios",
+    description: "Margen de contribución, coste de adquisición, ticket medio, devoluciones y ROI publicitario.",
+    longDescription: "Las métricas con las que un negocio distingue lo que gana de lo que gasta: margen de contribución y su peso en el precio, coste de adquisición de clientes, ticket medio, tasa de devoluciones, retorno de la publicidad e ingresos por empleado. Cada cifra sale de datos que cualquier contabilidad ya tiene.",
+    seoTitle: "Calculadoras de negocio — margen, CAC, ticket medio y ROI",
+    seoDescription: "Calculadoras de métricas de negocio online: margen de contribución, coste de adquisición de clientes, ticket medio, tasa de devoluciones, ROI publicitario e ingresos por empleado.",
+    h1: "Calculadoras de métricas de negocio",
   },
   de: {
     name: "Business und Marketing",
@@ -196,16 +196,16 @@ export const faq: CategoryFaqByLocale = {
   ],
   es: [
     {
-      q: "Which period should the metrics cover?",
-      a: "The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.",
+      q: "¿Qué periodo deben cubrir las métricas?",
+      a: "El mismo del que proceden los importes introducidos. Mezclar costes mensuales con ingresos trimestrales deja la cifra sin sentido.",
     },
     {
-      q: "Why can ROI be negative?",
-      a: "It means less came back than went in. The calculator states that plainly instead of clamping to zero.",
+      q: "¿Por qué el ROI puede salir negativo?",
+      a: "Significa que ha vuelto menos de lo que se invirtió. La calculadora lo dice tal cual en lugar de recortarlo a cero.",
     },
     {
-      q: "How does ROI differ from ROAS?",
-      a: "ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.",
+      q: "¿En qué se diferencian el ROI y el ROAS?",
+      a: "El ROAS son ingresos entre inversión; el ROI es el beneficio como parte de lo invertido. Con unos ingresos que doblan la inversión, el ROAS es 2 y el ROI es del 100 %.",
     },
   ],
   de: [

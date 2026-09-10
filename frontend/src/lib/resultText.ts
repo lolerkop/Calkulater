@@ -30,16 +30,16 @@ function replacePhrasesOnce(value: string, phrases: Record<string, string>): str
 //
 // Число читается из самой строки вместе с неразрывными разделителями тысяч,
 // которые расставил Intl в раннере: «6 784 дн.» — это 6784, а не 784.
-const countWords: Array<{ source: RegExp; en: [string, string]; de: [string, string]; uk: [string, string, string] }> = [
-  { source: /(\d+(?:\u00a0\d{3})*) (?:года|год|лет)/g, en: ['year', 'years'], de: ['Jahr', 'Jahre'], uk: ['рік', 'роки', 'років'] },
-  { source: /(\d+(?:\u00a0\d{3})*) (?:месяцев|месяца|месяц)/g, en: ['month', 'months'], de: ['Monat', 'Monate'], uk: ['місяць', 'місяці', 'місяців'] },
-  { source: /(\d+(?:\u00a0\d{3})*) (?:дней|дня|день)/g, en: ['day', 'days'], de: ['Tag', 'Tage'], uk: ['день', 'дні', 'днів'] },
+const countWords: Array<{ source: RegExp; en: [string, string]; de: [string, string]; es: [string, string]; uk: [string, string, string] }> = [
+  { source: /(\d+(?:\u00a0\d{3})*) (?:года|год|лет)/g, en: ['year', 'years'], de: ['Jahr', 'Jahre'], es: ['año', 'años'], uk: ['рік', 'роки', 'років'] },
+  { source: /(\d+(?:\u00a0\d{3})*) (?:месяцев|месяца|месяц)/g, en: ['month', 'months'], de: ['Monat', 'Monate'], es: ['mes', 'meses'], uk: ['місяць', 'місяці', 'місяців'] },
+  { source: /(\d+(?:\u00a0\d{3})*) (?:дней|дня|день)/g, en: ['day', 'days'], de: ['Tag', 'Tage'], es: ['día', 'días'], uk: ['день', 'дні', 'днів'] },
   // Сокращение «дн.» не изменяется по числу ни в русском, ни в украинском, но в
   // английском и немецком разворачивается в полное слово, которому форма уже нужна.
-  { source: /(\d+(?:\u00a0\d{3})*) дн\./g, en: ['day', 'days'], de: ['Tag', 'Tage'], uk: ['дн.', 'дн.', 'дн.'] },
+  { source: /(\d+(?:\u00a0\d{3})*) дн\./g, en: ['day', 'days'], de: ['Tag', 'Tage'], es: ['día', 'días'], uk: ['дн.', 'дн.', 'дн.'] },
 ];
 
-function localizeCountWords(value: string, locale: 'en' | 'de' | 'uk'): string {
+function localizeCountWords(value: string, locale: 'en' | 'de' | 'es' | 'uk'): string {
   return countWords.reduce((text, unit) => text.replace(unit.source, (_match, digits: string) => {
     const count = Number(digits.replace(/\u00a0/g, ''));
     const word = locale === 'uk' ? pluralRu(count, unit.uk) : unit[locale][count === 1 ? 0 : 1];
@@ -102,17 +102,20 @@ export function localizeText(
   // короткому ключу перехватить совпадение у длинного.
   let localized = exact ?? replacePhrasesOnce(value, phrases);
 
-  if (locale === 'en' || locale === 'uk' || locale === 'de') {
+  if (locale === 'en' || locale === 'uk' || locale === 'de' || locale === 'es') {
     localized = localizeCountWords(localized, locale);
   }
 
-  // Немецкие сокращения отделены от английских: без этого немецкая страница
-  // писала «5 years» и «12 pcs.» — английские слова внутри немецкого значения.
+  // Сокращения каждой локали отделены от английских: без этого немецкая
+  // страница писала «5 years» и «12 pcs.», а испанская написала бы то же самое —
+  // английские слова внутри чужого значения.
   const units = locale === 'uk'
     ? { month: 'міс.', year: 'років', day: 'дн.', piece: 'шт.', liter: 'л', gram: 'г', kg: 'кг', cm: 'см', kcal: 'ккал', pace: '/км', hour: 'год', minute: 'хв' }
     : locale === 'de'
       ? { month: 'Mon.', year: 'Jahre', day: 'Tage', piece: 'Stk.', liter: 'l', gram: 'g', kg: 'kg', cm: 'cm', kcal: 'kcal', pace: '/km', hour: 'Std.', minute: 'Min.' }
-      : { month: 'mo.', year: 'years', day: 'days', piece: 'pcs.', liter: 'L', gram: 'g', kg: 'kg', cm: 'cm', kcal: 'kcal', pace: '/km', hour: 'h', minute: 'min' };
+      : locale === 'es'
+        ? { month: 'meses', year: 'años', day: 'días', piece: 'uds.', liter: 'l', gram: 'g', kg: 'kg', cm: 'cm', kcal: 'kcal', pace: '/km', hour: 'h', minute: 'min' }
+        : { month: 'mo.', year: 'years', day: 'days', piece: 'pcs.', liter: 'L', gram: 'g', kg: 'kg', cm: 'cm', kcal: 'kcal', pace: '/km', hour: 'h', minute: 'min' };
 
   return localized
     .replaceAll('₽', currency)
@@ -171,6 +174,16 @@ export function localizeLabel(
       .replace(' от ', ' von ')
       .replace(' за мес.', ' im Monat')
       .replace(' за год', ' im Jahr');
+  }
+
+  if (locale === 'es') {
+    return label
+      .replace('НДС', 'IVA')
+      .replace('НДФЛ', 'IRPF')
+      .replace(COMPOSED_PURCHASING_POWER, 'Poder adquisitivo dentro de')
+      .replace(' от ', ' de ')
+      .replace(' за мес.', ' al mes')
+      .replace(' за год', ' al año');
   }
 
   return label

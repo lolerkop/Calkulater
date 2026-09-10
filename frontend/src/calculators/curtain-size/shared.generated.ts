@@ -27,4 +27,9 @@ export const shared: CalculatorLocalization = {
       'Из': 'Von',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

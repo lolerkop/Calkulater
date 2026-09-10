@@ -56,4 +56,9 @@ export const shared: CalculatorLocalization = {
       'Введите рост, вес и возраст': 'Trage Größe, Gewicht und Alter ein',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

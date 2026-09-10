@@ -66,4 +66,28 @@ export const localization: CalculatorLocalization = {
       "Длина префикса должна быть целым числом от 0 до 32": "Довжина префікса має бути цілим числом від 0 до 32",
     },
   },
+  es: {
+    fields: {
+      "address": "Dirección IPv4",
+      "prefix": "Longitud del prefijo, bits",
+    },
+    options: {},
+    results: {
+      "Адрес сети": "Dirección de red",
+      "Маска подсети": "Máscara de subred",
+      "Широковещательный": "Dirección de difusión",
+      "Первый узел": "Primer host",
+      "Последний узел": "Último host",
+      "Узлов в сети": "Hosts utilizables",
+      "Обратная маска": "Máscara comodín",
+      "Запись CIDR": "Notación CIDR",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "нет": "ninguno",
+      "Адрес должен состоять из четырёх октетов через точку": "La dirección debe tener cuatro octetos separados por puntos",
+      "Каждый октет должен быть числом от 0 до 255": "Cada octeto debe ser un número de 0 a 255",
+      "Длина префикса должна быть целым числом от 0 до 32": "La longitud del prefijo debe ser un número entero de 0 a 32",
+    },
+  },
 };

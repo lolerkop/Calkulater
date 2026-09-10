@@ -33,4 +33,10 @@ export const shared: CalculatorLocalization = {
       'Толщина слоя': 'Schichtdicke',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Площадь': 'Área',
+    },
+  },
 };

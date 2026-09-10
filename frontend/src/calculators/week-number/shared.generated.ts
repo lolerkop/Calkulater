@@ -30,4 +30,10 @@ export const shared: CalculatorLocalization = {
       'День недели': 'Wochentag',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'День недели': 'Día de la semana',
+    },
+  },
 };

@@ -35,5 +35,6 @@ export const definition: CategoryDefinition = {
     en: "The result is guidance and does not replace an individual medical or training assessment.",
     uk: "Результат є орієнтиром і не замінює індивідуальну медичну або спортивну оцінку.",
     de: "Das Ergebnis ist eine Orientierung und ersetzt keine individuelle medizinische oder trainerische Beurteilung.",
+    es: "Las estimaciones se basan en fórmulas de uso general y no sustituyen una valoración médica ni un plan de entrenamiento individual.",
   },
 };

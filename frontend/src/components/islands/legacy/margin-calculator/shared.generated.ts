@@ -62,4 +62,9 @@ export const shared: CalculatorLocalization = {
       'Цена продажи должна быть больше нуля': 'Der Verkaufspreis muss größer als null sein',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

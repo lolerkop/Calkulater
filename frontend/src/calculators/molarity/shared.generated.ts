@@ -30,4 +30,9 @@ export const shared: CalculatorLocalization = {
       'Объём раствора': 'Estrichvolumen',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

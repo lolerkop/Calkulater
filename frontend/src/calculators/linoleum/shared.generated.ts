@@ -36,4 +36,10 @@ export const shared: CalculatorLocalization = {
       'Площадь пола': 'Bodenfläche',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Площадь': 'Área',
+    },
+  },
 };

@@ -36,7 +36,7 @@ export const definition: CategoryDefinition = {
   editorial: {
     ru: "Расчёты идеализированы: трение, сопротивление среды и потери не учитываются, тела считаются точечными. Стандартное ускорение свободного падения принято равным 9,80665 м/с².",
     en: "The calculations are idealised: friction, drag and losses are ignored and bodies are treated as point masses. The standard acceleration of free fall is taken as 9.80665 m/s².",
-    es: "The calculations are idealised: friction, drag and losses are ignored and bodies are treated as point masses. The standard acceleration of free fall is taken as 9.80665 m/s².",
+    es: "Los cálculos son idealizados y se apoyan solo en los valores introducidos: el rozamiento y la resistencia del aire no están modelados. Para la gravedad se usa el valor normal 9,80665 m/s².",
     de: "The calculations are idealised: friction, drag and losses are ignored and bodies are treated as point masses. The standard acceleration of free fall is taken as 9.80665 m/s².",
     fr: "The calculations are idealised: friction, drag and losses are ignored and bodies are treated as point masses. The standard acceleration of free fall is taken as 9.80665 m/s².",
     it: "The calculations are idealised: friction, drag and losses are ignored and bodies are treated as point masses. The standard acceleration of free fall is taken as 9.80665 m/s².",

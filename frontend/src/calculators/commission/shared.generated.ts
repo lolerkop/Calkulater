@@ -32,4 +32,10 @@ export const shared: CalculatorLocalization = {
       'Режим': 'Aufgabe',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Режим': 'Modo',
+    },
+  },
 };

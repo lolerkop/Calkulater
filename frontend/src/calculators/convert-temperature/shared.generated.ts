@@ -36,4 +36,10 @@ export const shared: CalculatorLocalization = {
       'Темп': 'Tempo',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
+    },
+  },
 };

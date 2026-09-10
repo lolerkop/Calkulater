@@ -64,4 +64,28 @@ export const localization: CalculatorLocalization = {
       "Номер члена должен быть целым": "Номер члена має бути цілим",
     },
   },
+  es: {
+    fields: {
+      "a1": "Primer término a₁",
+      "d": "Diferencia d",
+      "n": "Número de término n",
+    },
+    options: {},
+    results: {
+      "n-й член": "Término n-ésimo",
+      "Сумма ряда": "Suma de la serie",
+      "Разность": "Diferencia",
+      "Первый член": "Primer término",
+      "Членов": "Términos",
+      "Первые члены ряда": "Primeros términos de la serie",
+      "№ члена": "N.º de término",
+      "Значение": "Valor",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Показаны первые 10 членов ряда.": "Se muestran los 10 primeros términos de la serie.",
+      "Номер члена должен быть не меньше единицы": "El número de término debe ser al menos uno",
+      "Номер члена должен быть целым": "El número de término debe ser un número entero",
+    },
+  },
 };

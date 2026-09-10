@@ -30,4 +30,10 @@ export const shared: CalculatorLocalization = {
       'Площадь': 'Fläche',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Площадь': 'Área',
+    },
+  },
 };

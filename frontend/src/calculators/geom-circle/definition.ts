@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geomCircleCopyEn } from './copy.en';
 import { geomCircleCopyUk } from './copy.uk';
 import { geomCircleCopyDe } from './copy.de';
+import { geomCircleCopyEs } from './copy.es';
 import { geomCircleReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomCircleCopyEn, uk: geomCircleCopyUk, de: geomCircleCopyDe },
+  copy: { en: geomCircleCopyEn, uk: geomCircleCopyUk, de: geomCircleCopyDe, es: geomCircleCopyEs },
   referenceCases: geomCircleReferenceCases,
   publishedExample: { inputs: { mode: 'radius', unit: 'm', r: 3 }, expected: ["28,274 м²"] },
   presentation: {

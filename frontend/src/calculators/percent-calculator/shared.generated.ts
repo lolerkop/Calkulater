@@ -83,4 +83,22 @@ export const shared: CalculatorLocalization = {
       'Проценты': 'Prozent',
     },
   },
+  es: {
+    results: {
+      'Результат': 'Resultado',
+      'Режим': 'Modo',
+      'Значение A': 'Valor A',
+      'Значение B': 'Valor B',
+      'Ошибка': 'Error',
+      'Абсолютная разница': 'Diferencia absoluta',
+      'Изменение': 'Variación',
+    },
+    values: {
+      'Процент от числа': 'Porcentaje de un número',
+      'Часть от целого': 'Parte del total',
+      'Прибавить процент': 'Sumar un porcentaje',
+      'Вычесть процент': 'Restar un porcentaje',
+      'Процентное изменение': 'Variación porcentual',
+    },
+  },
 };

@@ -36,4 +36,9 @@ export const shared: CalculatorLocalization = {
       'Запас не может быть отрицательным': 'Die Reserve kann nicht negativ sein',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

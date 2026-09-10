@@ -42,4 +42,14 @@ export const shared: CalculatorLocalization = {
       'Норма': 'Normalbereich',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
+      'Площадь': 'Área',
+    },
+    values: {
+      'Норма': 'Normal',
+    },
+  },
 };

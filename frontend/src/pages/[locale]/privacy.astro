@@ -11,7 +11,7 @@ export function getStaticPaths() {
 
 const locale = (Astro.props.locale ?? 'ru') as Locale;
 if (!isLocale(locale)) return Astro.redirect('/404');
-const language = locale === 'ru' || locale === 'uk' || locale === 'de' ? locale : 'en';
+const language = locale === 'ru' || locale === 'uk' || locale === 'de' || locale === 'es' ? locale : 'en';
 const copy = ui[locale];
 const path = `/${locale}/privacy/`;
 const updatedAt = '2026-06-15';
@@ -109,6 +109,29 @@ const pageCopy = {
       ['contact', 'Datenschutzkontakt', 'Nutze für Datenschutzanfragen den angegebenen Kontakt. Der öffentliche Supportkanal auf GitHub eignet sich nicht für persönliche, finanzielle oder andere sensible Angaben.'],
       ['updated', 'Letzte Aktualisierung', `Diese Erklärung wurde am ${updatedAt} aktualisiert.`],
       ['changes', 'Änderungen der Erklärung', 'Änderungen an der Verarbeitung werden hier mit einem neuen Aktualisierungsdatum veröffentlicht. Wesentliche Änderungen der Einwilligung wirken nicht rückwirkend.'],
+    ],
+  },
+  es: {
+    title: 'Política de privacidad',
+    description: 'Cómo trata Calcuway los datos introducidos en las calculadoras, los enlaces con parámetros, los registros técnicos y el consentimiento de analítica.',
+    breadcrumbs: 'Migas de pan',
+    operator: SITE.legalName
+      ? `Titular del sitio: ${SITE.legalName}${SITE.jurisdiction ? `; jurisdicción: ${SITE.jurisdiction}` : ''}.`
+      : 'El sitio se explota bajo el nombre Calcuway. El nombre legal del titular y la jurisdicción todavía no se han publicado; solicítalos a través del contacto de privacidad.',
+    sections: [
+      ['operator', 'Titular y responsable', 'El responsable del sitio responde de esta política y de los ajustes de tratamiento de datos del sitio.'],
+      ['data', 'Datos tratados', 'Los formularios de las calculadoras pueden contener números, fechas, divisas y opciones seleccionadas. El sitio no tiene registro, ni perfiles de usuario, ni subida de documentos.'],
+      ['local', 'Cálculo en el navegador', 'Los valores introducidos los procesa JavaScript en tu navegador y no se envían a ningún servidor de Calcuway para calcular.'],
+      ['share-links', 'Enlaces con parámetros', 'Solo cuando eliges «copiar enlace» los valores pueden pasar a la URL como parámetros de consulta. Esa URL puede quedar en el historial del navegador, en los marcadores, en los registros de quien la reciba o en aplicaciones de mensajería. No introduzcas ahí valores sensibles. Para restablecerla, borra todo lo que sigue al signo de interrogación o vuelve a abrir la calculadora sin parámetros.'],
+      ['storage', 'Cookies y almacenamiento del navegador', 'Lo que introduces en las calculadoras no se guarda automáticamente en localStorage ni en sessionStorage. Si la analítica está configurada, el consentimiento se guarda como calcuway.analytics-consent.v1 en localStorage. El código propio no coloca ninguna cookie antes del consentimiento.'],
+      ['analytics', 'Analítica y consentimiento', 'Google Analytics 4 y Yandex Metrica solo se cargan si hay identificadores válidos configurados y das tu consentimiento expreso. Antes del consentimiento no se hace ninguna petición a esos servicios. Puedes cambiar tu elección desde los ajustes de privacidad o borrando los datos del sitio. Sin esos identificadores no aparece ni el aviso de consentimiento ni ninguno de los dos servicios. Al margen de eso funciona Cloudflare Web Analytics: está activado a nivel de infraestructura en Cloudflare Pages y no depende ni de esos identificadores ni del aviso de consentimiento. Sirve para medir visitas y rendimiento, y puede recoger datos técnicos sobre cómo se cargan y se usan las páginas, incluidas las métricas Web Vitals. Según el comportamiento comprobado del sitio, no coloca cookies ni escribe nada en localStorage o sessionStorage.'],
+      ['processors', 'Servicios de terceros', 'Las tipografías las sirve el propio Calcuway, sin peticiones a Google Fonts. Google Analytics y Yandex Metrica solo intervienen tras el consentimiento. GitHub trata datos únicamente si abres el canal público de soporte. El alojamiento y la CDN los proporciona Cloudflare: su infraestructura procesa las peticiones para servir y proteger el sitio, y también proporciona Cloudflare Web Analytics.'],
+      ['logs', 'Registros técnicos', 'El alojamiento o la CDN pueden registrar la dirección IP, el agente de usuario, la marca de tiempo, la URL solicitada, el estado de la respuesta y los errores. Los parámetros de consulta de los enlaces compartidos pueden acabar así en esos registros: por eso nunca introduzcas secretos en una URL.'],
+      ['retention', 'Conservación', 'Calcuway no conserva en su servidor los campos de las calculadoras. Una URL compartida permanece allí donde se haya guardado o enviado. La elección sobre analítica se mantiene hasta que se borra o cambia la versión de la clave de almacenamiento. Los datos y registros de los proveedores se rigen por sus propios ajustes y políticas.'],
+      ['rights', 'Tus derechos', 'En la medida en que sea aplicable, puedes solicitar acceso, rectificación o supresión, oponerte al tratamiento y retirar tu consentimiento. El almacenamiento del navegador y las URL se pueden eliminar localmente desde los ajustes del navegador.'],
+      ['contact', 'Contacto de privacidad', 'Para cuestiones de privacidad utiliza el contacto indicado. El canal público de soporte en GitHub no es adecuado para datos personales, financieros u otros datos sensibles.'],
+      ['updated', 'Última actualización', `Esta política se actualizó el ${updatedAt}.`],
+      ['changes', 'Cambios en la política', 'Los cambios en el tratamiento se publicarán aquí con una nueva fecha de actualización. Los cambios sustanciales del consentimiento no tienen efecto retroactivo.'],
     ],
   },
 }[language];

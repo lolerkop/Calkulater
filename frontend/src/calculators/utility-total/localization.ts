@@ -88,4 +88,33 @@ export const localization: CalculatorLocalization = {
         'Введите хотя бы одну позицию': 'Gib mindestens eine Position ein',
       },
   },
+  es: {
+    fields: {
+      "meters": "Suministros: nombre, consumo y tarifa por línea",
+      "fixed": "Cargos fijos al mes",
+    },
+    options: {},
+    results: {
+      "Итого за месяц": "Total al mes",
+      "Позиций": "Líneas",
+      "Самая дорогая услуга": "Suministro más caro",
+      "Переменная часть": "Parte con contador",
+      "Постоянная часть": "Parte fija",
+      "В год": "Al año",
+      "Расход по услугам": "Consumo por suministro",
+      "Услуга": "Suministro",
+      "Расход": "Consumo",
+      "Тариф": "Tarifa",
+      "Сумма": "Importe",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Нужны услуга, расход и тариф в строке:": "Hacen falta suministro, consumo y tarifa en la línea:",
+      "Расход и тариф должны быть числами в строке:": "El consumo y la tarifa deben ser números en la línea:",
+      "Постоянная часть не может быть отрицательной": "La parte fija no puede ser negativa",
+      "Расход и тариф не могут быть отрицательными": "Ni el consumo ni la tarifa pueden ser negativos",
+      "Введите хотя бы одну позицию": "Introduce al menos una línea",
+    },
+  },
 };

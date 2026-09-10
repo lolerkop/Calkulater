@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { currencyExchangeFeeCopyEn } from './copy.en';
 import { currencyExchangeFeeCopyUk } from './copy.uk';
 import { currencyExchangeFeeCopyDe } from './copy.de';
+import { currencyExchangeFeeCopyEs } from './copy.es';
 import { currencyExchangeFeeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: currencyExchangeFeeCopyEn, uk: currencyExchangeFeeCopyUk, de: currencyExchangeFeeCopyDe },
+  copy: { en: currencyExchangeFeeCopyEn, uk: currencyExchangeFeeCopyUk, de: currencyExchangeFeeCopyDe, es: currencyExchangeFeeCopyEs },
   referenceCases: currencyExchangeFeeReferenceCases,
   publishedExample: {
     inputs: { direction: 'sell', amount: 1000, rate: 92.5, feePct: 1.5, feeFixed: 0, spreadPct: 0.5 },

@@ -30,4 +30,9 @@ export const shared: CalculatorLocalization = {
       'Источник': 'Quelle',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

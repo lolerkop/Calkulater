@@ -39,4 +39,11 @@ export const shared: CalculatorLocalization = {
       'Ошибка': 'Fehler',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Площадь': 'Área',
+      'Ошибка': 'Error',
+    },
+  },
 };

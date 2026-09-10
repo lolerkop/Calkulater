@@ -62,4 +62,12 @@ export const shared: CalculatorLocalization = {
       'Введите положительные размеры': 'Trage positive Maße ein',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Вес': 'Peso',
+      'Площадь': 'Área',
+      'Ошибка': 'Error',
+    },
+  },
 };

@@ -39,4 +39,10 @@ export const shared: CalculatorLocalization = {
       'Мешков': 'Säcke',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Площадь': 'Área',
+    },
+  },
 };

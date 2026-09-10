@@ -69,4 +69,34 @@ export const localization: CalculatorLocalization = {
       'Высота должна быть больше нуля': 'Висота має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Dato conocido",
+      "h": "Altura, m",
+      "t": "Tiempo de caída, s",
+      "g": "Aceleración de la gravedad, m/s²",
+    },
+    options: {
+      "fromHeight": "la altura",
+      "fromTime": "el tiempo",
+    },
+    results: {
+      "Скорость у земли": "Velocidad de impacto",
+      "Время падения": "Tiempo de caída",
+      "Высота падения": "Altura de caída",
+      "В километрах в час": "En kilómetros por hora",
+      "Кинетическая энергия на килограмм": "Energía cinética por kilogramo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м/с": "m/s",
+      "с": "s",
+      "м": "m",
+      "км/ч": "km/h",
+      "Дж/кг": "J/kg",
+      "Ускорение свободного падения должно быть больше нуля": "La aceleración de la gravedad debe ser mayor que cero",
+      "Время падения должно быть больше нуля": "El tiempo de caída debe ser mayor que cero",
+      "Высота должна быть больше нуля": "La altura debe ser mayor que cero",
+    },
+  },
 };

@@ -30,4 +30,10 @@ export const shared: CalculatorLocalization = {
       'В': 'Nach',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
+    },
+  },
 };

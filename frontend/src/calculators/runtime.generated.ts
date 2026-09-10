@@ -14,6 +14,7 @@ import type { CalculatorContextualField, CalculatorValidator } from '../lib/plat
 import type { CalculatorClientRuntime } from '../lib/platform/runtime';
 import type { CalculatorLocalization } from '../lib/platform/types';
 import { withSharedPhrases } from '../lib/platform/runtime';
+import { TRANSLATED_LOCALES } from '../lib/platform/types';
 import { v2Localization } from './localization.generated';
 
 import { compute as compute_abv_alcohol } from './abv-alcohol/compute';
@@ -1527,9 +1528,11 @@ export const v2Runtimes: Record<string, CalculatorClientRuntime> = Object.fromEn
     validate: v2Validators[id],
     contextualField: v2ContextualFields[id],
     localization: withSharedPhrases(
-      v2Localization.en[id] || v2Localization.uk[id] || v2Localization.de[id]
-        ? { en: v2Localization.en[id], uk: v2Localization.uk[id], de: v2Localization.de[id] }
-        : undefined,
+      Object.fromEntries(
+        TRANSLATED_LOCALES
+          .filter((locale) => v2Localization[locale][id])
+          .map((locale) => [locale, v2Localization[locale][id]]),
+      ),
       v2SharedPhrases[id] ?? {},
     ),
   }]),

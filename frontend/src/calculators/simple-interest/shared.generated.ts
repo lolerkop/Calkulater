@@ -50,4 +50,9 @@ export const shared: CalculatorLocalization = {
       'Проценты': 'Prozent',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

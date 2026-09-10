@@ -35,5 +35,6 @@ export const definition: CategoryDefinition = {
     en: "Before buying, verify the measurements, pack size, production batch and manufacturer instructions.",
     uk: "Перед купівлею перевірте фактичні виміри, розмір упаковки, партію та рекомендації виробника.",
     de: "Prüfe vor dem Kauf die Maße, die Packungsgröße, die Produktionscharge und die Herstellerangaben. Der Rechner liefert eine Mengenschätzung, keine verbindliche Bestellliste.",
+    es: "Los cálculos parten de las medidas y los consumos que introduces. El gasto real depende del trazado, de los cortes y del estado del soporte.",
   },
 };

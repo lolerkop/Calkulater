@@ -39,4 +39,13 @@ export const shared: CalculatorLocalization = {
       'Процентное изменение': 'Prozentuale Änderung',
     },
   },
+  es: {
+    results: {
+      'Рост': 'Estatura',
+      'Абсолютная разница': 'Diferencia absoluta',
+    },
+    values: {
+      'Процентное изменение': 'Variación porcentual',
+    },
+  },
 };

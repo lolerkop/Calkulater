@@ -83,4 +83,11 @@ export const shared: CalculatorLocalization = {
       'Введите обхват бёдер больше нуля': 'Trage einen Hüftumfang über null ein',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
+      'Рост': 'Estatura',
+    },
+  },
 };

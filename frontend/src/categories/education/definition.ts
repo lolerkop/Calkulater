@@ -36,7 +36,7 @@ export const definition: CategoryDefinition = {
   editorial: {
     ru: "Калькуляторы работают с процентами и не переводят их в национальные шкалы оценок: такие шкалы различаются и требуют отдельного справочника. Правила своего курса уточняйте в его программе.",
     en: "The calculators work in percentages and do not convert them to national grade scales, which differ and need their own reference. Check your own course rules for the exact policy.",
-    es: "The calculators work in percentages and do not convert them to national grade scales, which differ and need their own reference. Check your own course rules for the exact policy.",
+    es: "Las calculadoras trabajan en porcentajes y no los convierten a las escalas nacionales de calificación: esas escalas difieren y requieren tablas de equivalencia.",
     de: "The calculators work in percentages and do not convert them to national grade scales, which differ and need their own reference. Check your own course rules for the exact policy.",
     fr: "The calculators work in percentages and do not convert them to national grade scales, which differ and need their own reference. Check your own course rules for the exact policy.",
     it: "The calculators work in percentages and do not convert them to national grade scales, which differ and need their own reference. Check your own course rules for the exact policy.",

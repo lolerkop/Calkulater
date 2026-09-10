@@ -33,4 +33,9 @@ export const shared: CalculatorLocalization = {
       'Время': 'Zeit',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

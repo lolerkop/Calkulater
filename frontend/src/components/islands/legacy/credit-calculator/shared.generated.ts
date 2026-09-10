@@ -93,4 +93,14 @@ export const shared: CalculatorLocalization = {
       'Проценты': 'Prozent',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Введите положительные значения': 'Introduce valores positivos',
+      'Месяц': 'Mes',
+    },
+    values: {
+      'Введите положительные значения': 'Introduce valores positivos',
+    },
+  },
 };

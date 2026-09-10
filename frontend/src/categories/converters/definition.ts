@@ -35,5 +35,6 @@ export const definition: CategoryDefinition = {
     en: "Conversions use international unit definitions. Where a unit is defined exactly, the result is exact by definition.",
     uk: "Переведення виконується за міжнародними визначеннями одиниць. Там, де одиниця задана точно, результат точний за визначенням.",
     de: "Die Umrechnungen nutzen internationale Einheitendefinitionen. Wo eine Einheit exakt definiert ist, ist auch das Ergebnis exakt; sonst begrenzt die Rundung die Genauigkeit.",
+    es: "Las conversiones utilizan las definiciones internacionales de cada unidad. Cuando una unidad está definida de forma exacta, la conversión también lo es.",
   },
 };

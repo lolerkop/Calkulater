@@ -36,4 +36,9 @@ export const shared: CalculatorLocalization = {
       'Евро': 'Euro',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

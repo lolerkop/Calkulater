@@ -51,4 +51,11 @@ export const shared: CalculatorLocalization = {
       'Вес мешка должен быть больше нуля': 'Das Sackgewicht muss größer als null sein',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Вес': 'Peso',
+      'Площадь': 'Área',
+    },
+  },
 };

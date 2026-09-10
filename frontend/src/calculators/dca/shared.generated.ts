@@ -39,4 +39,13 @@ export const shared: CalculatorLocalization = {
       'Месяц': 'Monat',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
+      'Рост': 'Estatura',
+      'Месяцев': 'Meses',
+      'Месяц': 'Mes',
+    },
+  },
 };

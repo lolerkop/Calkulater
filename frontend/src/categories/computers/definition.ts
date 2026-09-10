@@ -36,7 +36,7 @@ export const definition: CategoryDefinition = {
   editorial: {
     ru: "Расчёты теоретические и не учитывают накладные расходы протоколов, потери и загрузку сети. Реальные значения обычно оказываются ниже.",
     en: "The calculations are theoretical and ignore protocol overhead, losses and network load. Real figures are usually lower.",
-    es: "The calculations are theoretical and ignore protocol overhead, losses and network load. Real figures are usually lower.",
+    es: "El cálculo es determinista y no incluye la sobrecarga de los protocolos. El caudal real suele ser algo menor.",
     de: "The calculations are theoretical and ignore protocol overhead, losses and network load. Real figures are usually lower.",
     fr: "The calculations are theoretical and ignore protocol overhead, losses and network load. Real figures are usually lower.",
     it: "The calculations are theoretical and ignore protocol overhead, losses and network load. Real figures are usually lower.",

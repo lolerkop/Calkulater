@@ -25,13 +25,13 @@ export const copy: CategoryCopyByLocale = {
     h1: "Maths calculators",
   },
   es: {
-    name: "Maths calculators",
-    slug: "math",
-    description: "Remainder, prime factors, proportions, equations and logarithms.",
-    longDescription: "School and applied maths: prime factorisation, division with remainder, roots of a quadratic equation, a proportion with one unknown, a logarithm to any base and Roman numerals. The section covers tasks that need an exact answer and a visible route to it rather than an approximation.",
-    seoTitle: "Maths calculators — remainder, prime factors, equations",
-    seoDescription: "Online maths calculators: division with remainder, prime factorisation, quadratic equation, proportion, logarithm and Roman numerals.",
-    h1: "Maths calculators",
+    name: "Matemáticas",
+    slug: "matematicas",
+    description: "Resto de la división, factores primos, proporciones, ecuaciones y logaritmos.",
+    longDescription: "Matemáticas de clase y de uso práctico: descomposición en factores primos, división con resto, raíces de una ecuación de segundo grado, una proporción con una incógnita, logaritmos en cualquier base y numeración romana. La sección reúne los problemas que piden una respuesta exacta y un camino visible hasta ella, no una aproximación.",
+    seoTitle: "Calculadoras de matemáticas — resto, factores primos y ecuaciones",
+    seoDescription: "Calculadoras de matemáticas online: división con resto, factorización en primos, ecuación de segundo grado, proporciones, logaritmos y números romanos.",
+    h1: "Calculadoras de matemáticas",
   },
   de: {
     name: "Mathematik",
@@ -196,16 +196,16 @@ export const faq: CategoryFaqByLocale = {
   ],
   es: [
     {
-      q: "Do the calculators show the working?",
-      a: "They show the intermediate figures — discriminant, quotient, number of divisors — so you can see where the answer came from.",
+      q: "¿Las calculadoras muestran el desarrollo?",
+      a: "Muestran los valores intermedios —discriminante, cociente, número de divisores—, de modo que se ve de dónde sale la respuesta.",
     },
     {
-      q: "What happens with negative numbers?",
-      a: "Where the sign is meaningful it is preserved: division with remainder follows the sign of the dividend, and the equation accepts any coefficients.",
+      q: "¿Qué ocurre con los números negativos?",
+      a: "Donde el signo tiene sentido, se conserva: la división con resto sigue el signo del dividendo y la ecuación admite cualquier coeficiente.",
     },
     {
-      q: "Why are some values rejected?",
-      a: "Several tasks have a domain: you cannot divide by zero, take a logarithm of a non-positive number, or factorise one.",
+      q: "¿Por qué se rechazan algunos valores?",
+      a: "Varias operaciones tienen un dominio: no se puede dividir entre cero, ni tomar el logaritmo de un número no positivo, ni factorizar el uno.",
     },
   ],
   de: [

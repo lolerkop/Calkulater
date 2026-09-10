@@ -30,4 +30,9 @@ export const shared: CalculatorLocalization = {
       'Время': 'Zeit',
     },
   },
+  es: {
+    results: {
+      'Результат': 'Resultado',
+    },
+  },
 };

@@ -33,4 +33,9 @@ export const shared: CalculatorLocalization = {
       'Первоначальный взнос': 'Anzahlung',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

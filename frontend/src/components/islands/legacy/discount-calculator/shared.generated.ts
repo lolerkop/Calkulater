@@ -50,4 +50,9 @@ export const shared: CalculatorLocalization = {
       'Введите цену больше нуля': 'Trage einen Preis über null ein',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+    },
+  },
 };

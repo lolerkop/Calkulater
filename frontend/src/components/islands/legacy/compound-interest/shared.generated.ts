@@ -57,4 +57,13 @@ export const shared: CalculatorLocalization = {
       'Введите положительные значения': 'Trage positive Werte ein',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Введите положительные значения': 'Introduce valores positivos',
+    },
+    values: {
+      'Введите положительные значения': 'Introduce valores positivos',
+    },
+  },
 };

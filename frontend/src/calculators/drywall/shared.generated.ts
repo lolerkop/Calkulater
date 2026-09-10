@@ -36,4 +36,10 @@ export const shared: CalculatorLocalization = {
       'Слоёв': 'Anstriche',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Площадь': 'Área',
+    },
+  },
 };

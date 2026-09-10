@@ -45,4 +45,12 @@ export const shared: CalculatorLocalization = {
       'Рост': 'Körpergröße',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'ИМТ': 'IMC',
+      'Категория': 'Categoría',
+      'Рост': 'Estatura',
+    },
+  },
 };

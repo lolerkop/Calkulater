@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { freeFallCopyEn } from './copy.en';
 import { freeFallCopyUk } from './copy.uk';
 import { freeFallCopyDe } from './copy.de';
+import { freeFallCopyEs } from './copy.es';
 import { freeFallReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: freeFallCopyEn, uk: freeFallCopyUk, de: freeFallCopyDe },
+  copy: { en: freeFallCopyEn, uk: freeFallCopyUk, de: freeFallCopyDe, es: freeFallCopyEs },
   referenceCases: freeFallReferenceCases,
   publishedExample: { inputs: { mode: 'fromHeight', h: 20, t: 2, g: 9.80665 }, expected: ["19,806 м/с"] },
   presentation: {

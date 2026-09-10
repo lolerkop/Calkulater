@@ -36,7 +36,7 @@ export const definition: CategoryDefinition = {
   editorial: {
     ru: "Расчёты идеализированы: сопротивление считается постоянным, а температурные и частотные эффекты не учитываются. Перед сборкой сверьтесь с документацией на компоненты.",
     en: "The calculations are idealised: resistance is treated as constant and temperature or frequency effects are ignored. Check the component datasheets before building.",
-    es: "The calculations are idealised: resistance is treated as constant and temperature or frequency effects are ignored. Check the component datasheets before building.",
+    es: "Los cálculos son deterministas y parten solo de los valores introducidos. Ni los picos de arranque ni las curvas de descarga están modelados.",
     de: "The calculations are idealised: resistance is treated as constant and temperature or frequency effects are ignored. Check the component datasheets before building.",
     fr: "The calculations are idealised: resistance is treated as constant and temperature or frequency effects are ignored. Check the component datasheets before building.",
     it: "The calculations are idealised: resistance is treated as constant and temperature or frequency effects are ignored. Check the component datasheets before building.",

@@ -42,4 +42,13 @@ export const shared: CalculatorLocalization = {
       'Норма': 'Normalbereich',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Дней': 'Días',
+    },
+    values: {
+      'Норма': 'Normal',
+    },
+  },
 };

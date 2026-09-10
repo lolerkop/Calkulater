@@ -33,4 +33,10 @@ export const shared: CalculatorLocalization = {
       'Изменение': 'Veränderung',
     },
   },
+  es: {
+    results: {
+      'Проверьте данные': 'Revisa los datos',
+      'Изменение': 'Variación',
+    },
+  },
 };

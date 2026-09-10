@@ -149,7 +149,7 @@ export type CalculatorLocaleBundle = {
  * отсюда. Раньше он был выписан буквами в нескольких местах, и одно из них
  * отстало — остров молча отбрасывал немецкий и показывал русский результат.
  */
-export const TRANSLATED_LOCALES = ['en', 'uk', 'de'] as const;
+export const TRANSLATED_LOCALES = ['en', 'uk', 'de', 'es'] as const;
 
 export type TranslatedLocale = (typeof TRANSLATED_LOCALES)[number];
 
@@ -193,6 +193,7 @@ export type CalculatorDefinitionV2 = {
     readonly en?: CalculatorCopy;
     readonly uk?: CalculatorSeoCopy;
     readonly de?: CalculatorSeoCopy;
+    readonly es?: CalculatorSeoCopy;
   };
   readonly referenceCases?: readonly CalculatorReferenceCase[];
   readonly publishedExample?: CalculatorPublishedExample;
