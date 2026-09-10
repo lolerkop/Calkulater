@@ -51,4 +51,24 @@ export const localization: CalculatorLocalization = {
       'Число слишком велико для точного разложения': 'Число завелике для точного розкладу',
     },
   },
+  es: {
+    fields: {
+      "n": "Número",
+    },
+    options: {},
+    results: {
+      "Разложение": "Descomposición",
+      "Различных простых": "Primos distintos",
+      "Всего делителей": "Divisores en total",
+      "Простое число": "Número primo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Да": "Sí",
+      "Нет": "No",
+      "Число должно быть целым": "El número debe ser entero",
+      "Раскладывают числа от двух и больше": "La descomposición empieza a partir de dos",
+      "Число слишком велико для точного разложения": "El número es demasiado grande para descomponerlo de forma exacta",
+    },
+  },
 };

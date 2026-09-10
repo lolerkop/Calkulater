@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { binomialProbabilityCopyEn } from './copy.en';
 import { binomialProbabilityCopyUk } from './copy.uk';
 import { binomialProbabilityCopyDe } from './copy.de';
+import { binomialProbabilityCopyEs } from './copy.es';
 import { binomialProbabilityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: binomialProbabilityCopyEn, uk: binomialProbabilityCopyUk, de: binomialProbabilityCopyDe },
+  copy: { en: binomialProbabilityCopyEn, uk: binomialProbabilityCopyUk, de: binomialProbabilityCopyDe, es: binomialProbabilityCopyEs },
   referenceCases: binomialProbabilityReferenceCases,
   publishedExample: { inputs: { n: 10, k: 3, p: 0.5, mode: 'exactly' }, expected: ["0,1172"] },
   presentation: {

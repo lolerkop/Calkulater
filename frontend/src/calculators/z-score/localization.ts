@@ -51,4 +51,24 @@ export const localization: CalculatorLocalization = {
       'Стандартное отклонение должно быть больше нуля': 'Стандартне відхилення має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "x": "Valor",
+      "mean": "Media",
+      "sd": "Desviación típica",
+    },
+    options: {},
+    results: {
+      "Z-оценка": "Puntuación z",
+      "Отклонение": "Desviación",
+      "Положение": "Posición",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "выше среднего": "por encima de la media",
+      "ниже среднего": "por debajo de la media",
+      "равно среднему": "igual a la media",
+      "Стандартное отклонение должно быть больше нуля": "La desviación típica debe ser mayor que cero",
+    },
+  },
 };

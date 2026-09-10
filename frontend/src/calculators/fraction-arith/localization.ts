@@ -85,4 +85,32 @@ export const localization: CalculatorLocalization = {
       "Числа слишком велики для точного расчёта": "Числа завеликі для точного розрахунку",
     },
   },
+  es: {
+    fields: {
+      "op": "Operación",
+      "a": "Primer numerador",
+      "b": "Primer denominador",
+      "c": "Segundo numerador",
+      "d": "Segundo denominador",
+    },
+    options: {
+      "add": "suma",
+      "sub": "resta",
+      "mul": "multiplicación",
+      "div": "división",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Десятичное значение": "Valor decimal",
+      "Смешанное число": "Número mixto",
+      "Сокращено на": "Simplificado entre",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Знаменатель не может быть нулём": "Un denominador no puede ser cero",
+      "На нулевую дробь делить нельзя": "No se puede dividir entre una fracción nula",
+      "Числа должны быть целыми": "Los números deben ser enteros",
+      "Числа слишком велики для точного расчёта": "Los números son demasiado grandes para un cálculo exacto",
+    },
+  },
 };

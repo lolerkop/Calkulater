@@ -64,4 +64,26 @@ export const localization: CalculatorLocalization = {
       'Сумма должна быть от числа кубиков до числа кубиков, умноженного на число граней': 'Сума має бути від кількості кубиків до кількості кубиків, помноженої на кількість граней',
     },
   },
+  es: {
+    fields: {
+      "count": "Número de dados",
+      "sides": "Caras por dado",
+      "target": "Suma objetivo",
+    },
+    options: {},
+    results: {
+      "Вероятность суммы": "Probabilidad de la suma",
+      "Благоприятных исходов": "Casos favorables",
+      "Всего исходов": "Casos totales",
+      "Ожидаемая сумма": "Suma esperada",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Кубиков должно быть не меньше одного": "Debe haber al menos un dado",
+      "Кубиков не больше десяти": "Como máximo diez dados",
+      "У кубика должно быть не меньше двух граней": "Un dado debe tener al menos dos caras",
+      "Граней не больше ста": "Como máximo cien caras",
+      "Сумма должна быть от числа кубиков до числа кубиков, умноженного на число граней": "La suma debe estar entre el número de dados y el número de dados por el número de caras",
+    },
+  },
 };

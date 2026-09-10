@@ -67,4 +67,29 @@ export const localization: CalculatorLocalization = {
       "Ряд выходит за область представимости: уменьшите знаменатель или число членов": "Ряд виходить за межі представимості — зменште знаменник або кількість членів",
     },
   },
+  es: {
+    fields: {
+      "a1": "Primer término",
+      "r": "Razón",
+      "n": "Número de términos",
+    },
+    options: {},
+    results: {
+      "n-й член": "n-ésimo término",
+      "Сумма ряда": "Suma de la serie",
+      "Знаменатель": "Razón",
+      "Первый член": "Primer término",
+      "Членов": "Términos",
+      "Сумма бесконечного ряда": "Suma de la serie infinita",
+      "Члены прогрессии": "Términos de la progresión",
+      "№ члена": "N.º de término",
+      "Значение": "Valor",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Число членов должно быть целым от 1 до 50": "El número de términos debe ser un entero de 1 a 50",
+      "Знаменатель не может быть нулём": "La razón no puede ser cero",
+      "Ряд выходит за область представимости: уменьшите знаменатель или число членов": "La serie se sale del rango representable: reduce la razón o el número de términos",
+    },
+  },
 };

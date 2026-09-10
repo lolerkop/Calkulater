@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { confidenceIntervalCopyEn } from './copy.en';
 import { confidenceIntervalCopyUk } from './copy.uk';
 import { confidenceIntervalCopyDe } from './copy.de';
+import { confidenceIntervalCopyEs } from './copy.es';
 import { confidenceIntervalReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: confidenceIntervalCopyEn, uk: confidenceIntervalCopyUk, de: confidenceIntervalCopyDe },
+  copy: { en: confidenceIntervalCopyEn, uk: confidenceIntervalCopyUk, de: confidenceIntervalCopyDe, es: confidenceIntervalCopyEs },
   referenceCases: confidenceIntervalReferenceCases,
   publishedExample: { inputs: { mean: 100, sd: 15, n: 36, confidence: '95' }, expected: ["95,1 … 104,9"] },
   presentation: {

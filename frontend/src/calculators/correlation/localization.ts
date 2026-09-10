@@ -69,4 +69,27 @@ export const localization: CalculatorLocalization = {
       "Все значения одного из рядов совпадают — корреляция не определена": "Усі значення одного з рядів збігаються — кореляція не визначена",
     },
   },
+  es: {
+    fields: {
+      "xs": "Serie X: valores separados por espacios o saltos de línea",
+      "ys": "Serie Y: el mismo número de valores",
+    },
+    options: {},
+    results: {
+      "Коэффициент корреляции": "Coeficiente de correlación",
+      "Коэффициент детерминации": "Coeficiente de determinación",
+      "Ковариация выборки": "Covarianza muestral",
+      "Наклон линии": "Pendiente de la recta",
+      "Свободный член": "Ordenada en el origen",
+      "Пар значений": "Pares de valores",
+      "Среднее X": "Media de X",
+      "Среднее Y": "Media de Y",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "В рядах разное число значений — пары не построить": "Las series tienen distinto número de valores: no se pueden formar pares",
+      "Нужно не меньше трёх пар значений": "Hacen falta al menos tres pares de valores",
+      "Все значения одного из рядов совпадают — корреляция не определена": "Todos los valores de una de las series coinciden: la correlación no está definida",
+    },
+  },
 };

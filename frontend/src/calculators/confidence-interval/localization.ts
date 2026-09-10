@@ -82,4 +82,31 @@ export const localization: CalculatorLocalization = {
       "Объём выборки должен быть целым числом": "Обсяг вибірки має бути цілим числом",
     },
   },
+  es: {
+    fields: {
+      "mean": "Media muestral",
+      "sd": "Desviación típica",
+      "n": "Tamaño de la muestra",
+      "confidence": "Nivel de confianza",
+    },
+    options: {
+      "90": "90 % — z = 1,645",
+      "95": "95 % — z = 1,96",
+      "99": "99 % — z = 2,576",
+    },
+    results: {
+      "Доверительный интервал": "Intervalo de confianza",
+      "Предел погрешности": "Margen de error",
+      "Стандартная ошибка": "Error típico",
+      "Критическое значение z": "Valor crítico z",
+      "Нижняя граница": "Límite inferior",
+      "Верхняя граница": "Límite superior",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Стандартное отклонение не может быть отрицательным": "La desviación típica no puede ser negativa",
+      "Объём выборки должен быть не меньше двух": "El tamaño de la muestra debe ser al menos dos",
+      "Объём выборки должен быть целым числом": "El tamaño de la muestra debe ser un número entero",
+    },
+  },
 };

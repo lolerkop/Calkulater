@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { powerRootCopyEn } from './copy.en';
 import { powerRootCopyUk } from './copy.uk';
 import { powerRootCopyDe } from './copy.de';
+import { powerRootCopyEs } from './copy.es';
 import { powerRootReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: powerRootCopyEn, uk: powerRootCopyUk, de: powerRootCopyDe },
+  copy: { en: powerRootCopyEn, uk: powerRootCopyUk, de: powerRootCopyDe, es: powerRootCopyEs },
   referenceCases: powerRootReferenceCases,
   publishedExample: { inputs: { mode: 'power', base: 2, exponent: 10 }, expected: ["1 024"] },
   presentation: {

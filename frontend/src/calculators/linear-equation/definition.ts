@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { linearEquationCopyEn } from './copy.en';
 import { linearEquationCopyUk } from './copy.uk';
 import { linearEquationCopyDe } from './copy.de';
+import { linearEquationCopyEs } from './copy.es';
 import { linearEquationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: linearEquationCopyEn, uk: linearEquationCopyUk, de: linearEquationCopyDe },
+  copy: { en: linearEquationCopyEn, uk: linearEquationCopyUk, de: linearEquationCopyDe, es: linearEquationCopyEs },
   referenceCases: linearEquationReferenceCases,
   publishedExample: { inputs: { a: 3, b: 5, c: 20 }, expected: ['x = 5'] },
   presentation: {

@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { fractionArithCopyEn } from './copy.en';
 import { fractionArithCopyUk } from './copy.uk';
 import { fractionArithCopyDe } from './copy.de';
+import { fractionArithCopyEs } from './copy.es';
 import { fractionArithReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: fractionArithCopyEn, uk: fractionArithCopyUk, de: fractionArithCopyDe },
+  copy: { en: fractionArithCopyEn, uk: fractionArithCopyUk, de: fractionArithCopyDe, es: fractionArithCopyEs },
   referenceCases: fractionArithReferenceCases,
   publishedExample: { inputs: { op: 'add', a: 1, b: 2, c: 1, d: 3 }, expected: ["5/6"] },
   presentation: {

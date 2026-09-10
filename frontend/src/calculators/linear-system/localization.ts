@@ -55,4 +55,23 @@ export const localization: CalculatorLocalization = {
       'Определитель равен нулю: решение не единственно': 'Визначник дорівнює нулю: розв’язок не єдиний',
     },
   },
+  es: {
+    fields: {
+      "a1": "a₁ — coeficiente de x en la primera ecuación",
+      "b1": "b₁ — coeficiente de y en la primera ecuación",
+      "c1": "c₁ — lado derecho de la primera ecuación",
+      "a2": "a₂ — coeficiente de x en la segunda ecuación",
+      "b2": "b₂ — coeficiente de y en la segunda ecuación",
+      "c2": "c₂ — lado derecho de la segunda ecuación",
+    },
+    options: {},
+    results: {
+      "Решение системы": "Solución del sistema",
+      "Определитель": "Determinante principal",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Определитель равен нулю: решение не единственно": "El determinante es cero: la solución no es única",
+    },
+  },
 };

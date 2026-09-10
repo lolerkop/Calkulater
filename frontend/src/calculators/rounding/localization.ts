@@ -62,4 +62,27 @@ export const localization: CalculatorLocalization = {
       'Больше десяти знаков не поддерживается': 'Понад десять знаків не підтримується',
     },
   },
+  es: {
+    fields: {
+      "value": "Valor a redondear",
+      "digits": "Decimales",
+      "mode": "Sentido del redondeo",
+    },
+    options: {
+      "half": "al más cercano",
+      "down": "hacia abajo (suelo)",
+      "up": "hacia arriba (techo)",
+    },
+    results: {
+      "Округлённое значение": "Valor redondeado",
+      "Исходное значение": "Valor original",
+      "Разница": "Diferencia",
+      "Знаков": "Decimales",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Число знаков не может быть отрицательным": "El número de decimales no puede ser negativo",
+      "Больше десяти знаков не поддерживается": "No se admiten más de diez decimales",
+    },
+  },
 };

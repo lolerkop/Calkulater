@@ -131,9 +131,13 @@ describe('испанская локаль: hreflang', () => {
   });
 
   it('калькулятор без испанской страницы не получает испанский hreflang', () => {
+    // Отрицательный контроль привязан к документированному исключению: испанского
+    // числительного алгоритма нет, поэтому этот калькулятор остаётся без испанской
+    // страницы и после полной локализации — проверять на нём безопасно всегда.
+    expect(isCalculatorAvailableInLocale('number-to-words', 'es')).toBe(false);
     const withoutSpanish = getCalculators('en').filter((item) => !isCalculatorAvailableInLocale(item.id, 'es'));
-    expect(withoutSpanish.length).toBeGreaterThan(300);
-    for (const calculator of withoutSpanish.slice(0, 40)) {
+    expect(withoutSpanish.map((item) => item.id)).toContain('number-to-words');
+    for (const calculator of withoutSpanish) {
       const alternates = getAlternatesForCalculator(calculator.id);
       expect(alternates.some((item) => item.locale === 'es'), calculator.id).toBe(false);
     }

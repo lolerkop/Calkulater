@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { statsDescriptiveCopyEn } from './copy.en';
 import { statsDescriptiveCopyUk } from './copy.uk';
 import { statsDescriptiveCopyDe } from './copy.de';
+import { statsDescriptiveCopyEs } from './copy.es';
 import { statsDescriptiveReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: statsDescriptiveCopyEn, uk: statsDescriptiveCopyUk, de: statsDescriptiveCopyDe },
+  copy: { en: statsDescriptiveCopyEn, uk: statsDescriptiveCopyUk, de: statsDescriptiveCopyDe, es: statsDescriptiveCopyEs },
   referenceCases: statsDescriptiveReferenceCases,
   publishedExample: { inputs: { values: '12\n15\n18\n21\n24', mode: 'sample' }, expected: ['18'] },
   presentation: {
