@@ -14,6 +14,7 @@ import { localizeResult } from '../src/components/islands/calculator/resultLocal
 import { v2Runners } from '../src/calculators/runtime.generated';
 import { v2Localization } from '../src/calculators/localization.generated';
 import { runners } from '../src/lib/runners';
+import { runtimeFor } from '../src/calculators/runtime.generated';
 import { matchesCalculatorSearch } from '../src/lib/search';
 
 // Контракт немецкой локали, заложенный в фазе 27DE-F.
@@ -268,9 +269,10 @@ describe('немецкий результат в острове', () => {
       for (const inputs of scenarios(calculator)) {
       let raw;
       try { raw = runner(inputs as never); } catch { continue; }
-      const bundle = v2Localization.de[calculator.id];
-      const runtime = bundle ? { compute: runner, localization: { de: bundle } } : undefined;
-      const localized = localizeResult(raw, 'de', calculator.id, runtime);
+      // Рантайм берётся тот же, что уезжает в остров: собственные переводы
+      // калькулятора плюс отобранные под него общие фразы. Собирать его здесь
+      // вручную значило бы проверять набор, которого у посетителя нет.
+      const localized = localizeResult(raw, 'de', calculator.id, runtimeFor(calculator.id));
       // Таблица — часть результата, а не оформление: её заголовок, колонки,
       // ячейки и сноска переводятся тем же путём и в первой версии этой
       // проверки не участвовали. Заголовок «График первых платежей» остался

@@ -5,11 +5,13 @@
 //   npm run calculators:generate  — собрать манифест
 //   npm run calculators:verify    — убедиться, что закоммиченный актуален
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname } from 'node:path';
 import {
-  discoverCalculatorIds, DISPATCH_PATH, islandEntryPath, LOCALIZATION_PATH, MANIFEST_PATH,
-  renderDispatch, renderIslandEntry, renderLocalizationManifest,
-  renderManifest, renderRuntimeManifest, RUNTIME_PATH,
+  discoverCalculatorIds, DISPATCH_PATH, islandEntryPath, LOCALIZATION_PATH,
+  legacyIslandPath, legacyRunnerMap, MANIFEST_PATH, renderDispatch, renderIslandEntry,
+  legacySharedPath, renderLegacyIsland, renderLegacySharedPhrases, renderLocalizationManifest,
+  renderManifest, renderRuntimeManifest, renderSharedPhrases, RUNTIME_PATH, sharedPhrasesPath,
 } from './calculatorManifestSource.mts';
 
 const isVerify = process.argv.includes('--verify');
@@ -19,7 +21,12 @@ const targets = [
   { path: RUNTIME_PATH, content: renderRuntimeManifest(ids), name: 'runtime-манифест' },
   { path: LOCALIZATION_PATH, content: renderLocalizationManifest(ids), name: 'манифест локализации' },
   { path: DISPATCH_PATH, content: renderDispatch(ids), name: 'диспетчер островов' },
+  ...[...legacyRunnerMap().keys()].filter((id) => !ids.includes(id)).flatMap((id) => [
+    { path: legacyIslandPath(id), content: renderLegacyIsland(id), name: `наследственный остров ${id}` },
+    { path: legacySharedPath(id), content: renderLegacySharedPhrases(id), name: `общие фразы ${id}` },
+  ]),
   ...ids.map((id) => ({ path: islandEntryPath(id), content: renderIslandEntry(id), name: `точка входа ${id}` })),
+  ...ids.map((id) => ({ path: sharedPhrasesPath(id), content: renderSharedPhrases(id), name: `общие фразы ${id}` })),
 ];
 
 for (const target of targets) {
@@ -36,6 +43,7 @@ for (const target of targets) {
       process.exit(1);
     }
   } else {
+    mkdirSync(dirname(target.path), { recursive: true });
     writeFileSync(target.path, target.content, 'utf8');
   }
 }

@@ -3,6 +3,8 @@
 
 import CalculatorIsland from '../../components/islands/CalculatorIsland';
 import type { CalculatorClientRuntime } from '../../lib/platform/runtime';
+import { withSharedPhrases } from '../../lib/platform/runtime';
+import { shared } from './shared.generated';
 import { compute } from './compute';
 import { contextualField } from './contextualField';
 import { localization } from './localization';
@@ -10,7 +12,7 @@ import { localization } from './localization';
 const runtime: CalculatorClientRuntime = {
   compute,
   contextualField,
-  localization,
+  localization: withSharedPhrases(localization, shared),
 };
 
 type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'>;

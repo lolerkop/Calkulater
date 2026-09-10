@@ -3,7 +3,8 @@ import { calculators } from '../src/data/calculators';
 import { allRunners as runners } from '../src/lib/runners.all';
 import { buildInitialValues } from '../src/lib/shareLink';
 import { localizeResult, resultToText } from '../src/components/islands/calculator/resultLocalization';
-import { localizedResultText } from '../src/lib/clientI18n';
+import { runtimeFor } from '../src/calculators/runtime.generated';
+import { localizedResultText } from '../src/lib/resultPhrases';
 import type { CalcResult } from '../src/lib/types';
 import { calcScreed } from '../src/lib/calculators/screed';
 
@@ -19,7 +20,10 @@ function resultOf(id: string, overrides: Record<string, unknown> = {}): CalcResu
   return run({ ...buildInitialValues(calculator.fields), ...overrides } as never);
 }
 
-const bmi = () => resultOf('bmi-calculator', { height: 180, weight: 80 });
+const BMI = 'bmi-calculator';
+const CREDIT = 'credit-calculator';
+const SCREED = 'screed-calculator';
+const bmi = () => resultOf(BMI, { height: 180, weight: 80 });
 const credit = () => resultOf('credit-calculator', { amount: 600000, rate: 12, term: 5 });
 
 describe('result localization: RU is the control locale', () => {
@@ -29,24 +33,24 @@ describe('result localization: RU is the control locale', () => {
   });
 
   it('keeps the Russian formatting the runner produced', () => {
-    const ru = localizeResult(bmi(), 'ru');
+    const ru = localizeResult(bmi(), 'ru', BMI, runtimeFor(BMI));
     expect(ru.primary.value).toBe('24,7');
     expect(ru.secondary.find((row) => row.label === 'Категория')?.value).toBe('Норма');
     expect(ru.secondary.find((row) => row.label === 'Ориентир здорового веса')?.value).toBe('59,9–80,7 кг');
-    expect(localizeResult(credit(), 'ru').primary.value).toBe('13 347 ₽');
+    expect(localizeResult(credit(), 'ru', CREDIT, runtimeFor(CREDIT)).primary.value).toBe('13 347 ₽');
   });
 });
 
 describe('result localization: labels and units are translated', () => {
   it('translates EN labels and units', () => {
-    const en = localizeResult(credit(), 'en');
+    const en = localizeResult(credit(), 'en', CREDIT, runtimeFor(CREDIT));
     expect(en.primary.label).toBe('Monthly payment');
     expect(en.secondary.map((row) => row.label)).toContain('Total repayment');
     expect(en.secondary.find((row) => row.label === 'Term')?.value).toBe('60 mo.');
   });
 
   it('translates UK labels and units', () => {
-    const uk = localizeResult(bmi(), 'uk');
+    const uk = localizeResult(bmi(), 'uk', BMI, runtimeFor(BMI));
     expect(uk.secondary.map((row) => row.label)).toEqual(
       expect.arrayContaining(['Категорія', 'Зріст', 'Вага']),
     );
@@ -58,19 +62,19 @@ describe('result localization: number formatting per locale', () => {
   // Раннер форматирует числа по ru-RU; английские разделители расставляются
   // на границе представления, остальные локали используют запятую как есть.
   it('EN groups thousands with a comma; the currency symbol still trails', () => {
-    const en = localizeResult(credit(), 'en');
+    const en = localizeResult(credit(), 'en', CREDIT, runtimeFor(CREDIT));
     expect(en.primary.value).toBe('13,347 $');
     expect(en.secondary.find((row) => row.label === 'Total repayment')?.value).toBe('800,800 $');
   });
 
   it('EN marks the decimal with a dot', () => {
-    const en = localizeResult(bmi(), 'en');
+    const en = localizeResult(bmi(), 'en', BMI, runtimeFor(BMI));
     expect(en.primary.value).toBe('24.7');
     expect(en.secondary.find((row) => row.label === 'Healthy weight reference')?.value).toBe('59.9–80.7 kg');
   });
 
   it('UK keeps the comma decimal, which is correct for Ukrainian', () => {
-    const uk = localizeResult(bmi(), 'uk');
+    const uk = localizeResult(bmi(), 'uk', BMI, runtimeFor(BMI));
     expect(uk.primary.value).toBe('24,7');
     expect(uk.secondary.find((row) => row.label === 'Орієнтир здорової ваги')?.value).toBe('59,9–80,7 кг');
   });
@@ -78,7 +82,7 @@ describe('result localization: number formatting per locale', () => {
 
 describe('result localization: UK phrase substitution', () => {
   it('translates the BMI category exactly once', () => {
-    const uk = localizeResult(bmi(), 'uk');
+    const uk = localizeResult(bmi(), 'uk', BMI, runtimeFor(BMI));
     expect(uk.secondary.find((row) => row.label === 'Категорія')?.value)
       .toBe('Нормальний діапазон');
   });
@@ -115,7 +119,7 @@ describe('result localization: UK phrase substitution', () => {
 
 describe('result localization: copied text follows the visible result', () => {
   it('serialises the localized values, not the raw ones', () => {
-    const en = localizeResult(credit(), 'en');
+    const en = localizeResult(credit(), 'en', CREDIT, runtimeFor(CREDIT));
     const text = resultToText({ name: 'Loan calculator' }, en, 'en');
     expect(text).toContain('Loan calculator');
     expect(text).toContain('Monthly payment: 13,347 $');
@@ -123,7 +127,7 @@ describe('result localization: copied text follows the visible result', () => {
   });
 
   it('adds the localized note label when a note exists', () => {
-    const uk = localizeResult(bmi(), 'uk');
+    const uk = localizeResult(bmi(), 'uk', BMI, runtimeFor(BMI));
     const text = resultToText({ name: 'Калькулятор ІМТ' }, uk, 'uk');
     expect(text).toContain('Примітка: ');
   });
@@ -144,7 +148,7 @@ describe('result localization: единицы объёма', () => {
   });
 
   it('переводит единицу внутри полного результата стяжки', () => {
-    const en = localizeResult(calcScreed({ mode: 'area', manualArea: 20, thickness: 5, reserve: 0 }), 'en');
+    const en = localizeResult(calcScreed({ mode: 'area', manualArea: 20, thickness: 5, reserve: 0 }), 'en', SCREED, runtimeFor(SCREED));
     expect(en.primary.value).toBe('1.000 m³');
     expect(en.primary.label).toBe('Mortar volume');
     expect(JSON.stringify(en)).not.toMatch(/[А-Яа-яЁё]/);

@@ -1,0 +1,82 @@
+// СГЕНЕРИРОВАНО. Не редактировать руками.
+// Общие фразы результата, отобранные под наследственный калькулятор brick-calculator.
+// Перегенерировать: npm run calculators:generate
+
+import type { CalculatorLocalization } from '../../../../lib/platform/types';
+
+export const shared: CalculatorLocalization = {
+  en: {
+    results: {
+      'Количество камней': 'Units needed',
+      'Площадь кладки': 'Masonry area',
+      'Площадь проёмов': 'Openings area',
+      'Камней без запаса': 'Units without waste',
+      'Расчётный модуль камня': 'Working module per unit',
+      'Камней на квадратный метр': 'Units per square metre',
+      'Проверьте данные': 'Check inputs',
+      'В': 'To',
+      'Площадь': 'Area',
+      'Запас': 'Reserve',
+      'Ориентировочная стоимость': 'Estimated cost',
+    },
+    values: {
+      'Введите положительные размеры стены': 'Enter positive wall dimensions',
+      'Введите положительные размеры камня': 'Enter positive unit dimensions',
+      'Толщина шва не может быть отрицательной': 'The mortar joint cannot be negative',
+      'Площадь проёмов не может быть отрицательной': 'The area of openings cannot be negative',
+      'Запас не может быть отрицательным': 'The waste allowance cannot be negative',
+      'Проёмы занимают всю стену — кладка не требуется': 'The openings fill the whole wall — there is nothing to build',
+      'Расчёт выполнен для одного слоя кладки по видимой плоскости стены. Кладка в кирпич и толще, перевязка, простенки и доборные элементы не моделируются, поэтому перед закупкой сверьтесь с проектом.': 'The calculation covers a single leaf of masonry measured on the visible face of the wall. Walls one brick thick or more, bonding patterns, piers and special units are not modelled, so check your drawings before ordering.',
+      'Введите положительные размеры': 'Enter positive dimensions',
+    },
+  },
+  uk: {
+    results: {
+      'Количество камней': 'Кількість каменів',
+      'Площадь кладки': 'Площа кладки',
+      'Площадь проёмов': 'Площа прорізів',
+      'Камней без запаса': 'Каменів без запасу',
+      'Расчётный модуль камня': 'Розрахунковий модуль каменю',
+      'Камней на квадратный метр': 'Каменів на квадратний метр',
+      'Проверьте данные': 'Перевірте дані',
+      'В': 'У',
+      'Площадь': 'Площа',
+      'Запас': 'Запас',
+      'Ориентировочная стоимость': 'Орієнтовна вартість',
+    },
+    values: {
+      'Введите положительные размеры стены': 'Введіть додатні розміри стіни',
+      'Введите положительные размеры камня': 'Введіть додатні розміри каменю',
+      'Толщина шва не может быть отрицательной': 'Товщина шва не може бути відʼємною',
+      'Площадь проёмов не может быть отрицательной': 'Площа прорізів не може бути відʼємною',
+      'Запас не может быть отрицательным': 'Запас не може бути відʼємним',
+      'Проёмы занимают всю стену — кладка не требуется': 'Прорізи займають усю стіну — класти нічого',
+      'Расчёт выполнен для одного слоя кладки по видимой плоскости стены. Кладка в кирпич и толще, перевязка, простенки и доборные элементы не моделируются, поэтому перед закупкой сверьтесь с проектом.': 'Розрахунок виконано для одного шару кладки по видимій площині стіни. Кладка в цеглину й товща, перевʼязка, простінки та добірні елементи не моделюються, тому перед закупівлею звіртеся з проєктом.',
+      'Введите положительные размеры': 'Введіть додатні розміри',
+    },
+  },
+  de: {
+    results: {
+      'Количество камней': 'Anzahl der Steine',
+      'Площадь кладки': 'Mauerwerksfläche',
+      'Камней без запаса': 'Steine ohne Reserve',
+      'Расчётный модуль камня': 'Rechenmodul des Steins',
+      'Камней на квадратный метр': 'Steine je Quadratmeter',
+      'Проверьте данные': 'Prüfe die Werte',
+      'В': 'Nach',
+      'Площадь': 'Fläche',
+      'Запас': 'Reserve',
+      'Ориентировочная стоимость': 'Ungefähre Kosten',
+    },
+    values: {
+      'Введите положительные размеры стены': 'Trage positive Wandmaße ein',
+      'Введите положительные размеры камня': 'Trage positive Steinmaße ein',
+      'Толщина шва не может быть отрицательной': 'Die Fugendicke kann nicht negativ sein',
+      'Площадь проёмов не может быть отрицательной': 'Die Fläche der Öffnungen kann nicht negativ sein',
+      'Запас не может быть отрицательным': 'Die Reserve kann nicht negativ sein',
+      'Проёмы занимают всю стену — кладка не требуется': 'Die Öffnungen füllen die ganze Wand — es ist nichts zu mauern',
+      'Расчёт выполнен для одного слоя кладки по видимой плоскости стены. Кладка в кирпич и толще, перевязка, простенки и доборные элементы не моделируются, поэтому перед закупкой сверьтесь с проектом.': 'Gerechnet ist eine einschalige Wand, gemessen an der sichtbaren Wandfläche. Wände von einem Stein Dicke und mehr, Verband, Pfeiler und Ergänzungssteine werden nicht abgebildet, prüfe vor dem Einkauf also die Planung.',
+      'Введите положительные размеры': 'Trage positive Maße ein',
+    },
+  },
+};

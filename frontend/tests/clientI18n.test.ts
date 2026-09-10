@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { localizedResultLabel, localizedResultText } from '../src/lib/clientI18n';
+import { localizedResultLabel, localizedResultText } from '../src/lib/resultPhrases';
 
 describe('calculator result localization', () => {
   it('uses Ukrainian result labels instead of the English fallback', () => {

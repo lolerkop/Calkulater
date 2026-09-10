@@ -8,7 +8,7 @@ import { getCalculatorSeoContent } from '../data/calculatorSeoContent';
 import { fullParityCalculatorIds, isRuOnlyCalculator } from '../data/localizationParity';
 import { ukCalculatorContent } from '../data/ukCalculatorContent';
 import { deCalculatorContent } from '../data/deCalculatorContent';
-import { localizedResultLabel } from './clientI18n';
+import { localizedResultLabel } from './resultPhrases';
 import type { CalculatorDef, Category, CategoryId, Field, FaqItem } from './types';
 
 export const allLocales = ['ru', 'en', 'es', 'de', 'fr', 'pt', 'it', 'pl', 'nl', 'ro', 'id', 'tr', 'vi', 'cs', 'uk', 'sk', 'hu'] as const;
