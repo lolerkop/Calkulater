@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { engagementRateCopyEn } from './copy.en';
 import { engagementRateCopyUk } from './copy.uk';
 import { engagementRateCopyDe } from './copy.de';
+import { engagementRateCopyEs } from './copy.es';
 import { engagementRateReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: engagementRateCopyEn, uk: engagementRateCopyUk, de: engagementRateCopyDe },
+  copy: { en: engagementRateCopyEn, uk: engagementRateCopyUk, de: engagementRateCopyDe, es: engagementRateCopyEs },
   referenceCases: engagementRateReferenceCases,
   publishedExample: { inputs: { engagements: 450, base: 'reach', reach: 9000 }, expected: ["5,00%"] },
   presentation: {

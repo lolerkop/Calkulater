@@ -62,4 +62,27 @@ export const localization: CalculatorLocalization = {
     "Маржинальность задаётся в диапазоне от 0 до 100 процентов": "Маржа задається в діапазоні від 0 до 100 відсотків",
     },
   },
+  es: {
+    fields: {
+      "revenue": "Ingresos",
+      "cost": "Inversión publicitaria",
+      "margin": "Margen bruto, %",
+    },
+    options: {},
+    results: {
+      "ROAS": "ROAS",
+      "ROAS в процентах": "ROAS en porcentaje",
+      "ROI": "ROI",
+      "Прибыль": "Beneficio",
+      "Точка окупаемости по доходу": "Ingresos de equilibrio",
+      "ROAS по валовой марже": "ROAS sobre margen bruto",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Доход не может быть отрицательным": "Los ingresos no pueden ser negativos",
+      "Расход должен быть больше нуля": "La inversión debe ser mayor que cero",
+      "Маржинальность задаётся в диапазоне от 0 до 100 процентов": "El margen se fija entre 0 y 100 por ciento",
+    },
+  },
 };

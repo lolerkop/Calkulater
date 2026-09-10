@@ -58,4 +58,24 @@ export const localization: CalculatorLocalization = {
       'Число периодов должно быть не меньше одного': 'Кількість періодів має бути не меншою за один',
     },
   },
+  es: {
+    fields: {
+      "start": "Audiencia al inicio",
+      "end": "Audiencia al final",
+      "periods": "Número de periodos",
+    },
+    options: {},
+    results: {
+      "Общий рост": "Crecimiento total",
+      "Рост за период": "Crecimiento por periodo",
+      "Прирост": "Ganancia neta",
+      "Множитель": "Multiplicador",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Начальная аудитория должна быть больше нуля": "La audiencia inicial debe ser mayor que cero",
+      "Конечная аудитория должна быть больше нуля": "La audiencia final debe ser mayor que cero",
+      "Число периодов должно быть не меньше одного": "El número de periodos debe ser al menos uno",
+    },
+  },
 };

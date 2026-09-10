@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { mrrArrCopyEn } from './copy.en';
 import { mrrArrCopyUk } from './copy.uk';
 import { mrrArrCopyDe } from './copy.de';
+import { mrrArrCopyEs } from './copy.es';
 import { mrrArrReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: mrrArrCopyEn, uk: mrrArrCopyUk, de: mrrArrCopyDe },
+  copy: { en: mrrArrCopyEn, uk: mrrArrCopyUk, de: mrrArrCopyDe, es: mrrArrCopyEs },
   referenceCases: mrrArrReferenceCases,
   publishedExample: { inputs: { subscribers: 420, arpuMonth: 1490, growthPct: 4 }, expected: ["625 800,00 ₽"] },
   presentation: {

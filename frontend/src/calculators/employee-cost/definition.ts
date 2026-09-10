@@ -4,6 +4,7 @@ import { compute } from './compute';
 import { employeeCostCopyEn } from './copy.en';
 import { employeeCostCopyUk } from './copy.uk';
 import { employeeCostCopyDe } from './copy.de';
+import { employeeCostCopyEs } from './copy.es';
 import { employeeCostReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: employeeCostCopyEn, uk: employeeCostCopyUk, de: employeeCostCopyDe },
+  copy: { en: employeeCostCopyEn, uk: employeeCostCopyUk, de: employeeCostCopyDe, es: employeeCostCopyEs },
   referenceCases: employeeCostReferenceCases,
   publishedExample: {
     inputs: { gross: 180000, taxPct: 30, overhead: 25000 },

@@ -64,4 +64,30 @@ export const localization: CalculatorLocalization = {
     "Показов должно быть не меньше одного": "Показів має бути щонайменше один",
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "cost": "Presupuesto de la campaña",
+      "impressions": "Impresiones",
+      "cpm": "CPM",
+    },
+    options: {
+      "cpm": "CPM",
+      "impressions": "impresiones",
+      "cost": "presupuesto",
+    },
+    results: {
+      "CPM": "CPM",
+      "Показы": "Impresiones",
+      "Бюджет": "Presupuesto",
+      "Стоимость показа": "Coste por impresión",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Бюджет не может быть отрицательным": "El presupuesto no puede ser negativo",
+      "CPM должен быть больше нуля": "El CPM debe ser mayor que cero",
+      "Показов должно быть не меньше одного": "Debe haber al menos una impresión",
+    },
+  },
 };

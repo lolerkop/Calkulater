@@ -60,4 +60,28 @@ export const localization: CalculatorLocalization = {
       'Фактический цикл не может быть отрицательным': 'Фактичний цикл не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "availableMinutes": "Tiempo disponible por turno, min",
+      "demand": "Demanda por turno, unidades",
+      "actualCycle": "Tiempo de ciclo real, min",
+    },
+    options: {},
+    results: {
+      "Такт производства": "Tiempo takt",
+      "Единиц в час": "Unidades por hora",
+      "Фактический цикл": "Tiempo de ciclo real",
+      "Загрузка такта": "Utilización del takt",
+      "Возможный выпуск за смену": "Producción posible por turno",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мин/шт": "min/ud.",
+      "мин": "min",
+      "шт": "uds.",
+      "Доступное время смены должно быть больше нуля": "El tiempo disponible del turno debe ser mayor que cero",
+      "Спрос — целое число единиц, не меньше одной": "La demanda debe ser un número entero de unidades, al menos una",
+      "Фактический цикл не может быть отрицательным": "El tiempo de ciclo real no puede ser negativo",
+    },
+  },
 };

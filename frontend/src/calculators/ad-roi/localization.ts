@@ -27,4 +27,21 @@ export const localization: CalculatorLocalization = {
     results: { 'ROI рекламы': 'ROI реклами', 'ROAS': 'ROAS', 'Прибыль кампании': 'Прибуток кампанії', 'Расходы на кампанию': 'Витрати на кампанію', 'Проверьте данные': 'Перевірте дані' },
     values: { 'Расходы на кампанию должны быть больше нуля': 'Витрати на кампанію мають бути більшими за нуль' },
   },
+  es: {
+    fields: {
+      "revenue": "Ingresos de la campaña",
+      "spend": "Inversión en la campaña",
+    },
+    options: {},
+    results: {
+      "ROI рекламы": "ROI publicitario",
+      "ROAS": "ROAS",
+      "Прибыль кампании": "Beneficio de la campaña",
+      "Расходы на кампанию": "Inversión en la campaña",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Расходы на кампанию должны быть больше нуля": "La inversión en la campaña debe ser mayor que cero",
+    },
+  },
 };

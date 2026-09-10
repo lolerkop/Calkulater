@@ -6,6 +6,7 @@ import { compute } from './compute';
 import { returnRateCopyEn } from './copy.en';
 import { returnRateCopyUk } from './copy.uk';
 import { returnRateCopyDe } from './copy.de';
+import { returnRateCopyEs } from './copy.es';
 import { returnRateReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: returnRateCopyEn, uk: returnRateCopyUk, de: returnRateCopyDe },
+  copy: { en: returnRateCopyEn, uk: returnRateCopyUk, de: returnRateCopyDe, es: returnRateCopyEs },
   referenceCases: returnRateReferenceCases,
   publishedExample: { inputs: { returns: 45, orders: 900 }, expected: ['5,00 %'] },
   presentation: {

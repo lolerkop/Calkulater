@@ -87,4 +87,33 @@ export const localization: CalculatorLocalization = {
       "Сумма не может быть отрицательной": "Сума не може бути від'ємною",
     },
   },
+  es: {
+    fields: {
+      "price": "Precio del artículo, €",
+      "commissionPct": "Comisión de la plataforma, %",
+      "acquiringPct": "Pasarela de pago, %",
+      "logistics": "Envío por paquete, €",
+      "storage": "Almacenaje por paquete, €",
+      "cost": "Coste de la mercancía, €",
+    },
+    options: {},
+    results: {
+      "Выплата продавцу": "Liquidación al vendedor",
+      "Комиссия площадки": "Comisión de la plataforma",
+      "Эквайринг": "Pasarela de pago",
+      "Логистика": "Envío",
+      "Хранение": "Almacenaje",
+      "Удержано всего": "Total descontado",
+      "Доля удержаний": "Proporción sobre el precio",
+      "Прибыль": "Beneficio",
+      "Рентабельность к цене": "Rentabilidad sobre el precio",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Цена товара должна быть больше нуля": "El precio del artículo debe ser mayor que cero",
+      "Ставка удержания не может быть отрицательной": "Un tipo de descuento no puede ser negativo",
+      "Сумма не может быть отрицательной": "Un importe no puede ser negativo",
+    },
+  },
 };

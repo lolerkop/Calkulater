@@ -71,4 +71,33 @@ export const localization: CalculatorLocalization = {
       'Введите хотя бы одну строку вида «09:00,18:00,60»': 'Введіть хоча б один рядок на кшталт 09:00,18:00,60',
     },
   },
+  es: {
+    fields: {
+      "lines": "Turnos: inicio, fin y descanso en minutos",
+      "rate": "Tarifa por hora",
+      "normal": "Jornada estándar del periodo, horas",
+    },
+    options: {},
+    results: {
+      "Всего часов": "Horas totales",
+      "Дней в табеле": "Días del parte",
+      "В часах и минутах": "En horas y minutos",
+      "Сверхурочных": "Horas extra",
+      "Начислено": "Salario bruto",
+      "Смены": "Turnos",
+      "Начало": "Inicio",
+      "Конец": "Fin",
+      "Перерыв, мин": "Descanso, min",
+      "Часов": "Horas",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "ч": "h",
+      "мин": "min",
+      "Ставка не может быть отрицательной": "La tarifa no puede ser negativa",
+      "Норма часов не может быть отрицательной": "La jornada estándar no puede ser negativa",
+      "В строке нужны начало и конец через запятую": "Cada línea necesita un inicio y un fin separados por coma",
+      "Введите хотя бы одну строку вида «09:00,18:00,60»": "Introduce al menos una línea del tipo «09:00,18:00,60»",
+    },
+  },
 };

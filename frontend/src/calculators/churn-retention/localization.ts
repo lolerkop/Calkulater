@@ -55,4 +55,25 @@ export const localization: CalculatorLocalization = {
       "Ушло не может быть больше, чем было на начало": "Пішло не може бути більше, ніж було на початок",
     },
   },
+  es: {
+    fields: {
+      "startCustomers": "Clientes al inicio",
+      "lost": "Perdidos durante el periodo",
+      "gained": "Ganados durante el periodo",
+    },
+    options: {},
+    results: {
+      "Отток": "Rotación",
+      "Удержание": "Retención",
+      "Клиентов на конец": "Clientes al final",
+      "Чистый прирост": "Crecimiento neto",
+      "Средний срок жизни, периодов": "Vida media, periodos",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Клиентов на начало должно быть больше нуля": "Debe haber más de cero clientes al inicio",
+      "Числа клиентов не могут быть отрицательными": "Los recuentos de clientes no pueden ser negativos",
+      "Ушло не может быть больше, чем было на начало": "No pueden perderse más clientes de los que había al inicio",
+    },
+  },
 };

@@ -58,4 +58,28 @@ export const localization: CalculatorLocalization = {
         'За такої ставки дисконтовані потоки ніколи не покриють вкладення',
     },
   },
+  es: {
+    fields: {
+      "investment": "Inversión",
+      "cashflow": "Flujo de caja anual",
+      "rate": "Tipo de descuento, %",
+    },
+    options: {},
+    results: {
+      "Простой срок окупаемости": "Plazo de recuperación simple",
+      "В месяцах": "En meses",
+      "Дисконтированный срок": "Plazo de recuperación descontado",
+      "Годовой поток": "Flujo anual",
+      "Возврат за простой срок": "Devuelto en el plazo simple",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "лет": "años",
+      "мес": "mes",
+      "Вложение должно быть больше нуля": "La inversión debe ser mayor que cero",
+      "Годовой денежный поток должен быть больше нуля": "El flujo de caja anual debe ser mayor que cero",
+      "Ставка дисконтирования не может быть отрицательной": "El tipo de descuento no puede ser negativo",
+      "При такой ставке дисконтированные потоки не покроют вложение никогда": "Con ese tipo los flujos descontados no cubrirán la inversión nunca",
+    },
+  },
 };

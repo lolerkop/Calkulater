@@ -37,4 +37,23 @@ export const localization: CalculatorLocalization = {
       'Выручка не может быть отрицательной': 'Виторг не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "revenue": "Ingresos anuales",
+      "employees": "Número de empleados",
+    },
+    options: {},
+    results: {
+      "Выручка на сотрудника": "Ingresos por empleado",
+      "Выручка": "Ingresos",
+      "Сотрудников": "Empleados",
+      "В месяц на сотрудника": "Al mes por empleado",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Число сотрудников должно быть целым": "El número de empleados debe ser un número entero",
+      "Сотрудников должно быть больше нуля": "Debe haber al menos un empleado",
+      "Выручка не может быть отрицательной": "Los ingresos no pueden ser negativos",
+    },
+  },
 };

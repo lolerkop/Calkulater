@@ -6,6 +6,7 @@ import { compute } from './compute';
 import { aovCopyEn } from './copy.en';
 import { aovCopyUk } from './copy.uk';
 import { aovCopyDe } from './copy.de';
+import { aovCopyEs } from './copy.es';
 import { aovReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: aovCopyEn, uk: aovCopyUk, de: aovCopyDe },
+  copy: { en: aovCopyEn, uk: aovCopyUk, de: aovCopyDe, es: aovCopyEs },
   referenceCases: aovReferenceCases,
   publishedExample: { inputs: { revenue: 250000, orders: 200 }, expected: ['1 250 ₽'] },
   presentation: {

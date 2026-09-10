@@ -61,4 +61,25 @@ export const localization: CalculatorLocalization = {
       'Накладные расходы не могут быть отрицательными': 'Накладні витрати не можуть бути від’ємними',
     },
   },
+  es: {
+    fields: {
+      "gross": "Salario bruto, €",
+      "taxPct": "Cotizaciones a cargo de la empresa, %",
+      "overhead": "Gastos generales por periodo, €",
+    },
+    options: {},
+    results: {
+      "Полная стоимость сотрудника": "Coste total del empleado",
+      "Взносы": "Cotizaciones",
+      "Оклад": "Salario bruto",
+      "Накладные": "Gastos generales",
+      "Множитель к окладу": "Múltiplo sobre el salario",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Оклад должен быть больше нуля": "El salario debe ser mayor que cero",
+      "Ставка взносов не может быть отрицательной": "El tipo de cotización no puede ser negativo",
+      "Накладные расходы не могут быть отрицательными": "Los gastos generales no pueden ser negativos",
+    },
+  },
 };

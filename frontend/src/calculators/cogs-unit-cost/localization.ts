@@ -58,4 +58,24 @@ export const localization: CalculatorLocalization = {
       'Тираж должен быть больше нуля': 'Тираж має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "materials": "Materiales, €",
+      "labor": "Mano de obra, €",
+      "overhead": "Gastos generales, €",
+      "units": "Unidades producidas",
+    },
+    options: {},
+    results: {
+      "Себестоимость единицы": "Coste por unidad",
+      "Всего затрат": "Coste total",
+      "Единиц": "Unidades",
+      "Доля материалов": "Proporción de materiales",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Затраты не могут быть отрицательными": "Los costes no pueden ser negativos",
+      "Тираж должен быть больше нуля": "El número de unidades debe ser mayor que cero",
+    },
+  },
 };

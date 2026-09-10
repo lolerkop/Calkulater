@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { roasCopyEn } from './copy.en';
 import { roasCopyUk } from './copy.uk';
 import { roasCopyDe } from './copy.de';
+import { roasCopyEs } from './copy.es';
 import { roasReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: roasCopyEn, uk: roasCopyUk, de: roasCopyDe },
+  copy: { en: roasCopyEn, uk: roasCopyUk, de: roasCopyDe, es: roasCopyEs },
   referenceCases: roasReferenceCases,
   publishedExample: { inputs: { revenue: 480000, cost: 120000, margin: 100 }, expected: ["4,00×"] },
   presentation: {

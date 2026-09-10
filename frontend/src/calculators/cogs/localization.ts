@@ -64,4 +64,26 @@ export const localization: CalculatorLocalization = {
       'Запас на конец больше, чем было доступно к продаже': 'Запас на кінець більший, ніж було доступно до продажу',
     },
   },
+  es: {
+    fields: {
+      "beginInventory": "Existencia inicial, €",
+      "purchases": "Compras del periodo, €",
+      "endInventory": "Existencia final, €",
+    },
+    options: {},
+    results: {
+      "Себестоимость проданных товаров": "Coste de las mercancías vendidas",
+      "Доступно к продаже": "Disponible para la venta",
+      "Запас на начало": "Existencia inicial",
+      "Закупки": "Compras",
+      "Запас на конец": "Existencia final",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Запас на начало не может быть отрицательным": "La existencia inicial no puede ser negativa",
+      "Закупки не могут быть отрицательными": "Las compras no pueden ser negativas",
+      "Запас на конец не может быть отрицательным": "La existencia final no puede ser negativa",
+      "Запас на конец больше, чем было доступно к продаже": "La existencia final supera a las mercancías disponibles para la venta",
+    },
+  },
 };

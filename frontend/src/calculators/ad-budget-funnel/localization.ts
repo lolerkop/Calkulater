@@ -67,4 +67,27 @@ export const localization: CalculatorLocalization = {
       'Средний чек должен быть больше нуля': 'Середній чек має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "budget": "Presupuesto publicitario, €",
+      "cpc": "Coste por clic, €",
+      "crPct": "Tasa de conversión, %",
+      "aov": "Ticket medio, €",
+    },
+    options: {},
+    results: {
+      "Ожидаемая выручка": "Ingresos previstos",
+      "Кликов": "Clics",
+      "Заказов": "Pedidos",
+      "ROAS": "ROAS",
+      "Цена заказа": "Coste por pedido",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Бюджет должен быть больше нуля": "El presupuesto debe ser mayor que cero",
+      "Цена клика должна быть больше нуля": "El coste por clic debe ser mayor que cero",
+      "Конверсия должна быть больше нуля и не больше ста процентов": "La tasa de conversión debe ser mayor que cero y como mucho cien por ciento",
+      "Средний чек должен быть больше нуля": "El ticket medio debe ser mayor que cero",
+    },
+  },
 };

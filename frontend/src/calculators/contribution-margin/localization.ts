@@ -47,4 +47,24 @@ export const localization: CalculatorLocalization = {
       'Цена должна быть больше нуля': 'Ціна має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "price": "Precio por unidad",
+      "variable": "Coste variable por unidad",
+      "volume": "Volumen, unidades",
+    },
+    options: {},
+    results: {
+      "Маржинальный доход": "Margen de contribución",
+      "Доля в цене": "Proporción sobre el precio",
+      "Маржинальный доход на объём": "Margen de contribución del volumen",
+      "Переменные затраты": "Costes variables",
+      "Внимание": "Atención",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Переменные затраты выше цены": "Los costes variables superan al precio",
+      "Цена должна быть больше нуля": "El precio debe ser mayor que cero",
+    },
+  },
 };

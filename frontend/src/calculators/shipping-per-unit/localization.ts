@@ -38,4 +38,24 @@ export const localization: CalculatorLocalization = {
       'Стоимость доставки не может быть отрицательной': 'Вартість доставки не може бути від’ємною',
     },
   },
+  es: {
+    fields: {
+      "shipping": "Coste del envío",
+      "units": "Unidades del lote",
+      "packaging": "Coste del embalaje",
+    },
+    options: {},
+    results: {
+      "Доставка на единицу": "Envío por unidad",
+      "Всего логистики": "Logística total",
+      "В том числе упаковка": "Del cual, embalaje",
+      "Единиц в партии": "Unidades del lote",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Число единиц должно быть целым": "El número de unidades debe ser un número entero",
+      "Единиц должно быть больше нуля": "Debe haber al menos una unidad",
+      "Стоимость доставки не может быть отрицательной": "El coste del envío no puede ser negativo",
+    },
+  },
 };

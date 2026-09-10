@@ -61,4 +61,25 @@ export const localization: CalculatorLocalization = {
       'Кликов не может быть больше, чем показов': 'Кліків не може бути більше, ніж показів',
     },
   },
+  es: {
+    fields: {
+      "cost": "Presupuesto publicitario, €",
+      "clicks": "Clics obtenidos",
+      "impressions": "Impresiones, 0 si se desconocen",
+    },
+    options: {},
+    results: {
+      "Цена клика (CPC)": "Coste por clic (CPC)",
+      "Кликов": "Clics",
+      "Бюджет": "Presupuesto",
+      "CPM": "CPM",
+      "Кликабельность": "Tasa de clics",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Бюджет должен быть больше нуля": "El presupuesto debe ser mayor que cero",
+      "Число кликов должно быть больше нуля": "El número de clics debe ser mayor que cero",
+      "Кликов не может быть больше, чем показов": "No puede haber más clics que impresiones",
+    },
+  },
 };

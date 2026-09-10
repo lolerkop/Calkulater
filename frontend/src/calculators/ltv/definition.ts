@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { ltvCopyEn } from './copy.en';
 import { ltvCopyUk } from './copy.uk';
 import { ltvCopyDe } from './copy.de';
+import { ltvCopyEs } from './copy.es';
 import { ltvReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: ltvCopyEn, uk: ltvCopyUk, de: ltvCopyDe },
+  copy: { en: ltvCopyEn, uk: ltvCopyUk, de: ltvCopyDe, es: ltvCopyEs },
   referenceCases: ltvReferenceCases,
   publishedExample: { inputs: { mode: 'months', arpu: 1200, months: 18, margin: 100 }, expected: ["21 600,00 ₽"] },
   presentation: {

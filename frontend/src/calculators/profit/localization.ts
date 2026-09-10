@@ -55,4 +55,23 @@ export const localization: CalculatorLocalization = {
       'Затраты не могут быть отрицательными': 'Витрати не можуть бути від’ємними',
     },
   },
+  es: {
+    fields: {
+      "revenue": "Ingresos, €",
+      "cost": "Costes, €",
+    },
+    options: {},
+    results: {
+      "Прибыль": "Beneficio",
+      "Маржа": "Margen",
+      "Наценка": "Marcado",
+      "Выручка": "Ingresos",
+      "Затраты": "Costes",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выручка должна быть больше нуля": "Los ingresos deben ser mayores que cero",
+      "Затраты не могут быть отрицательными": "Los costes no pueden ser negativos",
+    },
+  },
 };

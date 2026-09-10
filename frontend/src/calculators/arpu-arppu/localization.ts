@@ -62,4 +62,28 @@ export const localization: CalculatorLocalization = {
       "Платящих не может быть больше, чем пользователей": "Платних не може бути більше, ніж користувачів",
     },
   },
+  es: {
+    fields: {
+      "revenue": "Ingresos del periodo, €",
+      "users": "Usuarios totales",
+      "payingUsers": "De ellos, de pago",
+    },
+    options: {},
+    results: {
+      "ARPU": "ARPU",
+      "ARPPU": "ARPPU",
+      "Доля платящих": "Proporción de pagadores",
+      "Выручка": "Ingresos",
+      "Пользователей": "Usuarios",
+      "Платящих": "Usuarios de pago",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Выручка должна быть больше нуля": "Los ingresos deben ser mayores que cero",
+      "Число пользователей должно быть больше нуля": "El número de usuarios debe ser mayor que cero",
+      "Число платящих не может быть отрицательным": "El número de usuarios de pago no puede ser negativo",
+      "Платящих не может быть больше, чем пользователей": "No puede haber más usuarios de pago que usuarios",
+    },
+  },
 };

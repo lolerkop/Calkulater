@@ -56,4 +56,26 @@ export const localization: CalculatorLocalization = {
       "Падение выручки не может превышать ста процентов": "Падіння виручки не може перевищувати ста відсотків",
     },
   },
+  es: {
+    fields: {
+      "subscribers": "Suscriptores",
+      "arpuMonth": "Ingreso medio por suscriptor y mes, €",
+      "growthPct": "Crecimiento mensual de la base, %",
+    },
+    options: {},
+    results: {
+      "MRR": "MRR",
+      "ARR": "ARR",
+      "MRR через месяц": "MRR dentro de un mes",
+      "Прирост за месяц": "Crecimiento en un mes",
+      "Подписчиков": "Suscriptores",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Число подписчиков должно быть больше нуля": "El número de suscriptores debe ser mayor que cero",
+      "Средний доход с подписчика должен быть больше нуля": "El ingreso medio por suscriptor debe ser mayor que cero",
+      "Падение выручки не может превышать ста процентов": "Una caída de ingresos no puede superar el cien por cien",
+    },
+  },
 };

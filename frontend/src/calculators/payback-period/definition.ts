@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { paybackPeriodCopyEn } from './copy.en';
 import { paybackPeriodCopyUk } from './copy.uk';
 import { paybackPeriodCopyDe } from './copy.de';
+import { paybackPeriodCopyEs } from './copy.es';
 import { paybackPeriodReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: paybackPeriodCopyEn, uk: paybackPeriodCopyUk, de: paybackPeriodCopyDe },
+  copy: { en: paybackPeriodCopyEn, uk: paybackPeriodCopyUk, de: paybackPeriodCopyDe, es: paybackPeriodCopyEs },
   referenceCases: paybackPeriodReferenceCases,
   publishedExample: { inputs: { investment: 1000000, cashflow: 300000, rate: 0 }, expected: ["3,333 лет"] },
   presentation: {

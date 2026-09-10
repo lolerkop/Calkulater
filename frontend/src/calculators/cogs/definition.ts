@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { cogsCopyEn } from './copy.en';
 import { cogsCopyUk } from './copy.uk';
 import { cogsCopyDe } from './copy.de';
+import { cogsCopyEs } from './copy.es';
 import { cogsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cogsCopyEn, uk: cogsCopyUk, de: cogsCopyDe },
+  copy: { en: cogsCopyEn, uk: cogsCopyUk, de: cogsCopyDe, es: cogsCopyEs },
   referenceCases: cogsReferenceCases,
   publishedExample: {
     inputs: { beginInventory: 320000, purchases: 780000, endInventory: 415000 },
