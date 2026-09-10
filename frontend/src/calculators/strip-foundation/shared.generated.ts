@@ -46,6 +46,10 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Площадь': 'Área',
+      'Запас': 'Reserva',
+    },
+    values: {
+      'Запас не может быть отрицательным': 'La reserva no puede ser negativa',
     },
   },
 };

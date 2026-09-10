@@ -67,7 +67,17 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Revisa los datos',
       'Вес': 'Peso',
       'Площадь': 'Área',
+      'Объём раствора': 'Volumen de mortero',
+      'Толщина слоя': 'Espesor de la capa',
+      'Сухая смесь': 'Mezcla seca',
+      'Мешков': 'Sacos',
+      'Стоимость смеси': 'Coste de la mezcla',
       'Ошибка': 'Error',
+    },
+    values: {
+      'Введите положительные размеры и толщину': 'Introduce dimensiones y un espesor positivos',
+      'Вес мешка должен быть больше нуля': 'El peso del saco debe ser mayor que cero',
+      'Введите положительные размеры': 'Introduce dimensiones positivas',
     },
   },
 };

@@ -13,6 +13,7 @@
 
 import type { CalculatorDef } from '../lib/types';
 import { esCanaryContent } from './esContent/canary';
+import { esBuildingContent } from './esContent/building';
 import { esHouseholdContent } from './esContent/household';
 import { esAutomotiveContent } from './esContent/automotive';
 import { esSportContent } from './esContent/sport';
@@ -33,6 +34,7 @@ type DetailedContent = Pick<
 
 export const esCalculatorContent: Partial<Record<string, DetailedContent>> = {
   ...esCanaryContent,
+  ...esBuildingContent,
   ...esHouseholdContent,
   ...esAutomotiveContent,
   ...esSportContent,

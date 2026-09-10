@@ -7,6 +7,7 @@ import { compute } from './compute';
 import { roomVolumeCopyEn } from './copy.en';
 import { roomVolumeCopyUk } from './copy.uk';
 import { roomVolumeCopyDe } from './copy.de';
+import { roomVolumeCopyEs } from './copy.es';
 import { roomVolumeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: roomVolumeCopyEn, uk: roomVolumeCopyUk, de: roomVolumeCopyDe },
+  copy: { en: roomVolumeCopyEn, uk: roomVolumeCopyUk, de: roomVolumeCopyDe, es: roomVolumeCopyEs },
   referenceCases: roomVolumeReferenceCases,
   publishedExample: {
     inputs: { mode: 'dimensions', length: 5, width: 4, height: 2.7 },

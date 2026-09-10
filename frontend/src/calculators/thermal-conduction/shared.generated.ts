@@ -37,6 +37,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Площадь': 'Área',
+      'Толщина слоя': 'Espesor de la capa',
     },
   },
 };

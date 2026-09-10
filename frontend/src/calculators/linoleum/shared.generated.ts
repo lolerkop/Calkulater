@@ -40,6 +40,8 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Площадь': 'Área',
+      'Запас': 'Reserva',
+      'Площадь пола': 'Superficie del suelo',
     },
   },
 };

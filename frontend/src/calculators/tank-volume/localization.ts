@@ -76,4 +76,35 @@ export const localization: CalculatorLocalization = {
       'Уровень не может быть выше самой ёмкости': 'Рівень не може перевищувати саму ємність',
     },
   },
+  es: {
+    fields: {
+      "shape": "Forma del depósito",
+      "d": "Diámetro o lado, m",
+      "len": "Altura o longitud, m",
+      "level": "Nivel del líquido, m",
+    },
+    options: {
+      "vertical-cylinder": "cilindro vertical",
+      "horizontal-cylinder": "depósito horizontal",
+      "rect": "rectangular",
+      "capsule": "cápsula",
+    },
+    results: {
+      "Объём налитого": "Volumen contenido",
+      "Полный объём": "Volumen total",
+      "Заполнено": "Llenado",
+      "В литрах": "En litros",
+      "Свободно": "Espacio libre",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м³": "m³",
+      "л": "l",
+      "Неизвестная форма ёмкости": "Forma de depósito desconocida",
+      "Размер сечения должен быть больше нуля": "La dimensión de la sección debe ser mayor que cero",
+      "Длина или высота должна быть больше нуля": "La longitud o la altura debe ser mayor que cero",
+      "Уровень не может быть отрицательным": "El nivel no puede ser negativo",
+      "Уровень не может быть выше самой ёмкости": "El nivel no puede superar al propio depósito",
+    },
+  },
 };

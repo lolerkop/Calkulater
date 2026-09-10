@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { slabFoundationCopyEn } from './copy.en';
 import { slabFoundationCopyUk } from './copy.uk';
 import { slabFoundationCopyDe } from './copy.de';
+import { slabFoundationCopyEs } from './copy.es';
 import { slabFoundationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: slabFoundationCopyEn, uk: slabFoundationCopyUk, de: slabFoundationCopyDe },
+  copy: { en: slabFoundationCopyEn, uk: slabFoundationCopyUk, de: slabFoundationCopyDe, es: slabFoundationCopyEs },
   referenceCases: slabFoundationReferenceCases,
   publishedExample: { inputs: { length: 10, width: 8, thickness: 0.3, meshStep: 0.2, rebarDiameter: 12, waste: 5 }, expected: ["25,2 м³"] },
   presentation: {

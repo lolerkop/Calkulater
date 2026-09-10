@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { boardVolumeCopyEn } from './copy.en';
 import { boardVolumeCopyUk } from './copy.uk';
 import { boardVolumeCopyDe } from './copy.de';
+import { boardVolumeCopyEs } from './copy.es';
 import { boardVolumeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: boardVolumeCopyEn, uk: boardVolumeCopyUk, de: boardVolumeCopyDe },
+  copy: { en: boardVolumeCopyEn, uk: boardVolumeCopyUk, de: boardVolumeCopyDe, es: boardVolumeCopyEs },
   referenceCases: boardVolumeReferenceCases,
   publishedExample: { inputs: { length: 6, width: 150, thickness: 25, count: 50, pricePerM3: 0 }, expected: ['1,125 м³'] },
   presentation: {

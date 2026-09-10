@@ -60,6 +60,16 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Площадь': 'Área',
+      'Количество рулонов': 'Número de rollos',
+      'Площадь стен': 'Superficie de las paredes',
+      'Периметр': 'Perímetro',
+      'Количество полотен': 'Número de tiras',
+      'Полотен из рулона': 'Tiras por rollo',
+      'Запас': 'Reserva',
+      'Стоимость обоев': 'Coste del papel pintado',
+    },
+    values: {
+      'Введите положительные размеры': 'Introduce dimensiones positivas',
     },
   },
 };

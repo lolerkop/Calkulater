@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { stripFoundationCopyEn } from './copy.en';
 import { stripFoundationCopyUk } from './copy.uk';
 import { stripFoundationCopyDe } from './copy.de';
+import { stripFoundationCopyEs } from './copy.es';
 import { stripFoundationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: stripFoundationCopyEn, uk: stripFoundationCopyUk, de: stripFoundationCopyDe },
+  copy: { en: stripFoundationCopyEn, uk: stripFoundationCopyUk, de: stripFoundationCopyDe, es: stripFoundationCopyEs },
   referenceCases: stripFoundationReferenceCases,
   publishedExample: { inputs: { perimeter: 40, width: 0.4, depth: 0.8, waste: 5 }, expected: ['13,44 м³'] },
   presentation: {

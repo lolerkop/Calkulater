@@ -44,6 +44,8 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Revisa los datos',
       'Площадь': 'Área',
       'Площадь с запасом': 'Área con reserva',
+      'Площадь стен': 'Superficie de las paredes',
+      'Запас': 'Reserva',
     },
   },
 };

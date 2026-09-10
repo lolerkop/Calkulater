@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { fenceCopyEn } from './copy.en';
 import { fenceCopyUk } from './copy.uk';
 import { fenceCopyDe } from './copy.de';
+import { fenceCopyEs } from './copy.es';
 import { fenceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: fenceCopyEn, uk: fenceCopyUk, de: fenceCopyDe },
+  copy: { en: fenceCopyEn, uk: fenceCopyUk, de: fenceCopyDe, es: fenceCopyEs },
   referenceCases: fenceReferenceCases,
   publishedExample: { inputs: { length: 40, span: 2.5, height: 1.8, rails: 2, gates: 1 }, expected: ["18"] },
   presentation: {

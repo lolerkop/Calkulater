@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { pipeWeightCopyEn } from './copy.en';
 import { pipeWeightCopyUk } from './copy.uk';
 import { pipeWeightCopyDe } from './copy.de';
+import { pipeWeightCopyEs } from './copy.es';
 import { pipeWeightReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pipeWeightCopyEn, uk: pipeWeightCopyUk, de: pipeWeightCopyDe },
+  copy: { en: pipeWeightCopyEn, uk: pipeWeightCopyUk, de: pipeWeightCopyDe, es: pipeWeightCopyEs },
   referenceCases: pipeWeightReferenceCases,
   publishedExample: { inputs: { d: 108, wall: 4, len: 6, rho: 7850 }, expected: ["61,555 кг"] },
   presentation: {

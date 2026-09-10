@@ -43,6 +43,9 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Площадь': 'Área',
+      'Запас': 'Reserva',
+      'Толщина слоя': 'Espesor de la capa',
+      'Мешков': 'Sacos',
     },
   },
 };

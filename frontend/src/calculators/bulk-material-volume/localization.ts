@@ -69,4 +69,32 @@ export const localization: CalculatorLocalization = {
       'Запас должен быть от 0 до 50 %': 'Запас має бути від 0 до 50 %',
     },
   },
+  es: {
+    fields: {
+      "length": "Largo de la superficie, m",
+      "width": "Ancho de la superficie, m",
+      "depth": "Espesor de la capa, cm",
+      "density": "Densidad aparente, t/m³",
+      "waste": "Margen por compactación, %",
+    },
+    options: {},
+    results: {
+      "Нужно материала": "Material necesario",
+      "Чистый объём": "Volumen neto",
+      "Масса": "Masa",
+      "Мешков по 25 кг": "Sacos de 25 kg",
+      "Площадь основания": "Superficie de la base",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м³": "m³",
+      "м²": "m²",
+      "шт": "uds.",
+      "т": "t",
+      "Длина и ширина должны быть больше нуля": "El largo y el ancho deben ser mayores que cero",
+      "Толщина слоя должна быть больше нуля": "El espesor de la capa debe ser mayor que cero",
+      "Насыпная плотность должна быть больше нуля": "La densidad aparente debe ser mayor que cero",
+      "Запас должен быть от 0 до 50 %": "El margen debe estar entre 0 y 50 %",
+    },
+  },
 };

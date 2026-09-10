@@ -36,6 +36,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Объём раствора': 'Volumen de mortero',
       'Режим': 'Modo',
     },
   },

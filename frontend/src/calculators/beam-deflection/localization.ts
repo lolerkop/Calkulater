@@ -72,4 +72,35 @@ export const localization: CalculatorLocalization = {
       'Момент инерции сечения должен быть больше нуля': 'Момент інерції перерізу має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "scheme": "Esquema de carga",
+      "load": "Carga",
+      "span": "Luz, m",
+      "e": "Módulo de elasticidad, GPa",
+      "inertia": "Momento de inercia, cm⁴",
+    },
+    options: {
+      "uniform": "uniformemente repartida, kN/m",
+      "point": "carga puntual en el centro, kN",
+    },
+    results: {
+      "Прогиб": "Flecha",
+      "Относительный прогиб": "Flecha relativa",
+      "Жёсткость EI": "Rigidez EI",
+      "Пролёт": "Luz",
+      "Предел 1/250": "Límite 1/250",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "м": "m",
+      "Н·м²": "N·m²",
+      "Выберите схему нагружения из списка": "Elige un esquema de carga de la lista",
+      "Нагрузка должна быть больше нуля": "La carga debe ser mayor que cero",
+      "Пролёт должен быть больше нуля": "La luz debe ser mayor que cero",
+      "Модуль упругости должен быть больше нуля": "El módulo de elasticidad debe ser mayor que cero",
+      "Момент инерции сечения должен быть больше нуля": "El momento de inercia debe ser mayor que cero",
+    },
+  },
 };

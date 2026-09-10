@@ -56,6 +56,12 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Revisa los datos',
       'Вес': 'Peso',
       'Площадь': 'Área',
+      'Площадь стен': 'Superficie de las paredes',
+      'Толщина слоя': 'Espesor de la capa',
+      'Мешков': 'Sacos',
+    },
+    values: {
+      'Вес мешка должен быть больше нуля': 'El peso del saco debe ser mayor que cero',
     },
   },
 };

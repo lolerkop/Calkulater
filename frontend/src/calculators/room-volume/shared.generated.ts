@@ -43,6 +43,9 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Площадь': 'Área',
+      'Площадь стен': 'Superficie de las paredes',
+      'Периметр': 'Perímetro',
+      'Площадь пола': 'Superficie del suelo',
     },
   },
 };

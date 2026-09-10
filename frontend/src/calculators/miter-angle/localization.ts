@@ -40,4 +40,20 @@ export const localization: CalculatorLocalization = {
       'Угол стыка задаётся от 1 до 179 градусов': 'Кут стику задається від 1 до 179 градусів',
     },
   },
+  es: {
+    fields: {
+      "corner": "Ángulo de la esquina, °",
+    },
+    options: {},
+    results: {
+      "Угол реза": "Ángulo de corte",
+      "Угол на пиле от 90°": "Ajuste de la sierra desde 90°",
+      "Угол стыка": "Ángulo de la esquina",
+      "Сумма двух резов": "Suma de los dos cortes",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Угол стыка задаётся от 1 до 179 градусов": "El ángulo de la esquina va de 1 a 179 grados",
+    },
+  },
 };

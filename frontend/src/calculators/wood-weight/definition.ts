@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { woodWeightCopyEn } from './copy.en';
 import { woodWeightCopyUk } from './copy.uk';
 import { woodWeightCopyDe } from './copy.de';
+import { woodWeightCopyEs } from './copy.es';
 import { woodWeightReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: woodWeightCopyEn, uk: woodWeightCopyUk, de: woodWeightCopyDe },
+  copy: { en: woodWeightCopyEn, uk: woodWeightCopyUk, de: woodWeightCopyDe, es: woodWeightCopyEs },
   referenceCases: woodWeightReferenceCases,
   publishedExample: { inputs: { volume: 1, species: 'pine', moisture: 12 }, expected: ["520 кг"] },
   presentation: {

@@ -69,4 +69,31 @@ export const localization: CalculatorLocalization = {
       'Предельная высота ступени должна быть больше нуля': 'Гранична висота сходинки має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "rise_total": "Desnivel total, m",
+      "tread": "Profundidad de la huella, m",
+      "max_riser": "Altura máxima de contrahuella, m",
+    },
+    options: {},
+    results: {
+      "Подступенков": "Contrahuellas",
+      "Высота подступенка": "Altura de contrahuella",
+      "Проступей": "Huellas",
+      "Длина марша": "Longitud del tramo",
+      "Угол наклона": "Ángulo de inclinación",
+      "Формула удобства 2h + b": "Regla de comodidad 2h + b",
+      "Оценка шага": "Valoración del paso",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "шт": "uds.",
+      "м": "m",
+      "в норме": "dentro del rango",
+      "вне нормы 0,60–0,65 м": "fuera del rango 0,60-0,65 m",
+      "Общий подъём должен быть больше нуля": "El desnivel total debe ser mayor que cero",
+      "Проступь должна быть больше нуля": "La profundidad de la huella debe ser mayor que cero",
+      "Предельная высота ступени должна быть больше нуля": "La altura máxima de contrahuella debe ser mayor que cero",
+    },
+  },
 };

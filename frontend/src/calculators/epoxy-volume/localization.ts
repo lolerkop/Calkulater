@@ -66,4 +66,32 @@ export const localization: CalculatorLocalization = {
       'Пропорция набора должна быть больше нуля': 'Пропорція набору має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "length": "Largo del vertido, cm",
+      "width": "Ancho del vertido, cm",
+      "thickness": "Espesor de la capa, mm",
+      "density": "Densidad de la mezcla, g/cm³",
+      "ratio": "Partes de resina por parte de endurecedor",
+    },
+    options: {},
+    results: {
+      "Всего смеси": "Mezcla total",
+      "Смолы": "Resina",
+      "Отвердителя": "Endurecedor",
+      "Объём заливки": "Volumen del vertido",
+      "Площадь заливки": "Superficie del vertido",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кг": "kg",
+      "л": "l",
+      "м²": "m²",
+      "Длина заливки должна быть больше нуля": "El largo del vertido debe ser mayor que cero",
+      "Ширина заливки должна быть больше нуля": "El ancho del vertido debe ser mayor que cero",
+      "Толщина слоя должна быть больше нуля": "El espesor de la capa debe ser mayor que cero",
+      "Плотность смеси должна быть больше нуля": "La densidad de la mezcla debe ser mayor que cero",
+      "Пропорция набора должна быть больше нуля": "La proporción del kit debe ser mayor que cero",
+    },
+  },
 };

@@ -67,4 +67,28 @@ export const localization: CalculatorLocalization = {
       'В упаковке должна быть хотя бы одна плита': 'В упаковці має бути щонайменше одна плита',
     },
   },
+  es: {
+    fields: {
+      "area": "Superficie a aislar, m²",
+      "thickness": "Espesor de la capa, mm",
+      "slabArea": "Superficie de un panel, m²",
+      "perPack": "Paneles por paquete",
+    },
+    options: {},
+    results: {
+      "Объём утеплителя": "Volumen de aislamiento",
+      "Плит": "Paneles",
+      "Упаковок": "Paquetes",
+      "Площадь одной плиты": "Superficie de un panel",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      " шт": " uds.",
+      " кг": " kg",
+      "Площадь должна быть больше нуля": "La superficie debe ser mayor que cero",
+      "Толщина должна быть больше нуля": "El espesor debe ser mayor que cero",
+      "Площадь плиты должна быть больше нуля": "La superficie del panel debe ser mayor que cero",
+      "В упаковке должна быть хотя бы одна плита": "Un paquete debe contener al menos un panel",
+    },
+  },
 };

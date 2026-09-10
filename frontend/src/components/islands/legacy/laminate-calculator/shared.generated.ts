@@ -59,6 +59,13 @@ export const shared: CalculatorLocalization = {
       'Площадь': 'Área',
       'Площадь с запасом': 'Área con reserva',
       'Количество упаковок': 'Número de paquetes',
+      'Запас': 'Reserva',
+      'Площадь пола': 'Superficie del suelo',
+      'Площадь упаковки': 'Superficie del paquete',
+      'Ориентировочная стоимость': 'Coste aproximado',
+    },
+    values: {
+      'Введите положительные размеры': 'Introduce dimensiones positivas',
     },
   },
 };

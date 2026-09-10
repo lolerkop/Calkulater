@@ -60,5 +60,8 @@ export const shared: CalculatorLocalization = {
       'Примерный расход клея': 'Consumo aproximado de adhesivo',
       'Стоимость плитки': 'Coste de los azulejos',
     },
+    values: {
+      'Введите положительные размеры': 'Introduce dimensiones positivas',
+    },
   },
 };

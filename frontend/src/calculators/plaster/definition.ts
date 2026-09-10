@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { plasterCopyEn } from './copy.en';
 import { plasterCopyUk } from './copy.uk';
 import { plasterCopyDe } from './copy.de';
+import { plasterCopyEs } from './copy.es';
 import { plasterReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: plasterCopyEn, uk: plasterCopyUk, de: plasterCopyDe },
+  copy: { en: plasterCopyEn, uk: plasterCopyUk, de: plasterCopyDe, es: plasterCopyEs },
   referenceCases: plasterReferenceCases,
   publishedExample: { inputs: { mode: 'area', area: 20, thickness: 10, consumption: 8.5, bagWeight: 30 }, expected: ['1 700,00 кг'] },
   presentation: {

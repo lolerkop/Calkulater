@@ -47,6 +47,8 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Revisa los datos',
       'Вес': 'Peso',
       'Площадь': 'Área',
+      'Запас': 'Reserva',
+      'Слоёв': 'Manos',
     },
   },
 };

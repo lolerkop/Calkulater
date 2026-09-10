@@ -81,8 +81,26 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Количество камней': 'Número de piezas',
+      'Площадь кладки': 'Superficie de fábrica',
+      'Площадь проёмов': 'Superficie de los huecos',
+      'Камней без запаса': 'Piezas sin reserva',
+      'Расчётный модуль камня': 'Módulo de cálculo de la pieza',
+      'Камней на квадратный метр': 'Piezas por metro cuadrado',
       'Проверьте данные': 'Revisa los datos',
       'Площадь': 'Área',
+      'Запас': 'Reserva',
+      'Ориентировочная стоимость': 'Coste aproximado',
+    },
+    values: {
+      'Введите положительные размеры стены': 'Introduce dimensiones positivas del muro',
+      'Введите положительные размеры камня': 'Introduce dimensiones positivas de la pieza',
+      'Толщина шва не может быть отрицательной': 'El espesor de la junta no puede ser negativo',
+      'Площадь проёмов не может быть отрицательной': 'La superficie de los huecos no puede ser negativa',
+      'Запас не может быть отрицательным': 'La reserva no puede ser negativa',
+      'Проёмы занимают всю стену — кладка не требуется': 'Los huecos ocupan todo el muro: no hace falta fábrica',
+      'Расчёт выполнен для одного слоя кладки по видимой плоскости стены. Кладка в кирпич и толще, перевязка, простенки и доборные элементы не моделируются, поэтому перед закупкой сверьтесь с проектом.': 'El cálculo se ha hecho para una sola hoja de fábrica sobre la cara vista del muro. La fábrica de un pie o más, el aparejo, los machones y las piezas especiales no se modelan, así que contrasta con el proyecto antes de comprar.',
+      'Введите положительные размеры': 'Introduce dimensiones positivas',
     },
   },
 };

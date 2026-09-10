@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { bulkMaterialVolumeCopyEn } from './copy.en';
 import { bulkMaterialVolumeCopyUk } from './copy.uk';
 import { bulkMaterialVolumeCopyDe } from './copy.de';
+import { bulkMaterialVolumeCopyEs } from './copy.es';
 import { bulkMaterialVolumeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: bulkMaterialVolumeCopyEn, uk: bulkMaterialVolumeCopyUk, de: bulkMaterialVolumeCopyDe },
+  copy: { en: bulkMaterialVolumeCopyEn, uk: bulkMaterialVolumeCopyUk, de: bulkMaterialVolumeCopyDe, es: bulkMaterialVolumeCopyEs },
   referenceCases: bulkMaterialVolumeReferenceCases,
   publishedExample: { inputs: { length: 5, width: 4, depth: 10, density: 1.6, waste: 5 }, expected: ["2,1 м³"] },
   presentation: {

@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { airExchangeCopyEn } from './copy.en';
 import { airExchangeCopyUk } from './copy.uk';
 import { airExchangeCopyDe } from './copy.de';
+import { airExchangeCopyEs } from './copy.es';
 import { airExchangeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: airExchangeCopyEn, uk: airExchangeCopyUk, de: airExchangeCopyDe },
+  copy: { en: airExchangeCopyEn, uk: airExchangeCopyUk, de: airExchangeCopyDe, es: airExchangeCopyEs },
   referenceCases: airExchangeReferenceCases,
   publishedExample: { inputs: { area: 20, height: 2.7, ach: 3 }, expected: ["162 м³/ч"] },
   presentation: {

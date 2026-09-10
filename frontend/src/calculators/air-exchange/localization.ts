@@ -55,4 +55,29 @@ export const localization: CalculatorLocalization = {
       'Кратность воздухообмена должна быть больше нуля': 'Кратність повітрообміну має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "area": "Superficie de la sala, m²",
+      "height": "Altura del techo, m",
+      "ach": "Renovaciones por hora, 1/h",
+    },
+    options: {},
+    results: {
+      "Требуемый расход воздуха": "Caudal de aire necesario",
+      "Объём помещения": "Volumen de la sala",
+      "В литрах в секунду": "En litros por segundo",
+      "Смен воздуха в сутки": "Renovaciones de aire al día",
+      "В кубометрах в минуту": "En metros cúbicos por minuto",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м³/ч": "m³/h",
+      "м³": "m³",
+      "л/с": "l/s",
+      "м³/мин": "m³/min",
+      "Площадь помещения должна быть больше нуля": "La superficie de la sala debe ser mayor que cero",
+      "Высота потолка должна быть больше нуля": "La altura del techo debe ser mayor que cero",
+      "Кратность воздухообмена должна быть больше нуля": "La tasa de renovación debe ser mayor que cero",
+    },
+  },
 };

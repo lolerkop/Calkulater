@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { balusterSpacingCopyEn } from './copy.en';
 import { balusterSpacingCopyUk } from './copy.uk';
 import { balusterSpacingCopyDe } from './copy.de';
+import { balusterSpacingCopyEs } from './copy.es';
 import { balusterSpacingReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: balusterSpacingCopyEn, uk: balusterSpacingCopyUk, de: balusterSpacingCopyDe },
+  copy: { en: balusterSpacingCopyEn, uk: balusterSpacingCopyUk, de: balusterSpacingCopyDe, es: balusterSpacingCopyEs },
   referenceCases: balusterSpacingReferenceCases,
   publishedExample: { inputs: { run: 3000, baluster_width: 40, max_gap: 100 }, expected: ["21 шт"] },
   presentation: {

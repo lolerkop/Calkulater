@@ -45,6 +45,11 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Периметр': 'Perímetro',
+      'Запас': 'Reserva',
+    },
+    values: {
+      'Запас не может быть отрицательным': 'La reserva no puede ser negativa',
     },
   },
 };

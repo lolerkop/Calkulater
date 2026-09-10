@@ -71,4 +71,32 @@ export const localization: CalculatorLocalization = {
       'Запас должен быть от 0 до 50 %': 'Запас має бути від 0 до 50 %',
     },
   },
+  es: {
+    fields: {
+      "wall_area": "Superficie de la pared, m²",
+      "board_len": "Largo de la tabla, m",
+      "board_width": "Ancho de la tabla, m",
+      "overlap": "Solape, m",
+      "waste": "Merma de corte, %",
+    },
+    options: {},
+    results: {
+      "Досок": "Tablas",
+      "Полезная ширина доски": "Ancho útil de la tabla",
+      "Площадь с запасом": "Superficie con margen",
+      "Перекроют": "Cubrirán",
+      "Погонных метров доски": "Metros lineales de tabla",
+      "Съедает нахлёст": "Se lo lleva el solape",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "шт": "uds.",
+      "м²": "m²",
+      "м": "m",
+      "Площадь стены должна быть больше нуля": "La superficie de la pared debe ser mayor que cero",
+      "Длина доски должна быть больше нуля": "El largo de la tabla debe ser mayor que cero",
+      "Нахлёст должен быть меньше ширины доски": "El solape debe ser menor que el ancho de la tabla",
+      "Запас должен быть от 0 до 50 %": "El margen debe estar entre 0 y 50 %",
+    },
+  },
 };

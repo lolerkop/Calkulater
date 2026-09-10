@@ -70,6 +70,17 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Площадь': 'Área',
+      'Запас': 'Reserva',
+      'Заданный запас': 'Margen indicado',
+      'Остаток из-за целых банок': 'Sobrante por los botes enteros',
+      'Литры краски': 'Litros de pintura',
+      'Площадь окрашивания': 'Superficie a pintar',
+      'Слоёв': 'Manos',
+      'Количество банок': 'Número de botes',
+      'Стоимость краски': 'Coste de la pintura',
+    },
+    values: {
+      'Введите положительные размеры': 'Introduce dimensiones positivas',
     },
   },
 };

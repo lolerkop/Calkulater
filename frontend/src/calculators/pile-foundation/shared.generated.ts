@@ -37,6 +37,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Рост': 'Estatura',
+      'Запас': 'Reserva',
     },
   },
 };

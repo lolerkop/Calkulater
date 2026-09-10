@@ -60,4 +60,32 @@ export const localization: CalculatorLocalization = {
       "Запас должен быть от 0 до 50 %": "Запас має бути від 0 до 50 %",
     },
   },
+  es: {
+    fields: {
+      "count": "Número de pilotes",
+      "diameter": "Diámetro del pilote, m",
+      "depth": "Profundidad del pilote, m",
+      "grillageLength": "Longitud del encepado, m",
+      "grillageWidth": "Ancho del encepado, m",
+      "grillageHeight": "Altura del encepado, m",
+      "waste": "Margen, %",
+    },
+    options: {},
+    results: {
+      "Объём бетона": "Volumen de hormigón",
+      "Объём свай": "Volumen de los pilotes",
+      "Объём ростверка": "Volumen del encepado",
+      "Чистый объём": "Volumen neto",
+      "Запас": "Margen",
+      "Объём одной сваи": "Volumen de un pilote",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м³": "m³",
+      "Свай должно быть не меньше одной": "Debe haber al menos un pilote",
+      "Диаметр и глубина сваи должны быть больше нуля": "El diámetro y la profundidad del pilote deben ser mayores que cero",
+      "Размеры ростверка не могут быть отрицательными": "Las dimensiones del encepado no pueden ser negativas",
+      "Запас должен быть от 0 до 50 %": "El margen debe estar entre 0 y 50 %",
+    },
+  },
 };
