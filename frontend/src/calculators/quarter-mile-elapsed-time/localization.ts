@@ -54,4 +54,28 @@ export const localization: CalculatorLocalization = {
       'Масса должна быть больше нуля': 'Маса має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "power": "Potencia, CV",
+      "mass": "Masa en vacío con conductor, kg",
+    },
+    options: {},
+    results: {
+      "Время четверти мили": "Tiempo del cuarto de milla",
+      "Скорость на финише": "Velocidad final",
+      "Удельная мощность": "Relación potencia-peso",
+      "Масса в фунтах": "Masa en libras",
+      "Скорость на финише в милях в час": "Velocidad final en millas por hora",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "с": "s",
+      "км/ч": "km/h",
+      "л.с./т": "CV/t",
+      "фунт": "lb",
+      "миль/ч": "mph",
+      "Мощность должна быть больше нуля": "La potencia debe ser mayor que cero",
+      "Масса должна быть больше нуля": "La masa debe ser mayor que cero",
+    },
+  },
 };

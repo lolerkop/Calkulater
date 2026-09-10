@@ -86,4 +86,38 @@ export const localization: CalculatorLocalization = {
     "Пассажиров должно быть не меньше одного": "Пасажирів має бути щонайменше один",
     },
   },
+  es: {
+    fields: {
+      "distance": "Distancia, km",
+      "consumption": "Consumo, l/100 km",
+      "fuelPrice": "Precio del combustible",
+      "tolls": "Peajes",
+      "passengers": "Ocupantes",
+      "roundTrip": "Ida y vuelta",
+    },
+    options: {
+      "no": "No",
+      "yes": "Sí",
+    },
+    results: {
+      "Стоимость поездки": "Coste del viaje",
+      "Топливо": "Combustible",
+      "Израсходовано литров": "Litros consumidos",
+      "Пройденное расстояние": "Distancia recorrida",
+      "Платные дороги": "Peajes",
+      "На человека": "Por persona",
+      "Пассажиров": "Ocupantes",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "л": "l",
+      "км": "km",
+      "Расстояние должно быть больше нуля": "La distancia debe ser mayor que cero",
+      "Расход должен быть больше нуля": "El consumo debe ser mayor que cero",
+      "Цена топлива должна быть больше нуля": "El precio del combustible debe ser mayor que cero",
+      "Плата за дороги не может быть отрицательной": "Los peajes no pueden ser negativos",
+      "Пассажиров должно быть не меньше одного": "Debe haber al menos un ocupante",
+    },
+  },
 };

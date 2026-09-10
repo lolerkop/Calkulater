@@ -60,4 +60,30 @@ export const localization: CalculatorLocalization = {
         'Спуск крутіший за зчеплення: зупинитися гальмуванням неможливо',
     },
   },
+  es: {
+    fields: {
+      "speed": "Velocidad, km/h",
+      "reaction": "Tiempo de reacción, s",
+      "mu": "Coeficiente de rozamiento",
+      "grade": "Pendiente de la vía, %",
+    },
+    options: {},
+    results: {
+      "Полный остановочный путь": "Distancia total de parada",
+      "Путь за время реакции": "Distancia de reacción",
+      "Тормозной путь": "Distancia de frenado",
+      "Замедление": "Deceleración",
+      "Время торможения": "Tiempo de frenado",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м": "m",
+      "м/с²": "m/s²",
+      "с": "s",
+      "Скорость должна быть больше нуля": "La velocidad debe ser mayor que cero",
+      "Время реакции не может быть отрицательным": "El tiempo de reacción no puede ser negativo",
+      "Коэффициент сцепления должен быть больше нуля": "El coeficiente de rozamiento debe ser mayor que cero",
+      "Спуск круче сцепления: остановиться торможением невозможно": "La bajada es más pronunciada que el agarre: no es posible detenerse frenando",
+    },
+  },
 };

@@ -47,4 +47,25 @@ export const localization: CalculatorLocalization = {
       'Пропорция допустима от 1:20 до 1:100': 'Пропорція допустима від 1:20 до 1:100',
     },
   },
+  es: {
+    fields: {
+      "fuel": "Gasolina, l",
+      "ratio": "Proporción 1:N",
+    },
+    options: {},
+    results: {
+      "Масла": "Aceite",
+      "Объём смеси": "Volumen de la mezcla",
+      "Доля масла": "Proporción de aceite",
+      "Соотношение": "Proporción",
+      "Бензина": "Gasolina",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мл": "ml",
+      "л": "l",
+      "Объём топлива должен быть больше нуля": "El volumen de combustible debe ser mayor que cero",
+      "Пропорция допустима от 1:20 до 1:100": "La proporción admitida va de 1:20 a 1:100",
+    },
+  },
 };

@@ -1661,11 +1661,13 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fitness/calorias-de-los-macronutrientes/,es,calculator,true,/es/fitness/calorias-de-los-macronutrientes/,calculator:calories-from-macros,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/carga-y-energia-de-un-condensador/,es,calculator,true,/es/electronica/carga-y-energia-de-un-condensador/,calculator:capacitor-basics,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/condensadores-en-serie-y-paralelo/,es,calculator,true,/es/electronica/condensadores-en-serie-y-paralelo/,calculator:capacitor-network,src/pages/[locale]/[category]/[calculator].astro
+/es/vehiculos/depreciacion-de-un-coche/,es,calculator,true,/es/vehiculos/depreciacion-de-un-coche/,calculator:car-depreciation,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/rendimiento-de-carnot/,es,calculator,true,/es/fisica/rendimiento-de-carnot/,calculator:carnot,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/fuerza-centripeta/,es,calculator,true,/es/fisica/fuerza-centripeta/,calculator:centripetal-force,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/impedancia-de-cable-coaxial/,es,calculator,true,/es/electronica/impedancia-de-cable-coaxial/,calculator:coaxial-cable-impedance,src/pages/[locale]/[category]/[calculator].astro
 /es/informatica/conversor-hex-rgb-hsl/,es,calculator,true,/es/informatica/conversor-hex-rgb-hsl/,calculator:color-convert,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/combinaciones-y-permutaciones/,es,calculator,true,/es/matematicas/combinaciones-y-permutaciones/,calculator:combinatorics,src/pages/[locale]/[category]/[calculator].astro
+/es/vehiculos/relacion-de-compresion/,es,calculator,true,/es/vehiculos/relacion-de-compresion/,calculator:compression-ratio,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/intervalo-de-confianza/,es,calculator,true,/es/matematicas/intervalo-de-confianza/,calculator:confidence-interval,src/pages/[locale]/[category]/[calculator].astro
 /es/conversores/conversor-de-angulos/,es,calculator,true,/es/conversores/conversor-de-angulos/,calculator:convert-angle,src/pages/[locale]/[category]/[calculator].astro
 /es/conversores/conversor-de-superficie/,es,calculator,true,/es/conversores/conversor-de-superficie/,calculator:convert-area,src/pages/[locale]/[category]/[calculator].astro
@@ -1706,6 +1708,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/matematicas/calculadora-de-divisores/,es,calculator,true,/es/matematicas/calculadora-de-divisores/,calculator:divisors,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/efecto-doppler/,es,calculator,true,/es/fisica/efecto-doppler/,calculator:doppler,src/pages/[locale]/[category]/[calculator].astro
 /es/informatica/tiempo-de-descarga/,es,calculator,true,/es/informatica/tiempo-de-descarga/,calculator:download-time,src/pages/[locale]/[category]/[calculator].astro
+/es/vehiculos/calculadora-de-cilindrada/,es,calculator,true,/es/vehiculos/calculadora-de-cilindrada/,calculator:engine-displacement,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/velocidad-de-escape/,es,calculator,true,/es/fisica/velocidad-de-escape/,calculator:escape-velocity,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-factorial/,es,calculator,true,/es/matematicas/calculadora-de-factorial/,calculator:factorial,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-fibonacci/,es,calculator,true,/es/matematicas/calculadora-de-fibonacci/,calculator:fibonacci,src/pages/[locale]/[category]/[calculator].astro
@@ -1715,6 +1718,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/matematicas/calculadora-de-fracciones/,es,calculator,true,/es/matematicas/calculadora-de-fracciones/,calculator:fraction-arith,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/caida-libre/,es,calculator,true,/es/fisica/caida-libre/,calculator:free-fall,src/pages/[locale]/[category]/[calculator].astro
 /es/vehiculos/consumo-de-combustible/,es,calculator,true,/es/vehiculos/consumo-de-combustible/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
+/es/vehiculos/mezcla-de-gasolina-y-aceite/,es,calculator,true,/es/vehiculos/mezcla-de-gasolina-y-aceite/,calculator:fuel-oil-mix,src/pages/[locale]/[category]/[calculator].astro
 /es/quimica/ley-combinada-de-los-gases/,es,calculator,true,/es/quimica/ley-combinada-de-los-gases/,calculator:gas-laws,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-mcd-y-mcm/,es,calculator,true,/es/matematicas/calculadora-de-mcd-y-mcm/,calculator:gcd-lcm,src/pages/[locale]/[category]/[calculator].astro
 /es/geometria/corona-circular/,es,calculator,true,/es/geometria/corona-circular/,calculator:geom-annulus,src/pages/[locale]/[category]/[calculator].astro
@@ -1790,6 +1794,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/velocidad-del-agua-en-tuberia/,es,calculator,true,/es/fisica/velocidad-del-agua-en-tuberia/,calculator:pipe-flow,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/energia-potencial/,es,calculator,true,/es/fisica/energia-potencial/,calculator:potential-energy,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/potencias-y-raices/,es,calculator,true,/es/matematicas/potencias-y-raices/,calculator:power-root,src/pages/[locale]/[category]/[calculator].astro
+/es/vehiculos/relacion-potencia-peso/,es,calculator,true,/es/vehiculos/relacion-potencia-peso/,calculator:power-to-weight,src/pages/[locale]/[category]/[calculator].astro
 /es/informatica/calculadora-de-ppi/,es,calculator,true,/es/informatica/calculadora-de-ppi/,calculator:ppi-dpi,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/calculadora-de-presion/,es,calculator,true,/es/fisica/calculadora-de-presion/,calculator:pressure,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/factorizacion-en-primos/,es,calculator,true,/es/matematicas/factorizacion-en-primos/,calculator:prime-factorization,src/pages/[locale]/[category]/[calculator].astro
@@ -1798,6 +1803,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/matematicas/calculadora-de-proporciones/,es,calculator,true,/es/matematicas/calculadora-de-proporciones/,calculator:proportion,src/pages/[locale]/[category]/[calculator].astro
 /es/geometria/tronco-de-piramide/,es,calculator,true,/es/geometria/tronco-de-piramide/,calculator:pyramid-frustum,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/ecuacion-de-segundo-grado/,es,calculator,true,/es/matematicas/ecuacion-de-segundo-grado/,calculator:quadratic-equation,src/pages/[locale]/[category]/[calculator].astro
+/es/vehiculos/cuarto-de-milla/,es,calculator,true,/es/vehiculos/cuarto-de-milla/,calculator:quarter-mile-elapsed-time,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/cuartiles-y-percentiles/,es,calculator,true,/es/matematicas/cuartiles-y-percentiles/,calculator:quartile,src/pages/[locale]/[category]/[calculator].astro
 /es/informatica/calculadora-de-raid/,es,calculator,true,/es/informatica/calculadora-de-raid/,calculator:raid,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-razones/,es,calculator,true,/es/matematicas/calculadora-de-razones/,calculator:ratio,src/pages/[locale]/[category]/[calculator].astro
@@ -1816,9 +1822,11 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/geometria/calculadora-de-pendiente/,es,calculator,true,/es/geometria/calculadora-de-pendiente/,calculator:slope,src/pages/[locale]/[category]/[calculator].astro
 /es/quimica/concentracion-de-disoluciones/,es,calculator,true,/es/quimica/concentracion-de-disoluciones/,calculator:solution-concentration,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/calor-especifico/,es,calculator,true,/es/fisica/calor-especifico/,calculator:specific-heat,src/pages/[locale]/[category]/[calculator].astro
+/es/vehiculos/velocidad-distancia-y-tiempo/,es,calculator,true,/es/vehiculos/velocidad-distancia-y-tiempo/,calculator:speed-distance-time,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/velocidad-del-sonido/,es,calculator,true,/es/fisica/velocidad-del-sonido/,calculator:speed-of-sound,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/estadistica-descriptiva/,es,calculator,true,/es/matematicas/estadistica-descriptiva/,calculator:stats-descriptive,src/pages/[locale]/[category]/[calculator].astro
 /es/fitness/de-pasos-a-distancia/,es,calculator,true,/es/fitness/de-pasos-a-distancia/,calculator:steps-distance-calories,src/pages/[locale]/[category]/[calculator].astro
+/es/vehiculos/distancia-de-parada/,es,calculator,true,/es/vehiculos/distancia-de-parada/,calculator:stopping-distance,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/tension-deformacion-y-modulo-de-young/,es,calculator,true,/es/fisica/tension-deformacion-y-modulo-de-young/,calculator:stress-strain,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/velocidad-limite/,es,calculator,true,/es/fisica/velocidad-limite/,calculator:terminal-velocity,src/pages/[locale]/[category]/[calculator].astro
 /es/estudios/porcentaje-de-acierto-en-un-test/,es,calculator,true,/es/estudios/porcentaje-de-acierto-en-un-test/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
@@ -1828,7 +1836,9 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/lente-delgada/,es,calculator,true,/es/fisica/lente-delgada/,calculator:thin-lens,src/pages/[locale]/[category]/[calculator].astro
 /es/fechas/duracion-de-tiempo/,es,calculator,true,/es/fechas/duracion-de-tiempo/,calculator:time-duration,src/pages/[locale]/[category]/[calculator].astro
 /es/fechas/diferencia-horaria/,es,calculator,true,/es/fechas/diferencia-horaria/,calculator:timezone-difference,src/pages/[locale]/[category]/[calculator].astro
+/es/vehiculos/medidas-de-neumaticos/,es,calculator,true,/es/vehiculos/medidas-de-neumaticos/,calculator:tire-size,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/relacion-de-transformacion/,es,calculator,true,/es/electronica/relacion-de-transformacion/,calculator:transformer-ratio,src/pages/[locale]/[category]/[calculator].astro
+/es/vehiculos/coste-de-un-viaje/,es,calculator,true,/es/vehiculos/coste-de-un-viaje/,calculator:trip-cost,src/pages/[locale]/[category]/[calculator].astro
 /es/informatica/distancia-de-vision-a-un-televisor/,es,calculator,true,/es/informatica/distancia-de-vision-a-un-televisor/,calculator:tv-monitor-viewing-distance,src/pages/[locale]/[category]/[calculator].astro
 /es/informatica/conversor-de-marca-de-tiempo-unix/,es,calculator,true,/es/informatica/conversor-de-marca-de-tiempo-unix/,calculator:unix-timestamp,src/pages/[locale]/[category]/[calculator].astro
 /es/hogar/facturas-del-hogar/,es,calculator,true,/es/hogar/facturas-del-hogar/,calculator:utility-total,src/pages/[locale]/[category]/[calculator].astro
@@ -1841,6 +1851,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/longitud-de-onda-y-frecuencia/,es,calculator,true,/es/fisica/longitud-de-onda-y-frecuencia/,calculator:wave,src/pages/[locale]/[category]/[calculator].astro
 /es/fechas/numero-de-semana/,es,calculator,true,/es/fechas/numero-de-semana/,calculator:week-number,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/media-ponderada/,es,calculator,true,/es/matematicas/media-ponderada/,calculator:weighted-mean,src/pages/[locale]/[category]/[calculator].astro
+/es/vehiculos/et-de-llanta/,es,calculator,true,/es/vehiculos/et-de-llanta/,calculator:wheel-offset,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/sensacion-termica-por-viento/,es,calculator,true,/es/fisica/sensacion-termica-por-viento/,calculator:wind-chill,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/energia-eolica/,es,calculator,true,/es/fisica/energia-eolica/,calculator:wind-power,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/calculadora-de-trabajo/,es,calculator,true,/es/fisica/calculadora-de-trabajo/,calculator:work,src/pages/[locale]/[category]/[calculator].astro

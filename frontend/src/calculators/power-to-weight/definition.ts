@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { powerToWeightCopyEn } from './copy.en';
 import { powerToWeightCopyUk } from './copy.uk';
 import { powerToWeightCopyDe } from './copy.de';
+import { powerToWeightCopyEs } from './copy.es';
 import { powerToWeightReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: powerToWeightCopyEn, uk: powerToWeightCopyUk, de: powerToWeightCopyDe },
+  copy: { en: powerToWeightCopyEn, uk: powerToWeightCopyUk, de: powerToWeightCopyDe, es: powerToWeightCopyEs },
   referenceCases: powerToWeightReferenceCases,
   publishedExample: { inputs: { power: 150, powerUnit: 'ps', mass: 1400 }, expected: ['78,80 кВт/т'] },
   presentation: {

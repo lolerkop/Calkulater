@@ -49,4 +49,27 @@ export const localization: CalculatorLocalization = {
       'Ширина диска должна быть больше нуля': 'Ширина диска має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "width": "Anchura de la llanta, pulgadas",
+      "offset": "ET, mm",
+      "newOffset": "Nuevo ET, mm",
+    },
+    options: {},
+    results: {
+      "Вылет назад": "Distancia al plano interior",
+      "Ширина диска": "Anchura de la llanta",
+      "Смещение колеса": "Desplazamiento de la rueda",
+      "Куда сместится": "Sentido del desplazamiento",
+      "Вылет назад после замены": "Distancia al plano interior tras el cambio",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "наружу": "hacia fuera",
+      "внутрь": "hacia dentro",
+      "без смещения": "sin desplazamiento",
+      "Ширина диска должна быть больше нуля": "La anchura de la llanta debe ser mayor que cero",
+    },
+  },
 };

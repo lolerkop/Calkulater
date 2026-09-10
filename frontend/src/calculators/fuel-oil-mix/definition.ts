@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { fuelOilMixCopyEn } from './copy.en';
 import { fuelOilMixCopyUk } from './copy.uk';
 import { fuelOilMixCopyDe } from './copy.de';
+import { fuelOilMixCopyEs } from './copy.es';
 import { fuelOilMixReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: fuelOilMixCopyEn, uk: fuelOilMixCopyUk, de: fuelOilMixCopyDe },
+  copy: { en: fuelOilMixCopyEn, uk: fuelOilMixCopyUk, de: fuelOilMixCopyDe, es: fuelOilMixCopyEs },
   referenceCases: fuelOilMixReferenceCases,
   publishedExample: { inputs: { fuel: 5, ratio: 50 }, expected: ["100 мл"] },
   presentation: {
