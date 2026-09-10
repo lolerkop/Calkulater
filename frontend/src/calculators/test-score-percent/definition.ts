@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { testScorePercentCopyEn } from './copy.en';
 import { testScorePercentCopyUk } from './copy.uk';
 import { testScorePercentCopyDe } from './copy.de';
+import { testScorePercentCopyEs } from './copy.es';
 import { testScorePercentReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: testScorePercentCopyEn, uk: testScorePercentCopyUk, de: testScorePercentCopyDe },
+  copy: { en: testScorePercentCopyEn, uk: testScorePercentCopyUk, de: testScorePercentCopyDe, es: testScorePercentCopyEs },
   referenceCases: testScorePercentReferenceCases,
   publishedExample: { inputs: { correct: 18, total: 20 }, expected: ['90,00%'] },
   presentation: {

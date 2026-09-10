@@ -1698,6 +1698,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/matematicas/calculadora-de-factorial/,es,calculator,true,/es/matematicas/calculadora-de-factorial/,calculator:factorial,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-fibonacci/,es,calculator,true,/es/matematicas/calculadora-de-fibonacci/,calculator:fibonacci,src/pages/[locale]/[category]/[calculator].astro
 /es/informatica/archivos-en-un-disco/,es,calculator,true,/es/informatica/archivos-en-un-disco/,calculator:files-on-disk,src/pages/[locale]/[category]/[calculator].astro
+/es/estudios/calculadora-de-nota-final/,es,calculator,true,/es/estudios/calculadora-de-nota-final/,calculator:final-grade,src/pages/[locale]/[category]/[calculator].astro
 /es/informatica/fps-a-tiempo-de-fotograma/,es,calculator,true,/es/informatica/fps-a-tiempo-de-fotograma/,calculator:fps-frametime,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-fracciones/,es,calculator,true,/es/matematicas/calculadora-de-fracciones/,calculator:fraction-arith,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/caida-libre/,es,calculator,true,/es/fisica/caida-libre/,calculator:free-fall,src/pages/[locale]/[category]/[calculator].astro
@@ -1786,6 +1787,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/informatica/calculadora-de-raid/,es,calculator,true,/es/informatica/calculadora-de-raid/,calculator:raid,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-razones/,es,calculator,true,/es/matematicas/calculadora-de-razones/,calculator:ratio,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/circuito-rc/,es,calculator,true,/es/electronica/circuito-rc/,calculator:rc-filter,src/pages/[locale]/[category]/[calculator].astro
+/es/estudios/velocidad-de-lectura/,es,calculator,true,/es/estudios/velocidad-de-lectura/,calculator:reading-speed,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/dilatacion-del-tiempo/,es,calculator,true,/es/fisica/dilatacion-del-tiempo/,calculator:relativity-dilation,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/codigo-de-colores-de-resistencias/,es,calculator,true,/es/electronica/codigo-de-colores-de-resistencias/,calculator:resistor-color,src/pages/[locale]/[category]/[calculator].astro
 /es/electronica/red-de-resistencias/,es,calculator,true,/es/electronica/red-de-resistencias/,calculator:resistor-network,src/pages/[locale]/[category]/[calculator].astro
@@ -1802,6 +1804,8 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/matematicas/estadistica-descriptiva/,es,calculator,true,/es/matematicas/estadistica-descriptiva/,calculator:stats-descriptive,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/tension-deformacion-y-modulo-de-young/,es,calculator,true,/es/fisica/tension-deformacion-y-modulo-de-young/,calculator:stress-strain,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/velocidad-limite/,es,calculator,true,/es/fisica/velocidad-limite/,calculator:terminal-velocity,src/pages/[locale]/[category]/[calculator].astro
+/es/estudios/porcentaje-de-acierto-en-un-test/,es,calculator,true,/es/estudios/porcentaje-de-acierto-en-un-test/,calculator:test-score-percent,src/pages/[locale]/[category]/[calculator].astro
+/es/estudios/tiempo-de-lectura/,es,calculator,true,/es/estudios/tiempo-de-lectura/,calculator:text-reading-time,src/pages/[locale]/[category]/[calculator].astro
 /es/informatica/contador-de-palabras-y-caracteres/,es,calculator,true,/es/informatica/contador-de-palabras-y-caracteres/,calculator:text-word-char-count,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/conduccion-termica/,es,calculator,true,/es/fisica/conduccion-termica/,calculator:thermal-conduction,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/lente-delgada/,es,calculator,true,/es/fisica/lente-delgada/,calculator:thin-lens,src/pages/[locale]/[category]/[calculator].astro

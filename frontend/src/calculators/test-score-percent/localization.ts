@@ -53,4 +53,28 @@ export const localization: CalculatorLocalization = {
       'Правильных ответов не может быть больше, чем вопросов': 'Правильних відповідей не може бути більше, ніж питань',
     },
   },
+  es: {
+    fields: {
+      "correct": "Respuestas correctas",
+      "total": "Preguntas en total",
+      "passMark": "Nota de corte, %",
+    },
+    options: {},
+    results: {
+      "Результат": "Resultado",
+      "Правильных": "Correctas",
+      "Ошибок": "Falladas",
+      "Доля ошибок": "Proporción de fallos",
+      "Проходной балл": "Nota de corte",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "из": "de",
+      "Тест сдан": "Test superado",
+      "Тест не сдан": "Test no superado",
+      "Всего вопросов должно быть больше нуля": "El número de preguntas debe ser mayor que cero",
+      "Число правильных ответов не может быть отрицательным": "El número de respuestas correctas no puede ser negativo",
+      "Правильных ответов не может быть больше, чем вопросов": "No puede haber más respuestas correctas que preguntas",
+    },
+  },
 };

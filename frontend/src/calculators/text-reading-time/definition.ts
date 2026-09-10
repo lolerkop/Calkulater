@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { textReadingTimeCopyEn } from './copy.en';
 import { textReadingTimeCopyUk } from './copy.uk';
 import { textReadingTimeCopyDe } from './copy.de';
+import { textReadingTimeCopyEs } from './copy.es';
 import { textReadingTimeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: textReadingTimeCopyEn, uk: textReadingTimeCopyUk, de: textReadingTimeCopyDe },
+  copy: { en: textReadingTimeCopyEn, uk: textReadingTimeCopyUk, de: textReadingTimeCopyDe, es: textReadingTimeCopyEs },
   referenceCases: textReadingTimeReferenceCases,
   publishedExample: { inputs: { mode: 'words', text: '', words: 1200, wpm: 200, speechWpm: 130 }, expected: ["6 мин 0 с"] },
   presentation: {
