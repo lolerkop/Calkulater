@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { solutionConcentrationCopyEn } from './copy.en';
 import { solutionConcentrationCopyUk } from './copy.uk';
 import { solutionConcentrationCopyDe } from './copy.de';
+import { solutionConcentrationCopyEs } from './copy.es';
 import { solutionConcentrationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: solutionConcentrationCopyEn, uk: solutionConcentrationCopyUk, de: solutionConcentrationCopyDe },
+  copy: { en: solutionConcentrationCopyEn, uk: solutionConcentrationCopyUk, de: solutionConcentrationCopyDe, es: solutionConcentrationCopyEs },
   referenceCases: solutionConcentrationReferenceCases,
   publishedExample: { inputs: { mode: 'ww', solute: 25, solution: 500 }, expected: ['5,00%'] },
   presentation: {

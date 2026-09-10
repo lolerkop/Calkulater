@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { molarMassCopyEn } from './copy.en';
 import { molarMassCopyUk } from './copy.uk';
 import { molarMassCopyDe } from './copy.de';
+import { molarMassCopyEs } from './copy.es';
 import { molarMassReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: molarMassCopyEn, uk: molarMassCopyUk, de: molarMassCopyDe },
+  copy: { en: molarMassCopyEn, uk: molarMassCopyUk, de: molarMassCopyDe, es: molarMassCopyEs },
   referenceCases: molarMassReferenceCases,
   publishedExample: { inputs: { formula: 'H2SO4' }, expected: ["98,072 г/моль"] },
   presentation: {

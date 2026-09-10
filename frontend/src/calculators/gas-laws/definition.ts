@@ -4,6 +4,7 @@ import { contextualField } from './contextualField';
 import { gasLawsCopyEn } from './copy.en';
 import { gasLawsCopyUk } from './copy.uk';
 import { gasLawsCopyDe } from './copy.de';
+import { gasLawsCopyEs } from './copy.es';
 import { gasLawsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: gasLawsCopyEn, uk: gasLawsCopyUk, de: gasLawsCopyDe },
+  copy: { en: gasLawsCopyEn, uk: gasLawsCopyUk, de: gasLawsCopyDe, es: gasLawsCopyEs },
   referenceCases: gasLawsReferenceCases,
   publishedExample: { inputs: { mode: 'p2', p1: 100, v1: 2, t1: 300, p2: 100, v2: 1, t2: 300 }, expected: ["200 кПа"] },
   presentation: {

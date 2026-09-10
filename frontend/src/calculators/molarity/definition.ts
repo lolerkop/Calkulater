@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { molarityCopyEn } from './copy.en';
 import { molarityCopyUk } from './copy.uk';
 import { molarityCopyDe } from './copy.de';
+import { molarityCopyEs } from './copy.es';
 import { molarityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: molarityCopyEn, uk: molarityCopyUk, de: molarityCopyDe },
+  copy: { en: molarityCopyEn, uk: molarityCopyUk, de: molarityCopyDe, es: molarityCopyEs },
   referenceCases: molarityReferenceCases,
   publishedExample: { inputs: { mode: 'moles', moles: 0.5, volumeUnit: 'l', volume: 2 }, expected: ['0,25 моль/л'] },
   presentation: {

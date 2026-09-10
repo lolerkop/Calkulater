@@ -1605,6 +1605,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /de/mathematik/z-wert-rechner/,de,calculator,true,/de/mathematik/z-wert-rechner/,calculator:z-score,src/pages/[locale]/[category]/[calculator].astro
 /es/,es,home,true,/es/,home,src/pages/[locale]/index.astro
 /es/calculators/,es,catalog,true,/es/calculators/,catalog,src/pages/[locale]/calculators.astro
+/es/calculators/page/2/,es,catalog,true,/es/calculators/page/2/,catalog-page-2,src/pages/[locale]/calculators/page/[page].astro
 /es/calculators/?tag=*,es,facet,false,/es/calculators/,none,functions/[locale]/calculators.js
 /es/calculators/?category=*,es,facet,false,/es/calculators/,none,functions/[locale]/calculators.js
 /es/calculators/?sort=*,es,facet,false,/es/calculators/,none,functions/[locale]/calculators.js
@@ -1680,6 +1681,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/punto-de-rocio/,es,calculator,true,/es/fisica/punto-de-rocio/,calculator:dew-point,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/probabilidad-con-dados/,es,calculator,true,/es/matematicas/probabilidad-con-dados/,calculator:dice-probability,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/diferencia-absoluta-y-relativa/,es,calculator,true,/es/matematicas/diferencia-absoluta-y-relativa/,calculator:difference-abs-rel,src/pages/[locale]/[category]/[calculator].astro
+/es/quimica/calculadora-de-diluciones/,es,calculator,true,/es/quimica/calculadora-de-diluciones/,calculator:dilution,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-divisores/,es,calculator,true,/es/matematicas/calculadora-de-divisores/,calculator:divisors,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/efecto-doppler/,es,calculator,true,/es/fisica/efecto-doppler/,calculator:doppler,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/velocidad-de-escape/,es,calculator,true,/es/fisica/velocidad-de-escape/,calculator:escape-velocity,src/pages/[locale]/[category]/[calculator].astro
@@ -1688,6 +1690,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/matematicas/calculadora-de-fracciones/,es,calculator,true,/es/matematicas/calculadora-de-fracciones/,calculator:fraction-arith,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/caida-libre/,es,calculator,true,/es/fisica/caida-libre/,calculator:free-fall,src/pages/[locale]/[category]/[calculator].astro
 /es/vehiculos/consumo-de-combustible/,es,calculator,true,/es/vehiculos/consumo-de-combustible/,calculator:fuel-consumption,src/pages/[locale]/[category]/[calculator].astro
+/es/quimica/ley-combinada-de-los-gases/,es,calculator,true,/es/quimica/ley-combinada-de-los-gases/,calculator:gas-laws,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-mcd-y-mcm/,es,calculator,true,/es/matematicas/calculadora-de-mcd-y-mcm/,calculator:gcd-lcm,src/pages/[locale]/[category]/[calculator].astro
 /es/geometria/corona-circular/,es,calculator,true,/es/geometria/corona-circular/,calculator:geom-annulus,src/pages/[locale]/[category]/[calculator].astro
 /es/geometria/calculadora-de-circulo/,es,calculator,true,/es/geometria/calculadora-de-circulo/,calculator:geom-circle,src/pages/[locale]/[category]/[calculator].astro
@@ -1719,6 +1722,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/ley-de-hooke/,es,calculator,true,/es/fisica/ley-de-hooke/,calculator:hooke-law,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/humedad-absoluta/,es,calculator,true,/es/fisica/humedad-absoluta/,calculator:humidity-convert,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/presion-hidrostatica/,es,calculator,true,/es/fisica/presion-hidrostatica/,calculator:hydrostatic-pressure,src/pages/[locale]/[category]/[calculator].astro
+/es/quimica/ley-de-los-gases-ideales/,es,calculator,true,/es/quimica/ley-de-los-gases-ideales/,calculator:ideal-gas-law,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/plano-inclinado/,es,calculator,true,/es/fisica/plano-inclinado/,calculator:inclined-plane,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/ley-de-la-inversa-del-cuadrado/,es,calculator,true,/es/fisica/ley-de-la-inversa-del-cuadrado/,calculator:inverse-square,src/pages/[locale]/[category]/[calculator].astro
 /es/informatica/calculadora-de-subredes-ipv4/,es,calculator,true,/es/informatica/calculadora-de-subredes-ipv4/,calculator:ipv4-subnet,src/pages/[locale]/[category]/[calculator].astro
@@ -1730,6 +1734,9 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/fisica/numero-de-mach/,es,calculator,true,/es/fisica/numero-de-mach/,calculator:mach-number,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/equivalencia-masa-energia/,es,calculator,true,/es/fisica/equivalencia-masa-energia/,calculator:mass-energy,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/calculadora-de-resto/,es,calculator,true,/es/matematicas/calculadora-de-resto/,calculator:modulo,src/pages/[locale]/[category]/[calculator].astro
+/es/quimica/calculadora-de-masa-molar/,es,calculator,true,/es/quimica/calculadora-de-masa-molar/,calculator:molar-mass,src/pages/[locale]/[category]/[calculator].astro
+/es/quimica/calculadora-de-molaridad/,es,calculator,true,/es/quimica/calculadora-de-molaridad/,calculator:molarity,src/pages/[locale]/[category]/[calculator].astro
+/es/quimica/calculadora-de-moles/,es,calculator,true,/es/quimica/calculadora-de-moles/,calculator:moles,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/momento-de-inercia/,es,calculator,true,/es/fisica/momento-de-inercia/,calculator:moment-of-inertia,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/momento-lineal/,es,calculator,true,/es/fisica/momento-lineal/,calculator:momentum,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/segunda-ley-de-newton/,es,calculator,true,/es/fisica/segunda-ley-de-newton/,calculator:newton-force,src/pages/[locale]/[category]/[calculator].astro
@@ -1760,6 +1767,7 @@ url,locale,page_type,indexable_expected,canonical_expected,hreflang_cluster,sour
 /es/matematicas/tamano-muestral/,es,calculator,true,/es/matematicas/tamano-muestral/,calculator:sample-size,src/pages/[locale]/[category]/[calculator].astro
 /es/conversores/escala-de-maquetas/,es,calculator,true,/es/conversores/escala-de-maquetas/,calculator:scale-model,src/pages/[locale]/[category]/[calculator].astro
 /es/geometria/calculadora-de-pendiente/,es,calculator,true,/es/geometria/calculadora-de-pendiente/,calculator:slope,src/pages/[locale]/[category]/[calculator].astro
+/es/quimica/concentracion-de-disoluciones/,es,calculator,true,/es/quimica/concentracion-de-disoluciones/,calculator:solution-concentration,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/calor-especifico/,es,calculator,true,/es/fisica/calor-especifico/,calculator:specific-heat,src/pages/[locale]/[category]/[calculator].astro
 /es/fisica/velocidad-del-sonido/,es,calculator,true,/es/fisica/velocidad-del-sonido/,calculator:speed-of-sound,src/pages/[locale]/[category]/[calculator].astro
 /es/matematicas/estadistica-descriptiva/,es,calculator,true,/es/matematicas/estadistica-descriptiva/,calculator:stats-descriptive,src/pages/[locale]/[category]/[calculator].astro
