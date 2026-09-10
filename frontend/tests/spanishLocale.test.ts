@@ -143,6 +143,16 @@ describe('испанская локаль: hreflang', () => {
     }
   });
 
+  it('запись числа прописью в испанский каталог не попадает', () => {
+    // Калькулятор строит запись подстановкой слов по одному, а испанский так не
+    // устроен: 16 — это dieciséis, а не «diez seis», 21 — veintiuno, 500 —
+    // quinientos, 900 — novecientos, и ciento перед существительным теряет слог.
+    // Пословная подстановка дала бы синтаксически ломаный испанский, поэтому
+    // калькулятор исключён из локали, а не переведён кое-как.
+    expect(getCalculatorById('number-to-words', 'es')).toBeUndefined();
+    expect(getCalculatorById('number-to-words', 'en')).toBeDefined();
+  });
+
   it('русскоязычные калькуляторы не получают испанский', () => {
     for (const id of ['deposit-calculator', 'income-tax-calculator', 'vat-calculator']) {
       expect(isCalculatorAvailableInLocale(id, 'es'), id).toBe(false);
