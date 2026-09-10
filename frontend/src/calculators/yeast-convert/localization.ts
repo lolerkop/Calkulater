@@ -57,4 +57,30 @@ export const localization: CalculatorLocalization = {
       'Выберите разные виды дрожжей': 'Оберіть різні види дріжджів',
     },
   },
+  es: {
+    fields: {
+      "value": "Cantidad de la receta, g",
+      "from": "Lo que indica la receta",
+      "to": "Lo que tienes",
+    },
+    options: {
+      "fresh": "fresca prensada",
+      "active": "seca activa",
+      "instant": "instantánea",
+    },
+    results: {
+      "Нужно дрожжей": "Levadura necesaria",
+      "В пересчёте на прессованные": "Equivalente en fresca prensada",
+      "Сухие активные": "Seca activa",
+      "Быстродействующие": "Instantánea",
+      "Соотношение": "Proporción",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "г": "g",
+      "Выберите вид дрожжей из списка": "Elige un tipo de levadura de la lista",
+      "Масса должна быть больше нуля": "La cantidad debe ser mayor que cero",
+      "Выберите разные виды дрожжей": "Elige dos tipos de levadura distintos",
+    },
+  },
 };

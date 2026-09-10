@@ -69,4 +69,31 @@ export const localization: CalculatorLocalization = {
       "Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.": "Норма освітленості це припущення, яке можна змінювати: для вітальні зазвичай беруть близько 150 лк, для робочого місця втричі більше. Нормативні значення різняться за країнами.",
     },
   },
+  es: {
+    fields: {
+      "area": "Superficie de la habitación, m²",
+      "norm": "Iluminancia objetivo, lx",
+      "lampLumens": "Flujo de la lámpara, lm",
+      "lossFactor": "Factor de mantenimiento",
+    },
+    options: {},
+    results: {
+      "Нужно люмен": "Lúmenes necesarios",
+      "Ламп": "Lámparas",
+      "Люмен на квадратный метр": "Lúmenes por metro cuadrado",
+      "Норма освещённости": "Iluminancia objetivo",
+      "Коэффициент запаса": "Factor de mantenimiento",
+      "Установленный поток": "Flujo instalado",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "лм": "lm",
+      "лк": "lx",
+      "Площадь должна быть больше нуля": "La superficie debe ser mayor que cero",
+      "Норма освещённости должна быть больше нуля": "La iluminancia objetivo debe ser mayor que cero",
+      "Световой поток лампы должен быть больше нуля": "El flujo de la lámpara debe ser mayor que cero",
+      "Коэффициент запаса должен быть от 0,4 до 1": "El factor de mantenimiento debe estar entre 0,4 y 1",
+      "Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.": "La iluminancia objetivo es una suposición que puedes cambiar: en un salón se toman unos 150 lx y en un puesto de trabajo el triple. Los valores normativos difieren entre países.",
+    },
+  },
 };

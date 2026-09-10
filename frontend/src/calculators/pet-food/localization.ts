@@ -63,4 +63,27 @@ export const localization: CalculatorLocalization = {
       'Калорийность корма должна быть больше нуля': 'Калорійність корму має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "weight": "Peso corporal, kg",
+      "factor": "Multiplicador de necesidad energética",
+      "kcalPer100": "Energía del alimento, kcal por 100 g",
+    },
+    options: {},
+    results: {
+      "Норма корма в сутки": "Ración diaria de pienso",
+      "Потребность в энергии": "Necesidad energética",
+      "Обмен покоя (RER)": "Necesidad en reposo (RER)",
+      "Масса питомца": "Peso corporal",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "г": "g",
+      "ккал": "kcal",
+      "кг": "kg",
+      "Масса питомца должна быть больше нуля": "El peso corporal debe ser mayor que cero",
+      "Множитель потребности должен быть больше нуля": "El multiplicador de necesidad debe ser mayor que cero",
+      "Калорийность корма должна быть больше нуля": "La energía del alimento debe ser mayor que cero",
+    },
+  },
 };

@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { lightingCopyEn } from './copy.en';
 import { lightingCopyUk } from './copy.uk';
 import { lightingCopyDe } from './copy.de';
+import { lightingCopyEs } from './copy.es';
 import { lightingReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: lightingCopyEn, uk: lightingCopyUk, de: lightingCopyDe },
+  copy: { en: lightingCopyEn, uk: lightingCopyUk, de: lightingCopyDe, es: lightingCopyEs },
   referenceCases: lightingReferenceCases,
   publishedExample: { inputs: { area: 18, norm: 150, lampLumens: 800, lossFactor: 0.8 }, expected: ["3 375 лм"] },
   presentation: {

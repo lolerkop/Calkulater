@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { recipeScaleCopyEn } from './copy.en';
 import { recipeScaleCopyUk } from './copy.uk';
 import { recipeScaleCopyDe } from './copy.de';
+import { recipeScaleCopyEs } from './copy.es';
 import { recipeScaleReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: recipeScaleCopyEn, uk: recipeScaleCopyUk, de: recipeScaleCopyDe },
+  copy: { en: recipeScaleCopyEn, uk: recipeScaleCopyUk, de: recipeScaleCopyDe, es: recipeScaleCopyEs },
   referenceCases: recipeScaleReferenceCases,
   publishedExample: { inputs: { ingredients: 'flour 500\nwater 320\nsalt 10\nyeast 7', fromServings: 4, toServings: 6 }, expected: ["1,5"] },
   presentation: {

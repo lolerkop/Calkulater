@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { petFoodCopyEn } from './copy.en';
 import { petFoodCopyUk } from './copy.uk';
 import { petFoodCopyDe } from './copy.de';
+import { petFoodCopyEs } from './copy.es';
 import { petFoodReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: petFoodCopyEn, uk: petFoodCopyUk, de: petFoodCopyDe },
+  copy: { en: petFoodCopyEn, uk: petFoodCopyUk, de: petFoodCopyDe, es: petFoodCopyEs },
   referenceCases: petFoodReferenceCases,
   publishedExample: {
     inputs: { weight: 22, factor: 1.6, kcalPer100: 350 },

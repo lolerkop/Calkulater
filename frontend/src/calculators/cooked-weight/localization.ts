@@ -88,4 +88,33 @@ export const localization: CalculatorLocalization = {
       "Готовый вес должен быть больше нуля": "Готова вага має бути більшою за нуль",
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué conoces",
+      "raw": "Peso en seco, g",
+      "cooked": "Peso cocinado, g",
+      "factor": "Factor de absorción",
+      "kcalPer100Raw": "Kcal por 100 g en seco",
+    },
+    options: {
+      "rawToCooked": "peso en seco — hallar el cocinado",
+      "cookedToRaw": "peso cocinado — hallar el seco",
+    },
+    results: {
+      "Готовый вес": "Peso cocinado",
+      "Сухой вес": "Peso en seco",
+      "Коэффициент разварки": "Factor de absorción",
+      "Калорий всего": "Calorías en total",
+      "Ккал на 100 г готового": "Kcal por 100 g cocinado",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "г": "g",
+      "ккал": "kcal",
+      "Коэффициент должен быть больше нуля": "El factor debe ser mayor que cero",
+      "Калорийность не может быть отрицательной": "Las calorías no pueden ser negativas",
+      "Сухой вес должен быть больше нуля": "El peso en seco debe ser mayor que cero",
+      "Готовый вес должен быть больше нуля": "El peso cocinado debe ser mayor que cero",
+    },
+  },
 };

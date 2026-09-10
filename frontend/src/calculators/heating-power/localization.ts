@@ -81,4 +81,31 @@ export const localization: CalculatorLocalization = {
       "Число окон не может быть отрицательным": "Кількість вікон не може бути від'ємною",
     },
   },
+  es: {
+    fields: {
+      "area": "Superficie, m²",
+      "height": "Altura del techo, m",
+      "wattsPerM3": "Demanda específica, W/m³",
+      "windows": "Número de ventanas",
+    },
+    options: {},
+    results: {
+      "Требуемая мощность": "Potencia necesaria",
+      "В ваттах": "En vatios",
+      "Объём помещения": "Volumen de la habitación",
+      "Норма на объём": "Demanda por volumen",
+      "Надбавка на окна": "Suplemento por ventanas",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кВт": "kW",
+      "Вт/м³": "W/m³",
+      "Вт": "W",
+      "м³": "m³",
+      "Площадь должна быть больше нуля": "La superficie debe ser mayor que cero",
+      "Высота потолка должна быть больше нуля": "La altura del techo debe ser mayor que cero",
+      "Удельная норма должна быть больше нуля": "La demanda específica debe ser mayor que cero",
+      "Число окон не может быть отрицательным": "El número de ventanas no puede ser negativo",
+    },
+  },
 };

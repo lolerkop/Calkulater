@@ -87,4 +87,33 @@ export const localization: CalculatorLocalization = {
       "Введите хотя бы один ингредиент": "Введіть хоча б один інгредієнт",
     },
   },
+  es: {
+    fields: {
+      "ingredients": "Ingredientes: nombre y cantidad por línea",
+      "fromServings": "Raciones de la receta",
+      "toServings": "Raciones necesarias",
+    },
+    options: {},
+    results: {
+      "Коэффициент": "Factor de escalado",
+      "Ингредиентов": "Ingredientes",
+      "Было всего": "Total original",
+      "Стало всего": "Total escalado",
+      "Порций было": "Raciones antes",
+      "Порций стало": "Raciones después",
+      "Пересчёт ингредиентов": "Ingredientes recalculados",
+      "Ингредиент": "Ingrediente",
+      "Было": "Antes",
+      "Стало": "Después",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Нужны название и количество в строке:": "Hacen falta un nombre y una cantidad en la línea:",
+      "Количество должно быть числом в строке:": "La cantidad debe ser un número en la línea:",
+      "Исходное число порций должно быть больше нуля": "El número original de raciones debe ser mayor que cero",
+      "Нужное число порций должно быть больше нуля": "El número de raciones necesarias debe ser mayor que cero",
+      "Количество не может быть отрицательным": "La cantidad no puede ser negativa",
+      "Введите хотя бы один ингредиент": "Introduce al menos un ingrediente",
+    },
+  },
 };

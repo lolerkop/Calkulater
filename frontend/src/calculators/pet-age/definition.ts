@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { petAgeCopyEn } from './copy.en';
 import { petAgeCopyUk } from './copy.uk';
 import { petAgeCopyDe } from './copy.de';
+import { petAgeCopyEs } from './copy.es';
 import { petAgeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: petAgeCopyEn, uk: petAgeCopyUk, de: petAgeCopyDe },
+  copy: { en: petAgeCopyEn, uk: petAgeCopyUk, de: petAgeCopyDe, es: petAgeCopyEs },
   referenceCases: petAgeReferenceCases,
   publishedExample: {
     inputs: { species: 'cat', years: 7 },

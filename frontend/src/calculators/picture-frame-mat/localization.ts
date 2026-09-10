@@ -63,4 +63,29 @@ export const localization: CalculatorLocalization = {
       'Утяжеление нижнего поля не может быть отрицательным': 'Обтяження нижнього поля не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "photoWidth": "Ancho de la fotografía, cm",
+      "photoHeight": "Alto de la fotografía, cm",
+      "border": "Margen superior y laterales, cm",
+      "bottomExtra": "Refuerzo del margen inferior, cm",
+    },
+    options: {},
+    results: {
+      "Размер рамы": "Tamaño del marco",
+      "Нижнее поле": "Margen inferior",
+      "Верх и бока": "Superior y laterales",
+      "Площадь паспарту": "Superficie del paspartú",
+      "Соотношение сторон рамы": "Relación de aspecto del marco",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "см": "cm",
+      "см²": "cm²",
+      "Ширина фотографии должна быть больше нуля": "El ancho de la fotografía debe ser mayor que cero",
+      "Высота фотографии должна быть больше нуля": "El alto de la fotografía debe ser mayor que cero",
+      "Поле паспарту должно быть больше нуля": "El margen del paspartú debe ser mayor que cero",
+      "Утяжеление нижнего поля не может быть отрицательным": "El refuerzo del margen inferior no puede ser negativo",
+    },
+  },
 };

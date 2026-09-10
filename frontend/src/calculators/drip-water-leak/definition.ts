@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { dripWaterLeakCopyEn } from './copy.en';
 import { dripWaterLeakCopyUk } from './copy.uk';
 import { dripWaterLeakCopyDe } from './copy.de';
+import { dripWaterLeakCopyEs } from './copy.es';
 import { dripWaterLeakReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: dripWaterLeakCopyEn, uk: dripWaterLeakCopyUk, de: dripWaterLeakCopyDe },
+  copy: { en: dripWaterLeakCopyEn, uk: dripWaterLeakCopyUk, de: dripWaterLeakCopyDe, es: dripWaterLeakCopyEs },
   referenceCases: dripWaterLeakReferenceCases,
   publishedExample: { inputs: { drops: 10, price: 45, dropMl: 0.05 }, expected: ["0,72 л"] },
   presentation: {

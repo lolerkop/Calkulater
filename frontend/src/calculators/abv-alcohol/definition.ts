@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { abvAlcoholCopyEn } from './copy.en';
 import { abvAlcoholCopyUk } from './copy.uk';
 import { abvAlcoholCopyDe } from './copy.de';
+import { abvAlcoholCopyEs } from './copy.es';
 import { abvAlcoholReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: abvAlcoholCopyEn, uk: abvAlcoholCopyUk, de: abvAlcoholCopyDe },
+  copy: { en: abvAlcoholCopyEn, uk: abvAlcoholCopyUk, de: abvAlcoholCopyDe, es: abvAlcoholCopyEs },
   referenceCases: abvAlcoholReferenceCases,
   publishedExample: { inputs: { og: 1.05, fg: 1.01, factor: 131.25 }, expected: ["5,25 %"] },
   presentation: {

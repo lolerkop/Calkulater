@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { pictureFrameMatCopyEn } from './copy.en';
 import { pictureFrameMatCopyUk } from './copy.uk';
 import { pictureFrameMatCopyDe } from './copy.de';
+import { pictureFrameMatCopyEs } from './copy.es';
 import { pictureFrameMatReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pictureFrameMatCopyEn, uk: pictureFrameMatCopyUk, de: pictureFrameMatCopyDe },
+  copy: { en: pictureFrameMatCopyEn, uk: pictureFrameMatCopyUk, de: pictureFrameMatCopyDe, es: pictureFrameMatCopyEs },
   referenceCases: pictureFrameMatReferenceCases,
   publishedExample: { inputs: { photoWidth: 20, photoHeight: 30, border: 5, bottomExtra: 1 }, expected: ["30×41 см"] },
   presentation: {

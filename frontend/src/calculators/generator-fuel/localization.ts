@@ -60,4 +60,26 @@ export const localization: CalculatorLocalization = {
       'Время работы должно быть больше нуля': 'Час роботи має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "load": "Carga, kW",
+      "sfc": "Consumo específico, l/kWh",
+      "hours": "Tiempo de funcionamiento, h",
+      "price": "Precio del combustible por litro",
+    },
+    options: {},
+    results: {
+      "Расход топлива": "Combustible consumido",
+      "Расход в час": "Consumo por hora",
+      "Стоимость топлива": "Coste del combustible",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      " л/ч": " l/h",
+      " л": " l",
+      "Нагрузка должна быть больше нуля": "La carga debe ser mayor que cero",
+      "Удельный расход должен быть больше нуля": "El consumo específico debe ser mayor que cero",
+      "Время работы должно быть больше нуля": "El tiempo de funcionamiento debe ser mayor que cero",
+    },
+  },
 };

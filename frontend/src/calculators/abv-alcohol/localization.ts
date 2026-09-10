@@ -49,4 +49,25 @@ export const localization: CalculatorLocalization = {
       'Конечная плотность не может быть выше начальной': 'Кінцева щільність не може бути вищою за початкову',
     },
   },
+  es: {
+    fields: {
+      "og": "Densidad inicial",
+      "fg": "Densidad final",
+      "factor": "Factor de conversión",
+    },
+    options: {},
+    results: {
+      "Крепость": "Alcohol por volumen",
+      "Степень сбраживания": "Atenuación aparente",
+      "Падение плотности": "Caída de densidad",
+      "Начальная плотность": "Densidad inicial",
+      "Конечная плотность": "Densidad final",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Начальная плотность должна быть больше единицы": "La densidad inicial debe ser mayor que uno",
+      "Конечная плотность должна быть больше нуля": "La densidad final debe ser mayor que cero",
+      "Конечная плотность не может быть выше начальной": "La densidad final no puede superar a la inicial",
+    },
+  },
 };

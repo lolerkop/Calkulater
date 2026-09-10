@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { yeastConvertCopyEn } from './copy.en';
 import { yeastConvertCopyUk } from './copy.uk';
 import { yeastConvertCopyDe } from './copy.de';
+import { yeastConvertCopyEs } from './copy.es';
 import { yeastConvertReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: yeastConvertCopyEn, uk: yeastConvertCopyUk, de: yeastConvertCopyDe },
+  copy: { en: yeastConvertCopyEn, uk: yeastConvertCopyUk, de: yeastConvertCopyDe, es: yeastConvertCopyEs },
   referenceCases: yeastConvertReferenceCases,
   publishedExample: { inputs: { value: 30, from: "fresh", to: "instant" }, expected: ["7,5 г"] },
   presentation: {

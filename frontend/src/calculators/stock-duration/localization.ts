@@ -64,4 +64,24 @@ export const localization: CalculatorLocalization = {
       "Страховой запас больше срока — заказывать нужно уже сейчас": "Страховий запас більший за строк — замовляти треба вже зараз",
     },
   },
+  es: {
+    fields: {
+      "stock": "Existencias disponibles",
+      "perDay": "Consumo diario",
+      "reserveDays": "Reserva de seguridad, días",
+    },
+    options: {},
+    results: {
+      "Хватит на": "Duran",
+      "Заказать через": "Pedir dentro de",
+      "Расход в сутки": "Consumo diario",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "дней": "días",
+      "Запас не может быть отрицательным": "Las existencias no pueden ser negativas",
+      "Расход в сутки должен быть больше нуля": "El consumo diario debe ser mayor que cero",
+      "Страховой запас больше срока — заказывать нужно уже сейчас": "La reserva supera la duración: hay que pedir ya",
+    },
+  },
 };

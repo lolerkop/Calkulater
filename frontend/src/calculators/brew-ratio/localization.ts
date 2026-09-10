@@ -59,4 +59,31 @@ export const localization: CalculatorLocalization = {
       'Объём воды должен быть больше нуля': "Об'єм води має бути більшим за нуль",
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "water": "Agua, ml",
+      "coffee": "Café, g",
+      "ratio": "Ratio 1:k",
+    },
+    options: {
+      "coffee": "la dosis de café",
+      "water": "el volumen de agua",
+      "ratio": "el ratio",
+    },
+    results: {
+      "Кофе": "Café",
+      "Вода": "Agua",
+      "Соотношение": "Ratio",
+      "Гуща заберёт воды": "Retenido por los posos",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мл": "ml",
+      "г": "g",
+      "Соотношение должно быть больше нуля": "El ratio debe ser mayor que cero",
+      "Масса кофе должна быть больше нуля": "La dosis de café debe ser mayor que cero",
+      "Объём воды должен быть больше нуля": "El volumen de agua debe ser mayor que cero",
+    },
+  },
 };
