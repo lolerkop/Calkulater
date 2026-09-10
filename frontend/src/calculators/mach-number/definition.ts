@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { machNumberCopyEn } from './copy.en';
 import { machNumberCopyUk } from './copy.uk';
 import { machNumberCopyDe } from './copy.de';
+import { machNumberCopyEs } from './copy.es';
 import { machNumberReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: machNumberCopyEn, uk: machNumberCopyUk, de: machNumberCopyDe },
+  copy: { en: machNumberCopyEn, uk: machNumberCopyUk, de: machNumberCopyDe, es: machNumberCopyEs },
   referenceCases: machNumberReferenceCases,
   publishedExample: { inputs: { v: 900, t: -50 }, expected: ["0,8349"] },
   presentation: {

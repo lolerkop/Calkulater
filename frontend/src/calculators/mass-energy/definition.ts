@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { massEnergyCopyEn } from './copy.en';
 import { massEnergyCopyUk } from './copy.uk';
 import { massEnergyCopyDe } from './copy.de';
+import { massEnergyCopyEs } from './copy.es';
 import { massEnergyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: massEnergyCopyEn, uk: massEnergyCopyUk, de: massEnergyCopyDe },
+  copy: { en: massEnergyCopyEn, uk: massEnergyCopyUk, de: massEnergyCopyDe, es: massEnergyCopyEs },
   referenceCases: massEnergyReferenceCases,
   publishedExample: { inputs: { massG: 1 }, expected: ["8,988·10^13 Дж"] },
   presentation: {

@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { pipeFlowCopyEn } from './copy.en';
 import { pipeFlowCopyUk } from './copy.uk';
 import { pipeFlowCopyDe } from './copy.de';
+import { pipeFlowCopyEs } from './copy.es';
 import { pipeFlowReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pipeFlowCopyEn, uk: pipeFlowCopyUk, de: pipeFlowCopyDe },
+  copy: { en: pipeFlowCopyEn, uk: pipeFlowCopyUk, de: pipeFlowCopyDe, es: pipeFlowCopyEs },
   referenceCases: pipeFlowReferenceCases,
   publishedExample: { inputs: { flow: 10, diameter: 50 }, expected: ["1,415 м/с"] },
   presentation: {

@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { pendulumCopyEn } from './copy.en';
 import { pendulumCopyUk } from './copy.uk';
 import { pendulumCopyDe } from './copy.de';
+import { pendulumCopyEs } from './copy.es';
 import { pendulumReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pendulumCopyEn, uk: pendulumCopyUk, de: pendulumCopyDe },
+  copy: { en: pendulumCopyEn, uk: pendulumCopyUk, de: pendulumCopyDe, es: pendulumCopyEs },
   referenceCases: pendulumReferenceCases,
   publishedExample: { inputs: { length: 1, g: 9.80665 }, expected: ["2,006 с"] },
   presentation: {

@@ -48,4 +48,26 @@ export const localization: CalculatorLocalization = {
       'Высота вне диапазона от −430 до 11 000 м': 'Висота поза діапазоном від −430 до 11 000 м',
     },
   },
+  es: {
+    fields: {
+      "h": "Altitud sobre el nivel del mar, m",
+    },
+    options: {},
+    results: {
+      "Давление": "Presión",
+      "В миллиметрах ртутного столба": "En milímetros de mercurio",
+      "Доля от уровня моря": "Proporción respecto al nivel del mar",
+      "Температура по стандартной атмосфере": "Temperatura según la atmósfera estándar",
+      "Плотность воздуха": "Densidad del aire",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кПа": "kPa",
+      "мм рт. ст.": "mmHg",
+      "%": "%",
+      "°C": "°C",
+      "кг/м³": "kg/m³",
+      "Высота вне диапазона от −430 до 11 000 м": "La altitud queda fuera del intervalo de −430 a 11 000 m",
+    },
+  },
 };

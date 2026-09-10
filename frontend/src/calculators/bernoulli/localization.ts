@@ -66,4 +66,30 @@ export const localization: CalculatorLocalization = {
       'При таких данных давление во втором сечении отрицательно': 'За таких даних тиск у другому перерізі відʼємний',
     },
   },
+  es: {
+    fields: {
+      "p1": "Presión en la sección 1, kPa",
+      "v1": "Velocidad en la sección 1, m/s",
+      "h1": "Altura de la sección 1, m",
+      "v2": "Velocidad en la sección 2, m/s",
+      "h2": "Altura de la sección 2, m",
+      "rho": "Densidad del fluido, kg/m³",
+    },
+    options: {},
+    results: {
+      "Давление во втором сечении": "Presión en la sección 2",
+      "Изменение давления": "Variación de la presión",
+      "Динамический напор в первом сечении": "Carga dinámica en la sección 1",
+      "Динамический напор во втором сечении": "Carga dinámica en la sección 2",
+      "Полный напор": "Carga total",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кПа": "kPa",
+      "Плотность должна быть больше нуля": "La densidad debe ser mayor que cero",
+      "Скорость не может быть отрицательной": "La velocidad no puede ser negativa",
+      "Давление в первом сечении не может быть отрицательным": "La presión en la sección 1 no puede ser negativa",
+      "При таких данных давление во втором сечении отрицательно": "Con estos datos la presión en la sección 2 sale negativa",
+    },
+  },
 };

@@ -50,4 +50,24 @@ export const localization: CalculatorLocalization = {
       'Температура вне области применимости формулы': 'Температура поза областю застосовності формули',
     },
   },
+  es: {
+    fields: {
+      "t": "Temperatura del aire, °C",
+      "rh": "Humedad relativa, %",
+    },
+    options: {},
+    results: {
+      "Точка росы": "Punto de rocío",
+      "Разрыв с температурой": "Margen respecto a la temperatura del aire",
+      "Температура воздуха": "Temperatura del aire",
+      "Относительная влажность": "Humedad relativa",
+      "Точка росы в градусах Фаренгейта": "Punto de rocío en grados Fahrenheit",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Влажность должна быть больше нуля": "La humedad debe ser mayor que cero",
+      "Влажность не может быть больше 100 %": "La humedad no puede superar el 100 %",
+      "Температура вне области применимости формулы": "La temperatura queda fuera del rango que cubre la fórmula",
+    },
+  },
 };

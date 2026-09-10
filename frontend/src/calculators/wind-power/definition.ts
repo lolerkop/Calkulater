@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { windPowerCopyEn } from './copy.en';
 import { windPowerCopyUk } from './copy.uk';
 import { windPowerCopyDe } from './copy.de';
+import { windPowerCopyEs } from './copy.es';
 import { windPowerReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: windPowerCopyEn, uk: windPowerCopyUk, de: windPowerCopyDe },
+  copy: { en: windPowerCopyEn, uk: windPowerCopyUk, de: windPowerCopyDe, es: windPowerCopyEs },
   referenceCases: windPowerReferenceCases,
   publishedExample: { inputs: { d: 3, v: 7, cp: 0.4, rho: 1.225 }, expected: ["0,594 кВт"] },
   presentation: {

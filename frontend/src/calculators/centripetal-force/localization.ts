@@ -61,4 +61,27 @@ export const localization: CalculatorLocalization = {
       'Радиус должен быть больше нуля': 'Радіус має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "m": "Masa, kg",
+      "v": "Velocidad a lo largo de la circunferencia, m/s",
+      "r": "Radio, m",
+    },
+    options: {},
+    results: {
+      "Центростремительная сила": "Fuerza centrípeta",
+      "Центростремительное ускорение": "Aceleración centrípeta",
+      "Угловая скорость": "Velocidad angular",
+      "Период обращения": "Periodo de revolución",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Н": "N",
+      "м/с²": "m/s²",
+      "рад/с": "rad/s",
+      "с": "s",
+      "Масса должна быть больше нуля": "La masa debe ser mayor que cero",
+      "Радиус должен быть больше нуля": "El radio debe ser mayor que cero",
+    },
+  },
 };

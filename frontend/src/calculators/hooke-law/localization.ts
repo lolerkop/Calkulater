@@ -61,4 +61,33 @@ export const localization: CalculatorLocalization = {
       'Удлинение не может быть нулевым: делить на него нечего': 'Видовження не може бути нульовим: ділити на нього нічого',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "k": "Constante elástica, N/m",
+      "x": "Alargamiento o compresión, m",
+      "f": "Fuerza, N",
+    },
+    options: {
+      "force": "la fuerza del muelle",
+      "extension": "el alargamiento",
+      "stiffness": "la constante elástica",
+    },
+    results: {
+      "Сила": "Fuerza",
+      "Удлинение": "Alargamiento",
+      "Жёсткость": "Constante elástica",
+      "Энергия пружины": "Energía almacenada",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Сила и деформация должны быть направлены в одну сторону": "La fuerza y la deformación deben apuntar en el mismo sentido",
+      "Н/м": "N/m",
+      "Н": "N",
+      "Дж": "J",
+      "м": "m",
+      "Жёсткость должна быть больше нуля": "La constante elástica debe ser mayor que cero",
+      "Удлинение не может быть нулевым: делить на него нечего": "El alargamiento no puede ser cero: no hay entre qué dividir",
+    },
+  },
 };

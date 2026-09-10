@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { physicsTorqueCopyEn } from './copy.en';
 import { physicsTorqueCopyUk } from './copy.uk';
 import { physicsTorqueCopyDe } from './copy.de';
+import { physicsTorqueCopyEs } from './copy.es';
 import { physicsTorqueReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: physicsTorqueCopyEn, uk: physicsTorqueCopyUk, de: physicsTorqueCopyDe },
+  copy: { en: physicsTorqueCopyEn, uk: physicsTorqueCopyUk, de: physicsTorqueCopyDe, es: physicsTorqueCopyEs },
   referenceCases: physicsTorqueReferenceCases,
   publishedExample: { inputs: { force: 50, radius: 0.3, angle: 90 }, expected: ['15 Н·м'] },
   presentation: {

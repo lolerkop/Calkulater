@@ -50,4 +50,26 @@ export const localization: CalculatorLocalization = {
       'Масса должна быть больше нуля': 'Маса має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "massG": "Masa, g",
+    },
+    options: {},
+    results: {
+      "Энергия покоя": "Energía en reposo",
+      "В киловатт-часах": "En kilovatios hora",
+      "В тоннах тротилового эквивалента": "En toneladas equivalentes de TNT",
+      "Масса": "Masa",
+      "Хватило бы городу на": "Bastaría para una ciudad durante",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Дж": "J",
+      "кВт·ч": "kWh",
+      "т": "t",
+      "кг": "kg",
+      "млн кВт·ч": "millones de kWh",
+      "Масса должна быть больше нуля": "La masa debe ser mayor que cero",
+    },
+  },
 };

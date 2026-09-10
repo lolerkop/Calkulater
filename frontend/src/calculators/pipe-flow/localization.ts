@@ -54,4 +54,28 @@ export const localization: CalculatorLocalization = {
       'Внутренний диаметр должен быть больше нуля': 'Внутрішній діаметр має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "flow": "Caudal, m³/h",
+      "diameter": "Diámetro interior, mm",
+    },
+    options: {},
+    results: {
+      "Скорость потока": "Velocidad del flujo",
+      "Площадь сечения": "Área de la sección",
+      "Расход в литрах в секунду": "Caudal en litros por segundo",
+      "Расход в литрах в минуту": "Caudal en litros por minuto",
+      "Внутренний диаметр": "Diámetro interior",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м/с": "m/s",
+      "мм²": "mm²",
+      "л/с": "l/s",
+      "л/мин": "l/min",
+      "мм": "mm",
+      "Расход должен быть больше нуля": "El caudal debe ser mayor que cero",
+      "Внутренний диаметр должен быть больше нуля": "El diámetro interior debe ser mayor que cero",
+    },
+  },
 };

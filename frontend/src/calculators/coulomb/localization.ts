@@ -61,4 +61,31 @@ export const localization: CalculatorLocalization = {
       'Второй заряд не может быть нулевым': 'Другий заряд не може бути нульовим',
     },
   },
+  es: {
+    fields: {
+      "q1": "Primera carga, nC",
+      "q2": "Segunda carga, nC",
+      "r": "Distancia, cm",
+    },
+    options: {},
+    results: {
+      "Сила взаимодействия": "Fuerza de interacción",
+      "Характер": "Tipo",
+      "Напряжённость поля первого заряда": "Intensidad del campo de la primera carga",
+      "Потенциальная энергия": "Energía potencial",
+      "Расстояние": "Distancia",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Н": "N",
+      "В/м": "V/m",
+      "Дж": "J",
+      "см": "cm",
+      "притяжение": "atracción",
+      "отталкивание": "repulsión",
+      "Расстояние должно быть больше нуля": "La distancia debe ser mayor que cero",
+      "Первый заряд не может быть нулевым": "La primera carga no puede ser nula",
+      "Второй заряд не может быть нулевым": "La segunda carga no puede ser nula",
+    },
+  },
 };

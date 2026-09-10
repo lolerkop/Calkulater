@@ -53,4 +53,27 @@ export const localization: CalculatorLocalization = {
       'Коэффициент трения не может быть отрицательным': 'Коефіцієнт тертя не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "m": "Masa del cuerpo, kg",
+      "angle": "Ángulo de inclinación, °",
+      "mu": "Coeficiente de rozamiento",
+    },
+    options: {},
+    results: {
+      "Скатывающая сила": "Fuerza a lo largo de la pendiente",
+      "Сила нормального давления": "Fuerza normal",
+      "Сила трения": "Fuerza de rozamiento",
+      "Равнодействующая": "Fuerza resultante",
+      "Ускорение": "Aceleración",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Н": "N",
+      "м/с²": "m/s²",
+      "Масса должна быть больше нуля": "La masa debe ser mayor que cero",
+      "Угол наклона задаётся от 0 до 90 градусов": "El ángulo de inclinación va de 0 a 90 grados",
+      "Коэффициент трения не может быть отрицательным": "El coeficiente de rozamiento no puede ser negativo",
+    },
+  },
 };

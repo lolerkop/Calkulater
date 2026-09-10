@@ -51,4 +51,27 @@ export const localization: CalculatorLocalization = {
       'Ускорение свободного падения должно быть больше нуля': 'Прискорення вільного падіння має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "length": "Longitud del hilo, m",
+      "g": "Aceleración de la gravedad, m/s²",
+    },
+    options: {},
+    results: {
+      "Период колебаний": "Periodo de oscilación",
+      "Частота": "Frecuencia",
+      "Колебаний в минуту": "Oscilaciones por minuto",
+      "Длина для периода 1 с": "Longitud para un periodo de 1 s",
+      "Ускорение свободного падения": "Aceleración de la gravedad",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "с": "s",
+      "Гц": "Hz",
+      "м": "m",
+      "м/с²": "m/s²",
+      "Длина подвеса должна быть больше нуля": "La longitud del hilo debe ser mayor que cero",
+      "Ускорение свободного падения должно быть больше нуля": "La aceleración de la gravedad debe ser mayor que cero",
+    },
+  },
 };

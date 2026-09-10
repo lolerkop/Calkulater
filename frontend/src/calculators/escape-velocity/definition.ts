@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { escapeVelocityCopyEn } from './copy.en';
 import { escapeVelocityCopyUk } from './copy.uk';
 import { escapeVelocityCopyDe } from './copy.de';
+import { escapeVelocityCopyEs } from './copy.es';
 import { escapeVelocityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: escapeVelocityCopyEn, uk: escapeVelocityCopyUk, de: escapeVelocityCopyDe },
+  copy: { en: escapeVelocityCopyEn, uk: escapeVelocityCopyUk, de: escapeVelocityCopyDe, es: escapeVelocityCopyEs },
   referenceCases: escapeVelocityReferenceCases,
   publishedExample: { inputs: { mass24: 5.972, radiusKm: 6371 }, expected: ["11 185,98 м/с"] },
   presentation: {

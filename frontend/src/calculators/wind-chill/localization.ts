@@ -50,4 +50,24 @@ export const localization: CalculatorLocalization = {
       'Формула работает при ветре не слабее 4,8 км/ч': 'Формула застосовна за вітру не слабшого за 4,8 км/год',
     },
   },
+  es: {
+    fields: {
+      "t": "Temperatura del aire, °C",
+      "v": "Velocidad del viento, km/h",
+    },
+    options: {},
+    results: {
+      "Ощущаемая температура": "Temperatura que se siente",
+      "Разница с термометром": "Diferencia respecto al termómetro",
+      "Температура воздуха": "Temperatura del aire",
+      "Скорость ветра": "Velocidad del viento",
+      "Ощущаемая в градусах Фаренгейта": "La que se siente en grados Fahrenheit",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "км/ч": "km/h",
+      "Формула работает при температуре не выше 10 °C": "La fórmula solo vale con temperaturas de 10 °C o menos",
+      "Формула работает при ветре не слабее 4,8 км/ч": "La fórmula solo vale con vientos de 4,8 km/h o más",
+    },
+  },
 };

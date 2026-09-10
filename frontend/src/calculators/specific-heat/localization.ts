@@ -75,4 +75,37 @@ export const localization: CalculatorLocalization = {
       'Изменение температуры не может быть нулевым: делить на него нечего': 'Зміна температури не може бути нульовою: ділити на неї нічого',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "mass": "Masa, kg",
+      "c": "Calor específico, J/(kg·K)",
+      "dt": "Variación de temperatura, K",
+      "q": "Energía, J",
+    },
+    options: {
+      "energy": "la energía",
+      "deltaT": "la variación de temperatura",
+      "mass": "la masa",
+    },
+    results: {
+      "Энергия": "Energía",
+      "Изменение температуры": "Variación de temperatura",
+      "Масса": "Masa",
+      "В киловатт-часах": "En kilovatios hora",
+      "Удельная теплоёмкость": "Calor específico",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Энергия и изменение температуры должны быть одного знака": "La energía y la variación de temperatura deben tener el mismo signo",
+      "Дж/(кг·К)": "J/(kg·K)",
+      "кВт·ч": "kWh",
+      "Дж": "J",
+      "кг": "kg",
+      "К": "K",
+      "Удельная теплоёмкость должна быть больше нуля": "El calor específico debe ser mayor que cero",
+      "Масса должна быть больше нуля": "La masa debe ser mayor que cero",
+      "Изменение температуры не может быть нулевым: делить на него нечего": "La variación de temperatura no puede ser cero: no hay entre qué dividir",
+    },
+  },
 };

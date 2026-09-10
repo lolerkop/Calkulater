@@ -54,4 +54,27 @@ export const localization: CalculatorLocalization = {
       'Радиус должен быть больше нуля': 'Радіус має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "mass24": "Masa del cuerpo, ×10²⁴ kg",
+      "radiusKm": "Radio, km",
+    },
+    options: {},
+    results: {
+      "Вторая космическая скорость": "Velocidad de escape",
+      "Первая космическая скорость": "Velocidad orbital",
+      "В километрах в час": "En kilómetros por hora",
+      "Ускорение свободного падения": "Gravedad en la superficie",
+      "Масса тела": "Masa del cuerpo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м/с": "m/s",
+      "км/ч": "km/h",
+      "м/с²": "m/s²",
+      "кг": "kg",
+      "Масса должна быть больше нуля": "La masa debe ser mayor que cero",
+      "Радиус должен быть больше нуля": "El radio debe ser mayor que cero",
+    },
+  },
 };

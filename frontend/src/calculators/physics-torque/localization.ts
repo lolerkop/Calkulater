@@ -56,4 +56,24 @@ export const localization: CalculatorLocalization = {
       'Угол должен лежать в диапазоне от 0 до 180 градусов': 'Кут має лежати в діапазоні від 0 до 180 градусів',
     },
   },
+  es: {
+    fields: {
+      "force": "Fuerza, N",
+      "radius": "Brazo, m",
+      "angle": "Ángulo entre la fuerza y el brazo, grados",
+    },
+    options: {},
+    results: {
+      "Момент силы": "Momento de la fuerza",
+      "Плечо силы": "Brazo efectivo",
+      "Синус угла": "Seno del ángulo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      " Н·м": " N·m",
+      "Сила не может быть отрицательной": "La fuerza no puede ser negativa",
+      "Плечо не может быть отрицательным": "El brazo no puede ser negativo",
+      "Угол должен лежать в диапазоне от 0 до 180 градусов": "El ángulo debe estar entre 0 y 180 grados",
+    },
+  },
 };

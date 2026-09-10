@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { kineticEnergyCopyEn } from './copy.en';
 import { kineticEnergyCopyUk } from './copy.uk';
 import { kineticEnergyCopyDe } from './copy.de';
+import { kineticEnergyCopyEs } from './copy.es';
 import { kineticEnergyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: kineticEnergyCopyEn, uk: kineticEnergyCopyUk, de: kineticEnergyCopyDe },
+  copy: { en: kineticEnergyCopyEn, uk: kineticEnergyCopyUk, de: kineticEnergyCopyDe, es: kineticEnergyCopyEs },
   referenceCases: kineticEnergyReferenceCases,
   publishedExample: { inputs: { mode: 'E', m: 2, v: 3 }, expected: ["9 Дж"] },
   presentation: {

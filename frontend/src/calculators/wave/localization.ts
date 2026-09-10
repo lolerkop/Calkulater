@@ -74,4 +74,33 @@ export const localization: CalculatorLocalization = {
       'Длина волны должна быть больше нуля': 'Довжина хвилі має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "v": "Velocidad de la onda, m/s",
+      "f": "Frecuencia, Hz",
+      "wavelength": "Longitud de onda, m",
+    },
+    options: {
+      "lambda": "longitud de onda",
+      "f": "frecuencia",
+      "v": "velocidad de la onda",
+    },
+    results: {
+      "Длина волны": "Longitud de onda",
+      "Частота": "Frecuencia",
+      "Скорость": "Velocidad de la onda",
+      "Период": "Periodo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м/с": "m/s",
+      "Гц": "Hz",
+      "м": "m",
+      "с": "s",
+      "Скорость должна быть больше нуля": "La velocidad de la onda debe ser mayor que cero",
+      "Частота должна быть больше нуля": "La frecuencia debe ser mayor que cero",
+      "Длина волны должна быть больше нуля": "La longitud de onda debe ser mayor que cero",
+    },
+  },
 };

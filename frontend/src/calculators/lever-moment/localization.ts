@@ -69,4 +69,33 @@ export const localization: CalculatorLocalization = {
       'Вторая сила должна быть больше нуля': 'Друга сила має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "f1": "Fuerza en el primer brazo, N",
+      "d1": "Primer brazo, m",
+      "d2": "Segundo brazo, m",
+      "f2": "Fuerza en el segundo brazo, N",
+    },
+    options: {
+      "force2": "la fuerza en el segundo brazo",
+      "distance2": "la longitud del segundo brazo",
+    },
+    results: {
+      "Сила на втором плече": "Fuerza en el segundo brazo",
+      "Второе плечо": "Segundo brazo",
+      "Выигрыш в силе": "Ventaja mecánica",
+      "Момент первой силы": "Momento de la primera fuerza",
+      "Первое плечо": "Primer brazo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Н·м": "N·m",
+      "Н": "N",
+      "м": "m",
+      "Первое плечо должно быть больше нуля": "El primer brazo debe ser mayor que cero",
+      "Второе плечо должно быть больше нуля": "El segundo brazo debe ser mayor que cero",
+      "Вторая сила должна быть больше нуля": "La segunda fuerza debe ser mayor que cero",
+    },
+  },
 };

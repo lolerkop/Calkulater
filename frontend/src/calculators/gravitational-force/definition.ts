@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { gravitationalForceCopyEn } from './copy.en';
 import { gravitationalForceCopyUk } from './copy.uk';
 import { gravitationalForceCopyDe } from './copy.de';
+import { gravitationalForceCopyEs } from './copy.es';
 import { gravitationalForceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: gravitationalForceCopyEn, uk: gravitationalForceCopyUk, de: gravitationalForceCopyDe },
+  copy: { en: gravitationalForceCopyEn, uk: gravitationalForceCopyUk, de: gravitationalForceCopyDe, es: gravitationalForceCopyEs },
   referenceCases: gravitationalForceReferenceCases,
   publishedExample: {
     inputs: { m1: 50000000, m2: 50000000, r: 100 },

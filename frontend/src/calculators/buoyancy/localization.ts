@@ -58,4 +58,30 @@ export const localization: CalculatorLocalization = {
       'Масса не может быть отрицательной': 'Маса не може бути від’ємною',
     },
   },
+  es: {
+    fields: {
+      "volume": "Volumen del cuerpo, m³",
+      "rhoFluid": "Densidad del fluido, kg/m³",
+      "mass": "Masa del cuerpo, kg",
+    },
+    options: {},
+    results: {
+      "Выталкивающая сила": "Fuerza de empuje",
+      "Вес тела": "Peso del cuerpo",
+      "Равнодействующая": "Fuerza resultante",
+      "Вытесненная масса": "Masa desplazada",
+      "Поведение в жидкости": "Comportamiento en el fluido",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Н": "N",
+      "кг": "kg",
+      "нейтральная плавучесть": "flotabilidad neutra",
+      "всплывает": "sube a flote",
+      "тонет": "se hunde",
+      "Объём тела должен быть больше нуля": "El volumen del cuerpo debe ser mayor que cero",
+      "Плотность жидкости должна быть больше нуля": "La densidad del fluido debe ser mayor que cero",
+      "Масса не может быть отрицательной": "La masa no puede ser negativa",
+    },
+  },
 };

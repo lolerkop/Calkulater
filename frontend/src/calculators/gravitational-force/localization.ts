@@ -60,4 +60,26 @@ export const localization: CalculatorLocalization = {
       'Расстояние должно быть больше нуля': 'Відстань має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "m1": "Primera masa, kg",
+      "m2": "Segunda masa, kg",
+      "r": "Distancia entre centros, m",
+    },
+    options: {},
+    results: {
+      "Сила притяжения": "Fuerza de atracción",
+      "Ускорение первого тела": "Aceleración del primer cuerpo",
+      "Расстояние": "Distancia",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Н": "N",
+      "м/с²": "m/s²",
+      "м": "m",
+      "Первая масса должна быть больше нуля": "La primera masa debe ser mayor que cero",
+      "Вторая масса должна быть больше нуля": "La segunda masa debe ser mayor que cero",
+      "Расстояние должно быть больше нуля": "La distancia debe ser mayor que cero",
+    },
+  },
 };

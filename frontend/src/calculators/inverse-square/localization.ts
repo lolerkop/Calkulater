@@ -63,4 +63,25 @@ export const localization: CalculatorLocalization = {
       'Новое расстояние должно быть больше нуля': 'Нова відстань має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "i1": "Intensidad a la distancia original",
+      "d1": "Distancia original",
+      "d2": "Distancia nueva",
+    },
+    options: {},
+    results: {
+      "Интенсивность на новом расстоянии": "Intensidad a la nueva distancia",
+      "Во сколько раз изменилась": "Factor de cambio",
+      "Отношение расстояний": "Razón de distancias",
+      "В процентах от исходной": "Porcentaje de la original",
+      "Исходная интенсивность": "Intensidad original",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Исходная интенсивность должна быть больше нуля": "La intensidad original debe ser mayor que cero",
+      "Исходное расстояние должно быть больше нуля": "La distancia original debe ser mayor que cero",
+      "Новое расстояние должно быть больше нуля": "La nueva distancia debe ser mayor que cero",
+    },
+  },
 };

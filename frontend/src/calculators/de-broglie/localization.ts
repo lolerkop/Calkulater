@@ -52,4 +52,28 @@ export const localization: CalculatorLocalization = {
       'Скорость должна быть больше нуля': 'Швидкість має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "mass27": "Masa de la partícula, ×10⁻²⁷ kg",
+      "velocityKmS": "Velocidad, km/s",
+    },
+    options: {},
+    results: {
+      "Длина волны": "Longitud de onda",
+      "Импульс": "Momento lineal",
+      "Частота": "Frecuencia",
+      "В нанометрах": "En nanómetros",
+      "Кинетическая энергия": "Energía cinética",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м": "m",
+      "нм": "nm",
+      "Гц": "Hz",
+      "кг·м/с": "kg·m/s",
+      "Дж": "J",
+      "Масса должна быть больше нуля": "La masa debe ser mayor que cero",
+      "Скорость должна быть больше нуля": "La velocidad debe ser mayor que cero",
+    },
+  },
 };

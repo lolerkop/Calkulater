@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { photonEnergyCopyEn } from './copy.en';
 import { photonEnergyCopyUk } from './copy.uk';
 import { photonEnergyCopyDe } from './copy.de';
+import { photonEnergyCopyEs } from './copy.es';
 import { photonEnergyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: photonEnergyCopyEn, uk: photonEnergyCopyUk, de: photonEnergyCopyDe },
+  copy: { en: photonEnergyCopyEn, uk: photonEnergyCopyUk, de: photonEnergyCopyDe, es: photonEnergyCopyEs },
   referenceCases: photonEnergyReferenceCases,
   publishedExample: { inputs: { wavelengthNm: 550 }, expected: ["3,612·10^-19 Дж"] },
   presentation: {

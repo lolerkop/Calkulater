@@ -58,4 +58,26 @@ export const localization: CalculatorLocalization = {
       'Холодильник не может быть теплее нагревателя': 'Холодильник не може бути теплішим за нагрівник',
     },
   },
+  es: {
+    fields: {
+      "tHot": "Temperatura del foco caliente, K",
+      "tCold": "Temperatura del foco frío, K",
+    },
+    options: {},
+    results: {
+      "Предельный КПД": "Rendimiento máximo",
+      "Полезная работа из 1000 Дж тепла": "Trabajo útil de 1000 J de calor",
+      "Отдано холодильнику": "Cedido al foco frío",
+      "Перепад температур": "Salto de temperatura",
+      "Отношение температур": "Cociente de temperaturas",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Дж": "J",
+      "К": "K",
+      "Температура нагревателя должна быть больше нуля кельвинов": "La temperatura del foco caliente debe estar por encima de cero kelvin",
+      "Температура холодильника должна быть больше нуля кельвинов": "La temperatura del foco frío debe estar por encima de cero kelvin",
+      "Холодильник не может быть теплее нагревателя": "El foco frío no puede estar más caliente que el caliente",
+    },
+  },
 };

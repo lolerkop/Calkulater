@@ -57,4 +57,28 @@ export const localization: CalculatorLocalization = {
       'Индекс жары применим от 26,7 °C — ниже он ничего не описывает': 'Індекс спеки застосовний від 26,7 °C — нижче він нічого не описує',
     },
   },
+  es: {
+    fields: {
+      "t": "Temperatura del aire, °C",
+      "rh": "Humedad relativa, %",
+    },
+    options: {},
+    results: {
+      "Ощущается как": "Se siente como",
+      "Прибавка к термометру": "Aportado por la humedad",
+      "В градусах Фаренгейта": "En grados Fahrenheit",
+      "Термометр по Фаренгейту": "Termómetro en Fahrenheit",
+      "Опасность": "Nivel de riesgo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "крайняя": "extremo",
+      "высокая": "alto",
+      "умеренная": "moderado",
+      "низкая": "bajo",
+      "Влажность должна быть от 0 до 100 %": "La humedad debe estar entre 0 y 100 %",
+      "Температура должна быть от 20 до 60 °C": "La temperatura debe estar entre 20 y 60 °C",
+      "Индекс жары применим от 26,7 °C — ниже он ничего не описывает": "El índice de calor se aplica a partir de 26,7 °C: por debajo no describe nada",
+    },
+  },
 };

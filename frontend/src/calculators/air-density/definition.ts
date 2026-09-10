@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { airDensityCopyEn } from './copy.en';
 import { airDensityCopyUk } from './copy.uk';
 import { airDensityCopyDe } from './copy.de';
+import { airDensityCopyEs } from './copy.es';
 import { airDensityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: airDensityCopyEn, uk: airDensityCopyUk, de: airDensityCopyDe },
+  copy: { en: airDensityCopyEn, uk: airDensityCopyUk, de: airDensityCopyDe, es: airDensityCopyEs },
   referenceCases: airDensityReferenceCases,
   publishedExample: { inputs: { t: 20, pressure: 1013.25, humidity: 50 }, expected: ["1,199 кг/м³"] },
   presentation: {

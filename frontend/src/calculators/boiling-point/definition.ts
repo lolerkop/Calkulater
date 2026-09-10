@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { boilingPointCopyEn } from './copy.en';
 import { boilingPointCopyUk } from './copy.uk';
 import { boilingPointCopyDe } from './copy.de';
+import { boilingPointCopyEs } from './copy.es';
 import { boilingPointReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: boilingPointCopyEn, uk: boilingPointCopyUk, de: boilingPointCopyDe },
+  copy: { en: boilingPointCopyEn, uk: boilingPointCopyUk, de: boilingPointCopyDe, es: boilingPointCopyEs },
   referenceCases: boilingPointReferenceCases,
   publishedExample: { inputs: { h: 1500 }, expected: ["94,919 °C"] },
   presentation: {

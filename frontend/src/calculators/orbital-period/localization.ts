@@ -49,4 +49,27 @@ export const localization: CalculatorLocalization = {
       'Радиус орбиты должен быть больше нуля': 'Радіус орбіти має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "mass24": "Masa del cuerpo central, ×10²⁴ kg",
+      "radiusKm": "Radio de la órbita, km",
+    },
+    options: {},
+    results: {
+      "Период обращения": "Periodo orbital",
+      "В часах": "En horas",
+      "Орбитальная скорость": "Velocidad orbital",
+      "Оборотов в сутки": "Vueltas al día",
+      "Радиус орбиты": "Radio de la órbita",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "с": "s",
+      "ч": "h",
+      "м/с": "m/s",
+      "км": "km",
+      "Масса центрального тела должна быть больше нуля": "La masa del cuerpo central debe ser mayor que cero",
+      "Радиус орбиты должен быть больше нуля": "El radio de la órbita debe ser mayor que cero",
+    },
+  },
 };

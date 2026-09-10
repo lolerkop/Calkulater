@@ -59,4 +59,29 @@ export const localization: CalculatorLocalization = {
         'Тиск пари не нижчий за атмосферний: перевірте температуру і тиск',
     },
   },
+  es: {
+    fields: {
+      "t": "Temperatura, °C",
+      "rh": "Humedad relativa, %",
+      "pressure": "Presión atmosférica, hPa",
+    },
+    options: {},
+    results: {
+      "Абсолютная влажность": "Humedad absoluta",
+      "Давление пара": "Presión del vapor",
+      "Давление насыщения": "Presión de saturación",
+      "Влагосодержание": "Razón de mezcla",
+      "Максимум при этой температуре": "Máximo a esta temperatura",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "г/м³": "g/m³",
+      "гПа": "hPa",
+      "г/кг": "g/kg",
+      "Относительная влажность задаётся от 0 до 100 процентов": "La humedad relativa va del 0 al 100 por ciento",
+      "Температура не может быть ниже абсолютного нуля": "La temperatura no puede estar por debajo del cero absoluto",
+      "Атмосферное давление должно быть больше нуля": "La presión atmosférica debe ser mayor que cero",
+      "Давление пара не ниже атмосферного: проверьте температуру и давление": "La presión del vapor no queda por debajo de la atmosférica: revisa la temperatura y la presión",
+    },
+  },
 };
