@@ -1718,6 +1718,15 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       h1: 'Calculadora de días laborables',
       keywords: ['días laborables', 'días de trabajo', 'calculadora fechas'],
     },
+    'date-shift-calculator': {
+      name: "Calculadora de fechas",
+      slug: "calculadora-de-fechas",
+      shortDescription: "Halla la fecha que queda a un número de días, semanas, meses o años de una fecha de partida.",
+      seoTitle: "Calculadora de fechas — sumar o restar días, semanas y meses",
+      seoDescription: "Halla la fecha resultante de sumar o restar días, semanas, meses y años. Muestra el día de la semana, el día del año y el número de semana ISO 8601.",
+      h1: "Calculadora de fechas",
+      keywords: ["calculadora de fechas", "sumar días a una fecha", "fecha dentro de 90 días", "restar meses a una fecha", "día de la semana"],
+    },
   },
   de: {
     'credit-calculator': {
@@ -4903,6 +4912,12 @@ const legacyFieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, st
     discountAmt: 'Importe del descuento',
     glueConsumption: 'Consumo de adhesivo, kg/m²',
     packPrice: 'Precio del paquete',
+    "saturdayWorking": "Contar el sábado como laborable",
+    "shiftDirection": "Sentido",
+    "shiftYears": "Años",
+    "shiftMonths": "Meses",
+    "shiftWeeks": "Semanas",
+    "shiftDays": "Días",
   },
   de: {
     amount: 'Betrag',
@@ -5826,6 +5841,8 @@ const legacyOptionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, s
     what: '¿Qué porcentaje es A de B?',
     addPct: 'Sumar un porcentaje a un número',
     subPct: 'Restar un porcentaje de un número',
+    "forward": "Sumar a la fecha",
+    "backward": "Restar de la fecha",
   },
   de: {
     years: 'Jahre',

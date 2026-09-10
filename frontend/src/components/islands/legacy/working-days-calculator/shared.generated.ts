@@ -54,7 +54,16 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Рабочие дни': 'Días laborables',
+      'Календарные дни': 'Días naturales',
+      'Выходные дни': 'Días de fin de semana',
+      'Исключённые даты': 'Fechas excluidas',
       'Ошибка': 'Error',
+      'Ошибка формата': 'Error de formato',
+    },
+    values: {
+      'Выберите начало и конец': 'Elige el inicio y el fin',
+      'Дата конца раньше начала': 'La fecha de fin es anterior a la de inicio',
     },
   },
 };

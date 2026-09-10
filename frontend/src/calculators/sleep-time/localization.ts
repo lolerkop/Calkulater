@@ -79,4 +79,32 @@ export const localization: CalculatorLocalization = {
       'Время на засыпание не может быть отрицательным': 'Час на засинання не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué se conoce",
+      "hour": "Hora",
+      "minute": "Minutos",
+      "cycles": "Ciclos de sueño",
+      "fallAsleep": "Tiempo para dormirse, min",
+    },
+    options: {
+      "bedtime": "la hora a la que me acuesto",
+      "wake": "la hora a la que debo levantarme",
+    },
+    results: {
+      "Когда вставать": "Hora de levantarse",
+      "Когда лечь": "Hora de acostarse",
+      "Всего в постели": "Tiempo total en la cama",
+      "Чистый сон": "Sueño propiamente dicho",
+      "Циклов": "Ciclos",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мин": "min",
+      "Час должен быть от 0 до 23": "La hora debe estar entre 0 y 23",
+      "Минуты должны быть от 0 до 59": "Los minutos deben estar entre 0 y 59",
+      "Циклов должно быть не меньше одного": "Debe haber al menos un ciclo",
+      "Время на засыпание не может быть отрицательным": "El tiempo para dormirse no puede ser negativo",
+    },
+  },
 };

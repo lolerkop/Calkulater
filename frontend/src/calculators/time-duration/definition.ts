@@ -7,6 +7,7 @@ import { compute } from './compute';
 import { timeDurationCopyEn } from './copy.en';
 import { timeDurationCopyUk } from './copy.uk';
 import { timeDurationCopyDe } from './copy.de';
+import { timeDurationCopyEs } from './copy.es';
 import { timeDurationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: timeDurationCopyEn, uk: timeDurationCopyUk, de: timeDurationCopyDe },
+  copy: { en: timeDurationCopyEn, uk: timeDurationCopyUk, de: timeDurationCopyDe, es: timeDurationCopyEs },
   referenceCases: timeDurationReferenceCases,
   publishedExample: {
     inputs: { mode: 'difference', startHour: 22, startMinute: 15, endHour: 6, endMinute: 45 },

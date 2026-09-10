@@ -78,4 +78,30 @@ export const localization: CalculatorLocalization = {
       "Часы и минуты должны быть целыми": "Години та хвилини мають бути цілими",
     },
   },
+  es: {
+    fields: {
+      "fromOffset": "Desfase UTC de origen",
+      "toOffset": "Desfase UTC de destino",
+      "hour": "Horas",
+      "minute": "Minutos",
+    },
+    options: {},
+    results: {
+      "Время в точке назначения": "Hora en el destino",
+      "Разница": "Diferencia",
+      "Сдвиг суток": "Cambio de día",
+      "Календарный день": "Día del calendario",
+      "Исходное время": "Hora de origen",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "ч": "h",
+      "те же сутки": "el mismo día",
+      "следующие сутки": "el día siguiente",
+      "предыдущие сутки": "el día anterior",
+      "Смещение UTC должно быть от −12 до +14": "El desfase UTC debe estar entre −12 y +14",
+      "Введите время в пределах суток": "Introduce una hora dentro del día",
+      "Часы и минуты должны быть целыми": "Las horas y los minutos deben ser números enteros",
+    },
+  },
 };

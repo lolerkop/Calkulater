@@ -80,10 +80,17 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Итоговая дата': 'Fecha resultante',
       'День недели': 'Día de la semana',
+      'Исходная дата': 'Fecha de partida',
+      'Всего календарных дней': 'Días naturales en total',
+      'Номер дня в году': 'Número de día del año',
+      'Номер недели (ISO)': 'Número de semana (ISO)',
       'Ошибка': 'Error',
     },
     values: {
+      'Выберите исходную дату': 'Elige la fecha de partida',
+      'Интервал не может быть отрицательным': 'El intervalo no puede ser negativo',
       'Воскресенье': 'domingo',
       'Понедельник': 'lunes',
       'Вторник': 'martes',

@@ -46,4 +46,23 @@ export const localization: CalculatorLocalization = {
       'Введите целый год начиная с первого': 'Введіть цілий рік починаючи з першого',
     },
   },
+  es: {
+    fields: {
+      "year": "Año",
+    },
+    options: {},
+    results: {
+      "Високосный год": "Año bisiesto",
+      "Дней в году": "Días del año",
+      "Дней в феврале": "Días de febrero",
+      "Следующий високосный": "Siguiente bisiesto",
+      "Предыдущий високосный": "Bisiesto anterior",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Да": "Sí",
+      "Нет": "No",
+      "Введите целый год начиная с первого": "Introduce un año entero a partir del primero",
+    },
+  },
 };

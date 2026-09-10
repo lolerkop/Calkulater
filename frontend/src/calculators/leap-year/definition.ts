@@ -6,6 +6,7 @@ import { compute } from './compute';
 import { leapYearCopyEn } from './copy.en';
 import { leapYearCopyUk } from './copy.uk';
 import { leapYearCopyDe } from './copy.de';
+import { leapYearCopyEs } from './copy.es';
 import { leapYearReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: leapYearCopyEn, uk: leapYearCopyUk, de: leapYearCopyDe },
+  copy: { en: leapYearCopyEn, uk: leapYearCopyUk, de: leapYearCopyDe, es: leapYearCopyEs },
   referenceCases: leapYearReferenceCases,
   publishedExample: { inputs: { year: 2024 }, expected: ['Да', '366'] },
   presentation: {
