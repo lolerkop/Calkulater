@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { goldenRatioCopyEn } from './copy.en';
 import { goldenRatioCopyUk } from './copy.uk';
 import { goldenRatioCopyDe } from './copy.de';
+import { goldenRatioCopyEs } from './copy.es';
 import { goldenRatioReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: goldenRatioCopyEn, uk: goldenRatioCopyUk, de: goldenRatioCopyDe },
+  copy: { en: goldenRatioCopyEn, uk: goldenRatioCopyUk, de: goldenRatioCopyDe, es: goldenRatioCopyEs },
   referenceCases: goldenRatioReferenceCases,
   publishedExample: { inputs: { mode: 'split', total: 100 }, expected: ['61,8034'] },
   presentation: {

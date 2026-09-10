@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { slopeCopyEn } from './copy.en';
 import { slopeCopyUk } from './copy.uk';
 import { slopeCopyDe } from './copy.de';
+import { slopeCopyEs } from './copy.es';
 import { slopeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: slopeCopyEn, uk: slopeCopyUk, de: slopeCopyDe },
+  copy: { en: slopeCopyEn, uk: slopeCopyUk, de: slopeCopyDe, es: slopeCopyEs },
   referenceCases: slopeReferenceCases,
   publishedExample: {
     inputs: { rise: 1.2, run: 8 },

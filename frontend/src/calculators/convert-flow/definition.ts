@@ -9,6 +9,7 @@ import { flowNames, flowUnits } from './units';
 import { flowCopyEn } from './copy.en';
 import { flowCopyUk } from './copy.uk';
 import { flowCopyDe } from './copy.de';
+import { convertFlowCopyEs } from './copy.es';
 import { flowReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -16,7 +17,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: flowCopyEn, uk: flowCopyUk, de: flowCopyDe },
+  copy: { en: flowCopyEn, uk: flowCopyUk, de: flowCopyDe, es: convertFlowCopyEs },
   referenceCases: flowReferenceCases,
   publishedExample: { inputs: { value: 1, from: 'm3h', to: 'lmin' }, expected: ['16,6667 л/мин'] },
   presentation: {

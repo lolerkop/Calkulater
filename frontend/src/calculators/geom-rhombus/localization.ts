@@ -70,4 +70,35 @@ export const localization: CalculatorLocalization = {
       "Обе диагонали должны быть больше нуля": "Обидві діагоналі мають бути більшими за нуль",
     },
   },
+  es: {
+    fields: {
+      "unit": "Unidad de longitud",
+      "d1": "Diagonal d₁",
+      "d2": "Diagonal d₂",
+    },
+    options: {
+      "mm": "milímetros",
+      "cm": "centímetros",
+      "m": "metros",
+    },
+    results: {
+      "Площадь": "Área",
+      "Сторона": "Lado",
+      "Периметр": "Perímetro",
+      "Высота": "Altura",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "см": "cm",
+      "м": "m",
+      "мм²": "mm²",
+      "см²": "cm²",
+      "м²": "m²",
+      "мм³": "mm³",
+      "см³": "cm³",
+      "м³": "m³",
+      "Обе диагонали должны быть больше нуля": "Ambas diagonales deben ser mayores que cero",
+    },
+  },
 };

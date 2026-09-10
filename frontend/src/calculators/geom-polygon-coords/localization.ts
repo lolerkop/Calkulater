@@ -65,4 +65,27 @@ export const localization: CalculatorLocalization = {
       "Вершины лежат на одной прямой: многоугольника нет": "Вершини лежать на одній прямій, тож багатокутника немає",
     },
   },
+  es: {
+    fields: {
+      "points": "Vértices: x e y por línea, en orden",
+    },
+    options: {},
+    results: {
+      "Площадь": "Área",
+      "Периметр": "Perímetro",
+      "Вершин": "Vértices",
+      "Центроид X": "Centroide X",
+      "Центроид Y": "Centroide Y",
+      "Обход": "Sentido de recorrido",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "против часовой": "antihorario",
+      "по часовой": "horario",
+      "Нужны две координаты в строке:": "Hacen falta dos coordenadas en la línea:",
+      "Координаты должны быть числами в строке:": "Las coordenadas deben ser números en la línea:",
+      "Нужно не меньше трёх вершин": "Hacen falta al menos tres vértices",
+      "Вершины лежат на одной прямой: многоугольника нет": "Los vértices están alineados: no hay polígono",
+    },
+  },
 };

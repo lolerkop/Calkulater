@@ -56,4 +56,29 @@ export const localization: CalculatorLocalization = {
         'При равных основаниях это призма, а не усечённая пирамида': 'Bei gleichen Grundflächen ist das ein Prisma und kein Pyramidenstumpf',
       },
   },
+  es: {
+    fields: {
+      "a": "Lado de la base inferior, cm",
+      "b": "Lado de la base superior, cm",
+      "h": "Altura, cm",
+    },
+    options: {},
+    results: {
+      "Объём": "Volumen",
+      "Апофема": "Apotema lateral",
+      "Боковая поверхность": "Superficie lateral",
+      "Полная поверхность": "Superficie total",
+      "Площади оснований": "Áreas de las bases",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "см³": "cm³",
+      "см": "cm",
+      "см²": "cm²",
+      "и": "y",
+      "Сторона основания должна быть больше нуля": "El lado de la base debe ser mayor que cero",
+      "Высота должна быть больше нуля": "La altura debe ser mayor que cero",
+      "При равных основаниях это призма, а не усечённая пирамида": "Con bases iguales esto es un prisma, no un tronco de pirámide",
+    },
+  },
 };

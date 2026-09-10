@@ -56,4 +56,34 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { ...ERRORS_UK, 'м/с': 'м/с', 'км/ч': 'км/год', 'миль/ч': 'миль/год', 'узел': 'вузол', 'фут/с': 'фут/с' },
   },
+  es: {
+    fields: {
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+      "value": "Velocidad",
+    },
+    options: {
+      "ms": "Metro por segundo (m/s)",
+      "kmh": "Kilómetro por hora (km/h)",
+      "mph": "Milla por hora (mph)",
+      "kn": "Nudo (kn)",
+      "fts": "Pie por segundo (ft/s)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+      "м/с": "m/s",
+      "км/ч": "km/h",
+      "миль/ч": "mph",
+      "узел": "kn",
+      "фут/с": "ft/s",
+    },
+  },
 };

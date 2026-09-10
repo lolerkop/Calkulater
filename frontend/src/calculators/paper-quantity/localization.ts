@@ -65,4 +65,38 @@ export const localization: CalculatorLocalization = {
       'Листов должно быть целое число, не меньше одного': 'Аркушів має бути ціле число, не менше одного',
     },
   },
+  es: {
+    fields: {
+      "format": "Formato de hoja",
+      "grammage": "Gramaje, g/m²",
+      "sheets": "Hojas",
+    },
+    options: {
+      "a0": "A0 — 841×1189 mm",
+      "a1": "A1 — 594×841 mm",
+      "a2": "A2 — 420×594 mm",
+      "a3": "A3 — 297×420 mm",
+      "a4": "A4 — 210×297 mm",
+      "a5": "A5 — 148×210 mm",
+      "a6": "A6 — 105×148 mm",
+    },
+    results: {
+      "Масса пачки": "Peso de la resma",
+      "Масса одного листа": "Peso de una hoja",
+      "Площадь листа": "Superficie de la hoja",
+      "Размер листа": "Tamaño de la hoja",
+      "Листов в килограмме": "Hojas por kilogramo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кг": "kg",
+      "г": "g",
+      "м²": "m²",
+      "мм": "mm",
+      "шт": "uds.",
+      "Выберите формат листа из списка": "Elige un formato de hoja de la lista",
+      "Плотность бумаги должна быть больше нуля": "El gramaje debe ser mayor que cero",
+      "Листов должно быть целое число, не меньше одного": "El número de hojas debe ser entero y al menos uno",
+    },
+  },
 };

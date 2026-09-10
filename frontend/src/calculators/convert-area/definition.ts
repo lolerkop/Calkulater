@@ -7,6 +7,7 @@ import { areaNames, areaUnits } from './units';
 import { areaCopyEn } from './copy.en';
 import { areaCopyUk } from './copy.uk';
 import { areaCopyDe } from './copy.de';
+import { convertAreaCopyEs } from './copy.es';
 import { areaReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: areaCopyEn, uk: areaCopyUk, de: areaCopyDe },
+  copy: { en: areaCopyEn, uk: areaCopyUk, de: areaCopyDe, es: convertAreaCopyEs },
   referenceCases: areaReferenceCases,
   publishedExample: { inputs: { value: 1, from: 'ha', to: 'ac' }, expected: ['2,4711 акр'] },
   presentation: {

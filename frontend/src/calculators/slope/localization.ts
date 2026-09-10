@@ -45,4 +45,22 @@ export const localization: CalculatorLocalization = {
       'Заложение не может быть нулевым': 'Закладення не може бути нульовим',
     },
   },
+  es: {
+    fields: {
+      "rise": "Desnivel, m",
+      "run": "Distancia horizontal, m",
+    },
+    options: {},
+    results: {
+      "Уклон": "Pendiente",
+      "Угол": "Ángulo",
+      "Отношение": "Relación",
+      "Длина наклона": "Longitud del tramo inclinado",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м": "m",
+      "Заложение не может быть нулевым": "La distancia horizontal no puede ser cero",
+    },
+  },
 };

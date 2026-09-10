@@ -7,6 +7,7 @@ import { speedNames, speedUnits } from './units';
 import { speedCopyEn } from './copy.en';
 import { speedCopyUk } from './copy.uk';
 import { speedCopyDe } from './copy.de';
+import { convertSpeedCopyEs } from './copy.es';
 import { speedReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: speedCopyEn, uk: speedCopyUk, de: speedCopyDe },
+  copy: { en: speedCopyEn, uk: speedCopyUk, de: speedCopyDe, es: convertSpeedCopyEs },
   referenceCases: speedReferenceCases,
   publishedExample: { inputs: { value: 100, from: 'kmh', to: 'mph' }, expected: ['62,1371 миль/ч'] },
   presentation: {

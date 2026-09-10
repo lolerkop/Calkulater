@@ -60,4 +60,38 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { ...ERRORS_UK, 'кг/м³': 'кг/м³', 'г/см³': 'г/см³', 'кг/л': 'кг/л', 'т/м³': 'т/м³', 'г/л': 'г/л', 'lb/гал': 'lb/гал' },
   },
+  es: {
+    fields: {
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+      "value": "Densidad",
+    },
+    options: {
+      "kgm3": "Kilogramo por metro cúbico (kg/m³)",
+      "gcm3": "Gramo por centímetro cúbico (g/cm³)",
+      "kgl": "Kilogramo por litro (kg/l)",
+      "tm3": "Tonelada por metro cúbico (t/m³)",
+      "gl": "Gramo por litro (g/l)",
+      "lbft3": "Libra por pie cúbico (lb/ft³)",
+      "lbgal": "Libra por galón estadounidense (lb/gal)",
+      "ozin3": "Onza por pulgada cúbica (oz/in³)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+      "кг/м³": "kg/m³",
+      "г/см³": "g/cm³",
+      "кг/л": "kg/l",
+      "т/м³": "t/m³",
+      "г/л": "g/l",
+      "lb/гал": "lb/gal",
+    },
+  },
 };

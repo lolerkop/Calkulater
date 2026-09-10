@@ -103,4 +103,38 @@ export const localization: CalculatorLocalization = {
       "Высота должна быть больше нуля": "Висота має бути більшою за нуль",
     },
   },
+  es: {
+    fields: {
+      "unit": "Unidad de longitud",
+      "a": "Primera base",
+      "b": "Segunda base",
+      "h": "Altura",
+      "c": "Lado c",
+      "d": "Lado d",
+    },
+    options: {
+      "mm": "milímetros",
+      "cm": "centímetros",
+      "m": "metros",
+    },
+    results: {
+      "Площадь": "Área",
+      "Средняя линия": "Base media",
+      "Периметр": "Perímetro",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "см": "cm",
+      "м": "m",
+      "мм²": "mm²",
+      "см²": "cm²",
+      "м²": "m²",
+      "мм³": "mm³",
+      "см³": "cm³",
+      "м³": "m³",
+      "Основания должны быть больше нуля": "Ambas bases deben ser mayores que cero",
+      "Высота должна быть больше нуля": "La altura debe ser mayor que cero",
+    },
+  },
 };

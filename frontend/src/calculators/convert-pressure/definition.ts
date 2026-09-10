@@ -7,6 +7,7 @@ import { pressureNames, pressureUnits } from './units';
 import { pressureCopyEn } from './copy.en';
 import { pressureCopyUk } from './copy.uk';
 import { pressureCopyDe } from './copy.de';
+import { convertPressureCopyEs } from './copy.es';
 import { pressureReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pressureCopyEn, uk: pressureCopyUk, de: pressureCopyDe },
+  copy: { en: pressureCopyEn, uk: pressureCopyUk, de: pressureCopyDe, es: convertPressureCopyEs },
   referenceCases: pressureReferenceCases,
   publishedExample: { inputs: { value: 1, from: 'bar', to: 'psi' }, expected: ['14,5038 psi'] },
   presentation: {

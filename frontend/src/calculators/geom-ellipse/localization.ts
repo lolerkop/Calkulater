@@ -76,4 +76,37 @@ export const localization: CalculatorLocalization = {
       "Обе полуоси должны быть больше нуля": "Обидві піввісі мають бути більшими за нуль",
     },
   },
+  es: {
+    fields: {
+      "unit": "Unidad de longitud",
+      "a": "Semieje a",
+      "b": "Semieje b",
+    },
+    options: {
+      "mm": "milímetros",
+      "cm": "centímetros",
+      "m": "metros",
+    },
+    results: {
+      "Площадь": "Área",
+      "Периметр (Рамануджан)": "Perímetro (Ramanujan)",
+      "Эксцентриситет": "Excentricidad",
+      "Расстояние между фокусами": "Distancia entre los focos",
+      "Большая полуось": "Semieje mayor",
+      "Малая полуось": "Semieje menor",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "см": "cm",
+      "м": "m",
+      "мм²": "mm²",
+      "см²": "cm²",
+      "м²": "m²",
+      "мм³": "mm³",
+      "см³": "cm³",
+      "м³": "m³",
+      "Обе полуоси должны быть больше нуля": "Ambos semiejes deben ser mayores que cero",
+    },
+  },
 };

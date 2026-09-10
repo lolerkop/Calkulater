@@ -9,6 +9,7 @@ import { cookingVolumeNames, cookingVolumeUnits } from './units';
 import { cookingVolumeCopyEn } from './copy.en';
 import { cookingVolumeCopyUk } from './copy.uk';
 import { cookingVolumeCopyDe } from './copy.de';
+import { convertCookingVolumeCopyEs } from './copy.es';
 import { cookingVolumeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -16,7 +17,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cookingVolumeCopyEn, uk: cookingVolumeCopyUk, de: cookingVolumeCopyDe },
+  copy: { en: cookingVolumeCopyEn, uk: cookingVolumeCopyUk, de: cookingVolumeCopyDe, es: convertCookingVolumeCopyEs },
   referenceCases: cookingVolumeReferenceCases,
   publishedExample: { inputs: { value: 1, from: 'cupUS', to: 'ml' }, expected: ['236,5882 мл'] },
   presentation: {

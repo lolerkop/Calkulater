@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geomConeCopyEn } from './copy.en';
 import { geomConeCopyUk } from './copy.uk';
 import { geomConeCopyDe } from './copy.de';
+import { geomConeCopyEs } from './copy.es';
 import { geomConeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomConeCopyEn, uk: geomConeCopyUk, de: geomConeCopyDe },
+  copy: { en: geomConeCopyEn, uk: geomConeCopyUk, de: geomConeCopyDe, es: geomConeCopyEs },
   referenceCases: geomConeReferenceCases,
   publishedExample: { inputs: { unit: 'm', r: 3, h: 4 }, expected: ["37,699 м³"] },
   presentation: {

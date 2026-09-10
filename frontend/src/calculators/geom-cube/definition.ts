@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geomCubeCopyEn } from './copy.en';
 import { geomCubeCopyUk } from './copy.uk';
 import { geomCubeCopyDe } from './copy.de';
+import { geomCubeCopyEs } from './copy.es';
 import { geomCubeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomCubeCopyEn, uk: geomCubeCopyUk, de: geomCubeCopyDe },
+  copy: { en: geomCubeCopyEn, uk: geomCubeCopyUk, de: geomCubeCopyDe, es: geomCubeCopyEs },
   referenceCases: geomCubeReferenceCases,
   publishedExample: { inputs: { unit: 'cm', mode: 'side', side: 3 }, expected: ["27 см³"] },
   presentation: {

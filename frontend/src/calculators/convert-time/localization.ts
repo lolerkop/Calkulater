@@ -58,4 +58,36 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { ...ERRORS_UK, 'мс': 'мс', 'мин': 'хв', 'сут': 'дн', 'нед': 'тиж', 'ч': 'год', 'с': 'с' },
   },
+  es: {
+    fields: {
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+      "value": "Duración",
+    },
+    options: {
+      "ms": "Milisegundo (ms)",
+      "s": "Segundo (s)",
+      "min": "Minuto (min)",
+      "h": "Hora (h)",
+      "d": "Día (d)",
+      "wk": "Semana (sem)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+      "мс": "ms",
+      "мин": "min",
+      "сут": "d",
+      "нед": "sem",
+      "ч": "h",
+      "с": "s",
+    },
+  },
 };

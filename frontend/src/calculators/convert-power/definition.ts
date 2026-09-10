@@ -8,6 +8,7 @@ import { powerNames, powerUnits } from './units';
 import { powerCopyEn } from './copy.en';
 import { powerCopyUk } from './copy.uk';
 import { powerCopyDe } from './copy.de';
+import { convertPowerCopyEs } from './copy.es';
 import { powerReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -15,7 +16,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: powerCopyEn, uk: powerCopyUk, de: powerCopyDe },
+  copy: { en: powerCopyEn, uk: powerCopyUk, de: powerCopyDe, es: convertPowerCopyEs },
   referenceCases: powerReferenceCases,
   publishedExample: { inputs: { value: 100, from: 'kw', to: 'ps' }, expected: ['135,9622 л.с.'] },
   presentation: {
