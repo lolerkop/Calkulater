@@ -1727,6 +1727,15 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       h1: "Calculadora de fechas",
       keywords: ["calculadora de fechas", "sumar días a una fecha", "fecha dentro de 90 días", "restar meses a una fecha", "día de la semana"],
     },
+    'body-fat-calculator': {
+      name: "Calculadora de porcentaje de grasa corporal",
+      slug: "porcentaje-de-grasa-corporal",
+      shortDescription: "Estima la grasa corporal a partir de perímetros con el método de la Marina de EE. UU.",
+      seoTitle: "Calculadora de porcentaje de grasa corporal — método de perímetros de la Marina de EE. UU.",
+      seoDescription: "Estima tu porcentaje de grasa corporal a partir de los perímetros de cuello, cintura y cadera y de la estatura. Método de la Marina de EE. UU. (fórmula de Hodgdon y Beckett) con su exactitud explicada.",
+      h1: "Calculadora de porcentaje de grasa corporal",
+      keywords: ["calculadora de grasa corporal", "porcentaje de grasa corporal", "método de la marina de ee. uu.", "método de perímetros", "composición corporal"],
+    },
   },
   de: {
     'credit-calculator': {
@@ -4918,6 +4927,13 @@ const legacyFieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, st
     "shiftMonths": "Meses",
     "shiftWeeks": "Semanas",
     "shiftDays": "Días",
+    "goalAdjustment": "Ajuste calórico según el objetivo, %",
+    "proteinPct": "Proporción de proteínas, %",
+    "fatPct": "Proporción de grasas, %",
+    "sex": "Sexo",
+    "neck": "Perímetro del cuello",
+    "waist": "Perímetro de la cintura",
+    "hip": "Perímetro de la cadera",
   },
   de: {
     amount: 'Betrag',
@@ -5843,6 +5859,11 @@ const legacyOptionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, s
     subPct: 'Restar un porcentaje de un número',
     "forward": "Sumar a la fecha",
     "backward": "Restar de la fecha",
+    "1.2": "Mínima — trabajo de oficina",
+    "1.375": "Ligera — 1-3 entrenamientos por semana",
+    "1.55": "Moderada — 3-5 entrenamientos por semana",
+    "1.725": "Alta — 6-7 entrenamientos por semana",
+    "1.9": "Muy alta — trabajo físico",
   },
   de: {
     years: 'Jahre',

@@ -4,6 +4,7 @@ import { compute } from './compute';
 import { waterIntakeCopyEn } from './copy.en';
 import { waterIntakeCopyUk } from './copy.uk';
 import { waterIntakeCopyDe } from './copy.de';
+import { waterIntakeCopyEs } from './copy.es';
 import { waterIntakeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: waterIntakeCopyEn, uk: waterIntakeCopyUk, de: waterIntakeCopyDe },
+  copy: { en: waterIntakeCopyEn, uk: waterIntakeCopyUk, de: waterIntakeCopyDe, es: waterIntakeCopyEs },
   referenceCases: waterIntakeReferenceCases,
   publishedExample: {
     inputs: { weight: 72, activityMinutes: 45, hotWeather: 'no' },

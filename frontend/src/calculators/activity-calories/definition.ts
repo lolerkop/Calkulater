@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { activityCaloriesCopyEn } from './copy.en';
 import { activityCaloriesCopyUk } from './copy.uk';
 import { activityCaloriesCopyDe } from './copy.de';
+import { activityCaloriesCopyEs } from './copy.es';
 import { activityCaloriesReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: activityCaloriesCopyEn, uk: activityCaloriesCopyUk, de: activityCaloriesCopyDe },
+  copy: { en: activityCaloriesCopyEn, uk: activityCaloriesCopyUk, de: activityCaloriesCopyDe, es: activityCaloriesCopyEs },
   referenceCases: activityCaloriesReferenceCases,
   publishedExample: { inputs: { activity: 'cycling', met: 7.5, weightKg: 70, minutes: 45 }, expected: ["413 ккал"] },
   presentation: {

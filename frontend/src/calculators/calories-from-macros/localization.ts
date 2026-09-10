@@ -34,4 +34,22 @@ export const localization: CalculatorLocalization = {
     },
     values: { 'Введите хотя бы один макронутриент': 'Введіть хоча б один макронутрієнт' },
   },
+  es: {
+    fields: {
+      "protein": "Proteínas, g",
+      "fat": "Grasas, g",
+      "carbs": "Hidratos de carbono, g",
+    },
+    options: {},
+    results: {
+      "Всего калорий": "Calorías en total",
+      "Из белков": "De las proteínas",
+      "Из жиров": "De las grasas",
+      "Из углеводов": "De los hidratos de carbono",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Введите хотя бы один макронутриент": "Introduce al menos un macronutriente",
+    },
+  },
 };

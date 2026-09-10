@@ -68,6 +68,20 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Темп': 'Ritmo',
+      'Средняя скорость': 'Velocidad media',
+      'Прогноз на 5 км': 'Previsión para 5 km',
+      'Прогноз на 10 км': 'Previsión para 10 km',
+      'Прогноз на полумарафон': 'Previsión para media maratón',
+      'Прогноз на марафон': 'Previsión para maratón',
+      'Темп на милю': 'Ritmo por milla',
+      'Равномерные отрезки': 'Parciales uniformes',
+      'Дистанция': 'Distancia',
+      'Время': 'Tiempo',
+    },
+    values: {
+      'Таблица предполагает равномерный темп на всей дистанции.': 'La tabla supone un ritmo uniforme en toda la distancia.',
+      'Введите дистанцию и время': 'Introduce la distancia y el tiempo',
     },
   },
 };

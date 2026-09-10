@@ -47,6 +47,8 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Обхват талии': 'Perímetro de la cintura',
+      'Обхват бёдер': 'Perímetro de la cadera',
       'Проверьте данные': 'Revisa los datos',
       'ИМТ': 'IMC',
       'Категория': 'Categoría',

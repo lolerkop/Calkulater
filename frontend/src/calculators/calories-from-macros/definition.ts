@@ -7,6 +7,7 @@ import { compute } from './compute';
 import { caloriesCopyEn } from './copy.en';
 import { caloriesCopyUk } from './copy.uk';
 import { caloriesCopyDe } from './copy.de';
+import { caloriesFromMacrosCopyEs } from './copy.es';
 import { caloriesReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: caloriesCopyEn, uk: caloriesCopyUk, de: caloriesCopyDe },
+  copy: { en: caloriesCopyEn, uk: caloriesCopyUk, de: caloriesCopyDe, es: caloriesFromMacrosCopyEs },
   referenceCases: caloriesReferenceCases,
   publishedExample: { inputs: { protein: 100, fat: 50, carbs: 200 }, expected: ['1 650 ккал', '24,24 %'] },
   presentation: {

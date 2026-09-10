@@ -40,6 +40,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Режим': 'Modo',
+      'Время': 'Tiempo',
     },
   },
 };

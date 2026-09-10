@@ -64,4 +64,30 @@ export const localization: CalculatorLocalization = {
       "Категория даётся по отношению талии к росту: оно сравнимо между людьми разного роста. Простое правило — талия меньше половины роста.": "Категорія дається за відношенням талії до зросту: воно порівнянне між людьми різного зросту. Просте правило — талія менша за половину зросту.",
     },
   },
+  es: {
+    fields: {
+      "waist": "Cintura, cm",
+      "hip": "Cadera, cm",
+      "height": "Estatura, cm",
+    },
+    options: {},
+    results: {
+      "Отношение талии к росту": "Índice cintura-estatura",
+      "Отношение талии к бёдрам": "Índice cintura-cadera",
+      "Категория": "Franja",
+      "Обхват талии": "Cintura",
+      "Обхват бёдер": "Cadera",
+      "Рост": "Estatura",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "см": "cm",
+      "ниже обычного": "por debajo de lo habitual",
+      "здоровый": "saludable",
+      "повышенный": "elevado",
+      "высокий": "alto",
+      "Обхваты и рост должны быть больше нуля": "Los perímetros y la estatura deben ser mayores que cero",
+      "Категория даётся по отношению талии к росту: оно сравнимо между людьми разного роста. Простое правило — талия меньше половины роста.": "La franja se da por el índice cintura-estatura, que es comparable entre personas de distinta estatura. La regla sencilla es: cintura menor que la mitad de la estatura.",
+    },
+  },
 };

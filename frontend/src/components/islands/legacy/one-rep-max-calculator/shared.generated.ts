@@ -65,6 +65,19 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Примерный 1ПМ': '1RM aproximado',
+      '50% от 1ПМ': '50 % del 1RM',
+      '60% от 1ПМ': '60 % del 1RM',
+      '70% от 1ПМ': '70 % del 1RM',
+      '80% от 1ПМ': '80 % del 1RM',
+      '90% от 1ПМ': '90 % del 1RM',
+      'Формула Бжицки': 'Fórmula de Brzycki',
+      'Формула Лэндера': 'Fórmula de Lander',
+      'Средняя оценка': 'Estimación media',
+    },
+    values: {
+      'Точность формулы снижается при повторениях больше 10.': 'La exactitud de la fórmula baja con más de 10 repeticiones.',
+      'Введите вес и количество повторений': 'Introduce el peso y el número de repeticiones',
     },
   },
 };

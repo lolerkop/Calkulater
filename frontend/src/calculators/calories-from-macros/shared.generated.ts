@@ -42,6 +42,9 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Белки': 'Proteínas',
+      'Жиры': 'Grasas',
+      'Углеводы': 'Hidratos de carbono',
     },
   },
 };

@@ -59,6 +59,17 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Дневная норма': 'Ración diaria',
+      'Базовый обмен (BMR)': 'Metabolismo basal (TMB)',
+      'Белки': 'Proteínas',
+      'Жиры': 'Grasas',
+      'Углеводы': 'Hidratos de carbono',
+      'Поддержание веса (TDEE)': 'Mantenimiento del peso (GET)',
+    },
+    values: {
+      'Получилось очень низкое значение калорий. Не используйте такой дефицит без консультации врача или диетолога.': 'Ha salido un valor calórico muy bajo. No apliques un déficit así sin consultar a un médico o a un dietista.',
+      'Расчёт служит стартовой оценкой. Корректируйте калорийность по динамике веса за 2–3 недели.': 'El cálculo sirve como estimación de partida. Ajusta las calorías según la evolución del peso a lo largo de 2 o 3 semanas.',
+      'Введите рост, вес и возраст': 'Introduce la estatura, el peso y la edad',
     },
   },
 };

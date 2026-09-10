@@ -85,9 +85,27 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Процент жира': 'Porcentaje de grasa',
+      'Метод расчёта': 'Método de cálculo',
+      'Обхват талии': 'Perímetro de la cintura',
+      'Обхват шеи': 'Perímetro del cuello',
+      'Обхват бёдер': 'Perímetro de la cadera',
+      'Талия минус шея': 'Cintura menos cuello',
+      'Талия плюс бёдра минус шея': 'Cintura más cadera menos cuello',
       'Проверьте данные': 'Revisa los datos',
       'Результат': 'Resultado',
       'Рост': 'Estatura',
+    },
+    values: {
+      'Обхваты, метод ВМС США': 'Perímetros, método de la Marina de EE. UU.',
+      'Это оценка по обхватам, а не измерение. Погрешность метода составляет несколько процентных пунктов и растёт при неточных замерах ленты. Результат не является медицинским заключением.': 'Es una estimación a partir de perímetros, no una medida. El error del método es de unos pocos puntos porcentuales y crece con mediciones imprecisas con la cinta. El resultado no es un diagnóstico médico.',
+      'Обхват талии должен быть больше обхвата шеи': 'El perímetro de la cintura debe ser mayor que el del cuello',
+      'Сумма обхватов талии и бёдер должна быть больше обхвата шеи': 'La suma de los perímetros de cintura y cadera debe ser mayor que el del cuello',
+      'Сочетание обхватов выходит за пределы применимости метода — проверьте измерения': 'La combinación de perímetros queda fuera del rango en el que se aplica el método: revisa las medidas',
+      'Введите рост больше нуля': 'Introduce una estatura mayor que cero',
+      'Введите обхват шеи больше нуля': 'Introduce un perímetro de cuello mayor que cero',
+      'Введите обхват талии больше нуля': 'Introduce un perímetro de cintura mayor que cero',
+      'Введите обхват бёдер больше нуля': 'Introduce un perímetro de cadera mayor que cero',
     },
   },
 };

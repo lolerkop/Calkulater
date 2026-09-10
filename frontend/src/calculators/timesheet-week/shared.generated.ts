@@ -46,6 +46,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Дней': 'Días',
+      'Время': 'Tiempo',
     },
     values: {
       'Норма': 'Normal',

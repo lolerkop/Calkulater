@@ -94,4 +94,37 @@ export const localization: CalculatorLocalization = {
       "Неизвестный режим": "Невідомий режим",
     },
   },
+  es: {
+    fields: {
+      "mode": "Longitud de zancada",
+      "steps": "Pasos",
+      "height": "Estatura, cm",
+      "stride": "Longitud de zancada, cm",
+      "weight": "Peso corporal, kg",
+      "kcalPerKgKm": "Kcal por kg y km",
+    },
+    options: {
+      "height": "Estimar a partir de la estatura",
+      "stride": "Conozco mi zancada",
+    },
+    results: {
+      "Расстояние": "Distancia",
+      "Калории": "Calorías",
+      "Длина шага": "Longitud de zancada",
+      "Шагов на километр": "Pasos por kilómetro",
+      "Ккал на километр": "Kcal por kilómetro",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "км": "km",
+      "ккал": "kcal",
+      "см": "cm",
+      "Число шагов не может быть отрицательным": "El número de pasos no puede ser negativo",
+      "Вес должен быть больше нуля": "El peso debe ser mayor que cero",
+      "Расход на километр должен быть больше нуля": "El gasto por kilómetro debe ser mayor que cero",
+      "Рост должен быть от 120 до 230 см": "La estatura debe estar entre 120 y 230 cm",
+      "Длина шага должна быть больше нуля": "La longitud de zancada debe ser mayor que cero",
+      "Неизвестный режим": "Modo desconocido",
+    },
+  },
 };
