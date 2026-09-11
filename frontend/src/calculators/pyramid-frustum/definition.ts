@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { pyramidFrustumCopyEn } from './copy.en';
 import { pyramidFrustumCopyUk } from './copy.uk';
 import { pyramidFrustumCopyDe } from './copy.de';
+import { pyramidFrustumCopyEs } from './copy.es';
 import { pyramidFrustumReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pyramidFrustumCopyEn, uk: pyramidFrustumCopyUk, de: pyramidFrustumCopyDe },
+  copy: { en: pyramidFrustumCopyEn, uk: pyramidFrustumCopyUk, de: pyramidFrustumCopyDe, es: pyramidFrustumCopyEs },
   referenceCases: pyramidFrustumReferenceCases,
   publishedExample: { inputs: { a: 10, b: 6, h: 8 }, expected: ["522,67 см³"] },
   presentation: {

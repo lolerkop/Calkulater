@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { linearSystemCopyEn } from './copy.en';
 import { linearSystemCopyUk } from './copy.uk';
 import { linearSystemCopyDe } from './copy.de';
+import { linearSystemCopyEs } from './copy.es';
 import { linearSystemReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: linearSystemCopyEn, uk: linearSystemCopyUk, de: linearSystemCopyDe },
+  copy: { en: linearSystemCopyEn, uk: linearSystemCopyUk, de: linearSystemCopyDe, es: linearSystemCopyEs },
   referenceCases: linearSystemReferenceCases,
   publishedExample: {
     inputs: { a1: 2, b1: 3, c1: 13, a2: 4, b2: -1, c2: 5 },

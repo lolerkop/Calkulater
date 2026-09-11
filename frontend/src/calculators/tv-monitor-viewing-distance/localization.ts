@@ -62,4 +62,31 @@ export const localization: CalculatorLocalization = {
       'Число строк разрешения должно быть больше нуля': 'Кількість рядків роздільності має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "diag": "Diagonal, pulgadas",
+      "ratio": "Proporción de la pantalla",
+      "lines": "Líneas de resolución",
+    },
+    options: {
+      "16:9": "16:9",
+      "21:9": "21:9",
+      "4:3": "4:3",
+    },
+    results: {
+      "Комфортное расстояние по THX": "Distancia cómoda según THX",
+      "Комфортное по SMPTE": "Cómoda según SMPTE",
+      "Ширина экрана": "Ancho de la pantalla",
+      "Высота экрана": "Alto de la pantalla",
+      "Дальше этого пиксели не различить": "Más allá de esto no se distinguen los píxeles",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м": "m",
+      "см": "cm",
+      "Выберите пропорцию экрана из списка": "Elige la proporción de la pantalla de la lista",
+      "Диагональ должна быть больше нуля": "La diagonal debe ser mayor que cero",
+      "Число строк разрешения должно быть больше нуля": "El número de líneas de resolución debe ser mayor que cero",
+    },
+  },
 };

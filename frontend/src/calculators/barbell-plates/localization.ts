@@ -84,4 +84,32 @@ export const localization: CalculatorLocalization = {
       "Целевой вес меньше грифа": "Цільова вага менша за гриф",
     },
   },
+  es: {
+    fields: {
+      "target": "Peso objetivo, kg",
+      "bar": "Peso de la barra, kg",
+      "plates": "Discos disponibles, un peso por elemento",
+    },
+    options: {},
+    results: {
+      "Блины на сторону": "Discos por lado",
+      "Фактический вес": "Peso real",
+      "Недобор": "Faltan",
+      "На сторону": "Por lado",
+      "Блинов на сторону": "Número de discos por lado",
+      "Набор на одну сторону": "Carga de un lado",
+      "Блин": "Disco",
+      "Штук на сторону": "Unidades por lado",
+      "Всего": "Total",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кг": "kg",
+      "Вес блина должен быть числом:": "El peso del disco debe ser un número:",
+      "Вес блина должен быть больше нуля": "El peso del disco debe ser mayor que cero",
+      "Введите доступные блины": "Introduce los discos de que dispones",
+      "Вес грифа не может быть отрицательным": "El peso de la barra no puede ser negativo",
+      "Целевой вес меньше грифа": "El peso objetivo es menor que el de la barra",
+    },
+  },
 };

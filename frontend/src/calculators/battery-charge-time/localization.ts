@@ -73,4 +73,27 @@ export const localization: CalculatorLocalization = {
       "КПД должен быть от 1 до 100 %": "ККД має бути від 1 до 100 %",
     },
   },
+  es: {
+    fields: {
+      "capacityAh": "Capacidad de la batería, Ah",
+      "currentA": "Corriente de carga, A",
+      "efficiency": "Rendimiento de carga, %",
+    },
+    options: {},
+    results: {
+      "Время зарядки": "Tiempo de carga",
+      "В часах": "En horas",
+      "Передано в батарею": "Entregado a la batería",
+      "Отдано зарядным устройством": "Aportado por el cargador",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "ч": "h",
+      "мин": "min",
+      "А·ч": "Ah",
+      "Ёмкость должна быть больше нуля": "La capacidad debe ser mayor que cero",
+      "Ток зарядки должен быть больше нуля": "La corriente de carga debe ser mayor que cero",
+      "КПД должен быть от 1 до 100 %": "El rendimiento debe estar entre 1 y 100 %",
+    },
+  },
 };

@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geomRegularPolygonCopyEn } from './copy.en';
 import { geomRegularPolygonCopyUk } from './copy.uk';
 import { geomRegularPolygonCopyDe } from './copy.de';
+import { geomRegularPolygonCopyEs } from './copy.es';
 import { geomRegularPolygonReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomRegularPolygonCopyEn, uk: geomRegularPolygonCopyUk, de: geomRegularPolygonCopyDe },
+  copy: { en: geomRegularPolygonCopyEn, uk: geomRegularPolygonCopyUk, de: geomRegularPolygonCopyDe, es: geomRegularPolygonCopyEs },
   referenceCases: geomRegularPolygonReferenceCases,
   publishedExample: { inputs: { unit: 'cm', n: 6, side: 2 }, expected: ["10,392 см²"] },
   presentation: {

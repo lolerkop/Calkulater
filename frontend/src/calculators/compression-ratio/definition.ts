@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { compressionRatioCopyEn } from './copy.en';
 import { compressionRatioCopyUk } from './copy.uk';
 import { compressionRatioCopyDe } from './copy.de';
+import { compressionRatioCopyEs } from './copy.es';
 import { compressionRatioReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: compressionRatioCopyEn, uk: compressionRatioCopyUk, de: compressionRatioCopyDe },
+  copy: { en: compressionRatioCopyEn, uk: compressionRatioCopyUk, de: compressionRatioCopyDe, es: compressionRatioCopyEs },
   referenceCases: compressionRatioReferenceCases,
   publishedExample: { inputs: { displacement: 454.17, chamber: 45 }, expected: ["11,093"] },
   presentation: {

@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { underfloorHeatingCopyEn } from './copy.en';
 import { underfloorHeatingCopyUk } from './copy.uk';
 import { underfloorHeatingCopyDe } from './copy.de';
+import { underfloorHeatingCopyEs } from './copy.es';
 import { underfloorHeatingReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: underfloorHeatingCopyEn, uk: underfloorHeatingCopyUk, de: underfloorHeatingCopyDe },
+  copy: { en: underfloorHeatingCopyEn, uk: underfloorHeatingCopyUk, de: underfloorHeatingCopyDe, es: underfloorHeatingCopyEs },
   referenceCases: underfloorHeatingReferenceCases,
   publishedExample: { inputs: { area: 20, step: 0.15, loopMax: 90, edgeZone: 4, edgeStep: 0.1, waste: 10 }, expected: ["161,33 м"] },
   presentation: {

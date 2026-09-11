@@ -94,4 +94,35 @@ export const localization: CalculatorLocalization = {
       "Комиссия не может быть отрицательной": "Комісія не може бути від'ємною",
     },
   },
+  es: {
+    fields: {
+      "direction": "Sentido de la operación",
+      "entry": "Precio de entrada",
+      "exit": "Precio de salida",
+      "qty": "Tamaño, monedas",
+      "feePct": "Comisión por lado, %",
+      "leverage": "Apalancamiento",
+    },
+    options: {
+      "long": "largo — gana si sube",
+      "short": "corto — gana si baja",
+    },
+    results: {
+      "Чистый результат": "Resultado neto",
+      "Результат до комиссий": "Resultado antes de comisiones",
+      "Комиссии": "Comisiones",
+      "Вложено": "Invertido",
+      "Доходность позиции": "Rentabilidad de la posición",
+      "Изменение цены": "Variación del precio",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Цена входа должна быть больше нуля": "El precio de entrada debe ser mayor que cero",
+      "Цена выхода должна быть больше нуля": "El precio de salida debe ser mayor que cero",
+      "Объём должен быть больше нуля": "El tamaño debe ser mayor que cero",
+      "Плечо должно быть больше нуля": "El apalancamiento debe ser mayor que cero",
+      "Комиссия не может быть отрицательной": "La comisión no puede ser negativa",
+    },
+  },
 };

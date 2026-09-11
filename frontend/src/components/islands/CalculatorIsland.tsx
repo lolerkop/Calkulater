@@ -1,6 +1,6 @@
 // Универсальный React-остров для рендера любого калькулятора по data-конфигу.
 // Поля рендерятся динамически из CalculatorDef.fields, расчет выполняется
-// функцией из реестра runners по идентификатору калькулятора.
+// функцией из рантайма, который приносит точка входа калькулятора.
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -11,7 +11,6 @@ import {
   RotateCcw,
 } from 'lucide-react';
 import type { CalculatorDef, Field, CalcResult } from '../../lib/types';
-import { runners } from '../../lib/runners';
 import type { CalculatorClientRuntime } from '../../lib/platform/runtime';
 import type { Locale } from '../../lib/clientI18n';
 import {
@@ -40,9 +39,10 @@ type Props = {
   /**
    * Рантайм текущего калькулятора. Приходит от его точки входа обычной
    * зависимостью модуля, поэтому к моменту исполнения острова уже здесь.
-   * Легаси-калькуляторы его не передают и работают через общий реестр.
+   * Обязателен: наследственные калькуляторы получают свой у своей точки входа,
+   * а общий реестр расчётов больше не уезжает на страницы остальных.
    */
-  runtime?: CalculatorClientRuntime;
+  runtime: CalculatorClientRuntime;
   calc: Pick<CalculatorDef, 'id' | 'name' | 'resultTitle' | 'category' | 'fields' | 'disclaimer'>;
   locale?: Locale;
 };
@@ -129,8 +129,9 @@ function fallbackCopy(text: string): boolean {
 export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props) {
   const copy = calculatorCopy(locale);
   const warningCopy = shareWarningCopy(locale);
-  // Расчёт калькулятора V2 приходит с его рантаймом; легаси берёт из реестра.
-  const runner = useMemo(() => runtime?.compute ?? runners[calc.id], [runtime, calc.id]);
+  // Расчёт приходит с рантаймом от точки входа калькулятора — своей у каждого,
+  // включая наследственные. Общий реестр расчётов сюда больше не импортируется.
+  const runner = runtime.compute;
   const formRef = useRef<HTMLFormElement | null>(null);
   const inputStartedRef = useRef(false);
   const resultTrackedRef = useRef(false);

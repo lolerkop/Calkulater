@@ -85,4 +85,36 @@ export const localization: CalculatorLocalization = {
       "Значение слишком велико для расчёта": "Значення завелике для обчислення",
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué calcular",
+      "amount": "Cantidad, €",
+      "rate": "Tipo, % anual",
+      "years": "Plazo, años",
+      "compounding": "Frecuencia de capitalización",
+    },
+    options: {
+      "fv": "valor futuro",
+      "pv": "valor actual",
+      "month": "Mensual",
+      "quarter": "Trimestral",
+      "year": "Anual",
+    },
+    results: {
+      "Будущая стоимость": "Valor futuro",
+      "Текущая стоимость": "Valor actual",
+      "Множитель роста": "Multiplicador de crecimiento",
+      "Эффективная годовая ставка": "Tipo efectivo anual",
+      "Периодов начисления": "Periodos de capitalización",
+      "Исходная сумма": "Cantidad original",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Сумма должна быть больше нуля": "La cantidad debe ser mayor que cero",
+      "Ставка не может быть отрицательной": "El tipo no puede ser negativo",
+      "Срок должен быть больше нуля": "El plazo debe ser mayor que cero",
+      "Значение слишком велико для расчёта": "El valor es demasiado grande para calcularlo",
+    },
+  },
 };

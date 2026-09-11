@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { waveCopyEn } from './copy.en';
 import { waveCopyUk } from './copy.uk';
 import { waveCopyDe } from './copy.de';
+import { waveCopyEs } from './copy.es';
 import { waveReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: waveCopyEn, uk: waveCopyUk, de: waveCopyDe },
+  copy: { en: waveCopyEn, uk: waveCopyUk, de: waveCopyDe, es: waveCopyEs },
   referenceCases: waveReferenceCases,
   publishedExample: {
     inputs: { mode: 'lambda', v: 343, f: 440, wavelength: 0 },

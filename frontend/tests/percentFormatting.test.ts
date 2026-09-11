@@ -3,6 +3,7 @@ import { calculators } from '../src/data/calculators';
 import { allRunners as runners } from '../src/lib/runners.all';
 import { buildInitialValues } from '../src/lib/shareLink';
 import { localizeResult } from '../src/components/islands/calculator/resultLocalization';
+import { runtimeFor } from '../src/calculators/runtime.generated';
 import type { CalcResult } from '../src/lib/types';
 
 // Проценты должны использовать тот же десятичный разделитель, что и остальные
@@ -25,12 +26,12 @@ describe('percent formatting follows the locale', () => {
   });
 
   it('uses a dot in EN', () => {
-    const en = localizeResult(resultOf('deposit-calculator'), 'en');
+    const en = localizeResult(resultOf('deposit-calculator'), 'en', 'deposit-calculator', runtimeFor('deposit-calculator'));
     expect(valueOf(en, 'Effective annual rate')).toBe('12.68%');
   });
 
   it('uses a comma in UK, like the rest of the Ukrainian output', () => {
-    const uk = localizeResult(resultOf('deposit-calculator'), 'uk');
+    const uk = localizeResult(resultOf('deposit-calculator'), 'uk', 'deposit-calculator', runtimeFor('deposit-calculator'));
     expect(valueOf(uk, 'Ефективна річна ставка')).toBe('12,68%');
   });
 

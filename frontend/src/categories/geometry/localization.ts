@@ -25,13 +25,13 @@ export const copy: CategoryCopyByLocale = {
     h1: "Geometry calculators",
   },
   es: {
-    name: "Geometry calculators",
-    slug: "geometry",
-    description: "Area, perimeter, volume and surface of flat and solid shapes.",
-    longDescription: "Shape calculations that answer the question you actually have: the area of a room, the volume of a tank, the perimeter of a plot. Each shape is solved from whichever dimension you know — a circle from its radius, diameter, circumference or area — and impossible figures are rejected rather than quietly given a number.",
-    seoTitle: "Geometry calculators — area, perimeter, volume",
-    seoDescription: "Online geometry calculators: area and perimeter of squares, rectangles, circles and triangles, volume and surface of spheres, cylinders and cones.",
-    h1: "Geometry calculators",
+    name: "Geometría",
+    slug: "geometria",
+    description: "Área, perímetro, volumen y superficie de figuras planas y cuerpos.",
+    longDescription: "Cálculos de figuras que responden a la pregunta que de verdad tienes: el área de una habitación, el volumen de un depósito, el perímetro de una parcela. Cada figura se resuelve a partir del dato que conoces —un círculo desde su radio, su diámetro, su longitud o su área— y las figuras imposibles se rechazan en lugar de devolver un número sin sentido.",
+    seoTitle: "Calculadoras de geometría — área, perímetro y volumen",
+    seoDescription: "Calculadoras de geometría online: área y perímetro de cuadrados, rectángulos, círculos y triángulos; volumen y superficie de esferas, cilindros y conos.",
+    h1: "Calculadoras de geometría",
   },
   de: {
     name: "Geometrie",
@@ -200,20 +200,20 @@ export const faq: CategoryFaqByLocale = {
   ],
   es: [
     {
-      q: "Why do I have to choose a length unit?",
-      a: "A shape is dimensionless on its own: a square of side 5 has area 25 in any unit. The unit is needed only to label the answer — area in its square, volume in its cube.",
+      q: "¿Por qué hay que elegir una unidad de longitud?",
+      a: "Una figura por sí sola no tiene dimensión: un cuadrado de lado 5 tiene área 25 en cualquier unidad. La unidad hace falta solo para etiquetar la respuesta: el área en su cuadrado y el volumen en su cubo.",
     },
     {
-      q: "Why does the calculator refuse some triangles?",
-      a: "Three segments form a triangle only if any two of them are longer than the third. Otherwise the figure does not exist, and it has no area at all rather than an area of zero.",
+      q: "¿Por qué la calculadora rechaza algunos triángulos?",
+      a: "Tres segmentos forman un triángulo solo si dos cualesquiera suman más que el tercero. Si no, la figura no existe: no es que su área sea cero, es que no tiene área.",
     },
     {
-      q: "Are the results rounded?",
-      a: "A sensible number of digits is shown, but the arithmetic runs at full precision — rounding happens only on display.",
+      q: "¿Se redondean los resultados?",
+      a: "Se muestra un número razonable de cifras, pero la aritmética trabaja con precisión completa: el redondeo ocurre solo al mostrar.",
     },
     {
-      q: "Can I mix units in one calculation?",
-      a: "No, and that is deliberate. Every dimension of a shape is entered in the same unit, so centimetres cannot be confused with metres inside a calculation.",
+      q: "¿Se pueden mezclar unidades en un mismo cálculo?",
+      a: "No, y es deliberado. Todas las dimensiones de una figura se introducen en la misma unidad, de modo que los centímetros no puedan confundirse con los metros dentro de un cálculo.",
     },
   ],
   de: [

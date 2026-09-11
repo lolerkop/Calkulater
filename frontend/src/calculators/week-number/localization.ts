@@ -67,4 +67,32 @@ export const localization: CalculatorLocalization = {
         'нет': 'nein',
       },
   },
+  es: {
+    fields: {
+      "date": "Fecha",
+    },
+    options: {},
+    results: {
+      "Номер недели": "Número de semana",
+      "Неделя относится к году": "La semana pertenece al año",
+      "День года": "Día del año",
+      "Всего дней в году": "Días del año",
+      "День недели": "Día de la semana",
+      "Осталось дней до конца года": "Días que quedan hasta fin de año",
+      "Високосный год": "Año bisiesto",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Укажите корректную дату": "Indica una fecha válida",
+      "понедельник": "lunes",
+      "вторник": "martes",
+      "среда": "miércoles",
+      "четверг": "jueves",
+      "пятница": "viernes",
+      "суббота": "sábado",
+      "воскресенье": "domingo",
+      "да": "sí",
+      "нет": "no",
+    },
+  },
 };

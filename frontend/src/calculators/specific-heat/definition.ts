@@ -4,6 +4,7 @@ import { contextualField } from './contextualField';
 import { specificHeatCopyEn } from './copy.en';
 import { specificHeatCopyUk } from './copy.uk';
 import { specificHeatCopyDe } from './copy.de';
+import { specificHeatCopyEs } from './copy.es';
 import { specificHeatReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: specificHeatCopyEn, uk: specificHeatCopyUk, de: specificHeatCopyDe },
+  copy: { en: specificHeatCopyEn, uk: specificHeatCopyUk, de: specificHeatCopyDe, es: specificHeatCopyEs },
   referenceCases: specificHeatReferenceCases,
   publishedExample: { inputs: { mode: 'energy', mass: 2, c: 4186, dt: 50, q: 418600 }, expected: ["418 600 Дж"] },
   presentation: {

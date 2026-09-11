@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { airPressureAtAltitudeCopyEn } from './copy.en';
 import { airPressureAtAltitudeCopyUk } from './copy.uk';
 import { airPressureAtAltitudeCopyDe } from './copy.de';
+import { airPressureAtAltitudeCopyEs } from './copy.es';
 import { airPressureAtAltitudeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: airPressureAtAltitudeCopyEn, uk: airPressureAtAltitudeCopyUk, de: airPressureAtAltitudeCopyDe },
+  copy: { en: airPressureAtAltitudeCopyEn, uk: airPressureAtAltitudeCopyUk, de: airPressureAtAltitudeCopyDe, es: airPressureAtAltitudeCopyEs },
   referenceCases: airPressureAtAltitudeReferenceCases,
   publishedExample: { inputs: { h: 2000 }, expected: ["79,496 кПа"] },
   presentation: {

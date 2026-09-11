@@ -68,4 +68,31 @@ export const localization: CalculatorLocalization = {
       "Результат слишком велик для точного расчёта": "Результат завеликий для точного обчислення",
     },
   },
+  es: {
+    fields: {
+      "mode": "Operación",
+      "base": "Número",
+      "exponent": "Exponente",
+    },
+    options: {
+      "power": "Elevar a una potencia",
+      "root": "Extraer una raíz",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Основание": "Base",
+      "Показатель": "Exponente",
+      "Действие": "Operación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "степень": "potencia",
+      "корень": "raíz",
+      "Степень корня должна быть больше нуля": "El índice de la raíz debe ser mayor que cero",
+      "Корень чётной степени из отрицательного числа не существует": "No existe la raíz de índice par de un número negativo",
+      "Нуль нельзя возвести в отрицательную степень": "El cero no puede elevarse a una potencia negativa",
+      "Отрицательное основание требует целого показателя": "Una base negativa exige un exponente entero",
+      "Результат слишком велик для точного расчёта": "El resultado es demasiado grande para un cálculo exacto",
+    },
+  },
 };

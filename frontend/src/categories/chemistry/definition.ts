@@ -36,7 +36,7 @@ export const definition: CategoryDefinition = {
   editorial: {
     ru: "Расчёты идеализированы: газ считается идеальным, растворы — разбавленными, объёмы при смешивании складываются, а pH + pOH = 14 верно при 25 °C. Для точных лабораторных работ проверяйте условия применимости.",
     en: "The calculations are idealised: gases are treated as ideal, solutions as dilute, volumes as additive on mixing, and pH + pOH = 14 holds at 25 °C. Check the applicability conditions for precise laboratory work.",
-    es: "The calculations are idealised: gases are treated as ideal, solutions as dilute, volumes as additive on mixing, and pH + pOH = 14 holds at 25 °C. Check the applicability conditions for precise laboratory work.",
+    es: "Los cálculos son idealizados: los gases se tratan como ideales, las disoluciones como diluidas y los volúmenes como aditivos al mezclar.",
     de: "The calculations are idealised: gases are treated as ideal, solutions as dilute, volumes as additive on mixing, and pH + pOH = 14 holds at 25 °C. Check the applicability conditions for precise laboratory work.",
     fr: "The calculations are idealised: gases are treated as ideal, solutions as dilute, volumes as additive on mixing, and pH + pOH = 14 holds at 25 °C. Check the applicability conditions for precise laboratory work.",
     it: "The calculations are idealised: gases are treated as ideal, solutions as dilute, volumes as additive on mixing, and pH + pOH = 14 holds at 25 °C. Check the applicability conditions for precise laboratory work.",

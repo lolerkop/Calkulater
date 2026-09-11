@@ -61,4 +61,31 @@ export const localization: CalculatorLocalization = {
       'Человек должно быть не меньше одного': 'Осіб має бути щонайменше одна',
     },
   },
+  es: {
+    fields: {
+      "bill": "Importe de la cuenta",
+      "tipPercent": "Propina, %",
+      "people": "Personas",
+      "roundPerPerson": "Redondear al alza cada parte",
+    },
+    options: {
+      "no": "No",
+      "yes": "Sí",
+    },
+    results: {
+      "Итого к оплате": "Total a pagar",
+      "Чаевые": "Propina",
+      "Счёт без чаевых": "Cuenta sin propina",
+      "С человека": "Por persona",
+      "Человек": "Personas",
+      "Сверх счёта из-за округления": "De más por el redondeo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Сумма счёта должна быть больше нуля": "El importe de la cuenta debe ser mayor que cero",
+      "Процент чаевых не может быть отрицательным": "El porcentaje de propina no puede ser negativo",
+      "Человек должно быть не меньше одного": "Debe haber al menos una persona",
+    },
+  },
 };

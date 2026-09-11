@@ -74,4 +74,37 @@ export const localization: CalculatorLocalization = {
       'Высота сечения должна быть больше нуля': 'Висота перерізу має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "moment": "Momento flector, N·m",
+      "section": "Sección",
+      "b": "Ancho de la sección, mm",
+      "h": "Canto de la sección, mm",
+      "d": "Diámetro, mm",
+    },
+    options: {
+      "rect": "rectángulo",
+      "circle": "círculo",
+    },
+    results: {
+      "Напряжение изгиба": "Tensión de flexión",
+      "Момент сопротивления": "Módulo resistente",
+      "Изгибающий момент": "Momento flector",
+      "Сечение": "Sección",
+      "Определяющий размер сечения": "Dimensión determinante de la sección",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "МПа": "MPa",
+      "Н·м": "N·m",
+      "мм³": "mm³",
+      "мм": "mm",
+      "прямоугольник": "rectángulo",
+      "круг": "círculo",
+      "Изгибающий момент должен быть больше нуля": "El momento flector debe ser mayor que cero",
+      "Диаметр должен быть больше нуля": "El diámetro debe ser mayor que cero",
+      "Ширина сечения должна быть больше нуля": "El ancho de la sección debe ser mayor que cero",
+      "Высота сечения должна быть больше нуля": "El canto de la sección debe ser mayor que cero",
+    },
+  },
 };

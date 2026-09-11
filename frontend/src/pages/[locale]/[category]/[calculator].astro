@@ -57,7 +57,9 @@ const editorialCopy = locale === 'ru'
     ? { fields: 'Поля й одиниці', use: 'Як користуватися' }
     : locale === 'de'
       ? { fields: 'Felder und Einheiten', use: 'So wird gerechnet' }
-      : { fields: 'Fields and units', use: 'How to use' };
+      : locale === 'es'
+        ? { fields: 'Campos y unidades', use: 'Cómo se usa' }
+        : { fields: 'Fields and units', use: 'How to use' };
 const fieldUnit = (field: (typeof calc.fields)[number]) => fieldUnitLabel(field, locale);
 const pageCopy = {
   ru: {

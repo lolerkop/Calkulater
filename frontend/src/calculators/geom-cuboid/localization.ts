@@ -86,4 +86,37 @@ export const localization: CalculatorLocalization = {
       'Значение слишком велико для расчёта': 'Значення завелике для розрахунку',
     },
   },
+  es: {
+    fields: {
+      "unit": "Unidad de longitud",
+      "a": "Arista a",
+      "b": "Arista b",
+      "c": "Arista c",
+    },
+    options: {
+      "mm": "milímetros",
+      "cm": "centímetros",
+      "m": "metros",
+    },
+    results: {
+      "Объём": "Volumen",
+      "Площадь поверхности": "Superficie",
+      "Диагональ": "Diagonal",
+      "Сумма длин рёбер": "Suma de las aristas",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "см": "cm",
+      "м": "m",
+      "мм²": "mm²",
+      "см²": "cm²",
+      "м²": "m²",
+      "мм³": "mm³",
+      "см³": "cm³",
+      "м³": "m³",
+      "Все три ребра должны быть больше нуля": "Las tres aristas deben ser mayores que cero",
+      "Значение слишком велико для расчёта": "El valor es demasiado grande para calcularlo",
+    },
+  },
 };

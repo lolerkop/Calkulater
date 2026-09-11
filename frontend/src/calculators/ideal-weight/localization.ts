@@ -61,4 +61,30 @@ export const localization: CalculatorLocalization = {
       "Формулы выведены из статистики середины прошлого века и расходятся между собой на несколько килограммов. Диапазон по ИМТ шире и честнее любой точки.": "Формули виведені зі статистики середини минулого століття і розходяться між собою на кілька кілограмів. Діапазон за ІМТ ширший і чесніший за будь-яку точку.",
     },
   },
+  es: {
+    fields: {
+      "sex": "Sexo",
+      "height": "Estatura, cm",
+    },
+    options: {
+      "male": "Hombre",
+      "female": "Mujer",
+    },
+    results: {
+      "Среднее по формулам": "Media de las fórmulas",
+      "Девайн": "Devine",
+      "Робинсон": "Robinson",
+      "Миллер": "Miller",
+      "Хамви": "Hamwi",
+      "Здоровый диапазон по ИМТ, от": "Rango saludable de IMC, desde",
+      "Здоровый диапазон по ИМТ, до": "Rango saludable de IMC, hasta",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кг": "kg",
+      "Неизвестный пол": "Sexo desconocido",
+      "Рост должен быть от 120 до 230 см": "La estatura debe estar entre 120 y 230 cm",
+      "Формулы выведены из статистики середины прошлого века и расходятся между собой на несколько килограммов. Диапазон по ИМТ шире и честнее любой точки.": "Las fórmulas se dedujeron de estadísticas de mediados del siglo pasado y difieren entre sí en varios kilogramos. El rango de IMC es más amplio y más honesto que cualquier punto.",
+    },
+  },
 };

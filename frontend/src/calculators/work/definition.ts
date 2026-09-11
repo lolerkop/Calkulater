@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { workCopyEn } from './copy.en';
 import { workCopyUk } from './copy.uk';
 import { workCopyDe } from './copy.de';
+import { workCopyEs } from './copy.es';
 import { workReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: workCopyEn, uk: workCopyUk, de: workCopyDe },
+  copy: { en: workCopyEn, uk: workCopyUk, de: workCopyDe, es: workCopyEs },
   referenceCases: workReferenceCases,
   publishedExample: { inputs: { mode: 'W', F: 10, s: 5, angleDeg: 0 }, expected: ["50 Дж"] },
   presentation: {

@@ -78,4 +78,37 @@ export const localization: CalculatorLocalization = {
       "Удельное сопротивление взято при 20 °C. Нагретый проводник сопротивляется сильнее, поэтому в работе падение будет чуть больше расчётного.": "Питомий опір узято за 20 °C. Нагріта жила чинить більший опір, тож у роботі падіння буде трохи більшим за розрахункове.",
     },
   },
+  es: {
+    fields: {
+      "current": "Corriente, A",
+      "length": "Longitud de ida, m",
+      "section": "Sección del conductor, mm²",
+      "material": "Material del conductor",
+      "phase": "Alimentación",
+      "voltage": "Tensión nominal, V",
+    },
+    options: {
+      "copper": "Cobre",
+      "aluminium": "Aluminio",
+      "single": "Monofásica",
+      "three": "Trifásica",
+    },
+    results: {
+      "Падение напряжения": "Caída de tensión",
+      "Доля от номинала": "Proporción de la nominal",
+      "Напряжение у нагрузки": "Tensión en la carga",
+      "Сопротивление линии": "Resistencia de la línea",
+      "Потери мощности": "Potencia perdida en el cable",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "В": "V",
+      "Ом": "Ω",
+      "Вт": "W",
+      "Неизвестный материал проводника": "Material del conductor desconocido",
+      "Неизвестная схема питания": "Tipo de alimentación desconocido",
+      "Ток, длина, сечение и напряжение должны быть больше нуля": "La corriente, la longitud, la sección y la tensión deben ser mayores que cero",
+      "Удельное сопротивление взято при 20 °C. Нагретый проводник сопротивляется сильнее, поэтому в работе падение будет чуть больше расчётного.": "La resistividad se toma a 20 °C. Un conductor caliente resiste más, así que en servicio la caída será algo mayor que la calculada.",
+    },
+  },
 };

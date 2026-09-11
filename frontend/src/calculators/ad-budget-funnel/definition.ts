@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { adBudgetFunnelCopyEn } from './copy.en';
 import { adBudgetFunnelCopyUk } from './copy.uk';
 import { adBudgetFunnelCopyDe } from './copy.de';
+import { adBudgetFunnelCopyEs } from './copy.es';
 import { adBudgetFunnelReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: adBudgetFunnelCopyEn, uk: adBudgetFunnelCopyUk, de: adBudgetFunnelCopyDe },
+  copy: { en: adBudgetFunnelCopyEn, uk: adBudgetFunnelCopyUk, de: adBudgetFunnelCopyDe, es: adBudgetFunnelCopyEs },
   referenceCases: adBudgetFunnelReferenceCases,
   publishedExample: {
     inputs: { budget: 150000, cpc: 24, crPct: 2.4, aov: 4900 },

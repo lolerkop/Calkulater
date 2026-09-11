@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geomFrustumCopyEn } from './copy.en';
 import { geomFrustumCopyUk } from './copy.uk';
 import { geomFrustumCopyDe } from './copy.de';
+import { geomFrustumCopyEs } from './copy.es';
 import { geomFrustumReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomFrustumCopyEn, uk: geomFrustumCopyUk, de: geomFrustumCopyDe },
+  copy: { en: geomFrustumCopyEn, uk: geomFrustumCopyUk, de: geomFrustumCopyDe, es: geomFrustumCopyEs },
   referenceCases: geomFrustumReferenceCases,
   publishedExample: { inputs: { unit: 'cm', R: 6, r: 3, h: 8 }, expected: ["527,79 см³"] },
   presentation: {

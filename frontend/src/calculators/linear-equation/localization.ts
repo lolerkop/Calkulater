@@ -55,4 +55,26 @@ export const localization: CalculatorLocalization = {
         'За нульового коефіцієнта рівняння перетворюється на хибну рівність, і кореня немає',
     },
   },
+  es: {
+    fields: {
+      "a": "Coeficiente a",
+      "b": "Término independiente b",
+      "c": "Lado derecho c",
+    },
+    options: {},
+    results: {
+      "Корень": "Raíz",
+      "Уравнение": "Ecuación",
+      "Почему так": "Por qué",
+      "Перенос свободного члена": "Paso del término independiente",
+      "Деление на коэффициент": "División entre el coeficiente",
+      "Проверка подстановкой": "Comprobación por sustitución",
+    },
+    values: {
+      "любое число": "cualquier número",
+      "решений нет": "sin solución",
+      "При нулевом коэффициенте уравнение превращается в верное равенство, которому удовлетворяет любое x": "Con un coeficiente nulo la ecuación se convierte en una igualdad verdadera, que cumple cualquier x",
+      "При нулевом коэффициенте уравнение превращается в неверное равенство, и корня нет": "Con un coeficiente nulo la ecuación se convierte en una igualdad falsa, así que no hay raíz",
+    },
+  },
 };

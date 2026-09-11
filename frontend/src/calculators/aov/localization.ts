@@ -36,4 +36,22 @@ export const localization: CalculatorLocalization = {
       'Выручка не может быть отрицательной': 'Виторг не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "revenue": "Ingresos del periodo",
+      "orders": "Número de pedidos",
+    },
+    options: {},
+    results: {
+      "Средний чек": "Ticket medio",
+      "Выручка": "Ingresos",
+      "Заказов": "Pedidos",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Число заказов должно быть целым": "El número de pedidos debe ser un número entero",
+      "Заказов должно быть больше нуля": "Debe haber al menos un pedido",
+      "Выручка не может быть отрицательной": "Los ingresos no pueden ser negativos",
+    },
+  },
 };

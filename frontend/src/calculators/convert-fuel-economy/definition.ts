@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { convertFuelEconomyCopyEn } from './copy.en';
 import { convertFuelEconomyCopyUk } from './copy.uk';
 import { convertFuelEconomyCopyDe } from './copy.de';
+import { convertFuelEconomyCopyEs } from './copy.es';
 import { convertFuelEconomyReferenceCases } from './referenceCases';
 
 const UNIT_OPTIONS = [
@@ -17,7 +18,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: convertFuelEconomyCopyEn, uk: convertFuelEconomyCopyUk, de: convertFuelEconomyCopyDe },
+  copy: { en: convertFuelEconomyCopyEn, uk: convertFuelEconomyCopyUk, de: convertFuelEconomyCopyDe, es: convertFuelEconomyCopyEs },
   referenceCases: convertFuelEconomyReferenceCases,
   publishedExample: { inputs: { value: 8, fromUnit: 'l100km', toUnit: 'mpgus' }, expected: ["29,402"] },
   presentation: {

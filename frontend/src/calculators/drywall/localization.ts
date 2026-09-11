@@ -68,4 +68,32 @@ export const localization: CalculatorLocalization = {
       "Запас должен быть от 0 до 50 %": "Запас має бути від 0 до 50 %",
     },
   },
+  es: {
+    fields: {
+      "area": "Superficie a cubrir, m²",
+      "sheetLength": "Largo de la placa, m",
+      "sheetWidth": "Ancho de la placa, m",
+      "layers": "Capas",
+      "profileStep": "Separación entre montantes, m",
+      "waste": "Margen, %",
+    },
+    options: {},
+    results: {
+      "Листов": "Placas",
+      "Площадь": "Superficie",
+      "С запасом": "Con margen",
+      "Площадь листа": "Superficie de la placa",
+      "Метров профиля": "Metros de perfilería",
+      "Саморезов": "Tornillos",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м²": "m²",
+      "Площадь должна быть больше нуля": "La superficie debe ser mayor que cero",
+      "Размеры листа должны быть больше нуля": "Las dimensiones de la placa deben ser mayores que cero",
+      "Слоёв должно быть от одного до трёх": "Debe haber entre una y tres capas",
+      "Шаг профиля должен быть больше нуля": "La separación entre montantes debe ser mayor que cero",
+      "Запас должен быть от 0 до 50 %": "El margen debe estar entre 0 y 50 %",
+    },
+  },
 };

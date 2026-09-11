@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { tankVolumeCopyEn } from './copy.en';
 import { tankVolumeCopyUk } from './copy.uk';
 import { tankVolumeCopyDe } from './copy.de';
+import { tankVolumeCopyEs } from './copy.es';
 import { tankVolumeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: tankVolumeCopyEn, uk: tankVolumeCopyUk, de: tankVolumeCopyDe },
+  copy: { en: tankVolumeCopyEn, uk: tankVolumeCopyUk, de: tankVolumeCopyDe, es: tankVolumeCopyEs },
   referenceCases: tankVolumeReferenceCases,
   publishedExample: {
     inputs: { shape: 'vertical-cylinder', d: 1.5, len: 2, level: 1.2 },

@@ -75,4 +75,29 @@ export const localization: CalculatorLocalization = {
       "Битрейт звука не может быть отрицательным": "Бітрейт звуку не може бути від'ємним",
     },
   },
+  es: {
+    fields: {
+      "videoMbps": "Tasa de bits de vídeo, Mbit/s",
+      "audioKbps": "Tasa de bits de audio, kbit/s",
+      "minutes": "Duración, min",
+    },
+    options: {},
+    results: {
+      "Размер файла": "Tamaño del archivo",
+      "В мегабайтах": "En megabytes",
+      "В мебибайтах": "En mebibytes",
+      "Суммарный битрейт": "Tasa de bits combinada",
+      "Размер одной минуты": "Tamaño de un minuto",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "ГБ": "GB",
+      "МБ": "MB",
+      "МиБ": "MiB",
+      "кбит/с": "kbit/s",
+      "Битрейт видео должен быть больше нуля": "La tasa de bits de vídeo debe ser mayor que cero",
+      "Длительность должна быть больше нуля": "La duración debe ser mayor que cero",
+      "Битрейт звука не может быть отрицательным": "La tasa de bits de audio no puede ser negativa",
+    },
+  },
 };

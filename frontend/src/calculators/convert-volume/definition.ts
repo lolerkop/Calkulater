@@ -7,6 +7,7 @@ import { volumeNames, volumeUnits } from './units';
 import { volumeCopyEn } from './copy.en';
 import { volumeCopyUk } from './copy.uk';
 import { volumeCopyDe } from './copy.de';
+import { convertVolumeCopyEs } from './copy.es';
 import { volumeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: volumeCopyEn, uk: volumeCopyUk, de: volumeCopyDe },
+  copy: { en: volumeCopyEn, uk: volumeCopyUk, de: volumeCopyDe, es: convertVolumeCopyEs },
   referenceCases: volumeReferenceCases,
   publishedExample: { inputs: { value: 1, from: 'galUS', to: 'l' }, expected: ['3,7854 л'] },
   presentation: {

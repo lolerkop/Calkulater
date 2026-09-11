@@ -66,4 +66,29 @@ export const localization: CalculatorLocalization = {
       'Отдых должен быть от 0 до 50 %': 'Відпочинок має бути від 0 до 50 %',
     },
   },
+  es: {
+    fields: {
+      "weight": "Peso, kg",
+      "minutes_per_kg": "Minutos por kilogramo",
+      "base_minutes": "Parte fija, min",
+      "rest_pct": "Tiempo de reposo, %",
+    },
+    options: {},
+    results: {
+      "Время в духовке": "Tiempo en el horno",
+      "Минут готовки": "Minutos de cocción",
+      "Отдых после духовки": "Reposo tras el horno",
+      "Всего с отдыхом": "Total con reposo",
+      "Норма на килограмм": "Minutos por kilogramo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мин": "min",
+      "ч": "h",
+      "Масса должна быть больше нуля": "El peso debe ser mayor que cero",
+      "Норма минут на килограмм должна быть больше нуля": "Los minutos por kilogramo deben ser más de cero",
+      "Постоянная часть не может быть отрицательной": "La parte fija no puede ser negativa",
+      "Отдых должен быть от 0 до 50 %": "El reposo debe estar entre 0 y 50 %",
+    },
+  },
 };

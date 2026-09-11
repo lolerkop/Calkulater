@@ -58,4 +58,24 @@ export const localization: CalculatorLocalization = {
       'Накопленное не может быть отрицательным': 'Накопичене не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "monthlyExpenses": "Gastos mensuales, €",
+      "months": "Meses de cobertura deseados",
+      "saved": "Ya ahorrado, €",
+    },
+    options: {},
+    results: {
+      "Цель подушки": "Objetivo del fondo",
+      "Не хватает": "Falta",
+      "Уже покрыто месяцев": "Meses ya cubiertos",
+      "Готовность": "Avance",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Месячные расходы должны быть больше нуля": "Los gastos mensuales deben ser mayores que cero",
+      "Запас должен быть не меньше одного месяца": "La cobertura debe ser de al menos un mes",
+      "Накопленное не может быть отрицательным": "El importe ahorrado no puede ser negativo",
+    },
+  },
 };

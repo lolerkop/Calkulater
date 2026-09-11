@@ -70,4 +70,34 @@ export const localization: CalculatorLocalization = {
       'Число дней должно быть больше нуля': 'Кількість днів має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "power": "Potencia del aparato",
+      "powerUnit": "Unidad de potencia",
+      "hoursPerDay": "Horas al día",
+      "days": "Número de días",
+      "tariff": "Tarifa por kWh",
+    },
+    options: {
+      "w": "vatios (W)",
+      "kw": "kilovatios (kW)",
+    },
+    results: {
+      "Расход энергии": "Energía consumida",
+      "В сутки": "Al día",
+      "За 30 дней": "En 30 días",
+      "Мощность": "Potencia",
+      "Стоимость за период": "Coste del periodo",
+      "Стоимость за 30 дней": "Coste en 30 días",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кВт·ч": "kWh",
+      "кВт": "kW",
+      "₽": "€",
+      "Мощность должна быть больше нуля": "La potencia debe ser mayor que cero",
+      "Часов в сутки может быть от 0 до 24": "Las horas al día deben estar entre 0 y 24",
+      "Число дней должно быть больше нуля": "El número de días debe ser mayor que cero",
+    },
+  },
 };

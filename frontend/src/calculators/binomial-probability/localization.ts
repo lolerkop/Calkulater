@@ -100,4 +100,37 @@ export const localization: CalculatorLocalization = {
       "Вероятность успеха должна быть от 0 до 1": "Імовірність успіху має бути від 0 до 1",
     },
   },
+  es: {
+    fields: {
+      "n": "Número de pruebas",
+      "k": "Número de éxitos",
+      "p": "Probabilidad de éxito en una prueba",
+      "mode": "Qué calcular",
+    },
+    options: {
+      "exactly": "exactamente k éxitos",
+      "atMost": "como máximo k éxitos",
+      "atLeast": "al menos k éxitos",
+    },
+    results: {
+      "Вероятность ровно k": "Probabilidad de exactamente k",
+      "Вероятность не более k": "Probabilidad de como máximo k",
+      "Вероятность не менее k": "Probabilidad de al menos k",
+      "В процентах": "En porcentaje",
+      "Не более k": "Como máximo k",
+      "Не менее k": "Al menos k",
+      "Число сочетаний": "Número de combinaciones",
+      "Математическое ожидание": "Esperanza matemática",
+      "Стандартное отклонение": "Desviación típica",
+      "Вероятность": "Probabilidad",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Число испытаний и успехов должно быть целым": "Las pruebas y los éxitos deben ser números enteros",
+      "Число испытаний должно быть больше нуля": "El número de pruebas debe ser mayor que cero",
+      "Число успехов не может быть отрицательным": "El número de éxitos no puede ser negativo",
+      "Число успехов не может превышать число испытаний": "Los éxitos no pueden superar el número de pruebas",
+      "Вероятность успеха должна быть от 0 до 1": "La probabilidad de éxito debe estar entre 0 y 1",
+    },
+  },
 };

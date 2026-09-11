@@ -51,4 +51,26 @@ export const localization: CalculatorLocalization = {
       'Время должно быть больше нуля': 'Час має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "words": "Palabras leídas",
+      "minutes": "Tiempo, minutos",
+      "bookWords": "Palabras del libro",
+    },
+    options: {},
+    results: {
+      "Скорость чтения": "Velocidad de lectura",
+      "Слов в час": "Palabras por hora",
+      "Знаков в минуту (примерно)": "Caracteres por minuto (aprox.)",
+      "Время на книгу": "Tiempo para el libro",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "слов/мин": "palabras/min",
+      "ч": "h",
+      "мин": "min",
+      "Число слов должно быть больше нуля": "El número de palabras debe ser mayor que cero",
+      "Время должно быть больше нуля": "El tiempo debe ser mayor que cero",
+    },
+  },
 };

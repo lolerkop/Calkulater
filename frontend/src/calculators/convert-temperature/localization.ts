@@ -45,4 +45,28 @@ export const localization: CalculatorLocalization = {
         'Результат вне допустимого диапазона': 'Das Ergebnis liegt außerhalb des unterstützten Bereichs',
       },
   },
+  es: {
+    fields: {
+      "value": "Temperatura",
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+    },
+    options: {
+      "c": "grados Celsius (°C)",
+      "f": "grados Fahrenheit (°F)",
+      "k": "kelvin (K)",
+      "r": "grados Rankine (°Ra)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+    },
+  },
 };

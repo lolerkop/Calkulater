@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { rainfallVolumeCopyEn } from './copy.en';
 import { rainfallVolumeCopyUk } from './copy.uk';
 import { rainfallVolumeCopyDe } from './copy.de';
+import { rainfallVolumeCopyEs } from './copy.es';
 import { rainfallVolumeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: rainfallVolumeCopyEn, uk: rainfallVolumeCopyUk, de: rainfallVolumeCopyDe },
+  copy: { en: rainfallVolumeCopyEn, uk: rainfallVolumeCopyUk, de: rainfallVolumeCopyDe, es: rainfallVolumeCopyEs },
   referenceCases: rainfallVolumeReferenceCases,
   publishedExample: { inputs: { area: 60, depth: 25, coeff: 0.9 }, expected: ["1 350 л"] },
   presentation: {

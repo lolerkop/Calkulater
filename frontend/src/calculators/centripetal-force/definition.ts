@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { centripetalForceCopyEn } from './copy.en';
 import { centripetalForceCopyUk } from './copy.uk';
 import { centripetalForceCopyDe } from './copy.de';
+import { centripetalForceCopyEs } from './copy.es';
 import { centripetalForceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: centripetalForceCopyEn, uk: centripetalForceCopyUk, de: centripetalForceCopyDe },
+  copy: { en: centripetalForceCopyEn, uk: centripetalForceCopyUk, de: centripetalForceCopyDe, es: centripetalForceCopyEs },
   referenceCases: centripetalForceReferenceCases,
   publishedExample: {
     inputs: { m: 1200, v: 15, r: 40 },

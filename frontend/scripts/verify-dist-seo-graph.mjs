@@ -21,10 +21,11 @@
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { distLocales } from './lib/locales.mjs';
 
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const CANONICAL_HOST = 'https://calcuway.com';
-const LOCALES = ['ru', 'en', 'uk', 'de'];
+const LOCALES = distLocales(root);
 
 if (!existsSync(root) || !statSync(root).isDirectory()) {
   console.error('dist directory is missing. Run astro build before verify-dist-seo-graph.');

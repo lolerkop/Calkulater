@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { rentalYieldCopyEn } from './copy.en';
 import { rentalYieldCopyUk } from './copy.uk';
 import { rentalYieldCopyDe } from './copy.de';
+import { rentalYieldCopyEs } from './copy.es';
 import { rentalYieldReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: rentalYieldCopyEn, uk: rentalYieldCopyUk, de: rentalYieldCopyDe },
+  copy: { en: rentalYieldCopyEn, uk: rentalYieldCopyUk, de: rentalYieldCopyDe, es: rentalYieldCopyEs },
   referenceCases: rentalYieldReferenceCases,
   publishedExample: { inputs: { price: 10000000, rentMode: 'annual', annualRent: 600000, annualCosts: 0 }, expected: ["6,00%"] },
   presentation: {

@@ -29,4 +29,23 @@ export const localization: CalculatorLocalization = {
     results: { 'ROI': 'ROI', 'Прибыль': 'Прибуток', 'Всего вложено': 'Усього вкладено', 'В том числе дополнительные затраты': 'Зокрема додаткові витрати', 'Получено': 'Отримано', 'Проверьте данные': 'Перевірте дані' },
     values: { 'Сумма вложений должна быть больше нуля': 'Сума вкладень має бути більшою за нуль' },
   },
+  es: {
+    fields: {
+      "received": "Importe recibido",
+      "invested": "Importe invertido",
+      "extra": "Costes adicionales",
+    },
+    options: {},
+    results: {
+      "ROI": "ROI",
+      "Прибыль": "Beneficio",
+      "Всего вложено": "Total invertido",
+      "В том числе дополнительные затраты": "Del cual, costes adicionales",
+      "Получено": "Recibido",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Сумма вложений должна быть больше нуля": "El importe invertido debe ser mayor que cero",
+    },
+  },
 };

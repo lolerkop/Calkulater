@@ -103,4 +103,38 @@ export const localization: CalculatorLocalization = {
       "°": "°",
     },
   },
+  es: {
+    fields: {
+      "unit": "Unidad de longitud",
+      "n": "Número de lados",
+      "side": "Longitud del lado",
+    },
+    options: {
+      "mm": "milímetros",
+      "cm": "centímetros",
+      "m": "metros",
+    },
+    results: {
+      "Площадь": "Área",
+      "Периметр": "Perímetro",
+      "Апофема": "Apotema",
+      "Внутренний угол": "Ángulo interior",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "см": "cm",
+      "м": "m",
+      "мм²": "mm²",
+      "см²": "cm²",
+      "м²": "m²",
+      "мм³": "mm³",
+      "см³": "cm³",
+      "м³": "m³",
+      "Сторон должно быть не меньше трёх": "Un polígono necesita al menos tres lados",
+      "Число сторон должно быть целым": "El número de lados debe ser entero",
+      "Длина стороны должна быть больше нуля": "La longitud del lado debe ser mayor que cero",
+      "°": "°",
+    },
+  },
 };

@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { annuityCopyEn } from './copy.en';
 import { annuityCopyUk } from './copy.uk';
 import { annuityCopyDe } from './copy.de';
+import { annuityCopyEs } from './copy.es';
 import { annuityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: annuityCopyEn, uk: annuityCopyUk, de: annuityCopyDe },
+  copy: { en: annuityCopyEn, uk: annuityCopyUk, de: annuityCopyDe, es: annuityCopyEs },
   referenceCases: annuityReferenceCases,
   publishedExample: { inputs: { amount: 1000000, rate: 12, months: 12 }, expected: ['88 848,79 ₽'] },
   presentation: {

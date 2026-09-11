@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { ctrCopyEn } from './copy.en';
 import { ctrCopyUk } from './copy.uk';
 import { ctrCopyDe } from './copy.de';
+import { ctrCopyEs } from './copy.es';
 import { ctrReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: ctrCopyEn, uk: ctrCopyUk, de: ctrCopyDe },
+  copy: { en: ctrCopyEn, uk: ctrCopyUk, de: ctrCopyDe, es: ctrCopyEs },
   referenceCases: ctrReferenceCases,
   publishedExample: { inputs: { clicks: 1250, impressions: 84000 }, expected: ['1,49%'] },
   presentation: {

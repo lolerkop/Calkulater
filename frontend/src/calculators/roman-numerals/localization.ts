@@ -52,4 +52,26 @@ export const localization: CalculatorLocalization = {
       'Римские числа записывают от 1 до 3999': 'Римські числа записують від 1 до 3999',
     },
   },
+  es: {
+    fields: {
+      "mode": "Sentido",
+      "arabic": "Número arábigo",
+      "roman": "Número romano",
+    },
+    options: {
+      "toRoman": "De arábigo a romano",
+      "toArabic": "De romano a arábigo",
+    },
+    results: {
+      "Римское число": "Número romano",
+      "Арабское число": "Número arábigo",
+      "Римская запись": "Escritura romana",
+      "Символов в записи": "Símbolos empleados",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Введите каноническую римскую запись от I до MMMCMXCIX": "Introduce una escritura romana canónica de I a MMMCMXCIX",
+      "Римские числа записывают от 1 до 3999": "Los números romanos van del 1 al 3999",
+    },
+  },
 };

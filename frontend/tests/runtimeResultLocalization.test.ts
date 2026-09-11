@@ -3,9 +3,9 @@ import { calculators } from '../src/data/calculators';
 import { allRunners as runners } from '../src/lib/runners.all';
 import { buildInitialValues } from '../src/lib/shareLink';
 import { getCalculatorById } from '../src/lib/i18n';
-import { v2Runtimes } from '../src/calculators/runtime.generated';
+import { runtimeFor } from '../src/calculators/runtime.generated';
 import { localizeResult, resultToText } from '../src/components/islands/calculator/resultLocalization';
-import { localizedResultLabel, resultLabelPhrases } from '../src/lib/clientI18n';
+import { localizedResultLabel, resultLabelPhrases } from '../src/lib/resultPhrases';
 import { v2Localization } from '../src/calculators/localization.generated';
 import type { CalcResult, Field } from '../src/lib/types';
 
@@ -116,7 +116,7 @@ function collectLeaks(locale: 'en' | 'uk' | 'de', onlyIds?: Set<string>): Leak[]
         continue;
       }
       const original = new Set(visibleStrings(russian));
-      const localized = localizeResult(russian, locale, calculator.id, v2Runtimes[calculator.id]);
+      const localized = localizeResult(russian, locale, calculator.id, runtimeFor(calculator.id));
       const scenario = JSON.stringify(inputs).slice(0, 70);
 
       const labels = [
@@ -167,7 +167,7 @@ describe('runtime result localization: калькуляторы Expansion Pack #
       const russian = runners[id](buildInitialValues(calculator.fields) as never);
       for (const locale of ['en', 'uk'] as const) {
         const name = getCalculatorById(id, locale)!.name;
-        const text = resultToText({ name }, localizeResult(russian, locale, id, v2Runtimes[id]), locale);
+        const text = resultToText({ name }, localizeResult(russian, locale, id, runtimeFor(id)), locale);
         if (locale === 'en') {
           expect(text, `${id} EN буфер`).not.toMatch(CYRILLIC);
         } else {

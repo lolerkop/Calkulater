@@ -84,4 +84,38 @@ export const localization: CalculatorLocalization = {
       'Год должен лежать внутри срока службы': 'Рік має бути в межах строку служби',
     },
   },
+  es: {
+    fields: {
+      "cost": "Coste inicial, €",
+      "salvage": "Valor residual, €",
+      "life": "Vida útil, años",
+      "method": "Método",
+      "year": "Año a mostrar",
+    },
+    options: {
+      "straight": "lineal",
+      "ddb": "saldo doblemente decreciente",
+      "syd": "suma de dígitos de los años",
+    },
+    results: {
+      "Амортизация за год": "Amortización del año",
+      "Накопленная амортизация": "Amortización acumulada",
+      "Остаточная стоимость": "Valor contable",
+      "Амортизируемая база": "Base amortizable",
+      "Доля списанного": "Parte amortizada",
+      "Амортизация по годам": "Amortización por años",
+      "Год": "Año",
+      "За год": "Del año",
+      "Накоплено": "Acumulado",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Стоимость должна быть больше нуля": "El coste debe ser mayor que cero",
+      "Ликвидационная стоимость не может быть отрицательной": "El valor residual no puede ser negativo",
+      "Ликвидационная стоимость должна быть меньше первоначальной": "El valor residual debe ser menor que el coste inicial",
+      "Срок службы должен быть хотя бы один год": "La vida útil debe ser de al menos un año",
+      "Срок службы не может превышать 50 лет": "La vida útil no puede superar los 50 años",
+      "Год должен лежать внутри срока службы": "El año debe caer dentro de la vida útil",
+    },
+  },
 };

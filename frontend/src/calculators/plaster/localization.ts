@@ -74,4 +74,34 @@ export const localization: CalculatorLocalization = {
       'Вес мешка должен быть больше нуля': 'Вага мішка має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Cómo indicar la superficie",
+      "area": "Superficie de la pared, m²",
+      "length": "Largo de la pared, m",
+      "height": "Alto de la pared, m",
+      "thickness": "Espesor de la capa, mm",
+      "consumption": "Consumo, kg/m² por 1 mm",
+      "bagWeight": "Peso del saco, kg",
+    },
+    options: {
+      "area": "por superficie",
+      "dimensions": "por largo y alto",
+    },
+    results: {
+      "Масса сухой смеси": "Masa de mezcla seca",
+      "Мешков": "Sacos",
+      "Расход на м²": "Consumo por m²",
+      "Площадь": "Superficie",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      " шт": " uds.",
+      " кг": " kg",
+      "Площадь должна быть больше нуля": "La superficie debe ser mayor que cero",
+      "Толщина слоя должна быть больше нуля": "El espesor de la capa debe ser mayor que cero",
+      "Расход смеси должен быть больше нуля": "El consumo debe ser mayor que cero",
+      "Вес мешка должен быть больше нуля": "El peso del saco debe ser mayor que cero",
+    },
+  },
 };

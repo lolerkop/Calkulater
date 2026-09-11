@@ -56,4 +56,26 @@ export const localization: CalculatorLocalization = {
       'Срок должен быть больше нуля': 'Строк має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "begin": "Valor inicial",
+      "end": "Valor final",
+      "years": "Número de años",
+    },
+    options: {},
+    results: {
+      "Среднегодовой рост": "Crecimiento anual",
+      "Общий рост за срок": "Crecimiento total del periodo",
+      "Множитель": "Multiplicador",
+      "Начальная стоимость": "Valor inicial",
+      "Конечная стоимость": "Valor final",
+      "Срок": "Años",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Начальная стоимость должна быть больше нуля": "El valor inicial debe ser mayor que cero",
+      "Конечная стоимость должна быть больше нуля": "El valor final debe ser mayor que cero",
+      "Срок должен быть больше нуля": "El número de años debe ser mayor que cero",
+    },
+  },
 };

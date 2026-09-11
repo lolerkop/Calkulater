@@ -79,4 +79,38 @@ export const localization: CalculatorLocalization = {
       "Внутренний радиус должен быть меньше внешнего": "Внутрішній радіус має бути меншим за зовнішній",
     },
   },
+  es: {
+    fields: {
+      "unit": "Unidad de longitud",
+      "R": "Radio exterior",
+      "r": "Radio interior",
+    },
+    options: {
+      "mm": "milímetros",
+      "cm": "centímetros",
+      "m": "metros",
+    },
+    results: {
+      "Площадь": "Área",
+      "Ширина кольца": "Anchura del anillo",
+      "Внешняя окружность": "Circunferencia exterior",
+      "Внутренняя окружность": "Circunferencia interior",
+      "Средний радиус": "Radio medio",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "см": "cm",
+      "м": "m",
+      "мм²": "mm²",
+      "см²": "cm²",
+      "м²": "m²",
+      "мм³": "mm³",
+      "см³": "cm³",
+      "м³": "m³",
+      "Внешний радиус должен быть больше нуля": "El radio exterior debe ser mayor que cero",
+      "Внутренний радиус не может быть отрицательным": "El radio interior no puede ser negativo",
+      "Внутренний радиус должен быть меньше внешнего": "El radio interior debe ser menor que el exterior",
+    },
+  },
 };

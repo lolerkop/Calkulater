@@ -47,4 +47,22 @@ export const localization: CalculatorLocalization = {
       'Сумма весов должна быть больше нуля': 'Сума ваг має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "pairs": "Pares de valor y peso: uno por línea",
+    },
+    options: {},
+    results: {
+      "Взвешенное среднее": "Media ponderada",
+      "Сумма весов": "Suma de los pesos",
+      "Сумма произведений": "Suma de los productos",
+      "Количество пар": "Pares",
+      "Строка не разобрана": "Línea no reconocida",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Введите хотя бы одну пару «значение вес»": "Introduce al menos un par «valor peso»",
+      "Сумма весов должна быть больше нуля": "La suma de los pesos debe ser mayor que cero",
+    },
+  },
 };

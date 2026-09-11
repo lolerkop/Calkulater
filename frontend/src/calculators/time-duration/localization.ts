@@ -58,4 +58,35 @@ export const localization: CalculatorLocalization = {
     },
     values: { 'да': 'так' },
   },
+  es: {
+    fields: {
+      "mode": "Qué calcular",
+      "startHour": "Hora de inicio",
+      "startMinute": "Minuto de inicio",
+      "endHour": "Hora de fin",
+      "endMinute": "Minuto de fin",
+      "spanHour": "Horas de duración",
+      "spanMinute": "Minutos de duración",
+    },
+    options: {
+      "difference": "Duración entre dos horas",
+      "add": "Sumar una duración",
+      "subtract": "Restar una duración",
+    },
+    results: {
+      "Продолжительность": "Duración",
+      "Всего минут": "Minutos en total",
+      "Начало": "Inicio",
+      "Окончание": "Fin",
+      "Переход через полночь": "Cruza la medianoche",
+      "Время": "Hora",
+      "Исходное время": "Hora de partida",
+      "Длительность": "Duración",
+      "Предыдущие сутки": "Día anterior",
+      "Следующие сутки": "Día siguiente",
+    },
+    values: {
+      "да": "sí",
+    },
+  },
 };

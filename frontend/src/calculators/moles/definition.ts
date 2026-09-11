@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { molesCopyEn } from './copy.en';
 import { molesCopyUk } from './copy.uk';
 import { molesCopyDe } from './copy.de';
+import { molesCopyEs } from './copy.es';
 import { molesReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: molesCopyEn, uk: molesCopyUk, de: molesCopyDe },
+  copy: { en: molesCopyEn, uk: molesCopyUk, de: molesCopyDe, es: molesCopyEs },
   referenceCases: molesReferenceCases,
   publishedExample: { inputs: { mode: 'mass', mass: 18, molarMass: 18.02 }, expected: ['0,9989 моль'] },
   presentation: {

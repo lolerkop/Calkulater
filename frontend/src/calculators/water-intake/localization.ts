@@ -61,4 +61,26 @@ export const localization: CalculatorLocalization = {
       'Минуты нагрузки не могут быть отрицательными': 'Хвилини навантаження не можуть бути від’ємними',
     },
   },
+  es: {
+    fields: {
+      "weight": "Peso corporal, kg",
+      "activityMinutes": "Minutos de actividad al día",
+      "hotWeather": "Hace calor",
+    },
+    options: {
+      "no": "No",
+      "yes": "Sí",
+    },
+    results: {
+      "Норма воды в сутки": "Consumo diario de agua",
+      "Базовая норма": "Cantidad base",
+      "Надбавка за нагрузку": "Suplemento por actividad",
+      "Стаканов по 250 мл": "Vasos de 250 ml",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Масса тела должна быть больше нуля": "El peso corporal debe ser mayor que cero",
+      "Минуты нагрузки не могут быть отрицательными": "Los minutos de actividad no pueden ser negativos",
+    },
+  },
 };

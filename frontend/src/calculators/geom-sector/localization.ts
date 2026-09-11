@@ -91,4 +91,38 @@ export const localization: CalculatorLocalization = {
       'Угол сектора не может превышать 360 градусов': 'Кут сектора не може перевищувати 360 градусів',
     },
   },
+  es: {
+    fields: {
+      "unit": "Unidad de longitud",
+      "radius": "Radio",
+      "angle": "Ángulo central, grados",
+    },
+    options: {
+      "mm": "milímetros",
+      "cm": "centímetros",
+      "m": "metros",
+    },
+    results: {
+      "Площадь сектора": "Área del sector",
+      "Длина дуги": "Longitud del arco",
+      "Хорда": "Cuerda",
+      "Периметр сектора": "Perímetro del sector",
+      "Доля круга": "Fracción del círculo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "см": "cm",
+      "м": "m",
+      "мм²": "mm²",
+      "см²": "cm²",
+      "м²": "m²",
+      "мм³": "mm³",
+      "см³": "cm³",
+      "м³": "m³",
+      "Радиус должен быть больше нуля": "El radio debe ser mayor que cero",
+      "Угол должен быть больше нуля": "El ángulo debe ser mayor que cero",
+      "Угол сектора не может превышать 360 градусов": "El ángulo de un sector no puede superar los 360 grados",
+    },
+  },
 };

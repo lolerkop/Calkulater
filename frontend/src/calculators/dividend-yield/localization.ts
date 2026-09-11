@@ -35,4 +35,23 @@ export const localization: CalculatorLocalization = {
       'Дивиденд не может быть отрицательным': 'Дивіденд не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "dividend": "Dividendo anual por acción",
+      "price": "Precio de la acción",
+      "shares": "Número de acciones",
+    },
+    options: {},
+    results: {
+      "Дивидендная доходность": "Rentabilidad por dividendo",
+      "Дивиденд на акцию за год": "Dividendo anual por acción",
+      "Дивиденды на пакет": "Dividendos del paquete",
+      "Стоимость пакета": "Valor del paquete",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Цена акции должна быть больше нуля": "El precio de la acción debe ser mayor que cero",
+      "Дивиденд не может быть отрицательным": "El dividendo no puede ser negativo",
+    },
+  },
 };

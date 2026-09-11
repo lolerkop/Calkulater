@@ -35,5 +35,6 @@ export const definition: CategoryDefinition = {
     en: "This is an official reference rate, not a live commercial buy or sell quote. A bank or exchange service may add a spread and fees.",
     uk: "Це офіційний довідковий, а не комерційний курс купівлі чи продажу. Банк або обмінник може застосовувати спред і комісію.",
     de: "Es handelt sich um einen amtlichen Referenzkurs, nicht um einen handelbaren An- oder Verkaufskurs. Banken und Wechselstuben können Spread und Gebühren aufschlagen.",
+    es: "Se utilizan los tipos de cambio de referencia oficiales de los bancos centrales en la fecha indicada. Los bancos y las casas de cambio aplican sus propios tipos y comisiones.",
   },
 };

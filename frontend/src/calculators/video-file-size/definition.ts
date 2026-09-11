@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { videoFileSizeCopyEn } from './copy.en';
 import { videoFileSizeCopyUk } from './copy.uk';
 import { videoFileSizeCopyDe } from './copy.de';
+import { videoFileSizeCopyEs } from './copy.es';
 import { videoFileSizeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: videoFileSizeCopyEn, uk: videoFileSizeCopyUk, de: videoFileSizeCopyDe },
+  copy: { en: videoFileSizeCopyEn, uk: videoFileSizeCopyUk, de: videoFileSizeCopyDe, es: videoFileSizeCopyEs },
   referenceCases: videoFileSizeReferenceCases,
   publishedExample: { inputs: { videoMbps: 8, audioKbps: 128, minutes: 10 }, expected: ["0,6096 ГБ"] },
   presentation: {

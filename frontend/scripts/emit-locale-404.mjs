@@ -13,12 +13,16 @@
 
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { distLocales } from './lib/locales.mjs';
 
 const DIST = path.resolve('dist');
-const locales = process.argv.slice(2);
+// Состав локалей читается из собранного артефакта: список, выписанный буквами,
+// уже однажды отстал бы от контракта, а молчание этого шага выглядело бы как
+// «локальной страницы не найдено просто нет».
+const locales = process.argv.length > 2 ? process.argv.slice(2) : distLocales(DIST);
 const moved = [];
 
-for (const locale of locales.length ? locales : ['ru', 'en', 'uk', 'de']) {
+for (const locale of locales) {
   const from = path.join(DIST, locale, '404', 'index.html');
   const to = path.join(DIST, locale, '404.html');
   if (!existsSync(from)) continue;

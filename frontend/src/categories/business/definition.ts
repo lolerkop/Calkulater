@@ -35,5 +35,6 @@ export const definition: CategoryDefinition = {
     en: "The figure is derived from the amounts you enter and does not account for taxes, seasonality or cost structure unless you include them in the inputs.",
     uk: "Показник рахується за введеними сумами і не враховує податки, сезонність та структуру витрат, якщо ви не заклали їх у вихідні дані.",
     de: "Die Kennzahl folgt aus den eingetragenen Beträgen und berücksichtigt weder Steuern noch Saisonalität oder Vertragsbesonderheiten.",
+    es: "Las métricas se calculan con los importes que introduces. Su interpretación depende del periodo y de la contabilidad de la que procedan los datos.",
   },
 };

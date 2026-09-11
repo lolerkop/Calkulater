@@ -75,4 +75,32 @@ export const localization: CalculatorLocalization = {
     "Доля активных задаётся в диапазоне от 0 до 100 процентов": "Частка активних задається в діапазоні від 0 до 100 відсотків",
     },
   },
+  es: {
+    fields: {
+      "users": "Usuarios simultáneos",
+      "perUser": "Ancho de banda por usuario, Mbit/s",
+      "overhead": "Margen, %",
+      "concurrency": "Activos a la vez, %",
+    },
+    options: {},
+    results: {
+      "Требуемая полоса": "Ancho de banda necesario",
+      "Без запаса": "Sin margen",
+      "Добавлено запасом": "Añadido por el margen",
+      "Одновременно активны": "Activos a la vez",
+      "В мегабайтах в секунду": "En megabytes por segundo",
+      "В гигабитах": "En gigabits",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Мбит/с": "Mbit/s",
+      "Гбит/с": "Gbit/s",
+      "МБ/с": "MB/s",
+      "из": "de",
+      "Пользователей должно быть не меньше одного": "Debe haber al menos un usuario",
+      "Полоса на пользователя должна быть больше нуля": "El ancho de banda por usuario debe ser mayor que cero",
+      "Запас не может быть отрицательным": "El margen no puede ser negativo",
+      "Доля активных задаётся в диапазоне от 0 до 100 процентов": "La proporción de activos se fija entre 0 y 100 por ciento",
+    },
+  },
 };

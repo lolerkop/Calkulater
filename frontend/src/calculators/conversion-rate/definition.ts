@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { conversionRateCopyEn } from './copy.en';
 import { conversionRateCopyUk } from './copy.uk';
 import { conversionRateCopyDe } from './copy.de';
+import { conversionRateCopyEs } from './copy.es';
 import { conversionRateReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: conversionRateCopyEn, uk: conversionRateCopyUk, de: conversionRateCopyDe },
+  copy: { en: conversionRateCopyEn, uk: conversionRateCopyUk, de: conversionRateCopyDe, es: conversionRateCopyEs },
   referenceCases: conversionRateReferenceCases,
   publishedExample: { inputs: { visitors: 8000, conversions: 240, cost: 60000 }, expected: ["3,00%"] },
   presentation: {

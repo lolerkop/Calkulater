@@ -103,4 +103,38 @@ export const localization: CalculatorLocalization = {
       "Вероятность должна быть от 0 до 1": "Ймовірність має бути від 0 до 1",
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué calcular",
+      "favourable": "Casos favorables",
+      "total": "Casos totales",
+      "favourable2": "Casos favorables",
+      "total2": "Casos totales",
+      "p1": "Probabilidad del primer suceso",
+      "p2": "Probabilidad del segundo suceso",
+      "p3": "Probabilidad del primer suceso",
+      "p4": "Probabilidad del segundo suceso",
+    },
+    options: {
+      "single": "probabilidad de un suceso",
+      "complement": "probabilidad del complementario",
+      "independentBoth": "ambos sucesos independientes",
+      "independentEither": "al menos uno de los dos",
+    },
+    results: {
+      "Вероятность": "Probabilidad",
+      "В процентах": "En porcentaje",
+      "Шансы": "Probabilidades en contra",
+      "Противоположное событие": "Suceso complementario",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "%": "%",
+      "к 1": "a 1",
+      "Всего исходов должно быть больше нуля": "El número total de casos debe ser mayor que cero",
+      "Благоприятных исходов не может быть больше общего числа": "No puede haber más casos favorables que casos en total",
+      "Исходы должны быть целыми": "Los casos deben ser números enteros",
+      "Вероятность должна быть от 0 до 1": "La probabilidad debe estar entre 0 y 1",
+    },
+  },
 };

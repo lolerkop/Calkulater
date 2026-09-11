@@ -77,4 +77,37 @@ export const localization: CalculatorLocalization = {
       'Введите хотя бы один уровень в децибелах': 'Введіть щонайменше один рівень у децибелах',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "levels": "Niveles, dB",
+      "p1": "Valor inicial",
+      "p2": "Valor final",
+      "kind": "Tipo de magnitud",
+    },
+    options: {
+      "sum": "suma de niveles",
+      "ratio": "razón en decibelios",
+      "power": "potencia",
+      "amplitude": "amplitud",
+    },
+    results: {
+      "Уровень": "Nivel",
+      "Источников": "Fuentes",
+      "Самый громкий": "Fuente más ruidosa",
+      "Прибавка к самому громкому": "Añadido a la más ruidosa",
+      "Арифметическая сумма (так НЕ считают)": "Suma aritmética (NO se calcula así)",
+      "Во сколько раз по мощности": "Razón de potencias",
+      "Во сколько раз по амплитуде": "Razón de amplitudes",
+      "Исходная величина": "Valor inicial",
+      "Конечная величина": "Valor final",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "дБ": "dB",
+      "Исходная величина должна быть больше нуля": "El valor inicial debe ser mayor que cero",
+      "Конечная величина должна быть больше нуля": "El valor final debe ser mayor que cero",
+      "Введите хотя бы один уровень в децибелах": "Introduce al menos un nivel en decibelios",
+    },
+  },
 };

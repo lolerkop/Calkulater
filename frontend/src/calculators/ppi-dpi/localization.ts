@@ -76,4 +76,28 @@ export const localization: CalculatorLocalization = {
       "Разрешение должно быть больше нуля": "Роздільна здатність має бути більшою за нуль",
     },
   },
+  es: {
+    fields: {
+      "w": "Resolución horizontal, px",
+      "h": "Resolución vertical, px",
+      "diagonal": "Diagonal, pulgadas",
+    },
+    options: {},
+    results: {
+      "Плотность пикселей": "Densidad de píxeles",
+      "Диагональ в пикселях": "Diagonal en píxeles",
+      "Размер пикселя": "Tamaño del píxel",
+      "Всего пикселей": "Píxeles en total",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "ppi": "ppi",
+      "пикс": "px",
+      "мм": "mm",
+      "Мпикс": "Mpx",
+      "Диагональ должна быть больше нуля": "La diagonal debe ser mayor que cero",
+      "Разрешение должно быть целым числом пикселей": "La resolución debe ser un número entero de píxeles",
+      "Разрешение должно быть больше нуля": "La resolución debe ser mayor que cero",
+    },
+  },
 };

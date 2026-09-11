@@ -58,4 +58,31 @@ export const localization: CalculatorLocalization = {
       'Неизвестная шкала': 'Невідома шкала',
     },
   },
+  es: {
+    fields: {
+      "value": "Valor",
+      "from": "Escala de origen",
+      "to": "Escala de destino",
+    },
+    options: {
+      "unit": "unidades",
+      "thousand": "miles",
+      "lakh": "lakh",
+      "million": "millones",
+      "crore": "crore",
+      "billion": "miles de millones",
+    },
+    results: {
+      "Результат": "Resultado",
+      "В единицах": "En unidades",
+      "В лакхах": "En lakh",
+      "В крорах": "En crore",
+      "Отношение шкал": "Relación entre escalas",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Значение должно быть больше нуля": "El valor debe ser mayor que cero",
+      "Неизвестная шкала": "Escala desconocida",
+    },
+  },
 };

@@ -64,4 +64,26 @@ export const localization: CalculatorLocalization = {
       'Кликов не может быть больше, чем открытий': 'Кліків не може бути більше, ніж відкриттів',
     },
   },
+  es: {
+    fields: {
+      "sent": "Correos enviados",
+      "delivered": "Entregados",
+      "opened": "Abiertos",
+      "clicked": "Con clic",
+    },
+    options: {},
+    results: {
+      "Доставляемость": "Tasa de entrega",
+      "Открываемость": "Tasa de apertura",
+      "Кликабельность": "Tasa de clics",
+      "Кликов на открытие": "Clics sobre aperturas",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Число отправленных писем должно быть больше нуля": "El número de correos enviados debe ser mayor que cero",
+      "Доставлено не может быть больше, чем отправлено": "Los entregados no pueden superar a los enviados",
+      "Открыто не может быть больше, чем доставлено": "Los abiertos no pueden superar a los entregados",
+      "Кликов не может быть больше, чем открытий": "Los clics no pueden superar a las aperturas",
+    },
+  },
 };

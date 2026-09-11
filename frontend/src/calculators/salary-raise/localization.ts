@@ -70,4 +70,29 @@ export const localization: CalculatorLocalization = {
       'Новая зарплата должна быть больше нуля': 'Нова зарплата має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué se conoce",
+      "oldSalary": "Salario anterior, €",
+      "newSalary": "Salario nuevo, €",
+      "raisePct": "Subida, %",
+    },
+    options: {
+      "fromNew": "el salario nuevo",
+      "fromPct": "el porcentaje de subida",
+    },
+    results: {
+      "Изменение": "Variación",
+      "Новая зарплата": "Salario nuevo",
+      "Разница": "Diferencia",
+      "Было": "Antes",
+      "Стало": "Después",
+      "Множитель": "Multiplicador",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Прежняя зарплата должна быть больше нуля": "El salario anterior debe ser mayor que cero",
+      "Новая зарплата должна быть больше нуля": "El salario nuevo debe ser mayor que cero",
+    },
+  },
 };

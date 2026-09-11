@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { distLocales } from './lib/locales.mjs';
 
 const root = path.resolve('dist');
 const issues = [];
@@ -16,6 +17,27 @@ const russianMarkers = [
   'официальный справочный',
   'Дата обновления',
   'Источник',
+];
+
+// Английские фразы тех запасных путей, которые у испанской страницы реально
+// есть: контакты берут `contactDetails[locale] ?? contactDetails.en`, раздел —
+// английский хвост тернарной цепочки, приватность и блок источников уходят в
+// язык `en`, если испанского нет в выборе. Появление любой из них на испанской
+// странице значит, что испанская запись потерялась.
+//
+// Строка подвала «Report a calculator error» и английский текст источника сюда
+// сознательно не входят: это известный долг, общий с немецким, и сейчас он
+// одинаково стоит на всех испанских и немецких страницах.
+const englishFallbackMarkers = [
+  'How to contact us',
+  'Open a support request',
+  'The support channel is public',
+  'Choose a calculator in this section',
+  'Start with a popular calculator or browse the full list',
+  'Cookies and browser storage',
+  'Entered values are processed by JavaScript in your browser',
+  'Sources and review status',
+  'Data or methodology source',
 ];
 
 function walk(dir) {
@@ -51,7 +73,7 @@ if (!fs.existsSync(root)) {
   process.exit(1);
 }
 
-for (const locale of ['en', 'uk', 'de']) {
+for (const locale of distLocales(root).filter((item) => item !== 'ru')) {
   const localeRoot = path.join(root, locale);
   for (const filePath of walk(localeRoot).filter((file) => file.endsWith('.html'))) {
     const file = path.relative(root, filePath).replaceAll(path.sep, '/');
@@ -82,6 +104,22 @@ for (const locale of ['en', 'uk', 'de']) {
       }
     }
 
+    if (locale === 'es') {
+      // Испанская страница, как и немецкая, кириллицы не содержит вовсе —
+      // кроме родных названий локалей в переключателе языка.
+      const normalized = text.replaceAll('Русский', '').replaceAll('Українська', '');
+      if (/[\u0400-\u04ff]/u.test(normalized)) {
+        issues.push(`${file}: visible Spanish content contains Cyrillic text`);
+      }
+      if (/[\u0400-\u04ff]/u.test(json)) {
+        issues.push(`${file}: Spanish JSON-LD contains Cyrillic text`);
+      }
+      for (const marker of englishFallbackMarkers) {
+        if (text.includes(marker)) issues.push(`${file}: Spanish content contains English fallback "${marker}"`);
+        if (json.includes(marker)) issues.push(`${file}: Spanish JSON-LD contains English fallback "${marker}"`);
+      }
+    }
+
     if (locale === 'uk') {
       for (const marker of russianMarkers) {
         if (text.includes(marker)) issues.push(`${file}: Ukrainian content contains Russian marker "${marker}"`);
@@ -104,4 +142,4 @@ if (issues.length) {
   process.exit(1);
 }
 
-console.log('Verified EN/UK/DE HTML and JSON-LD: no forbidden language mixing.');
+console.log('Verified EN/UK/DE/ES HTML and JSON-LD: no forbidden language mixing.');

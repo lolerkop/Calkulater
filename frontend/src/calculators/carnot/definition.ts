@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { carnotCopyEn } from './copy.en';
 import { carnotCopyUk } from './copy.uk';
 import { carnotCopyDe } from './copy.de';
+import { carnotCopyEs } from './copy.es';
 import { carnotReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: carnotCopyEn, uk: carnotCopyUk, de: carnotCopyDe },
+  copy: { en: carnotCopyEn, uk: carnotCopyUk, de: carnotCopyDe, es: carnotCopyEs },
   referenceCases: carnotReferenceCases,
   publishedExample: { inputs: { tHot: 800, tCold: 300 }, expected: ["62,5 %"] },
   presentation: {

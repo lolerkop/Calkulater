@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { aquariumWaterChangeCopyEn } from './copy.en';
 import { aquariumWaterChangeCopyUk } from './copy.uk';
 import { aquariumWaterChangeCopyDe } from './copy.de';
+import { aquariumWaterChangeCopyEs } from './copy.es';
 import { aquariumWaterChangeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: aquariumWaterChangeCopyEn, uk: aquariumWaterChangeCopyUk, de: aquariumWaterChangeCopyDe },
+  copy: { en: aquariumWaterChangeCopyEn, uk: aquariumWaterChangeCopyUk, de: aquariumWaterChangeCopyDe, es: aquariumWaterChangeCopyEs },
   referenceCases: aquariumWaterChangeReferenceCases,
   publishedExample: {
     inputs: { volume: 240, changePct: 25, decorPct: 12 },

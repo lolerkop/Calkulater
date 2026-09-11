@@ -85,4 +85,34 @@ export const localization: CalculatorLocalization = {
       'Ток должен быть больше нуля': 'Струм має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "voltage": "Tensión, V",
+      "current": "Corriente, A",
+      "power": "Potencia activa, W",
+      "powerFactor": "Factor de potencia cos φ",
+    },
+    options: {
+      "P": "potencia a partir de la corriente",
+      "current": "corriente a partir de la potencia",
+    },
+    results: {
+      "Активная мощность": "Potencia activa",
+      "Полная мощность": "Potencia aparente",
+      "Реактивная мощность": "Potencia reactiva",
+      "Ток": "Corriente",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Вт": "W",
+      "ВА": "VA",
+      "вар": "var",
+      "А": "A",
+      "Напряжение должно быть больше нуля": "La tensión debe ser mayor que cero",
+      "Коэффициент мощности должен быть больше нуля и не больше единицы": "El factor de potencia debe ser mayor que cero y como mucho uno",
+      "Активная мощность должна быть больше нуля": "La potencia activa debe ser mayor que cero",
+      "Ток должен быть больше нуля": "La corriente debe ser mayor que cero",
+    },
+  },
 };

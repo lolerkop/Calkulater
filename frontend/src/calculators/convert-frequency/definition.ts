@@ -8,6 +8,7 @@ import { frequencyNames, frequencyUnits } from './units';
 import { frequencyCopyEn } from './copy.en';
 import { frequencyCopyUk } from './copy.uk';
 import { frequencyCopyDe } from './copy.de';
+import { convertFrequencyCopyEs } from './copy.es';
 import { frequencyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -15,7 +16,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: frequencyCopyEn, uk: frequencyCopyUk, de: frequencyCopyDe },
+  copy: { en: frequencyCopyEn, uk: frequencyCopyUk, de: frequencyCopyDe, es: convertFrequencyCopyEs },
   referenceCases: frequencyReferenceCases,
   publishedExample: { inputs: { value: 2.4, from: 'ghz', to: 'mhz' }, expected: ['2 400,00 МГц'] },
   presentation: {

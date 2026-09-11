@@ -45,4 +45,24 @@ export const localization: CalculatorLocalization = {
       'Не определена при нулевой базе': 'Не визначена за нульової бази',
     },
   },
+  es: {
+    fields: {
+      "from": "Antes",
+      "to": "Después",
+    },
+    options: {},
+    results: {
+      "Абсолютная разница": "Diferencia absoluta",
+      "Относительная разница": "Diferencia relativa",
+      "Было": "Antes",
+      "Стало": "Después",
+      "Направление": "Sentido",
+    },
+    values: {
+      "Рост": "Aumento",
+      "Снижение": "Descenso",
+      "Без изменений": "Sin cambios",
+      "Не определена при нулевой базе": "No está definida con base cero",
+    },
+  },
 };

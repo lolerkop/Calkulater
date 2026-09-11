@@ -69,4 +69,33 @@ export const localization: CalculatorLocalization = {
       'Запас не может быть отрицательным': 'Запас не може бути відʼємним',
     },
   },
+  es: {
+    fields: {
+      "width": "Ancho de la junta, mm",
+      "depth": "Profundidad de la junta, mm",
+      "length": "Longitud de la junta, m",
+      "cart": "Volumen del cartucho, ml",
+      "waste": "Margen, %",
+    },
+    options: {},
+    results: {
+      "Нужно герметика": "Sellador necesario",
+      "Без запаса": "Sin margen",
+      "Картриджей": "Cartuchos",
+      "Метров из одного картриджа": "Metros por cartucho",
+      "Сечение шва": "Sección de la junta",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мл": "ml",
+      "шт": "uds.",
+      "м": "m",
+      "мм²": "mm²",
+      "Ширина шва должна быть больше нуля": "El ancho de la junta debe ser mayor que cero",
+      "Глубина шва должна быть больше нуля": "La profundidad de la junta debe ser mayor que cero",
+      "Длина шва должна быть больше нуля": "La longitud de la junta debe ser mayor que cero",
+      "Объём картриджа должен быть больше нуля": "El volumen del cartucho debe ser mayor que cero",
+      "Запас не может быть отрицательным": "El margen no puede ser negativo",
+    },
+  },
 };

@@ -59,4 +59,37 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { ...ERRORS_UK, 'Н': 'Н', 'кН': 'кН', 'мН': 'мН', 'кгс': 'кгс', 'тс': 'тс', 'дин': 'дин' },
   },
+  es: {
+    fields: {
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+      "value": "Fuerza",
+    },
+    options: {
+      "n": "Newton (N)",
+      "kn": "Kilonewton (kN)",
+      "mn": "Milinewton (mN)",
+      "kgf": "Kilogramo-fuerza (kgf)",
+      "tf": "Tonelada-fuerza (tf)",
+      "lbf": "Libra-fuerza (lbf)",
+      "dyn": "Dina (dyn)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+      "Н": "N",
+      "кН": "kN",
+      "мН": "mN",
+      "кгс": "kgf",
+      "тс": "tf",
+      "дин": "dyn",
+    },
+  },
 };

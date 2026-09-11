@@ -78,4 +78,38 @@ export const localization: CalculatorLocalization = {
       'Выберите форму сечения из списка': 'Оберіть форму перерізу зі списку',
     },
   },
+  es: {
+    fields: {
+      "shape": "Sección",
+      "a": "Diámetro o lado, mm",
+      "b": "Segundo lado de la pletina, mm",
+      "length": "Longitud, m",
+      "density": "Densidad, g/cm³",
+    },
+    options: {
+      "round": "barra redonda",
+      "square": "barra cuadrada",
+      "flat": "pletina",
+    },
+    results: {
+      "Масса": "Masa",
+      "Площадь сечения": "Área de la sección",
+      "Объём металла": "Volumen de metal",
+      "Погонная масса": "Masa por metro",
+      "Метров в тонне": "Metros por tonelada",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кг/м": "kg/m",
+      "кг": "kg",
+      "мм²": "mm²",
+      "м³": "m³",
+      "м": "m",
+      "Плотность должна быть больше нуля": "La densidad debe ser mayor que cero",
+      "Длина должна быть больше нуля": "La longitud debe ser mayor que cero",
+      "Размер сечения должен быть больше нуля": "La dimensión de la sección debe ser mayor que cero",
+      "Вторая сторона полосы должна быть больше нуля": "El segundo lado de la pletina debe ser mayor que cero",
+      "Выберите форму сечения из списка": "Elige una sección de la lista",
+    },
+  },
 };

@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { zScoreCopyEn } from './copy.en';
 import { zScoreCopyUk } from './copy.uk';
 import { zScoreCopyDe } from './copy.de';
+import { zScoreCopyEs } from './copy.es';
 import { zScoreReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: zScoreCopyEn, uk: zScoreCopyUk, de: zScoreCopyDe },
+  copy: { en: zScoreCopyEn, uk: zScoreCopyUk, de: zScoreCopyDe, es: zScoreCopyEs },
   referenceCases: zScoreReferenceCases,
   publishedExample: { inputs: { x: 80, mean: 75, sd: 8 }, expected: ['0,625'] },
   presentation: {

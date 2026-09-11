@@ -65,4 +65,30 @@ export const localization: CalculatorLocalization = {
       'Пролёт слишком велик для такого просвета': 'Проліт завеликий для такого просвіту',
     },
   },
+  es: {
+    fields: {
+      "run": "Luz libre entre postes, mm",
+      "baluster_width": "Ancho del balaustre, mm",
+      "max_gap": "Separación máxima, mm",
+    },
+    options: {},
+    results: {
+      "Балясин": "Balaustres",
+      "Фактический просвет": "Separación real",
+      "Шаг между осями": "Paso entre ejes",
+      "Суммарная ширина стоек": "Ancho total de los balaustres",
+      "Просветов": "Huecos",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "шт": "uds.",
+      "мм": "mm",
+      "Пролёт должен быть больше нуля": "El tramo debe ser mayor que cero",
+      "Ширина стойки должна быть больше нуля": "El ancho del balaustre debe ser mayor que cero",
+      "Предельный просвет должен быть больше нуля": "La separación máxima debe ser mayor que cero",
+      "Стойка не может быть шире пролёта": "Un balaustre no puede ser más ancho que el tramo",
+      "При таком просвете стойки не помещаются в пролёт": "Con esa separación los balaustres no caben en el tramo",
+      "Пролёт слишком велик для такого просвета": "El tramo es demasiado largo para esa separación",
+    },
+  },
 };

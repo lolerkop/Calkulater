@@ -72,4 +72,34 @@ export const localization: CalculatorLocalization = {
       'Ток должен быть больше нуля': 'Струм має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "supplyVoltage": "Tensión de alimentación, V",
+      "forwardVoltage": "Tensión directa del LED, V",
+      "current": "Corriente directa",
+      "currentUnit": "Unidad de corriente",
+    },
+    options: {
+      "ma": "miliamperios (mA)",
+      "a": "amperios (A)",
+    },
+    results: {
+      "Сопротивление": "Resistencia",
+      "Падение на резисторе": "Caída en la resistencia",
+      "Мощность на резисторе": "Potencia en la resistencia",
+      "Мощность на светодиоде": "Potencia en el LED",
+      "Рабочий ток": "Corriente de trabajo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Ом": "Ω",
+      "В": "V",
+      "Вт": "W",
+      "мА": "mA",
+      "Напряжение питания должно быть больше нуля": "La tensión de alimentación debe ser mayor que cero",
+      "Прямое напряжение должно быть больше нуля": "La tensión directa debe ser mayor que cero",
+      "Прямое напряжение должно быть меньше напряжения питания": "La tensión directa debe ser menor que la de alimentación",
+      "Ток должен быть больше нуля": "La corriente debe ser mayor que cero",
+    },
+  },
 };

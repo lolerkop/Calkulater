@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { sampleSizeCopyEn } from './copy.en';
 import { sampleSizeCopyUk } from './copy.uk';
 import { sampleSizeCopyDe } from './copy.de';
+import { sampleSizeCopyEs } from './copy.es';
 import { sampleSizeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: sampleSizeCopyEn, uk: sampleSizeCopyUk, de: sampleSizeCopyDe },
+  copy: { en: sampleSizeCopyEn, uk: sampleSizeCopyUk, de: sampleSizeCopyDe, es: sampleSizeCopyEs },
   referenceCases: sampleSizeReferenceCases,
   publishedExample: { inputs: { confidence: "95", margin: 5, proportion: 50, population: 0 }, expected: ["385 чел"] },
   presentation: {

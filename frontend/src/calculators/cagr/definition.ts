@@ -7,6 +7,7 @@ import { compute } from './compute';
 import { cagrCopyEn } from './copy.en';
 import { cagrCopyUk } from './copy.uk';
 import { cagrCopyDe } from './copy.de';
+import { cagrCopyEs } from './copy.es';
 import { cagrReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cagrCopyEn, uk: cagrCopyUk, de: cagrCopyDe },
+  copy: { en: cagrCopyEn, uk: cagrCopyUk, de: cagrCopyDe, es: cagrCopyEs },
   referenceCases: cagrReferenceCases,
   publishedExample: { inputs: { begin: 100000, end: 200000, years: 5 }, expected: ['14,87 %', '100,00 %'] },
   presentation: {

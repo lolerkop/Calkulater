@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { distLocales } from './lib/locales.mjs';
 
 const root = path.resolve('dist');
 const issues = [];
@@ -8,7 +9,7 @@ const sectionIds = [
   'logs', 'retention', 'rights', 'contact', 'updated', 'changes',
 ];
 
-for (const locale of ['ru', 'en', 'uk', 'de']) {
+for (const locale of distLocales(root)) {
   const file = path.join(root, locale, 'privacy', 'index.html');
   if (!fs.existsSync(file)) {
     issues.push(`${locale}/privacy/: missing page`);

@@ -58,4 +58,24 @@ export const localization: CalculatorLocalization = {
       'Доля грунта и декора должна быть от нуля до ста процентов': 'Частка ґрунту й декору має бути від нуля до ста відсотків',
     },
   },
+  es: {
+    fields: {
+      "volume": "Volumen del acuario, l",
+      "changePct": "Parte del agua que se cambia, %",
+      "decorPct": "Parte ocupada por sustrato y decoración, %",
+    },
+    options: {},
+    results: {
+      "Объём подмены": "Agua que cambiar",
+      "Чистый объём воды": "Volumen neto de agua",
+      "Останется": "Queda en el acuario",
+      "Объём аквариума": "Volumen del acuario",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Объём аквариума должен быть больше нуля": "El volumen del acuario debe ser mayor que cero",
+      "Доля подмены должна быть больше нуля и не больше ста процентов": "La parte que se cambia debe ser mayor que cero y como mucho cien por cien",
+      "Доля грунта и декора должна быть от нуля до ста процентов": "La parte de sustrato y decoración debe estar entre cero y cien por ciento",
+    },
+  },
 };

@@ -87,4 +87,33 @@ export const localization: CalculatorLocalization = {
       "Перерыв не может быть длиннее смены": "Перерва не може бути довшою за зміну",
     },
   },
+  es: {
+    fields: {
+      "startHour": "Inicio del turno, horas",
+      "startMin": "Inicio del turno, minutos",
+      "endHour": "Fin del turno, horas",
+      "endMin": "Fin del turno, minutos",
+      "breakMin": "Descanso, minutos",
+      "days": "Número de turnos",
+      "ratePerHour": "Tarifa por hora, €",
+    },
+    options: {},
+    results: {
+      "Часов за период": "Horas del periodo",
+      "Часов в смену": "Horas por turno",
+      "В часах и минутах": "En horas y minutos",
+      "Длина смены до перерыва": "Duración del turno antes del descanso",
+      "Заработок": "Retribución",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "ч": "h",
+      "мин": "min",
+      "Число смен должно быть больше нуля": "El número de turnos debe ser mayor que cero",
+      "Перерыв не может быть отрицательным": "El descanso no puede ser negativo",
+      "Ставка не может быть отрицательной": "La tarifa no puede ser negativa",
+      "Перерыв не может быть длиннее смены": "El descanso no puede ser más largo que el turno",
+    },
+  },
 };

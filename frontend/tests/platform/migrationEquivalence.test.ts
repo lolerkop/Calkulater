@@ -25,11 +25,13 @@ import { getCalculatorById, locales } from '../../src/lib/i18n';
 
 const MIGRATED = ['percent-calculator', 'paint-calculator'] as const;
 
-// Локали, существовавшие на момент миграции. Немецкий появился позже, поэтому
-// снимка «до миграции» для него не существует и существовать не может: снятый
-// сегодня файл сравнивал бы вывод сам с собой и ничего не доказывал. Область
-// доказательства — ровно те локали, которые миграция могла задеть.
-const PRE_MIGRATION_LOCALES = locales.filter((locale) => locale !== 'de');
+// Локали, существовавшие на момент миграции. Немецкий и испанский появились
+// позже, поэтому снимка «до миграции» для них не существует и существовать не
+// может: снятый сегодня файл сравнивал бы вывод сам с собой и ничего не
+// доказывал. Область доказательства — ровно те локали, которые миграция могла
+// задеть.
+const POST_MIGRATION_LOCALES = new Set(['de', 'es']);
+const PRE_MIGRATION_LOCALES = locales.filter((locale) => !POST_MIGRATION_LOCALES.has(locale));
 
 describe('эквивалентность миграции на Platform V2', () => {
   for (const id of MIGRATED) {

@@ -58,4 +58,28 @@ export const localization: CalculatorLocalization = {
         'Тиск пари вищий за атмосферний: перевірте температуру і тиск',
     },
   },
+  es: {
+    fields: {
+      "t": "Temperatura, °C",
+      "pressure": "Presión atmosférica, hPa",
+      "humidity": "Humedad relativa, %",
+    },
+    options: {},
+    results: {
+      "Плотность воздуха": "Densidad del aire",
+      "Плотность сухого воздуха": "Densidad del aire seco",
+      "Давление водяного пара": "Presión del vapor de agua",
+      "Давление насыщения": "Presión de saturación",
+      "Отклонение от 1,225": "Desviación respecto a 1,225",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кг/м³": "kg/m³",
+      "гПа": "hPa",
+      "Атмосферное давление должно быть больше нуля": "La presión atmosférica debe ser mayor que cero",
+      "Относительная влажность задаётся от 0 до 100 процентов": "La humedad relativa va del 0 al 100 por ciento",
+      "Температура не может быть ниже абсолютного нуля": "La temperatura no puede estar por debajo del cero absoluto",
+      "Давление пара выше атмосферного: проверьте температуру и давление": "La presión del vapor supera a la atmosférica: revisa la temperatura y la presión",
+    },
+  },
 };

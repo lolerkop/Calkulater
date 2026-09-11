@@ -65,4 +65,27 @@ export const localization: CalculatorLocalization = {
       "Номер члена больше 78 выходит за предел точного расчёта": "Номер члена понад 78 перевищує межу точного обчислення",
     },
   },
+  es: {
+    fields: {
+      "n": "Posición del término n",
+    },
+    options: {},
+    results: {
+      "n-й член": "n-ésimo término",
+      "Сумма ряда": "Suma de la serie",
+      "Отношение к предыдущему": "Razón respecto al anterior",
+      "Предыдущий член": "Término anterior",
+      "Членов": "Términos",
+      "Начало ряда": "Comienzo de la serie",
+      "№": "N.º",
+      "Значение": "Valor",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Показаны первые 10 членов ряда.": "Se muestran los 10 primeros términos de la serie.",
+      "Номер члена должен быть не меньше единицы": "La posición del término debe ser al menos uno",
+      "Номер члена должен быть целым": "La posición del término debe ser un número entero",
+      "Номер члена больше 78 выходит за предел точного расчёта": "Una posición mayor que 78 supera el límite del cálculo exacto",
+    },
+  },
 };

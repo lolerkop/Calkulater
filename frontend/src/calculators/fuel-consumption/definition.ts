@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { fuelConsumptionCopyEn } from './copy.en';
 import { fuelConsumptionCopyUk } from './copy.uk';
 import { fuelConsumptionCopyDe } from './copy.de';
+import { fuelConsumptionCopyEs } from './copy.es';
 import { fuelConsumptionReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: fuelConsumptionCopyEn, uk: fuelConsumptionCopyUk, de: fuelConsumptionCopyDe },
+  copy: { en: fuelConsumptionCopyEn, uk: fuelConsumptionCopyUk, de: fuelConsumptionCopyDe, es: fuelConsumptionCopyEs },
   referenceCases: fuelConsumptionReferenceCases,
   publishedExample: { inputs: { mode: 'measure', litres: 42, distance: 560 }, expected: ['7,50 л/100 км'] },
   presentation: {

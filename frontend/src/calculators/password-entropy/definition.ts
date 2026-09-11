@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { passwordEntropyCopyEn } from './copy.en';
 import { passwordEntropyCopyUk } from './copy.uk';
 import { passwordEntropyCopyDe } from './copy.de';
+import { passwordEntropyCopyEs } from './copy.es';
 import { passwordEntropyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: passwordEntropyCopyEn, uk: passwordEntropyCopyUk, de: passwordEntropyCopyDe },
+  copy: { en: passwordEntropyCopyEn, uk: passwordEntropyCopyUk, de: passwordEntropyCopyDe, es: passwordEntropyCopyEs },
   referenceCases: passwordEntropyReferenceCases,
   publishedExample: { inputs: { length: 12, charset: "alnum", rate: 10 }, expected: ["71,45 бит"] },
   presentation: {

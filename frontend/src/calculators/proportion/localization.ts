@@ -54,4 +54,30 @@ export const localization: CalculatorLocalization = {
       'Результат вне допустимого диапазона': 'Результат поза допустимим діапазоном',
     },
   },
+  es: {
+    fields: {
+      "find": "Término a hallar",
+      "a": "Término a",
+      "b": "Término b",
+      "c": "Término c",
+      "d": "Término d",
+    },
+    options: {
+      "a": "Primer término a",
+      "b": "Segundo término b",
+      "c": "Tercer término c",
+      "d": "Cuarto término d",
+    },
+    results: {
+      "Неизвестный член": "Término desconocido",
+      "Пропорция": "Proporción",
+      "Отношение": "Razón",
+      "Проверка произведений": "Comprobación de los productos",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Член, стоящий по диагонали от искомого, не может быть нулём": "El término situado en diagonal al buscado no puede ser cero",
+      "Результат вне допустимого диапазона": "El resultado está fuera del rango admitido",
+    },
+  },
 };

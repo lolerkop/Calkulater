@@ -56,4 +56,30 @@ export const localization: CalculatorLocalization = {
       'Норма авиакомпании должна быть больше нуля': 'Норма авіакомпанії має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "l": "Largo, cm",
+      "w": "Ancho, cm",
+      "h": "Alto, cm",
+      "limit": "Límite de la aerolínea, cm",
+    },
+    options: {},
+    results: {
+      "Линейные габариты": "Dimensiones lineales",
+      "Запас до предела": "Margen hasta el límite",
+      "В дюймах": "En pulgadas",
+      "Объём коробки": "Volumen del prisma",
+      "Норма": "Franquicia",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "см": "cm",
+      "дюйма": "in",
+      "л": "l",
+      "проходит": "dentro del límite",
+      "превышена": "por encima del límite",
+      "Все три стороны должны быть больше нуля": "Los tres lados deben ser mayores que cero",
+      "Норма авиакомпании должна быть больше нуля": "El límite de la aerolínea debe ser mayor que cero",
+    },
+  },
 };

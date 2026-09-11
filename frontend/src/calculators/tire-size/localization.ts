@@ -67,4 +67,26 @@ export const localization: CalculatorLocalization = {
         'Диаметр диска должен быть больше нуля': 'Der Felgendurchmesser muss größer als null sein',
       },
   },
+  es: {
+    fields: {
+      "width": "Anchura del neumático, mm",
+      "profile": "Perfil, % de la anchura",
+      "diameter": "Diámetro de la llanta, pulgadas",
+    },
+    options: {},
+    results: {
+      "Внешний диаметр": "Diámetro exterior",
+      "Высота профиля": "Altura del flanco",
+      "Длина окружности": "Perímetro",
+      "Оборотов на километр": "Vueltas por kilómetro",
+      "Диаметр в дюймах": "Diámetro en pulgadas",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "Ширина шины должна быть больше нуля": "La anchura del neumático debe ser mayor que cero",
+      "Профиль должен быть больше нуля": "El perfil debe ser mayor que cero",
+      "Диаметр диска должен быть больше нуля": "El diámetro de la llanta debe ser mayor que cero",
+    },
+  },
 };

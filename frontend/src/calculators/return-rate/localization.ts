@@ -40,4 +40,24 @@ export const localization: CalculatorLocalization = {
       'Возвратов больше, чем заказов — проверьте период': 'Повернень більше, ніж замовлень — перевірте період',
     },
   },
+  es: {
+    fields: {
+      "returns": "Pedidos devueltos",
+      "orders": "Pedidos totales",
+    },
+    options: {},
+    results: {
+      "Доля возвратов": "Tasa de devoluciones",
+      "Оставлено покупателями": "Se lo quedaron los clientes",
+      "Возвратов": "Devoluciones",
+      "Всего заказов": "Pedidos totales",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Заказы и возвраты считаются целыми": "Los pedidos y las devoluciones se cuentan en números enteros",
+      "Заказов должно быть больше нуля": "Debe haber al menos un pedido",
+      "Возвратов не может быть меньше нуля": "Las devoluciones no pueden ser negativas",
+      "Возвратов больше, чем заказов — проверьте период": "Hay más devoluciones que pedidos: revisa el periodo",
+    },
+  },
 };

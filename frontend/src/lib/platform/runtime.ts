@@ -11,7 +11,7 @@
 // но до прихода рантайма» — не возникает вовсе.
 
 import type { CalcFunction } from '../types';
-import { isTranslatedLocale } from './types';
+import { isTranslatedLocale, TRANSLATED_LOCALES } from './types';
 import type {
   CalculatorContextualField,
   CalculatorLocaleBundle,
@@ -54,4 +54,31 @@ export function runtimeLocale(
   if (!runtime?.localization) return undefined;
   if (!isTranslatedLocale(locale)) return undefined;
   return runtime.localization[locale]?.[bucket]?.[key];
+}
+
+/**
+ * Слияние общих фраз результата с собственными фразами калькулятора.
+ *
+ * Общий словарь больше не уезжает в браузер целиком: генератор отбирает из него
+ * ровно те записи, которые калькулятор может показать, и кладёт их рядом с его
+ * собственными. Собственные важнее: одна и та же русская фраза у разных
+ * калькуляторов может значить разное, и объявленный перевод всегда точнее
+ * отобранного по тексту исходника.
+ */
+export function withSharedPhrases(
+  own: Readonly<Partial<Record<TranslatedLocale, CalculatorLocaleBundle>>> | undefined,
+  shared: Readonly<Partial<Record<TranslatedLocale, CalculatorLocaleBundle>>>,
+): Readonly<Partial<Record<TranslatedLocale, CalculatorLocaleBundle>>> {
+  const merged: Partial<Record<TranslatedLocale, CalculatorLocaleBundle>> = {};
+  for (const locale of TRANSLATED_LOCALES) {
+    const a = shared[locale];
+    const b = own?.[locale];
+    if (!a && !b) continue;
+    merged[locale] = {
+      ...b,
+      results: { ...a?.results, ...b?.results },
+      values: { ...a?.values, ...b?.values },
+    };
+  }
+  return merged;
 }

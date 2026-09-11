@@ -82,4 +82,33 @@ export const localization: CalculatorLocalization = {
         'Дистанция должна быть больше нуля': 'Die Strecke muss größer als null sein',
       },
   },
+  es: {
+    fields: {
+      "mode": "Método de estimación",
+      "distance": "Distancia en 12 minutos, m",
+      "hrRest": "Frecuencia en reposo, ppm",
+      "hrMax": "Frecuencia máxima, ppm",
+    },
+    options: {
+      "cooper": "Test de Cooper",
+      "hr": "a partir de la frecuencia cardíaca",
+    },
+    results: {
+      "МПК (VO₂max)": "VO₂máx.",
+      "Метод": "Método",
+      "Дистанция за 12 минут": "Distancia en 12 minutos",
+      "Пульс покоя": "Frecuencia en reposo",
+      "Максимальный пульс": "Frecuencia máxima",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "тест Купера": "test de Cooper",
+      "по пульсу": "a partir de la frecuencia cardíaca",
+      "мл/кг/мин": "ml/kg/min",
+      "м": "m",
+      "Пульс покоя должен быть больше нуля": "La frecuencia en reposo debe ser mayor que cero",
+      "Максимальный пульс должен быть больше пульса покоя": "La frecuencia máxima debe superar a la de reposo",
+      "Дистанция должна быть больше нуля": "La distancia debe ser mayor que cero",
+    },
+  },
 };

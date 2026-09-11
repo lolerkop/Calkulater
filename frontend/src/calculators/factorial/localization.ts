@@ -54,4 +54,23 @@ export const localization: CalculatorLocalization = {
     "Здесь считаются факториалы до 170: дальше результат перестаёт читаться": "Тут рахуються факторіали до 170: далі результат перестає читатися",
     },
   },
+  es: {
+    fields: {
+      "n": "Número n",
+    },
+    options: {},
+    results: {
+      "Факториал": "Factorial",
+      "Разрядов в ответе": "Cifras del resultado",
+      "Научная форма": "Notación científica",
+      "Запись": "Escrito",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "по определению": "por definición",
+      "Число должно быть целым": "El número debe ser entero",
+      "Факториал определён для неотрицательных целых": "El factorial está definido para enteros no negativos",
+      "Здесь считаются факториалы до 170: дальше результат перестаёт читаться": "Aquí se calculan factoriales hasta 170: más allá el resultado deja de ser legible",
+    },
+  },
 };

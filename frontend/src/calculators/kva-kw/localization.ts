@@ -61,4 +61,30 @@ export const localization: CalculatorLocalization = {
       'Коэффициент мощности не может быть больше единицы': 'Коефіцієнт потужності не може перевищувати одиницю',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "kw": "Potencia activa, kW",
+      "kva": "Potencia aparente, kVA",
+      "pf": "Factor de potencia (cos φ)",
+    },
+    options: {
+      "kva": "potencia aparente, kVA",
+      "kw": "potencia activa, kW",
+    },
+    results: {
+      "Полная мощность": "Potencia aparente",
+      "Активная мощность": "Potencia activa",
+      "Реактивная мощность": "Potencia reactiva",
+      "Коэффициент мощности": "Factor de potencia",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кВА": "kVA",
+      "кВт": "kW",
+      "квар": "kvar",
+      "Коэффициент мощности должен быть больше нуля": "El factor de potencia debe ser mayor que cero",
+      "Коэффициент мощности не может быть больше единицы": "El factor de potencia no puede ser mayor que uno",
+    },
+  },
 };

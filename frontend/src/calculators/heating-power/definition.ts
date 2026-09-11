@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { heatingPowerCopyEn } from './copy.en';
 import { heatingPowerCopyUk } from './copy.uk';
 import { heatingPowerCopyDe } from './copy.de';
+import { heatingPowerCopyEs } from './copy.es';
 import { heatingPowerReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: heatingPowerCopyEn, uk: heatingPowerCopyUk, de: heatingPowerCopyDe },
+  copy: { en: heatingPowerCopyEn, uk: heatingPowerCopyUk, de: heatingPowerCopyDe, es: heatingPowerCopyEs },
   referenceCases: heatingPowerReferenceCases,
   publishedExample: { inputs: { area: 20, height: 2.7, wattsPerM3: 40, windows: 1 }, expected: ["2,26 кВт"] },
   presentation: {

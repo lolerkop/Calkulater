@@ -68,4 +68,29 @@ export const localization: CalculatorLocalization = {
       'Количество досок должно быть хотя бы одно': 'Дошок має бути щонайменше одна',
     },
   },
+  es: {
+    fields: {
+      "length": "Largo de la tabla, m",
+      "width": "Ancho de la tabla, mm",
+      "thickness": "Grosor de la tabla, mm",
+      "count": "Número de tablas",
+      "pricePerM3": "Precio por metro cúbico",
+    },
+    options: {},
+    results: {
+      "Общий объём": "Volumen total",
+      "Объём одной доски": "Volumen de una tabla",
+      "Досок в кубометре": "Tablas por metro cúbico",
+      "Стоимость": "Coste",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      " шт": " uds.",
+      " кг": " kg",
+      "Длина доски должна быть больше нуля": "El largo de la tabla debe ser mayor que cero",
+      "Ширина доски должна быть больше нуля": "El ancho de la tabla debe ser mayor que cero",
+      "Толщина доски должна быть больше нуля": "El grosor de la tabla debe ser mayor que cero",
+      "Количество досок должно быть хотя бы одно": "Debe haber al menos una tabla",
+    },
+  },
 };

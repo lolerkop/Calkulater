@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geomPrismCopyEn } from './copy.en';
 import { geomPrismCopyUk } from './copy.uk';
 import { geomPrismCopyDe } from './copy.de';
+import { geomPrismCopyEs } from './copy.es';
 import { geomPrismReferenceCases } from './referenceCases';
 
 const UNITS = [
@@ -16,7 +17,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomPrismCopyEn, uk: geomPrismCopyUk, de: geomPrismCopyDe },
+  copy: { en: geomPrismCopyEn, uk: geomPrismCopyUk, de: geomPrismCopyDe, es: geomPrismCopyEs },
   referenceCases: geomPrismReferenceCases,
   publishedExample: {
     inputs: { unit: 'cm', sides: 6, side: 4, height: 10 },

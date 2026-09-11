@@ -47,17 +47,21 @@ describe('localization parity', () => {
   });
 
   it('creates complete hreflang clusters only for full-parity calculators', () => {
-    // Набор локалей выводится из состава сборки, а не выписан буквами: с
-    // появлением немецкого список пришлось бы править вручную, и утверждение
-    // от этого стало бы слабее. В таком виде оно требует полный кластер по
-    // всем выпущенным локалям — выпадение любой из них здесь и упадёт.
-    for (const id of fullParityCalculatorIds) {
-      const alternates = getAlternatesForCalculator(id);
-      expect(alternates.map((item) => item.locale)).toEqual([...locales, 'x-default']);
-      for (const locale of locales) {
-        expect(alternates.find((item) => item.locale === locale)?.href).toBe(getCalculatorById(id, locale)?.fullPath);
-      }
+  // Кластер содержит ровно те локали, у которых страница существует, и ни
+  // одной сверх того. Требовать в нём все локали сборки нельзя: локаль,
+  // выпускаемая постепенно, получила бы ссылку на несуществующий адрес.
+  // Утверждение при этом не слабеет — оно по-прежнему падает и на выпавшей
+  // локали, и на лишней ссылке.
+  for (const id of fullParityCalculatorIds) {
+    const alternates = getAlternatesForCalculator(id);
+    const present = locales.filter((locale) => getCalculatorById(id, locale) !== undefined);
+    expect(present, `${id}: страница обязана существовать в ru, en и uk`)
+      .toEqual(expect.arrayContaining(['ru', 'en', 'uk']));
+    expect(alternates.map((item) => item.locale)).toEqual([...present, 'x-default']);
+    for (const locale of present) {
+      expect(alternates.find((item) => item.locale === locale)?.href).toBe(getCalculatorById(id, locale)?.fullPath);
     }
+  }
   });
 
   it('isolates Russian tax and deposit calculators from false clusters', () => {

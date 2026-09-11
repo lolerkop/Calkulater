@@ -67,4 +67,35 @@ export const localization: CalculatorLocalization = {
         'Сопротивление должно быть больше нуля, иначе ток не определён': 'Der Widerstand muss größer als null sein, sonst ist der Strom nicht definiert',
       },
   },
+  es: {
+    fields: {
+      "mode": "Par conocido",
+      "voltage": "Tensión, V",
+      "current": "Corriente, A",
+      "resistance": "Resistencia, Ω",
+    },
+    options: {
+      "vi": "tensión y corriente",
+      "vr": "tensión y resistencia",
+      "ir": "corriente y resistencia",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Сопротивление": "Resistencia",
+      "Ток": "Corriente",
+      "Напряжение": "Tensión",
+      "Мощность": "Potencia",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Ом": "Ω",
+      "В": "V",
+      "А": "A",
+      "Вт": "W",
+      "(вычисляется)": "(se calcula)",
+      "Значения не могут быть отрицательными": "Los valores no pueden ser negativos",
+      "Ток должен быть больше нуля, иначе сопротивление не определено": "La corriente debe ser mayor que cero; si no, la resistencia no está definida",
+      "Сопротивление должно быть больше нуля, иначе ток не определён": "La resistencia debe ser mayor que cero; si no, la corriente no está definida",
+    },
+  },
 };

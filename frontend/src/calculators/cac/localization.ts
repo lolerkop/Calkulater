@@ -50,4 +50,24 @@ export const localization: CalculatorLocalization = {
         'Расходы не могут быть отрицательными': 'Die Ausgaben dürfen nicht negativ sein',
       },
   },
+  es: {
+    fields: {
+      "spend": "Inversión en marketing y ventas",
+      "customers": "Clientes conseguidos",
+      "ltv": "Ingreso medio por cliente",
+    },
+    options: {},
+    results: {
+      "Стоимость привлечения": "Coste de adquisición",
+      "Расходы за период": "Inversión del periodo",
+      "Привлечено клиентов": "Clientes conseguidos",
+      "LTV к CAC": "LTV frente a CAC",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Число клиентов должно быть целым": "El número de clientes debe ser un número entero",
+      "Клиентов должно быть больше нуля": "Debe haber al menos un cliente",
+      "Расходы не могут быть отрицательными": "La inversión no puede ser negativa",
+    },
+  },
 };

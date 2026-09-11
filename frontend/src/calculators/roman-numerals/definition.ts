@@ -6,6 +6,7 @@ import { compute } from './compute';
 import { romanNumeralsCopyEn } from './copy.en';
 import { romanNumeralsCopyUk } from './copy.uk';
 import { romanNumeralsCopyDe } from './copy.de';
+import { romanNumeralsCopyEs } from './copy.es';
 import { romanNumeralsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: romanNumeralsCopyEn, uk: romanNumeralsCopyUk, de: romanNumeralsCopyDe },
+  copy: { en: romanNumeralsCopyEn, uk: romanNumeralsCopyUk, de: romanNumeralsCopyDe, es: romanNumeralsCopyEs },
   referenceCases: romanNumeralsReferenceCases,
   publishedExample: { inputs: { mode: 'toRoman', arabic: 1994 }, expected: ['MCMXCIV'] },
   presentation: {

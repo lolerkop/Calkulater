@@ -61,4 +61,33 @@ export const localization: CalculatorLocalization = {
       'Напряжение не может быть нулевым: делить на него нечего': 'Напруга не може бути нульовою: ділити на неї нічого',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "c": "Capacidad, µF",
+      "v": "Tensión, V",
+      "q": "Carga, µC",
+    },
+    options: {
+      "charge": "la carga",
+      "voltage": "la tensión",
+      "capacitance": "la capacidad",
+    },
+    results: {
+      "Заряд": "Carga",
+      "Напряжение": "Tensión",
+      "Ёмкость": "Capacidad",
+      "Энергия поля": "Energía almacenada",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Заряд и напряжение должны быть одного знака": "La carga y la tensión deben tener el mismo signo",
+      "мкКл": "µC",
+      "мкФ": "µF",
+      "Дж": "J",
+      "В": "V",
+      "Ёмкость должна быть больше нуля": "La capacidad debe ser mayor que cero",
+      "Напряжение не может быть нулевым: делить на него нечего": "La tensión no puede ser cero: no hay entre qué dividir",
+    },
+  },
 };

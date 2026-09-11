@@ -68,4 +68,28 @@ export const localization: CalculatorLocalization = {
       'Внешнее давление не может быть отрицательным': 'Зовнішній тиск не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "density": "Densidad del líquido, kg/m³",
+      "depth": "Profundidad, m",
+      "p0": "Presión exterior, Pa",
+    },
+    options: {},
+    results: {
+      "Давление": "Presión",
+      "В барах": "En bares",
+      "Тип давления": "Tipo de presión",
+      "Давление столба": "Presión de la columna",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      " Па": " Pa",
+      " бар": " bar",
+      "избыточное": "manométrica",
+      "абсолютное": "absoluta",
+      "Плотность должна быть больше нуля": "La densidad debe ser mayor que cero",
+      "Глубина не может быть отрицательной": "La profundidad no puede ser negativa",
+      "Внешнее давление не может быть отрицательным": "La presión exterior no puede ser negativa",
+    },
+  },
 };

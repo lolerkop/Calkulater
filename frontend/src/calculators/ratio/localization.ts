@@ -72,4 +72,30 @@ export const localization: CalculatorLocalization = {
       "Нужно хотя бы две части": "Потрібно щонайменше дві частини",
     },
   },
+  es: {
+    fields: {
+      "parts": "Partes de la razón: separadas por espacios o dos puntos",
+      "total": "Cantidad a repartir",
+    },
+    options: {},
+    results: {
+      "Отношение": "Razón",
+      "Сумма частей": "Suma de las partes",
+      "Доля первой части": "Parte del primer término",
+      "Частей": "Partes",
+      "Сокращено на": "Simplificado entre",
+      "Разбиение суммы": "Reparto de la cantidad",
+      "Разбор по частям": "Desglose por partes",
+      "Часть": "Parte",
+      "Значение": "Valor",
+      "Доля": "Proporción",
+      "Сумма": "Cantidad",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Не число:": "No es un número:",
+      "Каждая часть должна быть больше нуля": "Cada parte debe ser mayor que cero",
+      "Нужно хотя бы две части": "Hacen falta al menos dos partes",
+    },
+  },
 };

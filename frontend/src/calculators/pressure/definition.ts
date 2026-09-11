@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { pressureCopyEn } from './copy.en';
 import { pressureCopyUk } from './copy.uk';
 import { pressureCopyDe } from './copy.de';
+import { pressureCopyEs } from './copy.es';
 import { pressureReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pressureCopyEn, uk: pressureCopyUk, de: pressureCopyDe },
+  copy: { en: pressureCopyEn, uk: pressureCopyUk, de: pressureCopyDe, es: pressureCopyEs },
   referenceCases: pressureReferenceCases,
   publishedExample: { inputs: { mode: 'p', F: 1000, A: 2 }, expected: ["500 Па"] },
   presentation: {

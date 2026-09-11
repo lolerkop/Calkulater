@@ -94,4 +94,37 @@ export const localization: CalculatorLocalization = {
       "Суммарный доход равен нулю: делить пропорционально нечему": "Сумарний дохід дорівнює нулю, тож ділити пропорційно немає чого",
     },
   },
+  es: {
+    fields: {
+      "total": "Importe a repartir",
+      "incomes": "Participantes: nombre e ingresos por línea",
+      "mode": "Cómo repartir",
+    },
+    options: {
+      "income": "En proporción a los ingresos",
+      "equal": "A partes iguales",
+    },
+    results: {
+      "Наибольший взнос": "Aportación mayor",
+      "Наименьший взнос": "Aportación menor",
+      "Участников": "Participantes",
+      "Сумма к делению": "Importe a repartir",
+      "Проверка суммы": "Las partes suman",
+      "Кто сколько вносит": "Quién aporta cuánto",
+      "Участник": "Participante",
+      "Доход": "Ingresos",
+      "Доля": "Proporción",
+      "Взнос": "Aportación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Нужны имя и доход в строке:": "Hacen falta un nombre y unos ingresos en la línea:",
+      "Доход должен быть числом в строке:": "Los ingresos deben ser un número en la línea:",
+      "₽": "€",
+      "Сумма к делению должна быть больше нуля": "El importe a repartir debe ser mayor que cero",
+      "Доход не может быть отрицательным": "Los ingresos no pueden ser negativos",
+      "Введите хотя бы одного участника": "Introduce al menos un participante",
+      "Суммарный доход равен нулю: делить пропорционально нечему": "Los ingresos totales son cero: no hay nada entre lo que repartir en proporción",
+    },
+  },
 };

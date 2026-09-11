@@ -33,7 +33,9 @@ const unavailableLanguage = locale === 'ru'
   ? 'Эквивалент этой страницы на выбранном языке пока недоступен'
   : locale === 'uk'
     ? 'Відповідна версія цієї сторінки вибраною мовою поки недоступна'
-    : 'An equivalent version of this page is not available in that language yet';
+    : locale === 'es'
+      ? 'La versión equivalente de esta página todavía no está disponible en ese idioma'
+      : 'An equivalent version of this page is not available in that language yet';
 const navLabel = {
   ru: 'Основная навигация',
   en: 'Main navigation',

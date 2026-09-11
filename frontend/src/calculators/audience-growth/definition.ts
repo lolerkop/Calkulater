@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { audienceGrowthCopyEn } from './copy.en';
 import { audienceGrowthCopyUk } from './copy.uk';
 import { audienceGrowthCopyDe } from './copy.de';
+import { audienceGrowthCopyEs } from './copy.es';
 import { audienceGrowthReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: audienceGrowthCopyEn, uk: audienceGrowthCopyUk, de: audienceGrowthCopyDe },
+  copy: { en: audienceGrowthCopyEn, uk: audienceGrowthCopyUk, de: audienceGrowthCopyDe, es: audienceGrowthCopyEs },
   referenceCases: audienceGrowthReferenceCases,
   publishedExample: {
     inputs: { start: 12000, end: 18500, periods: 6 },

@@ -45,4 +45,23 @@ export const localization: CalculatorLocalization = {
         'При a = 0 уравнение не квадратное': 'Mit a = 0 ist die Gleichung nicht quadratisch',
       },
   },
+  es: {
+    fields: {
+      "a": "Coeficiente a",
+      "b": "Coeficiente b",
+      "c": "Coeficiente c",
+    },
+    options: {},
+    results: {
+      "Корни": "Raíces",
+      "Дискриминант": "Discriminante",
+      "Число корней": "Número de raíces",
+      "Вершина параболы": "Vértice de la parábola",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Действительных корней нет": "No hay raíces reales",
+      "При a = 0 уравнение не квадратное": "Con a = 0 la ecuación no es de segundo grado",
+    },
+  },
 };

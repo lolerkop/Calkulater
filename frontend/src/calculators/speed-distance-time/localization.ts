@@ -82,4 +82,36 @@ export const localization: CalculatorLocalization = {
     "Скорость должна быть больше нуля": "Швидкість має бути більшою за нуль",
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "distance": "Distancia, km",
+      "time": "Tiempo, horas",
+      "speed": "Velocidad, km/h",
+    },
+    options: {
+      "speed": "velocidad",
+      "distance": "distancia",
+      "time": "tiempo",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Скорость": "Velocidad",
+      "Расстояние": "Distancia",
+      "Время": "Tiempo",
+      "Время в пути": "Tiempo de viaje",
+      "Минут на километр": "Minutos por kilómetro",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "км/ч": "km/h",
+      "(вычисляется)": "(se calcula)",
+      "км": "km",
+      "ч": "h",
+      "мин": "min",
+      "Значения не могут быть отрицательными": "Los valores no pueden ser negativos",
+      "Время должно быть больше нуля": "El tiempo debe ser mayor que cero",
+      "Скорость должна быть больше нуля": "La velocidad debe ser mayor que cero",
+    },
+  },
 };

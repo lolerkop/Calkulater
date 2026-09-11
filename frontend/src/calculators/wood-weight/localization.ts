@@ -84,4 +84,37 @@ export const localization: CalculatorLocalization = {
       "Базовые плотности даны при влажности 12 %. Пересчёт линейный, поэтому для свежесрубленного леса результат приблизителен.": "Довідкові густини наведено за вологості 12 %. Перерахунок лінійний, тож для свіжозрубаного лісу результат приблизний.",
     },
   },
+  es: {
+    fields: {
+      "volume": "Volumen, m³",
+      "species": "Especie",
+      "moisture": "Humedad, %",
+    },
+    options: {
+      "pine": "Pino",
+      "spruce": "Abeto",
+      "birch": "Abedul",
+      "oak": "Roble",
+      "larch": "Alerce",
+      "aspen": "Álamo temblón",
+    },
+    results: {
+      "Масса": "Peso",
+      "Плотность при заданной влажности": "Densidad a esa humedad",
+      "Базовая плотность при 12 %": "Densidad de referencia al 12 %",
+      "Объём": "Volumen",
+      "Килограммов на кубометр": "Kilogramos por metro cúbico",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кг": "kg",
+      "кг/м³": "kg/m³",
+      "м³": "m³",
+      "Неизвестная порода древесины": "Especie desconocida",
+      "Объём должен быть больше нуля": "El volumen debe ser mayor que cero",
+      "Влажность должна быть от 0 до 100 %": "La humedad debe estar entre 0 y 100 %",
+      "При такой влажности плотность обращается в ноль": "Con esa humedad la densidad se hace cero",
+      "Базовые плотности даны при влажности 12 %. Пересчёт линейный, поэтому для свежесрубленного леса результат приблизителен.": "Las densidades de referencia se dan al 12 % de humedad. La conversión es lineal, así que en madera recién cortada el resultado es aproximado.",
+    },
+  },
 };

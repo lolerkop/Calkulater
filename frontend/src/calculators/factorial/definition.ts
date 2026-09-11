@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { factorialCopyEn } from './copy.en';
 import { factorialCopyUk } from './copy.uk';
 import { factorialCopyDe } from './copy.de';
+import { factorialCopyEs } from './copy.es';
 import { factorialReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: factorialCopyEn, uk: factorialCopyUk, de: factorialCopyDe },
+  copy: { en: factorialCopyEn, uk: factorialCopyUk, de: factorialCopyDe, es: factorialCopyEs },
   referenceCases: factorialReferenceCases,
   publishedExample: { inputs: { n: 10 }, expected: ["3628800"] },
   presentation: {

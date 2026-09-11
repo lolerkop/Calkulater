@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { timezoneDifferenceCopyEn } from './copy.en';
 import { timezoneDifferenceCopyUk } from './copy.uk';
 import { timezoneDifferenceCopyDe } from './copy.de';
+import { timezoneDifferenceCopyEs } from './copy.es';
 import { timezoneDifferenceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: timezoneDifferenceCopyEn, uk: timezoneDifferenceCopyUk, de: timezoneDifferenceCopyDe },
+  copy: { en: timezoneDifferenceCopyEn, uk: timezoneDifferenceCopyUk, de: timezoneDifferenceCopyDe, es: timezoneDifferenceCopyEs },
   referenceCases: timezoneDifferenceReferenceCases,
   publishedExample: { inputs: { fromOffset: 3, toOffset: -5, hour: 14, minute: 30 }, expected: ["06:30"] },
   presentation: {

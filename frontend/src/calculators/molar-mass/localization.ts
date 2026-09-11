@@ -81,4 +81,32 @@ export const localization: CalculatorLocalization = {
         'Множитель группы не может быть нулём': 'Ein Gruppenfaktor darf nicht null sein',
       },
   },
+  es: {
+    fields: {
+      "formula": "Fórmula química",
+    },
+    options: {},
+    results: {
+      "Молярная масса": "Masa molar",
+      "Атомов всего": "Átomos en total",
+      "Элементов": "Elementos",
+      "Масса одной молекулы": "Masa de una molécula",
+      "Состав вещества": "Composición",
+      "Элемент": "Elemento",
+      "Атомов": "Átomos",
+      "Атомная масса": "Masa atómica",
+      "Вклад в массу": "Aportación a la masa",
+      "Доля массы": "Proporción de la masa",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "г/моль": "g/mol",
+      "·10⁻²⁴ г": "·10⁻²⁴ g",
+      "Атомные массы — стандартные атомные веса IUPAC в сокращённой записи.": "Las masas atómicas son los pesos atómicos estándar de la IUPAC en forma abreviada.",
+      "Введите химическую формулу": "Introduce una fórmula química",
+      "Лишняя закрывающая скобка": "Paréntesis de cierre sobrante",
+      "Не хватает закрывающей скобки": "Falta un paréntesis de cierre",
+      "Множитель группы не может быть нулём": "El multiplicador de un grupo no puede ser cero",
+    },
+  },
 };

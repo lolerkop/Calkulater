@@ -61,4 +61,27 @@ export const localization: CalculatorLocalization = {
       "Бюджет не может быть отрицательным": "Бюджет не може бути від'ємним",
     },
   },
+  es: {
+    fields: {
+      "visitors": "Visitas del periodo",
+      "conversions": "Conversiones",
+      "cost": "Presupuesto del periodo, €",
+    },
+    options: {},
+    results: {
+      "Конверсия": "Tasa de conversión",
+      "Конверсий": "Conversiones",
+      "Визитов": "Visitas",
+      "Цена конверсии": "Coste por conversión",
+      "Визитов на одну конверсию": "Visitas por conversión",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Число визитов должно быть больше нуля": "El número de visitas debe ser mayor que cero",
+      "Число конверсий не может быть отрицательным": "El número de conversiones no puede ser negativo",
+      "Конверсий не может быть больше, чем визитов": "No puede haber más conversiones que visitas",
+      "Бюджет не может быть отрицательным": "El presupuesto no puede ser negativo",
+    },
+  },
 };

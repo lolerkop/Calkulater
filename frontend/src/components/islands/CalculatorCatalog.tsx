@@ -1,6 +1,6 @@
 import { ArrowRight, ListFilter, Search, X } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { categoryAliases, normalizeSearchText, queryNeedles } from '../../lib/search';
+import { categoryAliases, queryNeedles, searchHaystack } from '../../lib/search';
 import { loadSearchIndex } from '../../lib/searchIndexClient';
 import type { CategoryId } from '../../lib/types';
 import { clientUi, type Locale } from '../../lib/clientI18n';
@@ -120,7 +120,7 @@ function readCards(categories: CatalogCategory[], locale: Locale): CardHandle[] 
       //
       // Ключевых слов здесь нет намеренно: они не видны на карточке и нужны
       // только текстовому поиску, поэтому подгружаются лениво (см. ниже).
-      haystack: normalizeSearchText([
+      haystack: searchHaystack([
         element.querySelector('h3')?.textContent ?? '',
         element.querySelector('p')?.textContent ?? '',
         category,
@@ -666,7 +666,7 @@ export default function CalculatorCatalog({
             // Стог тот же, что собирает разметочный путь: имя, описание,
             // категория, её имя, токены новизны и псевдонимы — плюс ключевые
             // слова, которых на карточке не видно.
-            haystack: normalizeSearchText([
+            haystack: searchHaystack([
               raw.name ?? '',
               raw.shortDescription ?? '',
               category,

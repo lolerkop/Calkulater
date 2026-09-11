@@ -25,13 +25,13 @@ export const copy: CategoryCopyByLocale = {
     h1: "Study calculators",
   },
   es: {
-    name: "Study calculators",
-    slug: "education",
-    description: "Test percentages, the grade you need and reading speed.",
-    longDescription: "The calculations that come up while studying: turning correct answers into a percentage, working out the exam mark you need given its weight, and measuring reading speed. No country grade scales — those differ and need a reference table, so these calculators work in percentages, which travel everywhere.",
-    seoTitle: "Study calculators — test percentage and required grade",
-    seoDescription: "Online study calculators: percentage of correct answers, the exam mark you need and reading speed.",
-    h1: "Study calculators",
+    name: "Estudios",
+    slug: "estudios",
+    description: "Porcentaje de aciertos, la nota que necesitas y velocidad de lectura.",
+    longDescription: "Los cálculos que aparecen mientras se estudia: convertir aciertos en porcentaje, averiguar qué nota hace falta en el examen según su peso y medir la velocidad de lectura. Sin escalas de calificación nacionales: varían de un país a otro y harían falta tablas de equivalencia, así que estas calculadoras trabajan en porcentajes, que valen en todas partes.",
+    seoTitle: "Calculadoras de estudio — porcentaje de aciertos y nota necesaria",
+    seoDescription: "Calculadoras de estudio online: porcentaje de respuestas correctas, nota necesaria en el examen y velocidad de lectura.",
+    h1: "Calculadoras de estudio",
   },
   de: {
     name: "Lernen",
@@ -200,20 +200,20 @@ export const faq: CategoryFaqByLocale = {
   ],
   es: [
     {
-      q: "Why is there no conversion to a letter or five-point grade?",
-      a: "Scales differ between schools and countries. Without a reference table such a conversion would be invented, so the calculators give a percentage.",
+      q: "¿Por qué no hay conversión a una nota con letra o sobre cinco?",
+      a: "Las escalas cambian según el centro y el país. Sin una tabla de equivalencia, esa conversión sería inventada, así que las calculadoras dan el porcentaje.",
     },
     {
-      q: "Can I set a pass mark?",
-      a: "Yes, it is an optional field. Fill it in and the result gains a pass or fail verdict.",
+      q: "¿Se puede fijar una nota de aprobado?",
+      a: "Sí, es un campo opcional. Al rellenarlo, el resultado añade el veredicto de aprobado o suspenso.",
     },
     {
-      q: "What does exam weight mean?",
-      a: "The share the exam takes in the final grade. The rest comes from ongoing work, and the two add up to one hundred percent.",
+      q: "¿Qué significa el peso del examen?",
+      a: "La parte que el examen ocupa en la nota final. El resto viene de la evaluación continua, y entre los dos suman el cien por cien.",
     },
     {
-      q: "What if the required mark comes out above one hundred?",
-      a: "The target cannot be reached with that one exam. This is shown as a warning rather than an error, because the number itself tells you how big the gap is.",
+      q: "¿Y si la nota necesaria sale por encima de cien?",
+      a: "Ese objetivo ya no se alcanza solo con ese examen. Se muestra como aviso y no como error, porque la propia cifra indica cuánto falta.",
     },
   ],
   de: [

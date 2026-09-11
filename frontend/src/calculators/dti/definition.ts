@@ -6,6 +6,7 @@ import { compute } from './compute';
 import { dtiCopyEn } from './copy.en';
 import { dtiCopyUk } from './copy.uk';
 import { dtiCopyDe } from './copy.de';
+import { dtiCopyEs } from './copy.es';
 import { dtiReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: dtiCopyEn, uk: dtiCopyUk, de: dtiCopyDe },
+  copy: { en: dtiCopyEn, uk: dtiCopyUk, de: dtiCopyDe, es: dtiCopyEs },
   referenceCases: dtiReferenceCases,
   publishedExample: { inputs: { payments: 45000, income: 150000 }, expected: ['30,00 %', 'Комфортная'] },
   presentation: {

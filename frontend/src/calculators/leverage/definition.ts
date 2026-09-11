@@ -4,6 +4,7 @@ import { compute } from './compute';
 import { leverageCopyEn } from './copy.en';
 import { leverageCopyUk } from './copy.uk';
 import { leverageCopyDe } from './copy.de';
+import { leverageCopyEs } from './copy.es';
 import { leverageReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: leverageCopyEn, uk: leverageCopyUk, de: leverageCopyDe },
+  copy: { en: leverageCopyEn, uk: leverageCopyUk, de: leverageCopyDe, es: leverageCopyEs },
   referenceCases: leverageReferenceCases,
   publishedExample: {
     inputs: { equity: 50000, leverage: 5, entry: 2400, maintenancePct: 0.5 },

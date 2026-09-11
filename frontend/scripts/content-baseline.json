@@ -1,5 +1,5 @@
 {
- "note": "Одобренная базовая линия локализованных слоёв: украинский после фазы 26UK, немецкий после фазы 27DE. Просадка более чем на четверть или потеря вопросов FAQ считается регрессией.",
+ "note": "Одобренная базовая линия локализованных слоёв: украинский после фазы 26UK, немецкий после фазы 27DE, испанский после фазы 28ES. Просадка более чем на четверть или потеря вопросов FAQ считается регрессией.",
  "pages": {
   "/de/auto/anhalteweg-rechner/": {
    "faq": 4,
@@ -1488,6 +1488,1494 @@
   "/de/waehrungen/wechselkosten-rechner/": {
    "faq": 4,
    "words": 618
+  },
+  "/es/conversores/conversor-de-almacenamiento/": {
+   "faq": 4,
+   "words": 487
+  },
+  "/es/conversores/conversor-de-angulos/": {
+   "faq": 4,
+   "words": 446
+  },
+  "/es/conversores/conversor-de-caudal/": {
+   "faq": 4,
+   "words": 447
+  },
+  "/es/conversores/conversor-de-consumo/": {
+   "faq": 5,
+   "words": 741
+  },
+  "/es/conversores/conversor-de-densidad/": {
+   "faq": 4,
+   "words": 488
+  },
+  "/es/conversores/conversor-de-dosis-de-radiacion/": {
+   "faq": 5,
+   "words": 634
+  },
+  "/es/conversores/conversor-de-energia/": {
+   "faq": 4,
+   "words": 466
+  },
+  "/es/conversores/conversor-de-frecuencia/": {
+   "faq": 4,
+   "words": 452
+  },
+  "/es/conversores/conversor-de-fuerza/": {
+   "faq": 4,
+   "words": 426
+  },
+  "/es/conversores/conversor-de-iluminancia/": {
+   "faq": 4,
+   "words": 420
+  },
+  "/es/conversores/conversor-de-longitud/": {
+   "faq": 4,
+   "words": 451
+  },
+  "/es/conversores/conversor-de-masa/": {
+   "faq": 4,
+   "words": 441
+  },
+  "/es/conversores/conversor-de-par/": {
+   "faq": 4,
+   "words": 434
+  },
+  "/es/conversores/conversor-de-peso-en-cocina/": {
+   "faq": 5,
+   "words": 661
+  },
+  "/es/conversores/conversor-de-potencia/": {
+   "faq": 4,
+   "words": 439
+  },
+  "/es/conversores/conversor-de-presion/": {
+   "faq": 4,
+   "words": 458
+  },
+  "/es/conversores/conversor-de-superficie/": {
+   "faq": 4,
+   "words": 436
+  },
+  "/es/conversores/conversor-de-temperatura/": {
+   "faq": 4,
+   "words": 527
+  },
+  "/es/conversores/conversor-de-tiempo/": {
+   "faq": 4,
+   "words": 426
+  },
+  "/es/conversores/conversor-de-velocidad-de-datos/": {
+   "faq": 4,
+   "words": 484
+  },
+  "/es/conversores/conversor-de-velocidad/": {
+   "faq": 4,
+   "words": 438
+  },
+  "/es/conversores/conversor-de-volumen-de-cocina/": {
+   "faq": 4,
+   "words": 476
+  },
+  "/es/conversores/conversor-de-volumen/": {
+   "faq": 4,
+   "words": 440
+  },
+  "/es/conversores/conversor-lakh-crore/": {
+   "faq": 4,
+   "words": 565
+  },
+  "/es/conversores/coordenadas-gms-decimales/": {
+   "faq": 4,
+   "words": 614
+  },
+  "/es/conversores/escala-de-maquetas/": {
+   "faq": 4,
+   "words": 631
+  },
+  "/es/conversores/peso-del-papel-y-hojas/": {
+   "faq": 4,
+   "words": 687
+  },
+  "/es/divisas/conversor-divisas/": {
+   "faq": 3,
+   "words": 477
+  },
+  "/es/divisas/coste-de-cambio-de-divisas/": {
+   "faq": 5,
+   "words": 804
+  },
+  "/es/divisas/eur-a-mdl/": {
+   "faq": 3,
+   "words": 466
+  },
+  "/es/divisas/usd-a-eur/": {
+   "faq": 3,
+   "words": 459
+  },
+  "/es/divisas/usd-a-mdl/": {
+   "faq": 3,
+   "words": 457
+  },
+  "/es/electronica/autonomia-de-bateria/": {
+   "faq": 4,
+   "words": 537
+  },
+  "/es/electronica/baterias-en-serie-y-paralelo/": {
+   "faq": 4,
+   "words": 665
+  },
+  "/es/electronica/caida-de-tension/": {
+   "faq": 5,
+   "words": 728
+  },
+  "/es/electronica/carga-y-energia-de-un-condensador/": {
+   "faq": 4,
+   "words": 637
+  },
+  "/es/electronica/circuito-rc/": {
+   "faq": 4,
+   "words": 679
+  },
+  "/es/electronica/codigo-de-colores-de-resistencias/": {
+   "faq": 4,
+   "words": 673
+  },
+  "/es/electronica/condensadores-en-serie-y-paralelo/": {
+   "faq": 4,
+   "words": 619
+  },
+  "/es/electronica/de-kva-a-kw/": {
+   "faq": 4,
+   "words": 701
+  },
+  "/es/electronica/divisor-de-tension/": {
+   "faq": 4,
+   "words": 706
+  },
+  "/es/electronica/frecuencia-de-resonancia-lc/": {
+   "faq": 4,
+   "words": 615
+  },
+  "/es/electronica/impedancia-de-cable-coaxial/": {
+   "faq": 4,
+   "words": 703
+  },
+  "/es/electronica/ley-de-ohm/": {
+   "faq": 4,
+   "words": 520
+  },
+  "/es/electronica/potencia-de-un-inversor/": {
+   "faq": 4,
+   "words": 523
+  },
+  "/es/electronica/potencia-monofasica/": {
+   "faq": 4,
+   "words": 737
+  },
+  "/es/electronica/potencia-para-auriculares/": {
+   "faq": 4,
+   "words": 687
+  },
+  "/es/electronica/red-de-resistencias/": {
+   "faq": 5,
+   "words": 679
+  },
+  "/es/electronica/relacion-de-transformacion/": {
+   "faq": 4,
+   "words": 694
+  },
+  "/es/electronica/resistencia-para-led/": {
+   "faq": 4,
+   "words": 532
+  },
+  "/es/electronica/temporizador-astable-ne555/": {
+   "faq": 4,
+   "words": 759
+  },
+  "/es/electronica/tension-eficaz/": {
+   "faq": 4,
+   "words": 722
+  },
+  "/es/electronica/tiempo-de-carga-de-bateria/": {
+   "faq": 4,
+   "words": 553
+  },
+  "/es/estudios/calculadora-de-nota-final/": {
+   "faq": 4,
+   "words": 512
+  },
+  "/es/estudios/nota-media-ponderada/": {
+   "faq": 5,
+   "words": 672
+  },
+  "/es/estudios/porcentaje-de-acierto-en-un-test/": {
+   "faq": 4,
+   "words": 482
+  },
+  "/es/estudios/tiempo-de-lectura/": {
+   "faq": 5,
+   "words": 723
+  },
+  "/es/estudios/velocidad-de-lectura/": {
+   "faq": 4,
+   "words": 482
+  },
+  "/es/fechas/ano-bisiesto/": {
+   "faq": 4,
+   "words": 410
+  },
+  "/es/fechas/calculadora-de-fechas/": {
+   "faq": 6,
+   "words": 855
+  },
+  "/es/fechas/calculadora-dias-laborables/": {
+   "faq": 3,
+   "words": 461
+  },
+  "/es/fechas/calculadora-edad/": {
+   "faq": 5,
+   "words": 650
+  },
+  "/es/fechas/dia-de-la-semana/": {
+   "faq": 4,
+   "words": 452
+  },
+  "/es/fechas/diferencia-horaria/": {
+   "faq": 5,
+   "words": 659
+  },
+  "/es/fechas/duracion-de-tiempo/": {
+   "faq": 4,
+   "words": 482
+  },
+  "/es/fechas/horas-de-sueno/": {
+   "faq": 4,
+   "words": 694
+  },
+  "/es/fechas/horas-de-trabajo/": {
+   "faq": 5,
+   "words": 748
+  },
+  "/es/fechas/numero-de-semana/": {
+   "faq": 4,
+   "words": 472
+  },
+  "/es/finanzas/amortizacion-anticipada/": {
+   "faq": 4,
+   "words": 706
+  },
+  "/es/finanzas/amortizacion-de-activos/": {
+   "faq": 4,
+   "words": 751
+  },
+  "/es/finanzas/amortizacion-de-deudas/": {
+   "faq": 4,
+   "words": 716
+  },
+  "/es/finanzas/amortizacion-de-tarjeta-de-credito/": {
+   "faq": 4,
+   "words": 680
+  },
+  "/es/finanzas/aportaciones-periodicas-dca/": {
+   "faq": 5,
+   "words": 745
+  },
+  "/es/finanzas/beneficio-en-cripto/": {
+   "faq": 5,
+   "words": 748
+  },
+  "/es/finanzas/calculadora-de-apalancamiento/": {
+   "faq": 4,
+   "words": 658
+  },
+  "/es/finanzas/calculadora-de-bonus/": {
+   "faq": 4,
+   "words": 610
+  },
+  "/es/finanzas/calculadora-de-cagr/": {
+   "faq": 4,
+   "words": 411
+  },
+  "/es/finanzas/calculadora-de-comision/": {
+   "faq": 4,
+   "words": 463
+  },
+  "/es/finanzas/calculadora-de-entrada/": {
+   "faq": 4,
+   "words": 568
+  },
+  "/es/finanzas/calculadora-de-horas-extra/": {
+   "faq": 4,
+   "words": 637
+  },
+  "/es/finanzas/calculadora-de-inflacion/": {
+   "faq": 5,
+   "words": 693
+  },
+  "/es/finanzas/calculadora-de-margen/": {
+   "faq": 6,
+   "words": 834
+  },
+  "/es/finanzas/calculadora-de-roi/": {
+   "faq": 4,
+   "words": 423
+  },
+  "/es/finanzas/calculadora-descuento/": {
+   "faq": 5,
+   "words": 615
+  },
+  "/es/finanzas/calculadora-hipoteca/": {
+   "faq": 3,
+   "words": 479
+  },
+  "/es/finanzas/calculadora-interes-compuesto/": {
+   "faq": 3,
+   "words": 440
+  },
+  "/es/finanzas/calculadora-porcentajes/": {
+   "faq": 5,
+   "words": 729
+  },
+  "/es/finanzas/calculadora-prestamo/": {
+   "faq": 5,
+   "words": 707
+  },
+  "/es/finanzas/capitalizacion-bursatil/": {
+   "faq": 4,
+   "words": 520
+  },
+  "/es/finanzas/compra-a-plazos/": {
+   "faq": 4,
+   "words": 623
+  },
+  "/es/finanzas/conversor-de-salario/": {
+   "faq": 4,
+   "words": 667
+  },
+  "/es/finanzas/coste-de-un-dia-de-trabajo/": {
+   "faq": 4,
+   "words": 611
+  },
+  "/es/finanzas/cuota-de-renting/": {
+   "faq": 4,
+   "words": 717
+  },
+  "/es/finanzas/cuota-francesa/": {
+   "faq": 4,
+   "words": 719
+  },
+  "/es/finanzas/dias-de-vacaciones-acumulados/": {
+   "faq": 4,
+   "words": 648
+  },
+  "/es/finanzas/fondo-de-emergencia/": {
+   "faq": 4,
+   "words": 623
+  },
+  "/es/finanzas/interes-simple/": {
+   "faq": 4,
+   "words": 456
+  },
+  "/es/finanzas/objetivo-de-ahorro/": {
+   "faq": 5,
+   "words": 737
+  },
+  "/es/finanzas/prestamo-con-garantia-hipotecaria/": {
+   "faq": 4,
+   "words": 712
+  },
+  "/es/finanzas/prestamo-maximo/": {
+   "faq": 5,
+   "words": 743
+  },
+  "/es/finanzas/presupuesto-50-30-20/": {
+   "faq": 4,
+   "words": 416
+  },
+  "/es/finanzas/punto-de-equilibrio/": {
+   "faq": 7,
+   "words": 1065
+  },
+  "/es/finanzas/ratio-deuda-ingresos/": {
+   "faq": 4,
+   "words": 464
+  },
+  "/es/finanzas/ratio-riesgo-beneficio/": {
+   "faq": 5,
+   "words": 754
+  },
+  "/es/finanzas/refinanciacion-de-prestamos/": {
+   "faq": 5,
+   "words": 728
+  },
+  "/es/finanzas/regla-del-72/": {
+   "faq": 4,
+   "words": 505
+  },
+  "/es/finanzas/rentabilidad-del-alquiler/": {
+   "faq": 4,
+   "words": 541
+  },
+  "/es/finanzas/rentabilidad-por-dividendo/": {
+   "faq": 4,
+   "words": 438
+  },
+  "/es/finanzas/rentabilidad-real/": {
+   "faq": 4,
+   "words": 514
+  },
+  "/es/finanzas/reparto-de-gastos-comunes/": {
+   "faq": 5,
+   "words": 729
+  },
+  "/es/finanzas/subida-salarial/": {
+   "faq": 4,
+   "words": 623
+  },
+  "/es/finanzas/tamano-de-posicion/": {
+   "faq": 5,
+   "words": 747
+  },
+  "/es/finanzas/tarifa-freelance/": {
+   "faq": 5,
+   "words": 736
+  },
+  "/es/finanzas/tasa-de-ahorro/": {
+   "faq": 3,
+   "words": 418
+  },
+  "/es/finanzas/tin-y-tae/": {
+   "faq": 4,
+   "words": 617
+  },
+  "/es/finanzas/valor-temporal-del-dinero/": {
+   "faq": 5,
+   "words": 711
+  },
+  "/es/fisica/caida-libre/": {
+   "faq": 4,
+   "words": 672
+  },
+  "/es/fisica/calculadora-de-aceleracion/": {
+   "faq": 4,
+   "words": 638
+  },
+  "/es/fisica/calculadora-de-decibelios/": {
+   "faq": 4,
+   "words": 661
+  },
+  "/es/fisica/calculadora-de-densidad/": {
+   "faq": 4,
+   "words": 577
+  },
+  "/es/fisica/calculadora-de-presion/": {
+   "faq": 4,
+   "words": 548
+  },
+  "/es/fisica/calculadora-de-trabajo/": {
+   "faq": 4,
+   "words": 624
+  },
+  "/es/fisica/calor-especifico/": {
+   "faq": 4,
+   "words": 663
+  },
+  "/es/fisica/conduccion-termica/": {
+   "faq": 4,
+   "words": 653
+  },
+  "/es/fisica/densidad-del-aire/": {
+   "faq": 4,
+   "words": 640
+  },
+  "/es/fisica/dilatacion-del-tiempo/": {
+   "faq": 4,
+   "words": 683
+  },
+  "/es/fisica/ecuacion-de-bernoulli/": {
+   "faq": 4,
+   "words": 742
+  },
+  "/es/fisica/efecto-doppler/": {
+   "faq": 4,
+   "words": 750
+  },
+  "/es/fisica/energia-cinetica/": {
+   "faq": 4,
+   "words": 527
+  },
+  "/es/fisica/energia-de-un-foton/": {
+   "faq": 4,
+   "words": 665
+  },
+  "/es/fisica/energia-eolica/": {
+   "faq": 4,
+   "words": 760
+  },
+  "/es/fisica/energia-potencial/": {
+   "faq": 4,
+   "words": 558
+  },
+  "/es/fisica/equivalencia-masa-energia/": {
+   "faq": 4,
+   "words": 664
+  },
+  "/es/fisica/fuerza-centripeta/": {
+   "faq": 4,
+   "words": 661
+  },
+  "/es/fisica/fuerza-de-empuje/": {
+   "faq": 4,
+   "words": 700
+  },
+  "/es/fisica/fuerza-gravitatoria/": {
+   "faq": 4,
+   "words": 679
+  },
+  "/es/fisica/humedad-absoluta/": {
+   "faq": 4,
+   "words": 655
+  },
+  "/es/fisica/indice-de-calor/": {
+   "faq": 4,
+   "words": 627
+  },
+  "/es/fisica/lente-delgada/": {
+   "faq": 4,
+   "words": 724
+  },
+  "/es/fisica/ley-de-coulomb/": {
+   "faq": 4,
+   "words": 611
+  },
+  "/es/fisica/ley-de-hooke/": {
+   "faq": 4,
+   "words": 642
+  },
+  "/es/fisica/ley-de-la-inversa-del-cuadrado/": {
+   "faq": 4,
+   "words": 669
+  },
+  "/es/fisica/longitud-de-onda-de-de-broglie/": {
+   "faq": 4,
+   "words": 684
+  },
+  "/es/fisica/longitud-de-onda-y-frecuencia/": {
+   "faq": 4,
+   "words": 704
+  },
+  "/es/fisica/momento-de-inercia/": {
+   "faq": 4,
+   "words": 686
+  },
+  "/es/fisica/momento-de-una-fuerza/": {
+   "faq": 4,
+   "words": 629
+  },
+  "/es/fisica/momento-lineal/": {
+   "faq": 4,
+   "words": 570
+  },
+  "/es/fisica/numero-de-mach/": {
+   "faq": 4,
+   "words": 726
+  },
+  "/es/fisica/palanca-y-ventaja-mecanica/": {
+   "faq": 4,
+   "words": 683
+  },
+  "/es/fisica/periodo-de-semidesintegracion/": {
+   "faq": 4,
+   "words": 691
+  },
+  "/es/fisica/periodo-de-un-pendulo/": {
+   "faq": 4,
+   "words": 642
+  },
+  "/es/fisica/periodo-orbital/": {
+   "faq": 4,
+   "words": 661
+  },
+  "/es/fisica/plano-inclinado/": {
+   "faq": 4,
+   "words": 742
+  },
+  "/es/fisica/potencia-mecanica/": {
+   "faq": 4,
+   "words": 577
+  },
+  "/es/fisica/presion-atmosferica-por-altitud/": {
+   "faq": 4,
+   "words": 724
+  },
+  "/es/fisica/presion-hidrostatica/": {
+   "faq": 4,
+   "words": 614
+  },
+  "/es/fisica/punto-de-ebullicion-por-altitud/": {
+   "faq": 4,
+   "words": 736
+  },
+  "/es/fisica/punto-de-rocio/": {
+   "faq": 4,
+   "words": 671
+  },
+  "/es/fisica/rendimiento-de-carnot/": {
+   "faq": 4,
+   "words": 680
+  },
+  "/es/fisica/segunda-ley-de-newton/": {
+   "faq": 4,
+   "words": 583
+  },
+  "/es/fisica/sensacion-termica-por-viento/": {
+   "faq": 4,
+   "words": 670
+  },
+  "/es/fisica/tension-deformacion-y-modulo-de-young/": {
+   "faq": 4,
+   "words": 722
+  },
+  "/es/fisica/tiro-parabolico/": {
+   "faq": 4,
+   "words": 683
+  },
+  "/es/fisica/velocidad-de-escape/": {
+   "faq": 4,
+   "words": 673
+  },
+  "/es/fisica/velocidad-del-agua-en-tuberia/": {
+   "faq": 4,
+   "words": 632
+  },
+  "/es/fisica/velocidad-del-sonido/": {
+   "faq": 4,
+   "words": 741
+  },
+  "/es/fisica/velocidad-limite/": {
+   "faq": 4,
+   "words": 762
+  },
+  "/es/fitness/calculadora-1rm/": {
+   "faq": 3,
+   "words": 373
+  },
+  "/es/fitness/calculadora-calorias/": {
+   "faq": 3,
+   "words": 492
+  },
+  "/es/fitness/calculadora-imc/": {
+   "faq": 5,
+   "words": 703
+  },
+  "/es/fitness/calculadora-ritmo-carrera/": {
+   "faq": 3,
+   "words": 404
+  },
+  "/es/fitness/calorias-de-los-macronutrientes/": {
+   "faq": 4,
+   "words": 446
+  },
+  "/es/fitness/calorias-del-ejercicio/": {
+   "faq": 5,
+   "words": 687
+  },
+  "/es/fitness/consumo-de-agua/": {
+   "faq": 4,
+   "words": 693
+  },
+  "/es/fitness/de-pasos-a-distancia/": {
+   "faq": 5,
+   "words": 706
+  },
+  "/es/fitness/desarrollo-de-bicicleta/": {
+   "faq": 4,
+   "words": 549
+  },
+  "/es/fitness/discos-de-barra/": {
+   "faq": 5,
+   "words": 689
+  },
+  "/es/fitness/frecuencia-cardiaca-maxima/": {
+   "faq": 5,
+   "words": 774
+  },
+  "/es/fitness/indice-cintura-estatura/": {
+   "faq": 5,
+   "words": 668
+  },
+  "/es/fitness/peso-ideal/": {
+   "faq": 5,
+   "words": 689
+  },
+  "/es/fitness/porcentaje-de-grasa-corporal/": {
+   "faq": 7,
+   "words": 1107
+  },
+  "/es/fitness/tamano-de-rueda-de-bicicleta/": {
+   "faq": 5,
+   "words": 742
+  },
+  "/es/fitness/vo2-max/": {
+   "faq": 4,
+   "words": 693
+  },
+  "/es/geometria/area-de-poligono-por-coordenadas/": {
+   "faq": 5,
+   "words": 681
+  },
+  "/es/geometria/calculadora-de-cilindro/": {
+   "faq": 4,
+   "words": 513
+  },
+  "/es/geometria/calculadora-de-circulo/": {
+   "faq": 4,
+   "words": 559
+  },
+  "/es/geometria/calculadora-de-cono/": {
+   "faq": 4,
+   "words": 567
+  },
+  "/es/geometria/calculadora-de-cuadrado/": {
+   "faq": 4,
+   "words": 541
+  },
+  "/es/geometria/calculadora-de-cubo/": {
+   "faq": 5,
+   "words": 700
+  },
+  "/es/geometria/calculadora-de-elipse/": {
+   "faq": 5,
+   "words": 682
+  },
+  "/es/geometria/calculadora-de-esfera/": {
+   "faq": 4,
+   "words": 554
+  },
+  "/es/geometria/calculadora-de-ortoedro/": {
+   "faq": 4,
+   "words": 582
+  },
+  "/es/geometria/calculadora-de-paralelogramo/": {
+   "faq": 4,
+   "words": 648
+  },
+  "/es/geometria/calculadora-de-pendiente/": {
+   "faq": 4,
+   "words": 618
+  },
+  "/es/geometria/calculadora-de-piramide/": {
+   "faq": 4,
+   "words": 670
+  },
+  "/es/geometria/calculadora-de-prisma/": {
+   "faq": 4,
+   "words": 651
+  },
+  "/es/geometria/calculadora-de-rectangulo/": {
+   "faq": 4,
+   "words": 586
+  },
+  "/es/geometria/calculadora-de-rombo/": {
+   "faq": 5,
+   "words": 640
+  },
+  "/es/geometria/calculadora-de-trapecio/": {
+   "faq": 4,
+   "words": 552
+  },
+  "/es/geometria/calculadora-de-triangulo/": {
+   "faq": 4,
+   "words": 601
+  },
+  "/es/geometria/corona-circular/": {
+   "faq": 5,
+   "words": 650
+  },
+  "/es/geometria/longitud-de-correa/": {
+   "faq": 4,
+   "words": 648
+  },
+  "/es/geometria/poligono-regular/": {
+   "faq": 4,
+   "words": 561
+  },
+  "/es/geometria/proporcion-aurea/": {
+   "faq": 4,
+   "words": 657
+  },
+  "/es/geometria/sector-circular/": {
+   "faq": 4,
+   "words": 568
+  },
+  "/es/geometria/triangulo-rectangulo/": {
+   "faq": 4,
+   "words": 584
+  },
+  "/es/geometria/tronco-de-cono/": {
+   "faq": 5,
+   "words": 672
+  },
+  "/es/geometria/tronco-de-piramide/": {
+   "faq": 4,
+   "words": 680
+  },
+  "/es/hogar/calculadora-de-propina/": {
+   "faq": 4,
+   "words": 506
+  },
+  "/es/hogar/calorias-por-racion/": {
+   "faq": 5,
+   "words": 681
+  },
+  "/es/hogar/cambio-de-agua-del-acuario/": {
+   "faq": 4,
+   "words": 685
+  },
+  "/es/hogar/combustible-de-un-generador/": {
+   "faq": 4,
+   "words": 658
+  },
+  "/es/hogar/consumo-electrico/": {
+   "faq": 4,
+   "words": 539
+  },
+  "/es/hogar/conversor-de-levadura/": {
+   "faq": 4,
+   "words": 707
+  },
+  "/es/hogar/coste-de-impresion-3d/": {
+   "faq": 5,
+   "words": 795
+  },
+  "/es/hogar/coste-de-suscripciones/": {
+   "faq": 5,
+   "words": 658
+  },
+  "/es/hogar/coste-de-una-receta/": {
+   "faq": 5,
+   "words": 670
+  },
+  "/es/hogar/dimensiones-lineales-de-equipaje/": {
+   "faq": 4,
+   "words": 647
+  },
+  "/es/hogar/duracion-de-existencias/": {
+   "faq": 4,
+   "words": 506
+  },
+  "/es/hogar/edad-de-mascotas/": {
+   "faq": 4,
+   "words": 658
+  },
+  "/es/hogar/escalado-de-recetas/": {
+   "faq": 5,
+   "words": 736
+  },
+  "/es/hogar/facturas-del-hogar/": {
+   "faq": 5,
+   "words": 703
+  },
+  "/es/hogar/graduacion-por-densidad/": {
+   "faq": 4,
+   "words": 611
+  },
+  "/es/hogar/iluminacion-de-una-habitacion/": {
+   "faq": 5,
+   "words": 702
+  },
+  "/es/hogar/paspartu-y-marco/": {
+   "faq": 4,
+   "words": 677
+  },
+  "/es/hogar/perdida-por-grifo-que-gotea/": {
+   "faq": 4,
+   "words": 687
+  },
+  "/es/hogar/peso-crudo-a-cocinado/": {
+   "faq": 5,
+   "words": 732
+  },
+  "/es/hogar/porcentaje-de-panadero/": {
+   "faq": 5,
+   "words": 811
+  },
+  "/es/hogar/potencia-de-calefaccion/": {
+   "faq": 5,
+   "words": 738
+  },
+  "/es/hogar/precio-por-unidad/": {
+   "faq": 4,
+   "words": 569
+  },
+  "/es/hogar/presupuesto-de-viaje/": {
+   "faq": 5,
+   "words": 722
+  },
+  "/es/hogar/racion-de-pienso/": {
+   "faq": 4,
+   "words": 697
+  },
+  "/es/hogar/ratio-de-cafe/": {
+   "faq": 4,
+   "words": 651
+  },
+  "/es/hogar/recogida-de-agua-de-lluvia/": {
+   "faq": 4,
+   "words": 662
+  },
+  "/es/hogar/tela-para-cortinas/": {
+   "faq": 4,
+   "words": 712
+  },
+  "/es/hogar/tiempo-de-asado/": {
+   "faq": 4,
+   "words": 697
+  },
+  "/es/hogar/tiempo-de-calentamiento-del-agua/": {
+   "faq": 4,
+   "words": 697
+  },
+  "/es/hogar/tiempo-de-llenado-de-una-piscina/": {
+   "faq": 4,
+   "words": 529
+  },
+  "/es/hogar/unidades-de-alcohol/": {
+   "faq": 4,
+   "words": 619
+  },
+  "/es/informatica/ancho-de-banda-de-red/": {
+   "faq": 4,
+   "words": 535
+  },
+  "/es/informatica/archivos-en-un-disco/": {
+   "faq": 4,
+   "words": 577
+  },
+  "/es/informatica/calculadora-de-ppi/": {
+   "faq": 4,
+   "words": 578
+  },
+  "/es/informatica/calculadora-de-raid/": {
+   "faq": 5,
+   "words": 766
+  },
+  "/es/informatica/calculadora-de-subredes-ipv4/": {
+   "faq": 5,
+   "words": 677
+  },
+  "/es/informatica/consumo-de-datos-de-internet/": {
+   "faq": 5,
+   "words": 690
+  },
+  "/es/informatica/contador-de-palabras-y-caracteres/": {
+   "faq": 5,
+   "words": 686
+  },
+  "/es/informatica/conversor-de-marca-de-tiempo-unix/": {
+   "faq": 4,
+   "words": 506
+  },
+  "/es/informatica/conversor-de-unidades-css/": {
+   "faq": 4,
+   "words": 707
+  },
+  "/es/informatica/conversor-hex-rgb-hsl/": {
+   "faq": 5,
+   "words": 699
+  },
+  "/es/informatica/distancia-de-vision-a-un-televisor/": {
+   "faq": 4,
+   "words": 759
+  },
+  "/es/informatica/entropia-de-contrasenas/": {
+   "faq": 4,
+   "words": 743
+  },
+  "/es/informatica/escala-modular/": {
+   "faq": 4,
+   "words": 673
+  },
+  "/es/informatica/fps-a-tiempo-de-fotograma/": {
+   "faq": 4,
+   "words": 503
+  },
+  "/es/informatica/relacion-de-aspecto/": {
+   "faq": 4,
+   "words": 553
+  },
+  "/es/informatica/tamano-de-archivo-de-video/": {
+   "faq": 5,
+   "words": 731
+  },
+  "/es/informatica/tiempo-de-descarga/": {
+   "faq": 4,
+   "words": 568
+  },
+  "/es/matematicas/calculadora-de-divisores/": {
+   "faq": 4,
+   "words": 465
+  },
+  "/es/matematicas/calculadora-de-factorial/": {
+   "faq": 4,
+   "words": 442
+  },
+  "/es/matematicas/calculadora-de-fibonacci/": {
+   "faq": 5,
+   "words": 715
+  },
+  "/es/matematicas/calculadora-de-fracciones/": {
+   "faq": 4,
+   "words": 569
+  },
+  "/es/matematicas/calculadora-de-logaritmos/": {
+   "faq": 4,
+   "words": 424
+  },
+  "/es/matematicas/calculadora-de-mcd-y-mcm/": {
+   "faq": 5,
+   "words": 694
+  },
+  "/es/matematicas/calculadora-de-probabilidad/": {
+   "faq": 4,
+   "words": 609
+  },
+  "/es/matematicas/calculadora-de-proporciones/": {
+   "faq": 4,
+   "words": 489
+  },
+  "/es/matematicas/calculadora-de-razones/": {
+   "faq": 5,
+   "words": 689
+  },
+  "/es/matematicas/calculadora-de-redondeo/": {
+   "faq": 4,
+   "words": 607
+  },
+  "/es/matematicas/calculadora-de-resto/": {
+   "faq": 4,
+   "words": 453
+  },
+  "/es/matematicas/coeficiente-de-correlacion/": {
+   "faq": 5,
+   "words": 734
+  },
+  "/es/matematicas/combinaciones-y-permutaciones/": {
+   "faq": 4,
+   "words": 513
+  },
+  "/es/matematicas/cuartiles-y-percentiles/": {
+   "faq": 4,
+   "words": 724
+  },
+  "/es/matematicas/diferencia-absoluta-y-relativa/": {
+   "faq": 4,
+   "words": 428
+  },
+  "/es/matematicas/ecuacion-de-segundo-grado/": {
+   "faq": 4,
+   "words": 456
+  },
+  "/es/matematicas/ecuacion-lineal/": {
+   "faq": 4,
+   "words": 502
+  },
+  "/es/matematicas/estadistica-descriptiva/": {
+   "faq": 4,
+   "words": 685
+  },
+  "/es/matematicas/factorizacion-en-primos/": {
+   "faq": 4,
+   "words": 440
+  },
+  "/es/matematicas/intervalo-de-confianza/": {
+   "faq": 5,
+   "words": 677
+  },
+  "/es/matematicas/media-ponderada/": {
+   "faq": 4,
+   "words": 597
+  },
+  "/es/matematicas/numeros-romanos/": {
+   "faq": 4,
+   "words": 426
+  },
+  "/es/matematicas/potencias-y-raices/": {
+   "faq": 5,
+   "words": 681
+  },
+  "/es/matematicas/probabilidad-binomial/": {
+   "faq": 5,
+   "words": 649
+  },
+  "/es/matematicas/probabilidad-con-dados/": {
+   "faq": 4,
+   "words": 626
+  },
+  "/es/matematicas/progresion-aritmetica/": {
+   "faq": 5,
+   "words": 711
+  },
+  "/es/matematicas/progresion-geometrica/": {
+   "faq": 5,
+   "words": 680
+  },
+  "/es/matematicas/puntuacion-z/": {
+   "faq": 4,
+   "words": 580
+  },
+  "/es/matematicas/sistema-de-ecuaciones-lineales/": {
+   "faq": 4,
+   "words": 724
+  },
+  "/es/matematicas/tamano-muestral/": {
+   "faq": 4,
+   "words": 712
+  },
+  "/es/negocios/arpu-y-arppu/": {
+   "faq": 5,
+   "words": 661
+  },
+  "/es/negocios/beneficio-margen-y-marcado/": {
+   "faq": 4,
+   "words": 684
+  },
+  "/es/negocios/calculadora-de-cpc/": {
+   "faq": 4,
+   "words": 629
+  },
+  "/es/negocios/calculadora-de-cpm/": {
+   "faq": 4,
+   "words": 460
+  },
+  "/es/negocios/calculadora-de-ctr/": {
+   "faq": 4,
+   "words": 477
+  },
+  "/es/negocios/calculadora-de-ltv/": {
+   "faq": 4,
+   "words": 570
+  },
+  "/es/negocios/calculadora-de-roas/": {
+   "faq": 4,
+   "words": 491
+  },
+  "/es/negocios/comisiones-de-marketplace/": {
+   "faq": 5,
+   "words": 774
+  },
+  "/es/negocios/coste-de-adquisicion-de-clientes/": {
+   "faq": 4,
+   "words": 523
+  },
+  "/es/negocios/coste-de-las-mercancias-vendidas/": {
+   "faq": 4,
+   "words": 703
+  },
+  "/es/negocios/coste-de-un-empleado/": {
+   "faq": 4,
+   "words": 650
+  },
+  "/es/negocios/coste-unitario/": {
+   "faq": 4,
+   "words": 659
+  },
+  "/es/negocios/cpa-cpl-y-cpi/": {
+   "faq": 4,
+   "words": 634
+  },
+  "/es/negocios/crecimiento-de-audiencia/": {
+   "faq": 4,
+   "words": 626
+  },
+  "/es/negocios/embudo-de-presupuesto-publicitario/": {
+   "faq": 4,
+   "words": 648
+  },
+  "/es/negocios/envio-por-unidad/": {
+   "faq": 4,
+   "words": 405
+  },
+  "/es/negocios/ingresos-por-empleado/": {
+   "faq": 4,
+   "words": 404
+  },
+  "/es/negocios/margen-de-contribucion/": {
+   "faq": 4,
+   "words": 477
+  },
+  "/es/negocios/metricas-de-email-marketing/": {
+   "faq": 4,
+   "words": 692
+  },
+  "/es/negocios/mrr-y-arr/": {
+   "faq": 5,
+   "words": 713
+  },
+  "/es/negocios/parte-de-horas-semanal/": {
+   "faq": 4,
+   "words": 725
+  },
+  "/es/negocios/plazo-de-recuperacion/": {
+   "faq": 4,
+   "words": 622
+  },
+  "/es/negocios/roi-publicitario/": {
+   "faq": 4,
+   "words": 436
+  },
+  "/es/negocios/rotacion-de-existencias/": {
+   "faq": 4,
+   "words": 616
+  },
+  "/es/negocios/rotacion-y-retencion/": {
+   "faq": 5,
+   "words": 682
+  },
+  "/es/negocios/tasa-de-conversion/": {
+   "faq": 5,
+   "words": 704
+  },
+  "/es/negocios/tasa-de-devoluciones/": {
+   "faq": 4,
+   "words": 429
+  },
+  "/es/negocios/tasa-de-interaccion/": {
+   "faq": 4,
+   "words": 550
+  },
+  "/es/negocios/ticket-medio/": {
+   "faq": 4,
+   "words": 412
+  },
+  "/es/negocios/tiempo-takt/": {
+   "faq": 4,
+   "words": 672
+  },
+  "/es/quimica/calculadora-de-diluciones/": {
+   "faq": 4,
+   "words": 581
+  },
+  "/es/quimica/calculadora-de-masa-molar/": {
+   "faq": 5,
+   "words": 660
+  },
+  "/es/quimica/calculadora-de-molaridad/": {
+   "faq": 4,
+   "words": 678
+  },
+  "/es/quimica/calculadora-de-moles/": {
+   "faq": 4,
+   "words": 577
+  },
+  "/es/quimica/calculadora-de-ph-y-poh/": {
+   "faq": 4,
+   "words": 574
+  },
+  "/es/quimica/concentracion-de-disoluciones/": {
+   "faq": 4,
+   "words": 613
+  },
+  "/es/quimica/ley-combinada-de-los-gases/": {
+   "faq": 4,
+   "words": 640
+  },
+  "/es/quimica/ley-de-los-gases-ideales/": {
+   "faq": 4,
+   "words": 693
+  },
+  "/es/reformas/angulo-de-inglete/": {
+   "faq": 4,
+   "words": 707
+  },
+  "/es/reformas/calculadora-azulejos/": {
+   "faq": 5,
+   "words": 848
+  },
+  "/es/reformas/calculadora-de-aislamiento/": {
+   "faq": 4,
+   "words": 634
+  },
+  "/es/reformas/calculadora-de-aridos/": {
+   "faq": 4,
+   "words": 672
+  },
+  "/es/reformas/calculadora-de-enlucido/": {
+   "faq": 4,
+   "words": 694
+  },
+  "/es/reformas/calculadora-de-hormigon/": {
+   "faq": 4,
+   "words": 708
+  },
+  "/es/reformas/calculadora-de-linoleo/": {
+   "faq": 5,
+   "words": 793
+  },
+  "/es/reformas/calculadora-de-rodapie/": {
+   "faq": 4,
+   "words": 717
+  },
+  "/es/reformas/calculadora-de-sellador/": {
+   "faq": 4,
+   "words": 708
+  },
+  "/es/reformas/calculadora-de-vallas/": {
+   "faq": 5,
+   "words": 704
+  },
+  "/es/reformas/calculadora-laminado/": {
+   "faq": 3,
+   "words": 475
+  },
+  "/es/reformas/calculadora-papel-pintado/": {
+   "faq": 3,
+   "words": 505
+  },
+  "/es/reformas/calculadora-pintura/": {
+   "faq": 3,
+   "words": 471
+  },
+  "/es/reformas/cimentacion-por-pilotes/": {
+   "faq": 5,
+   "words": 745
+  },
+  "/es/reformas/flecha-de-una-viga/": {
+   "faq": 4,
+   "words": 678
+  },
+  "/es/reformas/ladrillos-y-bloques/": {
+   "faq": 7,
+   "words": 1193
+  },
+  "/es/reformas/longitud-de-pares/": {
+   "faq": 4,
+   "words": 647
+  },
+  "/es/reformas/losa-de-cimentacion/": {
+   "faq": 5,
+   "words": 839
+  },
+  "/es/reformas/peldanos-de-escalera/": {
+   "faq": 4,
+   "words": 664
+  },
+  "/es/reformas/peso-de-barras-metalicas/": {
+   "faq": 4,
+   "words": 672
+  },
+  "/es/reformas/peso-de-la-madera/": {
+   "faq": 5,
+   "words": 712
+  },
+  "/es/reformas/peso-de-tubo/": {
+   "faq": 4,
+   "words": 671
+  },
+  "/es/reformas/placas-de-yeso/": {
+   "faq": 5,
+   "words": 796
+  },
+  "/es/reformas/rastreles-de-cubierta/": {
+   "faq": 5,
+   "words": 761
+  },
+  "/es/reformas/renovaciones-de-aire-por-hora/": {
+   "faq": 4,
+   "words": 699
+  },
+  "/es/reformas/resina-epoxi/": {
+   "faq": 4,
+   "words": 710
+  },
+  "/es/reformas/separacion-de-balaustres/": {
+   "faq": 4,
+   "words": 608
+  },
+  "/es/reformas/solera-de-mortero/": {
+   "faq": 6,
+   "words": 976
+  },
+  "/es/reformas/superficie-de-cubierta/": {
+   "faq": 4,
+   "words": 739
+  },
+  "/es/reformas/tablas-de-revestimiento/": {
+   "faq": 4,
+   "words": 680
+  },
+  "/es/reformas/tension-de-flexion-en-una-viga/": {
+   "faq": 4,
+   "words": 689
+  },
+  "/es/reformas/tubo-para-suelo-radiante/": {
+   "faq": 5,
+   "words": 751
+  },
+  "/es/reformas/volumen-de-depositos/": {
+   "faq": 4,
+   "words": 712
+  },
+  "/es/reformas/volumen-de-tablas/": {
+   "faq": 4,
+   "words": 695
+  },
+  "/es/reformas/volumen-de-una-habitacion/": {
+   "faq": 4,
+   "words": 533
+  },
+  "/es/reformas/zapata-corrida/": {
+   "faq": 4,
+   "words": 655
+  },
+  "/es/vehiculos/calculadora-de-cilindrada/": {
+   "faq": 4,
+   "words": 656
+  },
+  "/es/vehiculos/consumo-de-combustible/": {
+   "faq": 4,
+   "words": 555
+  },
+  "/es/vehiculos/coste-de-un-viaje/": {
+   "faq": 4,
+   "words": 540
+  },
+  "/es/vehiculos/cuarto-de-milla/": {
+   "faq": 4,
+   "words": 675
+  },
+  "/es/vehiculos/depreciacion-de-un-coche/": {
+   "faq": 4,
+   "words": 738
+  },
+  "/es/vehiculos/distancia-de-parada/": {
+   "faq": 4,
+   "words": 682
+  },
+  "/es/vehiculos/et-de-llanta/": {
+   "faq": 4,
+   "words": 687
+  },
+  "/es/vehiculos/medidas-de-neumaticos/": {
+   "faq": 5,
+   "words": 726
+  },
+  "/es/vehiculos/mezcla-de-gasolina-y-aceite/": {
+   "faq": 4,
+   "words": 681
+  },
+  "/es/vehiculos/relacion-de-compresion/": {
+   "faq": 4,
+   "words": 633
+  },
+  "/es/vehiculos/relacion-potencia-peso/": {
+   "faq": 4,
+   "words": 532
+  },
+  "/es/vehiculos/velocidad-distancia-y-tiempo/": {
+   "faq": 4,
+   "words": 471
   },
   "/uk/avtomobili/amortyzatsiya-avto/": {
    "faq": 4,

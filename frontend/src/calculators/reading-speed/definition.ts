@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { readingSpeedCopyEn } from './copy.en';
 import { readingSpeedCopyUk } from './copy.uk';
 import { readingSpeedCopyDe } from './copy.de';
+import { readingSpeedCopyEs } from './copy.es';
 import { readingSpeedReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: readingSpeedCopyEn, uk: readingSpeedCopyUk, de: readingSpeedCopyDe },
+  copy: { en: readingSpeedCopyEn, uk: readingSpeedCopyUk, de: readingSpeedCopyDe, es: readingSpeedCopyEs },
   referenceCases: readingSpeedReferenceCases,
   publishedExample: { inputs: { words: 3000, minutes: 12 }, expected: ['250 слов/мин'] },
   presentation: {

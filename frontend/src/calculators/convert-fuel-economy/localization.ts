@@ -65,4 +65,28 @@ export const localization: CalculatorLocalization = {
       "Расход должен быть больше нуля": "Витрата має бути більшою за нуль",
     },
   },
+  es: {
+    fields: {
+      "value": "Valor",
+      "fromUnit": "Unidad de origen",
+      "toUnit": "Unidad de destino",
+    },
+    options: {
+      "l100km": "l/100 km",
+      "kml": "km/l",
+      "mpgus": "mpg (EE. UU.)",
+      "mpguk": "mpg (Reino Unido)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "В л/100 км": "En l/100 km",
+      "В км/л": "En km/l",
+      "В mpg США": "En mpg (EE. UU.)",
+      "В mpg Великобритании": "En mpg (Reino Unido)",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Расход должен быть больше нуля": "El consumo debe ser mayor que cero",
+    },
+  },
 };

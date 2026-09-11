@@ -1,14 +1,15 @@
 import { categories as baseCategories } from '../data/categories';
 import { categoryDefinitions } from '../categories/manifest.generated';
 import { calculators as baseCalculators } from '../data/calculators';
-import { v2DeCopy, v2EnCopy, v2FullParityIds, v2UkCopy } from '../calculators/manifest.generated';
+import { v2DeCopy, v2EnCopy, v2EsCopy, v2FullParityIds, v2UkCopy } from '../calculators/manifest.generated';
 import { v2Localization } from '../calculators/localization.generated';
 import { lookupScoped } from './platform/types';
 import { getCalculatorSeoContent } from '../data/calculatorSeoContent';
 import { fullParityCalculatorIds, isRuOnlyCalculator } from '../data/localizationParity';
 import { ukCalculatorContent } from '../data/ukCalculatorContent';
 import { deCalculatorContent } from '../data/deCalculatorContent';
-import { localizedResultLabel } from './clientI18n';
+import { esCalculatorContent } from '../data/esCalculatorContent';
+import { localizedResultLabel } from './resultPhrases';
 import type { CalculatorDef, Category, CategoryId, Field, FaqItem } from './types';
 
 export const allLocales = ['ru', 'en', 'es', 'de', 'fr', 'pt', 'it', 'pl', 'nl', 'ro', 'id', 'tr', 'vi', 'cs', 'uk', 'sk', 'hu'] as const;
@@ -16,7 +17,7 @@ export type Locale = (typeof allLocales)[number];
 
 // Only these locales are public for now. Other localized data stays in the
 // codebase so we can polish and re-enable languages gradually.
-export const locales = ['ru', 'en', 'uk', 'de'] as const satisfies readonly Locale[];
+export const locales = ['ru', 'en', 'uk', 'de', 'es'] as const satisfies readonly Locale[];
 
 export const defaultLocale: Locale = 'ru';
 
@@ -1716,6 +1717,60 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Calcula días laborables entre dos fechas con fines de semana y fechas excluidas opcionales.',
       h1: 'Calculadora de días laborables',
       keywords: ['días laborables', 'días de trabajo', 'calculadora fechas'],
+    },
+    'date-shift-calculator': {
+      name: "Calculadora de fechas",
+      slug: "calculadora-de-fechas",
+      shortDescription: "Halla la fecha que queda a un número de días, semanas, meses o años de una fecha de partida.",
+      seoTitle: "Calculadora de fechas — sumar o restar días, semanas y meses",
+      seoDescription: "Halla la fecha resultante de sumar o restar días, semanas, meses y años. Muestra el día de la semana, el día del año y el número de semana ISO 8601.",
+      h1: "Calculadora de fechas",
+      keywords: ["calculadora de fechas", "sumar días a una fecha", "fecha dentro de 90 días", "restar meses a una fecha", "día de la semana"],
+    },
+    'body-fat-calculator': {
+      name: "Calculadora de porcentaje de grasa corporal",
+      slug: "porcentaje-de-grasa-corporal",
+      shortDescription: "Estima la grasa corporal a partir de perímetros con el método de la Marina de EE. UU.",
+      seoTitle: "Calculadora de porcentaje de grasa corporal — método de perímetros de la Marina de EE. UU.",
+      seoDescription: "Estima tu porcentaje de grasa corporal a partir de los perímetros de cuello, cintura y cadera y de la estatura. Método de la Marina de EE. UU. (fórmula de Hodgdon y Beckett) con su exactitud explicada.",
+      h1: "Calculadora de porcentaje de grasa corporal",
+      keywords: ["calculadora de grasa corporal", "porcentaje de grasa corporal", "método de la marina de ee. uu.", "método de perímetros", "composición corporal"],
+    },
+    'screed-calculator': {
+      name: "Calculadora de solera de mortero",
+      slug: "solera-de-mortero",
+      shortDescription: "Estima el volumen de solera y el número de sacos de mortero seco para un suelo.",
+      seoTitle: "Calculadora de solera — volumen de mortero y sacos de mezcla seca",
+      seoDescription: "Calcula el volumen de solera en metros cúbicos, la masa de mezcla seca y cuántos sacos necesitas a partir de la superficie y el espesor de la capa.",
+      h1: "Calculadora de solera de mortero",
+      keywords: ["calculadora de solera", "volumen de solera", "cuántos sacos de mortero", "solera de suelo", "volumen de mortero"],
+    },
+    'brick-calculator': {
+      name: "Calculadora de ladrillos y bloques",
+      slug: "ladrillos-y-bloques",
+      shortDescription: "Ladrillos o bloques necesarios para un muro de una hoja.",
+      seoTitle: "Calculadora de ladrillos y bloques — piezas necesarias para un muro",
+      seoDescription: "Calcula cuántos ladrillos o bloques necesita un muro: tamaño o superficie del muro, huecos, tamaño de la pieza, junta de mortero y merma. Fábrica de una hoja.",
+      h1: "Calculadora de ladrillos y bloques",
+      keywords: ["calculadora de ladrillos", "calculadora de bloques", "ladrillos por muro", "fábrica de ladrillo", "junta de mortero"],
+    },
+    'margin-calculator': {
+      name: "Calculadora de margen y marcado",
+      slug: "calculadora-de-margen",
+      shortDescription: "Calcula el marcado, el margen, el beneficio y el precio de venta a partir del coste.",
+      seoTitle: "Calculadora de margen y marcado — precio, beneficio y porcentajes",
+      seoDescription: "Calcula el marcado, el margen, el beneficio y el precio de venta a partir del coste. Tres modos: desde el precio, desde el marcado y desde el margen, con la diferencia explicada.",
+      h1: "Calculadora de margen y marcado",
+      keywords: ["calculadora de margen", "calculadora de marcado", "margen frente a marcado", "margen bruto", "precio de venta"],
+    },
+    'break-even-calculator': {
+      name: "Calculadora del punto de equilibrio",
+      slug: "punto-de-equilibrio",
+      shortDescription: "Halla cuántas unidades tienes que vender para cubrir tus costes.",
+      seoTitle: "Calculadora del punto de equilibrio — unidades e ingresos",
+      seoDescription: "Calcula el punto de equilibrio en unidades y en dinero a partir de los costes fijos, el precio unitario y el coste variable. Margen de contribución, margen de seguridad y beneficio a un volumen previsto.",
+      h1: "Calculadora del punto de equilibrio",
+      keywords: ["calculadora del punto de equilibrio", "punto muerto", "margen de contribución", "margen de seguridad", "costes fijos y variables"],
     },
   },
   de: {
@@ -4479,6 +4534,7 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
   ...legacyCalculatorSeoByLocale,
   uk: { ...legacyCalculatorSeoByLocale.uk, ...v2UkCopy },
   de: { ...legacyCalculatorSeoByLocale.de, ...v2DeCopy },
+  es: { ...legacyCalculatorSeoByLocale.es, ...v2EsCopy },
 };
 
 // Немецкая локаль выпускается постепенно, поэтому её каталог — не весь каталог.
@@ -4491,6 +4547,14 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
 // локаль обесценил бы.
 const germanCalculatorIds = new Set<string>(
   Object.keys(calculatorSeoByLocale.de).filter((id) => deCalculatorContent[id] !== undefined),
+);
+
+// Испанская локаль наполняется тем же правилом, что и немецкая: страница
+// существует, только если у калькулятора есть и собственный испанский
+// копирайт, и подробный испанский текст. Общего шаблона нет намеренно —
+// страница без своего текста не собирается, а падает.
+const spanishCalculatorIds = new Set<string>(
+  Object.keys(calculatorSeoByLocale.es).filter((id) => esCalculatorContent[id] !== undefined),
 );
 
 function buildLocalizedCalculatorCopy(id: string, locale: Exclude<Locale, 'ru'>): CalcCopy {
@@ -4507,15 +4571,15 @@ function buildLocalizedCalculatorCopy(id: string, locale: Exclude<Locale, 'ru'>)
     return { ...copy, ...detailed };
   }
   if (locale === 'es') {
-    return {
-      ...copy,
-      longDescription: `Usa ${copy.name.toLowerCase()} para obtener una estimación rápida y comparar escenarios sin salir del navegador.`,
-      howToUse: ['Introduce los datos principales.', 'Ajusta las opciones si es necesario.', 'Revisa el resultado y copia el enlace si quieres compartirlo.'],
-      howItWorks: 'La calculadora aplica la fórmula correspondiente a los valores introducidos y muestra el resultado al instante.',
-      example: `Prueba ${copy.name.toLowerCase()} con valores de ejemplo para ver cómo cambia el resultado al modificar una entrada.`,
-      faq: faqForLocale(copy.name.toLowerCase(), locale),
-      disclaimer: copy.disclaimer ?? 'Los resultados son estimaciones orientativas. Verifica los datos antes de tomar decisiones importantes.',
-    };
+    // Испанская страница собирается только из собственного испанского текста.
+    // Общий шаблон, который стоял здесь раньше, писал «Usa … para obtener una
+    // estimación rápida» — один и тот же абзац на три сотни страниц. Заглушка
+    // хуже отсутствия страницы, поэтому её отсутствие — ошибка сборки.
+    const detailed = esCalculatorContent[id];
+    if (!detailed) {
+      throw new Error(`Испанский текст калькулятора ${id} отсутствует: страница не должна была попасть в сборку.`);
+    }
+    return { ...copy, ...detailed };
   }
   if (locale === 'fr') {
     return {
@@ -4891,6 +4955,50 @@ const legacyFieldLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, st
     capPeriod: 'Periodo de capitalización',
     discountPct: 'Descuento, %',
     discountAmt: 'Importe del descuento',
+    glueConsumption: 'Consumo de adhesivo, kg/m²',
+    packPrice: 'Precio del paquete',
+    "saturdayWorking": "Contar el sábado como laborable",
+    "shiftDirection": "Sentido",
+    "shiftYears": "Años",
+    "shiftMonths": "Meses",
+    "shiftWeeks": "Semanas",
+    "shiftDays": "Días",
+    "goalAdjustment": "Ajuste calórico según el objetivo, %",
+    "proteinPct": "Proporción de proteínas, %",
+    "fatPct": "Proporción de grasas, %",
+    "sex": "Sexo",
+    "neck": "Perímetro del cuello",
+    "waist": "Perímetro de la cintura",
+    "hip": "Perímetro de la cadera",
+    "rollPrice": "Precio por rollo",
+    "canPrice": "Precio por bote",
+    "underlayPrice": "Precio de la base por m²",
+    "thickness": "Espesor de la capa",
+    "mixConsumption": "Rendimiento, kg por m² para una capa de 1 cm",
+    "bagWeight": "Peso del saco",
+    "bagPrice": "Precio del saco",
+    "wallLength": "Largo del muro",
+    "wallHeight": "Alto del muro",
+    "openingsArea": "Superficie de los huecos",
+    "unitLength": "Largo de la pieza",
+    "unitHeight": "Alto de la pieza",
+    "joint": "Junta de mortero",
+    "extraPayment": "Amortización mensual adicional",
+    "oneTimeFee": "Comisión única",
+    "compounding": "Frecuencia de capitalización",
+    "downPaymentMode": "Formato de la entrada",
+    "downPaymentPct": "Entrada",
+    "monthlyInsurance": "Seguro y gastos mensuales",
+    "secondDiscountPct": "Descuento adicional, %",
+    "quantity": "Cantidad",
+    "cost": "Coste",
+    "sellPrice": "Precio de venta",
+    "markupPct": "Marcado",
+    "marginPct": "Margen",
+    "fixedCosts": "Costes fijos del periodo",
+    "unitPrice": "Precio de venta por unidad",
+    "variableCost": "Coste variable por unidad",
+    "plannedUnits": "Volumen de ventas previsto",
   },
   de: {
     amount: 'Betrag',
@@ -5811,6 +5919,31 @@ const legacyOptionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, s
     add: 'Añadir porcentaje',
     subtract: 'Restar porcentaje',
     findOriginal: 'Encontrar valor original',
+    what: '¿Qué porcentaje es A de B?',
+    addPct: 'Sumar un porcentaje a un número',
+    subPct: 'Restar un porcentaje de un número',
+    "forward": "Sumar a la fecha",
+    "backward": "Restar de la fecha",
+    "1.2": "Mínima — trabajo de oficina",
+    "1.375": "Ligera — 1-3 entrenamientos por semana",
+    "1.55": "Moderada — 3-5 entrenamientos por semana",
+    "1.725": "Alta — 6-7 entrenamientos por semana",
+    "1.9": "Muy alta — trabajo físico",
+    "dimensions": "Por dimensiones",
+    "USD": "USD — Dólar estadounidense",
+    "EUR": "EUR — Euro",
+    "MDL": "MDL — Leu moldavo",
+    "RON": "RON — Leu rumano",
+    "UAH": "UAH — Grivna ucraniana",
+    "PLN": "PLN — Esloti polaco",
+    "GBP": "GBP — Libra esterlina",
+    "CHF": "CHF — Franco suizo",
+    "TRY": "TRY — Lira turca",
+    "amount": "Importe",
+    "percent": "Porcentaje",
+    "fromPrice": "Coste y precio",
+    "fromMarkup": "Coste y marcado",
+    "fromMargin": "Coste y margen",
   },
   de: {
     years: 'Jahre',
@@ -6319,6 +6452,23 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
     };
     return germanUnits[unit] ?? unit;
   }
+  if (locale === 'es') {
+    // Английская карта переводит «% годовых» как «% yearly»: на испанской
+    // странице это оставалось английским словом прямо в подписи поля.
+    const spanishUnits: Record<string, string> = {
+      '₽': '€',
+      'мм': 'mm',
+      '₽ годовых': '% anual',
+      '% годовых': '% anual',
+      'кг': 'kg',
+      'г': 'g',
+      'см': 'cm',
+      'м': 'm',
+      'м²': 'm²',
+      'л': 'l',
+    };
+    return spanishUnits[unit] ?? unit;
+  }
   const currencyByLocale: Partial<Record<Locale, string>> = {
     en: '$',
     pl: 'zł',
@@ -6366,6 +6516,38 @@ const germanLegacyFieldOverrides: Record<string, Record<string, string>> = {
   'date-shift-calculator': { startDate: 'Ausgangsdatum' },
 };
 
+// Испанские подписи полей, зависящие от калькулятора.
+//
+// Столкновения имён у испанского те же, что у немецкого: «Altura» подходит стене
+// и не подходит человеку, «Tasa» — слишком общее слово для ставки по кредиту,
+// а `unitPrice` — это и единица товара, и один камень кладки.
+const spanishLegacyFieldOverrides: Record<string, Record<string, string>> = {
+  'credit-calculator': { amount: 'Importe del préstamo', rate: 'Tipo de interés' },
+  'compound-interest': { rate: 'Tipo anual' },
+  'mortgage-calculator': { price: 'Precio del inmueble', rate: 'Tipo de interés' },
+  'percent-calculator': { mode: 'Operación' },
+  'discount-calculator': { mode: 'El descuento se indica como', quantity: 'Número de artículos' },
+  'margin-calculator': { mode: 'Qué se conoce' },
+  'tile-calculator': { mode: 'Método de cálculo' },
+  'paint-calculator': { mode: 'Método de cálculo', height: 'Altura de la habitación' },
+  'screed-calculator': { mode: 'Método de cálculo' },
+  'wallpaper-calculator': { height: 'Altura de las paredes', length: 'Largo de la habitación', width: 'Ancho de la habitación' },
+  'laminate-calculator': { length: 'Largo de la habitación', width: 'Ancho de la habitación' },
+  'brick-calculator': { mode: 'El muro se indica como', manualArea: 'Superficie del muro', unitPrice: 'Precio por pieza' },
+  'bmi-calculator': { height: 'Estatura' },
+  'calorie-calculator': { height: 'Estatura' },
+  'body-fat-calculator': { height: 'Estatura' },
+  'one-rep-max-calculator': { weight: 'Peso de trabajo' },
+  'date-shift-calculator': { startDate: 'Fecha de partida' },
+};
+
+// Карта по локалям: та же схема, что и раньше, только выбор словаря стал данными,
+// а не цепочкой условий. Немецкий результат при этом не меняется.
+const legacyFieldOverridesByLocale: Partial<Record<Locale, Record<string, Record<string, string>>>> = {
+  de: germanLegacyFieldOverrides,
+  es: spanishLegacyFieldOverrides,
+};
+
 function localizeField(field: Field, locale: Locale, calculatorId: string): Field {
   if (locale === 'ru') return { ...field };
   const fieldLabels = fieldLabelsByLocale[locale];
@@ -6376,7 +6558,7 @@ function localizeField(field: Field, locale: Locale, calculatorId: string): Fiel
     // Имена полей вроде `mode` встречаются у многих калькуляторов сразу,
     // поэтому обращение к V2-локализации всегда идёт с идентификатором.
     label: lookupScoped(v2Localization, locale, calculatorId, 'fields', field.name)
-      ?? (locale === 'de' ? germanLegacyFieldOverrides[calculatorId]?.[field.name] : undefined)
+      ?? legacyFieldOverridesByLocale[locale]?.[calculatorId]?.[field.name]
       ?? fieldLabels[field.name] ?? field.label,
     unit: localizeUnit(field.unit, locale),
     help: field.help,
@@ -6439,7 +6621,9 @@ function localizeCalculator(calculator: CalculatorDef, locale: Locale): Calculat
     ),
     disclaimer: copy.disclaimer ?? (locale === 'uk'
       ? 'Результати є орієнтовними оцінками. Перед важливими рішеннями перевіряйте вихідні дані.'
-      : 'Results are reference estimates. Verify the inputs before making important decisions.'),
+      : locale === 'es'
+        ? 'Los resultados son estimaciones orientativas. Verifica los datos de partida antes de tomar decisiones importantes.'
+        : 'Results are reference estimates. Verify the inputs before making important decisions.'),
     relatedCalculatorIds: calculator.relatedCalculatorIds.filter((id) => globalCalculatorIds.has(id)),
   };
   const seoContent = getCalculatorSeoContent(localizedCalculator, locale);
@@ -6456,6 +6640,7 @@ export function isCalculatorAvailableInLocale(id: string, locale: Locale): boole
   // настоящий немецкий текст. Требование глобального паритета сохраняется,
   // поэтому русскоязычные по существу калькуляторы сюда не попадают.
   if (locale === 'de') return germanCalculatorIds.has(id) && globalCalculatorIds.has(id);
+  if (locale === 'es') return spanishCalculatorIds.has(id) && globalCalculatorIds.has(id);
   return globalCalculatorIds.has(id);
 }
 

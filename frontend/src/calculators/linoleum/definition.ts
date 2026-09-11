@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { linoleumCopyEn } from './copy.en';
 import { linoleumCopyUk } from './copy.uk';
 import { linoleumCopyDe } from './copy.de';
+import { linoleumCopyEs } from './copy.es';
 import { linoleumReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: linoleumCopyEn, uk: linoleumCopyUk, de: linoleumCopyDe },
+  copy: { en: linoleumCopyEn, uk: linoleumCopyUk, de: linoleumCopyDe, es: linoleumCopyEs },
   referenceCases: linoleumReferenceCases,
   publishedExample: { inputs: { length: 5, width: 3.5, rollWidth: 3, reserve: 5 }, expected: ["10,5 м"] },
   presentation: {

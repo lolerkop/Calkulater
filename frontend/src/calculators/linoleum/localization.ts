@@ -53,4 +53,29 @@ export const localization: CalculatorLocalization = {
       "Запас должен быть от 0 до 50 %": "Запас має бути від 0 до 50 %",
     },
   },
+  es: {
+    fields: {
+      "length": "Largo de la habitación, m",
+      "width": "Ancho de la habitación, m",
+      "rollWidth": "Ancho del rollo, m",
+      "reserve": "Margen, %",
+    },
+    options: {},
+    results: {
+      "Погонных метров": "Metros lineales",
+      "Полос": "Tiras",
+      "Площадь пола": "Superficie del suelo",
+      "Куплено": "Comprado",
+      "Обрезки": "Recorte",
+      "Швов": "Juntas",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м": "m",
+      "м²": "m²",
+      "Размеры комнаты должны быть больше нуля": "Las dimensiones de la habitación deben ser mayores que cero",
+      "Ширина рулона должна быть больше нуля": "El ancho del rollo debe ser mayor que cero",
+      "Запас должен быть от 0 до 50 %": "El margen debe estar entre 0 y 50 %",
+    },
+  },
 };

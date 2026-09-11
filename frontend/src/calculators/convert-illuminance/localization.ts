@@ -58,4 +58,36 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { ...ERRORS_UK, 'лк': 'лк', 'клк': 'клк', 'млк': 'млк', 'фк': 'фк', 'фот': 'фот', 'нокс': 'нокс' },
   },
+  es: {
+    fields: {
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+      "value": "Iluminancia",
+    },
+    options: {
+      "lx": "Lux (lx)",
+      "klx": "Kilolux (klx)",
+      "mlx": "Mililux (mlx)",
+      "fc": "Bujía-pie (fc)",
+      "ph": "Fot (ph)",
+      "nox": "Nox (nox)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+      "лк": "lx",
+      "клк": "klx",
+      "млк": "mlx",
+      "фк": "fc",
+      "фот": "ph",
+      "нокс": "nox",
+    },
+  },
 };

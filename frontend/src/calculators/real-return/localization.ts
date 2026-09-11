@@ -63,4 +63,28 @@ export const localization: CalculatorLocalization = {
     "Инфляция должна быть больше минус ста процентов": "Інфляція має бути більшою за мінус сто відсотків",
     },
   },
+  es: {
+    fields: {
+      "nominal": "Tipo nominal, %",
+      "inflation": "Inflación, %",
+      "amount": "Cantidad",
+      "years": "Años",
+    },
+    options: {},
+    results: {
+      "Реальная доходность": "Rentabilidad real",
+      "Грубая оценка разностью": "Estimación aproximada por resta",
+      "Расхождение с разностью": "Diferencia frente a la resta",
+      "Номинальная ставка": "Tipo nominal",
+      "Инфляция": "Inflación",
+      "Номинальная сумма": "Cantidad nominal",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "п.п.": "p. p.",
+      "₽": "€",
+      "Покупательная способность через": "Poder adquisitivo dentro de",
+      "Инфляция должна быть больше минус ста процентов": "La inflación debe ser mayor que menos cien por ciento",
+    },
+  },
 };

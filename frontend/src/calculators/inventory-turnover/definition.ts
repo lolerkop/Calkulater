@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { inventoryTurnoverCopyEn } from './copy.en';
 import { inventoryTurnoverCopyUk } from './copy.uk';
 import { inventoryTurnoverCopyDe } from './copy.de';
+import { inventoryTurnoverCopyEs } from './copy.es';
 import { inventoryTurnoverReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: inventoryTurnoverCopyEn, uk: inventoryTurnoverCopyUk, de: inventoryTurnoverCopyDe },
+  copy: { en: inventoryTurnoverCopyEn, uk: inventoryTurnoverCopyUk, de: inventoryTurnoverCopyDe, es: inventoryTurnoverCopyEs },
   referenceCases: inventoryTurnoverReferenceCases,
   publishedExample: { inputs: { cogs: 600000, mode: 'direct', avgInventory: 150000 }, expected: ["4,00 раз"] },
   presentation: {

@@ -25,13 +25,13 @@ export const copy: CategoryCopyByLocale = {
     h1: "Electronics calculators",
   },
   es: {
-    name: "Electronics calculators",
-    slug: "electronics",
-    description: "Current, voltage, resistance, power and circuit supply.",
-    longDescription: "Calculations for people who solder and build: the series resistor for an LED, Ohm's law solved in any direction, inverter draw and battery run time. Each calculator checks the physics — it will not accept a forward voltage above the supply, for instance.",
-    seoTitle: "Electronics calculators — Ohm's law, LED series resistor",
-    seoDescription: "Online electronics calculators: LED series resistor, Ohm's law, inverter power draw and battery run time.",
-    h1: "Electronics calculators",
+    name: "Electrónica",
+    slug: "electronica",
+    description: "Corriente, tensión, resistencia, potencia y alimentación de circuitos.",
+    longDescription: "Cálculos para quien suelda y monta: la resistencia en serie de un LED, la ley de Ohm resuelta en cualquier dirección, el consumo de un inversor y la autonomía de una batería. Cada calculadora comprueba la física: no acepta, por ejemplo, una tensión directa mayor que la de alimentación.",
+    seoTitle: "Calculadoras de electrónica — ley de Ohm y resistencia para LED",
+    seoDescription: "Calculadoras de electrónica online: resistencia en serie para LED, ley de Ohm, consumo de un inversor y autonomía de una batería.",
+    h1: "Calculadoras de electrónica",
   },
   de: {
     name: "Elektronik",
@@ -200,20 +200,20 @@ export const faq: CategoryFaqByLocale = {
   ],
   es: [
     {
-      q: "Why must the LED forward voltage be below the supply?",
-      a: "The resistor drops the difference between them. With no difference there is nothing to drop and no operating point, so the calculation has no meaning.",
+      q: "¿Por qué la tensión directa del LED debe ser menor que la de alimentación?",
+      a: "La resistencia absorbe la diferencia entre ambas. Si no hay diferencia, no hay nada que absorber ni punto de trabajo, y el cálculo pierde sentido.",
     },
     {
-      q: "What units should the current be in?",
-      a: "Milliamps or amps — the result is the same, and the unit is chosen next to the field.",
+      q: "¿En qué unidades se indica la corriente?",
+      a: "En miliamperios o en amperios: el resultado es el mismo y la unidad se elige junto al campo.",
     },
     {
-      q: "Are inrush current and battery sag included?",
-      a: "No. The calculations are deterministic and use only the values you enter; discharge curves and start-up peaks are not modelled.",
+      q: "¿Se tienen en cuenta la corriente de arranque y la caída de la batería?",
+      a: "No. Los cálculos son deterministas y parten solo de los valores introducidos; ni las curvas de descarga ni los picos de arranque están modelados.",
     },
     {
-      q: "Is a standard resistor value suggested?",
-      a: "No, the calculator gives the exact computed resistance. Picking the nearest E12 or E24 value is left to you.",
+      q: "¿Se sugiere un valor normalizado de resistencia?",
+      a: "No, la calculadora da la resistencia exacta calculada. Elegir el valor E12 o E24 más próximo queda de tu parte.",
     },
   ],
   de: [

@@ -70,4 +70,32 @@ export const localization: CalculatorLocalization = {
       'Плотность воздуха должна быть больше нуля': 'Густина повітря має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "m": "Masa, kg",
+      "a": "Área frontal, m²",
+      "cd": "Coeficiente de resistencia",
+      "rho": "Densidad del aire, kg/m³",
+    },
+    options: {},
+    results: {
+      "Предельная скорость": "Velocidad límite",
+      "В километрах в час": "En kilómetros por hora",
+      "Сила сопротивления при этой скорости": "Fuerza de resistencia a esa velocidad",
+      "Время разгона до 95 процентов": "Tiempo hasta el 95 por ciento",
+      "Путь до 95 процентов": "Distancia hasta el 95 por ciento",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м/с": "m/s",
+      "км/ч": "km/h",
+      "Н": "N",
+      "с": "s",
+      "м": "m",
+      "Масса должна быть больше нуля": "La masa debe ser mayor que cero",
+      "Площадь должна быть больше нуля": "El área debe ser mayor que cero",
+      "Коэффициент сопротивления должен быть больше нуля": "El coeficiente de resistencia debe ser mayor que cero",
+      "Плотность воздуха должна быть больше нуля": "La densidad del aire debe ser mayor que cero",
+    },
+  },
 };

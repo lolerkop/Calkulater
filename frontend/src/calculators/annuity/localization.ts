@@ -71,4 +71,33 @@ export const localization: CalculatorLocalization = {
         'Срок не может превышать 480 месяцев': 'Die Laufzeit darf 480 Monate nicht überschreiten',
       },
   },
+  es: {
+    fields: {
+      "amount": "Importe de la deuda",
+      "rate": "Tipo de interés",
+      "months": "Plazo, meses",
+    },
+    options: {},
+    results: {
+      "Ежемесячный платёж": "Cuota mensual",
+      "Всего выплат": "Total pagado",
+      "Переплата": "Intereses totales",
+      "Первый месяц: проценты": "Primer mes: intereses",
+      "Первый месяц: тело": "Primer mes: capital",
+      "Последний платёж": "Última cuota",
+      "Проверьте данные": "Revisa los datos",
+      "График платежей": "Tabla de amortización",
+      "Месяц": "Mes",
+      "Платёж": "Cuota",
+      "Проценты": "Intereses",
+      "Основной долг": "Capital",
+      "Остаток": "Saldo pendiente",
+    },
+    values: {
+      "Сумма должна быть больше нуля": "El importe debe ser mayor que cero",
+      "Ставка не может быть отрицательной": "El tipo de interés no puede ser negativo",
+      "Срок должен быть хотя бы один месяц": "El plazo debe ser de al menos un mes",
+      "Срок не может превышать 480 месяцев": "El plazo no puede superar los 480 meses",
+    },
+  },
 };

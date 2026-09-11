@@ -143,7 +143,15 @@ export type CalculatorLocaleBundle = {
 };
 
 /** Локали сборки, кроме русской: он базовый и переводу не подлежит. */
-export type TranslatedLocale = 'en' | 'uk' | 'de';
+/**
+ * Локали, у которых есть переводы калькуляторов. Состав объявлен один раз и
+ * списком, а не буквами в условиях: генератор, рантайм и ворота читают его
+ * отсюда. Раньше он был выписан буквами в нескольких местах, и одно из них
+ * отстало — остров молча отбрасывал немецкий и показывал русский результат.
+ */
+export const TRANSLATED_LOCALES = ['en', 'uk', 'de', 'es'] as const;
+
+export type TranslatedLocale = (typeof TRANSLATED_LOCALES)[number];
 
 export type CalculatorLocalization = Readonly<Partial<Record<TranslatedLocale, CalculatorLocaleBundle>>>;
 
@@ -153,7 +161,7 @@ export type ScopedLocalization = Readonly<
 >;
 
 export function isTranslatedLocale(locale: string): locale is TranslatedLocale {
-  return locale === 'en' || locale === 'uk' || locale === 'de';
+  return (TRANSLATED_LOCALES as readonly string[]).includes(locale);
 }
 
 /**
@@ -185,6 +193,7 @@ export type CalculatorDefinitionV2 = {
     readonly en?: CalculatorCopy;
     readonly uk?: CalculatorSeoCopy;
     readonly de?: CalculatorSeoCopy;
+    readonly es?: CalculatorSeoCopy;
   };
   readonly referenceCases?: readonly CalculatorReferenceCase[];
   readonly publishedExample?: CalculatorPublishedExample;

@@ -36,7 +36,7 @@ export const definition: CategoryDefinition = {
   editorial: {
     ru: "Фигуры считаются идеальными: рёбра прямые, поверхности гладкие, толщина стенок не учитывается. Для раскроя материала закладывайте запас на подрезку отдельно.",
     en: "The shapes are treated as ideal: straight edges, smooth surfaces and no wall thickness. Add a separate allowance for cutting waste when buying material.",
-    es: "The shapes are treated as ideal: straight edges, smooth surfaces and no wall thickness. Add a separate allowance for cutting waste when buying material.",
+    es: "Todas las dimensiones de una figura se introducen en la misma unidad. Las figuras imposibles se rechazan en lugar de devolver un número.",
     de: "The shapes are treated as ideal: straight edges, smooth surfaces and no wall thickness. Add a separate allowance for cutting waste when buying material.",
     fr: "The shapes are treated as ideal: straight edges, smooth surfaces and no wall thickness. Add a separate allowance for cutting waste when buying material.",
     it: "The shapes are treated as ideal: straight edges, smooth surfaces and no wall thickness. Add a separate allowance for cutting waste when buying material.",

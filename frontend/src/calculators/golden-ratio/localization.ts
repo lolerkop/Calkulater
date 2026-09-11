@@ -60,4 +60,27 @@ export const localization: CalculatorLocalization = {
       'Длина отрезка должна быть больше нуля': 'Довжина відрізка має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué necesitas",
+      "total": "Longitud del segmento",
+      "a": "Medida conocida",
+    },
+    options: {
+      "split": "dividir un segmento",
+      "grow": "hallar la pareja",
+    },
+    results: {
+      "Большая часть": "Parte mayor",
+      "Меньшая часть": "Parte menor",
+      "Больший отрезок": "Segmento mayor",
+      "Меньший отрезок": "Segmento menor",
+      "φ": "φ",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Значение должно быть больше нуля": "El valor debe ser mayor que cero",
+      "Длина отрезка должна быть больше нуля": "La longitud del segmento debe ser mayor que cero",
+    },
+  },
 };

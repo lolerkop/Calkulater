@@ -76,4 +76,29 @@ export const localization: CalculatorLocalization = {
       "База должна быть больше нуля": "База має бути більшою за нуль",
     },
   },
+  es: {
+    fields: {
+      "engagements": "Interacciones totales",
+      "base": "Calcular sobre",
+      "reach": "Alcance de la publicación",
+      "followers": "Seguidores",
+    },
+    options: {
+      "reach": "alcance",
+      "followers": "número de seguidores",
+    },
+    results: {
+      "Вовлечённость": "Tasa de interacción",
+      "База расчёта": "Base empleada",
+      "Реакций": "Interacciones",
+      "Реакций на тысячу": "Interacciones por millar",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "охват": "alcance",
+      "подписчики": "seguidores",
+      "Реакций не может быть отрицательное число": "El número de interacciones no puede ser negativo",
+      "База должна быть больше нуля": "La base debe ser mayor que cero",
+    },
+  },
 };

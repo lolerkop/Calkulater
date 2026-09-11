@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { emailMetricsCopyEn } from './copy.en';
 import { emailMetricsCopyUk } from './copy.uk';
 import { emailMetricsCopyDe } from './copy.de';
+import { emailMetricsCopyEs } from './copy.es';
 import { emailMetricsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: emailMetricsCopyEn, uk: emailMetricsCopyUk, de: emailMetricsCopyDe },
+  copy: { en: emailMetricsCopyEn, uk: emailMetricsCopyUk, de: emailMetricsCopyDe, es: emailMetricsCopyEs },
   referenceCases: emailMetricsReferenceCases,
   publishedExample: {
     inputs: { sent: 12000, delivered: 11640, opened: 3025, clicked: 412 },

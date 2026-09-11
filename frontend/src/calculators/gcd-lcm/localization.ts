@@ -66,4 +66,26 @@ export const localization: CalculatorLocalization = {
       "НОК этих чисел слишком велик для точного расчёта": "НСК цих чисел завеликий для точного обчислення",
     },
   },
+  es: {
+    fields: {
+      "numbers": "Números: uno por línea o separados por espacios",
+    },
+    options: {},
+    results: {
+      "НОД": "MCD",
+      "НОК": "MCM",
+      "Чисел": "Números",
+      "Взаимно простые": "Coprimos",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Не целое число:": "No es un número entero:",
+      "Не число:": "No es un número:",
+      "да": "sí",
+      "нет": "no",
+      "Числа должны быть больше нуля": "Los números deben ser mayores que cero",
+      "Нужно хотя бы два числа": "Hacen falta al menos dos números",
+      "НОК этих чисел слишком велик для точного расчёта": "El MCM de estos números es demasiado grande para calcularlo de forma exacta",
+    },
+  },
 };

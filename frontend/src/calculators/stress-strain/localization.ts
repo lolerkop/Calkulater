@@ -71,4 +71,36 @@ export const localization: CalculatorLocalization = {
       'Модуль Юнга должен быть больше нуля': 'Модуль Юнга має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "force": "Fuerza de tracción, N",
+      "area": "Área de la sección, mm²",
+      "length": "Longitud inicial, mm",
+      "delta": "Alargamiento, mm",
+      "e": "Módulo de Young, MPa",
+    },
+    options: {
+      "stress": "tensión",
+      "modulus": "módulo de Young",
+      "elongation": "alargamiento",
+    },
+    results: {
+      "Напряжение": "Tensión",
+      "Относительная деформация": "Deformación unitaria",
+      "Модуль Юнга": "Módulo de Young",
+      "Удлинение": "Alargamiento",
+      "Площадь сечения": "Área de la sección",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "МПа": "MPa",
+      "мм": "mm",
+      "мм²": "mm²",
+      "Площадь сечения должна быть больше нуля": "El área de la sección debe ser mayor que cero",
+      "Исходная длина должна быть больше нуля": "La longitud inicial debe ser mayor que cero",
+      "Удлинение не может быть нулевым: делить на него нечего": "El alargamiento no puede ser cero: no hay entre qué dividir",
+      "Модуль Юнга должен быть больше нуля": "El módulo de Young debe ser mayor que cero",
+    },
+  },
 };

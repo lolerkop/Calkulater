@@ -6,6 +6,7 @@ import { compute } from './compute';
 import { differenceAbsRelCopyEn } from './copy.en';
 import { differenceAbsRelCopyUk } from './copy.uk';
 import { differenceAbsRelCopyDe } from './copy.de';
+import { differenceAbsRelCopyEs } from './copy.es';
 import { differenceAbsRelReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: differenceAbsRelCopyEn, uk: differenceAbsRelCopyUk, de: differenceAbsRelCopyDe },
+  copy: { en: differenceAbsRelCopyEn, uk: differenceAbsRelCopyUk, de: differenceAbsRelCopyDe, es: differenceAbsRelCopyEs },
   referenceCases: differenceAbsRelReferenceCases,
   publishedExample: { inputs: { from: 100, to: 120 }, expected: ['20', '20,00 %'] },
   presentation: {

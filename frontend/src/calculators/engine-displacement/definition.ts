@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { engineDisplacementCopyEn } from './copy.en';
 import { engineDisplacementCopyUk } from './copy.uk';
 import { engineDisplacementCopyDe } from './copy.de';
+import { engineDisplacementCopyEs } from './copy.es';
 import { engineDisplacementReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: engineDisplacementCopyEn, uk: engineDisplacementCopyUk, de: engineDisplacementCopyDe },
+  copy: { en: engineDisplacementCopyEn, uk: engineDisplacementCopyUk, de: engineDisplacementCopyDe, es: engineDisplacementCopyEs },
   referenceCases: engineDisplacementReferenceCases,
   publishedExample: { inputs: { bore: 82, stroke: 86, cylinders: 4 }, expected: ["1 816,67 см³"] },
   presentation: {

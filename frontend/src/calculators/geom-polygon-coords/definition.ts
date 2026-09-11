@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geomPolygonCoordsCopyEn } from './copy.en';
 import { geomPolygonCoordsCopyUk } from './copy.uk';
 import { geomPolygonCoordsCopyDe } from './copy.de';
+import { geomPolygonCoordsCopyEs } from './copy.es';
 import { geomPolygonCoordsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomPolygonCoordsCopyEn, uk: geomPolygonCoordsCopyUk, de: geomPolygonCoordsCopyDe },
+  copy: { en: geomPolygonCoordsCopyEn, uk: geomPolygonCoordsCopyUk, de: geomPolygonCoordsCopyDe, es: geomPolygonCoordsCopyEs },
   referenceCases: geomPolygonCoordsReferenceCases,
   publishedExample: { inputs: { points: '0 0\n4 0\n4 3\n0 3' }, expected: ["12"] },
   presentation: {

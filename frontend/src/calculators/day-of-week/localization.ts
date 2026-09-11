@@ -56,4 +56,31 @@ export const localization: CalculatorLocalization = {
       'Введите существующую дату': 'Введіть дату, що існує',
     },
   },
+  es: {
+    fields: {
+      "date": "Fecha",
+    },
+    options: {},
+    results: {
+      "День недели": "Día de la semana",
+      "День года": "Día del año",
+      "Номер недели ISO": "Número de semana ISO",
+      "Дней в году": "Días del año",
+      "Выходной": "Fin de semana",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "понедельник": "lunes",
+      "вторник": "martes",
+      "среда": "miércoles",
+      "четверг": "jueves",
+      "пятница": "viernes",
+      "суббота": "sábado",
+      "воскресенье": "domingo",
+      "Да": "Sí",
+      "Нет": "No",
+      "последняя неделя предыдущего года": "última semana del año anterior",
+      "Введите существующую дату": "Introduce una fecha que exista",
+    },
+  },
 };

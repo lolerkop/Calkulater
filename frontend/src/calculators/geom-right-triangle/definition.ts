@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geomRightTriangleCopyEn } from './copy.en';
 import { geomRightTriangleCopyUk } from './copy.uk';
 import { geomRightTriangleCopyDe } from './copy.de';
+import { geomRightTriangleCopyEs } from './copy.es';
 import { geomRightTriangleReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomRightTriangleCopyEn, uk: geomRightTriangleCopyUk, de: geomRightTriangleCopyDe },
+  copy: { en: geomRightTriangleCopyEn, uk: geomRightTriangleCopyUk, de: geomRightTriangleCopyDe, es: geomRightTriangleCopyEs },
   referenceCases: geomRightTriangleReferenceCases,
   publishedExample: { inputs: { mode: 'legs', unit: 'm', a: 3, b: 4 }, expected: ["5 м"] },
   presentation: {

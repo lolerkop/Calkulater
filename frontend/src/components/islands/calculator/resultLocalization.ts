@@ -5,15 +5,17 @@
 // Чистый модуль: ни React, ни DOM, ни браузерных API.
 
 import type { CalcResult, CalculatorDef } from '../../../lib/types';
-import { localizedResultLabel, localizedResultText, type Locale } from '../../../lib/clientI18n';
+import type { Locale } from '../../../lib/clientI18n';
+import { localizeLabel as translateByRules, localizeText } from '../../../lib/resultText';
 import { calculatorCopy } from './copy';
 import { runtimeBucket, runtimeLocale, type CalculatorClientRuntime } from '../../../lib/platform/runtime';
 
-// Перевод подписи строки результата. Сначала — то, что объявил сам калькулятор,
-// затем общая карта. Одна и та же русская фраза у разных калькуляторов может
-// значить разное, поэтому обращение всегда с идентификатором.
+// Перевод подписи строки результата. Карта приходит из рантайма калькулятора:
+// собственные переводы плюс отобранные под него общие. Общего словаря в браузере
+// нет — одна и та же русская фраза у разных калькуляторов может значить разное,
+// и раздача по калькуляторам делает это невозможным по построению.
 function translateLabel(label: string, locale: Locale, runtime: CalculatorClientRuntime | undefined): string {
-  return runtimeLocale(runtime, locale, 'results', label) ?? localizedResultLabel(label, locale);
+  return translateByRules(label, locale, runtimeBucket(runtime, locale, 'results'));
 }
 
 // Число в русской записи: целая часть с неразрывными пробелами между тройками и
@@ -38,7 +40,7 @@ function toEnglishDigitSeparators(value: string): string {
 // подстановку с приоритетом. Отдельный точный поиск по целой строке здесь не
 // годится — обозначения единиц всегда приходят фрагментом внутри значения.
 function localizeValue(value: string, locale: Locale, runtime: CalculatorClientRuntime | undefined): string {
-  const translated = localizedResultText(value, locale, runtimeBucket(runtime, locale, 'values'));
+  const translated = localizeText(value, locale, runtimeBucket(runtime, locale, 'values') ?? {});
   return locale === 'en' ? toEnglishDigitSeparators(translated) : translated;
 }
 

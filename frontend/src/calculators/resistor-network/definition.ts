@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { resistorNetworkCopyEn } from './copy.en';
 import { resistorNetworkCopyUk } from './copy.uk';
 import { resistorNetworkCopyDe } from './copy.de';
+import { resistorNetworkCopyEs } from './copy.es';
 import { resistorNetworkReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: resistorNetworkCopyEn, uk: resistorNetworkCopyUk, de: resistorNetworkCopyDe },
+  copy: { en: resistorNetworkCopyEn, uk: resistorNetworkCopyUk, de: resistorNetworkCopyDe, es: resistorNetworkCopyEs },
   referenceCases: resistorNetworkReferenceCases,
   publishedExample: { inputs: { resistances: '100 220 330', mode: 'series' }, expected: ["650 Ом"] },
   presentation: {

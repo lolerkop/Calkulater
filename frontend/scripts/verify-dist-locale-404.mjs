@@ -9,9 +9,10 @@
 
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+import { distLocales } from './lib/locales.mjs';
 
 const DIST = path.resolve('dist');
-const LOCALES = ['ru', 'en', 'uk', 'de'];
+const LOCALES = distLocales(DIST);
 const problems = [];
 const report = (kind, detail) => problems.push(`${kind}: ${detail}`);
 

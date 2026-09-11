@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { inclinedPlaneCopyEn } from './copy.en';
 import { inclinedPlaneCopyUk } from './copy.uk';
 import { inclinedPlaneCopyDe } from './copy.de';
+import { inclinedPlaneCopyEs } from './copy.es';
 import { inclinedPlaneReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: inclinedPlaneCopyEn, uk: inclinedPlaneCopyUk, de: inclinedPlaneCopyDe },
+  copy: { en: inclinedPlaneCopyEn, uk: inclinedPlaneCopyUk, de: inclinedPlaneCopyDe, es: inclinedPlaneCopyEs },
   referenceCases: inclinedPlaneReferenceCases,
   publishedExample: { inputs: { m: 50, angle: 30, mu: 0.2 }, expected: ["245,17 Н"] },
   presentation: {

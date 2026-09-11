@@ -64,4 +64,30 @@ export const localization: CalculatorLocalization = {
       'Коэффициент использования не может превышать предел Бетца 0,593': 'Коефіцієнт використання не може перевищувати межу Бетца 0,593',
     },
   },
+  es: {
+    fields: {
+      "d": "Diámetro del rotor, m",
+      "v": "Velocidad del viento, m/s",
+      "cp": "Coeficiente de potencia",
+      "rho": "Densidad del aire, kg/m³",
+    },
+    options: {},
+    results: {
+      "Снимаемая мощность": "Potencia extraída",
+      "Мощность потока": "Potencia del viento",
+      "Ометаемая площадь": "Área barrida",
+      "Предел Бетца": "Límite de Betz",
+      "Выработка за сутки": "Producción diaria",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кВт": "kW",
+      "м²": "m²",
+      "кВт·ч": "kWh",
+      "Диаметр должен быть больше нуля": "El diámetro debe ser mayor que cero",
+      "Скорость ветра не может быть отрицательной": "La velocidad del viento no puede ser negativa",
+      "Плотность воздуха должна быть больше нуля": "La densidad del aire debe ser mayor que cero",
+      "Коэффициент использования не может превышать предел Бетца 0,593": "El coeficiente de potencia no puede superar el límite de Betz de 0,593",
+    },
+  },
 };

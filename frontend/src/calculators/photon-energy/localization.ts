@@ -48,4 +48,26 @@ export const localization: CalculatorLocalization = {
       'Длина волны должна быть больше нуля': 'Довжина хвилі має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "wavelengthNm": "Longitud de onda, nm",
+    },
+    options: {},
+    results: {
+      "Энергия фотона": "Energía del fotón",
+      "В электронвольтах": "En electronvoltios",
+      "Частота": "Frecuencia",
+      "Волновое число": "Número de onda",
+      "Длина волны": "Longitud de onda",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Дж": "J",
+      "эВ": "eV",
+      "Гц": "Hz",
+      "1/см": "1/cm",
+      "нм": "nm",
+      "Длина волны должна быть больше нуля": "La longitud de onda debe ser mayor que cero",
+    },
+  },
 };

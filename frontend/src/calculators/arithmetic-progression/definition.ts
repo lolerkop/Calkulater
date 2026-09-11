@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { arithmeticProgressionCopyEn } from './copy.en';
 import { arithmeticProgressionCopyUk } from './copy.uk';
 import { arithmeticProgressionCopyDe } from './copy.de';
+import { arithmeticProgressionCopyEs } from './copy.es';
 import { arithmeticProgressionReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: arithmeticProgressionCopyEn, uk: arithmeticProgressionCopyUk, de: arithmeticProgressionCopyDe },
+  copy: { en: arithmeticProgressionCopyEn, uk: arithmeticProgressionCopyUk, de: arithmeticProgressionCopyDe, es: arithmeticProgressionCopyEs },
   referenceCases: arithmeticProgressionReferenceCases,
   publishedExample: { inputs: { a1: 3, d: 5, n: 10 }, expected: ["48"] },
   presentation: {

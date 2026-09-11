@@ -54,4 +54,26 @@ export const localization: CalculatorLocalization = {
       'Собственное время должно быть больше нуля': 'Власний час має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "beta": "Fracción de la velocidad de la luz",
+      "properTime": "Tiempo propio, s",
+    },
+    options: {},
+    results: {
+      "Замедленное время": "Tiempo dilatado",
+      "Множитель Лоренца": "Factor de Lorentz",
+      "Сокращение длины": "Contracción de la longitud",
+      "Скорость": "Velocidad",
+      "Разница во времени": "Diferencia de tiempo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "с": "s",
+      "м/с": "m/s",
+      "Доля скорости света не может быть отрицательной": "La fracción de la velocidad de la luz no puede ser negativa",
+      "Достичь скорости света нельзя: доля должна быть меньше единицы": "No se puede alcanzar la velocidad de la luz: la fracción debe ser menor que uno",
+      "Собственное время должно быть больше нуля": "El tiempo propio debe ser mayor que cero",
+    },
+  },
 };

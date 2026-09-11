@@ -9,6 +9,7 @@ import { densityNames, densityUnits } from './units';
 import { densityCopyEn } from './copy.en';
 import { densityCopyUk } from './copy.uk';
 import { densityCopyDe } from './copy.de';
+import { convertDensityCopyEs } from './copy.es';
 import { densityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -16,7 +17,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: densityCopyEn, uk: densityCopyUk, de: densityCopyDe },
+  copy: { en: densityCopyEn, uk: densityCopyUk, de: densityCopyDe, es: convertDensityCopyEs },
   referenceCases: densityReferenceCases,
   publishedExample: { inputs: { value: 1, from: 'gcm3', to: 'kgm3' }, expected: ['1 000,00 кг/м³'] },
   presentation: {

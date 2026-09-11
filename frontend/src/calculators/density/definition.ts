@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { densityCopyEn } from './copy.en';
 import { densityCopyUk } from './copy.uk';
 import { densityCopyDe } from './copy.de';
+import { densityCopyEs } from './copy.es';
 import { densityReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: densityCopyEn, uk: densityCopyUk, de: densityCopyDe },
+  copy: { en: densityCopyEn, uk: densityCopyUk, de: densityCopyDe, es: densityCopyEs },
   referenceCases: densityReferenceCases,
   publishedExample: { inputs: { mode: 'rho', m: 1000, V: 1 }, expected: ["1 000 кг/м³"] },
   presentation: {

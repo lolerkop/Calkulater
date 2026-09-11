@@ -8,6 +8,7 @@ import { temperatureNames, temperatureUnits } from './units';
 import { temperatureCopyEn } from './copy.en';
 import { temperatureCopyUk } from './copy.uk';
 import { convertTemperatureCopyDe } from './copy.de';
+import { convertTemperatureCopyEs } from './copy.es';
 import { temperatureReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -15,7 +16,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: temperatureCopyEn, uk: temperatureCopyUk, de: convertTemperatureCopyDe },
+  copy: { en: temperatureCopyEn, uk: temperatureCopyUk, de: convertTemperatureCopyDe, es: convertTemperatureCopyEs },
   referenceCases: temperatureReferenceCases,
   publishedExample: { inputs: { value: 100, from: 'c', to: 'f' }, expected: ['212,0000 °F'] },
   presentation: {

@@ -67,4 +67,30 @@ export const localization: CalculatorLocalization = {
       'Выберите период из списка': 'Оберіть період зі списку',
     },
   },
+  es: {
+    fields: {
+      "amount": "Importe, €",
+      "fromPeriod": "Periodo del importe",
+      "toPeriod": "Convertir a",
+    },
+    options: {
+      "hour": "por hora",
+      "day": "por día",
+      "week": "por semana",
+      "month": "por mes",
+      "year": "por año",
+    },
+    results: {
+      "Зарплата за выбранный период": "Salario del periodo elegido",
+      "В час": "Por hora",
+      "В день": "Por día",
+      "В месяц": "Por mes",
+      "В год": "Por año",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Сумма должна быть больше нуля": "El importe debe ser mayor que cero",
+      "Выберите период из списка": "Elige un periodo de la lista",
+    },
+  },
 };

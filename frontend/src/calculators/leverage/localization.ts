@@ -67,4 +67,27 @@ export const localization: CalculatorLocalization = {
       'Поддерживающая маржа должна быть от нуля до ста процентов': 'Підтримувальна маржа має бути від нуля до ста відсотків',
     },
   },
+  es: {
+    fields: {
+      "equity": "Garantía aportada, €",
+      "leverage": "Apalancamiento, ×",
+      "entry": "Precio de entrada, €",
+      "maintenancePct": "Margen de mantenimiento, %",
+    },
+    options: {},
+    results: {
+      "Размер позиции": "Tamaño de la posición",
+      "Единиц позиции": "Unidades en cartera",
+      "Цена ликвидации": "Precio de liquidación",
+      "Падение до ликвидации": "Caída hasta la liquidación",
+      "Залог": "Garantía aportada",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Залог должен быть больше нуля": "La garantía debe ser mayor que cero",
+      "Плечо не может быть меньше единицы": "El apalancamiento no puede ser menor que uno",
+      "Цена входа должна быть больше нуля": "El precio de entrada debe ser mayor que cero",
+      "Поддерживающая маржа должна быть от нуля до ста процентов": "El margen de mantenimiento debe estar entre cero y cien por ciento",
+    },
+  },
 };

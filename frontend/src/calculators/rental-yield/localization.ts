@@ -82,4 +82,31 @@ export const localization: CalculatorLocalization = {
       "Расходы не могут превышать арендную плату": "Витрати не можуть перевищувати орендну плату",
     },
   },
+  es: {
+    fields: {
+      "price": "Precio de compra, €",
+      "rentMode": "La renta se indica",
+      "annualRent": "Renta anual, €",
+      "monthlyRent": "Renta mensual, €",
+      "annualCosts": "Gastos anuales, €",
+    },
+    options: {
+      "annual": "al año",
+      "monthly": "al mes",
+    },
+    results: {
+      "Валовая доходность": "Rentabilidad bruta",
+      "Чистая доходность": "Rentabilidad neta",
+      "Аренда за год": "Renta anual",
+      "Окупаемость": "Plazo de recuperación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "лет": "años",
+      "Цена покупки должна быть больше нуля": "El precio de compra debe ser mayor que cero",
+      "Аренда не может быть отрицательной": "La renta no puede ser negativa",
+      "Расходы не могут превышать арендную плату": "Los gastos no pueden superar a la renta",
+    },
+  },
 };

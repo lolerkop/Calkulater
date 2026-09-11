@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { resistorColorCopyEn } from './copy.en';
 import { resistorColorCopyUk } from './copy.uk';
 import { resistorColorCopyDe } from './copy.de';
+import { resistorColorCopyEs } from './copy.es';
 import { resistorColorReferenceCases } from './referenceCases';
 
 // Подписи вариантов — только цвета, и это не экономия текста.
@@ -35,7 +36,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: resistorColorCopyEn, uk: resistorColorCopyUk, de: resistorColorCopyDe },
+  copy: { en: resistorColorCopyEn, uk: resistorColorCopyUk, de: resistorColorCopyDe, es: resistorColorCopyEs },
   referenceCases: resistorColorReferenceCases,
   publishedExample: { inputs: { b1: 4, b2: 7, mult: 2, tol: 5 }, expected: ["4,7 кОм"] },
   presentation: {

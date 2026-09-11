@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { feeChainCopyEn } from './copy.en';
 import { feeChainCopyUk } from './copy.uk';
 import { feeChainCopyDe } from './copy.de';
+import { feeChainCopyEs } from './copy.es';
 import { feeChainReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: feeChainCopyEn, uk: feeChainCopyUk, de: feeChainCopyDe },
+  copy: { en: feeChainCopyEn, uk: feeChainCopyUk, de: feeChainCopyDe, es: feeChainCopyEs },
   referenceCases: feeChainReferenceCases,
   publishedExample: {
     inputs: { price: 2000, commissionPct: 17, acquiringPct: 1.5, logistics: 55, storage: 0, cost: 900 },

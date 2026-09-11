@@ -56,4 +56,27 @@ export const localization: CalculatorLocalization = {
       'Норма единицы должна быть больше нуля': 'Норма одиниці має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "volume_ml": "Volumen de la consumición, ml",
+      "abv": "Graduación, % vol.",
+      "standard_g": "Definición de unidad, g de alcohol",
+    },
+    options: {},
+    results: {
+      "Стандартных единиц": "Unidades estándar",
+      "Чистого спирта по массе": "Alcohol puro en masa",
+      "Чистого спирта по объёму": "Alcohol puro en volumen",
+      "Норма единицы": "Definición de unidad",
+      "Крепость": "Graduación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мл": "ml",
+      "г": "g",
+      "Объём должен быть больше нуля": "El volumen debe ser mayor que cero",
+      "Крепость должна быть от 0 до 100 %": "La graduación debe estar entre 0 y 100 %",
+      "Норма единицы должна быть больше нуля": "La definición de unidad debe ser mayor que cero",
+    },
+  },
 };

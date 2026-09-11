@@ -82,4 +82,31 @@ export const localization: CalculatorLocalization = {
       "Введите хотя бы один ингредиент": "Введіть хоча б один інгредієнт",
     },
   },
+  es: {
+    fields: {
+      "flour": "Harina, g",
+      "ingredients": "Ingredientes: nombre y porcentaje de la harina por línea",
+    },
+    options: {},
+    results: {
+      "Вес теста": "Peso de la masa",
+      "Гидратация": "Hidratación",
+      "Мука": "Harina",
+      "Ингредиентов": "Ingredientes",
+      "Ингредиенты по пекарским процентам": "Ingredientes en porcentaje de panadero",
+      "Ингредиент": "Ingrediente",
+      "Процент": "Porcentaje",
+      "Вес, г": "Peso, g",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Нужны название и процент в строке:": "Hacen falta un nombre y un porcentaje en la línea:",
+      "Процент должен быть числом в строке:": "El porcentaje debe ser un número en la línea:",
+      "г": "g",
+      "Мука всегда принимается за 100 %, поэтому сумма процентов больше ста — это норма.": "La harina se toma siempre como 100 %, así que es normal que los porcentajes sumen más de cien.",
+      "Вес муки должен быть больше нуля": "El peso de la harina debe ser mayor que cero",
+      "Процент не может быть отрицательным": "Un porcentaje no puede ser negativo",
+      "Введите хотя бы один ингредиент": "Introduce al menos un ingrediente",
+    },
+  },
 };

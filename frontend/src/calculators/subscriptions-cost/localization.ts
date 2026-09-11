@@ -74,4 +74,30 @@ export const localization: CalculatorLocalization = {
       "Введите хотя бы одну подписку": "Введіть хоча б одну підписку",
     },
   },
+  es: {
+    fields: {
+      "items": "Suscripciones: nombre, precio y periodo en meses por línea",
+    },
+    options: {},
+    results: {
+      "В месяц": "Al mes",
+      "В год": "Al año",
+      "Подписок": "Suscripciones",
+      "Самая дорогая": "La más cara",
+      "Её вклад в месяц": "Su aportación mensual",
+      "Подписки в пересчёте на месяц": "Suscripciones convertidas a mensual",
+      "Подписка": "Suscripción",
+      "Цена": "Precio",
+      "Месяцев": "Meses",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Нужны название, цена и период в месяцах в строке:": "Hacen falta un nombre, un precio y un periodo en meses en la línea:",
+      "Цена и период должны быть числами в строке:": "El precio y el periodo deben ser números en la línea:",
+      "Период в месяцах должен быть больше нуля в строке:": "El periodo en meses debe ser mayor que cero en la línea:",
+      "Цена не может быть отрицательной": "El precio no puede ser negativo",
+      "Введите хотя бы одну подписку": "Introduce al menos una suscripción",
+    },
+  },
 };

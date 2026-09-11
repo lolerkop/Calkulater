@@ -6,6 +6,7 @@ import { compute } from './compute';
 import { shippingPerUnitCopyEn } from './copy.en';
 import { shippingPerUnitCopyUk } from './copy.uk';
 import { shippingPerUnitCopyDe } from './copy.de';
+import { shippingPerUnitCopyEs } from './copy.es';
 import { shippingPerUnitReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -13,7 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: shippingPerUnitCopyEn, uk: shippingPerUnitCopyUk, de: shippingPerUnitCopyDe },
+  copy: { en: shippingPerUnitCopyEn, uk: shippingPerUnitCopyUk, de: shippingPerUnitCopyDe, es: shippingPerUnitCopyEs },
   referenceCases: shippingPerUnitReferenceCases,
   publishedExample: { inputs: { shipping: 1500, units: 25 }, expected: ['60 ₽'] },
   presentation: {

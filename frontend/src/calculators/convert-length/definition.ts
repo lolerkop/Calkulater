@@ -8,6 +8,7 @@ import { lengthNames, lengthUnits } from './units';
 import { lengthCopyEn } from './copy.en';
 import { lengthCopyUk } from './copy.uk';
 import { lengthCopyDe } from './copy.de';
+import { convertLengthCopyEs } from './copy.es';
 import { lengthReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -15,7 +16,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: lengthCopyEn, uk: lengthCopyUk, de: lengthCopyDe },
+  copy: { en: lengthCopyEn, uk: lengthCopyUk, de: lengthCopyDe, es: convertLengthCopyEs },
   referenceCases: lengthReferenceCases,
   publishedExample: { inputs: { value: 1, from: 'in', to: 'cm' }, expected: ['2,5400 см'] },
   presentation: {

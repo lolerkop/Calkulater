@@ -53,4 +53,23 @@ export const localization: CalculatorLocalization = {
       "Введите три или шесть шестнадцатеричных знаков": "Введіть три або шість шістнадцяткових знаків",
     },
   },
+  es: {
+    fields: {
+      "hex": "Código de color hexadecimal",
+    },
+    options: {},
+    results: {
+      "RGB": "RGB",
+      "HSL": "HSL",
+      "HEX": "HEX",
+      "Яркость": "Luminosidad",
+      "Красный": "Rojo",
+      "Зелёный": "Verde",
+      "Синий": "Azul",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Введите три или шесть шестнадцатеричных знаков": "Introduce tres o seis caracteres hexadecimales",
+    },
+  },
 };

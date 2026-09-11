@@ -58,4 +58,29 @@ export const localization: CalculatorLocalization = {
       'Высота броска не может быть отрицательной': "Висота кидка не може бути від'ємною",
     },
   },
+  es: {
+    fields: {
+      "v0": "Velocidad inicial, m/s",
+      "angle": "Ángulo con el horizonte, °",
+      "h0": "Altura de lanzamiento, m",
+    },
+    options: {},
+    results: {
+      "Дальность": "Alcance",
+      "Время полёта": "Tiempo de vuelo",
+      "Высшая точка": "Altura máxima",
+      "Горизонтальная составляющая": "Componente horizontal",
+      "Вертикальная составляющая": "Componente vertical",
+      "Время до высшей точки": "Tiempo hasta la altura máxima",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м/с": "m/s",
+      "м": "m",
+      "с": "s",
+      "Начальная скорость должна быть больше нуля": "La velocidad inicial debe ser mayor que cero",
+      "Угол должен быть от 0 до 90 градусов": "El ángulo debe estar entre 0 y 90 grados",
+      "Высота броска не может быть отрицательной": "La altura de lanzamiento no puede ser negativa",
+    },
+  },
 };

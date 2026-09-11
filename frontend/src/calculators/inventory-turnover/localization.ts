@@ -79,4 +79,30 @@ export const localization: CalculatorLocalization = {
       "Средний запас должен быть больше нуля": "Середній запас має бути більшим за нуль",
     },
   },
+  es: {
+    fields: {
+      "cogs": "Coste de las mercancías vendidas del periodo, €",
+      "mode": "Existencias medias",
+      "avgInventory": "Existencias medias, €",
+      "beginInventory": "Existencia inicial, €",
+      "endInventory": "Existencia final, €",
+    },
+    options: {
+      "direct": "se conocen",
+      "beginEnd": "calcular a partir de los saldos",
+    },
+    results: {
+      "Оборачиваемость": "Rotación",
+      "Срок хранения": "Días de cobertura",
+      "Средний запас": "Existencias medias",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "раз": "veces",
+      "дней": "días",
+      "Себестоимость продаж должна быть больше нуля": "El coste de las mercancías vendidas debe ser mayor que cero",
+      "Средний запас должен быть больше нуля": "Las existencias medias deben ser mayores que cero",
+    },
+  },
 };

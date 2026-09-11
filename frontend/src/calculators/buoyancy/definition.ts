@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { buoyancyCopyEn } from './copy.en';
 import { buoyancyCopyUk } from './copy.uk';
 import { buoyancyCopyDe } from './copy.de';
+import { buoyancyCopyEs } from './copy.es';
 import { buoyancyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: buoyancyCopyEn, uk: buoyancyCopyUk, de: buoyancyCopyDe },
+  copy: { en: buoyancyCopyEn, uk: buoyancyCopyUk, de: buoyancyCopyDe, es: buoyancyCopyEs },
   referenceCases: buoyancyReferenceCases,
   publishedExample: { inputs: { volume: 0.02, rhoFluid: 1000, mass: 15 }, expected: ["196,13 Н"] },
   presentation: {

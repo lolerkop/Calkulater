@@ -68,4 +68,32 @@ export const localization: CalculatorLocalization = {
       'Удвоенная стенка не может быть больше наружного диаметра или равна ему': 'Подвоєна стінка не може досягати зовнішнього діаметра',
     },
   },
+  es: {
+    fields: {
+      "d": "Diámetro exterior, mm",
+      "wall": "Espesor de pared, mm",
+      "len": "Longitud, m",
+      "rho": "Densidad del material, kg/m³",
+    },
+    options: {},
+    results: {
+      "Масса трубы": "Masa del tubo",
+      "Масса погонного метра": "Masa por metro lineal",
+      "Внутренний диаметр": "Diámetro interior",
+      "Площадь сечения металла": "Área de la sección",
+      "Объём внутренней полости": "Volumen interior",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кг": "kg",
+      "кг/м": "kg/m",
+      "мм": "mm",
+      "см²": "cm²",
+      "Наружный диаметр должен быть больше нуля": "El diámetro exterior debe ser mayor que cero",
+      "Толщина стенки должна быть больше нуля": "El espesor de pared debe ser mayor que cero",
+      "Длина должна быть больше нуля": "La longitud debe ser mayor que cero",
+      "Плотность должна быть больше нуля": "La densidad debe ser mayor que cero",
+      "Удвоенная стенка не может быть больше наружного диаметра или равна ему": "El doble de la pared no puede alcanzar el diámetro exterior",
+    },
+  },
 };

@@ -35,5 +35,6 @@ export const definition: CategoryDefinition = {
     en: "Calculations follow the definitions of the operations involved. Very large numbers may lose their least significant digits to ordinary browser numeric precision.",
     uk: "Розрахунок виконується за визначеннями відповідних операцій. Для дуже великих чисел можлива втрата молодших розрядів через звичайну числову точність браузера.",
     de: "Die Berechnungen folgen den Definitionen der beteiligten Operationen. Sehr große Zahlen können die letzten Stellen an die Gleitkommadarstellung verlieren.",
+    es: "El cálculo se realiza según las definiciones de las operaciones implicadas. En números muy grandes pueden perderse las últimas cifras por la precisión numérica habitual del navegador.",
   },
 };

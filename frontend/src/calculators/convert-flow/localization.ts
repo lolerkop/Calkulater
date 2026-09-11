@@ -60,4 +60,38 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { ...ERRORS_UK, 'м³/с': 'м³/с', 'м³/ч': 'м³/год', 'л/с': 'л/с', 'л/мин': 'л/хв', 'л/ч': 'л/год', 'ft³/мин': 'ft³/хв', 'гал/мин': 'гал/хв' },
   },
+  es: {
+    fields: {
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+      "value": "Caudal",
+    },
+    options: {
+      "m3s": "Metro cúbico por segundo (m³/s)",
+      "m3h": "Metro cúbico por hora (m³/h)",
+      "ls": "Litro por segundo (l/s)",
+      "lmin": "Litro por minuto (l/min)",
+      "lh": "Litro por hora (l/h)",
+      "ft3min": "Pie cúbico por minuto (CFM)",
+      "galmin": "Galón estadounidense por minuto (GPM)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+      "м³/с": "m³/s",
+      "м³/ч": "m³/h",
+      "л/с": "l/s",
+      "л/мин": "l/min",
+      "л/ч": "l/h",
+      "ft³/мин": "CFM",
+      "гал/мин": "GPM",
+    },
+  },
 };

@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geomTrapezoidCopyEn } from './copy.en';
 import { geomTrapezoidCopyUk } from './copy.uk';
 import { geomTrapezoidCopyDe } from './copy.de';
+import { geomTrapezoidCopyEs } from './copy.es';
 import { geomTrapezoidReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomTrapezoidCopyEn, uk: geomTrapezoidCopyUk, de: geomTrapezoidCopyDe },
+  copy: { en: geomTrapezoidCopyEn, uk: geomTrapezoidCopyUk, de: geomTrapezoidCopyDe, es: geomTrapezoidCopyEs },
   referenceCases: geomTrapezoidReferenceCases,
   publishedExample: { inputs: { unit: 'm', a: 10, b: 6, h: 4 }, expected: ["32 м²"] },
   presentation: {

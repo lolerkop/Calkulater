@@ -79,4 +79,32 @@ export const localization: CalculatorLocalization = {
       'Время должно быть больше нуля': 'Час має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "v0": "Velocidad inicial, m/s",
+      "v": "Velocidad final, m/s",
+      "a": "Aceleración, m/s²",
+      "t": "Tiempo, s",
+    },
+    options: {
+      "a": "aceleración",
+      "v": "velocidad final",
+    },
+    results: {
+      "Ускорение": "Aceleración",
+      "Конечная скорость": "Velocidad final",
+      "Изменение скорости": "Cambio de velocidad",
+      "Пройденный путь": "Distancia recorrida",
+      "Время": "Tiempo",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м/с²": "m/s²",
+      "м/с": "m/s",
+      "м": "m",
+      "с": "s",
+      "Время должно быть больше нуля": "El tiempo debe ser mayor que cero",
+    },
+  },
 };

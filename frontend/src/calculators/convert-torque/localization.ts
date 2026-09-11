@@ -57,4 +57,35 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { ...ERRORS_UK, 'Н·м': 'Н·м', 'кН·м': 'кН·м', 'Н·см': 'Н·см', 'кгс·м': 'кгс·м' },
   },
+  es: {
+    fields: {
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+      "value": "Par",
+    },
+    options: {
+      "nm": "Newton metro (N·m)",
+      "knm": "Kilonewton metro (kN·m)",
+      "ncm": "Newton centímetro (N·cm)",
+      "kgfm": "Kilogramo-fuerza metro (kgf·m)",
+      "lbfft": "Libra-fuerza pie (lbf·ft)",
+      "lbfin": "Libra-fuerza pulgada (lbf·in)",
+      "ozfin": "Onza-fuerza pulgada (ozf·in)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+      "Н·м": "N·m",
+      "кН·м": "kN·m",
+      "Н·см": "N·cm",
+      "кгс·м": "kgf·m",
+    },
+  },
 };

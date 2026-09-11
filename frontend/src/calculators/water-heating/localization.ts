@@ -67,4 +67,33 @@ export const localization: CalculatorLocalization = {
       'Конечная температура должна быть выше начальной': 'Кінцева температура має бути вищою за початкову',
     },
   },
+  es: {
+    fields: {
+      "volume": "Volumen de agua, l",
+      "tFrom": "Temperatura inicial, °C",
+      "tTo": "Temperatura objetivo, °C",
+      "power": "Potencia del calentador, kW",
+      "efficiency": "Rendimiento, %",
+    },
+    options: {},
+    results: {
+      "Время нагрева": "Tiempo de calentamiento",
+      "Часы и минуты": "Horas y minutos",
+      "Энергия": "Energía",
+      "Полезная мощность": "Potencia útil",
+      "Перепад температур": "Salto de temperatura",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "ч": "h",
+      "мин": "min",
+      "кВт·ч": "kWh",
+      "кВт": "kW",
+      "К": "K",
+      "Объём воды должен быть больше нуля": "El volumen de agua debe ser mayor que cero",
+      "Мощность нагревателя должна быть больше нуля": "La potencia del calentador debe ser mayor que cero",
+      "КПД задаётся от 0 до 100 процентов": "El rendimiento va del 0 al 100 por ciento",
+      "Конечная температура должна быть выше начальной": "La temperatura objetivo debe superar a la inicial",
+    },
+  },
 };

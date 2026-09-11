@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { lcResonanceCopyEn } from './copy.en';
 import { lcResonanceCopyUk } from './copy.uk';
 import { lcResonanceCopyDe } from './copy.de';
+import { lcResonanceCopyEs } from './copy.es';
 import { lcResonanceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: lcResonanceCopyEn, uk: lcResonanceCopyUk, de: lcResonanceCopyDe },
+  copy: { en: lcResonanceCopyEn, uk: lcResonanceCopyUk, de: lcResonanceCopyDe, es: lcResonanceCopyEs },
   referenceCases: lcResonanceReferenceCases,
   publishedExample: { inputs: { l: 100, c: 100 }, expected: ["50 329,21 Гц"] },
   presentation: {

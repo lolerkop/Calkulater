@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { print3dCostCopyEn } from './copy.en';
 import { print3dCostCopyUk } from './copy.uk';
 import { print3dCostCopyDe } from './copy.de';
+import { print3dCostCopyEs } from './copy.es';
 import { print3dCostReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: print3dCostCopyEn, uk: print3dCostCopyUk, de: print3dCostCopyDe },
+  copy: { en: print3dCostCopyEn, uk: print3dCostCopyUk, de: print3dCostCopyDe, es: print3dCostCopyEs },
   referenceCases: print3dCostReferenceCases,
   publishedExample: {
     inputs: { grams: 85, spoolPrice: 1800, spoolWeight: 1000, hours: 6.5, powerW: 120, kwhPrice: 5.5, wearPerHour: 0, markupPct: 0 },

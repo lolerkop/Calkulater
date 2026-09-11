@@ -82,4 +82,36 @@ export const localization: CalculatorLocalization = {
       'Итог превышает 180 градусов': 'Підсумок перевищує 180 градусів',
     },
   },
+  es: {
+    fields: {
+      "mode": "Sentido",
+      "deg": "Grados",
+      "minutes": "Minutos",
+      "seconds": "Segundos",
+      "hemisphere": "Hemisferio",
+      "decimal": "Grados decimales",
+    },
+    options: {
+      "toDecimal": "GMS → decimales",
+      "toDms": "decimales → GMS",
+      "N": "norte o este",
+      "S": "sur u oeste",
+    },
+    results: {
+      "Десятичные градусы": "Grados decimales",
+      "Градусы, минуты, секунды": "Grados, minutos y segundos",
+      "Полушарие": "Hemisferio",
+      "Только градусы и минуты": "Solo grados y minutos",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "северное или восточное": "norte o este",
+      "южное или западное": "sur u oeste",
+      "Десятичные градусы должны быть от −180 до 180": "Los grados decimales deben estar entre −180 y 180",
+      "Градусы должны быть от 0 до 180": "Los grados deben estar entre 0 y 180",
+      "Минуты должны быть от 0 до 59": "Los minutos deben estar entre 0 y 59",
+      "Секунды должны быть от 0 до 59": "Los segundos deben estar entre 0 y 59",
+      "Итог превышает 180 градусов": "El resultado supera los 180 grados",
+    },
+  },
 };

@@ -76,4 +76,31 @@ export const localization: CalculatorLocalization = {
       "Неизвестный режим": "Невідомий режим",
     },
   },
+  es: {
+    fields: {
+      "mode": "Cómo se indica el tamaño",
+      "etrtoRim": "Diámetro de asiento de la llanta, mm",
+      "etrtoTire": "Anchura de la cubierta, mm",
+      "inches": "Diámetro de la rueda, pulgadas",
+    },
+    options: {
+      "etrto": "ETRTO, en milímetros",
+      "inches": "En pulgadas",
+    },
+    results: {
+      "Длина окружности": "Perímetro",
+      "Диаметр": "Diámetro",
+      "Диаметр в дюймах": "Diámetro en pulgadas",
+      "Оборотов на километр": "Vueltas por kilómetro",
+      "Радиус": "Radio",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "Посадочный диаметр обода должен быть больше нуля": "El diámetro de asiento de la llanta debe ser mayor que cero",
+      "Ширина покрышки не может быть отрицательной": "La anchura de la cubierta no puede ser negativa",
+      "Диаметр в дюймах должен быть больше нуля": "El diámetro en pulgadas debe ser mayor que cero",
+      "Неизвестный режим": "Modo desconocido",
+    },
+  },
 };

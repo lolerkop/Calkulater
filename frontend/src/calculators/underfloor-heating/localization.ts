@@ -77,4 +77,33 @@ export const localization: CalculatorLocalization = {
       "Запас должен быть от 0 до 50 %": "Запас має бути від 0 до 50 %",
     },
   },
+  es: {
+    fields: {
+      "area": "Superficie calefactada, m²",
+      "step": "Separación del tubo, m",
+      "loopMax": "Longitud máxima del circuito, m",
+      "edgeZone": "Superficie de la zona perimetral, m²",
+      "edgeStep": "Separación en la zona perimetral, m",
+      "waste": "Margen, %",
+    },
+    options: {},
+    results: {
+      "Длина трубы": "Longitud de tubo",
+      "Петель": "Circuitos",
+      "На петлю": "Por circuito",
+      "Площадь": "Superficie",
+      "Основная зона": "Zona principal",
+      "Краевая зона": "Zona perimetral",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м": "m",
+      "м²": "m²",
+      "Площадь должна быть больше нуля": "La superficie debe ser mayor que cero",
+      "Шаг укладки должен быть больше нуля": "La separación del tubo debe ser mayor que cero",
+      "Предельная длина петли должна быть больше нуля": "La longitud máxima del circuito debe ser mayor que cero",
+      "Краевая зона должна быть меньше всей площади": "La zona perimetral debe ser menor que toda la superficie",
+      "Запас должен быть от 0 до 50 %": "El margen debe estar entre 0 y 50 %",
+    },
+  },
 };

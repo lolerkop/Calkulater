@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { gcdLcmCopyEn } from './copy.en';
 import { gcdLcmCopyUk } from './copy.uk';
 import { gcdLcmCopyDe } from './copy.de';
+import { gcdLcmCopyEs } from './copy.es';
 import { gcdLcmReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: gcdLcmCopyEn, uk: gcdLcmCopyUk, de: gcdLcmCopyDe },
+  copy: { en: gcdLcmCopyEn, uk: gcdLcmCopyUk, de: gcdLcmCopyDe, es: gcdLcmCopyEs },
   referenceCases: gcdLcmReferenceCases,
   publishedExample: { inputs: { numbers: '24 36 60 84' }, expected: ["12"] },
   presentation: {

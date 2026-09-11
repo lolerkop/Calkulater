@@ -47,4 +47,24 @@ export const localization: CalculatorLocalization = {
       'Делитель не может быть нулём': 'Дільник не може бути нулем',
     },
   },
+  es: {
+    fields: {
+      "a": "Dividendo",
+      "b": "Divisor",
+    },
+    options: {},
+    results: {
+      "Остаток": "Resto",
+      "Частное": "Cociente",
+      "Проверка": "Comprobación",
+      "Делится нацело": "División exacta",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Да": "Sí",
+      "Нет": "No",
+      "Делимое и делитель должны быть целыми": "El dividendo y el divisor deben ser números enteros",
+      "Делитель не может быть нулём": "El divisor no puede ser cero",
+    },
+  },
 };

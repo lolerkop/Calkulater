@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { potentialEnergyCopyEn } from './copy.en';
 import { potentialEnergyCopyUk } from './copy.uk';
 import { potentialEnergyCopyDe } from './copy.de';
+import { potentialEnergyCopyEs } from './copy.es';
 import { potentialEnergyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: potentialEnergyCopyEn, uk: potentialEnergyCopyUk, de: potentialEnergyCopyDe },
+  copy: { en: potentialEnergyCopyEn, uk: potentialEnergyCopyUk, de: potentialEnergyCopyDe, es: potentialEnergyCopyEs },
   referenceCases: potentialEnergyReferenceCases,
   publishedExample: { inputs: { mode: 'E', m: 5, h: 10 }, expected: ["490,33 Дж"] },
   presentation: {

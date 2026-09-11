@@ -13,6 +13,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { readdir } from 'node:fs/promises';
 import path from 'node:path';
+import { distLocales } from './lib/locales.mjs';
 
 const DIST = path.resolve('dist');
 const BASELINE_PATH = path.resolve('scripts/content-baseline.json');
@@ -41,6 +42,18 @@ const GENERIC_DE = [
   'helps solve a specific calculation task',
   'Do I need to create an account',
   'to get a quick estimate and compare scenarios',
+];
+
+// Фразы общих шаблонов, которых на испанской странице быть не может. Английский
+// шаблон тот же, что и выше: его появление значит возврат к английскому слою.
+// Испанский шаблон фаза 28ES заменила ошибкой сборки — если его вернут,
+// подробный текст снова подменится общими словами.
+const GENERIC_ES = [
+  ...GENERIC_DE,
+  'para obtener una estimación rápida y comparar escenarios sin salir del navegador',
+  'La calculadora aplica la fórmula correspondiente a los valores introducidos',
+  'con valores de ejemplo para ver cómo cambia el resultado',
+  '¿Necesito crear una cuenta?',
 ];
 
 const PLACEHOLDERS = /\b(undefined|NaN|TODO|FIXME|\[object Object\])\b/;
@@ -93,10 +106,14 @@ function faqQuestions(html) {
   return questions;
 }
 
+// Состав локалей читается из самого артефакта (scripts/lib/locales.mjs), а не
+// выписывается буквами: выписанный список пропустил испанский целиком, и 372
+// испанские страницы проходили мимо всех проверок ниже.
 async function calculatorPages() {
   const pages = [];
+  const published = new Set(distLocales(DIST));
   for (const locale of await readdir(DIST, { withFileTypes: true })) {
-    if (!locale.isDirectory() || !['ru', 'en', 'uk', 'de'].includes(locale.name)) continue;
+    if (!locale.isDirectory() || !published.has(locale.name)) continue;
     const localeDir = path.join(DIST, locale.name);
     for (const category of await readdir(localeDir, { withFileTypes: true })) {
       if (!category.isDirectory() || category.name === 'calculators') continue;
@@ -173,6 +190,13 @@ for (const [route, page] of byRoute) {
   if (match) report('кириллица в немецком тексте', `${route} :: «${match[0]}»`);
 }
 
+// ── 3c. Кириллица на испанской странице ──
+for (const [route, page] of byRoute) {
+  if (page.locale !== 'es') continue;
+  const match = CYRILLIC.exec(page.text);
+  if (match) report('кириллица в испанском тексте', `${route} :: «${match[0]}»`);
+}
+
 // ── 4. Возврат к общему шаблону ──
 for (const [route, page] of byRoute) {
   if (page.locale === 'uk') {
@@ -182,6 +206,11 @@ for (const [route, page] of byRoute) {
   }
   if (page.locale === 'de') {
     for (const phrase of GENERIC_DE) {
+      if (page.text.includes(phrase)) report('вернулся общий шаблон', `${route} :: «${phrase.slice(0, 48)}…»`);
+    }
+  }
+  if (page.locale === 'es') {
+    for (const phrase of GENERIC_ES) {
       if (page.text.includes(phrase)) report('вернулся общий шаблон', `${route} :: «${phrase.slice(0, 48)}…»`);
     }
   }
@@ -245,6 +274,10 @@ const LEGITIMATE_TWINS = new Set([
   'dollar-v-evro|evro-v-lei', 'dollar-v-lei|evro-v-lei', 'dollar-v-evro|dollar-v-lei',
   'usd-in-eur|waehrungsrechner', 'eur-in-mdl|waehrungsrechner', 'usd-in-mdl|waehrungsrechner',
   'eur-in-mdl|usd-in-eur', 'eur-in-mdl|usd-in-mdl', 'usd-in-eur|usd-in-mdl',
+  // Испанские пары переведены с английских и держат ту же близость: 0,46–0,68
+  // против 0,47–0,65 у английских.
+  'conversor-divisas|eur-a-mdl', 'conversor-divisas|usd-a-eur', 'conversor-divisas|usd-a-mdl',
+  'eur-a-mdl|usd-a-eur', 'eur-a-mdl|usd-a-mdl', 'usd-a-eur|usd-a-mdl',
 ]);
 const twinKey = (a, b) => {
   const [x, y] = [a.split('/').filter(Boolean).at(-1), b.split('/').filter(Boolean).at(-1)].sort();
@@ -304,10 +337,12 @@ const medianWords = (locale) => {
 };
 const uk = medianWords('uk');
 const de = medianWords('de');
+const es = medianWords('es');
 console.log(
   `Качество содержимого подтверждено: ${byRoute.size} страниц калькуляторов, ` +
   `${uk.count} украинских с медианой ${uk.median} слов, ` +
   `${de.count} немецких с медианой ${de.median} слов, ` +
+  `${es.count} испанских с медианой ${es.median} слов, ` +
   `дословных повторов вступлений и разделов нет, одинаковых наборов FAQ нет, ` +
   `сходство внутри категории ниже ${SIMILARITY_LIMIT}, утечек локали и заглушек нет, ` +
   `${Object.keys(baseline.pages ?? {}).length} страниц держат одобренную базовую линию.`,

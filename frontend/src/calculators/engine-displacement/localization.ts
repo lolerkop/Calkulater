@@ -54,4 +54,28 @@ export const localization: CalculatorLocalization = {
       'Цилиндров должно быть целое число, не меньше одного': 'Циліндрів має бути ціле число, не менше одного',
     },
   },
+  es: {
+    fields: {
+      "bore": "Diámetro del cilindro, mm",
+      "stroke": "Carrera del pistón, mm",
+      "cylinders": "Cilindros",
+    },
+    options: {},
+    results: {
+      "Рабочий объём": "Cilindrada",
+      "Объём одного цилиндра": "Volumen de un cilindro",
+      "В литрах": "En litros",
+      "Отношение хода к диаметру": "Relación carrera-diámetro",
+      "Цилиндров": "Cilindros",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "см³": "cm³",
+      "л": "l",
+      "шт": "uds.",
+      "Диаметр цилиндра должен быть больше нуля": "El diámetro del cilindro debe ser mayor que cero",
+      "Ход поршня должен быть больше нуля": "La carrera del pistón debe ser mayor que cero",
+      "Цилиндров должно быть целое число, не меньше одного": "El número de cilindros debe ser un entero, al menos uno",
+    },
+  },
 };

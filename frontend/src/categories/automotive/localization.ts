@@ -25,13 +25,13 @@ export const copy: CategoryCopyByLocale = {
     h1: "Car calculators",
   },
   es: {
-    name: "Car calculators",
-    slug: "automotive",
-    description: "Fuel consumption, power to weight, trip cost and speed.",
-    longDescription: "Car calculations from real figures: fuel use from a fill-up and the distance covered, power to weight in three familiar forms, trip cost including tolls and a split between passengers, and the speed, distance and time triangle. Power uses metric horsepower, the unit printed in the vehicle documents.",
-    seoTitle: "Car calculators — fuel consumption and power to weight",
-    seoDescription: "Online car calculators: fuel consumption, power-to-weight ratio, trip cost, speed and travel time.",
-    h1: "Car calculators",
+    name: "Vehículos",
+    slug: "vehiculos",
+    description: "Consumo de combustible, relación peso-potencia, coste del viaje y velocidad.",
+    longDescription: "Cálculos de coche a partir de cifras reales: consumo a partir del repostaje y los kilómetros recorridos, relación peso-potencia en tres formas habituales, coste de un viaje con peajes y reparto entre pasajeros, y el triángulo de velocidad, distancia y tiempo. La potencia se expresa en caballos métricos, la unidad que figura en la documentación del vehículo.",
+    seoTitle: "Calculadoras de coche — consumo de combustible y relación peso-potencia",
+    seoDescription: "Calculadoras de coche online: consumo de combustible, relación peso-potencia, coste del viaje, velocidad y tiempo de trayecto.",
+    h1: "Calculadoras para el coche",
   },
   de: {
     name: "Auto",
@@ -200,20 +200,20 @@ export const faq: CategoryFaqByLocale = {
   ],
   es: [
     {
-      q: "Which horsepower is used?",
-      a: "Metric horsepower, also called PS: 735.49875 W. It is the unit printed in vehicle documents across Europe. Mechanical hp of 745.7 W is not used here.",
+      q: "¿Qué caballo de potencia se usa?",
+      a: "El caballo métrico, también llamado CV: 735,49875 W. Es la unidad que aparece en la documentación de los vehículos en Europa. El caballo mecánico de 745,7 W no se usa aquí.",
     },
     {
-      q: "How is consumption different from a unit converter?",
-      a: "Consumption is computed from the litres and kilometres you actually recorded. The reciprocal in kilometres per litre is shown for reference, but this is not a two-way converter with miles per gallon.",
+      q: "¿En qué se diferencia el consumo de un conversor de unidades?",
+      a: "El consumo se calcula con los litros y los kilómetros que has anotado. La cifra inversa en kilómetros por litro se muestra como referencia, pero esto no es un conversor de doble sentido con millas por galón.",
     },
     {
-      q: "Are driving style and terrain taken into account?",
-      a: "No. The calculation uses only the numbers you enter, so motorway and city figures will differ — use your own measurements.",
+      q: "¿Se tienen en cuenta el estilo de conducción y el terreno?",
+      a: "No. El cálculo usa solo los números que introduces, así que las cifras de autopista y de ciudad saldrán distintas: usa tus propias mediciones.",
     },
     {
-      q: "Does trip cost include depreciation?",
-      a: "No, only fuel and tolls. Wear, tax and servicing are outside the calculation.",
+      q: "¿El coste del viaje incluye la depreciación?",
+      a: "No, solo combustible y peajes. El desgaste, los impuestos y el mantenimiento quedan fuera del cálculo.",
     },
   ],
   de: [

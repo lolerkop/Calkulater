@@ -6,6 +6,7 @@ import { contextualField } from './contextualField';
 import { logarithmCopyEn } from './copy.en';
 import { logarithmCopyUk } from './copy.uk';
 import { logarithmCopyDe } from './copy.de';
+import { logarithmCopyEs } from './copy.es';
 import { logarithmReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -14,7 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: logarithmCopyEn, uk: logarithmCopyUk, de: logarithmCopyDe },
+  copy: { en: logarithmCopyEn, uk: logarithmCopyUk, de: logarithmCopyDe, es: logarithmCopyEs },
   referenceCases: logarithmReferenceCases,
   publishedExample: { inputs: { mode: 'custom', value: 1024, base: 2 }, expected: ['10'] },
   presentation: {

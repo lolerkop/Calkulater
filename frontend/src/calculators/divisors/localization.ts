@@ -63,4 +63,26 @@ export const localization: CalculatorLocalization = {
     "Здесь считаются числа до триллиона": "Тут рахуються числа до трильйона",
     },
   },
+  es: {
+    fields: {
+      "n": "Número n",
+    },
+    options: {},
+    results: {
+      "Делители": "Divisores",
+      "Количество делителей": "Cantidad de divisores",
+      "Сумма делителей": "Suma de los divisores",
+      "Сумма собственных делителей": "Suma de los divisores propios",
+      "Это число": "Este número es",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "простое": "primo",
+      "совершенное": "perfecto",
+      "и ещё": "y",
+      "Число должно быть целым": "El número debe ser entero",
+      "Делители считаются для натуральных чисел, начиная с единицы": "Los divisores se calculan para números naturales a partir de uno",
+      "Здесь считаются числа до триллиона": "Aquí se calculan números hasta el billón",
+    },
+  },
 };

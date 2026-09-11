@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { pileFoundationCopyEn } from './copy.en';
 import { pileFoundationCopyUk } from './copy.uk';
 import { pileFoundationCopyDe } from './copy.de';
+import { pileFoundationCopyEs } from './copy.es';
 import { pileFoundationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: pileFoundationCopyEn, uk: pileFoundationCopyUk, de: pileFoundationCopyDe },
+  copy: { en: pileFoundationCopyEn, uk: pileFoundationCopyUk, de: pileFoundationCopyDe, es: pileFoundationCopyEs },
   referenceCases: pileFoundationReferenceCases,
   publishedExample: { inputs: { count: 12, diameter: 0.3, depth: 1.8, grillageLength: 32, grillageWidth: 0.4, grillageHeight: 0.4, waste: 5 }, expected: ["6,979 м³"] },
   presentation: {

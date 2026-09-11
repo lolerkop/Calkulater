@@ -61,9 +61,36 @@ describe('диспетчер островов', () => {
     }
   });
 
-  it('легаси-калькуляторы сохраняют общий остров', () => {
-    expect(dispatch).toContain('!V2_IDS.has(id)');
-    expect(dispatch).toContain("import CalculatorIsland from './islands/CalculatorIsland'");
+  it('у наследственного калькулятора тоже своя точка входа', () => {
+    for (const id of ['age-calculator', 'currency-converter', 'bmi-calculator']) {
+      expect(dispatch, id).toContain(`id === '${id}'`);
+      expect(dispatch, id).toContain(`from './islands/legacy/${id}/island'`);
+      const entry = readFileSync(`src/components/islands/legacy/${id}/island.tsx`, 'utf8');
+      expect(entry, id).toContain("from './shared.generated'");
+      // Свой расчёт, а не реестр всех двадцати шести.
+      expect(entry, id).not.toMatch(/lib\/runners/);
+    }
+  });
+
+  // Ради этого разделения общий словарь и уехал из общего графа: страница
+  // калькулятора не должна везти фразы, которых её раннер не печатает.
+  it('общий словарь не достаётся клиентскому коду вовсе', () => {
+    for (const path of [
+      'src/components/islands/CalculatorIsland.tsx',
+      'src/components/islands/calculator/resultLocalization.ts',
+      'src/components/islands/SearchBox.tsx',
+      'src/components/islands/CalculatorCatalog.tsx',
+    ]) {
+      expect(readFileSync(path, 'utf8'), path).not.toMatch(/from '.*lib\/resultPhrases'/);
+    }
+  });
+
+  it('каждая точка входа V2 берёт свой отбор фраз, а не общий словарь', () => {
+    for (const id of released) {
+      const entry = readFileSync(`src/calculators/${id}/island.tsx`, 'utf8');
+      expect(entry, id).toContain("from './shared.generated'");
+      expect(entry, id).not.toMatch(/lib\/resultPhrases/);
+    }
   });
 
   it('генерация детерминирована и совпадает с закоммиченной', () => {
@@ -89,6 +116,11 @@ describe('общий клиентский код не знает реализа�
       expect(source, path).not.toMatch(/from '.*calculators\/runtime\.generated'/);
       expect(source, path).not.toMatch(/from '.*calculators\/localization\.generated'/);
     }
+    // Реестр наследственных расчётов — тоже реализация, и он тоже уезжал на все
+    // страницы: двадцать три модуля на каждой из трёхсот пятидесяти, где ни один
+    // из них не вызывается.
+    expect(readFileSync('src/components/islands/CalculatorIsland.tsx', 'utf8'))
+      .not.toMatch(/from '.*lib\/runners'/);
   });
 
   it('полный реестр расчётов живёт отдельно от клиентского', () => {

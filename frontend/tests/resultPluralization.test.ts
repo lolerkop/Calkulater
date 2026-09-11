@@ -2,10 +2,20 @@ import { describe, expect, it } from 'vitest';
 import { calculators } from '../src/data/calculators';
 import { allRunners as runners } from '../src/lib/runners.all';
 import { buildInitialValues } from '../src/lib/shareLink';
-import { localizedResultText } from '../src/lib/clientI18n';
+import { localizedResultText } from '../src/lib/resultPhrases';
 import { localizeResult, resultToText } from '../src/components/islands/calculator/resultLocalization';
+import { runtimeFor } from '../src/calculators/runtime.generated';
 import { calculatorCopy } from '../src/components/islands/calculator/copy';
 import type { CalcResult } from '../src/lib/types';
+
+// Локализация идёт через рантайм калькулятора — ровно тот, что уезжает в его
+// острове. Общего словаря в браузере нет, поэтому проверять перевод без рантайма
+// значило бы проверять несуществующий путь.
+const AGE = 'age-calculator';
+const DAYS = 'working-days-calculator';
+const COMPOUND = 'compound-interest';
+const L = (result: CalcResult, locale: 'en' | 'uk', id: string) =>
+  localizeResult(result, locale, id, runtimeFor(id));
 
 // Согласование счётных слов с числом в клиентском выводе. Русские строки
 // приходят из раннеров уже в правильной форме, поэтому проверяется именно
@@ -125,30 +135,30 @@ describe('Russian control locale', () => {
 describe('age calculator through the whole localization pipeline', () => {
   it('agrees every unit of the fixed month-end case', () => {
     const result = age('2000-01-31', '2026-03-01');
-    expect(localizeResult(result, 'en').primary.value).toBe('26 years, 1 month, 1 day');
-    expect(localizeResult(result, 'uk').primary.value).toBe('26 років, 1 місяць, 1 день');
+    expect(L(result, 'en', AGE).primary.value).toBe('26 years, 1 month, 1 day');
+    expect(L(result, 'uk', AGE).primary.value).toBe('26 років, 1 місяць, 1 день');
   });
 
   it('agrees a value of exactly one in every component', () => {
     const result = age('2025-01-31', '2026-03-01');
     expect(result.primary.value).toBe('1 год, 1 месяц, 1 день');
-    expect(localizeResult(result, 'en').primary.value).toBe('1 year, 1 month, 1 day');
-    expect(localizeResult(result, 'uk').primary.value).toBe('1 рік, 1 місяць, 1 день');
+    expect(L(result, 'en', AGE).primary.value).toBe('1 year, 1 month, 1 day');
+    expect(L(result, 'uk', AGE).primary.value).toBe('1 рік, 1 місяць, 1 день');
   });
 
   it('agrees the days-until-birthday row', () => {
     const result = age('1990-01-02', '2026-01-01');
     expect(rowValue(result, 'До дня рождения')).toBe('1 дн.');
-    expect(rowValue(localizeResult(result, 'en'), 'Days until birthday')).toBe('1 day');
-    expect(rowValue(localizeResult(result, 'uk'), 'До дня народження')).toBe('1 дн.');
-    expect(rowValue(localizeResult(age('1990-01-06', '2026-01-01'), 'en'), 'Days until birthday')).toBe('5 days');
+    expect(rowValue(L(result, 'en', AGE), 'Days until birthday')).toBe('1 day');
+    expect(rowValue(L(result, 'uk', AGE), 'До дня народження')).toBe('1 дн.');
+    expect(rowValue(L(age('1990-01-06', '2026-01-01'), 'en', AGE), 'Days until birthday')).toBe('5 days');
   });
 
   it('gives the copied text the same forms as the visible result', () => {
     const calc = { name: 'Age calculator' };
     const result = age('2000-01-31', '2026-03-01');
-    expect(resultToText(calc, localizeResult(result, 'en'), 'en')).toContain('Age: 26 years, 1 month, 1 day');
-    expect(resultToText(calc, localizeResult(result, 'uk'), 'uk')).toContain('Вік: 26 років, 1 місяць, 1 день');
+    expect(resultToText(calc, L(result, 'en', AGE), 'en')).toContain('Age: 26 years, 1 month, 1 day');
+    expect(resultToText(calc, L(result, 'uk', AGE), 'uk')).toContain('Вік: 26 років, 1 місяць, 1 день');
   });
 });
 
@@ -156,11 +166,11 @@ describe('working days calculator', () => {
   it('agrees the business-days total in English', () => {
     const oneDay = resultOf('working-days-calculator', { startDate: '2026-03-02', endDate: '2026-03-02' });
     expect(oneDay.primary.value).toBe('1 дн.');
-    expect(localizeResult(oneDay, 'en').primary.value).toBe('1 day');
-    expect(localizeResult(oneDay, 'uk').primary.value).toBe('1 дн.');
+    expect(L(oneDay, 'en', DAYS).primary.value).toBe('1 day');
+    expect(L(oneDay, 'uk', DAYS).primary.value).toBe('1 дн.');
 
     const week = resultOf('working-days-calculator', { startDate: '2026-03-02', endDate: '2026-03-06' });
-    expect(localizeResult(week, 'en').primary.value).toBe('5 days');
+    expect(L(week, 'en', DAYS).primary.value).toBe('5 days');
   });
 });
 
@@ -176,12 +186,12 @@ describe('compound interest term', () => {
 
   it('agrees the translated term as well', () => {
     const one = resultOf('compound-interest', { years: 1 });
-    expect(rowValue(localizeResult(one, 'en'), 'Term')).toBe('1 year');
-    expect(rowValue(localizeResult(one, 'uk'), 'Строк')).toBe('1 рік');
+    expect(rowValue(L(one, 'en', COMPOUND), 'Term')).toBe('1 year');
+    expect(rowValue(L(one, 'uk', COMPOUND), 'Строк')).toBe('1 рік');
 
     const four = resultOf('compound-interest', { years: 4 });
-    expect(rowValue(localizeResult(four, 'en'), 'Term')).toBe('4 years');
-    expect(rowValue(localizeResult(four, 'uk'), 'Строк')).toBe('4 роки');
+    expect(rowValue(L(four, 'en', COMPOUND), 'Term')).toBe('4 years');
+    expect(rowValue(L(four, 'uk', COMPOUND), 'Строк')).toBe('4 роки');
   });
 });
 

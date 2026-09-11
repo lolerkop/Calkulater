@@ -88,4 +88,33 @@ export const localization: CalculatorLocalization = {
       "Скорость речи должна быть больше нуля": "Швидкість мовлення має бути більшою за нуль",
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué tienes",
+      "words": "Número de palabras",
+      "text": "Texto",
+      "wpm": "Velocidad de lectura silenciosa, palabras/min",
+      "speechWpm": "Velocidad al hablar, palabras/min",
+    },
+    options: {
+      "words": "un número de palabras",
+      "text": "el propio texto",
+    },
+    results: {
+      "Время чтения": "Tiempo de lectura",
+      "Время вслух": "Tiempo en voz alta",
+      "Чтение в минутах": "Lectura en minutos",
+      "Речь в минутах": "Discurso en minutos",
+      "Слов": "Palabras",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мин": "min",
+      "с": "s",
+      "Вставьте текст — в нём не найдено ни одного слова": "Pega un texto: no se ha encontrado ninguna palabra en él",
+      "Число слов должно быть больше нуля": "El número de palabras debe ser mayor que cero",
+      "Скорость чтения должна быть больше нуля": "La velocidad de lectura debe ser mayor que cero",
+      "Скорость речи должна быть больше нуля": "La velocidad al hablar debe ser mayor que cero",
+    },
+  },
 };

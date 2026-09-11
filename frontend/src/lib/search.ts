@@ -35,6 +35,13 @@ export const queryAliases: Record<string, string[]> = {
   новый: ['новый'],
   новые: ['новый'],
   свежее: ['новый'],
+  // Испанские слова, которых нет в названиях: за ними стоят настоящие
+  // калькуляторы, а не набор ключей ради ключей.
+  gasolina: ['combustible'],
+  luz: ['facturas', 'electricidad'],
+  recibo: ['facturas'],
+  adelgazar: ['imc'],
+  nota: ['media'],
 };
 
 // Немецкие умляуты и эстцет разворачиваются в тот вид, которым их набирают без
@@ -49,10 +56,40 @@ const GERMAN_FOLDING: Array<[RegExp, string]> = [
   [/ß/g, 'ss'],
 ];
 
+// Испанские ударения снимаются: их набирают редко, а без них «prestamo» должен
+// находить «préstamo» и «interes» — «interés». Приведение одно и то же для
+// запроса и для текста калькулятора, поэтому написание с ударением продолжает
+// находить то же самое.
+//
+// «Ñ» НЕ сворачивается, и это не упущение: «año» и «ano» — разные слова, и
+// склеивание их дало бы поиск, который отвечает не на то, о чём спросили.
+// Немецкое правило выше не трогается: «ü» уже разворачивается в «ue», что для
+// испанского «pingüino» тоже работает — приведение симметрично.
+const SPANISH_FOLDING: Array<[RegExp, string]> = [
+  [/á/g, 'a'],
+  [/é/g, 'e'],
+  [/í/g, 'i'],
+  [/ó/g, 'o'],
+  [/ú/g, 'u'],
+];
+
 export function normalizeSearchText(value: string): string {
   let text = value.toLowerCase().replace(/ё/g, 'е');
   for (const [pattern, replacement] of GERMAN_FOLDING) text = text.replace(pattern, replacement);
+  for (const [pattern, replacement] of SPANISH_FOLDING) text = text.replace(pattern, replacement);
   return text.replace(/\s+/g, ' ').trim();
+}
+
+// Стог для поиска. Собирается одним местом, потому что путей два: разметочный
+// в подборке и полный индекс. Пока правило диерезиса жило только в одном из
+// них, «Würfel» находился одним путём и не находился другим.
+export function searchHaystack(raw: string): string {
+  const normalized = normalizeSearchText(raw);
+  // Диерезис читается двумя языками по-разному: немецкое «ü» набирают как «ue»,
+  // испанское — просто как «u». Одно правило обслужить оба не может, поэтому
+  // стог несёт оба написания, а немецкое приведение остаётся нетронутым.
+  if (!raw.includes('ü')) return normalized;
+  return `${normalized} ${normalizeSearchText(raw.replace(/ü/g, 'u'))}`;
 }
 
 export function queryNeedles(query: string): string[] {
@@ -67,17 +104,16 @@ export function queryNeedles(query: string): string[] {
 }
 
 export function calculatorSearchText(calculator: SearchableCalculator): string {
-  return normalizeSearchText(
-    [
-      calculator.name,
-      calculator.shortDescription,
-      calculator.category,
-      calculator.categoryName ?? '',
-      calculator.isNew ? 'новый новые свежее' : '',
-      categoryAliases[calculator.category],
-      ...(calculator.keywords ?? []),
-    ].join(' '),
-  );
+  const raw = [
+    calculator.name,
+    calculator.shortDescription,
+    calculator.category,
+    calculator.categoryName ?? '',
+    calculator.isNew ? 'новый новые свежее' : '',
+    categoryAliases[calculator.category],
+    ...(calculator.keywords ?? []),
+  ].join(' ');
+  return searchHaystack(raw);
 }
 
 export function matchesCalculatorSearch(calculator: SearchableCalculator, query: string): boolean {

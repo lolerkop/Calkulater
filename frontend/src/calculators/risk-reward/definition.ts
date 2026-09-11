@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { riskRewardCopyEn } from './copy.en';
 import { riskRewardCopyUk } from './copy.uk';
 import { riskRewardCopyDe } from './copy.de';
+import { riskRewardCopyEs } from './copy.es';
 import { riskRewardReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: riskRewardCopyEn, uk: riskRewardCopyUk, de: riskRewardCopyDe },
+  copy: { en: riskRewardCopyEn, uk: riskRewardCopyUk, de: riskRewardCopyDe, es: riskRewardCopyEs },
   referenceCases: riskRewardReferenceCases,
   publishedExample: { inputs: { direction: 'long', entry: 250, stop: 240, target: 280, qty: 100 }, expected: ["3"] },
   presentation: {

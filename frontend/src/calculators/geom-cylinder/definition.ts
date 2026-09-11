@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geomCylinderCopyEn } from './copy.en';
 import { geomCylinderCopyUk } from './copy.uk';
 import { geomCylinderCopyDe } from './copy.de';
+import { geomCylinderCopyEs } from './copy.es';
 import { geomCylinderReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomCylinderCopyEn, uk: geomCylinderCopyUk, de: geomCylinderCopyDe },
+  copy: { en: geomCylinderCopyEn, uk: geomCylinderCopyUk, de: geomCylinderCopyDe, es: geomCylinderCopyEs },
   referenceCases: geomCylinderReferenceCases,
   publishedExample: { inputs: { unit: 'm', r: 3, h: 10 }, expected: ["282,74 м³"] },
   presentation: {

@@ -62,4 +62,27 @@ export const localization: CalculatorLocalization = {
     "Вес экзамена задаётся в диапазоне от 0 до 100 процентов": "Вага іспиту задається в діапазоні від 0 до 100 відсотків",
     },
   },
+  es: {
+    fields: {
+      "current": "Nota actual, %",
+      "target": "Nota objetivo, %",
+      "weight": "Peso del examen, %",
+    },
+    options: {},
+    results: {
+      "Нужный балл": "Nota que necesitas",
+      "Вклад текущей оценки": "Aportación de la nota actual",
+      "Вес экзамена": "Peso del examen",
+      "Цель недостижима": "Objetivo inalcanzable",
+      "Цель уже достигнута": "Objetivo ya alcanzado",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального": "Con un solo examen ya no se llega a esa nota final: haría falta una nota por encima del máximo",
+      "Итоговая выйдет не ниже желаемой при любом результате экзамена": "La nota final quedará igual o por encima de la deseada sea cual sea el resultado del examen",
+      "Текущая оценка задаётся в диапазоне от 0 до 100": "La nota actual se indica de 0 a 100",
+      "Желаемая оценка задаётся в диапазоне от 0 до 100": "La nota deseada se indica de 0 a 100",
+      "Вес экзамена задаётся в диапазоне от 0 до 100 процентов": "El peso del examen se indica del 0 al 100 por ciento",
+    },
+  },
 };

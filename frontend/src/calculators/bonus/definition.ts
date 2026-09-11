@@ -4,6 +4,7 @@ import { compute } from './compute';
 import { bonusCopyEn } from './copy.en';
 import { bonusCopyUk } from './copy.uk';
 import { bonusCopyDe } from './copy.de';
+import { bonusCopyEs } from './copy.es';
 import { bonusReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: bonusCopyEn, uk: bonusCopyUk, de: bonusCopyDe },
+  copy: { en: bonusCopyEn, uk: bonusCopyUk, de: bonusCopyDe, es: bonusCopyEs },
   referenceCases: bonusReferenceCases,
   publishedExample: {
     inputs: { salary: 145000, bonusPct: 35, taxPct: 13 },

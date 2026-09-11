@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { timeValueMoneyCopyEn } from './copy.en';
 import { timeValueMoneyCopyUk } from './copy.uk';
 import { timeValueMoneyCopyDe } from './copy.de';
+import { timeValueMoneyCopyEs } from './copy.es';
 import { timeValueMoneyReferenceCases } from './referenceCases';
 
 const COMPOUNDING = [
@@ -16,7 +17,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: timeValueMoneyCopyEn, uk: timeValueMoneyCopyUk, de: timeValueMoneyCopyDe },
+  copy: { en: timeValueMoneyCopyEn, uk: timeValueMoneyCopyUk, de: timeValueMoneyCopyDe, es: timeValueMoneyCopyEs },
   referenceCases: timeValueMoneyReferenceCases,
   publishedExample: { inputs: { mode: 'fv', amount: 100000, rate: 12, years: 5, compounding: 'month' }, expected: ["181 669,67 ₽"] },
   presentation: {

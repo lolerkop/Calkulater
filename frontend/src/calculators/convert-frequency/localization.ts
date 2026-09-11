@@ -58,4 +58,36 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { ...ERRORS_UK, 'Гц': 'Гц', 'кГц': 'кГц', 'МГц': 'МГц', 'ГГц': 'ГГц', 'мГц': 'мГц', 'об/мин': 'об/хв' },
   },
+  es: {
+    fields: {
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+      "value": "Frecuencia",
+    },
+    options: {
+      "hz": "Hercio (Hz)",
+      "khz": "Kilohercio (kHz)",
+      "mhz": "Megahercio (MHz)",
+      "ghz": "Gigahercio (GHz)",
+      "mhz_milli": "Milihercio (mHz)",
+      "rpm": "Revolución por minuto (rpm)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+      "Гц": "Hz",
+      "кГц": "kHz",
+      "МГц": "MHz",
+      "ГГц": "GHz",
+      "мГц": "mHz",
+      "об/мин": "rpm",
+    },
+  },
 };

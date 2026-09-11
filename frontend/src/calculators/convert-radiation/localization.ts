@@ -67,4 +67,30 @@ export const localization: CalculatorLocalization = {
       "Переводятся единицы эквивалентной дозы. Поглощённая доза в греях и активность в беккерелях — другие физические величины, и прямого перевода между ними и зивертом нет.": "Переводяться одиниці еквівалентної дози. Поглинена доза в греях і активність у беккерелях це інші фізичні величини, і прямого переведення між ними та зівертом немає.",
     },
   },
+  es: {
+    fields: {
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+      "value": "Valor",
+    },
+    options: {
+      "Sv": "Sievert (Sv)",
+      "mSv": "Milisievert (mSv)",
+      "uSv": "Microsievert (µSv)",
+      "nSv": "Nanosievert (nSv)",
+      "rem": "Rem",
+      "mrem": "Milirem (mrem)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Неизвестная единица дозы": "Unidad de dosis desconocida",
+      "Доза не может быть отрицательной": "La dosis no puede ser negativa",
+      "Переводятся единицы эквивалентной дозы. Поглощённая доза в греях и активность в беккерелях — другие физические величины, и прямого перевода между ними и зивертом нет.": "Aquí se convierten unidades de dosis equivalente. La dosis absorbida en grays y la actividad en becquerelios son magnitudes físicas distintas, y no existe conversión directa entre ellas y el sievert.",
+    },
+  },
 };

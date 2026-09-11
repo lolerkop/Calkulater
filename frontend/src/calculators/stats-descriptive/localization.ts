@@ -53,4 +53,31 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { 'Введите хотя бы одно число': 'Введіть щонайменше одне число' },
   },
+  es: {
+    fields: {
+      "values": "Números: uno por línea o separados por espacios",
+      "mode": "Varianza",
+    },
+    options: {
+      "sample": "muestral (n−1)",
+      "population": "poblacional (n)",
+    },
+    results: {
+      "Среднее": "Media",
+      "Количество": "Cantidad",
+      "Сумма": "Suma",
+      "Медиана": "Mediana",
+      "Мода": "Moda",
+      "Минимум": "Mínimo",
+      "Максимум": "Máximo",
+      "Размах": "Rango",
+      "Дисперсия": "Varianza",
+      "Стандартное отклонение": "Desviación típica",
+      "Не число": "No es un número",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Введите хотя бы одно число": "Introduce al menos un número",
+    },
+  },
 };

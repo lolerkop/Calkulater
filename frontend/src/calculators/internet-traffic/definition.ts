@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { internetTrafficCopyEn } from './copy.en';
 import { internetTrafficCopyUk } from './copy.uk';
 import { internetTrafficCopyDe } from './copy.de';
+import { internetTrafficCopyEs } from './copy.es';
 import { internetTrafficReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: internetTrafficCopyEn, uk: internetTrafficCopyUk, de: internetTrafficCopyDe },
+  copy: { en: internetTrafficCopyEn, uk: internetTrafficCopyUk, de: internetTrafficCopyDe, es: internetTrafficCopyEs },
   referenceCases: internetTrafficReferenceCases,
   publishedExample: { inputs: { mbps: 5, hoursPerDay: 3, days: 30, quotaGb: 100 }, expected: ["202,5 ГБ"] },
   presentation: {

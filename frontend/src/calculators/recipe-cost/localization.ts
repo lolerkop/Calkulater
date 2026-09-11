@@ -84,4 +84,32 @@ export const localization: CalculatorLocalization = {
       "Введите хотя бы один ингредиент": "Введіть хоча б один інгредієнт",
     },
   },
+  es: {
+    fields: {
+      "ingredients": "Ingredientes: nombre, cantidad y precio por línea",
+      "servings": "Raciones",
+    },
+    options: {},
+    results: {
+      "Стоимость порции": "Coste por ración",
+      "Стоимость всего": "Coste total",
+      "Ингредиентов": "Ingredientes",
+      "Самый дорогой": "El más caro",
+      "Порций": "Raciones",
+      "Состав и стоимость": "Ingredientes y coste",
+      "Ингредиент": "Ingrediente",
+      "Количество": "Cantidad",
+      "Цена": "Precio",
+      "Стоимость": "Coste",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Нужны название, количество и цена в строке:": "Hacen falta un nombre, una cantidad y un precio en la línea:",
+      "Количество и цена должны быть числами в строке:": "La cantidad y el precio deben ser números en la línea:",
+      "₽": "€",
+      "Число порций должно быть больше нуля": "El número de raciones debe ser mayor que cero",
+      "Количество и цена не могут быть отрицательными": "La cantidad y el precio no pueden ser negativos",
+      "Введите хотя бы один ингредиент": "Introduce al menos un ingrediente",
+    },
+  },
 };

@@ -54,4 +54,27 @@ export const localization: CalculatorLocalization = {
       'Коэффициент стока задаётся от 0 до 1': 'Коефіцієнт стоку задається від 0 до 1',
     },
   },
+  es: {
+    fields: {
+      "area": "Superficie del tejado en planta, m²",
+      "depth": "Precipitación, mm",
+      "coeff": "Coeficiente de escorrentía",
+    },
+    options: {},
+    results: {
+      "Соберётся воды": "Agua recogida",
+      "В кубометрах": "En metros cúbicos",
+      "Бочек по 200 литров": "Depósitos de 200 litros",
+      "Собрано с квадратного метра": "Recogido por metro cuadrado",
+      "Потеряно на стоке и испарении": "Perdido en escorrentía y evaporación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м³": "m³",
+      "шт": "uds.",
+      "Площадь должна быть больше нуля": "La superficie debe ser mayor que cero",
+      "Слой осадков должен быть больше нуля": "La precipitación debe ser mayor que cero",
+      "Коэффициент стока задаётся от 0 до 1": "El coeficiente de escorrentía va de 0 a 1",
+    },
+  },
 };

@@ -76,4 +76,29 @@ export const localization: CalculatorLocalization = {
       "Взнос не может превышать цену покупки": "Внесок не може перевищувати ціну покупки",
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué se conoce",
+      "price": "Precio de compra, €",
+      "percent": "Entrada, %",
+      "downPayment": "Importe ahorrado, €",
+    },
+    options: {
+      "percent": "el porcentaje aportado",
+      "amount": "el importe ahorrado",
+    },
+    results: {
+      "Первоначальный взнос": "Entrada",
+      "Сумма кредита": "Importe del préstamo",
+      "Доля взноса": "Proporción aportada por adelantado",
+      "Осталось накопить": "Queda por ahorrar",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Цена покупки должна быть больше нуля": "El precio de compra debe ser mayor que cero",
+      "Доля взноса должна быть от 0 до 100 %": "La proporción de la entrada debe estar entre 0 y 100 %",
+      "Взнос не может превышать цену покупки": "La entrada no puede superar al precio de compra",
+    },
+  },
 };

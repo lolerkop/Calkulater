@@ -55,4 +55,29 @@ export const localization: CalculatorLocalization = {
       'Подводимая мощность должна быть больше нуля': 'Підведена потужність має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "sensitivity": "Sensibilidad, dB/mW",
+      "impedance": "Impedancia, Ω",
+      "power": "Potencia aplicada, mW",
+    },
+    options: {},
+    results: {
+      "Звуковое давление": "Nivel de presión sonora",
+      "Прибавка от мощности": "Ganancia por la potencia",
+      "Напряжение на выходе": "Tensión de salida",
+      "Ток": "Corriente",
+      "Импеданс": "Impedancia",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "дБ": "dB",
+      "В": "V",
+      "мА": "mA",
+      "Ом": "Ω",
+      "Чувствительность должна быть больше нуля": "La sensibilidad debe ser mayor que cero",
+      "Импеданс должен быть больше нуля": "La impedancia debe ser mayor que cero",
+      "Подводимая мощность должна быть больше нуля": "La potencia aplicada debe ser mayor que cero",
+    },
+  },
 };

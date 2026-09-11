@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { utilityTotalCopyEn } from './copy.en';
 import { utilityTotalCopyUk } from './copy.uk';
 import { utilityTotalCopyDe } from './copy.de';
+import { utilityTotalCopyEs } from './copy.es';
 import { utilityTotalReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: utilityTotalCopyEn, uk: utilityTotalCopyUk, de: utilityTotalCopyDe },
+  copy: { en: utilityTotalCopyEn, uk: utilityTotalCopyUk, de: utilityTotalCopyDe, es: utilityTotalCopyEs },
   referenceCases: utilityTotalReferenceCases,
   publishedExample: { inputs: { meters: 'электричество 250 5,5\nвода 8 45\nгаз 40 7,2', fixed: 1200 }, expected: ["3 223,00 ₽"] },
   presentation: {

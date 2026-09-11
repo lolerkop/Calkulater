@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { maxLoanCopyEn } from './copy.en';
 import { maxLoanCopyUk } from './copy.uk';
 import { maxLoanCopyDe } from './copy.de';
+import { maxLoanCopyEs } from './copy.es';
 import { maxLoanReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: maxLoanCopyEn, uk: maxLoanCopyUk, de: maxLoanCopyDe },
+  copy: { en: maxLoanCopyEn, uk: maxLoanCopyUk, de: maxLoanCopyDe, es: maxLoanCopyEs },
   referenceCases: maxLoanReferenceCases,
   publishedExample: { inputs: { income: 120000, dtiPct: 40, rate: 18, years: 20 }, expected: ["3 110 195,14 ₽"] },
   presentation: {

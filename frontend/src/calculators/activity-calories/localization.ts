@@ -85,4 +85,32 @@ export const localization: CalculatorLocalization = {
       "Длительность должна быть больше нуля": "Тривалість має бути більшою за нуль",
     },
   },
+  es: {
+    fields: {
+      "activity": "Actividad",
+      "met": "Tu propio coeficiente MET",
+      "weightKg": "Peso corporal, kg",
+      "minutes": "Duración, min",
+    },
+    options: {
+      "walking": "andar, MET 3,5",
+      "cycling": "ciclismo, MET 7,5",
+      "swimming": "natación, MET 8,0",
+      "running": "correr, MET 9,8",
+      "custom": "tu propio coeficiente MET",
+    },
+    results: {
+      "Потрачено калорий": "Calorías quemadas",
+      "Калорий в минуту": "Calorías por minuto",
+      "Расход в час": "Gasto por hora",
+      "Коэффициент MET": "Coeficiente MET",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "ккал": "kcal",
+      "Коэффициент MET должен быть больше нуля": "El coeficiente MET debe ser mayor que cero",
+      "Масса тела должна быть больше нуля": "El peso corporal debe ser mayor que cero",
+      "Длительность должна быть больше нуля": "La duración debe ser mayor que cero",
+    },
+  },
 };

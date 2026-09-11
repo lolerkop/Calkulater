@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { gpaCopyEn } from './copy.en';
 import { gpaCopyUk } from './copy.uk';
 import { gpaCopyDe } from './copy.de';
+import { gpaCopyEs } from './copy.es';
 import { gpaReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: gpaCopyEn, uk: gpaCopyUk, de: gpaCopyDe },
+  copy: { en: gpaCopyEn, uk: gpaCopyUk, de: gpaCopyDe, es: gpaCopyEs },
   referenceCases: gpaReferenceCases,
   publishedExample: { inputs: { grades: '5 3\n4 4\n3 2' }, expected: ["4,1111"] },
   presentation: {

@@ -68,4 +68,32 @@ export const localization: CalculatorLocalization = {
       'Припуск не может быть отрицательным': 'Припуск не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "windowWidth": "Ancho del riel, cm",
+      "fullness": "Coeficiente de fruncido",
+      "fabricWidth": "Ancho de la tela, cm",
+      "height": "Altura acabada, cm",
+      "hem": "Margen superior e inferior, cm",
+    },
+    options: {},
+    results: {
+      "Ткани потребуется": "Tela necesaria",
+      "Полотнищ": "Paños",
+      "Ширина в сборке": "Ancho fruncido",
+      "Длина отреза": "Longitud del corte",
+      "Коэффициент сборки": "Coeficiente de fruncido",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м": "m",
+      "см": "cm",
+      "шт": "uds.",
+      "Ширина карниза должна быть больше нуля": "El ancho del riel debe ser mayor que cero",
+      "Коэффициент сборки должен быть больше нуля": "El coeficiente de fruncido debe ser mayor que cero",
+      "Ширина полотна должна быть больше нуля": "El ancho de la tela debe ser mayor que cero",
+      "Готовая высота должна быть больше нуля": "La altura acabada debe ser mayor que cero",
+      "Припуск не может быть отрицательным": "El margen no puede ser negativo",
+    },
+  },
 };

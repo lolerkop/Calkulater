@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geomPyramidCopyEn } from './copy.en';
 import { geomPyramidCopyUk } from './copy.uk';
 import { geomPyramidCopyDe } from './copy.de';
+import { geomPyramidCopyEs } from './copy.es';
 import { geomPyramidReferenceCases } from './referenceCases';
 
 const UNITS = [
@@ -16,7 +17,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geomPyramidCopyEn, uk: geomPyramidCopyUk, de: geomPyramidCopyDe },
+  copy: { en: geomPyramidCopyEn, uk: geomPyramidCopyUk, de: geomPyramidCopyDe, es: geomPyramidCopyEs },
   referenceCases: geomPyramidReferenceCases,
   publishedExample: {
     inputs: { unit: 'cm', sides: 4, side: 6, height: 9 },

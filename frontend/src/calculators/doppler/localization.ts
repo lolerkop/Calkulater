@@ -66,4 +66,28 @@ export const localization: CalculatorLocalization = {
         'Джерело не може рухатися швидше за хвилю: там починається ударна хвиля',
     },
   },
+  es: {
+    fields: {
+      "f": "Frecuencia de la fuente, Hz",
+      "vSource": "Velocidad de la fuente al acercarse, m/s",
+      "vObserver": "Velocidad del observador al acercarse, m/s",
+      "c": "Velocidad de la onda en el medio, m/s",
+    },
+    options: {},
+    results: {
+      "Наблюдаемая частота": "Frecuencia observada",
+      "Сдвиг частоты": "Desplazamiento de frecuencia",
+      "Относительный сдвиг": "Desplazamiento relativo",
+      "Скорость волны": "Velocidad de la onda",
+      "Исходная частота": "Frecuencia de la fuente",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Гц": "Hz",
+      "м/с": "m/s",
+      "Частота источника должна быть больше нуля": "La frecuencia de la fuente debe ser mayor que cero",
+      "Скорость волны должна быть больше нуля": "La velocidad de la onda debe ser mayor que cero",
+      "Источник не может двигаться быстрее волны: там начинается ударная волна": "La fuente no puede moverse más deprisa que la onda: ahí empieza la onda de choque",
+    },
+  },
 };

@@ -66,4 +66,31 @@ export const localization: CalculatorLocalization = {
       'Теплопроводность должна быть больше нуля': 'Теплопровідність має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "area": "Área, m²",
+      "thickness": "Espesor de la capa, m",
+      "k": "Conductividad térmica λ, W/(m·K)",
+      "dt": "Diferencia de temperatura, K",
+    },
+    options: {},
+    results: {
+      "Тепловой поток": "Flujo de calor",
+      "Плотность потока": "Densidad de flujo",
+      "Сопротивление слоя": "Resistencia térmica",
+      "Коэффициент теплопередачи": "Transmitancia térmica",
+      "За сутки": "Al día",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Вт/(м²·К)": "W/(m²·K)",
+      "м²·К/Вт": "m²·K/W",
+      "Вт/м²": "W/m²",
+      "кВт·ч": "kWh",
+      "Вт": "W",
+      "Площадь должна быть больше нуля": "El área debe ser mayor que cero",
+      "Толщина слоя должна быть больше нуля": "El espesor de la capa debe ser mayor que cero",
+      "Теплопроводность должна быть больше нуля": "La conductividad térmica debe ser mayor que cero",
+    },
+  },
 };

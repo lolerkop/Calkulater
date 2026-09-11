@@ -25,13 +25,13 @@ export const copy: CategoryCopyByLocale = {
     h1: "Computer calculators",
   },
   es: {
-    name: "Computer calculators",
-    slug: "computers",
-    description: "Download speed, bandwidth, frames, resolution and disk space.",
-    longDescription: "Practical calculations for the digital world: how long a file takes on your link, how much bandwidth all your users need, how many milliseconds go into a frame and how a resolution reduces to an aspect ratio. Bits and bytes, decimal and binary prefixes are kept explicitly apart rather than hidden in a coefficient.",
-    seoTitle: "Computer calculators — download time, FPS, aspect ratio",
-    seoDescription: "Online calculators for computers and networks: file download time, bandwidth, FPS and frame time, screen aspect ratio.",
-    h1: "Computer calculators",
+    name: "Informática",
+    slug: "informatica",
+    description: "Velocidad de descarga, ancho de banda, fotogramas, resolución y espacio en disco.",
+    longDescription: "Cálculos prácticos del mundo digital: cuánto tarda un archivo en tu conexión, cuánto ancho de banda necesitan todos tus usuarios, cuántos milisegundos ocupa un fotograma y a qué proporción se reduce una resolución. Bits y bytes, prefijos decimales y binarios se mantienen separados de forma explícita en lugar de esconderse en un coeficiente.",
+    seoTitle: "Calculadoras de informática — tiempo de descarga, FPS y proporción",
+    seoDescription: "Calculadoras online para informática y redes: tiempo de descarga de un archivo, ancho de banda, FPS y tiempo de fotograma, proporción de pantalla.",
+    h1: "Calculadoras de informática",
   },
   de: {
     name: "Computer",
@@ -200,20 +200,20 @@ export const faq: CategoryFaqByLocale = {
   ],
   es: [
     {
-      q: "What is the difference between a megabyte and a mebibyte?",
-      a: "A megabyte is a million bytes; a mebibyte is 1,048,576 bytes. The gap is about five percent and shows on large files, so the unit is chosen explicitly.",
+      q: "¿Qué diferencia hay entre un megabyte y un mebibyte?",
+      a: "Un megabyte es un millón de bytes; un mebibyte son 1.048.576 bytes. La diferencia ronda el cinco por ciento y se nota en archivos grandes, por eso la unidad se elige de forma explícita.",
     },
     {
-      q: "Why is link speed in bits but file size in bytes?",
-      a: "History: providers measure links in bits per second while files are stored in bytes. One byte is eight bits, and the calculator converts for you.",
+      q: "¿Por qué la velocidad va en bits y el tamaño del archivo en bytes?",
+      a: "Por costumbre histórica: los operadores miden la conexión en bits por segundo y los archivos se guardan en bytes. Un byte son ocho bits, y la calculadora hace la conversión.",
     },
     {
-      q: "Is protocol overhead included?",
-      a: "No. The calculation is deterministic: real throughput is usually lower, and a margin can be added in a separate field where one is provided.",
+      q: "¿Se incluye la sobrecarga del protocolo?",
+      a: "No. El cálculo es determinista: el caudal real suele ser menor, y donde hay un campo para ello puede añadirse un margen.",
     },
     {
-      q: "Why does 2560×1080 give 64:27 rather than 21:9?",
-      a: "The exact ratio comes from dividing by the greatest common divisor. \"21:9\" is a marketing round number, not the reduced ratio.",
+      q: "¿Por qué 2560×1080 da 64:27 y no 21:9?",
+      a: "La proporción exacta sale de dividir por el máximo común divisor. «21:9» es una cifra comercial redondeada, no la razón reducida.",
     },
   ],
   de: [

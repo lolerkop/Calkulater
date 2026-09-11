@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { ratioCopyEn } from './copy.en';
 import { ratioCopyUk } from './copy.uk';
 import { ratioCopyDe } from './copy.de';
+import { ratioCopyEs } from './copy.es';
 import { ratioReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: ratioCopyEn, uk: ratioCopyUk, de: ratioCopyDe },
+  copy: { en: ratioCopyEn, uk: ratioCopyUk, de: ratioCopyDe, es: ratioCopyEs },
   referenceCases: ratioReferenceCases,
   publishedExample: { inputs: { parts: '2 3 5', total: 6000 }, expected: ["2:3:5"] },
   presentation: {

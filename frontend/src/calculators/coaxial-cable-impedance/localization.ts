@@ -63,4 +63,29 @@ export const localization: CalculatorLocalization = {
       'Внешний диаметр должен быть больше внутреннего': 'Зовнішній діаметр має бути більшим за внутрішній',
     },
   },
+  es: {
+    fields: {
+      "dIn": "Diámetro del conductor central, mm",
+      "dOut": "Diámetro interior de la malla, mm",
+      "eps": "Permitividad relativa del dieléctrico",
+    },
+    options: {},
+    results: {
+      "Волновое сопротивление": "Impedancia característica",
+      "Ёмкость на метр": "Capacidad por metro",
+      "Коэффициент укорочения": "Factor de velocidad",
+      "Задержка на метр": "Retardo por metro",
+      "Отношение диаметров": "Relación de diámetros",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Ом": "Ω",
+      "пФ/м": "pF/m",
+      "нс/м": "ns/m",
+      "Диаметр жилы должен быть больше нуля": "El diámetro del conductor debe ser mayor que cero",
+      "Внешний диаметр должен быть больше нуля": "El diámetro de la malla debe ser mayor que cero",
+      "Диэлектрическая проницаемость не может быть меньше единицы": "La permitividad relativa no puede ser menor que uno",
+      "Внешний диаметр должен быть больше внутреннего": "El diámetro de la malla debe superar al del conductor",
+    },
+  },
 };

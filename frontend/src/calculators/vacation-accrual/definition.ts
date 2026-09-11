@@ -4,6 +4,7 @@ import { compute } from './compute';
 import { vacationAccrualCopyEn } from './copy.en';
 import { vacationAccrualCopyUk } from './copy.uk';
 import { vacationAccrualCopyDe } from './copy.de';
+import { vacationAccrualCopyEs } from './copy.es';
 import { vacationAccrualReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: vacationAccrualCopyEn, uk: vacationAccrualCopyUk, de: vacationAccrualCopyDe },
+  copy: { en: vacationAccrualCopyEn, uk: vacationAccrualCopyUk, de: vacationAccrualCopyDe, es: vacationAccrualCopyEs },
   referenceCases: vacationAccrualReferenceCases,
   publishedExample: {
     inputs: { daysPerYear: 28, monthsWorked: 7, daysUsed: 5 },

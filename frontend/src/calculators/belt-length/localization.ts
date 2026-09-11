@@ -61,4 +61,29 @@ export const localization: CalculatorLocalization = {
         'Шківи перетинаються: осі не можуть бути ближче за суму радіусів',
     },
   },
+  es: {
+    fields: {
+      "center": "Distancia entre ejes, mm",
+      "d1": "Diámetro de la polea pequeña, mm",
+      "d2": "Diámetro de la polea grande, mm",
+    },
+    options: {},
+    results: {
+      "Длина ремня": "Longitud de la correa",
+      "В метрах": "En metros",
+      "Угол обхвата малого шкива": "Ángulo de abrace en la polea pequeña",
+      "Передаточное отношение": "Relación de transmisión",
+      "Межосевое расстояние": "Distancia entre ejes",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "м": "m",
+      "°": "°",
+      "Межосевое расстояние должно быть больше нуля": "La distancia entre ejes debe ser mayor que cero",
+      "Диаметр малого шкива должен быть больше нуля": "El diámetro de la polea pequeña debe ser mayor que cero",
+      "Диаметр большого шкива должен быть больше нуля": "El diámetro de la polea grande debe ser mayor que cero",
+      "Шкивы пересекаются: оси не могут быть ближе суммы радиусов": "Las poleas se solapan: los ejes no pueden estar más cerca que la suma de los radios",
+    },
+  },
 };

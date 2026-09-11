@@ -64,4 +64,24 @@ export const localization: CalculatorLocalization = {
       "Зубьев на задней звезде должно быть больше нуля": "Зубців на задній зірці має бути більше нуля",
     },
   },
+  es: {
+    fields: {
+      "chainring": "Dientes del plato",
+      "sprocket": "Dientes del piñón",
+      "wheelCircumference": "Perímetro de la rueda, m",
+    },
+    options: {},
+    results: {
+      "Передаточное отношение": "Relación de transmisión",
+      "Развитие за оборот": "Desarrollo por vuelta",
+      "Оборотов колеса на оборот педалей": "Vueltas de rueda por vuelta de pedal",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м": "m",
+      "Число зубьев должно быть целым": "El número de dientes debe ser un número entero",
+      "Зубьев на передней звезде должно быть больше нуля": "El plato debe tener más de cero dientes",
+      "Зубьев на задней звезде должно быть больше нуля": "El piñón debe tener más de cero dientes",
+    },
+  },
 };

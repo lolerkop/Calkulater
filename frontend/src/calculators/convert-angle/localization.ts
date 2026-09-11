@@ -55,4 +55,33 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { ...ERRORS_UK, 'рад': 'рад', 'град': 'град', 'об': 'об' },
   },
+  es: {
+    fields: {
+      "value": "Ángulo",
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+    },
+    options: {
+      "rad": "Radián (rad)",
+      "deg": "Grado (°)",
+      "grad": "Gradián (gon)",
+      "turn": "Vuelta (turn)",
+      "arcmin": "Minuto de arco (′)",
+      "arcsec": "Segundo de arco (″)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+      "рад": "rad",
+      "град": "gon",
+      "об": "vuelta",
+    },
+  },
 };

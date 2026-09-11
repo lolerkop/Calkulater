@@ -49,4 +49,25 @@ export const localization: CalculatorLocalization = {
       'Температура вне диапазона от −80 до 80 °C': 'Температура поза діапазоном від −80 до 80 °C',
     },
   },
+  es: {
+    fields: {
+      "t": "Temperatura del aire, °C",
+    },
+    options: {},
+    results: {
+      "Скорость звука": "Velocidad del sonido",
+      "В километрах в час": "En kilómetros por hora",
+      "Километр звук пройдёт за": "El sonido recorre un kilómetro en",
+      "За три секунды": "En tres segundos",
+      "Отклонение от значения при 0 °C": "Diferencia respecto al valor a 0 °C",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м/с": "m/s",
+      "км/ч": "km/h",
+      "с": "s",
+      "м": "m",
+      "Температура вне диапазона от −80 до 80 °C": "La temperatura queda fuera del intervalo de −80 a 80 °C",
+    },
+  },
 };

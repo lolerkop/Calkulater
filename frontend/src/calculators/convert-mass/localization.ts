@@ -60,4 +60,38 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { ...ERRORS_UK, 'мг': 'мг', 'г': 'г', 'кг': 'кг', 'т': 'т', 'унция': 'унція', 'фунт': 'фунт', 'стоун': 'стоун' },
   },
+  es: {
+    fields: {
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+      "value": "Masa",
+    },
+    options: {
+      "mg": "Miligramo (mg)",
+      "g": "Gramo (g)",
+      "kg": "Kilogramo (kg)",
+      "t": "Tonelada (t)",
+      "oz": "Onza (oz)",
+      "lb": "Libra (lb)",
+      "st": "Stone (st)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+      "мг": "mg",
+      "г": "g",
+      "кг": "kg",
+      "т": "t",
+      "унция": "oz",
+      "фунт": "lb",
+      "стоун": "st",
+    },
+  },
 };

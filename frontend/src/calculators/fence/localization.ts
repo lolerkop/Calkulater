@@ -62,4 +62,32 @@ export const localization: CalculatorLocalization = {
       "Число проёмов не может быть отрицательным": "Кількість прорізів не може бути від’ємною",
     },
   },
+  es: {
+    fields: {
+      "length": "Longitud de la valla, m",
+      "span": "Ancho del tramo, m",
+      "height": "Altura de la valla, m",
+      "rails": "Travesaños por tramo",
+      "gates": "Puertas y huecos",
+    },
+    options: {},
+    results: {
+      "Столбов": "Postes",
+      "Секций": "Tramos",
+      "Метров лаг": "Metros de travesaño",
+      "Площадь зашивки": "Superficie de cerramiento",
+      "Пролёт": "Ancho del tramo",
+      "Фактический шаг столбов": "Paso real de los postes",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м": "m",
+      "м²": "m²",
+      "Длина забора должна быть больше нуля": "La longitud de la valla debe ser mayor que cero",
+      "Пролёт должен быть больше нуля": "El ancho del tramo debe ser mayor que cero",
+      "Высота должна быть больше нуля": "La altura debe ser mayor que cero",
+      "Лаг должно быть от одной до пяти": "Debe haber entre uno y cinco travesaños",
+      "Число проёмов не может быть отрицательным": "El número de huecos no puede ser negativo",
+    },
+  },
 };

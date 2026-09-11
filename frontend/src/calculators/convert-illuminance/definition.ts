@@ -8,6 +8,7 @@ import { illuminanceNames, illuminanceUnits } from './units';
 import { illuminanceCopyEn } from './copy.en';
 import { illuminanceCopyUk } from './copy.uk';
 import { illuminanceCopyDe } from './copy.de';
+import { convertIlluminanceCopyEs } from './copy.es';
 import { illuminanceReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -15,7 +16,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: illuminanceCopyEn, uk: illuminanceCopyUk, de: illuminanceCopyDe },
+  copy: { en: illuminanceCopyEn, uk: illuminanceCopyUk, de: illuminanceCopyDe, es: convertIlluminanceCopyEs },
   referenceCases: illuminanceReferenceCases,
   publishedExample: { inputs: { value: 500, from: 'lx', to: 'fc' }, expected: ['46,4515 фк'] },
   presentation: {

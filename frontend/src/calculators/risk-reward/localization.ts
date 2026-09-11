@@ -100,4 +100,37 @@ export const localization: CalculatorLocalization = {
       "Стоп не может совпадать с ценой входа": "Стоп не може збігатися з ціною входу",
     },
   },
+  es: {
+    fields: {
+      "direction": "Sentido de la operación",
+      "entry": "Precio de entrada",
+      "stop": "Precio del stop",
+      "target": "Precio objetivo",
+      "qty": "Tamaño, unidades",
+    },
+    options: {
+      "long": "largo — stop por debajo, objetivo por encima",
+      "short": "corto — stop por encima, objetivo por debajo",
+    },
+    results: {
+      "Отношение риск/прибыль": "Relación riesgo-beneficio",
+      "Риск на единицу": "Riesgo por unidad",
+      "Прибыль на единицу": "Beneficio por unidad",
+      "Риск в деньгах": "Riesgo en dinero",
+      "Прибыль в деньгах": "Beneficio en dinero",
+      "Безубыточная доля сделок": "Porcentaje de aciertos de equilibrio",
+      "Внимание": "Atención",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "В лонге стоп ставится ниже входа, а цель выше": "En un largo el stop va por debajo de la entrada y el objetivo por encima",
+      "В шорте стоп ставится выше входа, а цель ниже": "En un corto el stop va por encima de la entrada y el objetivo por debajo",
+      "Цена входа должна быть больше нуля": "El precio de entrada debe ser mayor que cero",
+      "Цена стоп-приказа должна быть больше нуля": "El precio del stop debe ser mayor que cero",
+      "Целевая цена должна быть больше нуля": "El precio objetivo debe ser mayor que cero",
+      "Объём должен быть больше нуля": "El tamaño debe ser mayor que cero",
+      "Стоп не может совпадать с ценой входа": "El stop no puede coincidir con el precio de entrada",
+    },
+  },
 };

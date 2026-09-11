@@ -55,4 +55,27 @@ export const localization: CalculatorLocalization = {
       'Нижнее сопротивление должно быть больше нуля': 'Нижній опір має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "vin": "Tensión de entrada, V",
+      "r1": "Resistencia superior R1, Ω",
+      "r2": "Resistencia inferior R2, Ω",
+    },
+    options: {},
+    results: {
+      "Выходное напряжение": "Tensión de salida",
+      "Ток через делитель": "Corriente por el divisor",
+      "Доля от входного": "Proporción de la entrada",
+      "Мощность верхнего плеча": "Potencia en la rama superior",
+      "Мощность нижнего плеча": "Potencia en la rama inferior",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "В": "V",
+      "мА": "mA",
+      "мВт": "mW",
+      "Верхнее сопротивление должно быть больше нуля": "La resistencia superior debe ser mayor que cero",
+      "Нижнее сопротивление должно быть больше нуля": "La resistencia inferior debe ser mayor que cero",
+    },
+  },
 };

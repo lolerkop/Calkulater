@@ -69,4 +69,34 @@ export const localization: CalculatorLocalization = {
       'Уклон должен быть меньше 90 градусов': 'Ухил має бути меншим за 90 градусів',
     },
   },
+  es: {
+    fields: {
+      "mode": "Forma de la cubierta",
+      "length": "Largo en planta, m",
+      "width": "Ancho en planta, m",
+      "slopeMode": "Cómo se indica la pendiente",
+      "angle": "Pendiente, grados",
+      "slopePercent": "Pendiente, %",
+    },
+    options: {
+      "shed": "a un agua",
+      "gable": "a dos aguas",
+      "hip": "a cuatro aguas",
+      "degrees": "en grados",
+      "percent": "en porcentaje",
+    },
+    results: {
+      "Площадь крыши": "Superficie de la cubierta",
+      "Площадь одного ската": "Superficie de un faldón",
+      "Скатов": "Faldones",
+      "Площадь основания": "Superficie en planta",
+      "Уклон": "Pendiente",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Размеры основания должны быть больше нуля": "Las dimensiones en planta deben ser mayores que cero",
+      "Уклон не может быть отрицательным": "La pendiente no puede ser negativa",
+      "Уклон должен быть меньше 90 градусов": "La pendiente debe ser menor de 90 grados",
+    },
+  },
 };

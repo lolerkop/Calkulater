@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { recipeCostCopyEn } from './copy.en';
 import { recipeCostCopyUk } from './copy.uk';
 import { recipeCostCopyDe } from './copy.de';
+import { recipeCostCopyEs } from './copy.es';
 import { recipeCostReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: recipeCostCopyEn, uk: recipeCostCopyUk, de: recipeCostCopyDe },
+  copy: { en: recipeCostCopyEn, uk: recipeCostCopyUk, de: recipeCostCopyDe, es: recipeCostCopyEs },
   referenceCases: recipeCostReferenceCases,
   publishedExample: { inputs: { ingredients: 'flour 0.5 45\nbutter 0.2 890\nsugar 0.3 68', servings: 4 }, expected: ["55,23 ₽"] },
   presentation: {

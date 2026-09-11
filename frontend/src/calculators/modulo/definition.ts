@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { moduloCopyEn } from './copy.en';
 import { moduloCopyUk } from './copy.uk';
 import { moduloCopyDe } from './copy.de';
+import { moduloCopyEs } from './copy.es';
 import { moduloReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: moduloCopyEn, uk: moduloCopyUk, de: moduloCopyDe },
+  copy: { en: moduloCopyEn, uk: moduloCopyUk, de: moduloCopyDe, es: moduloCopyEs },
   referenceCases: moduloReferenceCases,
   publishedExample: { inputs: { a: 17, b: 5 }, expected: ['2', '3'] },
   presentation: {

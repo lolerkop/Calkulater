@@ -64,4 +64,25 @@ export const localization: CalculatorLocalization = {
       'Возраст должен быть больше нуля': 'Вік має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "species": "Especie y tamaño",
+      "years": "Edad en años",
+    },
+    options: {
+      "cat": "gato",
+      "dog-small": "perro pequeño, hasta 10 kg",
+      "dog-large": "perro grande, más de 25 kg",
+    },
+    results: {
+      "Возраст в человеческих годах": "Edad en años humanos",
+      "Возраст питомца, лет": "Edad de la mascota, años",
+      "Прибавка за каждый следующий год": "Añadido por cada año siguiente",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите вид питомца из списка": "Elige una especie de la lista",
+      "Возраст должен быть больше нуля": "La edad debe ser mayor que cero",
+    },
+  },
 };

@@ -66,4 +66,30 @@ export const localization: CalculatorLocalization = {
       'Размер натуры должен быть больше нуля': 'Розмір натури має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "real": "Medida real, mm",
+      "model": "Medida de la maqueta, mm",
+      "scale": "Denominador de la escala, 1:N",
+    },
+    options: {
+      "toModel": "la medida de la maqueta",
+      "toReal": "la medida real",
+      "findScale": "la escala",
+    },
+    results: {
+      "Размер модели": "Medida de la maqueta",
+      "Размер натуры": "Medida real",
+      "Масштаб": "Escala",
+      "Натура больше модели во столько раз": "El original es mayor por un factor de",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "мм": "mm",
+      "Знаменатель масштаба должен быть больше нуля": "El denominador de la escala debe ser mayor que cero",
+      "Размер модели должен быть больше нуля": "La medida de la maqueta debe ser mayor que cero",
+      "Размер натуры должен быть больше нуля": "La medida real debe ser mayor que cero",
+    },
+  },
 };

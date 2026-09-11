@@ -63,4 +63,27 @@ export const localization: CalculatorLocalization = {
       'Запас больше 50 % не рассчитывается': 'Запас понад 50 % не розраховується',
     },
   },
+  es: {
+    fields: {
+      "perimeter": "Longitud total de la zapata, m",
+      "width": "Ancho de la zapata, m",
+      "depth": "Profundidad de la zapata, m",
+      "waste": "Margen, %",
+    },
+    options: {},
+    results: {
+      "Объём бетона": "Volumen de hormigón",
+      "Чистый объём": "Volumen neto",
+      "Запас": "Margen",
+      "Площадь сечения ленты": "Área de la sección de la zapata",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Длина ленты должна быть больше нуля": "La longitud de la zapata debe ser mayor que cero",
+      "Ширина ленты должна быть больше нуля": "El ancho de la zapata debe ser mayor que cero",
+      "Глубина ленты должна быть больше нуля": "La profundidad de la zapata debe ser mayor que cero",
+      "Запас не может быть отрицательным": "El margen no puede ser negativo",
+      "Запас больше 50 % не рассчитывается": "No se calcula un margen mayor del 50 %",
+    },
+  },
 };

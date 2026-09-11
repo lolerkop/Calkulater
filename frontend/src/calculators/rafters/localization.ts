@@ -60,4 +60,25 @@ export const localization: CalculatorLocalization = {
       'Свес не может быть отрицательным': 'Звис не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "span": "Luz del edificio, m",
+      "rise": "Altura de cumbrera, m",
+      "overhang": "Vuelo del alero, m",
+    },
+    options: {},
+    results: {
+      "Длина стропила": "Longitud del par",
+      "Угол наклона": "Ángulo de inclinación",
+      "Заложение": "Proyección horizontal",
+      "Уклон": "Pendiente",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "м": "m",
+      "Пролёт должен быть больше нуля": "La luz debe ser mayor que cero",
+      "Подъём должен быть больше нуля": "La altura de cumbrera debe ser mayor que cero",
+      "Свес не может быть отрицательным": "El vuelo no puede ser negativo",
+    },
+  },
 };

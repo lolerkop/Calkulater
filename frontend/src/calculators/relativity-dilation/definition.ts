@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { relativityDilationCopyEn } from './copy.en';
 import { relativityDilationCopyUk } from './copy.uk';
 import { relativityDilationCopyDe } from './copy.de';
+import { relativityDilationCopyEs } from './copy.es';
 import { relativityDilationReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: relativityDilationCopyEn, uk: relativityDilationCopyUk, de: relativityDilationCopyDe },
+  copy: { en: relativityDilationCopyEn, uk: relativityDilationCopyUk, de: relativityDilationCopyDe, es: relativityDilationCopyEs },
   referenceCases: relativityDilationReferenceCases,
   publishedExample: { inputs: { beta: 0.5, properTime: 1 }, expected: ["1,155 с"] },
   presentation: {

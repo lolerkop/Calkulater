@@ -9,6 +9,7 @@ import { energyNames, energyUnits } from './units';
 import { energyCopyEn } from './copy.en';
 import { energyCopyUk } from './copy.uk';
 import { energyCopyDe } from './copy.de';
+import { convertEnergyCopyEs } from './copy.es';
 import { energyReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -16,7 +17,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: energyCopyEn, uk: energyCopyUk, de: energyCopyDe },
+  copy: { en: energyCopyEn, uk: energyCopyUk, de: energyCopyDe, es: convertEnergyCopyEs },
   referenceCases: energyReferenceCases,
   publishedExample: { inputs: { value: 100, from: 'kcal', to: 'kj' }, expected: ['418,4000 кДж'] },
   presentation: {

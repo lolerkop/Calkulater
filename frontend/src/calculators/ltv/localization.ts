@@ -80,4 +80,36 @@ export const localization: CalculatorLocalization = {
     "Срок жизни должен быть больше нуля": "Строк життя має бути більшим за нуль",
     },
   },
+  es: {
+    fields: {
+      "mode": "Cómo deducir la duración",
+      "arpu": "Ingreso por periodo",
+      "months": "Duración, meses",
+      "churn": "Rotación por periodo, %",
+      "margin": "Margen bruto, %",
+      "cac": "Coste de captación",
+    },
+    options: {
+      "months": "por duración",
+      "churn": "por rotación",
+    },
+    results: {
+      "LTV": "LTV",
+      "Срок жизни клиента": "Duración del cliente",
+      "Средний доход за период": "Ingreso medio por periodo",
+      "Валовая маржа": "Margen bruto",
+      "Отношение LTV к CAC": "Relación LTV/CAC",
+      "Окупаемость привлечения": "Retorno de la captación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "мес": "mes",
+      "Средний доход должен быть больше нуля": "El ingreso medio debe ser mayor que cero",
+      "Маржа задаётся в диапазоне от 0 до 100 процентов": "El margen se fija entre 0 y 100 por ciento",
+      "Стоимость привлечения не может быть отрицательной": "El coste de captación no puede ser negativo",
+      "Отток задаётся в диапазоне от 0 до 100 процентов": "La rotación se fija entre 0 y 100 por ciento",
+      "Срок жизни должен быть больше нуля": "La duración debe ser mayor que cero",
+    },
+  },
 };

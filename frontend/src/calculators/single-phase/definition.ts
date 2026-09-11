@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { singlePhaseCopyEn } from './copy.en';
 import { singlePhaseCopyUk } from './copy.uk';
 import { singlePhaseCopyDe } from './copy.de';
+import { singlePhaseCopyEs } from './copy.es';
 import { singlePhaseReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: singlePhaseCopyEn, uk: singlePhaseCopyUk, de: singlePhaseCopyDe },
+  copy: { en: singlePhaseCopyEn, uk: singlePhaseCopyUk, de: singlePhaseCopyDe, es: singlePhaseCopyEs },
   referenceCases: singlePhaseReferenceCases,
   publishedExample: {
     inputs: { mode: 'P', voltage: 230, current: 6.5, powerFactor: 0.95 },

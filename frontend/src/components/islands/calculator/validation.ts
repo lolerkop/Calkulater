@@ -58,7 +58,9 @@ export function validateValues(
     ? 'Выберите корректную дату.'
     : locale === 'uk'
       ? 'Оберіть коректну дату.'
-      : 'Choose a valid date.';
+      : locale === 'es'
+        ? 'Indica una fecha válida.'
+        : 'Choose a valid date.';
   for (const field of fields) {
     if (!isVisible(field, values) || field.type !== 'date') continue;
     const raw = String(values[field.name] ?? '');
@@ -87,7 +89,9 @@ export function validateValues(
         ? `Используйте формат ГГГГ-ММ-ДД: ${invalid.join(', ')}`
         : locale === 'uk'
           ? `Використовуйте формат РРРР-ММ-ДД: ${invalid.join(', ')}`
-          : `Use YYYY-MM-DD: ${invalid.join(', ')}`;
+          : locale === 'es'
+            ? `Usa el formato AAAA-MM-DD: ${invalid.join(', ')}`
+            : `Use YYYY-MM-DD: ${invalid.join(', ')}`;
     }
     const start = String(values.startDate ?? '');
     const end = String(values.endDate ?? '');
@@ -96,7 +100,9 @@ export function validateValues(
         ? 'Дата окончания не может быть раньше даты начала.'
         : locale === 'uk'
           ? 'Дата завершення не може бути раніше дати початку.'
-          : 'The end date cannot be before the start date.';
+          : locale === 'es'
+            ? 'La fecha de fin no puede ser anterior a la de inicio.'
+            : 'The end date cannot be before the start date.';
     }
   }
   if (calculatorId === 'age-calculator') {
@@ -107,7 +113,9 @@ export function validateValues(
         ? 'Дата расчёта не может быть раньше даты рождения.'
         : locale === 'uk'
           ? 'Дата розрахунку не може бути раніше дати народження.'
-          : 'The calculation date cannot be before the birth date.';
+          : locale === 'es'
+            ? 'La fecha de cálculo no puede ser anterior a la de nacimiento.'
+            : 'The calculation date cannot be before the birth date.';
     }
   }
   return errors;

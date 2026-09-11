@@ -55,4 +55,30 @@ export const localization: CalculatorLocalization = {
       'Площадь должна быть больше нуля': 'Площа має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Cómo medir",
+      "length": "Largo",
+      "width": "Ancho",
+      "area": "Superficie del suelo",
+      "height": "Altura",
+    },
+    options: {
+      "dimensions": "Por dimensiones de la habitación",
+      "area": "Por superficie del suelo",
+    },
+    results: {
+      "Объём помещения": "Volumen de la habitación",
+      "Площадь пола": "Superficie del suelo",
+      "Высота": "Altura",
+      "Периметр": "Perímetro",
+      "Площадь стен": "Superficie de las paredes",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Высота должна быть больше нуля": "La altura debe ser mayor que cero",
+      "Длина и ширина должны быть больше нуля": "El largo y el ancho deben ser mayores que cero",
+      "Площадь должна быть больше нуля": "La superficie del suelo debe ser mayor que cero",
+    },
+  },
 };

@@ -56,4 +56,27 @@ export const localization: CalculatorLocalization = {
         'Кліків більше, ніж показів — імовірно, цифри взяті за різні періоди',
     },
   },
+  es: {
+    fields: {
+      "clicks": "Clics",
+      "impressions": "Impresiones",
+      "cost": "Inversión en la campaña",
+    },
+    options: {},
+    results: {
+      "CTR": "CTR",
+      "Кликов на показы": "Clics sobre impresiones",
+      "Показов на один клик": "Impresiones por clic",
+      "Цена клика": "Coste por clic",
+      "Цена тысячи показов": "Coste por mil impresiones",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "на": "de",
+      "₽": "€",
+      "Показов должно быть не меньше одного": "Debe haber al menos una impresión",
+      "Кликов не может быть меньше нуля": "Los clics no pueden ser negativos",
+      "Кликов больше, чем показов — вероятно, цифры взяты за разные периоды": "Hay más clics que impresiones: probablemente las cifras son de periodos distintos",
+    },
+  },
 };

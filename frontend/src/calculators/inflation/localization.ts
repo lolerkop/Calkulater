@@ -61,4 +61,27 @@ export const localization: CalculatorLocalization = {
       "Значение слишком велико для расчёта": "Значення завелике для обчислення",
     },
   },
+  es: {
+    fields: {
+      "amount": "Cantidad de hoy, €",
+      "ratePct": "Inflación, % anual",
+      "years": "Plazo, años",
+    },
+    options: {},
+    results: {
+      "Покупательная способность": "Poder adquisitivo",
+      "Столько же в будущих деньгах": "Lo mismo en dinero futuro",
+      "Потеряно покупательной способности": "Poder adquisitivo perdido",
+      "Доля потери": "Proporción perdida",
+      "Множитель цен": "Multiplicador de precios",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "₽": "€",
+      "Сумма должна быть больше нуля": "La cantidad debe ser mayor que cero",
+      "Инфляция не может достигать минус ста процентов": "La inflación no puede llegar a menos cien por ciento",
+      "Срок должен быть больше нуля": "El plazo debe ser mayor que cero",
+      "Значение слишком велико для расчёта": "El valor es demasiado grande para calcularlo",
+    },
+  },
 };

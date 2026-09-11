@@ -76,4 +76,29 @@ export const localization: CalculatorLocalization = {
       'Число действий должно быть больше нуля': 'Кількість дій має бути більшою за нуль',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué se cuenta",
+      "cost": "Presupuesto publicitario, €",
+      "actions": "Acciones obtenidas",
+    },
+    options: {
+      "cpa": "cualquier acción objetivo (CPA)",
+      "cpl": "registro o consulta (CPL)",
+      "cpi": "instalación de aplicación (CPI)",
+    },
+    results: {
+      "CPA — цена действия": "CPA — coste por acción",
+      "CPL — цена заявки": "CPL — coste por registro",
+      "CPI — цена установки": "CPI — coste por instalación",
+      "Бюджет": "Presupuesto",
+      "Действий": "Acciones",
+      "На тысячу действий": "Por mil acciones",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Бюджет должен быть больше нуля": "El presupuesto debe ser mayor que cero",
+      "Число действий должно быть больше нуля": "El número de acciones debe ser mayor que cero",
+    },
+  },
 };

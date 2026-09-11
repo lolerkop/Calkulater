@@ -58,4 +58,30 @@ export const localization: CalculatorLocalization = {
       'Основание не может быть единицей': 'Основа не може бути одиницею',
     },
   },
+  es: {
+    fields: {
+      "mode": "Tipo de logaritmo",
+      "value": "Número",
+      "base": "Base",
+    },
+    options: {
+      "log10": "Decimal, base 10",
+      "ln": "Natural, base e",
+      "custom": "Base personalizada",
+    },
+    results: {
+      "Логарифм": "Logaritmo",
+      "Запись": "Escrito",
+      "Проверка возведением": "Comprobación por potenciación",
+      "Натуральный логарифм": "Logaritmo natural",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "по основанию": "en base",
+      "в степени": "elevado a",
+      "Логарифм определён только для положительных чисел": "El logaritmo solo está definido para números positivos",
+      "Основание должно быть больше нуля": "La base debe ser mayor que cero",
+      "Основание не может быть единицей": "La base no puede ser uno",
+    },
+  },
 };

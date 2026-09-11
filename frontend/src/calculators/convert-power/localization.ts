@@ -57,4 +57,35 @@ export const localization: CalculatorLocalization = {
     results: RESULTS_UK,
     values: { ...ERRORS_UK, 'Вт': 'Вт', 'кВт': 'кВт', 'МВт': 'МВт', 'л.с.': 'к.с.', 'BTU/ч': 'BTU/год' },
   },
+  es: {
+    fields: {
+      "from": "Unidad de origen",
+      "to": "Unidad de destino",
+      "value": "Potencia",
+    },
+    options: {
+      "w": "Vatio (W)",
+      "kw": "Kilovatio (kW)",
+      "mw": "Megavatio (MW)",
+      "hp": "Caballo mecánico (hp)",
+      "ps": "Caballo métrico (CV)",
+      "btuh": "BTU por hora (BTU/h)",
+    },
+    results: {
+      "Результат": "Resultado",
+      "Исходное значение": "Valor introducido",
+      "Соотношение": "Relación",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Выберите единицы из списка": "Elige las unidades de la lista",
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado queda fuera del intervalo admitido",
+      "Вт": "W",
+      "кВт": "kW",
+      "МВт": "MW",
+      "л.с.": "CV",
+      "BTU/ч": "BTU/h",
+    },
+  },
 };

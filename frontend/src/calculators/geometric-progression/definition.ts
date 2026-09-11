@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { geometricProgressionCopyEn } from './copy.en';
 import { geometricProgressionCopyUk } from './copy.uk';
 import { geometricProgressionCopyDe } from './copy.de';
+import { geometricProgressionCopyEs } from './copy.es';
 import { geometricProgressionReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: geometricProgressionCopyEn, uk: geometricProgressionCopyUk, de: geometricProgressionCopyDe },
+  copy: { en: geometricProgressionCopyEn, uk: geometricProgressionCopyUk, de: geometricProgressionCopyDe, es: geometricProgressionCopyEs },
   referenceCases: geometricProgressionReferenceCases,
   publishedExample: { inputs: { a1: 2, r: 3, n: 10 }, expected: ["39 366"] },
   presentation: {

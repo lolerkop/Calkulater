@@ -48,4 +48,24 @@ export const localization: CalculatorLocalization = {
       'Объём камеры сгорания должен быть больше нуля': 'Об’єм камери згоряння має бути більшим за нуль',
     },
   },
+  es: {
+    fields: {
+      "displacement": "Cilindrada de un cilindro, cm³",
+      "chamber": "Volumen de la cámara de combustión, cm³",
+    },
+    options: {},
+    results: {
+      "Степень сжатия": "Relación de compresión",
+      "Полный объём цилиндра": "Volumen total del cilindro",
+      "Объём камеры сгорания": "Volumen de la cámara de combustión",
+      "Рабочий объём цилиндра": "Cilindrada del cilindro",
+      "Записью": "Escrito como",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "см³": "cm³",
+      "Рабочий объём цилиндра должен быть больше нуля": "La cilindrada del cilindro debe ser mayor que cero",
+      "Объём камеры сгорания должен быть больше нуля": "El volumen de la cámara debe ser mayor que cero",
+    },
+  },
 };

@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { alcoholUnitsCopyEn } from './copy.en';
 import { alcoholUnitsCopyUk } from './copy.uk';
 import { alcoholUnitsCopyDe } from './copy.de';
+import { alcoholUnitsCopyEs } from './copy.es';
 import { alcoholUnitsReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: alcoholUnitsCopyEn, uk: alcoholUnitsCopyUk, de: alcoholUnitsCopyDe },
+  copy: { en: alcoholUnitsCopyEn, uk: alcoholUnitsCopyUk, de: alcoholUnitsCopyDe, es: alcoholUnitsCopyEs },
   referenceCases: alcoholUnitsReferenceCases,
   publishedExample: { inputs: { volume_ml: 150, abv: 12, standard_g: 10 }, expected: ["1,42"] },
   presentation: {

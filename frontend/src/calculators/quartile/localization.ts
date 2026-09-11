@@ -46,4 +46,24 @@ export const localization: CalculatorLocalization = {
       'Нужно не меньше четырёх значений': 'Потрібно щонайменше чотири значення',
     },
   },
+  es: {
+    fields: {
+      "values": "Números separados por espacios o saltos de línea",
+    },
+    options: {},
+    results: {
+      "Медиана": "Mediana",
+      "Первый квартиль": "Primer cuartil",
+      "Третий квартиль": "Tercer cuartil",
+      "Межквартильный размах": "Rango intercuartílico",
+      "Границы усов": "Límites de los bigotes",
+      "Выбросов": "Valores atípicos",
+      "Значений": "Valores",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Введите числа через пробел или с новой строки": "Introduce números separados por espacios o saltos de línea",
+      "Нужно не меньше четырёх значений": "Hacen falta al menos cuatro valores",
+    },
+  },
 };

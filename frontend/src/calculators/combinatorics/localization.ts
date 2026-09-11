@@ -67,4 +67,35 @@ export const localization: CalculatorLocalization = {
       'Без повторений выборка не может быть больше множества': 'Без повторень вибірка не може бути більшою за множину',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué contar",
+      "repetition": "Permitir repetición",
+      "n": "Tamaño del conjunto n",
+      "k": "Tamaño de la muestra k",
+    },
+    options: {
+      "combinations": "combinaciones",
+      "permutations": "permutaciones",
+      "yes": "Sí",
+      "no": "No",
+    },
+    results: {
+      "Количество вариантов": "Número de posibilidades",
+      "Формула": "Fórmula",
+      "Научная форма": "Notación científica",
+      "Порядок важен": "El orden importa",
+      "Повторения разрешены": "Se permite repetición",
+      "Размещений из тех же чисел": "Permutaciones con los mismos números",
+      "Сочетаний из тех же чисел": "Combinaciones con los mismos números",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "да": "sí",
+      "нет": "no",
+      "Оба числа должны быть целыми и неотрицательными": "Ambos números deben ser enteros y no negativos",
+      "Числа больше тысячи выходят за практический предел расчёта": "Los números mayores de mil superan el límite práctico de este cálculo",
+      "Без повторений выборка не может быть больше множества": "Sin repetición, la muestra no puede superar al conjunto",
+    },
+  },
 };

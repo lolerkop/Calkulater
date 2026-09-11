@@ -10,6 +10,7 @@ import { torqueNames, torqueUnits } from './units';
 import { torqueCopyEn } from './copy.en';
 import { torqueCopyUk } from './copy.uk';
 import { torqueCopyDe } from './copy.de';
+import { convertTorqueCopyEs } from './copy.es';
 import { torqueReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -17,7 +18,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: torqueCopyEn, uk: torqueCopyUk, de: torqueCopyDe },
+  copy: { en: torqueCopyEn, uk: torqueCopyUk, de: torqueCopyDe, es: convertTorqueCopyEs },
   referenceCases: torqueReferenceCases,
   publishedExample: { inputs: { value: 1, from: 'lbfft', to: 'nm' }, expected: ['1,3558 Н·м'] },
   presentation: {

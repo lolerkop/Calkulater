@@ -70,4 +70,31 @@ export const localization: CalculatorLocalization = {
     "КПД задаётся в диапазоне от 0 до 100 процентов": "ККД задається в діапазоні від 0 до 100 відсотків",
     },
   },
+  es: {
+    fields: {
+      "capacity": "Capacidad, Ah",
+      "voltage": "Tensión, V",
+      "load": "Consumo, W",
+      "dod": "Profundidad de descarga, %",
+      "efficiency": "Rendimiento de conversión, %",
+    },
+    options: {},
+    results: {
+      "Время работы": "Autonomía",
+      "Часы и минуты": "Horas y minutos",
+      "Полезная энергия": "Energía útil",
+      "Полная энергия батареи": "Energía total de la batería",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "ч": "h",
+      "мин": "min",
+      "Вт·ч": "Wh",
+      "Ёмкость должна быть больше нуля": "La capacidad debe ser mayor que cero",
+      "Напряжение должно быть больше нуля": "La tensión debe ser mayor que cero",
+      "Мощность нагрузки должна быть больше нуля": "El consumo debe ser mayor que cero",
+      "Глубина разряда задаётся в диапазоне от 0 до 100 процентов": "La profundidad de descarga se fija entre 0 y 100 por ciento",
+      "КПД задаётся в диапазоне от 0 до 100 процентов": "El rendimiento se fija entre 0 y 100 por ciento",
+    },
+  },
 };

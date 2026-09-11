@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { thinLensCopyEn } from './copy.en';
 import { thinLensCopyUk } from './copy.uk';
 import { thinLensCopyDe } from './copy.de';
+import { thinLensCopyEs } from './copy.es';
 import { thinLensReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: thinLensCopyEn, uk: thinLensCopyUk, de: thinLensCopyDe },
+  copy: { en: thinLensCopyEn, uk: thinLensCopyUk, de: thinLensCopyDe, es: thinLensCopyEs },
   referenceCases: thinLensReferenceCases,
   publishedExample: { inputs: { mode: "image", f: 10, do: 30 }, expected: ["15 см"] },
   presentation: {

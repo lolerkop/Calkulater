@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { momentumCopyEn } from './copy.en';
 import { momentumCopyUk } from './copy.uk';
 import { momentumCopyDe } from './copy.de';
+import { momentumCopyEs } from './copy.es';
 import { momentumReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: momentumCopyEn, uk: momentumCopyUk, de: momentumCopyDe },
+  copy: { en: momentumCopyEn, uk: momentumCopyUk, de: momentumCopyDe, es: momentumCopyEs },
   referenceCases: momentumReferenceCases,
   publishedExample: { inputs: { mode: 'p', m: 3, v: 4 }, expected: ["12 кг·м/с"] },
   presentation: {

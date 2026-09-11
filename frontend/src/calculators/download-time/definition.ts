@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { downloadTimeCopyEn } from './copy.en';
 import { downloadTimeCopyUk } from './copy.uk';
 import { downloadTimeCopyDe } from './copy.de';
+import { downloadTimeCopyEs } from './copy.es';
 import { downloadTimeReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: downloadTimeCopyEn, uk: downloadTimeCopyUk, de: downloadTimeCopyDe },
+  copy: { en: downloadTimeCopyEn, uk: downloadTimeCopyUk, de: downloadTimeCopyDe, es: downloadTimeCopyEs },
   referenceCases: downloadTimeReferenceCases,
   publishedExample: { inputs: { size: 1, sizeUnit: 'gb', speed: 100, speedUnit: 'mbit' }, expected: ['1:20'] },
   presentation: {

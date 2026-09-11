@@ -66,4 +66,36 @@ export const localization: CalculatorLocalization = {
       'Дополнительная нагрузка не может быть отрицательной': 'Додаткове навантаження не може бути від’ємним',
     },
   },
+  es: {
+    fields: {
+      "power": "Potencia del motor",
+      "powerUnit": "Unidad de potencia",
+      "mass": "Masa en vacío, kg",
+      "payload": "Carga adicional, kg",
+    },
+    options: {
+      "ps": "caballos métricos (CV)",
+      "kw": "kilovatios (kW)",
+    },
+    results: {
+      "Удельная мощность": "Relación potencia-peso",
+      "Лошадиных сил на тонну": "Caballos por tonelada",
+      "Килограммов на силу": "Kilogramos por caballo",
+      "Мощность": "Potencia",
+      "Расчётная масса": "Masa empleada",
+      "Без нагрузки было бы": "Sin la carga sería",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "кВт/т": "kW/t",
+      "л.с./т": "CV/t",
+      "кг/л.с.": "kg/CV",
+      "кВт": "kW",
+      "л.с.": "CV",
+      "кг": "kg",
+      "Мощность должна быть больше нуля": "La potencia debe ser mayor que cero",
+      "Масса должна быть больше нуля": "La masa debe ser mayor que cero",
+      "Дополнительная нагрузка не может быть отрицательной": "La carga adicional no puede ser negativa",
+    },
+  },
 };

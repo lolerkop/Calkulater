@@ -1,0 +1,410 @@
+// Подробный испанский текст: раздел «geometry».
+//
+// Смысл взят из английского слоя и самого расчёта; числа в примерах
+// пересчитаны по формуле, а не перенесены из другой локали.
+
+import type { EsDetailedContent } from './types';
+
+export const esGeometryContent: Partial<Record<string, EsDetailedContent>> = {
+  "geom-annulus": {
+    longDescription: "Calcula el área de una corona circular, la figura comprendida entre dos círculos con el mismo centro. El área es la diferencia de dos discos: π(R² − r²). Escribirla como π(R − r)² es incorrecto por más fácil que sea el desliz: esa expresión da el área de un disco de radio R − r, una figura completamente distinta, y en un anillo estrecho ambos números son lo bastante pequeños como para que la sustitución parezca verosímil. Un radio interior igual al exterior se rechaza, porque un anillo de anchura cero no existe. Un radio interior de cero, en cambio, es perfectamente legítimo: eso es un disco macizo.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Introduce el radio exterior.",
+      "Introduce el radio interior: debe ser menor que el exterior.",
+      "Deja el radio interior en cero para obtener un disco macizo.",
+    ],
+    howItWorks: "Área S = π(R² − r²), la diferencia de dos discos. La anchura del anillo es R − r, las circunferencias son 2πR y 2πr, y el radio medio es (R + r)/2.",
+    example: "Un anillo de radios 10 y 6 cm tiene un área de 201,06 cm² y una anchura de 4 cm.",
+    faq: [
+      { q: "¿Por qué el área no puede ser π(R − r)²?", a: "Porque eso es el área de un disco de radio R − r, no la del anillo. Con radios 10 y 6 la respuesta correcta son 201,06 cm² y la equivocada, 50,27 cm²: un factor de cuatro, aunque ambas parezcan verosímiles." },
+      { q: "¿Y si el radio interior es cero?", a: "Obtienes un disco macizo, y el cálculo lo admite: el área pasa a ser πR² y la circunferencia interior, cero." },
+      { q: "¿Por qué el radio interior no puede ser igual al exterior?", a: "Porque entonces el anillo tendría anchura cero y no habría figura. Devolver un área de cero respondería a una pregunta que nadie ha hecho." },
+      { q: "¿Para qué sirve el radio medio?", a: "Permite tratar un anillo estrecho como una tira: desenrollado, tiene longitud 2π·R_medio y anchura R − r. En anillos estrechos eso da el área con buena aproximación." },
+      { q: "¿Cómo hallo la sección de un tubo?", a: "Es exactamente este problema: el radio exterior del tubo y el interior del hueco. La diferencia da el área de metal en sección." },
+    ],
+  },
+  "geom-cone": {
+    longDescription: "Resuelve un cono: la forma de un montón de arena, un embudo, una tolva o el techo de una tienda de campaña. Además del volumen da la generatriz: la distancia por la pendiente desde el vértice hasta el borde, que es la que necesitas para cortar un revestimiento, mientras que la altura es la vertical desde el vértice hasta el centro. Esas dos son las que se confunden, y la diferencia es real: con radio 3 y altura 4, la generatriz vale 5.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Introduce el radio de la base y la altura vertical.",
+      "Consulta el volumen, la generatriz y las superficies.",
+    ],
+    howItWorks: "V = π · r² · h ÷ 3; la generatriz es l = √(r² + h²), la superficie lateral es πrl y la total, πr(r + l).",
+    example: "Un cono de 3 m de radio y 4 m de altura tiene una generatriz de 5 m y un volumen de 37,699 m³.",
+    faq: [
+      { q: "¿En qué se diferencian la generatriz y la altura?", a: "La altura es la vertical del vértice al centro de la base; la generatriz es la línea inclinada del vértice al borde. La generatriz siempre es más larga, y es la que hace falta para cortar un revestimiento." },
+      { q: "¿Por qué un cono es la tercera parte de un cilindro?", a: "Porque un cono con la misma base y la misma altura ocupa exactamente un tercio de ese cilindro: un resultado clásico de la geometría del espacio." },
+      { q: "¿Cómo mido un montón de arena?", a: "Mide el radio en la base y la altura en el centro. El montón se trata como un cono ideal, así que el volumen real será algo menor." },
+      { q: "¿Qué incluye la superficie total?", a: "La superficie lateral más la base circular. Para un embudo abierto solo cuenta la parte lateral." },
+    ],
+  },
+  "geom-cube": {
+    longDescription: "Resuelve un cubo a partir de cualquiera de tres magnitudes: la arista, el volumen o la superficie. En los modos inversos se recupera primero la arista —a = ∛V o a = √(S/6)— y todo lo demás sale de ahí como siempre. La arista es además el resultado principal en esos modos: la magnitud que acabas de escribir no es la respuesta. Un cubo tiene dos diagonales distintas y conviene no mezclarlas: la de la cara, a√2, está contenida en un lado, mientras que la del cubo, a√3, atraviesa el cuerpo de vértice a vértice opuesto; esa es la larga, y es la que decide si un objeto alargado cabe dentro.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Indica qué magnitud conoces.",
+      "Introduce su valor.",
+      "Las demás propiedades se calculan de una vez.",
+    ],
+    howItWorks: "Volumen V = a³, superficie S = 6a², diagonal de la cara a√2, diagonal del cubo a√3, suma de aristas 12a. En los modos inversos la arista sale de a = ∛V o a = √(S/6).",
+    example: "Un cubo de 3 cm de arista tiene un volumen de 27 cm³, una superficie de 54 cm² y una diagonal de 5,196 cm.",
+    faq: [
+      { q: "¿En qué se diferencian la diagonal del cubo y la de la cara?", a: "La de la cara, a√2, está contenida en un lado, mientras que la del cubo, a√3, atraviesa el cuerpo de vértice a vértice opuesto. La segunda es más larga, y es la que responde si un objeto alargado cabe dentro de una caja." },
+      { q: "¿Cómo hallo la arista a partir del volumen?", a: "Con la raíz cúbica: a = ∛V. Para un volumen de 64 cm³ la arista son 4 cm. Elige el modo «el volumen» y la calculadora lo hace por ti." },
+      { q: "¿Para qué una calculadora de cubo si existe la de ortoedro?", a: "El cubo es un caso particular suyo, pero se describe con una sola magnitud en lugar de tres, y eso hace resolubles los problemas inversos: la arista sale directamente del volumen o de la superficie. El caso general no tiene ese inverso único." },
+      { q: "¿Cuánto crece el volumen si se dobla la arista?", a: "Ocho veces, mientras que la superficie crece cuatro. El volumen escala con el cubo del tamaño lineal y el área con el cuadrado, y por eso mismo los cuerpos grandes se enfrían más despacio que los pequeños." },
+      { q: "¿Cómo paso el resultado a otras unidades?", a: "Cambia la unidad de longitud antes de calcular. Convertir a mano un volumen ya calculado es arriesgado: un centímetro cúbico tiene mil milímetros cúbicos, no diez." },
+    ],
+  },
+  "geom-cuboid": {
+    longDescription: "Resuelve un ortoedro a partir de sus tres aristas: volumen, superficie, diagonal del cuerpo y suma de las aristas. La diagonal es la cifra que responde si un objeto cabe en una caja de esquina a esquina. El cubo no se trata como figura aparte: es el caso particular de tres aristas iguales y pasa por el mismo cálculo. La unidad de longitud se elige una vez: el volumen vuelve en su cubo y el área en su cuadrado.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Introduce las tres aristas.",
+      "Consulta el volumen, la superficie y la diagonal.",
+    ],
+    howItWorks: "V = abc; S = 2(ab + bc + ca); la diagonal d = √(a² + b² + c²) sale de aplicar Pitágoras dos veces. La suma de las aristas es 4(a + b + c), porque hay cuatro aristas en cada dirección.",
+    example: "Una caja de 3 × 4 × 5 cm tiene un volumen de 60 cm³, una superficie de 94 cm² y una diagonal de 7,071 cm.",
+    faq: [
+      { q: "¿Qué me dice la diagonal del cuerpo?", a: "La distancia entre vértices opuestos: el segmento más largo que cabe dentro. Es lo que compruebas para ver si algo entra en una caja de esquina a esquina." },
+      { q: "¿Sirve para un cubo?", a: "Sí. Un cubo es un ortoedro con tres aristas iguales: introduce el mismo valor tres veces y todas las fórmulas siguen valiendo." },
+      { q: "¿Por qué el volumen va en unidades cúbicas y la superficie en cuadradas?", a: "Porque el volumen se mide en el cubo de la unidad elegida y el área, en su cuadrado. Convertir cualquiera de los dos con un factor lineal sería un error." },
+      { q: "¿Cómo obtengo el peso a partir del volumen?", a: "Multiplica el volumen por la densidad del material: eso es lo que hace la calculadora de densidad, y el volumen se traslada tal cual." },
+    ],
+  },
+  "geom-cylinder": {
+    longDescription: "Resuelve un cilindro: la forma de un bidón, un tubo, un depósito o un anillo de pozo. Además del volumen da dos superficies, y la diferencia importa: la lateral es la que necesitas para envolver o calorifugar un tubo, y la total para pintar un recipiente incluyendo el fondo y la tapa. El volumen viene en el cubo de la unidad elegida y las superficies, en su cuadrado.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Introduce el radio de la base y la altura.",
+      "Consulta el volumen y ambas superficies.",
+    ],
+    howItWorks: "V = π · r² · h; la superficie lateral es 2πrh y la total, 2πr(r + h): la lateral más las dos bases.",
+    example: "Un cilindro de 3 m de radio y 10 m de altura tiene un volumen de 282,743 m³ y una superficie lateral de 188,496 m².",
+    faq: [
+      { q: "¿En qué se diferencian la superficie lateral y la total?", a: "La lateral es solo la pared, que desenrollada da un rectángulo de 2πr por h. La total le añade las dos bases circulares." },
+      { q: "¿Cómo paso el volumen a litros?", a: "Un decímetro cúbico es un litro y un metro cúbico son mil litros, así que calcula en metros y multiplica por 1000." },
+      { q: "¿Vale para un tubo?", a: "Para el volumen y el área exteriores, sí. El hueco es un cálculo aparte con el radio interior; el espesor de pared no está modelado aquí." },
+      { q: "¿Y si conozco el diámetro?", a: "Introduce la mitad. El radio es la mitad del diámetro, y poner el diámetro cuadruplicaría el volumen." },
+    ],
+  },
+  "geom-ellipse": {
+    longDescription: "Resuelve una elipse a partir de sus dos semiejes. El área es exacta y sencilla: S = πab. El perímetro, en cambio, no puede escribirse con funciones elementales —necesita una integral elíptica—, así que aquí se usa la aproximación de Ramanujan, cuyo error con un achatamiento moderado queda por debajo de una cienmilésima de por ciento, menos que la diferencia entre las cifras que se ven en pantalla. La línea lleva su fuente en la etiqueta en lugar de hacer pasar una aproximación por una fórmula exacta. La excentricidad se mide desde el semieje mayor: dice cuán estirada está la elipse, y cae a cero justo cuando la figura pasa a ser un círculo.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Introduce ambos semiejes: las mitades de los ejes, no los ejes.",
+      "El orden no importa: se detecta cuál es el mayor.",
+      "Semiejes iguales dan un círculo.",
+    ],
+    howItWorks: "Área S = πab. El perímetro usa la aproximación de Ramanujan π[3(a+b) − √((3a+b)(a+3b))]. La excentricidad e = √(1 − b²/a²) se toma desde el semieje mayor, y la distancia entre los focos es 2√(a² − b²).",
+    example: "Una elipse de semiejes 5 y 3 cm tiene un área de 47,124 cm², un perímetro de 25,527 cm y una excentricidad de 0,8.",
+    faq: [
+      { q: "¿Por qué el perímetro es aproximado?", a: "El perímetro exacto de una elipse es una integral elíptica y no una fórmula elemental. La aproximación de Ramanujan yerra en menos de 10⁻⁵ % con achatamientos moderados: menos que la diferencia entre las cifras mostradas." },
+      { q: "¿Qué indica la excentricidad?", a: "Cuán estirada está la elipse. Cero es un círculo, valores en torno a 0,8 son visiblemente alargados, y acercarse a uno significa que la figura es casi un segmento plano." },
+      { q: "¿Es lo mismo un semieje que un eje?", a: "No, un semieje es la mitad de un eje: la distancia del centro al borde, no de borde a borde. Introducir ejes en lugar de semiejes cuadruplica el área." },
+      { q: "¿Qué son los focos de una elipse?", a: "Dos puntos del eje mayor para los que la suma de las distancias a cualquier punto de la curva es constante. Esa propiedad es la que permite dibujar una elipse con un hilo alrededor de dos chinchetas." },
+      { q: "¿Qué ocurre cuando los semiejes son iguales?", a: "Sale un círculo: el área pasa a ser πa², la excentricidad es cero y los focos se juntan en el centro. La aproximación de Ramanujan devuelve ahí exactamente 2πa." },
+    ],
+  },
+  "geom-frustum": {
+    longDescription: "Resuelve un tronco de cono: la forma de un cubo de obra, una pantalla de lámpara o un vaso. El volumen es V = πh(R² + Rr + r²)/3, y el término central Rr no es decoración: sin él la fórmula se derrumbaría en la media de dos cilindros y subestimaría el volumen. Es fácil de comprobar: pon el radio superior a cero y la expresión se reduce al cono corriente πR²h/3. La generatriz se mide a partir de la diferencia de radios: l = √(h² + (R − r)²). Poner la altura en lugar de la generatriz es un error frecuente que sobrestima la superficie lateral, tanto más cuanto más separados están los radios.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Introduce el radio de la base inferior.",
+      "Introduce el radio superior: debe ser menor que el inferior.",
+      "Introduce la altura: la distancia vertical entre las bases, no la generatriz.",
+    ],
+    howItWorks: "Volumen V = πh(R² + Rr + r²)/3. Generatriz l = √(h² + (R − r)²). La superficie lateral es π(R + r)l, y la total añade ambas bases.",
+    example: "Un tronco de cono con radios de 6 y 3 cm y 8 cm de altura tiene un volumen de 527,79 cm³.",
+    faq: [
+      { q: "¿En qué se diferencian la altura y la generatriz?", a: "La altura es la distancia vertical entre las bases; la generatriz va por la superficie lateral. Usar la altura en lugar de la generatriz sobrestima la superficie lateral, y tanto más cuanto más se estrecha el cono." },
+      { q: "¿De dónde sale el término Rr del volumen?", a: "De que la sección cambia de forma gradual y no a saltos. Sin ese término obtendrías la media de dos cilindros y el volumen saldría demasiado pequeño." },
+      { q: "¿Qué ocurre si el radio superior es cero?", a: "Sale un cono corriente, y la fórmula se reduce a πR²h/3. Eso sirve como comprobación cómoda del resultado." },
+      { q: "¿Por qué el radio superior debe ser menor que el inferior?", a: "Porque si no la figura queda del revés respecto al convenio habitual. Basta con intercambiar los radios: el volumen no cambia en ningún caso." },
+      { q: "¿Cómo calculo lo que cabe en un cubo de obra?", a: "Introduce los radios del fondo y del borde y la altura interior. El volumen en centímetros cúbicos dividido entre 1000 da litros." },
+    ],
+  },
+  "geom-parallelogram": {
+    longDescription: "Resuelve un paralelogramo de dos maneras: a partir de una base con su altura y a partir de dos lados con el ángulo entre ellos. El segundo modo da además el perímetro, la altura y ambas diagonales; el primero da solo el área, porque el segundo lado no se deduce de una base y una altura, y en su lugar aparece un guion en vez de un perímetro verosímil. A 0 o a 180 grados la figura se degenera en una recta: esa entrada se rechaza en lugar de devolver un área de cero.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Indica qué conoces: una altura, o un segundo lado con el ángulo.",
+      "Introduce las medidas y consulta el área.",
+    ],
+    howItWorks: "S = a·h cuando se conoce la altura sobre el lado a. Con dos lados y el ángulo entre ellos, S = a·b·sen θ, con el ángulo convertido a radianes de forma explícita. Las diagonales salen del teorema del coseno.",
+    example: "Lados de 10 y 8 cm con un ángulo de 30° dan un área de 40 cm² y un perímetro de 36 cm.",
+    faq: [
+      { q: "¿Por qué no se muestra el perímetro en el modo de la altura?", a: "Porque el segundo lado no se deduce de una base y una altura: infinitos paralelogramos de distinta inclinación comparten la misma área. Dar un perímetro sería inventárselo." },
+      { q: "¿Qué ocurre a 90 grados?", a: "El seno vale uno y el paralelogramo pasa a ser un rectángulo: el área es el producto de los lados." },
+      { q: "¿Por qué se rechazan los 180 grados?", a: "Con ese ángulo la figura se degenera en una recta y deja de ser un paralelogramo. Un área de cero sería formalmente correcta pero no diría nada, así que la calculadora avisa del problema." },
+      { q: "¿En qué se diferencian un paralelogramo y un rombo?", a: "El rombo tiene los cuatro lados iguales. Introduce el mismo valor en a y en b y el cálculo sigue valiendo para él." },
+    ],
+  },
+  "geom-prism": {
+    longDescription: "Un prisma recto con base de polígono regular queda descrito por completo con tres números: cuántos lados tiene la base, cuánto mide cada uno y qué altura tiene el cuerpo. El área de la base sale de la apotema —la distancia del centro al punto medio de un lado—, y por eso se toma la tangente de π dividido entre el número de lados, en radianes y no en grados. La superficie lateral es simplemente el perímetro por la altura, porque desenrollar las caras de un prisma recto da un rectángulo llano. El ortoedro es el caso particular de cuatro lados, y el prisma triangular, el más pequeño posible.",
+    howToUse: [
+      "Elige la unidad de longitud para todas las entradas.",
+      "Introduce cuántos lados tiene el polígono de la base.",
+      "Introduce la longitud de un lado de la base.",
+      "Introduce la altura del prisma.",
+    ],
+    howItWorks: "Apotema = lado ÷ (2 × tan(π ÷ n)). Área de la base = perímetro × apotema ÷ 2. Volumen = área de la base × altura, y la superficie lateral es perímetro × altura.",
+    example: "Un prisma hexagonal de 4 cm de lado y 10 cm de altura contiene 415,69 cm³.",
+    faq: [
+      { q: "¿Qué hace regular a un prisma?", a: "Un polígono regular como base y caras laterales perpendiculares a ella. Los prismas oblicuos tienen el mismo volumen pero mayor superficie lateral, y ese caso no lo cubre este cálculo." },
+      { q: "¿Por qué el área de la base necesita una apotema?", a: "Porque un polígono regular se divide desde su centro en triángulos idénticos, cada uno con el lado como base y la apotema como altura. Sumarlos da perímetro × apotema ÷ 2." },
+      { q: "¿Un ortoedro es un prisma?", a: "Sí, un prisma con base de cuatro lados. Introducir cuatro lados da exactamente el caso de base cuadrada, y las fórmulas se reducen a las conocidas." },
+      { q: "¿Qué ocurre a medida que crece el número de lados?", a: "La base se acerca a un círculo y el prisma, a un cilindro. Con cien lados la diferencia de volumen ya está por debajo de una décima de por ciento." },
+    ],
+  },
+  "geom-pyramid": {
+    longDescription: "En una pirámide hay dos apotemas y confundirlas es el error habitual. La apotema de la base está contenida en el plano de la base y va de su centro al punto medio de un lado. La apotema lateral es la altura de una cara triangular, medida por la superficie inclinada, y es la que entra en la superficie lateral. La segunda siempre es más larga que la primera porque es la hipotenusa que forma con la altura de la pirámide. El tercio de la fórmula del volumen no es una aproximación: cualquier pirámide o cono ocupa exactamente un tercio del prisma o del cilindro levantado sobre la misma base y con la misma altura.",
+    howToUse: [
+      "Elige la unidad de longitud para todas las entradas.",
+      "Introduce cuántos lados tiene el polígono de la base.",
+      "Introduce la longitud de un lado de la base.",
+      "Introduce la altura vertical desde la base hasta el vértice.",
+    ],
+    howItWorks: "Apotema de la base = lado ÷ (2 × tan(π ÷ n)). La apotema lateral es la hipotenusa formada por la altura y esa apotema. Volumen = área de la base × altura ÷ 3.",
+    example: "Una pirámide de base cuadrada con 6 cm de lado y 9 cm de altura contiene 108 cm³ y tiene una apotema lateral de 9,487 cm.",
+    faq: [
+      { q: "¿La altura se mide en vertical o por una cara?", a: "En vertical, desde el centro de la base hasta el vértice. La medida por la cara es la apotema lateral, y aparece como resultado en lugar de pedirse como entrada." },
+      { q: "¿Por qué el volumen es un tercio y no la mitad?", a: "Porque tres pirámides idénticas llenan exactamente un prisma con la misma base y altura. Es un hecho geométrico, no un coeficiente redondeado." },
+      { q: "¿Sirve para la Gran Pirámide?", a: "Sí, como pirámide de base cuadrada: cuatro lados, un lado de unos 230 m y una altura cercana a 146 m. El resultado ronda los 2,6 millones de metros cúbicos." },
+      { q: "¿Y una pirámide con el vértice descentrado?", a: "La fórmula del volumen sigue valiendo, pero las caras dejan de ser idénticas y una única apotema lateral pierde sentido. Este cálculo supone una pirámide regular." },
+    ],
+  },
+  "geom-rectangle": {
+    longDescription: "Resuelve un rectángulo en ambos sentidos: dos lados dan el área, el perímetro y la diagonal, mientras que un área más un lado dan el otro lado. Ese segundo modo responde a la pregunta que surge de verdad al cortar o al planificar una estancia: «necesito 30 m² y el ancho es de 6 m, ¿qué largo tiene la pieza?». La diagonal sale del teorema de Pitágoras y es la que se mide para comprobar que las esquinas están realmente a escuadra.",
+    howToUse: [
+      "Elige la unidad de longitud en la que has medido.",
+      "Indica si conoces ambos lados o el área y un lado.",
+      "Introduce los valores y consulta el resto.",
+    ],
+    howItWorks: "S = a · b, P = 2(a + b) y d = √(a² + b²); en el segundo modo el lado que falta es b = S ÷ a.",
+    example: "Una habitación de 8 × 3 m tiene un área de 24 m², un perímetro de 22 m y una diagonal de 8,544 m.",
+    faq: [
+      { q: "¿Para qué sirve la diagonal?", a: "Es como se comprueba que las esquinas están a escuadra: si la diagonal medida coincide con la calculada, los ángulos son realmente rectos. Es un truco de replanteo antiguo y funciona sin escuadra." },
+      { q: "¿Cómo hallo el segundo lado a partir del área?", a: "Elige el modo «el área y un lado»: el otro lado sale por división, y el perímetro y la diagonal se calculan después con ambos." },
+      { q: "¿Y si los dos lados son iguales?", a: "Sale un cuadrado. El cálculo lo admite y devuelve valores correctos; la figura es sencillamente un caso particular." },
+      { q: "¿Por qué no puedo convertir el área multiplicando por 100?", a: "Porque pasar de metros a centímetros eleva al cuadrado el factor lineal: un metro cuadrado son 10.000 centímetros cuadrados, no 100." },
+    ],
+  },
+  "geom-regular-polygon": {
+    longDescription: "Resuelve un polígono regular —lados iguales y ángulos iguales—: una baldosa hexagonal, un cenador octogonal, una parcela triangular o pentagonal. El número de lados debe ser entero y al menos tres: dos segmentos no encierran un polígono, y un número de lados con decimales no significa nada. El ángulo interior se da en grados aunque el área use una tangente en radianes: esas dos medidas no deben mezclarse nunca.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Introduce el número de lados: un entero, al menos tres.",
+      "Introduce la longitud del lado y consulta el área.",
+    ],
+    howItWorks: "S = n · a² ÷ (4 · tan(π ÷ n)), P = n · a y la apotema es m = a ÷ (2 · tan(π ÷ n)); el ángulo interior es (n − 2) · 180° ÷ n.",
+    example: "Un hexágono regular de 2 cm de lado tiene un área de 10,392 cm² y un ángulo interior de 120°.",
+    faq: [
+      { q: "¿Por qué no puedo introducir dos lados?", a: "Dos segmentos no encierran una figura: un polígono empieza en tres lados, y eso es una definición y no un límite de la calculadora." },
+      { q: "¿Qué es la apotema?", a: "La distancia del centro al punto medio de un lado, es decir, el radio de la circunferencia inscrita. Es el número cómodo para comprobar si la figura cabe en un hueco." },
+      { q: "¿Por qué el número de lados debe ser entero?", a: "Un lado existe o no existe; medio lado no significa nada en un polígono, así que un valor con decimales se rechaza." },
+      { q: "¿En qué unidad va el ángulo?", a: "En grados. Internamente el área usa una tangente de radianes, pero el ángulo que se muestra se convierte a los grados habituales." },
+    ],
+  },
+  "geom-rhombus": {
+    longDescription: "Resuelve un rombo a partir de sus dos diagonales, que es la forma más habitual de describirlo, porque las diagonales son fáciles de medir y los ángulos no. Las diagonales de un rombo se cortan en ángulo recto y se bisecan, así que el lado es la hipotenusa de un triángulo rectángulo de catetos d₁/2 y d₂/2, y el área es la mitad de su producto. La altura sale del área como h = S/a, sin necesidad de conocer ningún ángulo. Un rombo con diagonales iguales es un cuadrado, y la calculadora lo resuelve sin tratarlo como caso aparte.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Mide ambas diagonales: se cortan en ángulo recto.",
+      "Introduce sus valores.",
+      "El lado, el perímetro y la altura salen de inmediato.",
+    ],
+    howItWorks: "Área S = d₁·d₂/2. El lado a = √((d₁/2)² + (d₂/2)²), porque las diagonales se bisecan en ángulo recto. Perímetro P = 4a y altura h = S/a.",
+    example: "Un rombo con diagonales de 6 y 8 cm tiene un área de 24 cm², un lado de 5 cm y una altura de 4,8 cm.",
+    faq: [
+      { q: "¿Por qué el área es la mitad del producto de las diagonales?", a: "Las diagonales dividen el rombo en cuatro triángulos rectángulos de catetos d₁/2 y d₂/2. Su área conjunta suma d₁·d₂/2." },
+      { q: "¿En qué se diferencian un rombo y un paralelogramo?", a: "En el rombo los cuatro lados son iguales, mientras que el paralelogramo solo tiene iguales los lados opuestos. Por eso dos diagonales definen un rombo de forma única y a un paralelogramo no lo definen en absoluto." },
+      { q: "¿Y si las diagonales son iguales?", a: "Sale un cuadrado: un rombo con ángulos rectos. El cálculo no cambia: el lado resulta d/√2 y la altura coincide con el lado." },
+      { q: "¿Puedo usar un lado y un ángulo en su lugar?", a: "Matemáticamente sí, pero esta calculadora pide diagonales. En la práctica son más fáciles de obtener: un ángulo necesita un transportador y una diagonal, solo una regla." },
+      { q: "¿Por qué la altura es menor que el lado?", a: "La altura es la distancia entre dos lados paralelos, mientras que el propio lado va inclinado. Coincidirían solo en un cuadrado apoyado sobre su lado, es decir, con ángulo recto." },
+    ],
+  },
+  "geom-right-triangle": {
+    longDescription: "Completa un triángulo rectángulo en cualquier sentido: dos catetos dan la hipotenusa, y un cateto más la hipotenusa dan el otro cateto. El segundo modo es el más estricto: la hipotenusa debe ser más larga que el cateto, o el valor bajo la raíz se vuelve negativo y el resultado deja de existir. Este es el cálculo que hay detrás del truco del 3-4-5 con que los albañiles comprueban una esquina a escuadra.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Indica si conoces dos catetos o un cateto y la hipotenusa.",
+      "Introduce los valores y consulta el lado que falta.",
+    ],
+    howItWorks: "a² + b² = c², de donde c = √(a² + b²) y b = √(c² − a²). El área de un triángulo rectángulo es la mitad del producto de sus catetos.",
+    example: "Catetos de 3 y 4 m dan una hipotenusa de 5 m, un área de 6 m² y un perímetro de 12 m.",
+    faq: [
+      { q: "¿Por qué la hipotenusa no puede ser igual a un cateto?", a: "La hipotenusa es el lado más largo de un triángulo rectángulo. Si fueran iguales, el otro cateto valdría cero y el triángulo se degeneraría en un segmento." },
+      { q: "¿Qué es la regla del 3-4-5?", a: "Un truco de replanteo: marca 3 y 4 unidades sobre dos lados, y si la diagonal mide exactamente 5, el ángulo entre ellos es recto. Es un caso particular del teorema de Pitágoras." },
+      { q: "¿Cómo se calcula el área?", a: "Como la mitad del producto de los catetos: son perpendiculares, así que uno hace de base y el otro de altura." },
+      { q: "¿La hipotenusa puede ser más corta que un cateto?", a: "No. Ese conjunto de datos no describe un triángulo, y la calculadora lo dice en lugar de devolver la raíz de un número negativo." },
+    ],
+  },
+  "geom-sector": {
+    longDescription: "Resuelve un sector circular a partir del radio y el ángulo central: área, longitud del arco, cuerda y perímetro del sector, junto con la fracción del círculo completo. El ángulo se introduce en grados y se convierte a radianes dentro del cálculo: las fórmulas del área y del arco solo valen en medida de radianes. En el círculo completo la cuerda vale exactamente cero: la aritmética binaria da aquí 1,22×10⁻¹⁶, y mostrar ese ruido como una longitud sería un error.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Introduce el radio.",
+      "Indica el ángulo central en grados.",
+    ],
+    howItWorks: "El ángulo pasa a radianes como θ = α·π/180. El área del sector es S = ½r²θ, la longitud del arco L = rθ y la cuerda c = 2r·sen(θ/2). El perímetro del sector suma el arco y dos radios.",
+    example: "Un sector de 5 cm de radio con un ángulo de 60° tiene un área de 13,09 cm², un arco de 5,236 cm y una cuerda de exactamente 5 cm.",
+    faq: [
+      { q: "¿Por qué la cuerda vale cero a 360 grados?", a: "Porque los extremos del arco coinciden: el segmento que los une se reduce a un punto. La aritmética binaria deja ahí un residuo minúsculo, y se ajusta a cero exacto a propósito." },
+      { q: "¿En qué se diferencian la cuerda y la longitud del arco?", a: "El arco sigue la circunferencia y la cuerda va recta entre sus extremos. La cuerda siempre es más corta, y la diferencia crece con el ángulo." },
+      { q: "¿Por qué convertir los grados a radianes?", a: "Porque S = ½r²θ y L = rθ solo valen en medida de radianes. Sustituir grados fallaría por un factor de unos 57." },
+      { q: "¿Cómo obtengo el área de un segmento circular?", a: "Restando el área del triángulo con vértice en el centro: S_segmento = ½r²(θ − sen θ)." },
+    ],
+  },
+  "belt-length": {
+    longDescription: "La longitud de una transmisión por correa abierta son dos tramos rectos, media circunferencia de cada polea y una pequeña corrección por el hecho de que con poleas desiguales los tramos dejan de ser paralelos. Con poleas iguales la corrección desaparece y la fórmula se reduce a «dos distancias entre ejes más una circunferencia». El ángulo de abrace en la polea pequeña se muestra aparte: es lo que limita el par transmisible, y con diámetros muy dispares la correa empieza a patinar.",
+    howToUse: [
+      "Usa diámetros primitivos, medidos en la línea media de la correa y no en el borde exterior de la polea.",
+      "El orden de los diámetros no importa: el cálculo detecta por sí solo cuál es la polea pequeña.",
+      "Un ángulo de abrace por debajo de 120° arriesga el patinaje: añade un tensor.",
+      "Para una correa trapecial, elige la longitud normalizada más próxima, normalmente redondeando hacia arriba.",
+    ],
+    howItWorks: "L = 2C + π(D₁+D₂)/2 + (D₂−D₁)²/(4C).",
+    example: "Poleas de 100 y 200 mm a 300 mm entre ejes necesitan una correa de 1079,08 mm.",
+    faq: [
+      { q: "¿Por qué la corrección por diámetros desiguales?", a: "Con poleas desiguales los tramos rectos quedan inclinados en lugar de paralelos, así que son más largos que la simple distancia entre ejes. La corrección lo tiene en cuenta; con diámetros iguales desaparece." },
+      { q: "¿Por qué es un problema un ángulo de abrace pequeño?", a: "Una correa transmite fuerza por rozamiento, y este crece con el ángulo de abrace. Por debajo de unos 120° no hay agarre suficiente, la correa patina y se calienta: entonces se añade un tensor o se separan más los ejes." },
+      { q: "¿Y si ninguna longitud normalizada encaja?", a: "Toma la siguiente medida mayor y recupera la holgura con la distancia entre ejes, que casi siempre es regulable. Por eso las transmisiones se montan con guías o con un tensor." },
+      { q: "¿Sirve para una correa dentada?", a: "La longitud se calcula igual, pero una correa dentada debe tener un número entero de pasos. Ahí se elige un número de dientes de la gama normalizada en lugar de una longitud." },
+    ],
+  },
+  "geom-polygon-coords": {
+    longDescription: "Calcula el área de un polígono cualquiera con la fórmula del cordón, que no necesita más que las coordenadas de los vértices tomadas en orden. El signo de la suma indica en qué sentido se recorre el contorno, así que el sentido se muestra junto al área: introducir los vértices en mal orden es el error más frecuente, y «horario» lo señala antes de que te pongas a buscar un fallo en los números. Tres puntos alineados se rechazan en lugar de mostrarse como cero: un cero parecería una respuesta legítima.",
+    howToUse: [
+      "Introduce un vértice por línea: x e y.",
+      "Sigue el contorno en orden; cualquiera de los dos sentidos vale, pero no saltes de un lado a otro.",
+      "No repitas el primer vértice al final: el contorno se cierra solo.",
+      "Comprueba el sentido de recorrido si la figura no es la que esperabas.",
+    ],
+    howItWorks: "El doble del área es la suma de x·y de cada par de vértices vecinos menos el mismo producto al revés. Su valor absoluto entre dos da el área, y su signo, el sentido de recorrido.",
+    example: "Un rectángulo de 4 por 3 introducido como cuatro vértices da un área de 12 y un perímetro de 14.",
+    faq: [
+      { q: "¿Hay que repetir el primer punto al final?", a: "No. El último vértice se une automáticamente con el primero. Repetirlo añade un lado de longitud cero, que no cambia nada pero parece un error." },
+      { q: "¿Importa el sentido del contorno?", a: "Para el área no: se toma el valor absoluto. El sentido se muestra aparte porque un orden equivocado suele significar una figura equivocada." },
+      { q: "¿El polígono puede ser cóncavo?", a: "Sí. La fórmula del cordón sirve para cualquier polígono simple, convexo o no. Lo que no admite son contornos que se cruzan a sí mismos: esos no tienen un área bien definida." },
+      { q: "¿En qué unidades sale el resultado?", a: "En las mismas que las coordenadas, al cuadrado. Metros dentro, metros cuadrados fuera." },
+      { q: "¿Por qué se rechaza una línea recta?", a: "Porque tres puntos alineados no encierran nada. Mostrar cero parecería una respuesta válida a una figura que no lo es." },
+    ],
+  },
+  "geom-sphere": {
+    longDescription: "Resuelve una esfera a partir del valor que tengas: radio, diámetro o el propio volumen. El sentido inverso aparece más a menudo de lo que se cree: el volumen de un depósito da el radio, y el radio dice si pasa por una boca. El volumen se da en el cubo de la unidad elegida y la superficie, en su cuadrado: potencias distintas de la misma longitud, que no pueden compartir un factor de conversión.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Indica si conoces el radio, el diámetro o el volumen.",
+      "Introdúcelo y consulta el resto.",
+    ],
+    howItWorks: "V = (4 ÷ 3) · π · r³ y S = 4 · π · r²; el radio a partir de un volumen es la raíz cúbica de 3V ÷ (4π).",
+    example: "Una esfera de 3 m de radio tiene un volumen de 113,097 m³ y una superficie de 113,097 m².",
+    faq: [
+      { q: "¿Por qué coinciden volumen y superficie con radio 3?", a: "Es una coincidencia de números, no de magnitudes: 4πr² y (4/3)πr³ son iguales exactamente en r = 3. Sus unidades difieren: un cuadrado y un cubo de longitud." },
+      { q: "¿Cómo hallo el radio a partir de un volumen?", a: "Elige el modo del volumen: el radio es la raíz cúbica de 3V ÷ (4π), y la superficie sale de él." },
+      { q: "¿Qué diferencia hay entre esfera y bola?", a: "La esfera es solo la superficie; la bola es el cuerpo con su interior. El volumen pertenece a la bola y la superficie, a la esfera que la limita." },
+      { q: "¿Se tiene en cuenta el espesor de pared de un depósito?", a: "No. El cálculo es ideal: un cuerpo geométrico, no un recipiente con paredes materiales." },
+    ],
+  },
+  "geom-square": {
+    longDescription: "Resuelve un cuadrado a partir del valor que tengas a mano: el lado, el área o el perímetro. Las cuatro magnitudes vuelven juntas, así que un suelo de 49 m² te dice de inmediato la pared de 7 m junto a la que discurre y la diagonal de 9,9 m que medirías al atravesarlo. La unidad de longitud se elige una vez y no se convierte: el área simplemente se da en su cuadrado.",
+    howToUse: [
+      "Elige la unidad de longitud en la que has medido.",
+      "Indica qué valor conoces.",
+      "Introdúcelo y consulta los otros tres.",
+    ],
+    howItWorks: "S = a², P = 4a y d = a√2, de modo que un lado hallado del área como a = √S alimenta esos mismos tres resultados.",
+    example: "Una habitación cuadrada de 5 m de lado tiene un área de 25 m², un perímetro de 20 m y una diagonal de 7,071 m.",
+    faq: [
+      { q: "¿Puedo introducir el área en lugar del lado?", a: "Sí. Elige el modo del área y el lado se recupera como su raíz cuadrada; el perímetro y la diagonal salen después de él." },
+      { q: "¿Por qué el área aparece en unidades cuadradas?", a: "Porque eso es un área. Si has introducido centímetros, el área va en centímetros cuadrados: multiplicar por un factor lineal para cambiar de unidad sería un error." },
+      { q: "¿Se admite un lado de cero?", a: "No. Un cuadrado sin lado no es una figura, así que la calculadora avisa del problema en lugar de devolver un cero verosímil." },
+      { q: "¿Cómo se halla la diagonal?", a: "Por el teorema de Pitágoras sobre dos lados iguales, lo que se reduce a d = a√2." },
+    ],
+  },
+  "geom-trapezoid": {
+    longDescription: "Calcula el área de un trapecio como la semisuma de los dos lados paralelos por la altura: la fórmula que hay detrás de una parcela en pendiente, un faldón de cubierta o la pared de una tolva. Los lados oblicuos son opcionales: sin ellos obtienes el área, y con ellos también el perímetro. La altura aquí es la distancia perpendicular entre las bases, no la longitud de un lado oblicuo, y ese es el error más frecuente al medir.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Introduce ambas bases y la altura entre ellas.",
+      "Añade los lados oblicuos si además quieres el perímetro.",
+    ],
+    howItWorks: "S = ((a + b) ÷ 2) · h: el área es la base media por la altura; el perímetro es la suma de los cuatro lados.",
+    example: "Un trapecio con bases de 10 y 6 m y 4 m de altura tiene un área de 32 m² y una base media de 8 m.",
+    faq: [
+      { q: "¿Qué altura pide la fórmula?", a: "La distancia perpendicular entre las bases. Un lado oblicuo es más largo que la altura y no debe sustituirla." },
+      { q: "¿Qué es la base media?", a: "El segmento que une los puntos medios de los lados oblicuos. Vale la semisuma de las bases, y el área es sencillamente la base media por la altura." },
+      { q: "¿Hay que introducir los lados oblicuos?", a: "No. Sin ellos obtienes el área y la base media; el perímetro aparece solo cuando se dan los dos." },
+      { q: "¿La fórmula vale para cualquier trapecio?", a: "Sí: isósceles, rectángulo o irregular. Lo único que importa es que las dos bases introducidas sean el par de lados paralelos." },
+    ],
+  },
+  "geom-triangle": {
+    longDescription: "Resuelve un triángulo de dos maneras: a partir de tres lados con la fórmula de Herón, o a partir de una base y su altura como la mitad de su producto. Los tres lados se comprueban antes contra la desigualdad triangular: si dos cualesquiera no superan al tercero, la figura no existe, y la calculadora lo dice en lugar de devolver un cero que se lee como una respuesta. También indica el tipo de triángulo: rectángulo, acutángulo u obtusángulo.",
+    howToUse: [
+      "Elige la unidad de longitud.",
+      "Indica si conoces tres lados o una base y su altura.",
+      "Introduce los valores y consulta el área.",
+    ],
+    howItWorks: "Con tres lados el área es la de Herón, S = √(p(p−a)(p−b)(p−c)), donde p es el semiperímetro; con base y altura es S = ½ · a · h.",
+    example: "Un triángulo de lados 3, 4 y 5 m es rectángulo: su área son 6 m² y su perímetro, 12 m.",
+    faq: [
+      { q: "¿Por qué se rechazan algunos conjuntos de lados?", a: "Tres segmentos forman un triángulo solo cuando dos cualesquiera son más largos que el tercero. Lados de 1, 2 y 3 quedan alineados: no hay figura, así que no tiene área en absoluto, y no un área de cero." },
+      { q: "¿Qué es la fórmula de Herón?", a: "Una manera de hallar el área a partir de tres lados sin ángulos ni alturas: se calcula el semiperímetro y se toma la raíz cuadrada del producto de cuatro diferencias." },
+      { q: "¿Cómo se decide el tipo de triángulo?", a: "Comparando el cuadrado del lado mayor con la suma de los cuadrados de los otros dos: si son iguales es rectángulo, si es menor es acutángulo y si es mayor, obtusángulo." },
+      { q: "¿La altura debe corresponder a la base introducida?", a: "Sí. La altura debe caer sobre la base que has introducido; si no, la mitad de su producto no es el área de este triángulo." },
+    ],
+  },
+  "golden-ratio": {
+    longDescription: "Divide un segmento en la proporción áurea y halla la pareja de una medida que ya tengas. φ = (1 + √5)/2 se calcula a partir de la raíz cuadrada con precisión completa y solo se redondea al mostrarlo: escribir 1,618 como fuente de verdad perdería la precisión justo donde hace falta. Es útil en maquetación y tipografía, donde φ se usa para elegir el ancho de una columna frente a la página o el tamaño de un titular frente al texto corrido.",
+    howToUse: [
+      "Elige si vas a dividir un segmento o a hallar la pareja.",
+      "Introduce la longitud que conoces.",
+      "Consulta ambas partes, o ambas medidas.",
+    ],
+    howItWorks: "φ = (1 + √5)/2 ≈ 1,618034. Un segmento se divide de modo que el todo sea a la parte mayor como la mayor es a la menor: la parte mayor es la longitud dividida entre φ. En el modo de la pareja, la medida conocida se multiplica y se divide por φ, lo que da sus dos vecinas en la serie.",
+    example: "Un segmento de 100 se divide en 61,8034 y 38,1966: su razón coincide con la del todo respecto a la parte mayor.",
+    faq: [
+      { q: "¿Por qué φ no se fija sin más en 1,618?", a: "Porque φ es irracional. Se calcula a partir de la raíz cuadrada con precisión completa y solo se redondea al mostrarlo; si no, la razón entre las partes dejaría de ser exacta en la segunda división." },
+      { q: "¿Cómo compruebo que la división es correcta?", a: "Divide el todo entre la parte mayor, y la mayor entre la menor: ambas dan el mismo número φ. Esa es la definición." },
+      { q: "¿Dónde se usa de verdad la proporción áurea?", a: "En maquetación y tipografía: al elegir el ancho de una columna frente a la página, el tamaño de un titular frente al texto corrido, las proporciones de una tarjeta. Es un recurso compositivo, no una ley de la naturaleza." },
+      { q: "¿Tiene relación con los números de Fibonacci?", a: "Sí: la razón entre números de Fibonacci consecutivos tiende a φ. Por eso 34 y 55 son casi una pareja áurea, como muestra el modo de la pareja." },
+    ],
+  },
+  "pyramid-frustum": {
+    longDescription: "La trampa principal de un tronco de pirámide es tomar el área media de las bases y multiplicarla por la altura. Eso subestima la respuesta: la fórmula lleva un tercer término, la raíz cuadrada del producto de las áreas. Es la regla de Simpson, y es exacta y no aproximada, porque la sección varía de forma cuadrática con la altura. La apotema lateral sale de la diferencia de los semilados: la cara se inclina exactamente lo que la base superior se estrecha por cada lado.",
+    howToUse: [
+      "Las bases se toman como cuadrados: unas bases rectangulares piden otra fórmula.",
+      "La altura se mide por el eje, no por la cara: la cara lleva la apotema lateral, que es más larga.",
+      "Si la base superior es igual a la inferior, la figura es un prisma, y la calculadora lo dice.",
+      "Vale cualquier unidad siempre que sea la misma: las etiquetas dicen centímetros, pero la aritmética no depende de eso.",
+    ],
+    howItWorks: "Volumen h/3·(S₁ + S₂ + √(S₁·S₂)); apotema lateral √(h² + ((a−b)/2)²); superficie lateral 2·(a+b)·apotema lateral.",
+    example: "Un tronco con bases de 10 y 6 cm y 8 cm de altura tiene un volumen de 522,7 cm³.",
+    faq: [
+      { q: "¿Por qué no promediar las áreas de las bases y multiplicar por la altura?", a: "Porque la sección varía de forma cuadrática con la altura, no lineal. La media aritmética de las áreas subestima el volumen; la fórmula correcta añade la raíz cuadrada de su producto." },
+      { q: "¿En qué se diferencian la apotema lateral y la altura?", a: "La altura va por el eje y la apotema lateral, por el centro de una cara de borde a borde. La apotema lateral siempre es más larga, y es con la que se calcula el área de la cara." },
+      { q: "¿Y con bases rectangulares?", a: "La fórmula del volumen es la misma tomando las áreas como productos de lados. La superficie lateral, en cambio, se reparte en dos pares de trapecios distintos, y hay dos apotemas." },
+      { q: "¿Dónde aparece esta figura?", a: "En zapatas de cimentación, tolvas y embudos, pantallas de lámpara y en la arquitectura clásica, de los zigurats a los pedestales. El volumen sirve para el hormigón y la superficie lateral, para el revestimiento." },
+    ],
+  },
+  "slope": {
+    longDescription: "El porcentaje y los grados no son lo mismo, y confundirlos sale caro. Una pendiente del cien por cien son cuarenta y cinco grados, no el límite de la inclinación; un quince por ciento son solo ocho grados y medio. Ambos se muestran uno al lado del otro porque las normas de accesibilidad para rampas están escritas en porcentaje mientras que la herramienta que se usa en obra suele leer grados. La longitud del tramo inclinado se da aparte porque es lo que se compra por metros —un pasamanos, un revestimiento o un cable que discurre por la pendiente— y usar la distancia horizontal deja el trabajo corto.",
+    howToUse: [
+      "Introduce el desnivel: la diferencia vertical en metros.",
+      "Introduce la distancia horizontal en metros.",
+      "Consulta el porcentaje para las normas y los grados para la herramienta.",
+      "Usa la longitud del tramo inclinado al pedir material que va por la pendiente.",
+    ],
+    howItWorks: "Pendiente = desnivel ÷ distancia horizontal × 100 por ciento. El ángulo es el arcotangente de esa relación, y la longitud es la hipotenusa del desnivel y la distancia.",
+    example: "Un desnivel de 1,2 m en 8 m es una pendiente del 15 %, 8,531 grados, con una longitud inclinada de 8,089 m.",
+    faq: [
+      { q: "¿Qué relación hay entre el porcentaje y los grados?", a: "El porcentaje es la tangente del ángulo por cien. Coinciden de cerca solo junto al cero: el 5 % son 2,86° y el 10 %, 5,71°, pero el 100 % son 45°." },
+      { q: "¿Qué pendiente es aceptable para una rampa de silla de ruedas?", a: "Las normas habituales la limitan en torno al 8 %, o 1:12, para rampas públicas, y permiten algo más en tramos cortos. Comprueba la regla que se aplique donde vayas a construir." },
+      { q: "¿La distancia se mide en horizontal o por el suelo?", a: "En horizontal. Medir por la pendiente da la longitud inclinada, y usarla como distancia horizontal subestima la pendiente." },
+      { q: "¿El desnivel puede ser negativo?", a: "Sí, y significa un descenso. El porcentaje y el ángulo salen negativos, que es la descripción honesta de bajar." },
+    ],
+  },
+};

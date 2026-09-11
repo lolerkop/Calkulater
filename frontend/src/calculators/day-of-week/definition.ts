@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { dayOfWeekCopyEn } from './copy.en';
 import { dayOfWeekCopyUk } from './copy.uk';
 import { dayOfWeekCopyDe } from './copy.de';
+import { dayOfWeekCopyEs } from './copy.es';
 import { dayOfWeekReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: dayOfWeekCopyEn, uk: dayOfWeekCopyUk, de: dayOfWeekCopyDe },
+  copy: { en: dayOfWeekCopyEn, uk: dayOfWeekCopyUk, de: dayOfWeekCopyDe, es: dayOfWeekCopyEs },
   referenceCases: dayOfWeekReferenceCases,
   publishedExample: { inputs: { date: '2024-02-29' }, expected: ['четверг', '60'] },
   presentation: {

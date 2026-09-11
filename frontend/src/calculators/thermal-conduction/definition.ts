@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { thermalConductionCopyEn } from './copy.en';
 import { thermalConductionCopyUk } from './copy.uk';
 import { thermalConductionCopyDe } from './copy.de';
+import { thermalConductionCopyEs } from './copy.es';
 import { thermalConductionReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: thermalConductionCopyEn, uk: thermalConductionCopyUk, de: thermalConductionCopyDe },
+  copy: { en: thermalConductionCopyEn, uk: thermalConductionCopyUk, de: thermalConductionCopyDe, es: thermalConductionCopyEs },
   referenceCases: thermalConductionReferenceCases,
   publishedExample: { inputs: { area: 10, thickness: 0.2, k: 0.04, dt: 25 }, expected: ["50 Вт"] },
   presentation: {

@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { roofBattensCopyEn } from './copy.en';
 import { roofBattensCopyUk } from './copy.uk';
 import { roofBattensCopyDe } from './copy.de';
+import { roofBattensCopyEs } from './copy.es';
 import { roofBattensReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: roofBattensCopyEn, uk: roofBattensCopyUk, de: roofBattensCopyDe },
+  copy: { en: roofBattensCopyEn, uk: roofBattensCopyUk, de: roofBattensCopyDe, es: roofBattensCopyEs },
   referenceCases: roofBattensReferenceCases,
   publishedExample: { inputs: { area: 60, step: 0.35, battenLength: 6, sectionWidth: 50, sectionHeight: 50, waste: 10 }, expected: ["188,57 м"] },
   presentation: {

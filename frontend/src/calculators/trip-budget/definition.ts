@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { tripBudgetCopyEn } from './copy.en';
 import { tripBudgetCopyUk } from './copy.uk';
 import { tripBudgetCopyDe } from './copy.de';
+import { tripBudgetCopyEs } from './copy.es';
 import { tripBudgetReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: tripBudgetCopyEn, uk: tripBudgetCopyUk, de: tripBudgetCopyDe },
+  copy: { en: tripBudgetCopyEn, uk: tripBudgetCopyUk, de: tripBudgetCopyDe, es: tripBudgetCopyEs },
   referenceCases: tripBudgetReferenceCases,
   publishedExample: {
     inputs: { nights: 4, days: 5, people: 2, hotelPerNight: 3500, foodPerDayPerPerson: 1200, transport: 12000, activities: 5000, other: 0 },

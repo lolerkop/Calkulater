@@ -5,6 +5,7 @@ import { compute } from './compute';
 import { generatorFuelCopyEn } from './copy.en';
 import { generatorFuelCopyUk } from './copy.uk';
 import { generatorFuelCopyDe } from './copy.de';
+import { generatorFuelCopyEs } from './copy.es';
 import { generatorFuelReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: generatorFuelCopyEn, uk: generatorFuelCopyUk, de: generatorFuelCopyDe },
+  copy: { en: generatorFuelCopyEn, uk: generatorFuelCopyUk, de: generatorFuelCopyDe, es: generatorFuelCopyEs },
   referenceCases: generatorFuelReferenceCases,
   publishedExample: { inputs: { load: 5, sfc: 0.3, hours: 8, price: 60 }, expected: ['12,00 л', '720,00 ₽'] },
   presentation: {

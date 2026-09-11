@@ -82,4 +82,37 @@ export const localization: CalculatorLocalization = {
       'Такая пара расстояний фокуса не задаёт': 'Така пара відстаней фокуса не задає',
     },
   },
+  es: {
+    fields: {
+      "mode": "Qué hallar",
+      "f": "Distancia focal, cm",
+      "do": "Distancia al objeto, cm",
+      "di": "Distancia a la imagen, cm",
+    },
+    options: {
+      "image": "distancia a la imagen",
+      "focal": "distancia focal",
+    },
+    results: {
+      "Расстояние до изображения": "Distancia a la imagen",
+      "Фокусное расстояние": "Distancia focal",
+      "Увеличение": "Aumento",
+      "Тип изображения": "Tipo de imagen",
+      "Оптическая сила": "Potencia óptica",
+      "Расстояние до предмета": "Distancia al objeto",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "см": "cm",
+      "дптр": "dioptrías",
+      "действительное перевёрнутое": "real e invertida",
+      "мнимое прямое": "virtual y derecha",
+      "Выберите режим расчёта из списка": "Elige un modo de cálculo de la lista",
+      "Расстояние до предмета должно быть больше нуля": "La distancia al objeto debe ser mayor que cero",
+      "Фокусное расстояние не может быть нулевым": "La distancia focal no puede ser cero",
+      "Предмет в фокусе — изображения нет": "El objeto está en el foco: no se forma imagen",
+      "Расстояние до изображения не может быть нулевым": "La distancia a la imagen no puede ser cero",
+      "Такая пара расстояний фокуса не задаёт": "Este par de distancias no define ninguna distancia focal",
+    },
+  },
 };

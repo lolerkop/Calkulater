@@ -3,6 +3,7 @@ import { compute } from './compute';
 import { quartileCopyEn } from './copy.en';
 import { quartileCopyUk } from './copy.uk';
 import { quartileCopyDe } from './copy.de';
+import { quartileCopyEs } from './copy.es';
 import { quartileReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -10,7 +11,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: quartileCopyEn, uk: quartileCopyUk, de: quartileCopyDe },
+  copy: { en: quartileCopyEn, uk: quartileCopyUk, de: quartileCopyDe, es: quartileCopyEs },
   referenceCases: quartileReferenceCases,
   publishedExample: { inputs: { values: "2 4 4 5 7 9 11 12" }, expected: ["6"] },
   presentation: {

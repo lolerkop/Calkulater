@@ -167,6 +167,19 @@ const contactDetails: Partial<Record<Locale, ContactDetails>> = {
       { id: 'cooperation', title: 'Співпраця', text: 'Запропонуйте новий калькулятор, джерело даних чи співпрацю.' },
     ],
   },
+  es: {
+    channelTitle: 'Cómo contactar',
+    channelText: 'Describe la consulta e incluye la URL de la calculadora cuando se refiera a un cálculo.',
+    channelAction: 'Abrir una solicitud de soporte',
+    topicsTitle: 'Sobre qué puedes escribirnos',
+    publicChannelNote: 'El canal de soporte es público. No incluyas datos personales ni financieros.',
+    topics: [
+      { id: 'calculation-errors', title: 'Errores de cálculo', text: 'Indica la calculadora, los valores introducidos y el resultado que esperabas.' },
+      { id: 'data-questions', title: 'Dudas sobre los datos', text: 'Avisa de una tarifa, un tipo de cambio, una fórmula o una fuente desactualizada.' },
+      { id: 'privacy', title: 'Privacidad', text: 'Pregunta por el tratamiento de datos o por la política de privacidad.' },
+      { id: 'cooperation', title: 'Colaboración', text: 'Propón una calculadora, una fuente de datos o una colaboración.' },
+    ],
+  },
 };
 
 const details = contactDetails[locale] ?? contactDetails.en!;
@@ -187,7 +200,8 @@ const privacyCopy = {
   ru: { action: 'Написать по вопросам приватности', unavailable: 'Отдельный приватный email пока не настроен. Публичный канал поддержки не используйте для чувствительных данных.' },
   en: { action: 'Contact us about privacy', unavailable: 'A private privacy email is not configured yet. Do not use the public support channel for sensitive information.' },
   uk: { action: 'Написати з питань приватності', unavailable: 'Окрему приватну email-адресу ще не налаштовано. Не використовуйте публічну підтримку для чутливих даних.' },
-}[locale === 'ru' || locale === 'uk' ? locale : 'en'];
+  es: { action: 'Escribir sobre privacidad', unavailable: 'Todavía no hay una dirección de correo específica para privacidad. No uses el canal público de soporte para datos sensibles.' },
+}[locale === 'ru' || locale === 'uk' || locale === 'es' ? locale : 'en'];
 ---
 
 <Layout title={title} description={description} canonical={path} locale={locale} alternates={alternates} jsonLd={jsonLd}>

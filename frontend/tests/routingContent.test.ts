@@ -73,16 +73,16 @@ describe('routing content: i18n routes', () => {
 
   it('keeps localized public locales scoped to global calculators only', () => {
     const ruOnlyCount = calculators.filter((calculator) => isRuOnlyCalculator(calculator.id)).length;
-    // Немецкий стал публичной локалью в фазе 27DE-F. В отличие от остальных
-    // он выпускается постепенно: каталог содержит ровно те калькуляторы,
-    // для которых есть настоящий немецкий текст.
-    expect(locales).toEqual(['ru', 'en', 'uk', 'de']);
+    // Немецкий стал публичной локалью в фазе 27DE-F, испанский — в 28ES.
+    // Оба выпускаются постепенно: каталог содержит ровно те калькуляторы,
+    // для которых есть настоящий текст на этом языке.
+    expect(locales).toEqual(['ru', 'en', 'uk', 'de', 'es']);
     expect(allLocales).toContain('es');
     expect(allLocales).toContain('de');
     expect(allLocales).toContain('fr');
     // Локали с полным паритетом содержат весь глобальный каталог.
     for (const locale of locales) {
-      if (locale === 'ru' || locale === 'de') continue;
+      if (locale === 'ru' || locale === 'de' || locale === 'es') continue;
       expect(getCalculatorById('income-tax-calculator', locale)).toBeUndefined();
       expect(getCalculatorById('vat-calculator', locale)).toBeUndefined();
       expect(isCalculatorAvailableInLocale('discount-calculator', locale)).toBe(true);

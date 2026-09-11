@@ -4,6 +4,7 @@ import { contextualField } from './contextualField';
 import { leverMomentCopyEn } from './copy.en';
 import { leverMomentCopyUk } from './copy.uk';
 import { leverMomentCopyDe } from './copy.de';
+import { leverMomentCopyEs } from './copy.es';
 import { leverMomentReferenceCases } from './referenceCases';
 
 export const definition: CalculatorDefinitionV2 = {
@@ -12,7 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   lifecycle: 'released',
   compute,
   contextualField,
-  copy: { en: leverMomentCopyEn, uk: leverMomentCopyUk, de: leverMomentCopyDe },
+  copy: { en: leverMomentCopyEn, uk: leverMomentCopyUk, de: leverMomentCopyDe, es: leverMomentCopyEs },
   referenceCases: leverMomentReferenceCases,
   publishedExample: { inputs: { mode: 'force2', f1: 100, d1: 2, d2: 0.5, f2: 400 }, expected: ["400 Н"] },
   presentation: {

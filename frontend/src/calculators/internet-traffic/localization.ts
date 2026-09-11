@@ -75,4 +75,29 @@ export const localization: CalculatorLocalization = {
       "Лимит не может быть отрицательным": "Ліміт не може бути від'ємним",
     },
   },
+  es: {
+    fields: {
+      "mbps": "Tasa de transmisión, Mbit/s",
+      "hoursPerDay": "Horas al día",
+      "days": "Días del periodo",
+      "quotaGb": "Tarifa de datos, GB",
+    },
+    options: {},
+    results: {
+      "Трафик за период": "Datos consumidos en el periodo",
+      "В день": "Al día",
+      "В час": "Por hora",
+      "Хватит дней при лимите": "Días que dura la tarifa",
+      "Превышение лимита": "Exceso sobre la tarifa",
+      "Остаток лимита": "Tarifa restante",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "ГБ": "GB",
+      "Скорость потока должна быть больше нуля": "La tasa de transmisión debe ser mayor que cero",
+      "Число часов в день должно быть больше нуля": "Las horas al día deben ser más de cero",
+      "Число дней должно быть больше нуля": "El número de días debe ser mayor que cero",
+      "Лимит не может быть отрицательным": "La tarifa no puede ser negativa",
+    },
+  },
 };

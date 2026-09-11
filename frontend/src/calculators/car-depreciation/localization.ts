@@ -64,4 +64,26 @@ export const localization: CalculatorLocalization = {
       'Потеря за первый год должна быть от нуля до ста процентов': 'Втрата за перший рік має бути від нуля до ста відсотків',
     },
   },
+  es: {
+    fields: {
+      "price": "Precio de compra, €",
+      "years": "Años de propiedad",
+      "ratePct": "Pérdida anual tras el primer año, %",
+      "firstYearPct": "Pérdida del primer año, %",
+    },
+    options: {},
+    results: {
+      "Стоимость через срок": "Valor tras el periodo",
+      "Потеряно в деньгах": "Valor perdido",
+      "Потеряно, доля": "Proporción perdida",
+      "Цена покупки": "Precio de compra",
+      "Проверьте данные": "Revisa los datos",
+    },
+    values: {
+      "Цена покупки должна быть больше нуля": "El precio de compra debe ser mayor que cero",
+      "Срок владения не может быть отрицательным": "El periodo de propiedad no puede ser negativo",
+      "Ставка потери должна быть от нуля до ста процентов": "La tasa de pérdida debe estar entre cero y cien por ciento",
+      "Потеря за первый год должна быть от нуля до ста процентов": "La pérdida del primer año debe estar entre cero y cien por ciento",
+    },
+  },
 };
