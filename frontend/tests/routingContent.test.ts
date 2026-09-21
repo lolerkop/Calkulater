@@ -194,6 +194,9 @@ describe('routing content: localized components', () => {
     const categoryCard = await import('../src/components/CategoryCard.astro?raw');
 
     expect(layout.default).toContain('<html lang={meta.htmlLang}>');
+    expect(layout.default).toContain(
+      '<meta name="google-adsense-account" content="ca-pub-2945932737640221" />',
+    );
     expect(layout.default).toContain('<Header locale={locale} alternates={alternates} />');
     expect(layout.default).toContain('<Footer locale={locale} />');
     expect(header.default).toContain('localeCatalog(locale)');
