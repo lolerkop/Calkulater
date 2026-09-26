@@ -16,9 +16,9 @@ export const esBuildingContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "La calculadora estima las tiras de pared y las divide entre las tiras que salen de un rollo.",
     example: "Estima los rollos para una habitación de 5 por 4 metros con paredes de 2,7 m.",
     faq: [
-      { q: "¿Qué exactitud tiene esta calculadora de papel pintado?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar la calculadora de papel pintado?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado de la calculadora de papel pintado?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Cómo se estima el número de rollos?", a: "Se calculan las tiras necesarias para cubrir las paredes y se dividen entre las tiras aprovechables de cada rollo." },
+      { q: "¿Para qué sirven los huecos y el repetido del dibujo?", a: "Puertas y ventanas reducen la superficie que se cubre; casar un dibujo repetido puede aumentar el largo de cada tira." },
+      { q: "¿Puede hacer falta un rollo adicional?", a: "Sí. Los recortes, la forma de la habitación y el ajuste del dibujo varían en la obra; comprueba la estimación con las medidas reales." },
     ],
   },
   "paint-calculator": {
@@ -31,9 +31,9 @@ export const esBuildingContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "La calculadora multiplica la superficie por las manos y el rendimiento, y divide después entre el volumen del bote.",
     example: "Estima la pintura para 30 metros cuadrados con dos manos.",
     faq: [
-      { q: "¿Qué exactitud tiene esta calculadora de pintura?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar la calculadora de pintura?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado de la calculadora de pintura?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Qué datos se usan para estimar la pintura?", a: "Introduce la superficie o las medidas de la habitación, el número de manos, el rendimiento de la pintura y el tamaño del bote." },
+      { q: "¿Por qué influye el número de manos?", a: "Cada mano vuelve a cubrir la superficie, por lo que aumenta la cantidad estimada de pintura y puede exigir más botes." },
+      { q: "¿Puede variar el consumo real?", a: "Sí. La absorción de la pared, la preparación y el rendimiento real del producto pueden cambiar los litros necesarios." },
     ],
   },
   "laminate-calculator": {
@@ -46,9 +46,9 @@ export const esBuildingContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "La calculadora multiplica la superficie del suelo por la reserva y divide entre la superficie que cubre un paquete.",
     example: "Estima los paquetes de laminado para una habitación de 5 por 4 metros.",
     faq: [
-      { q: "¿Qué exactitud tiene esta calculadora de suelo laminado?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar la calculadora de suelo laminado?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado de la calculadora de suelo laminado?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Cómo se obtiene la superficie del suelo?", a: "Multiplica el largo por el ancho de la habitación; la calculadora hace esta operación con las medidas introducidas." },
+      { q: "¿Cómo se estima el número de paquetes?", a: "Se añade la reserva elegida a la superficie y se divide entre los metros cuadrados que cubre un paquete." },
+      { q: "¿Qué puede quedar fuera de la reserva?", a: "Una habitación irregular, el patrón de colocación y los recortes inutilizables pueden requerir un margen distinto del introducido." },
     ],
   },
   "screed-calculator": {

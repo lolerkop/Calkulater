@@ -1184,7 +1184,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter the loan amount.', 'Choose the term and annual interest rate.', 'Select the payment type and check the result.'],
     howItWorks: 'The calculator uses the standard annuity or differentiated payment formula based on the selected payment type.',
     example: 'For example, enter a loan amount, term and interest rate to estimate the approximate monthly payment and total overpayment.',
-    faq: faq('loan calculator'),
+    faq: [
+      { q: 'How are monthly loan payments calculated?', a: 'Enter the amount, annual rate, term and payment type. An annuity keeps the scheduled payment level; differentiated payments repay equal portions of principal and decline as interest falls.' },
+      { q: 'Which inputs change the total interest most?', a: 'A larger loan, higher rate or longer term increases the amount of interest paid. Compare several terms as well as the monthly payment.' },
+      { q: 'Does this estimate include every lender charge?', a: 'No. Insurance, fees and lender-specific conditions may change the actual repayment schedule and total cost.' },
+    ],
     disclaimer: 'Loan results are estimates. Real offers may include fees, insurance and lender-specific terms.',
   },
   'compound-interest': {
@@ -1199,7 +1203,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter the starting amount.', 'Set the annual rate, term and contribution.', 'Review final balance and profit.'],
     howItWorks: 'The calculator applies compound growth over the selected term and adds regular contributions according to the chosen frequency.',
     example: 'Try a starting amount of 10,000 with monthly contributions to see how compounding changes the final balance.',
-    faq: faq('compound interest calculator'),
+    faq: [
+      { q: 'What does the compound interest calculation include?', a: 'It grows the starting amount at the annual rate over the chosen term and adds regular contributions at the selected frequency.' },
+      { q: 'How do regular contributions affect the result?', a: 'Each contribution increases the balance available for later growth; its effect depends on its amount, frequency and how long it remains invested.' },
+      { q: 'Is the final balance guaranteed?', a: 'No. The calculation assumes the rate you enter stays constant and does not predict market returns, taxes or fees.' },
+    ],
   },
   'mortgage-calculator': {
     name: 'Mortgage calculator',
@@ -1213,7 +1221,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter property price and down payment.', 'Set the term and interest rate.', 'Compare the monthly payment and overpayment.'],
     howItWorks: 'The calculator subtracts the down payment from the property price and applies the selected payment formula.',
     example: 'Use the calculator to compare how a larger down payment changes the monthly payment.',
-    faq: faq('mortgage calculator'),
+    faq: [
+      { q: 'How is the financed amount determined?', a: 'The calculator subtracts the down payment from the property price, then uses the selected term, rate and payment method to estimate repayments.' },
+      { q: 'What happens if I increase the down payment?', a: 'The financed principal becomes smaller, so the estimated monthly payment and total interest generally fall when the other inputs stay the same.' },
+      { q: 'Are property taxes and insurance included?', a: 'No. This is a loan-payment estimate; taxes, insurance, fees and lender-specific conditions must be considered separately.' },
+    ],
     disclaimer: 'Mortgage results are estimates and do not include taxes, insurance, fees or lender-specific conditions.',
   },
   'discount-calculator': {
@@ -1228,7 +1240,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter the original price.', 'Choose percentage or fixed discount.', 'Check the final price and savings.'],
     howItWorks: 'The calculator subtracts the discount from the original price and shows both the saved amount and final price.',
     example: 'For a 20% discount on 5,000, the calculator shows the final price and amount saved.',
-    faq: faq('discount calculator'),
+    faq: [
+      { q: 'How is the price after a percentage discount calculated?', a: 'Multiply the original price by the discount percentage to find the saving, then subtract that saving from the original price.' },
+      { q: 'Can I enter a fixed discount instead?', a: 'Yes. Select the fixed-amount option and enter the amount to subtract from the original price.' },
+      { q: 'Does the result include delivery or other charges?', a: 'No. It shows the discounted item price and saving from the inputs; add delivery, taxes and other charges separately.' },
+    ],
   },
   'currency-converter': {
     name: 'Currency converter',
@@ -1242,7 +1258,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter the amount.', 'Select source and target currencies.', 'Check the converted amount.'],
     howItWorks: 'The calculator derives a cross-rate from official central-bank reference rates published for the displayed date.',
     example: 'Convert 100 USD to EUR to estimate a travel budget.',
-    faq: faq('currency converter'),
+    faq: [
+      { q: 'How is a conversion between two currencies calculated?', a: 'The calculator uses the stored reference rates to derive a cross-rate, then applies it to the amount you enter.' },
+      { q: 'Where can I see the rate date and source?', a: 'The currency page displays the date and source information for the stored rates used in the estimate.' },
+      { q: 'Will a bank exchange exactly this amount?', a: 'Not necessarily. A bank or exchange service can use different buy and sell rates and add fees.' },
+    ],
     disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'usd-to-eur': {
@@ -1257,7 +1277,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter USD amount.', 'Keep EUR as the target currency.', 'Review the converted amount.'],
     howItWorks: 'The converter derives the USD/EUR cross-rate from official reference rates for the displayed date.',
     example: 'Convert 100 USD to EUR before a trip or purchase.',
-    faq: faq('USD to EUR converter'),
+    faq: [
+      { q: 'What do I enter to convert USD to EUR?', a: 'Enter the amount in US dollars; the calculator applies the stored USD/EUR reference cross-rate to estimate euros.' },
+      { q: 'Which rate date is used?', a: 'The date shown on the currency page belongs to the stored rates used for this calculation.' },
+      { q: 'Why might the amount differ from a bank quote?', a: 'Reference rates are not customer buy or sell prices. Banks can apply their own spread and fees.' },
+    ],
     disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'eur-to-mdl': {
@@ -1272,7 +1296,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter EUR amount.', 'Keep MDL as the target currency.', 'Review the converted amount.'],
     howItWorks: 'The converter derives the EUR/MDL cross-rate from official reference rates for the displayed date.',
     example: 'Convert 100 EUR to MDL for a quick budget estimate.',
-    faq: faq('EUR to MDL converter'),
+    faq: [
+      { q: 'What do I enter to convert EUR to MDL?', a: 'Enter euros; the calculator applies the stored EUR/MDL cross-rate to estimate Moldovan lei.' },
+      { q: 'Where can I check the EUR/MDL rate source?', a: 'Read the displayed date and source beside the currency result, including any separately identified backup source.' },
+      { q: 'Is the EUR-to-MDL result an exchange-office quote?', a: 'No. It is a reference estimate; a provider may use a different rate and charge fees.' },
+    ],
     disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'usd-to-mdl': {
@@ -1287,7 +1315,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter USD amount.', 'Keep MDL as the target currency.', 'Review the converted amount.'],
     howItWorks: 'The converter derives the USD/MDL cross-rate from official reference rates for the displayed date.',
     example: 'Convert 100 USD to MDL for a quick budget estimate.',
-    faq: faq('USD to MDL converter'),
+    faq: [
+      { q: 'What do I enter to convert USD to MDL?', a: 'Enter US dollars; the calculator applies the stored USD/MDL cross-rate to estimate Moldovan lei.' },
+      { q: 'Where can I check the USD/MDL rate source?', a: 'Read the displayed date and source beside the currency result, including any separately identified backup source.' },
+      { q: 'Is the USD-to-MDL result an exchange-office quote?', a: 'No. It is a reference estimate; a provider may use a different rate and charge fees.' },
+    ],
     disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'bmi-calculator': {
@@ -1302,7 +1334,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter height in centimeters.', 'Enter weight in kilograms.', 'Check BMI and category.'],
     howItWorks: 'BMI is weight in kilograms divided by height in meters squared.',
     example: 'A person 175 cm tall and 70 kg has a BMI close to 22.9.',
-    faq: faq('BMI calculator'),
+    faq: [
+      { q: 'How is BMI calculated from my measurements?', a: 'The calculator divides your weight in kilograms by the square of your height in metres.' },
+      { q: 'Which units should I enter?', a: 'Enter height in centimetres and weight in kilograms; the height is converted to metres for the formula.' },
+      { q: 'Can BMI diagnose a health condition?', a: 'No. BMI is a screening measure and does not distinguish muscle from fat or account for individual medical circumstances.' },
+    ],
     disclaimer: 'BMI is a general screening metric and not a medical diagnosis.',
   },
   'calorie-calculator': {
@@ -1317,7 +1353,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter gender, age, height and weight.', 'Choose activity level and goal.', 'Review calories and macros.'],
     howItWorks: 'The calculator estimates BMR and adjusts it by activity level and selected goal.',
     example: 'Use the calculator to compare maintenance and weight-loss calorie targets.',
-    faq: faq('calorie calculator'),
+    faq: [
+      { q: 'How are daily calorie needs estimated?', a: 'The calculator estimates basal energy use from the body data you enter, then adjusts it for activity level and the selected goal.' },
+      { q: 'Which details should I enter?', a: 'Enter sex, age, height and weight, then choose an activity level and a maintenance, loss or gain goal.' },
+      { q: 'Is the calorie target a medical prescription?', a: 'No. Energy needs vary between people, and the result is an estimate rather than individual nutrition advice.' },
+    ],
     disclaimer: 'Nutrition results are estimates and do not replace professional advice.',
   },
   'running-pace-calculator': {
@@ -1332,7 +1372,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter distance and unit.', 'Enter finish time.', 'Check pace, speed and predictions.'],
     howItWorks: 'The calculator divides total time by distance and uses a simple race prediction formula for common distances.',
     example: 'Enter 5 km and 25 minutes to get pace per kilometer.',
-    faq: faq('running pace calculator'),
+    faq: [
+      { q: 'How is running pace calculated?', a: 'The calculator divides your finish time by the distance and reports the average pace and speed.' },
+      { q: 'What distance and time should I enter?', a: 'Enter the distance with its unit and the total elapsed time for that run or planned race.' },
+      { q: 'Are the predicted race times guaranteed?', a: 'No. They are estimates from a simple prediction formula; terrain, fitness and race conditions can change the actual time.' },
+    ],
   },
   'one-rep-max-calculator': {
     name: 'One-rep max calculator',
@@ -1346,7 +1390,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter working weight.', 'Enter repetitions.', 'Review estimated 1RM and percentages.'],
     howItWorks: 'The calculator uses a common 1RM estimate formula for sets up to moderate repetitions.',
     example: 'Enter 80 kg for 5 reps to estimate your approximate one-rep max.',
-    faq: faq('one-rep max calculator'),
+    faq: [
+      { q: 'How is one-rep max estimated?', a: 'Enter the weight lifted and the number of repetitions; the calculator applies a standard estimate formula and shows training percentages.' },
+      { q: 'Should I use a very high-repetition set?', a: 'The formula is intended for sets with a moderate number of repetitions. Estimates become less useful as the set moves further from a true maximal lift.' },
+      { q: 'Should I attempt the estimated weight immediately?', a: 'No. It is an approximate training reference, not a safety assessment. Use appropriate preparation and supervision for heavy lifts.' },
+    ],
     disclaimer: 'Strength estimates are approximate. Train safely and avoid max attempts without preparation.',
   },
   'tile-calculator': {
@@ -1361,7 +1409,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter room area or dimensions.', 'Enter tile size and pack area.', 'Add reserve and review the result.'],
     howItWorks: 'The calculator divides the area with reserve by tile area and pack area.',
     example: 'Estimate tiles for a 4 by 3 meter room with 30 by 30 cm tiles.',
-    faq: faq('tile calculator'),
+    faq: [
+      { q: 'How is the number of tiles estimated?', a: 'Enter the area or room dimensions and the tile size. The calculator divides the surface with your reserve allowance by the area of one tile.' },
+      { q: 'Why enter a reserve and pack coverage?', a: 'The reserve covers cuts and breakage, while pack coverage converts the required area into an estimated number of packs.' },
+      { q: 'Does the estimate replace a laying plan?', a: 'No. Patterns, borders, irregular surfaces and site-specific waste can change the number of tiles or packs needed.' },
+    ],
   },
   'wallpaper-calculator': {
     name: 'Wallpaper calculator',
@@ -1375,7 +1427,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter room dimensions.', 'Enter roll width and length.', 'Add doors, windows and pattern repeat.'],
     howItWorks: 'The calculator estimates wall strips and divides them by strips available from one roll.',
     example: 'Estimate rolls for a 5 by 4 meter room with 2.7 m wall height.',
-    faq: faq('wallpaper calculator'),
+    faq: [
+      { q: 'How are wallpaper rolls estimated?', a: 'The calculator estimates the strips needed for the room walls and divides them by the usable strips from one roll.' },
+      { q: 'Why enter doors, windows and pattern repeat?', a: 'Openings reduce the area to cover, while matching a repeated pattern can increase the length needed for each strip.' },
+      { q: 'Could I still need an extra roll?', a: 'Yes. Cutting loss, wall shape and pattern matching can differ on site, so check the estimate against the room layout before purchasing.' },
+    ],
   },
   'laminate-calculator': {
     name: 'Laminate calculator',
@@ -1389,7 +1445,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter room length and width.', 'Enter pack area and reserve.', 'Review required packs.'],
     howItWorks: 'The calculator multiplies floor area by reserve and divides by pack coverage.',
     example: 'Estimate laminate packs for a 5 by 4 meter room.',
-    faq: faq('laminate calculator'),
+    faq: [
+      { q: 'How is floor area calculated?', a: 'Enter the room length and width; the calculator multiplies them to find the area to cover.' },
+      { q: 'How are laminate packs estimated?', a: 'The calculator adds your reserve allowance to the floor area and divides by the area covered by one pack.' },
+      { q: 'What does the reserve not account for?', a: 'Unusual room shapes, laying patterns and unusable offcuts may require a different allowance than the one entered.' },
+    ],
   },
   'age-calculator': {
     name: 'Age calculator',
@@ -1403,7 +1463,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter date of birth.', 'Choose target date if needed.', 'Review exact age and total days.'],
     howItWorks: 'The calculator compares calendar dates and accounts for month lengths and leap years.',
     example: 'Enter a birth date to calculate age on a specific future date.',
-    faq: faq('age calculator'),
+    faq: [
+      { q: 'Which dates are compared for age?', a: 'Enter the date of birth and optionally a reference date. Without a reference date, the calculator uses today.' },
+      { q: 'How are years, months and days counted?', a: 'The calculation compares calendar dates, accounting for different month lengths and leap years rather than dividing elapsed milliseconds by 24 hours.' },
+      { q: 'What does total lived days mean?', a: 'It is the count of calendar days from the birth date to the reference date, independent of daylight-saving clock changes.' },
+    ],
   },
   'working-days-calculator': {
     name: 'Business days calculator',
@@ -1417,7 +1481,11 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howToUse: ['Enter start and end dates.', 'Choose whether weekends count as workdays.', 'Add excluded dates if needed.'],
     howItWorks: 'The calculator iterates through calendar days and counts days that match the selected workday rules.',
     example: 'Count workdays between two dates and exclude holidays manually.',
-    faq: faq('business days calculator'),
+    faq: [
+      { q: 'How are business days counted?', a: 'The calculator walks the dates between the start and end and counts days that match the workday rules you select.' },
+      { q: 'Can I change how weekends are treated?', a: 'Yes. Choose whether weekend days count as workdays before reading the total.' },
+      { q: 'Are public holidays excluded automatically?', a: 'No. Enter any holidays or other dates to exclude yourself; the calculator does not assume a country-specific holiday calendar.' },
+    ],
   },
   'date-shift-calculator': {
     name: 'Date calculator',

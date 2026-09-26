@@ -16,9 +16,9 @@ export const esSportContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "La calculadora estima el metabolismo basal y lo ajusta según el nivel de actividad y el objetivo elegido.",
     example: "Usa la calculadora para comparar los objetivos calóricos de mantenimiento y de pérdida de peso.",
     faq: [
-      { q: "¿Qué exactitud tiene esta calculadora de calorías?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar la calculadora de calorías?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado de la calculadora de calorías?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Cómo se estiman las calorías diarias?", a: "Se estima el metabolismo basal con los datos corporales y se ajusta por actividad y por el objetivo elegido." },
+      { q: "¿Qué datos debo introducir?", a: "Indica sexo, edad, estatura y peso; después elige un nivel de actividad y un objetivo de mantenimiento, pérdida o aumento." },
+      { q: "¿Es una prescripción nutricional?", a: "No. Las necesidades energéticas varían entre personas y la cifra es orientativa, no un consejo clínico individual." },
     ],
   },
   "body-fat-calculator": {
@@ -51,9 +51,9 @@ export const esSportContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "La calculadora divide el tiempo total entre la distancia y usa una fórmula sencilla de previsión para las distancias de carrera habituales.",
     example: "Introduce 5 km y 25 minutos para obtener el ritmo por kilómetro.",
     faq: [
-      { q: "¿Qué exactitud tiene esta calculadora de ritmo de carrera?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar la calculadora de ritmo de carrera?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado de la calculadora de ritmo de carrera?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Cómo se calcula el ritmo de carrera?", a: "Se divide el tiempo total entre la distancia para obtener el ritmo medio y la velocidad." },
+      { q: "¿Qué distancia y tiempo debo introducir?", a: "Escribe la distancia con su unidad y el tiempo total transcurrido en la carrera o entrenamiento." },
+      { q: "¿Son seguros los tiempos previstos para otras distancias?", a: "No. Son estimaciones de una fórmula sencilla; el terreno, la forma física y las condiciones de carrera pueden alterar el tiempo real." },
     ],
   },
   "one-rep-max-calculator": {
@@ -66,9 +66,9 @@ export const esSportContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "La calculadora usa una fórmula habitual de estimación del 1RM para series de hasta un número moderado de repeticiones.",
     example: "Introduce 80 kg con 5 repeticiones para estimar tu una repetición máxima aproximada.",
     faq: [
-      { q: "¿Qué exactitud tiene esta calculadora de una repetición máxima?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar la calculadora de una repetición máxima?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado de la calculadora de una repetición máxima?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Cómo se estima el máximo de una repetición?", a: "Introduce el peso levantado y el número de repeticiones; se aplica una fórmula de estimación y se muestran porcentajes de entrenamiento." },
+      { q: "¿Sirve una serie de muchísimas repeticiones?", a: "La fórmula está pensada para series de un número moderado de repeticiones; cuanto más lejos esté la serie de un esfuerzo máximo, menos útil será la estimación." },
+      { q: "¿Debo levantar de inmediato el peso estimado?", a: "No. Es una referencia aproximada de entrenamiento y no evalúa tu seguridad. Prepárate adecuadamente antes de trabajar con cargas altas." },
     ],
   },
   "activity-calories": {
