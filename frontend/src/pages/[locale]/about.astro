@@ -1,6 +1,7 @@
 ---
 import Layout from '../../components/Layout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { SITE } from '../../config/site';
 import { getAlternatesForPage, isLocale, localeHome, locales, ui, type Locale } from '../../lib/i18n';
 import { breadcrumbsJsonLd, webPageJsonLd } from '../../lib/seo';
 
@@ -133,6 +134,84 @@ const pageCopy: Record<Locale, { title: string; description: string; p1: string;
     breadcrumbs: 'Morzsanavigáció',
   },
 };
+type AboutDetails = {
+  heading: string;
+  methodTitle: string;
+  method: string;
+  dataTitle: string;
+  data: string;
+  limitsTitle: string;
+  limits: string;
+  contactTitle: string;
+  contact: string;
+  contactAction: string;
+};
+
+const details: Partial<Record<Locale, AboutDetails>> = {
+  ru: {
+    heading: 'Как работает Calcuway',
+    methodTitle: 'Расчёты',
+    method: 'Калькуляторы применяют описанные на своих страницах формулы к введённым вами значениям. Вычисления выполняются в браузере; входные данные не отправляются на сервер для расчёта.',
+    dataTitle: 'Обновляемые данные',
+    data: 'Валютные курсы сохраняются из указанных источников. Для валют, участвующих в расчёте, показаны их фактические источники и даты; резервный источник отмечен отдельно. Изменяющиеся ставки и правила сверяйте с источниками на соответствующей странице.',
+    limitsTitle: 'Ограничения',
+    limits: 'Точность результата зависит от входных данных, выбранной формулы и даты справочных сведений. Банковские курсы, комиссии, законы и индивидуальные обстоятельства могут отличаться. Результат не заменяет профессиональную консультацию.',
+    contactTitle: 'Сообщить об ошибке',
+    contact: 'Пришлите ссылку на калькулятор, введённые значения, полученный и ожидаемый результат. Не отправляйте личные или финансовые секреты.',
+    contactAction: 'Написать нам',
+  },
+  en: {
+    heading: 'How Calcuway works',
+    methodTitle: 'Calculations',
+    method: 'Each calculator applies the formula described on its page to the values you enter. Calculations run in your browser; inputs are not sent to a server to perform the calculation.',
+    dataTitle: 'Updated data',
+    data: 'Exchange rates are saved from the sources named on the site. The actual source and date for each currency used in a calculation are shown, with any fallback source marked separately. Check changing rates and rules against the sources on the relevant page.',
+    limitsTitle: 'Limitations',
+    limits: 'Accuracy depends on your inputs, the formula and the date of reference data. Bank rates, fees, laws and personal circumstances may differ. Results do not replace professional advice.',
+    contactTitle: 'Report an error',
+    contact: 'Send the calculator URL, the values entered, and the actual and expected results. Do not send personal or financial secrets.',
+    contactAction: 'Contact us',
+  },
+  uk: {
+    heading: 'Як працює Calcuway',
+    methodTitle: 'Розрахунки',
+    method: 'Калькулятори застосовують формули, описані на їхніх сторінках, до введених вами значень. Обчислення виконуються в браузері; дані не надсилаються на сервер для розрахунку.',
+    dataTitle: 'Оновлювані дані',
+    data: 'Валютні курси зберігаються із зазначених джерел. Для кожної валюти в розрахунку показано фактичне джерело й дату; резервне джерело позначено окремо. Змінні ставки та правила звіряйте з джерелами на відповідній сторінці.',
+    limitsTitle: 'Обмеження',
+    limits: 'Точність результату залежить від вхідних даних, формули й дати довідкових відомостей. Банківські курси, комісії, закони та особисті обставини можуть відрізнятися. Результат не замінює професійної консультації.',
+    contactTitle: 'Повідомити про помилку',
+    contact: 'Надішліть посилання на калькулятор, введені значення, отриманий та очікуваний результати. Не надсилайте особистих або фінансових секретів.',
+    contactAction: 'Написати нам',
+  },
+  de: {
+    heading: 'So funktioniert Calcuway',
+    methodTitle: 'Berechnungen',
+    method: 'Jeder Rechner wendet die auf seiner Seite beschriebene Formel auf deine Eingaben an. Die Berechnung läuft im Browser; Eingaben werden dafür nicht an einen Server gesendet.',
+    dataTitle: 'Aktualisierte Daten',
+    data: 'Wechselkurse werden aus den angegebenen Quellen gespeichert. Für jede verwendete Währung werden die tatsächliche Quelle und ihr Datum angezeigt; eine Ersatzquelle wird eigens gekennzeichnet. Änderbare Sätze und Regeln solltest du anhand der Quellen auf der jeweiligen Seite prüfen.',
+    limitsTitle: 'Grenzen',
+    limits: 'Die Genauigkeit hängt von deinen Eingaben, der Formel und dem Datum der Referenzdaten ab. Bankkurse, Gebühren, Gesetze und persönliche Umstände können abweichen. Das Ergebnis ersetzt keine fachliche Beratung.',
+    contactTitle: 'Fehler melden',
+    contact: 'Sende die Rechner-URL, die Eingaben sowie das angezeigte und das erwartete Ergebnis. Sende keine persönlichen oder finanziellen Geheimnisse.',
+    contactAction: 'Kontakt aufnehmen',
+  },
+  es: {
+    heading: 'Cómo funciona Calcuway',
+    methodTitle: 'Cálculos',
+    method: 'Cada calculadora aplica la fórmula descrita en su página a los valores que introduces. El cálculo se hace en el navegador; los datos no se envían a un servidor para calcular.',
+    dataTitle: 'Datos actualizados',
+    data: 'Los tipos de cambio se guardan desde las fuentes indicadas. Se muestran la fuente y la fecha reales de cada divisa utilizada; cualquier fuente de reserva se identifica aparte. Comprueba las tasas y normas cambiantes en las fuentes de la página correspondiente.',
+    limitsTitle: 'Limitaciones',
+    limits: 'La precisión depende de tus datos, la fórmula y la fecha de los datos de referencia. Los tipos bancarios, las comisiones, las leyes y las circunstancias personales pueden variar. El resultado no sustituye el asesoramiento profesional.',
+    contactTitle: 'Informar de un error',
+    contact: 'Envía la URL de la calculadora, los valores introducidos, el resultado obtenido y el esperado. No envíes datos personales o financieros confidenciales.',
+    contactAction: 'Escríbenos',
+  },
+};
+const detail = details[locale];
+const contactHref = SITE.email ? `mailto:${SITE.email}` : `/${locale}/contacts/`;
+const contactLabel = SITE.email || detail?.contactAction;
 const { title, description } = pageCopy[locale];
 const alternates = getAlternatesForPage(Object.fromEntries(locales.map((locale) => [locale, `/${locale}/about/`])));
 const jsonLd = [
@@ -155,4 +234,30 @@ const jsonLd = [
       </div>
     </div>
   </section>
+  {detail && (
+    <section class="border-b border-ink-200 bg-white/45" data-testid="about-details">
+      <div class="mx-auto max-w-page px-5 py-10 sm:px-8 sm:py-14">
+        <h2 class="section-heading text-fit text-ink-900">{detail.heading}</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-3">
+          <article class="content-card">
+            <h3 class="text-fit text-lg font-semibold text-ink-900">{detail.methodTitle}</h3>
+            <p class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{detail.method}</p>
+          </article>
+          <article class="content-card">
+            <h3 class="text-fit text-lg font-semibold text-ink-900">{detail.dataTitle}</h3>
+            <p class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{detail.data}</p>
+          </article>
+          <article class="content-card">
+            <h3 class="text-fit text-lg font-semibold text-ink-900">{detail.limitsTitle}</h3>
+            <p class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{detail.limits}</p>
+          </article>
+        </div>
+        <div class="mt-5 max-w-3xl rounded-2xl border border-ink-200 bg-white p-5">
+          <h3 class="text-fit text-lg font-semibold text-ink-900">{detail.contactTitle}</h3>
+          <p class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{detail.contact}</p>
+          <a href={contactHref} class="mt-3 inline-flex break-all text-sm font-semibold text-accent underline underline-offset-4" data-testid="about-contact">{contactLabel}</a>
+        </div>
+      </div>
+    </section>
+  )}
 </Layout>
