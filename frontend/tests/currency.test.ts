@@ -47,7 +47,7 @@ describe('currency: calcCurrency', () => {
 
   it('называет источник той валюты, которая участвует в расчёте', () => {
     // Пара USD/EUR опирается только на ЕЦБ: доллар — база, своего источника
-    // у него нет. Пара EUR/MDL добавляет Национальный банк Молдовы.
+    // у него нет. Пара EUR/MDL добавляет фактический источник MDL.
     const pair = calcCurrency({ amount: 100, from: 'USD', to: 'EUR' });
     const pairSources = pair.secondary.filter((s) => s.label === 'Источник');
     expect(pairSources).toHaveLength(1);
@@ -56,7 +56,11 @@ describe('currency: calcCurrency', () => {
 
     const cross = calcCurrency({ amount: 100, from: 'EUR', to: 'MDL' });
     const crossSources = cross.secondary.filter((s) => s.label === 'Источник').map((s) => s.value);
-    expect(crossSources).toEqual(['Европейский центральный банк', 'Национальный банк Молдовы']);
+    const mdlSource = sourcesForCurrencies(['MDL'])[0];
+    expect(mdlSource.id).toBe(rateProvenance.MDL.provider);
+    expect(crossSources).toEqual(['Европейский центральный банк', mdlSource.name]);
+    expect(cross.secondary.some((s) => s.label === 'Резервный источник'))
+      .toBe(mdlSource.fallback);
   });
 
   it('нигде не называет прежний источник', () => {
@@ -72,7 +76,9 @@ describe('currency: calcCurrency', () => {
       expect(rateProvenance[code].provider, code).toBe('ecb');
     }
     expect(rateProvenance.UAH.provider).toBe('nbu');
-    expect(rateProvenance.MDL.provider).toBe('bnm');
+    const mdlProvider: string = rateProvenance.MDL.provider;
+    expect(['bnm', 'erapi']).toContain(mdlProvider);
+    expect(rateProvenance.MDL.fallback).toBe(mdlProvider === 'erapi');
     expect(rateProvenance).not.toHaveProperty('USD');
   });
 });

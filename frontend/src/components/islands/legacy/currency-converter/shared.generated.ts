@@ -17,6 +17,7 @@ export const shared: CalculatorLocalization = {
       'Статус обновления': 'Update status',
       'Последняя попытка обновления': 'Last update attempt',
       'Источник': 'Source',
+      'Резервный источник': 'Fallback source',
       'Ошибка': 'Error',
     },
     values: {
@@ -29,7 +30,6 @@ export const shared: CalculatorLocalization = {
       'Национальный банк Украины': 'National Bank of Ukraine',
       'Национальный банк Молдовы': 'National Bank of Moldova',
       'Exchange Rate API': 'Exchange Rate API',
-      'Резервный источник': 'Fallback source',
       'Основной источник был недоступен, курс получен из резервного.': 'The primary source was unavailable, so this rate came from the fallback source.',
       'Курсы обновлены при последней сборке; часть валют получена из резервного источника.': 'Rates were updated during the latest build; some currencies came from the fallback source.',
       'Доллар США': 'US dollar',
@@ -56,6 +56,7 @@ export const shared: CalculatorLocalization = {
       'Статус обновления': 'Статус оновлення',
       'Последняя попытка обновления': 'Остання спроба оновлення',
       'Источник': 'Джерело',
+      'Резервный источник': 'Резервне джерело',
       'Ошибка': 'Помилка',
     },
     values: {
@@ -68,7 +69,6 @@ export const shared: CalculatorLocalization = {
       'Национальный банк Украины': 'Національний банк України',
       'Национальный банк Молдовы': 'Національний банк Молдови',
       'Exchange Rate API': 'Exchange Rate API',
-      'Резервный источник': 'Резервне джерело',
       'Основной источник был недоступен, курс получен из резервного.': 'Основне джерело було недоступне, тому курс отримано з резервного.',
       'Курсы обновлены при последней сборке; часть валют получена из резервного источника.': 'Курси оновлено під час останнього складання; частину валют отримано з резервного джерела.',
       'Доллар США': 'Долар США',
@@ -95,6 +95,7 @@ export const shared: CalculatorLocalization = {
       'Статус обновления': 'Stand der Aktualisierung',
       'Последняя попытка обновления': 'Letzter Aktualisierungsversuch',
       'Источник': 'Quelle',
+      'Резервный источник': 'Ersatzquelle',
       'Ошибка': 'Fehler',
     },
     values: {
@@ -107,7 +108,6 @@ export const shared: CalculatorLocalization = {
       'Национальный банк Украины': 'Nationalbank der Ukraine',
       'Национальный банк Молдовы': 'Nationalbank der Republik Moldau',
       'Exchange Rate API': 'Exchange Rate API',
-      'Резервный источник': 'Ersatzquelle',
       'Основной источник был недоступен, курс получен из резервного.': 'Die Hauptquelle war nicht erreichbar, der Kurs stammt aus der Ersatzquelle.',
       'Курсы обновлены при последней сборке; часть валют получена из резервного источника.': 'Die Kurse wurden beim letzten Bau aktualisiert; ein Teil der Währungen stammt aus der Ersatzquelle.',
       'Доллар США': 'US-Dollar',
@@ -134,6 +134,7 @@ export const shared: CalculatorLocalization = {
       'Статус обновления': 'Estado de la actualización',
       'Последняя попытка обновления': 'Último intento de actualización',
       'Источник': 'Fuente',
+      'Резервный источник': 'Fuente de reserva',
       'Ошибка': 'Error',
     },
     values: {
@@ -146,7 +147,6 @@ export const shared: CalculatorLocalization = {
       'Национальный банк Украины': 'Banco Nacional de Ucrania',
       'Национальный банк Молдовы': 'Banco Nacional de Moldavia',
       'Exchange Rate API': 'Exchange Rate API',
-      'Резервный источник': 'Fuente de reserva',
       'Основной источник был недоступен, курс получен из резервного.': 'La fuente principal no estaba disponible; el tipo se obtuvo de la de reserva.',
       'Курсы обновлены при последней сборке; часть валют получена из резервного источника.': 'Los tipos se actualizaron en la última compilación; parte de las monedas provienen de la fuente de reserva.',
       'Доллар США': 'Dólar estadounidense',
