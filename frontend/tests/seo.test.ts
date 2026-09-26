@@ -140,8 +140,20 @@ describe('seo.articleJsonLd', () => {
     expect(data.articleBody).toBe('Полный текст статьи.');
     expect((data.author as Record<string, unknown>)['@type']).toBe('Organization');
     expect((data.publisher as Record<string, unknown>)['@type']).toBe('Organization');
-    expect(data.datePublished).toBeDefined();
-    expect(data.dateModified).toBeDefined();
+    expect(data).not.toHaveProperty('datePublished');
+    expect(data).not.toHaveProperty('dateModified');
+  });
+
+  it('adds Article dates only when an actual date is supplied', () => {
+    const data = articleJsonLd({
+      headline: 'Verified guide',
+      description: 'A dated review',
+      path: '/en/guide/',
+      datePublished: '2026-09-01',
+      dateModified: '2026-09-20',
+    });
+    expect(data.datePublished).toBe('2026-09-01');
+    expect(data.dateModified).toBe('2026-09-20');
   });
 
   it('articleBody не добавляется если не передан', () => {

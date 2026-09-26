@@ -719,25 +719,26 @@ const islandCalc = {
           <dt class="font-semibold text-ink-900">{editorial.methodLabel}</dt>
           <dd class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{editorial.method}</dd>
         </div>
-        <div class="content-card">
-          <dt class="font-semibold text-ink-900">{editorial.sourceLabel}</dt>
-          <dd class="mt-2 text-fit text-sm leading-relaxed text-ink-600">
-            {/* Источников может быть несколько: у пары EUR/MDL это ЕЦБ и
-                Национальный банк Молдовы. Каждый — своей строкой, иначе
-                подписи склеиваются в один нечитаемый поток. */}
-            {editorial.sources.map((source) => (
-              <span class="block">
-                {source.href
-                  ? <a class="text-accent underline-offset-4 hover:underline" href={source.href} rel="noopener noreferrer">{source.label}</a>
-                  : source.label}
-              </span>
-            ))}
-          </dd>
-        </div>
-        <div class="content-card">
-          <dt class="font-semibold text-ink-900">{editorial.reviewedLabel}</dt>
-          <dd class="mt-2 font-mono text-sm text-ink-600"><time datetime={editorial.reviewedAt}>{editorial.reviewedAt}</time></dd>
-        </div>
+        {editorial.sources.length > 0 && (
+          <div class="content-card">
+            <dt class="font-semibold text-ink-900">{editorial.sourceLabel}</dt>
+            <dd class="mt-2 text-fit text-sm leading-relaxed text-ink-600">
+              {editorial.sources.map((source) => (
+                <span class="block">
+                  {source.href
+                    ? <a class="text-accent underline-offset-4 hover:underline" href={source.href} rel="noopener noreferrer">{source.label}</a>
+                    : source.label}
+                </span>
+              ))}
+            </dd>
+          </div>
+        )}
+        {editorial.reviewedAt && (
+          <div class="content-card">
+            <dt class="font-semibold text-ink-900">{editorial.reviewedLabel}</dt>
+            <dd class="mt-2 font-mono text-sm text-ink-600"><time datetime={editorial.reviewedAt}>{editorial.reviewedAt}</time></dd>
+          </div>
+        )}
         <div class="content-card">
           <dt class="font-semibold text-ink-900">{editorial.limitationLabel}</dt>
           <dd class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{editorial.limitation}</dd>

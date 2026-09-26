@@ -347,8 +347,6 @@ export function articleJsonLd(params: {
   dateModified?: string;
   locale?: Locale;
 }): Json {
-  const published = params.datePublished ?? '2025-01-01';
-  const modified = params.dateModified ?? new Date().toISOString().slice(0, 10);
   const locale = params.locale ?? 'ru';
   const organizationName = localeMeta[locale].siteName;
   return {
@@ -364,8 +362,8 @@ export function articleJsonLd(params: {
       name: organizationName,
       url: absUrl('/'),
     },
-    datePublished: published,
-    dateModified: modified,
+    ...(params.datePublished ? { datePublished: params.datePublished } : {}),
+    ...(params.dateModified ? { dateModified: params.dateModified } : {}),
     ...(params.body ? { articleBody: params.body } : {}),
   };
 }
