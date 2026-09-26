@@ -35,6 +35,16 @@ describe('routing content: i18n routes', () => {
     expect(root.default).not.toContain('noindex={true}');
     expect(root.default).toContain('locales.map');
     expect(root.default).toContain('gateway-${locale}');
+    expect(root.default).not.toContain('<span>x-default</span>');
+    expect(root.default).not.toContain('SEO metadata, FAQ, schema.org');
+    for (const path of [
+      '/en/finance/percentage-calculator/',
+      '/en/date-time/age-calculator/',
+      '/en/currency/currency-converter/',
+      '/en/fitness/bmi-calculator/',
+    ]) {
+      expect(root.default).toContain(`href="${path}"`);
+    }
     expect(localizedHome.default).toContain('getStaticPaths');
     expect(localizedHome.default).toContain('locales.map');
     expect(localizedHome.default).toContain('home-hero-actions');

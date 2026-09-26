@@ -30,13 +30,13 @@ const jsonLd = [
       <div class="max-w-3xl min-w-0">
         <div class="mb-5 flex min-w-0 items-center gap-3 text-xs uppercase tracking-wider text-ink-500">
           <span class="inline-block h-2 w-2 rounded-full bg-sky"></span>
-          <span>x-default</span>
+          <span>Free online calculators</span>
         </div>
         <h1 class="text-fit text-4xl font-extrabold leading-[1.05] tracking-[-0.055em] text-ink-900 sm:text-6xl">
           Choose your calculator language.
         </h1>
         <p class="mt-5 text-fit text-base leading-relaxed text-ink-500 sm:text-lg">
-          Open a localized version of the static calculator site. Each language has its own URLs, SEO metadata, FAQ, schema.org and search catalog.
+          Get quick estimates for percentages, currencies, dates, fitness and home projects. Choose a language below to browse the calculators and use them in the language you prefer.
         </p>
       </div>
 
@@ -60,6 +60,19 @@ const jsonLd = [
           </a>
         ))}
       </div>
+
+      <section class="mt-12 border-t border-ink-200/80 pt-8" aria-labelledby="gateway-examples-title">
+        <h2 id="gateway-examples-title" class="text-2xl font-bold text-ink-900">Try a calculator</h2>
+        <p class="mt-2 text-sm leading-relaxed text-ink-500">
+          These examples open in English. Choose a language above for its full catalog.
+        </p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a class="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm font-semibold text-accent transition-colors hover:border-accent-100 hover:bg-white/80" href="/en/finance/percentage-calculator/">Percentage calculator</a>
+          <a class="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm font-semibold text-accent transition-colors hover:border-accent-100 hover:bg-white/80" href="/en/date-time/age-calculator/">Age calculator</a>
+          <a class="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm font-semibold text-accent transition-colors hover:border-accent-100 hover:bg-white/80" href="/en/currency/currency-converter/">Currency converter</a>
+          <a class="rounded-full border border-ink-200 bg-white px-4 py-2 text-sm font-semibold text-accent transition-colors hover:border-accent-100 hover:bg-white/80" href="/en/fitness/bmi-calculator/">BMI calculator</a>
+        </div>
+      </section>
     </div>
   </section>
 </Layout>
