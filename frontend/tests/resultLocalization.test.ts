@@ -56,6 +56,25 @@ describe('result localization: labels and units are translated', () => {
     );
     expect(uk.secondary.find((row) => row.label === 'Зріст')?.value).toBe('180 см');
   });
+
+  it('translates the fallback-rate row as a label in every published non-RU locale', () => {
+    const raw = resultOf('currency-converter', { amount: 100, from: 'EUR', to: 'MDL' });
+    const fallback = raw.secondary.find((row) => row.label === 'Резервный источник');
+    if (!fallback) {
+      // The live snapshot may use BNM instead; exercise the same result row
+      // explicitly so this regression remains covered with either provider.
+      raw.secondary.push({ label: 'Резервный источник', value: 'Основной источник был недоступен, курс получен из резервного.' });
+    }
+    for (const [locale, expected] of [
+      ['en', 'Fallback source'],
+      ['uk', 'Резервне джерело'],
+      ['de', 'Ersatzquelle'],
+      ['es', 'Fuente de reserva'],
+    ] as const) {
+      const localized = localizeResult(raw, locale, 'currency-converter', runtimeFor('currency-converter'));
+      expect(localized.secondary.map((row) => row.label), locale).toContain(expected);
+    }
+  });
 });
 
 describe('result localization: number formatting per locale', () => {
