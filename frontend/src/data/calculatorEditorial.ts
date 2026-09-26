@@ -23,44 +23,42 @@ export type CalculatorEditorial = {
   limitationLabel: string;
   method: string;
   sources: EditorialSource[];
-  reviewedAt: string;
+  reviewedAt?: string;
   limitation: string;
   freshnessWarning?: string;
 };
 
-export const contentReviewedAt = '2026-06-15';
-
 const labels = {
   ru: {
-    heading: 'Источник и актуальность',
+    heading: 'Методика и ограничения',
     method: 'Методика расчёта',
     source: 'Источник данных или нормы',
     reviewed: 'Дата последней проверки',
     limitation: 'Ограничение',
   },
   en: {
-    heading: 'Sources and review status',
+    heading: 'Method and limitations',
     method: 'Calculation method',
     source: 'Data or methodology source',
     reviewed: 'Last reviewed',
     limitation: 'Limitation',
   },
   uk: {
-    heading: 'Джерела й актуальність',
+    heading: 'Методика та обмеження',
     method: 'Методика розрахунку',
     source: 'Джерело даних або норми',
     reviewed: 'Дата останньої перевірки',
     limitation: 'Обмеження',
   },
   de: {
-    heading: 'Quellen und Aktualität',
+    heading: 'Rechenweg und Grenzen',
     method: 'Rechenweg',
     source: 'Datenquelle oder Norm',
     reviewed: 'Zuletzt geprüft',
     limitation: 'Einschränkung',
   },
   es: {
-    heading: 'Fuentes y vigencia',
+    heading: 'Método y limitaciones',
     method: 'Método de cálculo',
     source: 'Fuente de datos o norma',
     reviewed: 'Última revisión',
@@ -110,15 +108,7 @@ export function getCalculatorEditorial(calculator: CalculatorDef, locale: string
     reviewedLabel: copy.reviewed,
     limitationLabel: copy.limitation,
     method: calculator.howItWorks,
-    sources: [{
-      label: sourceText(
-        locale,
-        'Формула и входные параметры, описанные на этой странице.',
-        'The formula and input definitions documented on this page.',
-        'Формула та вхідні параметри, описані на цій сторінці.',
-      ),
-    }],
-    reviewedAt: contentReviewedAt,
+    sources: [],
     limitation: genericLimitations[lang][calculator.category],
   };
 
@@ -258,20 +248,6 @@ function currencyFieldPinned(calculator: CalculatorDef, name: 'from' | 'to'): bo
         'Adult cutoffs do not measure body fat directly and may be unsuitable for children, pregnancy, older adults or muscular athletes.',
         'Категорії призначені для дорослих. ІМТ не вимірює частку жиру й може бути непоказовим для дітей, вагітних, літніх людей і спортсменів із великою м’язовою масою.',
       ),
-    };
-  }
-
-  if (calculator.category === 'building') {
-    return {
-      ...base,
-      sources: [{
-        label: sourceText(
-          locale,
-          'Геометрические формулы; площадь упаковки и расход материала берутся с маркировки производителя.',
-          'Geometry formulas; pack coverage and material consumption come from the manufacturer label.',
-          'Геометричні формули; площу упаковки й витрату матеріалу беруть із маркування виробника.',
-        ),
-      }],
     };
   }
 

@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { getCalculatorEditorial, contentReviewedAt } from '../src/data/calculatorEditorial';
+import { getCalculatorEditorial } from '../src/data/calculatorEditorial';
 import { publishedExamples } from '../src/data/publishedExamples';
 import { getCalculators } from '../src/lib/i18n';
 
@@ -33,15 +33,16 @@ describe('on-page content quality', () => {
     }
   });
 
-  it('adds reviewed sources and limitations to priority pages', () => {
+  it('shows a method and limitation without inventing a review date or source', () => {
     for (const page of priorityPages) {
       const editorial = getCalculatorEditorial(priorityCalculator(page.locale, page.id), page.locale);
-      expect(editorial.reviewedAt).toBe(contentReviewedAt);
+      expect(editorial.reviewedAt).toBeUndefined();
       expect(editorial.method.trim()).not.toBe('');
-      expect(editorial.sources.length).toBeGreaterThan(0);
       expect(editorial.limitation.trim()).not.toBe('');
     }
 
+    expect(getCalculatorEditorial(priorityCalculator('ru', 'age-calculator'), 'ru').sources).toEqual([]);
+    expect(getCalculatorEditorial(priorityCalculator('ru', 'tile-calculator'), 'ru').sources).toEqual([]);
     expect(getCalculatorEditorial(priorityCalculator('ru', 'currency-converter'), 'ru').sources[0].href).toBe('https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html');
     expect(getCalculatorEditorial(priorityCalculator('ru', 'income-tax-calculator'), 'ru').sources[0].href).toContain('nalog.gov.ru');
     expect(getCalculatorEditorial(priorityCalculator('ru', 'vat-calculator'), 'ru').sources[0].href).toContain('nalog.gov.ru');
@@ -52,6 +53,8 @@ describe('on-page content quality', () => {
     const calculatorPage = readFileSync('src/pages/[locale]/[category]/[calculator].astro', 'utf8');
     expect(calculatorPage).toContain('data-testid="calculator-source-review"');
     expect(calculatorPage).toContain('data-testid="calculator-fields"');
+    expect(calculatorPage).toContain('editorial.sources.length > 0');
+    expect(calculatorPage).toContain('editorial.reviewedAt &&');
     expect(calculatorPage).toContain('dateModified: editorial.reviewedAt');
     expect(calculatorPage).toContain('...(seoFaq.length > 0 ? [faqJsonLd(seoFaq)] : [])');
     expect(calculatorPage).toContain('{seoFaq.length > 0 && (');
