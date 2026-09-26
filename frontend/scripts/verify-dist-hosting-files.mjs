@@ -67,6 +67,11 @@ if (robots) {
   }
 }
 
+const adsTxt = readDist('ads.txt');
+if (fs.existsSync(path.join(root, 'ads.txt')) && adsTxt !== 'google.com, pub-2945932737640221, DIRECT, f08c47fec0942fa0\n') {
+  issues.push('ads.txt: expected exactly the authorized AdSense publisher entry');
+}
+
 const sitemap = readDist('sitemap.xml');
 if (sitemap) {
   for (const fragment of ['<urlset', 'xmlns:xhtml=', 'hreflang="ru"', 'hreflang="en"', 'hreflang="x-default"', '/ru/', '/en/']) {
@@ -109,4 +114,4 @@ if (issues.length > 0) {
   process.exit(1);
 }
 
-console.log('Verified dist hosting files: headers, robots, sitemap, OpenSearch, and manifest look valid.');
+console.log('Verified dist hosting files: headers, robots, sitemap, ads.txt, OpenSearch, and manifest look valid.');
