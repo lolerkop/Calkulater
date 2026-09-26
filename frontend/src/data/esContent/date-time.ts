@@ -16,9 +16,9 @@ export const esDateTimeContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "La calculadora recorre los días del calendario y cuenta los que cumplen las reglas de jornada laboral elegidas.",
     example: "Cuenta los días laborables entre dos fechas y excluye los festivos a mano.",
     faq: [
-      { q: "¿Qué exactitud tiene esta calculadora de días laborables?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar la calculadora de días laborables?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado de la calculadora de días laborables?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Cómo se cuentan los días laborables?", a: "Se recorren las fechas entre el inicio y el final y se cuentan las que cumplen las reglas de jornada elegidas." },
+      { q: "¿Puedo cambiar el tratamiento de los fines de semana?", a: "Sí. Elige si los días de fin de semana deben contar como laborables antes de consultar el total." },
+      { q: "¿Se excluyen los festivos automáticamente?", a: "No. Introduce a mano los festivos u otras fechas que quieras excluir; no se presupone un calendario nacional." },
     ],
   },
   "date-shift-calculator": {

@@ -16,9 +16,9 @@ export const esCurrencyContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "La calculadora deriva un tipo cruzado de los tipos de referencia oficiales de los bancos centrales publicados para la fecha mostrada.",
     example: "Convierte 100 USD a EUR para estimar un presupuesto de viaje.",
     faq: [
-      { q: "¿Qué exactitud tiene este conversor de divisas?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar el conversor de divisas?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado del conversor de divisas?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Cómo se calcula una conversión entre dos monedas?", a: "Se obtiene un tipo cruzado a partir de los tipos de referencia guardados y se aplica al importe introducido." },
+      { q: "¿Dónde veo la fecha y la fuente de los tipos?", a: "La página muestra la fecha y la información sobre la fuente de los tipos usados en la estimación." },
+      { q: "¿Recibiré exactamente ese importe en un banco?", a: "No necesariamente. Los bancos y las casas de cambio pueden usar tipos de compra y venta distintos y añadir comisiones." },
     ],
   },
   "usd-to-eur": {
@@ -31,9 +31,9 @@ export const esCurrencyContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "El conversor deriva el tipo cruzado USD/EUR de los tipos de referencia oficiales de la fecha mostrada.",
     example: "Convierte 100 USD a EUR antes de un viaje o de una compra.",
     faq: [
-      { q: "¿Qué exactitud tiene este conversor de USD a EUR?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar el conversor de USD a EUR?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado del conversor de USD a EUR?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Qué introduzco para convertir USD a EUR?", a: "Escribe el importe en dólares estadounidenses; se aplica el tipo cruzado de referencia USD/EUR guardado para estimar los euros." },
+      { q: "¿Qué fecha tienen los tipos utilizados?", a: "La fecha que aparece en la página de divisas corresponde a los tipos guardados usados en el cálculo." },
+      { q: "¿Por qué puede diferir del cambio de un banco?", a: "Los tipos de referencia no son precios de compra o venta para clientes. Cada entidad puede aplicar un margen y comisiones." },
     ],
   },
   "eur-to-mdl": {
@@ -46,9 +46,9 @@ export const esCurrencyContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "El conversor deriva el tipo cruzado EUR/MDL de los tipos de referencia oficiales de la fecha mostrada.",
     example: "Convierte 100 EUR a MDL para una estimación rápida de presupuesto.",
     faq: [
-      { q: "¿Qué exactitud tiene este conversor de EUR a MDL?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar el conversor de EUR a MDL?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado del conversor de EUR a MDL?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Qué introduzco para convertir EUR a MDL?", a: "Escribe el importe en euros; se aplica el tipo cruzado EUR/MDL guardado para estimar los leus moldavos." },
+      { q: "¿Dónde compruebo la fuente del tipo EUR/MDL?", a: "Consulta la fecha y la fuente mostradas junto al resultado, incluida cualquier fuente de reserva identificada por separado." },
+      { q: "¿Es el resultado de EUR a MDL una oferta de cambio?", a: "No. Es una estimación de referencia; un proveedor puede ofrecer otro tipo y cobrar comisiones." },
     ],
   },
   "usd-to-mdl": {
@@ -61,9 +61,9 @@ export const esCurrencyContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "El conversor deriva el tipo cruzado USD/MDL de los tipos de referencia oficiales de la fecha mostrada.",
     example: "Convierte 100 USD a MDL para una estimación rápida de presupuesto.",
     faq: [
-      { q: "¿Qué exactitud tiene este conversor de USD a MDL?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar el conversor de USD a MDL?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado del conversor de USD a MDL?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Qué introduzco para convertir USD a MDL?", a: "Escribe el importe en dólares estadounidenses; se aplica el tipo cruzado USD/MDL guardado para estimar los leus moldavos." },
+      { q: "¿Dónde compruebo la fuente del tipo USD/MDL?", a: "Consulta la fecha y la fuente mostradas junto al resultado, incluida cualquier fuente de reserva identificada por separado." },
+      { q: "¿Es el resultado de USD a MDL una oferta de cambio?", a: "No. Es una estimación de referencia; un proveedor puede ofrecer otro tipo y cobrar comisiones." },
     ],
   },
 };

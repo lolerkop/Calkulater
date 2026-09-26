@@ -33,9 +33,9 @@ export const esFinanceContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "La calculadora aplica el crecimiento compuesto a lo largo del plazo elegido y añade las aportaciones periódicas según la frecuencia seleccionada.",
     example: "Prueba con un importe inicial de 10 000 y aportaciones mensuales para ver cómo cambia el saldo final la capitalización.",
     faq: [
-      { q: "¿Qué exactitud tiene esta calculadora de interés compuesto?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar la calculadora de interés compuesto?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado de la calculadora de interés compuesto?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Qué entra en el cálculo del interés compuesto?", a: "Se hace crecer el importe inicial durante el plazo elegido al tipo anual indicado y se añaden las aportaciones con la frecuencia seleccionada." },
+      { q: "¿Cómo influyen las aportaciones periódicas?", a: "Cada aportación aumenta el saldo que podrá generar crecimiento después; importan su cuantía, frecuencia y tiempo invertido." },
+      { q: "¿Está garantizado el saldo final?", a: "No. El cálculo supone que el tipo introducido se mantiene y no predice rendimientos reales, impuestos ni comisiones." },
     ],
   },
   "mortgage-calculator": {
@@ -48,9 +48,9 @@ export const esFinanceContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "La calculadora resta la entrada del precio del inmueble y aplica la fórmula de cuota elegida.",
     example: "Usa la calculadora para comparar cómo cambia la cuota mensual una entrada mayor.",
     faq: [
-      { q: "¿Qué exactitud tiene esta calculadora de hipotecas?", a: "El resultado es una estimación práctica basada en los valores que introduces y en la fórmula que se muestra en la página." },
-      { q: "¿Hace falta una cuenta para usar la calculadora de hipotecas?", a: "No. La calculadora funciona en tu navegador y no exige registro." },
-      { q: "¿Puedo compartir un resultado de la calculadora de hipotecas?", a: "Sí. Usa el enlace para copiar los datos actuales en la dirección de la página." },
+      { q: "¿Cómo se obtiene el capital financiado?", a: "Se resta la entrada del precio del inmueble y se aplica el plazo, el interés y el tipo de cuota elegido para estimar los pagos." },
+      { q: "¿Qué cambia si aumento la entrada?", a: "Baja el capital del préstamo y, con los demás datos iguales, suelen bajar la cuota estimada y los intereses totales." },
+      { q: "¿Incluye impuestos y seguros?", a: "No. Es una estimación de la financiación; impuestos, seguros, comisiones y condiciones particulares del banco se comprueban aparte." },
     ],
   },
   "discount-calculator": {
