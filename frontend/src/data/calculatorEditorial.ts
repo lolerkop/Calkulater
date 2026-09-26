@@ -1,6 +1,5 @@
 import {
   allRateSources,
-  lastUpdated as currencyRatesDate,
   ratesAreStale,
   ratesUpdateFailed,
   ratesUsedFallback,
@@ -170,35 +169,28 @@ function currencyFieldPinned(calculator: CalculatorDef, name: 'from' | 'to'): bo
 
     return {
       ...base,
-      method: `${calculator.howItWorks} ${sourceText(
-        locale,
-        `В расчёте используются курсы на ${currencyRatesDate}.`,
-        `The calculation uses reference rates dated ${currencyRatesDate}.`,
-        `У розрахунку використано курси на ${currencyRatesDate}.`,
-        undefined,
-        `El cálculo utiliza los tipos de cambio del ${currencyRatesDate}.`,
-      )}`,
+      method: calculator.howItWorks,
       sources: rateSources.map((source) => ({
-        label: PROVIDER_LABELS[source.id]?.[lang] ?? source.label,
+        label: `${PROVIDER_LABELS[source.id]?.[lang] ?? source.label} — ${source.date}`,
         href: source.url,
       })),
       freshnessWarning: ratesUpdateFailed
         ? sourceText(
             locale,
-            'Не удалось обновить курсы при последней сборке. Используются последние сохранённые данные.',
-            'The rates could not be updated during the latest build. The last saved data is being used.',
-            'Не вдалося оновити курси під час останньої збірки. Використовуються останні збережені дані.',
-            undefined,
-            'No se han podido actualizar los tipos de cambio en la última compilación. Se usan los últimos datos guardados.',
+            'Последняя проверка источников не удалась. Используются последние сохранённые данные.',
+            'The latest source check failed. The last saved rates are being used.',
+            'Остання перевірка джерел не вдалася. Використовуються останні збережені курси.',
+            'Die letzte Quellenprüfung ist fehlgeschlagen. Die zuletzt gespeicherten Kurse werden verwendet.',
+            'La última comprobación de fuentes falló. Se utilizan los últimos tipos guardados.',
           )
         : ratesAreStale
           ? sourceText(
               locale,
-              'Дата курса старше четырёх дней. Данные могут быть устаревшими.',
-              'The reference-rate date is more than four days old. The data may be stale.',
-              'Дата курсу старша за чотири дні. Дані можуть бути застарілими.',
-              undefined,
-              'La fecha de los tipos de cambio tiene más de cuatro días. Los datos pueden estar desactualizados.',
+              'Курсы одного или нескольких источников могут быть устаревшими. Проверьте даты источников.',
+              'One or more source rates may be stale. Check the dates shown for each source.',
+              'Курси одного або кількох джерел можуть бути застарілими. Перевірте дати джерел.',
+              'Ein oder mehrere Quellkurse könnten veraltet sein. Prüfe die Daten der Quellen.',
+              'Uno o varios tipos pueden estar desactualizados. Comprueba las fechas de las fuentes.',
             )
           : ratesUsedFallback && rateSources.some((source) => source.fallback)
             ? sourceText(

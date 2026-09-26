@@ -13,7 +13,7 @@ export const esCurrencyContent: Partial<Record<string, EsDetailedContent>> = {
       "Elige la moneda de origen y la de destino.",
       "Consulta el importe convertido.",
     ],
-    howItWorks: "La calculadora deriva un tipo cruzado de los tipos de referencia oficiales de los bancos centrales publicados para la fecha mostrada.",
+    howItWorks: "La calculadora obtiene un tipo cruzado de los tipos de referencia guardados. El resultado muestra la fuente y la fecha de cada tipo usado, incluida cualquier fuente de reserva.",
     example: "Convierte 100 USD a EUR para estimar un presupuesto de viaje.",
     faq: [
       { q: "¿Cómo se calcula una conversión entre dos monedas?", a: "Se obtiene un tipo cruzado a partir de los tipos de referencia guardados y se aplica al importe introducido." },
@@ -28,7 +28,7 @@ export const esCurrencyContent: Partial<Record<string, EsDetailedContent>> = {
       "Deja EUR como moneda de destino.",
       "Revisa el importe convertido.",
     ],
-    howItWorks: "El conversor deriva el tipo cruzado USD/EUR de los tipos de referencia oficiales de la fecha mostrada.",
+    howItWorks: "El conversor obtiene el tipo cruzado USD/EUR de los datos guardados; el resultado muestra la fuente y la fecha del tipo EUR.",
     example: "Convierte 100 USD a EUR antes de un viaje o de una compra.",
     faq: [
       { q: "¿Qué introduzco para convertir USD a EUR?", a: "Escribe el importe en dólares estadounidenses; se aplica el tipo cruzado de referencia USD/EUR guardado para estimar los euros." },
@@ -43,7 +43,7 @@ export const esCurrencyContent: Partial<Record<string, EsDetailedContent>> = {
       "Deja MDL como moneda de destino.",
       "Revisa el importe convertido.",
     ],
-    howItWorks: "El conversor deriva el tipo cruzado EUR/MDL de los tipos de referencia oficiales de la fecha mostrada.",
+    howItWorks: "El conversor obtiene el tipo cruzado EUR/MDL de los datos guardados; el resultado muestra la fuente y la fecha reales de cada moneda.",
     example: "Convierte 100 EUR a MDL para una estimación rápida de presupuesto.",
     faq: [
       { q: "¿Qué introduzco para convertir EUR a MDL?", a: "Escribe el importe en euros; se aplica el tipo cruzado EUR/MDL guardado para estimar los leus moldavos." },
@@ -58,7 +58,7 @@ export const esCurrencyContent: Partial<Record<string, EsDetailedContent>> = {
       "Deja MDL como moneda de destino.",
       "Revisa el importe convertido.",
     ],
-    howItWorks: "El conversor deriva el tipo cruzado USD/MDL de los tipos de referencia oficiales de la fecha mostrada.",
+    howItWorks: "El conversor obtiene el tipo cruzado USD/MDL de los datos guardados; el resultado muestra la fuente y la fecha reales del tipo MDL.",
     example: "Convierte 100 USD a MDL para una estimación rápida de presupuesto.",
     faq: [
       { q: "¿Qué introduzco para convertir USD a MDL?", a: "Escribe el importe en dólares estadounidenses; se aplica el tipo cruzado USD/MDL guardado para estimar los leus moldavos." },

@@ -3,7 +3,6 @@ import { fmtNumber, toNumber, toStr } from '../format';
 import {
   ratesToUSD,
   currencyByCode,
-  lastUpdated,
   ratesNotice,
   ratesStatus,
   ratesUpdateAttemptedAt,
@@ -45,8 +44,7 @@ export const calcCurrency: CalcFunction = (inputs) => {
     { label: 'Курс', value: `1 ${from} = ${fmtNumber(rate, 4)} ${to}` },
     { label: 'Из', value: `${fmtNumber(amount, 2)} ${fromMeta.symbol} (${fromMeta.name})` },
     { label: 'В', value: `${toMeta.name}` },
-    { label: 'Тип курса', value: 'официальный справочный' },
-    { label: 'Дата курса', value: lastUpdated },
+    { label: 'Тип курса', value: 'сохранённый справочный курс' },
     { label: 'Статус обновления', value: ratesStatus, accent: ratesUpdateFailed || ratesAreStale ? 'red' : 'neutral' },
     { label: 'Последняя попытка обновления', value: ratesUpdateAttemptedAt },
   ];
@@ -54,7 +52,7 @@ export const calcCurrency: CalcFunction = (inputs) => {
   for (const source of sources) {
     secondary.push({
       label: 'Источник',
-      value: source.name,
+      value: `${source.name} — ${source.date}`,
       href: source.url,
       accent: source.fallback ? 'red' : 'neutral',
     });
