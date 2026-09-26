@@ -1,13 +1,13 @@
 import { describe, it, expect } from 'vitest';
 import { calcCurrency, convertCurrency } from '../src/lib/calculators/currency';
-import { lastUpdated, rateProvenance, ratesToUSD, sourcesForCurrencies } from '../src/data/currencies';
+import { rateProvenance, ratesToUSD, sourcesForCurrencies } from '../src/data/currencies';
 
 describe('currency: convertCurrency', () => {
   it('USD → USD = 1:1', () => {
     expect(convertCurrency(100, 'USD', 'USD')).toBe(100);
   });
 
-  it('USD → EUR использует загруженный официальный курс', () => {
+  it('USD → EUR использует сохранённый коэффициент', () => {
     expect(convertCurrency(100, 'USD', 'EUR')).toBeCloseTo(100 * ratesToUSD.EUR, 5);
   });
 
@@ -35,13 +35,14 @@ describe('currency: calcCurrency', () => {
     expect(rateRow?.value).toContain('EUR');
   });
 
-  it('показывает дату и тип официальных справочных курсов', () => {
+  it('показывает справочный тип и статус без устаревшего утверждения о сборке', () => {
     const r = calcCurrency({ amount: 100, from: 'USD', to: 'EUR' });
 
-    expect(r.secondary.find((s) => s.label === 'Тип курса')?.value).toBe('официальный справочный');
-    expect(r.secondary.find((s) => s.label === 'Дата курса')?.value).toBe(lastUpdated);
+    expect(r.secondary.find((s) => s.label === 'Тип курса')?.value).toBe('сохранённый справочный курс');
+    expect(r.secondary.some((s) => s.label === 'Дата курса')).toBe(false);
     expect(r.secondary.find((s) => s.label === 'Статус обновления')?.value).toBeTruthy();
-    expect(r.note).toContain('центральных банков');
+    expect(JSON.stringify(r)).not.toContain('при последней сборке');
+    expect(r.note).toContain('резервный источник отмечен отдельно');
     expect(r.note).not.toContain('Банка России');
   });
 
@@ -51,14 +52,15 @@ describe('currency: calcCurrency', () => {
     const pair = calcCurrency({ amount: 100, from: 'USD', to: 'EUR' });
     const pairSources = pair.secondary.filter((s) => s.label === 'Источник');
     expect(pairSources).toHaveLength(1);
-    expect(pairSources[0].value).toBe('Европейский центральный банк');
-    expect(pairSources[0].href).toBe(sourcesForCurrencies(['EUR'])[0].url);
+    const eurSource = sourcesForCurrencies(['EUR'])[0];
+    expect(pairSources[0].value).toBe(`${eurSource.name} — ${eurSource.date}`);
+    expect(pairSources[0].href).toBe(eurSource.url);
 
     const cross = calcCurrency({ amount: 100, from: 'EUR', to: 'MDL' });
     const crossSources = cross.secondary.filter((s) => s.label === 'Источник').map((s) => s.value);
     const mdlSource = sourcesForCurrencies(['MDL'])[0];
     expect(mdlSource.id).toBe(rateProvenance.MDL.provider);
-    expect(crossSources).toEqual(['Европейский центральный банк', mdlSource.name]);
+    expect(crossSources).toEqual([`${eurSource.name} — ${eurSource.date}`, `${mdlSource.name} — ${mdlSource.date}`]);
     expect(cross.secondary.some((s) => s.label === 'Резервный источник'))
       .toBe(mdlSource.fallback);
   });

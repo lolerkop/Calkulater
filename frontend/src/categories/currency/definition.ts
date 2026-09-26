@@ -21,7 +21,7 @@ export const definition: CategoryDefinition = {
     ],
     checklist: [
       "Проверьте направление обмена: из какой валюты и в какую.",
-      "Сверьте официальный справочный курс с коммерческим курсом банка или обменника.",
+      "Сверьте сохранённый справочный курс с коммерческим курсом банка или обменника.",
       "Учитывайте комиссии, спред и лимиты перевода отдельно.",
     ],
     mistakes: [
@@ -31,10 +31,10 @@ export const definition: CategoryDefinition = {
     ],
   },
   editorial: {
-    ru: "Это официальный справочный, а не коммерческий курс покупки или продажи. Банк или обменный пункт может применять спред и комиссию.",
-    en: "This is an official reference rate, not a live commercial buy or sell quote. A bank or exchange service may add a spread and fees.",
-    uk: "Це офіційний довідковий, а не комерційний курс купівлі чи продажу. Банк або обмінник може застосовувати спред і комісію.",
-    de: "Es handelt sich um einen amtlichen Referenzkurs, nicht um einen handelbaren An- oder Verkaufskurs. Banken und Wechselstuben können Spread und Gebühren aufschlagen.",
-    es: "Se utilizan los tipos de cambio de referencia oficiales de los bancos centrales en la fecha indicada. Los bancos y las casas de cambio aplican sus propios tipos y comisiones.",
+    ru: "Это сохранённый справочный, а не коммерческий курс покупки или продажи. Резервный источник отмечен отдельно; банк может применять спред и комиссию.",
+    en: "These are saved reference rates, not live commercial buy or sell quotes. Fallback sources are marked; banks may add a spread and fees.",
+    uk: "Це збережені довідкові, а не комерційні курси купівлі чи продажу. Резервне джерело позначено окремо; банк може застосовувати спред і комісію.",
+    de: "Dies sind gespeicherte Referenzkurse, keine handelbaren An- oder Verkaufskurse. Ersatzquellen sind gekennzeichnet; Banken können Spread und Gebühren aufschlagen.",
+    es: "Se usan tipos de referencia guardados, no ofertas de compra o venta. Las fuentes de reserva se señalan; los bancos aplican sus propios tipos y comisiones.",
   },
 };

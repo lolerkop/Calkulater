@@ -75,6 +75,21 @@ describe('result localization: labels and units are translated', () => {
       expect(localized.secondary.map((row) => row.label), locale).toContain(expected);
     }
   });
+
+  it('keeps the actual source dates beside localized currency source names', () => {
+    const raw = resultOf('eur-to-mdl', { amount: 100, from: 'EUR', to: 'MDL' });
+    const dates = raw.secondary.filter((row) => row.label === 'Источник').map((row) => row.value.match(/\d{4}-\d{2}-\d{2}/)?.[0]);
+    expect(dates).toHaveLength(2);
+    for (const locale of ['en', 'uk', 'de', 'es'] as const) {
+      const localized = localizeResult(raw, locale, 'eur-to-mdl', runtimeFor('eur-to-mdl'));
+      const sourceRows = localized.secondary.filter((row) => row.label === ({
+        en: 'Source', uk: 'Джерело', de: 'Quelle', es: 'Fuente',
+      } as const)[locale]);
+      expect(sourceRows, locale).toHaveLength(2);
+      expect(sourceRows.map((row) => row.value.match(/\d{4}-\d{2}-\d{2}/)?.[0]), locale).toEqual(dates);
+      if (locale !== 'uk') expect(sourceRows.map((row) => row.value).join(' '), locale).not.toMatch(/[А-Яа-яЁё]/);
+    }
+  });
 });
 
 describe('result localization: number formatting per locale', () => {

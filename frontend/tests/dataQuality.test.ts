@@ -215,7 +215,7 @@ describe('data quality: calculators', () => {
     expect(incomeTax).toBeDefined();
     expect(vat).toBeDefined();
     expect(calculatorFreshness(currency!).value).toBe(currencyRatesUpdatedAt);
-    expect(calculatorFreshness(currency!).note).toContain('Официальные справочные курсы');
+    expect(calculatorFreshness(currency!).note).toContain('Сохранённый набор справочных курсов');
     expect(calculatorFreshness(incomeTax!).value).toBe('проверяйте нормы');
     expect(calculatorFreshness(vat!).note).toContain('официальными источниками');
   });

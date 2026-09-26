@@ -1256,14 +1256,14 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     h1: 'Currency converter',
     keywords: ['currency converter', 'exchange rate', 'USD', 'EUR'],
     howToUse: ['Enter the amount.', 'Select source and target currencies.', 'Check the converted amount.'],
-    howItWorks: 'The calculator derives a cross-rate from official central-bank reference rates published for the displayed date.',
+    howItWorks: 'The calculator derives a cross-rate from saved reference rates. The result identifies each rate source and date, including any fallback source.',
     example: 'Convert 100 USD to EUR to estimate a travel budget.',
     faq: [
       { q: 'How is a conversion between two currencies calculated?', a: 'The calculator uses the stored reference rates to derive a cross-rate, then applies it to the amount you enter.' },
       { q: 'Where can I see the rate date and source?', a: 'The currency page displays the date and source information for the stored rates used in the estimate.' },
       { q: 'Will a bank exchange exactly this amount?', a: 'Not necessarily. A bank or exchange service can use different buy and sell rates and add fees.' },
     ],
-    disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
+    disclaimer: 'Saved reference rates are not live quotes. Check the displayed sources and dates; banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'usd-to-eur': {
     name: 'USD to EUR converter',
@@ -1275,14 +1275,14 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     h1: 'USD to EUR converter',
     keywords: ['USD to EUR', 'dollar to euro', 'currency converter'],
     howToUse: ['Enter USD amount.', 'Keep EUR as the target currency.', 'Review the converted amount.'],
-    howItWorks: 'The converter derives the USD/EUR cross-rate from official reference rates for the displayed date.',
+    howItWorks: 'The converter derives the USD/EUR cross-rate from saved reference rates; the result shows the source and date of the EUR rate.',
     example: 'Convert 100 USD to EUR before a trip or purchase.',
     faq: [
       { q: 'What do I enter to convert USD to EUR?', a: 'Enter the amount in US dollars; the calculator applies the stored USD/EUR reference cross-rate to estimate euros.' },
       { q: 'Which rate date is used?', a: 'The date shown on the currency page belongs to the stored rates used for this calculation.' },
       { q: 'Why might the amount differ from a bank quote?', a: 'Reference rates are not customer buy or sell prices. Banks can apply their own spread and fees.' },
     ],
-    disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
+    disclaimer: 'Saved reference rates are not live quotes. Check the displayed source and date; banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'eur-to-mdl': {
     name: 'EUR to MDL converter',
@@ -1294,14 +1294,14 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     h1: 'EUR to MDL converter',
     keywords: ['EUR to MDL', 'euro to leu', 'currency converter'],
     howToUse: ['Enter EUR amount.', 'Keep MDL as the target currency.', 'Review the converted amount.'],
-    howItWorks: 'The converter derives the EUR/MDL cross-rate from official reference rates for the displayed date.',
+    howItWorks: 'The converter derives the EUR/MDL cross-rate from saved reference rates; the result shows the actual source and date for each currency.',
     example: 'Convert 100 EUR to MDL for a quick budget estimate.',
     faq: [
       { q: 'What do I enter to convert EUR to MDL?', a: 'Enter euros; the calculator applies the stored EUR/MDL cross-rate to estimate Moldovan lei.' },
       { q: 'Where can I check the EUR/MDL rate source?', a: 'Read the displayed date and source beside the currency result, including any separately identified backup source.' },
       { q: 'Is the EUR-to-MDL result an exchange-office quote?', a: 'No. It is a reference estimate; a provider may use a different rate and charge fees.' },
     ],
-    disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
+    disclaimer: 'Saved reference rates are not live quotes. Check both displayed sources and dates; banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'usd-to-mdl': {
     name: 'USD to MDL converter',
@@ -1313,14 +1313,14 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     h1: 'USD to MDL converter',
     keywords: ['USD to MDL', 'dollar to leu', 'currency converter'],
     howToUse: ['Enter USD amount.', 'Keep MDL as the target currency.', 'Review the converted amount.'],
-    howItWorks: 'The converter derives the USD/MDL cross-rate from official reference rates for the displayed date.',
+    howItWorks: 'The converter derives the USD/MDL cross-rate from saved reference rates; the result shows the actual source and date of the MDL rate.',
     example: 'Convert 100 USD to MDL for a quick budget estimate.',
     faq: [
       { q: 'What do I enter to convert USD to MDL?', a: 'Enter US dollars; the calculator applies the stored USD/MDL cross-rate to estimate Moldovan lei.' },
       { q: 'Where can I check the USD/MDL rate source?', a: 'Read the displayed date and source beside the currency result, including any separately identified backup source.' },
       { q: 'Is the USD-to-MDL result an exchange-office quote?', a: 'No. It is a reference estimate; a provider may use a different rate and charge fees.' },
     ],
-    disclaimer: 'Reference rates are updated when the site is built. Banks and exchange services may use different buy, sell and fee-inclusive rates.',
+    disclaimer: 'Saved reference rates are not live quotes. Check the displayed source and date; banks and exchange services may use different buy, sell and fee-inclusive rates.',
   },
   'bmi-calculator': {
     name: 'BMI calculator',
@@ -1661,7 +1661,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Convierte USD, EUR, MDL, RON, UAH, PLN, GBP, CHF y TRY con un conversor online gratis.',
       h1: 'Conversor de divisas',
       keywords: ['conversor divisas', 'tipo de cambio', 'USD', 'EUR'],
-      disclaimer: 'Las tasas son valores demo en este MVP. Verifica tasas reales antes de cambiar dinero.',
+      disclaimer: 'Se usan tipos de referencia guardados con sus fuentes y fechas; cualquier fuente de reserva está señalada. Comprueba el tipo y las comisiones del banco antes de cambiar dinero.',
     },
     'usd-to-eur': {
       name: 'Conversor USD a EUR',
@@ -1671,7 +1671,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Convierte USD a EUR online con una calculadora de divisas simple.',
       h1: 'Conversor USD a EUR',
       keywords: ['USD a EUR', 'dólar a euro', 'conversor divisas'],
-      disclaimer: 'Las tasas son valores demo en este MVP. Verifica tasas reales antes de cambiar dinero.',
+      disclaimer: 'Se usan tipos de referencia guardados con sus fuentes y fechas; cualquier fuente de reserva está señalada. Comprueba el tipo y las comisiones del banco antes de cambiar dinero.',
     },
     'eur-to-mdl': {
       name: 'Conversor EUR a MDL',
@@ -1681,7 +1681,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Convierte EUR a MDL online con una calculadora de divisas simple.',
       h1: 'Conversor EUR a MDL',
       keywords: ['EUR a MDL', 'euro a leu', 'conversor divisas'],
-      disclaimer: 'Las tasas son valores demo en este MVP. Verifica tasas reales antes de cambiar dinero.',
+      disclaimer: 'Se usan tipos de referencia guardados con sus fuentes y fechas; cualquier fuente de reserva está señalada. Comprueba el tipo y las comisiones del banco antes de cambiar dinero.',
     },
     'usd-to-mdl': {
       name: 'Conversor USD a MDL',
@@ -1691,7 +1691,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Convierte USD a MDL online con una calculadora de divisas simple.',
       h1: 'Conversor USD a MDL',
       keywords: ['USD a MDL', 'dólar a leu', 'conversor divisas'],
-      disclaimer: 'Las tasas son valores demo en este MVP. Verifica tasas reales antes de cambiar dinero.',
+      disclaimer: 'Se usan tipos de referencia guardados con sus fuentes y fechas; cualquier fuente de reserva está señalada. Comprueba el tipo y las comisiones del banco antes de cambiar dinero.',
     },
     'bmi-calculator': {
       name: 'Calculadora de IMC',
@@ -1897,7 +1897,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Rechne USD, EUR, MDL, RON, UAH, PLN, GBP, CHF und TRY mit einem kostenlosen Online-Währungsrechner um.',
       h1: 'Währungsrechner',
       keywords: ['Währungsrechner', 'Wechselkurs', 'USD', 'EUR'],
-      disclaimer: 'Kurse sind Demo-Werte in diesem MVP. Prüfe Live-Kurse vor einem Umtausch.',
+      disclaimer: 'Gespeicherte Referenzkurse sind keine Live-Angebote. Prüfe die angezeigten Quellen, Daten und Bankgebühren vor einem Umtausch.',
     },
     'usd-to-eur': {
       name: 'USD in EUR Rechner',
@@ -1907,7 +1907,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Rechne USD in EUR online mit einem einfachen Währungsrechner um.',
       h1: 'USD in EUR Rechner',
       keywords: ['USD in EUR', 'Dollar in Euro', 'Währungsrechner'],
-      disclaimer: 'Kurse sind Demo-Werte in diesem MVP. Prüfe Live-Kurse vor einem Umtausch.',
+      disclaimer: 'Gespeicherte Referenzkurse sind keine Live-Angebote. Prüfe die angezeigten Quellen, Daten und Bankgebühren vor einem Umtausch.',
     },
     'eur-to-mdl': {
       name: 'EUR in MDL Rechner',
@@ -1917,7 +1917,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Rechne EUR in MDL online mit einem einfachen Währungsrechner um.',
       h1: 'EUR in MDL Rechner',
       keywords: ['EUR in MDL', 'Euro in Leu', 'Währungsrechner'],
-      disclaimer: 'Kurse sind Demo-Werte in diesem MVP. Prüfe Live-Kurse vor einem Umtausch.',
+      disclaimer: 'Gespeicherte Referenzkurse sind keine Live-Angebote. Prüfe die angezeigten Quellen, Daten und Bankgebühren vor einem Umtausch.',
     },
     'usd-to-mdl': {
       name: 'USD in MDL Rechner',
@@ -1927,7 +1927,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Rechne USD in MDL online mit einem einfachen Währungsrechner um.',
       h1: 'USD in MDL Rechner',
       keywords: ['USD in MDL', 'Dollar in Leu', 'Währungsrechner'],
-      disclaimer: 'Kurse sind Demo-Werte in diesem MVP. Prüfe Live-Kurse vor einem Umtausch.',
+      disclaimer: 'Gespeicherte Referenzkurse sind keine Live-Angebote. Prüfe die angezeigten Quellen, Daten und Bankgebühren vor einem Umtausch.',
     },
     'bmi-calculator': {
       name: 'BMI-Rechner',
@@ -3946,7 +3946,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Конвертуйте USD, EUR, MDL, RON, UAH, PLN, GBP, CHF і TRY у безкоштовному онлайн-конвертері.',
       h1: 'Конвертер валют',
       keywords: ['конвертер валют', 'курс валют', 'USD', 'EUR'],
-      disclaimer: 'Довідкові курси оновлюються під час складання сайту. Банки та обмінні сервіси можуть використовувати інші курси купівлі, продажу й комісії.',
+      disclaimer: 'Використовуються збережені довідкові курси з указаними джерелами й датами; резервне джерело позначено окремо. Банки можуть застосовувати інші курси й комісії.',
     },
     'usd-to-eur': {
       name: 'Конвертер USD в EUR',
@@ -3956,7 +3956,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Конвертуйте USD в EUR онлайн простим валютним калькулятором.',
       h1: 'Конвертер USD в EUR',
       keywords: ['USD в EUR', 'долар в євро', 'конвертер валют'],
-      disclaimer: 'Довідкові курси оновлюються під час складання сайту. Банки та обмінні сервіси можуть використовувати інші курси купівлі, продажу й комісії.',
+      disclaimer: 'Використовуються збережені довідкові курси з указаними джерелами й датами; резервне джерело позначено окремо. Банки можуть застосовувати інші курси й комісії.',
     },
     'eur-to-mdl': {
       name: 'Конвертер EUR в MDL',
@@ -3966,7 +3966,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Конвертуйте EUR в MDL онлайн простим валютним калькулятором.',
       h1: 'Конвертер EUR в MDL',
       keywords: ['EUR в MDL', 'євро в лей', 'конвертер валют'],
-      disclaimer: 'Довідкові курси оновлюються під час складання сайту. Банки та обмінні сервіси можуть використовувати інші курси купівлі, продажу й комісії.',
+      disclaimer: 'Використовуються збережені довідкові курси з указаними джерелами й датами; резервне джерело позначено окремо. Банки можуть застосовувати інші курси й комісії.',
     },
     'usd-to-mdl': {
       name: 'Конвертер USD в MDL',
@@ -3976,7 +3976,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       seoDescription: 'Конвертуйте USD в MDL онлайн простим валютним калькулятором.',
       h1: 'Конвертер USD в MDL',
       keywords: ['USD в MDL', 'долар в лей', 'конвертер валют'],
-      disclaimer: 'Довідкові курси оновлюються під час складання сайту. Банки та обмінні сервіси можуть використовувати інші курси купівлі, продажу й комісії.',
+      disclaimer: 'Використовуються збережені довідкові курси з указаними джерелами й датами; резервне джерело позначено окремо. Банки можуть застосовувати інші курси й комісії.',
     },
     'bmi-calculator': {
       name: 'Калькулятор ІМТ (BMI)',
