@@ -4,20 +4,20 @@ export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'mode': 'Was gesucht ist',
-      'W': 'Arbeit, J',
-      't': 'Zeit, s',
-      'W2': 'Arbeit, J',
-      'P': 'Leistung, W',
-      'P2': 'Leistung, W',
-      't2': 'Zeit, s',
+      'W': "Arbeit",
+      't': "Zeit",
+      'W2': "Arbeit",
+      'P': "Leistung",
+      'P2': "Leistung",
+      't2': "Zeit",
     },
     options: {
       'mm': 'Millimeter',
       'cm': 'Zentimeter',
       'm': 'Meter',
-      'P': 'die Leistung',
-      't': 'die Zeit',
-      'W': 'die Arbeit',
+      'P': "die Leistung",
+      't': "die Zeit",
+      'W': "die Arbeit",
     },
     results: {
       'Мощность': 'Leistung',
@@ -27,6 +27,10 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Неизвестный режим расчёта": "Unbekannter Berechnungsmodus",
+      "Введите конечные числа для выбранного режима": "Gib endliche Zahlen für den gewählten Modus ein",
+      "Результат выходит за числовой диапазон": "Das Ergebnis überschreitet den Zahlenbereich",
+
       'мм': 'mm',
       'см': 'cm',
       'м': 'm',
@@ -49,12 +53,12 @@ export const localization: CalculatorLocalization = {
   en: {
     fields: {
       "mode": "What to find",
-      "W": "Work, J",
-      "t": "Time, s",
-      "W2": "Work, J",
-      "P": "Power, W",
-      "P2": "Power, W",
-      "t2": "Time, s",
+      "W": "Work",
+      "t": "Time",
+      "W2": "Work",
+      "P": "Power",
+      "P2": "Power",
+      "t2": "Time",
     },
     options: {
       "mm": "millimetres",
@@ -72,6 +76,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      "Неизвестный режим расчёта": "Unknown calculation mode",
+      "Введите конечные числа для выбранного режима": "Enter finite numbers for the selected mode",
+      "Результат выходит за числовой диапазон": "The result exceeds the numerical range",
+
       "мм": "mm",
       "см": "cm",
       "м": "m",
@@ -94,12 +102,12 @@ export const localization: CalculatorLocalization = {
   uk: {
     fields: {
       "mode": "Що знайти",
-      "W": "Робота, Дж",
-      "t": "Час, с",
-      "W2": "Робота, Дж",
-      "P": "Потужність, Вт",
-      "P2": "Потужність, Вт",
-      "t2": "Час, с",
+      "W": "Робота",
+      "t": "Час",
+      "W2": "Робота",
+      "P": "Потужність",
+      "P2": "Потужність",
+      "t2": "Час",
     },
     options: {
       "mm": "міліметри",
@@ -117,6 +125,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      "Неизвестный режим расчёта": "Невідомий режим розрахунку",
+      "Введите конечные числа для выбранного режима": "Введіть скінченні числа для обраного режиму",
+      "Результат выходит за числовой диапазон": "Результат виходить за числовий діапазон",
+
       "мм": "мм",
       "см": "см",
       "м": "м",
@@ -139,12 +151,12 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "mode": "Qué hallar",
-      "W": "Trabajo, J",
-      "t": "Tiempo, s",
-      "W2": "Trabajo, J",
-      "P": "Potencia, W",
-      "P2": "Potencia, W",
-      "t2": "Tiempo, s",
+      "W": "Trabajo",
+      "t": "Tiempo",
+      "W2": "Trabajo",
+      "P": "Potencia",
+      "P2": "Potencia",
+      "t2": "Tiempo",
     },
     options: {
       "P": "la potencia",
@@ -162,6 +174,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Неизвестный режим расчёта": "Modo de cálculo desconocido",
+      "Введите конечные числа для выбранного режима": "Introduce números finitos para el modo elegido",
+      "Результат выходит за числовой диапазон": "El resultado supera el rango numérico",
+
       "мм": "mm",
       "см": "cm",
       "м": "m",

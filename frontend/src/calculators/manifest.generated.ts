@@ -8,7 +8,7 @@ import type {
   CalculatorCopy,
   CalculatorDefinitionV2,
   CalculatorPublishedExample,
-  CalculatorSeoCopy,
+  CalculatorLocalizedCopy,
 } from '../lib/platform/types';
 import { isPublished } from '../lib/platform/types';
 
@@ -731,15 +731,15 @@ export const v2EnCopy: Record<string, CalculatorCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.en).map((d) => [d.id, d.copy!.en!]),
 );
 
-export const v2UkCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
+export const v2UkCopy: Record<string, CalculatorLocalizedCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.uk).map((d) => [d.id, d.copy!.uk!]),
 );
 
-export const v2DeCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
+export const v2DeCopy: Record<string, CalculatorLocalizedCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.de).map((d) => [d.id, d.copy!.de!]),
 );
 
-export const v2EsCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
+export const v2EsCopy: Record<string, CalculatorLocalizedCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.es).map((d) => [d.id, d.copy!.es!]),
 );
 

@@ -1,11 +1,6 @@
-// Испанский копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла испанской страницы не существует. Подробный текст живёт в
-// `src/data/esCalculatorContent.ts`.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
-
-export const voltageDropCopyEs: CalculatorSeoCopy = {
+export const voltageDropCopyEs: CalculatorCopy = {
   name: "Calculadora de caída de tensión",
   slug: "caida-de-tension",
   shortDescription: "Tensión perdida a lo largo de una línea, según su longitud, su sección y su material.",
@@ -13,4 +8,10 @@ export const voltageDropCopyEs: CalculatorSeoCopy = {
   seoDescription: "Calcula la caída de tensión a lo largo de una línea a partir de la corriente, la longitud, la sección y el material del conductor, con alimentación monofásica o trifásica.",
   h1: "Calculadora de caída de tensión",
   keywords: ["calculadora de caída de tensión", "pérdida de tensión en un cable", "sección de cable y caída de tensión", "resistencia del cobre y del aluminio"],
+  longDescription: "Compara pérdidas de tensión al cambiar la longitud, sección o material del cable. El modelo es resistivo: cuenta ambos conductores en monofásica de dos hilos y usa tensión entre fases en trifásica equilibrada. La corriente es por conductor, la resistencia mostrada corresponde a uno en el recorrido de ida y la pérdida de potencia suma todos los conductores activos. No incluye reactancia, desequilibrio, calentamiento ni contactos.",
+  howToUse: ["Introduce amperios y longitud de ida en metros; no dupliques la longitud.", "Usa la sección de un conductor en mm², no su diámetro, y elige cobre o aluminio.", "En monofásica indica la tensión entre los dos hilos; en trifásica, entre fases, por ejemplo 400 V y no 230 V.", "Corriente cero da pérdida cero. Si la caída supera la tensión nominal, los datos quedan fuera del alcance de este modelo de alimentación."],
+  howItWorks: "Rc = ρL/S con coeficientes adoptados a 20 °C: cobre 0,0175 y aluminio 0,0282 Ω·mm²/m. ΔU = 2IRc para dos hilos; ΔU = √3IRc para trifásica equilibrada con cos φ = 1. El calor total es 2I²Rc o 3I²Rc, respectivamente. Porcentaje = 100ΔU/U; tensión en carga = U − ΔU.",
+  example: "Cobre, 16 A, 20 m, 2,5 mm², 230 V: Rc = 0,0175 × 20/2,5 = 0,14 Ω; ΔU = 4,48 V = 1,95 %; tensión en carga 225,52 V; pérdida 71,68 W. Aluminio, 32 A, 50 m, 6 mm², tres fases, 400 V: Rc = 0,235 Ω; ΔU = 13,025 V; pérdida total = 3 × 32² × 0,235 = 721,92 W.",
+  faq: [{"q": "¿Por qué la pérdida trifásica no es corriente por caída de tensión?", "a": "√3IRc es la caída entre fases. Tres conductores producen calor: 3I²Rc = √3IΔU. El factor √3 de la tensión no sustituye al factor 3 del calentamiento."}, {"q": "¿Qué representa la resistencia de cable mostrada?", "a": "La de un conductor desde la fuente hasta la carga. Un circuito de ida y vuelta la duplica; la trifásica no tiene una única resistencia de bucle común."}, {"q": "¿Basta el porcentaje de caída para elegir cable?", "a": "No. Se necesitan intensidad admisible, protección, instalación y normas locales aplicables. La herramienta no las comprueba ni fija un límite reglamentario."}, {"q": "¿Por qué difiere un cable caliente?", "a": "Los coeficientes están fijados a 20 °C. La temperatura real, tolerancias y contactos varían; la temperatura de servicio y las cargas reactivas necesitan un modelo más completo."}, {"q": "¿Qué cambia al pasar de 2,5 a 5 mm² de sección?", "a": "Con corriente, longitud y material constantes, R = ρL/S se reduce a la mitad; también la caída y las pérdidas I²R. El ejemplo monofásico de cobre de 16 A y 20 m pasa a 2,24 V y 35,84 W en vez de 4,48 V y 71,68 W. Esto no comprueba la intensidad admisible."}],
+  disclaimer: "Estimación resistiva a 20 °C y cos φ = 1, no selección reglamentaria de cable. Las resistividades adoptadas son coeficientes del modelo, no una tabla de producto.",
 };

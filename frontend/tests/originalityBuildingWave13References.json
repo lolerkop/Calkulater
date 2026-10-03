@@ -1,0 +1,2585 @@
+[
+  {
+    "id": "air-exchange",
+    "name": "комната 20 м² при кратности 3",
+    "inputs": {
+      "area": 20,
+      "height": 2.7,
+      "ach": 3
+    },
+    "expected": {
+      "primary": {
+        "label": "Требуемый расход воздуха",
+        "value": "162 м³/ч"
+      },
+      "secondary": [
+        {
+          "label": "Объём помещения",
+          "value": "54 м³"
+        },
+        {
+          "label": "В литрах в секунду",
+          "value": "45 л/с"
+        },
+        {
+          "label": "Смен воздуха в сутки",
+          "value": "72"
+        },
+        {
+          "label": "В кубометрах в минуту",
+          "value": "2,7 м³/мин"
+        }
+      ]
+    }
+  },
+  {
+    "id": "air-exchange",
+    "name": "цех 200 м² высотой 6 м при кратности 8",
+    "inputs": {
+      "area": 200,
+      "height": 6,
+      "ach": 8
+    },
+    "expected": {
+      "primary": {
+        "label": "Требуемый расход воздуха",
+        "value": "9 600 м³/ч"
+      },
+      "secondary": [
+        {
+          "label": "Объём помещения",
+          "value": "1 200 м³"
+        },
+        {
+          "label": "В литрах в секунду",
+          "value": "2 666,67 л/с"
+        },
+        {
+          "label": "Смен воздуха в сутки",
+          "value": "192"
+        },
+        {
+          "label": "В кубометрах в минуту",
+          "value": "160 м³/мин"
+        }
+      ]
+    }
+  },
+  {
+    "id": "air-exchange",
+    "name": "граница: кратность 1 в кубометровой комнате",
+    "inputs": {
+      "area": 1,
+      "height": 1,
+      "ach": 1
+    },
+    "expected": {
+      "primary": {
+        "label": "Требуемый расход воздуха",
+        "value": "1 м³/ч"
+      },
+      "secondary": [
+        {
+          "label": "Объём помещения",
+          "value": "1 м³"
+        },
+        {
+          "label": "В литрах в секунду",
+          "value": "0,2778 л/с"
+        },
+        {
+          "label": "Смен воздуха в сутки",
+          "value": "24"
+        },
+        {
+          "label": "В кубометрах в минуту",
+          "value": "0,0167 м³/мин"
+        }
+      ]
+    }
+  },
+  {
+    "id": "air-exchange",
+    "name": "нулевая площадь отклоняется",
+    "inputs": {
+      "area": 0,
+      "height": 2.7,
+      "ach": 3
+    },
+    "expected": {
+      "primary": {
+        "label": "Требуемый расход воздуха",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Площадь помещения должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "air-exchange",
+    "name": "нулевая кратность отклоняется",
+    "inputs": {
+      "area": 20,
+      "height": 2.7,
+      "ach": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Требуемый расход воздуха",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Кратность воздухообмена должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "baluster-spacing",
+    "name": "пролёт 3000 мм, стойка 40 мм, просвет не более 100 мм",
+    "inputs": {
+      "run": 3000,
+      "baluster_width": 40,
+      "max_gap": 100
+    },
+    "expected": {
+      "primary": {
+        "label": "Балясин",
+        "value": "21 шт"
+      },
+      "secondary": [
+        {
+          "label": "Фактический просвет",
+          "value": "98,182 мм"
+        },
+        {
+          "label": "Шаг между осями",
+          "value": "140,83 мм"
+        },
+        {
+          "label": "Суммарная ширина стоек",
+          "value": "840 мм"
+        },
+        {
+          "label": "Просветов",
+          "value": "22 шт"
+        }
+      ]
+    }
+  },
+  {
+    "id": "baluster-spacing",
+    "name": "пролёт 1200 мм, стойка 30 мм, просвет не более 120 мм",
+    "inputs": {
+      "run": 1200,
+      "baluster_width": 30,
+      "max_gap": 120
+    },
+    "expected": {
+      "primary": {
+        "label": "Балясин",
+        "value": "8 шт"
+      },
+      "secondary": [
+        {
+          "label": "Фактический просвет",
+          "value": "106,67 мм"
+        },
+        {
+          "label": "Шаг между осями",
+          "value": "145,19 мм"
+        },
+        {
+          "label": "Суммарная ширина стоек",
+          "value": "240 мм"
+        },
+        {
+          "label": "Просветов",
+          "value": "9 шт"
+        }
+      ]
+    }
+  },
+  {
+    "id": "baluster-spacing",
+    "name": "граница: одна стойка укладывается ровно в предел",
+    "inputs": {
+      "run": 300,
+      "baluster_width": 40,
+      "max_gap": 130
+    },
+    "expected": {
+      "primary": {
+        "label": "Балясин",
+        "value": "1 шт"
+      },
+      "secondary": [
+        {
+          "label": "Фактический просвет",
+          "value": "130 мм"
+        },
+        {
+          "label": "Шаг между осями",
+          "value": "215 мм"
+        },
+        {
+          "label": "Суммарная ширина стоек",
+          "value": "40 мм"
+        },
+        {
+          "label": "Просветов",
+          "value": "2 шт"
+        }
+      ]
+    }
+  },
+  {
+    "id": "baluster-spacing",
+    "name": "стойка шире пролёта отклоняется",
+    "inputs": {
+      "run": 100,
+      "baluster_width": 150,
+      "max_gap": 80
+    },
+    "expected": {
+      "primary": {
+        "label": "Балясин",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Стойка не может быть шире пролёта",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "baluster-spacing",
+    "name": "нулевой предел просвета отклоняется",
+    "inputs": {
+      "run": 3000,
+      "baluster_width": 40,
+      "max_gap": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Балясин",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Предельный просвет должен быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "beam-deflection",
+    "name": "равномерная 2 кН/м на пролёте 3 м",
+    "inputs": {
+      "scheme": "uniform",
+      "load": 2,
+      "span": 3,
+      "e": 10,
+      "inertia": 1000
+    },
+    "expected": {
+      "primary": {
+        "label": "Прогиб",
+        "value": "21,094 мм"
+      },
+      "secondary": [
+        {
+          "label": "Относительный прогиб",
+          "value": "1/142,22"
+        },
+        {
+          "label": "Жёсткость EI",
+          "value": "100 000 Н·м²"
+        },
+        {
+          "label": "Пролёт",
+          "value": "3 м"
+        },
+        {
+          "label": "Предел 1/250",
+          "value": "12 мм"
+        }
+      ]
+    }
+  },
+  {
+    "id": "beam-deflection",
+    "name": "сосредоточенная 5 кН на пролёте 4 м",
+    "inputs": {
+      "scheme": "point",
+      "load": 5,
+      "span": 4,
+      "e": 210,
+      "inertia": 2000
+    },
+    "expected": {
+      "primary": {
+        "label": "Прогиб",
+        "value": "1,587 мм"
+      },
+      "secondary": [
+        {
+          "label": "Относительный прогиб",
+          "value": "1/2 520"
+        },
+        {
+          "label": "Жёсткость EI",
+          "value": "4 200 000 Н·м²"
+        },
+        {
+          "label": "Пролёт",
+          "value": "4 м"
+        },
+        {
+          "label": "Предел 1/250",
+          "value": "16 мм"
+        }
+      ]
+    }
+  },
+  {
+    "id": "beam-deflection",
+    "name": "граница: пролёт один метр",
+    "inputs": {
+      "scheme": "uniform",
+      "load": 1,
+      "span": 1,
+      "e": 10,
+      "inertia": 1000
+    },
+    "expected": {
+      "primary": {
+        "label": "Прогиб",
+        "value": "0,1302 мм"
+      },
+      "secondary": [
+        {
+          "label": "Относительный прогиб",
+          "value": "1/7 680"
+        },
+        {
+          "label": "Жёсткость EI",
+          "value": "100 000 Н·м²"
+        },
+        {
+          "label": "Пролёт",
+          "value": "1 м"
+        },
+        {
+          "label": "Предел 1/250",
+          "value": "4 мм"
+        }
+      ]
+    }
+  },
+  {
+    "id": "beam-deflection",
+    "name": "нулевой момент инерции отклоняется",
+    "inputs": {
+      "scheme": "uniform",
+      "load": 2,
+      "span": 3,
+      "e": 10,
+      "inertia": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Прогиб",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Момент инерции сечения должен быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "beam-deflection",
+    "name": "нулевой пролёт отклоняется",
+    "inputs": {
+      "scheme": "uniform",
+      "load": 2,
+      "span": 0,
+      "e": 10,
+      "inertia": 1000
+    },
+    "expected": {
+      "primary": {
+        "label": "Прогиб",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Пролёт должен быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "beam-stress",
+    "name": "прямоугольник 100×200 при 4,5 кН·м",
+    "inputs": {
+      "moment": 4500,
+      "section": "rect",
+      "b": 100,
+      "h": 200,
+      "d": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Напряжение изгиба",
+        "value": "6,75 МПа"
+      },
+      "secondary": [
+        {
+          "label": "Момент сопротивления",
+          "value": "666 666,67 мм³"
+        },
+        {
+          "label": "Изгибающий момент",
+          "value": "4 500 Н·м"
+        },
+        {
+          "label": "Сечение",
+          "value": "прямоугольник"
+        },
+        {
+          "label": "Определяющий размер сечения",
+          "value": "200 мм"
+        }
+      ]
+    }
+  },
+  {
+    "id": "beam-stress",
+    "name": "круг 120 мм при том же моменте",
+    "inputs": {
+      "moment": 4500,
+      "section": "circle",
+      "b": 0,
+      "h": 0,
+      "d": 120
+    },
+    "expected": {
+      "primary": {
+        "label": "Напряжение изгиба",
+        "value": "26,526 МПа"
+      },
+      "secondary": [
+        {
+          "label": "Момент сопротивления",
+          "value": "169 646 мм³"
+        },
+        {
+          "label": "Изгибающий момент",
+          "value": "4 500 Н·м"
+        },
+        {
+          "label": "Сечение",
+          "value": "круг"
+        },
+        {
+          "label": "Определяющий размер сечения",
+          "value": "120 мм"
+        }
+      ]
+    }
+  },
+  {
+    "id": "beam-stress",
+    "name": "предельно малый момент",
+    "inputs": {
+      "moment": 0.001,
+      "section": "rect",
+      "b": 100,
+      "h": 200,
+      "d": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Напряжение изгиба",
+        "value": "0,000002 МПа"
+      },
+      "secondary": [
+        {
+          "label": "Момент сопротивления",
+          "value": "666 666,67 мм³"
+        },
+        {
+          "label": "Изгибающий момент",
+          "value": "0,001 Н·м"
+        },
+        {
+          "label": "Сечение",
+          "value": "прямоугольник"
+        },
+        {
+          "label": "Определяющий размер сечения",
+          "value": "200 мм"
+        }
+      ]
+    }
+  },
+  {
+    "id": "beam-stress",
+    "name": "нулевой момент отклоняется",
+    "inputs": {
+      "moment": 0,
+      "section": "rect",
+      "b": 100,
+      "h": 200,
+      "d": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Напряжение изгиба",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Изгибающий момент должен быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "beam-stress",
+    "name": "нулевая высота сечения отклоняется",
+    "inputs": {
+      "moment": 4500,
+      "section": "rect",
+      "b": 100,
+      "h": 0,
+      "d": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Напряжение изгиба",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Высота сечения должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "board-volume",
+    "name": "6 м × 150 × 25 мм, 50 штук",
+    "inputs": {
+      "length": 6,
+      "width": 150,
+      "thickness": 25,
+      "count": 50,
+      "pricePerM3": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Общий объём",
+        "value": "1,125 м³"
+      },
+      "secondary": [
+        {
+          "label": "Объём одной доски",
+          "value": "0,0225 м³"
+        },
+        {
+          "label": "Досок в кубометре",
+          "value": "44,44 шт"
+        }
+      ]
+    }
+  },
+  {
+    "id": "board-volume",
+    "name": "4 м × 100 × 40 мм, 20 штук",
+    "inputs": {
+      "length": 4,
+      "width": 100,
+      "thickness": 40,
+      "count": 20,
+      "pricePerM3": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Общий объём",
+        "value": "0,32 м³"
+      },
+      "secondary": [
+        {
+          "label": "Объём одной доски",
+          "value": "0,016 м³"
+        },
+        {
+          "label": "Досок в кубометре",
+          "value": "62,50 шт"
+        }
+      ]
+    }
+  },
+  {
+    "id": "board-volume",
+    "name": "одна очень тонкая доска",
+    "inputs": {
+      "length": 1,
+      "width": 10,
+      "thickness": 10,
+      "count": 1,
+      "pricePerM3": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Общий объём",
+        "value": "0,0001 м³"
+      },
+      "secondary": [
+        {
+          "label": "Объём одной доски",
+          "value": "0,0001 м³"
+        },
+        {
+          "label": "Досок в кубометре",
+          "value": "10 000,00 шт"
+        }
+      ]
+    }
+  },
+  {
+    "id": "board-volume",
+    "name": "нулевая ширина отклоняется",
+    "inputs": {
+      "length": 6,
+      "width": 0,
+      "thickness": 25,
+      "count": 50,
+      "pricePerM3": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Общий объём",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Ширина доски должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bulk-material-volume",
+    "name": "площадка 5×4 м, слой 10 см, щебень с запасом 5 %",
+    "inputs": {
+      "length": 5,
+      "width": 4,
+      "depth": 10,
+      "density": 1.6,
+      "waste": 5
+    },
+    "expected": {
+      "primary": {
+        "label": "Нужно материала",
+        "value": "2,1 м³"
+      },
+      "secondary": [
+        {
+          "label": "Чистый объём",
+          "value": "2 м³"
+        },
+        {
+          "label": "Масса",
+          "value": "3,36 т"
+        },
+        {
+          "label": "Мешков по 25 кг",
+          "value": "135 шт"
+        },
+        {
+          "label": "Площадь основания",
+          "value": "20 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bulk-material-volume",
+    "name": "дорожка 10×1 м, слой 5 см, песок с запасом 10 %",
+    "inputs": {
+      "length": 10,
+      "width": 1,
+      "depth": 5,
+      "density": 1.5,
+      "waste": 10
+    },
+    "expected": {
+      "primary": {
+        "label": "Нужно материала",
+        "value": "0,55 м³"
+      },
+      "secondary": [
+        {
+          "label": "Чистый объём",
+          "value": "0,5 м³"
+        },
+        {
+          "label": "Масса",
+          "value": "0,825 т"
+        },
+        {
+          "label": "Мешков по 25 кг",
+          "value": "33 шт"
+        },
+        {
+          "label": "Площадь основания",
+          "value": "10 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bulk-material-volume",
+    "name": "граница: слой в один сантиметр",
+    "inputs": {
+      "length": 2,
+      "width": 2,
+      "depth": 1,
+      "density": 1.4,
+      "waste": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Нужно материала",
+        "value": "0,04 м³"
+      },
+      "secondary": [
+        {
+          "label": "Чистый объём",
+          "value": "0,04 м³"
+        },
+        {
+          "label": "Масса",
+          "value": "0,056 т"
+        },
+        {
+          "label": "Мешков по 25 кг",
+          "value": "3 шт"
+        },
+        {
+          "label": "Площадь основания",
+          "value": "4 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bulk-material-volume",
+    "name": "нулевая толщина слоя отклоняется",
+    "inputs": {
+      "length": 5,
+      "width": 4,
+      "depth": 0,
+      "density": 1.6,
+      "waste": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Нужно материала",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Толщина слоя должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bulk-material-volume",
+    "name": "запас свыше пятидесяти процентов отклоняется",
+    "inputs": {
+      "length": 5,
+      "width": 4,
+      "depth": 10,
+      "density": 1.6,
+      "waste": 55
+    },
+    "expected": {
+      "primary": {
+        "label": "Нужно материала",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Запас должен быть от 0 до 50 %",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cladding-boards",
+    "name": "стена 30 м², доска 3 м с запасом 10 %",
+    "inputs": {
+      "wall_area": 30,
+      "board_len": 3,
+      "board_width": 0.19,
+      "overlap": 0.02,
+      "waste": 10
+    },
+    "expected": {
+      "primary": {
+        "label": "Досок",
+        "value": "65 шт"
+      },
+      "secondary": [
+        {
+          "label": "Полезная ширина доски",
+          "value": "0,17 м"
+        },
+        {
+          "label": "Площадь с запасом",
+          "value": "33 м²"
+        },
+        {
+          "label": "Перекроют",
+          "value": "33,15 м²"
+        },
+        {
+          "label": "Погонных метров доски",
+          "value": "195 м"
+        },
+        {
+          "label": "Съедает нахлёст",
+          "value": "10,526 %"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cladding-boards",
+    "name": "стена 12 м² без запаса",
+    "inputs": {
+      "wall_area": 12,
+      "board_len": 2.5,
+      "board_width": 0.15,
+      "overlap": 0.01,
+      "waste": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Досок",
+        "value": "35 шт"
+      },
+      "secondary": [
+        {
+          "label": "Полезная ширина доски",
+          "value": "0,14 м"
+        },
+        {
+          "label": "Площадь с запасом",
+          "value": "12 м²"
+        },
+        {
+          "label": "Перекроют",
+          "value": "12,25 м²"
+        },
+        {
+          "label": "Погонных метров доски",
+          "value": "87,5 м"
+        },
+        {
+          "label": "Съедает нахлёст",
+          "value": "6,667 %"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cladding-boards",
+    "name": "граница: нахлёст почти во всю ширину доски",
+    "inputs": {
+      "wall_area": 10,
+      "board_len": 3,
+      "board_width": 0.2,
+      "overlap": 0.19,
+      "waste": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Досок",
+        "value": "334 шт"
+      },
+      "secondary": [
+        {
+          "label": "Полезная ширина доски",
+          "value": "0,01 м"
+        },
+        {
+          "label": "Площадь с запасом",
+          "value": "10 м²"
+        },
+        {
+          "label": "Перекроют",
+          "value": "10,02 м²"
+        },
+        {
+          "label": "Погонных метров доски",
+          "value": "1 002 м"
+        },
+        {
+          "label": "Съедает нахлёст",
+          "value": "95 %"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cladding-boards",
+    "name": "нахлёст больше ширины отклоняется",
+    "inputs": {
+      "wall_area": 10,
+      "board_len": 3,
+      "board_width": 0.15,
+      "overlap": 0.2,
+      "waste": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Досок",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Нахлёст должен быть меньше ширины доски",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cladding-boards",
+    "name": "запас свыше пятидесяти процентов отклоняется",
+    "inputs": {
+      "wall_area": 10,
+      "board_len": 3,
+      "board_width": 0.2,
+      "overlap": 0.02,
+      "waste": 60
+    },
+    "expected": {
+      "primary": {
+        "label": "Досок",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Запас должен быть от 0 до 50 %",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "concrete",
+    "name": "плита 6×4×0,2 с запасом 5 %",
+    "inputs": {
+      "mode": "slab",
+      "length": 6,
+      "width": 4,
+      "thickness": 0.2,
+      "waste": 5
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём бетона",
+        "value": "5,04 м³"
+      },
+      "secondary": [
+        {
+          "label": "Чистый объём",
+          "value": "4,8 м³"
+        },
+        {
+          "label": "Запас",
+          "value": "0,24 м³"
+        }
+      ]
+    }
+  },
+  {
+    "id": "concrete",
+    "name": "плита 10×3×0,15 без запаса",
+    "inputs": {
+      "mode": "slab",
+      "length": 10,
+      "width": 3,
+      "thickness": 0.15,
+      "waste": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём бетона",
+        "value": "4,5 м³"
+      },
+      "secondary": [
+        {
+          "label": "Чистый объём",
+          "value": "4,5 м³"
+        }
+      ]
+    }
+  },
+  {
+    "id": "concrete",
+    "name": "1×1×0,01 — тонкая стяжка",
+    "inputs": {
+      "mode": "slab",
+      "length": 1,
+      "width": 1,
+      "thickness": 0.01,
+      "waste": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём бетона",
+        "value": "0,01 м³"
+      },
+      "secondary": [
+        {
+          "label": "Чистый объём",
+          "value": "0,01 м³"
+        }
+      ]
+    }
+  },
+  {
+    "id": "concrete",
+    "name": "отрицательный запас отклоняется",
+    "inputs": {
+      "mode": "slab",
+      "length": 6,
+      "width": 4,
+      "thickness": 0.2,
+      "waste": -5
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём бетона",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Запас не может быть отрицательным",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "drywall",
+    "name": "сорок метров в один слой",
+    "inputs": {
+      "area": 40,
+      "layers": 1,
+      "profileStep": 0.6,
+      "sheetLength": 2.5,
+      "sheetWidth": 1.2,
+      "waste": 10
+    },
+    "expected": {
+      "primary": {
+        "label": "Листов",
+        "value": "15"
+      },
+      "secondary": [
+        {
+          "label": "Площадь",
+          "value": "40 м²"
+        },
+        {
+          "label": "С запасом",
+          "value": "44 м²"
+        },
+        {
+          "label": "Площадь листа",
+          "value": "3 м²"
+        },
+        {
+          "label": "Метров профиля",
+          "value": "80"
+        },
+        {
+          "label": "Саморезов",
+          "value": "900"
+        }
+      ]
+    }
+  },
+  {
+    "id": "drywall",
+    "name": "семьдесят пять метров в два слоя",
+    "inputs": {
+      "area": 75,
+      "layers": 2,
+      "profileStep": 0.4,
+      "sheetLength": 3,
+      "sheetWidth": 1.2,
+      "waste": 5
+    },
+    "expected": {
+      "primary": {
+        "label": "Листов",
+        "value": "44"
+      },
+      "secondary": [
+        {
+          "label": "Площадь",
+          "value": "75 м²"
+        },
+        {
+          "label": "С запасом",
+          "value": "157,5 м²"
+        },
+        {
+          "label": "Площадь листа",
+          "value": "3,6 м²"
+        },
+        {
+          "label": "Метров профиля",
+          "value": "212,5"
+        },
+        {
+          "label": "Саморезов",
+          "value": "5 280"
+        }
+      ]
+    }
+  },
+  {
+    "id": "drywall",
+    "name": "граница: ровно один лист",
+    "inputs": {
+      "area": 3,
+      "layers": 1,
+      "profileStep": 0.6,
+      "sheetLength": 2.5,
+      "sheetWidth": 1.2,
+      "waste": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Листов",
+        "value": "1"
+      },
+      "secondary": [
+        {
+          "label": "Площадь",
+          "value": "3 м²"
+        },
+        {
+          "label": "С запасом",
+          "value": "3 м²"
+        },
+        {
+          "label": "Площадь листа",
+          "value": "3 м²"
+        },
+        {
+          "label": "Метров профиля",
+          "value": "6"
+        },
+        {
+          "label": "Саморезов",
+          "value": "60"
+        }
+      ]
+    }
+  },
+  {
+    "id": "drywall",
+    "name": "нулевая площадь отклоняется",
+    "inputs": {
+      "area": 0,
+      "layers": 1,
+      "profileStep": 0.6,
+      "sheetLength": 2.5,
+      "sheetWidth": 1.2,
+      "waste": 10
+    },
+    "expected": {
+      "primary": {
+        "label": "Листов",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Площадь должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "drywall",
+    "name": "четыре слоя отклоняются",
+    "inputs": {
+      "area": 40,
+      "layers": 4,
+      "profileStep": 0.6,
+      "sheetLength": 2.5,
+      "sheetWidth": 1.2,
+      "waste": 10
+    },
+    "expected": {
+      "primary": {
+        "label": "Листов",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Слоёв должно быть от одного до трёх",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "epoxy-volume",
+    "name": "столешница 100×50 см слоем 5 мм",
+    "inputs": {
+      "length": 100,
+      "width": 50,
+      "thickness": 5,
+      "density": 1.1,
+      "ratio": 2
+    },
+    "expected": {
+      "primary": {
+        "label": "Всего смеси",
+        "value": "2,75 кг"
+      },
+      "secondary": [
+        {
+          "label": "Смолы",
+          "value": "1,833 кг"
+        },
+        {
+          "label": "Отвердителя",
+          "value": "0,9167 кг"
+        },
+        {
+          "label": "Объём заливки",
+          "value": "2,5 л"
+        },
+        {
+          "label": "Площадь заливки",
+          "value": "0,5 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "epoxy-volume",
+    "name": "поднос 40×30 см слоем 3 мм при пропорции 3:1",
+    "inputs": {
+      "length": 40,
+      "width": 30,
+      "thickness": 3,
+      "density": 1.15,
+      "ratio": 3
+    },
+    "expected": {
+      "primary": {
+        "label": "Всего смеси",
+        "value": "0,414 кг"
+      },
+      "secondary": [
+        {
+          "label": "Смолы",
+          "value": "0,3105 кг"
+        },
+        {
+          "label": "Отвердителя",
+          "value": "0,1035 кг"
+        },
+        {
+          "label": "Объём заливки",
+          "value": "0,36 л"
+        },
+        {
+          "label": "Площадь заливки",
+          "value": "0,12 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "epoxy-volume",
+    "name": "граница: слой в одну десятую миллиметра",
+    "inputs": {
+      "length": 10,
+      "width": 10,
+      "thickness": 0.1,
+      "density": 1.1,
+      "ratio": 2
+    },
+    "expected": {
+      "primary": {
+        "label": "Всего смеси",
+        "value": "0,0011 кг"
+      },
+      "secondary": [
+        {
+          "label": "Смолы",
+          "value": "0,000733 кг"
+        },
+        {
+          "label": "Отвердителя",
+          "value": "0,000367 кг"
+        },
+        {
+          "label": "Объём заливки",
+          "value": "0,001 л"
+        },
+        {
+          "label": "Площадь заливки",
+          "value": "0,01 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "epoxy-volume",
+    "name": "нулевая толщина отклоняется",
+    "inputs": {
+      "length": 100,
+      "width": 50,
+      "thickness": 0,
+      "density": 1.1,
+      "ratio": 2
+    },
+    "expected": {
+      "primary": {
+        "label": "Всего смеси",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Толщина слоя должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "epoxy-volume",
+    "name": "нулевая пропорция отклоняется",
+    "inputs": {
+      "length": 100,
+      "width": 50,
+      "thickness": 5,
+      "density": 1.1,
+      "ratio": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Всего смеси",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Пропорция набора должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "fence",
+    "name": "сорок метров с калиткой",
+    "inputs": {
+      "gates": 1,
+      "height": 1.8,
+      "length": 40,
+      "rails": 2,
+      "span": 2.5
+    },
+    "expected": {
+      "primary": {
+        "label": "Столбов",
+        "value": "18"
+      },
+      "secondary": [
+        {
+          "label": "Секций",
+          "value": "16"
+        },
+        {
+          "label": "Метров лаг",
+          "value": "80"
+        },
+        {
+          "label": "Площадь зашивки",
+          "value": "72 м²"
+        },
+        {
+          "label": "Пролёт",
+          "value": "2,5 м"
+        },
+        {
+          "label": "Фактический шаг столбов",
+          "value": "2,5 м"
+        }
+      ]
+    }
+  },
+  {
+    "id": "fence",
+    "name": "сто метров с двумя воротами",
+    "inputs": {
+      "gates": 2,
+      "height": 2,
+      "length": 100,
+      "rails": 3,
+      "span": 3
+    },
+    "expected": {
+      "primary": {
+        "label": "Столбов",
+        "value": "37"
+      },
+      "secondary": [
+        {
+          "label": "Секций",
+          "value": "34"
+        },
+        {
+          "label": "Метров лаг",
+          "value": "306"
+        },
+        {
+          "label": "Площадь зашивки",
+          "value": "200 м²"
+        },
+        {
+          "label": "Пролёт",
+          "value": "3 м"
+        },
+        {
+          "label": "Фактический шаг столбов",
+          "value": "2,941 м"
+        }
+      ]
+    }
+  },
+  {
+    "id": "fence",
+    "name": "граница: одна секция",
+    "inputs": {
+      "gates": 0,
+      "height": 1.5,
+      "length": 2.5,
+      "rails": 1,
+      "span": 2.5
+    },
+    "expected": {
+      "primary": {
+        "label": "Столбов",
+        "value": "2"
+      },
+      "secondary": [
+        {
+          "label": "Секций",
+          "value": "1"
+        },
+        {
+          "label": "Метров лаг",
+          "value": "2,5"
+        },
+        {
+          "label": "Площадь зашивки",
+          "value": "3,75 м²"
+        },
+        {
+          "label": "Пролёт",
+          "value": "2,5 м"
+        },
+        {
+          "label": "Фактический шаг столбов",
+          "value": "2,5 м"
+        }
+      ]
+    }
+  },
+  {
+    "id": "fence",
+    "name": "нулевая длина отклоняется",
+    "inputs": {
+      "gates": 0,
+      "height": 1.8,
+      "length": 0,
+      "rails": 2,
+      "span": 2.5
+    },
+    "expected": {
+      "primary": {
+        "label": "Столбов",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Длина забора должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "fence",
+    "name": "шесть лаг отклоняются",
+    "inputs": {
+      "gates": 0,
+      "height": 1.8,
+      "length": 40,
+      "rails": 6,
+      "span": 2.5
+    },
+    "expected": {
+      "primary": {
+        "label": "Столбов",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Лаг должно быть от одной до пяти",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "insulation",
+    "name": "60 м², 100 мм, плита 0,72 м²",
+    "inputs": {
+      "area": 60,
+      "thickness": 100,
+      "slabArea": 0.72,
+      "perPack": 6
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём утеплителя",
+        "value": "6 м³"
+      },
+      "secondary": [
+        {
+          "label": "Плит",
+          "value": "84 шт"
+        },
+        {
+          "label": "Упаковок",
+          "value": "14 шт"
+        },
+        {
+          "label": "Площадь одной плиты",
+          "value": "0,72 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "insulation",
+    "name": "24,5 м², 50 мм, плита 0,6 м²",
+    "inputs": {
+      "area": 24.5,
+      "thickness": 50,
+      "slabArea": 0.6,
+      "perPack": 8
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём утеплителя",
+        "value": "1,225 м³"
+      },
+      "secondary": [
+        {
+          "label": "Плит",
+          "value": "41 шт"
+        },
+        {
+          "label": "Упаковок",
+          "value": "6 шт"
+        },
+        {
+          "label": "Площадь одной плиты",
+          "value": "0,60 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "insulation",
+    "name": "ровно одна плита",
+    "inputs": {
+      "area": 0.72,
+      "thickness": 100,
+      "slabArea": 0.72,
+      "perPack": 6
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём утеплителя",
+        "value": "0,072 м³"
+      },
+      "secondary": [
+        {
+          "label": "Плит",
+          "value": "1 шт"
+        },
+        {
+          "label": "Упаковок",
+          "value": "1 шт"
+        },
+        {
+          "label": "Площадь одной плиты",
+          "value": "0,72 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "insulation",
+    "name": "нулевая площадь плиты отклоняется",
+    "inputs": {
+      "area": 60,
+      "thickness": 100,
+      "slabArea": 0,
+      "perPack": 6
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём утеплителя",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Площадь плиты должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linoleum",
+    "name": "комната шире рулона: две полосы и шов",
+    "inputs": {
+      "length": 5,
+      "reserve": 5,
+      "rollWidth": 3,
+      "width": 3.5
+    },
+    "expected": {
+      "primary": {
+        "label": "Погонных метров",
+        "value": "10,5 м"
+      },
+      "secondary": [
+        {
+          "label": "Полос",
+          "value": "2"
+        },
+        {
+          "label": "Площадь пола",
+          "value": "17,5 м²"
+        },
+        {
+          "label": "Куплено",
+          "value": "31,5 м²"
+        },
+        {
+          "label": "Обрезки",
+          "value": "14 м²"
+        },
+        {
+          "label": "Швов",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linoleum",
+    "name": "комната ровно в рулон",
+    "inputs": {
+      "length": 6,
+      "reserve": 0,
+      "rollWidth": 2.5,
+      "width": 2.5
+    },
+    "expected": {
+      "primary": {
+        "label": "Погонных метров",
+        "value": "6 м"
+      },
+      "secondary": [
+        {
+          "label": "Полос",
+          "value": "1"
+        },
+        {
+          "label": "Площадь пола",
+          "value": "15 м²"
+        },
+        {
+          "label": "Куплено",
+          "value": "15 м²"
+        },
+        {
+          "label": "Обрезки",
+          "value": "0 м²"
+        },
+        {
+          "label": "Швов",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linoleum",
+    "name": "граница: квадрат ровно по ширине рулона",
+    "inputs": {
+      "length": 4,
+      "reserve": 0,
+      "rollWidth": 4,
+      "width": 4
+    },
+    "expected": {
+      "primary": {
+        "label": "Погонных метров",
+        "value": "4 м"
+      },
+      "secondary": [
+        {
+          "label": "Полос",
+          "value": "1"
+        },
+        {
+          "label": "Площадь пола",
+          "value": "16 м²"
+        },
+        {
+          "label": "Куплено",
+          "value": "16 м²"
+        },
+        {
+          "label": "Обрезки",
+          "value": "0 м²"
+        },
+        {
+          "label": "Швов",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linoleum",
+    "name": "нулевая длина отклоняется",
+    "inputs": {
+      "length": 0,
+      "reserve": 5,
+      "rollWidth": 3,
+      "width": 3.5
+    },
+    "expected": {
+      "primary": {
+        "label": "Погонных метров",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Размеры комнаты должны быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "linoleum",
+    "name": "нулевая ширина рулона отклоняется",
+    "inputs": {
+      "length": 5,
+      "reserve": 5,
+      "rollWidth": 0,
+      "width": 3.5
+    },
+    "expected": {
+      "primary": {
+        "label": "Погонных метров",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Ширина рулона должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "metal-weight",
+    "name": "круг Ø20 мм длиной 6 м, сталь 7,85",
+    "inputs": {
+      "shape": "round",
+      "density": 7.85,
+      "a": 20,
+      "b": 0,
+      "length": 6
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса",
+        "value": "14,797 кг"
+      },
+      "secondary": [
+        {
+          "label": "Площадь сечения",
+          "value": "314,16 мм²"
+        },
+        {
+          "label": "Объём металла",
+          "value": "0,001885 м³"
+        },
+        {
+          "label": "Погонная масса",
+          "value": "2,466 кг/м"
+        },
+        {
+          "label": "Метров в тонне",
+          "value": "405,49 м"
+        }
+      ]
+    }
+  },
+  {
+    "id": "metal-weight",
+    "name": "полоса 40×4 мм длиной 3 м",
+    "inputs": {
+      "shape": "flat",
+      "density": 7.85,
+      "a": 40,
+      "b": 4,
+      "length": 3
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса",
+        "value": "3,768 кг"
+      },
+      "secondary": [
+        {
+          "label": "Площадь сечения",
+          "value": "160 мм²"
+        },
+        {
+          "label": "Объём металла",
+          "value": "0,00048 м³"
+        },
+        {
+          "label": "Погонная масса",
+          "value": "1,256 кг/м"
+        },
+        {
+          "label": "Метров в тонне",
+          "value": "796,18 м"
+        }
+      ]
+    }
+  },
+  {
+    "id": "metal-weight",
+    "name": "граница: квадрат 10 мм длиной ровно метр",
+    "inputs": {
+      "shape": "square",
+      "density": 7.85,
+      "a": 10,
+      "b": 0,
+      "length": 1
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса",
+        "value": "0,785 кг"
+      },
+      "secondary": [
+        {
+          "label": "Площадь сечения",
+          "value": "100 мм²"
+        },
+        {
+          "label": "Объём металла",
+          "value": "0,0001 м³"
+        },
+        {
+          "label": "Погонная масса",
+          "value": "0,785 кг/м"
+        },
+        {
+          "label": "Метров в тонне",
+          "value": "1 273,89 м"
+        }
+      ]
+    }
+  },
+  {
+    "id": "metal-weight",
+    "name": "неизвестная форма сечения отклоняется",
+    "inputs": {
+      "shape": "hex",
+      "density": 7.85,
+      "a": 10,
+      "b": 0,
+      "length": 1
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Выберите форму сечения из списка",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "metal-weight",
+    "name": "нулевая плотность отклоняется",
+    "inputs": {
+      "shape": "round",
+      "density": 0,
+      "a": 20,
+      "b": 0,
+      "length": 6
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Плотность должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "miter-angle",
+    "name": "прямой угол — классический ус",
+    "inputs": {
+      "corner": 90
+    },
+    "expected": {
+      "primary": {
+        "label": "Угол реза",
+        "value": "45 °"
+      },
+      "secondary": [
+        {
+          "label": "Угол на пиле от 90°",
+          "value": "45 °"
+        },
+        {
+          "label": "Угол стыка",
+          "value": "90 °"
+        },
+        {
+          "label": "Сумма двух резов",
+          "value": "90 °"
+        }
+      ]
+    }
+  },
+  {
+    "id": "miter-angle",
+    "name": "тупой угол 135°",
+    "inputs": {
+      "corner": 135
+    },
+    "expected": {
+      "primary": {
+        "label": "Угол реза",
+        "value": "67,5 °"
+      },
+      "secondary": [
+        {
+          "label": "Угол на пиле от 90°",
+          "value": "22,5 °"
+        },
+        {
+          "label": "Угол стыка",
+          "value": "135 °"
+        },
+        {
+          "label": "Сумма двух резов",
+          "value": "135 °"
+        }
+      ]
+    }
+  },
+  {
+    "id": "miter-angle",
+    "name": "предельно острый угол",
+    "inputs": {
+      "corner": 1
+    },
+    "expected": {
+      "primary": {
+        "label": "Угол реза",
+        "value": "0,5 °"
+      },
+      "secondary": [
+        {
+          "label": "Угол на пиле от 90°",
+          "value": "89,5 °"
+        },
+        {
+          "label": "Угол стыка",
+          "value": "1 °"
+        },
+        {
+          "label": "Сумма двух резов",
+          "value": "1 °"
+        }
+      ]
+    }
+  },
+  {
+    "id": "miter-angle",
+    "name": "нулевой угол отклоняется",
+    "inputs": {
+      "corner": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Угол реза",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Угол стыка задаётся от 1 до 179 градусов",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "miter-angle",
+    "name": "развёрнутый угол отклоняется",
+    "inputs": {
+      "corner": 180
+    },
+    "expected": {
+      "primary": {
+        "label": "Угол реза",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Угол стыка задаётся от 1 до 179 градусов",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pile-foundation",
+    "name": "двенадцать свай с ростверком",
+    "inputs": {
+      "count": 12,
+      "depth": 1.8,
+      "diameter": 0.3,
+      "grillageHeight": 0.4,
+      "grillageLength": 32,
+      "grillageWidth": 0.4,
+      "waste": 5
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём бетона",
+        "value": "6,979 м³"
+      },
+      "secondary": [
+        {
+          "label": "Объём свай",
+          "value": "1,527 м³"
+        },
+        {
+          "label": "Объём ростверка",
+          "value": "5,12 м³"
+        },
+        {
+          "label": "Чистый объём",
+          "value": "6,647 м³"
+        },
+        {
+          "label": "Запас",
+          "value": "0,3323 м³"
+        },
+        {
+          "label": "Объём одной сваи",
+          "value": "0,1272 м³"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pile-foundation",
+    "name": "шесть свай без ростверка",
+    "inputs": {
+      "count": 6,
+      "depth": 2,
+      "diameter": 0.25,
+      "grillageHeight": 0,
+      "grillageLength": 0,
+      "grillageWidth": 0,
+      "waste": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём бетона",
+        "value": "0,589 м³"
+      },
+      "secondary": [
+        {
+          "label": "Объём свай",
+          "value": "0,589 м³"
+        },
+        {
+          "label": "Объём ростверка",
+          "value": "0 м³"
+        },
+        {
+          "label": "Чистый объём",
+          "value": "0,589 м³"
+        },
+        {
+          "label": "Запас",
+          "value": "0 м³"
+        },
+        {
+          "label": "Объём одной сваи",
+          "value": "0,0982 м³"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pile-foundation",
+    "name": "граница: одна свая с половинным запасом",
+    "inputs": {
+      "count": 1,
+      "depth": 1,
+      "diameter": 0.2,
+      "grillageHeight": 0,
+      "grillageLength": 0,
+      "grillageWidth": 0,
+      "waste": 50
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём бетона",
+        "value": "0,0471 м³"
+      },
+      "secondary": [
+        {
+          "label": "Объём свай",
+          "value": "0,0314 м³"
+        },
+        {
+          "label": "Объём ростверка",
+          "value": "0 м³"
+        },
+        {
+          "label": "Чистый объём",
+          "value": "0,0314 м³"
+        },
+        {
+          "label": "Запас",
+          "value": "0,0157 м³"
+        },
+        {
+          "label": "Объём одной сваи",
+          "value": "0,0314 м³"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pile-foundation",
+    "name": "ноль свай отклоняется",
+    "inputs": {
+      "count": 0,
+      "depth": 1.8,
+      "diameter": 0.3,
+      "grillageHeight": 0,
+      "grillageLength": 0,
+      "grillageWidth": 0,
+      "waste": 5
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём бетона",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Свай должно быть не меньше одной",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pile-foundation",
+    "name": "запас свыше пятидесяти процентов отклоняется",
+    "inputs": {
+      "count": 12,
+      "depth": 1.8,
+      "diameter": 0.3,
+      "grillageHeight": 0,
+      "grillageLength": 0,
+      "grillageWidth": 0,
+      "waste": 51
+    },
+    "expected": {
+      "primary": {
+        "label": "Объём бетона",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Запас должен быть от 0 до 50 %",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pipe-weight",
+    "name": "обычный 1",
+    "inputs": {
+      "d": 108,
+      "wall": 4,
+      "len": 6,
+      "rho": 7850
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса трубы",
+        "value": "61,555 кг"
+      },
+      "secondary": [
+        {
+          "label": "Масса погонного метра",
+          "value": "10,259 кг/м"
+        },
+        {
+          "label": "Внутренний диаметр",
+          "value": "100 мм"
+        },
+        {
+          "label": "Площадь сечения металла",
+          "value": "13,069 см²"
+        },
+        {
+          "label": "Объём внутренней полости",
+          "value": "47,124 л"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pipe-weight",
+    "name": "обычный 2",
+    "inputs": {
+      "d": 32,
+      "wall": 3.2,
+      "len": 12,
+      "rho": 950
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса трубы",
+        "value": "3,301 кг"
+      },
+      "secondary": [
+        {
+          "label": "Масса погонного метра",
+          "value": "0,2751 кг/м"
+        },
+        {
+          "label": "Внутренний диаметр",
+          "value": "25,6 мм"
+        },
+        {
+          "label": "Площадь сечения металла",
+          "value": "2,895 см²"
+        },
+        {
+          "label": "Объём внутренней полости",
+          "value": "6,177 л"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pipe-weight",
+    "name": "граница 3",
+    "inputs": {
+      "d": 20,
+      "wall": 2,
+      "len": 1,
+      "rho": 7850
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса трубы",
+        "value": "0,8878 кг"
+      },
+      "secondary": [
+        {
+          "label": "Масса погонного метра",
+          "value": "0,8878 кг/м"
+        },
+        {
+          "label": "Внутренний диаметр",
+          "value": "16 мм"
+        },
+        {
+          "label": "Площадь сечения металла",
+          "value": "1,131 см²"
+        },
+        {
+          "label": "Объём внутренней полости",
+          "value": "0,2011 л"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pipe-weight",
+    "name": "удвоенная стенка не может быть больше наружного диаметра или равна ему",
+    "inputs": {
+      "d": 20,
+      "wall": 10,
+      "len": 1,
+      "rho": 7850
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса трубы",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Удвоенная стенка не может быть больше наружного диаметра или равна ему",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pipe-weight",
+    "name": "наружный диаметр должен быть больше нуля",
+    "inputs": {
+      "d": 0,
+      "wall": 4,
+      "len": 6,
+      "rho": 7850
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса трубы",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Наружный диаметр должен быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  },
+  {
+    "id": "plaster",
+    "name": "20 м², слой 10 мм, расход 8,5",
+    "inputs": {
+      "area": 20,
+      "thickness": 10,
+      "consumption": 8.5,
+      "bagWeight": 30
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса сухой смеси",
+        "value": "1 700,00 кг"
+      },
+      "secondary": [
+        {
+          "label": "Мешков",
+          "value": "57 шт"
+        },
+        {
+          "label": "Расход на м²",
+          "value": "85,00 кг"
+        },
+        {
+          "label": "Площадь",
+          "value": "20,00 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "plaster",
+    "name": "35,5 м², слой 15 мм",
+    "inputs": {
+      "area": 35.5,
+      "thickness": 15,
+      "consumption": 9,
+      "bagWeight": 25
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса сухой смеси",
+        "value": "4 792,50 кг"
+      },
+      "secondary": [
+        {
+          "label": "Мешков",
+          "value": "192 шт"
+        },
+        {
+          "label": "Расход на м²",
+          "value": "135,00 кг"
+        },
+        {
+          "label": "Площадь",
+          "value": "35,50 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "plaster",
+    "name": "минимум: 1 м² при слое 1 мм",
+    "inputs": {
+      "area": 1,
+      "thickness": 1,
+      "consumption": 8.5,
+      "bagWeight": 30
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса сухой смеси",
+        "value": "8,50 кг"
+      },
+      "secondary": [
+        {
+          "label": "Мешков",
+          "value": "1 шт"
+        },
+        {
+          "label": "Расход на м²",
+          "value": "8,50 кг"
+        },
+        {
+          "label": "Площадь",
+          "value": "1,00 м²"
+        }
+      ]
+    }
+  },
+  {
+    "id": "plaster",
+    "name": "нулевая толщина слоя отклоняется",
+    "inputs": {
+      "area": 20,
+      "thickness": 0,
+      "consumption": 8.5,
+      "bagWeight": 30
+    },
+    "expected": {
+      "primary": {
+        "label": "Масса сухой смеси",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Толщина слоя должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    }
+  }
+]

@@ -1,28 +1,14 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure, lengthSymbol } from '../../lib/platform/measurement';
-
-// Цилиндр. Боковая поверхность и полная различаются двумя основаниями.
-
-const dim = (value: number): string => formatMeasure(value, fmtNumber);
+import { read, valid, unit as lengthUnit, dim, exact, add, times, number as rounded, product, INPUT, UNIT, RANGE } from '../../lib/platform/geometryNumericInput';
 
 export const compute: CalcFunction = (inputs) => {
-  const unit = lengthSymbol(toStr(inputs.unit, 'cm'));
-  const r = toNumber(inputs.r);
-  const h = toNumber(inputs.h);
-  const fail = (message: string) => ({
-    primary: { label: 'Объём', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  if (!(r > 0)) return fail('Радиус должен быть больше нуля');
-  if (!(h > 0)) return fail('Высота должна быть больше нуля');
-
-  return {
-    primary: { label: 'Объём', value: `${dim(Math.PI * r * r * h)} ${unit}³` },
-    secondary: [
-      { label: 'Боковая поверхность', value: `${dim(2 * Math.PI * r * h)} ${unit}²` },
-      { label: 'Полная поверхность', value: `${dim(2 * Math.PI * r * (r + h))} ${unit}²` },
-      { label: 'Площадь основания', value: `${dim(Math.PI * r * r)} ${unit}²` },
-    ],
-  };
+ const fail=(message:string)=>({primary:{label:'Объём',value:'—'},secondary:[{label:'Проверьте данные',value:message,accent:'red' as const}]});
+ const u=lengthUnit(inputs.unit === undefined ? 'cm' : inputs.unit);if(!u)return fail(UNIT);
+ const r=read(inputs.r),h=read(inputs.h);if(![r,h].every(Number.isFinite))return fail(INPUT);
+ if(!valid(r,h))return fail('Радиус и высота должны быть больше нуля');
+ const base=product(Math.PI,r,r),volume=product(Math.PI,r,r,h),lateral=product(2,Math.PI,r,h);
+ const total=rounded(times(exact(2),exact(Math.PI),exact(r),add(exact(r),exact(h))));
+ if(!valid(base,volume,lateral,total))return fail(RANGE);
+ return {primary:{label:'Объём',value:dim(volume)+' '+u+'³'},secondary:[{label:'Боковая поверхность',value:dim(lateral)+' '+u+'²'},
+ {label:'Полная поверхность',value:dim(total)+' '+u+'²'},{label:'Площадь основания',value:dim(base)+' '+u+'²'}]};
 };

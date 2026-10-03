@@ -1,10 +1,10 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, preserveNonZero, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
+import { integerInput } from './numeric';
 
 // Дроби считаются ТОЧНО, целыми числами, без промежуточных десятичных.
 //
-// Одна треть в десятичной записи бесконечна: округлив её, получают
-// 1/3 + 2/3 = 0,99999… вместо единицы. Поэтому числитель и знаменатель
+// Промежуточное округление может изменить результат. Числитель и знаменатель
 // остаются целыми до самого конца, а десятичное значение показывается
 // отдельной строкой — как справка, а не как основа расчёта.
 //
@@ -15,18 +15,23 @@ import { fmtNumber, preserveNonZero, toNumber, toStr } from '../../lib/format';
 const LIMIT = 1_000_000;
 const gcd = (a: number, b: number): number => (b === 0 ? Math.abs(a) : gcd(b, a % b));
 
+const decimal = (value: number) => value !== 0 && Math.abs(value) < 1e-6
+  ? value.toExponential(6).replace('.', ',')
+  : Number.isInteger(value) ? String(value) : fmtNumber(value, 6).replace(/0+$/, '').replace(/,$/, '');
+
 export const compute: CalcFunction = (inputs) => {
-  const op = toStr(inputs.op, 'add');
-  const a = toNumber(inputs.a);
-  const b = toNumber(inputs.b);
-  const c = toNumber(inputs.c);
-  const d = toNumber(inputs.d);
+  const op = inputs.op === undefined ? 'add' : inputs.op;
+  const a = integerInput(inputs.a);
+  const b = integerInput(inputs.b);
+  const c = integerInput(inputs.c);
+  const d = integerInput(inputs.d);
   const fail = (message: string) => ({
     primary: { label: 'Результат', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
-  if (![a, b, c, d].every(Number.isInteger)) return fail('Числа должны быть целыми');
+  if (!['add', 'sub', 'mul', 'div'].includes(op as string)) return fail('Выберите сложение, вычитание, умножение или деление');
+  if (a === null || b === null || c === null || d === null) return fail('Числа должны быть целыми');
   if (![a, b, c, d].every((value) => Math.abs(value) <= LIMIT)) {
     return fail('Числа слишком велики для точного расчёта');
   }
@@ -55,7 +60,7 @@ export const compute: CalcFunction = (inputs) => {
   return {
     primary: { label: 'Результат', value: rd === 1 ? `${rn}` : `${rn}/${rd}` },
     secondary: [
-      { label: 'Десятичное значение', value: fmtNumber(preserveNonZero(rn / rd, 6), 6).replace(/0+$/, '').replace(/,$/, '') },
+      { label: 'Десятичное значение', value: decimal(rn / rd) },
       { label: 'Смешанное число', value: mixed },
       { label: 'Сокращено на', value: `${divisor}` },
     ],

@@ -15,12 +15,18 @@ export const shared: CalculatorLocalization = {
       'В': 'To',
       'Год': 'Year',
     },
+    values: {
+      'Введите конечные числовые значения.': 'Enter finite numeric values.',
+    },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
       'В': 'У',
       'Год': 'Рік',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Введіть скінченні числові значення.',
     },
   },
   de: {
@@ -29,12 +35,18 @@ export const shared: CalculatorLocalization = {
       'В': 'Nach',
       'Год': 'Jahr',
     },
+    values: {
+      'Введите конечные числовые значения.': 'Gib endliche Zahlenwerte ein.',
+    },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'В': 'A',
       'Год': 'Año',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Introduce valores numéricos finitos.',
     },
   },
 };

@@ -39,13 +39,18 @@ test('currency pair pages keep their pair fixed', async ({ page }) => {
   await expect(page.getByTestId('calc-swap-currencies-btn')).toHaveCount(0);
 });
 
-test('legacy currency pair share links still restore their parameters', async ({ page }) => {
+test('legacy currency pair links restore the amount while preserving the page pair', async ({ page }) => {
   await page.goto('/ru/currency/usd-to-eur/?amount=250&from=GBP&to=TRY');
 
   await expect(page.getByTestId('field-amount')).toHaveValue('250');
-  await expect(page.getByTestId('field-from')).toHaveValue('GBP');
-  await expect(page.getByTestId('field-to')).toHaveValue('TRY');
+  // The URL identifies a USD/EUR calculator. Its disabled pair fields must
+  // agree with the title and saved-rate method even in a legacy share link.
+  await expect(page.getByTestId('field-from')).toBeDisabled();
+  await expect(page.getByTestId('field-from')).toHaveValue('USD');
+  await expect(page.getByTestId('field-to')).toBeDisabled();
+  await expect(page.getByTestId('field-to')).toHaveValue('EUR');
   await expect(page.getByTestId('calc-result')).toBeVisible();
+  await expect(page.getByTestId('calc-result-primary')).toContainText('€');
 });
 
 test('working days reports invalid excluded dates beside the field', async ({ page }) => {

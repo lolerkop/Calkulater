@@ -1,82 +1,110 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
-
-const RESULTS_EN = {
-  'CTR': 'CTR', 'Кликов на показы': 'Clicks to impressions',
-  'Показов на один клик': 'Impressions per click', 'Цена клика': 'Cost per click',
-  'Цена тысячи показов': 'Cost per thousand impressions', 'Проверьте данные': 'Check the values',
-};
-const RESULTS_UK = {
-  'CTR': 'CTR', 'Кликов на показы': 'Кліків на покази',
-  'Показов на один клик': 'Показів на один клік', 'Цена клика': 'Ціна кліку',
-  'Цена тысячи показов': 'Ціна тисячі показів', 'Проверьте данные': 'Перевірте дані',
-};
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'clicks': 'Klicks',
-      'impressions': 'Einblendungen',
-      'cost': 'Kosten der Kampagne',
+  "en": {
+    "fields": {
+      "clicks": "Clicks",
+      "impressions": "Impressions",
+      "cost": "Campaign spend"
     },
-    results: {
-      'CTR': 'CTR',
-      'Кликов на показы': 'Klicks zu Einblendungen',
-      'Показов на один клик': 'Einblendungen je Klick',
-      'Цена клика': 'Klickpreis',
-      'Цена тысячи показов': 'Kosten je tausend Einblendungen',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "CTR": "CTR",
+      "Кликов на показы": "Clicks to impressions",
+      "Показов на один клик": "Impressions per click",
+      "Цена клика": "Cost per click",
+      "Цена тысячи показов": "Cost per thousand impressions",
+      "Проверьте данные": "Check the values"
     },
-    values: {
-      'на': 'von',
-      '₽': '€',
-      'Показов должно быть не меньше одного': 'Es muss mindestens eine Einblendung sein',
-      'Кликов не может быть меньше нуля': 'Die Zahl der Klicks kann nicht negativ sein',
-      'Кликов больше, чем показов — вероятно, цифры взяты за разные периоды': 'Mehr Klicks als Einblendungen — die Zahlen stammen vermutlich aus verschiedenen Zeiträumen',
-    },
+    "values": {
+      ...marketingScalarValues.en,
+      "на": "of",
+      "₽": "$",
+      "Показов должно быть не меньше одного": "There must be at least one impression",
+      "Кликов не может быть меньше нуля": "Clicks cannot be negative",
+      "Кликов больше, чем показов — вероятно, цифры взяты за разные периоды": "More clicks than impressions — the figures are probably from different periods",
+      "Количество не может быть отрицательным": "The count cannot be negative",
+      "Неизвестный режим расчёта": "Unknown calculation mode",
+      "Расходы не могут быть отрицательными": "Spend cannot be negative"
+    }
   },
-  en: {
-    fields: { clicks: 'Clicks', impressions: 'Impressions', cost: 'Campaign spend' },
-    results: RESULTS_EN,
-    values: {
-      'на': 'of', '₽': '$',
-      'Показов должно быть не меньше одного': 'There must be at least one impression',
-      'Кликов не может быть меньше нуля': 'Clicks cannot be negative',
-      'Кликов больше, чем показов — вероятно, цифры взяты за разные периоды':
-        'More clicks than impressions — the figures are probably from different periods',
+  "uk": {
+    "fields": {
+      "clicks": "Кліки",
+      "impressions": "Покази",
+      "cost": "Витрати кампанії"
     },
-  },
-  uk: {
-    fields: { clicks: 'Кліки', impressions: 'Покази', cost: 'Витрати кампанії' },
-    results: RESULTS_UK,
-    values: {
-      'на': 'на', '₽': '₴',
-      'Показов должно быть не меньше одного': 'Показів має бути щонайменше один',
-      'Кликов не может быть меньше нуля': 'Кліків не може бути менше за нуль',
-      'Кликов больше, чем показов — вероятно, цифры взяты за разные периоды':
-        'Кліків більше, ніж показів — імовірно, цифри взяті за різні періоди',
+    "results": {
+      "CTR": "CTR",
+      "Кликов на показы": "Кліків на покази",
+      "Показов на один клик": "Показів на один клік",
+      "Цена клика": "Ціна кліку",
+      "Цена тысячи показов": "Ціна тисячі показів",
+      "Проверьте данные": "Перевірте дані"
     },
+    "values": {
+      ...marketingScalarValues.uk,
+      "на": "на",
+      "₽": "₴",
+      "Показов должно быть не меньше одного": "Показів має бути щонайменше один",
+      "Кликов не может быть меньше нуля": "Кліків не може бути менше за нуль",
+      "Кликов больше, чем показов — вероятно, цифры взяты за разные периоды": "Кліків більше, ніж показів — імовірно, цифри взяті за різні періоди",
+      "Количество не может быть отрицательным": "Кількість не може бути від’ємною",
+      "Неизвестный режим расчёта": "Невідомий режим розрахунку",
+      "Расходы не могут быть отрицательными": "Витрати не можуть бути від’ємними"
+    }
   },
-  es: {
-    fields: {
+  "de": {
+    "fields": {
+      "clicks": "Klicks",
+      "impressions": "Einblendungen",
+      "cost": "Kosten der Kampagne"
+    },
+    "results": {
+      "CTR": "CTR",
+      "Кликов на показы": "Klicks zu Einblendungen",
+      "Показов на один клик": "Einblendungen je Klick",
+      "Цена клика": "Klickpreis",
+      "Цена тысячи показов": "Kosten je tausend Einblendungen",
+      "Проверьте данные": "Prüfe die Werte"
+    },
+    "values": {
+      ...marketingScalarValues.de,
+      "на": "von",
+      "₽": "€",
+      "Показов должно быть не меньше одного": "Es muss mindestens eine Einblendung sein",
+      "Кликов не может быть меньше нуля": "Die Zahl der Klicks kann nicht negativ sein",
+      "Кликов больше, чем показов — вероятно, цифры взяты за разные периоды": "Mehr Klicks als Einblendungen — die Zahlen stammen vermutlich aus verschiedenen Zeiträumen",
+      "Количество не может быть отрицательным": "Die Anzahl darf nicht negativ sein",
+      "Неизвестный режим расчёта": "Unbekannter Berechnungsmodus",
+      "Расходы не могут быть отрицательными": "Die Ausgaben dürfen nicht negativ sein"
+    }
+  },
+  "es": {
+    "fields": {
       "clicks": "Clics",
       "impressions": "Impresiones",
-      "cost": "Inversión en la campaña",
+      "cost": "Inversión en la campaña"
     },
-    options: {},
-    results: {
+    "options": {},
+    "results": {
       "CTR": "CTR",
       "Кликов на показы": "Clics sobre impresiones",
       "Показов на один клик": "Impresiones por clic",
       "Цена клика": "Coste por clic",
       "Цена тысячи показов": "Coste por mil impresiones",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
+      ...marketingScalarValues.es,
       "на": "de",
       "₽": "€",
       "Показов должно быть не меньше одного": "Debe haber al menos una impresión",
       "Кликов не может быть меньше нуля": "Los clics no pueden ser negativos",
       "Кликов больше, чем показов — вероятно, цифры взяты за разные периоды": "Hay más clics que impresiones: probablemente las cifras son de periodos distintos",
-    },
-  },
+      "Количество не может быть отрицательным": "El recuento no puede ser negativo",
+      "Неизвестный режим расчёта": "Modo de cálculo desconocido",
+      "Расходы не могут быть отрицательными": "El gasto no puede ser negativo"
+    }
+  }
 };

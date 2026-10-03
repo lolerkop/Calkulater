@@ -1,54 +1,33 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatStatistic } from '../../lib/platform/measurement';
+import { add, exact, INPUT, integer, MODE, mode, negative, nonzeroFinite, number, RANGE, read, sqrtRatio, stat, times } from '../stats-descriptive/statisticsNumeric';
 
-// Доверительный интервал для среднего.
-//
-// Ширина интервала определяется не разбросом самих значений, а стандартной
-// ОШИБКОЙ среднего: σ делится на корень из объёма выборки. Отсюда главное
-// свойство расчёта — чтобы вдвое сузить интервал, выборку нужно увеличить
-// вчетверо, а не вдвое.
-//
-// Критические значения взяты для нормального распределения и зафиксированы
-// таблично: 1,645 для 90 %, 1,96 для 95 % и 2,576 для 99 %. Распределение
-// Стьюдента для малых выборок здесь не применяется — это осознанное сужение,
-// названное в тексте страницы: на малых n интервал получится уже настоящего.
-//
-// Выборка из одного наблюдения отклоняется: разброс по ней не определён, и
-// показать интервал значило бы выдать число там, где его нет.
-
-const stat = (value: number) => formatStatistic(value, fmtNumber);
+// Preserved rounded normal critical values; no Student t calculation is implied.
 const Z: Record<string, number> = { '90': 1.645, '95': 1.96, '99': 2.576 };
-
 export const compute: CalcFunction = (inputs) => {
-  const mean = toNumber(inputs.mean);
-  const sd = toNumber(inputs.sd);
-  const n = toNumber(inputs.n);
-  const confidence = toStr(inputs.confidence, '95');
-
-  const fail = (message: string) => ({
-    primary: { label: 'Доверительный интервал', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+  const fail = (message: string) => ({ primary: { label: 'Доверительный интервал', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  const mean = read(inputs.mean), sd = read(inputs.sd), n = integer(inputs.n);
+  const confidence = mode(inputs.confidence, '95', ['90', '95', '99']);
+  if (!confidence) return fail(MODE);
+  if (![mean, sd].every(Number.isFinite)) return fail(INPUT);
   if (sd < 0) return fail('Стандартное отклонение не может быть отрицательным');
-  if (!(n >= 2)) return fail('Объём выборки должен быть не меньше двух');
-  if (!Number.isInteger(n)) return fail('Объём выборки должен быть целым числом');
-
-  const z = Z[confidence] ?? Z['95'];
-  const se = sd / Math.sqrt(n);
-  const margin = z * se;
-  const low = mean - margin;
-  const high = mean + margin;
-
-  return {
-    primary: { label: 'Доверительный интервал', value: `${stat(low)} … ${stat(high)}` },
-    secondary: [
-      { label: 'Предел погрешности', value: stat(margin) },
-      { label: 'Стандартная ошибка', value: stat(se) },
-      { label: 'Критическое значение z', value: stat(z) },
-      { label: 'Нижняя граница', value: stat(low) },
-      { label: 'Верхняя граница', value: stat(high) },
-    ],
-  };
+  if (!Number.isFinite(n)) return fail('Объём выборки должен быть целым числом');
+  if (n < 2) return fail('Объём выборки должен быть не меньше двух');
+  const z = Z[confidence], squared = times(exact(sd), exact(sd));
+  const se = sqrtRatio(squared, exact(n)), margin = sqrtRatio(times(squared, exact(z), exact(z)), exact(n));
+  const lowExact = add(exact(mean), negative(exact(margin))), highExact = add(exact(mean), exact(margin));
+  const low = number(lowExact), high = number(highExact);
+  if (![se, margin, low, high].every(Number.isFinite) || (sd > 0 && (se === 0 || margin === 0)) || !nonzeroFinite(low, lowExact) || !nonzeroFinite(high, highExact)) return fail(RANGE);
+  if (margin > 0 && low === high) return fail(RANGE);
+  let lower = stat(low), upper = stat(high);
+  if (margin > 0 && lower === upper) {
+    const precise = (value: number): string => {
+      const [mantissa, exponent] = value.toExponential(16).split('e');
+      return `${mantissa.replace('.', ',')}·10^${Number(exponent)}`;
+    };
+    lower = precise(low); upper = precise(high);
+  }
+  return { primary: { label: 'Доверительный интервал', value: `${lower} … ${upper}` }, secondary: [
+    { label: 'Предел погрешности', value: stat(margin) }, { label: 'Стандартная ошибка', value: stat(se) },
+    { label: 'Критическое значение z', value: stat(z) }, { label: 'Нижняя граница', value: lower }, { label: 'Верхняя граница', value: upper },
+  ] };
 };

@@ -163,77 +163,77 @@ export const copy: CategoryCopyByLocale = {
 
 export const faq: CategoryFaqByLocale = {
   ru: [
-    {
-      q: "Откуда брать тариф на электроэнергию?",
-      a: "Из своей квитанции: там указана цена за киловатт-час. Многотарифные счётчики здесь не учитываются, поэтому считайте по нужной зоне отдельно.",
-    },
-    {
-      q: "Мощность прибора — это то, что написано на наклейке?",
-      a: "Да, паспортная мощность. Реальное потребление у техники с циклами, вроде холодильника, будет ниже, потому что она работает не постоянно.",
-    },
-    {
-      q: "Сколько принято оставлять на чай?",
-      a: "Это зависит от страны и заведения, поэтому процент задаёте вы. Калькулятор не подсказывает норму и не подставляет её за вас.",
-    },
-    {
-      q: "Что нужно знать для расчёта бассейна?",
-      a: "Либо объём в кубометрах, либо размеры для прямоугольной или круглой чаши, и расход воды. Произвольные формы не поддерживаются.",
-    },
-  ],
+        {
+          "q": "Откуда брать тариф на электроэнергию?",
+          "a": "В квитанции указан тариф за киловатт-час. У калькулятора потребления электричества один тариф; при нескольких зонах отдельно посчитайте потребление и цену каждой зоны, затем сложите расходы."
+        },
+        {
+          "q": "Мощность прибора — это то, что написано на наклейке?",
+          "a": "Формула мощность × время предполагает введённую мощность на протяжении введённого времени работы. Прибор с циклами не работает постоянно на паспортной мощности. Используйте подходящее время включения или измеренную среднюю мощность; сами циклы калькулятор не определяет."
+        },
+        {
+          "q": "Сколько принято оставлять на чай?",
+          "a": "Это зависит от страны, места и ситуации. Начальные 10% — изменяемый пример для расчёта, а не региональная рекомендация: процент выбираете вы."
+        },
+        {
+          "q": "Что нужно знать для расчёта бассейна?",
+          "a": "Либо объём в кубометрах, либо размеры для прямоугольной или круглой чаши, и расход воды. Произвольные формы не поддерживаются."
+        }
+      ],
   en: [
-    {
-      q: "Where do I find my electricity tariff?",
-      a: "On your bill: it gives the price per kilowatt-hour. Multi-rate meters are not modelled, so calculate each rate band separately.",
-    },
-    {
-      q: "Is appliance power the number on the label?",
-      a: "Yes, the rated power. Anything that cycles, such as a fridge, will use less in practice because it does not run continuously.",
-    },
-    {
-      q: "How much should I tip?",
-      a: "That depends on the country and the venue, so the percentage is yours to set. The calculator does not suggest a norm or fill one in for you.",
-    },
-    {
-      q: "What do I need for the pool calculation?",
-      a: "Either the volume in cubic metres, or the dimensions of a rectangular or round pool, plus the flow rate. Arbitrary shapes are not supported.",
-    },
-  ],
+        {
+          "q": "Where do I find my electricity tariff?",
+          "a": "Your bill gives the price per kilowatt-hour. Electricity usage has a single tariff; with several rate bands, calculate each band’s consumption and price separately, then add the costs."
+        },
+        {
+          "q": "Is appliance power the number on the label?",
+          "a": "Power × time assumes the entered power over the entered operating time. A cycling appliance is not continuously active at its rated power. Use suitable active time or measured average power; the calculator does not infer switching cycles."
+        },
+        {
+          "q": "How much should I tip?",
+          "a": "It depends on country, venue and situation. The initial 10% is an editable calculation example, not a regional recommendation; you choose the percentage."
+        },
+        {
+          "q": "What do I need for the pool calculation?",
+          "a": "Either the volume in cubic metres, or the dimensions of a rectangular or round pool, plus the flow rate. Arbitrary shapes are not supported."
+        }
+      ],
   es: [
-    {
-      q: "¿Dónde encuentro mi tarifa eléctrica?",
-      a: "En la factura: indica el precio por kilovatio hora. Los contadores con varias tarifas no están modelados, así que calcula cada tramo por separado.",
-    },
-    {
-      q: "¿La potencia del aparato es la de la etiqueta?",
-      a: "Sí, la potencia nominal. Lo que funciona por ciclos, como un frigorífico, consumirá menos en la práctica porque no está en marcha de forma continua.",
-    },
-    {
-      q: "¿Cuánta propina conviene dejar?",
-      a: "Depende del país y del local, así que el porcentaje lo eliges tú. La calculadora no sugiere una norma ni la rellena por ti.",
-    },
-    {
-      q: "¿Qué necesito para el cálculo de la piscina?",
-      a: "El volumen en metros cúbicos, o bien las medidas de una piscina rectangular o redonda, más el caudal. Las formas arbitrarias no están contempladas.",
-    },
-  ],
+        {
+          "q": "¿Dónde encuentro mi tarifa eléctrica?",
+          "a": "La factura indica el precio por kilovatio hora. El consumo eléctrico tiene una sola tarifa: si hay varias franjas, calcula consumo y precio de cada una y suma los costes."
+        },
+        {
+          "q": "¿La potencia del aparato es la de la etiqueta?",
+          "a": "Potencia × tiempo supone la potencia introducida durante el tiempo de funcionamiento indicado. Un aparato con ciclos no está siempre activo a potencia nominal. Usa el tiempo activo adecuado o una potencia media medida; no se deducen los ciclos."
+        },
+        {
+          "q": "¿Cuánta propina conviene dejar?",
+          "a": "Depende del país, del lugar y de la situación. El 10% inicial es un ejemplo de cálculo que puedes cambiar, no una recomendación regional; eliges el porcentaje."
+        },
+        {
+          "q": "¿Qué necesito para el cálculo de la piscina?",
+          "a": "El volumen en metros cúbicos, o bien las medidas de una piscina rectangular o redonda, más el caudal. Las formas arbitrarias no están contempladas."
+        }
+      ],
   de: [
-    {
-      q: "Where do I find my electricity tariff?",
-      a: "On your bill: it gives the price per kilowatt-hour. Multi-rate meters are not modelled, so calculate each rate band separately.",
-    },
-    {
-      q: "Is appliance power the number on the label?",
-      a: "Yes, the rated power. Anything that cycles, such as a fridge, will use less in practice because it does not run continuously.",
-    },
-    {
-      q: "How much should I tip?",
-      a: "That depends on the country and the venue, so the percentage is yours to set. The calculator does not suggest a norm or fill one in for you.",
-    },
-    {
-      q: "What do I need for the pool calculation?",
-      a: "Either the volume in cubic metres, or the dimensions of a rectangular or round pool, plus the flow rate. Arbitrary shapes are not supported.",
-    },
-  ],
+        {
+          "q": "Wo finde ich meinen Stromtarif?",
+          "a": "Auf der Rechnung steht der Preis je Kilowattstunde. Der Stromverbrauchsrechner hat einen einzelnen Tarif; bei mehreren Tarifzonen berechnest du Verbrauch und Preis je Zone getrennt und addierst die Kosten."
+        },
+        {
+          "q": "Ist die Geräteleistung der Wert auf dem Typenschild?",
+          "a": "Die Rechnung Leistung × Zeit setzt die eingegebene Leistung während der eingegebenen Laufzeit voraus. Ein zyklisch arbeitendes Gerät ist nicht ständig mit seiner Nennleistung aktiv. Verwende geeignete Laufzeiten oder eine gemessene mittlere Leistung; die Schaltzyklen werden nicht selbst ermittelt."
+        },
+        {
+          "q": "Wie viel Trinkgeld sollte ich geben?",
+          "a": "Das hängt von Land, Ort und Situation ab. Die anfänglichen 10% sind ein veränderbares Rechenbeispiel und keine regionale Empfehlung; du bestimmst den Prozentsatz."
+        },
+        {
+          "q": "Was brauche ich für die Poolberechnung?",
+          "a": "Einen bekannten Inhalt in Kubikmetern oder die Maße eines rechteckigen beziehungsweise runden Beckens sowie den Durchfluss. Andere Formen werden nicht aus ihrer Geometrie berechnet; ihren bekannten Inhalt kannst du direkt eingeben."
+        }
+      ],
   fr: [
     {
       q: "Where do I find my electricity tariff?",
@@ -415,23 +415,23 @@ export const faq: CategoryFaqByLocale = {
     },
   ],
   uk: [
-    {
-      q: "Звідки брати тариф на електроенергію?",
-      a: "З власної квитанції: там указано ціну за кіловат-годину. Багатотарифні лічильники тут не враховуються.",
-    },
-    {
-      q: "Потужність приладу — це те, що написано на наклейці?",
-      a: "Так, паспортна потужність. Реальне споживання техніки з циклами буде нижчим.",
-    },
-    {
-      q: "Скільки прийнято залишати на чай?",
-      a: "Це залежить від країни та закладу, тому відсоток задаєте ви.",
-    },
-    {
-      q: "Що потрібно знати для розрахунку басейну?",
-      a: "Або об’єм у кубометрах, або розміри прямокутної чи круглої чаші, і витрату води.",
-    },
-  ],
+        {
+          "q": "Звідки брати тариф на електроенергію?",
+          "a": "У квитанції вказано тариф за кіловат-годину. Калькулятор споживання електрики має один тариф; для кількох зон окремо порахуйте споживання й ціну кожної та додайте витрати."
+        },
+        {
+          "q": "Потужність приладу — це те, що написано на наклейці?",
+          "a": "Формула потужність × час передбачає введену потужність протягом заданого часу роботи. Прилад із циклами не працює постійно на паспортній потужності. Використовуйте відповідний активний час або виміряну середню потужність; самі цикли калькулятор не визначає."
+        },
+        {
+          "q": "Скільки прийнято залишати на чай?",
+          "a": "Це залежить від країни, місця та ситуації. Початкові 10% — змінюваний приклад для розрахунку, а не регіональна рекомендація: відсоток обираєте ви."
+        },
+        {
+          "q": "Що потрібно знати для розрахунку басейну?",
+          "a": "Або об’єм у кубометрах, або розміри прямокутної чи круглої чаші, і витрату води."
+        }
+      ],
   id: [
     {
       q: "Where do I find my electricity tariff?",

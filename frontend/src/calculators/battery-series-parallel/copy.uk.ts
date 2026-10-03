@@ -1,12 +1,20 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const batterySeriesParallelCopyUk: CalculatorSeoCopy = {
-  name: 'Калькулятор з’єднання акумуляторів',
-  slug: 'batareyi-zednannya',
-  shortDescription: 'Напруга, ємність та енергія збірки за схемою з’єднання.',
-  seoTitle: 'Калькулятор послідовного та паралельного з’єднання акумуляторів',
-  seoDescription:
-    'Розрахунок напруги, ємності та енергії акумуляторної збірки за параметрами комірки і схемою послідовно-паралельного з’єднання.',
-  h1: 'Калькулятор з’єднання акумуляторів',
-  keywords: ['з’єднання акумуляторів', 'послідовно і паралельно', 'напруга збірки', 'ємність батареї'],
+export const batterySeriesParallelCopyUk: CalculatorCopy = {
+  ...{
+  "name": "Калькулятор з’єднання акумуляторів",
+  "slug": "batareyi-zednannya",
+  "shortDescription": "Напруга, ємність та енергія збірки за схемою з’єднання.",
+  "seoTitle": "Калькулятор послідовного та паралельного з’єднання акумуляторів",
+  "seoDescription": "Розрахунок напруги, ємності та енергії акумуляторної збірки за параметрами комірки і схемою послідовно-паралельного з’єднання.",
+  "h1": "Калькулятор з’єднання акумуляторів",
+  "keywords": [
+    "з’єднання акумуляторів",
+    "послідовно і паралельно",
+    "напруга збірки",
+    "ємність батареї"
+  ]
+},
+  ...contractContent.uk,
 };

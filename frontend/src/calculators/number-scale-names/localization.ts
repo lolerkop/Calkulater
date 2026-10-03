@@ -24,6 +24,9 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Результат вне числового диапазона": "Das Ergebnis liegt außerhalb des Zahlenbereichs",
+      "Вне числового диапазона": "Außerhalb des Zahlenbereichs",
+
       'Значение должно быть больше нуля': 'Der Wert muss größer als null sein',
       'Неизвестная шкала': 'Unbekannte Skala',
     },
@@ -39,6 +42,9 @@ export const localization: CalculatorLocalization = {
       'В крорах': 'In crore', 'Отношение шкал': 'Scale ratio', 'Проверьте данные': 'Check the values',
     },
     values: {
+      "Результат вне числового диапазона": "The result is outside the numeric range",
+      "Вне числового диапазона": "Outside the numeric range",
+
       'Значение должно быть больше нуля': 'The value must be greater than zero',
       'Неизвестная шкала': 'Unknown scale',
     },
@@ -54,6 +60,9 @@ export const localization: CalculatorLocalization = {
       'В крорах': 'У крорах', 'Отношение шкал': 'Відношення шкал', 'Проверьте данные': 'Перевірте дані',
     },
     values: {
+      "Результат вне числового диапазона": "Результат поза числовим діапазоном",
+      "Вне числового диапазона": "Поза числовим діапазоном",
+
       'Значение должно быть больше нуля': 'Значення має бути більшим за нуль',
       'Неизвестная шкала': 'Невідома шкала',
     },
@@ -81,6 +90,9 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Результат вне числового диапазона": "El resultado está fuera del rango numérico",
+      "Вне числового диапазона": "Fuera del rango numérico",
+
       "Значение должно быть больше нуля": "El valor debe ser mayor que cero",
       "Неизвестная шкала": "Escala desconocida",
     },

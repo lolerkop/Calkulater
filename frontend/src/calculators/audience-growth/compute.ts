@@ -1,25 +1,20 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { number as readNumber, integer as readInteger, validOutput } from '../../lib/platform/scalarInputDisplay';
+import { displayNumber } from '../../lib/platform/financeDisplay';
+import { fmtNumber } from '../../lib/format';
 import { formatStatistic } from '../../lib/platform/measurement';
 
-// Рост аудитории между двумя замерами.
-//
-//   общий рост      = (конец / начало − 1) × 100
-//   рост за период  = ((конец / начало)^(1/периодов) − 1) × 100
-//
-// Две величины отвечают на разные вопросы, и путать их дорого. Общий рост
-// говорит, во сколько раз аудитория стала больше; рост за период — какой темп
-// нужно удерживать, чтобы прийти к этому же результату равномерно. Удвоение
-// за год и удвоение за месяц дают одинаковый общий рост и совершенно разный темп.
 export const compute: CalcFunction = (inputs) => {
-  const start = toNumber(inputs.start);
-  const end = toNumber(inputs.end);
-  const periods = toNumber(inputs.periods);
+  const start = readInteger(inputs.start);
+  const end = readInteger(inputs.end);
+  const periods = readNumber(inputs.periods);
 
   const fail = (message: string) => ({
     primary: { label: 'Общий рост', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
+
+  if (start === null || end === null || periods === null) return fail('Введите корректные числовые данные');
 
   if (!(start > 0)) return fail('Начальная аудитория должна быть больше нуля');
   if (!(end > 0)) return fail('Конечная аудитория должна быть больше нуля');
@@ -27,8 +22,9 @@ export const compute: CalcFunction = (inputs) => {
 
   const multiple = end / start;
   const total = (multiple - 1) * 100;
-  const perPeriod = (Math.pow(multiple, 1 / periods) - 1) * 100;
-  const pct = (value: number) => `${fmtNumber(value, 2)}%`;
+  const perPeriod = Math.expm1(Math.log(multiple) / periods) * 100;
+  if (![multiple, total, perPeriod].every(value => validOutput(value)) || (end !== start && perPeriod === 0)) return fail('Результат вне допустимого диапазона');
+  const pct = (value: number) => `${displayNumber(value, 2)}%`;
 
   return {
     primary: { label: 'Общий рост', value: pct(total) },

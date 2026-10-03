@@ -1,6 +1,7 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { mathWave8ContractContent } from './contractContent';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const statsDescriptiveCopyUk: CalculatorSeoCopy = {
+export const statsDescriptiveCopyUk: CalculatorCopy = {
   name: 'Калькулятор середнього та статистики',
   slug: 'serednie-znachennia',
   shortDescription: 'Середнє, медіана, мода, розмах і стандартне відхилення за списком чисел.',
@@ -8,4 +9,5 @@ export const statsDescriptiveCopyUk: CalculatorSeoCopy = {
   seoDescription: 'Обчисліть середнє арифметичне, медіану, моду, розмах, дисперсію та стандартне відхилення за списком чисел.',
   h1: 'Калькулятор середнього та статистики',
   keywords: ['калькулятор середнього', 'середнє арифметичне', 'медіана', 'стандартне відхилення'],
+  ...mathWave8ContractContent.uk,
 };

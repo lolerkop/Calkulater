@@ -1,87 +1,134 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
-
-const RESULTS_EN = {
-    "Поместится файлов": "Files that fit",
-    "Точное частное": "Exact quotient",
-    "Останется свободно": "Space left over",
-    "Доступно под файлы": "Available for files",
-    "Отдано под резерв": "Set aside as reserve",
-    "Проверьте данные": "Check the values",
-};
-const RESULTS_UK = {
-    "Поместится файлов": "Файлів помістяться",
-    "Точное частное": "Точна частка",
-    "Останется свободно": "Залишиться вільно",
-    "Доступно под файлы": "Доступно під файли",
-    "Отдано под резерв": "Віддано під резерв",
-    "Проверьте данные": "Перевірте дані",
-};
-
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'capacity': 'Kapazität des Datenträgers',
-      'capacityUnit': 'Einheit der Kapazität',
-      'fileSize': 'Dateigröße',
-      'fileUnit': 'Einheit der Datei',
-      'reserved': 'Reservierter Platz, %',
+  "de": {
+    "fields": {
+      "capacity": "Kapazität des Datenträgers",
+      "capacityUnit": "Einheit der Kapazität",
+      "fileSize": "Dateigröße",
+      "fileUnit": "Einheit der Datei",
+      "reserved": "Reservierter Platz"
     },
-    options: {
-      'mb': 'MB (10⁶)',
-      'gb': 'GB (10⁹)',
-      'tb': 'TB (10¹²)',
-      'mib': 'MiB (1024²)',
-      'gib': 'GiB (1024³)',
-      'tib': 'TiB (1024⁴)',
-      'kb': 'KB (1000)',
-      'kib': 'KiB (1024)',
+    "options": {
+      "mb": "MB (10⁶)",
+      "gb": "GB (10⁹)",
+      "tb": "TB (10¹²)",
+      "mib": "MiB (1024²)",
+      "gib": "GiB (1024³)",
+      "tib": "TiB (1024⁴)",
+      "kb": "KB (1000)",
+      "kib": "KiB (1024)"
     },
-    results: {
-      'Поместится файлов': 'Dateien, die hineinpassen',
-      'Точное частное': 'Genauer Quotient',
-      'Останется свободно': 'Bleibt frei',
-      'Доступно под файлы': 'Für Dateien verfügbar',
-      'Отдано под резерв': 'Als Reserve zurückgelegt',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Поместится файлов": "Dateien, die hineinpassen",
+      "Точное частное": "Genauer Quotient",
+      "Останется свободно": "Bleibt frei",
+      "Доступно под файлы": "Für Dateien verfügbar",
+      "Отдано под резерв": "Als Reserve zurückgelegt",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'ГБ': 'GB',
-      'Ёмкость должна быть больше нуля': 'Die Kapazität muss größer als null sein',
-      'Размер файла должен быть больше нуля': 'Die Dateigröße muss größer als null sein',
-      'Резерв задаётся в диапазоне от 0 до 100 процентов': 'Die Reserve liegt im Bereich von 0 bis 100 Prozent',
-    },
+    "values": {
+      "ГБ": "GB",
+      "Ёмкость должна быть больше нуля": "Die Kapazität muss größer als null sein",
+      "Размер файла должен быть больше нуля": "Die Dateigröße muss größer als null sein",
+      "Резерв задаётся в диапазоне от 0 до 100 процентов": "Die Reserve liegt im Bereich von 0 bis 100 Prozent",
+      "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+      "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Rechenmodus",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "Das Ergebnis liegt außerhalb des Zahlenbereichs; prüfe die Größenordnung der Eingaben",
+      "Выберите единицы из списка": "Wähle Einheiten aus der Liste",
+      "Число файлов превышает диапазон безопасных целых": "Die Dateizahl überschreitet den sicheren Ganzzahlbereich",
+      "МБ": "MB",
+      "ТБ": "TB"
+    }
   },
-  en: {
-    fields: { capacity: "Drive capacity", capacityUnit: "Capacity unit", fileSize: "File size", fileUnit: "File unit", reserved: "Reserved space, %" },
-    options: { mb: "MB (10⁶)", gb: "GB (10⁹)", tb: "TB (10¹²)", mib: "MiB (1024²)", gib: "GiB (1024³)", tib: "TiB (1024⁴)", kb: "KB (1000)", kib: "KiB (1024)" },
-    results: RESULTS_EN,
-    values: {
-    "ГБ": "GB",
-    "Ёмкость должна быть больше нуля": "The capacity must be greater than zero",
-    "Размер файла должен быть больше нуля": "The file size must be greater than zero",
-    "Резерв задаётся в диапазоне от 0 до 100 процентов": "Reserved space is set between 0 and 100 percent",
+  "en": {
+    "fields": {
+      "capacity": "Drive capacity",
+      "capacityUnit": "Capacity unit",
+      "fileSize": "File size",
+      "fileUnit": "File unit",
+      "reserved": "Reserved space"
     },
-  },
-  uk: {
-    fields: { capacity: "Ємність носія", capacityUnit: "Одиниця ємності", fileSize: "Розмір файлу", fileUnit: "Одиниця файлу", reserved: "Службовий резерв, %" },
-    options: { mb: "МБ (10⁶)", gb: "ГБ (10⁹)", tb: "ТБ (10¹²)", mib: "МіБ (1024²)", gib: "ГіБ (1024³)", tib: "ТіБ (1024⁴)", kb: "КБ (1000)", kib: "КіБ (1024)" },
-    results: RESULTS_UK,
-    values: {
-    "ГБ": "ГБ",
-    "Ёмкость должна быть больше нуля": "Ємність має бути більшою за нуль",
-    "Размер файла должен быть больше нуля": "Розмір файлу має бути більшим за нуль",
-    "Резерв задаётся в диапазоне от 0 до 100 процентов": "Резерв задається в діапазоні від 0 до 100 відсотків",
+    "options": {
+      "mb": "MB (10⁶)",
+      "gb": "GB (10⁹)",
+      "tb": "TB (10¹²)",
+      "mib": "MiB (1024²)",
+      "gib": "GiB (1024³)",
+      "tib": "TiB (1024⁴)",
+      "kb": "KB (1000)",
+      "kib": "KiB (1024)"
     },
+    "results": {
+      "Поместится файлов": "Files that fit",
+      "Точное частное": "Exact quotient",
+      "Останется свободно": "Space left over",
+      "Доступно под файлы": "Available for files",
+      "Отдано под резерв": "Set aside as reserve",
+      "Проверьте данные": "Check the values"
+    },
+    "values": {
+      "ГБ": "GB",
+      "Ёмкость должна быть больше нуля": "The capacity must be greater than zero",
+      "Размер файла должен быть больше нуля": "The file size must be greater than zero",
+      "Резерв задаётся в диапазоне от 0 до 100 процентов": "Reserved space is set between 0 and 100 percent",
+      "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+      "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "The result is outside the numerical range; check the input scale",
+      "Выберите единицы из списка": "Choose units from the list",
+      "Число файлов превышает диапазон безопасных целых": "The file count exceeds the safe integer range",
+      "МБ": "MB",
+      "ТБ": "TB"
+    }
   },
-  es: {
-    fields: {
+  "uk": {
+    "fields": {
+      "capacity": "Ємність носія",
+      "capacityUnit": "Одиниця ємності",
+      "fileSize": "Розмір файлу",
+      "fileUnit": "Одиниця файлу",
+      "reserved": "Службовий резерв"
+    },
+    "options": {
+      "mb": "МБ (10⁶)",
+      "gb": "ГБ (10⁹)",
+      "tb": "ТБ (10¹²)",
+      "mib": "МіБ (1024²)",
+      "gib": "ГіБ (1024³)",
+      "tib": "ТіБ (1024⁴)",
+      "kb": "КБ (1000)",
+      "kib": "КіБ (1024)"
+    },
+    "results": {
+      "Поместится файлов": "Файлів помістяться",
+      "Точное частное": "Точна частка",
+      "Останется свободно": "Залишиться вільно",
+      "Доступно под файлы": "Доступно під файли",
+      "Отдано под резерв": "Віддано під резерв",
+      "Проверьте данные": "Перевірте дані"
+    },
+    "values": {
+      "ГБ": "ГБ",
+      "Ёмкость должна быть больше нуля": "Ємність має бути більшою за нуль",
+      "Размер файла должен быть больше нуля": "Розмір файлу має бути більшим за нуль",
+      "Резерв задаётся в диапазоне от 0 до 100 процентов": "Резерв задається в діапазоні від 0 до 100 відсотків",
+      "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+      "Выберите поддерживаемый режим расчёта": "Оберіть підтримуваний режим розрахунку",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "Результат поза числовим діапазоном; перевірте масштаб вхідних величин",
+      "Выберите единицы из списка": "Оберіть одиниці зі списку",
+      "Число файлов превышает диапазон безопасных целых": "Кількість файлів перевищує безпечний цілий діапазон",
+      "МБ": "МБ",
+      "ТБ": "ТБ"
+    }
+  },
+  "es": {
+    "fields": {
       "capacity": "Capacidad de la unidad",
       "capacityUnit": "Unidad de capacidad",
       "fileSize": "Tamaño del archivo",
       "fileUnit": "Unidad del archivo",
-      "reserved": "Espacio reservado, %",
+      "reserved": "Espacio reservado"
     },
-    options: {
+    "options": {
       "mb": "MB (10⁶)",
       "gb": "GB (10⁹)",
       "tb": "TB (10¹²)",
@@ -89,21 +136,28 @@ export const localization: CalculatorLocalization = {
       "gib": "GiB (1024³)",
       "tib": "TiB (1024⁴)",
       "kb": "kB (1000)",
-      "kib": "KiB (1024)",
+      "kib": "KiB (1024)"
     },
-    results: {
+    "results": {
       "Поместится файлов": "Archivos que caben",
       "Точное частное": "Cociente exacto",
       "Останется свободно": "Espacio sobrante",
       "Доступно под файлы": "Disponible para archivos",
       "Отдано под резерв": "Apartado como reserva",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "ГБ": "GB",
       "Ёмкость должна быть больше нуля": "La capacidad debe ser mayor que cero",
       "Размер файла должен быть больше нуля": "El tamaño del archivo debe ser mayor que cero",
       "Резерв задаётся в диапазоне от 0 до 100 процентов": "El espacio reservado se fija entre 0 y 100 por ciento",
-    },
-  },
+      "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+      "Выберите поддерживаемый режим расчёта": "Selecciona un modo de cálculo admitido",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "El resultado está fuera del intervalo numérico; revisa la escala de las entradas",
+      "Выберите единицы из списка": "Selecciona unidades de la lista",
+      "Число файлов превышает диапазон безопасных целых": "El número de archivos supera el intervalo entero seguro",
+      "МБ": "MB",
+      "ТБ": "TB"
+    }
+  }
 };

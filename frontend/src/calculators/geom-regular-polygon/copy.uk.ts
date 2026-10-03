@@ -1,11 +1,11 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const geomRegularPolygonCopyUk: CalculatorSeoCopy = {
+export const geomRegularPolygonCopyUk: CalculatorCopy = {
   name: "Калькулятор правильного многокутника",
   slug: "pravylnyy-mnohokutnyk",
-  shortDescription: "Площа, периметр, апофема й кути правильного многокутника.",
   seoTitle: "Калькулятор правильного многокутника — площа й периметр",
-  seoDescription: "Обчисліть площу, периметр, апофему та внутрішній кут правильного многокутника.",
   h1: "Калькулятор правильного многокутника",
   keywords: ["калькулятор правильного многокутника", "площа шестикутника"],
+  ...contractContent.uk,
 };

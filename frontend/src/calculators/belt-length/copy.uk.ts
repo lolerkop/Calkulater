@@ -1,11 +1,11 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const beltLengthCopyUk: CalculatorSeoCopy = {
+export const beltLengthCopyUk: CalculatorCopy = {
   name: "Калькулятор довжини паса",
   slug: "dovzhyna-remenya",
-  shortDescription: "Довжина паса за міжосьовою відстанню та діаметрами шківів.",
   seoTitle: "Калькулятор довжини паса — за міжосьовою відстанню і шківами",
-  seoDescription: "Розрахуйте довжину паса за міжосьовою відстанню та діаметрами двох шківів.",
   h1: "Калькулятор довжини паса",
   keywords: ["довжина паса", "пасова передача", "міжосьова відстань"],
+  ...contractContent.uk,
 };

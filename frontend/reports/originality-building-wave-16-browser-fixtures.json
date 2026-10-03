@@ -1,0 +1,4288 @@
+{
+  "boundary": "Actual60 inherited URLs and owned after fields/errors; test expectations are independent literals in E2E source, no compute used",
+  "records": [
+    {
+      "id": "rafters",
+      "locale": "ru",
+      "url": "/ru/building/rafters/",
+      "h1": "Калькулятор длины стропил",
+      "fields": [
+        {
+          "name": "span",
+          "label": "Пролёт здания",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "rise",
+          "label": "Подъём конька",
+          "type": "number",
+          "defaultValue": 2.4,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "overhang",
+          "label": "Свес вдоль стропила",
+          "type": "number",
+          "defaultValue": 0.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "rafters",
+      "locale": "en",
+      "url": "/en/home-improvement/rafter-length-calculator/",
+      "h1": "Rafter length calculator",
+      "fields": [
+        {
+          "name": "span",
+          "label": "Пролёт здания",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "rise",
+          "label": "Подъём конька",
+          "type": "number",
+          "defaultValue": 2.4,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "overhang",
+          "label": "Свес вдоль стропила",
+          "type": "number",
+          "defaultValue": 0.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "Пролёт должен быть больше нуля": "The span must be greater than zero",
+        "Подъём должен быть больше нуля": "The rise must be greater than zero",
+        "Свес не может быть отрицательным": "The overhang cannot be negative",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "rafters",
+      "locale": "uk",
+      "url": "/uk/remont/krokvy/",
+      "h1": "Калькулятор довжини крокв",
+      "fields": [
+        {
+          "name": "span",
+          "label": "Пролёт здания",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "rise",
+          "label": "Подъём конька",
+          "type": "number",
+          "defaultValue": 2.4,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "overhang",
+          "label": "Свес вдоль стропила",
+          "type": "number",
+          "defaultValue": 0.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "Пролёт должен быть больше нуля": "Проліт має бути більшим за нуль",
+        "Подъём должен быть больше нуля": "Підйом має бути більшим за нуль",
+        "Свес не может быть отрицательным": "Звис не може бути від’ємним",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "rafters",
+      "locale": "de",
+      "url": "/de/heimwerken/sparrenlaenge-rechner/",
+      "h1": "Rechner für die Sparrenlänge",
+      "fields": [
+        {
+          "name": "span",
+          "label": "Пролёт здания",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "rise",
+          "label": "Подъём конька",
+          "type": "number",
+          "defaultValue": 2.4,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "overhang",
+          "label": "Свес вдоль стропила",
+          "type": "number",
+          "defaultValue": 0.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "Пролёт должен быть больше нуля": "Die Spannweite muss größer als null sein",
+        "Подъём должен быть больше нуля": "Die Firsthöhe muss größer als null sein",
+        "Свес не может быть отрицательным": "Der Überstand kann nicht negativ sein",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "rafters",
+      "locale": "es",
+      "url": "/es/reformas/longitud-de-pares/",
+      "h1": "Calculadora de longitud de pares",
+      "fields": [
+        {
+          "name": "span",
+          "label": "Пролёт здания",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "rise",
+          "label": "Подъём конька",
+          "type": "number",
+          "defaultValue": 2.4,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "overhang",
+          "label": "Свес вдоль стропила",
+          "type": "number",
+          "defaultValue": 0.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "Пролёт должен быть больше нуля": "La luz debe ser mayor que cero",
+        "Подъём должен быть больше нуля": "La altura de cumbrera debe ser mayor que cero",
+        "Свес не может быть отрицательным": "El vuelo no puede ser negativo",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    },
+    {
+      "id": "roof-area",
+      "locale": "ru",
+      "url": "/ru/building/roof-area/",
+      "h1": "Калькулятор площади крыши",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Форма крыши",
+          "type": "select",
+          "defaultValue": "gable",
+          "options": [
+            {
+              "value": "shed",
+              "label": "односкатная"
+            },
+            {
+              "value": "gable",
+              "label": "двускатная"
+            },
+            {
+              "value": "hip",
+              "label": "вальмовая"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина основания",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина основания",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "slopeMode",
+          "label": "Как задан уклон",
+          "type": "select",
+          "defaultValue": "degrees",
+          "options": [
+            {
+              "value": "degrees",
+              "label": "в градусах"
+            },
+            {
+              "value": "percent",
+              "label": "в процентах"
+            }
+          ]
+        },
+        {
+          "name": "angle",
+          "label": "Уклон",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 90,
+          "step": 1,
+          "showIf": {
+            "field": "slopeMode",
+            "equals": "degrees"
+          },
+          "unit": "°"
+        },
+        {
+          "name": "slopePercent",
+          "label": "Уклон",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "slopeMode",
+            "equals": "percent"
+          },
+          "unit": "%"
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "roof-area",
+      "locale": "en",
+      "url": "/en/home-improvement/roof-area-calculator/",
+      "h1": "Roof area calculator",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Форма крыши",
+          "type": "select",
+          "defaultValue": "gable",
+          "options": [
+            {
+              "value": "shed",
+              "label": "односкатная"
+            },
+            {
+              "value": "gable",
+              "label": "двускатная"
+            },
+            {
+              "value": "hip",
+              "label": "вальмовая"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина основания",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина основания",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "slopeMode",
+          "label": "Как задан уклон",
+          "type": "select",
+          "defaultValue": "degrees",
+          "options": [
+            {
+              "value": "degrees",
+              "label": "в градусах"
+            },
+            {
+              "value": "percent",
+              "label": "в процентах"
+            }
+          ]
+        },
+        {
+          "name": "angle",
+          "label": "Уклон",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 90,
+          "step": 1,
+          "showIf": {
+            "field": "slopeMode",
+            "equals": "degrees"
+          },
+          "unit": "°"
+        },
+        {
+          "name": "slopePercent",
+          "label": "Уклон",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "slopeMode",
+            "equals": "percent"
+          },
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "Размеры основания должны быть больше нуля": "The footprint dimensions must be greater than zero",
+        "Уклон не может быть отрицательным": "The pitch cannot be negative",
+        "Уклон должен быть меньше 90 градусов": "The pitch must be less than 90 degrees",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "roof-area",
+      "locale": "uk",
+      "url": "/uk/remont/ploshcha-dakhu/",
+      "h1": "Калькулятор площі даху",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Форма крыши",
+          "type": "select",
+          "defaultValue": "gable",
+          "options": [
+            {
+              "value": "shed",
+              "label": "односкатная"
+            },
+            {
+              "value": "gable",
+              "label": "двускатная"
+            },
+            {
+              "value": "hip",
+              "label": "вальмовая"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина основания",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина основания",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "slopeMode",
+          "label": "Как задан уклон",
+          "type": "select",
+          "defaultValue": "degrees",
+          "options": [
+            {
+              "value": "degrees",
+              "label": "в градусах"
+            },
+            {
+              "value": "percent",
+              "label": "в процентах"
+            }
+          ]
+        },
+        {
+          "name": "angle",
+          "label": "Уклон",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 90,
+          "step": 1,
+          "showIf": {
+            "field": "slopeMode",
+            "equals": "degrees"
+          },
+          "unit": "°"
+        },
+        {
+          "name": "slopePercent",
+          "label": "Уклон",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "slopeMode",
+            "equals": "percent"
+          },
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "Размеры основания должны быть больше нуля": "Розміри основи мають бути більшими за нуль",
+        "Уклон не может быть отрицательным": "Ухил не може бути від’ємним",
+        "Уклон должен быть меньше 90 градусов": "Ухил має бути меншим за 90 градусів",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "roof-area",
+      "locale": "de",
+      "url": "/de/heimwerken/dachflaeche-rechner/",
+      "h1": "Rechner für die Dachfläche",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Форма крыши",
+          "type": "select",
+          "defaultValue": "gable",
+          "options": [
+            {
+              "value": "shed",
+              "label": "односкатная"
+            },
+            {
+              "value": "gable",
+              "label": "двускатная"
+            },
+            {
+              "value": "hip",
+              "label": "вальмовая"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина основания",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина основания",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "slopeMode",
+          "label": "Как задан уклон",
+          "type": "select",
+          "defaultValue": "degrees",
+          "options": [
+            {
+              "value": "degrees",
+              "label": "в градусах"
+            },
+            {
+              "value": "percent",
+              "label": "в процентах"
+            }
+          ]
+        },
+        {
+          "name": "angle",
+          "label": "Уклон",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 90,
+          "step": 1,
+          "showIf": {
+            "field": "slopeMode",
+            "equals": "degrees"
+          },
+          "unit": "°"
+        },
+        {
+          "name": "slopePercent",
+          "label": "Уклон",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "slopeMode",
+            "equals": "percent"
+          },
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "Размеры основания должны быть больше нуля": "Die Maße des Grundrisses müssen größer als null sein",
+        "Уклон не может быть отрицательным": "Die Neigung kann nicht negativ sein",
+        "Уклон должен быть меньше 90 градусов": "Die Neigung muss kleiner als 90 Grad sein",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "roof-area",
+      "locale": "es",
+      "url": "/es/reformas/superficie-de-cubierta/",
+      "h1": "Calculadora de superficie de cubierta",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Форма крыши",
+          "type": "select",
+          "defaultValue": "gable",
+          "options": [
+            {
+              "value": "shed",
+              "label": "односкатная"
+            },
+            {
+              "value": "gable",
+              "label": "двускатная"
+            },
+            {
+              "value": "hip",
+              "label": "вальмовая"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина основания",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина основания",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "slopeMode",
+          "label": "Как задан уклон",
+          "type": "select",
+          "defaultValue": "degrees",
+          "options": [
+            {
+              "value": "degrees",
+              "label": "в градусах"
+            },
+            {
+              "value": "percent",
+              "label": "в процентах"
+            }
+          ]
+        },
+        {
+          "name": "angle",
+          "label": "Уклон",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 90,
+          "step": 1,
+          "showIf": {
+            "field": "slopeMode",
+            "equals": "degrees"
+          },
+          "unit": "°"
+        },
+        {
+          "name": "slopePercent",
+          "label": "Уклон",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "slopeMode",
+            "equals": "percent"
+          },
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "Размеры основания должны быть больше нуля": "Las dimensiones en planta deben ser mayores que cero",
+        "Уклон не может быть отрицательным": "La pendiente no puede ser negativa",
+        "Уклон должен быть меньше 90 градусов": "La pendiente debe ser menor de 90 grados",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    },
+    {
+      "id": "roof-battens",
+      "locale": "ru",
+      "url": "/ru/building/obreshetka/",
+      "h1": "Калькулятор обрешётки крыши",
+      "fields": [
+        {
+          "name": "area",
+          "label": "Площадь крыши",
+          "type": "number",
+          "defaultValue": 60,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "step",
+          "label": "Шаг обрешётки",
+          "type": "number",
+          "defaultValue": 0.35,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "battenLength",
+          "label": "Длина бруска",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "sectionWidth",
+          "label": "Ширина сечения",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 5,
+          "unit": "мм"
+        },
+        {
+          "name": "sectionHeight",
+          "label": "Высота сечения",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 5,
+          "unit": "мм"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "roof-battens",
+      "locale": "en",
+      "url": "/en/home-improvement/roof-battens/",
+      "h1": "Roof batten calculator",
+      "fields": [
+        {
+          "name": "area",
+          "label": "Площадь крыши",
+          "type": "number",
+          "defaultValue": 60,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "step",
+          "label": "Шаг обрешётки",
+          "type": "number",
+          "defaultValue": 0.35,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "battenLength",
+          "label": "Длина бруска",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "sectionWidth",
+          "label": "Ширина сечения",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 5,
+          "unit": "мм"
+        },
+        {
+          "name": "sectionHeight",
+          "label": "Высота сечения",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 5,
+          "unit": "мм"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "м²": "m²",
+        "м³": "m³",
+        "Площадь крыши должна быть больше нуля": "The roof area must be greater than zero",
+        "Шаг обрешётки должен быть больше нуля": "The batten spacing must be greater than zero",
+        "Длина бруска должна быть больше нуля": "The batten length must be greater than zero",
+        "Сечение бруска должно быть больше нуля": "The batten section must be greater than zero",
+        "Запас должен быть от 0 до 50 %": "The allowance must be between 0 and 50 %",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "roof-battens",
+      "locale": "uk",
+      "url": "/uk/remont/obreshitka/",
+      "h1": "Калькулятор обрешітки даху",
+      "fields": [
+        {
+          "name": "area",
+          "label": "Площадь крыши",
+          "type": "number",
+          "defaultValue": 60,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "step",
+          "label": "Шаг обрешётки",
+          "type": "number",
+          "defaultValue": 0.35,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "battenLength",
+          "label": "Длина бруска",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "sectionWidth",
+          "label": "Ширина сечения",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 5,
+          "unit": "мм"
+        },
+        {
+          "name": "sectionHeight",
+          "label": "Высота сечения",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 5,
+          "unit": "мм"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "м",
+        "м²": "м²",
+        "м³": "м³",
+        "Площадь крыши должна быть больше нуля": "Площа даху має бути більшою за нуль",
+        "Шаг обрешётки должен быть больше нуля": "Крок обрешітки має бути більшим за нуль",
+        "Длина бруска должна быть больше нуля": "Довжина бруска має бути більшою за нуль",
+        "Сечение бруска должно быть больше нуля": "Переріз бруска має бути більшим за нуль",
+        "Запас должен быть от 0 до 50 %": "Запас має бути від 0 до 50 %",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "roof-battens",
+      "locale": "de",
+      "url": "/de/heimwerken/dachlattung-rechner/",
+      "h1": "Rechner für die Dachlattung",
+      "fields": [
+        {
+          "name": "area",
+          "label": "Площадь крыши",
+          "type": "number",
+          "defaultValue": 60,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "step",
+          "label": "Шаг обрешётки",
+          "type": "number",
+          "defaultValue": 0.35,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "battenLength",
+          "label": "Длина бруска",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "sectionWidth",
+          "label": "Ширина сечения",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 5,
+          "unit": "мм"
+        },
+        {
+          "name": "sectionHeight",
+          "label": "Высота сечения",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 5,
+          "unit": "мм"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "м²": "m²",
+        "м³": "m³",
+        "Площадь крыши должна быть больше нуля": "Die Dachfläche muss größer als null sein",
+        "Шаг обрешётки должен быть больше нуля": "Der Lattenabstand muss größer als null sein",
+        "Длина бруска должна быть больше нуля": "Die Lattenlänge muss größer als null sein",
+        "Сечение бруска должно быть больше нуля": "Der Querschnitt der Latte muss größer als null sein",
+        "Запас должен быть от 0 до 50 %": "Der Zuschlag muss zwischen 0 und 50 % liegen",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "roof-battens",
+      "locale": "es",
+      "url": "/es/reformas/rastreles-de-cubierta/",
+      "h1": "Calculadora de rastreles de cubierta",
+      "fields": [
+        {
+          "name": "area",
+          "label": "Площадь крыши",
+          "type": "number",
+          "defaultValue": 60,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "step",
+          "label": "Шаг обрешётки",
+          "type": "number",
+          "defaultValue": 0.35,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "battenLength",
+          "label": "Длина бруска",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "sectionWidth",
+          "label": "Ширина сечения",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 5,
+          "unit": "мм"
+        },
+        {
+          "name": "sectionHeight",
+          "label": "Высота сечения",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 5,
+          "unit": "мм"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "м²": "m²",
+        "м³": "m³",
+        "Площадь крыши должна быть больше нуля": "La superficie de la cubierta debe ser mayor que cero",
+        "Шаг обрешётки должен быть больше нуля": "La separación entre rastreles debe ser mayor que cero",
+        "Длина бруска должна быть больше нуля": "El largo del rastrel debe ser mayor que cero",
+        "Сечение бруска должно быть больше нуля": "La sección del rastrel debe ser mayor que cero",
+        "Запас должен быть от 0 до 50 %": "El margen debe estar entre 0 y 50 %",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    },
+    {
+      "id": "room-volume",
+      "locale": "ru",
+      "url": "/ru/building/room-volume/",
+      "h1": "Калькулятор объёма помещения",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Как измеряем",
+          "type": "toggle",
+          "defaultValue": "dimensions",
+          "options": [
+            {
+              "value": "dimensions",
+              "label": "По размерам комнаты"
+            },
+            {
+              "value": "area",
+              "label": "По площади пола"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 5,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ширина",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "area",
+          "label": "Площадь пола",
+          "type": "number",
+          "unit": "м²",
+          "defaultValue": 20,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "height",
+          "label": "Высота",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "room-volume",
+      "locale": "en",
+      "url": "/en/home-improvement/room-volume-calculator/",
+      "h1": "Room volume calculator",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Как измеряем",
+          "type": "toggle",
+          "defaultValue": "dimensions",
+          "options": [
+            {
+              "value": "dimensions",
+              "label": "По размерам комнаты"
+            },
+            {
+              "value": "area",
+              "label": "По площади пола"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 5,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ширина",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "area",
+          "label": "Площадь пола",
+          "type": "number",
+          "unit": "м²",
+          "defaultValue": 20,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "height",
+          "label": "Высота",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1
+        }
+      ],
+      "errors": {
+        "Высота должна быть больше нуля": "The height must be greater than zero",
+        "Длина и ширина должны быть больше нуля": "Length and width must be greater than zero",
+        "Площадь должна быть больше нуля": "The floor area must be greater than zero",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "room-volume",
+      "locale": "uk",
+      "url": "/uk/remont/kalkulyator-obyemu-prymishchennya/",
+      "h1": "Калькулятор обʼєму приміщення",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Как измеряем",
+          "type": "toggle",
+          "defaultValue": "dimensions",
+          "options": [
+            {
+              "value": "dimensions",
+              "label": "По размерам комнаты"
+            },
+            {
+              "value": "area",
+              "label": "По площади пола"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 5,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ширина",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "area",
+          "label": "Площадь пола",
+          "type": "number",
+          "unit": "м²",
+          "defaultValue": 20,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "height",
+          "label": "Высота",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1
+        }
+      ],
+      "errors": {
+        "Высота должна быть больше нуля": "Висота має бути більшою за нуль",
+        "Длина и ширина должны быть больше нуля": "Довжина і ширина мають бути більшими за нуль",
+        "Площадь должна быть больше нуля": "Площа має бути більшою за нуль",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "room-volume",
+      "locale": "de",
+      "url": "/de/heimwerken/raumvolumen-rechner/",
+      "h1": "Rechner für das Raumvolumen",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Как измеряем",
+          "type": "toggle",
+          "defaultValue": "dimensions",
+          "options": [
+            {
+              "value": "dimensions",
+              "label": "По размерам комнаты"
+            },
+            {
+              "value": "area",
+              "label": "По площади пола"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 5,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ширина",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "area",
+          "label": "Площадь пола",
+          "type": "number",
+          "unit": "м²",
+          "defaultValue": 20,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "height",
+          "label": "Высота",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1
+        }
+      ],
+      "errors": {
+        "Высота должна быть больше нуля": "Die Höhe muss größer als null sein",
+        "Длина и ширина должны быть больше нуля": "Länge und Breite müssen größer als null sein",
+        "Площадь должна быть больше нуля": "Die Bodenfläche muss größer als null sein",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "room-volume",
+      "locale": "es",
+      "url": "/es/reformas/volumen-de-una-habitacion/",
+      "h1": "Calculadora de volumen de una habitación",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Как измеряем",
+          "type": "toggle",
+          "defaultValue": "dimensions",
+          "options": [
+            {
+              "value": "dimensions",
+              "label": "По размерам комнаты"
+            },
+            {
+              "value": "area",
+              "label": "По площади пола"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 5,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ширина",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "area",
+          "label": "Площадь пола",
+          "type": "number",
+          "unit": "м²",
+          "defaultValue": 20,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "height",
+          "label": "Высота",
+          "type": "number",
+          "unit": "м",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1
+        }
+      ],
+      "errors": {
+        "Высота должна быть больше нуля": "La altura debe ser mayor que cero",
+        "Длина и ширина должны быть больше нуля": "El largo y el ancho deben ser mayores que cero",
+        "Площадь должна быть больше нуля": "La superficie del suelo debe ser mayor que cero",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    },
+    {
+      "id": "sealant-volume",
+      "locale": "ru",
+      "url": "/ru/building/raskhod-germetika/",
+      "h1": "Калькулятор расхода герметика",
+      "fields": [
+        {
+          "name": "width",
+          "label": "Ширина шва",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "depth",
+          "label": "Глубина шва",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "length",
+          "label": "Длина шва",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "cart",
+          "label": "Объём картриджа",
+          "type": "number",
+          "defaultValue": 310,
+          "min": 0,
+          "step": 10,
+          "unit": "мл"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%"
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "sealant-volume",
+      "locale": "en",
+      "url": "/en/home-improvement/sealant-volume/",
+      "h1": "Sealant volume calculator",
+      "fields": [
+        {
+          "name": "width",
+          "label": "Ширина шва",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "depth",
+          "label": "Глубина шва",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "length",
+          "label": "Длина шва",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "cart",
+          "label": "Объём картриджа",
+          "type": "number",
+          "defaultValue": 310,
+          "min": 0,
+          "step": 10,
+          "unit": "мл"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "мл": "mL",
+        "шт": "pcs",
+        "м": "m",
+        "мм²": "mm²",
+        "Ширина шва должна быть больше нуля": "The joint width must be greater than zero",
+        "Глубина шва должна быть больше нуля": "The joint depth must be greater than zero",
+        "Длина шва должна быть больше нуля": "The joint length must be greater than zero",
+        "Объём картриджа должен быть больше нуля": "The cartridge volume must be greater than zero",
+        "Запас не может быть отрицательным": "The allowance cannot be negative",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "sealant-volume",
+      "locale": "uk",
+      "url": "/uk/remont/vytrata-germetyka/",
+      "h1": "Калькулятор витрати герметика",
+      "fields": [
+        {
+          "name": "width",
+          "label": "Ширина шва",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "depth",
+          "label": "Глубина шва",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "length",
+          "label": "Длина шва",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "cart",
+          "label": "Объём картриджа",
+          "type": "number",
+          "defaultValue": 310,
+          "min": 0,
+          "step": 10,
+          "unit": "мл"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "мл": "мл",
+        "шт": "шт",
+        "м": "м",
+        "мм²": "мм²",
+        "Ширина шва должна быть больше нуля": "Ширина шва має бути більшою за нуль",
+        "Глубина шва должна быть больше нуля": "Глибина шва має бути більшою за нуль",
+        "Длина шва должна быть больше нуля": "Довжина шва має бути більшою за нуль",
+        "Объём картриджа должен быть больше нуля": "Обʼєм картриджа має бути більшим за нуль",
+        "Запас не может быть отрицательным": "Запас не може бути відʼємним",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "sealant-volume",
+      "locale": "de",
+      "url": "/de/heimwerken/dichtstoff-rechner/",
+      "h1": "Rechner für Dichtstoff",
+      "fields": [
+        {
+          "name": "width",
+          "label": "Ширина шва",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "depth",
+          "label": "Глубина шва",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "length",
+          "label": "Длина шва",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "cart",
+          "label": "Объём картриджа",
+          "type": "number",
+          "defaultValue": 310,
+          "min": 0,
+          "step": 10,
+          "unit": "мл"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "мл": "ml",
+        "шт": "Stk",
+        "м": "m",
+        "мм²": "mm²",
+        "Ширина шва должна быть больше нуля": "Die Fugenbreite muss größer als null sein",
+        "Глубина шва должна быть больше нуля": "Die Fugentiefe muss größer als null sein",
+        "Длина шва должна быть больше нуля": "Die Fugenlänge muss größer als null sein",
+        "Объём картриджа должен быть больше нуля": "Der Inhalt der Kartusche muss größer als null sein",
+        "Запас не может быть отрицательным": "Der Zuschlag kann nicht negativ sein",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "sealant-volume",
+      "locale": "es",
+      "url": "/es/reformas/calculadora-de-sellador/",
+      "h1": "Calculadora de sellador",
+      "fields": [
+        {
+          "name": "width",
+          "label": "Ширина шва",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "depth",
+          "label": "Глубина шва",
+          "type": "number",
+          "defaultValue": 6,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "length",
+          "label": "Длина шва",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "cart",
+          "label": "Объём картриджа",
+          "type": "number",
+          "defaultValue": 310,
+          "min": 0,
+          "step": 10,
+          "unit": "мл"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "мл": "ml",
+        "шт": "uds.",
+        "м": "m",
+        "мм²": "mm²",
+        "Ширина шва должна быть больше нуля": "El ancho de la junta debe ser mayor que cero",
+        "Глубина шва должна быть больше нуля": "La profundidad de la junta debe ser mayor que cero",
+        "Длина шва должна быть больше нуля": "La longitud de la junta debe ser mayor que cero",
+        "Объём картриджа должен быть больше нуля": "El volumen del cartucho debe ser mayor que cero",
+        "Запас не может быть отрицательным": "El margen no puede ser negativo",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    },
+    {
+      "id": "skirting",
+      "locale": "ru",
+      "url": "/ru/building/plintus/",
+      "h1": "Калькулятор плинтуса",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина комнаты",
+          "type": "number",
+          "defaultValue": 5.2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина комнаты",
+          "type": "number",
+          "defaultValue": 3.4,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "doors",
+          "label": "Дверных проёмов",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "doorWidth",
+          "label": "Ширина проёма",
+          "type": "number",
+          "defaultValue": 0.9,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "plank",
+          "label": "Длина планки",
+          "type": "number",
+          "defaultValue": 2.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас на подрезку",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "skirting",
+      "locale": "en",
+      "url": "/en/home-improvement/skirting-board/",
+      "h1": "Skirting board calculator",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина комнаты",
+          "type": "number",
+          "defaultValue": 5.2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина комнаты",
+          "type": "number",
+          "defaultValue": 3.4,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "doors",
+          "label": "Дверных проёмов",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "doorWidth",
+          "label": "Ширина проёма",
+          "type": "number",
+          "defaultValue": 0.9,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "plank",
+          "label": "Длина планки",
+          "type": "number",
+          "defaultValue": 2.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас на подрезку",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "шт": "pcs",
+        "Длина комнаты должна быть больше нуля": "The room length must be greater than zero",
+        "Ширина комнаты должна быть больше нуля": "The room width must be greater than zero",
+        "Число проёмов не может быть отрицательным": "The number of doorways cannot be negative",
+        "Ширина проёма не может быть отрицательной": "The doorway width cannot be negative",
+        "Длина планки должна быть больше нуля": "The plank length must be greater than zero",
+        "Запас не может быть отрицательным": "The allowance cannot be negative",
+        "Проёмы длиннее периметра — проверьте данные": "The doorways exceed the perimeter — check the values",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "skirting",
+      "locale": "uk",
+      "url": "/uk/remont/plintus/",
+      "h1": "Калькулятор плінтуса",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина комнаты",
+          "type": "number",
+          "defaultValue": 5.2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина комнаты",
+          "type": "number",
+          "defaultValue": 3.4,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "doors",
+          "label": "Дверных проёмов",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "doorWidth",
+          "label": "Ширина проёма",
+          "type": "number",
+          "defaultValue": 0.9,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "plank",
+          "label": "Длина планки",
+          "type": "number",
+          "defaultValue": 2.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас на подрезку",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "м",
+        "шт": "шт",
+        "Длина комнаты должна быть больше нуля": "Довжина кімнати має бути більшою за нуль",
+        "Ширина комнаты должна быть больше нуля": "Ширина кімнати має бути більшою за нуль",
+        "Число проёмов не может быть отрицательным": "Кількість прорізів не може бути відʼємною",
+        "Ширина проёма не может быть отрицательной": "Ширина прорізу не може бути відʼємною",
+        "Длина планки должна быть больше нуля": "Довжина планки має бути більшою за нуль",
+        "Запас не может быть отрицательным": "Запас не може бути відʼємним",
+        "Проёмы длиннее периметра — проверьте данные": "Прорізи довші за периметр — перевірте дані",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "skirting",
+      "locale": "de",
+      "url": "/de/heimwerken/sockelleisten-rechner/",
+      "h1": "Sockelleisten-Rechner",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина комнаты",
+          "type": "number",
+          "defaultValue": 5.2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина комнаты",
+          "type": "number",
+          "defaultValue": 3.4,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "doors",
+          "label": "Дверных проёмов",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "doorWidth",
+          "label": "Ширина проёма",
+          "type": "number",
+          "defaultValue": 0.9,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "plank",
+          "label": "Длина планки",
+          "type": "number",
+          "defaultValue": 2.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас на подрезку",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "шт": "Stk.",
+        "Длина комнаты должна быть больше нуля": "Die Raumlänge muss größer als null sein",
+        "Ширина комнаты должна быть больше нуля": "Die Raumbreite muss größer als null sein",
+        "Число проёмов не может быть отрицательным": "Die Zahl der Türöffnungen darf nicht negativ sein",
+        "Ширина проёма не может быть отрицательной": "Die Breite einer Türöffnung darf nicht negativ sein",
+        "Длина планки должна быть больше нуля": "Die Leistenlänge muss größer als null sein",
+        "Запас не может быть отрицательным": "Der Verschnitt darf nicht negativ sein",
+        "Проёмы длиннее периметра — проверьте данные": "Die Türöffnungen sind länger als der Umfang — prüfe die Werte",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "skirting",
+      "locale": "es",
+      "url": "/es/reformas/calculadora-de-rodapie/",
+      "h1": "Calculadora de rodapié",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина комнаты",
+          "type": "number",
+          "defaultValue": 5.2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина комнаты",
+          "type": "number",
+          "defaultValue": 3.4,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "doors",
+          "label": "Дверных проёмов",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "doorWidth",
+          "label": "Ширина проёма",
+          "type": "number",
+          "defaultValue": 0.9,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "plank",
+          "label": "Длина планки",
+          "type": "number",
+          "defaultValue": 2.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас на подрезку",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "шт": "uds.",
+        "Длина комнаты должна быть больше нуля": "El largo de la habitación debe ser mayor que cero",
+        "Ширина комнаты должна быть больше нуля": "El ancho de la habitación debe ser mayor que cero",
+        "Число проёмов не может быть отрицательным": "El número de huecos no puede ser negativo",
+        "Ширина проёма не может быть отрицательной": "El ancho del hueco no puede ser negativo",
+        "Длина планки должна быть больше нуля": "El largo del tramo debe ser mayor que cero",
+        "Запас не может быть отрицательным": "El margen no puede ser negativo",
+        "Проёмы длиннее периметра — проверьте данные": "Los huecos superan al perímetro: revisa los datos",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    },
+    {
+      "id": "slab-foundation",
+      "locale": "ru",
+      "url": "/ru/building/plitnyy-fundament/",
+      "h1": "Калькулятор плитного фундамента",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина плиты",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина плиты",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "thickness",
+          "label": "Толщина плиты",
+          "type": "number",
+          "defaultValue": 0.3,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "meshStep",
+          "label": "Шаг сетки",
+          "type": "number",
+          "defaultValue": 0.2,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "rebarDiameter",
+          "label": "Диаметр арматуры",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "slab-foundation",
+      "locale": "en",
+      "url": "/en/home-improvement/slab-foundation/",
+      "h1": "Slab foundation calculator",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина плиты",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина плиты",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "thickness",
+          "label": "Толщина плиты",
+          "type": "number",
+          "defaultValue": 0.3,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "meshStep",
+          "label": "Шаг сетки",
+          "type": "number",
+          "defaultValue": 0.2,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "rebarDiameter",
+          "label": "Диаметр арматуры",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м³": "m³",
+        "м²": "m²",
+        "м": "m",
+        "кг": "kg",
+        "Размеры плиты должны быть больше нуля": "The slab dimensions must be greater than zero",
+        "Шаг сетки должен быть больше нуля": "The mesh spacing must be greater than zero",
+        "Диаметр арматуры должен быть больше нуля": "The rebar diameter must be greater than zero",
+        "Запас должен быть от 0 до 50 %": "The allowance must be between 0 and 50 %",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "slab-foundation",
+      "locale": "uk",
+      "url": "/uk/remont/plytnyy-fundament/",
+      "h1": "Калькулятор плитного фундаменту",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина плиты",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина плиты",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "thickness",
+          "label": "Толщина плиты",
+          "type": "number",
+          "defaultValue": 0.3,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "meshStep",
+          "label": "Шаг сетки",
+          "type": "number",
+          "defaultValue": 0.2,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "rebarDiameter",
+          "label": "Диаметр арматуры",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м³": "м³",
+        "м²": "м²",
+        "м": "м",
+        "кг": "кг",
+        "Размеры плиты должны быть больше нуля": "Розміри плити мають бути більшими за нуль",
+        "Шаг сетки должен быть больше нуля": "Крок сітки має бути більшим за нуль",
+        "Диаметр арматуры должен быть больше нуля": "Діаметр арматури має бути більшим за нуль",
+        "Запас должен быть от 0 до 50 %": "Запас має бути від 0 до 50 %",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "slab-foundation",
+      "locale": "de",
+      "url": "/de/heimwerken/bodenplatte-rechner/",
+      "h1": "Rechner für die Bodenplatte",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина плиты",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина плиты",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "thickness",
+          "label": "Толщина плиты",
+          "type": "number",
+          "defaultValue": 0.3,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "meshStep",
+          "label": "Шаг сетки",
+          "type": "number",
+          "defaultValue": 0.2,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "rebarDiameter",
+          "label": "Диаметр арматуры",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м³": "m³",
+        "м²": "m²",
+        "м": "m",
+        "кг": "kg",
+        "Размеры плиты должны быть больше нуля": "Die Maße der Platte müssen größer als null sein",
+        "Шаг сетки должен быть больше нуля": "Der Mattenabstand muss größer als null sein",
+        "Диаметр арматуры должен быть больше нуля": "Der Durchmesser der Bewehrung muss größer als null sein",
+        "Запас должен быть от 0 до 50 %": "Der Zuschlag muss zwischen 0 und 50 % liegen",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "slab-foundation",
+      "locale": "es",
+      "url": "/es/reformas/losa-de-cimentacion/",
+      "h1": "Calculadora de losa de cimentación",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина плиты",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина плиты",
+          "type": "number",
+          "defaultValue": 8,
+          "min": 0,
+          "step": 0.5,
+          "unit": "м"
+        },
+        {
+          "name": "thickness",
+          "label": "Толщина плиты",
+          "type": "number",
+          "defaultValue": 0.3,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "meshStep",
+          "label": "Шаг сетки",
+          "type": "number",
+          "defaultValue": 0.2,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "rebarDiameter",
+          "label": "Диаметр арматуры",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 1,
+          "unit": "мм"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м³": "m³",
+        "м²": "m²",
+        "м": "m",
+        "кг": "kg",
+        "Размеры плиты должны быть больше нуля": "Las dimensiones de la losa deben ser mayores que cero",
+        "Шаг сетки должен быть больше нуля": "La separación del mallazo debe ser mayor que cero",
+        "Диаметр арматуры должен быть больше нуля": "El diámetro de la barra debe ser mayor que cero",
+        "Запас должен быть от 0 до 50 %": "El margen debe estar entre 0 y 50 %",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    },
+    {
+      "id": "stairs",
+      "locale": "ru",
+      "url": "/ru/building/raschet-lestnicy/",
+      "h1": "Калькулятор лестницы",
+      "fields": [
+        {
+          "name": "rise_total",
+          "label": "Общий подъём",
+          "type": "number",
+          "defaultValue": 2.8,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "tread",
+          "label": "Проступь (глубина ступени)",
+          "type": "number",
+          "defaultValue": 0.28,
+          "min": 0,
+          "step": 0.01,
+          "unit": "м"
+        },
+        {
+          "name": "max_riser",
+          "label": "Предельная высота ступени",
+          "type": "number",
+          "defaultValue": 0.18,
+          "min": 0,
+          "step": 0.005,
+          "unit": "м"
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "stairs",
+      "locale": "en",
+      "url": "/en/home-improvement/stair-rise-run/",
+      "h1": "Stair rise and run calculator",
+      "fields": [
+        {
+          "name": "rise_total",
+          "label": "Общий подъём",
+          "type": "number",
+          "defaultValue": 2.8,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "tread",
+          "label": "Проступь (глубина ступени)",
+          "type": "number",
+          "defaultValue": 0.28,
+          "min": 0,
+          "step": 0.01,
+          "unit": "м"
+        },
+        {
+          "name": "max_riser",
+          "label": "Предельная высота ступени",
+          "type": "number",
+          "defaultValue": 0.18,
+          "min": 0,
+          "step": 0.005,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "шт": "pcs",
+        "м": "m",
+        "в норме": "within range",
+        "вне нормы 0,60–0,65 м": "outside the 0.60–0.65 m range",
+        "Общий подъём должен быть больше нуля": "The total rise must be greater than zero",
+        "Проступь должна быть больше нуля": "The tread depth must be greater than zero",
+        "Предельная высота ступени должна быть больше нуля": "The maximum riser height must be greater than zero",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "stairs",
+      "locale": "uk",
+      "url": "/uk/remont/rozrahunok-shodiv/",
+      "h1": "Калькулятор сходів",
+      "fields": [
+        {
+          "name": "rise_total",
+          "label": "Общий подъём",
+          "type": "number",
+          "defaultValue": 2.8,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "tread",
+          "label": "Проступь (глубина ступени)",
+          "type": "number",
+          "defaultValue": 0.28,
+          "min": 0,
+          "step": 0.01,
+          "unit": "м"
+        },
+        {
+          "name": "max_riser",
+          "label": "Предельная высота ступени",
+          "type": "number",
+          "defaultValue": 0.18,
+          "min": 0,
+          "step": 0.005,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "шт": "шт",
+        "м": "м",
+        "в норме": "у нормі",
+        "вне нормы 0,60–0,65 м": "поза нормою 0,60–0,65 м",
+        "Общий подъём должен быть больше нуля": "Загальний підйом має бути більшим за нуль",
+        "Проступь должна быть больше нуля": "Проступ має бути більшим за нуль",
+        "Предельная высота ступени должна быть больше нуля": "Гранична висота сходинки має бути більшою за нуль",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "stairs",
+      "locale": "de",
+      "url": "/de/heimwerken/treppe-steigung-auftritt/",
+      "h1": "Rechner für Steigung und Auftritt einer Treppe",
+      "fields": [
+        {
+          "name": "rise_total",
+          "label": "Общий подъём",
+          "type": "number",
+          "defaultValue": 2.8,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "tread",
+          "label": "Проступь (глубина ступени)",
+          "type": "number",
+          "defaultValue": 0.28,
+          "min": 0,
+          "step": 0.01,
+          "unit": "м"
+        },
+        {
+          "name": "max_riser",
+          "label": "Предельная высота ступени",
+          "type": "number",
+          "defaultValue": 0.18,
+          "min": 0,
+          "step": 0.005,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "шт": "Stk",
+        "м": "m",
+        "в норме": "im Bereich",
+        "вне нормы 0,60–0,65 м": "außerhalb des Bereichs 0,60–0,65 m",
+        "Общий подъём должен быть больше нуля": "Die Geschosshöhe muss größer als null sein",
+        "Проступь должна быть больше нуля": "Die Auftrittstiefe muss größer als null sein",
+        "Предельная высота ступени должна быть больше нуля": "Die höchste Steigungshöhe muss größer als null sein",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "stairs",
+      "locale": "es",
+      "url": "/es/reformas/peldanos-de-escalera/",
+      "h1": "Calculadora de peldaños de escalera",
+      "fields": [
+        {
+          "name": "rise_total",
+          "label": "Общий подъём",
+          "type": "number",
+          "defaultValue": 2.8,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "tread",
+          "label": "Проступь (глубина ступени)",
+          "type": "number",
+          "defaultValue": 0.28,
+          "min": 0,
+          "step": 0.01,
+          "unit": "м"
+        },
+        {
+          "name": "max_riser",
+          "label": "Предельная высота ступени",
+          "type": "number",
+          "defaultValue": 0.18,
+          "min": 0,
+          "step": 0.005,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "шт": "uds.",
+        "м": "m",
+        "в норме": "dentro del rango",
+        "вне нормы 0,60–0,65 м": "fuera del rango 0,60-0,65 m",
+        "Общий подъём должен быть больше нуля": "El desnivel total debe ser mayor que cero",
+        "Проступь должна быть больше нуля": "La profundidad de la huella debe ser mayor que cero",
+        "Предельная высота ступени должна быть больше нуля": "La altura máxima de contrahuella debe ser mayor que cero",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    },
+    {
+      "id": "strip-foundation",
+      "locale": "ru",
+      "url": "/ru/building/strip-foundation/",
+      "h1": "Калькулятор ленточного фундамента",
+      "fields": [
+        {
+          "name": "perimeter",
+          "label": "Общая длина ленты",
+          "type": "number",
+          "defaultValue": 40,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина ленты",
+          "type": "number",
+          "defaultValue": 0.4,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "depth",
+          "label": "Глубина ленты",
+          "type": "number",
+          "defaultValue": 0.8,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "strip-foundation",
+      "locale": "en",
+      "url": "/en/home-improvement/strip-foundation-calculator/",
+      "h1": "Strip foundation calculator",
+      "fields": [
+        {
+          "name": "perimeter",
+          "label": "Общая длина ленты",
+          "type": "number",
+          "defaultValue": 40,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина ленты",
+          "type": "number",
+          "defaultValue": 0.4,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "depth",
+          "label": "Глубина ленты",
+          "type": "number",
+          "defaultValue": 0.8,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "Длина ленты должна быть больше нуля": "The strip length must be greater than zero",
+        "Ширина ленты должна быть больше нуля": "The strip width must be greater than zero",
+        "Глубина ленты должна быть больше нуля": "The strip depth must be greater than zero",
+        "Запас не может быть отрицательным": "The allowance cannot be negative",
+        "Запас больше 50 % не рассчитывается": "An allowance above 50% is not calculated",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "strip-foundation",
+      "locale": "uk",
+      "url": "/uk/remont/strichkovyi-fundament/",
+      "h1": "Калькулятор стрічкового фундаменту",
+      "fields": [
+        {
+          "name": "perimeter",
+          "label": "Общая длина ленты",
+          "type": "number",
+          "defaultValue": 40,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина ленты",
+          "type": "number",
+          "defaultValue": 0.4,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "depth",
+          "label": "Глубина ленты",
+          "type": "number",
+          "defaultValue": 0.8,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "Длина ленты должна быть больше нуля": "Довжина стрічки має бути більшою за нуль",
+        "Ширина ленты должна быть больше нуля": "Ширина стрічки має бути більшою за нуль",
+        "Глубина ленты должна быть больше нуля": "Глибина стрічки має бути більшою за нуль",
+        "Запас не может быть отрицательным": "Запас не може бути від’ємним",
+        "Запас больше 50 % не рассчитывается": "Запас понад 50 % не розраховується",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "strip-foundation",
+      "locale": "de",
+      "url": "/de/heimwerken/streifenfundament-rechner/",
+      "h1": "Rechner für das Streifenfundament",
+      "fields": [
+        {
+          "name": "perimeter",
+          "label": "Общая длина ленты",
+          "type": "number",
+          "defaultValue": 40,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина ленты",
+          "type": "number",
+          "defaultValue": 0.4,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "depth",
+          "label": "Глубина ленты",
+          "type": "number",
+          "defaultValue": 0.8,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "Длина ленты должна быть больше нуля": "Die Länge des Streifens muss größer als null sein",
+        "Ширина ленты должна быть больше нуля": "Die Breite des Streifens muss größer als null sein",
+        "Глубина ленты должна быть больше нуля": "Die Tiefe des Streifens muss größer als null sein",
+        "Запас не может быть отрицательным": "Der Zuschlag kann nicht negativ sein",
+        "Запас больше 50 % не рассчитывается": "Ein Zuschlag über 50 % wird nicht gerechnet",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "strip-foundation",
+      "locale": "es",
+      "url": "/es/reformas/zapata-corrida/",
+      "h1": "Calculadora de zapata corrida",
+      "fields": [
+        {
+          "name": "perimeter",
+          "label": "Общая длина ленты",
+          "type": "number",
+          "defaultValue": 40,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "width",
+          "label": "Ширина ленты",
+          "type": "number",
+          "defaultValue": 0.4,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "depth",
+          "label": "Глубина ленты",
+          "type": "number",
+          "defaultValue": 0.8,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "Длина ленты должна быть больше нуля": "La longitud de la zapata debe ser mayor que cero",
+        "Ширина ленты должна быть больше нуля": "El ancho de la zapata debe ser mayor que cero",
+        "Глубина ленты должна быть больше нуля": "La profundidad de la zapata debe ser mayor que cero",
+        "Запас не может быть отрицательным": "El margen no puede ser negativo",
+        "Запас больше 50 % не рассчитывается": "No se calcula un margen mayor del 50 %",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    },
+    {
+      "id": "tank-volume",
+      "locale": "ru",
+      "url": "/ru/building/obyom-emkosti/",
+      "h1": "Калькулятор объёма ёмкости",
+      "fields": [
+        {
+          "name": "shape",
+          "label": "Форма ёмкости",
+          "type": "select",
+          "defaultValue": "vertical-cylinder",
+          "options": [
+            {
+              "value": "vertical-cylinder",
+              "label": "вертикальный цилиндр"
+            },
+            {
+              "value": "horizontal-cylinder",
+              "label": "горизонтальная цистерна"
+            },
+            {
+              "value": "rect",
+              "label": "прямоугольная"
+            },
+            {
+              "value": "capsule",
+              "label": "капсула"
+            }
+          ]
+        },
+        {
+          "name": "d",
+          "label": "Диаметр или сторона",
+          "type": "number",
+          "defaultValue": 1.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "len",
+          "label": "Высота или длина",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "level",
+          "label": "Уровень жидкости",
+          "type": "number",
+          "defaultValue": 1.2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "tank-volume",
+      "locale": "en",
+      "url": "/en/home-improvement/tank-volume/",
+      "h1": "Tank volume calculator",
+      "fields": [
+        {
+          "name": "shape",
+          "label": "Форма ёмкости",
+          "type": "select",
+          "defaultValue": "vertical-cylinder",
+          "options": [
+            {
+              "value": "vertical-cylinder",
+              "label": "вертикальный цилиндр"
+            },
+            {
+              "value": "horizontal-cylinder",
+              "label": "горизонтальная цистерна"
+            },
+            {
+              "value": "rect",
+              "label": "прямоугольная"
+            },
+            {
+              "value": "capsule",
+              "label": "капсула"
+            }
+          ]
+        },
+        {
+          "name": "d",
+          "label": "Диаметр или сторона",
+          "type": "number",
+          "defaultValue": 1.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "len",
+          "label": "Высота или длина",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "level",
+          "label": "Уровень жидкости",
+          "type": "number",
+          "defaultValue": 1.2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "м³": "m³",
+        "л": "L",
+        "Неизвестная форма ёмкости": "Unknown tank shape",
+        "Размер сечения должен быть больше нуля": "The cross-section size must be greater than zero",
+        "Длина или высота должна быть больше нуля": "The length or height must be greater than zero",
+        "Уровень не может быть отрицательным": "The level cannot be negative",
+        "Уровень не может быть выше самой ёмкости": "The level cannot exceed the tank itself",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "tank-volume",
+      "locale": "uk",
+      "url": "/uk/remont/obyem-yemnosti/",
+      "h1": "Калькулятор обʼєму ємності",
+      "fields": [
+        {
+          "name": "shape",
+          "label": "Форма ёмкости",
+          "type": "select",
+          "defaultValue": "vertical-cylinder",
+          "options": [
+            {
+              "value": "vertical-cylinder",
+              "label": "вертикальный цилиндр"
+            },
+            {
+              "value": "horizontal-cylinder",
+              "label": "горизонтальная цистерна"
+            },
+            {
+              "value": "rect",
+              "label": "прямоугольная"
+            },
+            {
+              "value": "capsule",
+              "label": "капсула"
+            }
+          ]
+        },
+        {
+          "name": "d",
+          "label": "Диаметр или сторона",
+          "type": "number",
+          "defaultValue": 1.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "len",
+          "label": "Высота или длина",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "level",
+          "label": "Уровень жидкости",
+          "type": "number",
+          "defaultValue": 1.2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "м³": "м³",
+        "л": "л",
+        "Неизвестная форма ёмкости": "Невідома форма ємності",
+        "Размер сечения должен быть больше нуля": "Розмір перерізу має бути більшим за нуль",
+        "Длина или высота должна быть больше нуля": "Довжина або висота має бути більшою за нуль",
+        "Уровень не может быть отрицательным": "Рівень не може бути відʼємним",
+        "Уровень не может быть выше самой ёмкости": "Рівень не може перевищувати саму ємність",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "tank-volume",
+      "locale": "de",
+      "url": "/de/heimwerken/behaeltervolumen-rechner/",
+      "h1": "Rechner für das Behältervolumen",
+      "fields": [
+        {
+          "name": "shape",
+          "label": "Форма ёмкости",
+          "type": "select",
+          "defaultValue": "vertical-cylinder",
+          "options": [
+            {
+              "value": "vertical-cylinder",
+              "label": "вертикальный цилиндр"
+            },
+            {
+              "value": "horizontal-cylinder",
+              "label": "горизонтальная цистерна"
+            },
+            {
+              "value": "rect",
+              "label": "прямоугольная"
+            },
+            {
+              "value": "capsule",
+              "label": "капсула"
+            }
+          ]
+        },
+        {
+          "name": "d",
+          "label": "Диаметр или сторона",
+          "type": "number",
+          "defaultValue": 1.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "len",
+          "label": "Высота или длина",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "level",
+          "label": "Уровень жидкости",
+          "type": "number",
+          "defaultValue": 1.2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "м³": "m³",
+        "л": "l",
+        "Неизвестная форма ёмкости": "Unbekannte Form des Behälters",
+        "Размер сечения должен быть больше нуля": "Das Querschnittsmaß muss größer als null sein",
+        "Длина или высота должна быть больше нуля": "Länge oder Höhe muss größer als null sein",
+        "Уровень не может быть отрицательным": "Der Füllstand kann nicht negativ sein",
+        "Уровень не может быть выше самой ёмкости": "Der Füllstand kann den Behälter nicht übersteigen",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "tank-volume",
+      "locale": "es",
+      "url": "/es/reformas/volumen-de-depositos/",
+      "h1": "Calculadora de volumen de depósitos",
+      "fields": [
+        {
+          "name": "shape",
+          "label": "Форма ёмкости",
+          "type": "select",
+          "defaultValue": "vertical-cylinder",
+          "options": [
+            {
+              "value": "vertical-cylinder",
+              "label": "вертикальный цилиндр"
+            },
+            {
+              "value": "horizontal-cylinder",
+              "label": "горизонтальная цистерна"
+            },
+            {
+              "value": "rect",
+              "label": "прямоугольная"
+            },
+            {
+              "value": "capsule",
+              "label": "капсула"
+            }
+          ]
+        },
+        {
+          "name": "d",
+          "label": "Диаметр или сторона",
+          "type": "number",
+          "defaultValue": 1.5,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "len",
+          "label": "Высота или длина",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        },
+        {
+          "name": "level",
+          "label": "Уровень жидкости",
+          "type": "number",
+          "defaultValue": 1.2,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м"
+        }
+      ],
+      "errors": {
+        "м³": "m³",
+        "л": "l",
+        "Неизвестная форма ёмкости": "Forma de depósito desconocida",
+        "Размер сечения должен быть больше нуля": "La dimensión de la sección debe ser mayor que cero",
+        "Длина или высота должна быть больше нуля": "La longitud o la altura debe ser mayor que cero",
+        "Уровень не может быть отрицательным": "El nivel no puede ser negativo",
+        "Уровень не может быть выше самой ёмкости": "El nivel no puede superar al propio depósito",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    },
+    {
+      "id": "underfloor-heating",
+      "locale": "ru",
+      "url": "/ru/building/teplyy-pol/",
+      "h1": "Калькулятор трубы тёплого пола",
+      "fields": [
+        {
+          "name": "area",
+          "label": "Площадь обогрева",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "step",
+          "label": "Шаг укладки",
+          "type": "number",
+          "defaultValue": 0.15,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "loopMax",
+          "label": "Предельная длина петли",
+          "type": "number",
+          "defaultValue": 90,
+          "min": 0,
+          "step": 5,
+          "unit": "м"
+        },
+        {
+          "name": "edgeZone",
+          "label": "Площадь краевой зоны",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "edgeStep",
+          "label": "Шаг в краевой зоне",
+          "type": "number",
+          "defaultValue": 0.1,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "underfloor-heating",
+      "locale": "en",
+      "url": "/en/home-improvement/underfloor-heating/",
+      "h1": "Underfloor heating pipe calculator",
+      "fields": [
+        {
+          "name": "area",
+          "label": "Площадь обогрева",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "step",
+          "label": "Шаг укладки",
+          "type": "number",
+          "defaultValue": 0.15,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "loopMax",
+          "label": "Предельная длина петли",
+          "type": "number",
+          "defaultValue": 90,
+          "min": 0,
+          "step": 5,
+          "unit": "м"
+        },
+        {
+          "name": "edgeZone",
+          "label": "Площадь краевой зоны",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "edgeStep",
+          "label": "Шаг в краевой зоне",
+          "type": "number",
+          "defaultValue": 0.1,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "м²": "m²",
+        "Площадь должна быть больше нуля": "The area must be greater than zero",
+        "Шаг укладки должен быть больше нуля": "The pipe spacing must be greater than zero",
+        "Предельная длина петли должна быть больше нуля": "The maximum loop length must be greater than zero",
+        "Краевая зона должна быть меньше всей площади": "The edge zone must be smaller than the whole area",
+        "Запас должен быть от 0 до 50 %": "The allowance must be between 0 and 50 %",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "underfloor-heating",
+      "locale": "uk",
+      "url": "/uk/remont/tepla-pidloga/",
+      "h1": "Калькулятор труби теплої підлоги",
+      "fields": [
+        {
+          "name": "area",
+          "label": "Площадь обогрева",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "step",
+          "label": "Шаг укладки",
+          "type": "number",
+          "defaultValue": 0.15,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "loopMax",
+          "label": "Предельная длина петли",
+          "type": "number",
+          "defaultValue": 90,
+          "min": 0,
+          "step": 5,
+          "unit": "м"
+        },
+        {
+          "name": "edgeZone",
+          "label": "Площадь краевой зоны",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "edgeStep",
+          "label": "Шаг в краевой зоне",
+          "type": "number",
+          "defaultValue": 0.1,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "м",
+        "м²": "м²",
+        "Площадь должна быть больше нуля": "Площа має бути більшою за нуль",
+        "Шаг укладки должен быть больше нуля": "Крок укладання має бути більшим за нуль",
+        "Предельная длина петли должна быть больше нуля": "Гранична довжина петлі має бути більшою за нуль",
+        "Краевая зона должна быть меньше всей площади": "Краєва зона має бути меншою за всю площу",
+        "Запас должен быть от 0 до 50 %": "Запас має бути від 0 до 50 %",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "underfloor-heating",
+      "locale": "de",
+      "url": "/de/heimwerken/fussbodenheizung-rohr/",
+      "h1": "Rechner für Rohre der Fußbodenheizung",
+      "fields": [
+        {
+          "name": "area",
+          "label": "Площадь обогрева",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "step",
+          "label": "Шаг укладки",
+          "type": "number",
+          "defaultValue": 0.15,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "loopMax",
+          "label": "Предельная длина петли",
+          "type": "number",
+          "defaultValue": 90,
+          "min": 0,
+          "step": 5,
+          "unit": "м"
+        },
+        {
+          "name": "edgeZone",
+          "label": "Площадь краевой зоны",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "edgeStep",
+          "label": "Шаг в краевой зоне",
+          "type": "number",
+          "defaultValue": 0.1,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "м²": "m²",
+        "Площадь должна быть больше нуля": "Die Fläche muss größer als null sein",
+        "Шаг укладки должен быть больше нуля": "Der Verlegeabstand muss größer als null sein",
+        "Предельная длина петли должна быть больше нуля": "Die Höchstlänge eines Heizkreises muss größer als null sein",
+        "Краевая зона должна быть меньше всей площади": "Die Randzone muss kleiner als die ganze Fläche sein",
+        "Запас должен быть от 0 до 50 %": "Der Zuschlag muss zwischen 0 und 50 % liegen",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "underfloor-heating",
+      "locale": "es",
+      "url": "/es/reformas/tubo-para-suelo-radiante/",
+      "h1": "Calculadora de tubo para suelo radiante",
+      "fields": [
+        {
+          "name": "area",
+          "label": "Площадь обогрева",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "step",
+          "label": "Шаг укладки",
+          "type": "number",
+          "defaultValue": 0.15,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "loopMax",
+          "label": "Предельная длина петли",
+          "type": "number",
+          "defaultValue": 90,
+          "min": 0,
+          "step": 5,
+          "unit": "м"
+        },
+        {
+          "name": "edgeZone",
+          "label": "Площадь краевой зоны",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0,
+          "step": 1,
+          "unit": "м²"
+        },
+        {
+          "name": "edgeStep",
+          "label": "Шаг в краевой зоне",
+          "type": "number",
+          "defaultValue": 0.1,
+          "min": 0,
+          "step": 0.05,
+          "unit": "м"
+        },
+        {
+          "name": "waste",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "м": "m",
+        "м²": "m²",
+        "Площадь должна быть больше нуля": "La superficie debe ser mayor que cero",
+        "Шаг укладки должен быть больше нуля": "La separación del tubo debe ser mayor que cero",
+        "Предельная длина петли должна быть больше нуля": "La longitud máxima del circuito debe ser mayor que cero",
+        "Краевая зона должна быть меньше всей площади": "La zona perimetral debe ser menor que toda la superficie",
+        "Запас должен быть от 0 до 50 %": "El margen debe estar entre 0 y 50 %",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    },
+    {
+      "id": "wood-weight",
+      "locale": "ru",
+      "url": "/ru/building/ves-drevesiny/",
+      "h1": "Калькулятор веса древесины",
+      "fields": [
+        {
+          "name": "volume",
+          "label": "Объём",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м³"
+        },
+        {
+          "name": "species",
+          "label": "Порода",
+          "type": "select",
+          "defaultValue": "pine",
+          "options": [
+            {
+              "value": "pine",
+              "label": "Сосна"
+            },
+            {
+              "value": "spruce",
+              "label": "Ель"
+            },
+            {
+              "value": "birch",
+              "label": "Берёза"
+            },
+            {
+              "value": "oak",
+              "label": "Дуб"
+            },
+            {
+              "value": "larch",
+              "label": "Лиственница"
+            },
+            {
+              "value": "aspen",
+              "label": "Осина"
+            }
+          ]
+        },
+        {
+          "name": "moisture",
+          "label": "Влажность",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {}
+    },
+    {
+      "id": "wood-weight",
+      "locale": "en",
+      "url": "/en/home-improvement/wood-weight/",
+      "h1": "Wood weight calculator",
+      "fields": [
+        {
+          "name": "volume",
+          "label": "Объём",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м³"
+        },
+        {
+          "name": "species",
+          "label": "Порода",
+          "type": "select",
+          "defaultValue": "pine",
+          "options": [
+            {
+              "value": "pine",
+              "label": "Сосна"
+            },
+            {
+              "value": "spruce",
+              "label": "Ель"
+            },
+            {
+              "value": "birch",
+              "label": "Берёза"
+            },
+            {
+              "value": "oak",
+              "label": "Дуб"
+            },
+            {
+              "value": "larch",
+              "label": "Лиственница"
+            },
+            {
+              "value": "aspen",
+              "label": "Осина"
+            }
+          ]
+        },
+        {
+          "name": "moisture",
+          "label": "Влажность",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "кг": "kg",
+        "кг/м³": "kg/m³",
+        "м³": "m³",
+        "Неизвестная порода древесины": "Unknown species",
+        "Объём должен быть больше нуля": "The volume must be greater than zero",
+        "Влажность должна быть от 0 до 100 %": "Moisture content must be between 0 and 100 %",
+        "При такой влажности плотность обращается в ноль": "At that moisture the density works out to zero",
+        "Базовые плотности даны при влажности 12 %. Пересчёт линейный, поэтому для свежесрубленного леса результат приблизителен.": "Reference densities are given at 12 % moisture. The conversion is linear, so for freshly felled timber the result is approximate.",
+        "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+        "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+        "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+        "Введите целые числа в допустимом диапазоне": "Enter whole numbers within the supported range",
+        "в диапазоне модели": "within the model range",
+        "вне диапазона модели 0,60–0,65 м": "outside the model range of 0.60–0.65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Capsule fill is estimated linearly from the level; it is an approximation, not the exact volume within the spherical ends.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Densities at 12% are fixed model parameters; the linear adjustment does not account for volume changes or variation in real timber."
+      }
+    },
+    {
+      "id": "wood-weight",
+      "locale": "uk",
+      "url": "/uk/remont/vaga-derevyny/",
+      "h1": "Калькулятор ваги деревини",
+      "fields": [
+        {
+          "name": "volume",
+          "label": "Объём",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м³"
+        },
+        {
+          "name": "species",
+          "label": "Порода",
+          "type": "select",
+          "defaultValue": "pine",
+          "options": [
+            {
+              "value": "pine",
+              "label": "Сосна"
+            },
+            {
+              "value": "spruce",
+              "label": "Ель"
+            },
+            {
+              "value": "birch",
+              "label": "Берёза"
+            },
+            {
+              "value": "oak",
+              "label": "Дуб"
+            },
+            {
+              "value": "larch",
+              "label": "Лиственница"
+            },
+            {
+              "value": "aspen",
+              "label": "Осина"
+            }
+          ]
+        },
+        {
+          "name": "moisture",
+          "label": "Влажность",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "кг": "кг",
+        "кг/м³": "кг/м³",
+        "м³": "м³",
+        "Неизвестная порода древесины": "Невідома порода деревини",
+        "Объём должен быть больше нуля": "Об’єм має бути більшим за нуль",
+        "Влажность должна быть от 0 до 100 %": "Вологість має бути від 0 до 100 %",
+        "При такой влажности плотность обращается в ноль": "За такої вологості густина обертається на нуль",
+        "Базовые плотности даны при влажности 12 %. Пересчёт линейный, поэтому для свежесрубленного леса результат приблизителен.": "Довідкові густини наведено за вологості 12 %. Перерахунок лінійний, тож для свіжозрубаного лісу результат приблизний.",
+        "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+        "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+        "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+        "Введите целые числа в допустимом диапазоне": "Введіть цілі числа в допустимому діапазоні",
+        "в диапазоне модели": "у діапазоні моделі",
+        "вне диапазона модели 0,60–0,65 м": "поза діапазоном моделі 0,60–0,65 м",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Для капсули налив оцінено лінійно за рівнем: це наближення, а не точний об’єм у сферичних торцях.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Густини за 12 % — фіксовані параметри моделі; лінійна поправка не враховує зміну об’єму та розкид властивостей реальної деревини."
+      }
+    },
+    {
+      "id": "wood-weight",
+      "locale": "de",
+      "url": "/de/heimwerken/holzgewicht-rechner/",
+      "h1": "Rechner für das Holzgewicht",
+      "fields": [
+        {
+          "name": "volume",
+          "label": "Объём",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м³"
+        },
+        {
+          "name": "species",
+          "label": "Порода",
+          "type": "select",
+          "defaultValue": "pine",
+          "options": [
+            {
+              "value": "pine",
+              "label": "Сосна"
+            },
+            {
+              "value": "spruce",
+              "label": "Ель"
+            },
+            {
+              "value": "birch",
+              "label": "Берёза"
+            },
+            {
+              "value": "oak",
+              "label": "Дуб"
+            },
+            {
+              "value": "larch",
+              "label": "Лиственница"
+            },
+            {
+              "value": "aspen",
+              "label": "Осина"
+            }
+          ]
+        },
+        {
+          "name": "moisture",
+          "label": "Влажность",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "кг": "kg",
+        "кг/м³": "kg/m³",
+        "м³": "m³",
+        "Неизвестная порода древесины": "Unbekannte Holzart",
+        "Объём должен быть больше нуля": "Das Volumen muss größer als null sein",
+        "Влажность должна быть от 0 до 100 %": "Die Holzfeuchte muss zwischen 0 und 100 % liegen",
+        "При такой влажности плотность обращается в ноль": "Bei dieser Feuchte geht die Dichte auf null",
+        "Базовые плотности даны при влажности 12 %. Пересчёт линейный, поэтому для свежесрубленного леса результат приблизителен.": "Die Bezugsdichten gelten bei 12 % Holzfeuchte. Die Umrechnung ist linear, für frisch geschlagenes Holz ist das Ergebnis deshalb näherungsweise.",
+        "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+        "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Berechnungsmodus",
+        "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+        "Введите целые числа в допустимом диапазоне": "Gib ganze Zahlen im unterstützten Bereich ein",
+        "в диапазоне модели": "im Modellbereich",
+        "вне диапазона модели 0,60–0,65 м": "außerhalb des Modellbereichs von 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "Die Kapselfüllung wird linear aus dem Füllstand geschätzt; dies ist eine Näherung, kein exaktes Teilvolumen der kugelförmigen Enden.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Die Dichten bei 12 % sind feste Modellparameter; die lineare Korrektur berücksichtigt weder Volumenänderungen noch die Streuung realer Holzeigenschaften."
+      }
+    },
+    {
+      "id": "wood-weight",
+      "locale": "es",
+      "url": "/es/reformas/peso-de-la-madera/",
+      "h1": "Calculadora de peso de la madera",
+      "fields": [
+        {
+          "name": "volume",
+          "label": "Объём",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "step": 0.1,
+          "unit": "м³"
+        },
+        {
+          "name": "species",
+          "label": "Порода",
+          "type": "select",
+          "defaultValue": "pine",
+          "options": [
+            {
+              "value": "pine",
+              "label": "Сосна"
+            },
+            {
+              "value": "spruce",
+              "label": "Ель"
+            },
+            {
+              "value": "birch",
+              "label": "Берёза"
+            },
+            {
+              "value": "oak",
+              "label": "Дуб"
+            },
+            {
+              "value": "larch",
+              "label": "Лиственница"
+            },
+            {
+              "value": "aspen",
+              "label": "Осина"
+            }
+          ]
+        },
+        {
+          "name": "moisture",
+          "label": "Влажность",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        }
+      ],
+      "errors": {
+        "кг": "kg",
+        "кг/м³": "kg/m³",
+        "м³": "m³",
+        "Неизвестная порода древесины": "Especie desconocida",
+        "Объём должен быть больше нуля": "El volumen debe ser mayor que cero",
+        "Влажность должна быть от 0 до 100 %": "La humedad debe estar entre 0 y 100 %",
+        "При такой влажности плотность обращается в ноль": "Con esa humedad la densidad se hace cero",
+        "Базовые плотности даны при влажности 12 %. Пересчёт линейный, поэтому для свежесрубленного леса результат приблизителен.": "Las densidades de referencia se dan al 12 % de humedad. La conversión es lineal, así que en madera recién cortada el resultado es aproximado.",
+        "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+        "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo compatible",
+        "Результат выходит за числовой диапазон; измените данные": "El resultado excede el intervalo numérico; cambia los datos",
+        "Введите целые числа в допустимом диапазоне": "Introduce números enteros dentro del intervalo admitido",
+        "в диапазоне модели": "dentro del intervalo del modelo",
+        "вне диапазона модели 0,60–0,65 м": "fuera del intervalo del modelo de 0,60–0,65 m",
+        "Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.": "El llenado de la cápsula se estima linealmente según el nivel; es una aproximación, no el volumen parcial exacto de los extremos esféricos.",
+        "Плотности при 12 % — фиксированные параметры модели; линейная поправка не учитывает изменение объёма и разброс свойств реальной древесины.": "Las densidades al 12 % son parámetros fijos del modelo; el ajuste lineal no considera los cambios de volumen ni la variación de la madera real."
+      }
+    }
+  ]
+}

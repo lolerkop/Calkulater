@@ -1,62 +1,29 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure, formatStatistic } from '../../lib/platform/measurement';
-import { ceilUnits } from '../../lib/rounding';
+import { add, ceiling, exact, exactInt, fraction, INPUT, integer, measure, MODE, mode, negative, read, shown, stat, times } from '../stats-descriptive/statisticsNumeric';
 
-// Размер выборки: n₀ = z²·p·(1−p)/e².
-//
-// Это обратная задача к доверительному интервалу: там число респондентов
-// задано и получается ширина интервала, здесь задана допустимая ширина и
-// получается число респондентов.
-//
-// Доля 50 % даёт МАКСИМАЛЬНУЮ выборку: произведение p·(1−p) достигает максимума
-// ровно посередине. Поэтому 50 % — безопасное умолчание, когда ожидаемая доля
-// неизвестна: ошибиться в большую сторону нельзя.
-//
-// Поправка на конечную совокупность включается, когда объём генеральной
-// совокупности задан: опрашивать 384 человека из посёлка в 500 жителей не нужно,
-// хватит 218. Ноль означает бесконечную совокупность и поправку не включает.
-//
-// Округление вверх идёт через выпущенный ceilUnits: обычный Math.ceil на
-// двоичном хвосте вида 384.0000000000001 добавляет лишнего респондента.
-const Z: Record<string, number> = {
-  '90': 1.6448536269514722,
-  '95': 1.959963984540054,
-  '99': 2.5758293035489004,
-};
-
+// Historical critical values retained. Ceiling is exact for their binary64
+// values, without a tolerance that can silently remove a required respondent.
+const Z: Record<string, number> = { '90': 1.6448536269514722, '95': 1.959963984540054, '99': 2.5758293035489004 };
 export const compute: CalcFunction = (inputs) => {
-  const confidence = toStr(inputs.confidence, '95');
-  const margin = toNumber(inputs.margin);
-  const proportion = toNumber(inputs.proportion);
-  const population = toNumber(inputs.population);
-  const fail = (message: string) => ({
-    primary: { label: 'Размер выборки', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  const z = Z[confidence];
-  if (!z) return fail('Выберите доверительную вероятность из списка');
+  const fail = (message: string) => ({ primary: { label: 'Размер выборки', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  const confidence = mode(inputs.confidence, '95', ['90', '95', '99']);
+  if (!confidence) return fail('Выберите доверительную вероятность из списка');
+  const margin = read(inputs.margin), proportion = read(inputs.proportion), population = integer(inputs.population);
+  if (![margin, proportion].every(Number.isFinite)) return fail(INPUT);
   if (!(margin > 0)) return fail('Предельная ошибка должна быть больше нуля');
-  if (!(proportion >= 0) || !(proportion <= 100)) return fail('Ожидаемая доля задаётся от 0 до 100 процентов');
-  if (!(population >= 0)) return fail('Объём совокупности не может быть отрицательным');
-
-  const p = proportion / 100;
-  const e = margin / 100;
-  const raw = (z * z * p * (1 - p)) / (e * e);
-  const corrected = population > 0 ? raw / (1 + (raw - 1) / population) : raw;
-  const n = ceilUnits(corrected);
-
-  return {
-    primary: { label: 'Размер выборки', value: `${formatMeasure(n, fmtNumber)} чел` },
-    secondary: [
-      { label: 'Без поправки на совокупность', value: `${formatMeasure(ceilUnits(raw), fmtNumber)} чел` },
-      { label: 'Критическое значение z', value: formatMeasure(z, fmtNumber) },
-      { label: 'Предельная ошибка', value: `${formatStatistic(margin, fmtNumber)} %` },
-      {
-        label: 'Доля от совокупности',
-        value: `${formatStatistic(population > 0 ? (n / population) * 100 : 0, fmtNumber)} %`,
-      },
-    ],
-  };
+  if (!(proportion >= 0 && proportion <= 100)) return fail('Ожидаемая доля задаётся от 0 до 100 процентов');
+  if (!Number.isFinite(population)) return fail('Объём совокупности должен быть целым неотрицательным числом');
+  if (population < 0) return fail('Объём совокупности не может быть отрицательным');
+  const z = Z[confidence];
+  const top = times(exact(z), exact(z), exact(proportion), add(exact(100), negative(exact(proportion))));
+  const bottom = times(exact(margin), exact(margin));
+  const uncorrected = ceiling(top, bottom);
+  const n = !top.coefficient ? 0n : population > 0
+    ? ceiling(times(exact(population), top), add(times(exact(population - 1), bottom), top))
+    : uncorrected;
+  return { primary: { label: 'Размер выборки', value: `${exactInt(n)} чел` }, secondary: [
+    { label: 'Без поправки на совокупность', value: `${exactInt(uncorrected)} чел` },
+    { label: 'Критическое значение z', value: measure(z) }, { label: 'Предельная ошибка', value: `${stat(margin)} %` },
+    { label: 'Доля от совокупности', value: population > 0 ? `${shown({ coefficient: 100n * n, exponent: 0 }, exact(population))} %` : '—' },
+  ] };
 };

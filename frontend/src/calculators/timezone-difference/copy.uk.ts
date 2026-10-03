@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 import type { CalculatorSeoCopy } from '../../lib/platform/types';
 
 export const timezoneDifferenceCopyUk: CalculatorSeoCopy = {
@@ -8,4 +9,6 @@ export const timezoneDifferenceCopyUk: CalculatorSeoCopy = {
   seoDescription: "Переведіть час між двома часовими поясами за їхніми зміщеннями UTC, включно з дробовими зміщеннями та переходом через північ.",
   h1: "Калькулятор різниці часових поясів",
   keywords: ["різниця часових поясів", "переведення часу", "зміщення UTC"],
-};
+
+    ...dateTimeWave15ContractContent.uk['timezone-difference'],
+  };

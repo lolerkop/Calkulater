@@ -1,12 +1,13 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'length': 'Länge des Gusses, cm',
-      'width': 'Breite des Gusses, cm',
-      'thickness': 'Schichtdicke, mm',
-      'density': 'Dichte der Mischung, g/cm³',
+      'length': "Länge des Gusses",
+      'width': "Breite des Gusses",
+      'thickness': "Schichtdicke",
+      'density': "Dichte der Mischung",
       'ratio': 'Teile Harz je Teil Härter',
     },
     results: {
@@ -30,8 +31,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      length: 'Pour length, cm', width: 'Pour width, cm', thickness: 'Layer thickness, mm',
-      density: 'Mix density, g/cm³', ratio: 'Parts of resin per part of hardener',
+      length: "Pour length", width: "Pour width", thickness: "Layer thickness",
+      density: "Mix density", ratio: 'Parts of resin per part of hardener',
     },
     options: {},
     results: {
@@ -49,8 +50,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      length: 'Довжина заливки, см', width: 'Ширина заливки, см', thickness: 'Товщина шару, мм',
-      density: 'Густина суміші, г/см³', ratio: 'Частин смоли на частину затверджувача',
+      length: "Довжина заливки", width: "Ширина заливки", thickness: "Товщина шару",
+      density: "Густина суміші", ratio: 'Частин смоли на частину затверджувача',
     },
     options: {},
     results: {
@@ -68,10 +69,10 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "length": "Largo del vertido, cm",
-      "width": "Ancho del vertido, cm",
-      "thickness": "Espesor de la capa, mm",
-      "density": "Densidad de la mezcla, g/cm³",
+      "length": "Largo del vertido",
+      "width": "Ancho del vertido",
+      "thickness": "Espesor de la capa",
+      "density": "Densidad de la mezcla",
       "ratio": "Partes de resina por parte de endurecedor",
     },
     options: {},
@@ -95,3 +96,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

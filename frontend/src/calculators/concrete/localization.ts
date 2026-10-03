@@ -1,3 +1,4 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 // Единицы принадлежат калькулятору: центральный словарь единиц не трогается,
@@ -19,16 +20,16 @@ export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'mode': 'Form des Betonierens',
-      'length': 'Länge der Platte, m',
-      'width': 'Breite der Platte, m',
-      'thickness': 'Dicke der Platte, m',
-      'perimeter': 'Länge des Streifens, m',
-      'stripWidth': 'Breite des Streifens, m',
-      'depth': 'Tiefe des Streifens, m',
-      'sectionArea': 'Querschnittsfläche der Stütze, m²',
-      'height': 'Höhe der Stütze, m',
+      'length': "Länge der Platte",
+      'width': "Breite der Platte",
+      'thickness': "Dicke der Platte",
+      'perimeter': "Länge des Streifens",
+      'stripWidth': "Breite des Streifens",
+      'depth': "Tiefe des Streifens",
+      'sectionArea': "Querschnittsfläche der Stütze",
+      'height': "Höhe der Stütze",
       'count': 'Zahl der Stützen',
-      'waste': 'Zuschlag, %',
+      'waste': "Zuschlag",
     },
     options: {
       'slab': 'eine Platte',
@@ -53,7 +54,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { mode: 'Pour shape', length: 'Slab length, m', width: 'Slab width, m', thickness: 'Slab thickness, m', perimeter: 'Strip length, m', stripWidth: 'Strip width, m', depth: 'Strip depth, m', sectionArea: 'Column section area, m²', height: 'Column height, m', count: 'Number of columns', waste: 'Allowance, %', },
+    fields: { mode: 'Pour shape', length: "Slab length", width: "Slab width", thickness: "Slab thickness", perimeter: "Strip length", stripWidth: "Strip width", depth: "Strip depth", sectionArea: "Column section area", height: "Column height", count: 'Number of columns', waste: "Allowance", },
     options: { slab: 'a slab', strip: 'a strip', columns: 'columns', },
     results: RESULTS_EN,
     values: {
@@ -68,7 +69,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { mode: 'Форма заливки', length: 'Довжина плити, м', width: 'Ширина плити, м', thickness: 'Товщина плити, м', perimeter: 'Довжина стрічки, м', stripWidth: 'Ширина стрічки, м', depth: 'Глибина стрічки, м', sectionArea: 'Площа перерізу стовпа, м²', height: 'Висота стовпа, м', count: 'Кількість стовпів', waste: 'Запас, %', },
+    fields: { mode: 'Форма заливки', length: "Довжина плити", width: "Ширина плити", thickness: "Товщина плити", perimeter: "Довжина стрічки", stripWidth: "Ширина стрічки", depth: "Глибина стрічки", sectionArea: "Площа перерізу стовпа", height: "Висота стовпа", count: 'Кількість стовпів', waste: "Запас", },
     options: { slab: 'плита', strip: 'стрічка', columns: 'стовпи', },
     results: RESULTS_UK,
     values: {
@@ -85,16 +86,16 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "mode": "Forma del vertido",
-      "length": "Largo de la losa, m",
-      "width": "Ancho de la losa, m",
-      "thickness": "Espesor de la losa, m",
-      "perimeter": "Longitud de la zapata, m",
-      "stripWidth": "Ancho de la zapata, m",
-      "depth": "Profundidad de la zapata, m",
-      "sectionArea": "Área de la sección del pilar, m²",
-      "height": "Altura del pilar, m",
+      "length": "Largo de la losa",
+      "width": "Ancho de la losa",
+      "thickness": "Espesor de la losa",
+      "perimeter": "Longitud de la zapata",
+      "stripWidth": "Ancho de la zapata",
+      "depth": "Profundidad de la zapata",
+      "sectionArea": "Área de la sección del pilar",
+      "height": "Altura del pilar",
       "count": "Número de pilares",
-      "waste": "Margen, %",
+      "waste": "Margen",
     },
     options: {
       "slab": "una losa",
@@ -119,3 +120,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

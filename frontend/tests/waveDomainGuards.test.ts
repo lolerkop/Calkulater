@@ -112,12 +112,14 @@ describe('защиты области волны 20B', () => {
     let total = 0;
     for (const id of WAVE) {
       const cases = def(id).referenceCases;
-      expect(cases, id).toHaveLength(5);
+      // All125 original cases remain. Lever adds three independent cases
+      // for zero first force and negative force magnitude in the rebuild.
+      expect(cases, id).toHaveLength(id === 'lever-moment' ? 8 : 5);
       for (const c of cases) {
         expect(def(id).compute(c.inputs as never).primary.value, `${id}/${c.name}`).toBe(c.expectPrimary);
         total += 1;
       }
     }
-    expect(total, 'закреплённых случаев волны').toBe(125);
+    expect(total, '125 сохранённых случаев плюс3 новых случая рычага').toBe(128);
   });
 });

@@ -1,16 +1,15 @@
-// Немецкий копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла немецкой страницы не существует. Подробный текст живёт в
-// `src/data/deContent/`.
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const dayOfWeekCopyDe: CalculatorSeoCopy = {
+export const dayOfWeekCopyDe: CalculatorCopy = {
   name: 'Wochentagsrechner',
   slug: 'wochentag-berechnen',
   shortDescription: 'Auf welchen Wochentag ein Datum fällt.',
   seoTitle: 'Wochentag berechnen — Wochentag zu jedem Datum',
-  seoDescription: 'Finde den Wochentag zu jedem Datum, dazu den Tag des Jahres, die ISO-Kalenderwoche und ob es ein Wochenende ist.',
+  seoDescription: "Ermittle Wochentag, laufenden Jahrestag, ISO-Wochennummer und Wochenjahr einer gregorianischen Datumsangabe. Wochenende markiert Samstag und Sonntag ohne Feiertage.",
   h1: 'Wochentagsrechner',
   keywords: ['Wochentag berechnen', 'welcher Tag war', 'Wochentag zu Datum', 'Kalenderwoche'],
+  ...contractContent.de,
 };

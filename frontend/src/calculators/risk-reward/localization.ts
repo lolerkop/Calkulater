@@ -1,136 +1,149 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'direction': 'Richtung der Position',
-      'entry': 'Einstiegskurs',
-      'stop': 'Stoppkurs',
-      'target': 'Zielkurs',
-      'qty': 'Größe, Einheiten',
-    },
-    options: {
-      'long': 'long — Stopp darunter, Ziel darüber',
-      'short': 'short — Stopp darüber, Ziel darunter',
-    },
-    results: {
-      'Отношение риск/прибыль': 'Chance-Risiko-Verhältnis',
-      'Риск на единицу': 'Risiko je Einheit',
-      'Прибыль на единицу': 'Ertrag je Einheit',
-      'Риск в деньгах': 'Risiko in Geld',
-      'Прибыль в деньгах': 'Ertrag in Geld',
-      'Безубыточная доля сделок': 'Trefferquote für die Nulllinie',
-      'Внимание': 'Hinweis',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      '₽': '€',
-      'В лонге стоп ставится ниже входа, а цель выше': 'Eine Long-Position setzt den Stopp unter den Einstieg und das Ziel darüber',
-      'В шорте стоп ставится выше входа, а цель ниже': 'Eine Short-Position setzt den Stopp über den Einstieg und das Ziel darunter',
-      'Цена входа должна быть больше нуля': 'Der Einstiegskurs muss größer als null sein',
-      'Цена стоп-приказа должна быть больше нуля': 'Der Stoppkurs muss größer als null sein',
-      'Целевая цена должна быть больше нуля': 'Der Zielkurs muss größer als null sein',
-      'Объём должен быть больше нуля': 'Die Größe muss größer als null sein',
-      'Стоп не может совпадать с ценой входа': 'Der Stopp kann nicht mit dem Einstiegskurs zusammenfallen',
-    },
+  "en": {
+  "fields": {
+    "direction": "Trade direction",
+    "entry": "Entry price",
+    "stop": "Stop price",
+    "target": "Target price",
+    "qty": "Size, units"
   },
-  en: {
-    fields: {
-      "direction": "Trade direction",
-      "entry": "Entry price",
-      "stop": "Stop price",
-      "target": "Target price",
-      "qty": "Size, units",
-    },
-    options: {
-      "long": "long — stop below, target above",
-      "short": "short — stop above, target below",
-    },
-    results: {
-      "Отношение риск/прибыль": "Risk to reward ratio",
-      "Риск на единицу": "Risk per unit",
-      "Прибыль на единицу": "Reward per unit",
-      "Риск в деньгах": "Risk in money",
-      "Прибыль в деньгах": "Reward in money",
-      "Безубыточная доля сделок": "Break-even win rate",
-      "Внимание": "Note",
-      "Проверьте данные": "Check the values",
-    },
-    values: {
-      "₽": "$",
-      "В лонге стоп ставится ниже входа, а цель выше": "A long places the stop below entry and the target above",
-      "В шорте стоп ставится выше входа, а цель ниже": "A short places the stop above entry and the target below",
-      "Цена входа должна быть больше нуля": "The entry price must be greater than zero",
-      "Цена стоп-приказа должна быть больше нуля": "The stop price must be greater than zero",
-      "Целевая цена должна быть больше нуля": "The target price must be greater than zero",
-      "Объём должен быть больше нуля": "The size must be greater than zero",
-      "Стоп не может совпадать с ценой входа": "The stop cannot equal the entry price",
-    },
+  "options": {
+    "long": "long — stop below, target above",
+    "short": "short — stop above, target below"
   },
-  uk: {
-    fields: {
-      "direction": "Напрям угоди",
-      "entry": "Ціна входу",
-      "stop": "Ціна стоп-наказу",
-      "target": "Цільова ціна",
-      "qty": "Обсяг, одиниць",
-    },
-    options: {
-      "long": "лонг — стоп нижче, ціль вище",
-      "short": "шорт — стоп вище, ціль нижче",
-    },
-    results: {
-      "Отношение риск/прибыль": "Відношення ризик/прибуток",
-      "Риск на единицу": "Ризик на одиницю",
-      "Прибыль на единицу": "Прибуток на одиницю",
-      "Риск в деньгах": "Ризик у грошах",
-      "Прибыль в деньгах": "Прибуток у грошах",
-      "Безубыточная доля сделок": "Беззбиткова частка угод",
-      "Внимание": "Увага",
-      "Проверьте данные": "Перевірте дані",
-    },
-    values: {
-      "₽": "₴",
-      "В лонге стоп ставится ниже входа, а цель выше": "У лонгу стоп ставлять нижче входу, а ціль вище",
-      "В шорте стоп ставится выше входа, а цель ниже": "У шорті стоп ставлять вище входу, а ціль нижче",
-      "Цена входа должна быть больше нуля": "Ціна входу має бути більшою за нуль",
-      "Цена стоп-приказа должна быть больше нуля": "Ціна стоп-наказу має бути більшою за нуль",
-      "Целевая цена должна быть больше нуля": "Цільова ціна має бути більшою за нуль",
-      "Объём должен быть больше нуля": "Обсяг має бути більшим за нуль",
-      "Стоп не может совпадать с ценой входа": "Стоп не може збігатися з ціною входу",
-    },
+  "results": {
+    "Отношение риск/прибыль": "Risk to reward ratio",
+    "Риск на единицу": "Risk per unit",
+    "Прибыль на единицу": "Reward per unit",
+    "Риск в деньгах": "Risk in money",
+    "Прибыль в деньгах": "Reward in money",
+    "Безубыточная доля сделок": "Break-even win rate",
+    "Внимание": "Note",
+    "Проверьте данные": "Check the values"
   },
-  es: {
-    fields: {
-      "direction": "Sentido de la operación",
-      "entry": "Precio de entrada",
-      "stop": "Precio del stop",
-      "target": "Precio objetivo",
-      "qty": "Tamaño, unidades",
-    },
-    options: {
-      "long": "largo — stop por debajo, objetivo por encima",
-      "short": "corto — stop por encima, objetivo por debajo",
-    },
-    results: {
-      "Отношение риск/прибыль": "Relación riesgo-beneficio",
-      "Риск на единицу": "Riesgo por unidad",
-      "Прибыль на единицу": "Beneficio por unidad",
-      "Риск в деньгах": "Riesgo en dinero",
-      "Прибыль в деньгах": "Beneficio en dinero",
-      "Безубыточная доля сделок": "Porcentaje de aciertos de equilibrio",
-      "Внимание": "Atención",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "₽": "€",
-      "В лонге стоп ставится ниже входа, а цель выше": "En un largo el stop va por debajo de la entrada y el objetivo por encima",
-      "В шорте стоп ставится выше входа, а цель ниже": "En un corto el stop va por encima de la entrada y el objetivo por debajo",
-      "Цена входа должна быть больше нуля": "El precio de entrada debe ser mayor que cero",
-      "Цена стоп-приказа должна быть больше нуля": "El precio del stop debe ser mayor que cero",
-      "Целевая цена должна быть больше нуля": "El precio objetivo debe ser mayor que cero",
-      "Объём должен быть больше нуля": "El tamaño debe ser mayor que cero",
-      "Стоп не может совпадать с ценой входа": "El stop no puede coincidir con el precio de entrada",
-    },
+  "values": {
+    ...marketingScalarValues.en,
+    "₽": "$",
+    "В лонге стоп ставится ниже входа, а цель выше": "A long places the stop below entry and the target above",
+    "В шорте стоп ставится выше входа, а цель ниже": "A short places the stop above entry and the target below",
+    "Цена входа должна быть больше нуля": "The entry price must be greater than zero",
+    "Цена стоп-приказа должна быть больше нуля": "The stop price must be greater than zero",
+    "Целевая цена должна быть больше нуля": "The target price must be greater than zero",
+    "Объём должен быть больше нуля": "The size must be greater than zero",
+    "Стоп не может совпадать с ценой входа": "The stop cannot equal the entry price",
+    "Неизвестный режим расчёта": "Unknown calculation mode",
+    "Объём не может быть отрицательным": "Size cannot be negative"
+  }
+},
+  "uk": {
+  "fields": {
+    "direction": "Напрям угоди",
+    "entry": "Ціна входу",
+    "stop": "Ціна стоп-наказу",
+    "target": "Цільова ціна",
+    "qty": "Обсяг, одиниць"
   },
+  "options": {
+    "long": "лонг — стоп нижче, ціль вище",
+    "short": "шорт — стоп вище, ціль нижче"
+  },
+  "results": {
+    "Отношение риск/прибыль": "Відношення ризик/прибуток",
+    "Риск на единицу": "Ризик на одиницю",
+    "Прибыль на единицу": "Прибуток на одиницю",
+    "Риск в деньгах": "Ризик у грошах",
+    "Прибыль в деньгах": "Прибуток у грошах",
+    "Безубыточная доля сделок": "Беззбиткова частка угод",
+    "Внимание": "Увага",
+    "Проверьте данные": "Перевірте дані"
+  },
+  "values": {
+    ...marketingScalarValues.uk,
+    "₽": "₴",
+    "В лонге стоп ставится ниже входа, а цель выше": "У лонгу стоп ставлять нижче входу, а ціль вище",
+    "В шорте стоп ставится выше входа, а цель ниже": "У шорті стоп ставлять вище входу, а ціль нижче",
+    "Цена входа должна быть больше нуля": "Ціна входу має бути більшою за нуль",
+    "Цена стоп-приказа должна быть больше нуля": "Ціна стоп-наказу має бути більшою за нуль",
+    "Целевая цена должна быть больше нуля": "Цільова ціна має бути більшою за нуль",
+    "Объём должен быть больше нуля": "Обсяг має бути більшим за нуль",
+    "Стоп не может совпадать с ценой входа": "Стоп не може збігатися з ціною входу",
+    "Неизвестный режим расчёта": "Невідомий режим розрахунку",
+    "Объём не может быть отрицательным": "Обсяг не може бути від’ємним"
+  }
+},
+  "de": {
+  "fields": {
+    "direction": "Richtung der Position",
+    "entry": "Einstiegskurs",
+    "stop": "Stoppkurs",
+    "target": "Zielkurs",
+    "qty": "Größe, Einheiten"
+  },
+  "options": {
+    "long": "long — Stopp darunter, Ziel darüber",
+    "short": "short — Stopp darüber, Ziel darunter"
+  },
+  "results": {
+    "Отношение риск/прибыль": "Chance-Risiko-Verhältnis",
+    "Риск на единицу": "Risiko je Einheit",
+    "Прибыль на единицу": "Ertrag je Einheit",
+    "Риск в деньгах": "Risiko in Geld",
+    "Прибыль в деньгах": "Ertrag in Geld",
+    "Безубыточная доля сделок": "Trefferquote für die Nulllinie",
+    "Внимание": "Hinweis",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "₽": "€",
+    "В лонге стоп ставится ниже входа, а цель выше": "Eine Long-Position setzt den Stopp unter den Einstieg und das Ziel darüber",
+    "В шорте стоп ставится выше входа, а цель ниже": "Eine Short-Position setzt den Stopp über den Einstieg und das Ziel darunter",
+    "Цена входа должна быть больше нуля": "Der Einstiegskurs muss größer als null sein",
+    "Цена стоп-приказа должна быть больше нуля": "Der Stoppkurs muss größer als null sein",
+    "Целевая цена должна быть больше нуля": "Der Zielkurs muss größer als null sein",
+    "Объём должен быть больше нуля": "Die Größe muss größer als null sein",
+    "Стоп не может совпадать с ценой входа": "Der Stopp kann nicht mit dem Einstiegskurs zusammenfallen",
+    "Неизвестный режим расчёта": "Unbekannter Rechenmodus",
+    "Объём не может быть отрицательным": "Die Stückzahl darf nicht negativ sein"
+  }
+},
+  "es": {
+  "fields": {
+    "direction": "Sentido de la operación",
+    "entry": "Precio de entrada",
+    "stop": "Precio del stop",
+    "target": "Precio objetivo",
+    "qty": "Tamaño, unidades"
+  },
+  "options": {
+    "long": "largo — stop por debajo, objetivo por encima",
+    "short": "corto — stop por encima, objetivo por debajo"
+  },
+  "results": {
+    "Отношение риск/прибыль": "Relación riesgo-beneficio",
+    "Риск на единицу": "Riesgo por unidad",
+    "Прибыль на единицу": "Beneficio por unidad",
+    "Риск в деньгах": "Riesgo en dinero",
+    "Прибыль в деньгах": "Beneficio en dinero",
+    "Безубыточная доля сделок": "Porcentaje de aciertos de equilibrio",
+    "Внимание": "Atención",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "₽": "€",
+    "В лонге стоп ставится ниже входа, а цель выше": "En un largo el stop va por debajo de la entrada y el objetivo por encima",
+    "В шорте стоп ставится выше входа, а цель ниже": "En un corto el stop va por encima de la entrada y el objetivo por debajo",
+    "Цена входа должна быть больше нуля": "El precio de entrada debe ser mayor que cero",
+    "Цена стоп-приказа должна быть больше нуля": "El precio del stop debe ser mayor que cero",
+    "Целевая цена должна быть больше нуля": "El precio objetivo debe ser mayor que cero",
+    "Объём должен быть больше нуля": "El tamaño debe ser mayor que cero",
+    "Стоп не может совпадать с ценой входа": "El stop no puede coincidir con el precio de entrada",
+    "Неизвестный режим расчёта": "Modo de cálculo desconocido",
+    "Объём не может быть отрицательным": "El tamaño no puede ser negativo"
+  }
+}
 };

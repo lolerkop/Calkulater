@@ -1,3 +1,4 @@
+import { statisticsMessages } from './statisticsMessages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 const RESULTS_EN = {
@@ -13,7 +14,7 @@ const RESULTS_UK = {
   'Проверьте данные': 'Перевірте дані', 'Не число': 'Не число',
 };
 
-export const localization: CalculatorLocalization = {
+const originalLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'values': 'Zahlen — eine je Zeile oder mit Leerzeichen getrennt',
@@ -81,3 +82,7 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(originalLocalization).map(([locale, bundle]) => [locale, { ...bundle, values: { ...bundle.values, ...statisticsMessages[locale as keyof typeof statisticsMessages] } }]),
+);

@@ -13,6 +13,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Check inputs',
       'Сумма кредита': 'Loan amount',
+      'Результат': 'Result',
       'В': 'To',
       'Первоначальный взнос': 'Down payment',
     },
@@ -21,6 +22,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Перевірте дані',
       'Сумма кредита': 'Сума кредиту',
+      'Результат': 'Результат',
       'В': 'У',
       'Первоначальный взнос': 'Перший внесок',
     },
@@ -29,6 +31,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
       'Сумма кредита': 'Darlehensbetrag',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Первоначальный взнос': 'Anzahlung',
     },
@@ -37,6 +40,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Сумма кредита': 'Importe del préstamo',
+      'Результат': 'Resultado',
       'В': 'A',
       'Первоначальный взнос': 'Entrada',
     },

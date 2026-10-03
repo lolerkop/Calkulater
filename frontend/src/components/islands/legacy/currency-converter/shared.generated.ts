@@ -7,6 +7,7 @@ import type { CalculatorLocalization } from '../../../../lib/platform/types';
 export const shared: CalculatorLocalization = {
   en: {
     results: {
+      'Проверьте данные': 'Check inputs',
       'Результат': 'Result',
       'Курс': 'Rate',
       'Из': 'From',
@@ -20,6 +21,8 @@ export const shared: CalculatorLocalization = {
       'Ошибка': 'Error',
     },
     values: {
+      'Сумма должна быть конечным неотрицательным числом.': 'The amount must be a finite nonnegative number.',
+      'Результат выходит за пределы числовой точности.': 'The result exceeds numerical precision.',
       'сохранённый справочный курс': 'saved reference rate',
       'Это не курс в реальном времени. Используются сохранённые справочные курсы указанных источников; резервный источник отмечен отдельно. Банки и обменные пункты могут использовать другие курсы и комиссии.': 'These are not real-time rates. The calculation uses saved reference rates from the listed sources; any fallback source is marked separately. Banks and exchange services may use different rates and fees.',
       'Сохранённые курсы прошли последнюю проверку источников.': 'The saved rates passed the latest source check.',
@@ -45,6 +48,7 @@ export const shared: CalculatorLocalization = {
   },
   uk: {
     results: {
+      'Проверьте данные': 'Перевірте дані',
       'Результат': 'Результат',
       'Курс': 'Курс',
       'Из': 'З',
@@ -58,6 +62,8 @@ export const shared: CalculatorLocalization = {
       'Ошибка': 'Помилка',
     },
     values: {
+      'Сумма должна быть конечным неотрицательным числом.': 'Сума має бути скінченним невід’ємним числом.',
+      'Результат выходит за пределы числовой точности.': 'Результат виходить за межі числової точності.',
       'сохранённый справочный курс': 'збережений довідковий курс',
       'Это не курс в реальном времени. Используются сохранённые справочные курсы указанных источников; резервный источник отмечен отдельно. Банки и обменные пункты могут использовать другие курсы и комиссии.': 'Це не курс у реальному часі. Використовуються збережені довідкові курси зазначених джерел; резервне джерело позначено окремо. Банки та обмінні сервіси можуть застосовувати інші курси й комісії.',
       'Сохранённые курсы прошли последнюю проверку источников.': 'Збережені курси пройшли останню перевірку джерел.',
@@ -83,6 +89,7 @@ export const shared: CalculatorLocalization = {
   },
   de: {
     results: {
+      'Проверьте данные': 'Prüfe die Werte',
       'Результат': 'Ergebnis',
       'Курс': 'Wechselkurs',
       'Из': 'Von',
@@ -96,6 +103,8 @@ export const shared: CalculatorLocalization = {
       'Ошибка': 'Fehler',
     },
     values: {
+      'Сумма должна быть конечным неотрицательным числом.': 'Der Betrag muss eine endliche nichtnegative Zahl sein.',
+      'Результат выходит за пределы числовой точности.': 'Das Ergebnis überschreitet die Zahlengenauigkeit.',
       'сохранённый справочный курс': 'gespeicherter Referenzkurs',
       'Это не курс в реальном времени. Используются сохранённые справочные курсы указанных источников; резервный источник отмечен отдельно. Банки и обменные пункты могут использовать другие курсы и комиссии.': 'Das sind keine Echtzeitkurse. Verwendet werden gespeicherte Referenzkurse der genannten Quellen; eine Ersatzquelle ist gesondert gekennzeichnet. Banken und Wechselstuben können andere Kurse und Gebühren ansetzen.',
       'Сохранённые курсы прошли последнюю проверку источников.': 'Die gespeicherten Kurse haben die letzte Quellenprüfung bestanden.',
@@ -121,6 +130,7 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Проверьте данные': 'Revisa los datos',
       'Результат': 'Resultado',
       'Курс': 'Tipo de cambio',
       'Из': 'De',
@@ -134,6 +144,8 @@ export const shared: CalculatorLocalization = {
       'Ошибка': 'Error',
     },
     values: {
+      'Сумма должна быть конечным неотрицательным числом.': 'El importe debe ser un número finito no negativo.',
+      'Результат выходит за пределы числовой точности.': 'El resultado supera la precisión numérica.',
       'сохранённый справочный курс': 'tipo de referencia guardado',
       'Это не курс в реальном времени. Используются сохранённые справочные курсы указанных источников; резервный источник отмечен отдельно. Банки и обменные пункты могут использовать другие курсы и комиссии.': 'Estos no son tipos en tiempo real. Se usan tipos de referencia guardados de las fuentes indicadas; cualquier fuente de reserva se señala por separado. Los bancos y las casas de cambio pueden aplicar otros tipos y comisiones.',
       'Сохранённые курсы прошли последнюю проверку источников.': 'Los tipos guardados superaron la última comprobación de fuentes.',

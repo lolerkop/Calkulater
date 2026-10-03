@@ -1,90 +1,148 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
-
-const RESULTS_EN = {
-  'Время загрузки': 'Download time', 'Всего секунд': 'Total seconds',
-  'Размер файла': 'File size', 'Скорость канала': 'Link speed', 'Проверьте данные': 'Check the values',
-};
-const RESULTS_UK = {
-  'Время загрузки': 'Час завантаження', 'Всего секунд': 'Усього секунд',
-  'Размер файла': 'Розмір файлу', 'Скорость канала': 'Швидкість каналу', 'Проверьте данные': 'Перевірте дані',
-};
-
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'size': 'Dateigröße',
-      'sizeUnit': 'Einheit der Größe',
-      'speed': 'Leitungsgeschwindigkeit',
-      'speedUnit': 'Einheit der Geschwindigkeit',
+  "de": {
+    "fields": {
+      "size": "Dateigröße",
+      "sizeUnit": "Einheit der Größe",
+      "speed": "Leitungsgeschwindigkeit",
+      "speedUnit": "Einheit der Geschwindigkeit"
     },
-    options: {
-      'kb': 'KB (1000 Byte)',
-      'mb': 'MB (10⁶ Byte)',
-      'gb': 'GB (10⁹ Byte)',
-      'tb': 'TB (10¹² Byte)',
-      'kib': 'KiB (1024 Byte)',
-      'mib': 'MiB (1024² Byte)',
-      'gib': 'GiB (1024³ Byte)',
-      'tib': 'TiB (1024⁴ Byte)',
-      'kbit': 'kbit/s',
-      'mbit': 'Mbit/s',
-      'gbit': 'Gbit/s',
-      'mbyte': 'MB/s',
+    "options": {
+      "kb": "KB (1000 Byte)",
+      "mb": "MB (10⁶ Byte)",
+      "gb": "GB (10⁹ Byte)",
+      "tb": "TB (10¹² Byte)",
+      "kib": "KiB (1024 Byte)",
+      "mib": "MiB (1024² Byte)",
+      "gib": "GiB (1024³ Byte)",
+      "tib": "TiB (1024⁴ Byte)",
+      "kbit": "kbit/s",
+      "mbit": "Mbit/s",
+      "gbit": "Gbit/s",
+      "mbyte": "MB/s"
     },
-    results: {
-      'Время загрузки': 'Downloadzeit',
-      'Всего секунд': 'Sekunden insgesamt',
-      'Размер файла': 'Dateigröße',
-      'Скорость канала': 'Leitungsgeschwindigkeit',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Время загрузки": "Downloadzeit",
+      "Всего секунд": "Sekunden insgesamt",
+      "Размер файла": "Dateigröße",
+      "Скорость канала": "Leitungsgeschwindigkeit",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'мс': 'ms',
-      'с': 's',
-      'МБ': 'MB',
-      'МиБ': 'MiB',
-      'Мбит/с': 'Mbit/s',
-      'МБ/с': 'MB/s',
-      'Размер файла должен быть больше нуля': 'Die Dateigröße muss größer als null sein',
-      'Скорость должна быть больше нуля': 'Die Geschwindigkeit muss größer als null sein',
-    },
+    "values": {
+      "мс": "ms",
+      "с": "s",
+      "МБ": "MB",
+      "МиБ": "MiB",
+      "Мбит/с": "Mbit/s",
+      "МБ/с": "MB/s",
+      "Размер файла должен быть больше нуля": "Die Dateigröße muss größer als null sein",
+      "Скорость должна быть больше нуля": "Die Geschwindigkeit muss größer als null sein",
+      "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+      "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Rechenmodus",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "Das Ergebnis liegt außerhalb des Zahlenbereichs; prüfe die Größenordnung der Eingaben",
+      "Выберите единицы из списка": "Wähle Einheiten aus der Liste",
+      "ГБ": "GB",
+      "кбит/с": "kbit/s"
+    }
   },
-  en: {
-    fields: { size: 'File size', sizeUnit: 'Size unit', speed: 'Connection speed', speedUnit: 'Speed unit' },
-    options: {
-      kb: 'KB (1000 bytes)', mb: 'MB (10⁶ bytes)', gb: 'GB (10⁹ bytes)', tb: 'TB (10¹² bytes)',
-      kib: 'KiB (1024 bytes)', mib: 'MiB (1024² bytes)', gib: 'GiB (1024³ bytes)', tib: 'TiB (1024⁴ bytes)',
-      kbit: 'Kbit/s', mbit: 'Mbit/s', gbit: 'Gbit/s', mbyte: 'MB/s',
+  "en": {
+    "fields": {
+      "size": "File size",
+      "sizeUnit": "Size unit",
+      "speed": "Connection speed",
+      "speedUnit": "Speed unit"
     },
-    results: RESULTS_EN,
-    values: {
-      'мс': 'ms', 'с': 's', 'МБ': 'MB', 'МиБ': 'MiB', 'Мбит/с': 'Mbit/s', 'МБ/с': 'MB/s',
-      'Размер файла должен быть больше нуля': 'The file size must be greater than zero',
-      'Скорость должна быть больше нуля': 'The speed must be greater than zero',
+    "options": {
+      "kb": "KB (1000 bytes)",
+      "mb": "MB (10⁶ bytes)",
+      "gb": "GB (10⁹ bytes)",
+      "tb": "TB (10¹² bytes)",
+      "kib": "KiB (1024 bytes)",
+      "mib": "MiB (1024² bytes)",
+      "gib": "GiB (1024³ bytes)",
+      "tib": "TiB (1024⁴ bytes)",
+      "kbit": "Kbit/s",
+      "mbit": "Mbit/s",
+      "gbit": "Gbit/s",
+      "mbyte": "MB/s"
     },
+    "results": {
+      "Время загрузки": "Download time",
+      "Всего секунд": "Total seconds",
+      "Размер файла": "File size",
+      "Скорость канала": "Link speed",
+      "Проверьте данные": "Check the values"
+    },
+    "values": {
+      "мс": "ms",
+      "с": "s",
+      "МБ": "MB",
+      "МиБ": "MiB",
+      "Мбит/с": "Mbit/s",
+      "МБ/с": "MB/s",
+      "Размер файла должен быть больше нуля": "The file size must be greater than zero",
+      "Скорость должна быть больше нуля": "The speed must be greater than zero",
+      "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+      "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "The result is outside the numerical range; check the input scale",
+      "Выберите единицы из списка": "Choose units from the list",
+      "ГБ": "GB",
+      "кбит/с": "kbit/s"
+    }
   },
-  uk: {
-    fields: { size: 'Розмір файлу', sizeUnit: 'Одиниця розміру', speed: 'Швидкість з’єднання', speedUnit: 'Одиниця швидкості' },
-    options: {
-      kb: 'КБ (1000 байтів)', mb: 'МБ (10⁶ байтів)', gb: 'ГБ (10⁹ байтів)', tb: 'ТБ (10¹² байтів)',
-      kib: 'КіБ (1024 байти)', mib: 'МіБ (1024² байти)', gib: 'ГіБ (1024³ байти)', tib: 'ТіБ (1024⁴ байти)',
-      kbit: 'Кбіт/с', mbit: 'Мбіт/с', gbit: 'Гбіт/с', mbyte: 'МБ/с',
+  "uk": {
+    "fields": {
+      "size": "Розмір файлу",
+      "sizeUnit": "Одиниця розміру",
+      "speed": "Швидкість з’єднання",
+      "speedUnit": "Одиниця швидкості"
     },
-    results: RESULTS_UK,
-    values: {
-      'мс': 'мс', 'с': 'с', 'МБ': 'МБ', 'МиБ': 'МіБ', 'Мбит/с': 'Мбіт/с', 'МБ/с': 'МБ/с',
-      'Размер файла должен быть больше нуля': 'Розмір файлу має бути більшим за нуль',
-      'Скорость должна быть больше нуля': 'Швидкість має бути більшою за нуль',
+    "options": {
+      "kb": "КБ (1000 байтів)",
+      "mb": "МБ (10⁶ байтів)",
+      "gb": "ГБ (10⁹ байтів)",
+      "tb": "ТБ (10¹² байтів)",
+      "kib": "КіБ (1024 байти)",
+      "mib": "МіБ (1024² байти)",
+      "gib": "ГіБ (1024³ байти)",
+      "tib": "ТіБ (1024⁴ байти)",
+      "kbit": "Кбіт/с",
+      "mbit": "Мбіт/с",
+      "gbit": "Гбіт/с",
+      "mbyte": "МБ/с"
     },
+    "results": {
+      "Время загрузки": "Час завантаження",
+      "Всего секунд": "Усього секунд",
+      "Размер файла": "Розмір файлу",
+      "Скорость канала": "Швидкість каналу",
+      "Проверьте данные": "Перевірте дані"
+    },
+    "values": {
+      "мс": "мс",
+      "с": "с",
+      "МБ": "МБ",
+      "МиБ": "МіБ",
+      "Мбит/с": "Мбіт/с",
+      "МБ/с": "МБ/с",
+      "Размер файла должен быть больше нуля": "Розмір файлу має бути більшим за нуль",
+      "Скорость должна быть больше нуля": "Швидкість має бути більшою за нуль",
+      "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+      "Выберите поддерживаемый режим расчёта": "Оберіть підтримуваний режим розрахунку",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "Результат поза числовим діапазоном; перевірте масштаб вхідних величин",
+      "Выберите единицы из списка": "Оберіть одиниці зі списку",
+      "ГБ": "ГБ",
+      "кбит/с": "кбіт/с"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "size": "Tamaño del archivo",
       "sizeUnit": "Unidad de tamaño",
       "speed": "Velocidad de conexión",
-      "speedUnit": "Unidad de velocidad",
+      "speedUnit": "Unidad de velocidad"
     },
-    options: {
+    "options": {
       "kb": "kB (1000 bytes)",
       "mb": "MB (10⁶ bytes)",
       "gb": "GB (10⁹ bytes)",
@@ -96,16 +154,16 @@ export const localization: CalculatorLocalization = {
       "kbit": "kbit/s",
       "mbit": "Mbit/s",
       "gbit": "Gbit/s",
-      "mbyte": "MB/s",
+      "mbyte": "MB/s"
     },
-    results: {
+    "results": {
       "Время загрузки": "Tiempo de descarga",
       "Всего секунд": "Segundos en total",
       "Размер файла": "Tamaño del archivo",
       "Скорость канала": "Velocidad del enlace",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "мс": "ms",
       "с": "s",
       "МБ": "MB",
@@ -114,6 +172,12 @@ export const localization: CalculatorLocalization = {
       "МБ/с": "MB/s",
       "Размер файла должен быть больше нуля": "El tamaño del archivo debe ser mayor que cero",
       "Скорость должна быть больше нуля": "La velocidad debe ser mayor que cero",
-    },
-  },
+      "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+      "Выберите поддерживаемый режим расчёта": "Selecciona un modo de cálculo admitido",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "El resultado está fuera del intervalo numérico; revisa la escala de las entradas",
+      "Выберите единицы из списка": "Selecciona unidades de la lista",
+      "ГБ": "GB",
+      "кбит/с": "kbit/s"
+    }
+  }
 };

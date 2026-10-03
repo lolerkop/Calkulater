@@ -33,7 +33,10 @@ export type Field = {
   // обязательной величины: иначе вместо ошибки посетитель получит правдоподобное,
   // но неверное число.
   optional?: boolean;
-  showIf?: { field: string; equals: string | number | boolean };
+  showIf?: { field: string } & (
+    | { equals: string | number | boolean; oneOf?: never }
+    | { oneOf: readonly (string | number | boolean)[]; equals?: never }
+  );
 };
 
 export type FaqItem = { q: string; a: string };

@@ -26,4 +26,21 @@ export const conversionRateReferenceCases: readonly CalculatorReferenceCase[] = 
     inputs: { "visitors": 100, "conversions": 200, "cost": 0 },
     expectPrimary: "—",
   },
+// Дополнения: независимое деление, границы фактических счётчиков и IEEE-754.
+  {
+    name: 'каждый визит успешный: 100 процентов и один визит на конверсию',
+    inputs: { visitors: 100, conversions: 100, cost: 0 },
+    expectPrimary: '100,00%',
+    expectSecondary: [{ label: 'Визитов на одну конверсию', value: '1' }],
+  },
+  {
+    name: 'дробный визит отклоняется',
+    inputs: { visitors: 1.2, conversions: 1, cost: 0 },
+    expectPrimary: '—',
+  },
+  {
+    name: 'один успешный визит на предельно допустимое целое число',
+    inputs: { visitors: 9007199254740991, conversions: 1, cost: 0 },
+    expectPrimary: '1,110·10^-14%',
+  },
 ];

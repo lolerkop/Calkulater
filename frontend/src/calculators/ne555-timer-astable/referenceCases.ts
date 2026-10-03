@@ -12,7 +12,7 @@ export const timer555ReferenceCases: readonly CalculatorReferenceCase[] = [
       { label: "Период", value: "7,209 мс" },
       { label: "Время высокого уровня", value: "3,951 мс" },
       { label: "Время низкого уровня", value: "3,258 мс" },
-      { label: "Скважность", value: "54,808 %" },
+      { label: "Доля высокого уровня", value: "54,808 %" },
     ],
   },
   {
@@ -23,7 +23,7 @@ export const timer555ReferenceCases: readonly CalculatorReferenceCase[] = [
       { label: "Период", value: "0,0208 мс" },
       { label: "Время высокого уровня", value: "0,0139 мс" },
       { label: "Время низкого уровня", value: "0,006931 мс" },
-      { label: "Скважность", value: "66,667 %" },
+      { label: "Доля высокого уровня", value: "66,667 %" },
     ],
   },
   {
@@ -34,7 +34,7 @@ export const timer555ReferenceCases: readonly CalculatorReferenceCase[] = [
       { label: "Период", value: "207,94 мс" },
       { label: "Время высокого уровня", value: "138,63 мс" },
       { label: "Время низкого уровня", value: "69,315 мс" },
-      { label: "Скважность", value: "66,667 %" },
+      { label: "Доля высокого уровня", value: "66,667 %" },
     ],
   },
   {

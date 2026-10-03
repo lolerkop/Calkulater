@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
@@ -13,4 +14,5 @@ export const textWordCharCountCopyEs: CalculatorSeoCopy = {
   seoDescription: "Cuenta las palabras, los caracteres con y sin espacios, las frases y los párrafos de un texto, además de la longitud media de palabra.",
   h1: "Contador de palabras y caracteres",
   keywords: ["contador de palabras", "recuento de caracteres", "cuántos caracteres tiene un texto", "contar caracteres con espacios"],
+  ...contractContent.es
 };

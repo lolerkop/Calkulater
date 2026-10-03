@@ -1,16 +1,15 @@
-// Испанский копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла испанской страницы не существует. Подробный текст живёт в
-// `src/data/esCalculatorContent.ts`.
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const returnRateCopyEs: CalculatorSeoCopy = {
+export const returnRateCopyEs: CalculatorCopy = {
   name: "Calculadora de tasa de devoluciones",
   slug: "tasa-de-devoluciones",
   shortDescription: "Qué proporción de los pedidos volvió.",
   seoTitle: "Calculadora de tasa de devoluciones — proporción de pedidos devueltos",
-  seoDescription: "Calcula la tasa de devoluciones a partir de los pedidos devueltos y los totales, con la proporción que se quedaron los clientes.",
+  seoDescription: "Calcula los pedidos devueltos únicos como proporción de una cohorte y su complemento hasta el 100%. Las devoluciones y el denominador deben corresponder a los mismos pedidos.",
   h1: "Calculadora de tasa de devoluciones",
   keywords: ["tasa de devoluciones", "porcentaje de devoluciones", "devoluciones en comercio electrónico"],
+  ...contractContent.es,
 };

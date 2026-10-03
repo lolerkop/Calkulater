@@ -1,67 +1,71 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
-
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'level': 'RAID-Stufe',
-      'disks': 'Zahl der Platten',
-      'sizeTb': 'Größe einer Platte, TB',
+  "de": {
+    "fields": {
+      "level": "RAID-Stufe",
+      "disks": "Zahl der Platten",
+      "sizeTb": "Größe einer Platte"
     },
-    options: {
-      '0': 'RAID 0 — Streifen',
-      '1': 'RAID 1 — Spiegel',
-      '5': 'RAID 5 — Parität',
-      '6': 'RAID 6 — doppelte Parität',
-      '10': 'RAID 10 — gestreifter Spiegel',
+    "options": {
+      "0": "RAID 0 — Streifen",
+      "1": "RAID 1 — Spiegel",
+      "5": "RAID 5 — Parität",
+      "6": "RAID 6 — doppelte Parität",
+      "10": "RAID 10 — gestreifter Spiegel"
     },
-    results: {
-      'Полезная ёмкость': 'Nutzbare Kapazität',
-      'Сырая ёмкость': 'Rohkapazität',
-      'Допустимо отказов': 'Verkraftbare Plattenausfälle',
-      'Эффективность': 'Effizienz',
-      'Тип массива': 'Art des Verbunds',
-      'Ушло на избыточность': 'Für Redundanz aufgewendet',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Полезная ёмкость": "Nutzbare Kapazität",
+      "Сырая ёмкость": "Rohkapazität",
+      "Допустимо отказов": "Verkraftbare Plattenausfälle",
+      "Эффективность": "Effizienz",
+      "Тип массива": "Art des Verbunds",
+      "Ушло на избыточность": "Für Redundanz aufgewendet",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'Нужен хотя бы один диск': 'Es wird mindestens eine Platte gebraucht',
-      'Для этого уровня нужно не меньше двух дисков': 'Diese Stufe braucht mindestens zwei Platten',
-      'Для этого уровня нужно не меньше трёх дисков': 'Diese Stufe braucht mindestens drei Platten',
-      'Для этого уровня нужно не меньше четырёх дисков': 'Diese Stufe braucht mindestens vier Platten',
-      'ТБ': 'TB',
-      'без избыточности': 'ohne Redundanz',
-      'зеркало': 'Spiegel',
-      'чётность': 'Parität',
-      'двойная чётность': 'doppelte Parität',
-      'зеркало с чередованием': 'gestreifter Spiegel',
-      'Число дисков должно быть целым': 'Die Zahl der Platten muss eine ganze Zahl sein',
-      'RAID 10 требует чётного числа дисков': 'RAID 10 verlangt eine gerade Zahl von Platten',
-      'Объём диска должен быть больше нуля': 'Die Plattengröße muss größer als null sein',
-    },
+    "values": {
+      "Нужен хотя бы один диск": "Es wird mindestens eine Platte gebraucht",
+      "Для этого уровня нужно не меньше двух дисков": "Diese Stufe braucht mindestens zwei Platten",
+      "Для этого уровня нужно не меньше трёх дисков": "Diese Stufe braucht mindestens drei Platten",
+      "Для этого уровня нужно не меньше четырёх дисков": "Diese Stufe braucht mindestens vier Platten",
+      "ТБ": "TB",
+      "без избыточности": "ohne Redundanz",
+      "зеркало": "Spiegel",
+      "чётность": "Parität",
+      "двойная чётность": "doppelte Parität",
+      "зеркало с чередованием": "gestreifter Spiegel",
+      "Число дисков должно быть целым": "Die Zahl der Platten muss eine ganze Zahl sein",
+      "RAID 10 требует чётного числа дисков": "RAID 10 verlangt eine gerade Zahl von Platten",
+      "Объём диска должен быть больше нуля": "Die Plattengröße muss größer als null sein",
+      "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+      "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Rechenmodus",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "Das Ergebnis liegt außerhalb des Zahlenbereichs; prüfe die Größenordnung der Eingaben",
+      "Выберите уровень RAID из списка": "Wähle eine RAID-Stufe aus der Liste",
+      "дисков": "Laufwerke"
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "level": "RAID level",
       "disks": "Number of disks",
-      "sizeTb": "Size of one disk, TB",
+      "sizeTb": "Size of one disk"
     },
-    options: {
+    "options": {
       "0": "RAID 0 — striping",
       "1": "RAID 1 — mirror",
       "5": "RAID 5 — parity",
       "6": "RAID 6 — double parity",
-      "10": "RAID 10 — striped mirror",
+      "10": "RAID 10 — striped mirror"
     },
-    results: {
+    "results": {
       "Полезная ёмкость": "Usable capacity",
       "Сырая ёмкость": "Raw capacity",
       "Допустимо отказов": "Disk failures tolerated",
       "Эффективность": "Efficiency",
       "Тип массива": "Array type",
       "Ушло на избыточность": "Spent on redundancy",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
+    "values": {
       "Нужен хотя бы один диск": "At least one disk is needed",
       "Для этого уровня нужно не меньше двух дисков": "This level needs at least two disks",
       "Для этого уровня нужно не меньше трёх дисков": "This level needs at least three disks",
@@ -75,31 +79,36 @@ export const localization: CalculatorLocalization = {
       "Число дисков должно быть целым": "The number of disks must be a whole number",
       "RAID 10 требует чётного числа дисков": "RAID 10 requires an even number of disks",
       "Объём диска должен быть больше нуля": "The disk size must be greater than zero",
-    },
+      "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+      "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "The result is outside the numerical range; check the input scale",
+      "Выберите уровень RAID из списка": "Choose a RAID level from the list",
+      "дисков": "disks"
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "level": "Рівень RAID",
       "disks": "Кількість дисків",
-      "sizeTb": "Обсяг одного диска, ТБ",
+      "sizeTb": "Обсяг одного диска"
     },
-    options: {
+    "options": {
       "0": "RAID 0 — чергування",
       "1": "RAID 1 — дзеркало",
       "5": "RAID 5 — парність",
       "6": "RAID 6 — подвійна парність",
-      "10": "RAID 10 — дзеркало з чергуванням",
+      "10": "RAID 10 — дзеркало з чергуванням"
     },
-    results: {
+    "results": {
       "Полезная ёмкость": "Корисна ємність",
       "Сырая ёмкость": "Сира ємність",
       "Допустимо отказов": "Допустимо відмов",
       "Эффективность": "Ефективність",
       "Тип массива": "Тип масиву",
       "Ушло на избыточность": "Пішло на надлишковість",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
+    "values": {
       "Нужен хотя бы один диск": "Потрібен хоча б один диск",
       "Для этого уровня нужно не меньше двух дисков": "Для цього рівня потрібно щонайменше два диски",
       "Для этого уровня нужно не меньше трёх дисков": "Для цього рівня потрібно щонайменше три диски",
@@ -112,31 +121,37 @@ export const localization: CalculatorLocalization = {
       "Число дисков должно быть целым": "Кількість дисків має бути цілою",
       "RAID 10 требует чётного числа дисков": "RAID 10 потребує парної кількості дисків",
       "Объём диска должен быть больше нуля": "Обсяг диска має бути більшим за нуль",
-    },
+      "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+      "Выберите поддерживаемый режим расчёта": "Оберіть підтримуваний режим розрахунку",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "Результат поза числовим діапазоном; перевірте масштаб вхідних величин",
+      "Выберите уровень RAID из списка": "Оберіть рівень RAID зі списку",
+      "ТБ": "ТБ",
+      "дисков": "дисків"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "level": "Nivel de RAID",
       "disks": "Número de discos",
-      "sizeTb": "Tamaño de un disco, TB",
+      "sizeTb": "Tamaño de un disco"
     },
-    options: {
+    "options": {
       "0": "RAID 0 — reparto",
       "1": "RAID 1 — espejo",
       "5": "RAID 5 — paridad",
       "6": "RAID 6 — doble paridad",
-      "10": "RAID 10 — espejo con reparto",
+      "10": "RAID 10 — espejo con reparto"
     },
-    results: {
+    "results": {
       "Полезная ёмкость": "Capacidad aprovechable",
       "Сырая ёмкость": "Capacidad bruta",
       "Допустимо отказов": "Fallos de disco tolerados",
       "Эффективность": "Eficiencia",
       "Тип массива": "Tipo de conjunto",
       "Ушло на избыточность": "Dedicado a la redundancia",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "Нужен хотя бы один диск": "Hace falta al menos un disco",
       "Для этого уровня нужно не меньше двух дисков": "Este nivel necesita al menos dos discos",
       "Для этого уровня нужно не меньше трёх дисков": "Este nivel necesita al menos tres discos",
@@ -150,6 +165,11 @@ export const localization: CalculatorLocalization = {
       "Число дисков должно быть целым": "El número de discos debe ser un número entero",
       "RAID 10 требует чётного числа дисков": "RAID 10 exige un número par de discos",
       "Объём диска должен быть больше нуля": "El tamaño del disco debe ser mayor que cero",
-    },
-  },
+      "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+      "Выберите поддерживаемый режим расчёта": "Selecciona un modo de cálculo admitido",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "El resultado está fuera del intervalo numérico; revisa la escala de las entradas",
+      "Выберите уровень RAID из списка": "Selecciona un nivel RAID de la lista",
+      "дисков": "discos"
+    }
+  }
 };

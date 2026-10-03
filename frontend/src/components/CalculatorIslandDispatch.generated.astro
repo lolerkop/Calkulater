@@ -384,384 +384,388 @@ import WorkHoursIsland from '../calculators/work-hours/island';
 import WorkdayCostIsland from '../calculators/workday-cost/island';
 import YeastConvertIsland from '../calculators/yeast-convert/island';
 import ZScoreIsland from '../calculators/z-score/island';
+import { runtimeFor } from '../calculators/runtime.generated';
+import { selectRuntimeLocalization } from '../lib/platform/runtime';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
+// Only the active language is serialized into the page, together with its form.
+const runtimeLocalization = selectRuntimeLocalization(runtimeFor(id), locale);
 ---
 
-{id === 'abv-alcohol' && <AbvAlcoholIsland calc={calc} locale={locale} client:load />}
-{id === 'acceleration' && <AccelerationIsland calc={calc} locale={locale} client:load />}
-{id === 'activity-calories' && <ActivityCaloriesIsland calc={calc} locale={locale} client:load />}
-{id === 'ad-budget-funnel' && <AdBudgetFunnelIsland calc={calc} locale={locale} client:load />}
-{id === 'ad-roi' && <AdRoiIsland calc={calc} locale={locale} client:load />}
-{id === 'air-density' && <AirDensityIsland calc={calc} locale={locale} client:load />}
-{id === 'air-exchange' && <AirExchangeIsland calc={calc} locale={locale} client:load />}
-{id === 'air-pressure-at-altitude' && <AirPressureAtAltitudeIsland calc={calc} locale={locale} client:load />}
-{id === 'alcohol-units' && <AlcoholUnitsIsland calc={calc} locale={locale} client:load />}
-{id === 'annuity' && <AnnuityIsland calc={calc} locale={locale} client:load />}
-{id === 'aov' && <AovIsland calc={calc} locale={locale} client:load />}
-{id === 'apr-apy' && <AprApyIsland calc={calc} locale={locale} client:load />}
-{id === 'aquarium-water-change' && <AquariumWaterChangeIsland calc={calc} locale={locale} client:load />}
-{id === 'arithmetic-progression' && <ArithmeticProgressionIsland calc={calc} locale={locale} client:load />}
-{id === 'arpu-arppu' && <ArpuArppuIsland calc={calc} locale={locale} client:load />}
-{id === 'aspect-ratio' && <AspectRatioIsland calc={calc} locale={locale} client:load />}
-{id === 'audience-growth' && <AudienceGrowthIsland calc={calc} locale={locale} client:load />}
-{id === 'bakers-percentage' && <BakersPercentageIsland calc={calc} locale={locale} client:load />}
-{id === 'baluster-spacing' && <BalusterSpacingIsland calc={calc} locale={locale} client:load />}
-{id === 'barbell-plates' && <BarbellPlatesIsland calc={calc} locale={locale} client:load />}
-{id === 'battery-charge-time' && <BatteryChargeTimeIsland calc={calc} locale={locale} client:load />}
-{id === 'battery-runtime' && <BatteryRuntimeIsland calc={calc} locale={locale} client:load />}
-{id === 'battery-series-parallel' && <BatterySeriesParallelIsland calc={calc} locale={locale} client:load />}
-{id === 'beam-deflection' && <BeamDeflectionIsland calc={calc} locale={locale} client:load />}
-{id === 'beam-stress' && <BeamStressIsland calc={calc} locale={locale} client:load />}
-{id === 'belt-length' && <BeltLengthIsland calc={calc} locale={locale} client:load />}
-{id === 'bernoulli' && <BernoulliIsland calc={calc} locale={locale} client:load />}
-{id === 'bike-gear-ratio' && <BikeGearRatioIsland calc={calc} locale={locale} client:load />}
-{id === 'bike-wheel-size' && <BikeWheelSizeIsland calc={calc} locale={locale} client:load />}
-{id === 'binomial-probability' && <BinomialProbabilityIsland calc={calc} locale={locale} client:load />}
-{id === 'board-volume' && <BoardVolumeIsland calc={calc} locale={locale} client:load />}
-{id === 'boiling-point' && <BoilingPointIsland calc={calc} locale={locale} client:load />}
-{id === 'bonus' && <BonusIsland calc={calc} locale={locale} client:load />}
-{id === 'brew-ratio' && <BrewRatioIsland calc={calc} locale={locale} client:load />}
-{id === 'budget-50-30-20' && <Budget503020Island calc={calc} locale={locale} client:load />}
-{id === 'budget-split' && <BudgetSplitIsland calc={calc} locale={locale} client:load />}
-{id === 'bulk-material-volume' && <BulkMaterialVolumeIsland calc={calc} locale={locale} client:load />}
-{id === 'buoyancy' && <BuoyancyIsland calc={calc} locale={locale} client:load />}
-{id === 'cac' && <CacIsland calc={calc} locale={locale} client:load />}
-{id === 'cagr' && <CagrIsland calc={calc} locale={locale} client:load />}
-{id === 'calories-from-macros' && <CaloriesFromMacrosIsland calc={calc} locale={locale} client:load />}
-{id === 'calories-per-serving' && <CaloriesPerServingIsland calc={calc} locale={locale} client:load />}
-{id === 'capacitor-basics' && <CapacitorBasicsIsland calc={calc} locale={locale} client:load />}
-{id === 'capacitor-network' && <CapacitorNetworkIsland calc={calc} locale={locale} client:load />}
-{id === 'car-depreciation' && <CarDepreciationIsland calc={calc} locale={locale} client:load />}
-{id === 'carnot' && <CarnotIsland calc={calc} locale={locale} client:load />}
-{id === 'centripetal-force' && <CentripetalForceIsland calc={calc} locale={locale} client:load />}
-{id === 'churn-retention' && <ChurnRetentionIsland calc={calc} locale={locale} client:load />}
-{id === 'cladding-boards' && <CladdingBoardsIsland calc={calc} locale={locale} client:load />}
-{id === 'coaxial-cable-impedance' && <CoaxialCableImpedanceIsland calc={calc} locale={locale} client:load />}
-{id === 'cogs' && <CogsIsland calc={calc} locale={locale} client:load />}
-{id === 'cogs-unit-cost' && <CogsUnitCostIsland calc={calc} locale={locale} client:load />}
-{id === 'color-convert' && <ColorConvertIsland calc={calc} locale={locale} client:load />}
-{id === 'combinatorics' && <CombinatoricsIsland calc={calc} locale={locale} client:load />}
-{id === 'commission' && <CommissionIsland calc={calc} locale={locale} client:load />}
-{id === 'compression-ratio' && <CompressionRatioIsland calc={calc} locale={locale} client:load />}
-{id === 'concrete' && <ConcreteIsland calc={calc} locale={locale} client:load />}
-{id === 'confidence-interval' && <ConfidenceIntervalIsland calc={calc} locale={locale} client:load />}
-{id === 'contribution-margin' && <ContributionMarginIsland calc={calc} locale={locale} client:load />}
-{id === 'conversion-rate' && <ConversionRateIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-angle' && <ConvertAngleIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-area' && <ConvertAreaIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-cooking-volume' && <ConvertCookingVolumeIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-cooking-weight' && <ConvertCookingWeightIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-data-rate' && <ConvertDataRateIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-density' && <ConvertDensityIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-digital' && <ConvertDigitalIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-energy' && <ConvertEnergyIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-flow' && <ConvertFlowIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-force' && <ConvertForceIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-frequency' && <ConvertFrequencyIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-fuel-economy' && <ConvertFuelEconomyIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-illuminance' && <ConvertIlluminanceIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-length' && <ConvertLengthIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-mass' && <ConvertMassIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-power' && <ConvertPowerIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-pressure' && <ConvertPressureIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-radiation' && <ConvertRadiationIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-speed' && <ConvertSpeedIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-temperature' && <ConvertTemperatureIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-time' && <ConvertTimeIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-torque' && <ConvertTorqueIsland calc={calc} locale={locale} client:load />}
-{id === 'convert-volume' && <ConvertVolumeIsland calc={calc} locale={locale} client:load />}
-{id === 'cooked-weight' && <CookedWeightIsland calc={calc} locale={locale} client:load />}
-{id === 'coordinate-convert' && <CoordinateConvertIsland calc={calc} locale={locale} client:load />}
-{id === 'correlation' && <CorrelationIsland calc={calc} locale={locale} client:load />}
-{id === 'coulomb' && <CoulombIsland calc={calc} locale={locale} client:load />}
-{id === 'cpa-cpl-cpi' && <CpaCplCpiIsland calc={calc} locale={locale} client:load />}
-{id === 'cpc' && <CpcIsland calc={calc} locale={locale} client:load />}
-{id === 'cpm' && <CpmIsland calc={calc} locale={locale} client:load />}
-{id === 'credit-card-payoff' && <CreditCardPayoffIsland calc={calc} locale={locale} client:load />}
-{id === 'crypto-pnl' && <CryptoPnlIsland calc={calc} locale={locale} client:load />}
-{id === 'css-units' && <CssUnitsIsland calc={calc} locale={locale} client:load />}
-{id === 'ctr' && <CtrIsland calc={calc} locale={locale} client:load />}
-{id === 'currency-exchange-fee' && <CurrencyExchangeFeeIsland calc={calc} locale={locale} client:load />}
-{id === 'curtain-size' && <CurtainSizeIsland calc={calc} locale={locale} client:load />}
-{id === 'cycle-time' && <CycleTimeIsland calc={calc} locale={locale} client:load />}
-{id === 'day-of-week' && <DayOfWeekIsland calc={calc} locale={locale} client:load />}
-{id === 'dca' && <DcaIsland calc={calc} locale={locale} client:load />}
-{id === 'de-broglie' && <DeBroglieIsland calc={calc} locale={locale} client:load />}
-{id === 'debt-snowball-avalanche' && <DebtSnowballAvalancheIsland calc={calc} locale={locale} client:load />}
-{id === 'decibel' && <DecibelIsland calc={calc} locale={locale} client:load />}
-{id === 'density' && <DensityIsland calc={calc} locale={locale} client:load />}
-{id === 'depreciation-methods' && <DepreciationMethodsIsland calc={calc} locale={locale} client:load />}
-{id === 'dew-point' && <DewPointIsland calc={calc} locale={locale} client:load />}
-{id === 'dice-probability' && <DiceProbabilityIsland calc={calc} locale={locale} client:load />}
-{id === 'difference-abs-rel' && <DifferenceAbsRelIsland calc={calc} locale={locale} client:load />}
-{id === 'dilution' && <DilutionIsland calc={calc} locale={locale} client:load />}
-{id === 'dividend-yield' && <DividendYieldIsland calc={calc} locale={locale} client:load />}
-{id === 'divisors' && <DivisorsIsland calc={calc} locale={locale} client:load />}
-{id === 'doppler' && <DopplerIsland calc={calc} locale={locale} client:load />}
-{id === 'down-payment' && <DownPaymentIsland calc={calc} locale={locale} client:load />}
-{id === 'download-time' && <DownloadTimeIsland calc={calc} locale={locale} client:load />}
-{id === 'drip-water-leak' && <DripWaterLeakIsland calc={calc} locale={locale} client:load />}
-{id === 'drywall' && <DrywallIsland calc={calc} locale={locale} client:load />}
-{id === 'dti' && <DtiIsland calc={calc} locale={locale} client:load />}
-{id === 'early-repayment' && <EarlyRepaymentIsland calc={calc} locale={locale} client:load />}
-{id === 'electricity-usage' && <ElectricityUsageIsland calc={calc} locale={locale} client:load />}
-{id === 'email-metrics' && <EmailMetricsIsland calc={calc} locale={locale} client:load />}
-{id === 'emergency-fund' && <EmergencyFundIsland calc={calc} locale={locale} client:load />}
-{id === 'employee-cost' && <EmployeeCostIsland calc={calc} locale={locale} client:load />}
-{id === 'engagement-rate' && <EngagementRateIsland calc={calc} locale={locale} client:load />}
-{id === 'engine-displacement' && <EngineDisplacementIsland calc={calc} locale={locale} client:load />}
-{id === 'epoxy-volume' && <EpoxyVolumeIsland calc={calc} locale={locale} client:load />}
-{id === 'escape-velocity' && <EscapeVelocityIsland calc={calc} locale={locale} client:load />}
-{id === 'factorial' && <FactorialIsland calc={calc} locale={locale} client:load />}
-{id === 'fee-chain' && <FeeChainIsland calc={calc} locale={locale} client:load />}
-{id === 'fence' && <FenceIsland calc={calc} locale={locale} client:load />}
-{id === 'fibonacci' && <FibonacciIsland calc={calc} locale={locale} client:load />}
-{id === 'files-on-disk' && <FilesOnDiskIsland calc={calc} locale={locale} client:load />}
-{id === 'final-grade' && <FinalGradeIsland calc={calc} locale={locale} client:load />}
-{id === 'fps-frametime' && <FpsFrametimeIsland calc={calc} locale={locale} client:load />}
-{id === 'fraction-arith' && <FractionArithIsland calc={calc} locale={locale} client:load />}
-{id === 'free-fall' && <FreeFallIsland calc={calc} locale={locale} client:load />}
-{id === 'freelance-rate' && <FreelanceRateIsland calc={calc} locale={locale} client:load />}
-{id === 'fuel-consumption' && <FuelConsumptionIsland calc={calc} locale={locale} client:load />}
-{id === 'fuel-oil-mix' && <FuelOilMixIsland calc={calc} locale={locale} client:load />}
-{id === 'gas-laws' && <GasLawsIsland calc={calc} locale={locale} client:load />}
-{id === 'gcd-lcm' && <GcdLcmIsland calc={calc} locale={locale} client:load />}
-{id === 'generator-fuel' && <GeneratorFuelIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-annulus' && <GeomAnnulusIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-circle' && <GeomCircleIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-cone' && <GeomConeIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-cube' && <GeomCubeIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-cuboid' && <GeomCuboidIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-cylinder' && <GeomCylinderIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-ellipse' && <GeomEllipseIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-frustum' && <GeomFrustumIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-parallelogram' && <GeomParallelogramIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-polygon-coords' && <GeomPolygonCoordsIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-prism' && <GeomPrismIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-pyramid' && <GeomPyramidIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-rectangle' && <GeomRectangleIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-regular-polygon' && <GeomRegularPolygonIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-rhombus' && <GeomRhombusIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-right-triangle' && <GeomRightTriangleIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-sector' && <GeomSectorIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-sphere' && <GeomSphereIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-square' && <GeomSquareIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-trapezoid' && <GeomTrapezoidIsland calc={calc} locale={locale} client:load />}
-{id === 'geom-triangle' && <GeomTriangleIsland calc={calc} locale={locale} client:load />}
-{id === 'geometric-progression' && <GeometricProgressionIsland calc={calc} locale={locale} client:load />}
-{id === 'golden-ratio' && <GoldenRatioIsland calc={calc} locale={locale} client:load />}
-{id === 'gpa' && <GpaIsland calc={calc} locale={locale} client:load />}
-{id === 'gravitational-force' && <GravitationalForceIsland calc={calc} locale={locale} client:load />}
-{id === 'half-life' && <HalfLifeIsland calc={calc} locale={locale} client:load />}
-{id === 'headphone-power' && <HeadphonePowerIsland calc={calc} locale={locale} client:load />}
-{id === 'heat-index' && <HeatIndexIsland calc={calc} locale={locale} client:load />}
-{id === 'heating-power' && <HeatingPowerIsland calc={calc} locale={locale} client:load />}
-{id === 'home-equity' && <HomeEquityIsland calc={calc} locale={locale} client:load />}
-{id === 'hooke-law' && <HookeLawIsland calc={calc} locale={locale} client:load />}
-{id === 'humidity-convert' && <HumidityConvertIsland calc={calc} locale={locale} client:load />}
-{id === 'hydrostatic-pressure' && <HydrostaticPressureIsland calc={calc} locale={locale} client:load />}
-{id === 'ideal-gas-law' && <IdealGasLawIsland calc={calc} locale={locale} client:load />}
-{id === 'ideal-weight' && <IdealWeightIsland calc={calc} locale={locale} client:load />}
-{id === 'inclined-plane' && <InclinedPlaneIsland calc={calc} locale={locale} client:load />}
-{id === 'inflation' && <InflationIsland calc={calc} locale={locale} client:load />}
-{id === 'installment' && <InstallmentIsland calc={calc} locale={locale} client:load />}
-{id === 'insulation' && <InsulationIsland calc={calc} locale={locale} client:load />}
-{id === 'internet-traffic' && <InternetTrafficIsland calc={calc} locale={locale} client:load />}
-{id === 'inventory-turnover' && <InventoryTurnoverIsland calc={calc} locale={locale} client:load />}
-{id === 'inverse-square' && <InverseSquareIsland calc={calc} locale={locale} client:load />}
-{id === 'inverter-power' && <InverterPowerIsland calc={calc} locale={locale} client:load />}
-{id === 'ipv4-subnet' && <Ipv4SubnetIsland calc={calc} locale={locale} client:load />}
-{id === 'kinetic-energy' && <KineticEnergyIsland calc={calc} locale={locale} client:load />}
-{id === 'kva-kw' && <KvaKwIsland calc={calc} locale={locale} client:load />}
-{id === 'lc-resonance' && <LcResonanceIsland calc={calc} locale={locale} client:load />}
-{id === 'leap-year' && <LeapYearIsland calc={calc} locale={locale} client:load />}
-{id === 'lease-payment' && <LeasePaymentIsland calc={calc} locale={locale} client:load />}
-{id === 'led-resistor' && <LedResistorIsland calc={calc} locale={locale} client:load />}
-{id === 'lever-moment' && <LeverMomentIsland calc={calc} locale={locale} client:load />}
-{id === 'leverage' && <LeverageIsland calc={calc} locale={locale} client:load />}
-{id === 'lighting' && <LightingIsland calc={calc} locale={locale} client:load />}
-{id === 'linear-equation' && <LinearEquationIsland calc={calc} locale={locale} client:load />}
-{id === 'linear-system' && <LinearSystemIsland calc={calc} locale={locale} client:load />}
-{id === 'linoleum' && <LinoleumIsland calc={calc} locale={locale} client:load />}
-{id === 'logarithm' && <LogarithmIsland calc={calc} locale={locale} client:load />}
-{id === 'ltv' && <LtvIsland calc={calc} locale={locale} client:load />}
-{id === 'luggage-linear' && <LuggageLinearIsland calc={calc} locale={locale} client:load />}
-{id === 'mach-number' && <MachNumberIsland calc={calc} locale={locale} client:load />}
-{id === 'market-cap' && <MarketCapIsland calc={calc} locale={locale} client:load />}
-{id === 'mass-energy' && <MassEnergyIsland calc={calc} locale={locale} client:load />}
-{id === 'max-heart-rate' && <MaxHeartRateIsland calc={calc} locale={locale} client:load />}
-{id === 'max-loan' && <MaxLoanIsland calc={calc} locale={locale} client:load />}
-{id === 'metal-weight' && <MetalWeightIsland calc={calc} locale={locale} client:load />}
-{id === 'miter-angle' && <MiterAngleIsland calc={calc} locale={locale} client:load />}
-{id === 'modular-scale' && <ModularScaleIsland calc={calc} locale={locale} client:load />}
-{id === 'modulo' && <ModuloIsland calc={calc} locale={locale} client:load />}
-{id === 'molar-mass' && <MolarMassIsland calc={calc} locale={locale} client:load />}
-{id === 'molarity' && <MolarityIsland calc={calc} locale={locale} client:load />}
-{id === 'moles' && <MolesIsland calc={calc} locale={locale} client:load />}
-{id === 'moment-of-inertia' && <MomentOfInertiaIsland calc={calc} locale={locale} client:load />}
-{id === 'momentum' && <MomentumIsland calc={calc} locale={locale} client:load />}
-{id === 'mrr-arr' && <MrrArrIsland calc={calc} locale={locale} client:load />}
-{id === 'ne555-timer-astable' && <Ne555TimerAstableIsland calc={calc} locale={locale} client:load />}
-{id === 'network-bandwidth' && <NetworkBandwidthIsland calc={calc} locale={locale} client:load />}
-{id === 'newton-force' && <NewtonForceIsland calc={calc} locale={locale} client:load />}
-{id === 'number-scale-names' && <NumberScaleNamesIsland calc={calc} locale={locale} client:load />}
-{id === 'number-to-words' && <NumberToWordsIsland calc={calc} locale={locale} client:load />}
-{id === 'ohms-law' && <OhmsLawIsland calc={calc} locale={locale} client:load />}
-{id === 'orbital-period' && <OrbitalPeriodIsland calc={calc} locale={locale} client:load />}
-{id === 'overtime' && <OvertimeIsland calc={calc} locale={locale} client:load />}
-{id === 'paint-calculator' && <PaintCalculatorIsland calc={calc} locale={locale} client:load />}
-{id === 'paper-quantity' && <PaperQuantityIsland calc={calc} locale={locale} client:load />}
-{id === 'password-entropy' && <PasswordEntropyIsland calc={calc} locale={locale} client:load />}
-{id === 'payback-period' && <PaybackPeriodIsland calc={calc} locale={locale} client:load />}
-{id === 'pendulum' && <PendulumIsland calc={calc} locale={locale} client:load />}
-{id === 'percent-calculator' && <PercentCalculatorIsland calc={calc} locale={locale} client:load />}
-{id === 'pet-age' && <PetAgeIsland calc={calc} locale={locale} client:load />}
-{id === 'pet-food' && <PetFoodIsland calc={calc} locale={locale} client:load />}
-{id === 'ph-poh' && <PhPohIsland calc={calc} locale={locale} client:load />}
-{id === 'photon-energy' && <PhotonEnergyIsland calc={calc} locale={locale} client:load />}
-{id === 'physics-power' && <PhysicsPowerIsland calc={calc} locale={locale} client:load />}
-{id === 'physics-torque' && <PhysicsTorqueIsland calc={calc} locale={locale} client:load />}
-{id === 'picture-frame-mat' && <PictureFrameMatIsland calc={calc} locale={locale} client:load />}
-{id === 'pile-foundation' && <PileFoundationIsland calc={calc} locale={locale} client:load />}
-{id === 'pipe-flow' && <PipeFlowIsland calc={calc} locale={locale} client:load />}
-{id === 'pipe-weight' && <PipeWeightIsland calc={calc} locale={locale} client:load />}
-{id === 'plaster' && <PlasterIsland calc={calc} locale={locale} client:load />}
-{id === 'pool-fill-time' && <PoolFillTimeIsland calc={calc} locale={locale} client:load />}
-{id === 'position-size' && <PositionSizeIsland calc={calc} locale={locale} client:load />}
-{id === 'potential-energy' && <PotentialEnergyIsland calc={calc} locale={locale} client:load />}
-{id === 'power-root' && <PowerRootIsland calc={calc} locale={locale} client:load />}
-{id === 'power-to-weight' && <PowerToWeightIsland calc={calc} locale={locale} client:load />}
-{id === 'ppi-dpi' && <PpiDpiIsland calc={calc} locale={locale} client:load />}
-{id === 'pressure' && <PressureIsland calc={calc} locale={locale} client:load />}
-{id === 'price-per-unit' && <PricePerUnitIsland calc={calc} locale={locale} client:load />}
-{id === 'prime-factorization' && <PrimeFactorizationIsland calc={calc} locale={locale} client:load />}
-{id === 'print-3d-cost' && <Print3dCostIsland calc={calc} locale={locale} client:load />}
-{id === 'probability-basic' && <ProbabilityBasicIsland calc={calc} locale={locale} client:load />}
-{id === 'profit' && <ProfitIsland calc={calc} locale={locale} client:load />}
-{id === 'projectile-motion' && <ProjectileMotionIsland calc={calc} locale={locale} client:load />}
-{id === 'proportion' && <ProportionIsland calc={calc} locale={locale} client:load />}
-{id === 'pyramid-frustum' && <PyramidFrustumIsland calc={calc} locale={locale} client:load />}
-{id === 'quadratic-equation' && <QuadraticEquationIsland calc={calc} locale={locale} client:load />}
-{id === 'quarter-mile-elapsed-time' && <QuarterMileElapsedTimeIsland calc={calc} locale={locale} client:load />}
-{id === 'quartile' && <QuartileIsland calc={calc} locale={locale} client:load />}
-{id === 'rafters' && <RaftersIsland calc={calc} locale={locale} client:load />}
-{id === 'raid' && <RaidIsland calc={calc} locale={locale} client:load />}
-{id === 'rainfall-volume' && <RainfallVolumeIsland calc={calc} locale={locale} client:load />}
-{id === 'ratio' && <RatioIsland calc={calc} locale={locale} client:load />}
-{id === 'rc-filter' && <RcFilterIsland calc={calc} locale={locale} client:load />}
-{id === 'reading-speed' && <ReadingSpeedIsland calc={calc} locale={locale} client:load />}
-{id === 'real-return' && <RealReturnIsland calc={calc} locale={locale} client:load />}
-{id === 'recipe-cost' && <RecipeCostIsland calc={calc} locale={locale} client:load />}
-{id === 'recipe-scale' && <RecipeScaleIsland calc={calc} locale={locale} client:load />}
-{id === 'refinancing' && <RefinancingIsland calc={calc} locale={locale} client:load />}
-{id === 'relativity-dilation' && <RelativityDilationIsland calc={calc} locale={locale} client:load />}
-{id === 'rental-yield' && <RentalYieldIsland calc={calc} locale={locale} client:load />}
-{id === 'resistor-color' && <ResistorColorIsland calc={calc} locale={locale} client:load />}
-{id === 'resistor-network' && <ResistorNetworkIsland calc={calc} locale={locale} client:load />}
-{id === 'return-rate' && <ReturnRateIsland calc={calc} locale={locale} client:load />}
-{id === 'revenue-per-employee' && <RevenuePerEmployeeIsland calc={calc} locale={locale} client:load />}
-{id === 'risk-reward' && <RiskRewardIsland calc={calc} locale={locale} client:load />}
-{id === 'rms-voltage' && <RmsVoltageIsland calc={calc} locale={locale} client:load />}
-{id === 'roas' && <RoasIsland calc={calc} locale={locale} client:load />}
-{id === 'roast-time' && <RoastTimeIsland calc={calc} locale={locale} client:load />}
-{id === 'roi' && <RoiIsland calc={calc} locale={locale} client:load />}
-{id === 'roman-numerals' && <RomanNumeralsIsland calc={calc} locale={locale} client:load />}
-{id === 'roof-area' && <RoofAreaIsland calc={calc} locale={locale} client:load />}
-{id === 'roof-battens' && <RoofBattensIsland calc={calc} locale={locale} client:load />}
-{id === 'room-volume' && <RoomVolumeIsland calc={calc} locale={locale} client:load />}
-{id === 'rounding' && <RoundingIsland calc={calc} locale={locale} client:load />}
-{id === 'rule-of-72' && <RuleOf72Island calc={calc} locale={locale} client:load />}
-{id === 'salary-convert' && <SalaryConvertIsland calc={calc} locale={locale} client:load />}
-{id === 'salary-raise' && <SalaryRaiseIsland calc={calc} locale={locale} client:load />}
-{id === 'sample-size' && <SampleSizeIsland calc={calc} locale={locale} client:load />}
-{id === 'savings-goal' && <SavingsGoalIsland calc={calc} locale={locale} client:load />}
-{id === 'savings-rate' && <SavingsRateIsland calc={calc} locale={locale} client:load />}
-{id === 'scale-model' && <ScaleModelIsland calc={calc} locale={locale} client:load />}
-{id === 'sealant-volume' && <SealantVolumeIsland calc={calc} locale={locale} client:load />}
-{id === 'shipping-per-unit' && <ShippingPerUnitIsland calc={calc} locale={locale} client:load />}
-{id === 'simple-interest' && <SimpleInterestIsland calc={calc} locale={locale} client:load />}
-{id === 'single-phase' && <SinglePhaseIsland calc={calc} locale={locale} client:load />}
-{id === 'skirting' && <SkirtingIsland calc={calc} locale={locale} client:load />}
-{id === 'slab-foundation' && <SlabFoundationIsland calc={calc} locale={locale} client:load />}
-{id === 'sleep-time' && <SleepTimeIsland calc={calc} locale={locale} client:load />}
-{id === 'slope' && <SlopeIsland calc={calc} locale={locale} client:load />}
-{id === 'solution-concentration' && <SolutionConcentrationIsland calc={calc} locale={locale} client:load />}
-{id === 'specific-heat' && <SpecificHeatIsland calc={calc} locale={locale} client:load />}
-{id === 'speed-distance-time' && <SpeedDistanceTimeIsland calc={calc} locale={locale} client:load />}
-{id === 'speed-of-sound' && <SpeedOfSoundIsland calc={calc} locale={locale} client:load />}
-{id === 'stairs' && <StairsIsland calc={calc} locale={locale} client:load />}
-{id === 'stats-descriptive' && <StatsDescriptiveIsland calc={calc} locale={locale} client:load />}
-{id === 'steps-distance-calories' && <StepsDistanceCaloriesIsland calc={calc} locale={locale} client:load />}
-{id === 'stock-duration' && <StockDurationIsland calc={calc} locale={locale} client:load />}
-{id === 'stopping-distance' && <StoppingDistanceIsland calc={calc} locale={locale} client:load />}
-{id === 'stress-strain' && <StressStrainIsland calc={calc} locale={locale} client:load />}
-{id === 'strip-foundation' && <StripFoundationIsland calc={calc} locale={locale} client:load />}
-{id === 'subscriptions-cost' && <SubscriptionsCostIsland calc={calc} locale={locale} client:load />}
-{id === 'tank-volume' && <TankVolumeIsland calc={calc} locale={locale} client:load />}
-{id === 'terminal-velocity' && <TerminalVelocityIsland calc={calc} locale={locale} client:load />}
-{id === 'test-score-percent' && <TestScorePercentIsland calc={calc} locale={locale} client:load />}
-{id === 'text-reading-time' && <TextReadingTimeIsland calc={calc} locale={locale} client:load />}
-{id === 'text-word-char-count' && <TextWordCharCountIsland calc={calc} locale={locale} client:load />}
-{id === 'thermal-conduction' && <ThermalConductionIsland calc={calc} locale={locale} client:load />}
-{id === 'thin-lens' && <ThinLensIsland calc={calc} locale={locale} client:load />}
-{id === 'time-duration' && <TimeDurationIsland calc={calc} locale={locale} client:load />}
-{id === 'time-value-money' && <TimeValueMoneyIsland calc={calc} locale={locale} client:load />}
-{id === 'timesheet-week' && <TimesheetWeekIsland calc={calc} locale={locale} client:load />}
-{id === 'timezone-difference' && <TimezoneDifferenceIsland calc={calc} locale={locale} client:load />}
-{id === 'tip' && <TipIsland calc={calc} locale={locale} client:load />}
-{id === 'tire-size' && <TireSizeIsland calc={calc} locale={locale} client:load />}
-{id === 'transformer-ratio' && <TransformerRatioIsland calc={calc} locale={locale} client:load />}
-{id === 'trip-budget' && <TripBudgetIsland calc={calc} locale={locale} client:load />}
-{id === 'trip-cost' && <TripCostIsland calc={calc} locale={locale} client:load />}
-{id === 'tv-monitor-viewing-distance' && <TvMonitorViewingDistanceIsland calc={calc} locale={locale} client:load />}
-{id === 'underfloor-heating' && <UnderfloorHeatingIsland calc={calc} locale={locale} client:load />}
-{id === 'unix-timestamp' && <UnixTimestampIsland calc={calc} locale={locale} client:load />}
-{id === 'utility-total' && <UtilityTotalIsland calc={calc} locale={locale} client:load />}
-{id === 'vacation-accrual' && <VacationAccrualIsland calc={calc} locale={locale} client:load />}
-{id === 'video-file-size' && <VideoFileSizeIsland calc={calc} locale={locale} client:load />}
-{id === 'vo2max' && <Vo2maxIsland calc={calc} locale={locale} client:load />}
-{id === 'voltage-divider' && <VoltageDividerIsland calc={calc} locale={locale} client:load />}
-{id === 'voltage-drop' && <VoltageDropIsland calc={calc} locale={locale} client:load />}
-{id === 'waist-ratio' && <WaistRatioIsland calc={calc} locale={locale} client:load />}
-{id === 'water-heating' && <WaterHeatingIsland calc={calc} locale={locale} client:load />}
-{id === 'water-intake' && <WaterIntakeIsland calc={calc} locale={locale} client:load />}
-{id === 'wave' && <WaveIsland calc={calc} locale={locale} client:load />}
-{id === 'week-number' && <WeekNumberIsland calc={calc} locale={locale} client:load />}
-{id === 'weighted-mean' && <WeightedMeanIsland calc={calc} locale={locale} client:load />}
-{id === 'wheel-offset' && <WheelOffsetIsland calc={calc} locale={locale} client:load />}
-{id === 'wind-chill' && <WindChillIsland calc={calc} locale={locale} client:load />}
-{id === 'wind-power' && <WindPowerIsland calc={calc} locale={locale} client:load />}
-{id === 'wood-weight' && <WoodWeightIsland calc={calc} locale={locale} client:load />}
-{id === 'work' && <WorkIsland calc={calc} locale={locale} client:load />}
-{id === 'work-hours' && <WorkHoursIsland calc={calc} locale={locale} client:load />}
-{id === 'workday-cost' && <WorkdayCostIsland calc={calc} locale={locale} client:load />}
-{id === 'yeast-convert' && <YeastConvertIsland calc={calc} locale={locale} client:load />}
-{id === 'z-score' && <ZScoreIsland calc={calc} locale={locale} client:load />}
-{id === 'credit-calculator' && <CreditCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'deposit-calculator' && <DepositCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'compound-interest' && <CompoundInterestLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'mortgage-calculator' && <MortgageCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'currency-converter' && <CurrencyConverterLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'usd-to-eur' && <UsdToEurLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'eur-to-mdl' && <EurToMdlLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'usd-to-mdl' && <UsdToMdlLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'bmi-calculator' && <BmiCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'calorie-calculator' && <CalorieCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'running-pace-calculator' && <RunningPaceCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'one-rep-max-calculator' && <OneRepMaxCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'tile-calculator' && <TileCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'wallpaper-calculator' && <WallpaperCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'laminate-calculator' && <LaminateCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'screed-calculator' && <ScreedCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'age-calculator' && <AgeCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'working-days-calculator' && <WorkingDaysCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'date-shift-calculator' && <DateShiftCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'income-tax-calculator' && <IncomeTaxCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'vat-calculator' && <VatCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'discount-calculator' && <DiscountCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'margin-calculator' && <MarginCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'break-even-calculator' && <BreakEvenCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'body-fat-calculator' && <BodyFatCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
-{id === 'brick-calculator' && <BrickCalculatorLegacyIsland calc={calc} locale={locale} client:load />}
+{id === 'abv-alcohol' && <AbvAlcoholIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'acceleration' && <AccelerationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'activity-calories' && <ActivityCaloriesIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ad-budget-funnel' && <AdBudgetFunnelIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ad-roi' && <AdRoiIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'air-density' && <AirDensityIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'air-exchange' && <AirExchangeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'air-pressure-at-altitude' && <AirPressureAtAltitudeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'alcohol-units' && <AlcoholUnitsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'annuity' && <AnnuityIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'aov' && <AovIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'apr-apy' && <AprApyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'aquarium-water-change' && <AquariumWaterChangeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'arithmetic-progression' && <ArithmeticProgressionIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'arpu-arppu' && <ArpuArppuIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'aspect-ratio' && <AspectRatioIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'audience-growth' && <AudienceGrowthIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'bakers-percentage' && <BakersPercentageIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'baluster-spacing' && <BalusterSpacingIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'barbell-plates' && <BarbellPlatesIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'battery-charge-time' && <BatteryChargeTimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'battery-runtime' && <BatteryRuntimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'battery-series-parallel' && <BatterySeriesParallelIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'beam-deflection' && <BeamDeflectionIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'beam-stress' && <BeamStressIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'belt-length' && <BeltLengthIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'bernoulli' && <BernoulliIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'bike-gear-ratio' && <BikeGearRatioIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'bike-wheel-size' && <BikeWheelSizeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'binomial-probability' && <BinomialProbabilityIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'board-volume' && <BoardVolumeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'boiling-point' && <BoilingPointIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'bonus' && <BonusIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'brew-ratio' && <BrewRatioIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'budget-50-30-20' && <Budget503020Island calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'budget-split' && <BudgetSplitIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'bulk-material-volume' && <BulkMaterialVolumeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'buoyancy' && <BuoyancyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'cac' && <CacIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'cagr' && <CagrIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'calories-from-macros' && <CaloriesFromMacrosIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'calories-per-serving' && <CaloriesPerServingIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'capacitor-basics' && <CapacitorBasicsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'capacitor-network' && <CapacitorNetworkIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'car-depreciation' && <CarDepreciationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'carnot' && <CarnotIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'centripetal-force' && <CentripetalForceIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'churn-retention' && <ChurnRetentionIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'cladding-boards' && <CladdingBoardsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'coaxial-cable-impedance' && <CoaxialCableImpedanceIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'cogs' && <CogsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'cogs-unit-cost' && <CogsUnitCostIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'color-convert' && <ColorConvertIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'combinatorics' && <CombinatoricsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'commission' && <CommissionIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'compression-ratio' && <CompressionRatioIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'concrete' && <ConcreteIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'confidence-interval' && <ConfidenceIntervalIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'contribution-margin' && <ContributionMarginIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'conversion-rate' && <ConversionRateIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-angle' && <ConvertAngleIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-area' && <ConvertAreaIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-cooking-volume' && <ConvertCookingVolumeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-cooking-weight' && <ConvertCookingWeightIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-data-rate' && <ConvertDataRateIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-density' && <ConvertDensityIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-digital' && <ConvertDigitalIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-energy' && <ConvertEnergyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-flow' && <ConvertFlowIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-force' && <ConvertForceIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-frequency' && <ConvertFrequencyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-fuel-economy' && <ConvertFuelEconomyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-illuminance' && <ConvertIlluminanceIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-length' && <ConvertLengthIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-mass' && <ConvertMassIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-power' && <ConvertPowerIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-pressure' && <ConvertPressureIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-radiation' && <ConvertRadiationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-speed' && <ConvertSpeedIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-temperature' && <ConvertTemperatureIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-time' && <ConvertTimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-torque' && <ConvertTorqueIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'convert-volume' && <ConvertVolumeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'cooked-weight' && <CookedWeightIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'coordinate-convert' && <CoordinateConvertIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'correlation' && <CorrelationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'coulomb' && <CoulombIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'cpa-cpl-cpi' && <CpaCplCpiIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'cpc' && <CpcIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'cpm' && <CpmIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'credit-card-payoff' && <CreditCardPayoffIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'crypto-pnl' && <CryptoPnlIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'css-units' && <CssUnitsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ctr' && <CtrIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'currency-exchange-fee' && <CurrencyExchangeFeeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'curtain-size' && <CurtainSizeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'cycle-time' && <CycleTimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'day-of-week' && <DayOfWeekIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'dca' && <DcaIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'de-broglie' && <DeBroglieIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'debt-snowball-avalanche' && <DebtSnowballAvalancheIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'decibel' && <DecibelIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'density' && <DensityIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'depreciation-methods' && <DepreciationMethodsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'dew-point' && <DewPointIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'dice-probability' && <DiceProbabilityIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'difference-abs-rel' && <DifferenceAbsRelIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'dilution' && <DilutionIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'dividend-yield' && <DividendYieldIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'divisors' && <DivisorsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'doppler' && <DopplerIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'down-payment' && <DownPaymentIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'download-time' && <DownloadTimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'drip-water-leak' && <DripWaterLeakIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'drywall' && <DrywallIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'dti' && <DtiIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'early-repayment' && <EarlyRepaymentIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'electricity-usage' && <ElectricityUsageIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'email-metrics' && <EmailMetricsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'emergency-fund' && <EmergencyFundIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'employee-cost' && <EmployeeCostIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'engagement-rate' && <EngagementRateIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'engine-displacement' && <EngineDisplacementIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'epoxy-volume' && <EpoxyVolumeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'escape-velocity' && <EscapeVelocityIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'factorial' && <FactorialIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'fee-chain' && <FeeChainIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'fence' && <FenceIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'fibonacci' && <FibonacciIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'files-on-disk' && <FilesOnDiskIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'final-grade' && <FinalGradeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'fps-frametime' && <FpsFrametimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'fraction-arith' && <FractionArithIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'free-fall' && <FreeFallIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'freelance-rate' && <FreelanceRateIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'fuel-consumption' && <FuelConsumptionIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'fuel-oil-mix' && <FuelOilMixIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'gas-laws' && <GasLawsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'gcd-lcm' && <GcdLcmIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'generator-fuel' && <GeneratorFuelIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-annulus' && <GeomAnnulusIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-circle' && <GeomCircleIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-cone' && <GeomConeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-cube' && <GeomCubeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-cuboid' && <GeomCuboidIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-cylinder' && <GeomCylinderIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-ellipse' && <GeomEllipseIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-frustum' && <GeomFrustumIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-parallelogram' && <GeomParallelogramIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-polygon-coords' && <GeomPolygonCoordsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-prism' && <GeomPrismIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-pyramid' && <GeomPyramidIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-rectangle' && <GeomRectangleIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-regular-polygon' && <GeomRegularPolygonIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-rhombus' && <GeomRhombusIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-right-triangle' && <GeomRightTriangleIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-sector' && <GeomSectorIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-sphere' && <GeomSphereIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-square' && <GeomSquareIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-trapezoid' && <GeomTrapezoidIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geom-triangle' && <GeomTriangleIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'geometric-progression' && <GeometricProgressionIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'golden-ratio' && <GoldenRatioIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'gpa' && <GpaIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'gravitational-force' && <GravitationalForceIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'half-life' && <HalfLifeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'headphone-power' && <HeadphonePowerIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'heat-index' && <HeatIndexIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'heating-power' && <HeatingPowerIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'home-equity' && <HomeEquityIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'hooke-law' && <HookeLawIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'humidity-convert' && <HumidityConvertIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'hydrostatic-pressure' && <HydrostaticPressureIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ideal-gas-law' && <IdealGasLawIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ideal-weight' && <IdealWeightIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'inclined-plane' && <InclinedPlaneIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'inflation' && <InflationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'installment' && <InstallmentIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'insulation' && <InsulationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'internet-traffic' && <InternetTrafficIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'inventory-turnover' && <InventoryTurnoverIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'inverse-square' && <InverseSquareIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'inverter-power' && <InverterPowerIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ipv4-subnet' && <Ipv4SubnetIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'kinetic-energy' && <KineticEnergyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'kva-kw' && <KvaKwIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'lc-resonance' && <LcResonanceIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'leap-year' && <LeapYearIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'lease-payment' && <LeasePaymentIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'led-resistor' && <LedResistorIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'lever-moment' && <LeverMomentIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'leverage' && <LeverageIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'lighting' && <LightingIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'linear-equation' && <LinearEquationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'linear-system' && <LinearSystemIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'linoleum' && <LinoleumIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'logarithm' && <LogarithmIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ltv' && <LtvIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'luggage-linear' && <LuggageLinearIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'mach-number' && <MachNumberIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'market-cap' && <MarketCapIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'mass-energy' && <MassEnergyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'max-heart-rate' && <MaxHeartRateIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'max-loan' && <MaxLoanIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'metal-weight' && <MetalWeightIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'miter-angle' && <MiterAngleIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'modular-scale' && <ModularScaleIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'modulo' && <ModuloIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'molar-mass' && <MolarMassIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'molarity' && <MolarityIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'moles' && <MolesIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'moment-of-inertia' && <MomentOfInertiaIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'momentum' && <MomentumIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'mrr-arr' && <MrrArrIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ne555-timer-astable' && <Ne555TimerAstableIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'network-bandwidth' && <NetworkBandwidthIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'newton-force' && <NewtonForceIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'number-scale-names' && <NumberScaleNamesIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'number-to-words' && <NumberToWordsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ohms-law' && <OhmsLawIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'orbital-period' && <OrbitalPeriodIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'overtime' && <OvertimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'paint-calculator' && <PaintCalculatorIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'paper-quantity' && <PaperQuantityIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'password-entropy' && <PasswordEntropyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'payback-period' && <PaybackPeriodIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'pendulum' && <PendulumIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'percent-calculator' && <PercentCalculatorIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'pet-age' && <PetAgeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'pet-food' && <PetFoodIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ph-poh' && <PhPohIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'photon-energy' && <PhotonEnergyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'physics-power' && <PhysicsPowerIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'physics-torque' && <PhysicsTorqueIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'picture-frame-mat' && <PictureFrameMatIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'pile-foundation' && <PileFoundationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'pipe-flow' && <PipeFlowIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'pipe-weight' && <PipeWeightIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'plaster' && <PlasterIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'pool-fill-time' && <PoolFillTimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'position-size' && <PositionSizeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'potential-energy' && <PotentialEnergyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'power-root' && <PowerRootIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'power-to-weight' && <PowerToWeightIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ppi-dpi' && <PpiDpiIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'pressure' && <PressureIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'price-per-unit' && <PricePerUnitIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'prime-factorization' && <PrimeFactorizationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'print-3d-cost' && <Print3dCostIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'probability-basic' && <ProbabilityBasicIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'profit' && <ProfitIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'projectile-motion' && <ProjectileMotionIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'proportion' && <ProportionIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'pyramid-frustum' && <PyramidFrustumIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'quadratic-equation' && <QuadraticEquationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'quarter-mile-elapsed-time' && <QuarterMileElapsedTimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'quartile' && <QuartileIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'rafters' && <RaftersIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'raid' && <RaidIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'rainfall-volume' && <RainfallVolumeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'ratio' && <RatioIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'rc-filter' && <RcFilterIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'reading-speed' && <ReadingSpeedIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'real-return' && <RealReturnIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'recipe-cost' && <RecipeCostIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'recipe-scale' && <RecipeScaleIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'refinancing' && <RefinancingIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'relativity-dilation' && <RelativityDilationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'rental-yield' && <RentalYieldIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'resistor-color' && <ResistorColorIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'resistor-network' && <ResistorNetworkIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'return-rate' && <ReturnRateIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'revenue-per-employee' && <RevenuePerEmployeeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'risk-reward' && <RiskRewardIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'rms-voltage' && <RmsVoltageIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'roas' && <RoasIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'roast-time' && <RoastTimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'roi' && <RoiIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'roman-numerals' && <RomanNumeralsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'roof-area' && <RoofAreaIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'roof-battens' && <RoofBattensIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'room-volume' && <RoomVolumeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'rounding' && <RoundingIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'rule-of-72' && <RuleOf72Island calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'salary-convert' && <SalaryConvertIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'salary-raise' && <SalaryRaiseIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'sample-size' && <SampleSizeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'savings-goal' && <SavingsGoalIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'savings-rate' && <SavingsRateIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'scale-model' && <ScaleModelIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'sealant-volume' && <SealantVolumeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'shipping-per-unit' && <ShippingPerUnitIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'simple-interest' && <SimpleInterestIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'single-phase' && <SinglePhaseIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'skirting' && <SkirtingIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'slab-foundation' && <SlabFoundationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'sleep-time' && <SleepTimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'slope' && <SlopeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'solution-concentration' && <SolutionConcentrationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'specific-heat' && <SpecificHeatIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'speed-distance-time' && <SpeedDistanceTimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'speed-of-sound' && <SpeedOfSoundIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'stairs' && <StairsIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'stats-descriptive' && <StatsDescriptiveIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'steps-distance-calories' && <StepsDistanceCaloriesIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'stock-duration' && <StockDurationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'stopping-distance' && <StoppingDistanceIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'stress-strain' && <StressStrainIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'strip-foundation' && <StripFoundationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'subscriptions-cost' && <SubscriptionsCostIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'tank-volume' && <TankVolumeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'terminal-velocity' && <TerminalVelocityIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'test-score-percent' && <TestScorePercentIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'text-reading-time' && <TextReadingTimeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'text-word-char-count' && <TextWordCharCountIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'thermal-conduction' && <ThermalConductionIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'thin-lens' && <ThinLensIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'time-duration' && <TimeDurationIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'time-value-money' && <TimeValueMoneyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'timesheet-week' && <TimesheetWeekIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'timezone-difference' && <TimezoneDifferenceIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'tip' && <TipIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'tire-size' && <TireSizeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'transformer-ratio' && <TransformerRatioIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'trip-budget' && <TripBudgetIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'trip-cost' && <TripCostIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'tv-monitor-viewing-distance' && <TvMonitorViewingDistanceIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'underfloor-heating' && <UnderfloorHeatingIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'unix-timestamp' && <UnixTimestampIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'utility-total' && <UtilityTotalIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'vacation-accrual' && <VacationAccrualIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'video-file-size' && <VideoFileSizeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'vo2max' && <Vo2maxIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'voltage-divider' && <VoltageDividerIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'voltage-drop' && <VoltageDropIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'waist-ratio' && <WaistRatioIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'water-heating' && <WaterHeatingIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'water-intake' && <WaterIntakeIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'wave' && <WaveIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'week-number' && <WeekNumberIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'weighted-mean' && <WeightedMeanIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'wheel-offset' && <WheelOffsetIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'wind-chill' && <WindChillIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'wind-power' && <WindPowerIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'wood-weight' && <WoodWeightIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'work' && <WorkIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'work-hours' && <WorkHoursIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'workday-cost' && <WorkdayCostIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'yeast-convert' && <YeastConvertIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'z-score' && <ZScoreIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'credit-calculator' && <CreditCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'deposit-calculator' && <DepositCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'compound-interest' && <CompoundInterestLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'mortgage-calculator' && <MortgageCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'currency-converter' && <CurrencyConverterLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'usd-to-eur' && <UsdToEurLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'eur-to-mdl' && <EurToMdlLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'usd-to-mdl' && <UsdToMdlLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'bmi-calculator' && <BmiCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'calorie-calculator' && <CalorieCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'running-pace-calculator' && <RunningPaceCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'one-rep-max-calculator' && <OneRepMaxCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'tile-calculator' && <TileCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'wallpaper-calculator' && <WallpaperCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'laminate-calculator' && <LaminateCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'screed-calculator' && <ScreedCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'age-calculator' && <AgeCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'working-days-calculator' && <WorkingDaysCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'date-shift-calculator' && <DateShiftCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'income-tax-calculator' && <IncomeTaxCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'vat-calculator' && <VatCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'discount-calculator' && <DiscountCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'margin-calculator' && <MarginCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'break-even-calculator' && <BreakEvenCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'body-fat-calculator' && <BodyFatCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}
+{id === 'brick-calculator' && <BrickCalculatorLegacyIsland calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}

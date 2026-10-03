@@ -1,11 +1,9 @@
-// Испанский копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла испанской страницы не существует. Подробный текст живёт в
-// `src/data/esCalculatorContent.ts`.
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const shippingPerUnitCopyEs: CalculatorSeoCopy = {
+export const shippingPerUnitCopyEs: CalculatorCopy = {
   name: "Calculadora de envío por unidad",
   slug: "envio-por-unidad",
   shortDescription: "Lo que la logística añade al coste de un artículo.",
@@ -13,4 +11,5 @@ export const shippingPerUnitCopyEs: CalculatorSeoCopy = {
   seoDescription: "Calcula el coste de envío por unidad a partir del coste de la entrega, el número de unidades y un embalaje opcional.",
   h1: "Calculadora de envío por unidad",
   keywords: ["envío por unidad", "coste logístico por artículo", "coste de entrega"],
+  ...contractContent.es,
 };

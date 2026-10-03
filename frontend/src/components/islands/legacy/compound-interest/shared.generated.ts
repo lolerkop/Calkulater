@@ -20,6 +20,10 @@ export const shared: CalculatorLocalization = {
       'Внесено': 'Contributed',
     },
     values: {
+      'Выберите допустимый режим расчёта.': 'Choose a supported calculation mode.',
+      'Срок должен составлять от 1 до 12000 целых месяцев.': 'The term must be between 1 and 12000 whole months.',
+      'Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.': 'The calculation exceeds numerical precision. Reduce the amount, rate or term.',
+      'Показаны первые 30 лет и итоговый период.': 'The first 30 years and the final period are shown.',
       'Введите положительные значения': 'Enter positive values',
     },
   },
@@ -37,6 +41,10 @@ export const shared: CalculatorLocalization = {
       'Внесено': 'Внесено',
     },
     values: {
+      'Выберите допустимый режим расчёта.': 'Оберіть допустимий режим розрахунку.',
+      'Срок должен составлять от 1 до 12000 целых месяцев.': 'Строк має становити від 1 до 12000 цілих місяців.',
+      'Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.': 'Розрахунок виходить за межі числової точності. Зменште суму, ставку або строк.',
+      'Показаны первые 30 лет и итоговый период.': 'Показано перші 30 років та підсумковий період.',
       'Введите положительные значения': 'Введіть додатні значення',
     },
   },
@@ -54,6 +62,10 @@ export const shared: CalculatorLocalization = {
       'Внесено': 'Eingezahlt',
     },
     values: {
+      'Выберите допустимый режим расчёта.': 'Wähle eine unterstützte Rechenart.',
+      'Срок должен составлять от 1 до 12000 целых месяцев.': 'Die Laufzeit muss zwischen 1 und 12000 ganzen Monaten liegen.',
+      'Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.': 'Die Berechnung überschreitet die Zahlengenauigkeit. Verringere Betrag, Zinssatz oder Laufzeit.',
+      'Показаны первые 30 лет и итоговый период.': 'Die ersten 30 Jahre und der letzte Zeitraum werden angezeigt.',
       'Введите положительные значения': 'Trage positive Werte ein',
     },
   },
@@ -72,6 +84,10 @@ export const shared: CalculatorLocalization = {
       'Внесено': 'Aportado',
     },
     values: {
+      'Выберите допустимый режим расчёта.': 'Elige un modo de cálculo válido.',
+      'Срок должен составлять от 1 до 12000 целых месяцев.': 'El plazo debe ser de entre 1 y 12000 meses completos.',
+      'Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.': 'El cálculo supera la precisión numérica. Reduce el importe, el tipo o el plazo.',
+      'Показаны первые 30 лет и итоговый период.': 'Se muestran los primeros 30 años y el periodo final.',
       'Введите положительные значения': 'Introduce valores positivos',
     },
   },

@@ -1,27 +1,25 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtMoney, toNumber } from '../../lib/format';
+import { displayNumber as text, displayWholeMoney as money } from '../../lib/platform/financeDisplay';
+import { number } from '../../lib/platform/scalarInputDisplay';
 
-// Правило 50/30/20: доход после налогов делится на нужды, желания и сбережения.
-// Формула тривиальна, но результат — три величины сразу, и это его смысл:
-// калькулятор проверяет, что платформа умеет показывать набор значений,
-// а не одно число.
 export const compute: CalcFunction = (inputs) => {
-  const income = toNumber(inputs.income);
-  if (income <= 0) {
-    return {
-      primary: { label: 'Нужды', value: '—' },
-      secondary: [{ label: 'Проверьте данные', value: 'Доход должен быть больше нуля', accent: 'red' }],
-    };
-  }
+  const income = number(inputs.income);
+  const fail = (message: string) => ({
+    primary: { label: 'Нужды', value: '—' },
+    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
+  });
+  if (income === null) return fail('Введите корректные числовые данные');
+  if (!(income > 0)) return fail('Доход должен быть больше нуля');
   const needs = income * 0.5;
   const wants = income * 0.3;
   const savings = income * 0.2;
+  if (![needs, wants, savings].every(value => Number.isFinite(value) && value > 0)) return fail('Результат вне допустимого диапазона');
   return {
-    primary: { label: 'Нужды', value: fmtMoney(needs) },
+    primary: { label: 'Нужды', value: money(needs) },
     secondary: [
-      { label: 'Желания', value: fmtMoney(wants) },
-      { label: 'Сбережения', value: fmtMoney(savings), accent: 'green' },
-      { label: 'Доход после налогов', value: fmtMoney(income) },
+      { label: 'Желания', value: money(wants) },
+      { label: 'Сбережения', value: money(savings) },
+      { label: 'Доход после налогов', value: money(income) },
     ],
   };
 };

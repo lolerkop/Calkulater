@@ -163,69 +163,69 @@ export const copy: CategoryCopyByLocale = {
 
 export const faq: CategoryFaqByLocale = {
   ru: [
-    {
-      q: "Чем аннуитетный платеж отличается от дифференцированного?",
-      a: "При аннуитетном платеже сумма ежемесячного платежа одинакова на протяжении всего срока кредита. При дифференцированном основной долг гасится равными частями, а проценты начисляются на остаток, поэтому первые платежи больше, последние — меньше.",
-    },
-    {
-      q: "Что такое капитализация процентов по вкладу?",
-      a: "Это присоединение начисленных процентов к сумме вклада. На следующий период проценты начисляются уже на увеличенную сумму, что дает эффект сложного процента.",
-    },
-    {
-      q: "Можно ли доверять расчету ипотеки на этом сайте?",
-      a: "Калькулятор показывает ориентировочные значения. Точный график платежей зависит от условий конкретного банка, страховок и комиссий.",
-    },
-    {
-      q: "Учитываются ли налоги и комиссии в расчетах?",
-      a: "В кредитных и ипотечных расчетах налоги, страховки и комиссии не учитываются. Для отдельных налоговых задач используйте калькуляторы НДФЛ и НДС, но итоговые суммы все равно стоит сверять с актуальными правилами и документами.",
-    },
-    {
-      q: "Можно ли использовать калькуляторы НДФЛ и НДС для отчетности?",
-      a: "Нет, они подходят для справочного предварительного расчета. Перед подачей отчетности или принятием финансовых решений проверьте актуальные нормы и проконсультируйтесь со специалистом.",
-    },
-  ],
+        {
+          "q": "Чем аннуитетный платеж отличается от дифференцированного?",
+          "a": "При аннуитетном платеже сумма ежемесячного платежа одинакова на протяжении всего срока кредита. При дифференцированном основной долг гасится равными частями, а проценты начисляются на остаток, поэтому первые платежи больше, последние — меньше."
+        },
+        {
+          "q": "Что такое капитализация процентов по вкладу?",
+          "a": "Это присоединение начисленных процентов к сумме вклада. На следующий период проценты начисляются уже на увеличенную сумму, что дает эффект сложного процента."
+        },
+        {
+          "q": "Можно ли доверять расчету ипотеки на этом сайте?",
+          "a": "Калькулятор показывает ориентировочные значения. Точный график платежей зависит от условий конкретного банка, страховок и комиссий."
+        },
+        {
+          "q": "Учитываются ли налоги и комиссии в расчетах?",
+          "a": "Кредитный калькулятор учитывает введённую разовую комиссию, ипотечный — введённый ежемесячный расход на страховку. Другие налоги и сборы не определяются автоматически: учитывается только то, для чего есть соответствующее поле. Для НДФЛ и НДС есть отдельные справочные инструменты с собственными условиями."
+        },
+        {
+          "q": "Можно ли использовать калькуляторы НДФЛ и НДС для отчетности?",
+          "a": "Нет, они подходят для справочного предварительного расчета. Перед подачей отчетности или принятием финансовых решений проверьте актуальные нормы и проконсультируйтесь со специалистом."
+        }
+      ],
   en: [
-    {
-      q: "Are these financial results exact?",
-      a: "No. They are reference estimates based on the numbers you enter. Real offers can include fees, insurance and bank-specific rules.",
-    },
-    {
-      q: "Can I compare several scenarios?",
-      a: "Yes. Change the inputs and the result updates in the browser. You can also copy a link with the current values.",
-    },
-    {
-      q: "Do you store my inputs?",
-      a: "No. Calculations run in your browser and inputs are not sent to a server.",
-    },
-  ],
+        {
+          "q": "Are these financial results exact?",
+          "a": "No. They are reference estimates based on the numbers you enter. Real offers can include fees, insurance and bank-specific rules."
+        },
+        {
+          "q": "Can I compare several scenarios?",
+          "a": "Yes. Change the inputs and the result updates in the browser. You can also copy a link with the current values."
+        },
+        {
+          "q": "Do you store my inputs?",
+          "a": "Calculations run in your browser; values are not sent to a server to perform the calculation. A copied link can contain values in its URL, which may remain in browser history or hosting logs. See the privacy policy before sharing sensitive inputs."
+        }
+      ],
   es: [
-    {
-      q: "¿Los resultados financieros son exactos?",
-      a: "No. Son estimaciones orientativas basadas en los datos introducidos. Las ofertas reales pueden incluir comisiones, seguros y condiciones específicas.",
-    },
-    {
-      q: "¿Puedo comparar varios escenarios?",
-      a: "Sí. Cambia los datos y el resultado se actualiza en el navegador. También puedes copiar un enlace con los valores actuales.",
-    },
-    {
-      q: "¿Guardan mis datos?",
-      a: "No. Los cálculos se ejecutan en tu navegador y los datos no se envían a un servidor.",
-    },
-  ],
+        {
+          "q": "¿Los resultados financieros son exactos?",
+          "a": "No. Son estimaciones orientativas basadas en los datos introducidos. Las ofertas reales pueden incluir comisiones, seguros y condiciones específicas."
+        },
+        {
+          "q": "¿Puedo comparar varios escenarios?",
+          "a": "Sí. Cambia los datos y el resultado se actualiza en el navegador. También puedes copiar un enlace con los valores actuales."
+        },
+        {
+          "q": "¿Guardan mis datos?",
+          "a": "El cálculo se hace en el navegador; los valores no se envían a un servidor para calcular. Un enlace copiado puede contenerlos en su URL y permanecer en el historial o registros del alojamiento. Consulta la política antes de compartir datos sensibles."
+        }
+      ],
   de: [
-    {
-      q: "Sind die Finanzergebnisse exakt?",
-      a: "Nein. Es sind Orientierungsschätzungen auf Basis deiner Eingaben. Reale Angebote können Gebühren, Versicherungen und besondere Bedingungen enthalten.",
-    },
-    {
-      q: "Kann ich mehrere Szenarien vergleichen?",
-      a: "Ja. Ändere die Eingaben und das Ergebnis aktualisiert sich im Browser. Du kannst auch einen Link mit den aktuellen Werten kopieren.",
-    },
-    {
-      q: "Werden meine Eingaben gespeichert?",
-      a: "Nein. Die Berechnung läuft im Browser und Eingaben werden nicht an einen Server gesendet.",
-    },
-  ],
+        {
+          "q": "Sind die Finanzergebnisse exakt?",
+          "a": "Nein. Es sind Orientierungsschätzungen auf Basis deiner Eingaben. Reale Angebote können Gebühren, Versicherungen und besondere Bedingungen enthalten."
+        },
+        {
+          "q": "Kann ich mehrere Szenarien vergleichen?",
+          "a": "Ja. Ändere die Eingaben und das Ergebnis aktualisiert sich im Browser. Du kannst auch einen Link mit den aktuellen Werten kopieren."
+        },
+        {
+          "q": "Werden meine Eingaben gespeichert?",
+          "a": "Berechnungen laufen im Browser; Werte werden nicht zur Berechnung an einen Server gesendet. Ein kopierter Link kann sie in seiner URL enthalten und in Verlauf oder Hosting-Protokollen verbleiben. Lies vor dem Teilen sensibler Eingaben die Datenschutzerklärung."
+        }
+      ],
   fr: [
     {
       q: "Les résultats financiers sont-ils exacts ?",
@@ -367,19 +367,19 @@ export const faq: CategoryFaqByLocale = {
     },
   ],
   uk: [
-    {
-      q: "Чи точні фінансові результати?",
-      a: "Ні. Це орієнтовні оцінки на основі введених значень. Реальні пропозиції можуть містити комісії, страхування та окремі умови.",
-    },
-    {
-      q: "Чи можна порівняти кілька сценаріїв?",
-      a: "Так. Змінюйте дані, і результат оновиться в браузері. Також можна скопіювати посилання з поточними значеннями.",
-    },
-    {
-      q: "Ви зберігаєте мої дані?",
-      a: "Ні. Розрахунки виконуються в браузері, а введені значення не надсилаються на сервер.",
-    },
-  ],
+        {
+          "q": "Чи точні фінансові результати?",
+          "a": "Ні. Це орієнтовні оцінки на основі введених значень. Реальні пропозиції можуть містити комісії, страхування та окремі умови."
+        },
+        {
+          "q": "Чи можна порівняти кілька сценаріїв?",
+          "a": "Так. Змінюйте дані, і результат оновиться в браузері. Також можна скопіювати посилання з поточними значеннями."
+        },
+        {
+          "q": "Ви зберігаєте мої дані?",
+          "a": "Розрахунки виконуються в браузері; значення не надсилаються серверу для обчислення. Скопійоване посилання може містити їх в URL, який лишається в історії чи журналах хостингу. Перед поширенням чутливих даних прочитайте політику приватності."
+        }
+      ],
   sk: [
     {
       q: "Sú finančné výsledky presné?",

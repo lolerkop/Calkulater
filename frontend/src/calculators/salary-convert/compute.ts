@@ -1,44 +1,47 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
+import { number as toNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
+import { choice } from '../../lib/platform/financeWave14Input';
 
 // Перевод зарплаты между периодами через один общий знаменатель — час.
 //
 //   часов в дне 8 · в неделе 40 · в месяце 168 · в году 2 016
 //
-// Числа приняты как рабочая норма, а не как календарь: месяц здесь равен
-// 168 рабочим часам (21 день по 8), год — двенадцати таким месяцам. Именно
-// поэтому «в год» ровно в двенадцать раз больше «в месяц», без сдвигов на
-// длину февраля и на праздники. Считать иначе — значит получать разные
-// ответы для одной и той же зарплаты в зависимости от месяца.
-//
-// Все четыре периода показаны одновременно: обычно человек сравнивает
-// предложения, названные в РАЗНЫХ единицах, и переводить каждое по одному
-// значит сравнивать по памяти.
+// Это фиксированная модель сравнения, не общий календарь или норма договора.
+// Месяц 168 и год 2016 дают 12 модельных месяцев/50,4 недели в году.
+// Налоговая база и валютная единица введённой суммы сохраняются.
 const HOURS: Record<string, number> = { hour: 1, day: 8, week: 40, month: 168, year: 2016 };
 
 export const compute: CalcFunction = (inputs) => {
   const amount = toNumber(inputs.amount);
-  const from = toStr(inputs.fromPeriod, 'month');
-  const to = toStr(inputs.toPeriod, 'year');
+  const from = choice(inputs.fromPeriod, ['hour', 'day', 'week', 'month', 'year'], 'month');
+  const to = choice(inputs.toPeriod, ['hour', 'day', 'week', 'month', 'year'], 'year');
 
   const fail = (message: string) => ({
     primary: { label: 'Зарплата за выбранный период', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (amount === null) return fail('Введите корректные числовые данные');
   if (!(amount > 0)) return fail('Сумма должна быть больше нуля');
-  if (!HOURS[from] || !HOURS[to]) return fail('Выберите период из списка');
+  if (from === null || to === null) return fail('Выберите период из списка');
 
-  const hourly = amount / HOURS[from];
+  const convert = (period: string) => amount * (HOURS[period] / HOURS[from]);
+  const hourly = convert('hour');
+  const daily = convert('day');
+  const monthly = convert('month');
+  const yearly = convert('year');
+  const target = convert(to);
+  if (![hourly, daily, monthly, yearly, target].every(v => validOutput(v, true))) return fail('Результат вне допустимого диапазона');
   const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
 
   return {
-    primary: { label: 'Зарплата за выбранный период', value: money(hourly * HOURS[to]) },
+    primary: { label: 'Зарплата за выбранный период', value: money(target) },
     secondary: [
       { label: 'В час', value: money(hourly) },
-      { label: 'В день', value: money(hourly * HOURS.day) },
-      { label: 'В месяц', value: money(hourly * HOURS.month) },
-      { label: 'В год', value: money(hourly * HOURS.year) },
+      { label: 'В день', value: money(daily) },
+      { label: 'В месяц', value: money(monthly) },
+      { label: 'В год', value: money(yearly) },
     ],
   };
 };

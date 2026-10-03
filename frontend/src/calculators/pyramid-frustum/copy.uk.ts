@@ -1,11 +1,11 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const pyramidFrustumCopyUk: CalculatorSeoCopy = {
+export const pyramidFrustumCopyUk: CalculatorCopy = {
   name: "Калькулятор зрізаної піраміди",
   slug: "zrizana-piramida",
-  shortDescription: "Обʼєм, апофема та поверхні зрізаної піраміди з квадратними основами.",
   seoTitle: "Калькулятор зрізаної піраміди — обʼєм і поверхні",
-  seoDescription: "Розрахуйте обʼєм, апофему, бічну та повну поверхню зрізаної піраміди з квадратними основами.",
   h1: "Калькулятор зрізаної піраміди",
   keywords: ["зрізана піраміда", "обʼєм зрізаної піраміди", "апофема", "бічна поверхня"],
+  ...contractContent.uk,
 };

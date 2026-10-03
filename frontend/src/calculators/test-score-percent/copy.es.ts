@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
@@ -13,4 +14,5 @@ export const testScorePercentCopyEs: CalculatorSeoCopy = {
   seoDescription: "Convierte las respuestas correctas en un porcentaje del test, consulta cuántas fallaste y si superaste la nota de corte.",
   h1: "Calculadora de porcentaje de acierto en un test",
   keywords: ["calculadora de nota de un test", "porcentaje de respuestas correctas", "porcentaje de un examen"],
+  ...contractContent.es
 };

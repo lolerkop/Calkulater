@@ -1,115 +1,124 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'ingredients': 'Zutaten: Name, Menge und Preis je Zeile',
-      'servings': 'Portionen',
-    },
-    results: {
-      'Стоимость порции': 'Kosten je Portion',
-      'Стоимость всего': 'Kosten insgesamt',
-      'Ингредиентов': 'Zutaten',
-      'Самый дорогой': 'Teuerste Zutat',
-      'Порций': 'Portionen',
-      'Состав и стоимость': 'Zutaten und Kosten',
-      'Ингредиент': 'Zutat',
-      'Количество': 'Menge',
-      'Цена': 'Preis',
-      'Стоимость': 'Kosten',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'Нужны название, количество и цена в строке:': 'In der Zeile werden Name, Menge und Preis gebraucht:',
-      'Количество и цена должны быть числами в строке:': 'Menge und Preis müssen Zahlen sein, in der Zeile:',
-      '₽': '€',
-      'Число порций должно быть больше нуля': 'Die Zahl der Portionen muss größer als null sein',
-      'Количество и цена не могут быть отрицательными': 'Menge und Preis können nicht negativ sein',
-      'Введите хотя бы один ингредиент': 'Trage mindestens eine Zutat ein',
-    },
+  "en": {
+  "fields": {
+    "ingredients": "Ingredients: name, quantity and price per line",
+    "servings": "Servings"
   },
-  en: {
-    fields: {
-      "ingredients": "Ingredients: name, quantity and price per line",
-      "servings": "Servings",
-    },
-    options: {},
-    results: {
-      "Стоимость порции": "Cost per serving",
-      "Стоимость всего": "Total cost",
-      "Ингредиентов": "Ingredients",
-      "Самый дорогой": "Most expensive",
-      "Порций": "Servings",
-      "Состав и стоимость": "Ingredients and cost",
-      "Ингредиент": "Ingredient",
-      "Количество": "Quantity",
-      "Цена": "Price",
-      "Стоимость": "Cost",
-      "Проверьте данные": "Check the values",
-    },
-    values: {
-      "Нужны название, количество и цена в строке:": "Name, quantity and price are required on the line:",
-      "Количество и цена должны быть числами в строке:": "Quantity and price must be numbers on the line:",
-      "₽": "$",
-      "Число порций должно быть больше нуля": "The number of servings must be greater than zero",
-      "Количество и цена не могут быть отрицательными": "Quantity and price cannot be negative",
-      "Введите хотя бы один ингредиент": "Enter at least one ingredient",
-    },
+  "options": {},
+  "results": {
+    "Стоимость порции": "Cost per serving",
+    "Стоимость всего": "Total cost",
+    "Ингредиентов": "Ingredients",
+    "Самый дорогой": "Most expensive",
+    "Порций": "Servings",
+    "Состав и стоимость": "Ingredients and cost",
+    "Ингредиент": "Ingredient",
+    "Количество": "Quantity",
+    "Цена": "Price",
+    "Стоимость": "Cost",
+    "Проверьте данные": "Check the values"
   },
-  uk: {
-    fields: {
-      "ingredients": "Інгредієнти: назва, кількість і ціна в рядку",
-      "servings": "Порцій",
-    },
-    options: {},
-    results: {
-      "Стоимость порции": "Вартість порції",
-      "Стоимость всего": "Вартість усього",
-      "Ингредиентов": "Інгредієнтів",
-      "Самый дорогой": "Найдорожчий",
-      "Порций": "Порцій",
-      "Состав и стоимость": "Склад і вартість",
-      "Ингредиент": "Інгредієнт",
-      "Количество": "Кількість",
-      "Цена": "Ціна",
-      "Стоимость": "Вартість",
-      "Проверьте данные": "Перевірте дані",
-    },
-    values: {
-      "Нужны название, количество и цена в строке:": "Потрібні назва, кількість і ціна в рядку:",
-      "Количество и цена должны быть числами в строке:": "Кількість і ціна мають бути числами в рядку:",
-      "₽": "₴",
-      "Число порций должно быть больше нуля": "Кількість порцій має бути більшою за нуль",
-      "Количество и цена не могут быть отрицательными": "Кількість і ціна не можуть бути від'ємними",
-      "Введите хотя бы один ингредиент": "Введіть хоча б один інгредієнт",
-    },
+  "values": {
+    ...marketingScalarValues.en,
+    "Нужны название, количество и цена в строке:": "Name, quantity and price are required on the line:",
+    "Количество и цена должны быть числами в строке:": "Quantity and price must be numbers on the line:",
+    "₽": "$",
+    "Число порций должно быть больше нуля": "The number of servings must be greater than zero",
+    "Количество и цена не могут быть отрицательными": "Quantity and price cannot be negative",
+    "Введите хотя бы один ингредиент": "Enter at least one ingredient",
+    "Введите список ингредиентов текстом": "Enter the ingredient list as text"
+  }
+},
+  "uk": {
+  "fields": {
+    "ingredients": "Інгредієнти: назва, кількість і ціна в рядку",
+    "servings": "Порцій"
   },
-  es: {
-    fields: {
-      "ingredients": "Ingredientes: nombre, cantidad y precio por línea",
-      "servings": "Raciones",
-    },
-    options: {},
-    results: {
-      "Стоимость порции": "Coste por ración",
-      "Стоимость всего": "Coste total",
-      "Ингредиентов": "Ingredientes",
-      "Самый дорогой": "El más caro",
-      "Порций": "Raciones",
-      "Состав и стоимость": "Ingredientes y coste",
-      "Ингредиент": "Ingrediente",
-      "Количество": "Cantidad",
-      "Цена": "Precio",
-      "Стоимость": "Coste",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "Нужны название, количество и цена в строке:": "Hacen falta un nombre, una cantidad y un precio en la línea:",
-      "Количество и цена должны быть числами в строке:": "La cantidad y el precio deben ser números en la línea:",
-      "₽": "€",
-      "Число порций должно быть больше нуля": "El número de raciones debe ser mayor que cero",
-      "Количество и цена не могут быть отрицательными": "La cantidad y el precio no pueden ser negativos",
-      "Введите хотя бы один ингредиент": "Introduce al menos un ingrediente",
-    },
+  "options": {},
+  "results": {
+    "Стоимость порции": "Вартість порції",
+    "Стоимость всего": "Вартість усього",
+    "Ингредиентов": "Інгредієнтів",
+    "Самый дорогой": "Найдорожчий",
+    "Порций": "Порцій",
+    "Состав и стоимость": "Склад і вартість",
+    "Ингредиент": "Інгредієнт",
+    "Количество": "Кількість",
+    "Цена": "Ціна",
+    "Стоимость": "Вартість",
+    "Проверьте данные": "Перевірте дані"
   },
+  "values": {
+    ...marketingScalarValues.uk,
+    "Нужны название, количество и цена в строке:": "Потрібні назва, кількість і ціна в рядку:",
+    "Количество и цена должны быть числами в строке:": "Кількість і ціна мають бути числами в рядку:",
+    "₽": "₴",
+    "Число порций должно быть больше нуля": "Кількість порцій має бути більшою за нуль",
+    "Количество и цена не могут быть отрицательными": "Кількість і ціна не можуть бути від'ємними",
+    "Введите хотя бы один ингредиент": "Введіть хоча б один інгредієнт",
+    "Введите список ингредиентов текстом": "Введіть список інгредієнтів текстом"
+  }
+},
+  "de": {
+  "fields": {
+    "ingredients": "Zutaten: Name, Menge und Preis je Zeile",
+    "servings": "Portionen"
+  },
+  "results": {
+    "Стоимость порции": "Kosten je Portion",
+    "Стоимость всего": "Kosten insgesamt",
+    "Ингредиентов": "Zutaten",
+    "Самый дорогой": "Teuerste Zutat",
+    "Порций": "Portionen",
+    "Состав и стоимость": "Zutaten und Kosten",
+    "Ингредиент": "Zutat",
+    "Количество": "Menge",
+    "Цена": "Preis",
+    "Стоимость": "Kosten",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "Нужны название, количество и цена в строке:": "In der Zeile werden Name, Menge und Preis gebraucht:",
+    "Количество и цена должны быть числами в строке:": "Menge und Preis müssen Zahlen sein, in der Zeile:",
+    "₽": "€",
+    "Число порций должно быть больше нуля": "Die Zahl der Portionen muss größer als null sein",
+    "Количество и цена не могут быть отрицательными": "Menge und Preis können nicht negativ sein",
+    "Введите хотя бы один ингредиент": "Trage mindestens eine Zutat ein",
+    "Введите список ингредиентов текстом": "Zutatenliste als Text eingeben"
+  }
+},
+  "es": {
+  "fields": {
+    "ingredients": "Ingredientes: nombre, cantidad y precio por línea",
+    "servings": "Raciones"
+  },
+  "options": {},
+  "results": {
+    "Стоимость порции": "Coste por ración",
+    "Стоимость всего": "Coste total",
+    "Ингредиентов": "Ingredientes",
+    "Самый дорогой": "El más caro",
+    "Порций": "Raciones",
+    "Состав и стоимость": "Ingredientes y coste",
+    "Ингредиент": "Ingrediente",
+    "Количество": "Cantidad",
+    "Цена": "Precio",
+    "Стоимость": "Coste",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "Нужны название, количество и цена в строке:": "Hacen falta un nombre, una cantidad y un precio en la línea:",
+    "Количество и цена должны быть числами в строке:": "La cantidad y el precio deben ser números en la línea:",
+    "₽": "€",
+    "Число порций должно быть больше нуля": "El número de raciones debe ser mayor que cero",
+    "Количество и цена не могут быть отрицательными": "La cantidad y el precio no pueden ser negativos",
+    "Введите хотя бы один ингредиент": "Introduce al menos un ingrediente",
+    "Введите список ингредиентов текстом": "Introduce la lista de ingredientes como texto"
+  }
+}
 };

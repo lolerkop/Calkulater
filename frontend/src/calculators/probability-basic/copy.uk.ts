@@ -1,6 +1,7 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { mathWave8ContractContent } from './contractContent';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const probabilityBasicCopyUk: CalculatorSeoCopy = {
+export const probabilityBasicCopyUk: CalculatorCopy = {
   name: "Калькулятор ймовірності",
   slug: "ymovirnist",
   shortDescription: "Ймовірність події, протилежної події та двох незалежних подій.",
@@ -8,4 +9,5 @@ export const probabilityBasicCopyUk: CalculatorSeoCopy = {
   seoDescription: "Обчисліть ймовірність події за кількістю сприятливих результатів, ймовірність протилежної події та двох незалежних подій.",
   h1: "Калькулятор ймовірності",
   keywords: ["калькулятор ймовірності", "ймовірність події"],
+  ...mathWave8ContractContent.uk,
 };

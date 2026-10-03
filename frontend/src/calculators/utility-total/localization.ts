@@ -1,120 +1,129 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  en: {
-    fields: {
-      "meters": "Services: name, usage and tariff per line",
-      "fixed": "Fixed charges per month",
-    },
-    options: {},
-    results: {
-      "Итого за месяц": "Total per month",
-      "Позиций": "Lines",
-      "Самая дорогая услуга": "Most expensive service",
-      "Переменная часть": "Metered part",
-      "Постоянная часть": "Fixed part",
-      "В год": "Per year",
-      "Расход по услугам": "Usage by service",
-      "Услуга": "Service",
-      "Расход": "Usage",
-      "Тариф": "Tariff",
-      "Сумма": "Amount",
-      "Проверьте данные": "Check the values",
-    },
-    values: {
-      "₽": "$",
-      "Нужны услуга, расход и тариф в строке:": "Service, usage and tariff are required on the line:",
-      "Расход и тариф должны быть числами в строке:": "Usage and tariff must be numbers on the line:",
-      "Постоянная часть не может быть отрицательной": "The fixed part cannot be negative",
-      "Расход и тариф не могут быть отрицательными": "Usage and tariff cannot be negative",
-      "Введите хотя бы одну позицию": "Enter at least one line",
-    },
+  "en": {
+  "fields": {
+    "meters": "Services: name, usage and tariff per line",
+    "fixed": "Fixed charges per month"
   },
-  uk: {
-    fields: {
-      "meters": "Послуги: назва, витрата і тариф у рядку",
-      "fixed": "Постійні нарахування за місяць",
-    },
-    options: {},
-    results: {
-      "Итого за месяц": "Разом за місяць",
-      "Позиций": "Позицій",
-      "Самая дорогая услуга": "Найдорожча послуга",
-      "Переменная часть": "Лічильникова частина",
-      "Постоянная часть": "Постійна частина",
-      "В год": "За рік",
-      "Расход по услугам": "Витрата за послугами",
-      "Услуга": "Послуга",
-      "Расход": "Витрата",
-      "Тариф": "Тариф",
-      "Сумма": "Сума",
-      "Проверьте данные": "Перевірте дані",
-    },
-    values: {
-      "₽": "₴",
-      "Нужны услуга, расход и тариф в строке:": "Потрібні послуга, витрата і тариф у рядку:",
-      "Расход и тариф должны быть числами в строке:": "Витрата і тариф мають бути числами в рядку:",
-      "Постоянная часть не может быть отрицательной": "Постійна частина не може бути від'ємною",
-      "Расход и тариф не могут быть отрицательными": "Витрата і тариф не можуть бути від'ємними",
-      "Введите хотя бы одну позицию": "Введіть хоча б одну позицію",
-    },
+  "options": {},
+  "results": {
+    "Итого за месяц": "Total per month",
+    "Позиций": "Lines",
+    "Самая дорогая услуга": "Most expensive service",
+    "Переменная часть": "Metered part",
+    "Постоянная часть": "Fixed part",
+    "В год": "Per year",
+    "Расход по услугам": "Usage by service",
+    "Услуга": "Service",
+    "Расход": "Usage",
+    "Тариф": "Tariff",
+    "Сумма": "Amount",
+    "Проверьте данные": "Check the values"
   },
-  de: {
-      fields: {
-        'meters': 'Positionen: Bezeichnung, Verbrauch und Tarif je Zeile',
-        'fixed': 'Feste Grundgebühren je Monat',
-      },
-      options: {},
-      results: {
-        'Итого за месяц': 'Summe je Monat',
-        'Позиций': 'Positionen',
-        'Самая дорогая услуга': 'Teuerste Position',
-        'Переменная часть': 'Verbrauchsabhängiger Teil',
-        'Постоянная часть': 'Fester Teil',
-        'В год': 'Je Jahr',
-        'Расход по услугам': 'Verbrauch nach Position',
-        'Услуга': 'Position',
-        'Расход': 'Verbrauch',
-        'Тариф': 'Tarif',
-        'Сумма': 'Betrag',
-        'Проверьте данные': 'Prüfe die Werte',
-      },
-      values: {
-        '₽': '€',
-        'Нужны услуга, расход и тариф в строке:': 'Position, Verbrauch und Tarif werden benötigt in der Zeile:',
-        'Расход и тариф должны быть числами в строке:': 'Verbrauch und Tarif müssen Zahlen sein in der Zeile:',
-        'Постоянная часть не может быть отрицательной': 'Der feste Teil darf nicht negativ sein',
-        'Расход и тариф не могут быть отрицательными': 'Verbrauch und Tarif dürfen nicht negativ sein',
-        'Введите хотя бы одну позицию': 'Gib mindestens eine Position ein',
-      },
+  "values": {
+    ...marketingScalarValues.en,
+    "₽": "$",
+    "Нужны услуга, расход и тариф в строке:": "Service, usage and tariff are required on the line:",
+    "Расход и тариф должны быть числами в строке:": "Usage and tariff must be numbers on the line:",
+    "Постоянная часть не может быть отрицательной": "The fixed part cannot be negative",
+    "Расход и тариф не могут быть отрицательными": "Usage and tariff cannot be negative",
+    "Введите хотя бы одну позицию": "Enter at least one line",
+    "Введите список услуг текстом": "Enter the service list as text"
+  }
+},
+  "uk": {
+  "fields": {
+    "meters": "Послуги: назва, витрата і тариф у рядку",
+    "fixed": "Постійні нарахування за місяць"
   },
-  es: {
-    fields: {
-      "meters": "Suministros: nombre, consumo y tarifa por línea",
-      "fixed": "Cargos fijos al mes",
-    },
-    options: {},
-    results: {
-      "Итого за месяц": "Total al mes",
-      "Позиций": "Líneas",
-      "Самая дорогая услуга": "Suministro más caro",
-      "Переменная часть": "Parte con contador",
-      "Постоянная часть": "Parte fija",
-      "В год": "Al año",
-      "Расход по услугам": "Consumo por suministro",
-      "Услуга": "Suministro",
-      "Расход": "Consumo",
-      "Тариф": "Tarifa",
-      "Сумма": "Importe",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "₽": "€",
-      "Нужны услуга, расход и тариф в строке:": "Hacen falta suministro, consumo y tarifa en la línea:",
-      "Расход и тариф должны быть числами в строке:": "El consumo y la tarifa deben ser números en la línea:",
-      "Постоянная часть не может быть отрицательной": "La parte fija no puede ser negativa",
-      "Расход и тариф не могут быть отрицательными": "Ni el consumo ni la tarifa pueden ser negativos",
-      "Введите хотя бы одну позицию": "Introduce al menos una línea",
-    },
+  "options": {},
+  "results": {
+    "Итого за месяц": "Разом за місяць",
+    "Позиций": "Позицій",
+    "Самая дорогая услуга": "Найдорожча послуга",
+    "Переменная часть": "Лічильникова частина",
+    "Постоянная часть": "Постійна частина",
+    "В год": "За рік",
+    "Расход по услугам": "Витрата за послугами",
+    "Услуга": "Послуга",
+    "Расход": "Витрата",
+    "Тариф": "Тариф",
+    "Сумма": "Сума",
+    "Проверьте данные": "Перевірте дані"
   },
+  "values": {
+    ...marketingScalarValues.uk,
+    "₽": "₴",
+    "Нужны услуга, расход и тариф в строке:": "Потрібні послуга, витрата і тариф у рядку:",
+    "Расход и тариф должны быть числами в строке:": "Витрата і тариф мають бути числами в рядку:",
+    "Постоянная часть не может быть отрицательной": "Постійна частина не може бути від'ємною",
+    "Расход и тариф не могут быть отрицательными": "Витрата і тариф не можуть бути від'ємними",
+    "Введите хотя бы одну позицию": "Введіть хоча б одну позицію",
+    "Введите список услуг текстом": "Введіть список послуг текстом"
+  }
+},
+  "de": {
+  "fields": {
+    "meters": "Positionen: Bezeichnung, Verbrauch und Tarif je Zeile",
+    "fixed": "Feste Grundgebühren je Monat"
+  },
+  "options": {},
+  "results": {
+    "Итого за месяц": "Summe je Monat",
+    "Позиций": "Positionen",
+    "Самая дорогая услуга": "Teuerste Position",
+    "Переменная часть": "Verbrauchsabhängiger Teil",
+    "Постоянная часть": "Fester Teil",
+    "В год": "Je Jahr",
+    "Расход по услугам": "Verbrauch nach Position",
+    "Услуга": "Position",
+    "Расход": "Verbrauch",
+    "Тариф": "Tarif",
+    "Сумма": "Betrag",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "₽": "€",
+    "Нужны услуга, расход и тариф в строке:": "Position, Verbrauch und Tarif werden benötigt in der Zeile:",
+    "Расход и тариф должны быть числами в строке:": "Verbrauch und Tarif müssen Zahlen sein in der Zeile:",
+    "Постоянная часть не может быть отрицательной": "Der feste Teil darf nicht negativ sein",
+    "Расход и тариф не могут быть отрицательными": "Verbrauch und Tarif dürfen nicht negativ sein",
+    "Введите хотя бы одну позицию": "Gib mindestens eine Position ein",
+    "Введите список услуг текстом": "Gib die Leistungsliste als Text ein"
+  }
+},
+  "es": {
+  "fields": {
+    "meters": "Suministros: nombre, consumo y tarifa por línea",
+    "fixed": "Cargos fijos al mes"
+  },
+  "options": {},
+  "results": {
+    "Итого за месяц": "Total al mes",
+    "Позиций": "Líneas",
+    "Самая дорогая услуга": "Suministro más caro",
+    "Переменная часть": "Parte con contador",
+    "Постоянная часть": "Parte fija",
+    "В год": "Al año",
+    "Расход по услугам": "Consumo por suministro",
+    "Услуга": "Suministro",
+    "Расход": "Consumo",
+    "Тариф": "Tarifa",
+    "Сумма": "Importe",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "₽": "€",
+    "Нужны услуга, расход и тариф в строке:": "Hacen falta suministro, consumo y tarifa en la línea:",
+    "Расход и тариф должны быть числами в строке:": "El consumo y la tarifa deben ser números en la línea:",
+    "Постоянная часть не может быть отрицательной": "La parte fija no puede ser negativa",
+    "Расход и тариф не могут быть отрицательными": "Ni el consumo ni la tarifa pueden ser negativos",
+    "Введите хотя бы одну позицию": "Introduce al menos una línea",
+    "Введите список услуг текстом": "Introduce la lista de servicios como texto"
+  }
+}
 };

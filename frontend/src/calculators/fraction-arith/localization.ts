@@ -1,116 +1,120 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'op': 'Rechenart',
-      'a': 'Erster Zähler',
-      'b': 'Erster Nenner',
-      'c': 'Zweiter Zähler',
-      'd': 'Zweiter Nenner',
+  "de": {
+    "fields": {
+      "op": "Rechenart",
+      "a": "Erster Zähler",
+      "b": "Erster Nenner",
+      "c": "Zweiter Zähler",
+      "d": "Zweiter Nenner"
     },
-    options: {
-      'add': 'Addition',
-      'sub': 'Subtraktion',
-      'mul': 'Multiplikation',
-      'div': 'Division',
+    "options": {
+      "add": "Addition",
+      "sub": "Subtraktion",
+      "mul": "Multiplikation",
+      "div": "Division"
     },
-    results: {
-      'Результат': 'Ergebnis',
-      'Десятичное значение': 'Dezimalwert',
-      'Смешанное число': 'Gemischte Zahl',
-      'Сокращено на': 'Gekürzt durch',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Результат": "Ergebnis",
+      "Десятичное значение": "Dezimalwert",
+      "Смешанное число": "Gemischte Zahl",
+      "Сокращено на": "Gekürzt durch",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'Знаменатель не может быть нулём': 'Ein Nenner kann nicht null sein',
-      'На нулевую дробь делить нельзя': 'Durch einen Bruch mit dem Wert null lässt sich nicht teilen',
-      'Числа должны быть целыми': 'Die Zahlen müssen ganz sein',
-      'Числа слишком велики для точного расчёта': 'Die Zahlen sind zu groß für eine genaue Rechnung',
-    },
+    "values": {
+      "Знаменатель не может быть нулём": "Ein Nenner kann nicht null sein",
+      "На нулевую дробь делить нельзя": "Durch einen Bruch mit dem Wert null lässt sich nicht teilen",
+      "Числа должны быть целыми": "Die Zahlen müssen ganz sein",
+      "Числа слишком велики для точного расчёта": "Die Zahlen sind zu groß für eine genaue Rechnung",
+      "Выберите сложение, вычитание, умножение или деление": "Wählen Sie Addition, Subtraktion, Multiplikation oder Division"
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "op": "Operation",
       "a": "First numerator",
       "b": "First denominator",
       "c": "Second numerator",
-      "d": "Second denominator",
+      "d": "Second denominator"
     },
-    options: {
+    "options": {
       "add": "addition",
       "sub": "subtraction",
       "mul": "multiplication",
-      "div": "division",
+      "div": "division"
     },
-    results: {
+    "results": {
       "Результат": "Result",
       "Десятичное значение": "Decimal value",
       "Смешанное число": "Mixed number",
       "Сокращено на": "Reduced by",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
+    "values": {
       "Знаменатель не может быть нулём": "A denominator cannot be zero",
       "На нулевую дробь делить нельзя": "You cannot divide by a zero fraction",
       "Числа должны быть целыми": "The numbers must be whole",
       "Числа слишком велики для точного расчёта": "The numbers are too large for exact arithmetic",
-    },
+      "Выберите сложение, вычитание, умножение или деление": "Choose addition, subtraction, multiplication or division"
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "op": "Дія",
       "a": "Чисельник першого дробу",
       "b": "Знаменник першого дробу",
       "c": "Чисельник другого дробу",
-      "d": "Знаменник другого дробу",
+      "d": "Знаменник другого дробу"
     },
-    options: {
+    "options": {
       "add": "додавання",
       "sub": "віднімання",
       "mul": "множення",
-      "div": "ділення",
+      "div": "ділення"
     },
-    results: {
+    "results": {
       "Результат": "Результат",
       "Десятичное значение": "Десяткове значення",
       "Смешанное число": "Мішане число",
       "Сокращено на": "Скорочено на",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
+    "values": {
       "Знаменатель не может быть нулём": "Знаменник не може бути нулем",
       "На нулевую дробь делить нельзя": "На нульовий дріб ділити не можна",
       "Числа должны быть целыми": "Числа мають бути цілими",
       "Числа слишком велики для точного расчёта": "Числа завеликі для точного розрахунку",
-    },
+      "Выберите сложение, вычитание, умножение или деление": "Виберіть додавання, віднімання, множення або ділення"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "op": "Operación",
       "a": "Primer numerador",
       "b": "Primer denominador",
       "c": "Segundo numerador",
-      "d": "Segundo denominador",
+      "d": "Segundo denominador"
     },
-    options: {
+    "options": {
       "add": "suma",
       "sub": "resta",
       "mul": "multiplicación",
-      "div": "división",
+      "div": "división"
     },
-    results: {
+    "results": {
       "Результат": "Resultado",
       "Десятичное значение": "Valor decimal",
       "Смешанное число": "Número mixto",
       "Сокращено на": "Simplificado entre",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "Знаменатель не может быть нулём": "Un denominador no puede ser cero",
       "На нулевую дробь делить нельзя": "No se puede dividir entre una fracción nula",
       "Числа должны быть целыми": "Los números deben ser enteros",
       "Числа слишком велики для точного расчёта": "Los números son demasiado grandes para un cálculo exacto",
-    },
-  },
+      "Выберите сложение, вычитание, умножение или деление": "Elija suma, resta, multiplicación o división"
+    }
+  }
 };

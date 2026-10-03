@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
@@ -13,4 +14,6 @@ export const workHoursCopyEs: CalculatorSeoCopy = {
   seoDescription: "Cuenta las horas trabajadas a partir de la hora de inicio y de fin del turno con el descanso descontado, incluidos los turnos de noche que cruzan la medianoche.",
   h1: "Calculadora de horas de trabajo",
   keywords: ["calculadora de horas de trabajo", "calculadora de fichaje", "horas trabajadas por turno", "horas de turno de noche"],
-};
+
+    ...dateTimeWave15ContractContent.es['work-hours'],
+  };

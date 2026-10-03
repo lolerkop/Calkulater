@@ -6,10 +6,24 @@ import { fmtMoney, fmtNumber, toNumber } from '../../lib/format';
 // Никаких котировок извне: обе величины вводит пользователь. Доходность
 // считается к той цене, которую вы указали, — к цене покупки она своя, к
 // текущей рыночной другая, и подменять одно другим калькулятор не вправе.
+// Required fields reject coercions; a blank optional amount means zero.
+function numericInput(value: unknown, optional = false): number {
+  if (optional && (value === undefined || (typeof value === 'string' && value.trim() === ''))) return 0;
+  if (typeof value !== 'number' && typeof value !== 'string') return NaN;
+  return toNumber(value, NaN);
+}
+
 export const compute: CalcFunction = (inputs) => {
-  const dividend = toNumber(inputs.dividend);
-  const price = toNumber(inputs.price);
-  const shares = toNumber(inputs.shares);
+  const dividend = numericInput(inputs.dividend);
+  const price = numericInput(inputs.price);
+  const shares = numericInput(inputs.shares, true);
+
+  const fail = (message: string) => ({
+    primary: { label: 'Дивидендная доходность', value: '—' },
+    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
+  });
+  if (![dividend, price, shares].every(Number.isFinite)) return fail('Введите конечные числовые значения.');
+  if (shares < 0) return fail('Количество акций не может быть отрицательным');
 
   if (!(price > 0)) {
     return {
@@ -25,7 +39,8 @@ export const compute: CalcFunction = (inputs) => {
   }
 
   const yieldPct = (dividend / price) * 100;
-  const hasShares = Number.isFinite(shares) && shares > 0;
+  const hasShares = shares > 0;
+  if (![yieldPct, dividend * shares, price * shares].every(Number.isFinite)) return fail('Результат выходит за пределы числовой точности.');
 
   return {
     primary: { label: 'Дивидендная доходность', value: `${fmtNumber(yieldPct, 2)} %` },

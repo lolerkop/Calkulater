@@ -1,17 +1,8 @@
+import { read, INPUT } from '../../lib/platform/measurementScalar';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
 
-// Барометрическая формула международной стандартной атмосферы.
-//
-// Давление падает не линейно: половина всей массы воздуха лежит ниже пяти с
-// половиной километров, поэтому на Эвересте остаётся меньше трети давления
-// уровня моря. Отсюда и кислородное голодание — доля кислорода та же 21 %, но
-// молекул в том же вдохе втрое меньше.
-//
-// Плотность считается уравнением состояния уже по полученным давлению и
-// температуре, а не берётся отдельной эмпирикой: так строки согласованы между
-// собой.
 const P0 = 101325;
 const T0_C = 15;
 const T0 = 288.15;
@@ -25,12 +16,13 @@ const MIN_H = -430;
 const MAX_H = 11000;
 
 export const compute: CalcFunction = (inputs) => {
-  const height = toNumber(inputs.h);
+  const height = read(inputs.h);
   const fail = (message: string) => ({
     primary: { label: 'Давление', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (![height].every(Number.isFinite)) return fail(INPUT);
   if (!(height >= MIN_H && height <= MAX_H)) {
     return fail('Высота вне диапазона от −430 до 11 000 м');
   }

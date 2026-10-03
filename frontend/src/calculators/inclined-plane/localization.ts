@@ -3,9 +3,9 @@ import type { CalculatorLocalization } from '../../lib/platform/types';
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'm': 'Masse des Körpers, kg',
-      'angle': 'Neigungswinkel, °',
-      'mu': 'Reibungszahl',
+      'm': "Masse des Körpers",
+      'angle': "Neigungswinkel",
+      'mu': "Gleitreibungszahl",
     },
     results: {
       'Скатывающая сила': 'Hangabtriebskraft',
@@ -16,6 +16,10 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Неизвестный режим расчёта": "Unbekannter Berechnungsmodus",
+      "Введите конечные числа для выбранного режима": "Gib endliche Zahlen für den gewählten Modus ein",
+      "Результат выходит за числовой диапазон": "Das Ergebnis überschreitet den Zahlenbereich",
+
       'Н': 'N',
       'м/с²': 'm/s²',
       'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
@@ -24,7 +28,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { m: 'Body mass, kg', angle: 'Slope angle, °', mu: 'Friction coefficient' },
+    fields: { m: "Body mass", angle: "Slope angle", mu: "Kinetic friction coefficient" },
     options: {},
     results: {
       'Скатывающая сила': 'Force along the slope', 'Сила нормального давления': 'Normal force',
@@ -32,6 +36,10 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Check the values',
     },
     values: {
+      "Неизвестный режим расчёта": "Unknown calculation mode",
+      "Введите конечные числа для выбранного режима": "Enter finite numbers for the selected mode",
+      "Результат выходит за числовой диапазон": "The result exceeds the numerical range",
+
       'Н': 'N', 'м/с²': 'm/s²',
       'Масса должна быть больше нуля': 'The mass must be greater than zero',
       'Угол наклона задаётся от 0 до 90 градусов': 'The slope angle runs from 0 to 90 degrees',
@@ -39,7 +47,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { m: 'Маса тіла, кг', angle: 'Кут нахилу, °', mu: 'Коефіцієнт тертя' },
+    fields: { m: "Маса тіла", angle: "Кут нахилу", mu: "Коефіцієнт тертя ковзання" },
     options: {},
     results: {
       'Скатывающая сила': 'Скочувальна сила', 'Сила нормального давления': 'Сила нормального тиску',
@@ -47,6 +55,10 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Перевірте дані',
     },
     values: {
+      "Неизвестный режим расчёта": "Невідомий режим розрахунку",
+      "Введите конечные числа для выбранного режима": "Введіть скінченні числа для обраного режиму",
+      "Результат выходит за числовой диапазон": "Результат виходить за числовий діапазон",
+
       'Н': 'Н', 'м/с²': 'м/с²',
       'Масса должна быть больше нуля': 'Маса має бути більшою за нуль',
       'Угол наклона задаётся от 0 до 90 градусов': 'Кут нахилу задається від 0 до 90 градусів',
@@ -55,9 +67,9 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "m": "Masa del cuerpo, kg",
-      "angle": "Ángulo de inclinación, °",
-      "mu": "Coeficiente de rozamiento",
+      "m": "Masa del cuerpo",
+      "angle": "Ángulo de inclinación",
+      "mu": "Coeficiente de rozamiento cinético",
     },
     options: {},
     results: {
@@ -69,6 +81,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Неизвестный режим расчёта": "Modo de cálculo desconocido",
+      "Введите конечные числа для выбранного режима": "Introduce números finitos para el modo elegido",
+      "Результат выходит за числовой диапазон": "El resultado supera el rango numérico",
+
       "Н": "N",
       "м/с²": "m/s²",
       "Масса должна быть больше нуля": "La masa debe ser mayor que cero",

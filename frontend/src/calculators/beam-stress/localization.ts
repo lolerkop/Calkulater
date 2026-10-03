@@ -1,13 +1,14 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'moment': 'Biegemoment, N·m',
+      'moment': "Biegemoment",
       'section': 'Querschnitt',
-      'b': 'Breite des Querschnitts, mm',
-      'h': 'Höhe des Querschnitts, mm',
-      'd': 'Durchmesser, mm',
+      'b': "Breite des Querschnitts",
+      'h': "Höhe des Querschnitts",
+      'd': "Durchmesser",
     },
     options: {
       'rect': 'Rechteck',
@@ -36,8 +37,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      moment: 'Bending moment, N·m', section: 'Cross-section', b: 'Section width, mm',
-      h: 'Section height, mm', d: 'Diameter, mm',
+      moment: "Bending moment", section: 'Cross-section', b: "Section width",
+      h: "Section height", d: "Diameter",
     },
     options: { rect: 'rectangle', circle: 'circle' },
     results: {
@@ -56,8 +57,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      moment: 'Згинальний момент, Н·м', section: 'Переріз', b: 'Ширина перерізу, мм',
-      h: 'Висота перерізу, мм', d: 'Діаметр, мм',
+      moment: "Згинальний момент", section: 'Переріз', b: "Ширина перерізу",
+      h: "Висота перерізу", d: "Діаметр",
     },
     options: { rect: 'прямокутник', circle: 'коло' },
     results: {
@@ -76,11 +77,11 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "moment": "Momento flector, N·m",
+      "moment": "Momento flector",
       "section": "Sección",
-      "b": "Ancho de la sección, mm",
-      "h": "Canto de la sección, mm",
-      "d": "Diámetro, mm",
+      "b": "Ancho de la sección",
+      "h": "Canto de la sección",
+      "d": "Diámetro",
     },
     options: {
       "rect": "rectángulo",
@@ -108,3 +109,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

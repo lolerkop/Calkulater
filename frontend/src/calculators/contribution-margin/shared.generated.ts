@@ -13,27 +13,47 @@ export const shared: CalculatorLocalization = {
     results: {
       'Переменные затраты на единицу': 'Variable cost per unit',
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Enter finite numeric values.',
+      'Переменные затраты не могут быть отрицательными': 'Variable costs cannot be negative',
     },
   },
   uk: {
     results: {
       'Переменные затраты на единицу': 'Змінні витрати на одиницю',
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Введіть скінченні числові значення.',
+      'Переменные затраты не могут быть отрицательными': 'Змінні витрати не можуть бути відʼємними',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Gib endliche Zahlenwerte ein.',
+      'Переменные затраты не могут быть отрицательными': 'Die variablen Kosten können nicht negativ sein',
     },
   },
   es: {
     results: {
       'Переменные затраты на единицу': 'Coste variable por unidad',
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Introduce valores numéricos finitos.',
+      'Переменные затраты не могут быть отрицательными': 'Los costes variables no pueden ser negativos',
     },
   },
 };

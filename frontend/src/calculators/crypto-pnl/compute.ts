@@ -1,5 +1,8 @@
+import { choice } from '../../lib/platform/financeWave11Input';
+import { number, validOutput } from '../../lib/platform/scalarInputDisplay';
+import { displayMoney } from '../../lib/platform/financeDisplay';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 
 // Результат сделки по криптовалюте.
 //
@@ -12,32 +15,40 @@ import { fmtNumber, toNumber, toStr } from '../../lib/format';
 // Плечо влияет только на вложенное: сама прибыль от него не меняется, меняется
 // её отношение к собственным средствам.
 
-const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
+const money = displayMoney;
 const percent = (value: number) => `${fmtNumber(value, 2)}%`;
 
 export const compute: CalcFunction = (inputs) => {
-  const direction = toStr(inputs.direction, 'long');
-  const entry = toNumber(inputs.entry);
-  const exit = toNumber(inputs.exit);
-  const qty = toNumber(inputs.qty);
-  const feePct = toNumber(inputs.feePct);
-  const leverage = toNumber(inputs.leverage);
+  const direction = choice(inputs.direction, ['long', 'short'], 'long');
+  const entry = number(inputs.entry);
+  const exit = number(inputs.exit);
+  const qty = number(inputs.qty);
+  const feePct = number(inputs.feePct);
+  const leverage = number(inputs.leverage);
 
   const fail = (message: string) => ({
     primary: { label: 'Чистый результат', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (direction === null) return fail('Выберите корректный режим расчёта');
+  if (entry === null || exit === null || qty === null || feePct === null || leverage === null) return fail('Введите корректные значения');
   if (!(entry > 0)) return fail('Цена входа должна быть больше нуля');
   if (!(exit > 0)) return fail('Цена выхода должна быть больше нуля');
   if (!(qty > 0)) return fail('Объём должен быть больше нуля');
   if (!(leverage > 0)) return fail('Плечо должно быть больше нуля');
-  if (feePct < 0) return fail('Комиссия не может быть отрицательной');
+  if (feePct < 0 || feePct > 100) return fail('Комиссия должна быть от 0 до 100%');
 
   const gross = direction === 'short' ? (entry - exit) * qty : (exit - entry) * qty;
-  const fees = (entry * qty + exit * qty) * (feePct / 100);
+  const entryNotional = entry * qty;
+  const exitNotional = exit * qty;
+  const fees = entryNotional * (feePct / 100) + exitNotional * (feePct / 100);
+  if (feePct > 0 && fees === 0) return fail('Результат выходит за числовые пределы расчёта');
   const net = gross - fees;
-  const invested = (entry * qty) / leverage;
+  const invested = entryNotional / leverage;
+  const positionReturn = (net / invested) * 100;
+  const priceChange = ((exit - entry) / entry) * 100;
+  if (!validOutput(invested, true) || ![entryNotional, exitNotional, gross, fees, net, positionReturn, priceChange].every(value => validOutput(value))) return fail('Результат выходит за числовые пределы расчёта');
 
   return {
     primary: {
@@ -48,8 +59,8 @@ export const compute: CalcFunction = (inputs) => {
       { label: 'Результат до комиссий', value: money(gross) },
       { label: 'Комиссии', value: money(fees) },
       { label: 'Вложено', value: money(invested) },
-      { label: 'Доходность позиции', value: percent((net / invested) * 100), accent: (net >= 0 ? 'green' : 'red') as 'green' | 'red' },
-      { label: 'Изменение цены', value: percent(((exit - entry) / entry) * 100) },
+      { label: 'Доходность позиции', value: percent(positionReturn), accent: (net >= 0 ? 'green' : 'red') as 'green' | 'red' },
+      { label: 'Изменение цены', value: percent(priceChange) },
     ],
   };
 };

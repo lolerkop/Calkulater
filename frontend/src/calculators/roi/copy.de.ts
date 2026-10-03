@@ -1,11 +1,9 @@
-// Немецкий копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла немецкой страницы не существует. Подробный текст живёт в
-// `src/data/deContent/`.
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const roiCopyDe: CalculatorSeoCopy = {
+export const roiCopyDe: CalculatorCopy = {
   name: 'ROI-Rechner',
   slug: 'roi-rechner',
   shortDescription: 'Kapitalrendite, mit richtig berücksichtigten Nebenkosten.',
@@ -13,4 +11,5 @@ export const roiCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Berechne die Kapitalrendite aus dem erhaltenen und dem eingesetzten Betrag, samt zusätzlichen Kosten.',
   h1: 'ROI-Rechner',
   keywords: ['ROI berechnen', 'Kapitalrendite', 'Return on Investment', 'Rendite Investition'],
+  ...contractContent.de,
 };

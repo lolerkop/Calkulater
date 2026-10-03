@@ -52,6 +52,8 @@ describe('диспетчер островов', () => {
       expect(dispatch, id).toMatch(new RegExp(`id === '${id}' && <\\w+ `));
     }
     expect(dispatch).not.toMatch(/\[\s*id\s*\]\s*(\?\?|\|\|)/);
+    expect(dispatch).toContain('selectRuntimeLocalization(runtimeFor(id), locale)');
+    expect(dispatch).toContain('runtimeLocalization={runtimeLocalization}');
   });
 
   it('каждая точка входа импортирована ровно один раз', () => {
@@ -66,7 +68,8 @@ describe('диспетчер островов', () => {
       expect(dispatch, id).toContain(`id === '${id}'`);
       expect(dispatch, id).toContain(`from './islands/legacy/${id}/island'`);
       const entry = readFileSync(`src/components/islands/legacy/${id}/island.tsx`, 'utf8');
-      expect(entry, id).toContain("from './shared.generated'");
+      expect(entry, id).toContain('localization: runtimeLocalization');
+      expect(entry, id).not.toMatch(/from '\.\/(shared\.generated|localization)'/);
       // Свой расчёт, а не реестр всех двадцати шести.
       expect(entry, id).not.toMatch(/lib\/runners/);
     }
@@ -85,10 +88,11 @@ describe('диспетчер островов', () => {
     }
   });
 
-  it('каждая точка входа V2 берёт свой отбор фраз, а не общий словарь', () => {
+  it('каждая точка входа V2 принимает фразы активной страницы через props', () => {
     for (const id of released) {
       const entry = readFileSync(`src/calculators/${id}/island.tsx`, 'utf8');
-      expect(entry, id).toContain("from './shared.generated'");
+      expect(entry, id).toContain('localization: runtimeLocalization');
+      expect(entry, id).not.toMatch(/from '\.\/(shared\.generated|localization)'/);
       expect(entry, id).not.toMatch(/lib\/resultPhrases/);
     }
   });

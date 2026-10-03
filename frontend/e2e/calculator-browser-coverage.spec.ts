@@ -202,7 +202,7 @@ test.describe('browser coverage for previously uncovered calculators', () => {
     await page.goto('/ru/sport/calorie-calculator/');
 
     await expect(page.getByTestId('calc-result-primary')).toHaveText('2 556 ккал');
-    await expectResultRow(page, 'Базовый обмен (BMR)', '1 649 ккал');
+    await expectResultRow(page, 'Расход энергии в покое (REE)', '1 649 ккал');
     await expectResultRow(page, 'Белки', '192 г');
     await expectResultRow(page, 'Жиры', '71 г');
     await expectResultRow(page, 'Углеводы', '288 г');
@@ -210,7 +210,7 @@ test.describe('browser coverage for previously uncovered calculators', () => {
 
     await page.getByTestId('field-gender-opt-female').click();
     await expect(page.getByTestId('calc-result-primary')).toHaveText('2 298 ккал');
-    await expectResultRow(page, 'Базовый обмен (BMR)', '1 483 ккал');
+    await expectResultRow(page, 'Расход энергии в покое (REE)', '1 483 ккал');
     await expectResultRow(page, 'Белки', '172 г');
     await expectHealthyResult(page);
   });

@@ -5,7 +5,7 @@ import type { CalculatorContextualField } from '../../lib/platform/types';
 // для чтения и подписывается как вычисляемое — тот же приём, что и у
 // пропорции, где спрятать одно поле из четырёх `showIf` не умеет.
 const COMPUTED: Record<string, string> = { vi: 'resistance', vr: 'current', ir: 'voltage' };
-const SUFFIX: Record<string, string> = { ru: ' (вычисляется)', en: ' (computed)', uk: ' (обчислюється)' };
+const SUFFIX: Record<string, string> = { ru: ' (вычисляется)', en: ' (computed)', uk: ' (обчислюється)', de: ' (berechnet)', es: ' (calculado)' };
 
 export const contextualField: CalculatorContextualField = (field, values, locale) => {
   const mode = String(values.mode ?? 'vi');

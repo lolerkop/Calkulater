@@ -1,48 +1,24 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-
-// Какой балл нужен на экзамене, чтобы выйти на желаемую итоговую.
-//
-// Текущая оценка трактуется как взвешенная доля (1 − вес) итоговой: это
-// допущение, и оно названо на странице, а не спрятано в формулу.
-//
-// Результат выше ста процентов — не ошибка ввода, а ответ: цель недостижима
-// одним экзаменом. Показать в этом случае прочерк значило бы скрыть самое
-// полезное — насколько велик разрыв.
-export const compute: CalcFunction = (inputs) => {
-  const current = toNumber(inputs.current);
-  const target = toNumber(inputs.target);
-  const weight = toNumber(inputs.weight);
-
-  const fail = (message: string) => ({
-    primary: { label: 'Нужный балл', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (current < 0 || current > 100) return fail('Текущая оценка задаётся в диапазоне от 0 до 100');
-  if (target < 0 || target > 100) return fail('Желаемая оценка задаётся в диапазоне от 0 до 100');
-  if (!(weight > 0) || weight > 100) return fail('Вес экзамена задаётся в диапазоне от 0 до 100 процентов');
-
-  const w = weight / 100;
-  const needed = (target - current * (1 - w)) / w;
-
-  const secondary: { label: string; value: string; accent?: 'red' }[] = [
-    { label: 'Вклад текущей оценки', value: `${fmtNumber(current * (1 - w), 2)}%` },
-    { label: 'Вес экзамена', value: `${fmtNumber(weight, 2)}%` },
-  ];
-
-  if (needed > 100) {
-    secondary.push({
-      label: 'Цель недостижима',
-      value: 'Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального',
-      accent: 'red' as const,
-    });
-  } else if (needed <= 0) {
-    secondary.push({ label: 'Цель уже достигнута', value: 'Итоговая выйдет не ниже желаемой при любом результате экзамена' });
-  }
-
-  return {
-    primary: { label: 'Нужный балл', value: `${fmtNumber(needed, 2)}%` },
-    secondary,
-  };
+import { fmtNumber } from '../../lib/format';
+import { number } from '../../lib/platform/scalarInputDisplay';
+import { formatQuantity } from '../../lib/platform/measurement';
+import { exact, add, negative, times, ratio } from '../../lib/platform/geometryNumericInput';
+const percent = (n: number) => `${n!==0 && (Math.abs(n)<0.005 || Math.abs(n)>=1e12) ? formatQuantity(n,fmtNumber) : fmtNumber(n,2)}%`;
+export const compute: CalcFunction = inputs => {
+ const fail=(message:string)=>({primary:{label:'Нужный балл',value:'—'},secondary:[{label:'Проверьте данные',value:message,accent:'red' as const}]});
+ const current=number(inputs.current), target=number(inputs.target), weight=number(inputs.weight);
+ if(current===null||target===null||weight===null)return fail('Введите корректные числовые данные');
+ if(current<0||current>100)return fail('Текущая оценка задаётся в диапазоне от 0 до 100');
+ if(target<0||target>100)return fail('Желаемая оценка задаётся в диапазоне от 0 до 100');
+ if(!(weight>0)||weight>100)return fail('Вес экзамена должен быть больше 0 и не больше 100 процентов');
+ // Algebraically current + 100*(target-current)/weight. Exact binary sums
+ // avoid losing the current-grade term when the exam weight is very small.
+ const numerator=add(times(exact(current),exact(weight)),times(add(exact(target),negative(exact(current))),exact(100)));
+ const needed=ratio(numerator,exact(weight));
+ if(!Number.isFinite(needed)||(needed===0&&numerator.coefficient!==0n))return fail('Результат вне допустимого диапазона');
+ const contribution=ratio(times(exact(current),add(exact(100),negative(exact(weight)))),exact(100));
+ const secondary:{label:string;value:string;accent?:'red'}[]=[{label:'Вклад текущей оценки',value:percent(contribution)},{label:'Вес экзамена',value:percent(weight)}];
+ if(needed>100)secondary.push({label:'Цель недостижима',value:'Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального',accent:'red'});
+ else if(needed<=0)secondary.push({label:'Цель уже достигнута',value:'Итоговая выйдет не ниже желаемой при любом результате экзамена'});
+ return {primary:{label:'Нужный балл',value:percent(needed)},secondary};
 };

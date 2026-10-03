@@ -1,123 +1,136 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'ingredients': 'Zutaten: Name, Gramm und kcal je 100 g je Zeile',
-      'servings': 'Portionen',
-    },
-    results: {
-      'Калорий в порции': 'Kalorien je Portion',
-      'Всего калорий': 'Kalorien insgesamt',
-      'Ингредиентов': 'Zutaten',
-      'Самый калорийный': 'Kalorienreichste Zutat',
-      'Порций': 'Portionen',
-      'Масса порции': 'Gewicht einer Portion',
-      'Вклад ингредиентов': 'Beitrag der Zutaten',
-      'Ингредиент': 'Zutat',
-      'Граммы': 'Gramm',
-      'Ккал на 100 г': 'kcal je 100 g',
-      'Ккал': 'kcal',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'ккал': 'kcal',
-      'г': 'g',
-      'Нужны название, масса и калорийность в строке:': 'In der Zeile werden Name, Gewicht und Kaloriengehalt gebraucht:',
-      'Масса и калорийность должны быть числами в строке:': 'Gewicht und Kaloriengehalt müssen Zahlen sein, in der Zeile:',
-      'Порций должно быть не меньше одной': 'Es muss mindestens eine Portion sein',
-      'Масса и калорийность не могут быть отрицательными': 'Gewicht und Kaloriengehalt können nicht negativ sein',
-      'Введите хотя бы один ингредиент': 'Trage mindestens eine Zutat ein',
-    },
+  "en": {
+  "fields": {
+    "ingredients": "Ingredients: name, grams and kcal per 100 g per line",
+    "servings": "Servings"
   },
-  en: {
-    fields: {
-      "ingredients": "Ingredients: name, grams and kcal per 100 g per line",
-      "servings": "Servings",
-    },
-    options: {},
-    results: {
-      "Калорий в порции": "Calories per serving",
-      "Всего калорий": "Calories in total",
-      "Ингредиентов": "Ingredients",
-      "Самый калорийный": "Most caloric",
-      "Порций": "Servings",
-      "Масса порции": "Weight of one serving",
-      "Вклад ингредиентов": "What each ingredient adds",
-      "Ингредиент": "Ingredient",
-      "Граммы": "Grams",
-      "Ккал на 100 г": "Kcal per 100 g",
-      "Ккал": "Kcal",
-      "Проверьте данные": "Check the values",
-    },
-    values: {
-      "ккал": "kcal",
-      "г": "g",
-      "Нужны название, масса и калорийность в строке:": "Name, grams and calories are required on the line:",
-      "Масса и калорийность должны быть числами в строке:": "Grams and calories must be numbers on the line:",
-      "Порций должно быть не меньше одной": "There must be at least one serving",
-      "Масса и калорийность не могут быть отрицательными": "Grams and calories cannot be negative",
-      "Введите хотя бы один ингредиент": "Enter at least one ingredient",
-    },
+  "options": {},
+  "results": {
+    "Калорий в порции": "Calories per serving",
+    "Всего калорий": "Calories in total",
+    "Ингредиентов": "Ingredients",
+    "Самый калорийный": "Most caloric",
+    "Порций": "Servings",
+    "Масса порции": "Weight of one serving",
+    "Вклад ингредиентов": "What each ingredient adds",
+    "Ингредиент": "Ingredient",
+    "Граммы": "Grams",
+    "Ккал на 100 г": "Kcal per 100 g",
+    "Ккал": "Kcal",
+    "Проверьте данные": "Check the values"
   },
-  uk: {
-    fields: {
-      "ingredients": "Інгредієнти: назва, грами і ккал на 100 г у рядку",
-      "servings": "Порцій",
-    },
-    options: {},
-    results: {
-      "Калорий в порции": "Калорій у порції",
-      "Всего калорий": "Усього калорій",
-      "Ингредиентов": "Інгредієнтів",
-      "Самый калорийный": "Найкалорійніший",
-      "Порций": "Порцій",
-      "Масса порции": "Маса порції",
-      "Вклад ингредиентов": "Внесок інгредієнтів",
-      "Ингредиент": "Інгредієнт",
-      "Граммы": "Грами",
-      "Ккал на 100 г": "Ккал на 100 г",
-      "Ккал": "Ккал",
-      "Проверьте данные": "Перевірте дані",
-    },
-    values: {
-      "ккал": "ккал",
-      "г": "г",
-      "Нужны название, масса и калорийность в строке:": "Потрібні назва, маса і калорійність у рядку:",
-      "Масса и калорийность должны быть числами в строке:": "Маса і калорійність мають бути числами в рядку:",
-      "Порций должно быть не меньше одной": "Порцій має бути щонайменше одна",
-      "Масса и калорийность не могут быть отрицательными": "Маса і калорійність не можуть бути від'ємними",
-      "Введите хотя бы один ингредиент": "Введіть хоча б один інгредієнт",
-    },
+  "values": {
+    ...marketingScalarValues.en,
+    "ккал": "kcal",
+    "г": "g",
+    "Нужны название, масса и калорийность в строке:": "Name, grams and calories are required on the line:",
+    "Масса и калорийность должны быть числами в строке:": "Grams and calories must be numbers on the line:",
+    "Порций должно быть не меньше одной": "There must be at least one serving",
+    "Масса и калорийность не могут быть отрицательными": "Grams and calories cannot be negative",
+    "Введите хотя бы один ингредиент": "Enter at least one ingredient",
+    "Введите список ингредиентов текстом": "Enter the ingredient list as text",
+    "Учтена энергия перечисленных ингредиентов при условии их полного потребления. Масса порции относится к введённым массам, а не к взвешенному готовому блюду.": "Energy of listed ingredients assumes they are fully consumed. Portion mass refers to entered weights, not a weighed cooked dish."
+  }
+},
+  "uk": {
+  "fields": {
+    "ingredients": "Інгредієнти: назва, грами і ккал на 100 г у рядку",
+    "servings": "Порцій"
   },
-  es: {
-    fields: {
-      "ingredients": "Ingredientes: nombre, gramos y kcal por 100 g por línea",
-      "servings": "Raciones",
-    },
-    options: {},
-    results: {
-      "Калорий в порции": "Calorías por ración",
-      "Всего калорий": "Calorías en total",
-      "Ингредиентов": "Ingredientes",
-      "Самый калорийный": "El más calórico",
-      "Порций": "Raciones",
-      "Масса порции": "Peso de una ración",
-      "Вклад ингредиентов": "Aportación de cada ingrediente",
-      "Ингредиент": "Ingrediente",
-      "Граммы": "Gramos",
-      "Ккал на 100 г": "Kcal por 100 g",
-      "Ккал": "Kcal",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "ккал": "kcal",
-      "г": "g",
-      "Нужны название, масса и калорийность в строке:": "Hacen falta un nombre, unos gramos y unas calorías en la línea:",
-      "Масса и калорийность должны быть числами в строке:": "Los gramos y las calorías deben ser números en la línea:",
-      "Порций должно быть не меньше одной": "Debe haber al menos una ración",
-      "Масса и калорийность не могут быть отрицательными": "Los gramos y las calorías no pueden ser negativos",
-      "Введите хотя бы один ингредиент": "Introduce al menos un ingrediente",
-    },
+  "options": {},
+  "results": {
+    "Калорий в порции": "Калорій у порції",
+    "Всего калорий": "Усього калорій",
+    "Ингредиентов": "Інгредієнтів",
+    "Самый калорийный": "Найкалорійніший",
+    "Порций": "Порцій",
+    "Масса порции": "Маса порції",
+    "Вклад ингредиентов": "Внесок інгредієнтів",
+    "Ингредиент": "Інгредієнт",
+    "Граммы": "Грами",
+    "Ккал на 100 г": "Ккал на 100 г",
+    "Ккал": "Ккал",
+    "Проверьте данные": "Перевірте дані"
   },
+  "values": {
+    ...marketingScalarValues.uk,
+    "ккал": "ккал",
+    "г": "г",
+    "Нужны название, масса и калорийность в строке:": "Потрібні назва, маса і калорійність у рядку:",
+    "Масса и калорийность должны быть числами в строке:": "Маса і калорійність мають бути числами в рядку:",
+    "Порций должно быть не меньше одной": "Порцій має бути щонайменше одна",
+    "Масса и калорийность не могут быть отрицательными": "Маса і калорійність не можуть бути від'ємними",
+    "Введите хотя бы один ингредиент": "Введіть хоча б один інгредієнт",
+    "Введите список ингредиентов текстом": "Введіть список інгредієнтів текстом",
+    "Учтена энергия перечисленных ингредиентов при условии их полного потребления. Масса порции относится к введённым массам, а не к взвешенному готовому блюду.": "Енергія перелічених інгредієнтів припускає їх повне споживання. Маса порції стосується введених мас, не зваженої готової страви."
+  }
+},
+  "de": {
+  "fields": {
+    "ingredients": "Zutaten: Name, Gramm und kcal je 100 g je Zeile",
+    "servings": "Portionen"
+  },
+  "results": {
+    "Калорий в порции": "Kalorien je Portion",
+    "Всего калорий": "Kalorien insgesamt",
+    "Ингредиентов": "Zutaten",
+    "Самый калорийный": "Kalorienreichste Zutat",
+    "Порций": "Portionen",
+    "Масса порции": "Gewicht einer Portion",
+    "Вклад ингредиентов": "Beitrag der Zutaten",
+    "Ингредиент": "Zutat",
+    "Граммы": "Gramm",
+    "Ккал на 100 г": "kcal je 100 g",
+    "Ккал": "kcal",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "ккал": "kcal",
+    "г": "g",
+    "Нужны название, масса и калорийность в строке:": "In der Zeile werden Name, Gewicht und Kaloriengehalt gebraucht:",
+    "Масса и калорийность должны быть числами в строке:": "Gewicht und Kaloriengehalt müssen Zahlen sein, in der Zeile:",
+    "Порций должно быть не меньше одной": "Es muss mindestens eine Portion sein",
+    "Масса и калорийность не могут быть отрицательными": "Gewicht und Kaloriengehalt können nicht negativ sein",
+    "Введите хотя бы один ингредиент": "Trage mindestens eine Zutat ein",
+    "Введите список ингредиентов текстом": "Zutatenliste als Text eingeben",
+    "Учтена энергия перечисленных ингредиентов при условии их полного потребления. Масса порции относится к введённым массам, а не к взвешенному готовому блюду.": "Energie der Zutaten setzt vollständigen Verzehr voraus. Portionsmasse bezieht sich auf Eingabemassen, nicht gewogenes fertiges Gericht."
+  }
+},
+  "es": {
+  "fields": {
+    "ingredients": "Ingredientes: nombre, gramos y kcal por 100 g por línea",
+    "servings": "Raciones"
+  },
+  "options": {},
+  "results": {
+    "Калорий в порции": "Calorías por ración",
+    "Всего калорий": "Calorías en total",
+    "Ингредиентов": "Ingredientes",
+    "Самый калорийный": "El más calórico",
+    "Порций": "Raciones",
+    "Масса порции": "Peso de una ración",
+    "Вклад ингредиентов": "Aportación de cada ingrediente",
+    "Ингредиент": "Ingrediente",
+    "Граммы": "Gramos",
+    "Ккал на 100 г": "Kcal por 100 g",
+    "Ккал": "Kcal",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "ккал": "kcal",
+    "г": "g",
+    "Нужны название, масса и калорийность в строке:": "Hacen falta un nombre, unos gramos y unas calorías en la línea:",
+    "Масса и калорийность должны быть числами в строке:": "Los gramos y las calorías deben ser números en la línea:",
+    "Порций должно быть не меньше одной": "Debe haber al menos una ración",
+    "Масса и калорийность не могут быть отрицательными": "Los gramos y las calorías no pueden ser negativos",
+    "Введите хотя бы один ингредиент": "Introduce al menos un ingrediente",
+    "Введите список ингредиентов текстом": "Introduce la lista de ingredientes como texto",
+    "Учтена энергия перечисленных ингредиентов при условии их полного потребления. Масса порции относится к введённым массам, а не к взвешенному готовому блюду.": "Energía de ingredientes supone consumo completo. Masa de ración corresponde a pesos introducidos, no al plato cocinado pesado."
+  }
+}
 };

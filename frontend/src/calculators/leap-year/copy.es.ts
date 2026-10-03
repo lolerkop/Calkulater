@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
@@ -13,4 +14,6 @@ export const leapYearCopyEs: CalculatorSeoCopy = {
   seoDescription: "Comprueba si un año es bisiesto, consulta la duración de febrero y los años bisiestos más cercanos.",
   h1: "Calculadora de años bisiestos",
   keywords: ["año bisiesto", "es año bisiesto", "29 de febrero"],
-};
+
+    ...dateTimeWave15ContractContent.es['leap-year'],
+  };

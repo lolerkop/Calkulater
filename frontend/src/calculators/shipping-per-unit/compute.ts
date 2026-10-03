@@ -6,22 +6,33 @@ import { fmtMoney, fmtNumber, toNumber } from '../../lib/format';
 // Упаковка необязательна: пустое поле означает «упаковка не учитывается», а не
 // ошибку ввода. Ноль здесь законное «ничего», как и в остальных необязательных
 // суммах платформы.
+// Required fields reject coercions; a blank optional amount means zero.
+function numericInput(value: unknown, optional = false): number {
+  if (optional && (value === undefined || (typeof value === 'string' && value.trim() === ''))) return 0;
+  if (typeof value !== 'number' && typeof value !== 'string') return NaN;
+  return toNumber(value, NaN);
+}
+
 export const compute: CalcFunction = (inputs) => {
-  const shipping = toNumber(inputs.shipping);
-  const units = toNumber(inputs.units);
-  const packaging = toNumber(inputs.packaging);
-  const packagingCost = Number.isFinite(packaging) && packaging > 0 ? packaging : 0;
+  const shipping = numericInput(inputs.shipping);
+  const units = numericInput(inputs.units);
+  const packaging = numericInput(inputs.packaging, true);
+  const packagingCost = packaging;
 
   const fail = (message: string) => ({
     primary: { label: 'Доставка на единицу', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
-  if (!Number.isInteger(units)) return fail('Число единиц должно быть целым');
+  if (![shipping, units, packaging].every(Number.isFinite)) return fail('Введите конечные числовые значения.');
+
+  if (!Number.isSafeInteger(units)) return fail('Число единиц должно быть целым');
   if (units <= 0) return fail('Единиц должно быть больше нуля');
   if (shipping < 0) return fail('Стоимость доставки не может быть отрицательной');
 
+  if (packaging < 0) return fail('Стоимость упаковки не может быть отрицательной');
   const total = shipping + packagingCost;
+  if (!Number.isFinite(total)) return fail('Результат выходит за пределы числовой точности.');
 
   return {
     primary: { label: 'Доставка на единицу', value: fmtMoney(total / units) },

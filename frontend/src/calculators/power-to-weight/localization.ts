@@ -1,8 +1,9 @@
+import { automotiveMessages } from '../engine-displacement/automotiveMessages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 const RESULTS_EN = {
-  'Удельная мощность': 'Power to weight', 'Лошадиных сил на тонну': 'Horsepower per tonne',
-  'Килограммов на силу': 'Kilograms per horsepower', 'Мощность': 'Power',
+  'Удельная мощность': 'Power to weight', 'Лошадиных сил на тонну': 'Metric horsepower per tonne',
+  'Килограммов на силу': 'Kilograms per PS', 'Мощность': 'Power',
   'Расчётная масса': 'Mass used', 'Без нагрузки было бы': 'Without the load it would be', 'Проверьте данные': 'Check the values',
 };
 const RESULTS_UK = {
@@ -11,7 +12,7 @@ const RESULTS_UK = {
   'Расчётная масса': 'Розрахункова маса', 'Без нагрузки было бы': 'Без навантаження було б', 'Проверьте данные': 'Перевірте дані',
 };
 
-export const localization: CalculatorLocalization = {
+const originalLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'power': 'Motorleistung',
@@ -49,7 +50,7 @@ export const localization: CalculatorLocalization = {
     options: { ps: 'metric hp (PS)', kw: 'kilowatts (kW)' },
     results: RESULTS_EN,
     values: {
-      'кВт/т': 'kW/t', 'л.с./т': 'hp/t', 'кг/л.с.': 'kg/hp', 'кВт': 'kW', 'л.с.': 'hp', 'кг': 'kg',
+      'кВт/т': 'kW/t', 'л.с./т': 'PS/t', 'кг/л.с.': 'kg/PS', 'кВт': 'kW', 'л.с.': 'PS', 'кг': 'kg',
       'Мощность должна быть больше нуля': 'The power must be greater than zero',
       'Масса должна быть больше нуля': 'The mass must be greater than zero',
       'Дополнительная нагрузка не может быть отрицательной': 'The extra load cannot be negative',
@@ -99,3 +100,7 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(originalLocalization).map(([locale, bundle]) => [locale, { ...bundle, values: { ...bundle.values, ...automotiveMessages[locale as keyof typeof automotiveMessages] } }]),
+);

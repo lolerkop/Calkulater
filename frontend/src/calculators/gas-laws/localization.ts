@@ -15,12 +15,12 @@ export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'mode': 'Was gesucht ist',
-      'p1': 'Druck p₁, kPa',
-      'v1': 'Volumen V₁, l',
-      't1': 'Temperatur T₁, K',
-      'p2': 'Druck p₂, kPa',
-      'v2': 'Volumen V₂, l',
-      't2': 'Temperatur T₂, K',
+      'p1': 'Druck p₁',
+      'v1': 'Volumen V₁',
+      't1': 'Temperatur T₁',
+      'p2': 'Druck p₂',
+      'v2': 'Volumen V₂',
+      't2': 'Temperatur T₂',
     },
     options: {
       'p2': 'Druck p₂',
@@ -49,8 +49,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      mode: 'What to find', p1: 'Pressure p₁, kPa', v1: 'Volume V₁, l', t1: 'Temperature T₁, K',
-      p2: 'Pressure p₂, kPa', v2: 'Volume V₂, l', t2: 'Temperature T₂, K',
+      mode: 'What to find', p1: 'Pressure p₁', v1: 'Volume V₁', t1: 'Temperature T₁',
+      p2: 'Pressure p₂', v2: 'Volume V₂', t2: 'Temperature T₂',
     },
     options: { p2: 'pressure p₂', v2: 'volume V₂', t2: 'temperature T₂' },
     results: RESULTS_EN,
@@ -65,8 +65,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      mode: 'Що знайти', p1: 'Тиск p₁, кПа', v1: "Об'єм V₁, л", t1: 'Температура T₁, К',
-      p2: 'Тиск p₂, кПа', v2: "Об'єм V₂, л", t2: 'Температура T₂, К',
+      mode: 'Що знайти', p1: 'Тиск p₁', v1: "Об'єм V₁, л", t1: 'Температура T₁',
+      p2: 'Тиск p₂', v2: "Об'єм V₂, л", t2: 'Температура T₂',
     },
     options: { p2: 'тиск p₂', v2: "об'єм V₂", t2: 'температуру T₂' },
     results: RESULTS_UK,
@@ -82,12 +82,12 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "mode": "Qué hallar",
-      "p1": "Presión p₁, kPa",
-      "v1": "Volumen V₁, l",
-      "t1": "Temperatura T₁, K",
-      "p2": "Presión p₂, kPa",
-      "v2": "Volumen V₂, l",
-      "t2": "Temperatura T₂, K",
+      "p1": "Presión p₁",
+      "v1": "Volumen V₁",
+      "t1": "Temperatura T₁",
+      "p2": "Presión p₂",
+      "v2": "Volumen V₂",
+      "t2": "Temperatura T₂",
     },
     options: {
       "p2": "presión p₂",
@@ -115,3 +115,34 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+// Reviewed errors belong to this exact gas model, in every published locale.
+const reviewedGasValues = {
+  "en": {
+    "Введите конечные числа во все известные поля": "Enter finite numbers in every known field",
+    "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+    "Абсолютное давление, объём и температура в кельвинах должны быть больше нуля": "Absolute pressure, volume and Kelvin temperature must be greater than zero",
+    "Результат выходит за числовой диапазон; проверьте масштаб величин": "The result is outside the numeric range; check the scale of the quantities"
+  },
+  "uk": {
+    "Введите конечные числа во все известные поля": "Введіть скінченні числа в усі відомі поля",
+    "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+    "Абсолютное давление, объём и температура в кельвинах должны быть больше нуля": "Абсолютний тиск, об’єм і температура в кельвінах мають бути більшими за нуль",
+    "Результат выходит за числовой диапазон; проверьте масштаб величин": "Результат виходить за числовий діапазон; перевірте масштаб величин"
+  },
+  "de": {
+    "Введите конечные числа во все известные поля": "Gib endliche Zahlen in alle bekannten Felder ein",
+    "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Rechenmodus",
+    "Абсолютное давление, объём и температура в кельвинах должны быть больше нуля": "Absoluter Druck, Volumen und Kelvin-Temperatur müssen größer als null sein",
+    "Результат выходит за числовой диапазон; проверьте масштаб величин": "Das Ergebnis liegt außerhalb des Zahlenbereichs; prüfe die Größenordnung der Werte"
+  },
+  "es": {
+    "Введите конечные числа во все известные поля": "Introduce números finitos en todos los campos conocidos",
+    "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo admitido",
+    "Абсолютное давление, объём и температура в кельвинах должны быть больше нуля": "La presión absoluta, el volumen y la temperatura en kelvin deben ser mayores que cero",
+    "Результат выходит за числовой диапазон; проверьте масштаб величин": "El resultado queda fuera del intervalo numérico; revisa la escala de las magnitudes"
+  }
+} as const;
+for (const locale of ['en', 'uk', 'de', 'es'] as const) {
+  Object.assign(localization[locale]!.values!, reviewedGasValues[locale]);
+}

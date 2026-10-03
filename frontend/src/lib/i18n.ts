@@ -1,10 +1,20 @@
+import{getBuildingWave17PageCopy}from '../data/buildingWave17ContractContent';
+import{applyBuildingWave17Fields}from '../data/buildingWave17Fields';
+import {financeWave11LegacyContractContent} from '../data/financeWave11LegacyContractContent';
+import {applyFinanceWave11Fields} from '../data/financeWave11FieldNotes';
+import { applyDateTimeWave15Fields } from '../data/dateTimeWave15Fields';
+import {getDateTimeWave15PageCopy}from '../data/dateTimeWave15PageCopy';
 import { categories as baseCategories } from '../data/categories';
 import { categoryDefinitions } from '../categories/manifest.generated';
 import { calculators as baseCalculators } from '../data/calculators';
 import { v2DeCopy, v2EnCopy, v2EsCopy, v2FullParityIds, v2UkCopy } from '../calculators/manifest.generated';
 import { v2Localization } from '../calculators/localization.generated';
-import { lookupScoped } from './platform/types';
+import { isCompleteCalculatorCopy, lookupScoped } from './platform/types';
 import { getCalculatorSeoContent } from '../data/calculatorSeoContent';
+import { getCurrencyScenarioCopy } from '../data/currencyScenarioContent';
+import { fitnessLegacyContractContent } from '../data/fitnessLegacyContractContent';
+import { financeContractContent } from '../data/financeContractContent';
+import { percentDiscountContractContent } from '../data/percentDiscountContractContent';
 import { fullParityCalculatorIds, isRuOnlyCalculator } from '../data/localizationParity';
 import { ukCalculatorContent } from '../data/ukCalculatorContent';
 import { deCalculatorContent } from '../data/deCalculatorContent';
@@ -1316,7 +1326,7 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     howItWorks: 'The converter derives the USD/MDL cross-rate from saved reference rates; the result shows the actual source and date of the MDL rate.',
     example: 'Convert 100 USD to MDL for a quick budget estimate.',
     faq: [
-      { q: 'What do I enter to convert USD to MDL?', a: 'Enter US dollars; the calculator applies the stored USD/MDL cross-rate to estimate Moldovan lei.' },
+      { q: 'What do I enter to convert USD to MDL?', a: 'Enter US dollars; the calculator applies the saved USD/MDL reference rate to estimate Moldovan lei.' },
       { q: 'Where can I check the USD/MDL rate source?', a: 'Read the displayed date and source beside the currency result, including any separately identified backup source.' },
       { q: 'Is the USD-to-MDL result an exchange-office quote?', a: 'No. It is a reference estimate; a provider may use a different rate and charge fees.' },
     ],
@@ -1347,7 +1357,7 @@ const legacyEnCalculatorCopy: Record<string, CalcCopy> = {
     shortDescription: 'Estimate daily calories and macronutrients from body data and activity.',
     longDescription: 'Use this calorie calculator to estimate daily energy needs for maintenance, weight loss or weight gain.',
     seoTitle: 'Calorie calculator — daily calories and macros',
-    seoDescription: 'Estimate daily calories, BMR, protein, fat and carbs with a free calorie calculator.',
+    seoDescription: 'Estimate daily calories, REE, protein, fat and carbs with a free calorie calculator.',
     h1: 'Calorie calculator',
     keywords: ['calorie calculator', 'daily calories', 'BMR', 'macros'],
     howToUse: ['Enter gender, age, height and weight.', 'Choose activity level and goal.', 'Review calories and macros.'],
@@ -1708,7 +1718,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       slug: 'calculadora-calorias',
       shortDescription: 'Estima calorías diarias y macronutrientes según cuerpo, actividad y objetivo.',
       seoTitle: 'Calculadora de calorías — calorías diarias y macros',
-      seoDescription: 'Estima calorías diarias, BMR, proteína, grasa y carbohidratos con una calculadora gratis.',
+      seoDescription: 'Estima calorías diarias, REE, proteína, grasa y carbohidratos con una calculadora gratis.',
       h1: 'Calculadora de calorías',
       keywords: ['calculadora calorías', 'calorías diarias', 'BMR', 'macros'],
       disclaimer: 'Los resultados nutricionales son estimaciones y no sustituyen asesoramiento profesional.',
@@ -1944,7 +1954,7 @@ const legacyCalculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<s
       slug: 'kalorienrechner',
       shortDescription: 'Schätze Tageskalorien und Makronährstoffe aus Körperdaten und Aktivität.',
       seoTitle: 'Kalorienrechner — Tageskalorien und Makros',
-      seoDescription: 'Schätze Tageskalorien, BMR, Protein, Fett und Kohlenhydrate mit einem kostenlosen Rechner.',
+      seoDescription: 'Schätze Tageskalorien, REE, Protein, Fett und Kohlenhydrate mit einem kostenlosen Rechner.',
       h1: 'Kalorienrechner',
       keywords: ['Kalorienrechner', 'Tageskalorien', 'BMR', 'Makros'],
       disclaimer: 'Ernährungsergebnisse sind Schätzungen und ersetzen keine professionelle Beratung.',
@@ -4614,7 +4624,7 @@ const calculatorSeoByLocale: Record<Exclude<Locale, 'ru' | 'en'>, Record<string,
 // текст: одного заголовка мало, а общий шаблон вместо содержимого немецкую
 // локаль обесценил бы.
 const germanCalculatorIds = new Set<string>(
-  Object.keys(calculatorSeoByLocale.de).filter((id) => deCalculatorContent[id] !== undefined),
+  Object.keys(calculatorSeoByLocale.de).filter((id) => deCalculatorContent[id] !== undefined || isCompleteCalculatorCopy(v2DeCopy[id])),
 );
 
 // Испанская локаль наполняется тем же правилом, что и немецкая: страница
@@ -4622,10 +4632,17 @@ const germanCalculatorIds = new Set<string>(
 // копирайт, и подробный испанский текст. Общего шаблона нет намеренно —
 // страница без своего текста не собирается, а падает.
 const spanishCalculatorIds = new Set<string>(
-  Object.keys(calculatorSeoByLocale.es).filter((id) => esCalculatorContent[id] !== undefined),
+  Object.keys(calculatorSeoByLocale.es).filter((id) => esCalculatorContent[id] !== undefined || isCompleteCalculatorCopy(v2EsCopy[id])),
 );
 
+function ownedCalculatorCopy(id: string, locale: Locale) {
+  return locale === 'en' ? v2EnCopy[id] : locale === 'uk' ? v2UkCopy[id]
+    : locale === 'de' ? v2DeCopy[id] : locale === 'es' ? v2EsCopy[id] : undefined;
+}
+
 function buildLocalizedCalculatorCopy(id: string, locale: Exclude<Locale, 'ru'>): CalcCopy {
+  const owned = ownedCalculatorCopy(id, locale);
+  if (isCompleteCalculatorCopy(owned)) return owned;
   if (locale === 'en') return enCalculatorCopy[id];
   const copy = calculatorSeoByLocale[locale][id];
   if (locale === 'de') {
@@ -6473,7 +6490,80 @@ const legacyOptionLabelsByLocale: Record<Exclude<Locale, 'ru'>, Record<string, s
   },
 };
 
+const fixedScienceUnits: Record<string, string> = {
+  "нм": "nm",
+  "нКл": "nC",
+  "км/с": "km/s",
+  "×10⁻²⁷ кг": "×10⁻²⁷ kg",
+  "Гц": "Hz",
+  "А·ч": "Ah",
+  "А": "A",
+  "В": "V",
+  "Вт": "W",
+  "Ом": "Ω",
+  "мкФ": "µF",
+  "мкКл": "µC",
+  "кВт": "kW",
+  "кВА": "kVA",
+  "мм²": "mm²",
+  "см²": "cm²",
+  "мм³": "mm³",
+  "см³": "cm³"
+};
+
 const enUnits: Record<string, string> = {
+      "ГБ": "GB",
+      "Мбит/с": "Mbit/s",
+      "МБ": "MB",
+      "мс": "ms",
+      "л/100 км": "L/100 km",
+      "ч/день": "h/day",
+      "дни": "days",
+      "бит": "bits",
+      "ступеней": "steps",
+      "пользователей": "users",
+      "знаков": "characters",
+      "10⁹ попыток/с": "10⁹ attempts/s",
+      "дисков": "disks",
+      "ТБ": "TB",
+      "кбит/с": "kbit/s",
+      "Натура больше модели во столько раз": "full-size/model ratio",
+      "ед. выбранной шкалы": "selected scale units",
+      "г/м²": "g/m²",
+      "₽/л": "currency units/L",
+      "км": "km",
+      "км/ч": "km/h",
+      "л/100км": "L/100 km",
+      "ч": "h",
+      "шт": "items",
+      "дюйм": "in",
+      "1": "1",
+      "дБ": "dB",
+      "Ом": "Ω",
+      "мВт": "mW",
+      "Вт": "W",
+      "В": "V",
+      "мкГн": "µH",
+      "нФ": "nF",
+      "кОм": "kΩ",
+      "витков": "turns",
+      "А": "A",
+      "мА": "mA",
+      "1/ч": "h⁻¹",
+      "см⁴": "cm⁴",
+      "₽/м³": "RUB/m³",
+      "т/м³": "t/m³",
+      "кг/м²/мм": "kg/m²/mm",
+      "кН/м или кН": "kN/m or kN",
+      "ГПа": "GPa",
+      "Н·м": "N·m",
+      "г/см³": "g/cm³",
+      "ден. ед./ч": "currency units/h",
+      "ед. данных": "data unit",
+      "слов/мин": "words/min",
+      "ед. I₁": "units of I₁",
+      "ед. длины": "length unit",
+
   '₽': '$',
   'г': 'g',
   'мм': 'mm',
@@ -6483,13 +6573,222 @@ const enUnits: Record<string, string> = {
   'см': 'cm',
   'м': 'm',
   'м²': 'm²',
+  'с': 's',
+  'м/с': 'm/s',
+  'м/с²': 'm/s²',
+  'Н': 'N',
+  'Дж': 'J',
+  'м³': 'm³',
+  'кг·м/с': 'kg·m/s',
+  'Па': 'Pa',
+  'кг/м³': 'kg/m³',
   'л': 'L',
+  'лет': 'years',
+  'уд/мин': 'bpm',
+  'мин': 'min',
+  'ккал/(кг·км)': 'kcal/(kg·km)',
+};
+
+const reviewedUnitAliases: Record<string, Partial<Record<Locale, string>>> = {
+  "10²⁴ кг": {
+    "en": "10²⁴ kg",
+    "uk": "10²⁴ кг",
+    "de": "10²⁴ kg",
+    "es": "10²⁴ kg"
+  },
+  "Вт/(м·К)": {
+    "en": "W/(m·K)",
+    "uk": "Вт/(м·К)",
+    "de": "W/(m·K)",
+    "es": "W/(m·K)"
+  },
+  "Дж/(кг·К)": {
+    "en": "J/(kg·K)",
+    "uk": "Дж/(кг·К)",
+    "de": "J/(kg·K)",
+    "es": "J/(kg·K)"
+  },
+  "К": {
+    "en": "K",
+    "uk": "К",
+    "de": "K",
+    "es": "K"
+  },
+  "МПа": {
+    "en": "MPa",
+    "uk": "МПа",
+    "de": "MPa",
+    "es": "MPa"
+  },
+  "Н/м": {
+    "en": "N/m",
+    "uk": "Н/м",
+    "de": "N/m",
+    "es": "N/m"
+  },
+  "гПа": {
+    "en": "hPa",
+    "uk": "гПа",
+    "de": "hPa",
+    "es": "hPa"
+  },
+  "кПа": {
+    "en": "kPa",
+    "uk": "кПа",
+    "de": "kPa",
+    "es": "kPa"
+  },
+  "м³/ч": {
+    "en": "m³/h",
+    "uk": "м³/год",
+    "de": "m³/h",
+    "es": "m³/h"
+  },
+  "г/м³": {
+    "en": "g/m³",
+    "uk": "г/м³",
+    "de": "g/m³",
+    "es": "g/m³"
+  },
+  "г/кг": {
+    "en": "g/kg",
+    "uk": "г/кг",
+    "de": "g/kg",
+    "es": "g/kg"
+  },
+  "кВт·ч": {
+    "en": "kWh",
+    "uk": "кВт·год",
+    "de": "kWh",
+    "es": "kWh"
+  },
+  "общая единица": {
+    "en": "same chosen unit",
+    "uk": "спільна одиниця",
+    "de": "gleiche gewählte Einheit",
+    "es": "misma unidad elegida"
+  },
+  "мл": {
+    "en": "mL",
+    "uk": "мл",
+    "de": "ml",
+    "es": "ml"
+  },
+  "₽/кВт·ч": {
+    "en": "$/kWh",
+    "uk": "₴/кВт·год",
+    "de": "€/kWh",
+    "es": "€/kWh"
+  },
+  "₽/ч": {
+    "en": "$/h",
+    "uk": "₴/год",
+    "de": "€/h",
+    "es": "€/h"
+  },
+  "₽/ночь": {
+    "en": "$/night",
+    "uk": "₴/ніч",
+    "de": "€/Nacht",
+    "es": "€/noche"
+  },
+  "₽/(чел.·день)": {
+    "en": "$/person/day",
+    "uk": "₴/особу/день",
+    "de": "€/Person/Tag",
+    "es": "€/persona/día"
+  },
+  "чел.": {
+    "en": "people",
+    "uk": "осіб",
+    "de": "Personen",
+    "es": "personas"
+  },
+  "ночей": {
+    "en": "nights",
+    "uk": "ночей",
+    "de": "Nächte",
+    "es": "noches"
+  },
+  "дней": {
+    "en": "days",
+    "uk": "днів",
+    "de": "Tage",
+    "es": "días"
+  },
+  "выбранная единица": {
+    "en": "selected unit",
+    "uk": "обрана одиниця",
+    "de": "gewählte Einheit",
+    "es": "unidad elegida"
+  },
+  "общая единица/сутки": {
+    "en": "same unit/day",
+    "uk": "спільна одиниця/добу",
+    "de": "gleiche Einheit/Tag",
+    "es": "misma unidad/día"
+  }
 };
 
 function localizeUnit(unit: string | undefined, locale: Locale): string | undefined {
   if (!unit || locale === 'ru') return unit;
+  if (reviewedUnitAliases[unit]?.[locale]) return reviewedUnitAliases[unit][locale];
+  if ((locale === 'en' || locale === 'de' || locale === 'es') && fixedScienceUnits[unit]) return fixedScienceUnits[unit];
   if (locale === 'uk') {
     const ukrainianUnits: Record<string, string> = {
+      "ГБ": "ГБ",
+      "Мбит/с": "Мбіт/с",
+      "МБ": "МБ",
+      "мс": "мс",
+      "л/100 км": "л/100 км",
+      "ч/день": "год/день",
+      "дни": "дні",
+      "бит": "біти",
+      "ступеней": "ступенів",
+      "пользователей": "користувачів",
+      "знаков": "знаків",
+      "10⁹ попыток/с": "10⁹ спроб/с",
+      "дисков": "дисків",
+      "ТБ": "ТБ",
+      "кбит/с": "кбіт/с",
+      "Натура больше модели во столько раз": "відношення натури до моделі",
+      "ед. выбранной шкалы": "од. обраної шкали",
+      "г/м²": "г/м²",
+      "₽/л": "гр. од./л",
+      "км": "км",
+      "км/ч": "км/год",
+      "л/100км": "л/100 км",
+      "ч": "год",
+      "шт": "шт.",
+      "дюйм": "дюйм",
+      "1": "1",
+      "дБ": "дБ",
+      "Ом": "Ом",
+      "мВт": "мВт",
+      "Вт": "Вт",
+      "В": "В",
+      "мкГн": "мкГн",
+      "нФ": "нФ",
+      "кОм": "кОм",
+      "витков": "витків",
+      "А": "А",
+      "мА": "мА",
+      "1/ч": "год⁻¹",
+      "см⁴": "см⁴",
+      "₽/м³": "RUB/m³",
+      "т/м³": "т/м³",
+      "кг/м²/мм": "кг/м²/мм",
+      "кН/м или кН": "кН/м або кН",
+      "ГПа": "ГПа",
+      "Н·м": "Н·м",
+      "г/см³": "г/см³",
+      "ден. ед./ч": "гр. од./год",
+      "ед. данных": "од. даних",
+      "слов/мин": "слів/хв",
+      "ед. I₁": "од. I₁",
+      "ед. длины": "од. довжини",
+      "А·ч": "А·год",
+
       '₽': '₴',
       'мм': 'мм',
       '₽ годовых': '% річних',
@@ -6500,6 +6799,11 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
       'м': 'м',
       'м²': 'м²',
       'л': 'л',
+      'лет': 'років',
+      'уд/мин': 'уд/хв',
+      'in': 'дюйми',
+      'мин': 'хв',
+      'ккал/(кг·км)': 'ккал/(кг·км)',
     };
     return ukrainianUnits[unit] ?? unit;
   }
@@ -6507,6 +6811,58 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
     // Английская карта переводит «% годовых» как «% yearly»: на немецкой
     // странице это оставалось английским словом прямо в подписи поля.
     const germanUnits: Record<string, string> = {
+      "ГБ": "GB",
+      "Мбит/с": "Mbit/s",
+      "МБ": "MB",
+      "мс": "ms",
+      "л/100 км": "L/100 km",
+      "ч/день": "h/Tag",
+      "дни": "Tage",
+      "бит": "Bit",
+      "ступеней": "Stufen",
+      "пользователей": "Nutzer",
+      "знаков": "Zeichen",
+      "10⁹ попыток/с": "10⁹ Versuche/s",
+      "дисков": "Laufwerke",
+      "ТБ": "TB",
+      "кбит/с": "kbit/s",
+      "Натура больше модели во столько раз": "Verhältnis Original/Modell",
+      "ед. выбранной шкалы": "Einheiten der gewählten Skala",
+      "г/м²": "g/m²",
+      "₽/л": "Geldeinheiten/L",
+      "км": "km",
+      "км/ч": "km/h",
+      "л/100км": "L/100 km",
+      "ч": "h",
+      "шт": "Stück",
+      "дюйм": "in",
+      "1": "1",
+      "дБ": "dB",
+      "Ом": "Ω",
+      "мВт": "mW",
+      "Вт": "W",
+      "В": "V",
+      "мкГн": "µH",
+      "нФ": "nF",
+      "кОм": "kΩ",
+      "витков": "Windungen",
+      "А": "A",
+      "мА": "mA",
+      "1/ч": "h⁻¹",
+      "см⁴": "cm⁴",
+      "₽/м³": "RUB/m³",
+      "т/м³": "t/m³",
+      "кг/м²/мм": "kg/m²/mm",
+      "кН/м или кН": "kN/m oder kN",
+      "ГПа": "GPa",
+      "Н·м": "N·m",
+      "г/см³": "g/cm³",
+      "ден. ед./ч": "Geldeinheiten/h",
+      "ед. данных": "Dateneinheit",
+      "слов/мин": "Wörter/min",
+      "ед. I₁": "Einheit von I₁",
+      "ед. длины": "Längeneinheit",
+
       '₽': '€',
       'мм': 'mm',
       '₽ годовых': '% p. a.',
@@ -6516,7 +6872,21 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
       'см': 'cm',
       'м': 'm',
       'м²': 'm²',
+      'с': 's',
+      'м/с': 'm/s',
+      'м/с²': 'm/s²',
+      'Н': 'N',
+      'Дж': 'J',
+      'м³': 'm³',
+      'кг·м/с': 'kg·m/s',
+      'Па': 'Pa',
+      'кг/м³': 'kg/m³',
       'л': 'l',
+      'лет': 'Jahre',
+      'уд/мин': 'Schläge/min',
+      'in': 'Zoll',
+      'мин': 'min',
+      'ккал/(кг·км)': 'kcal/(kg·km)',
     };
     return germanUnits[unit] ?? unit;
   }
@@ -6524,6 +6894,58 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
     // Английская карта переводит «% годовых» как «% yearly»: на испанской
     // странице это оставалось английским словом прямо в подписи поля.
     const spanishUnits: Record<string, string> = {
+      "ГБ": "GB",
+      "Мбит/с": "Mbit/s",
+      "МБ": "MB",
+      "мс": "ms",
+      "л/100 км": "L/100 km",
+      "ч/день": "h/día",
+      "дни": "días",
+      "бит": "bits",
+      "ступеней": "pasos",
+      "пользователей": "usuarios",
+      "знаков": "caracteres",
+      "10⁹ попыток/с": "10⁹ intentos/s",
+      "дисков": "discos",
+      "ТБ": "TB",
+      "кбит/с": "kbit/s",
+      "Натура больше модели во столько раз": "relación tamaño real/modelo",
+      "ед. выбранной шкалы": "unidades de la escala elegida",
+      "г/м²": "g/m²",
+      "₽/л": "unidades monetarias/L",
+      "км": "km",
+      "км/ч": "km/h",
+      "л/100км": "L/100 km",
+      "ч": "h",
+      "шт": "unidades",
+      "дюйм": "in",
+      "1": "1",
+      "дБ": "dB",
+      "Ом": "Ω",
+      "мВт": "mW",
+      "Вт": "W",
+      "В": "V",
+      "мкГн": "µH",
+      "нФ": "nF",
+      "кОм": "kΩ",
+      "витков": "espiras",
+      "А": "A",
+      "мА": "mA",
+      "1/ч": "h⁻¹",
+      "см⁴": "cm⁴",
+      "₽/м³": "RUB/m³",
+      "т/м³": "t/m³",
+      "кг/м²/мм": "kg/m²/mm",
+      "кН/м или кН": "kN/m o kN",
+      "ГПа": "GPa",
+      "Н·м": "N·m",
+      "г/см³": "g/cm³",
+      "ден. ед./ч": "unidades monetarias/h",
+      "ед. данных": "unidad de los datos",
+      "слов/мин": "palabras/min",
+      "ед. I₁": "unidad de I₁",
+      "ед. длины": "unidad de longitud",
+
       '₽': '€',
       'мм': 'mm',
       '₽ годовых': '% anual',
@@ -6533,7 +6955,21 @@ function localizeUnit(unit: string | undefined, locale: Locale): string | undefi
       'см': 'cm',
       'м': 'm',
       'м²': 'm²',
+      'с': 's',
+      'м/с': 'm/s',
+      'м/с²': 'm/s²',
+      'Н': 'N',
+      'Дж': 'J',
+      'м³': 'm³',
+      'кг·м/с': 'kg·m/s',
+      'Па': 'Pa',
+      'кг/м³': 'kg/m³',
       'л': 'l',
+      'лет': 'años',
+      'уд/мин': 'lat/min',
+      'in': 'pulgadas',
+      'мин': 'min',
+      'ккал/(кг·км)': 'kcal/(kg·km)',
     };
     return spanishUnits[unit] ?? unit;
   }
@@ -6579,7 +7015,7 @@ const germanLegacyFieldOverrides: Record<string, Record<string, string>> = {
   'brick-calculator': { mode: 'Wand angegeben als', manualArea: 'Wandfläche', unitPrice: 'Preis je Stein' },
   'bmi-calculator': { height: 'Körpergröße' },
   'calorie-calculator': { height: 'Körpergröße' },
-  'body-fat-calculator': { height: 'Körpergröße' },
+  'body-fat-calculator': { height: 'Körpergröße', waist: 'Bauch / Taille je Formel' },
   'one-rep-max-calculator': { weight: 'Arbeitsgewicht' },
   'date-shift-calculator': { startDate: 'Ausgangsdatum' },
 };
@@ -6604,7 +7040,7 @@ const spanishLegacyFieldOverrides: Record<string, Record<string, string>> = {
   'brick-calculator': { mode: 'El muro se indica como', manualArea: 'Superficie del muro', unitPrice: 'Precio por pieza' },
   'bmi-calculator': { height: 'Estatura' },
   'calorie-calculator': { height: 'Estatura' },
-  'body-fat-calculator': { height: 'Estatura' },
+  'body-fat-calculator': { height: 'Estatura', waist: 'Abdomen / cintura según fórmula' },
   'one-rep-max-calculator': { weight: 'Peso de trabajo' },
   'date-shift-calculator': { startDate: 'Fecha de partida' },
 };
@@ -6612,12 +7048,18 @@ const spanishLegacyFieldOverrides: Record<string, Record<string, string>> = {
 // Карта по локалям: та же схема, что и раньше, только выбор словаря стал данными,
 // а не цепочкой условий. Немецкий результат при этом не меняется.
 const legacyFieldOverridesByLocale: Partial<Record<Locale, Record<string, Record<string, string>>>> = {
+  en: { 'body-fat-calculator': { waist: 'Abdomen / waist for selected equation' } },
+  uk: { 'body-fat-calculator': { waist: 'Живіт / талія за обраною формулою' } },
   de: germanLegacyFieldOverrides,
   es: spanishLegacyFieldOverrides,
 };
 
+const creditTermHelp: Partial<Record<Locale, string>> = {"ru": "Срок должен составлять от 1 до 1200 целых месяцев. В годах допустимы дроби, если число месяцев целое: 1,5 года = 18 месяцев.", "en": "The term must total 1 to 1200 whole months. Fractional years are allowed when they give whole months: 1.5 years = 18 months.", "uk": "Строк має становити від 1 до 1200 цілих місяців. Дробові роки допустимі, якщо кількість місяців ціла: 1,5 року = 18 місяців.", "de": "Die Laufzeit muss 1 bis 1200 ganze Monate ergeben. Bruchteile von Jahren sind möglich, wenn ganze Monate entstehen: 1,5 Jahre = 18 Monate.", "es": "El plazo debe sumar entre 1 y 1200 meses enteros. Se permiten fracciones de año si equivalen a meses enteros: 1,5 años = 18 meses."};
+
 function localizeField(field: Field, locale: Locale, calculatorId: string): Field {
-  if (locale === 'ru') return { ...field };
+  const help = calculatorId === 'credit-calculator' && field.name === 'term'
+    ? creditTermHelp[locale] ?? creditTermHelp.en : field.help;
+  if (locale === 'ru') return help === field.help ? field : { ...field, help };
   const fieldLabels = fieldLabelsByLocale[locale];
   const localizedOptions = optionLabelsByLocale[locale];
   return {
@@ -6629,7 +7071,7 @@ function localizeField(field: Field, locale: Locale, calculatorId: string): Fiel
       ?? legacyFieldOverridesByLocale[locale]?.[calculatorId]?.[field.name]
       ?? fieldLabels[field.name] ?? field.label,
     unit: localizeUnit(field.unit, locale),
-    help: field.help,
+    help,
     options: field.options?.map((option) => ({
       ...option,
       label: lookupScoped(v2Localization, locale, calculatorId, 'options', option.value)
@@ -6656,28 +7098,67 @@ function localizeCategory(category: Category, locale: Locale): Category {
   };
 }
 
+// These owned records were reviewed against their compute contracts. Their
+// authored method must also take precedence over older central SEO prose.
+const reviewedAuthoredCopyIds = new Set([
+  // Final individually reviewed subject records; evidence is stored per wave.
+  'home-equity', 'installment', 'leverage', 'market-cap', 'max-loan', 'overtime', 'position-size', 'rental-yield', 'risk-reward', 'salary-convert', 'salary-raise', 'vacation-accrual', 'workday-cost', 'aquarium-water-change', 'drip-water-leak', 'electricity-usage', 'generator-fuel', 'heating-power', 'lighting', 'pool-fill-time', 'rainfall-volume', 'utility-total', 'water-heating', 'abv-alcohol', 'alcohol-units', 'bakers-percentage', 'brew-ratio', 'calories-per-serving', 'cooked-weight', 'pet-age', 'pet-food', 'recipe-cost', 'recipe-scale', 'roast-time', 'yeast-convert', 'air-density', 'air-pressure-at-altitude', 'bernoulli', 'boiling-point', 'buoyancy', 'carnot', 'centripetal-force', 'decibel', 'dew-point', 'doppler', 'escape-velocity', 'free-fall', 'gravitational-force', 'heat-index', 'hooke-law', 'humidity-convert', 'hydrostatic-pressure', 'mach-number', 'moment-of-inertia', 'orbital-period', 'pendulum', 'pipe-flow', 'projectile-motion', 'specific-heat', 'speed-of-sound', 'stress-strain', 'terminal-velocity', 'thermal-conduction', 'thin-lens', 'wind-chill', 'wind-power', 'rafters', 'roof-area', 'roof-battens', 'room-volume', 'sealant-volume', 'skirting', 'slab-foundation', 'stairs', 'strip-foundation', 'tank-volume', 'underfloor-heating', 'wood-weight', 'curtain-size', 'luggage-linear', 'picture-frame-mat', 'price-per-unit', 'print-3d-cost', 'stock-duration', 'subscriptions-cost', 'tip', 'trip-budget',
+  'ad-budget-funnel', 'audience-growth', 'churn-retention', 'cogs', 'cogs-unit-cost', 'cycle-time', 'email-metrics', 'employee-cost', 'fee-chain', 'inventory-turnover', 'profit', 'timesheet-week', 'aspect-ratio', 'color-convert', 'css-units', 'download-time', 'files-on-disk', 'fps-frametime', 'internet-traffic', 'ipv4-subnet', 'modular-scale', 'network-bandwidth', 'password-entropy', 'ppi-dpi', 'raid', 'tv-monitor-viewing-distance', 'unix-timestamp', 'video-file-size', 'car-depreciation', 'compression-ratio', 'engine-displacement', 'fuel-consumption', 'fuel-oil-mix', 'power-to-weight', 'quarter-mile-elapsed-time', 'speed-distance-time', 'stopping-distance', 'tire-size', 'trip-cost', 'wheel-offset', 'coordinate-convert', 'number-scale-names', 'number-to-words', 'paper-quantity', 'scale-model', 'income-tax-calculator', 'vat-calculator', 'margin-calculator', 'break-even-calculator', 'bonus', 'budget-split', 'commission', 'credit-card-payoff', 'crypto-pnl', 'dca', 'debt-snowball-avalanche', 'depreciation-methods', 'freelance-rate', 'coaxial-cable-impedance', 'headphone-power', 'inverter-power', 'lc-resonance', 'led-resistor', 'ne555-timer-astable', 'rc-filter', 'resistor-color', 'rms-voltage', 'transformer-ratio', 'voltage-divider', 'air-exchange', 'baluster-spacing', 'beam-deflection', 'beam-stress', 'board-volume', 'bulk-material-volume', 'cladding-boards', 'concrete', 'drywall', 'epoxy-volume', 'fence', 'insulation', 'linoleum', 'metal-weight', 'miter-angle', 'pile-foundation', 'pipe-weight', 'plaster', 'age-calculator', 'working-days-calculator', 'date-shift-calculator', 'leap-year', 'sleep-time', 'time-duration', 'timezone-difference', 'work-hours',
+  'inflation', 'real-return', 'rule-of-72', 'time-value-money', 'dti', 'emergency-fund', 'savings-rate', 'budget-50-30-20',
+  'belt-length', 'geom-annulus', 'geom-cone', 'geom-cube', 'geom-cuboid', 'geom-cylinder', 'geom-ellipse', 'geom-frustum', 'geom-polygon-coords', 'geom-prism', 'geom-pyramid', 'geom-regular-polygon', 'geom-sector', 'geom-sphere', 'golden-ratio', 'pyramid-frustum', 'slope',
+  'binomial-probability', 'confidence-interval', 'correlation', 'dice-probability', 'probability-basic', 'quartile', 'roman-numerals', 'rounding', 'sample-size', 'stats-descriptive', 'weighted-mean', 'z-score',
+  'gpa', 'final-grade', 'test-score-percent', 'reading-speed', 'text-reading-time', 'text-word-char-count',
+  'geom-circle', 'geom-square', 'geom-rectangle', 'geom-triangle', 'geom-right-triangle', 'geom-parallelogram', 'geom-trapezoid', 'geom-rhombus',
+  'arithmetic-progression', 'geometric-progression', 'fibonacci', 'divisors', 'prime-factorization', 'combinatorics', 'ratio', 'proportion',
+  'annuity', 'apr-apy', 'cagr', 'savings-goal', 'lease-payment', 'early-repayment', 'refinancing', 'down-payment',
+  'battery-charge-time', 'battery-runtime', 'battery-series-parallel', 'resistor-network', 'capacitor-network', 'capacitor-basics', 'kva-kw', 'single-phase',
+  'photon-energy', 'de-broglie', 'mass-energy', 'relativity-dilation', 'coulomb', 'half-life', 'inverse-square', 'wave',
+  'inclined-plane', 'potential-energy', 'kinetic-energy', 'ohms-law', 'voltage-drop', 'physics-power',
+  'activity-calories', 'ideal-weight', 'max-heart-rate', 'steps-distance-calories',
+  'vo2max', 'water-intake', 'waist-ratio', 'calories-from-macros',
+  'currency-exchange-fee',
+  'ad-roi', 'aov', 'day-of-week', 'difference-abs-rel', 'dividend-yield',
+  'logarithm', 'return-rate', 'revenue-per-employee', 'roi', 'shipping-per-unit',
+  'barbell-plates', 'bike-gear-ratio', 'bike-wheel-size',
+  'dilution', 'convert-cooking-weight', 'convert-fuel-economy', 'molar-mass',
+  'simple-interest', 'contribution-margin', 'payback-period', 'week-number', 'cac', 'cpa-cpl-cpi', 'conversion-rate',
+  'solution-concentration', 'molarity', 'moles', 'ph-poh', 'convert-radiation',
+  'acceleration', 'newton-force', 'momentum', 'work', 'physics-torque', 'lever-moment', 'pressure', 'density',
+  'cpc', 'cpm', 'ctr', 'roas', 'ltv', 'mrr-arr', 'arpu-arppu', 'engagement-rate',
+  'gas-laws', 'ideal-gas-law',
+  'power-root', 'quadratic-equation', 'linear-equation', 'linear-system', 'modulo', 'gcd-lcm', 'fraction-arith', 'factorial',
+]);
+
 function localizeCalculator(calculator: CalculatorDef, locale: Locale): CalculatorDef {
   const category = getCategoryById(calculator.category, locale);
   const fullPathPrefix = `/${locale}/${category.slug}`;
+  const contractCopy = getBuildingWave17PageCopy(calculator.id,locale)
+    ?? financeWave11LegacyContractContent[locale as keyof typeof financeWave11LegacyContractContent]?.[calculator.id]
+    ?? getDateTimeWave15PageCopy(calculator.id, locale)
+    ?? percentDiscountContractContent[locale as keyof typeof percentDiscountContractContent]?.[calculator.id]
+    ?? fitnessLegacyContractContent[locale as keyof typeof fitnessLegacyContractContent]?.[calculator.id]
+    ?? financeContractContent[locale as keyof typeof financeContractContent]?.[calculator.id]
+    ?? getCurrencyScenarioCopy(calculator.id, locale);
 
   if (locale === 'ru') {
     const localizedCalculator = {
       ...calculator,
+      ...contractCopy,
       fullPath: `${fullPathPrefix}/${calculator.slug}/`,
-      fields: calculator.fields.map((field) => localizeField(field, locale, calculator.id)),
+      fields: applyBuildingWave17Fields(calculator.id, applyFinanceWave11Fields(calculator.id, applyDateTimeWave15Fields(calculator.id, calculator.fields.map((field) => localizeField(field, locale, calculator.id)), locale), locale), locale),
     };
-    const seoContent = getCalculatorSeoContent(localizedCalculator, locale);
+    const seoContent = getCalculatorSeoContent(localizedCalculator, locale, Boolean(contractCopy) || reviewedAuthoredCopyIds.has(calculator.id));
     return { ...localizedCalculator, seoContent, faq: seoContent.faq };
   }
 
-  const copy = buildLocalizedCalculatorCopy(calculator.id, locale);
+  const copy = { ...buildLocalizedCalculatorCopy(calculator.id, locale), ...contractCopy };
   const localizedCalculator = {
     ...calculator,
     ...copy,
     resultTitle: copy.resultTitle ?? copy.name,
     category: calculator.category,
     fullPath: `${fullPathPrefix}/${copy.slug}/`,
-    fields: calculator.fields.map((field) => localizeField(field, locale, calculator.id)),
+    fields: applyBuildingWave17Fields(calculator.id, applyFinanceWave11Fields(calculator.id, applyDateTimeWave15Fields(calculator.id, calculator.fields.map((field) => localizeField(field, locale, calculator.id)), locale), locale), locale),
     resultLabels: Object.fromEntries(
       Object.entries(calculator.resultLabels).map(([key, label]) => [
         key,
@@ -6691,10 +7172,12 @@ function localizeCalculator(calculator: CalculatorDef, locale: Locale): Calculat
       ? 'Результати є орієнтовними оцінками. Перед важливими рішеннями перевіряйте вихідні дані.'
       : locale === 'es'
         ? 'Los resultados son estimaciones orientativas. Verifica los datos de partida antes de tomar decisiones importantes.'
-        : 'Results are reference estimates. Verify the inputs before making important decisions.'),
+        : locale === 'de'
+          ? 'Die Ergebnisse sind Orientierungswerte. Prüfe die Eingaben vor wichtigen Entscheidungen.'
+          : 'Results are reference estimates. Verify the inputs before making important decisions.'),
     relatedCalculatorIds: calculator.relatedCalculatorIds.filter((id) => globalCalculatorIds.has(id)),
   };
-  const seoContent = getCalculatorSeoContent(localizedCalculator, locale);
+  const seoContent = getCalculatorSeoContent(localizedCalculator, locale, Boolean(contractCopy) || reviewedAuthoredCopyIds.has(calculator.id) || (locale !== 'en' && isCompleteCalculatorCopy(ownedCalculatorCopy(calculator.id, locale))));
   return { ...localizedCalculator, seoContent, faq: seoContent.faq };
 }
 

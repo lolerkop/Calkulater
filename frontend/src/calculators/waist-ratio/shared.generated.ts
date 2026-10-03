@@ -14,11 +14,15 @@ export const shared: CalculatorLocalization = {
       'Обхват талии': 'Waist circumference',
       'Обхват бёдер': 'Hip circumference',
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'Из': 'From',
       'В': 'To',
       'ИМТ': 'BMI',
       'Категория': 'Category',
       'Рост': 'Height',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'The result exceeds the numeric range',
     },
   },
   uk: {
@@ -26,11 +30,15 @@ export const shared: CalculatorLocalization = {
       'Обхват талии': 'Обхват талії',
       'Обхват бёдер': 'Обхват стегон',
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'Из': 'З',
       'В': 'У',
       'ИМТ': 'ІМТ',
       'Категория': 'Категорія',
       'Рост': 'Зріст',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Результат виходить за числовий діапазон',
     },
   },
   de: {
@@ -38,11 +46,15 @@ export const shared: CalculatorLocalization = {
       'Обхват талии': 'Taillenumfang',
       'Обхват бёдер': 'Hüftumfang',
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'Из': 'Von',
       'В': 'Nach',
       'ИМТ': 'BMI',
       'Категория': 'Kategorie',
       'Рост': 'Körpergröße',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Das Ergebnis überschreitet den Zahlenbereich',
     },
   },
   es: {
@@ -50,11 +62,15 @@ export const shared: CalculatorLocalization = {
       'Обхват талии': 'Perímetro de la cintura',
       'Обхват бёдер': 'Perímetro de la cadera',
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'Из': 'De',
       'В': 'A',
       'ИМТ': 'IMC',
       'Категория': 'Categoría',
       'Рост': 'Estatura',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'El resultado excede el rango numérico',
     },
   },
 };

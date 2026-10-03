@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
@@ -13,4 +14,5 @@ export const finalGradeCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Ermittle die nötige Prüfungsnote für eine gewünschte Endnote aus deinem aktuellen Stand und dem Gewicht der Prüfung.',
   h1: 'Endnotenrechner',
   keywords: ['Endnote berechnen', 'nötige Prüfungsnote', 'Gewichtung Note', 'Noetige Pruefungsnote', 'Endnotenrechner'],
+  ...contractContent.de
 };

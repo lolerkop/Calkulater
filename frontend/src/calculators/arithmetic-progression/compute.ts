@@ -1,56 +1,25 @@
 import type { CalcFunction, CalcResultTable } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
+import { fmtInt, fmtNumber } from '../../lib/format';
+import { finiteInput, integerInput } from '../../lib/platform/strictNumericInput';
+import { formatQuantity } from '../../lib/platform/measurement';
+import { exact, add, times, scale, number, type Dyadic } from '../../lib/platform/geometryNumericInput';
 
-// Арифметическая прогрессия.
-//
-// Сумма считается по замкнутой формуле Sₙ = n(a₁+aₙ)/2, а не сложением членов
-// в цикле: при большом n цикл накапливал бы ошибку округления, а формула даёт
-// ответ за одно действие и с той же точностью, что и сам n-й член.
-//
-// Таблица показывает только первые десять членов. Ряд бесконечен по смыслу, и
-// выводить сотни строк незачем: закономерность видна уже на трёх, а n-й член
-// и сумма посчитаны для полного ряда, а не для показанного отрезка.
-
-const PREVIEW = 10;
-// Примечание постоянно намеренно: строка с подставленным числом не имеет
-// ключа в словаре и осталась бы русской в английской и украинской версиях.
-const PREVIEW_NOTE = 'Показаны первые 10 членов ряда.';
-
+// Exact bounded dyadic formulas for finite binary inputs; one final rounding.
 export const compute: CalcFunction = (inputs) => {
-  const a1 = toNumber(inputs.a1);
-  const d = toNumber(inputs.d);
-  const n = toNumber(inputs.n);
-  const fail = (message: string) => ({
-    primary: { label: 'n-й член', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (!(n >= 1)) return fail('Номер члена должен быть не меньше единицы');
-  if (!Number.isInteger(n)) return fail('Номер члена должен быть целым');
-
-  const an = a1 + (n - 1) * d;
-  const sum = (n * (a1 + an)) / 2;
-
-  const shown = Math.min(n, PREVIEW);
-  const table: CalcResultTable = {
-    title: 'Первые члены ряда',
-    columns: ['№ члена', 'Значение'],
-    rows: Array.from({ length: shown }, (_, i) => [
-      fmtNumber(i + 1, 0),
-      formatMeasure(a1 + i * d, fmtNumber),
-    ]),
-    note: n > PREVIEW ? PREVIEW_NOTE : undefined,
+  const a1 = finiteInput(inputs.a1), d = finiteInput(inputs.d), n = integerInput(inputs.n);
+  const fail = (message: string) => ({ primary: { label: 'n-й член', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (a1 === null || d === null) return fail('Введите конечные числа для первого члена и разности');
+  if (n === null || n < 1) return fail('Номер члена должен быть целым от 1 до 9007199254740991');
+  const term = (index: number) => add(exact(a1), times(exact(index - 1), exact(d)));
+  const anExact = term(n), sumExact = scale(times(exact(n), add(exact(a1), anExact)), -1);
+  const materialize = (value: Dyadic) => {
+    const result = number(value);
+    return Number.isFinite(result) && (result !== 0 || value.coefficient === 0n) ? result : null;
   };
-
-  return {
-    primary: { label: 'n-й член', value: formatMeasure(an, fmtNumber) },
-    secondary: [
-      { label: 'Сумма ряда', value: formatMeasure(sum, fmtNumber) },
-      { label: 'Разность', value: formatMeasure(d, fmtNumber) },
-      { label: 'Первый член', value: formatMeasure(a1, fmtNumber) },
-      { label: 'Членов', value: fmtNumber(n, 0) },
-    ],
-    table,
-  };
+  const an = materialize(anExact), sum = materialize(sumExact);
+  const preview = Array.from({ length: Math.min(n, 10) }, (_, i) => materialize(term(i + 1)));
+  if (an === null || sum === null || preview.some(value => value === null)) return fail('Результат вне числового диапазона: переполнение или потеря ненулевого значения');
+  const show = (value: number) => formatQuantity(value === 0 ? 0 : value, fmtNumber);
+  const table: CalcResultTable = { title: 'Первые члены ряда', columns: ['№ члена', 'Значение'], rows: preview.map((value, i) => [fmtInt(i + 1), show(value!)]), note: n > 10 ? 'Показаны первые 10 членов ряда.' : undefined };
+  return { primary: { label: 'n-й член', value: show(an) }, secondary: [{ label: 'Сумма ряда', value: show(sum) }, { label: 'Разность', value: show(d) }, { label: 'Первый член', value: show(a1) }, { label: 'Членов', value: fmtInt(n) }], table };
 };

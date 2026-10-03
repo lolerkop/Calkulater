@@ -1,16 +1,15 @@
-// Испанский копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла испанской страницы не существует. Подробный текст живёт в
-// `src/data/esCalculatorContent.ts`.
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const revenuePerEmployeeCopyEs: CalculatorSeoCopy = {
+export const revenuePerEmployeeCopyEs: CalculatorCopy = {
   name: "Calculadora de ingresos por empleado",
   slug: "ingresos-por-empleado",
-  shortDescription: "Cuántos ingresos aporta cada persona en plantilla.",
+  shortDescription: "Ingresos anuales divididos entre una plantilla entera.",
   seoTitle: "Calculadora de ingresos por empleado — productividad laboral",
-  seoDescription: "Calcula los ingresos por empleado a partir de los ingresos anuales y la plantilla, con la cifra mensual por persona.",
+  seoDescription: "Calcula los ingresos anuales por empleado con ingresos anuales y una plantilla entera. La fila mensual divide ese valor entre 12; no se admiten FTE fraccionarios.",
   h1: "Calculadora de ingresos por empleado",
   keywords: ["ingresos por empleado", "productividad laboral", "eficiencia de la plantilla"],
+  ...contractContent.es,
 };

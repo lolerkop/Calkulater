@@ -1,4 +1,4 @@
-import type { CalcFunction, CalcResult } from '../types';
+import type { CalcFunction } from '../types';
 import { fmtNumber, toNumber } from '../format';
 
 // Формула Эпли: 1RM = w * (1 + r/30)
@@ -9,41 +9,41 @@ export function oneRepMax(weight: number, reps: number): number {
 }
 
 export const calcOneRm: CalcFunction = (inputs) => {
-  const weight = toNumber(inputs.weight);
-  const reps = Math.round(toNumber(inputs.reps));
+  const read = (value: unknown) => typeof value === 'number' || typeof value === 'string' && value.trim() !== '' ? toNumber(value, Number.NaN) : Number.NaN;
+  const weight = read(inputs.weight);
+  const reps = read(inputs.reps);
 
-  if (weight <= 0 || reps <= 0) {
+  if (!Number.isFinite(weight) || weight <= 0 || !Number.isInteger(reps) || reps < 1 || reps > 12) {
     return {
       primary: { label: 'Примерный 1ПМ', value: '—' },
-      secondary: [{ label: 'Проверьте данные', value: 'Введите вес и количество повторений', accent: 'red' }],
+      secondary: [{ label: 'Проверьте данные', value: 'Введите конечный вес больше нуля и целое число повторений от 1 до 12', accent: 'red' }],
     };
   }
 
   const orm = oneRepMax(weight, reps);
-  const brzycki = reps >= 37 ? orm : weight * (36 / (37 - reps));
-  // Знаменатель Лэндера обращается в ноль при reps = 101,3 / 2,67123 ≈ 37,92 и
-  // дальше меняет знак, поэтому за полюсом формула выдавала отрицательный 1ПМ:
-  // при 38 повторениях — минус 484 рабочих веса, и вместе с ним уходила в минус
-  // средняя оценка. Форма ограничивает повторения двенадцатью, но раннер —
-  // чистая функция с более широким входом, и её область определения задаёт сама
-  // формула. Проверяется поэтому знаменатель, а не подобранный порог; вне
-  // области берётся оценка Эпли — ровно так же строкой выше поступает Бжицки на
-  // своём полюсе при 37 повторениях.
-  const landerDenominator = 101.3 - 2.67123 * reps;
-  const lander = landerDenominator > 0 ? (100 * weight) / landerDenominator : orm;
-  const average = (orm + brzycki + lander) / 3;
+  // The form and runner share a product range of 1..12. Never substitute
+  // Epley under the name of another model when its denominator fails.
+  const brzycki = weight * (36 / (37 - reps));
+  const lander = weight * (100 / (101.3 - 2.67123 * reps));
+  const scale = Math.max(orm, brzycki, lander);
+  const average = scale * ((orm / scale + brzycki / scale + lander / scale) / 3);
+  if (![orm, brzycki, lander, average].every((x) => Number.isFinite(x) && x > 0)) return {
+    primary: { label: 'Примерный 1ПМ', value: '—' },
+    secondary: [{ label: 'Проверьте данные', value: 'Результат выходит за числовой диапазон', accent: 'red' }],
+  };
+  const display = (x: number) => x < 0.05 ? x.toExponential(2) : fmtNumber(x, 1);
 
   return {
-    primary: { label: 'Примерный 1ПМ', value: `${fmtNumber(orm, 1)} кг` },
+    primary: { label: 'Примерный 1ПМ', value: `${display(orm)} кг` },
     secondary: [
-      { label: '50% от 1ПМ', value: `${fmtNumber(orm * 0.5, 1)} кг` },
-      { label: '60% от 1ПМ', value: `${fmtNumber(orm * 0.6, 1)} кг` },
-      { label: '70% от 1ПМ', value: `${fmtNumber(orm * 0.7, 1)} кг` },
-      { label: '80% от 1ПМ', value: `${fmtNumber(orm * 0.8, 1)} кг` },
-      { label: '90% от 1ПМ', value: `${fmtNumber(orm * 0.9, 1)} кг` },
-      { label: 'Формула Бжицки', value: `${fmtNumber(brzycki, 1)} кг` },
-      { label: 'Формула Лэндера', value: `${fmtNumber(lander, 1)} кг` },
-      { label: 'Средняя оценка', value: `${fmtNumber(average, 1)} кг`, accent: 'green' },
+      { label: '50% от 1ПМ', value: `${display(orm * 0.5)} кг` },
+      { label: '60% от 1ПМ', value: `${display(orm * 0.6)} кг` },
+      { label: '70% от 1ПМ', value: `${display(orm * 0.7)} кг` },
+      { label: '80% от 1ПМ', value: `${display(orm * 0.8)} кг` },
+      { label: '90% от 1ПМ', value: `${display(orm * 0.9)} кг` },
+      { label: 'Формула Бжицки', value: `${display(brzycki)} кг` },
+      { label: 'Формула Лэндера', value: `${display(lander)} кг` },
+      { label: 'Средняя оценка', value: `${display(average)} кг`, accent: 'green' },
     ],
     note: reps > 10 ? 'Точность формулы снижается при повторениях больше 10.' : undefined,
   };

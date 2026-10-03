@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 import type { CalculatorSeoCopy } from '../../lib/platform/types';
 
 export const finalGradeCopyUk: CalculatorSeoCopy = {
@@ -8,4 +9,5 @@ export const finalGradeCopyUk: CalculatorSeoCopy = {
   seoDescription: "Обчисліть, який бал потрібен на іспиті, щоб вийти на бажану підсумкову оцінку за відомої ваги.",
   h1: "Калькулятор потрібної оцінки",
   keywords: ["потрібна оцінка", "бал на іспиті", "вага іспиту"],
+  ...contractContent.uk
 };

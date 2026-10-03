@@ -1,5 +1,6 @@
 import type { CalcFunction, CalcResultRow } from '../types';
-import { fmtInt, fmtMoney, fmtNumber, fmtPct, toNumber } from '../format';
+import { fmtInt, fmtMoney, fmtNumber, fmtPct } from '../format';
+import { number, optionalInteger } from '../platform/scalarInputDisplay';
 import { ceilUnits } from '../rounding';
 
 // Точка безубыточности — объём продаж, при котором маржинальная прибыль
@@ -21,22 +22,32 @@ const invalid = (message: string) => ({
 });
 
 export const calcBreakEven: CalcFunction = (inputs) => {
-  const fixedCosts = toNumber(inputs.fixedCosts);
-  const price = toNumber(inputs.unitPrice);
-  const variableCost = toNumber(inputs.variableCost);
-  const plannedUnits = Math.max(0, Math.trunc(toNumber(inputs.plannedUnits)));
+  const fixedCosts = number(inputs.fixedCosts);
+  const price = number(inputs.unitPrice);
+  const variableCost = number(inputs.variableCost);
+  const plannedUnits = optionalInteger(inputs.plannedUnits);
 
-  if (!Number.isFinite(fixedCosts) || fixedCosts < 0) {
+  if (fixedCosts === null || fixedCosts < 0) {
     return invalid('Постоянные затраты не могут быть отрицательными');
   }
-  if (!Number.isFinite(price) || price <= 0) {
+  if (price === null || price <= 0) {
     return invalid('Цена продажи должна быть больше нуля');
   }
-  if (!Number.isFinite(variableCost) || variableCost < 0) {
+  if (variableCost === null || variableCost < 0) {
     return invalid('Переменные затраты не могут быть отрицательными');
   }
 
+  if (plannedUnits === null || plannedUnits < 0) return invalid('Плановый объём должен быть целым неотрицательным числом');
   const margin = contributionMargin(price, variableCost);
+  if (!Number.isFinite(plannedUnits * margin)) return invalid('Результат выходит за числовые пределы расчёта');
+  if (fixedCosts === 0 && margin <= 0) return {
+    primary: { label: 'Точка безубыточности', value: '0 шт.' },
+    secondary: [
+      { label: 'Маржинальная прибыль с единицы', value: fmtMoney(margin), accent: margin < 0 ? 'red' : undefined },
+      ...(plannedUnits > 0 ? [{ label: 'Прибыль при плане', value: fmtMoney(plannedUnits * margin), accent: margin < 0 ? 'red' as const : undefined }] : []),
+    ],
+    note: margin === 0 ? 'Постоянные затраты и маржинальная прибыль равны нулю: в этой модели прибыль равна нулю при любом объёме.' : 'При нулевых постоянных затратах нулевые продажи дают нулевую прибыль; любой положительный объём продаж убыточен.',
+  };
   // При неположительной маржинальной прибыли каждая проданная единица не
   // приближает к покрытию постоянных затрат, а удаляет от него, поэтому точки
   // безубыточности не существует ни при каком объёме продаж.
@@ -61,6 +72,7 @@ export const calcBreakEven: CalcFunction = (inputs) => {
   // вторая — «сколько вы получите, продав целое число единиц».
   const revenueAtExactVolume = fixedCosts / marginRatio;
   const revenueAtWholeUnits = units * price;
+  if ((fixedCosts > 0 && (units === 0 || revenueAtExactVolume === 0)) || !Number.isSafeInteger(units) || ![exactUnits, revenueAtExactVolume, revenueAtWholeUnits, plannedUnits * price, plannedUnits * margin].every(Number.isFinite)) return invalid('Результат выходит за числовые пределы расчёта');
 
   const secondary: CalcResultRow[] = [
     { label: 'Маржинальная прибыль с единицы', value: fmtMoney(margin), accent: 'green' },

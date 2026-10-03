@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { debtSnowballAvalancheCopyEn } from './copy.en';
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: debtSnowballAvalancheCopyEn, uk: debtSnowballAvalancheCopyUk, de: debtSnowballAvalancheCopyDe, es: debtSnowballAvalancheCopyEs },
+  copy: { en: { ...debtSnowballAvalancheCopyEn, ...contractContent.en }, uk: { ...debtSnowballAvalancheCopyUk, ...contractContent.uk }, de: { ...debtSnowballAvalancheCopyDe, ...contractContent.de }, es: { ...debtSnowballAvalancheCopyEs, ...contractContent.es } },
   referenceCases: debtSnowballAvalancheReferenceCases,
   publishedExample: {
     inputs: { debts: 'small 40000 12 2000\nbig 200000 26 6000', extra: 4000, strategy: 'avalanche' },
@@ -27,8 +28,6 @@ export const definition: CalculatorDefinitionV2 = {
     popularity: 37,
     isNew: false,
     shortDescription: "Порядок и срок погашения нескольких долгов: снежный ком или лавина.",
-    longDescription:
-      "Считает не формулой, а помесячной симуляцией, потому что закрытый долг освобождает свой минимальный платёж, и дальше он идёт в следующий — эта обратная связь замкнутой формулой не выражается. Каждый месяц начисляются проценты, вносятся минимальные платежи, а всё свободное добавляется одному целевому долгу: снежный ком целит в наименьший остаток, лавина — в наибольшую ставку. Лавина всегда дешевле по процентам, снежный ком раньше даёт закрытый долг, и таблица показывает оба исхода поимённо.",
     seoTitle: "Калькулятор погашения долгов — снежный ком и лавина",
     seoDescription: "Рассчитайте срок и переплату при погашении нескольких долгов по стратегии снежного кома или лавины, с порядком закрытия и процентами по каждому.",
     h1: "Калькулятор погашения нескольких долгов",
@@ -43,7 +42,7 @@ export const definition: CalculatorDefinitionV2 = {
         // текст в ней уехал бы на английскую страницу. Держим её нейтральной.
         placeholder: 'card 120000 24 4000',
       },
-      { name: 'extra', label: 'Свободные деньги в месяц, ₽', type: 'number', defaultValue: 4000, min: 0, step: 500 },
+      { name: 'extra', label: 'Свободные деньги в месяц', unit: '₽', type: 'number', defaultValue: 4000, min: 0, step: 500 },
       {
         name: 'strategy', label: 'Стратегия', type: 'select', defaultValue: 'avalanche',
         options: [
@@ -60,20 +59,7 @@ export const definition: CalculatorDefinitionV2 = {
       "count": "Долгов",
       "table": "Порядок погашения",
     },
-    howToUse: [
-      "По одному долгу в строке: название, сумма, годовая ставка и минимальный платёж.",
-      "Название может быть из нескольких слов — числа берутся с конца строки.",
-      "Свободные деньги — это то, что вы готовы платить сверх минимальных платежей.",
-      "Сравните обе стратегии на одних и тех же долгах: разница видна в переплате.",
-    ],
-    howItWorks: "Помесячная симуляция: проценты, минимальные платежи, а всё свободное — одному целевому долгу по выбранной стратегии.",
-    example: "Долги 40 000 под 12 % и 200 000 под 26 % при свободных 4 000 ₽ гасятся лавиной за 26 месяцев, снежным комом — за 27.",
-    faq: [
-      { q: "Какая стратегия выгоднее?", a: "Лавина: она бьёт по самой дорогой ставке, поэтому переплата процентами всегда меньше или равна. Снежный ком раньше даёт первый закрытый долг, и для многих это важнее нескольких тысяч рублей." },
-      { q: "Почему считается по месяцам, а не формулой?", a: "Потому что закрытый долг освобождает свой минимальный платёж, и он переходит в следующий долг. Эта обратная связь замкнутой формулой не выражается — только пошаговым расчётом." },
-      { q: "Что если минимального платежа не хватает даже на проценты?", a: "Такой долг не гасится никогда: остаток растёт быстрее, чем вы платите. Расчёт это называет прямо, а не показывает бесконечный срок." },
-      { q: "Учитываются ли новые траты по карте?", a: "Нет. Симуляция считает, что вы больше не занимаете. Если тратить по карте дальше, срок сдвигается, и никакая стратегия этого не компенсирует." },
-    ],
+    ...contractContent.ru,
     relatedCalculatorIds: ["credit-card-payoff", "dti", "early-repayment"],
   },
 };

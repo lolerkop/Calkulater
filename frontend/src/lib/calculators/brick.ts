@@ -1,6 +1,6 @@
 import type { CalcFunction, CalcResultRow } from '../types';
 import { fmtInt, fmtMoney, fmtNumber, toNumber, toStr } from '../format';
-import { ceilUnits } from '../rounding';
+import {read,optional,mode,positive,finite,decimal,dmul,dadd,div,sub,factor,value,ceiling,scalar,INPUT,MODE,RANGE} from './buildingLegacy17NumericCore';
 
 // Кладка одного слоя стены: сколько кирпичей или блоков закроют видимую
 // плоскость. Модель намеренно ограничена одним слоем — толщина кладки в полкирпича,
@@ -26,18 +26,12 @@ const invalid = (message: string) => ({
 });
 
 export const calcBrick: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'dimensions');
-  const wallLength = toNumber(inputs.wallLength);
-  const wallHeight = toNumber(inputs.wallHeight);
-  const manualArea = toNumber(inputs.manualArea);
-  const openingsArea = toNumber(inputs.openingsArea);
-  const unitLength = toNumber(inputs.unitLength);
-  const unitHeight = toNumber(inputs.unitHeight);
-  const joint = toNumber(inputs.joint);
-  const reserve = toNumber(inputs.reserve);
-  const unitPrice = toNumber(inputs.unitPrice);
-
-  const wallArea = mode === 'area' ? manualArea : wallLength * wallHeight;
+  const selected=mode(inputs.mode,'dimensions',['dimensions','area']);if(!selected)return invalid(MODE);
+  const wallLength=selected==='dimensions'?read(inputs.wallLength):1,wallHeight=selected==='dimensions'?read(inputs.wallHeight):1,manualArea=selected==='area'?read(inputs.manualArea):1,openingsArea=optional(inputs.openingsArea),unitLength=read(inputs.unitLength),unitHeight=read(inputs.unitHeight),joint=optional(inputs.joint),reserve=optional(inputs.reserve),unitPrice=optional(inputs.unitPrice);
+  if(!finite(wallLength,wallHeight,manualArea,openingsArea,unitLength,unitHeight,joint,reserve,unitPrice))return invalid(INPUT);
+  if(!positive(wallLength,wallHeight,manualArea))return invalid('Введите положительные размеры стены');
+  if(unitPrice<0)return invalid('Цена камня должна быть неотрицательной');
+  const wallD=selected==='area'?decimal(manualArea):dmul(decimal(wallLength),decimal(wallHeight)),wallArea=value(wallD);
 
   if (!Number.isFinite(wallArea) || wallArea <= 0) {
     return invalid('Введите положительные размеры стены');
@@ -57,27 +51,27 @@ export const calcBrick: CalcFunction = (inputs) => {
 
   // Проёмы не могут занимать больше самой стены: отрицательной площади кладки
   // не бывает, поэтому результат ограничен нулём снизу по смыслу задачи.
-  const effectiveArea = Math.max(0, wallArea - openingsArea);
-  if (effectiveArea === 0) {
+  const effectiveD=sub(wallD,decimal(openingsArea)),effectiveArea=effectiveD.n>0n?value(effectiveD):0;
+  if (effectiveD.n <= 0n) {
     return invalid('Проёмы занимают всю стену — кладка не требуется');
   }
 
-  const moduleArea = masonryModuleArea(unitLength, unitHeight, joint);
-  const bare = ceilUnits(effectiveArea / moduleArea);
-  const withReserve = ceilUnits((effectiveArea / moduleArea) * (1 + reserve / 100));
+  const moduleD=div(dmul(dadd(decimal(unitLength),decimal(joint)),dadd(decimal(unitHeight),decimal(joint))),decimal(1000000));
+  const moduleArea=value(moduleD),bare=ceiling(effectiveD,moduleD),withReserve=ceiling(dmul(effectiveD,factor(reserve)),moduleD),perMetre=value(div(decimal(1),moduleD)),cost=Number.isFinite(withReserve)?value(dmul(decimal(withReserve),decimal(unitPrice))):NaN;
+  if(!positive(moduleArea,effectiveArea,perMetre)||!finite(bare,withReserve,cost)||unitPrice>0&&cost===0)return invalid(RANGE);
 
   const secondary: CalcResultRow[] = [
-    { label: 'Площадь кладки', value: `${fmtNumber(effectiveArea, 2)} м²` },
+    { label: 'Площадь кладки', value: `${scalar(effectiveArea, 2)} м²` },
     { label: 'Камней без запаса', value: `${fmtInt(bare)} шт.` },
     { label: 'Запас', value: `${fmtInt(withReserve - bare)} шт.` },
-    { label: 'Расчётный модуль камня', value: `${fmtNumber(moduleArea, 4)} м²` },
-    { label: 'Камней на квадратный метр', value: fmtNumber(1 / moduleArea, 1) },
+    { label: 'Расчётный модуль камня', value: `${scalar(moduleArea, 4)} м²` },
+    { label: 'Камней на квадратный метр', value: scalar(perMetre, 1) },
   ];
   if (openingsArea > 0) {
-    secondary.splice(1, 0, { label: 'Площадь проёмов', value: `${fmtNumber(openingsArea, 2)} м²` });
+    secondary.splice(1, 0, { label: 'Площадь проёмов', value: `${scalar(openingsArea, 2)} м²` });
   }
   if (unitPrice > 0) {
-    secondary.push({ label: 'Ориентировочная стоимость', value: fmtMoney(withReserve * unitPrice) });
+    secondary.push({ label: 'Ориентировочная стоимость', value: `${scalar(cost,2)} ₽` });
   }
 
   return {

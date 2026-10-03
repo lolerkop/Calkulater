@@ -17,6 +17,7 @@ export const shared: CalculatorLocalization = {
       'Запас': 'Reserve',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'The result exceeds the numeric range',
       'Запас не может быть отрицательным': 'The waste allowance cannot be negative',
     },
   },
@@ -28,6 +29,7 @@ export const shared: CalculatorLocalization = {
       'Запас': 'Запас',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'Результат виходить за числовий діапазон',
       'Запас не может быть отрицательным': 'Запас не може бути відʼємним',
     },
   },
@@ -39,6 +41,7 @@ export const shared: CalculatorLocalization = {
       'Запас': 'Reserve',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'Das Ergebnis überschreitet den Zahlenbereich',
       'Запас не может быть отрицательным': 'Die Reserve kann nicht negativ sein',
     },
   },
@@ -50,6 +53,7 @@ export const shared: CalculatorLocalization = {
       'Запас': 'Reserva',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'El resultado excede el rango numérico',
       'Запас не может быть отрицательным': 'La reserva no puede ser negativa',
     },
   },

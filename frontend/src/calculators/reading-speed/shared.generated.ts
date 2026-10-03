@@ -11,7 +11,9 @@ import type { CalculatorLocalization } from '../../lib/platform/types';
 export const shared: CalculatorLocalization = {
   en: {
     results: {
+      'Срок': 'Term',
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'Из': 'From',
       'В': 'To',
       'Время': 'Time',
@@ -19,7 +21,9 @@ export const shared: CalculatorLocalization = {
   },
   uk: {
     results: {
+      'Срок': 'Строк',
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'Из': 'З',
       'В': 'У',
       'Время': 'Час',
@@ -27,7 +31,9 @@ export const shared: CalculatorLocalization = {
   },
   de: {
     results: {
+      'Срок': 'Laufzeit',
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'Из': 'Von',
       'В': 'Nach',
       'Время': 'Zeit',
@@ -35,7 +41,9 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
+      'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'Из': 'De',
       'В': 'A',
       'Время': 'Tiempo',

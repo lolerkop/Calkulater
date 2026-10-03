@@ -1,47 +1,77 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'revenue': 'Umsatz aus der Kampagne',
-      'spend': 'Kosten der Kampagne',
+  "de": {
+    "fields": {
+      "revenue": "Umsatz aus der Kampagne",
+      "spend": "Kosten der Kampagne"
     },
-    results: {
-      'ROI рекламы': 'Werbe-ROI',
-      'ROAS': 'ROAS',
-      'Прибыль кампании': 'Gewinn der Kampagne',
-      'Расходы на кампанию': 'Kosten der Kampagne',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "ROI рекламы": "Werbe-ROI",
+      "ROAS": "ROAS",
+      "Прибыль кампании": "Gewinn der Kampagne",
+      "Расходы на кампанию": "Kosten der Kampagne",
+      "Проверьте данные": "Prüfe die Werte",
+      "Выручка минус реклама": "Umsatz abzüglich Werbekosten"
     },
-    values: {
-      'Расходы на кампанию должны быть больше нуля': 'Die Kosten der Kampagne müssen größer als null sein',
+    "values": {
+      "Расходы на кампанию должны быть больше нуля": "Die Kosten der Kampagne müssen größer als null sein",
+      "Выручка не может быть отрицательной": "Der Umsatz darf nicht negativ sein"
+    }
+  },
+  "en": {
+    "fields": {
+      "revenue": "Revenue from the campaign",
+      "spend": "Campaign spend"
     },
+    "results": {
+      "ROI рекламы": "Advertising ROI",
+      "ROAS": "ROAS",
+      "Прибыль кампании": "Campaign profit",
+      "Расходы на кампанию": "Campaign spend",
+      "Проверьте данные": "Check the values",
+      "Выручка минус реклама": "Revenue minus advertising spend"
+    },
+    "values": {
+      "Расходы на кампанию должны быть больше нуля": "Campaign spend must be greater than zero",
+      "Выручка не может быть отрицательной": "Revenue cannot be negative"
+    }
   },
-  en: {
-    fields: { revenue: 'Revenue from the campaign', spend: 'Campaign spend' },
-    results: { 'ROI рекламы': 'Advertising ROI', 'ROAS': 'ROAS', 'Прибыль кампании': 'Campaign profit', 'Расходы на кампанию': 'Campaign spend', 'Проверьте данные': 'Check the values' },
-    values: { 'Расходы на кампанию должны быть больше нуля': 'Campaign spend must be greater than zero' },
+  "uk": {
+    "fields": {
+      "revenue": "Виторг від кампанії",
+      "spend": "Витрати на кампанію"
+    },
+    "results": {
+      "ROI рекламы": "ROI реклами",
+      "ROAS": "ROAS",
+      "Прибыль кампании": "Прибуток кампанії",
+      "Расходы на кампанию": "Витрати на кампанію",
+      "Проверьте данные": "Перевірте дані",
+      "Выручка минус реклама": "Виторг мінус реклама"
+    },
+    "values": {
+      "Расходы на кампанию должны быть больше нуля": "Витрати на кампанію мають бути більшими за нуль",
+      "Выручка не может быть отрицательной": "Виторг не може бути від’ємним"
+    }
   },
-  uk: {
-    fields: { revenue: 'Виторг від кампанії', spend: 'Витрати на кампанію' },
-    results: { 'ROI рекламы': 'ROI реклами', 'ROAS': 'ROAS', 'Прибыль кампании': 'Прибуток кампанії', 'Расходы на кампанию': 'Витрати на кампанію', 'Проверьте данные': 'Перевірте дані' },
-    values: { 'Расходы на кампанию должны быть больше нуля': 'Витрати на кампанію мають бути більшими за нуль' },
-  },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "revenue": "Ingresos de la campaña",
-      "spend": "Inversión en la campaña",
+      "spend": "Inversión en la campaña"
     },
-    options: {},
-    results: {
+    "options": {},
+    "results": {
       "ROI рекламы": "ROI publicitario",
       "ROAS": "ROAS",
       "Прибыль кампании": "Beneficio de la campaña",
       "Расходы на кампанию": "Inversión en la campaña",
       "Проверьте данные": "Revisa los datos",
+      "Выручка минус реклама": "Ingresos menos gasto publicitario"
     },
-    values: {
+    "values": {
       "Расходы на кампанию должны быть больше нуля": "La inversión en la campaña debe ser mayor que cero",
-    },
-  },
+      "Выручка не может быть отрицательной": "Los ingresos no pueden ser negativos"
+    }
+  }
 };

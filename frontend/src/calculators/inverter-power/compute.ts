@@ -1,40 +1,20 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-
-// Потребление инвертора по выходной мощности и КПД.
-//
-// КПД выше ста процентов отвергается: это не опечатка в диапазоне, а нарушение
-// сохранения энергии, и пропустить его значило бы выдать за расчёт число,
-// которого не бывает. Ровно сто процентов допустимы как идеализация — потери
-// тогда равны нулю, и это видно в результате.
-//
-// Химия аккумулятора и пусковые токи не моделируются: они требуют кривых
-// разряда и данных о нагрузке, которых у калькулятора нет.
-export const compute: CalcFunction = (inputs) => {
-  const output = toNumber(inputs.outputPower);
-  const efficiency = toNumber(inputs.efficiency);
-  const voltage = toNumber(inputs.batteryVoltage);
-
-  const fail = (message: string) => ({
-    primary: { label: 'Потребляемая мощность', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (!(output > 0)) return fail('Выходная мощность должна быть больше нуля');
-  if (!(efficiency > 0)) return fail('КПД должен быть больше нуля');
-  if (efficiency > 100) return fail('КПД не может превышать сто процентов');
-  if (!(voltage > 0)) return fail('Напряжение батареи должно быть больше нуля');
-
-  const input = output / (efficiency / 100);
-  const current = input / voltage;
-  const loss = input - output;
-
-  return {
-    primary: { label: 'Потребляемая мощность', value: `${fmtNumber(input, 1)} Вт` },
-    secondary: [
-      { label: 'Ток от батареи', value: `${fmtNumber(current, 2)} А` },
-      { label: 'Потери', value: `${fmtNumber(loss, 1)} Вт` },
-      { label: 'Полезная мощность', value: `${fmtNumber(output, 1)} Вт` },
-    ],
-  };
+import { read, finite, positive, exact, times, add, negative, evaluated, measure, fixed, INPUT, RANGE } from '../../lib/platform/electronicsNumericInput';
+// Positive-load energy balance at the explicitly supplied efficiency and terminal voltage.
+export const compute: CalcFunction = inputs => {
+  const output=read(inputs.outputPower), efficiency=read(inputs.efficiency), voltage=read(inputs.batteryVoltage);
+  const fail=(message:string)=>({primary:{label:'Потребляемая мощность',value:'—'},secondary:[{label:'Проверьте данные',value:message,accent:'red' as const}]});
+  if (!finite(output,efficiency,voltage)) return fail(INPUT);
+  if (!(output>0)) return fail('Выходная мощность должна быть больше нуля');
+  if (!(efficiency>0)) return fail('КПД должен быть больше нуля');
+  if (efficiency>100) return fail('КПД не может превышать сто процентов');
+  if (!(voltage>0)) return fail('Напряжение батареи должно быть больше нуля');
+  const input=evaluated(times(exact(output),exact(100)),exact(efficiency));
+  const current=evaluated(times(exact(output),exact(100)),times(exact(efficiency),exact(voltage)));
+  const loss=evaluated(times(exact(output),add(exact(100),negative(exact(efficiency)))),exact(efficiency));
+  if (!positive(input,current) || !finite(loss) || loss<0) return fail(RANGE);
+  return {primary:{label:'Потребляемая мощность',value:`${fixed(input,1)} Вт`},secondary:[
+    {label:'Ток от батареи',value:`${fixed(current,2)} А`},{label:'Потери',value:`${fixed(loss,1)} Вт`},
+    {label:'Полезная мощность',value:`${fixed(output,1)} Вт`},
+  ]};
 };

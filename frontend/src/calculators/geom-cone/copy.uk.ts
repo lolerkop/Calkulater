@@ -1,11 +1,11 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const geomConeCopyUk: CalculatorSeoCopy = {
+export const geomConeCopyUk: CalculatorCopy = {
   name: "Калькулятор конуса",
   slug: "konus",
-  shortDescription: "Об’єм, твірна й поверхня конуса за радіусом і висотою.",
   seoTitle: "Калькулятор конуса — об’єм, твірна, поверхня",
-  seoDescription: "Обчисліть об’єм конуса, довжину твірної, бічну й повну площу поверхні за радіусом і висотою.",
   h1: "Калькулятор конуса",
   keywords: ["калькулятор конуса", "об’єм конуса", "твірна конуса"],
+  ...contractContent.uk,
 };

@@ -1,6 +1,7 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { mathWave8ContractContent } from './contractContent';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const binomialProbabilityCopyUk: CalculatorSeoCopy = {
+export const binomialProbabilityCopyUk: CalculatorCopy = {
   name: "Калькулятор біноміальної ймовірності",
   slug: "binomialna-ymovirnist",
   shortDescription: "Імовірність рівно k, не більше k і не менше k успіхів у серії незалежних випробувань.",
@@ -8,4 +9,5 @@ export const binomialProbabilityCopyUk: CalculatorSeoCopy = {
   seoDescription: "Розрахуйте біноміальну ймовірність рівно k, не більше k або не менше k успіхів у серії незалежних випробувань.",
   h1: "Калькулятор біноміальної ймовірності",
   keywords: ["біноміальна ймовірність", "ймовірність k успіхів", "схема Бернуллі"],
+  ...mathWave8ContractContent.uk,
 };

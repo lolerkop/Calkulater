@@ -3,12 +3,12 @@ import type { CalculatorLocalization } from '../../lib/platform/types';
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'current': 'Strom, A',
-      'length': 'Einfache Länge, m',
-      'section': 'Leiterquerschnitt, mm²',
+      'current': "Strom",
+      'length': "Einfache Länge",
+      'section': "Leiterquerschnitt",
       'material': 'Leitermaterial',
       'phase': 'Versorgung',
-      'voltage': 'Nennspannung, V',
+      'voltage': "Nennspannung",
     },
     options: {
       'copper': 'Kupfer',
@@ -17,6 +17,7 @@ export const localization: CalculatorLocalization = {
       'three': 'Dreiphasig',
     },
     results: {
+      "Сопротивление одной жилы": "Widerstand eines Leiters",
       'Падение напряжения': 'Spannungsfall',
       'Доля от номинала': 'Anteil der Nennspannung',
       'Напряжение у нагрузки': 'Spannung an der Last',
@@ -25,6 +26,13 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Неизвестный режим расчёта": "Unbekannter Berechnungsmodus",
+      "Введите конечные числа для выбранного режима": "Gib endliche Zahlen für den gewählten Modus ein",
+      "Результат выходит за числовой диапазон": "Das Ergebnis überschreitet den Zahlenbereich",
+      "Ток и длина неотрицательны; сечение и напряжение должны быть больше нуля": "Strom und Länge müssen nichtnegativ, Querschnitt und Spannung positiv sein",
+      "Падение превышает напряжение питания: проверьте ток, длину и сечение": "Der Spannungsfall überschreitet die Versorgungsspannung: prüfe Strom, Länge und Querschnitt",
+      "Резистивная модель при 20 °C и cos φ = 1. Нагрев, реактивность и контакты не учтены; сопротивление указано для одной жилы в один конец.": "Ohmsches Modell bei 20 °C und cos φ = 1. Erwärmung, Reaktanz und Kontakte fehlen; der Widerstand gilt für einen Leiter der einfachen Strecke.",
+
       'В': 'V',
       'Ом': 'Ω',
       'Вт': 'W',
@@ -36,11 +44,12 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      "current": "Current, A", "length": "One-way run, m", "section": "Conductor cross-section, mm²",
-      "material": "Conductor material", "phase": "Supply", "voltage": "Nominal voltage, V",
+      "current": "Current", "length": "One-way run", "section": "Conductor cross-section",
+      "material": "Conductor material", "phase": "Supply", "voltage": "Nominal voltage",
     },
     options: { "copper": "Copper", "aluminium": "Aluminium", "single": "Single-phase", "three": "Three-phase" },
     results: {
+      "Сопротивление одной жилы": "One-conductor resistance",
       "Падение напряжения": "Voltage drop",
       "Доля от номинала": "Share of nominal",
       "Напряжение у нагрузки": "Voltage at the load",
@@ -49,6 +58,13 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      "Неизвестный режим расчёта": "Unknown calculation mode",
+      "Введите конечные числа для выбранного режима": "Enter finite numbers for the selected mode",
+      "Результат выходит за числовой диапазон": "The result exceeds the numerical range",
+      "Ток и длина неотрицательны; сечение и напряжение должны быть больше нуля": "Current and length must be nonnegative; cross-section and voltage must be positive",
+      "Падение превышает напряжение питания: проверьте ток, длину и сечение": "The drop exceeds supply voltage: check current, length and cross-section",
+      "Резистивная модель при 20 °C и cos φ = 1. Нагрев, реактивность и контакты не учтены; сопротивление указано для одной жилы в один конец.": "Resistive model at 20 °C and power factor 1. Heating, reactance and contacts are excluded; resistance is for one conductor on the one-way run.",
+
       "В": "V", "Ом": "Ω", "Вт": "W",
       "Неизвестный материал проводника": "Unknown conductor material",
       "Неизвестная схема питания": "Unknown supply type",
@@ -58,11 +74,12 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      "current": "Струм, А", "length": "Довжина в один бік, м", "section": "Переріз жили, мм²",
-      "material": "Матеріал жили", "phase": "Живлення", "voltage": "Номінальна напруга, В",
+      "current": "Струм", "length": "Довжина в один бік", "section": "Переріз жили",
+      "material": "Матеріал жили", "phase": "Живлення", "voltage": "Номінальна напруга",
     },
     options: { "copper": "Мідь", "aluminium": "Алюміній", "single": "Однофазне", "three": "Трифазне" },
     results: {
+      "Сопротивление одной жилы": "Опір однієї жили",
       "Падение напряжения": "Падіння напруги",
       "Доля от номинала": "Частка від номіналу",
       "Напряжение у нагрузки": "Напруга на навантаженні",
@@ -71,6 +88,13 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      "Неизвестный режим расчёта": "Невідомий режим розрахунку",
+      "Введите конечные числа для выбранного режима": "Введіть скінченні числа для обраного режиму",
+      "Результат выходит за числовой диапазон": "Результат виходить за числовий діапазон",
+      "Ток и длина неотрицательны; сечение и напряжение должны быть больше нуля": "Струм і довжина невід’ємні; переріз і напруга мають бути додатними",
+      "Падение превышает напряжение питания: проверьте ток, длину и сечение": "Падіння перевищує напругу живлення: перевірте струм, довжину та переріз",
+      "Резистивная модель при 20 °C и cos φ = 1. Нагрев, реактивность и контакты не учтены; сопротивление указано для одной жилы в один конец.": "Резистивна модель за 20 °C і cos φ = 1. Нагрів, реактивність і контакти не враховано; опір указано для однієї жили в один бік.",
+
       "В": "В", "Ом": "Ом", "Вт": "Вт",
       "Неизвестный материал проводника": "Невідомий матеріал жили",
       "Неизвестная схема питания": "Невідома схема живлення",
@@ -80,12 +104,12 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "current": "Corriente, A",
-      "length": "Longitud de ida, m",
-      "section": "Sección del conductor, mm²",
+      "current": "Corriente",
+      "length": "Longitud de ida",
+      "section": "Sección del conductor",
       "material": "Material del conductor",
       "phase": "Alimentación",
-      "voltage": "Tensión nominal, V",
+      "voltage": "Tensión nominal",
     },
     options: {
       "copper": "Cobre",
@@ -94,6 +118,7 @@ export const localization: CalculatorLocalization = {
       "three": "Trifásica",
     },
     results: {
+      "Сопротивление одной жилы": "Resistencia de un conductor",
       "Падение напряжения": "Caída de tensión",
       "Доля от номинала": "Proporción de la nominal",
       "Напряжение у нагрузки": "Tensión en la carga",
@@ -102,6 +127,13 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Неизвестный режим расчёта": "Modo de cálculo desconocido",
+      "Введите конечные числа для выбранного режима": "Introduce números finitos para el modo elegido",
+      "Результат выходит за числовой диапазон": "El resultado supera el rango numérico",
+      "Ток и длина неотрицательны; сечение и напряжение должны быть больше нуля": "Corriente y longitud deben ser no negativas; sección y tensión deben ser positivas",
+      "Падение превышает напряжение питания: проверьте ток, длину и сечение": "La caída supera la tensión de alimentación: revisa corriente, longitud y sección",
+      "Резистивная модель при 20 °C и cos φ = 1. Нагрев, реактивность и контакты не учтены; сопротивление указано для одной жилы в один конец.": "Modelo resistivo a 20 °C y cos φ = 1. No incluye calentamiento, reactancia ni contactos; la resistencia corresponde a un conductor de ida.",
+
       "В": "V",
       "Ом": "Ω",
       "Вт": "W",

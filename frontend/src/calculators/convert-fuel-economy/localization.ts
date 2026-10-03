@@ -1,92 +1,108 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'value': 'Wert',
-      'fromUnit': 'Von Einheit',
-      'toUnit': 'Nach Einheit',
+  "de": {
+    "fields": {
+      "value": "Wert",
+      "fromUnit": "Von Einheit",
+      "toUnit": "Nach Einheit"
     },
-    options: {
-      'l100km': 'l/100 km',
-      'kml': 'km/l',
-      'mpgus': 'mpg (US)',
-      'mpguk': 'mpg (UK)',
+    "options": {
+      "l100km": "l/100 km",
+      "kml": "km/l",
+      "mpgus": "mpg (US)",
+      "mpguk": "mpg (UK)"
     },
-    results: {
-      'Результат': 'Ergebnis',
-      'В л/100 км': 'In l/100 km',
-      'В км/л': 'In km/l',
-      'В mpg США': 'In mpg (US)',
-      'В mpg Великобритании': 'In mpg (UK)',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Результат": "Ergebnis",
+      "В л/100 км": "In l/100 km",
+      "В км/л": "In km/l",
+      "В mpg США": "In mpg (US)",
+      "В mpg Великобритании": "In mpg (UK)",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'Расход должен быть больше нуля': 'Der Verbrauch muss größer als null sein',
-    },
+    "values": {
+      "Расход должен быть больше нуля": "Der Verbrauch muss größer als null sein",
+      "Неизвестная единица расхода топлива": "Unbekannte Einheit des Kraftstoffverbrauchs",
+      "Результат вне допустимого диапазона": "Das Ergebnis liegt außerhalb des unterstützten Zahlenbereichs"
+    }
   },
-  en: {
-    fields: { "value": "Value", "fromUnit": "From unit", "toUnit": "To unit" },
-    options: {
+  "en": {
+    "fields": {
+      "value": "Value",
+      "fromUnit": "From unit",
+      "toUnit": "To unit"
+    },
+    "options": {
       "l100km": "L/100 km",
       "kml": "km/L",
       "mpgus": "mpg (US)",
-      "mpguk": "mpg (UK)",
+      "mpguk": "mpg (UK)"
     },
-    results: {
+    "results": {
       "Результат": "Result",
       "В л/100 км": "In L/100 km",
       "В км/л": "In km/L",
       "В mpg США": "In mpg (US)",
       "В mpg Великобритании": "In mpg (UK)",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
+    "values": {
       "Расход должен быть больше нуля": "Fuel consumption must be greater than zero",
-    },
+      "Неизвестная единица расхода топлива": "Unknown fuel consumption unit",
+      "Результат вне допустимого диапазона": "The result is outside the supported numeric range"
+    }
   },
-  uk: {
-    fields: { "value": "Значення", "fromUnit": "З одиниці", "toUnit": "В одиницю" },
-    options: {
+  "uk": {
+    "fields": {
+      "value": "Значення",
+      "fromUnit": "З одиниці",
+      "toUnit": "В одиницю"
+    },
+    "options": {
       "l100km": "л/100 км",
       "kml": "км/л",
       "mpgus": "mpg США",
-      "mpguk": "mpg Великої Британії",
+      "mpguk": "mpg Великої Британії"
     },
-    results: {
+    "results": {
       "Результат": "Результат",
       "В л/100 км": "У л/100 км",
       "В км/л": "У км/л",
       "В mpg США": "У mpg США",
       "В mpg Великобритании": "У mpg Великої Британії",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
+    "values": {
       "Расход должен быть больше нуля": "Витрата має бути більшою за нуль",
-    },
+      "Неизвестная единица расхода топлива": "Невідома одиниця витрати палива",
+      "Результат вне допустимого диапазона": "Результат поза допустимим числовим діапазоном"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "value": "Valor",
       "fromUnit": "Unidad de origen",
-      "toUnit": "Unidad de destino",
+      "toUnit": "Unidad de destino"
     },
-    options: {
+    "options": {
       "l100km": "l/100 km",
       "kml": "km/l",
       "mpgus": "mpg (EE. UU.)",
-      "mpguk": "mpg (Reino Unido)",
+      "mpguk": "mpg (Reino Unido)"
     },
-    results: {
+    "results": {
       "Результат": "Resultado",
       "В л/100 км": "En l/100 km",
       "В км/л": "En km/l",
       "В mpg США": "En mpg (EE. UU.)",
       "В mpg Великобритании": "En mpg (Reino Unido)",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "Расход должен быть больше нуля": "El consumo debe ser mayor que cero",
-    },
-  },
+      "Неизвестная единица расхода топлива": "Unidad de consumo de combustible desconocida",
+      "Результат вне допустимого диапазона": "El resultado está fuera del intervalo numérico admitido"
+    }
+  }
 };

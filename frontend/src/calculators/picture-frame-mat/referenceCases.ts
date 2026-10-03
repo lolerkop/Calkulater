@@ -12,7 +12,7 @@ export const pictureFrameMatReferenceCases: readonly CalculatorReferenceCase[] =
       { label: "Нижнее поле", value: "6 см" },
       { label: "Верх и бока", value: "5 см" },
       { label: "Площадь паспарту", value: "630 см²" },
-      { label: "Соотношение сторон рамы", value: "0,7317" },
+      { label: "Соотношение сторон паспарту", value: "0,7317" },
     ],
   },
   {
@@ -23,7 +23,7 @@ export const pictureFrameMatReferenceCases: readonly CalculatorReferenceCase[] =
       { label: "Нижнее поле", value: "8 см" },
       { label: "Верх и бока", value: "8 см" },
       { label: "Площадь паспарту", value: "1 216 см²" },
-      { label: "Соотношение сторон рамы", value: "1" },
+      { label: "Соотношение сторон паспарту", value: "1" },
     ],
   },
   {
@@ -34,7 +34,7 @@ export const pictureFrameMatReferenceCases: readonly CalculatorReferenceCase[] =
       { label: "Нижнее поле", value: "0,1 см" },
       { label: "Верх и бока", value: "0,1 см" },
       { label: "Площадь паспарту", value: "5,04 см²" },
-      { label: "Соотношение сторон рамы", value: "0,6711" },
+      { label: "Соотношение сторон паспарту", value: "0,6711" },
     ],
   },
   {

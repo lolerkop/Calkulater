@@ -7,10 +7,10 @@
   "icon": "percent",
   "popularity": 88,
   "isNew": false,
-  "shortDescription": "Calculate percentages, percentage change and values before or after percent adjustments.",
-  "longDescription": "Use this percentage calculator for everyday math: percent of a number, percentage change, markups and reverse percentages.",
+  "shortDescription": "Find a percentage, a share, an adjusted value or relative change with a clear comparison base.",
+  "longDescription": "The same two numbers can answer different percentage questions. Fifteen percent of 200 is a share; increasing 200 by fifteen percent produces a new total. This calculator separates those tasks into five modes and changes the input labels to show which value is the base. For adjustments, enter the original number first and the percentage second. For relative change, enter the starting and final values. Use it to check a markup, a budget share or a change in a measured value. Percentage points and recovery of an original value are explained below, but they do not have dedicated form modes.",
   "seoTitle": "Percentage calculator — percent of a number and percentage change",
-  "seoDescription": "Free percentage calculator for percent of a number, percentage change, increase, decrease and reverse calculations.",
+  "seoDescription": "Calculate percent of a number, shares, increases, decreases and relative change. Five formulas explain zero bases and percentage points.",
   "h1": "Percentage calculator",
   "keywords": [
     "percentage calculator",
@@ -63,65 +63,66 @@
     "result": "Result"
   },
   "howToUse": [
-    "Choose the calculation mode.",
-    "Enter values A and B.",
-    "Read the result and helper values."
+    "Select percent of a number, share of a whole, percentage addition, subtraction or change.",
+    "For percent of a number, A is the percentage and B the number. For a share, A is the part and B the whole.",
+    "For addition or subtraction, A is the starting number and B the percentage. For change, A is the starting value and B the final value.",
+    "Enter finite numbers and check the comparison base. Zero is valid except for a whole in share mode or a starting value in change mode."
   ],
-  "howItWorks": "The calculator applies the selected percentage formula to the two input values.",
-  "example": "Find 15% of 200 or calculate the percentage change from 80 to 100.",
+  "howItWorks": "The five operations are A / 100 × B; A / B × 100%; A × (1 + B / 100); A × (1 − B / 100); and (B − A) / A × 100%. Change also reports the signed difference B − A, rather than its absolute magnitude. With a positive starting value, a positive percentage means an increase. A negative starting value changes that interpretation, so the result includes a warning. General percentage arithmetic allows negative values and percentages above 100; these are not retail-discount limits. Unknown modes, malformed inputs, zero denominators and numeric overflow return an explicit error. Display usually uses two decimal places and may preserve extra significant digits for small nonzero results. Internal arithmetic does not round to the displayed value between steps.",
+  "example": "Five ordinary checks: 15% of 200 = 30; 50 out of 200 = 25%; increase 200 by 15% = 230; decrease 200 by 15% = 170; change from 100 to 130 = +30%, with difference B − A = 30. Boundary checks: 0% of 200 is 0, but a share of 50 out of a whole of 0 has no defined percentage and returns an error. From −100 to −50, the formula gives −50% although the number rises by 50; the negative base prevents the usual reading of the sign. A sequence from 100 up 10% gives 110, then down 10% gives 99. A rate moving from 10% to 12% rises by 2 percentage points, or 20% relative to the old rate.",
   "faq": [
     {
-      "q": "How do I calculate a percentage of a number?",
-      "a": "Multiply the number by the percentage and divide by 100. For example, 15% of 200 is 200 × 15 / 100, which equals 30. In the calculator, select the percent-of-a-number mode, enter the base value and the percent, and the result is shown instantly."
+      "q": "Which value is the base when I find a percentage share?",
+      "a": "Enter the part as A and the whole as B. Spending 50 from a budget of 200 is 25%, not 400%. Percent-of-a-number mode has a different input order: A supplies the percentage and B the base number. Follow the changing field labels rather than memorising one order for every mode."
     },
     {
-      "q": "How do I calculate percentage increase?",
-      "a": "Subtract the old value from the new value, divide the difference by the old value and multiply by 100. If a price rises from $80 to $100, the increase is $20 divided by $80, or 25%. This measures growth relative to the original value."
+      "q": "When should I use percentage points instead of relative percentage change?",
+      "a": "Use points for the difference between rates: 12% minus 10% is 2 percentage points. Relative change divides that difference by the old rate, giving (12 − 10) / 10 × 100 = 20%. Entering 10 and 12 in change mode reports 20%; it does not report the point difference."
     },
     {
-      "q": "Why do two discounts not add up directly?",
-      "a": "Sequential discounts apply one after another. If a $100 item gets 20% off, the price becomes $80. A second 10% discount is calculated from $80, not from $100, so the final price is $72. The total discount is 28%, not 30%."
+      "q": "Why do matching percentage increases and decreases fail to cancel?",
+      "a": "The second operation uses the changed base. Increasing 100 by 10% gives 110; decreasing that by 10% subtracts 11, leaving 99. Their combined factor is 1.1 × 0.9 = 0.99, which is a 1% decrease from the original amount."
     },
     {
-      "q": "How do I find the original number before a percentage change?",
-      "a": "Use reverse percentage. If a value after a 20% increase is 120, divide 120 by 1.2 to get the original value of 100. If a value after a 20% discount is 80, divide 80 by 0.8. The key is knowing whether the percentage was added or subtracted."
+      "q": "What happens with zero or a negative starting value in change mode?",
+      "a": "Zero makes the denominator zero, so a move from 0 to 50 has no finite relative percentage under this formula. A negative start is accepted mathematically, but the resulting sign does not describe the direction in which the number moves. Read the signed difference B − A as well."
     },
     {
-      "q": "What is the difference between percent and percentage points?",
-      "a": "Percent describes relative change, while percentage points describe the simple difference between two percentages. Moving from 10% to 12% is an increase of 2 percentage points. Relative to the old 10% rate, however, the increase is 20%. Both numbers are correct but answer different questions."
+      "q": "How can I recover an amount before a percentage adjustment?",
+      "a": "There is no dedicated reverse mode in the form. The manual formula is final / (1 + p / 100) after an increase, or final / (1 − p / 100) after a decrease. For example, a final 80 after a 20% reduction came from 100. A 100% reduction leaves zero and cannot identify the original amount uniquely."
     }
   ],
   "relatedCalculatorIds": [
     "discount-calculator",
     "compound-interest"
   ],
-  "disclaimer": "Results are reference estimates. Verify the inputs before making important decisions.",
+  "disclaimer": "General percentage arithmetic. The result does not determine contractual, banking or tax rules; relative change from a negative base needs separate interpretation.",
   "resultTitle": "Percentage calculator",
   "seoContent": {
-    "intro": "The percentage calculator solves common percent tasks: percent of a number, percentage change, markup and reverse percentage. It is useful for shopping, finance, reports, schoolwork and quick checks in spreadsheets. Use it when you need to understand both the number itself and the relative change behind it.",
-    "howItWorks": "Each mode answers a different question. To find a percent of a number, the calculator multiplies the base number by the percentage and divides by 100. To calculate percentage change, it subtracts the old value from the new value, divides the difference by the old value and converts the result to a percent. This shows how much something increased or decreased relative to the starting point. Markup adds a percentage to the original value, while reverse percentage works backward from a value after an increase or discount. Choosing the correct mode matters because “20% of 500” and “500 increased by 20%” are not the same question. The first returns a part of the base number. The second returns the new value after the percentage has been applied.",
-    "example": "Imagine a subscription price increased from $40 to $50. You choose percentage change, enter 40 as the old value and 50 as the new value. The calculator returns 25%. The dollar difference is $10, but the relative increase is one quarter of the original price. That makes it easier to compare this change with another subscription that increased by a different dollar amount. A $15 increase on a $150 plan, for example, is only 10%, even though the dollar increase is larger.",
-    "tips": "A common mistake is confusing percent with percentage points. If an interest rate rises from 5% to 7%, it increased by 2 percentage points, but the relative increase is 40%. Another mistake is adding sequential percentages directly. A 20% discount followed by another 10% discount does not equal 30%, because the second discount applies to the reduced price. Reverse percentage also needs a clear base: if a price after 20% tax is $120, the tax is not 20% of $120; the original base is $100. When using percentages in finance, check whether the rate is annual, monthly, one-time or compounded, because the same number can mean different things. In reports, label the base value clearly before sharing the result publicly.",
+    "intro": "The same two numbers can answer different percentage questions. Fifteen percent of 200 is a share; increasing 200 by fifteen percent produces a new total. This calculator separates those tasks into five modes and changes the input labels to show which value is the base. For adjustments, enter the original number first and the percentage second. For relative change, enter the starting and final values. Use it to check a markup, a budget share or a change in a measured value. Percentage points and recovery of an original value are explained below, but they do not have dedicated form modes.",
+    "howItWorks": "The five operations are A / 100 × B; A / B × 100%; A × (1 + B / 100); A × (1 − B / 100); and (B − A) / A × 100%. Change also reports the signed difference B − A, rather than its absolute magnitude. With a positive starting value, a positive percentage means an increase. A negative starting value changes that interpretation, so the result includes a warning. General percentage arithmetic allows negative values and percentages above 100; these are not retail-discount limits. Unknown modes, malformed inputs, zero denominators and numeric overflow return an explicit error. Display usually uses two decimal places and may preserve extra significant digits for small nonzero results. Internal arithmetic does not round to the displayed value between steps.",
+    "example": "Five ordinary checks: 15% of 200 = 30; 50 out of 200 = 25%; increase 200 by 15% = 230; decrease 200 by 15% = 170; change from 100 to 130 = +30%, with difference B − A = 30. Boundary checks: 0% of 200 is 0, but a share of 50 out of a whole of 0 has no defined percentage and returns an error. From −100 to −50, the formula gives −50% although the number rises by 50; the negative base prevents the usual reading of the sign. A sequence from 100 up 10% gives 110, then down 10% gives 99. A rate moving from 10% to 12% rises by 2 percentage points, or 20% relative to the old rate.",
+    "tips": "Select percent of a number, share of a whole, percentage addition, subtraction or change. For percent of a number, A is the percentage and B the number. For a share, A is the part and B the whole. For addition or subtraction, A is the starting number and B the percentage. For change, A is the starting value and B the final value. Enter finite numbers and check the comparison base. Zero is valid except for a whole in share mode or a starting value in change mode.",
     "faq": [
       {
-        "q": "How do I calculate a percentage of a number?",
-        "a": "Multiply the number by the percentage and divide by 100. For example, 15% of 200 is 200 × 15 / 100, which equals 30. In the calculator, select the percent-of-a-number mode, enter the base value and the percent, and the result is shown instantly."
+        "q": "Which value is the base when I find a percentage share?",
+        "a": "Enter the part as A and the whole as B. Spending 50 from a budget of 200 is 25%, not 400%. Percent-of-a-number mode has a different input order: A supplies the percentage and B the base number. Follow the changing field labels rather than memorising one order for every mode."
       },
       {
-        "q": "How do I calculate percentage increase?",
-        "a": "Subtract the old value from the new value, divide the difference by the old value and multiply by 100. If a price rises from $80 to $100, the increase is $20 divided by $80, or 25%. This measures growth relative to the original value."
+        "q": "When should I use percentage points instead of relative percentage change?",
+        "a": "Use points for the difference between rates: 12% minus 10% is 2 percentage points. Relative change divides that difference by the old rate, giving (12 − 10) / 10 × 100 = 20%. Entering 10 and 12 in change mode reports 20%; it does not report the point difference."
       },
       {
-        "q": "Why do two discounts not add up directly?",
-        "a": "Sequential discounts apply one after another. If a $100 item gets 20% off, the price becomes $80. A second 10% discount is calculated from $80, not from $100, so the final price is $72. The total discount is 28%, not 30%."
+        "q": "Why do matching percentage increases and decreases fail to cancel?",
+        "a": "The second operation uses the changed base. Increasing 100 by 10% gives 110; decreasing that by 10% subtracts 11, leaving 99. Their combined factor is 1.1 × 0.9 = 0.99, which is a 1% decrease from the original amount."
       },
       {
-        "q": "How do I find the original number before a percentage change?",
-        "a": "Use reverse percentage. If a value after a 20% increase is 120, divide 120 by 1.2 to get the original value of 100. If a value after a 20% discount is 80, divide 80 by 0.8. The key is knowing whether the percentage was added or subtracted."
+        "q": "What happens with zero or a negative starting value in change mode?",
+        "a": "Zero makes the denominator zero, so a move from 0 to 50 has no finite relative percentage under this formula. A negative start is accepted mathematically, but the resulting sign does not describe the direction in which the number moves. Read the signed difference B − A as well."
       },
       {
-        "q": "What is the difference between percent and percentage points?",
-        "a": "Percent describes relative change, while percentage points describe the simple difference between two percentages. Moving from 10% to 12% is an increase of 2 percentage points. Relative to the old 10% rate, however, the increase is 20%. Both numbers are correct but answer different questions."
+        "q": "How can I recover an amount before a percentage adjustment?",
+        "a": "There is no dedicated reverse mode in the form. The manual formula is final / (1 + p / 100) after an increase, or final / (1 − p / 100) after a decrease. For example, a final 80 after a 20% reduction came from 100. A 100% reduction leaves zero and cannot identify the original amount uniquely."
       }
     ]
   }

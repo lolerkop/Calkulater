@@ -1,3 +1,5 @@
+import { buildingWave13ContractContent } from './contractContent';
+import { validate } from './validate';
 // Утеплитель: объём, число плит и упаковок.
 
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
@@ -13,6 +15,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  validate,
   copy: { en: insulationCopyEn, uk: insulationCopyUk, de: insulationCopyDe, es: insulationCopyEs },
   referenceCases: insulationReferenceCases,
   publishedExample: { inputs: { area: 60, thickness: 100, slabArea: 0.72, perPack: 6 }, expected: ['6 м³'] },
@@ -27,28 +30,24 @@ export const definition: CalculatorDefinitionV2 = {
     isNew: false,
     shortDescription: 'Объём утеплителя, число плит и упаковок по площади и толщине.',
     longDescription:
-      'Считает, сколько утеплителя нужно на заданную площадь при выбранной толщине: объём в кубометрах, число плит и число упаковок. Размер плиты и количество плит в упаковке остаются полями — у разных производителей они разные, и зашивать чей-то каталог значило бы выдать частный случай за норму. Плиты и упаковки округляются вверх, но округление защищено от двоичного шума: площадь, укладывающаяся ровно, не потребует лишнюю плиту.',
+      buildingWave13ContractContent.ru.longDescription,
     seoTitle: 'Калькулятор утеплителя — объём, плиты и упаковки',
     seoDescription: 'Рассчитайте объём утеплителя, число плит и число упаковок по площади утепления и толщине слоя.',
     h1: 'Калькулятор утеплителя',
     keywords: ['калькулятор утеплителя', 'сколько утеплителя нужно', 'утеплитель на м2', 'расчёт минваты'],
     fields: [
-      { name: 'area', label: 'Площадь утепления, м²', type: 'number', defaultValue: 60, min: 0, step: 0.1 },
-      { name: 'thickness', label: 'Толщина слоя, мм', type: 'number', defaultValue: 100, min: 0, step: 10 },
-      { name: 'slabArea', label: 'Площадь одной плиты, м²', type: 'number', defaultValue: 0.72, min: 0, step: 0.01 },
+      { name: 'area', label: "Площадь утепления", type: 'number', unit: "м²", defaultValue: 60, min: 0, step: 0.1 },
+      { name: 'thickness', label: "Толщина слоя", type: 'number', unit: "мм", defaultValue: 100, min: 0, step: 10 },
+      { name: 'slabArea', label: "Площадь одной плиты", type: 'number', unit: "м²", defaultValue: 0.72, min: 0, step: 0.01 },
       { name: 'perPack', label: 'Плит в упаковке', type: 'number', defaultValue: 6, min: 1, step: 1 },
     ],
     resultLabels: { volume: 'Объём утеплителя', slabs: 'Плит', packs: 'Упаковок', slabArea: 'Площадь одной плиты' },
-    howToUse: ['Введите площадь и толщину утепления.', 'Укажите размер плиты и число плит в упаковке с этикетки.', 'Прочитайте объём, число плит и упаковок.'],
+    howToUse: buildingWave13ContractContent.ru.howToUse,
     howItWorks:
-      'Объём — площадь, умноженная на толщину слоя, переведённую из миллиметров в метры. Число плит — площадь, делённая на площадь одной плиты и округлённая вверх; упаковки считаются так же от числа плит.',
-    example: '60 м² при слое 100 мм — это 6 м³ утеплителя: 84 плиты по 0,72 м², то есть 14 упаковок по шесть штук.',
-    faq: [
-      { q: 'Почему число плит округляется вверх?', a: 'Потому что половину плиты не купить, а неполного покрытия не бывает. Если площадь укладывается ровно, лишняя плита не добавляется — округление защищено от ошибки двоичного округления.' },
-      { q: 'Где взять площадь плиты и число в упаковке?', a: 'С этикетки: у разных производителей и форматов они разные. Значения по умолчанию соответствуют распространённой плите 1200 × 600 мм, но это допущение, а не стандарт.' },
-      { q: 'Нужен ли запас на подрезку?', a: 'На сложных поверхностях да. Увеличьте площадь на 5–10 % перед расчётом — отдельного поля для этого здесь нет намеренно, чтобы не смешивать площадь и запас.' },
-      { q: 'Считается ли утепление в два слоя?', a: 'Да, просто укажите суммарную толщину. Объём получится тот же; число плит зависит от того, в каком формате вы их покупаете.' },
-    ],
+      buildingWave13ContractContent.ru.howItWorks,
+    example: buildingWave13ContractContent.ru.example,
+    faq: buildingWave13ContractContent.ru.faq,
     relatedCalculatorIds: ['plaster', 'paint-calculator', 'room-volume'],
   },
 };
+

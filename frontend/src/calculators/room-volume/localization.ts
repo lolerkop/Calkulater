@@ -1,13 +1,14 @@
+import { addBuildingWave16Messages } from '../rafters/buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'mode': 'Wie gemessen wird',
-      'length': 'Länge',
-      'width': 'Breite',
-      'height': 'Höhe',
-      'area': 'Bodenfläche',
+      'length': "Länge",
+      'width': "Breite",
+      'height': "Höhe",
+      'area': "Bodenfläche",
     },
     options: {
       'dimensions': 'über die Raummaße',
@@ -30,7 +31,7 @@ export const localization: CalculatorLocalization = {
   en: {
     // Ключи `mode`, `height`, `length`, `width`, `area` совпадают с чужими —
     // область видимости делает столкновение невозможным.
-    fields: { mode: 'How to measure', length: 'Length', width: 'Width', height: 'Height', area: 'Floor area' },
+    fields: { mode: 'How to measure', length: "Length", width: "Width", height: "Height", area: "Floor area" },
     options: { dimensions: 'By room dimensions', area: 'By floor area' },
     results: {
       'Объём помещения': 'Room volume', 'Площадь пола': 'Floor area', 'Высота': 'Height',
@@ -43,7 +44,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { mode: 'Як вимірювати', length: 'Довжина', width: 'Ширина', height: 'Висота', area: 'Площа підлоги' },
+    fields: { mode: 'Як вимірювати', length: "Довжина", width: "Ширина", height: "Висота", area: "Площа підлоги" },
     options: { dimensions: 'За розмірами кімнати', area: 'За площею підлоги' },
     results: {
       'Объём помещения': 'Обʼєм приміщення', 'Площадь пола': 'Площа підлоги', 'Высота': 'Висота',
@@ -82,3 +83,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

@@ -1,5 +1,7 @@
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
+import { contextualField } from './contextualField';
+import { contractContent } from './contractContent';
 import { feeChainCopyEn } from './copy.en';
 import { feeChainCopyUk } from './copy.uk';
 import { feeChainCopyDe } from './copy.de';
@@ -11,6 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  contextualField,
   copy: { en: feeChainCopyEn, uk: feeChainCopyUk, de: feeChainCopyDe, es: feeChainCopyEs },
   referenceCases: feeChainReferenceCases,
   publishedExample: {
@@ -18,56 +21,99 @@ export const definition: CalculatorDefinitionV2 = {
     expected: ["1 575,00 ₽"],
   },
   presentation: {
-    id: "fee-chain",
-    name: "Калькулятор комиссии маркетплейса",
-    slug: "fee-chain",
-    fullPath: "/business/fee-chain/",
-    category: "business",
-    icon: "package",
-    popularity: 44,
-    isNew: false,
-    shortDescription: "Комиссия площадки, эквайринг, логистика и хранение — сразу вся цепочка удержаний.",
-    longDescription:
-      "Считает, сколько на самом деле дойдёт до продавца после всех удержаний площадки. Комиссия и эквайринг берутся долями от цены товара, логистика и хранение — фиксированными суммами за отправление, и вместе они складываются в цифру, которую по одной ставке не посчитать. Калькулятор показывает каждое удержание отдельно, их общую долю в цене и прибыль после себестоимости — то есть отвечает не на вопрос «сколько составит комиссия», а на вопрос «стоит ли продавать по этой цене».",
-    seoTitle: "Калькулятор комиссии маркетплейса — выплата продавцу",
-    seoDescription: "Рассчитайте выплату продавцу после комиссии площадки, эквайринга, логистики и хранения, а также прибыль с учётом себестоимости.",
-    h1: "Калькулятор комиссии маркетплейса",
-    keywords: ["комиссия маркетплейса", "выплата продавцу", "расчёт комиссии площадки", "прибыль на маркетплейсе"],
-    fields: [
-      { name: 'price', label: 'Цена товара, ₽', type: 'number', defaultValue: 2000, min: 0, step: 1 },
-      { name: 'commissionPct', label: 'Комиссия площадки, %', type: 'number', defaultValue: 17, min: 0, max: 100, step: 0.1 },
-      { name: 'acquiringPct', label: 'Эквайринг, %', type: 'number', defaultValue: 1.5, min: 0, max: 100, step: 0.1 },
-      { name: 'logistics', label: 'Логистика за отправление, ₽', type: 'number', defaultValue: 55, min: 0, step: 1 },
-      { name: 'storage', label: 'Хранение за отправление, ₽', type: 'number', defaultValue: 0, min: 0, step: 1, optional: true },
-      { name: 'cost', label: 'Себестоимость товара, ₽', type: 'number', defaultValue: 900, min: 0, step: 1 },
+    "id": "fee-chain",
+    "name": "Калькулятор комиссии маркетплейса",
+    "slug": "fee-chain",
+    "fullPath": "/business/fee-chain/",
+    "category": "business",
+    "icon": "package",
+    "popularity": 44,
+    "isNew": false,
+    "shortDescription": "Комиссия площадки, эквайринг, логистика и хранение — сразу вся цепочка удержаний.",
+    "seoTitle": "Калькулятор комиссии маркетплейса — выплата продавцу",
+    "seoDescription": "Рассчитайте выплату продавцу после комиссии площадки, эквайринга, логистики и хранения, а также прибыль с учётом себестоимости.",
+    "h1": "Калькулятор комиссии маркетплейса",
+    "keywords": [
+        "комиссия маркетплейса",
+        "выплата продавцу",
+        "расчёт комиссии площадки",
+        "прибыль на маркетплейсе"
     ],
-    resultLabels: {
-      "payout": "Выплата продавцу",
-      "commission": "Комиссия площадки",
-      "acquiring": "Эквайринг",
-      "logistics": "Логистика",
-      "storage": "Хранение",
-      "fees": "Удержано всего",
-      "share": "Доля удержаний",
-      "profit": "Прибыль",
-      "margin": "Рентабельность к цене",
+    "fields": [
+        {
+            "name": "price",
+            "label": "Цена товара",
+            "type": "number",
+            "defaultValue": 2000,
+            "min": 0,
+            "step": 1,
+            "unit": "₽"
+        },
+        {
+            "name": "commissionPct",
+            "label": "Комиссия площадки",
+            "type": "number",
+            "defaultValue": 17,
+            "min": 0,
+            "max": 100,
+            "step": 0.1,
+            "unit": "%"
+        },
+        {
+            "name": "acquiringPct",
+            "label": "Эквайринг",
+            "type": "number",
+            "defaultValue": 1.5,
+            "min": 0,
+            "max": 100,
+            "step": 0.1,
+            "unit": "%"
+        },
+        {
+            "name": "logistics",
+            "label": "Логистика за отправление",
+            "type": "number",
+            "defaultValue": 55,
+            "min": 0,
+            "step": 1,
+            "unit": "₽"
+        },
+        {
+            "name": "storage",
+            "label": "Хранение за отправление",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "step": 1,
+            "optional": true,
+            "unit": "₽"
+        },
+        {
+            "name": "cost",
+            "label": "Себестоимость товара",
+            "type": "number",
+            "defaultValue": 900,
+            "min": 0,
+            "step": 1,
+            "unit": "₽"
+        }
+    ],
+    "resultLabels": {
+        "payout": "Выплата продавцу",
+        "commission": "Комиссия площадки",
+        "acquiring": "Эквайринг",
+        "logistics": "Логистика",
+        "storage": "Хранение",
+        "fees": "Удержано всего",
+        "share": "Доля удержаний",
+        "profit": "Прибыль",
+        "margin": "Рентабельность к цене"
     },
-    howToUse: [
-      "Введите цену, по которой товар продаётся покупателю.",
-      "Укажите ставку комиссии площадки и эквайринга из своего тарифа.",
-      "Добавьте логистику и хранение за отправление, если они удерживаются отдельно.",
-      "Впишите себестоимость, чтобы увидеть прибыль, а не только выплату.",
-    ],
-    howItWorks:
-      "Комиссия и эквайринг считаются долями от цены товара, а логистика и хранение прибавляются к ним фиксированными суммами. Выплата продавцу = цена минус все удержания; прибыль = выплата минус себестоимость.",
-    example: "Товар за 2000 ₽ при комиссии 17 %, эквайринге 1,5 % и логистике 55 ₽ даёт выплату 1575 ₽ и прибыль 675 ₽ при себестоимости 900 ₽.",
-    faq: [
-      { q: "Проценты берутся от цены или от остатка?", a: "От цены товара. Площадки считают удержания именно так, а последовательное удержание процентов друг от друга занизило бы итоговую сумму." },
-      { q: "Почему логистика вводится за отправление?", a: "Потому что она не зависит от цены: доставка одинакова и для товара за 500 ₽, и за 5000 ₽. Проценты и фиксированные суммы поэтому вводятся отдельно." },
-      { q: "Что делать, если хранение не удерживается?", a: "Оставьте поле пустым или нулевым — строка хранения тогда просто не появится в результате, а расчёт останется верным." },
-      { q: "Почему прибыль отличается от выплаты?", a: "Выплата — это деньги, которые придут от площадки. Прибыль остаётся после вычета себестоимости товара, и именно она показывает, оправдана ли цена." },
-      { q: "Удерживает ли площадка налог с продавца?", a: "Нет. Площадка удерживает только свои комиссии и услуги, а налог вы платите сами с полученного дохода — он зависит от вашего режима и здесь не считается." },
-    ],
-    relatedCalculatorIds: ["shipping-per-unit", "contribution-margin", "margin-calculator"],
+    "relatedCalculatorIds": [
+        "shipping-per-unit",
+        "contribution-margin",
+        "margin-calculator"
+    ] ,
+    ...contractContent.ru,
   },
 };

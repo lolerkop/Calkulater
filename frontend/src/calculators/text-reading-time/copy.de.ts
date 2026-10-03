@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
@@ -13,4 +14,5 @@ export const textReadingTimeCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Finde heraus, wie lange ein Text still gelesen und wie lange er laut vorgelesen dauert, aus der Wortzahl oder aus dem Text selbst.',
   h1: 'Rechner für die Lesedauer',
   keywords: ['Lesedauer berechnen', 'Redezeit berechnen', 'wie lange dauert das Lesen', 'Wörter in Minuten', 'Woerter in Minuten'],
+  ...contractContent.de
 };

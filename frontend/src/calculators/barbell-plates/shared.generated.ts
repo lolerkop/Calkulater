@@ -12,7 +12,6 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
-      'Из': 'From',
       'В': 'To',
       'Вес': 'Weight',
     },
@@ -20,7 +19,6 @@ export const shared: CalculatorLocalization = {
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
-      'Из': 'З',
       'В': 'У',
       'Вес': 'Вага',
     },
@@ -28,7 +26,6 @@ export const shared: CalculatorLocalization = {
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
-      'Из': 'Von',
       'В': 'Nach',
       'Вес': 'Gewicht',
     },
@@ -36,7 +33,6 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
-      'Из': 'De',
       'В': 'A',
       'Вес': 'Peso',
     },

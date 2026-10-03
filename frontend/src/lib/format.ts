@@ -113,8 +113,7 @@ export type NumberLocale = 'ru' | 'uk' | 'en' | string;
  * запятая. Точечные разряды в ru никогда не были контрактом: Intl для ru-RU
  * группирует неразрывным пробелом и точку не выводит.
  */
-export function parseLocalizedNumber(value: string | number, locale: NumberLocale = 'ru'): number | null {
-  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+function normalizedNumberText(value: string, locale: NumberLocale): string | null {
 
   // Все виды пробелов — один и тот же разделитель разрядов.
   const spaced = value.trim().replace(/[\s\u00a0\u202f\u2009]+/g, ' ');
@@ -176,8 +175,25 @@ export function parseLocalizedNumber(value: string | number, locale: NumberLocal
   }
 
   if (!/^\d+(?:\.\d+)?$/.test(normalized)) return null;
+  return `${negative ? '-' : ''}${normalized}`;
+}
+
+
+export function parseLocalizedNumber(value: string | number, locale: NumberLocale = 'ru'): number | null {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+  const normalized = normalizedNumberText(value, locale);
+  if (normalized === null) return null;
   const parsed = Number(normalized);
-  return Number.isFinite(parsed) ? (negative ? -parsed : parsed) : null;
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+/** Inspect the accepted decimal text before binary rounding can erase its fraction. */
+export function isIntegralNumberText(value: string | number, locale: NumberLocale = 'ru'): boolean | null {
+  if (typeof value === 'number') return Number.isFinite(value) ? Number.isInteger(value) : null;
+  const normalized = normalizedNumberText(value, locale);
+  if (normalized === null) return null;
+  const fraction = normalized.split('.')[1] ?? '';
+  return !/[1-9]/.test(fraction);
 }
 
 export function toNumber(v: string | number | boolean | undefined, fallback = 0): number {

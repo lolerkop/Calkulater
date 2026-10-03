@@ -1,11 +1,12 @@
+import { mathWave8ContractContent } from './contractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
 // `src/data/esCalculatorContent.ts`.
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const romanNumeralsCopyEs: CalculatorSeoCopy = {
+export const romanNumeralsCopyEs: CalculatorCopy = {
   name: "Conversor de números romanos",
   slug: "numeros-romanos",
   shortDescription: "Convierte entre números romanos y arábigos en ambos sentidos.",
@@ -13,4 +14,5 @@ export const romanNumeralsCopyEs: CalculatorSeoCopy = {
   seoDescription: "Convierte números arábigos a numeración romana y números romanos de vuelta a cifras, del 1 al 3999.",
   h1: "Conversor de números romanos",
   keywords: ["números romanos", "de romano a arábigo", "número a romano"],
+  ...mathWave8ContractContent.es,
 };

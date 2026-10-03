@@ -44,4 +44,16 @@ export const ohmsLawReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: { mode: 'ir', current: -1, resistance: 470 },
     expectPrimary: '—',
   },
+  {
+    name: "миллиамперы в видимом примере: 5/250 = 0,020 А",
+    inputs: { mode: 'vr', voltage: 5, resistance: 250 },
+    expectPrimary: '0,020 А',
+    expectSecondary: [{ label: 'Мощность', value: '0,10 Вт' }],
+  },
+  {
+    name: "нулевой ток при заданном сопротивлении: U = IR = 0",
+    inputs: { mode: 'ir', current: 0, resistance: 250 },
+    expectPrimary: '0,00 В',
+    expectSecondary: [{ label: 'Мощность', value: '0,00 Вт' }],
+  },
 ];

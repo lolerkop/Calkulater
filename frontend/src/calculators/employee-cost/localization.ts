@@ -1,6 +1,7 @@
-import type { CalculatorLocalization } from '../../lib/platform/types';
+import type { CalculatorLocalization, CalculatorLocaleBundle, TranslatedLocale } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
-export const localization: CalculatorLocalization = {
+const previousLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'gross': 'Bruttogehalt, €',
@@ -83,3 +84,47 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+const contractOverrides: Record<TranslatedLocale, CalculatorLocaleBundle> = {
+  "en": {
+    "fields": {
+      "gross": "Gross salary before deductions"
+    },
+    "values": {
+      "Ставка взносов должна быть от нуля до двухсот процентов": "The entered contribution rate must be between zero and two hundred percent"
+    }
+  },
+  "uk": {
+    "fields": {
+      "gross": "Нарахований оклад до утримань"
+    },
+    "values": {
+      "Ставка взносов должна быть от нуля до двухсот процентов": "Введена ставка внесків має бути від нуля до двохсот відсотків"
+    }
+  },
+  "de": {
+    "fields": {
+      "gross": "Bruttogehalt vor Abzügen"
+    },
+    "values": {
+      "Ставка взносов должна быть от нуля до двухсот процентов": "Der eingegebene Beitragssatz muss zwischen null und zweihundert Prozent liegen"
+    }
+  },
+  "es": {
+    "fields": {
+      "gross": "Salario bruto antes de deducciones"
+    },
+    "values": {
+      "Ставка взносов должна быть от нуля до двухсот процентов": "El tipo de aportación introducido debe estar entre cero y doscientos por ciento"
+    }
+  }
+};
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(contractOverrides).map(([locale, additions]) => {
+    const key = locale as keyof typeof marketingScalarValues;
+    const prior = previousLocalization[key];
+    const nativeFields = Object.fromEntries(Object.entries(prior?.fields ?? {}).map(([name, label]) => [name, label.replace(/, [₽$₴€%]$/, '')]));
+    return [locale, { ...prior, fields: { ...nativeFields, ...additions.fields }, values: { ...prior?.values, ...marketingScalarValues[key], ...additions.values } }];
+  }),
+);

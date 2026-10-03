@@ -1,6 +1,7 @@
-import type { CalculatorLocalization } from '../../lib/platform/types';
+import type { CalculatorLocalization, CalculatorLocaleBundle, TranslatedLocale } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
-export const localization: CalculatorLocalization = {
+const previousLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'sent': 'Versandte E-Mails',
@@ -87,3 +88,47 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+const contractOverrides: Record<TranslatedLocale, CalculatorLocaleBundle> = {
+  "en": {
+    "fields": {
+      "opened": "Unique delivered emails with a recorded open",
+      "clicked": "Unique delivered emails with a recorded click"
+    },
+    "values": {
+      "Кликов не может быть больше, чем доставлено": "Unique clicked emails cannot exceed delivered emails"}
+  },
+  "uk": {
+    "fields": {
+      "opened": "Унікальні доставлені листи з відкриттям",
+      "clicked": "Унікальні доставлені листи з кліком"
+    },
+    "values": {
+      "Кликов не может быть больше, чем доставлено": "Унікальних листів із кліком не може бути більше за доставлені"}
+  },
+  "de": {
+    "fields": {
+      "opened": "Einmalig gezählte zugestellte E-Mails mit Öffnung",
+      "clicked": "Einmalig gezählte zugestellte E-Mails mit Klick"
+    },
+    "values": {
+      "Кликов не может быть больше, чем доставлено": "Einmalig gezählte E-Mails mit Klick dürfen Zustellungen nicht übersteigen"}
+  },
+  "es": {
+    "fields": {
+      "opened": "Correos entregados únicos con apertura registrada",
+      "clicked": "Correos entregados únicos con clic registrado"
+    },
+    "values": {
+      "Кликов не может быть больше, чем доставлено": "Los correos únicos con clic no pueden superar los entregados"}
+  }
+};
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(contractOverrides).map(([locale, additions]) => {
+    const key = locale as keyof typeof marketingScalarValues;
+    const prior = previousLocalization[key];
+    const nativeFields = Object.fromEntries(Object.entries(prior?.fields ?? {}).map(([name, label]) => [name, label.replace(/, [₽$₴€%]$/, '')]));
+    return [locale, { ...prior, fields: { ...nativeFields, ...additions.fields }, values: { ...prior?.values, ...marketingScalarValues[key], ...additions.values } }];
+  }),
+);

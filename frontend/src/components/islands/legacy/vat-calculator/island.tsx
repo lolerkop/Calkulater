@@ -5,15 +5,18 @@
 import CalculatorIsland from '../../CalculatorIsland';
 import type { CalculatorClientRuntime } from '../../../../lib/platform/runtime';
 import { calcVat } from '../../../../lib/calculators/vat';
-import { shared } from './shared.generated';
+
 
 const runtime: CalculatorClientRuntime = {
   compute: calcVat,
-  localization: shared,
+
 };
 
-type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'>;
+type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'> & {
+  runtimeLocalization: NonNullable<CalculatorClientRuntime['localization']>;
+};
 
 export default function VatCalculatorLegacyIsland(props: Props) {
-  return <CalculatorIsland {...props} runtime={runtime} />;
+  const { runtimeLocalization, ...islandProps } = props;
+  return <CalculatorIsland {...islandProps} runtime={{ ...runtime, localization: runtimeLocalization }} />;
 }

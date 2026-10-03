@@ -1,18 +1,10 @@
+import { choice } from '../../lib/platform/financeWave14Input';
+import { number as toNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
 
-// Возраст питомца в человеческих годах по ветеринарной таблице.
-//
-// Пересчёт нелинеен, и правило «умножить на семь» неверно именно в самом
-// начале: за первый год животное проходит путь примерно до пятнадцати
-// человеческих лет, за второй добавляет ещё около девяти, и только потом
-// прибавка становится постоянной. У крупных собак эта постоянная прибавка
-// заметно больше — они стареют быстрее мелких, и разница видна как раз
-// в поздних годах, а не в щенячьих.
-//
-// Таблица маленькая и принадлежит калькулятору: общего загрузчика наборов
-// данных здесь нет и не требуется.
+// Illustrative piecewise age scale; coefficients are calculator-owned, not a validated veterinary chart.
 const SPECIES: Record<string, { first: number; second: number; perYear: number }> = {
   cat: { first: 15, second: 9, perYear: 4 },
   'dog-small': { first: 15, second: 9, perYear: 4 },
@@ -21,7 +13,8 @@ const SPECIES: Record<string, { first: number; second: number; perYear: number }
 
 export const compute: CalcFunction = (inputs) => {
   const years = toNumber(inputs.years);
-  const species = SPECIES[toStr(inputs.species, 'cat')];
+  const kind = choice(inputs.species, ['cat', 'dog-small', 'dog-large'] as const, 'cat');
+  const species = kind === null ? null : SPECIES[kind];
 
   const fail = (message: string) => ({
     primary: { label: 'Возраст в человеческих годах', value: '—' },
@@ -29,6 +22,7 @@ export const compute: CalcFunction = (inputs) => {
   });
 
   if (!species) return fail('Выберите вид питомца из списка');
+  if (years === null) return fail('Введите корректные числовые данные');
   if (!(years > 0)) return fail('Возраст должен быть больше нуля');
 
   const human = years <= 1
@@ -36,9 +30,11 @@ export const compute: CalcFunction = (inputs) => {
     : years <= 2
       ? species.first + species.second * (years - 1)
       : species.first + species.second + species.perYear * (years - 2);
+  if (!validOutput(human, true)) return fail('Результат вне допустимого диапазона');
   const num = (value: number) => formatMeasure(value, fmtNumber);
 
   return {
+    note: 'Условная шкала 15/9/4 или 15/9/7, а не измерение здоровья, биологического возраста или срока жизни. Прибавка в последней строке относится к годам после второго.',
     primary: { label: 'Возраст в человеческих годах', value: num(human) },
     secondary: [
       { label: 'Возраст питомца, лет', value: num(years) },

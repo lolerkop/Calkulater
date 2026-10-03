@@ -1,59 +1,16 @@
 import type { CalcFunction, CalcResultTable } from '../../lib/types';
-import { fmtNumber, parseLocalizedNumber, toStr } from '../../lib/format';
-
-// Стоимость подписок, приведённая к месяцу.
-//
-// Строка это название, цена и период В МЕСЯЦАХ: последние ДВА числа читаются
-// как цена и период, всё перед ними — название. Период числом, а не словом,
-// потому что умолчание поля не имеет пути локализации: «год» утекло бы в
-// английские данные, а «12» одинаково читается везде.
-//
-// Годовая сумма считается от НЕокруглённого месячного итога: округлять
-// промежуточное значение и потом умножать на двенадцать — верный способ
-// разойтись с самим собой на несколько рублей.
-
-const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
-const tokenize = (raw: string): string[] =>
-  raw.replace(/,(?=\s|$)/g, ' ').split(/[\s;]+/).filter(Boolean);
-
-export const compute: CalcFunction = (inputs) => {
-  const fail = (message: string) => ({
-    primary: { label: 'В месяц', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  const rows: Array<{ name: string; price: number; months: number; perMonth: number }> = [];
-  for (const line of toStr(inputs.items, '').split('\n')) {
-    const text = line.trim();
-    if (!text) continue;
-    const tokens = tokenize(text);
-    if (tokens.length < 3) return fail(`Нужны название, цена и период в месяцах в строке: ${text}`);
-    const months = parseLocalizedNumber(tokens[tokens.length - 1], 'ru');
-    const price = parseLocalizedNumber(tokens[tokens.length - 2], 'ru');
-    if (price === null || months === null) return fail(`Цена и период должны быть числами в строке: ${text}`);
-    if (price < 0) return fail('Цена не может быть отрицательной');
-    if (!(months > 0)) return fail(`Период в месяцах должен быть больше нуля в строке: ${text}`);
-    rows.push({ name: tokens.slice(0, -2).join(' '), price, months, perMonth: price / months });
-  }
-  if (rows.length === 0) return fail('Введите хотя бы одну подписку');
-
-  const perMonth = rows.reduce((sum, r) => sum + r.perMonth, 0);
-  const top = rows.reduce((a, b) => (b.perMonth > a.perMonth ? b : a));
-
-  const table: CalcResultTable = {
-    title: 'Подписки в пересчёте на месяц',
-    columns: ['Подписка', 'Цена', 'Месяцев', 'В месяц'],
-    rows: rows.map((r) => [r.name, fmtNumber(r.price, 2), fmtNumber(r.months, 0), fmtNumber(r.perMonth, 2)]),
-  };
-
-  return {
-    primary: { label: 'В месяц', value: money(perMonth) },
-    secondary: [
-      { label: 'В год', value: money(perMonth * 12) },
-      { label: 'Подписок', value: fmtNumber(rows.length, 0) },
-      { label: 'Самая дорогая', value: top.name },
-      { label: 'Её вклад в месяц', value: money(top.perMonth) },
-    ],
-    table,
-  };
+import { fmtNumber } from '../../lib/format';
+import { read, finite, exact, times, add, evaluated, scalar, decimal, ddiv, dadd, dmul, decimalValue, decimalScalar, decimalMoney, type Decimal, INPUT, RANGE } from '../../lib/calculators/householdWave17Numeric';
+export const compute: CalcFunction = inputs => {
+ const fail=(value:string)=>({primary:{label:'В месяц',value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ if(typeof inputs.items!=='string')return fail(INPUT);
+ const lines=inputs.items.split('\n').map(x=>x.trim()).filter(Boolean);if(!lines.length)return fail('Введите хотя бы одну подписку');if(lines.length>1000)return fail('Не больше 1000 подписок за один расчёт');
+ const rows:{name:string;price:number;months:number;perMonth:number;fraction:Decimal}[]=[];
+ for(const line of lines){const t=line.replace(/,(?=\s|$)/g,' ').split(/[\s;]+/).filter(Boolean);if(t.length<3)return fail('Нужны название, цена и период в месяцах');
+  const price=read(t.at(-2)),months=read(t.at(-1));if(!finite(price,months))return fail('Цена и период должны быть конечными числами');if(price<0)return fail('Цена не может быть отрицательной');if(months<=0)return fail('Период в месяцах должен быть больше нуля');
+  const fraction=ddiv(decimal(price),decimal(months)),perMonth=decimalValue(fraction);if(!finite(perMonth))return fail(RANGE);rows.push({name:t.slice(0,-2).join(' '),price,months,perMonth,fraction});}
+ const monthlyD=rows.reduce((a,r)=>dadd(a,r.fraction),decimal(0)),monthly=decimalValue(monthlyD),annualD=dmul(monthlyD,decimal(12)),annual=decimalValue(annualD);if(!finite(monthly,annual))return fail(RANGE);
+ const top=rows.reduce((a,b)=>b.fraction.n*a.fraction.d>a.fraction.n*b.fraction.d?b:a);
+ const table:CalcResultTable={title:'Подписки в пересчёте на месяц',columns:['Подписка','Цена','Месяцев','В месяц'],rows:rows.map(r=>[r.name,scalar(r.price,2),r.months===Math.trunc(r.months)&&Number.isSafeInteger(r.months)?fmtNumber(r.months,0):r.months.toString().replace('.',','),decimalScalar(r.fraction,2)])};
+ return {primary:{label:'В месяц',value:decimalMoney(monthlyD)},secondary:[{label:'В год',value:decimalMoney(annualD)},{label:'Подписок',value:fmtNumber(rows.length,0)},{label:'Самая дорогая',value:top.name},{label:'Её вклад в месяц',value:decimalMoney(top.fraction)}],table};
 };

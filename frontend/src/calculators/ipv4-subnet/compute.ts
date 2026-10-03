@@ -1,5 +1,5 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 
 // Разбор сети IPv4 по адресу и длине префикса.
 //
@@ -20,9 +20,13 @@ const OCTET = /^\d{1,3}$/;
 const dotted = (value: number) =>
   [24, 16, 8, 0].map((shift) => (value >>> shift) & 255).join('.');
 
+
+import { integerInput } from '../../lib/platform/strictNumericInput';
+
+
 export const compute: CalcFunction = (inputs) => {
-  const address = toStr(inputs.address, '').trim();
-  const prefix = toNumber(inputs.prefix);
+  const address = typeof inputs.address === 'string' ? inputs.address.trim() : '';
+  const prefix = integerInput(inputs.prefix) ?? NaN;
 
   const fail = (message: string) => ({
     primary: { label: 'Адрес сети', value: '—' },

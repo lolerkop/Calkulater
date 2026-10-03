@@ -36,4 +36,6 @@ export const readingSpeedReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: { words: 0, minutes: 12 },
     expectPrimary: '—',
   },
+  {"name": "округление времени книги переносит минуты в часы", "inputs": {"words": 150, "minutes": 149.5, "bookWords": 120}, "expectPrimary": "1 слов/мин", "expectSecondary": [{"label": "Время на книгу", "value": "2 ч 0 мин"}]},
+  {"name": "отрицательный необязательный объём книги отклоняется", "inputs": {"words": 3000, "minutes": 12, "bookWords": -1}, "expectPrimary": "—"},
 ];

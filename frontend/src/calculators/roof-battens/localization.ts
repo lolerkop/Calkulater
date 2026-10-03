@@ -1,14 +1,15 @@
+import { addBuildingWave16Messages } from '../rafters/buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'area': 'Dachfläche, m²',
-      'step': 'Lattenabstand, m',
-      'battenLength': 'Lattenlänge, m',
-      'sectionWidth': 'Breite des Querschnitts, mm',
-      'sectionHeight': 'Höhe des Querschnitts, mm',
-      'waste': 'Zuschlag, %',
+      'area': "Dachfläche",
+      'step': "Lattenabstand",
+      'battenLength': "Lattenlänge",
+      'sectionWidth': "Breite des Querschnitts",
+      'sectionHeight': "Höhe des Querschnitts",
+      'waste': "Zuschlag",
     },
     results: {
       'Погонных метров': 'Laufmeter',
@@ -31,7 +32,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { "area": "Roof area, m²", "step": "Batten spacing, m", "battenLength": "Batten length, m", "sectionWidth": "Section width, mm", "sectionHeight": "Section height, mm", "waste": "Allowance, %" },
+    fields: { "area": "Roof area", "step": "Batten spacing", "battenLength": "Batten length", "sectionWidth": "Section width", "sectionHeight": "Section height", "waste": "Allowance" },
     options: {},
     results: {
       "Погонных метров": "Running metres", "Брусков": "Battens", "Объём древесины": "Timber volume",
@@ -48,7 +49,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { "area": "Площа даху, м²", "step": "Крок обрешітки, м", "battenLength": "Довжина бруска, м", "sectionWidth": "Ширина перерізу, мм", "sectionHeight": "Висота перерізу, мм", "waste": "Запас, %" },
+    fields: { "area": "Площа даху", "step": "Крок обрешітки", "battenLength": "Довжина бруска", "sectionWidth": "Ширина перерізу", "sectionHeight": "Висота перерізу", "waste": "Запас" },
     options: {},
     results: {
       "Погонных метров": "Погонних метрів", "Брусков": "Брусків", "Объём древесины": "Об’єм деревини",
@@ -66,12 +67,12 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "area": "Superficie de la cubierta, m²",
-      "step": "Separación entre rastreles, m",
-      "battenLength": "Largo del rastrel, m",
-      "sectionWidth": "Ancho de la sección, mm",
-      "sectionHeight": "Alto de la sección, mm",
-      "waste": "Margen, %",
+      "area": "Superficie de la cubierta",
+      "step": "Separación entre rastreles",
+      "battenLength": "Largo del rastrel",
+      "sectionWidth": "Ancho de la sección",
+      "sectionHeight": "Alto de la sección",
+      "waste": "Margen",
     },
     options: {},
     results: {
@@ -95,3 +96,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

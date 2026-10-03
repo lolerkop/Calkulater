@@ -1,13 +1,14 @@
 // Доля возвратов. Процентный вывод с перекрёстной проверкой «часть ≤ целого».
 
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
-import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { returnRateCopyEn } from './copy.en';
 import { returnRateCopyUk } from './copy.uk';
 import { returnRateCopyDe } from './copy.de';
 import { returnRateCopyEs } from './copy.es';
 import { returnRateReferenceCases } from './referenceCases';
+
+import { contractContent } from './contractContent';
 
 export const definition: CalculatorDefinitionV2 = {
   id: 'return-rate',
@@ -27,11 +28,9 @@ export const definition: CalculatorDefinitionV2 = {
     popularity: 41,
     isNew: false,
     shortDescription: 'Какая часть заказов вернулась.',
-    longDescription:
-      'Доля возвратов делит вернувшиеся заказы на общее число заказов того же периода. Обе величины целые, а возвратов не может быть больше заказов — такое сочетание означает, что цифры взяты из разных периодов.',
     seoTitle: 'Калькулятор доли возвратов — процент возвращённых заказов',
     seoDescription:
-      'Расчёт доли возвратов по числу возвращённых и общих заказов, вместе с долей, оставленной покупателями.',
+      "Рассчитайте долю уникальных возвращённых заказов в одной группе и её дополнение до 100%. Возвраты и знаменатель должны относиться к одним заказам.",
     h1: 'Калькулятор доли возвратов',
     keywords: ['доля возвратов', 'процент возвратов', 'возвраты в e-commerce'],
     fields: [
@@ -39,16 +38,7 @@ export const definition: CalculatorDefinitionV2 = {
       { name: 'orders', label: 'Всего заказов', type: 'number', defaultValue: 900, min: 0, step: 1 },
     ],
     resultLabels: { rate: 'Доля возвратов', kept: 'Оставлено покупателями' },
-    howToUse: ['Введите число возвращённых заказов.', 'Введите общее число заказов за тот же период.', 'Прочитайте долю возвратов.'],
-    howItWorks: 'Доля возвратов = возвраты ÷ заказы × 100, обе величины за один период.',
-    example: '45 возвратов из 900 заказов дают долю возвратов 5 %.',
-    faq: [
-      { q: 'Что считать возвратом?', a: 'Заказ, который покупатель вернул и получил за него деньги. Отмены до отправки обычно учитывают отдельно.' },
-      { q: 'Почему возвратов не может быть больше заказов?', a: 'Потому что тогда обе величины взяты из разных периодов, и любой полученный процент был бы правдоподобным, но неверным.' },
-      { q: 'Высокая доля возвратов — это всегда плохо?', a: 'Не обязательно. В одежде она нормальна и заложена в цену; в электронике та же цифра сигнализировала бы о проблеме.' },
-      { q: 'Как возвраты влияют на юнит-экономику?', a: 'Они снижают выручку и добавляют логистические расходы, поэтому маржинальный доход стоит пересчитать на оставленные заказы.' },
-    ],
     relatedCalculatorIds: ['aov', 'contribution-margin', 'cac'],
-    disclaimer: FIN_DISCLAIMER,
+    ...contractContent.ru,
   },
 };

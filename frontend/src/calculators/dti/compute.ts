@@ -1,32 +1,27 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtMoney, fmtNumber, toNumber } from '../../lib/format';
+import { displayNumber as text, displayWholeMoney as money } from '../../lib/platform/financeDisplay';
+import { number } from '../../lib/platform/scalarInputDisplay';
 
-// Кредитная нагрузка: какая доля дохода уходит на обслуживание долгов.
-//   DTI = ежемесячные платежи / месячный доход × 100
-// Пороги оценки — распространённые банковские ориентиры, а не закон: до 30 %
-// нагрузка обычно комфортна, до 43 % повышена, выше — высока. Они названы
-// ориентирами и в тексте страницы, чтобы результат не выглядел решением банка.
+// Gross-income ratio. Legacy 30/43 bands are illustrative, not approval limits.
 export const compute: CalcFunction = (inputs) => {
-  const payments = toNumber(inputs.payments);
-  const income = toNumber(inputs.income);
-
-  if (income <= 0) {
-    return {
-      primary: { label: 'Кредитная нагрузка', value: '—' },
-      secondary: [{ label: 'Проверьте данные', value: 'Доход должен быть больше нуля', accent: 'red' as const }],
-    };
-  }
-
+  const payments = number(inputs.payments);
+  const income = number(inputs.income);
+  const fail = (message: string) => ({
+    primary: { label: 'Кредитная нагрузка', value: '—' },
+    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
+  });
+  if (payments === null || income === null) return fail('Введите корректные числовые данные');
+  if (!(income > 0)) return fail('Доход должен быть больше нуля');
+  if (payments < 0) return fail('Платежи не могут быть отрицательными');
   const dti = (payments / income) * 100;
-  const assessment = dti <= 30 ? 'Комфортная' : dti <= 43 ? 'Повышенная' : 'Высокая';
-  const accent = dti <= 30 ? 'green' : dti <= 43 ? 'neutral' : 'red';
-
+  if (!Number.isFinite(dti) || (payments > 0 && dti === 0)) return fail('Результат вне допустимого диапазона');
+  const assessment = dti <= 30 ? 'До 30 % (условная зона)' : dti <= 43 ? 'От 30 до 43 % (условная зона)' : 'Выше 43 % (условная зона)';
   return {
-    primary: { label: 'Кредитная нагрузка', value: `${fmtNumber(dti, 2)} %` },
+    primary: { label: 'Кредитная нагрузка', value: `${text(dti)} %` },
     secondary: [
-      { label: 'Оценка', value: assessment, accent: accent as 'green' | 'neutral' | 'red' },
-      { label: 'Остаётся после платежей', value: fmtMoney(income - payments), accent: income - payments >= 0 ? 'green' : 'red' },
-      { label: 'Платежи по долгам', value: fmtMoney(payments) },
+      { label: 'Оценка', value: assessment, accent: 'neutral' as const },
+      { label: 'Остаётся после платежей', value: money(income - payments) },
+      { label: 'Платежи по долгам', value: money(payments) },
     ],
   };
 };

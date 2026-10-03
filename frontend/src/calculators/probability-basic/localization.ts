@@ -1,6 +1,7 @@
+import { statisticsMessages } from '../stats-descriptive/statisticsMessages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
-export const localization: CalculatorLocalization = {
+const originalLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'mode': 'Was berechnet wird',
@@ -138,3 +139,7 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(originalLocalization).map(([locale, bundle]) => [locale, { ...bundle, values: { ...bundle.values, ...statisticsMessages[locale as keyof typeof statisticsMessages] } }]),
+);

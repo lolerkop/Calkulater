@@ -1,160 +1,129 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { geometryScalarValues } from '../../lib/platform/geometryScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'mode': 'Was bekannt ist',
-      'unit': 'Längeneinheit',
-      'a': 'Erste Seite',
-      'b': 'Zweite Seite',
-      'area': 'Fläche',
+  "de": {
+    "fields": {
+      "mode": "Was bekannt ist",
+      "unit": "Längeneinheit",
+      "a": "Erste Seite",
+      "b": "Zweite Seite",
+      "area": "Fläche"
     },
-    options: {
-      'mm': 'Millimeter',
-      'cm': 'Zentimeter',
-      'm': 'Meter',
-      'sides': 'beide Seiten',
-      'areaSide': 'die Fläche und eine Seite',
+    "options": {
+      "mm": "Millimeter",
+      "cm": "Zentimeter",
+      "m": "Meter",
+      "sides": "beide Seiten",
+      "areaSide": "die Fläche und eine Seite"
     },
-    results: {
-      'Площадь': 'Fläche',
-      'Первая сторона': 'Erste Seite',
-      'Вторая сторона': 'Zweite Seite',
-      'Периметр': 'Umfang',
-      'Диагональ': 'Diagonale',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Площадь": "Fläche",
+      "Первая сторона": "Erste Seite",
+      "Вторая сторона": "Zweite Seite",
+      "Периметр": "Umfang",
+      "Диагональ": "Diagonale",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'мм': 'mm',
-      'см': 'cm',
-      'м': 'm',
-      'мм²': 'mm²',
-      'см²': 'cm²',
-      'м²': 'm²',
-      'мм³': 'mm³',
-      'см³': 'cm³',
-      'м³': 'm³',
-      'Обе стороны должны быть больше нуля': 'Beide Seiten müssen größer als null sein',
-      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
-      'Известная сторона должна быть больше нуля': 'Die bekannte Seite muss größer als null sein',
-      'Значение слишком велико для расчёта': 'Der Wert ist zu groß für die Rechnung',
-    },
+    "values": {
+      ...geometryScalarValues.de,
+      "Обе стороны должны быть больше нуля": "Beide Seiten müssen größer als null sein",
+      "Площадь должна быть больше нуля": "Die Fläche muss größer als null sein",
+      "Известная сторона должна быть больше нуля": "Die bekannte Seite muss größer als null sein",
+      "Значение слишком велико для расчёта": "Der Wert ist zu groß für die Rechnung"
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "mode": "What is known",
       "unit": "Length unit",
       "a": "First side",
       "b": "Second side",
-      "area": "Area",
+      "area": "Area"
     },
-    options: {
-      mm: "millimetres",
-      cm: "centimetres",
-      m: "metres",
+    "options": {
+      "mm": "millimetres",
+      "cm": "centimetres",
+      "m": "metres",
       "sides": "both sides",
-      "areaSide": "the area and one side",
+      "areaSide": "the area and one side"
     },
-    results: {
+    "results": {
       "Площадь": "Area",
       "Первая сторона": "First side",
       "Вторая сторона": "Second side",
       "Периметр": "Perimeter",
       "Диагональ": "Diagonal",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryScalarValues.en,
       "Обе стороны должны быть больше нуля": "Both sides must be greater than zero",
       "Площадь должна быть больше нуля": "The area must be greater than zero",
       "Известная сторона должна быть больше нуля": "The known side must be greater than zero",
-      "Значение слишком велико для расчёта": "The value is too large to calculate",
-    },
+      "Значение слишком велико для расчёта": "The value is too large to calculate"
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "mode": "Що відомо",
       "unit": "Одиниця довжини",
       "a": "Перша сторона",
       "b": "Друга сторона",
-      "area": "Площа",
+      "area": "Площа"
     },
-    options: {
-      mm: "міліметри",
-      cm: "сантиметри",
-      m: "метри",
+    "options": {
+      "mm": "міліметри",
+      "cm": "сантиметри",
+      "m": "метри",
       "sides": "обидві сторони",
-      "areaSide": "площа й одна сторона",
+      "areaSide": "площа й одна сторона"
     },
-    results: {
+    "results": {
       "Площадь": "Площа",
       "Первая сторона": "Перша сторона",
       "Вторая сторона": "Друга сторона",
       "Периметр": "Периметр",
       "Диагональ": "Діагональ",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
-      "мм": "мм",
-      "см": "см",
-      "м": "м",
-      "мм²": "мм²",
-      "см²": "см²",
-      "м²": "м²",
-      "мм³": "мм³",
-      "см³": "см³",
-      "м³": "м³",
+    "values": {
+      ...geometryScalarValues.uk,
       "Обе стороны должны быть больше нуля": "Обидві сторони мають бути більшими за нуль",
       "Площадь должна быть больше нуля": "Площа має бути більшою за нуль",
       "Известная сторона должна быть больше нуля": "Відома сторона має бути більшою за нуль",
-      "Значение слишком велико для расчёта": "Значення завелике для розрахунку",
-    },
+      "Значение слишком велико для расчёта": "Значення завелике для розрахунку"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "unit": "Unidad de longitud",
       "mode": "Dato conocido",
       "a": "Primer lado",
       "b": "Segundo lado",
-      "area": "Área",
+      "area": "Área"
     },
-    options: {
+    "options": {
       "mm": "milímetros",
       "cm": "centímetros",
       "m": "metros",
       "sides": "ambos lados",
-      "areaSide": "el área y un lado",
+      "areaSide": "el área y un lado"
     },
-    results: {
+    "results": {
       "Площадь": "Área",
       "Первая сторона": "Primer lado",
       "Вторая сторона": "Segundo lado",
       "Периметр": "Perímetro",
       "Диагональ": "Diagonal",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryScalarValues.es,
       "Значение слишком велико для расчёта": "El valor es demasiado grande para calcularlo",
       "Обе стороны должны быть больше нуля": "Ambos lados deben ser mayores que cero",
       "Площадь должна быть больше нуля": "El área debe ser mayor que cero",
-      "Известная сторона должна быть больше нуля": "El lado conocido debe ser mayor que cero",
-    },
-  },
+      "Известная сторона должна быть больше нуля": "El lado conocido debe ser mayor que cero"
+    }
+  }
 };

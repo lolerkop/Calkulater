@@ -1,14 +1,8 @@
 import type { CalculatorContextualField } from '../../lib/platform/types';
 
-// Искомый член пропорции.
-//
-// Спрятать его было нельзя: `showIf` показывает поле при совпадении значения,
-// а здесь нужно обратное — скрыть ровно один член из четырёх. Добавлять в ядро
-// «показывать, если не равно» ради одного калькулятора не стали: тот же смысл
-// выражается контекстным полем, которое принадлежит калькулятору. Поле
-// остаётся на месте, но становится только для чтения и подписано как
-// вычисляемое, поэтому в него не набирают значение, которое всё равно будет
-// заменено.
+// Static showIf.oneOf rules now hide the computed field before rendering,
+// validation and sharing. The old read-only hook remains for direct callers;
+// it does not supply the computed value and is not the visibility mechanism.
 const SUFFIX: Record<string, string> = { ru: ' (вычисляется)', en: ' (computed)', uk: ' (обчислюється)' };
 
 export const contextualField: CalculatorContextualField = (field, values, locale) => {

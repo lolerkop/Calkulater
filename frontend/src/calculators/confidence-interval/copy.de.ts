@@ -1,11 +1,12 @@
+import { mathWave8ContractContent } from './contractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
 // `src/data/deContent/`.
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const confidenceIntervalCopyDe: CalculatorSeoCopy = {
+export const confidenceIntervalCopyDe: CalculatorCopy = {
   name: 'Rechner für das Konfidenzintervall',
   slug: 'konfidenzintervall-rechner',
   shortDescription: 'Konfidenzintervall für einen Mittelwert aus Stichprobenumfang, Standardabweichung und Konfidenzniveau.',
@@ -13,4 +14,5 @@ export const confidenceIntervalCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Berechne ein Konfidenzintervall für einen Mittelwert aus Stichprobenmittel, Standardabweichung, Stichprobenumfang und Konfidenzniveau.',
   h1: 'Rechner für das Konfidenzintervall',
   keywords: ['Konfidenzintervall berechnen', 'Vertrauensbereich', 'Standardfehler', 'Konfidenzniveau'],
+  ...mathWave8ContractContent.de,
 };

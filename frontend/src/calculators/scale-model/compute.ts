@@ -1,72 +1,34 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
-
-// Масштаб модели: пересчёт между натурой и моделью при масштабе 1:N.
-//
-// Решается в три стороны, потому что вопрос приходит с трёх концов: каким
-// выйдет размер модели, какой размер был у натуры и в каком масштабе сделана
-// уже готовая пара размеров.
-//
-// Отличие от пропорции: та решает безымянное a : b = c : d по любому из
-// четырёх членов, и посетителю нужно самому сообразить, куда поставить
-// знаменатель. Здесь знаменатель масштаба — первоклассный вход в словаре
-// моделиста (1:87, 1:43, 1:72), ответ несёт миллиметры, а найденный масштаб
-// печатается записью «1:N», а не безымянным числом. Тот же приём, что у
-// соотношения сторон экрана рядом с общим калькулятором отношений.
-const MODE_LABEL: Record<string, string> = {
-  toModel: 'Размер модели',
-  toReal: 'Размер натуры',
-  findScale: 'Масштаб',
-};
-
-export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'toModel');
-  const real = toNumber(inputs.real);
-  const model = toNumber(inputs.model);
-  const scale = toNumber(inputs.scale);
-  const label = MODE_LABEL[mode] ?? MODE_LABEL.toModel;
-  const fail = (message: string) => ({
-    primary: { label, value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  const mm = (value: number) => `${formatMeasure(value, fmtNumber)} мм`;
-
-  let realSize: number;
-  let modelSize: number;
-  let denominator: number;
-  if (mode === 'toReal') {
-    if (!(scale > 0)) return fail('Знаменатель масштаба должен быть больше нуля');
-    if (!(model > 0)) return fail('Размер модели должен быть больше нуля');
-    denominator = scale;
-    modelSize = model;
-    realSize = model * scale;
-  } else if (mode === 'findScale') {
-    if (!(real > 0)) return fail('Размер натуры должен быть больше нуля');
-    if (!(model > 0)) return fail('Размер модели должен быть больше нуля');
-    realSize = real;
-    modelSize = model;
-    denominator = real / model;
-  } else {
-    if (!(scale > 0)) return fail('Знаменатель масштаба должен быть больше нуля');
-    if (!(real > 0)) return fail('Размер натуры должен быть больше нуля');
-    denominator = scale;
-    realSize = real;
-    modelSize = real / scale;
+import {fmtNumber} from '../../lib/format';
+import {formatQuantity,formatMeasure} from '../../lib/platform/measurement';
+import {readScalar,positiveRatio,option,finitePositive} from '../converterWave10Numeric';
+const LABEL:Record<string,string>={toModel:'Размер модели',toReal:'Размер натуры',findScale:'Масштаб'};
+export const compute:CalcFunction=(inputs)=>{
+ const mode=option(inputs.mode,'toModel',Object.keys(LABEL)),label=mode?LABEL[mode]:LABEL.toModel;
+ const fail=(value:string)=>({primary:{label,value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ if(!mode)return fail('Выберите режим расчёта');
+ let real:number,model:number,scale:number;
+ if(mode==='findScale'){
+  real=readScalar(inputs.real);model=readScalar(inputs.model);
+  if(!finitePositive(real))return fail('Размер натуры должен быть больше нуля');
+  if(!finitePositive(model))return fail('Размер модели должен быть больше нуля');
+  scale=positiveRatio([real],[model]);
+ }else{
+  scale=readScalar(inputs.scale);if(!finitePositive(scale))return fail('Знаменатель масштаба должен быть больше нуля');
+  if(mode==='toReal'){
+   model=readScalar(inputs.model);if(!finitePositive(model))return fail('Размер модели должен быть больше нуля');
+   real=positiveRatio([model,scale],[]);
+  }else{
+   real=readScalar(inputs.real);if(!finitePositive(real))return fail('Размер натуры должен быть больше нуля');
+   model=positiveRatio([real],[scale]);
   }
-
-  const primary =
-    mode === 'findScale'
-      ? `1:${formatMeasure(denominator, fmtNumber)}`
-      : mm(mode === 'toReal' ? realSize : modelSize);
-
-  return {
-    primary: { label, value: primary },
-    secondary: [
-      { label: 'Масштаб', value: `1:${formatMeasure(denominator, fmtNumber)}` },
-      { label: 'Размер натуры', value: mm(realSize) },
-      { label: 'Размер модели', value: mm(modelSize) },
-      { label: 'Натура больше модели во столько раз', value: formatMeasure(realSize / modelSize, fmtNumber) },
-    ],
-  };
+ }
+ if(![real,model,scale].every(finitePositive))return fail('Результат вне числового диапазона');
+ // Keep ordinary historical measure formatting, and retain small/large nonzero values.
+ const q=(n:number)=>n<1e-4||n>=1e12?formatQuantity(n,fmtNumber):formatMeasure(n,fmtNumber);
+ const mm=(n:number)=>`${q(n)} мм`;
+ return {primary:{label,value:mode==='findScale'?`1:${q(scale)}`:mm(mode==='toReal'?real:model)},secondary:[
+  {label:'Масштаб',value:`1:${q(scale)}`},{label:'Размер натуры',value:mm(real)},
+  {label:'Размер модели',value:mm(model)},{label:'Отношение натуры к модели',value:q(scale)},
+ ]};
 };

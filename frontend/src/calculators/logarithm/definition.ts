@@ -9,6 +9,8 @@ import { logarithmCopyDe } from './copy.de';
 import { logarithmCopyEs } from './copy.es';
 import { logarithmReferenceCases } from './referenceCases';
 
+import { contractContent } from './contractContent';
+
 export const definition: CalculatorDefinitionV2 = {
   id: 'logarithm',
   definitionVersion: 1,
@@ -28,8 +30,6 @@ export const definition: CalculatorDefinitionV2 = {
     popularity: 43,
     isNew: false,
     shortDescription: 'Десятичный, натуральный и логарифм по любому основанию.',
-    longDescription:
-      'Находит показатель степени, в которую нужно возвести основание, чтобы получить число. Все три режима считаются одной формулой — натуральный логарифм числа, делённый на натуральный логарифм основания, — а результат сопровождается проверкой возведением в степень.',
     seoTitle: 'Калькулятор логарифма — по основанию 10, натуральный и любой',
     seoDescription:
       'Вычислите логарифм по основанию 10, по основанию e или по любому другому, с проверкой области определения.',
@@ -48,16 +48,7 @@ export const definition: CalculatorDefinitionV2 = {
       { name: 'base', label: 'Основание', type: 'number', defaultValue: 2, min: 0, showIf: { field: 'mode', equals: 'custom' } },
     ],
     resultLabels: { result: 'Логарифм', check: 'Проверка возведением' },
-    howToUse: ['Выберите тип логарифма.', 'Введите число больше нуля.', 'Для произвольного основания введите его.'],
-    howItWorks:
-      'log_b(x) = ln x ÷ ln b; десятичный и натуральный режимы лишь фиксируют основание.',
-    example: 'Логарифм 1024 по основанию 2 равен 10, потому что два в десятой степени даёт 1024.',
-    faq: [
-      { q: 'Почему число должно быть положительным?', a: 'Никакая степень положительного основания не даёт нуля или отрицательного числа, поэтому логарифм там не определён.' },
-      { q: 'Почему основание не может быть единицей?', a: 'Единица в любой степени остаётся единицей, и у уравнения нет единственного ответа.' },
-      { q: 'Что такое e?', a: 'Основание натуральных логарифмов, примерно 2,71828. Оно появляется везде, где рост непрерывен.' },
-      { q: 'Зачем строка проверки?', a: 'Она возводит основание в найденную степень. Совпадение с исходным числом подтверждает ответ сразу.' },
-    ],
     relatedCalculatorIds: ['quadratic-equation', 'proportion', 'modulo'],
+    ...contractContent.ru,
   },
 };

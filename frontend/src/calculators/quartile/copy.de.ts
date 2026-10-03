@@ -1,11 +1,12 @@
+import { mathWave8ContractContent } from './contractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
 // `src/data/deContent/`.
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const quartileCopyDe: CalculatorSeoCopy = {
+export const quartileCopyDe: CalculatorCopy = {
   name: 'Rechner für Quartile und Perzentile',
   slug: 'quartile-rechner',
   shortDescription: 'Quartile, Interquartilsabstand, Whisker-Grenzen und Ausreißer aus einer Zahlenliste.',
@@ -13,4 +14,5 @@ export const quartileCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Berechne Q1, den Median, Q3, den Interquartilsabstand, die Whisker-Grenzen und die Zahl der Ausreißer aus einer Zahlenliste.',
   h1: 'Rechner für Quartile und Perzentile',
   keywords: ['Quartile berechnen', 'Interquartilsabstand', 'Ausreißer', 'Boxplot', 'Ausreisser'],
+  ...mathWave8ContractContent.de,
 };

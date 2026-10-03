@@ -30,4 +30,39 @@ export const densityReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"mode": "rho", "m": 10, "V": 0},
     expectPrimary: "—",
   },
+
+  // Wave 4: fixed expectations derived analytically from the stated model.
+  {
+  "name": "нуль массы в заданном положительном объёме даёт нуль средней плотности",
+  "inputs": {
+    "mode": "rho",
+    "m": 0,
+    "V": 1
+  },
+  "expectPrimary": "0 кг/м³"
+},
+  {
+  "name": "деталь5.4кг в0.002м³ имеет2700кг/м³=2.7г/см³",
+  "inputs": {
+    "mode": "rho",
+    "m": 5.4,
+    "V": 0.002
+  },
+  "expectPrimary": "2 700 кг/м³",
+  "expectSecondary": [
+    {
+      "label": "В граммах на кубический сантиметр",
+      "value": "2,7 г/см³"
+    }
+  ]
+},
+  {
+  "name": "ошибка: нулевая масса не даёт положительный объём приrho>0",
+  "inputs": {
+    "mode": "V",
+    "m2": 0,
+    "rho2": 2700
+  },
+  "expectPrimary": "—"
+},
 ];

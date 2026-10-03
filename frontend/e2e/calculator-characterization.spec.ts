@@ -122,7 +122,7 @@ test('EN results use English digit separators', async ({ page }) => {
 test('EN decimals use a dot while clock times stay untouched', async ({ page }) => {
   await page.goto('/en/fitness/bmi-calculator/?height=180&weight=80');
   await expect(page.getByTestId('calc-result-primary')).toHaveText('24.7');
-  await expect(page.getByTestId('calc-result')).toContainText('59.9–80.7 kg');
+  await expect(page.getByTestId('calc-result')).toContainText('≥ 59.9 and < 81.0 kg');
 
   // A pace is not a separator-bearing number and must survive as it is.
   await page.goto('/en/fitness/running-pace-calculator/');
@@ -137,7 +137,7 @@ test('UK keeps comma decimals and no longer doubles the BMI category', async ({ 
   await page.goto('/uk/fitness/kalkulyator-bmi/?height=180&weight=80');
 
   await expect(page.getByTestId('calc-result-primary')).toHaveText('24,7');
-  await expect(page.getByTestId('calc-result')).toContainText('59,9–80,7 кг');
+  await expect(page.getByTestId('calc-result')).toContainText('≥ 59,9 і < 81,0 кг');
   await expect(page.getByTestId('calc-result')).toContainText('Нормальний діапазон');
   await expect(page.getByTestId('calc-result')).not.toContainText('діапазонльний');
 

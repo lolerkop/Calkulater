@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
@@ -13,4 +14,5 @@ export const readingSpeedCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Miss deine Lesegeschwindigkeit in Wörtern je Minute und schätze, wie lange ein Buch bestimmter Länge dauern würde.',
   h1: 'Rechner für die Lesegeschwindigkeit',
   keywords: ['Lesegeschwindigkeit messen', 'Wörter je Minute', 'WPM Lesetest', 'Woerter je Minute'],
+  ...contractContent.de
 };

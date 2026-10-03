@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 import type { CalculatorSeoCopy } from '../../lib/platform/types';
 
 export const textWordCharCountCopyUk: CalculatorSeoCopy = {
@@ -8,4 +9,5 @@ export const textWordCharCountCopyUk: CalculatorSeoCopy = {
   seoDescription: "Порахуйте слова, символи з пробілами та без пробілів, речення й абзаци в тексті, а також середню довжину слова.",
   h1: "Лічильник слів і символів",
   keywords: ["лічильник слів", "кількість символів", "скільки знаків у тексті"],
+  ...contractContent.uk
 };

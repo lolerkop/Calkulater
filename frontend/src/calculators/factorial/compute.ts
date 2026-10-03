@@ -1,11 +1,11 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, toNumber } from '../../lib/format';
+import { fmtInt } from '../../lib/format';
+import { integerInput } from './numeric';
 
 // Факториал: произведение всех натуральных чисел до n.
 //
-// Считается в целых произвольной длины. Уже 20! больше 2^53, и обычная
-// числовая точность браузера начала бы терять младшие разряды, выдавая
-// округление за точный ответ.
+// BigInt preserves every integer digit. Beyond the safe-integer range,
+// Number cannot guarantee exactness for every integer (20! itself is representable).
 //
 // ГРАНИЦА n ≤ 170 — ПРОДУКТОВАЯ, А НЕ МАТЕМАТИЧЕСКАЯ. Целые произвольной
 // длины считают и 171!, и 10000!; ограничение стоит потому, что 170! — это
@@ -23,19 +23,19 @@ const factorial = (n: number): bigint => {
 // Мантисса берётся из первых цифр строки: перевод в обычное число как раз и
 // потерял бы точность, ради которой считали в целых.
 const scientific = (digits: string) => {
-  const mantissa = `${digits[0]},${digits.slice(1, 7)}`;
+  const mantissa = digits.length === 1 ? digits : `${digits[0]},${digits.slice(1, 7)}`;
   return `≈ ${mantissa} · 10^${digits.length - 1}`;
 };
 
 export const compute: CalcFunction = (inputs) => {
-  const raw = toNumber(inputs.n);
+  const raw = integerInput(inputs.n);
 
   const fail = (message: string) => ({
     primary: { label: 'Факториал', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
-  if (!Number.isInteger(raw)) return fail('Число должно быть целым');
+  if (raw === null) return fail('Число должно быть целым');
   if (raw < 0) return fail('Факториал определён для неотрицательных целых');
   if (raw > MAX_N) return fail('Здесь считаются факториалы до 170: дальше результат перестаёт читаться');
 
@@ -47,7 +47,7 @@ export const compute: CalcFunction = (inputs) => {
     secondary: [
       { label: 'Разрядов в ответе', value: fmtInt(digits.length) },
       { label: 'Научная форма', value: scientific(digits) },
-      { label: 'Запись', value: `${raw}! = ${raw > 0 ? `1 · 2 · … · ${raw}` : '1 по определению'}` },
+      { label: 'Запись', value: `${raw}! = ${raw === 0 ? '1 по определению' : raw === 1 ? '1' : raw === 2 ? '1 · 2' : `1 · 2 · … · ${raw}`}` },
     ],
   };
 };

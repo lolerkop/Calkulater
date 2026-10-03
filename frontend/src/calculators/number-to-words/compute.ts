@@ -1,5 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, toNumber } from '../../lib/format';
+import { fmtInt } from '../../lib/format';
+import { whole as readWhole } from '../converterWave10Numeric';
 
 // Число прописью.
 //
@@ -12,8 +13,8 @@ import { fmtInt, toNumber } from '../../lib/format';
 //
 // Согласование рода живёт в тысячах: «одна тысяча», «две тысячи». Форма
 // масштабного слова выбирается по последним двум цифрам триады, как и требует
-// русская грамматика; в переводе все три формы сходятся в одно слово, и это
-// нормально — многие языки числительные не склоняют.
+// русская грамматика. Украинская карта сохраняет три формы; английская
+// использует неизменные масштабные слова и код RUB в денежной строке.
 const ONES = ['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять',
   'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать',
   'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'];
@@ -71,7 +72,7 @@ const spell = (value: number): string => {
 };
 
 export const compute: CalcFunction = (inputs) => {
-  const value = toNumber(inputs.value);
+  const value = readWhole(inputs.value);
   const fail = (message: string) => ({
     primary: { label: 'Прописью', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],

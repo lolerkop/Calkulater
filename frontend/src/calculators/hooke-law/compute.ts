@@ -1,66 +1,37 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
-
-// Закон Гука: F = k·x, энергия сжатой пружины E = k·x²/2.
-//
-// Решается в три стороны, потому что задача в жизни приходит с разных концов:
-// какую силу даст известная пружина, насколько её сожмёт известная сила и какой
-// жёсткости пружина нужна под заданную пару.
-//
-// Отличие от второго закона Ньютона: там сила связана с массой и ускорением
-// тела, здесь — с деформацией упругого элемента. Общего в них только буква F.
-//
-// Область применимости названа прямо: закон линеен лишь до предела упругости.
-// За ним пружина не возвращается в исходную длину, и формула перестаёт
-// описывать происходящее — расчёт этого не знает и знать не может.
-const MODE_LABEL: Record<string, string> = {
-  force: 'Сила',
-  extension: 'Удлинение',
-  stiffness: 'Жёсткость',
-};
-const MODE_UNIT: Record<string, string> = { force: 'Н', extension: 'м', stiffness: 'Н/м' };
-
-export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'force');
-  const k = toNumber(inputs.k);
-  const x = toNumber(inputs.x);
-  const f = toNumber(inputs.f);
-  const label = MODE_LABEL[mode] ?? MODE_LABEL.force;
-  const fail = (message: string) => ({
-    primary: { label, value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  const q = (value: number, unit: string) => `${formatMeasure(value, fmtNumber)} ${unit}`;
-
-  let value: number;
+import { INPUT, RANGE, MODE, qty } from '../../lib/platform/measurementScalar';
+import { read, exact, times, evaluated, finite, mode } from '../../lib/platform/electronicsNumericInput';
+const labels = { force: 'Сила', extension: 'Удлинение', stiffness: 'Жёсткость' } as const;
+const units = { force: 'Н', extension: 'м', stiffness: 'Н/м' } as const;
+/** F=kx is the signed holding force. The spring's restoring force is −kx. */
+export const compute: CalcFunction = inputs => {
+  const selected = mode(inputs.mode, 'force', ['force', 'extension', 'stiffness']) as keyof typeof labels | null;
+  const label = selected ? labels[selected] : labels.force;
+  const fail = (value: string) => ({ primary: { label, value: '—' }, secondary: [{ label: 'Проверьте данные', value, accent: 'red' as const }] });
+  if (!selected) return fail(MODE);
+  let k = selected === 'stiffness' ? 0 : read(inputs.k);
+  let x = selected === 'extension' ? 0 : read(inputs.x);
+  let f = selected === 'force' ? 0 : read(inputs.f);
+  if (!finite(k, x, f)) return fail(INPUT);
+  if (selected !== 'stiffness' && !(k > 0)) return fail('Жёсткость должна быть больше нуля');
   let energy: number;
-  if (mode === 'extension') {
-    if (!(k > 0)) return fail('Жёсткость должна быть больше нуля');
-    value = f / k;
-    energy = (f * f) / (2 * k);
-  } else if (mode === 'stiffness') {
+  if (selected === 'stiffness') {
     if (x === 0) return fail('Удлинение не может быть нулевым: делить на него нечего');
-    value = f / x;
-    // Сила и деформация — стороны одного события, и знак у них общий: пружину
-    // тянут — она тянет назад. Разошедшиеся знаки дают отрицательную жёсткость
-    // и отрицательную запасённую энергию, а таких величин не бывает. Это не
-    // край диапазона, а несогласованная пара, и отвечать на неё числом нельзя.
-    if (!(value > 0)) return fail('Сила и деформация должны быть направлены в одну сторону');
-    energy = (f * x) / 2;
+    if (f === 0 || Math.sign(f) !== Math.sign(x)) return fail('Сила и деформация должны быть направлены в одну сторону');
+    k = evaluated(exact(f), exact(x));
+    energy = evaluated(times(exact(f), exact(x)), exact(2));
+  } else if (selected === 'extension') {
+    x = evaluated(exact(f), exact(k));
+    energy = evaluated(times(exact(f), exact(f)), times(exact(2), exact(k)));
   } else {
-    if (!(k > 0)) return fail('Жёсткость должна быть больше нуля');
-    value = k * x;
-    energy = (k * x * x) / 2;
+    f = evaluated(times(exact(k), exact(x)));
+    energy = evaluated(times(exact(k), exact(x), exact(x)), exact(2));
   }
-
-  return {
-    primary: { label, value: q(value, MODE_UNIT[mode] ?? 'Н') },
-    secondary: [
-      { label: 'Энергия пружины', value: q(energy, 'Дж') },
-      { label: 'Жёсткость', value: q(mode === 'stiffness' ? value : k, 'Н/м') },
-      { label: 'Удлинение', value: q(mode === 'extension' ? value : x, 'м') },
-      { label: 'Сила', value: q(mode === 'force' ? value : f, 'Н') },
-    ],
-  };
+  if (!finite(k, x, f, energy)) return fail(RANGE);
+  const value = selected === 'stiffness' ? k : selected === 'extension' ? x : f;
+  const q = (n: number, unit: string) => `${qty(n)} ${unit}`;
+  return { primary: { label, value: q(value, units[selected]) }, secondary: [
+    { label: 'Энергия пружины', value: q(energy, 'Дж') }, { label: 'Жёсткость', value: q(k, 'Н/м') },
+    { label: 'Удлинение', value: q(x, 'м') }, { label: 'Сила', value: q(f, 'Н') },
+  ] };
 };

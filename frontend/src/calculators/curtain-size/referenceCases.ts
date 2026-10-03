@@ -10,7 +10,7 @@ export const curtainSizeReferenceCases: readonly CalculatorReferenceCase[] = [
     expectPrimary: "2,7 м",
     expectSecondary: [
       { label: "Полотнищ", value: "1 шт" },
-      { label: "Ширина в сборке", value: "280 см" },
+      { label: "Ширина ткани до сборки", value: "280 см" },
       { label: "Длина отреза", value: "270 см" },
       { label: "Коэффициент сборки", value: "2" },
     ],
@@ -21,7 +21,7 @@ export const curtainSizeReferenceCases: readonly CalculatorReferenceCase[] = [
     expectPrimary: "14,75 м",
     expectSecondary: [
       { label: "Полотнищ", value: "5 шт" },
-      { label: "Ширина в сборке", value: "750 см" },
+      { label: "Ширина ткани до сборки", value: "750 см" },
       { label: "Длина отреза", value: "295 см" },
       { label: "Коэффициент сборки", value: "2,5" },
     ],
@@ -32,7 +32,7 @@ export const curtainSizeReferenceCases: readonly CalculatorReferenceCase[] = [
     expectPrimary: "2 м",
     expectSecondary: [
       { label: "Полотнищ", value: "1 шт" },
-      { label: "Ширина в сборке", value: "280 см" },
+      { label: "Ширина ткани до сборки", value: "280 см" },
       { label: "Длина отреза", value: "200 см" },
       { label: "Коэффициент сборки", value: "2" },
     ],

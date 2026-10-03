@@ -12,29 +12,49 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
       'Площадь': 'Area',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'The result exceeds the numeric range',
+      'Норма': 'Healthy range',
     },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
       'Площадь': 'Площа',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Результат виходить за числовий діапазон',
+      'Норма': 'Нормальний діапазон',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Площадь': 'Fläche',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Das Ergebnis überschreitet den Zahlenbereich',
+      'Норма': 'Normalbereich',
     },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
       'Площадь': 'Área',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'El resultado excede el rango numérico',
+      'Норма': 'Normal',
     },
   },
 };

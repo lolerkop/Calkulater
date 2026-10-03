@@ -1,39 +1,21 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, fmtNumber, toNumber } from '../../lib/format';
+import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { formatMeasure } from '../../lib/platform/measurement';
 
-// Калорийность по коэффициентам Этуотера: белки и углеводы дают 4 ккал
-// на грамм, жиры — 9. Никаких других макронутриентов калькулятор не считает.
-//
-//   ккал = 4 × белки + 9 × жиры + 4 × углеводы
-//
-// Доли считаются от суммы, поэтому при нулевом итоге они неопределены —
-// это и есть единственный недопустимый случай.
-const KCAL_PER_GRAM = { protein: 4, fat: 9, carbs: 4 } as const;
+// Validate the active numeric contract before arithmetic; malformed values must
+// never turn into a valid zero or a health interpretation.
+const number = (value: unknown) => typeof value === 'string' || typeof value === 'number' ? toNumber(value, NaN) : NaN;
 
+// General Atwater4/9/4 energy accounting, not a diet-target calculation.
 export const compute: CalcFunction = (inputs) => {
-  const protein = Math.max(0, toNumber(inputs.protein));
-  const fat = Math.max(0, toNumber(inputs.fat));
-  const carbs = Math.max(0, toNumber(inputs.carbs));
-
-  const fromProtein = protein * KCAL_PER_GRAM.protein;
-  const fromFat = fat * KCAL_PER_GRAM.fat;
-  const fromCarbs = carbs * KCAL_PER_GRAM.carbs;
-  const total = fromProtein + fromFat + fromCarbs;
-
-  if (total <= 0) {
-    return {
-      primary: { label: 'Всего калорий', value: '—' },
-      secondary: [{ label: 'Проверьте данные', value: 'Введите хотя бы один макронутриент', accent: 'red' }],
-    };
-  }
-
-  const share = (part: number) => `${fmtNumber((part / total) * 100, 2)} %`;
-  return {
-    primary: { label: 'Всего калорий', value: `${fmtInt(Math.round(total))} ккал` },
-    secondary: [
-      { label: 'Из белков', value: `${fmtInt(Math.round(fromProtein))} ккал · ${share(fromProtein)}` },
-      { label: 'Из жиров', value: `${fmtInt(Math.round(fromFat))} ккал · ${share(fromFat)}` },
-      { label: 'Из углеводов', value: `${fmtInt(Math.round(fromCarbs))} ккал · ${share(fromCarbs)}` },
-    ],
-  };
+  const fail = (value: string) => ({ primary: { label: 'Всего калорий', value: '—' }, secondary: [{ label: 'Проверьте данные', value, accent: 'red' as const }] });
+  const protein = number(inputs.protein), fat = number(inputs.fat), carbs = number(inputs.carbs);
+  if (![protein, fat, carbs].every(Number.isFinite)) return fail('Введите конечные числа для выбранного режима');
+  if ([protein, fat, carbs].some(x => x < 0)) return fail('Граммы макронутриентов не могут быть отрицательными');
+  const parts = [protein * 4, fat * 9, carbs * 4], total = parts.reduce((sum, x) => sum + x, 0);
+  if (!Number.isFinite(total)) return fail('Результат выходит за числовой диапазон');
+  const energy = (x: number) => `${x >= 1 ? fmtNumber(x, 0) : formatMeasure(x, fmtNumber)} ккал`;
+  const share = (part: number) => total > 0 ? `${fmtNumber((part / total) * 100, 2)} %` : 'доля отсутствует при нулевом итоге';
+  return { primary: { label: 'Всего калорий', value: energy(total) }, secondary: ['Из белков', 'Из жиров', 'Из углеводов'].map((label, i) => ({ label, value: `${energy(parts[i])} · ${share(parts[i])}` })),
+    note: 'Доли относятся к энергии, а не к массе. Клетчатка, полиолы, алкоголь и особые коэффициенты продуктов отдельно не рассчитываются.' };
 };

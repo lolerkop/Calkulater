@@ -2,51 +2,33 @@ import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, toNumber, toStr } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
 
-// Расход калорий по MET-коэффициенту активности.
-//
-// Отличается от суточной нормы тем, что считает не обмен веществ, а конкретное
-// занятие: MET — во сколько раз активность энергозатратнее покоя. Формула
-// ккал = MET × 3,5 × масса(кг) ÷ 200 × минуты стандартна, и тройка с половиной
-// в ней — потребление кислорода в покое, мл/кг/мин.
-//
-// Масса входит множителем, а не поправкой: человек 90 кг на том же велосипеде
-// тратит почти на треть больше, чем человек 70 кг, и «средний» расход из таблиц
-// для него занижен.
-//
-// Значения MET — усреднённые ориентиры, а не измерение. Поэтому список
-// пресетов дополнен ручным вводом: свой коэффициент задаётся напрямую.
+// Validate the active numeric contract before arithmetic; malformed values must
+// never turn into a valid zero or a health interpretation.
+const number = (value: unknown) => typeof value === 'string' || typeof value === 'number' ? toNumber(value, NaN) : NaN;
 
-const PRESET_MET: Record<string, number> = {
-  walking: 3.5,
-  cycling: 7.5,
-  swimming: 8,
-  running: 9.8,
-};
-
+// 2024 Adult Compendium:17160 walking for pleasure,01014 general cycling,
+// 18290 medium crawl~50yd/min,12050 running6–6.3mph. Ages19–59.
+const PRESET_MET = { walking: 3.5, cycling: 7, swimming: 8, running: 9.3 } as const;
 export const compute: CalcFunction = (inputs) => {
   const activity = toStr(inputs.activity, 'cycling');
-  const met = activity === 'custom' ? toNumber(inputs.met) : PRESET_MET[activity] ?? 0;
-  const weightKg = toNumber(inputs.weightKg);
-  const minutes = toNumber(inputs.minutes);
-
-  const fail = (message: string) => ({
-    primary: { label: 'Потрачено калорий', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+  const fail = (value: string) => ({ primary: { label: 'Потрачено калорий', value: '—' }, secondary: [{ label: 'Проверьте данные', value, accent: 'red' as const }] });
+  if (activity !== 'custom' && !Object.hasOwn(PRESET_MET, activity)) return fail('Неизвестный вид активности');
+  const met = activity === 'custom' ? number(inputs.met) : PRESET_MET[activity as keyof typeof PRESET_MET];
+  const weight = number(inputs.weightKg), minutes = number(inputs.minutes);
+  if (![met, weight, minutes].every(Number.isFinite)) return fail('Введите конечные числа для выбранного режима');
   if (!(met > 0)) return fail('Коэффициент MET должен быть больше нуля');
-  if (!(weightKg > 0)) return fail('Масса тела должна быть больше нуля');
-  if (!(minutes > 0)) return fail('Длительность должна быть больше нуля');
-
-  const perMinute = (met * 3.5 * weightKg) / 200;
-  const kcal = perMinute * minutes;
-
-  return {
-    primary: { label: 'Потрачено калорий', value: `${fmtNumber(kcal, 0)} ккал` },
-    secondary: [
-      { label: 'Калорий в минуту', value: formatMeasure(perMinute, fmtNumber) },
-      { label: 'Расход в час', value: `${fmtNumber(perMinute * 60, 0)} ккал` },
-      { label: 'Коэффициент MET', value: formatMeasure(met, fmtNumber) },
-    ],
-  };
+  if (!(weight > 0)) return fail('Масса тела должна быть больше нуля');
+  if (minutes < 0) return fail('Длительность не может быть отрицательной');
+  const rate = met * (weight * 3.5 / 200), kcal = rate * minutes;
+  const rest = weight * 3.5 / 200 * minutes, difference = kcal - rest;
+  if (![rate, kcal, rest, difference, rate * 60].every(Number.isFinite)) return fail('Результат выходит за числовой диапазон');
+  const energy = (x: number) => `${formatMeasure(x, fmtNumber)} ккал`;
+  const roundedEnergy = (x: number) => `${Math.abs(x) >= 1 ? fmtNumber(x, 0) : formatMeasure(x, fmtNumber)} ккал`;
+  return { primary: { label: 'Потрачено калорий', value: roundedEnergy(kcal) }, secondary: [
+    { label: 'Калорий в минуту', value: formatMeasure(rate, fmtNumber) },
+    { label: 'Расход в час', value: roundedEnergy(rate * 60) },
+    { label: 'Коэффициент MET', value: formatMeasure(met, fmtNumber) },
+    { label: 'Расход за то же время при 1 MET', value: energy(rest) },
+    { label: 'Разница с 1 MET', value: energy(difference) },
+  ] };
 };

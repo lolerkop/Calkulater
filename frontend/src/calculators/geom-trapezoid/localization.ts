@@ -1,140 +1,109 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { geometryScalarValues } from '../../lib/platform/geometryScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'unit': 'Längeneinheit',
-      'a': 'Erste Grundseite',
-      'b': 'Zweite Grundseite',
-      'h': 'Höhe',
-      'c': 'Schenkel c',
-      'd': 'Schenkel d',
+  "de": {
+    "fields": {
+      "unit": "Längeneinheit",
+      "a": "Erste Grundseite",
+      "b": "Zweite Grundseite",
+      "h": "Höhe",
+      "c": "Schenkel c",
+      "d": "Schenkel d"
     },
-    options: {
-      'mm': 'Millimeter',
-      'cm': 'Zentimeter',
-      'm': 'Meter',
+    "options": {
+      "mm": "Millimeter",
+      "cm": "Zentimeter",
+      "m": "Meter"
     },
-    results: {
-      'Площадь': 'Fläche',
-      'Средняя линия': 'Mittellinie',
-      'Периметр': 'Umfang',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Площадь": "Fläche",
+      "Средняя линия": "Mittellinie",
+      "Периметр": "Umfang",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'мм': 'mm',
-      'см': 'cm',
-      'м': 'm',
-      'мм²': 'mm²',
-      'см²': 'cm²',
-      'м²': 'm²',
-      'мм³': 'mm³',
-      'см³': 'cm³',
-      'м³': 'm³',
-      'Основания должны быть больше нуля': 'Beide Grundseiten müssen größer als null sein',
-      'Высота должна быть больше нуля': 'Die Höhe muss größer als null sein',
-    },
+    "values": {
+      ...geometryScalarValues.de,
+      "Основания должны быть больше нуля": "Beide Grundseiten müssen größer als null sein",
+      "Высота должна быть больше нуля": "Die Höhe muss größer als null sein"
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "unit": "Length unit",
       "a": "First base",
       "b": "Second base",
       "h": "Height",
       "c": "Leg c",
-      "d": "Leg d",
+      "d": "Leg d"
     },
-    options: {
+    "options": {
       "mm": "millimetres",
       "cm": "centimetres",
-      "m": "metres",
+      "m": "metres"
     },
-    results: {
+    "results": {
       "Площадь": "Area",
       "Средняя линия": "Midline",
       "Периметр": "Perimeter",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryScalarValues.en,
       "Основания должны быть больше нуля": "Both bases must be greater than zero",
-      "Высота должна быть больше нуля": "The height must be greater than zero",
-    },
+      "Высота должна быть больше нуля": "The height must be greater than zero"
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "unit": "Одиниця довжини",
       "a": "Перша основа",
       "b": "Друга основа",
       "h": "Висота",
       "c": "Бічна сторона c",
-      "d": "Бічна сторона d",
+      "d": "Бічна сторона d"
     },
-    options: {
+    "options": {
       "mm": "міліметри",
       "cm": "сантиметри",
-      "m": "метри",
+      "m": "метри"
     },
-    results: {
+    "results": {
       "Площадь": "Площа",
       "Средняя линия": "Середня лінія",
       "Периметр": "Периметр",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
-      "мм": "мм",
-      "см": "см",
-      "м": "м",
-      "мм²": "мм²",
-      "см²": "см²",
-      "м²": "м²",
-      "мм³": "мм³",
-      "см³": "см³",
-      "м³": "м³",
+    "values": {
+      ...geometryScalarValues.uk,
       "Основания должны быть больше нуля": "Основи мають бути більшими за нуль",
-      "Высота должна быть больше нуля": "Висота має бути більшою за нуль",
-    },
+      "Высота должна быть больше нуля": "Висота має бути більшою за нуль"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "unit": "Unidad de longitud",
       "a": "Primera base",
       "b": "Segunda base",
       "h": "Altura",
       "c": "Lado c",
-      "d": "Lado d",
+      "d": "Lado d"
     },
-    options: {
+    "options": {
       "mm": "milímetros",
       "cm": "centímetros",
-      "m": "metros",
+      "m": "metros"
     },
-    results: {
+    "results": {
       "Площадь": "Área",
       "Средняя линия": "Base media",
       "Периметр": "Perímetro",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryScalarValues.es,
       "Основания должны быть больше нуля": "Ambas bases deben ser mayores que cero",
-      "Высота должна быть больше нуля": "La altura debe ser mayor que cero",
-    },
-  },
+      "Высота должна быть больше нуля": "La altura debe ser mayor que cero"
+    }
+  }
 };

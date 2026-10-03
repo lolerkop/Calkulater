@@ -1,0 +1,28 @@
+import {describe,it,expect}from 'vitest';
+import {calcTile}from '../src/lib/calculators/tile';
+import {calcWallpaper}from '../src/lib/calculators/wallpaper';
+import {calcLaminate}from '../src/lib/calculators/laminate';
+import {calcScreed}from '../src/lib/calculators/screed';
+import {calcBrick}from '../src/lib/calculators/brick';
+import {compute as calcPaint}from '../src/calculators/paint-calculator/compute';
+import type{CalcFunction}from '../src/lib/types';
+import oracle from './fixtures/originalityBuildingWave17Independent.json';
+import before from './fixtures/originalityBuildingWave17Before.json';
+import type{BeforePage,OracleCase}from './fixtures/originalityBuildingWave17Types';
+const pages=before.pages as unknown as BeforePage[];
+const cases=oracle.cases as unknown as OracleCase[];
+const runners:Record<string,CalcFunction>={'tile-calculator':calcTile,'wallpaper-calculator':calcWallpaper,'paint-calculator':calcPaint,'laminate-calculator':calcLaminate,'screed-calculator':calcScreed,'brick-calculator':calcBrick};
+const numeric=(s:string)=>Number(s.trim().replace(/[\s\u00a0\u202f]/g,'').match(/^[+-]?\d+(?:[,.]\d+)?(?:·10\^[+-]?\d+)?/)?.[0].replace(',','.').replace('·10^','e'));
+const defaults=(id:string)=>{const p=pages.find(p=>p.id===id&&p.locale==='ru');if(!p)throw Error(id);return p.defaults;};
+describe('Building6 independent Decimal100 numerical contracts',()=>{
+ for(const [i,q]of cases.entries())it(`${q.id} oracle${i}`,()=>{const r=runners[q.id](q.input);expect(r.primary.value).not.toBe('—');const n=numeric(r.primary.value);expect(Number.isFinite(n)).toBe(true);expect(Math.abs(n-q.primary)).toBeLessThanOrEqual(.5000001*10**-q.digits);for(const [label,value]of Object.entries(q.rows)){const row=r.secondary.find(x=>x.label===label);expect(row,label).toBeTruthy();expect(numeric(row!.value)).toBe(value);}});
+ for(const id of Object.keys(runners))it(`${id} unchanged ordinary default payload`,()=>{const p=pages.find(p=>p.id===id&&p.locale==='ru')!;expect(runners[id](p.defaults)).toEqual(p.defaultResult);});
+ for(const id of Object.keys(runners))for(const [field,value]of Object.entries(defaults(id)).filter(([,v])=>typeof v==='number'))for(const bad of[NaN,Infinity,-Infinity,'1e309','1x'])it(`${id} active${field} rejects${String(bad)}`,()=>{const p=pages.find(p=>p.id===id&&p.locale==='ru')!;const f=p.fields.find(f=>f.name===field)!;if(f.showIf&&'equals'in f.showIf&&p.defaults[f.showIf.field as keyof typeof p.defaults]!==f.showIf.equals){expect(runners[id]({...p.defaults,[field]:bad})).toEqual(runners[id](p.defaults));return;}const r=runners[id]({...p.defaults,[field]:bad});expect(r.primary.value).toBe('—');expect(JSON.stringify(r)).not.toMatch(/NaN|Infinity/);});
+ for(const id of['tile-calculator','paint-calculator','screed-calculator','brick-calculator'])it(`${id} unsupported mode`,()=>{expect(runners[id]({...defaults(id),mode:'toString'}).primary.value).toBe('—');});
+ for(const id of Object.keys(runners))it(`${id} negative reserve or pattern rejected`,()=>{const key=id==='wallpaper-calculator'?'pattern':'reserve';expect(runners[id]({...defaults(id),[key]:-1}).primary.value).toBe('—');});
+ for(const id of['wallpaper-calculator','paint-calculator'])for(const value of['1.5','9007199254740990.5','1e-1',Number.MAX_SAFE_INTEGER+1])it(`${id} raw count ${String(value)}`,()=>{expect(runners[id]({...defaults(id),...(id==='paint-calculator'?{mode:'room'}:{}),windows:value}).primary.value).toBe('—');});
+ it('wallpaper no whole strip produces a bounded error',()=>{const r=calcWallpaper({...defaults('wallpaper-calculator'),height:12,rollLength:10});expect(r.primary.value).toBe('—');expect(JSON.stringify(r)).not.toMatch(/Infinity|NaN/);});
+ it('tile exact decimal boundary produces ten tiles and one pack',()=>{const r=calcTile({...defaults('tile-calculator'),mode:'area',manualArea:.9,tileLength:30,tileWidth:30,packArea:.9,reserve:0});expect(numeric(r.primary.value)).toBe(10);expect(numeric(r.secondary.find(r=>r.label==='Количество упаковок')!.value)).toBe(1);});
+ it('positive glue below one kilogram remains visible',()=>{const r=calcTile({...defaults('tile-calculator'),mode:'area',manualArea:.001,reserve:0,glueConsumption:.1});expect(numeric(r.secondary.find(r=>r.label==='Примерный расход клея')!.value)).toBe(.0001);});
+ it('counts beyond safe integer produce an error rather than throwing',()=>{for(const id of Object.keys(runners)){const x={...defaults(id)};for(const f of['length','wallLength','area','manualArea'])if(f in x)(x as Record<string,unknown>)[f]=1e300;expect(()=>runners[id](x)).not.toThrow();expect(runners[id](x).primary.value).toBe('—');}});
+});

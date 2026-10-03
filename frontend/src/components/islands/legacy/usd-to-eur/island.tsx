@@ -5,15 +5,18 @@
 import CalculatorIsland from '../../CalculatorIsland';
 import type { CalculatorClientRuntime } from '../../../../lib/platform/runtime';
 import { calcCurrency } from '../../../../lib/calculators/currency';
-import { shared } from './shared.generated';
+
 
 const runtime: CalculatorClientRuntime = {
   compute: calcCurrency,
-  localization: shared,
+
 };
 
-type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'>;
+type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'> & {
+  runtimeLocalization: NonNullable<CalculatorClientRuntime['localization']>;
+};
 
 export default function UsdToEurLegacyIsland(props: Props) {
-  return <CalculatorIsland {...props} runtime={runtime} />;
+  const { runtimeLocalization, ...islandProps } = props;
+  return <CalculatorIsland {...islandProps} runtime={{ ...runtime, localization: runtimeLocalization }} />;
 }

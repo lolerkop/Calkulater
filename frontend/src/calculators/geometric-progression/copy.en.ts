@@ -1,29 +1,48 @@
 import type { CalculatorCopy } from '../../lib/platform/types';
 
 export const geometricProgressionCopyEn: CalculatorCopy = {
-  name: "Geometric progression calculator",
-  slug: "geometric-progression",
-  shortDescription: "The n-th term, the sum of the series and the terms themselves.",
-  longDescription:
-    "A twin of the arithmetic progression calculator, table included, with two differences that matter. The ratio cannot be zero — a series multiplied by nothing collapses at the second term and is not a progression. And when the ratio is smaller than one in absolute value the sum of the infinite series appears, which is usually why anyone opens a geometric progression in the first place. The representable range is stated openly: at a ratio of ten and fifty terms the last term is ten to the forty-ninth, and printing that as an ordinary number would be quietly dishonest.",
-  seoTitle: "Geometric progression calculator: n-th term and sum",
-  seoDescription: "Work out the n-th term, the sum of the series and the sum of the infinite series of a geometric progression.",
-  h1: "Geometric progression calculator",
-  keywords: ["geometric progression calculator", "n-th term of a geometric sequence", "sum of geometric series", "infinite geometric series"],
-  howToUse: [
+  "name": "Geometric progression calculator",
+  "slug": "geometric-progression",
+  "shortDescription": "The n-th term, the sum of the series and the terms themselves.",
+  "longDescription": "Find the nth term and the sum of the first n terms when each term is the previous one multiplied by r. This page accepts finite a₁, nonzero finite r and an integer n from 1 to 50. a₁ may be negative or zero; negative r alternates the signs of nonzero terms. The table previews twenty terms. For |r| < 1 an infinite-series sum is also shown. Intermediate binary terms and their finite sum are retained exactly until final rounding.",
+  "seoTitle": "Geometric progression calculator: n-th term and sum",
+  "seoDescription": "Find the nth term and finite sum of a geometric progression, plus its infinite sum for |r| < 1. Preview the first twenty terms.",
+  "h1": "Geometric progression calculator",
+  "keywords": [
+    "geometric progression calculator",
+    "n-th term of a geometric sequence",
+    "sum of geometric series",
+    "infinite geometric series"
+  ],
+  "howToUse": [
     "Enter the first term — it may be negative.",
     "Enter the ratio: 2 doubles each step, 0.5 halves it.",
     "Enter how many terms you need, up to fifty.",
-    "The table lists the first twenty terms.",
+    "The table lists the first twenty terms."
   ],
-  howItWorks:
-    "The n-th term is the first term times the ratio to the power of n minus one. The sum is the first term times one minus the ratio to the n-th, divided by one minus the ratio; when the ratio is one the sum is simply the first term times n.",
-  example: "Starting at 2 with a ratio of 3, the tenth term is 39,366 and the series sums to 59,048.",
-  faq: [
-    { q: "Why is a ratio of zero rejected?", a: "Because every term after the first would be zero. That is not a progression, and showing a table of zeroes would suggest the input made sense." },
-    { q: "When does the infinite sum exist?", a: "When the ratio is between minus one and one, exclusive. Then the terms shrink fast enough for the total to settle on a finite number." },
-    { q: "Can the ratio be negative?", a: "Yes. The terms then alternate in sign, and the sum formula handles it without change." },
-    { q: "Why fifty terms and not more?", a: "Because beyond that the values leave the range where an ordinary decimal is readable. The limit is a display honesty limit, not an arithmetic one." },
-    { q: "Is a progression the same thing as compound interest?", a: "The arithmetic is the same and the names differ: the ratio is one plus the rate. The difference is that here you see the sequence of terms, while money calculators show only the total." },
+  "howItWorks": "aₙ = a₁rⁿ⁻¹. For r ≠ 1, Sₙ = a₁(1−rⁿ)/(1−r); for r = 1, Sₙ = na₁. This implementation sums exact intermediate binary terms, avoiding subtraction of nearly equal powers when r is close to 1. For |r| < 1, S∞ = a₁/(1−r).",
+  "example": "Starting at 2 with a ratio of 3, the tenth term is 39,366 and the series sums to 59,048.",
+  "faq": [
+    {
+      "q": "Why is a ratio of zero rejected?",
+      "a": "This is a page restriction. The recurrence a₁, 0, 0, … with r = 0 is mathematically meaningful, but this tool retains its nonzero-ratio input rule."
+    },
+    {
+      "q": "When does the infinite sum exist?",
+      "a": "For a nonzero first term, the series converges when |r| < 1, with S∞ = a₁/(1−r). This page shows that row only under this condition. If a₁ = 0 the sequence is zero even at other ratios, but no separate infinite-sum row is added."
+    },
+    {
+      "q": "Can the ratio be negative?",
+      "a": "Yes. With nonzero a₁ the signs alternate, and the same sum formulas apply. If a₁ = 0 every term remains zero."
+    },
+    {
+      "q": "Why fifty terms and not more?",
+      "a": "The range 1–50 is a page limit, not a limit of the mathematical formula. The page also requires |aₙ| and |Sₙ| to be below 10¹⁵. These limits bound computation and output."
+    },
+    {
+      "q": "Is a progression the same thing as compound interest?",
+      "a": "With a constant rate per period, r = 1 + rate and an amount with no additional payments grows geometrically. Periods must match; financial calculators separately model contributions, compounding frequency and monetary rounding."
+    }
   ],
+  "disclaimer": "The 10¹⁵ limit applies to the nth term and finite sum, not the additional infinite sum. Every displayed value must be finite without a nonzero value rounding to zero. Decimal inputs and displayed results are rounded."
 };

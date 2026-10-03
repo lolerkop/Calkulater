@@ -1,6 +1,7 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const scaleModelCopyUk: CalculatorSeoCopy = {
+export const scaleModelCopyUk: CalculatorCopy = {
   name: "Калькулятор масштабу моделі",
   slug: "masshtab-modeli",
   shortDescription: "Перерахунок розмірів між натурою та моделлю за масштабу 1:N.",
@@ -8,4 +9,5 @@ export const scaleModelCopyUk: CalculatorSeoCopy = {
   seoDescription: "Переведіть розмір натури в розмір моделі та навпаки за будь-якого масштабу, а за парою розмірів знайдіть сам масштаб.",
   h1: "Калькулятор масштабу моделі",
   keywords: ["масштаб моделі", "1:87", "переведення масштабу"],
+  ...contractContent.uk
 };

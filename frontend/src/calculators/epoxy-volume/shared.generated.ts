@@ -12,41 +12,49 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
-      'Из': 'From',
+      'Результат': 'Result',
       'В': 'To',
       'Площадь': 'Area',
       'Толщина слоя': 'Layer thickness',
-      'Ошибка': 'Error',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'The result exceeds the numeric range',
     },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
-      'Из': 'З',
+      'Результат': 'Результат',
       'В': 'У',
       'Площадь': 'Площа',
       'Толщина слоя': 'Товщина шару',
-      'Ошибка': 'Помилка',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Результат виходить за числовий діапазон',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
-      'Из': 'Von',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Площадь': 'Fläche',
       'Толщина слоя': 'Schichtdicke',
-      'Ошибка': 'Fehler',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Das Ergebnis überschreitet den Zahlenbereich',
     },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
-      'Из': 'De',
+      'Результат': 'Resultado',
       'В': 'A',
       'Площадь': 'Área',
       'Толщина слоя': 'Espesor de la capa',
-      'Ошибка': 'Error',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'El resultado excede el rango numérico',
     },
   },
 };

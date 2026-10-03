@@ -1,18 +1,8 @@
+import { read, INPUT } from '../../lib/platform/measurementScalar';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
 
-// Температура кипения воды падает с высотой, потому что кипение — это равенство
-// давления насыщенного пара внешнему давлению. Высота входит через
-// барометрическую формулу международной стандартной атмосферы, а давление
-// связывается с температурой уравнением Клаузиуса—Клапейрона.
-//
-// Практический смысл строки «ниже обычных ста градусов»: на каждые тысячу
-// метров кипение теряет примерно три с половиной градуса, и потому в горах еда
-// в кипятке готовится дольше — вода кипит, но она холоднее.
-//
-// Диапазон высот ограничен снизу впадиной Мёртвого моря, сверху — областью, где
-// линейная модель тропосферы ещё работает.
 const P0 = 101325;
 const T0 = 288.15;
 const LAPSE = 0.0065;
@@ -30,12 +20,13 @@ export const pressureAtAltitude = (metres: number): number =>
   P0 * Math.pow(1 - (LAPSE * metres) / T0, (G * M_AIR) / (R_GAS * LAPSE));
 
 export const compute: CalcFunction = (inputs) => {
-  const height = toNumber(inputs.h);
+  const height = read(inputs.h);
   const fail = (message: string) => ({
     primary: { label: 'Температура кипения', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (![height].every(Number.isFinite)) return fail(INPUT);
   if (!(height >= MIN_H && height <= MAX_H)) {
     return fail('Высота вне диапазона от −430 до 9000 м');
   }

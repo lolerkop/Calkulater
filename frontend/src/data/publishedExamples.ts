@@ -1,5 +1,6 @@
 import { getCalculatorById, locales } from '../lib/i18n';
 import { v2PublishedExamples } from '../calculators/manifest.generated';
+import { currencyExpectedExample, currencyTeachingScenarios } from './currencyScenarioContent';
 
 type ExampleInput = Record<string, string | number | boolean>;
 type PublishedLocale = (typeof locales)[number];
@@ -29,10 +30,10 @@ const canonicalPublishedExamples: PublishedExample[] = [
   { calculatorId: 'percent-calculator', locale: 'ru', source: '/ru/finance/percent-calculator/', input: { mode: 'change', a: 100, b: 130 }, expected: ['+30,00%'] },
   { calculatorId: 'discount-calculator', locale: 'ru', source: '/ru/finance/discount-calculator/', input: { price: 5000, mode: 'byPercent', discountPct: 20, secondDiscountPct: 0, quantity: 1 }, expected: ['4 000 ₽', '1 000 ₽', '20,00%'] },
   { calculatorId: 'break-even-calculator', locale: 'ru', source: '/ru/finance/break-even-calculator/', input: { fixedCosts: 10000, unitPrice: 500, variableCost: 300, plannedUnits: 0 }, expected: ['50 шт.', '200 ₽', '25 000 ₽'] },
-  { calculatorId: 'currency-converter', locale: 'ru', source: '/ru/currency/currency-converter/', input: { amount: 100, from: 'USD', to: 'EUR' }, expected: ['€', '100,00 $'] },
-  { calculatorId: 'usd-to-eur', locale: 'ru', source: '/ru/currency/usd-to-eur/', input: { amount: 100, from: 'USD', to: 'EUR' }, expected: ['€', '100,00 $'] },
-  { calculatorId: 'eur-to-mdl', locale: 'ru', source: '/ru/currency/eur-to-mdl/', input: { amount: 100, from: 'EUR', to: 'MDL' }, expected: ['L', '100,00 €'] },
-  { calculatorId: 'usd-to-mdl', locale: 'ru', source: '/ru/currency/usd-to-mdl/', input: { amount: 100, from: 'USD', to: 'MDL' }, expected: ['L', '100,00 $'] },
+  { calculatorId: 'currency-converter', locale: 'ru', source: '/ru/currency/currency-converter/', input: currencyTeachingScenarios['currency-converter'], expected: [currencyExpectedExample('currency-converter')] },
+  { calculatorId: 'usd-to-eur', locale: 'ru', source: '/ru/currency/usd-to-eur/', input: currencyTeachingScenarios['usd-to-eur'], expected: [currencyExpectedExample('usd-to-eur')] },
+  { calculatorId: 'eur-to-mdl', locale: 'ru', source: '/ru/currency/eur-to-mdl/', input: currencyTeachingScenarios['eur-to-mdl'], expected: [currencyExpectedExample('eur-to-mdl')] },
+  { calculatorId: 'usd-to-mdl', locale: 'ru', source: '/ru/currency/usd-to-mdl/', input: currencyTeachingScenarios['usd-to-mdl'], expected: [currencyExpectedExample('usd-to-mdl')] },
   { calculatorId: 'bmi-calculator', locale: 'ru', source: '/ru/sport/bmi-calculator/', input: { height: 175, weight: 70 }, expected: ['22,9', 'Норма'] },
   { calculatorId: 'body-fat-calculator', locale: 'ru', source: '/ru/sport/body-fat-calculator/', input: { sex: 'male', height: 180, neck: 38, waist: 90 }, expected: ['19,9%'] },
   { calculatorId: 'calorie-calculator', locale: 'ru', source: '/ru/sport/calorie-calculator/', input: { gender: 'male', age: 30, height: 175, weight: 70, activity: '1.55', goal: 'maintain', goalAdjustment: 15, proteinPct: 30, fatPct: 25 }, expected: ['2 556 ккал'] },

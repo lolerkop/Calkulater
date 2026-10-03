@@ -1,11 +1,19 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const brewRatioCopyUk: CalculatorSeoCopy = {
-  name: "Калькулятор співвідношення кави та води",
-  slug: "spivvidnoshennya-kavy-ta-vody",
-  shortDescription: "Скільки кави на об'єм води за заданого співвідношення заварювання.",
-  seoTitle: "Калькулятор співвідношення кави та води — наважка під об'єм",
-  seoDescription: "Розрахуйте, скільки кави потрібно на заданий об'єм води за співвідношення 1:15, 1:16 або 1:18, або знайдіть співвідношення своєї чашки.",
-  h1: "Калькулятор співвідношення кави та води",
-  keywords: ["співвідношення кави та води", "скільки кави на 500 мл", "калькулятор заварювання кави"],
+export const brewRatioCopyUk: CalculatorCopy = {
+  ...{
+  "name": "Калькулятор співвідношення кави та води",
+  "slug": "spivvidnoshennya-kavy-ta-vody",
+  "shortDescription": "Скільки кави на об'єм води за заданого співвідношення заварювання.",
+  "seoTitle": "Калькулятор співвідношення кави та води — наважка під об'єм",
+  "seoDescription": "Розрахуйте, скільки кави потрібно на заданий об'єм води за співвідношення 1:15, 1:16 або 1:18, або знайдіть співвідношення своєї чашки.",
+  "h1": "Калькулятор співвідношення кави та води",
+  "keywords": [
+    "співвідношення кави та води",
+    "скільки кави на 500 мл",
+    "калькулятор заварювання кави"
+  ]
+},
+  ...contractContent.uk,
 };

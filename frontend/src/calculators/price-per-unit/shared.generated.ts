@@ -13,28 +13,44 @@ export const shared: CalculatorLocalization = {
     results: {
       'Переплата': 'Overpayment',
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'The result exceeds the numeric range',
     },
   },
   uk: {
     results: {
       'Переплата': 'Переплата',
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Результат виходить за числовий діапазон',
     },
   },
   de: {
     results: {
       'Переплата': 'Mehrkosten',
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Das Ergebnis überschreitet den Zahlenbereich',
     },
   },
   es: {
     results: {
-      'Переплата': 'Intereses totales',
+      'Переплата': 'Coste adicional',
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'El resultado excede el rango numérico',
     },
   },
 };

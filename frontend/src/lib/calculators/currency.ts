@@ -13,23 +13,30 @@ import {
 } from '../../data/currencies';
 
 export function convertCurrency(amount: number, from: CurrencyCode, to: CurrencyCode): number {
-  const usd = amount / ratesToUSD[from];
-  return usd * ratesToUSD[to];
+  if (from === to) return amount;
+  return amount * (ratesToUSD[to] / ratesToUSD[from]);
 }
 
 export const calcCurrency: CalcFunction = (inputs) => {
-  const amount = toNumber(inputs.amount);
+  const amount = toNumber(inputs.amount, Number.NaN);
   const from = toStr(inputs.from, 'USD') as CurrencyCode;
   const to = toStr(inputs.to, 'EUR') as CurrencyCode;
 
-  if (!ratesToUSD[from] || !ratesToUSD[to]) {
+  if (!Object.hasOwn(ratesToUSD, from) || !Object.hasOwn(ratesToUSD, to)) {
     return {
       primary: { label: 'Результат', value: '—' },
       secondary: [{ label: 'Ошибка', value: 'Неизвестная валюта', accent: 'red' }],
     };
   }
 
+  if (typeof inputs.amount === 'boolean' || !Number.isFinite(amount) || amount < 0) {
+    return currencyError('Сумма должна быть конечным неотрицательным числом.');
+  }
+
   const result = convertCurrency(amount, from, to);
+  if (!Number.isFinite(result) || (amount > 0 && result === 0)) {
+    return currencyError('Результат выходит за пределы числовой точности.');
+  }
   const rate = convertCurrency(1, from, to);
 
   const fromMeta = currencyByCode[from];
@@ -75,3 +82,7 @@ export const calcCurrency: CalcFunction = (inputs) => {
     note: ratesNotice,
   };
 };
+
+function currencyError(message: string): CalcResult {
+  return { primary: { label: 'Результат', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' }] };
+}

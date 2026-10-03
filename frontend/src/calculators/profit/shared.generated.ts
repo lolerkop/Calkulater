@@ -13,6 +13,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Check inputs',
       'Прибыль': 'Profit',
+      'Результат': 'Result',
       'В': 'To',
       'Наценка': 'Markup',
       'Маржа': 'Margin',
@@ -22,6 +23,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Перевірте дані',
       'Прибыль': 'Прибуток',
+      'Результат': 'Результат',
       'В': 'У',
       'Наценка': 'Націнка',
       'Маржа': 'Маржа',
@@ -31,6 +33,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
       'Прибыль': 'Gewinn',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Наценка': 'Aufschlag',
       'Маржа': 'Marge',
@@ -40,6 +43,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Прибыль': 'Beneficio',
+      'Результат': 'Resultado',
       'В': 'A',
       'Наценка': 'Marcado',
       'Маржа': 'Margen',

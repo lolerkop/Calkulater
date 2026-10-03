@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { calculatorSeoContent } from '../src/data/calculatorSeoContent';
 import { getCalculators, locales } from '../src/lib/i18n';
+import { reviewedSharedFaqQuestions } from '../src/data/reviewedSharedFaqQuestions';
 
 const forbiddenBoilerplate = [
   'перед разговором с банком, тренером, подрядчиком',
@@ -54,15 +55,41 @@ describe('calculator SEO content', () => {
     }
   });
 
-  it('does not reuse FAQ questions across pages in one locale', () => {
+  it('requires a specific reviewed exception for shared FAQ questions across pages', () => {
     for (const locale of locales) {
       if (!['ru', 'en', 'uk'].includes(locale)) continue;
-      const questions = getCalculators(locale).flatMap((calculator) =>
-        calculator.seoContent!.faq.map((item) => item.q.toLowerCase().trim()),
-      );
-      expect(new Set(questions).size, `${locale} FAQ questions`).toBe(questions.length);
+      const questions = new Map<string, { id: string; answer: string }[]>();
+      for (const calculator of getCalculators(locale)) for (const item of calculator.seoContent!.faq) {
+        const question = item.q.toLowerCase().trim();
+        const records = questions.get(question) ?? [];
+        records.push({ id: calculator.id, answer: item.a.toLowerCase().trim() });
+        questions.set(question, records);
+      }
+      for (const [question, records] of questions) {
+        if (records.length === 1) continue;
+        const review = reviewedSharedFaqQuestions.find((entry) =>
+          entry.locale === locale && entry.question.toLowerCase().trim() === question);
+        expect(review, `${locale}: unreviewed shared question ${question}`).toBeDefined();
+        expect(records.map((entry) => entry.id).sort()).toEqual([...review!.ids].sort());
+        expect(new Set(records.map((entry) => entry.answer)).size, `${locale}: repeated FAQ answers`).toBe(records.length);
+      }
     }
   });
+
+  for (const review of reviewedSharedFaqQuestions.filter(review=>review.ids.length===2&&review.ids.includes('molarity' as never)&&review.ids.includes('moles' as never))) {
+    it(`${review.locale}: the reviewed zero-input question retains two different subject answers`, () => {
+      const calculators = getCalculators(review.locale);
+      const answers = review.ids.map((id) => {
+        const entry = calculators.find((calculator) => calculator.id === id)!.seoContent!.faq
+          .find((item) => item.q === review.question);
+        expect(entry, `${review.locale}/${id}: reviewed question disappeared`).toBeDefined();
+        return entry!.a;
+      });
+      expect(answers[0]).not.toBe(answers[1]);
+      expect(answers[0]).toMatch(/0\s*(?:моль|mol)\s*\/\s*(?:л|l)/i);
+      expect(answers[1]).toMatch(/0\s*(?:г|g)/i);
+    });
+  }
 
   it('keeps manually written SEO content registered for priority pages', () => {
     expect(Object.keys(calculatorSeoContent.ru)).toContain('credit-calculator');

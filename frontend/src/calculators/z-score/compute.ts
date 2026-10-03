@@ -1,35 +1,13 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-import { formatStatistic } from '../../lib/platform/measurement';
-
-// Z-оценка: на сколько стандартных отклонений значение отстоит от среднего.
-//
-// Значение, среднее и само отклонение от среднего могут быть отрицательными,
-// поэтому поля объявлены signed, а нулевая сигма отклоняется: делить не на что,
-// и «бесконечно далеко от среднего» — это не число, а отсутствие разброса.
-
-const statNumber = (value: number): string => formatStatistic(value, fmtNumber);
+import { add, exact, INPUT, negative, nonzeroFinite, RANGE, ratio, read, shown, stat } from '../stats-descriptive/statisticsNumeric';
 
 export const compute: CalcFunction = (inputs) => {
-  const x = toNumber(inputs.x);
-  const mean = toNumber(inputs.mean);
-  const sd = toNumber(inputs.sd);
-
-  if (!(sd > 0)) {
-    return {
-      primary: { label: 'Z-оценка', value: '—' },
-      secondary: [{ label: 'Проверьте данные', value: 'Стандартное отклонение должно быть больше нуля', accent: 'red' as const }],
-    };
-  }
-
-  const deviation = x - mean;
-  const position = deviation > 0 ? 'выше среднего' : deviation < 0 ? 'ниже среднего' : 'равно среднему';
-
-  return {
-    primary: { label: 'Z-оценка', value: statNumber(deviation / sd) },
-    secondary: [
-      { label: 'Отклонение', value: statNumber(deviation) },
-      { label: 'Положение', value: position },
-    ],
-  };
+  const fail = (message: string) => ({ primary: { label: 'Z-оценка', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  const x = read(inputs.x), mean = read(inputs.mean), sd = read(inputs.sd);
+  if (![x, mean, sd].every(Number.isFinite)) return fail(INPUT);
+  if (!(sd > 0)) return fail('Стандартное отклонение должно быть больше нуля');
+  const deviation = add(exact(x), negative(exact(mean))), z = ratio(deviation, exact(sd));
+  if (!nonzeroFinite(z, deviation)) return fail(RANGE);
+  const position = deviation.coefficient > 0n ? 'выше среднего' : deviation.coefficient < 0n ? 'ниже среднего' : 'равно среднему';
+  return { primary: { label: 'Z-оценка', value: stat(z) }, secondary: [{ label: 'Отклонение', value: shown(deviation) }, { label: 'Положение', value: position }] };
 };

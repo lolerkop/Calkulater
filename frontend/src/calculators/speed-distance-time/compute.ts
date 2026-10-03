@@ -1,58 +1,31 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, fmtNumber, toNumber, toStr } from '../../lib/format';
-
-// Скорость, расстояние и время: находим недостающую величину.
-//
-// Средняя скорость, без ускорений и остановок. Делитель выбранного режима
-// проверяется строго: при нулевой скорости время не определено, а деление
-// вернуло бы Infinity — число, похожее на ответ.
-//
-// Перевод километров в мили или метры в секунду здесь не делается: это работа
-// существующего конвертера скорости, и дублировать её незачем.
+import { fmtInt } from '../../lib/format';
+import { finite, INPUT, measure, mode, MODE, mul, positive, quotient, RANGE, read, scalar } from '../engine-displacement/automotiveNumeric';
 const asDuration = (hours: number) => {
-  const whole = Math.floor(hours);
-  const minutes = Math.round((hours - whole) * 60);
-  return `${fmtInt(whole)} ч ${minutes} мин`;
+  if (hours > Number.MAX_SAFE_INTEGER / 60) return `${measure(hours)} ч`;
+  const totalMinutes = Math.round(hours * 60);
+  return `${fmtInt(Math.floor(totalMinutes / 60))} ч ${totalMinutes % 60} мин`;
 };
-
-export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'speed');
-  const distance = toNumber(inputs.distance);
-  const time = toNumber(inputs.time);
-  const speed = toNumber(inputs.speed);
-
-  const fail = (message: string) => ({
-    primary: { label: 'Результат', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (distance < 0 || time < 0 || speed < 0) return fail('Значения не могут быть отрицательными');
-
-  let s = distance;
-  let t = time;
-  let v = speed;
+export const compute: CalcFunction = inputs => {
+  const selected = mode(inputs.mode, 'speed', ['speed', 'distance', 'time']);
+  const fail = (message: string) => ({ primary: { label: 'Результат', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (!selected) return fail(MODE);
+  let s = selected === 'distance' ? 0 : read(inputs.distance), t = selected === 'time' ? 0 : read(inputs.time), v = selected === 'speed' ? 0 : read(inputs.speed);
+  if (!finite(s, t, v)) return fail(INPUT);
+  if (s < 0 || t < 0 || v < 0) return fail('Значения не могут быть отрицательными');
   let primary: { label: string; value: string };
-
-  if (mode === 'speed') {
-    if (!(time > 0)) return fail('Время должно быть больше нуля');
-    v = distance / time;
-    primary = { label: 'Скорость', value: `${fmtNumber(v, 2)} км/ч` };
-  } else if (mode === 'distance') {
-    s = speed * time;
-    primary = { label: 'Расстояние', value: `${fmtNumber(s, 2)} км` };
+  if (selected === 'speed') {
+    if (!(t > 0)) return fail('Время должно быть больше нуля');
+    v = quotient([s], [t]); primary = { label: 'Скорость', value: `${scalar(v)} км/ч` };
+  } else if (selected === 'distance') {
+    s = mul(v, t); primary = { label: 'Расстояние', value: `${scalar(s)} км` };
   } else {
-    if (!(speed > 0)) return fail('Скорость должна быть больше нуля');
-    t = distance / speed;
-    primary = { label: 'Время', value: `${fmtNumber(t, 4)} ч` };
+    if (!(v > 0)) return fail('Скорость должна быть больше нуля');
+    t = quotient([s], [v]); primary = { label: 'Время', value: `${scalar(t, 4)} ч` };
   }
-
-  return {
-    primary,
-    secondary: [
-      { label: 'Время в пути', value: asDuration(t) },
-      { label: 'Скорость', value: `${fmtNumber(v, 2)} км/ч` },
-      { label: 'Расстояние', value: `${fmtNumber(s, 2)} км` },
-      { label: 'Минут на километр', value: v > 0 ? fmtNumber(60 / v, 2) : '—' },
-    ],
-  };
+  const pace = v > 0 ? quotient([60], [v]) : 0;
+  if (!finite(s, t, v, pace) || (v > 0 && !positive(pace))) return fail(RANGE);
+  return { primary, secondary: [ { label: 'Время в пути', value: asDuration(t) }, { label: 'Скорость', value: `${scalar(v)} км/ч` },
+    { label: 'Расстояние', value: `${scalar(s)} км` }, { label: 'Минут на километр', value: v > 0 ? scalar(pace) : '—' },
+  ] };
 };

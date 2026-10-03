@@ -64,7 +64,7 @@ export function catalogCategoryRows(locale: Locale): { id: CategoryId; name: str
   }));
 }
 
-const PAGE_WORD: Partial<Record<Locale, string>> = { ru: 'Страница', en: 'Page', uk: 'Сторінка' };
+const PAGE_WORD: Partial<Record<Locale, string>> = { ru: 'Страница', en: 'Page', uk: 'Сторінка', de: 'Seite', es: 'Página' };
 export const pageWordFor = (locale: Locale): string => PAGE_WORD[locale] ?? 'Page';
 
 /**

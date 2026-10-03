@@ -1,0 +1,17 @@
+[
+  {
+    "path": "src/data/fitnessLegacyContractContent.ts",
+    "sha256": "8e8fc0152c8d7491fb9b159d732002fc3175c52e4952f6f92606b7801694df17",
+    "archive": "reports/originality-final-bodyfat-source-amendment-evidence/fitnessLegacyContractContent.ts.before.txt"
+  },
+  {
+    "path": "src/lib/calculators/bodyFat.ts",
+    "sha256": "dfdcd3a2569f7a46e9934d2a6a4d77a888de22f5f5c42ec6208696afa5cd3647",
+    "archive": "reports/originality-final-bodyfat-source-amendment-evidence/bodyFat.ts.before.txt"
+  },
+  {
+    "path": "reports/originality-fitness-wave-3.json",
+    "sha256": "2f5acc4a790f4190da823350c4af84584d42fdddf92972a267afca194a85694e",
+    "archive": "reports/originality-final-bodyfat-source-amendment-evidence/originality-fitness-wave-3.json.before.txt"
+  }
+]

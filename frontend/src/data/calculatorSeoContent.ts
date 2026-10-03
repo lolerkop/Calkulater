@@ -1008,8 +1008,8 @@ function contentParams(calculator: CalculatorDef, locale: string): GeneratedPara
   };
 }
 
-export function getCalculatorSeoContent(calculator: CalculatorDef, locale: string): CalculatorSeoContent {
-  const manual = calculatorSeoContent[locale]?.[calculator.id];
+export function getCalculatorSeoContent(calculator: CalculatorDef, locale: string, preferAuthoredCopy = false): CalculatorSeoContent {
+  const manual = preferAuthoredCopy ? undefined : calculatorSeoContent[locale]?.[calculator.id];
   if (manual) return manual;
   return {
     intro: calculator.longDescription,

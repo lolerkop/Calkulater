@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
@@ -13,4 +14,5 @@ export const gpaCopyEs: CalculatorSeoCopy = {
   seoDescription: "Calcula la nota media a partir de una lista de calificaciones con sus créditos y compárala con la media simple.",
   h1: "Calculadora de nota media ponderada",
   keywords: ["nota media ponderada", "media de notas", "créditos", "calcular nota media"],
+  ...contractContent.es
 };

@@ -1,0 +1,1912 @@
+{
+  "status": "PREPARED_ONLY; actual coherent ROOT snapshot pending",
+  "records": [
+    {
+      "id": "coordinate-convert",
+      "locale": "ru",
+      "url": "/ru/converters/koordinaty-gradusy-minuty-sekundy/",
+      "h1": "Конвертер координат — градусы, минуты, секунды",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Направление перевода",
+          "type": "select",
+          "defaultValue": "toDecimal",
+          "options": [
+            {
+              "value": "toDecimal",
+              "label": "ГМС → десятичные"
+            },
+            {
+              "value": "toDms",
+              "label": "десятичные → ГМС"
+            }
+          ]
+        },
+        {
+          "name": "deg",
+          "unit": "°",
+          "label": "Градусы",
+          "type": "number",
+          "defaultValue": 55,
+          "min": 0,
+          "max": 180,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "minutes",
+          "unit": "′",
+          "label": "Минуты",
+          "type": "number",
+          "defaultValue": 45,
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "seconds",
+          "unit": "″",
+          "label": "Секунды",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 60,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "hemisphere",
+          "label": "Полушарие",
+          "type": "select",
+          "defaultValue": "N",
+          "options": [
+            {
+              "value": "N",
+              "label": "северное или восточное"
+            },
+            {
+              "value": "S",
+              "label": "южное или западное"
+            }
+          ],
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "decimal",
+          "unit": "°",
+          "label": "Десятичные градусы",
+          "type": "number",
+          "defaultValue": -37.6173,
+          "signed": true,
+          "step": 0.0001,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDms"
+          }
+        }
+      ],
+      "nativeErrors": {}
+    },
+    {
+      "id": "coordinate-convert",
+      "locale": "en",
+      "url": "/en/converters/coordinates-dms-decimal/",
+      "h1": "Coordinate converter — DMS and decimal degrees",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Направление перевода",
+          "type": "select",
+          "defaultValue": "toDecimal",
+          "options": [
+            {
+              "value": "toDecimal",
+              "label": "ГМС → десятичные"
+            },
+            {
+              "value": "toDms",
+              "label": "десятичные → ГМС"
+            }
+          ]
+        },
+        {
+          "name": "deg",
+          "unit": "°",
+          "label": "Градусы",
+          "type": "number",
+          "defaultValue": 55,
+          "min": 0,
+          "max": 180,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "minutes",
+          "unit": "′",
+          "label": "Минуты",
+          "type": "number",
+          "defaultValue": 45,
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "seconds",
+          "unit": "″",
+          "label": "Секунды",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 60,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "hemisphere",
+          "label": "Полушарие",
+          "type": "select",
+          "defaultValue": "N",
+          "options": [
+            {
+              "value": "N",
+              "label": "северное или восточное"
+            },
+            {
+              "value": "S",
+              "label": "южное или западное"
+            }
+          ],
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "decimal",
+          "unit": "°",
+          "label": "Десятичные градусы",
+          "type": "number",
+          "defaultValue": -37.6173,
+          "signed": true,
+          "step": 0.0001,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDms"
+          }
+        }
+      ],
+      "nativeErrors": {
+        "Ненулевой угол меньше числового диапазона": "A nonzero angle is below the numerical range",
+        "Количество должно быть целым в допустимом диапазоне": "The count must be a whole number within the allowed range",
+        "Выберите направление перевода": "Choose a conversion direction",
+        "Выберите полушарие": "Choose a hemisphere",
+        "Секунды должны быть от 0 до менее 60": "Seconds must be at least 0 and below 60",
+        "северное или восточное": "north or east",
+        "южное или западное": "south or west",
+        "Десятичные градусы должны быть от −180 до 180": "Decimal degrees must be between −180 and 180",
+        "Градусы должны быть от 0 до 180": "Degrees must be between 0 and 180",
+        "Минуты должны быть от 0 до 59": "Minutes must be between 0 and 59",
+        "Секунды должны быть от 0 до 59": "Seconds must be between 0 and 59",
+        "Итог превышает 180 градусов": "The result exceeds 180 degrees"
+      }
+    },
+    {
+      "id": "coordinate-convert",
+      "locale": "uk",
+      "url": "/uk/konvertery/koordynaty-hradusy-hvylyny/",
+      "h1": "Конвертер координат — градуси, хвилини, секунди",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Направление перевода",
+          "type": "select",
+          "defaultValue": "toDecimal",
+          "options": [
+            {
+              "value": "toDecimal",
+              "label": "ГМС → десятичные"
+            },
+            {
+              "value": "toDms",
+              "label": "десятичные → ГМС"
+            }
+          ]
+        },
+        {
+          "name": "deg",
+          "unit": "°",
+          "label": "Градусы",
+          "type": "number",
+          "defaultValue": 55,
+          "min": 0,
+          "max": 180,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "minutes",
+          "unit": "′",
+          "label": "Минуты",
+          "type": "number",
+          "defaultValue": 45,
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "seconds",
+          "unit": "″",
+          "label": "Секунды",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 60,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "hemisphere",
+          "label": "Полушарие",
+          "type": "select",
+          "defaultValue": "N",
+          "options": [
+            {
+              "value": "N",
+              "label": "северное или восточное"
+            },
+            {
+              "value": "S",
+              "label": "южное или западное"
+            }
+          ],
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "decimal",
+          "unit": "°",
+          "label": "Десятичные градусы",
+          "type": "number",
+          "defaultValue": -37.6173,
+          "signed": true,
+          "step": 0.0001,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDms"
+          }
+        }
+      ],
+      "nativeErrors": {
+        "Ненулевой угол меньше числового диапазона": "Ненульовий кут менший за числовий діапазон",
+        "Количество должно быть целым в допустимом диапазоне": "Кількість має бути цілою в допустимому діапазоні",
+        "Выберите направление перевода": "Виберіть напрям переведення",
+        "Выберите полушарие": "Виберіть півкулю",
+        "Секунды должны быть от 0 до менее 60": "Секунди мають бути від 0 до менш ніж 60",
+        "северное или восточное": "північна або східна",
+        "южное или западное": "південна або західна",
+        "Десятичные градусы должны быть от −180 до 180": "Десяткові градуси мають бути від −180 до 180",
+        "Градусы должны быть от 0 до 180": "Градуси мають бути від 0 до 180",
+        "Минуты должны быть от 0 до 59": "Хвилини мають бути від 0 до 59",
+        "Секунды должны быть от 0 до 59": "Секунди мають бути від 0 до 59",
+        "Итог превышает 180 градусов": "Підсумок перевищує 180 градусів"
+      }
+    },
+    {
+      "id": "coordinate-convert",
+      "locale": "de",
+      "url": "/de/umrechner/koordinaten-umrechner/",
+      "h1": "Koordinatenumrechner — Grad, Minuten, Sekunden und Dezimalgrad",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Направление перевода",
+          "type": "select",
+          "defaultValue": "toDecimal",
+          "options": [
+            {
+              "value": "toDecimal",
+              "label": "ГМС → десятичные"
+            },
+            {
+              "value": "toDms",
+              "label": "десятичные → ГМС"
+            }
+          ]
+        },
+        {
+          "name": "deg",
+          "unit": "°",
+          "label": "Градусы",
+          "type": "number",
+          "defaultValue": 55,
+          "min": 0,
+          "max": 180,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "minutes",
+          "unit": "′",
+          "label": "Минуты",
+          "type": "number",
+          "defaultValue": 45,
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "seconds",
+          "unit": "″",
+          "label": "Секунды",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 60,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "hemisphere",
+          "label": "Полушарие",
+          "type": "select",
+          "defaultValue": "N",
+          "options": [
+            {
+              "value": "N",
+              "label": "северное или восточное"
+            },
+            {
+              "value": "S",
+              "label": "южное или западное"
+            }
+          ],
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "decimal",
+          "unit": "°",
+          "label": "Десятичные градусы",
+          "type": "number",
+          "defaultValue": -37.6173,
+          "signed": true,
+          "step": 0.0001,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDms"
+          }
+        }
+      ],
+      "nativeErrors": {
+        "Ненулевой угол меньше числового диапазона": "Ein Winkel ungleich null liegt unterhalb des Zahlenbereichs",
+        "Количество должно быть целым в допустимом диапазоне": "Die Anzahl muss eine ganze Zahl im zulässigen Bereich sein",
+        "Выберите направление перевода": "Wähle die Umrechnungsrichtung",
+        "Выберите полушарие": "Wähle eine Halbkugel",
+        "Секунды должны быть от 0 до менее 60": "Sekunden müssen mindestens 0 und kleiner als 60 sein",
+        "северное или восточное": "Nord oder Ost",
+        "южное или западное": "Süd oder West",
+        "Десятичные градусы должны быть от −180 до 180": "Dezimalgrad müssen zwischen −180 und 180 liegen",
+        "Градусы должны быть от 0 до 180": "Die Grad müssen zwischen 0 und 180 liegen",
+        "Минуты должны быть от 0 до 59": "Die Minuten müssen zwischen 0 und 59 liegen",
+        "Секунды должны быть от 0 до 59": "Die Sekunden müssen zwischen 0 und 59 liegen",
+        "Итог превышает 180 градусов": "Das Ergebnis übersteigt 180 Grad"
+      }
+    },
+    {
+      "id": "coordinate-convert",
+      "locale": "es",
+      "url": "/es/conversores/coordenadas-gms-decimales/",
+      "h1": "Conversor de coordenadas — GMS y grados decimales",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Направление перевода",
+          "type": "select",
+          "defaultValue": "toDecimal",
+          "options": [
+            {
+              "value": "toDecimal",
+              "label": "ГМС → десятичные"
+            },
+            {
+              "value": "toDms",
+              "label": "десятичные → ГМС"
+            }
+          ]
+        },
+        {
+          "name": "deg",
+          "unit": "°",
+          "label": "Градусы",
+          "type": "number",
+          "defaultValue": 55,
+          "min": 0,
+          "max": 180,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "minutes",
+          "unit": "′",
+          "label": "Минуты",
+          "type": "number",
+          "defaultValue": 45,
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "seconds",
+          "unit": "″",
+          "label": "Секунды",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 60,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "hemisphere",
+          "label": "Полушарие",
+          "type": "select",
+          "defaultValue": "N",
+          "options": [
+            {
+              "value": "N",
+              "label": "северное или восточное"
+            },
+            {
+              "value": "S",
+              "label": "южное или западное"
+            }
+          ],
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "decimal",
+          "unit": "°",
+          "label": "Десятичные градусы",
+          "type": "number",
+          "defaultValue": -37.6173,
+          "signed": true,
+          "step": 0.0001,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDms"
+          }
+        }
+      ],
+      "nativeErrors": {
+        "Ненулевой угол меньше числового диапазона": "Un ángulo no nulo queda por debajo del rango numérico",
+        "Количество должно быть целым в допустимом диапазоне": "La cantidad debe ser un entero dentro del rango permitido",
+        "Выберите направление перевода": "Elige un sentido de conversión",
+        "Выберите полушарие": "Elige un hemisferio",
+        "Секунды должны быть от 0 до менее 60": "Los segundos deben ser al menos 0 y menores que 60",
+        "северное или восточное": "norte o este",
+        "южное или западное": "sur u oeste",
+        "Десятичные градусы должны быть от −180 до 180": "Los grados decimales deben estar entre −180 y 180",
+        "Градусы должны быть от 0 до 180": "Los grados deben estar entre 0 y 180",
+        "Минуты должны быть от 0 до 59": "Los minutos deben estar entre 0 y 59",
+        "Секунды должны быть от 0 до 59": "Los segundos deben estar entre 0 y 59",
+        "Итог превышает 180 градусов": "El resultado supera los 180 grados"
+      }
+    },
+    {
+      "id": "number-scale-names",
+      "locale": "ru",
+      "url": "/ru/converters/lakh-i-kror/",
+      "h1": "Калькулятор лакхов и кроров",
+      "fields": [
+        {
+          "name": "value",
+          "unit": "ед. выбранной шкалы",
+          "label": "Значение",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "from",
+          "label": "Из шкалы",
+          "type": "select",
+          "defaultValue": "lakh",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        },
+        {
+          "name": "to",
+          "label": "В шкалу",
+          "type": "select",
+          "defaultValue": "million",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        }
+      ],
+      "nativeErrors": {}
+    },
+    {
+      "id": "number-scale-names",
+      "locale": "en",
+      "url": "/en/converters/lakh-crore-converter/",
+      "h1": "Lakh and crore converter",
+      "fields": [
+        {
+          "name": "value",
+          "unit": "ед. выбранной шкалы",
+          "label": "Значение",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "from",
+          "label": "Из шкалы",
+          "type": "select",
+          "defaultValue": "lakh",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        },
+        {
+          "name": "to",
+          "label": "В шкалу",
+          "type": "select",
+          "defaultValue": "million",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        }
+      ],
+      "nativeErrors": {
+        "Результат вне числового диапазона": "The result is outside the numeric range",
+        "Вне числового диапазона": "Outside the numeric range",
+        "Значение должно быть больше нуля": "The value must be greater than zero",
+        "Неизвестная шкала": "Unknown scale"
+      }
+    },
+    {
+      "id": "number-scale-names",
+      "locale": "uk",
+      "url": "/uk/konvertery/lakh-i-kror/",
+      "h1": "Калькулятор лакхів і крорів",
+      "fields": [
+        {
+          "name": "value",
+          "unit": "ед. выбранной шкалы",
+          "label": "Значение",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "from",
+          "label": "Из шкалы",
+          "type": "select",
+          "defaultValue": "lakh",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        },
+        {
+          "name": "to",
+          "label": "В шкалу",
+          "type": "select",
+          "defaultValue": "million",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        }
+      ],
+      "nativeErrors": {
+        "Результат вне числового диапазона": "Результат поза числовим діапазоном",
+        "Вне числового диапазона": "Поза числовим діапазоном",
+        "Значение должно быть больше нуля": "Значення має бути більшим за нуль",
+        "Неизвестная шкала": "Невідома шкала"
+      }
+    },
+    {
+      "id": "number-scale-names",
+      "locale": "de",
+      "url": "/de/umrechner/lakh-crore-umrechner/",
+      "h1": "Umrechner für Lakh und Crore",
+      "fields": [
+        {
+          "name": "value",
+          "unit": "ед. выбранной шкалы",
+          "label": "Значение",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "from",
+          "label": "Из шкалы",
+          "type": "select",
+          "defaultValue": "lakh",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        },
+        {
+          "name": "to",
+          "label": "В шкалу",
+          "type": "select",
+          "defaultValue": "million",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        }
+      ],
+      "nativeErrors": {
+        "Результат вне числового диапазона": "Das Ergebnis liegt außerhalb des Zahlenbereichs",
+        "Вне числового диапазона": "Außerhalb des Zahlenbereichs",
+        "Значение должно быть больше нуля": "Der Wert muss größer als null sein",
+        "Неизвестная шкала": "Unbekannte Skala"
+      }
+    },
+    {
+      "id": "number-scale-names",
+      "locale": "es",
+      "url": "/es/conversores/conversor-lakh-crore/",
+      "h1": "Conversor de lakh y crore",
+      "fields": [
+        {
+          "name": "value",
+          "unit": "ед. выбранной шкалы",
+          "label": "Значение",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "from",
+          "label": "Из шкалы",
+          "type": "select",
+          "defaultValue": "lakh",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        },
+        {
+          "name": "to",
+          "label": "В шкалу",
+          "type": "select",
+          "defaultValue": "million",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        }
+      ],
+      "nativeErrors": {
+        "Результат вне числового диапазона": "El resultado está fuera del rango numérico",
+        "Вне числового диапазона": "Fuera del rango numérico",
+        "Значение должно быть больше нуля": "El valor debe ser mayor que cero",
+        "Неизвестная шкала": "Escala desconocida"
+      }
+    },
+    {
+      "id": "number-to-words",
+      "locale": "ru",
+      "url": "/ru/converters/chislo-propisyu/",
+      "h1": "Число прописью",
+      "fields": [
+        {
+          "name": "value",
+          "label": "Число",
+          "type": "number",
+          "defaultValue": 1234,
+          "signed": true,
+          "step": 1
+        }
+      ],
+      "nativeErrors": {}
+    },
+    {
+      "id": "number-to-words",
+      "locale": "en",
+      "url": "/en/converters/number-to-words/",
+      "h1": "Number to words converter",
+      "fields": [
+        {
+          "name": "value",
+          "label": "Число",
+          "type": "number",
+          "defaultValue": 1234,
+          "signed": true,
+          "step": 1
+        }
+      ],
+      "nativeErrors": {
+        "Количество должно быть целым в допустимом диапазоне": "The count must be a whole number within the allowed range",
+        "ноль": "zero",
+        "минус": "minus",
+        "одиннадцать": "eleven",
+        "двенадцать": "twelve",
+        "тринадцать": "thirteen",
+        "четырнадцать": "fourteen",
+        "пятнадцать": "fifteen",
+        "шестнадцать": "sixteen",
+        "семнадцать": "seventeen",
+        "восемнадцать": "eighteen",
+        "девятнадцать": "nineteen",
+        "двадцать": "twenty",
+        "тридцать": "thirty",
+        "сорок": "forty",
+        "пятьдесят": "fifty",
+        "шестьдесят": "sixty",
+        "семьдесят": "seventy",
+        "восемьдесят": "eighty",
+        "девяносто": "ninety",
+        "девятьсот": "nine hundred",
+        "восемьсот": "eight hundred",
+        "семьсот": "seven hundred",
+        "шестьсот": "six hundred",
+        "пятьсот": "five hundred",
+        "четыреста": "four hundred",
+        "триста": "three hundred",
+        "двести": "two hundred",
+        "сто": "one hundred",
+        "миллиардов": "billion",
+        "миллиарда": "billion",
+        "миллиард": "billion",
+        "миллионов": "million",
+        "миллиона": "million",
+        "миллион": "million",
+        "тысяча": "thousand",
+        "тысячи": "thousand",
+        "тысяч": "thousand",
+        "один": "one",
+        "одна": "one",
+        "два": "two",
+        "две": "two",
+        "три": "three",
+        "четыре": "four",
+        "пять": "five",
+        "шесть": "six",
+        "семь": "seven",
+        "восемь": "eight",
+        "девять": "nine",
+        "десять": "ten",
+        "рублей": "RUB",
+        "рубля": "RUB",
+        "рубль": "RUB",
+        "копеек": "kopecks",
+        "копейки": "kopecks",
+        "копейка": "kopeck",
+        "Число должно быть целым": "The number must be a whole number",
+        "Число не может быть больше 999 999 999 999 по модулю": "The number cannot exceed 999,999,999,999 in absolute value"
+      }
+    },
+    {
+      "id": "number-to-words",
+      "locale": "uk",
+      "url": "/uk/konvertery/chyslo-propysom/",
+      "h1": "Число прописом",
+      "fields": [
+        {
+          "name": "value",
+          "label": "Число",
+          "type": "number",
+          "defaultValue": 1234,
+          "signed": true,
+          "step": 1
+        }
+      ],
+      "nativeErrors": {
+        "Количество должно быть целым в допустимом диапазоне": "Кількість має бути цілою в допустимому діапазоні",
+        "ноль": "нуль",
+        "минус": "мінус",
+        "одиннадцать": "одинадцять",
+        "двенадцать": "дванадцять",
+        "тринадцать": "тринадцять",
+        "четырнадцать": "чотирнадцять",
+        "пятнадцать": "п’ятнадцять",
+        "шестнадцать": "шістнадцять",
+        "семнадцать": "сімнадцять",
+        "восемнадцать": "вісімнадцять",
+        "девятнадцать": "дев’ятнадцять",
+        "двадцать": "двадцять",
+        "тридцать": "тридцять",
+        "сорок": "сорок",
+        "пятьдесят": "п’ятдесят",
+        "шестьдесят": "шістдесят",
+        "семьдесят": "сімдесят",
+        "восемьдесят": "вісімдесят",
+        "девяносто": "дев’яносто",
+        "девятьсот": "дев’ятсот",
+        "восемьсот": "вісімсот",
+        "семьсот": "сімсот",
+        "шестьсот": "шістсот",
+        "пятьсот": "п’ятсот",
+        "четыреста": "чотириста",
+        "триста": "триста",
+        "двести": "двісті",
+        "сто": "сто",
+        "миллиардов": "мільярдів",
+        "миллиарда": "мільярди",
+        "миллиард": "мільярд",
+        "миллионов": "мільйонів",
+        "миллиона": "мільйони",
+        "миллион": "мільйон",
+        "тысяча": "тисяча",
+        "тысячи": "тисячі",
+        "тысяч": "тисяч",
+        "один": "один",
+        "одна": "одна",
+        "два": "два",
+        "две": "дві",
+        "три": "три",
+        "четыре": "чотири",
+        "пять": "п’ять",
+        "шесть": "шість",
+        "семь": "сім",
+        "восемь": "вісім",
+        "девять": "дев’ять",
+        "десять": "десять",
+        "рублей": "рублів",
+        "рубля": "рублі",
+        "рубль": "рубль",
+        "копеек": "копійок",
+        "копейки": "копійки",
+        "копейка": "копійка",
+        "Число должно быть целым": "Число має бути цілим",
+        "Число не может быть больше 999 999 999 999 по модулю": "Число не може перевищувати 999 999 999 999 за модулем"
+      }
+    },
+    {
+      "id": "paper-quantity",
+      "locale": "ru",
+      "url": "/ru/converters/ves-i-kolichestvo-bumagi/",
+      "h1": "Калькулятор веса и количества бумаги",
+      "fields": [
+        {
+          "name": "format",
+          "label": "Формат листа",
+          "type": "select",
+          "defaultValue": "a4",
+          "options": [
+            {
+              "value": "a0",
+              "label": "A0 — 841×1189 мм"
+            },
+            {
+              "value": "a1",
+              "label": "A1 — 594×841 мм"
+            },
+            {
+              "value": "a2",
+              "label": "A2 — 420×594 мм"
+            },
+            {
+              "value": "a3",
+              "label": "A3 — 297×420 мм"
+            },
+            {
+              "value": "a4",
+              "label": "A4 — 210×297 мм"
+            },
+            {
+              "value": "a5",
+              "label": "A5 — 148×210 мм"
+            },
+            {
+              "value": "a6",
+              "label": "A6 — 105×148 мм"
+            }
+          ]
+        },
+        {
+          "name": "grammage",
+          "unit": "г/м²",
+          "label": "Плотность",
+          "type": "number",
+          "defaultValue": 80,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "sheets",
+          "label": "Листов",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "nativeErrors": {}
+    },
+    {
+      "id": "paper-quantity",
+      "locale": "en",
+      "url": "/en/converters/paper-weight-and-sheets/",
+      "h1": "Paper weight and sheets calculator",
+      "fields": [
+        {
+          "name": "format",
+          "label": "Формат листа",
+          "type": "select",
+          "defaultValue": "a4",
+          "options": [
+            {
+              "value": "a0",
+              "label": "A0 — 841×1189 мм"
+            },
+            {
+              "value": "a1",
+              "label": "A1 — 594×841 мм"
+            },
+            {
+              "value": "a2",
+              "label": "A2 — 420×594 мм"
+            },
+            {
+              "value": "a3",
+              "label": "A3 — 297×420 мм"
+            },
+            {
+              "value": "a4",
+              "label": "A4 — 210×297 мм"
+            },
+            {
+              "value": "a5",
+              "label": "A5 — 148×210 мм"
+            },
+            {
+              "value": "a6",
+              "label": "A6 — 105×148 мм"
+            }
+          ]
+        },
+        {
+          "name": "grammage",
+          "unit": "г/м²",
+          "label": "Плотность",
+          "type": "number",
+          "defaultValue": 80,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "sheets",
+          "label": "Листов",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "nativeErrors": {
+        "Количество должно быть целым в допустимом диапазоне": "The count must be a whole number within the allowed range",
+        "Результат вне числового диапазона": "The result is outside the numeric range",
+        "Вне числового диапазона": "Outside the numeric range",
+        "кг": "kg",
+        "г": "g",
+        "м²": "m²",
+        "мм": "mm",
+        "шт": "pcs",
+        "Выберите формат листа из списка": "Choose a sheet size from the list",
+        "Плотность бумаги должна быть больше нуля": "The grammage must be greater than zero",
+        "Листов должно быть целое число, не меньше одного": "The sheet count must be a whole number, at least one"
+      }
+    },
+    {
+      "id": "paper-quantity",
+      "locale": "uk",
+      "url": "/uk/konvertery/vaga-i-kilkist-paperu/",
+      "h1": "Калькулятор ваги та кількості паперу",
+      "fields": [
+        {
+          "name": "format",
+          "label": "Формат листа",
+          "type": "select",
+          "defaultValue": "a4",
+          "options": [
+            {
+              "value": "a0",
+              "label": "A0 — 841×1189 мм"
+            },
+            {
+              "value": "a1",
+              "label": "A1 — 594×841 мм"
+            },
+            {
+              "value": "a2",
+              "label": "A2 — 420×594 мм"
+            },
+            {
+              "value": "a3",
+              "label": "A3 — 297×420 мм"
+            },
+            {
+              "value": "a4",
+              "label": "A4 — 210×297 мм"
+            },
+            {
+              "value": "a5",
+              "label": "A5 — 148×210 мм"
+            },
+            {
+              "value": "a6",
+              "label": "A6 — 105×148 мм"
+            }
+          ]
+        },
+        {
+          "name": "grammage",
+          "unit": "г/м²",
+          "label": "Плотность",
+          "type": "number",
+          "defaultValue": 80,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "sheets",
+          "label": "Листов",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "nativeErrors": {
+        "Количество должно быть целым в допустимом диапазоне": "Кількість має бути цілою в допустимому діапазоні",
+        "Результат вне числового диапазона": "Результат поза числовим діапазоном",
+        "Вне числового диапазона": "Поза числовим діапазоном",
+        "кг": "кг",
+        "г": "г",
+        "м²": "м²",
+        "мм": "мм",
+        "шт": "шт",
+        "Выберите формат листа из списка": "Оберіть формат аркуша зі списку",
+        "Плотность бумаги должна быть больше нуля": "Щільність паперу має бути більшою за нуль",
+        "Листов должно быть целое число, не меньше одного": "Аркушів має бути ціле число, не менше одного"
+      }
+    },
+    {
+      "id": "paper-quantity",
+      "locale": "de",
+      "url": "/de/umrechner/papiergewicht-rechner/",
+      "h1": "Rechner für Papiergewicht und Blattzahl",
+      "fields": [
+        {
+          "name": "format",
+          "label": "Формат листа",
+          "type": "select",
+          "defaultValue": "a4",
+          "options": [
+            {
+              "value": "a0",
+              "label": "A0 — 841×1189 мм"
+            },
+            {
+              "value": "a1",
+              "label": "A1 — 594×841 мм"
+            },
+            {
+              "value": "a2",
+              "label": "A2 — 420×594 мм"
+            },
+            {
+              "value": "a3",
+              "label": "A3 — 297×420 мм"
+            },
+            {
+              "value": "a4",
+              "label": "A4 — 210×297 мм"
+            },
+            {
+              "value": "a5",
+              "label": "A5 — 148×210 мм"
+            },
+            {
+              "value": "a6",
+              "label": "A6 — 105×148 мм"
+            }
+          ]
+        },
+        {
+          "name": "grammage",
+          "unit": "г/м²",
+          "label": "Плотность",
+          "type": "number",
+          "defaultValue": 80,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "sheets",
+          "label": "Листов",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "nativeErrors": {
+        "Количество должно быть целым в допустимом диапазоне": "Die Anzahl muss eine ganze Zahl im zulässigen Bereich sein",
+        "Результат вне числового диапазона": "Das Ergebnis liegt außerhalb des Zahlenbereichs",
+        "Вне числового диапазона": "Außerhalb des Zahlenbereichs",
+        "кг": "kg",
+        "г": "g",
+        "м²": "m²",
+        "мм": "mm",
+        "шт": "Stk",
+        "Выберите формат листа из списка": "Wähle ein Blattformat aus der Liste",
+        "Плотность бумаги должна быть больше нуля": "Die Grammatur muss größer als null sein",
+        "Листов должно быть целое число, не меньше одного": "Die Blattzahl muss eine ganze Zahl von mindestens eins sein"
+      }
+    },
+    {
+      "id": "paper-quantity",
+      "locale": "es",
+      "url": "/es/conversores/peso-del-papel-y-hojas/",
+      "h1": "Calculadora de peso del papel y número de hojas",
+      "fields": [
+        {
+          "name": "format",
+          "label": "Формат листа",
+          "type": "select",
+          "defaultValue": "a4",
+          "options": [
+            {
+              "value": "a0",
+              "label": "A0 — 841×1189 мм"
+            },
+            {
+              "value": "a1",
+              "label": "A1 — 594×841 мм"
+            },
+            {
+              "value": "a2",
+              "label": "A2 — 420×594 мм"
+            },
+            {
+              "value": "a3",
+              "label": "A3 — 297×420 мм"
+            },
+            {
+              "value": "a4",
+              "label": "A4 — 210×297 мм"
+            },
+            {
+              "value": "a5",
+              "label": "A5 — 148×210 мм"
+            },
+            {
+              "value": "a6",
+              "label": "A6 — 105×148 мм"
+            }
+          ]
+        },
+        {
+          "name": "grammage",
+          "unit": "г/м²",
+          "label": "Плотность",
+          "type": "number",
+          "defaultValue": 80,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "sheets",
+          "label": "Листов",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "nativeErrors": {
+        "Количество должно быть целым в допустимом диапазоне": "La cantidad debe ser un entero dentro del rango permitido",
+        "Результат вне числового диапазона": "El resultado está fuera del rango numérico",
+        "Вне числового диапазона": "Fuera del rango numérico",
+        "кг": "kg",
+        "г": "g",
+        "м²": "m²",
+        "мм": "mm",
+        "шт": "uds.",
+        "Выберите формат листа из списка": "Elige un formato de hoja de la lista",
+        "Плотность бумаги должна быть больше нуля": "El gramaje debe ser mayor que cero",
+        "Листов должно быть целое число, не меньше одного": "El número de hojas debe ser entero y al menos uno"
+      }
+    },
+    {
+      "id": "scale-model",
+      "locale": "ru",
+      "url": "/ru/converters/masshtab-modeli/",
+      "h1": "Калькулятор масштаба модели",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Что найти",
+          "type": "select",
+          "defaultValue": "toModel",
+          "options": [
+            {
+              "value": "toModel",
+              "label": "размер модели"
+            },
+            {
+              "value": "toReal",
+              "label": "размер натуры"
+            },
+            {
+              "value": "findScale",
+              "label": "масштаб"
+            }
+          ]
+        },
+        {
+          "name": "real",
+          "label": "Размер натуры, мм",
+          "type": "number",
+          "defaultValue": 4350,
+          "min": 0,
+          "step": 10,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toModel",
+              "findScale"
+            ]
+          }
+        },
+        {
+          "name": "model",
+          "label": "Размер модели, мм",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toReal",
+              "findScale"
+            ]
+          }
+        },
+        {
+          "name": "scale",
+          "label": "Знаменатель масштаба, 1:N",
+          "type": "number",
+          "defaultValue": 87,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toModel",
+              "toReal"
+            ]
+          }
+        }
+      ],
+      "nativeErrors": {}
+    },
+    {
+      "id": "scale-model",
+      "locale": "en",
+      "url": "/en/converters/scale-model-converter/",
+      "h1": "Model scale calculator",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Что найти",
+          "type": "select",
+          "defaultValue": "toModel",
+          "options": [
+            {
+              "value": "toModel",
+              "label": "размер модели"
+            },
+            {
+              "value": "toReal",
+              "label": "размер натуры"
+            },
+            {
+              "value": "findScale",
+              "label": "масштаб"
+            }
+          ]
+        },
+        {
+          "name": "real",
+          "label": "Размер натуры, мм",
+          "type": "number",
+          "defaultValue": 4350,
+          "min": 0,
+          "step": 10,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toModel",
+              "findScale"
+            ]
+          }
+        },
+        {
+          "name": "model",
+          "label": "Размер модели, мм",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toReal",
+              "findScale"
+            ]
+          }
+        },
+        {
+          "name": "scale",
+          "label": "Знаменатель масштаба, 1:N",
+          "type": "number",
+          "defaultValue": 87,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toModel",
+              "toReal"
+            ]
+          }
+        }
+      ],
+      "nativeErrors": {
+        "Выберите режим расчёта": "Choose a calculation mode",
+        "Результат вне числового диапазона": "The result is outside the numeric range",
+        "мм": "mm",
+        "Знаменатель масштаба должен быть больше нуля": "The scale denominator must be greater than zero",
+        "Размер модели должен быть больше нуля": "The model size must be greater than zero",
+        "Размер натуры должен быть больше нуля": "The real size must be greater than zero"
+      }
+    },
+    {
+      "id": "scale-model",
+      "locale": "uk",
+      "url": "/uk/konvertery/masshtab-modeli/",
+      "h1": "Калькулятор масштабу моделі",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Что найти",
+          "type": "select",
+          "defaultValue": "toModel",
+          "options": [
+            {
+              "value": "toModel",
+              "label": "размер модели"
+            },
+            {
+              "value": "toReal",
+              "label": "размер натуры"
+            },
+            {
+              "value": "findScale",
+              "label": "масштаб"
+            }
+          ]
+        },
+        {
+          "name": "real",
+          "label": "Размер натуры, мм",
+          "type": "number",
+          "defaultValue": 4350,
+          "min": 0,
+          "step": 10,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toModel",
+              "findScale"
+            ]
+          }
+        },
+        {
+          "name": "model",
+          "label": "Размер модели, мм",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toReal",
+              "findScale"
+            ]
+          }
+        },
+        {
+          "name": "scale",
+          "label": "Знаменатель масштаба, 1:N",
+          "type": "number",
+          "defaultValue": 87,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toModel",
+              "toReal"
+            ]
+          }
+        }
+      ],
+      "nativeErrors": {
+        "Выберите режим расчёта": "Виберіть режим розрахунку",
+        "Результат вне числового диапазона": "Результат поза числовим діапазоном",
+        "мм": "мм",
+        "Знаменатель масштаба должен быть больше нуля": "Знаменник масштабу має бути більшим за нуль",
+        "Размер модели должен быть больше нуля": "Розмір моделі має бути більшим за нуль",
+        "Размер натуры должен быть больше нуля": "Розмір натури має бути більшим за нуль"
+      }
+    },
+    {
+      "id": "scale-model",
+      "locale": "de",
+      "url": "/de/umrechner/modellmassstab-rechner/",
+      "h1": "Rechner für den Modellmaßstab",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Что найти",
+          "type": "select",
+          "defaultValue": "toModel",
+          "options": [
+            {
+              "value": "toModel",
+              "label": "размер модели"
+            },
+            {
+              "value": "toReal",
+              "label": "размер натуры"
+            },
+            {
+              "value": "findScale",
+              "label": "масштаб"
+            }
+          ]
+        },
+        {
+          "name": "real",
+          "label": "Размер натуры, мм",
+          "type": "number",
+          "defaultValue": 4350,
+          "min": 0,
+          "step": 10,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toModel",
+              "findScale"
+            ]
+          }
+        },
+        {
+          "name": "model",
+          "label": "Размер модели, мм",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toReal",
+              "findScale"
+            ]
+          }
+        },
+        {
+          "name": "scale",
+          "label": "Знаменатель масштаба, 1:N",
+          "type": "number",
+          "defaultValue": 87,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toModel",
+              "toReal"
+            ]
+          }
+        }
+      ],
+      "nativeErrors": {
+        "Выберите режим расчёта": "Wähle einen Berechnungsmodus",
+        "Результат вне числового диапазона": "Das Ergebnis liegt außerhalb des Zahlenbereichs",
+        "мм": "mm",
+        "Знаменатель масштаба должен быть больше нуля": "Der Nenner des Maßstabs muss größer als null sein",
+        "Размер модели должен быть больше нуля": "Das Maß am Modell muss größer als null sein",
+        "Размер натуры должен быть больше нуля": "Das Maß am Original muss größer als null sein"
+      }
+    },
+    {
+      "id": "scale-model",
+      "locale": "es",
+      "url": "/es/conversores/escala-de-maquetas/",
+      "h1": "Calculadora de escala de maquetas",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Что найти",
+          "type": "select",
+          "defaultValue": "toModel",
+          "options": [
+            {
+              "value": "toModel",
+              "label": "размер модели"
+            },
+            {
+              "value": "toReal",
+              "label": "размер натуры"
+            },
+            {
+              "value": "findScale",
+              "label": "масштаб"
+            }
+          ]
+        },
+        {
+          "name": "real",
+          "label": "Размер натуры, мм",
+          "type": "number",
+          "defaultValue": 4350,
+          "min": 0,
+          "step": 10,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toModel",
+              "findScale"
+            ]
+          }
+        },
+        {
+          "name": "model",
+          "label": "Размер модели, мм",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toReal",
+              "findScale"
+            ]
+          }
+        },
+        {
+          "name": "scale",
+          "label": "Знаменатель масштаба, 1:N",
+          "type": "number",
+          "defaultValue": 87,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "oneOf": [
+              "toModel",
+              "toReal"
+            ]
+          }
+        }
+      ],
+      "nativeErrors": {
+        "Выберите режим расчёта": "Elige un modo de cálculo",
+        "Результат вне числового диапазона": "El resultado está fuera del rango numérico",
+        "мм": "mm",
+        "Знаменатель масштаба должен быть больше нуля": "El denominador de la escala debe ser mayor que cero",
+        "Размер модели должен быть больше нуля": "La medida de la maqueta debe ser mayor que cero",
+        "Размер натуры должен быть больше нуля": "La medida real debe ser mayor que cero"
+      }
+    }
+  ]
+}

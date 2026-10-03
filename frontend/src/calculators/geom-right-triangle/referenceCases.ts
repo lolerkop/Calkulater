@@ -39,4 +39,7 @@ export const geomRightTriangleReferenceCases: readonly CalculatorReferenceCase[]
     inputs: {"mode": "legHyp", "unit": "cm", "a": 6, "c": 5},
     expectPrimary: "—",
   },
+  // Независимые аналитические случаи: масштабирование формул и явные границы области.
+  {"name": "большая гипотенуза и катет без переполнения квадратов", "inputs": {"mode": "legHyp", "unit": "m", "a": 1e+154, "c": 2e+154}, "expectPrimary": "1,732·10^154 м", "expectSecondary": [{"label": "Площадь", "value": "8,660·10^307 м²"}]},
+  {"name": "неизвестный режим не превращается в обратный", "inputs": {"mode": "other", "unit": "m", "a": 3, "c": 5}, "expectPrimary": "—"},
 ];

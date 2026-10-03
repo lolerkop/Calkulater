@@ -1,5 +1,5 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtInt, fmtNumber as ordinaryNumber } from '../../lib/format';
 
 // Соотношение сторон.
 //
@@ -21,16 +21,24 @@ const COMMON: readonly { label: string; value: number }[] = [
   { label: '32:9', value: 32 / 9 },
 ];
 
+import { read, INPUT, MODE, RANGE } from '../../lib/platform/measurementScalar';
+import { integerInput } from '../../lib/platform/strictNumericInput';
+import { exact, times, ratio as divide } from '../../lib/platform/geometryNumericInput';
+
+const fmtNumber = (value: number, digits = 2): string => value !== 0 && Math.abs(value) < 0.5 * 10 ** -digits ? value.toExponential(3).replace('.', ',') : ordinaryNumber(value, digits);
+
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'reduce');
+  const mode = (typeof inputs.mode === 'string' ? inputs.mode : inputs.mode === undefined ? 'reduce' : '');
   const fail = (message: string) => ({
     primary: { label: 'Соотношение сторон', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (mode !== 'reduce' && mode !== 'side') return fail(MODE);
   if (mode === 'reduce') {
-    const width = Math.round(toNumber(inputs.width));
-    const height = Math.round(toNumber(inputs.height));
+    const width = integerInput(inputs.width) ?? NaN;
+    const height = integerInput(inputs.height) ?? NaN;
+    if (!Number.isFinite(width) || !Number.isFinite(height)) return fail('Размеры в пикселях задаются положительными безопасными целыми числами');
     if (!(width > 0) || !(height > 0)) return fail('Обе стороны должны быть больше нуля');
 
     const divisor = gcd(width, height);
@@ -46,21 +54,24 @@ export const compute: CalcFunction = (inputs) => {
         { label: 'Десятичное отношение', value: fmtNumber(decimal, 4) },
         { label: 'Наибольший общий делитель', value: fmtInt(divisor) },
         { label: 'Ближайшее распространённое', value: nearest.label },
-        { label: 'Всего пикселей', value: fmtInt(width * height) },
+        { label: 'Всего пикселей', value: (BigInt(width) * BigInt(height)).toLocaleString('ru-RU') },
       ],
     };
   }
 
-  const ratioW = toNumber(inputs.ratioW);
-  const ratioH = toNumber(inputs.ratioH);
-  const known = toStr(inputs.known, 'width');
-  const side = toNumber(inputs.side);
+  const ratioW = read(inputs.ratioW);
+  const ratioH = read(inputs.ratioH);
+  const known = (typeof inputs.known === 'string' ? inputs.known : inputs.known === undefined ? 'width' : '');
+  const side = integerInput(inputs.side) ?? NaN;
+  if (known !== 'width' && known !== 'height') return fail(MODE);
+  if (![ratioW, ratioH, side].every(Number.isFinite)) return fail(INPUT);
   if (!(ratioW > 0) || !(ratioH > 0)) return fail('Обе части соотношения должны быть больше нуля');
   if (!(side > 0)) return fail('Известная сторона должна быть больше нуля');
 
-  const other = known === 'width' ? (side * ratioH) / ratioW : (side * ratioW) / ratioH;
+  const other = divide(times(exact(side), exact(known === 'width' ? ratioH : ratioW)), exact(known === 'width' ? ratioW : ratioH));
+  if (!Number.isFinite(other) || !(other > 0) || !Number.isSafeInteger(Math.round(other)) || Math.round(other) < 1) return fail(RANGE);
   const rounded = Math.round(other);
-  const exact = Number.isInteger(other);
+  const isExact = Number.isInteger(other);
 
   return {
     primary: {
@@ -68,7 +79,7 @@ export const compute: CalcFunction = (inputs) => {
       value: `${fmtInt(rounded)} пикс`,
     },
     secondary: [
-      { label: 'Точное значение', value: exact ? `${fmtInt(rounded)} пикс` : `${fmtNumber(other, 2)} пикс` },
+      { label: 'Точное значение', value: isExact ? `${fmtInt(rounded)} пикс` : `${fmtNumber(other, 2)} пикс` },
       { label: 'Разрешение', value: known === 'width' ? `${fmtInt(side)} × ${fmtInt(rounded)}` : `${fmtInt(rounded)} × ${fmtInt(side)}` },
       { label: 'Соотношение', value: `${ratioW}:${ratioH}` },
     ],

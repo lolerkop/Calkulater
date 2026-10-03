@@ -21,7 +21,7 @@ for (const locale of distLocales(root)) {
       issues.push(`${locale}/privacy/: missing ${id} section`);
     }
   }
-  if (!html.includes('2026-06-15')) issues.push(`${locale}/privacy/: missing update date`);
+  if (!html.includes('2026-10-03')) issues.push(`${locale}/privacy/: missing update date`);
 }
 
 const htmlFiles = [];

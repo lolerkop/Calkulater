@@ -1,5 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
+import { finiteInput } from './numeric';
 
 // Линейное уравнение ax + b = c.
 //
@@ -11,15 +12,18 @@ import { fmtNumber, toNumber } from '../../lib/format';
 // Символьной алгебры здесь нет и не нужно: степень первая, коэффициенты
 // числовые, разбор шагов собирается подстановкой.
 const show = (value: number) => {
+  if (value !== 0 && (Math.abs(value) < 1e-6 || Math.abs(value) >= 1e12)) return value.toExponential(5).replace('.', ',');
   const tidy = Number(value.toPrecision(6));
   if (Number.isInteger(tidy)) return String(tidy);
-  return fmtNumber(tidy, 6).replace(/0+$/, '').replace(/,$/, '');
+  const digits = Math.max(0, 5 - Math.floor(Math.log10(Math.abs(tidy))));
+  return fmtNumber(tidy, digits).replace(/0+$/, '').replace(/,$/, '');
 };
 
 export const compute: CalcFunction = (inputs) => {
-  const a = toNumber(inputs.a);
-  const b = toNumber(inputs.b);
-  const c = toNumber(inputs.c);
+  const a = finiteInput(inputs.a), b = finiteInput(inputs.b), c = finiteInput(inputs.c);
+  const fail = (message: string) => ({ primary: { label: 'Корень', value: '—' },
+    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (a === null || b === null || c === null) return fail('Введите конечные числовые коэффициенты');
 
   const equation = `${show(a)}x ${b < 0 ? '−' : '+'} ${show(Math.abs(b))} = ${show(c)}`;
 
@@ -40,7 +44,10 @@ export const compute: CalcFunction = (inputs) => {
     };
   }
 
-  const x = (c - b) / a;
+  const difference = c - b, x = difference / a;
+  const check = a * x + b;
+  if (![difference, x, check].every(Number.isFinite) || (difference !== 0 && x === 0))
+    return fail('Промежуточное значение или корень вне числового диапазона');
 
   return {
     primary: { label: 'Корень', value: `x = ${show(x)}` },

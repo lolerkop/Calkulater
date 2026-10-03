@@ -11,13 +11,13 @@ import { isValidIsoDate } from '../../../lib/date';
 import { calculatorCopy } from './copy';
 import { isPartialNumber, type FormValues } from './values';
 import type { CalculatorClientRuntime } from '../../../lib/platform/runtime';
+import { isFieldVisible } from '../../../lib/fieldVisibility';
 
 export type FieldErrors = Record<string, string>;
 export const EMPTY_ERRORS: FieldErrors = Object.freeze({});
 
 export function isVisible(field: Field, values: FormValues): boolean {
-  if (!field.showIf) return true;
-  return values[field.showIf.field] === field.showIf.equals;
+  return isFieldVisible(field, values);
 }
 
 export function validateValues(
@@ -33,11 +33,14 @@ export function validateValues(
     if (!isVisible(field, values) || field.type !== 'number') continue;
     const raw = values[field.name];
     const text = typeof raw === 'boolean' ? '' : String(raw ?? '');
-    const parsed = typeof raw === 'boolean' ? null : parseLocalizedNumber(text, locale);
+    // URL restoration supplies actual numbers. Re-parsing Number.toString()
+    // would reject finite values printed with an exponent (e.g. 1e-308).
+    const parsed = typeof raw === 'number' ? (Number.isFinite(raw) ? raw : null)
+      : typeof raw === 'boolean' ? null : parseLocalizedNumber(text, locale);
     if (parsed === null) {
       // Пустое необязательное поле — это «суммы нет», а не ошибка ввода: раннер
       // получит нуль и просто не выведет зависящую от суммы строку.
-      if (text.trim() === '' && field.optional) continue;
+      if (text.trim() === '' && field.optional && typeof raw !== 'boolean') continue;
       // Незакрытая дробь вроде «1,» — значение неполное, а не неверное. Ругаться
       // на посетителя, пока он ещё набирает число, незачем.
       if (isPartialNumber(text)) continue;
@@ -45,6 +48,12 @@ export function validateValues(
       continue;
     }
     const value = parsed;
+    // A nonzero decimal outside Number's lower range must not become a
+    // plausible zero before a calculator receives the normalized input.
+    if (typeof raw === 'string' && value === 0 && /[1-9]/.test(text)) {
+      errors[field.name] = copy.enterNumber;
+      continue;
+    }
     if (field.min !== undefined && value < field.min) {
       errors[field.name] = copy.minimum(field.min);
     }
@@ -58,13 +67,16 @@ export function validateValues(
     ? 'Выберите корректную дату.'
     : locale === 'uk'
       ? 'Оберіть коректну дату.'
-      : locale === 'es'
-        ? 'Indica una fecha válida.'
-        : 'Choose a valid date.';
+    : locale === 'es'
+      ? 'Indica una fecha válida.'
+      : locale === 'de'
+        ? 'Wähle ein gültiges Datum.'
+      : 'Choose a valid date.';
+  const validDate = runtime?.validateDate ?? isValidIsoDate;
   for (const field of fields) {
     if (!isVisible(field, values) || field.type !== 'date') continue;
     const raw = String(values[field.name] ?? '');
-    if ((requiredDateNames.has(field.name) && !raw) || (raw && !isValidIsoDate(raw))) {
+    if ((requiredDateNames.has(field.name) && !field.optional && !raw) || (raw && !validDate(raw))) {
       errors[field.name] = dateError;
     }
   }

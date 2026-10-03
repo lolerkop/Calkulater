@@ -1,0 +1,1392 @@
+[
+  {
+    "id": "car-depreciation",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор амортизации автомобиля",
+      "slug": "car-depreciation",
+      "h1": "Калькулятор амортизации автомобиля",
+      "seoTitle": "Калькулятор амортизации автомобиля: остаточная стоимость",
+      "shortDescription": "Остаточная стоимость автомобиля через несколько лет владения.",
+      "keywords": [
+        "амортизация автомобиля",
+        "остаточная стоимость",
+        "потеря стоимости авто",
+        "износ автомобиля"
+      ],
+      "seoDescription": "Рассчитайте остаточную стоимость автомобиля по цене покупки, сроку владения, годовой ставке потери и отдельной потере за первый год."
+    },
+    "defaults": {
+      "price": 2400000,
+      "years": 4,
+      "ratePct": 12,
+      "firstYearPct": 20
+    }
+  },
+  {
+    "id": "car-depreciation",
+    "locale": "en",
+    "metadata": {
+      "name": "Car depreciation calculator",
+      "slug": "car-depreciation-calculator",
+      "h1": "Car depreciation calculator",
+      "seoTitle": "Car depreciation calculator — residual value",
+      "shortDescription": "Residual value of a car after several years of ownership.",
+      "keywords": [
+        "car depreciation calculator",
+        "residual value",
+        "car value loss",
+        "vehicle depreciation"
+      ],
+      "seoDescription": "Calculate the residual value of a car from its purchase price, years of ownership, annual depreciation rate and a separate first-year loss."
+    },
+    "defaults": {
+      "price": 2400000,
+      "years": 4,
+      "ratePct": 12,
+      "firstYearPct": 20
+    }
+  },
+  {
+    "id": "car-depreciation",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор амортизації авто",
+      "slug": "amortyzatsiya-avto",
+      "h1": "Калькулятор амортизації авто",
+      "seoTitle": "Калькулятор амортизації авто: залишкова вартість",
+      "shortDescription": "Залишкова вартість автомобіля через кілька років володіння.",
+      "keywords": [
+        "амортизація авто",
+        "залишкова вартість",
+        "втрата вартості автомобіля",
+        "знос авто"
+      ],
+      "seoDescription": "Розрахунок залишкової вартості автомобіля за ціною купівлі, строком володіння, річною ставкою втрати та окремою втратою за перший рік."
+    },
+    "defaults": {
+      "price": 2400000,
+      "years": 4,
+      "ratePct": 12,
+      "firstYearPct": 20
+    }
+  },
+  {
+    "id": "car-depreciation",
+    "locale": "de",
+    "metadata": {
+      "name": "Rechner für den Wertverlust eines Autos",
+      "slug": "wertverlust-auto",
+      "h1": "Rechner für den Wertverlust eines Autos",
+      "seoTitle": "Wertverlust eines Autos berechnen — Restwert",
+      "shortDescription": "Restwert eines Autos nach mehreren Jahren Besitz.",
+      "keywords": [
+        "Wertverlust Auto berechnen",
+        "Restwert",
+        "Wertverlust Fahrzeug",
+        "Abschreibung Auto"
+      ],
+      "seoDescription": "Berechne den Restwert eines Autos aus Kaufpreis, Besitzdauer, jährlichem Wertverlust und einem gesonderten Verlust im ersten Jahr."
+    },
+    "defaults": {
+      "price": 2400000,
+      "years": 4,
+      "ratePct": 12,
+      "firstYearPct": 20
+    }
+  },
+  {
+    "id": "car-depreciation",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de depreciación de un coche",
+      "slug": "depreciacion-de-un-coche",
+      "h1": "Calculadora de depreciación de un coche",
+      "seoTitle": "Calculadora de depreciación de un coche — valor residual",
+      "shortDescription": "Valor residual de un coche tras varios años de propiedad.",
+      "keywords": [
+        "calculadora de depreciación de un coche",
+        "valor residual",
+        "pérdida de valor de un coche",
+        "depreciación de un vehículo"
+      ],
+      "seoDescription": "Calcula el valor residual de un coche a partir del precio de compra, los años de propiedad, la tasa anual de depreciación y una pérdida aparte para el primer año."
+    },
+    "defaults": {
+      "price": 2400000,
+      "years": 4,
+      "ratePct": 12,
+      "firstYearPct": 20
+    }
+  },
+  {
+    "id": "compression-ratio",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор степени сжатия двигателя",
+      "slug": "stepen-szhatiya-dvigatelya",
+      "h1": "Калькулятор степени сжатия двигателя",
+      "seoTitle": "Калькулятор степени сжатия двигателя",
+      "shortDescription": "Степень сжатия по рабочему объёму цилиндра и камере сгорания.",
+      "keywords": [
+        "степень сжатия",
+        "камера сгорания",
+        "рабочий объём цилиндра",
+        "форсирование двигателя"
+      ],
+      "seoDescription": "Рассчитайте степень сжатия по рабочему объёму одного цилиндра и объёму камеры сгорания."
+    },
+    "defaults": {
+      "displacement": 454.17,
+      "chamber": 45
+    }
+  },
+  {
+    "id": "compression-ratio",
+    "locale": "en",
+    "metadata": {
+      "name": "Compression ratio calculator",
+      "slug": "compression-ratio",
+      "h1": "Compression ratio calculator",
+      "seoTitle": "Compression ratio calculator",
+      "shortDescription": "Compression ratio from swept and chamber volume.",
+      "keywords": [
+        "compression ratio",
+        "combustion chamber",
+        "swept volume",
+        "engine tuning"
+      ],
+      "seoDescription": "Calculate engine compression ratio from the swept volume of one cylinder and the combustion chamber volume."
+    },
+    "defaults": {
+      "displacement": 454.17,
+      "chamber": 45
+    }
+  },
+  {
+    "id": "compression-ratio",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор ступеня стиснення двигуна",
+      "slug": "stupin-styskannya-dvyguna",
+      "h1": "Калькулятор ступеня стиснення двигуна",
+      "seoTitle": "Калькулятор ступеня стиснення двигуна",
+      "shortDescription": "Ступінь стиснення за робочим об’ємом і камерою згоряння.",
+      "keywords": [
+        "ступінь стиснення",
+        "камера згоряння",
+        "робочий об’єм циліндра"
+      ],
+      "seoDescription": "Розрахуйте ступінь стиснення за робочим об’ємом одного циліндра та об’ємом камери згоряння."
+    },
+    "defaults": {
+      "displacement": 454.17,
+      "chamber": 45
+    }
+  },
+  {
+    "id": "compression-ratio",
+    "locale": "de",
+    "metadata": {
+      "name": "Rechner für das Verdichtungsverhältnis",
+      "slug": "verdichtungsverhaeltnis",
+      "h1": "Rechner für das Verdichtungsverhältnis",
+      "seoTitle": "Verdichtungsverhältnis berechnen",
+      "shortDescription": "Verdichtungsverhältnis aus Hubraum und Brennraumvolumen.",
+      "keywords": [
+        "Verdichtungsverhältnis",
+        "Brennraum",
+        "Hubraum eines Zylinders",
+        "Motortuning",
+        "Verdichtungsverhaeltnis"
+      ],
+      "seoDescription": "Berechne das Verdichtungsverhältnis eines Motors aus dem Hubraum eines Zylinders und dem Volumen des Brennraums."
+    },
+    "defaults": {
+      "displacement": 454.17,
+      "chamber": 45
+    }
+  },
+  {
+    "id": "compression-ratio",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de relación de compresión",
+      "slug": "relacion-de-compresion",
+      "h1": "Calculadora de relación de compresión",
+      "seoTitle": "Calculadora de relación de compresión",
+      "shortDescription": "Relación de compresión a partir de la cilindrada unitaria y el volumen de la cámara.",
+      "keywords": [
+        "relación de compresión",
+        "cámara de combustión",
+        "cilindrada unitaria",
+        "preparación de motores"
+      ],
+      "seoDescription": "Calcula la relación de compresión de un motor a partir de la cilindrada de un cilindro y el volumen de la cámara de combustión."
+    },
+    "defaults": {
+      "displacement": 454.17,
+      "chamber": 45
+    }
+  },
+  {
+    "id": "engine-displacement",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор рабочего объёма двигателя",
+      "slug": "rabochiy-obyom-dvigatelya",
+      "h1": "Калькулятор рабочего объёма двигателя",
+      "seoTitle": "Калькулятор рабочего объёма двигателя — по диаметру и ходу",
+      "shortDescription": "Литраж по диаметру цилиндра, ходу поршня и их числу.",
+      "keywords": [
+        "рабочий объём двигателя",
+        "литраж",
+        "диаметр цилиндра",
+        "ход поршня"
+      ],
+      "seoDescription": "Рассчитайте рабочий объём двигателя по диаметру цилиндра, ходу поршня и числу цилиндров, в кубических сантиметрах и литрах."
+    },
+    "defaults": {
+      "bore": 82,
+      "stroke": 86,
+      "cylinders": 4
+    }
+  },
+  {
+    "id": "engine-displacement",
+    "locale": "en",
+    "metadata": {
+      "name": "Engine displacement calculator",
+      "slug": "engine-displacement",
+      "h1": "Engine displacement calculator",
+      "seoTitle": "Engine displacement calculator — from bore and stroke",
+      "shortDescription": "Displacement from bore, stroke and cylinder count.",
+      "keywords": [
+        "engine displacement",
+        "engine size",
+        "cylinder bore",
+        "piston stroke"
+      ],
+      "seoDescription": "Calculate engine displacement from cylinder bore, piston stroke and cylinder count, in cubic centimetres and litres."
+    },
+    "defaults": {
+      "bore": 82,
+      "stroke": 86,
+      "cylinders": 4
+    }
+  },
+  {
+    "id": "engine-displacement",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор робочого об’єму двигуна",
+      "slug": "robochyy-obyem-dvyguna",
+      "h1": "Калькулятор робочого об’єму двигуна",
+      "seoTitle": "Калькулятор робочого об’єму двигуна — за діаметром і ходом",
+      "shortDescription": "Літраж за діаметром циліндра, ходом поршня та їх кількістю.",
+      "keywords": [
+        "робочий об’єм двигуна",
+        "літраж",
+        "діаметр циліндра"
+      ],
+      "seoDescription": "Розрахуйте робочий об’єм двигуна за діаметром циліндра, ходом поршня та кількістю циліндрів."
+    },
+    "defaults": {
+      "bore": 82,
+      "stroke": 86,
+      "cylinders": 4
+    }
+  },
+  {
+    "id": "engine-displacement",
+    "locale": "de",
+    "metadata": {
+      "name": "Hubraumrechner",
+      "slug": "hubraum-berechnen",
+      "h1": "Hubraumrechner",
+      "seoTitle": "Hubraum berechnen — aus Bohrung und Hub",
+      "shortDescription": "Hubraum aus Bohrung, Hub und Zylinderzahl.",
+      "keywords": [
+        "Hubraum berechnen",
+        "Motorgröße",
+        "Zylinderbohrung",
+        "Kolbenhub",
+        "Motorgroesse"
+      ],
+      "seoDescription": "Berechne den Hubraum eines Motors aus Zylinderbohrung, Kolbenhub und Zylinderzahl, in Kubikzentimetern und Litern."
+    },
+    "defaults": {
+      "bore": 82,
+      "stroke": 86,
+      "cylinders": 4
+    }
+  },
+  {
+    "id": "engine-displacement",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de cilindrada",
+      "slug": "calculadora-de-cilindrada",
+      "h1": "Calculadora de cilindrada",
+      "seoTitle": "Calculadora de cilindrada — a partir del diámetro y la carrera",
+      "shortDescription": "Cilindrada a partir del diámetro, la carrera y el número de cilindros.",
+      "keywords": [
+        "cilindrada",
+        "tamaño del motor",
+        "diámetro del cilindro",
+        "carrera del pistón"
+      ],
+      "seoDescription": "Calcula la cilindrada de un motor a partir del diámetro del cilindro, la carrera del pistón y el número de cilindros, en centímetros cúbicos y en litros."
+    },
+    "defaults": {
+      "bore": 82,
+      "stroke": 86,
+      "cylinders": 4
+    }
+  },
+  {
+    "id": "fuel-consumption",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор расхода топлива",
+      "slug": "fuel-consumption",
+      "h1": "Калькулятор расхода топлива",
+      "seoTitle": "Калькулятор расхода топлива — литров на 100 км",
+      "shortDescription": "Литры на 100 км по заправке или топливо на поездку.",
+      "keywords": [
+        "расход топлива",
+        "литров на 100 км",
+        "калькулятор бензина"
+      ],
+      "seoDescription": "Рассчитайте расход топлива в литрах на 100 км по залитым литрам и пробегу или узнайте, сколько топлива нужно на поездку."
+    },
+    "defaults": {
+      "mode": "measure",
+      "litres": 42,
+      "distance": 560,
+      "consumption": 7.5
+    }
+  },
+  {
+    "id": "fuel-consumption",
+    "locale": "en",
+    "metadata": {
+      "name": "Fuel consumption calculator",
+      "slug": "fuel-consumption-calculator",
+      "h1": "Fuel consumption calculator",
+      "seoTitle": "Fuel consumption calculator — litres per 100 km",
+      "shortDescription": "Litres per 100 km from a fill-up, or the fuel a trip will need.",
+      "keywords": [
+        "fuel consumption calculator",
+        "litres per 100 km",
+        "fuel economy"
+      ],
+      "seoDescription": "Calculate fuel consumption in litres per 100 km from litres used and distance covered, or the fuel needed for a trip."
+    },
+    "defaults": {
+      "mode": "measure",
+      "litres": 42,
+      "distance": 560,
+      "consumption": 7.5
+    }
+  },
+  {
+    "id": "fuel-consumption",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор витрати палива",
+      "slug": "vytrata-palyva",
+      "h1": "Калькулятор витрати палива",
+      "seoTitle": "Калькулятор витрати палива — літрів на 100 км",
+      "shortDescription": "Літрів на 100 км за заправкою або паливо на поїздку.",
+      "keywords": [
+        "витрата палива",
+        "літрів на 100 км",
+        "калькулятор бензину"
+      ],
+      "seoDescription": "Обчисліть витрату палива в літрах на 100 км за витраченими літрами та пробігом."
+    },
+    "defaults": {
+      "mode": "measure",
+      "litres": 42,
+      "distance": 560,
+      "consumption": 7.5
+    }
+  },
+  {
+    "id": "fuel-consumption",
+    "locale": "de",
+    "metadata": {
+      "name": "Kraftstoffverbrauchsrechner",
+      "slug": "kraftstoffverbrauch-rechner",
+      "h1": "Kraftstoffverbrauchsrechner",
+      "seoTitle": "Kraftstoffverbrauch berechnen — Liter je 100 km",
+      "shortDescription": "Liter je 100 km aus einer Tankfüllung oder der Kraftstoff für eine Fahrt.",
+      "keywords": [
+        "Kraftstoffverbrauch berechnen",
+        "Liter je 100 km",
+        "Spritverbrauch",
+        "Verbrauch Auto"
+      ],
+      "seoDescription": "Berechne den Kraftstoffverbrauch in Litern je 100 km aus getankten Litern und gefahrener Strecke, oder den Kraftstoff für eine Fahrt."
+    },
+    "defaults": {
+      "mode": "measure",
+      "litres": 42,
+      "distance": 560,
+      "consumption": 7.5
+    }
+  },
+  {
+    "id": "fuel-consumption",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de consumo de combustible",
+      "slug": "consumo-de-combustible",
+      "h1": "Calculadora de consumo de combustible",
+      "seoTitle": "Calculadora de consumo de combustible — litros a los 100 km",
+      "shortDescription": "Litros a los 100 km a partir de un repostaje, o el combustible que pide un viaje.",
+      "keywords": [
+        "consumo de combustible",
+        "litros a los 100 km",
+        "gasto de gasolina",
+        "kilómetros por litro"
+      ],
+      "seoDescription": "Calcula el consumo en litros a los 100 km con los litros repostados y los kilómetros recorridos, o el combustible necesario para un viaje."
+    },
+    "defaults": {
+      "mode": "measure",
+      "litres": 42,
+      "distance": 560,
+      "consumption": 7.5
+    }
+  },
+  {
+    "id": "fuel-oil-mix",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор бензина с маслом для двухтактного двигателя",
+      "slug": "benzin-s-maslom-dlya-dvuhtaktnogo",
+      "h1": "Калькулятор бензина с маслом для двухтактного двигателя",
+      "seoTitle": "Калькулятор бензина с маслом для двухтактного двигателя — 1:25, 1:50",
+      "shortDescription": "Сколько масла добавить в бензин по пропорции 1:N.",
+      "keywords": [
+        "бензин с маслом",
+        "двухтактный двигатель",
+        "пропорция 1:50",
+        "смесь для бензопилы"
+      ],
+      "seoDescription": "Рассчитайте, сколько масла добавить в бензин для двухтактного двигателя при пропорции от 1:20 до 1:100."
+    },
+    "defaults": {
+      "fuel": 5,
+      "ratio": 50
+    }
+  },
+  {
+    "id": "fuel-oil-mix",
+    "locale": "en",
+    "metadata": {
+      "name": "Gas oil mix ratio calculator",
+      "slug": "gas-oil-mix-ratio",
+      "h1": "Gas oil mix ratio calculator",
+      "seoTitle": "Gas oil mix ratio calculator — 1:25, 1:50 two-stroke",
+      "shortDescription": "How much oil to add to petrol at a 1:N ratio.",
+      "keywords": [
+        "gas oil mix",
+        "two stroke ratio",
+        "1:50 mix",
+        "chainsaw fuel mix"
+      ],
+      "seoDescription": "Calculate how much oil to add to petrol for a two-stroke engine at ratios from 1:20 to 1:100."
+    },
+    "defaults": {
+      "fuel": 5,
+      "ratio": 50
+    }
+  },
+  {
+    "id": "fuel-oil-mix",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор бензину з оливою для двотактного двигуна",
+      "slug": "benzyn-z-oliyeyu-dlya-dvotaktnogo",
+      "h1": "Калькулятор бензину з оливою для двотактного двигуна",
+      "seoTitle": "Калькулятор бензину з оливою для двотактного двигуна — 1:25, 1:50",
+      "shortDescription": "Скільки оливи додати в бензин за пропорцією 1:N.",
+      "keywords": [
+        "бензин з оливою",
+        "двотактний двигун",
+        "пропорція 1:50"
+      ],
+      "seoDescription": "Розрахуйте, скільки оливи додати в бензин для двотактного двигуна за пропорцією від 1:20 до 1:100."
+    },
+    "defaults": {
+      "fuel": 5,
+      "ratio": 50
+    }
+  },
+  {
+    "id": "fuel-oil-mix",
+    "locale": "de",
+    "metadata": {
+      "name": "Rechner für das Zweitaktgemisch",
+      "slug": "zweitakt-mischungsrechner",
+      "h1": "Rechner für das Zweitaktgemisch",
+      "seoTitle": "Zweitaktgemisch berechnen — 1:25, 1:50 mischen",
+      "shortDescription": "Wie viel Öl bei einem Verhältnis von 1:N zum Benzin kommt.",
+      "keywords": [
+        "Zweitaktgemisch mischen",
+        "Mischungsverhältnis 1:50",
+        "Benzin Öl Gemisch",
+        "Kettensäge Gemisch",
+        "Benzin Oel Gemisch"
+      ],
+      "seoDescription": "Berechne, wie viel Öl für einen Zweitaktmotor zum Benzin kommt, bei Verhältnissen von 1:20 bis 1:100."
+    },
+    "defaults": {
+      "fuel": 5,
+      "ratio": 50
+    }
+  },
+  {
+    "id": "fuel-oil-mix",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de mezcla de gasolina y aceite",
+      "slug": "mezcla-de-gasolina-y-aceite",
+      "h1": "Calculadora de mezcla de gasolina y aceite",
+      "seoTitle": "Calculadora de mezcla de gasolina y aceite — 1:25, 1:50 para dos tiempos",
+      "shortDescription": "Cuánto aceite añadir a la gasolina con una proporción 1:N.",
+      "keywords": [
+        "mezcla de gasolina y aceite",
+        "proporción para dos tiempos",
+        "mezcla 1:50",
+        "mezcla para motosierra"
+      ],
+      "seoDescription": "Calcula cuánto aceite añadir a la gasolina para un motor de dos tiempos con proporciones de 1:20 a 1:100."
+    },
+    "defaults": {
+      "fuel": 5,
+      "ratio": 50
+    }
+  },
+  {
+    "id": "power-to-weight",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор мощности к массе",
+      "slug": "power-to-weight",
+      "h1": "Калькулятор мощности к массе",
+      "seoTitle": "Калькулятор мощности к массе — кВт на тонну и кг на л.с.",
+      "shortDescription": "Удельная мощность в кВт на тонну, л.с. на тонну и кг на силу.",
+      "keywords": [
+        "мощность к массе",
+        "кВт на тонну",
+        "кг на лошадиную силу"
+      ],
+      "seoDescription": "Рассчитайте отношение мощности к массе в киловаттах на тонну, лошадиных силах на тонну и килограммах на силу."
+    },
+    "defaults": {
+      "power": 150,
+      "powerUnit": "ps",
+      "mass": 1400,
+      "payload": 0
+    }
+  },
+  {
+    "id": "power-to-weight",
+    "locale": "en",
+    "metadata": {
+      "name": "Power to weight ratio calculator",
+      "slug": "power-to-weight-calculator",
+      "h1": "Power to weight ratio calculator",
+      "seoTitle": "Power to weight ratio calculator — kW per tonne and kg per hp",
+      "shortDescription": "Specific power in kW per tonne, hp per tonne and kg per hp.",
+      "keywords": [
+        "power to weight calculator",
+        "kw per tonne",
+        "kg per hp"
+      ],
+      "seoDescription": "Calculate a power-to-weight ratio in kilowatts per tonne, horsepower per tonne and kilograms per horsepower."
+    },
+    "defaults": {
+      "power": 150,
+      "powerUnit": "ps",
+      "mass": 1400,
+      "payload": 0
+    }
+  },
+  {
+    "id": "power-to-weight",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор потужності до маси",
+      "slug": "potuzhnist-do-masy",
+      "h1": "Калькулятор потужності до маси",
+      "seoTitle": "Калькулятор потужності до маси — кВт на тонну і кг на к.с.",
+      "shortDescription": "Питома потужність у кВт на тонну, к.с. на тонну та кг на силу.",
+      "keywords": [
+        "потужність до маси",
+        "кВт на тонну",
+        "кг на кінську силу"
+      ],
+      "seoDescription": "Обчисліть відношення потужності до маси в кіловатах на тонну, кінських силах на тонну та кілограмах на силу."
+    },
+    "defaults": {
+      "power": 150,
+      "powerUnit": "ps",
+      "mass": 1400,
+      "payload": 0
+    }
+  },
+  {
+    "id": "power-to-weight",
+    "locale": "de",
+    "metadata": {
+      "name": "Rechner für das Leistungsgewicht",
+      "slug": "leistungsgewicht-rechner",
+      "h1": "Rechner für das Leistungsgewicht",
+      "seoTitle": "Leistungsgewicht berechnen — kW je Tonne und kg je PS",
+      "shortDescription": "Spezifische Leistung in kW je Tonne, PS je Tonne und kg je PS.",
+      "keywords": [
+        "Leistungsgewicht berechnen",
+        "kW je Tonne",
+        "kg je PS",
+        "spezifische Leistung"
+      ],
+      "seoDescription": "Berechne das Leistungsgewicht in Kilowatt je Tonne, PS je Tonne und Kilogramm je PS."
+    },
+    "defaults": {
+      "power": 150,
+      "powerUnit": "ps",
+      "mass": 1400,
+      "payload": 0
+    }
+  },
+  {
+    "id": "power-to-weight",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de relación potencia-peso",
+      "slug": "relacion-potencia-peso",
+      "h1": "Calculadora de relación potencia-peso",
+      "seoTitle": "Calculadora de relación potencia-peso — kW por tonelada y kg por CV",
+      "shortDescription": "Potencia específica en kW por tonelada, CV por tonelada y kg por CV.",
+      "keywords": [
+        "calculadora de potencia-peso",
+        "kw por tonelada",
+        "kg por cv"
+      ],
+      "seoDescription": "Calcula una relación potencia-peso en kilovatios por tonelada, caballos por tonelada y kilogramos por caballo."
+    },
+    "defaults": {
+      "power": 150,
+      "powerUnit": "ps",
+      "mass": 1400,
+      "payload": 0
+    }
+  },
+  {
+    "id": "quarter-mile-elapsed-time",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор времени четверти мили",
+      "slug": "chetvert-mili",
+      "h1": "Калькулятор времени четверти мили",
+      "seoTitle": "Калькулятор четверти мили — время и скорость на финише",
+      "shortDescription": "Время и скорость на финише четверти мили по мощности и массе автомобиля.",
+      "keywords": [
+        "четверть мили",
+        "время разгона",
+        "удельная мощность",
+        "скорость на финише"
+      ],
+      "seoDescription": "Рассчитайте время прохождения четверти мили и скорость на финише по мощности двигателя и снаряжённой массе автомобиля."
+    },
+    "defaults": {
+      "power": 150,
+      "mass": 1300
+    }
+  },
+  {
+    "id": "quarter-mile-elapsed-time",
+    "locale": "en",
+    "metadata": {
+      "name": "Quarter mile time calculator",
+      "slug": "quarter-mile-time",
+      "h1": "Quarter mile time calculator",
+      "seoTitle": "Quarter mile calculator — elapsed time and trap speed",
+      "shortDescription": "Quarter mile elapsed time and trap speed from engine power and vehicle mass.",
+      "keywords": [
+        "quarter mile",
+        "elapsed time",
+        "power to weight",
+        "trap speed"
+      ],
+      "seoDescription": "Calculate the quarter mile elapsed time and trap speed from engine power and the kerb mass of the car."
+    },
+    "defaults": {
+      "power": 150,
+      "mass": 1300
+    }
+  },
+  {
+    "id": "quarter-mile-elapsed-time",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор часу чверті милі",
+      "slug": "chvert-myli",
+      "h1": "Калькулятор часу чверті милі",
+      "seoTitle": "Калькулятор чверті милі — час і швидкість на фініші",
+      "shortDescription": "Час і швидкість на фініші чверті милі за потужністю та масою автомобіля.",
+      "keywords": [
+        "чверть милі",
+        "час розгону",
+        "питома потужність",
+        "швидкість на фініші"
+      ],
+      "seoDescription": "Розрахуйте час проходження чверті милі та швидкість на фініші за потужністю двигуна і спорядною масою автомобіля."
+    },
+    "defaults": {
+      "power": 150,
+      "mass": 1300
+    }
+  },
+  {
+    "id": "quarter-mile-elapsed-time",
+    "locale": "de",
+    "metadata": {
+      "name": "Viertelmeilen-Rechner",
+      "slug": "viertelmeile-rechner",
+      "h1": "Viertelmeilen-Rechner",
+      "seoTitle": "Viertelmeile berechnen — Zeit und Endgeschwindigkeit",
+      "shortDescription": "Zeit und Endgeschwindigkeit auf der Viertelmeile aus Leistung und Masse.",
+      "keywords": [
+        "Viertelmeile berechnen",
+        "Viertelmeilenzeit",
+        "Leistungsgewicht",
+        "Endgeschwindigkeit Viertelmeile"
+      ],
+      "seoDescription": "Berechne Zeit und Endgeschwindigkeit auf der Viertelmeile aus der Motorleistung und der Leermasse des Autos."
+    },
+    "defaults": {
+      "power": 150,
+      "mass": 1300
+    }
+  },
+  {
+    "id": "quarter-mile-elapsed-time",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de cuarto de milla",
+      "slug": "cuarto-de-milla",
+      "h1": "Calculadora de cuarto de milla",
+      "seoTitle": "Calculadora de cuarto de milla — tiempo y velocidad final",
+      "shortDescription": "Tiempo y velocidad final en el cuarto de milla a partir de la potencia del motor y la masa del vehículo.",
+      "keywords": [
+        "cuarto de milla",
+        "tiempo empleado",
+        "relación potencia-peso",
+        "velocidad final"
+      ],
+      "seoDescription": "Calcula el tiempo del cuarto de milla y la velocidad final a partir de la potencia del motor y la masa en vacío del coche."
+    },
+    "defaults": {
+      "power": 150,
+      "mass": 1300
+    }
+  },
+  {
+    "id": "speed-distance-time",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор скорости, расстояния и времени",
+      "slug": "speed-distance-time",
+      "h1": "Калькулятор скорости, расстояния и времени",
+      "seoTitle": "Калькулятор скорости, расстояния и времени — найти любую",
+      "shortDescription": "Найти скорость, расстояние или время по двум другим.",
+      "keywords": [
+        "скорость расстояние время",
+        "время в пути",
+        "средняя скорость"
+      ],
+      "seoDescription": "Рассчитайте скорость, расстояние или время в пути по двум известным величинам с разбивкой времени на часы и минуты."
+    },
+    "defaults": {
+      "mode": "speed",
+      "distance": 420,
+      "time": 5,
+      "speed": 84
+    }
+  },
+  {
+    "id": "speed-distance-time",
+    "locale": "en",
+    "metadata": {
+      "name": "Speed distance time calculator",
+      "slug": "speed-distance-time-calculator",
+      "h1": "Speed distance time calculator",
+      "seoTitle": "Speed distance time calculator — solve for any one",
+      "shortDescription": "Find speed, distance or time from the other two.",
+      "keywords": [
+        "speed distance time calculator",
+        "travel time calculator",
+        "average speed"
+      ],
+      "seoDescription": "Calculate speed, distance or travel time from the other two values, with the time broken into hours and minutes."
+    },
+    "defaults": {
+      "mode": "speed",
+      "distance": 420,
+      "time": 5,
+      "speed": 84
+    }
+  },
+  {
+    "id": "speed-distance-time",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор швидкості, відстані та часу",
+      "slug": "shvydkist-vidstan-chas",
+      "h1": "Калькулятор швидкості, відстані та часу",
+      "seoTitle": "Калькулятор швидкості, відстані й часу — знайти будь-яку",
+      "shortDescription": "Знайти швидкість, відстань або час за двома іншими.",
+      "keywords": [
+        "швидкість відстань час",
+        "час у дорозі",
+        "середня швидкість"
+      ],
+      "seoDescription": "Обчисліть швидкість, відстань або час у дорозі за двома відомими величинами з розбивкою на години та хвилини."
+    },
+    "defaults": {
+      "mode": "speed",
+      "distance": 420,
+      "time": 5,
+      "speed": 84
+    }
+  },
+  {
+    "id": "speed-distance-time",
+    "locale": "de",
+    "metadata": {
+      "name": "Rechner für Geschwindigkeit, Weg und Zeit",
+      "slug": "geschwindigkeit-weg-zeit",
+      "h1": "Rechner für Geschwindigkeit, Weg und Zeit",
+      "seoTitle": "Geschwindigkeit, Weg und Zeit berechnen",
+      "shortDescription": "Geschwindigkeit, Weg oder Zeit aus den beiden anderen Größen.",
+      "keywords": [
+        "Geschwindigkeit berechnen",
+        "Fahrzeit berechnen",
+        "Durchschnittsgeschwindigkeit",
+        "Weg Zeit Geschwindigkeit"
+      ],
+      "seoDescription": "Berechne Geschwindigkeit, Weg oder Fahrzeit aus den beiden anderen Werten, mit der Zeit aufgeteilt in Stunden und Minuten."
+    },
+    "defaults": {
+      "mode": "speed",
+      "distance": 420,
+      "time": 5,
+      "speed": 84
+    }
+  },
+  {
+    "id": "speed-distance-time",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de velocidad, distancia y tiempo",
+      "slug": "velocidad-distancia-y-tiempo",
+      "h1": "Calculadora de velocidad, distancia y tiempo",
+      "seoTitle": "Calculadora de velocidad, distancia y tiempo — despeja cualquiera",
+      "shortDescription": "Halla la velocidad, la distancia o el tiempo a partir de los otros dos.",
+      "keywords": [
+        "calculadora de velocidad distancia tiempo",
+        "calculadora de tiempo de viaje",
+        "velocidad media"
+      ],
+      "seoDescription": "Calcula la velocidad, la distancia o el tiempo de viaje a partir de los otros dos valores, con el tiempo desglosado en horas y minutos."
+    },
+    "defaults": {
+      "mode": "speed",
+      "distance": 420,
+      "time": 5,
+      "speed": 84
+    }
+  },
+  {
+    "id": "stopping-distance",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор тормозного пути",
+      "slug": "tormoznoy-put",
+      "h1": "Калькулятор тормозного пути",
+      "seoTitle": "Калькулятор тормозного пути — реакция, сцепление, уклон",
+      "shortDescription": "Полный остановочный путь: реакция плюс торможение.",
+      "keywords": [
+        "тормозной путь",
+        "остановочный путь",
+        "коэффициент сцепления",
+        "время реакции водителя"
+      ],
+      "seoDescription": "Рассчитайте полный остановочный путь по скорости, времени реакции, коэффициенту сцепления и уклону дороги."
+    },
+    "defaults": {
+      "speed": 90,
+      "reaction": 1,
+      "mu": 0.7,
+      "grade": 0
+    }
+  },
+  {
+    "id": "stopping-distance",
+    "locale": "en",
+    "metadata": {
+      "name": "Stopping distance calculator",
+      "slug": "stopping-distance",
+      "h1": "Stopping distance calculator",
+      "seoTitle": "Stopping distance calculator — reaction, grip, gradient",
+      "shortDescription": "Total stopping distance: reaction plus braking.",
+      "keywords": [
+        "stopping distance",
+        "braking distance",
+        "friction coefficient",
+        "driver reaction time"
+      ],
+      "seoDescription": "Calculate total stopping distance from speed, reaction time, friction coefficient and road gradient."
+    },
+    "defaults": {
+      "speed": 90,
+      "reaction": 1,
+      "mu": 0.7,
+      "grade": 0
+    }
+  },
+  {
+    "id": "stopping-distance",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор гальмівного шляху",
+      "slug": "galmivnyy-shlyah",
+      "h1": "Калькулятор гальмівного шляху",
+      "seoTitle": "Калькулятор гальмівного шляху — реакція, зчеплення, ухил",
+      "shortDescription": "Повний зупинковий шлях: реакція плюс гальмування.",
+      "keywords": [
+        "гальмівний шлях",
+        "зупинковий шлях",
+        "коефіцієнт зчеплення"
+      ],
+      "seoDescription": "Розрахуйте повний зупинковий шлях за швидкістю, часом реакції та коефіцієнтом зчеплення."
+    },
+    "defaults": {
+      "speed": 90,
+      "reaction": 1,
+      "mu": 0.7,
+      "grade": 0
+    }
+  },
+  {
+    "id": "stopping-distance",
+    "locale": "de",
+    "metadata": {
+      "name": "Anhalteweg-Rechner",
+      "slug": "anhalteweg-rechner",
+      "h1": "Anhalteweg-Rechner",
+      "seoTitle": "Anhalteweg berechnen — Reaktion, Haftung, Steigung",
+      "shortDescription": "Gesamter Anhalteweg: Reaktionsweg plus Bremsweg.",
+      "keywords": [
+        "Anhalteweg berechnen",
+        "Bremsweg",
+        "Reibbeiwert",
+        "Reaktionszeit Fahrer"
+      ],
+      "seoDescription": "Berechne den gesamten Anhalteweg aus Geschwindigkeit, Reaktionszeit, Reibbeiwert und Fahrbahnneigung."
+    },
+    "defaults": {
+      "speed": 90,
+      "reaction": 1,
+      "mu": 0.7,
+      "grade": 0
+    }
+  },
+  {
+    "id": "stopping-distance",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de distancia de parada",
+      "slug": "distancia-de-parada",
+      "h1": "Calculadora de distancia de parada",
+      "seoTitle": "Calculadora de distancia de parada — reacción, agarre, pendiente",
+      "shortDescription": "Distancia total de parada: reacción más frenada.",
+      "keywords": [
+        "distancia de parada",
+        "distancia de frenado",
+        "coeficiente de rozamiento",
+        "tiempo de reacción del conductor"
+      ],
+      "seoDescription": "Calcula la distancia total de parada a partir de la velocidad, el tiempo de reacción, el coeficiente de rozamiento y la pendiente de la vía."
+    },
+    "defaults": {
+      "speed": 90,
+      "reaction": 1,
+      "mu": 0.7,
+      "grade": 0
+    }
+  },
+  {
+    "id": "tire-size",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор размера шин",
+      "slug": "tire-size",
+      "h1": "Калькулятор размера шин",
+      "seoTitle": "Калькулятор размера шин — диаметр и оборот колеса",
+      "shortDescription": "Внешний диаметр, высота профиля и число оборотов на километр по маркировке шины.",
+      "keywords": [
+        "размер шин",
+        "внешний диаметр шины",
+        "высота профиля",
+        "обороты колеса на километр"
+      ],
+      "seoDescription": "Рассчитайте внешний диаметр шины, высоту профиля, длину окружности и число оборотов на километр по маркировке типоразмера."
+    },
+    "defaults": {
+      "width": 205,
+      "profile": 55,
+      "diameter": 16
+    }
+  },
+  {
+    "id": "tire-size",
+    "locale": "en",
+    "metadata": {
+      "name": "Tire size calculator",
+      "slug": "tire-size-calculator",
+      "h1": "Tire size calculator",
+      "seoTitle": "Tire size calculator — diameter and revolutions",
+      "shortDescription": "Overall diameter, sidewall height and revolutions per kilometre from a tire code.",
+      "keywords": [
+        "tire size calculator",
+        "tire diameter calculator",
+        "sidewall height",
+        "revolutions per km tire"
+      ],
+      "seoDescription": "Calculate a tire's overall diameter, sidewall height, circumference and revolutions per kilometre from its size code."
+    },
+    "defaults": {
+      "width": 205,
+      "profile": 55,
+      "diameter": 16
+    }
+  },
+  {
+    "id": "tire-size",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор розміру шин",
+      "slug": "rozmir-shyn",
+      "h1": "Калькулятор розміру шин",
+      "seoTitle": "Калькулятор розміру шин — діаметр і оберти колеса",
+      "shortDescription": "Зовнішній діаметр, висота профілю та кількість обертів на кілометр за маркуванням шини.",
+      "keywords": [
+        "розмір шин",
+        "зовнішній діаметр шини",
+        "висота профілю"
+      ],
+      "seoDescription": "Розрахуйте зовнішній діаметр шини, висоту профілю, довжину кола та кількість обертів на кілометр за маркуванням типорозміру."
+    },
+    "defaults": {
+      "width": 205,
+      "profile": 55,
+      "diameter": 16
+    }
+  },
+  {
+    "id": "tire-size",
+    "locale": "de",
+    "metadata": {
+      "name": "Reifenrechner",
+      "slug": "reifenrechner",
+      "h1": "Reifenrechner",
+      "seoTitle": "Reifenrechner — Durchmesser und Umdrehungen",
+      "shortDescription": "Abrolldurchmesser, Flankenhöhe und Umdrehungen je Kilometer aus der Reifengröße.",
+      "keywords": [
+        "Reifenrechner",
+        "Reifengröße",
+        "Abrolldurchmesser",
+        "Flankenhöhe",
+        "Reifengroesse",
+        "Flankenhoehe"
+      ],
+      "seoDescription": "Berechne aus der Reifengröße den Abrolldurchmesser, die Flankenhöhe, den Umfang und die Umdrehungen je Kilometer."
+    },
+    "defaults": {
+      "width": 205,
+      "profile": 55,
+      "diameter": 16
+    }
+  },
+  {
+    "id": "tire-size",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de medidas de neumáticos",
+      "slug": "medidas-de-neumaticos",
+      "h1": "Calculadora de medidas de neumáticos",
+      "seoTitle": "Calculadora de medidas de neumáticos — diámetro y vueltas",
+      "shortDescription": "Diámetro exterior, altura del flanco y vueltas por kilómetro a partir del código del neumático.",
+      "keywords": [
+        "calculadora de medidas de neumáticos",
+        "calculadora de diámetro de neumático",
+        "altura del flanco",
+        "vueltas por km de un neumático"
+      ],
+      "seoDescription": "Calcula el diámetro exterior, la altura del flanco, el perímetro y las vueltas por kilómetro de un neumático a partir de su código de medida."
+    },
+    "defaults": {
+      "width": 205,
+      "profile": 55,
+      "diameter": 16
+    }
+  },
+  {
+    "id": "trip-cost",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор стоимости поездки",
+      "slug": "trip-cost",
+      "h1": "Калькулятор стоимости поездки",
+      "seoTitle": "Калькулятор стоимости поездки — топливо, дороги, на человека",
+      "shortDescription": "Топливо и платные дороги с делением на попутчиков.",
+      "keywords": [
+        "стоимость поездки",
+        "расходы на бензин",
+        "разделить расходы на дорогу"
+      ],
+      "seoDescription": "Рассчитайте стоимость поездки по топливу и платным дорогам, с поездкой туда и обратно и делением на пассажиров."
+    },
+    "defaults": {
+      "distance": 800,
+      "consumption": 7.5,
+      "fuelPrice": 62,
+      "tolls": 0,
+      "passengers": 1,
+      "roundTrip": "no"
+    }
+  },
+  {
+    "id": "trip-cost",
+    "locale": "en",
+    "metadata": {
+      "name": "Trip cost calculator",
+      "slug": "trip-cost-calculator",
+      "h1": "Trip cost calculator",
+      "seoTitle": "Trip cost calculator — fuel, tolls and cost per person",
+      "shortDescription": "Fuel and tolls for a journey, split between passengers.",
+      "keywords": [
+        "trip cost calculator",
+        "fuel cost for a journey",
+        "split travel cost"
+      ],
+      "seoDescription": "Calculate what a journey costs in fuel and tolls, with the option of a return trip and a split between passengers."
+    },
+    "defaults": {
+      "distance": 800,
+      "consumption": 7.5,
+      "fuelPrice": 62,
+      "tolls": 0,
+      "passengers": 1,
+      "roundTrip": "no"
+    }
+  },
+  {
+    "id": "trip-cost",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор вартості поїздки",
+      "slug": "vartist-poyizdky",
+      "h1": "Калькулятор вартості поїздки",
+      "seoTitle": "Калькулятор вартості поїздки — пальне, дороги, на людину",
+      "shortDescription": "Пальне й платні дороги, поділені на пасажирів.",
+      "keywords": [
+        "вартість поїздки",
+        "витрати на пальне",
+        "поділити витрати"
+      ],
+      "seoDescription": "Обчисліть вартість поїздки за пальним і платними дорогами, з поділом на пасажирів і поїздкою туди й назад."
+    },
+    "defaults": {
+      "distance": 800,
+      "consumption": 7.5,
+      "fuelPrice": 62,
+      "tolls": 0,
+      "passengers": 1,
+      "roundTrip": "no"
+    }
+  },
+  {
+    "id": "trip-cost",
+    "locale": "de",
+    "metadata": {
+      "name": "Fahrtkostenrechner",
+      "slug": "fahrtkosten-rechner",
+      "h1": "Fahrtkostenrechner",
+      "seoTitle": "Fahrtkosten berechnen — Kraftstoff, Maut und Anteil je Person",
+      "shortDescription": "Kraftstoff und Maut für eine Fahrt, aufgeteilt auf die Mitfahrenden.",
+      "keywords": [
+        "Fahrtkosten berechnen",
+        "Spritkosten Fahrt",
+        "Kosten teilen Fahrt",
+        "Benzinkosten"
+      ],
+      "seoDescription": "Berechne, was eine Fahrt an Kraftstoff und Maut kostet, wahlweise mit Rückfahrt und aufgeteilt auf die Mitfahrenden."
+    },
+    "defaults": {
+      "distance": 800,
+      "consumption": 7.5,
+      "fuelPrice": 62,
+      "tolls": 0,
+      "passengers": 1,
+      "roundTrip": "no"
+    }
+  },
+  {
+    "id": "trip-cost",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de coste de un viaje",
+      "slug": "coste-de-un-viaje",
+      "h1": "Calculadora de coste de un viaje",
+      "seoTitle": "Calculadora de coste de un viaje — combustible, peajes y coste por persona",
+      "shortDescription": "Combustible y peajes de un viaje, repartidos entre los ocupantes.",
+      "keywords": [
+        "calculadora de coste de un viaje",
+        "coste de combustible de un viaje",
+        "repartir el coste del viaje"
+      ],
+      "seoDescription": "Calcula lo que cuesta un viaje en combustible y peajes, con la opción de ida y vuelta y un reparto entre los ocupantes."
+    },
+    "defaults": {
+      "distance": 800,
+      "consumption": 7.5,
+      "fuelPrice": 62,
+      "tolls": 0,
+      "passengers": 1,
+      "roundTrip": "no"
+    }
+  },
+  {
+    "id": "wheel-offset",
+    "locale": "ru",
+    "metadata": {
+      "name": "Калькулятор вылета диска",
+      "slug": "vylet-diska",
+      "h1": "Калькулятор вылета диска",
+      "seoTitle": "Калькулятор вылета диска — ET, backspacing и смещение колеса",
+      "shortDescription": "Вылет ET, вылет назад и смещение колеса при замене дисков.",
+      "keywords": [
+        "вылет диска",
+        "ET диска",
+        "backspacing",
+        "смещение колеса"
+      ],
+      "seoDescription": "Рассчитайте вылет назад по ширине диска и ET и узнайте, насколько колесо сместится при замене вылета."
+    },
+    "defaults": {
+      "width": 7,
+      "offset": 35,
+      "newOffset": 45
+    }
+  },
+  {
+    "id": "wheel-offset",
+    "locale": "en",
+    "metadata": {
+      "name": "Wheel offset calculator",
+      "slug": "wheel-offset",
+      "h1": "Wheel offset calculator",
+      "seoTitle": "Wheel offset calculator — ET, backspacing and wheel shift",
+      "shortDescription": "Offset ET, backspacing and how far the wheel moves.",
+      "keywords": [
+        "wheel offset",
+        "et offset",
+        "backspacing",
+        "wheel shift"
+      ],
+      "seoDescription": "Calculate backspacing from rim width and ET, and see how far the wheel moves when the offset changes."
+    },
+    "defaults": {
+      "width": 7,
+      "offset": 35,
+      "newOffset": 45
+    }
+  },
+  {
+    "id": "wheel-offset",
+    "locale": "uk",
+    "metadata": {
+      "name": "Калькулятор вильоту диска",
+      "slug": "vylit-dyska",
+      "h1": "Калькулятор вильоту диска",
+      "seoTitle": "Калькулятор вильоту диска — ET, backspacing і зміщення колеса",
+      "shortDescription": "Виліт ET, виліт назад і зміщення колеса.",
+      "keywords": [
+        "виліт диска",
+        "ET диска",
+        "зміщення колеса"
+      ],
+      "seoDescription": "Розрахуйте виліт назад за шириною диска та ET і дізнайтеся, наскільки зміститься колесо."
+    },
+    "defaults": {
+      "width": 7,
+      "offset": 35,
+      "newOffset": 45
+    }
+  },
+  {
+    "id": "wheel-offset",
+    "locale": "de",
+    "metadata": {
+      "name": "Einpresstiefen-Rechner",
+      "slug": "einpresstiefe-rechner",
+      "h1": "Einpresstiefen-Rechner",
+      "seoTitle": "Einpresstiefe berechnen — ET, Rückmaß und Radversatz",
+      "shortDescription": "Einpresstiefe ET, Rückmaß und wie weit sich das Rad verschiebt.",
+      "keywords": [
+        "Einpresstiefe berechnen",
+        "ET Felge",
+        "Rückmaß",
+        "Radversatz",
+        "Rueckmass"
+      ],
+      "seoDescription": "Berechne das Rückmaß aus Felgenbreite und ET und sieh, wie weit sich das Rad bei geänderter Einpresstiefe verschiebt."
+    },
+    "defaults": {
+      "width": 7,
+      "offset": 35,
+      "newOffset": 45
+    }
+  },
+  {
+    "id": "wheel-offset",
+    "locale": "es",
+    "metadata": {
+      "name": "Calculadora de ET de llanta",
+      "slug": "et-de-llanta",
+      "h1": "Calculadora de ET de llanta",
+      "seoTitle": "Calculadora de ET de llanta — ET, backspacing y desplazamiento",
+      "shortDescription": "ET, distancia al plano interior y cuánto se desplaza la rueda.",
+      "keywords": [
+        "et de llanta",
+        "offset et",
+        "backspacing",
+        "desplazamiento de la rueda"
+      ],
+      "seoDescription": "Calcula la distancia al plano interior a partir de la anchura de la llanta y el ET, y consulta cuánto se desplaza la rueda al cambiar el ET."
+    },
+    "defaults": {
+      "width": 7,
+      "offset": 35,
+      "newOffset": 45
+    }
+  }
+]

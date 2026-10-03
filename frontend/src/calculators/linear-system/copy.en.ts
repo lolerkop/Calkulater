@@ -1,41 +1,44 @@
 import type { CalculatorCopy } from '../../lib/platform/types';
 
 export const linearSystemCopyEn: CalculatorCopy = {
-  name: 'System of linear equations calculator',
-  slug: 'linear-system-calculator',
-  shortDescription: 'Solves a system of two linear equations in two unknowns by Cramer’s rule.',
-  longDescription:
-    'Two linear equations in two unknowns describe two straight lines, and solving the system means finding where they cross. Cramer’s rule gets there through determinants rather than substitution, which keeps the arithmetic short and makes the special case visible: when the main determinant is zero the lines are parallel or identical, so there is either no crossing point at all or an infinite number of them. The calculator shows that determinant next to the answer precisely because it is the thing that decides whether an answer exists.',
-  seoTitle: 'System of linear equations calculator — two unknowns',
-  seoDescription:
-    'Solve a system of two linear equations in two unknowns by Cramer’s rule and see the main determinant that decides whether a solution exists.',
-  h1: 'System of linear equations calculator',
-  keywords: ['system of linear equations', 'cramer rule calculator', 'two unknowns', 'simultaneous equations'],
-  howToUse: [
-    'Write both equations in the form ax + by = c.',
-    'Enter the coefficients of the first equation: a₁, b₁ and c₁.',
-    'Enter the coefficients of the second equation: a₂, b₂ and c₂.',
-    'A missing unknown means a coefficient of zero, not an empty field.',
+  "name": "System of linear equations calculator",
+  "slug": "linear-system-calculator",
+  "shortDescription": "Solves a system of two linear equations in two unknowns by Cramer’s rule.",
+  "seoTitle": "System of linear equations calculator — two unknowns",
+  "seoDescription": "Solve a system of two linear equations in two unknowns by Cramer’s rule and see the main determinant that decides whether a solution exists.",
+  "h1": "System of linear equations calculator",
+  "keywords": [
+    "system of linear equations",
+    "cramer rule calculator",
+    "two unknowns",
+    "simultaneous equations"
   ],
-  howItWorks:
-    'The main determinant is Δ = a₁b₂ − a₂b₁. Then x = (c₁b₂ − c₂b₁) ÷ Δ and y = (a₁c₂ − a₂c₁) ÷ Δ. A zero determinant means the system has no single solution.',
-  example: 'For 2x + 3y = 13 and 4x − y = 5 the determinant is −14 and the solution is x = 2, y = 3.',
-  faq: [
-    {
-      q: 'What does a zero determinant mean?',
-      a: 'The two lines are parallel or the same line. Parallel lines never meet, identical lines meet everywhere, and neither case can be reported as a single pair of numbers.',
-    },
-    {
-      q: 'Can coefficients be negative or fractional?',
-      a: 'Yes. Any real numbers work, including negatives and decimals; only the determinant being zero stops the calculation.',
-    },
-    {
-      q: 'How do I enter an equation with only one unknown?',
-      a: 'Put zero as the coefficient of the missing unknown. The equation 3x = 12 becomes a = 3, b = 0, c = 12.',
-    },
-    {
-      q: 'Why Cramer’s rule and not substitution?',
-      a: 'For two equations both give the same answer, but the determinant form separates the question "is there a solution" from the answer itself, and that is the part people usually get wrong.',
-    },
+  "longDescription": "Finds the unique pair x, y for a₁x + b₁y = c₁ and a₂x + b₂y = c₂ using Cramer’s rule. If each equation has a nonzero x or y coefficient, this is geometrically the intersection of two lines. An all-zero coefficient row can instead represent an identity or a contradiction. At Δ = 0 there is no unique pair: this calculator stops without classifying no solution versus infinitely many.",
+  "howItWorks": "Δ = a₁b₂ − a₂b₁, Δx = c₁b₂ − c₂b₁, Δy = a₁c₂ − a₂c₁. For Δ ≠ 0, x = Δx/Δ and y = Δy/Δ. At Δ = 0 Cramer’s formulas cannot give a unique pair; another method is needed to classify the system. Zero coefficients are valid and must be entered explicitly rather than left blank.",
+  "example": "For 2x + 3y = 13 and 4x − y = 5 the determinant is −14 and the solution is x = 2, y = 3.",
+  "howToUse": [
+    "Write both equations in the form ax + by = c.",
+    "Enter the coefficients of the first equation: a₁, b₁ and c₁.",
+    "Enter the coefficients of the second equation: a₂, b₂ and c₂.",
+    "A missing unknown means a coefficient of zero, not an empty field."
   ],
+  "faq": [
+  {
+    "q": "What does a zero determinant mean?",
+    "a": "At Δ = 0 there is no unique pair x, y. There may be no solutions or infinitely many; this model does not distinguish them. Parallel or coincident lines describe only cases where each row actually represents a line. A row 0x + 0y = c can be an identity or a contradiction."
+  },
+  {
+    "q": "Can coefficients be negative or fractional?",
+    "a": "Yes, finite negative and decimal coefficients are valid. A zero determinant is not the only stopping condition: the result must also remain within the number range."
+  },
+  {
+    "q": "How do I enter an equation with only one unknown?",
+    "a": "Put zero as the coefficient of the missing unknown. The equation 3x = 12 becomes a = 3, b = 0, c = 12."
+  },
+  {
+    "q": "Why Cramer’s rule and not substitution?",
+    "a": "For Δ ≠ 0, Cramer’s rule directly gives the unique pair x, y. Substitution or elimination gives the same mathematical result. A zero Δ does not settle existence: another method is needed to distinguish no solutions from infinitely many."
+  }
+],
+  "disclaimer": "Finite coefficients, including negative and decimal values, are accepted. Determinants are calculated from the binary representations of the entered numbers and results are rounded. Small nonzero values use scientific notation. An unrepresentable Δ, x or y gives a range error. A nearly dependent system is sensitive to coefficient uncertainty; more displayed digits do not remove that sensitivity."
 };

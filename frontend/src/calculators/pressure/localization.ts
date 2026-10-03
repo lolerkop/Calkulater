@@ -1,75 +1,81 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { mechanicsScalarValues } from '../../lib/platform/mechanicsScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'mode': 'Was gesucht ist',
-      'F': 'Kraft, N',
-      'A': 'Fläche, m²',
-      'p': 'Druck, Pa',
-      'A2': 'Fläche, m²',
-      'F2': 'Kraft, N',
-      'p2': 'Druck, Pa',
+  "de": {
+    "fields": {
+      "mode": "Was gesucht ist",
+      "F": "Normalkraft",
+      "A": "Fläche",
+      "p": "Druck",
+      "A2": "Fläche",
+      "F2": "Normalkraft",
+      "p2": "Druck"
     },
-    options: {
-      'mm': 'Millimeter',
-      'cm': 'Zentimeter',
-      'm': 'Meter',
-      'p': 'der Druck',
-      'F': 'die Kraft',
-      'A': 'die Fläche',
+    "options": {
+      "mm": "Millimeter",
+      "cm": "Zentimeter",
+      "m": "Meter",
+      "p": "der Druck",
+      "F": "die Kraft",
+      "A": "die Fläche"
     },
-    results: {
-      'Давление': 'Druck',
-      'Сила': 'Kraft',
-      'Площадь': 'Fläche',
-      'В атмосферах': 'In Atmosphären',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Давление": "Druck",
+      "Сила": "Kraft",
+      "Площадь": "Fläche",
+      "В атмосферах": "In Atmosphären",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'мм': 'mm',
-      'см': 'cm',
-      'м': 'm',
-      'мм²': 'mm²',
-      'см²': 'cm²',
-      'м²': 'm²',
-      'мм³': 'mm³',
-      'см³': 'cm³',
-      'м³': 'm³',
-      'Па': 'Pa',
-      'Н': 'N',
-      'атм': 'atm',
-      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
-      'Сила должна быть больше нуля': 'Die Kraft muss größer als null sein',
-      'Давление должно быть больше нуля': 'Der Druck muss größer als null sein',
-    },
+    "values": {
+      ...mechanicsScalarValues.de,
+      "мм": "mm",
+      "см": "cm",
+      "м": "m",
+      "мм²": "mm²",
+      "см²": "cm²",
+      "м²": "m²",
+      "мм³": "mm³",
+      "см³": "cm³",
+      "м³": "m³",
+      "Па": "Pa",
+      "Н": "N",
+      "атм": "atm",
+      "Площадь должна быть больше нуля": "Die Fläche muss größer als null sein",
+      "Сила должна быть больше нуля": "Die Kraft muss größer als null sein",
+      "Давление должно быть больше нуля": "Der Druck muss größer als null sein",
+      "Для положительной площади сила и давление должны быть больше нуля": "Für eine positive Fläche müssen Kraft und Druck größer als null sein",
+      "Давление не может быть отрицательным": "Der Druck darf nicht negativ sein",
+      "Сила не может быть отрицательной": "Die Kraft darf nicht negativ sein"
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "mode": "What to find",
-      "F": "Force, N",
-      "A": "Area, m²",
-      "p": "Pressure, Pa",
-      "A2": "Area, m²",
-      "F2": "Force, N",
-      "p2": "Pressure, Pa",
+      "F": "Normal force",
+      "A": "Area",
+      "p": "Pressure",
+      "A2": "Area",
+      "F2": "Normal force",
+      "p2": "Pressure"
     },
-    options: {
+    "options": {
       "mm": "millimetres",
       "cm": "centimetres",
       "m": "metres",
       "p": "the pressure",
       "F": "the force",
-      "A": "the area",
+      "A": "the area"
     },
-    results: {
+    "results": {
       "Давление": "Pressure",
       "Сила": "Force",
       "Площадь": "Area",
       "В атмосферах": "In atmospheres",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
+    "values": {
+      ...mechanicsScalarValues.en,
       "мм": "mm",
       "см": "cm",
       "м": "m",
@@ -85,34 +91,38 @@ export const localization: CalculatorLocalization = {
       "Площадь должна быть больше нуля": "The area must be greater than zero",
       "Сила должна быть больше нуля": "The force must be greater than zero",
       "Давление должно быть больше нуля": "The pressure must be greater than zero",
-    },
+      "Для положительной площади сила и давление должны быть больше нуля": "For a positive area, force and pressure must be greater than zero",
+      "Давление не может быть отрицательным": "Pressure cannot be negative",
+      "Сила не может быть отрицательной": "Force cannot be negative"
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "mode": "Що знайти",
-      "F": "Сила, Н",
-      "A": "Площа, м²",
-      "p": "Тиск, Па",
-      "A2": "Площа, м²",
-      "F2": "Сила, Н",
-      "p2": "Тиск, Па",
+      "F": "Нормальна сила",
+      "A": "Площа",
+      "p": "Тиск",
+      "A2": "Площа",
+      "F2": "Нормальна сила",
+      "p2": "Тиск"
     },
-    options: {
+    "options": {
       "mm": "міліметри",
       "cm": "сантиметри",
       "m": "метри",
       "p": "тиск",
       "F": "силу",
-      "A": "площу",
+      "A": "площу"
     },
-    results: {
+    "results": {
       "Давление": "Тиск",
       "Сила": "Сила",
       "Площадь": "Площа",
       "В атмосферах": "В атмосферах",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
+    "values": {
+      ...mechanicsScalarValues.uk,
       "мм": "мм",
       "см": "см",
       "м": "м",
@@ -128,34 +138,38 @@ export const localization: CalculatorLocalization = {
       "Площадь должна быть больше нуля": "Площа має бути більшою за нуль",
       "Сила должна быть больше нуля": "Сила має бути більшою за нуль",
       "Давление должно быть больше нуля": "Тиск має бути більшим за нуль",
-    },
+      "Для положительной площади сила и давление должны быть больше нуля": "Для додатної площі сила й тиск мають бути більшими за нуль",
+      "Давление не может быть отрицательным": "Тиск не може бути від’ємним",
+      "Сила не может быть отрицательной": "Сила не може бути від’ємною"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "mode": "Qué hallar",
-      "F": "Fuerza, N",
-      "A": "Área, m²",
-      "p": "Presión, Pa",
-      "A2": "Área, m²",
-      "F2": "Fuerza, N",
-      "p2": "Presión, Pa",
+      "F": "Fuerza normal",
+      "A": "Área",
+      "p": "Presión",
+      "A2": "Área",
+      "F2": "Fuerza normal",
+      "p2": "Presión"
     },
-    options: {
+    "options": {
       "p": "la presión",
       "F": "la fuerza",
       "A": "el área",
       "mm": "milímetros",
       "cm": "centímetros",
-      "m": "metros",
+      "m": "metros"
     },
-    results: {
+    "results": {
       "Давление": "Presión",
       "Сила": "Fuerza",
       "Площадь": "Área",
       "В атмосферах": "En atmósferas",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
+      ...mechanicsScalarValues.es,
       "мм": "mm",
       "см": "cm",
       "м": "m",
@@ -171,6 +185,9 @@ export const localization: CalculatorLocalization = {
       "Площадь должна быть больше нуля": "El área debe ser mayor que cero",
       "Сила должна быть больше нуля": "La fuerza debe ser mayor que cero",
       "Давление должно быть больше нуля": "La presión debe ser mayor que cero",
-    },
-  },
+      "Для положительной площади сила и давление должны быть больше нуля": "Para un área positiva, fuerza y presión deben ser mayores que cero",
+      "Давление не может быть отрицательным": "La presión no puede ser negativa",
+      "Сила не может быть отрицательной": "La fuerza no puede ser negativa"
+    }
+  }
 };

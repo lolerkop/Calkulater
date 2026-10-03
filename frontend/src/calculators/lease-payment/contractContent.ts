@@ -1,0 +1,69 @@
+import type { CalculatorDef } from '../../lib/types';
+type Copy = Pick<CalculatorDef, 'longDescription' | 'howToUse' | 'howItWorks' | 'example' | 'faq' | 'disclaimer'>;
+export const contractContent: Record<'ru' | 'en' | 'uk' | 'de' | 'es', Copy> = {
+  ru: {
+    longDescription: 'Платёж здесь состоит из погашения стоимости сверх остаточной цены и расчётной платы за финансирование. Аванс уменьшает финансируемую часть, а остаточная доля оставляет часть цены к концу срока. Это учебная модель по средней сумме финансируемой и остаточной стоимости. Она не устанавливает реальную годовую стоимость договора или право на выкуп.',
+    howToUse: ['Введите цену и аванс в одной валюте; пустой аванс означает 0.','Задайте остаточную долю от первоначальной цены и целый срок в месяцах.','Укажите расчётную годовую ставку для описанной формулы, а не объявленную полную стоимость без проверки её смысла.','Сравните амортизацию, плату за финансирование и итог без выкупа. Отдельно учтите налоги, страховку и обслуживание.'],
+    howItWorks: 'Финансируемая сумма F = цена − аванс; остаточная R = цена × доля/100. Амортизация в месяц = (F−R)/n, плата = (F+R)×r/2400. Платёж — их сумма. Итог без выкупа = аванс + n×платёж; R в него не входит. Требуется 0 ≤ R ≤ F. При R = F амортизация нулевая, но плата может оставаться положительной. Деление ставки на 2400 — допущение этой модели, а не универсальный перевод договорного money factor в APR.',
+    example: 'Цена 2 000 000, аванс 400 000, остаточная доля 40 %, 36 месяцев и ставка 12 %: амортизация 22 222,22, плата 12 000, платёж 34 222,22. Итог без выкупа 1 632 000, остаточная цена 800 000. На границе цена 1 000, аванс 0, остаток 100 %, 12 месяцев и 12 % дают платёж 10, итог 120 без выкупа 1 000.',
+    faq: [
+      { q: 'Что оставляет остаточная стоимость в конце лизинга?', a: 'Часть первоначальной цены не амортизируется в регулярных платежах. Возврат имущества, выкуп и размер фактической выкупной суммы определяет договор; поле само по себе права выкупа не создаёт.' },
+      { q: 'Почему итог лизинга не включает выкуп?', a: 'Он складывает аванс и регулярные платежи. Если вы действительно покупаете имущество за заданную остаточную цену, добавьте её и связанные расходы отдельно; возврат имущества — другой сценарий.' },
+      { q: 'Равна ли расчётная ставка лизинга его полной годовой стоимости?', a: 'Нет. Реальный money factor, процентная ставка и показатель полной стоимости могут иметь разные определения. Источник Федеральной резервной системы — историческое пояснение модели США, а не правило договора в любой стране.' },
+      { q: 'Почему допустим остаток, равный финансируемой сумме?', a: 'Тогда F−R = 0: амортизационная часть исчезает. При положительной ставке остаётся плата за финансирование. Остаток выше F запрещён, поскольку дал бы отрицательную амортизацию.' },
+    ],
+    disclaimer: 'Упрощённая модель средней суммы финансирования. Не включает налоги, страховку, обслуживание, прочие комиссии и выкуп; не определяет юридическую APR или экономическую выгодность договора.',
+  },
+  en: {
+    longDescription: 'The model combines repayment of value above the residual with a financing charge. An advance reduces the financed amount, while the residual leaves part of the original price until the end. The charge uses the average of financed and residual values. This teaching convention does not establish the contract’s true annual cost or a right to buy the asset.',
+    howToUse: ['Enter price and advance in one currency; a blank advance means zero.','Set a residual percentage of the original price and a whole number of months.','Enter the calculation rate for this formula; check what any advertised rate actually means.','Compare depreciation, financing charge and total excluding buyout. Review taxes, insurance and servicing separately.'],
+    howItWorks: 'Financed F = price − advance; residual R = price × residual percentage/100. Monthly depreciation = (F−R)/n; financing charge = (F+R)×r/2400. Payment is their sum. Total excluding buyout = advance + n×payment; R is omitted. Require 0 ≤ R ≤ F. At R = F, depreciation is zero but financing can remain positive. Rate/2400 is this model’s assumption, not a universal contractual money-factor-to-APR conversion.',
+    example: 'Price 2,000,000, advance 400,000, residual 40%, 36 months and rate 12% give depreciation 22,222.22, financing 12,000 and payment 34,222.22. Total excluding buyout is 1,632,000; residual price is 800,000. At price 1,000, zero advance, residual 100%, 12 months and 12%, payment is 10 and total 120, excluding buyout 1,000.',
+    faq: [
+      { q: 'What does a lease residual leave at the end of the term?', a: 'That part of the original price is not depreciated through regular instalments. Return conditions, a purchase option and its actual price belong to the contract; the input does not create a purchase right.' },
+      { q: 'Why does the lease total exclude the buyout?', a: 'It adds the advance and regular instalments. For a purchase at the specified residual, add that amount and associated costs separately; returning the asset is a different scenario.' },
+      { q: 'Is the lease calculation rate its complete annual cost?', a: 'No. A contractual money factor, interest rate and full-cost disclosure can mean different things. The Federal Reserve source is historical US education, rather than a worldwide contract rule.' },
+      { q: 'Why can residual equal the financed lease amount?', a: 'F−R is then zero, so there is no depreciation component. A positive rate still produces a financing charge. Residual above F is rejected because it would imply negative depreciation.' },
+    ],
+    disclaimer: 'Simplified average-financing model. Taxes, insurance, servicing, other fees and buyout are excluded; statutory APR and overall contract value are not determined.',
+  },
+  uk: {
+    longDescription: 'Платіж поєднує амортизацію вартості понад залишкову ціну та розрахункову плату за фінансування. Аванс зменшує фінансовану суму, а залишкова частка зберігає частину ціни до завершення строку. Плата використовує середнє фінансованої та залишкової вартості. Це навчальна модель, яка не визначає реальну річну вартість договору або право викупу.',
+    howToUse: ['Введіть ціну й аванс в одній валюті; порожній аванс означає 0.','Задайте залишкову частку початкової ціни та цілу кількість місяців.','Введіть розрахункову річну ставку саме для цієї формули; перевірте значення рекламної ставки.','Порівняйте амортизацію, плату та підсумок без викупу. Окремо врахуйте податки, страхування й обслуговування.'],
+    howItWorks: 'Фінансована сума F = ціна − аванс; залишок R = ціна × частка/100. Амортизація за місяць = (F−R)/n, плата = (F+R)×r/2400. Платіж — їх сума. Підсумок без викупу = аванс + n×платіж, без R. Потрібно 0 ≤ R ≤ F. За R = F амортизація нульова, але плата може бути додатною. Ділення ставки на 2400 — припущення цієї моделі, а не універсальне перетворення договірного money factor на APR.',
+    example: 'Ціна 2 000 000, аванс 400 000, залишкова частка 40 %, 36 місяців і 12 %: амортизація 22 222,22, плата 12 000, платіж 34 222,22. Підсумок без викупу 1 632 000, залишкова ціна 800 000. Ціна 1 000, аванс 0, залишок 100 %, 12 місяців і 12 % дають платіж 10 та підсумок 120 без викупу 1 000.',
+    faq: [
+      { q: 'Що залишає залишкова вартість наприкінці лізингу?', a: 'Ця частина початкової ціни не амортизується регулярними платежами. Повернення майна, право викупу та його фактичну ціну визначає договір, а не саме поле калькулятора.' },
+      { q: 'Чому лізинговий підсумок не містить викуп?', a: 'Він складає аванс і регулярні платежі. Для купівлі за заданою залишковою ціною додайте її та супутні витрати окремо; повернення майна — інший сценарій.' },
+      { q: 'Чи дорівнює розрахункова ставка повній річній вартості лізингу?', a: 'Ні. Money factor, процентна ставка й показник повної вартості можуть мати різні визначення. Джерело Федеральної резервної системи є історичним поясненням моделі США, а не правилом для всіх країн.' },
+      { q: 'Чому залишок може дорівнювати фінансованій сумі?', a: 'Тоді F−R = 0, тому амортизаційна частина відсутня. За додатної ставки залишається плата. Залишок вище F заборонений, бо означав би від’ємну амортизацію.' },
+    ],
+    disclaimer: 'Спрощена модель середньої суми фінансування. Податки, страхування, обслуговування, інші комісії та викуп виключені; юридичний APR і загальна вигідність договору не визначаються.',
+  },
+  de: {
+    longDescription: 'Die Leasingrate besteht aus dem Wertabbau oberhalb des Restwerts und einer Finanzierungsgebühr. Die Anzahlung verringert die finanzierte Summe; der Restwert lässt einen Teil des ursprünglichen Preises bis zum Ende stehen. Die Gebühr verwendet den Mittelwert aus finanzierter Summe und Restwert. Diese Lehrkonvention bestimmt weder die vollständigen Vertragskosten noch ein Kaufrecht.',
+    howToUse: ['Gib Preis und Anzahlung in derselben Währung ein; leer bedeutet bei der Anzahlung null.','Setze den Restwertanteil des ursprünglichen Preises und eine ganze Monatszahl an.','Verwende den Rechenzinssatz dieser Formel und prüfe die Bedeutung eines beworbenen Satzes.','Vergleiche Wertabbau, Finanzierung und Summe ohne Kauf. Steuern, Versicherung und Service prüfst du separat.'],
+    howItWorks: 'Finanzierte Summe F = Preis − Anzahlung; Restwert R = Preis × Anteil/100. Monatlicher Wertabbau = (F−R)/n; Gebühr = (F+R)×r/2400. Ihre Summe ist die Rate. Summe ohne Kauf = Anzahlung + n×Rate; R fehlt darin. Es gilt 0 ≤ R ≤ F. Bei R = F entfällt der Wertabbau, nicht zwingend die Gebühr. Rate/2400 ist eine Modellannahme, keine allgemeine Umrechnung eines vertraglichen Money Factors in APR.',
+    example: '40.000 Geldeinheiten, 8.000 Anzahlung, 40 % Restwert, 36 Monate und 12 % ergeben 444,44 Wertabbau plus 240 Finanzierung: Rate 684,44. Summe ohne Kauf 32.640, Restwert 16.000. Bei Preis 1.000, Anzahlung null, Restwert 100 %, zwölf Monaten und 12 % ist die Rate 10, die Summe 120 ohne Kaufpreis 1.000.',
+    faq: [
+      { q: 'Was lässt der Leasingrestwert am Vertragsende übrig?', a: 'Dieser Preisanteil wird nicht über die Raten abgebaut. Rückgabe, Kaufoption und tatsächlicher Kaufpreis sind Vertragsfragen; das Eingabefeld schafft kein Kaufrecht.' },
+      { q: 'Warum enthält die Leasingsumme keinen Restwertkauf?', a: 'Sie umfasst Anzahlung und regelmäßige Raten. Für einen Kauf zum eingegebenen Restwert addierst du ihn und zugehörige Kosten separat; eine Rückgabe ist ein anderes Szenario.' },
+      { q: 'Ist der Leasing-Rechenzinssatz ein vollständiger Jahreskostenwert?', a: 'Nein. Money Factor, Zinssatz und gesetzliche Kostenangabe können verschiedene Definitionen haben. Die Quelle der Federal Reserve erläutert ein historisches US-Modell und keine weltweite Vertragsregel.' },
+      { q: 'Warum darf der Restwert der finanzierten Summe entsprechen?', a: 'Dann ist F−R null, also entfällt der Wertabbau. Bei positivem Satz bleibt eine Finanzierungsgebühr. Ein Restwert über F wird wegen negativer Abschreibung abgelehnt.' },
+    ],
+    disclaimer: 'Vereinfachtes Modell einer durchschnittlichen Finanzierungssumme. Steuern, Versicherung, Service, andere Gebühren und Kauf fehlen; gesetzlicher APR und Gesamtvorteil des Vertrags bleiben offen.',
+  },
+  es: {
+    longDescription: 'La cuota suma la amortización por encima del valor residual y un cargo de financiación. La entrada reduce el importe financiado y el residual reserva parte del precio original hasta el final. El cargo usa la media del importe financiado y residual. Esta convención educativa no determina el coste anual completo del contrato ni un derecho de compra.',
+    howToUse: ['Introduce precio y entrada en una moneda; entrada vacía equivale a cero.','Indica el porcentaje residual del precio original y un plazo entero en meses.','Usa el tipo de cálculo de esta fórmula y comprueba qué significa cualquier tipo anunciado.','Compara amortización, cargo y total sin compra. Revisa impuestos, seguro y mantenimiento aparte.'],
+    howItWorks: 'Financiado F = precio − entrada; residual R = precio × porcentaje/100. Amortización mensual = (F−R)/n; cargo = (F+R)×r/2400. La cuota es su suma. Total sin compra = entrada + n×cuota, sin R. Se exige 0 ≤ R ≤ F. Con R = F no hay amortización, pero puede haber cargo. Tipo/2400 es una hipótesis del modelo, no una conversión universal del money factor contractual a APR o TAE.',
+    example: 'Precio 200.000 unidades monetarias, entrada 40.000, residual 40 %, 36 meses y 12 %: amortización 2.222,22, cargo 1.200, cuota 3.422,22. Total sin compra 163.200, residual 80.000. Precio 1.000, entrada cero, residual 100 %, 12 meses y 12 % dan cuota 10 y total 120 sin compra residual de 1.000.',
+    faq: [
+      { q: '¿Qué reserva el valor residual al final del leasing?', a: 'Esa parte del precio no se amortiza mediante cuotas. Devolución, opción de compra y precio real dependen del contrato; el campo no crea un derecho de compra.' },
+      { q: '¿Por qué el total del leasing excluye la compra residual?', a: 'Suma entrada y cuotas regulares. Para comprar al residual indicado, añade ese importe y sus gastos aparte; devolver el bien es otro escenario.' },
+      { q: '¿Es el tipo de cálculo del leasing su coste anual completo?', a: 'No. Money factor, tipo de interés y medida legal de coste pueden definirse de forma distinta. La fuente de la Reserva Federal explica un modelo histórico estadounidense, no una norma contractual mundial.' },
+      { q: '¿Por qué se permite un residual igual al importe financiado?', a: 'F−R es cero y no hay amortización. Con tipo positivo permanece el cargo financiero. Se rechaza un residual mayor que F porque produciría amortización negativa.' },
+    ],
+    disclaimer: 'Modelo simplificado de financiación media. Excluye impuestos, seguro, mantenimiento, otras comisiones y compra; no determina APR/TAE legal ni conveniencia global del contrato.',
+  },
+};

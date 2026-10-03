@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 import type { CalculatorSeoCopy } from '../../lib/platform/types';
 
 export const textReadingTimeCopyUk: CalculatorSeoCopy = {
@@ -8,4 +9,5 @@ export const textReadingTimeCopyUk: CalculatorSeoCopy = {
   seoDescription: "Дізнайтеся, скільки хвилин займає читання тексту про себе і скільки — читання вголос, за кількістю слів або за вставленим текстом.",
   h1: "Калькулятор часу читання тексту",
   keywords: ["час читання тексту", "час виступу", "скільки читати текст"],
+  ...contractContent.uk
 };

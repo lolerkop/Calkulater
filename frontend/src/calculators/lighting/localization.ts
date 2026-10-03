@@ -1,99 +1,120 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'area': 'Raumfläche, m²',
-      'norm': 'Gewünschte Beleuchtungsstärke, lx',
-      'lampLumens': 'Lichtstrom je Leuchtmittel, lm',
-      'lossFactor': 'Wartungsfaktor',
-    },
-    results: {
-      'Нужно люмен': 'Nötige Lumen',
-      'Ламп': 'Leuchtmittel',
-      'Люмен на квадратный метр': 'Lumen je Quadratmeter',
-      'Норма освещённости': 'Gewünschte Beleuchtungsstärke',
-      'Коэффициент запаса': 'Wartungsfaktor',
-      'Установленный поток': 'Installierter Lichtstrom',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'лм': 'lm',
-      'лк': 'lx',
-      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
-      'Норма освещённости должна быть больше нуля': 'Die Beleuchtungsstärke muss größer als null sein',
-      'Световой поток лампы должен быть больше нуля': 'Der Lichtstrom des Leuchtmittels muss größer als null sein',
-      'Коэффициент запаса должен быть от 0,4 до 1': 'Der Wartungsfaktor muss zwischen 0,4 und 1 liegen',
-      'Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.': 'Die Beleuchtungsstärke ist eine änderbare Annahme: für ein Wohnzimmer nimmt man meist rund 150 lx, für einen Arbeitsplatz das Dreifache. Normwerte unterscheiden sich von Land zu Land.',
-    },
+  "en": {
+  "fields": {
+    "area": "Room area, m²",
+    "norm": "Target illuminance, lx",
+    "lampLumens": "Lamp output, lm",
+    "lossFactor": "Retained-light factor"
   },
-  en: {
-    fields: { "area": "Room area, m²", "norm": "Target illuminance, lx", "lampLumens": "Lamp output, lm", "lossFactor": "Maintenance factor" },
-    options: {},
-    results: {
-      "Нужно люмен": "Lumens needed",
-      "Ламп": "Lamps",
-      "Люмен на квадратный метр": "Lumens per square metre",
-      "Норма освещённости": "Target illuminance",
-      "Коэффициент запаса": "Maintenance factor",
-      "Установленный поток": "Installed output",
-      "Проверьте данные": "Check the values",
-    },
-    values: {
-      "лм": "lm", "лк": "lx",
-      "Площадь должна быть больше нуля": "The area must be greater than zero",
-      "Норма освещённости должна быть больше нуля": "The target illuminance must be greater than zero",
-      "Световой поток лампы должен быть больше нуля": "The lamp output must be greater than zero",
-      "Коэффициент запаса должен быть от 0,4 до 1": "The maintenance factor must be between 0.4 and 1",
-      "Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.": "The target illuminance is an assumption you can change: a living room is usually taken at around 150 lx and a workspace at three times that. Statutory values differ by country.",
-    },
+  "options": {},
+  "results": {
+    "Нужно люмен": "Lumens needed",
+    "Ламп": "Lamps",
+    "Люмен на квадратный метр": "Lumens per square metre",
+    "Норма освещённости": "Target illuminance",
+    "Коэффициент запаса": "Maintenance factor",
+    "Установленный поток": "Installed output",
+    "Проверьте данные": "Check the values"
   },
-  uk: {
-    fields: { "area": "Площа кімнати, м²", "norm": "Норма освітленості, лк", "lampLumens": "Світловий потік лампи, лм", "lossFactor": "Коефіцієнт запасу" },
-    options: {},
-    results: {
-      "Нужно люмен": "Потрібно люменів",
-      "Ламп": "Ламп",
-      "Люмен на квадратный метр": "Люменів на квадратний метр",
-      "Норма освещённости": "Норма освітленості",
-      "Коэффициент запаса": "Коефіцієнт запасу",
-      "Установленный поток": "Встановлений потік",
-      "Проверьте данные": "Перевірте дані",
-    },
-    values: {
-      "лм": "лм", "лк": "лк",
-      "Площадь должна быть больше нуля": "Площа має бути більшою за нуль",
-      "Норма освещённости должна быть больше нуля": "Норма освітленості має бути більшою за нуль",
-      "Световой поток лампы должен быть больше нуля": "Світловий потік лампи має бути більшим за нуль",
-      "Коэффициент запаса должен быть от 0,4 до 1": "Коефіцієнт запасу має бути від 0,4 до 1",
-      "Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.": "Норма освітленості це припущення, яке можна змінювати: для вітальні зазвичай беруть близько 150 лк, для робочого місця втричі більше. Нормативні значення різняться за країнами.",
-    },
+  "values": {
+    ...marketingScalarValues.en,
+    "лм": "lm",
+    "лк": "lx",
+    "Площадь должна быть больше нуля": "The area must be greater than zero",
+    "Норма освещённости должна быть больше нуля": "The target illuminance must be greater than zero",
+    "Световой поток лампы должен быть больше нуля": "The lamp output must be greater than zero",
+    "Коэффициент запаса должен быть от 0,4 до 1": "The maintenance factor must be between 0.4 and 1",
+    "Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.": "The target illuminance is an assumption you can change: a living room is usually taken at around 150 lx and a workspace at three times that. Statutory values differ by country.",
+    "Освещённость — выбранная цель. Использование света принято равным 1; распределение и измеренные люксы не рассчитываются.": "Illuminance is the selected target. Utilisation is assumed 1; distribution and measured lux are not calculated."
+  }
+},
+  "uk": {
+  "fields": {
+    "area": "Площа кімнати, м²",
+    "norm": "Норма освітленості, лк",
+    "lampLumens": "Світловий потік лампи, лм",
+    "lossFactor": "Коефіцієнт збереження світла"
   },
-  es: {
-    fields: {
-      "area": "Superficie de la habitación, m²",
-      "norm": "Iluminancia objetivo, lx",
-      "lampLumens": "Flujo de la lámpara, lm",
-      "lossFactor": "Factor de mantenimiento",
-    },
-    options: {},
-    results: {
-      "Нужно люмен": "Lúmenes necesarios",
-      "Ламп": "Lámparas",
-      "Люмен на квадратный метр": "Lúmenes por metro cuadrado",
-      "Норма освещённости": "Iluminancia objetivo",
-      "Коэффициент запаса": "Factor de mantenimiento",
-      "Установленный поток": "Flujo instalado",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "лм": "lm",
-      "лк": "lx",
-      "Площадь должна быть больше нуля": "La superficie debe ser mayor que cero",
-      "Норма освещённости должна быть больше нуля": "La iluminancia objetivo debe ser mayor que cero",
-      "Световой поток лампы должен быть больше нуля": "El flujo de la lámpara debe ser mayor que cero",
-      "Коэффициент запаса должен быть от 0,4 до 1": "El factor de mantenimiento debe estar entre 0,4 y 1",
-      "Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.": "La iluminancia objetivo es una suposición que puedes cambiar: en un salón se toman unos 150 lx y en un puesto de trabajo el triple. Los valores normativos difieren entre países.",
-    },
+  "options": {},
+  "results": {
+    "Нужно люмен": "Потрібно люменів",
+    "Ламп": "Ламп",
+    "Люмен на квадратный метр": "Люменів на квадратний метр",
+    "Норма освещённости": "Норма освітленості",
+    "Коэффициент запаса": "Коефіцієнт запасу",
+    "Установленный поток": "Встановлений потік",
+    "Проверьте данные": "Перевірте дані"
   },
+  "values": {
+    ...marketingScalarValues.uk,
+    "лм": "лм",
+    "лк": "лк",
+    "Площадь должна быть больше нуля": "Площа має бути більшою за нуль",
+    "Норма освещённости должна быть больше нуля": "Норма освітленості має бути більшою за нуль",
+    "Световой поток лампы должен быть больше нуля": "Світловий потік лампи має бути більшим за нуль",
+    "Коэффициент запаса должен быть от 0,4 до 1": "Коефіцієнт запасу має бути від 0,4 до 1",
+    "Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.": "Норма освітленості це припущення, яке можна змінювати: для вітальні зазвичай беруть близько 150 лк, для робочого місця втричі більше. Нормативні значення різняться за країнами.",
+    "Освещённость — выбранная цель. Использование света принято равным 1; распределение и измеренные люксы не рассчитываются.": "Освітленість — обрана ціль. Використання світла прийняте за 1; розподіл і виміряні люкси не рахуються."
+  }
+},
+  "de": {
+  "fields": {
+    "area": "Raumfläche, m²",
+    "norm": "Gewünschte Beleuchtungsstärke, lx",
+    "lampLumens": "Lichtstrom je Leuchtmittel, lm",
+    "lossFactor": "Verbleibender Lichtanteil"
+  },
+  "results": {
+    "Нужно люмен": "Nötige Lumen",
+    "Ламп": "Leuchtmittel",
+    "Люмен на квадратный метр": "Lumen je Quadratmeter",
+    "Норма освещённости": "Gewünschte Beleuchtungsstärke",
+    "Коэффициент запаса": "Wartungsfaktor",
+    "Установленный поток": "Installierter Lichtstrom",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "лм": "lm",
+    "лк": "lx",
+    "Площадь должна быть больше нуля": "Die Fläche muss größer als null sein",
+    "Норма освещённости должна быть больше нуля": "Die Beleuchtungsstärke muss größer als null sein",
+    "Световой поток лампы должен быть больше нуля": "Der Lichtstrom des Leuchtmittels muss größer als null sein",
+    "Коэффициент запаса должен быть от 0,4 до 1": "Der Wartungsfaktor muss zwischen 0,4 und 1 liegen",
+    "Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.": "Die Beleuchtungsstärke ist eine änderbare Annahme: für ein Wohnzimmer nimmt man meist rund 150 lx, für einen Arbeitsplatz das Dreifache. Normwerte unterscheiden sich von Land zu Land.",
+    "Освещённость — выбранная цель. Использование света принято равным 1; распределение и измеренные люксы не рассчитываются.": "Beleuchtungsstärke ist das gewählte Ziel. Nutzungsgrad wird als 1 angenommen; Verteilung und gemessene Lux werden nicht berechnet."
+  }
+},
+  "es": {
+  "fields": {
+    "area": "Superficie de la habitación, m²",
+    "norm": "Iluminancia objetivo, lx",
+    "lampLumens": "Flujo de la lámpara, lm",
+    "lossFactor": "Factor de luz conservada"
+  },
+  "options": {},
+  "results": {
+    "Нужно люмен": "Lúmenes necesarios",
+    "Ламп": "Lámparas",
+    "Люмен на квадратный метр": "Lúmenes por metro cuadrado",
+    "Норма освещённости": "Iluminancia objetivo",
+    "Коэффициент запаса": "Factor de mantenimiento",
+    "Установленный поток": "Flujo instalado",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "лм": "lm",
+    "лк": "lx",
+    "Площадь должна быть больше нуля": "La superficie debe ser mayor que cero",
+    "Норма освещённости должна быть больше нуля": "La iluminancia objetivo debe ser mayor que cero",
+    "Световой поток лампы должен быть больше нуля": "El flujo de la lámpara debe ser mayor que cero",
+    "Коэффициент запаса должен быть от 0,4 до 1": "El factor de mantenimiento debe estar entre 0,4 y 1",
+    "Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.": "La iluminancia objetivo es una suposición que puedes cambiar: en un salón se toman unos 150 lx y en un puesto de trabajo el triple. Los valores normativos difieren entre países.",
+    "Освещённость — выбранная цель. Использование света принято равным 1; распределение и измеренные люксы не рассчитываются.": "La iluminancia es la meta elegida. Utilización supuesta 1; no se calculan distribución ni lux medidos."
+  }
+}
 };

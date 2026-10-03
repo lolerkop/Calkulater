@@ -1,0 +1,5165 @@
+{
+  "createdAt": "2026-10-02T03:41:57.059Z",
+  "ids": [
+    "tile-calculator",
+    "wallpaper-calculator",
+    "paint-calculator",
+    "laminate-calculator",
+    "screed-calculator",
+    "brick-calculator"
+  ],
+  "files": [
+    {
+      "path": "src/lib/calculators/tile.ts",
+      "sha256": "0ce3b98d89372724e8c029a2c6ab3dec00a26950aab947e8b665308249413cea"
+    },
+    {
+      "path": "src/lib/calculators/wallpaper.ts",
+      "sha256": "0480de4df79b947c05760701bd8e3c566d0fbd22003637790dee19535262b0f0"
+    },
+    {
+      "path": "src/lib/calculators/laminate.ts",
+      "sha256": "1f0a926d7754c312e09855d3be9b0c0bb3327c23c7fcdddba0c7963fbcd0a5b7"
+    },
+    {
+      "path": "src/lib/calculators/screed.ts",
+      "sha256": "4c0eee3b6441f406eba64515b9d4b6ac5b19558a6e1c01dff89482137da69503"
+    },
+    {
+      "path": "src/lib/calculators/brick.ts",
+      "sha256": "372954c0accccfe7b346edd01a2ad4138faabe3e5c5e54cf34ef9b29054eca42"
+    },
+    {
+      "path": "src/calculators/paint-calculator/compute.ts",
+      "sha256": "e76680e58fa7a04cd918e266470994917a94bbe757344995658804705bdb4258"
+    },
+    {
+      "path": "src/calculators/paint-calculator/copy.en.ts",
+      "sha256": "f0e173f2b68afd36e5e7a8db029b2823df6cd852d58a9d522d4d42e3e5f9272c"
+    },
+    {
+      "path": "src/calculators/paint-calculator/copy.uk.ts",
+      "sha256": "a667b58801f4ccc6b365ce73ad56b830776c0cc30dffb644cacb08eb541320a4"
+    },
+    {
+      "path": "src/calculators/paint-calculator/definition.ts",
+      "sha256": "c28cea3dc3a0d5b5b4217bfc81bbb912de82e65abc7e6aaeca4d31c10640246e"
+    },
+    {
+      "path": "src/calculators/paint-calculator/referenceCases.ts",
+      "sha256": "2d49ab2bc3e80da321d13f23c5fade828907469e1b94c1c5e9f2290b1b35c2f1"
+    }
+  ],
+  "pages": [
+    {
+      "id": "tile-calculator",
+      "locale": "ru",
+      "path": "/ru/building/tile-calculator/",
+      "name": "Калькулятор плитки",
+      "h1": "Калькулятор плитки",
+      "seoTitle": "Калькулятор плитки онлайн — расчёт количества и упаковок",
+      "seoDescription": "Расчёт плитки по площади или размерам комнаты: количество плиток, упаковок, запас на подрезку и примерный расход клея.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Способ расчёта",
+          "type": "toggle",
+          "defaultValue": "room",
+          "options": [
+            {
+              "value": "room",
+              "label": "По размерам"
+            },
+            {
+              "value": "area",
+              "label": "По площади"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина, м",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ширина, м",
+          "type": "number",
+          "defaultValue": 3,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Площадь, м²",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "tileLength",
+          "label": "Длина плитки, см",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01
+        },
+        {
+          "name": "tileWidth",
+          "label": "Ширина плитки, см",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01
+        },
+        {
+          "name": "packArea",
+          "label": "Площадь упаковки, м²",
+          "type": "number",
+          "defaultValue": 1.44,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "reserve",
+          "label": "Запас, %",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0
+        },
+        {
+          "name": "glueConsumption",
+          "label": "Расход клея, кг/м²",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "packPrice",
+          "label": "Цена упаковки",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "₽",
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "room",
+        "length": 4,
+        "width": 3,
+        "manualArea": 12,
+        "tileLength": 30,
+        "tileWidth": 30,
+        "packArea": 1.44,
+        "reserve": 10,
+        "glueConsumption": 5,
+        "packPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество плиток",
+          "value": "147 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь",
+            "value": "12,00 м²"
+          },
+          {
+            "label": "Площадь с запасом",
+            "value": "13,20 м²"
+          },
+          {
+            "label": "Количество упаковок",
+            "value": "10 шт."
+          },
+          {
+            "label": "Примерный расход клея",
+            "value": "66 кг"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Калькулятор плитки помогает заранее посчитать материал для пола или стен: площадь, запас на подрезку, количество плиток, упаковок и примерный расход клея. Можно считать по размерам помещения или ввести готовую площадь, если она уже известна из проекта или замера.",
+        "howToUse": [
+          "Выберите, как считать — по размерам комнаты или сразу по площади.",
+          "Укажите размеры плитки и площадь упаковки (написано на коробке).",
+          "Задайте запас 5-15% на подрезку.",
+          "Округлите закупку до целых упаковок и проверьте партию плитки."
+        ],
+        "howItWorks": "Площадь умножается на коэффициент запаса. Количество плиток = площадь / площадь одной плитки. Расход клея — 5 кг на м² в среднем.",
+        "example": "Пол 4×3 м, плитка 30×30 см, запас 10% → 12 м², 147 плиток, 10 упаковок.",
+        "faq": [
+          {
+            "q": "Какой запас плитки закладывать?",
+            "a": "Для прямой укладки достаточно 5-10%, для диагональной — 15%."
+          },
+          {
+            "q": "Сколько клея уйдёт?",
+            "a": "В среднем 5 кг на м² при гребёнке 8 мм. Точнее смотрите на упаковке клея."
+          },
+          {
+            "q": "Нужно ли учитывать бой и брак?",
+            "a": "Да, запас частично покрывает подрезку, бой, брак и возможный ремонт. Для сложной раскладки лучше брать больше."
+          },
+          {
+            "q": "Почему упаковки округляются вверх?",
+            "a": "Плитку обычно покупают коробками, поэтому даже небольшой остаток площади требует ещё одну упаковку."
+          },
+          {
+            "q": "Подходит ли расчёт для стен в ванной?",
+            "a": "Да, если указать площадь стен вручную. Для точности вычтите крупные проёмы и добавьте запас на подрезку."
+          }
+        ]
+      },
+      "htmlSha256": "19946ed39d7d324d101af75fce058768d570864a1fbd54404faad3e02156b93e"
+    },
+    {
+      "id": "tile-calculator",
+      "locale": "en",
+      "path": "/en/home-improvement/tile-calculator/",
+      "name": "Tile calculator",
+      "h1": "Tile calculator",
+      "seoTitle": "Tile calculator — tiles, packs and adhesive estimate",
+      "seoDescription": "Calculate tile quantity, packs and approximate adhesive for a renovation project.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Mode",
+          "type": "toggle",
+          "defaultValue": "room",
+          "options": [
+            {
+              "value": "room",
+              "label": "By room"
+            },
+            {
+              "value": "area",
+              "label": "By area"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Length",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Width",
+          "type": "number",
+          "defaultValue": 3,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Area",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "tileLength",
+          "label": "Tile length",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01
+        },
+        {
+          "name": "tileWidth",
+          "label": "Tile width",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01
+        },
+        {
+          "name": "packArea",
+          "label": "Pack coverage",
+          "type": "number",
+          "defaultValue": 1.44,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "reserve",
+          "label": "Reserve",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0
+        },
+        {
+          "name": "glueConsumption",
+          "label": "Adhesive consumption",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "packPrice",
+          "label": "Price per pack",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "$",
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "room",
+        "length": 4,
+        "width": 3,
+        "manualArea": 12,
+        "tileLength": 30,
+        "tileWidth": 30,
+        "packArea": 1.44,
+        "reserve": 10,
+        "glueConsumption": 5,
+        "packPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество плиток",
+          "value": "147 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь",
+            "value": "12,00 м²"
+          },
+          {
+            "label": "Площадь с запасом",
+            "value": "13,20 м²"
+          },
+          {
+            "label": "Количество упаковок",
+            "value": "10 шт."
+          },
+          {
+            "label": "Примерный расход клея",
+            "value": "66 кг"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Use this tile calculator to estimate tile count and packs from room size, tile size and reserve.",
+        "howToUse": [
+          "Enter room area or dimensions.",
+          "Enter tile size and pack area.",
+          "Add reserve and review the result."
+        ],
+        "howItWorks": "The calculator divides the area with reserve by tile area and pack area.",
+        "example": "Estimate tiles for a 4 by 3 meter room with 30 by 30 cm tiles.",
+        "faq": [
+          {
+            "q": "How is the number of tiles estimated?",
+            "a": "Enter the area or room dimensions and the tile size. The calculator divides the surface with your reserve allowance by the area of one tile."
+          },
+          {
+            "q": "Why enter a reserve and pack coverage?",
+            "a": "The reserve covers cuts and breakage, while pack coverage converts the required area into an estimated number of packs."
+          },
+          {
+            "q": "Does the estimate replace a laying plan?",
+            "a": "No. Patterns, borders, irregular surfaces and site-specific waste can change the number of tiles or packs needed."
+          }
+        ]
+      },
+      "htmlSha256": "371bfe1a5da4688257a5a18893d323bae8c2b07bfd4f8002b2d64b4cf29a2abf"
+    },
+    {
+      "id": "tile-calculator",
+      "locale": "uk",
+      "path": "/uk/remont/kalkulyator-plytky/",
+      "name": "Калькулятор плитки",
+      "h1": "Калькулятор плитки",
+      "seoTitle": "Калькулятор плитки - плитка, упаковки та клей",
+      "seoDescription": "Розрахуйте кількість плитки, упаковок і орієнтовну витрату клею для ремонту.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Режим",
+          "type": "toggle",
+          "defaultValue": "room",
+          "options": [
+            {
+              "value": "room",
+              "label": "За кімнатою"
+            },
+            {
+              "value": "area",
+              "label": "За площею"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Довжина",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ширина",
+          "type": "number",
+          "defaultValue": 3,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Площа",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "tileLength",
+          "label": "Довжина плитки",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01
+        },
+        {
+          "name": "tileWidth",
+          "label": "Ширина плитки",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01
+        },
+        {
+          "name": "packArea",
+          "label": "Площа упаковки",
+          "type": "number",
+          "defaultValue": 1.44,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "reserve",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0
+        },
+        {
+          "name": "glueConsumption",
+          "label": "Витрата клею",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "packPrice",
+          "label": "Ціна упаковки",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "₴",
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "room",
+        "length": 4,
+        "width": 3,
+        "manualArea": 12,
+        "tileLength": 30,
+        "tileWidth": 30,
+        "packArea": 1.44,
+        "reserve": 10,
+        "glueConsumption": 5,
+        "packPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество плиток",
+          "value": "147 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь",
+            "value": "12,00 м²"
+          },
+          {
+            "label": "Площадь с запасом",
+            "value": "13,20 м²"
+          },
+          {
+            "label": "Количество упаковок",
+            "value": "10 шт."
+          },
+          {
+            "label": "Примерный расход клея",
+            "value": "66 кг"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Розрахунок плитки множить площу на коефіцієнт запасу й ділить на площу однієї плитки. Запас тут не формальність: підрізання по краях, бій під час різання й нерівна геометрія стіни забирають від п’яти до п’ятнадцяти відсотків, а докупити ту саму партію пізніше часто вже неможливо.",
+        "howToUse": [
+          "Введіть розміри приміщення або одразу площу.",
+          "Введіть розміри плитки.",
+          "Задайте запас: 10 % для прямого укладання, 15 % для діагонального."
+        ],
+        "howItWorks": "Площа множиться на коефіцієнт запасу, після чого ділиться на площу однієї плитки. Витрата клею береться орієнтовно 5 кг на квадратний метр — точна залежить від гребінця й основи. Кількість пачок округлюється вгору.",
+        "example": "Підлога 4 × 3 м, плитка 30 × 30 см, запас 10 % — це 12 м², 147 плиток і 10 упаковок.",
+        "faq": [
+          {
+            "q": "Який запас закладати?",
+            "a": "Для прямого укладання 10 %, для діагонального 15 %, для складного візерунка більше. Плитка з однієї партії має однаковий відтінок, а докупити її через місяць зазвичай уже не вийде."
+          },
+          {
+            "q": "Чому важлива партія?",
+            "a": "Бо відтінок і розмір плитки трохи відрізняються від партії до партії. Різниця непомітна в коробці й добре видно на готовій стіні."
+          },
+          {
+            "q": "Чи враховано шви?",
+            "a": "Ні, розрахунок бере номінальний розмір плитки. Шов у 2 мм на плитці 30 см дає близько 1,3 % — це вкладається в запас."
+          },
+          {
+            "q": "Скільки потрібно клею?",
+            "a": "Орієнтовно 5 кг на квадратний метр, але залежить від зубця гребінця й рівності основи. Для великоформатної плитки й нерівних стін витрата помітно вища."
+          }
+        ]
+      },
+      "htmlSha256": "0c957b5978e1193a13e73839333e3d35fdabdc52aed35b951120af3e94833b21"
+    },
+    {
+      "id": "tile-calculator",
+      "locale": "de",
+      "path": "/de/heimwerken/fliesenrechner/",
+      "name": "Fliesenrechner",
+      "h1": "Fliesenrechner",
+      "seoTitle": "Fliesenrechner — Fliesen, Pakete und Kleber schätzen",
+      "seoDescription": "Berechne Fliesenmenge, Pakete und ungefähren Kleberbedarf für Renovierungen.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Rechenweg",
+          "type": "toggle",
+          "defaultValue": "room",
+          "options": [
+            {
+              "value": "room",
+              "label": "Nach Raum"
+            },
+            {
+              "value": "area",
+              "label": "Nach Fläche"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Länge",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Breite",
+          "type": "number",
+          "defaultValue": 3,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Fläche",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "tileLength",
+          "label": "Fliesenlänge",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01
+        },
+        {
+          "name": "tileWidth",
+          "label": "Fliesenbreite",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01
+        },
+        {
+          "name": "packArea",
+          "label": "Packungsfläche",
+          "type": "number",
+          "defaultValue": 1.44,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "reserve",
+          "label": "Reserve",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0
+        },
+        {
+          "name": "glueConsumption",
+          "label": "Kleberbedarf, kg/m²",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "packPrice",
+          "label": "Preis je Paket",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "€",
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "room",
+        "length": 4,
+        "width": 3,
+        "manualArea": 12,
+        "tileLength": 30,
+        "tileWidth": 30,
+        "packArea": 1.44,
+        "reserve": 10,
+        "glueConsumption": 5,
+        "packPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество плиток",
+          "value": "147 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь",
+            "value": "12,00 м²"
+          },
+          {
+            "label": "Площадь с запасом",
+            "value": "13,20 м²"
+          },
+          {
+            "label": "Количество упаковок",
+            "value": "10 шт."
+          },
+          {
+            "label": "Примерный расход клея",
+            "value": "66 кг"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Rechnet vom Raum zur Bestellung und nicht nur zur Fläche: Fliesenzahl, Pakete und ungefährer Kleberbedarf stehen nebeneinander, weil im Baumarkt alle drei zugleich gebraucht werden. Die Reserve wird vor dem Aufrunden aufgeschlagen, denn Zuschnitt an Rändern und Ecken, Bruch und ein späterer Austausch einzelner Fliesen kosten Material, das keine Flächenrechnung kennt. Pakete werden aufgerundet, weil ein halbes Paket niemand verkauft, und diese Rundung ist bei großformatigen Fliesen der teuerste Schritt der ganzen Rechnung.",
+        "howToUse": [
+          "Wähle, ob du Raummaße oder eine fertige Fläche eingibst.",
+          "Trage das Fliesenformat in Zentimetern ein.",
+          "Trage die Fläche eines Pakets ein — sie steht auf der Verpackung.",
+          "Setze die Reserve: 5–10 % bei geradem Verlegen, mehr bei Diagonale oder Muster."
+        ],
+        "howItWorks": "Fläche mit Reserve = Fläche × (1 + Reserve ÷ 100). Fliesenzahl = diese Fläche ÷ der Fläche einer Fliese, aufgerundet. Pakete = dieselbe Fläche ÷ der Paketfläche, aufgerundet. Der Kleber folgt der angegebenen Ergiebigkeit je Quadratmeter.",
+        "example": "Ein Raum von 4 × 3 m mit Fliesen 30 × 60 cm, Paketen zu 1,44 m² und 10 % Reserve ergibt 13,2 m², 74 Fliesen und 10 Pakete.",
+        "faq": [
+          {
+            "q": "Wie viel Reserve ist sinnvoll?",
+            "a": "Beim geraden Verlegen genügen 5–10 %. Diagonal oder mit Muster entstehen mehr Verschnitt und mehr Ausschuss, dort sind 15 % realistischer. Lege ein paar Fliesen für spätere Reparaturen zurück — nachgekaufte Ware hat oft einen anderen Farbton."
+          },
+          {
+            "q": "Warum werden die Pakete aufgerundet?",
+            "a": "Fliesen werden paketweise verkauft. Selbst ein kleiner Rest verlangt ein weiteres Paket, und die Rundung geschieht nach dem Aufschlag der Reserve."
+          },
+          {
+            "q": "Woher nehme ich die Ergiebigkeit des Klebers?",
+            "a": "Vom Sack. Hersteller geben sie in Kilogramm je Quadratmeter für eine bestimmte Zahnung an, und die Zahnung richtet sich nach dem Fliesenformat: großes Format heißt mehr Kleber."
+          },
+          {
+            "q": "Ist die Fugenbreite berücksichtigt?",
+            "a": "Nein. Bei üblichen Fugen von 2–3 mm liegt der Unterschied unter einem Prozent der Fläche und geht in der Reserve auf. Bei breiten Fugen rechne die Fliesenzahl über das Rastermaß nach."
+          },
+          {
+            "q": "Taugt das auch für die Wand?",
+            "a": "Ja, die Rechnung ist dieselbe. Trage die Wandfläche ein und zieh Türen und Fenster vorher ab."
+          }
+        ]
+      },
+      "htmlSha256": "3ac4157dc4ab0b60abb755b220e7a4cb88807a962016df77b3b7186d856945fe"
+    },
+    {
+      "id": "tile-calculator",
+      "locale": "es",
+      "path": "/es/reformas/calculadora-azulejos/",
+      "name": "Calculadora de azulejos",
+      "h1": "Calculadora de azulejos",
+      "seoTitle": "Calculadora de azulejos — piezas, paquetes y adhesivo",
+      "seoDescription": "Calcula cantidad de azulejos, paquetes y adhesivo aproximado para una reforma.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Método de cálculo",
+          "type": "toggle",
+          "defaultValue": "room",
+          "options": [
+            {
+              "value": "room",
+              "label": "Por habitación"
+            },
+            {
+              "value": "area",
+              "label": "Por área"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Largo",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ancho",
+          "type": "number",
+          "defaultValue": 3,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Área",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "tileLength",
+          "label": "Largo del azulejo",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01
+        },
+        {
+          "name": "tileWidth",
+          "label": "Ancho del azulejo",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01
+        },
+        {
+          "name": "packArea",
+          "label": "Cobertura del paquete",
+          "type": "number",
+          "defaultValue": 1.44,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "reserve",
+          "label": "Reserva",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0
+        },
+        {
+          "name": "glueConsumption",
+          "label": "Consumo de adhesivo, kg/m²",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "packPrice",
+          "label": "Precio del paquete",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "€",
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "room",
+        "length": 4,
+        "width": 3,
+        "manualArea": 12,
+        "tileLength": 30,
+        "tileWidth": 30,
+        "packArea": 1.44,
+        "reserve": 10,
+        "glueConsumption": 5,
+        "packPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество плиток",
+          "value": "147 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь",
+            "value": "12,00 м²"
+          },
+          {
+            "label": "Площадь с запасом",
+            "value": "13,20 м²"
+          },
+          {
+            "label": "Количество упаковок",
+            "value": "10 шт."
+          },
+          {
+            "label": "Примерный расход клея",
+            "value": "66 кг"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Calcula cuántos azulejos, cuántos paquetes y cuánto adhesivo hacen falta para alicatar una superficie. Se puede partir de las medidas de la estancia o directamente del área, porque en la obra unas veces se tiene el plano y otras la superficie ya medida. El margen de reserva se indica aparte y no viene impuesto: los cortes de una estancia rectangular sencilla gastan poco, y un suelo con rincones o colocado en diagonal gasta bastante más. El resultado incluye los paquetes redondeados hacia arriba, porque los azulejos se venden por paquete y comprar cuatro paquetes y medio no es una opción.",
+        "howToUse": [
+          "Elige si vas a partir de las medidas de la estancia o del área.",
+          "Introduce el tamaño del azulejo y la superficie que cubre un paquete.",
+          "Añade el margen de reserva y, si quieres, el precio del paquete.",
+          "Consulta las piezas, los paquetes y el adhesivo estimado."
+        ],
+        "howItWorks": "El área con reserva se divide entre el área de un azulejo para obtener las piezas, y entre la superficie de un paquete para obtener los paquetes, que se redondean siempre hacia arriba. El adhesivo se estima multiplicando el área por el consumo por metro cuadrado que indique el fabricante.",
+        "example": "Una estancia de 4 por 3 metros con azulejos de 30 por 30 cm y un 10 % de reserva necesita unas 147 piezas.",
+        "faq": [
+          {
+            "q": "¿Cuánto margen de reserva conviene dejar?",
+            "a": "Depende del trazado. En una estancia rectangular y sencilla suele bastar un 5 o un 10 %; con rincones, columnas o colocación en diagonal, los cortes gastan más y el 15 % es más realista. La calculadora no impone ningún valor porque solo tú ves la superficie."
+          },
+          {
+            "q": "¿Por qué los paquetes se redondean hacia arriba?",
+            "a": "Porque los azulejos se venden por paquete cerrado. Si el cálculo da 4,2 paquetes, hacen falta 5: los 0,8 restantes no se pueden comprar por separado."
+          },
+          {
+            "q": "¿El adhesivo estimado es fiable?",
+            "a": "Es una estimación a partir del consumo que declara el fabricante. El gasto real depende del tamaño del diente de la llana, de la planitud del soporte y del formato del azulejo; en un soporte irregular puede subir de forma notable."
+          },
+          {
+            "q": "¿Se tiene en cuenta la junta entre azulejos?",
+            "a": "No de forma explícita. Con juntas de 2 o 3 milímetros la diferencia queda dentro del margen de reserva; con juntas anchas conviene añadir el ancho de la junta a la medida del azulejo."
+          },
+          {
+            "q": "¿Puedo usarla para pared y para suelo?",
+            "a": "Sí, el cálculo es el mismo: lo que cambia es la superficie que introduces. Para una pared, resta los huecos de puertas y ventanas antes de escribir el área."
+          }
+        ]
+      },
+      "htmlSha256": "3d433f9c94fdf3a372fd6f6502e0e19c9d68566b8ac72acfb587252b2b734965"
+    },
+    {
+      "id": "wallpaper-calculator",
+      "locale": "ru",
+      "path": "/ru/building/wallpaper-calculator/",
+      "name": "Калькулятор обоев",
+      "h1": "Калькулятор обоев",
+      "seoTitle": "Калькулятор обоев онлайн — расчёт количества рулонов",
+      "seoDescription": "Расчёт обоев онлайн с учётом размеров комнаты, окон, дверей и раппорта рисунка. Узнайте, сколько рулонов нужно купить.",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина комнаты, м",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01
+        },
+        {
+          "name": "width",
+          "label": "Ширина комнаты, м",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01
+        },
+        {
+          "name": "height",
+          "label": "Высота стен, м",
+          "type": "number",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1
+        },
+        {
+          "name": "rollWidth",
+          "label": "Ширина рулона, м",
+          "type": "number",
+          "defaultValue": 1.06,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "rollLength",
+          "label": "Длина рулона, м",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0.01
+        },
+        {
+          "name": "windows",
+          "label": "Количество окон",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0
+        },
+        {
+          "name": "doors",
+          "label": "Количество дверей",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0
+        },
+        {
+          "name": "pattern",
+          "label": "Раппорт рисунка, см",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0
+        },
+        {
+          "name": "rollPrice",
+          "label": "Цена рулона",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "rollWidth": 1.06,
+        "rollLength": 10,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 0,
+        "rollPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество рулонов",
+          "value": "6 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь стен",
+            "value": "45,30 м²"
+          },
+          {
+            "label": "Периметр",
+            "value": "18,00 м"
+          },
+          {
+            "label": "Количество полотен",
+            "value": "16 шт."
+          },
+          {
+            "label": "Полотен из рулона",
+            "value": "3 шт."
+          },
+          {
+            "label": "Запас",
+            "value": "40,4 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Калькулятор обоев считает периметр комнаты, площадь стен, количество полотен и рулонов с учётом высоты, окон, дверей и раппорта рисунка. Он помогает понять, сколько рулонов купить до ремонта и почему обои с крупным рисунком требуют большего запаса.",
+        "howToUse": [
+          "Введите длину, ширину и высоту комнаты.",
+          "Укажите параметры рулона — длину и ширину.",
+          "Задайте количество окон и дверей.",
+          "Если есть рисунок — введите высоту раппорта."
+        ],
+        "howItWorks": "Считается периметр и площадь стен. Из площади вычитается ориентировочная площадь окон и дверей. Полотна разрезаются с учётом раппорта.",
+        "example": "Комната 5×4 м, высота 2,7 м, рулон 1,06×10 м, 1 окно, 1 дверь → 6 рулонов.",
+        "faq": [
+          {
+            "q": "Что такое раппорт?",
+            "a": "Это высота повторения рисунка на обоях. Чем больше раппорт — тем больше отходов на подгонку."
+          },
+          {
+            "q": "Что делать, если боюсь нехватки?",
+            "a": "Возьмите на 1 рулон больше. Лучше остаться с запасом, чем искать партию."
+          },
+          {
+            "q": "Почему рулоны считаются целыми?",
+            "a": "Обои продаются рулонами, поэтому результат округляется вверх даже при небольшом недостающем участке."
+          },
+          {
+            "q": "Нужно ли вычитать окна и двери?",
+            "a": "Калькулятор вычитает ориентировочную площадь проёмов, но для сложных комнат лучше дополнительно проверить замеры вручную."
+          },
+          {
+            "q": "Что важнее: площадь или количество полотен?",
+            "a": "Для обоев важны оба показателя. Полотна режутся по высоте стены, поэтому одного расчёта площади бывает недостаточно."
+          }
+        ]
+      },
+      "htmlSha256": "bd4557f21878ae6e97e8688491a77c92db12a9803044eb4caaad5ee9a431ce50"
+    },
+    {
+      "id": "wallpaper-calculator",
+      "locale": "en",
+      "path": "/en/home-improvement/wallpaper-calculator/",
+      "name": "Wallpaper calculator",
+      "h1": "Wallpaper calculator",
+      "seoTitle": "Wallpaper calculator — estimate rolls needed",
+      "seoDescription": "Calculate wallpaper rolls from room dimensions, roll size, doors, windows and pattern repeat.",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Length",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01
+        },
+        {
+          "name": "width",
+          "label": "Width",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01
+        },
+        {
+          "name": "height",
+          "label": "Height",
+          "type": "number",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1
+        },
+        {
+          "name": "rollWidth",
+          "label": "Roll width",
+          "type": "number",
+          "defaultValue": 1.06,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "rollLength",
+          "label": "Roll length",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0.01
+        },
+        {
+          "name": "windows",
+          "label": "Windows",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0
+        },
+        {
+          "name": "doors",
+          "label": "Doors",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0
+        },
+        {
+          "name": "pattern",
+          "label": "Pattern repeat",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0
+        },
+        {
+          "name": "rollPrice",
+          "label": "Price per roll",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "rollWidth": 1.06,
+        "rollLength": 10,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 0,
+        "rollPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество рулонов",
+          "value": "6 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь стен",
+            "value": "45,30 м²"
+          },
+          {
+            "label": "Периметр",
+            "value": "18,00 м"
+          },
+          {
+            "label": "Количество полотен",
+            "value": "16 шт."
+          },
+          {
+            "label": "Полотен из рулона",
+            "value": "3 шт."
+          },
+          {
+            "label": "Запас",
+            "value": "40,4 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Use this wallpaper calculator to estimate how many rolls you need for a room.",
+        "howToUse": [
+          "Enter room dimensions.",
+          "Enter roll width and length.",
+          "Add doors, windows and pattern repeat."
+        ],
+        "howItWorks": "The calculator estimates wall strips and divides them by strips available from one roll.",
+        "example": "Estimate rolls for a 5 by 4 meter room with 2.7 m wall height.",
+        "faq": [
+          {
+            "q": "How are wallpaper rolls estimated?",
+            "a": "The calculator estimates the strips needed for the room walls and divides them by the usable strips from one roll."
+          },
+          {
+            "q": "Why enter doors, windows and pattern repeat?",
+            "a": "Openings reduce the area to cover, while matching a repeated pattern can increase the length needed for each strip."
+          },
+          {
+            "q": "Could I still need an extra roll?",
+            "a": "Yes. Cutting loss, wall shape and pattern matching can differ on site, so check the estimate against the room layout before purchasing."
+          }
+        ]
+      },
+      "htmlSha256": "d8cb9d8672f52444a2939ca75e269b8f375e5f671fca633ad03f68c4a8981c52"
+    },
+    {
+      "id": "wallpaper-calculator",
+      "locale": "uk",
+      "path": "/uk/remont/kalkulyator-shpaler/",
+      "name": "Калькулятор шпалер",
+      "h1": "Калькулятор шпалер",
+      "seoTitle": "Калькулятор шпалер - скільки рулонів потрібно",
+      "seoDescription": "Розрахуйте кількість рулонів шпалер за розмірами стін, рулону та запасом.",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Довжина",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01
+        },
+        {
+          "name": "width",
+          "label": "Ширина",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01
+        },
+        {
+          "name": "height",
+          "label": "Зріст",
+          "type": "number",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1
+        },
+        {
+          "name": "rollWidth",
+          "label": "Ширина рулону",
+          "type": "number",
+          "defaultValue": 1.06,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "rollLength",
+          "label": "Довжина рулону",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0.01
+        },
+        {
+          "name": "windows",
+          "label": "Вікна",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0
+        },
+        {
+          "name": "doors",
+          "label": "Двері",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0
+        },
+        {
+          "name": "pattern",
+          "label": "Повтор візерунка",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0
+        },
+        {
+          "name": "rollPrice",
+          "label": "Ціна рулону",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "rollWidth": 1.06,
+        "rollLength": 10,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 0,
+        "rollPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество рулонов",
+          "value": "6 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь стен",
+            "value": "45,30 м²"
+          },
+          {
+            "label": "Периметр",
+            "value": "18,00 м"
+          },
+          {
+            "label": "Количество полотен",
+            "value": "16 шт."
+          },
+          {
+            "label": "Полотен из рулона",
+            "value": "3 шт."
+          },
+          {
+            "label": "Запас",
+            "value": "40,4 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Розрахунок шпалер рахує не площу, а кількість цілих полотен: рулон ріжеться на смуги висотою стіни, і залишок від кожного рулону здебільшого йде у відхід. Саме тому шпалери майже завжди беруть із запасом більшим, ніж підказує проста площа.",
+        "howToUse": [
+          "Введіть розміри кімнати й висоту стелі.",
+          "Введіть ширину й довжину рулону.",
+          "Укажіть кількість вікон і дверей."
+        ],
+        "howItWorks": "Рахується периметр і площа стін, з якої віднімається орієнтовна площа вікон і дверей. Полотна нарізаються з урахуванням рапорту: що більший крок візерунка, то більший відхід на підгонку.",
+        "example": "Кімната 5 × 4 м, висота 2,7 м, рулон 1,06 × 10 м, одне вікно й одні двері — потрібно 6 рулонів.",
+        "faq": [
+          {
+            "q": "Що таке рапорт і як він впливає?",
+            "a": "Це крок повторення візерунка. Шпалери з рапортом 64 см вимагають підганяти кожне наступне полотно, і відхід зростає — іноді на цілий рулон."
+          },
+          {
+            "q": "Чому не можна рахувати просто за площею?",
+            "a": "Бо рулон ріжеться на цілі полотна висотою стіни. З рулону 10 м за висоти 2,7 м виходить три полотна, а решта 1,9 м здебільшого йде у відхід."
+          },
+          {
+            "q": "Чи віднімати вікна й двері?",
+            "a": "Частково. Великі прорізи враховувати варто, але дрібні краще не віднімати: підрізання навколо них дає багато відходу."
+          },
+          {
+            "q": "Чи брати рулони з однієї партії?",
+            "a": "Обов’язково. Номер партії вказано на етикетці; відтінок різних партій відрізняється, і на суцільній стіні це видно."
+          }
+        ]
+      },
+      "htmlSha256": "c658bbfaecc8b4ffa6224a9b2c94cd1fc1e79c596d3e968b6ce3322ce106dc80"
+    },
+    {
+      "id": "wallpaper-calculator",
+      "locale": "de",
+      "path": "/de/heimwerken/tapetenrechner/",
+      "name": "Tapetenrechner",
+      "h1": "Tapetenrechner",
+      "seoTitle": "Tapetenrechner — benötigte Rollen berechnen",
+      "seoDescription": "Berechne Tapetenrollen aus Raummaßen, Rollenmaß, Türen, Fenstern und Musterversatz.",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Raumlänge",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01
+        },
+        {
+          "name": "width",
+          "label": "Raumbreite",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01
+        },
+        {
+          "name": "height",
+          "label": "Höhe der Wände",
+          "type": "number",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1
+        },
+        {
+          "name": "rollWidth",
+          "label": "Rollenbreite",
+          "type": "number",
+          "defaultValue": 1.06,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "rollLength",
+          "label": "Rollenlänge",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0.01
+        },
+        {
+          "name": "windows",
+          "label": "Fenster",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0
+        },
+        {
+          "name": "doors",
+          "label": "Türen",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0
+        },
+        {
+          "name": "pattern",
+          "label": "Musterversatz",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0
+        },
+        {
+          "name": "rollPrice",
+          "label": "Preis je Rolle",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "rollWidth": 1.06,
+        "rollLength": 10,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 0,
+        "rollPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество рулонов",
+          "value": "6 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь стен",
+            "value": "45,30 м²"
+          },
+          {
+            "label": "Периметр",
+            "value": "18,00 м"
+          },
+          {
+            "label": "Количество полотен",
+            "value": "16 шт."
+          },
+          {
+            "label": "Полотен из рулона",
+            "value": "3 шт."
+          },
+          {
+            "label": "Запас",
+            "value": "40,4 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Zählt Bahnen und erst daraus Rollen, denn genau daran scheitert die Überschlagsrechnung nach Fläche: eine Rolle von 10,05 m liefert bei 2,7 m Wandhöhe nur drei Bahnen und nicht 3,7 — der Rest ist zu kurz für eine weitere Bahn und geht als Verschnitt weg. Der Rapport verlängert jede Bahn auf das nächste volle Vielfache des Musters und kann die Zahl der Rollen sprunghaft erhöhen. Fenster und Türen werden nach Stückzahl abgezogen, mit den üblichen Mittelwerten von 1,5 und 1,8 m².",
+        "howToUse": [
+          "Trage Länge, Breite und Wandhöhe des Raums ein.",
+          "Trage das Rollenmaß ein — meist 0,53 × 10,05 m.",
+          "Gib die Zahl der Fenster und Türen an.",
+          "Trage den Rapport in Zentimetern ein; bei glatter Tapete bleibt er null."
+        ],
+        "howItWorks": "Wandfläche = Umfang × Höhe minus 1,5 m² je Fenster und 1,8 m² je Tür. Die Bahnenlänge wird auf ein volles Vielfaches des Rapports aufgerundet, Bahnen je Rolle ist die Rollenlänge geteilt durch diese Bahnenlänge, abgerundet. Die Zahl der Bahnen folgt aus der Wandbreite und der Rollenbreite, die Rollen aus beidem, aufgerundet.",
+        "example": "Ein Raum von 4 × 3 m mit 2,7 m Wandhöhe, einem Fenster und einer Tür ergibt bei einer Rolle von 0,53 × 10,05 m eine Wandfläche von 34,5 m², 25 Bahnen und 9 Rollen.",
+        "faq": [
+          {
+            "q": "Warum genügt eine Rechnung nach Fläche nicht?",
+            "a": "Weil Tapete in Bahnen verlegt wird. Aus einer Rolle von 10,05 m werden bei 2,7 m Höhe drei Bahnen, der Rest von 1,95 m ist zu kurz für eine vierte — nach Fläche gerechnet fehlten Rollen."
+          },
+          {
+            "q": "Was ist der Rapport und wie wirkt er?",
+            "a": "Der Musterversatz. Jede Bahn wird auf ein volles Vielfaches des Musters verlängert, damit die Bahnen zusammenpassen. Bei 64 cm Rapport wird aus 2,7 m Bahnenlänge 3,2 m, und aus einer Rolle werden statt drei nur noch drei knappe Bahnen."
+          },
+          {
+            "q": "Wie werden Fenster und Türen berücksichtigt?",
+            "a": "Nach Stückzahl mit Mittelwerten: 1,5 m² je Fenster und 1,8 m² je Tür. Weichen deine Öffnungen stark davon ab, rechne die Wandfläche von Hand und plane etwas großzügiger."
+          },
+          {
+            "q": "Wie viel Reserve sollte ich einplanen?",
+            "a": "Die ausgewiesene Reserve entsteht durch das Aufrunden auf ganze Rollen. Kaufe bei Mustertapeten lieber eine Rolle mehr: Nachkäufe haben oft eine andere Chargennummer und einen sichtbar anderen Farbton."
+          },
+          {
+            "q": "Zählt die Decke mit?",
+            "a": "Nein, gerechnet werden nur die Wände. Für die Decke rechne ihre Fläche gesondert und addiere die Rollen."
+          }
+        ]
+      },
+      "htmlSha256": "d0dbea1aac52d221d27fe5387bacd7e0acac343d936582946d66e2287953d160"
+    },
+    {
+      "id": "wallpaper-calculator",
+      "locale": "es",
+      "path": "/es/reformas/calculadora-papel-pintado/",
+      "name": "Calculadora de papel pintado",
+      "h1": "Calculadora de papel pintado",
+      "seoTitle": "Calculadora de papel pintado — rollos necesarios",
+      "seoDescription": "Calcula rollos de papel pintado con dimensiones, puertas, ventanas y repetición de patrón.",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Largo de la habitación",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01
+        },
+        {
+          "name": "width",
+          "label": "Ancho de la habitación",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01
+        },
+        {
+          "name": "height",
+          "label": "Altura de las paredes",
+          "type": "number",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1
+        },
+        {
+          "name": "rollWidth",
+          "label": "Ancho del rollo",
+          "type": "number",
+          "defaultValue": 1.06,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "rollLength",
+          "label": "Largo del rollo",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0.01
+        },
+        {
+          "name": "windows",
+          "label": "Ventanas",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0
+        },
+        {
+          "name": "doors",
+          "label": "Puertas",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0
+        },
+        {
+          "name": "pattern",
+          "label": "Repetición del patrón",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0
+        },
+        {
+          "name": "rollPrice",
+          "label": "Precio por rollo",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "rollWidth": 1.06,
+        "rollLength": 10,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 0,
+        "rollPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество рулонов",
+          "value": "6 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь стен",
+            "value": "45,30 м²"
+          },
+          {
+            "label": "Периметр",
+            "value": "18,00 м"
+          },
+          {
+            "label": "Количество полотен",
+            "value": "16 шт."
+          },
+          {
+            "label": "Полотен из рулона",
+            "value": "3 шт."
+          },
+          {
+            "label": "Запас",
+            "value": "40,4 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Usa esta calculadora de papel pintado para estimar cuántos rollos necesitas para una habitación.",
+        "howToUse": [
+          "Introduce las dimensiones de la habitación.",
+          "Introduce el ancho y el largo del rollo.",
+          "Añade las puertas, las ventanas y el repetido del dibujo."
+        ],
+        "howItWorks": "La calculadora estima las tiras de pared y las divide entre las tiras que salen de un rollo.",
+        "example": "Estima los rollos para una habitación de 5 por 4 metros con paredes de 2,7 m.",
+        "faq": [
+          {
+            "q": "¿Cómo se estima el número de rollos?",
+            "a": "Se calculan las tiras necesarias para cubrir las paredes y se dividen entre las tiras aprovechables de cada rollo."
+          },
+          {
+            "q": "¿Para qué sirven los huecos y el repetido del dibujo?",
+            "a": "Puertas y ventanas reducen la superficie que se cubre; casar un dibujo repetido puede aumentar el largo de cada tira."
+          },
+          {
+            "q": "¿Puede hacer falta un rollo adicional?",
+            "a": "Sí. Los recortes, la forma de la habitación y el ajuste del dibujo varían en la obra; comprueba la estimación con las medidas reales."
+          }
+        ]
+      },
+      "htmlSha256": "fb002969a0d0278e64d389becf990060837570614552faebc52b0eda50f49840"
+    },
+    {
+      "id": "paint-calculator",
+      "locale": "ru",
+      "path": "/ru/building/paint-calculator/",
+      "name": "Калькулятор краски",
+      "h1": "Калькулятор краски",
+      "seoTitle": "Калькулятор краски онлайн — литры и банки",
+      "seoDescription": "Расчёт краски онлайн: литры и количество банок с учётом площади, числа слоёв, расхода на м² и объёма упаковки.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Способ расчёта",
+          "type": "toggle",
+          "defaultValue": "manual",
+          "options": [
+            {
+              "value": "manual",
+              "label": "Площадь вручную"
+            },
+            {
+              "value": "room",
+              "label": "По размерам комнаты"
+            }
+          ]
+        },
+        {
+          "name": "area",
+          "label": "Площадь, м²",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "manual"
+          }
+        },
+        {
+          "name": "length",
+          "label": "Длина, м",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ширина, м",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "height",
+          "label": "Высота, м",
+          "type": "number",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "windows",
+          "label": "Количество окон",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "doors",
+          "label": "Количество дверей",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "coats",
+          "label": "Количество слоёв",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 1,
+          "max": 4
+        },
+        {
+          "name": "consumption",
+          "label": "Расход на м², л",
+          "type": "number",
+          "defaultValue": 0.15,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "canVolume",
+          "label": "Объём банки, л",
+          "type": "number",
+          "defaultValue": 2.5,
+          "min": 0.01,
+          "step": 0.1
+        },
+        {
+          "name": "reserve",
+          "label": "Запас, %",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50
+        },
+        {
+          "name": "canPrice",
+          "label": "Цена одной банки",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "manual",
+        "area": 30,
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "windows": 1,
+        "doors": 1,
+        "coats": 2,
+        "consumption": 0.15,
+        "canVolume": 2.5,
+        "reserve": 10,
+        "canPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Литры краски",
+          "value": "9,9 л"
+        },
+        "secondary": [
+          {
+            "label": "Площадь окрашивания",
+            "value": "30,00 м²"
+          },
+          {
+            "label": "Слоёв",
+            "value": "2"
+          },
+          {
+            "label": "Количество банок",
+            "value": "4 шт. × 2,5 л"
+          },
+          {
+            "label": "Заданный запас",
+            "value": "10,0 %"
+          },
+          {
+            "label": "Остаток из-за целых банок",
+            "value": "1,0 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Калькулятор краски помогает оценить литры и количество банок для стен или другой площади. В расчёте учитываются площадь, количество слоёв, расход на квадратный метр и объём банки. Это удобно перед покупкой, чтобы не брать слишком мало материала и не переплачивать за лишние банки.",
+        "howToUse": [
+          "Выберите способ — площадь напрямую или размеры комнаты.",
+          "Укажите число слоёв (обычно 2).",
+          "Введите расход и объём банки — данные есть на этикетке.",
+          "Проверьте тип поверхности: пористые основания могут потребовать больше краски."
+        ],
+        "howItWorks": "Литры = площадь × расход × количество слоёв. Банки округляются вверх, чтобы хватило с запасом.",
+        "example": "30 м² в 2 слоя при расходе 0,15 л/м² без дополнительного запаса → 9 л краски, 4 банки по 2,5 л.",
+        "faq": [
+          {
+            "q": "Какой расход краски брать?",
+            "a": "Обычно 0,1-0,2 л/м² на слой для водоэмульсионных красок. Точные значения — на этикетке."
+          },
+          {
+            "q": "Сколько слоёв нужно?",
+            "a": "Чаще всего 2. На контрастных стенах может понадобиться 3."
+          },
+          {
+            "q": "Учитывается ли грунтовка?",
+            "a": "Нет, грунтовка считается отдельно. Она может снизить расход краски на впитывающих поверхностях."
+          },
+          {
+            "q": "Почему банки округляются вверх?",
+            "a": "Краску покупают банками фиксированного объёма, поэтому итог всегда округляется до целой банки."
+          },
+          {
+            "q": "Можно ли считать потолок?",
+            "a": "Да, выберите ввод площади вручную и укажите площадь потолка, число слоёв и расход для выбранной краски."
+          }
+        ]
+      },
+      "htmlSha256": "a2a1fa6838a729d680e645058c30afcd8931f80c8c2fbf6489f380e86a0c9a4d"
+    },
+    {
+      "id": "paint-calculator",
+      "locale": "en",
+      "path": "/en/home-improvement/paint-calculator/",
+      "name": "Paint calculator",
+      "h1": "Paint calculator",
+      "seoTitle": "Paint calculator — liters and cans needed",
+      "seoDescription": "Calculate paint liters and cans for walls using area, coats, coverage and can volume.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Mode",
+          "type": "toggle",
+          "defaultValue": "manual",
+          "options": [
+            {
+              "value": "manual",
+              "label": "Manual area"
+            },
+            {
+              "value": "room",
+              "label": "By room"
+            }
+          ]
+        },
+        {
+          "name": "area",
+          "label": "Area",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "manual"
+          }
+        },
+        {
+          "name": "length",
+          "label": "Length",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Width",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "height",
+          "label": "Height",
+          "type": "number",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "windows",
+          "label": "Windows",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "doors",
+          "label": "Doors",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "coats",
+          "label": "Coats",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 1,
+          "max": 4
+        },
+        {
+          "name": "consumption",
+          "label": "Coverage per square meter",
+          "type": "number",
+          "defaultValue": 0.15,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "canVolume",
+          "label": "Can volume",
+          "type": "number",
+          "defaultValue": 2.5,
+          "min": 0.01,
+          "step": 0.1
+        },
+        {
+          "name": "reserve",
+          "label": "Reserve",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50
+        },
+        {
+          "name": "canPrice",
+          "label": "Price per can",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "manual",
+        "area": 30,
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "windows": 1,
+        "doors": 1,
+        "coats": 2,
+        "consumption": 0.15,
+        "canVolume": 2.5,
+        "reserve": 10,
+        "canPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Литры краски",
+          "value": "9,9 л"
+        },
+        "secondary": [
+          {
+            "label": "Площадь окрашивания",
+            "value": "30,00 м²"
+          },
+          {
+            "label": "Слоёв",
+            "value": "2"
+          },
+          {
+            "label": "Количество банок",
+            "value": "4 шт. × 2,5 л"
+          },
+          {
+            "label": "Заданный запас",
+            "value": "10,0 %"
+          },
+          {
+            "label": "Остаток из-за целых банок",
+            "value": "1,0 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Use this paint calculator to estimate paint quantity from area, coats, coverage and can size.",
+        "howToUse": [
+          "Enter room dimensions or area.",
+          "Set coats, coverage and can size.",
+          "Review liters and cans."
+        ],
+        "howItWorks": "The calculator multiplies area by coats and coverage, then divides by can volume.",
+        "example": "Estimate paint for 30 square meters with two coats.",
+        "faq": [
+          {
+            "q": "How accurate is this paint calculator?",
+            "a": "The result is a practical estimate based on the values you enter and the formula shown on the page."
+          },
+          {
+            "q": "Does this paint calculator require an account?",
+            "a": "No. The calculator works in your browser and does not require registration."
+          },
+          {
+            "q": "Can I share a paint calculator result?",
+            "a": "Yes. Use the share link to copy the current inputs in the page URL."
+          }
+        ]
+      },
+      "htmlSha256": "81a18ae69bc276bc57b1d697307c8f44d1138ad367024dfef7f0fd7fcafbd1e9"
+    },
+    {
+      "id": "paint-calculator",
+      "locale": "uk",
+      "path": "/uk/remont/kalkulyator-farby/",
+      "name": "Калькулятор фарби",
+      "h1": "Калькулятор фарби",
+      "seoTitle": "Калькулятор фарби - літри фарби та банки",
+      "seoDescription": "Розрахуйте потрібну кількість фарби за площею, покривністю та кількістю шарів.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Режим",
+          "type": "toggle",
+          "defaultValue": "manual",
+          "options": [
+            {
+              "value": "manual",
+              "label": "Ручна площа"
+            },
+            {
+              "value": "room",
+              "label": "За кімнатою"
+            }
+          ]
+        },
+        {
+          "name": "area",
+          "label": "Площа",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "manual"
+          }
+        },
+        {
+          "name": "length",
+          "label": "Довжина",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ширина",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "height",
+          "label": "Зріст",
+          "type": "number",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "windows",
+          "label": "Вікна",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "doors",
+          "label": "Двері",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "coats",
+          "label": "Кількість шарів",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 1,
+          "max": 4
+        },
+        {
+          "name": "consumption",
+          "label": "Покривність на квадратний метр",
+          "type": "number",
+          "defaultValue": 0.15,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "canVolume",
+          "label": "Обʼєм банки",
+          "type": "number",
+          "defaultValue": 2.5,
+          "min": 0.01,
+          "step": 0.1
+        },
+        {
+          "name": "reserve",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50
+        },
+        {
+          "name": "canPrice",
+          "label": "Ціна однієї банки",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "manual",
+        "area": 30,
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "windows": 1,
+        "doors": 1,
+        "coats": 2,
+        "consumption": 0.15,
+        "canVolume": 2.5,
+        "reserve": 10,
+        "canPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Литры краски",
+          "value": "9,9 л"
+        },
+        "secondary": [
+          {
+            "label": "Площадь окрашивания",
+            "value": "30,00 м²"
+          },
+          {
+            "label": "Слоёв",
+            "value": "2"
+          },
+          {
+            "label": "Количество банок",
+            "value": "4 шт. × 2,5 л"
+          },
+          {
+            "label": "Заданный запас",
+            "value": "10,0 %"
+          },
+          {
+            "label": "Остаток из-за целых банок",
+            "value": "1,0 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Фарба рахується не за площею, а за площею, помноженою на кількість шарів: другий шар зазвичай обов’язковий, а темні кольори по світлій основі вимагають і третього. Банки округлюються вгору, тому фактичний запас майже завжди більший за розрахунковий.",
+        "howToUse": [
+          "Введіть площу поверхні.",
+          "Введіть витрату фарби на квадратний метр із банки.",
+          "Задайте кількість шарів — зазвичай два."
+        ],
+        "howItWorks": "Літри дорівнюють площа × витрата × кількість шарів. Кількість банок округлюється вгору за їхнім об’ємом, щоб вистачило з запасом. Витрата береться паспортна для конкретної фарби й типу основи.",
+        "example": "30 м² у 2 шари за витрати 0,15 л/м² дають 9 л фарби — 4 банки по 2,5 л.",
+        "faq": [
+          {
+            "q": "Скільки шарів потрібно?",
+            "a": "Зазвичай два. Один шар майже завжди дає плями й просвічування, особливо на неоднорідній основі. Темний колір по світлому може вимагати трьох."
+          },
+          {
+            "q": "Чому реальна витрата більша за паспортну?",
+            "a": "Паспортна вказується для ідеально гладкої основи. Шорстка штукатурка, дерево й фактурні поверхні витрачають на чверть-третину більше."
+          },
+          {
+            "q": "Чи потрібно ґрунтувати перед фарбуванням?",
+            "a": "На пористих і нових основах — так. Вона зменшує витрату фарби й вирівнює вбирання, тому часто окупається сама собою."
+          },
+          {
+            "q": "Чи можна змішувати банки різних партій?",
+            "a": "Краще змішати всі банки в одній великій ємності перед роботою. Відтінок різних партій може трохи відрізнятися, і на суцільній стіні перехід буде видно."
+          }
+        ]
+      },
+      "htmlSha256": "5445de6605f0b0de5e704be7aa0bac0641f6ef7ab58841e0bafff4ca04f0cdfd"
+    },
+    {
+      "id": "paint-calculator",
+      "locale": "de",
+      "path": "/de/heimwerken/farbrechner/",
+      "name": "Farbrechner",
+      "h1": "Farbrechner",
+      "seoTitle": "Farbrechner — Liter und Dosen berechnen",
+      "seoDescription": "Berechne Farbe in Litern und Dosen anhand von Fläche, Anstrichen, Deckkraft und Dosenvolumen.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Rechenweg",
+          "type": "toggle",
+          "defaultValue": "manual",
+          "options": [
+            {
+              "value": "manual",
+              "label": "Manuelle Fläche"
+            },
+            {
+              "value": "room",
+              "label": "Nach Raum"
+            }
+          ]
+        },
+        {
+          "name": "area",
+          "label": "Fläche",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "manual"
+          }
+        },
+        {
+          "name": "length",
+          "label": "Länge",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Breite",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "height",
+          "label": "Raumhöhe",
+          "type": "number",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "windows",
+          "label": "Fenster",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "doors",
+          "label": "Türen",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "coats",
+          "label": "Anstriche",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 1,
+          "max": 4
+        },
+        {
+          "name": "consumption",
+          "label": "Deckkraft pro Quadratmeter",
+          "type": "number",
+          "defaultValue": 0.15,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "canVolume",
+          "label": "Dosenvolumen",
+          "type": "number",
+          "defaultValue": 2.5,
+          "min": 0.01,
+          "step": 0.1
+        },
+        {
+          "name": "reserve",
+          "label": "Reserve",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50
+        },
+        {
+          "name": "canPrice",
+          "label": "Preis je Dose",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "manual",
+        "area": 30,
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "windows": 1,
+        "doors": 1,
+        "coats": 2,
+        "consumption": 0.15,
+        "canVolume": 2.5,
+        "reserve": 10,
+        "canPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Литры краски",
+          "value": "9,9 л"
+        },
+        "secondary": [
+          {
+            "label": "Площадь окрашивания",
+            "value": "30,00 м²"
+          },
+          {
+            "label": "Слоёв",
+            "value": "2"
+          },
+          {
+            "label": "Количество банок",
+            "value": "4 шт. × 2,5 л"
+          },
+          {
+            "label": "Заданный запас",
+            "value": "10,0 %"
+          },
+          {
+            "label": "Остаток из-за целых банок",
+            "value": "1,0 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Führt zwei Wege zur Fläche — von den Raummaßen oder als fertige Zahl — und rechnet danach in Litern, weil Farbe in Litern verkauft wird und die Ergiebigkeit je Anstrich gilt. Die Zahl der Anstriche multipliziert den Verbrauch geradeaus: zwei Anstriche brauchen doppelt so viel wie einer, und mit einer dünneren ersten Schicht zu rechnen führt regelmäßig zu einer zu knappen Bestellung. Zwei Prozentzahlen stehen getrennt im Ergebnis: die Reserve, die du selbst setzt, und der Rest, der durch das Aufrunden auf ganze Dosen entsteht — die zweite ist oft die größere.",
+        "howToUse": [
+          "Wähle, ob du die Fläche selbst kennst oder aus den Raummaßen rechnest.",
+          "Trage die Zahl der Anstriche ein — zwei sind der Normalfall.",
+          "Trage die Ergiebigkeit in Litern je Quadratmeter und Anstrich ein.",
+          "Trage das Gebindevolumen ein und setze bei Bedarf eine Reserve."
+        ],
+        "howItWorks": "Liter = Fläche × Ergiebigkeit × Anstriche, danach mal (1 + Reserve ÷ 100). Die Zahl der Dosen ist diese Menge geteilt durch das Gebindevolumen, aufgerundet. Beim Weg über die Raummaße ist die Fläche der Umfang mal der Höhe minus 1,5 m² je Fenster und 1,8 m² je Tür.",
+        "example": "40 m² in zwei Anstrichen bei 0,12 l/m² und 10 % Reserve ergeben 10,6 Liter, also 5 Dosen zu 2,5 l.",
+        "faq": [
+          {
+            "q": "Woher nehme ich die Ergiebigkeit?",
+            "a": "Vom Eimer. Hersteller geben sie meist als Quadratmeter je Liter für einen Anstrich an — der Kehrwert davon gehört in dieses Feld. Auf saugendem Untergrund liegt der wirkliche Verbrauch über der Angabe."
+          },
+          {
+            "q": "Warum stehen zwei Prozentzahlen im Ergebnis?",
+            "a": "Die eine ist die Reserve, die du setzt, die andere der Rest, der beim Aufrunden auf ganze Dosen übrig bleibt. Bei großen Gebinden ist die zweite oft die größere und wird gern übersehen."
+          },
+          {
+            "q": "Wie viele Anstriche brauche ich?",
+            "a": "Zwei sind der Normalfall. Auf kräftigen Farben, bei starkem Farbwechsel oder auf ungrundiertem Putz sind es drei. Die Rechnung ist linear: jeder Anstrich kostet dieselbe Menge."
+          },
+          {
+            "q": "Ist die Grundierung enthalten?",
+            "a": "Nein. Sie hat eine eigene Ergiebigkeit und wird gesondert gerechnet. Eine Grundierung senkt allerdings den Verbrauch der Farbe darüber."
+          },
+          {
+            "q": "Wie werden Fenster und Türen abgezogen?",
+            "a": "Nach Stückzahl mit Mittelwerten von 1,5 und 1,8 m². Weichen deine Öffnungen stark ab, gib die Fläche lieber direkt ein."
+          }
+        ]
+      },
+      "htmlSha256": "c636009e1e0e0e8045290cf7f8ec208eabefb328aa2496188af8d5e662dbb664"
+    },
+    {
+      "id": "paint-calculator",
+      "locale": "es",
+      "path": "/es/reformas/calculadora-pintura/",
+      "name": "Calculadora de pintura",
+      "h1": "Calculadora de pintura",
+      "seoTitle": "Calculadora de pintura — litros y botes necesarios",
+      "seoDescription": "Calcula litros y botes de pintura según área, capas, cobertura y volumen.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Método de cálculo",
+          "type": "toggle",
+          "defaultValue": "manual",
+          "options": [
+            {
+              "value": "manual",
+              "label": "Área manual"
+            },
+            {
+              "value": "room",
+              "label": "Por habitación"
+            }
+          ]
+        },
+        {
+          "name": "area",
+          "label": "Área",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "manual"
+          }
+        },
+        {
+          "name": "length",
+          "label": "Largo",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ancho",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "height",
+          "label": "Altura de la habitación",
+          "type": "number",
+          "defaultValue": 2.7,
+          "min": 0.01,
+          "step": 0.1,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "windows",
+          "label": "Ventanas",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "doors",
+          "label": "Puertas",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "coats",
+          "label": "Capas",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 1,
+          "max": 4
+        },
+        {
+          "name": "consumption",
+          "label": "Cobertura por metro cuadrado",
+          "type": "number",
+          "defaultValue": 0.15,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "canVolume",
+          "label": "Volumen del bote",
+          "type": "number",
+          "defaultValue": 2.5,
+          "min": 0.01,
+          "step": 0.1
+        },
+        {
+          "name": "reserve",
+          "label": "Reserva",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 50
+        },
+        {
+          "name": "canPrice",
+          "label": "Precio por bote",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "manual",
+        "area": 30,
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "windows": 1,
+        "doors": 1,
+        "coats": 2,
+        "consumption": 0.15,
+        "canVolume": 2.5,
+        "reserve": 10,
+        "canPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Литры краски",
+          "value": "9,9 л"
+        },
+        "secondary": [
+          {
+            "label": "Площадь окрашивания",
+            "value": "30,00 м²"
+          },
+          {
+            "label": "Слоёв",
+            "value": "2"
+          },
+          {
+            "label": "Количество банок",
+            "value": "4 шт. × 2,5 л"
+          },
+          {
+            "label": "Заданный запас",
+            "value": "10,0 %"
+          },
+          {
+            "label": "Остаток из-за целых банок",
+            "value": "1,0 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Usa esta calculadora de pintura para estimar la cantidad de pintura a partir de la superficie, las manos, el rendimiento y el tamaño del bote.",
+        "howToUse": [
+          "Introduce las dimensiones de la habitación o la superficie.",
+          "Fija las manos, el rendimiento y el tamaño del bote.",
+          "Revisa los litros y los botes."
+        ],
+        "howItWorks": "La calculadora multiplica la superficie por las manos y el rendimiento, y divide después entre el volumen del bote.",
+        "example": "Estima la pintura para 30 metros cuadrados con dos manos.",
+        "faq": [
+          {
+            "q": "¿Qué datos se usan para estimar la pintura?",
+            "a": "Introduce la superficie o las medidas de la habitación, el número de manos, el rendimiento de la pintura y el tamaño del bote."
+          },
+          {
+            "q": "¿Por qué influye el número de manos?",
+            "a": "Cada mano vuelve a cubrir la superficie, por lo que aumenta la cantidad estimada de pintura y puede exigir más botes."
+          },
+          {
+            "q": "¿Puede variar el consumo real?",
+            "a": "Sí. La absorción de la pared, la preparación y el rendimiento real del producto pueden cambiar los litros necesarios."
+          }
+        ]
+      },
+      "htmlSha256": "a1cfc716a0d1e36fe76364c7c453b96b5b117abaf4c14d5362d089ca1c11894e"
+    },
+    {
+      "id": "laminate-calculator",
+      "locale": "ru",
+      "path": "/ru/building/laminate-calculator/",
+      "name": "Калькулятор ламината",
+      "h1": "Калькулятор ламината",
+      "seoTitle": "Калькулятор ламината онлайн — расчёт упаковок",
+      "seoDescription": "Рассчитайте, сколько упаковок ламината нужно для комнаты по размерам пола, площади упаковки и запасу на подрезку.",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Длина комнаты, м",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01
+        },
+        {
+          "name": "width",
+          "label": "Ширина комнаты, м",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01
+        },
+        {
+          "name": "packArea",
+          "label": "Площадь упаковки, м²",
+          "type": "number",
+          "defaultValue": 2.13,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "reserve",
+          "label": "Запас, %",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0
+        },
+        {
+          "name": "packPrice",
+          "label": "Цена упаковки",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        },
+        {
+          "name": "underlayPrice",
+          "label": "Цена подложки за м²",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "packArea": 2.13,
+        "reserve": 10,
+        "packPrice": 0,
+        "underlayPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество упаковок",
+          "value": "11 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь пола",
+            "value": "20,00 м²"
+          },
+          {
+            "label": "Площадь с запасом",
+            "value": "22,00 м²"
+          },
+          {
+            "label": "Площадь упаковки",
+            "value": "2,13 м²"
+          },
+          {
+            "label": "Запас",
+            "value": "10 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Калькулятор ламината считает площадь пола, добавляет запас на подрезку и переводит результат в количество упаковок. Он подходит для быстрой оценки закупки перед ремонтом комнаты, квартиры или отдельной зоны, где важно учесть раскладку, пороги и возможные остатки.",
+        "howToUse": [
+          "Введите размеры комнаты в метрах.",
+          "Укажите площадь одной упаковки (написано на коробке).",
+          "Задайте запас на подрезку — 5-15%.",
+          "Сравните результат с фактической схемой укладки и направлением досок."
+        ],
+        "howItWorks": "Площадь = длина × ширина. Площадь с запасом = площадь × (1 + запас/100). Упаковки = площадь с запасом / площадь упаковки, округлено вверх.",
+        "example": "Комната 5×4 м, упаковка 2,13 м², запас 10% → 22 м², 11 упаковок.",
+        "faq": [
+          {
+            "q": "Какой запас ламината закладывать?",
+            "a": "Для прямой укладки 5-7%, для диагональной 10-15%."
+          },
+          {
+            "q": "Что делать с остатком?",
+            "a": "Сохраните несколько досок на ремонт после повреждений."
+          },
+          {
+            "q": "Почему важно знать площадь упаковки?",
+            "a": "У разных производителей в коробке разное количество квадратных метров, поэтому расчёт упаковок зависит от конкретного товара."
+          },
+          {
+            "q": "Нужно ли учитывать ниши и коридоры?",
+            "a": "Да. Для сложной формы комнаты лучше разбить пол на несколько прямоугольников и сложить площади."
+          },
+          {
+            "q": "Можно ли использовать для паркета или кварцвинила?",
+            "a": "Для предварительной оценки — да, если материал продаётся упаковками с известной площадью. Запас уточняйте по типу укладки."
+          }
+        ]
+      },
+      "htmlSha256": "ca58a184b42025152f84c66a6e847a60f00e52d99dfac54c3b34e31b3066a4c2"
+    },
+    {
+      "id": "laminate-calculator",
+      "locale": "en",
+      "path": "/en/home-improvement/laminate-calculator/",
+      "name": "Laminate calculator",
+      "h1": "Laminate calculator",
+      "seoTitle": "Laminate calculator — packs and floor area",
+      "seoDescription": "Calculate laminate flooring packs from room dimensions, pack area and reserve percentage.",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Length",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01
+        },
+        {
+          "name": "width",
+          "label": "Width",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01
+        },
+        {
+          "name": "packArea",
+          "label": "Pack coverage",
+          "type": "number",
+          "defaultValue": 2.13,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "reserve",
+          "label": "Reserve",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0
+        },
+        {
+          "name": "packPrice",
+          "label": "Price per pack",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        },
+        {
+          "name": "underlayPrice",
+          "label": "Underlay price per m²",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "packArea": 2.13,
+        "reserve": 10,
+        "packPrice": 0,
+        "underlayPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество упаковок",
+          "value": "11 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь пола",
+            "value": "20,00 м²"
+          },
+          {
+            "label": "Площадь с запасом",
+            "value": "22,00 м²"
+          },
+          {
+            "label": "Площадь упаковки",
+            "value": "2,13 м²"
+          },
+          {
+            "label": "Запас",
+            "value": "10 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Use this laminate calculator to estimate floor area, area with reserve and number of packs.",
+        "howToUse": [
+          "Enter room length and width.",
+          "Enter pack area and reserve.",
+          "Review required packs."
+        ],
+        "howItWorks": "The calculator multiplies floor area by reserve and divides by pack coverage.",
+        "example": "Estimate laminate packs for a 5 by 4 meter room.",
+        "faq": [
+          {
+            "q": "How is floor area calculated?",
+            "a": "Enter the room length and width; the calculator multiplies them to find the area to cover."
+          },
+          {
+            "q": "How are laminate packs estimated?",
+            "a": "The calculator adds your reserve allowance to the floor area and divides by the area covered by one pack."
+          },
+          {
+            "q": "What does the reserve not account for?",
+            "a": "Unusual room shapes, laying patterns and unusable offcuts may require a different allowance than the one entered."
+          }
+        ]
+      },
+      "htmlSha256": "1310ab75241ede635b062f6daf8320bbcaae8972f60a93ada01291755023114b"
+    },
+    {
+      "id": "laminate-calculator",
+      "locale": "uk",
+      "path": "/uk/remont/kalkulyator-laminatu/",
+      "name": "Калькулятор ламінату",
+      "h1": "Калькулятор ламінату",
+      "seoTitle": "Калькулятор ламінату - пачки підлоги та запас",
+      "seoDescription": "Розрахуйте кількість пачок ламінату за площею кімнати, покриттям пачки та запасом.",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Довжина",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01
+        },
+        {
+          "name": "width",
+          "label": "Ширина",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01
+        },
+        {
+          "name": "packArea",
+          "label": "Площа упаковки",
+          "type": "number",
+          "defaultValue": 2.13,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "reserve",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0
+        },
+        {
+          "name": "packPrice",
+          "label": "Ціна упаковки",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        },
+        {
+          "name": "underlayPrice",
+          "label": "Ціна підкладки за м²",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "packArea": 2.13,
+        "reserve": 10,
+        "packPrice": 0,
+        "underlayPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество упаковок",
+          "value": "11 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь пола",
+            "value": "20,00 м²"
+          },
+          {
+            "label": "Площадь с запасом",
+            "value": "22,00 м²"
+          },
+          {
+            "label": "Площадь упаковки",
+            "value": "2,13 м²"
+          },
+          {
+            "label": "Запас",
+            "value": "10 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Розрахунок ламінату рахує площу з запасом і переводить її в упаковки. Купувати доводиться завжди цілими упаковками, тому фактичний запас зазвичай виявляється більшим за заданий — і це нормально: залишок стане в пригоді під час заміни пошкодженої дошки.",
+        "howToUse": [
+          "Введіть довжину й ширину приміщення.",
+          "Введіть площу однієї упаковки з характеристик.",
+          "Задайте запас: 5 % для прямого укладання, 10–15 % для діагонального."
+        ],
+        "howItWorks": "Площа дорівнює довжина × ширина. Площа з запасом — це площа, помножена на (1 + запас/100). Кількість упаковок дорівнює площі з запасом, поділеній на площу упаковки, з округленням угору.",
+        "example": "Кімната 5 × 4 м, упаковка 2,13 м², запас 10 % — це 22 м² і 11 упаковок.",
+        "faq": [
+          {
+            "q": "Який запас потрібен ламінату?",
+            "a": "Для прямого укладання вздовж стіни вистачає 5 %, для укладання по діагоналі — 10–15 %. Складна форма кімнати з нішами й виступами вимагає більше через підрізання."
+          },
+          {
+            "q": "Навіщо залишати ламінат після ремонту?",
+            "a": "Для заміни пошкодженої дошки. Через рік-два конкретна колекція часто зникає з продажу, і підібрати той самий декор уже не вдасться."
+          },
+          {
+            "q": "Чи потрібен зазор біля стін?",
+            "a": "Так, 8–10 мм по периметру: ламінат розширюється від вологості й температури. Зазор закривається плінтусом, і на розрахунок площі він не впливає."
+          },
+          {
+            "q": "Чи можна укладати на стару підлогу?",
+            "a": "Якщо основа рівна й суха. Перепад понад 2 мм на два метри вимагає вирівнювання, інакше замки почнуть розходитися."
+          }
+        ]
+      },
+      "htmlSha256": "fc504231c89f626d6a0e808bec22af4d725d88478cf5bcb339e1347822eb9305"
+    },
+    {
+      "id": "laminate-calculator",
+      "locale": "de",
+      "path": "/de/heimwerken/laminatrechner/",
+      "name": "Laminatrechner",
+      "h1": "Laminatrechner",
+      "seoTitle": "Laminatrechner — Pakete und Bodenfläche",
+      "seoDescription": "Berechne Laminatpakete aus Raummaßen, Packungsfläche und Reserve.",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Raumlänge",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01
+        },
+        {
+          "name": "width",
+          "label": "Raumbreite",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01
+        },
+        {
+          "name": "packArea",
+          "label": "Packungsfläche",
+          "type": "number",
+          "defaultValue": 2.13,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "reserve",
+          "label": "Reserve",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0
+        },
+        {
+          "name": "packPrice",
+          "label": "Preis je Paket",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        },
+        {
+          "name": "underlayPrice",
+          "label": "Preis der Trittschalldämmung je m²",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "packArea": 2.13,
+        "reserve": 10,
+        "packPrice": 0,
+        "underlayPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество упаковок",
+          "value": "11 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь пола",
+            "value": "20,00 м²"
+          },
+          {
+            "label": "Площадь с запасом",
+            "value": "22,00 м²"
+          },
+          {
+            "label": "Площадь упаковки",
+            "value": "2,13 м²"
+          },
+          {
+            "label": "Запас",
+            "value": "10 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Zählt Pakete und nicht Quadratmeter, denn gekauft wird in Paketen und der Rest eines angebrochenen Pakets ist bezahlt, ob verlegt oder nicht. Die Reserve wird vor dem Aufrunden aufgeschlagen: Zuschnitt an Wänden, der Versatz der Stöße von Reihe zu Reihe und beschädigte Dielen kosten Material, das keine Bodenfläche zeigt. Ein Preis je Paket und ein Preis der Trittschalldämmung je Quadratmeter lassen sich mitgeben, weil die Dämmung fast immer zusammen mit dem Boden bestellt wird und in der Rechnung leicht vergessen geht.",
+        "howToUse": [
+          "Trage Länge und Breite des Raums ein.",
+          "Trage die Fläche eines Pakets ein — sie steht auf der Verpackung.",
+          "Setze die Reserve: 5 % bei geradem Verlegen, 10–15 % diagonal.",
+          "Ergänze bei Bedarf Paketpreis und Preis der Trittschalldämmung je Quadratmeter."
+        ],
+        "howItWorks": "Bodenfläche = Länge × Breite. Fläche mit Reserve = Bodenfläche × (1 + Reserve ÷ 100). Pakete = diese Fläche geteilt durch die Paketfläche, aufgerundet.",
+        "example": "Ein Raum von 5 × 4 m mit Paketen zu 2,13 m² und 7 % Reserve ergibt 21,4 m² und 11 Pakete.",
+        "faq": [
+          {
+            "q": "Wie viel Reserve ist richtig?",
+            "a": "Beim geraden Verlegen 5 %, diagonal oder im Fischgrätmuster 10–15 %. In einem verwinkelten Raum mit vielen Nischen eher mehr, weil jeder Zuschnitt Verschnitt erzeugt."
+          },
+          {
+            "q": "Warum werden die Pakete aufgerundet?",
+            "a": "Laminat wird paketweise verkauft. Ein angebrochenes Paket gibt es nicht, und ein kleiner Rest verlangt ein weiteres."
+          },
+          {
+            "q": "Ist die Trittschalldämmung enthalten?",
+            "a": "Nur als Preis je Quadratmeter, wenn du ihn einträgst. Ihre Fläche entspricht der Bodenfläche; sie wird nicht in Paketen gerechnet."
+          },
+          {
+            "q": "Zählt der Abstand zur Wand mit?",
+            "a": "Nein, die Dehnungsfuge von 8–10 mm liegt innerhalb der Bodenfläche und braucht kein eigenes Feld. Sie ist Teil des Zuschnitts und geht in der Reserve auf."
+          },
+          {
+            "q": "Taugt das auch für Vinyl oder Parkett?",
+            "a": "Ja. Die Rechnung ist für jeden Bodenbelag dieselbe, der nach Paketfläche verkauft wird — nur Paketfläche und Reserve ändern sich."
+          }
+        ]
+      },
+      "htmlSha256": "4199c07ce9cf38ba910308f96494794c82aa970be1d24651394627cd97286411"
+    },
+    {
+      "id": "laminate-calculator",
+      "locale": "es",
+      "path": "/es/reformas/calculadora-laminado/",
+      "name": "Calculadora de laminado",
+      "h1": "Calculadora de laminado",
+      "seoTitle": "Calculadora de laminado — paquetes y área de suelo",
+      "seoDescription": "Calcula paquetes de suelo laminado con dimensiones, cobertura por paquete y reserva.",
+      "fields": [
+        {
+          "name": "length",
+          "label": "Largo de la habitación",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01
+        },
+        {
+          "name": "width",
+          "label": "Ancho de la habitación",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01
+        },
+        {
+          "name": "packArea",
+          "label": "Cobertura del paquete",
+          "type": "number",
+          "defaultValue": 2.13,
+          "min": 0.01,
+          "step": 0.01
+        },
+        {
+          "name": "reserve",
+          "label": "Reserva",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0
+        },
+        {
+          "name": "packPrice",
+          "label": "Precio del paquete",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        },
+        {
+          "name": "underlayPrice",
+          "label": "Precio de la base por m²",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "packArea": 2.13,
+        "reserve": 10,
+        "packPrice": 0,
+        "underlayPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество упаковок",
+          "value": "11 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь пола",
+            "value": "20,00 м²"
+          },
+          {
+            "label": "Площадь с запасом",
+            "value": "22,00 м²"
+          },
+          {
+            "label": "Площадь упаковки",
+            "value": "2,13 м²"
+          },
+          {
+            "label": "Запас",
+            "value": "10 %"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Usa esta calculadora de suelo laminado para estimar la superficie del suelo, la superficie con reserva y el número de paquetes.",
+        "howToUse": [
+          "Introduce el largo y el ancho de la habitación.",
+          "Introduce la superficie del paquete y la reserva.",
+          "Revisa los paquetes necesarios."
+        ],
+        "howItWorks": "La calculadora multiplica la superficie del suelo por la reserva y divide entre la superficie que cubre un paquete.",
+        "example": "Estima los paquetes de laminado para una habitación de 5 por 4 metros.",
+        "faq": [
+          {
+            "q": "¿Cómo se obtiene la superficie del suelo?",
+            "a": "Multiplica el largo por el ancho de la habitación; la calculadora hace esta operación con las medidas introducidas."
+          },
+          {
+            "q": "¿Cómo se estima el número de paquetes?",
+            "a": "Se añade la reserva elegida a la superficie y se divide entre los metros cuadrados que cubre un paquete."
+          },
+          {
+            "q": "¿Qué puede quedar fuera de la reserva?",
+            "a": "Una habitación irregular, el patrón de colocación y los recortes inutilizables pueden requerir un margen distinto del introducido."
+          }
+        ]
+      },
+      "htmlSha256": "990f855a3ce8f9974f38f4e7e9a8edcdc8118fa200a227e7a249935757ac6708"
+    },
+    {
+      "id": "screed-calculator",
+      "locale": "ru",
+      "path": "/ru/building/screed-calculator/",
+      "name": "Калькулятор стяжки пола",
+      "h1": "Калькулятор стяжки пола",
+      "seoTitle": "Калькулятор стяжки пола — объём раствора и мешки смеси",
+      "seoDescription": "Рассчитайте объём стяжки в кубометрах, массу сухой смеси и количество мешков по площади и толщине слоя. Расход берётся с упаковки.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Способ расчёта",
+          "type": "toggle",
+          "defaultValue": "room",
+          "options": [
+            {
+              "value": "room",
+              "label": "По размерам"
+            },
+            {
+              "value": "area",
+              "label": "По площади"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Длина, м",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ширина, м",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Площадь, м²",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "thickness",
+          "label": "Толщина слоя, см",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.1,
+          "step": 0.1
+        },
+        {
+          "name": "mixConsumption",
+          "label": "Расход смеси, кг на м² при слое 1 см",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "bagWeight",
+          "label": "Вес мешка, кг",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "reserve",
+          "label": "Запас, %",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "bagPrice",
+          "label": "Цена мешка",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "₽",
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "room",
+        "length": 5,
+        "width": 4,
+        "manualArea": 20,
+        "thickness": 5,
+        "mixConsumption": 18,
+        "bagWeight": 25,
+        "reserve": 10,
+        "bagPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Объём раствора",
+          "value": "1,100 м³"
+        },
+        "secondary": [
+          {
+            "label": "Площадь",
+            "value": "20,00 м²"
+          },
+          {
+            "label": "Толщина слоя",
+            "value": "5,0 см"
+          },
+          {
+            "label": "Сухая смесь",
+            "value": "1 980 кг"
+          },
+          {
+            "label": "Мешков",
+            "value": "80 шт.",
+            "accent": "green"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Калькулятор стяжки пола считает объём раствора по площади и толщине слоя, а затем переводит его в массу сухой смеси и количество мешков. Расход смеси и вес мешка вы берёте с упаковки, поэтому расчёт подходит для любой марки: цементно-песчаной смеси, наливного пола или пескобетона. Запас на неровности основания и остатки в таре задаётся отдельным полем.",
+        "howToUse": [
+          "Выберите способ расчёта: по длине и ширине помещения или сразу по известной площади.",
+          "Укажите толщину слоя в сантиметрах — её определяет перепад основания и тип покрытия.",
+          "Перенесите расход смеси и вес мешка с упаковки выбранного материала.",
+          "Добавьте запас на неровности основания и остатки в таре, затем проверьте объём и количество мешков."
+        ],
+        "howItWorks": "Объём раствора равен площади, умноженной на толщину слоя: при 20 м² и слое 5 см это 20 × 0,05 = 1 м³. Масса сухой смеси считается по паспортному расходу: площадь × толщина в сантиметрах × расход на м² при слое 1 см. Количество мешков округляется вверх, потому что смесь продаётся целой тарой.",
+        "example": "Комната 5 × 4 м, слой 5 см, расход 18 кг/м² на 1 см, мешок 25 кг, запас 10% → 1,100 м³ раствора, 1 980 кг смеси, 80 мешков.",
+        "faq": [
+          {
+            "q": "Какую толщину стяжки закладывать?",
+            "a": "Толщину определяют перепад основания, тип покрытия и способ прокладки коммуникаций. Минимально допустимый слой всегда указан производителем смеси на упаковке — тонкий слой у пескобетона и наливного пола отличается в разы."
+          },
+          {
+            "q": "Откуда взять расход смеси?",
+            "a": "С упаковки. Производители указывают расход в килограммах на квадратный метр при слое 1 см — именно это значение вводится в поле. Если на мешке указан расход при слое 10 мм, это то же самое число."
+          },
+          {
+            "q": "Почему количество мешков округляется вверх?",
+            "a": "Смесь продаётся целыми мешками, поэтому даже небольшой остаток требует ещё одной упаковки. Округление вверх делается уже после учёта запаса."
+          },
+          {
+            "q": "Какой запас закладывать?",
+            "a": "Обычно 5–10% на неровности основания, потери при замешивании и остатки в таре. Для сильно неровного пола запас имеет смысл увеличить, потому что фактическая средняя толщина окажется больше проектной."
+          },
+          {
+            "q": "Считает ли калькулятор цемент и песок отдельно?",
+            "a": "Нет. Расчёт идёт по готовой сухой смеси. Пропорции цемента и песка зависят от нужной марки раствора, и подбирать их следует по проекту или рекомендации производителя."
+          },
+          {
+            "q": "Подходит ли расчёт для наливного пола?",
+            "a": "Да, если взять с упаковки расход именно этого материала. Формула одинакова для любой сухой смеси — меняется только расход и минимальная толщина слоя."
+          }
+        ]
+      },
+      "htmlSha256": "f3d968f03b3f218efd99f8b65d0616a3763433acca88c230a2b440591532abcc"
+    },
+    {
+      "id": "screed-calculator",
+      "locale": "en",
+      "path": "/en/home-improvement/screed-calculator/",
+      "name": "Floor screed calculator",
+      "h1": "Floor screed calculator",
+      "seoTitle": "Floor screed calculator — mortar volume and bags of dry mix",
+      "seoDescription": "Calculate screed volume in cubic metres, the mass of dry mix and how many bags you need from the area and layer thickness.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Mode",
+          "type": "toggle",
+          "defaultValue": "room",
+          "options": [
+            {
+              "value": "room",
+              "label": "By room"
+            },
+            {
+              "value": "area",
+              "label": "By area"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Length",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Width",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Area",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "thickness",
+          "label": "Layer thickness",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.1,
+          "step": 0.1
+        },
+        {
+          "name": "mixConsumption",
+          "label": "Coverage, kg per m² for a 1 cm layer",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "bagWeight",
+          "label": "Bag weight",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "reserve",
+          "label": "Reserve",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "bagPrice",
+          "label": "Bag price",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "$",
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "room",
+        "length": 5,
+        "width": 4,
+        "manualArea": 20,
+        "thickness": 5,
+        "mixConsumption": 18,
+        "bagWeight": 25,
+        "reserve": 10,
+        "bagPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Объём раствора",
+          "value": "1,100 м³"
+        },
+        "secondary": [
+          {
+            "label": "Площадь",
+            "value": "20,00 м²"
+          },
+          {
+            "label": "Толщина слоя",
+            "value": "5,0 см"
+          },
+          {
+            "label": "Сухая смесь",
+            "value": "1 980 кг"
+          },
+          {
+            "label": "Мешков",
+            "value": "80 шт.",
+            "accent": "green"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "This floor screed calculator turns area and layer thickness into the volume of mortar, then converts it into the mass of dry mix and the number of bags. Coverage and bag weight come from the product label, so the estimate works for any dry mix — cement-sand screed, self-levelling compound or sand concrete. A separate reserve field covers uneven substrate and material left in the tub.",
+        "howToUse": [
+          "Choose how to define the floor: by room length and width, or by a known area.",
+          "Set the layer thickness in centimetres — it depends on the substrate and the finish.",
+          "Copy the coverage and bag weight from the label of the mix you plan to buy.",
+          "Add a reserve for an uneven substrate and leftovers, then check the volume and the number of bags."
+        ],
+        "howItWorks": "The volume of mortar is the area multiplied by the layer thickness: 20 m² at 5 cm is 20 × 0.05 = 1 m³. The mass of dry mix follows the coverage stated on the label — area × thickness in centimetres × coverage per square metre for a 1 cm layer. The number of bags is rounded up, because dry mix is sold in whole bags.",
+        "example": "A 5 × 4 m room, a 5 cm layer, coverage of 18 kg/m² per 1 cm, 25 kg bags and a 10% reserve give 1.100 m³ of mortar, 1,980 kg of mix and 80 bags.",
+        "faq": [
+          {
+            "q": "What layer thickness should I use?",
+            "a": "It depends on how uneven the substrate is, the finish on top and whether pipes or cables run inside the screed. The minimum workable layer is always printed on the bag, and it differs a lot between sand concrete and a self-levelling compound."
+          },
+          {
+            "q": "Where do I find the coverage figure?",
+            "a": "On the packaging. Manufacturers state coverage in kilograms per square metre for a 1 cm layer, and that is exactly what this field expects. Coverage quoted for a 10 mm layer is the same number."
+          },
+          {
+            "q": "Why is the number of bags rounded up?",
+            "a": "Dry mix is sold in whole bags, so even a small remainder needs one more. Rounding happens after the reserve has been applied."
+          },
+          {
+            "q": "How much reserve should I add?",
+            "a": "Usually 5–10% for an uneven substrate, mixing losses and material left in the tub. On a badly uneven floor a larger reserve is sensible, because the real average thickness ends up above the planned one."
+          },
+          {
+            "q": "Does it split the mix into cement and sand?",
+            "a": "No. The estimate is based on a ready dry mix. Cement-to-sand proportions depend on the mortar grade you need and should follow the project or the manufacturer guidance."
+          },
+          {
+            "q": "Does it work for self-levelling compound?",
+            "a": "Yes, as long as you enter the coverage printed on that specific product. The formula is the same for any dry mix — only the coverage and the minimum layer change."
+          }
+        ]
+      },
+      "htmlSha256": "62304745d59e7518cf545faa24478deb361a7d5a8efbbe65bef091b465fb89ee"
+    },
+    {
+      "id": "screed-calculator",
+      "locale": "uk",
+      "path": "/uk/remont/kalkulyator-styazhky/",
+      "name": "Калькулятор стяжки підлоги",
+      "h1": "Калькулятор стяжки підлоги",
+      "seoTitle": "Калькулятор стяжки підлоги - об’єм розчину та мішки",
+      "seoDescription": "Розрахуйте об’єм стяжки в кубометрах, масу сухої суміші та кількість мішків за площею й товщиною шару.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Режим",
+          "type": "toggle",
+          "defaultValue": "room",
+          "options": [
+            {
+              "value": "room",
+              "label": "За кімнатою"
+            },
+            {
+              "value": "area",
+              "label": "За площею"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Довжина",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ширина",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Площа",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "thickness",
+          "label": "Товщина шару",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.1,
+          "step": 0.1
+        },
+        {
+          "name": "mixConsumption",
+          "label": "Витрата суміші, кг на м² при шарі 1 см",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "bagWeight",
+          "label": "Вага мішка",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "reserve",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "bagPrice",
+          "label": "Ціна мішка",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "₴",
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "room",
+        "length": 5,
+        "width": 4,
+        "manualArea": 20,
+        "thickness": 5,
+        "mixConsumption": 18,
+        "bagWeight": 25,
+        "reserve": 10,
+        "bagPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Объём раствора",
+          "value": "1,100 м³"
+        },
+        "secondary": [
+          {
+            "label": "Площадь",
+            "value": "20,00 м²"
+          },
+          {
+            "label": "Толщина слоя",
+            "value": "5,0 см"
+          },
+          {
+            "label": "Сухая смесь",
+            "value": "1 980 кг"
+          },
+          {
+            "label": "Мешков",
+            "value": "80 шт.",
+            "accent": "green"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Стяжка рахується у двох одиницях одразу: об’єм розчину в кубометрах для замовлення міксера й маса сухої суміші в мішках для покупки в магазині. Плутати їх не можна — кубометр готового розчину й кубометр сухої суміші важать по-різному.",
+        "howToUse": [
+          "Введіть площу приміщення.",
+          "Введіть товщину шару в сантиметрах.",
+          "Введіть паспортну витрату суміші на квадратний метр при шарі 1 см."
+        ],
+        "howItWorks": "Об’єм розчину дорівнює площі, помноженій на товщину шару: за 20 м² і шару 5 см це 20 × 0,05 = 1 м³. Маса сухої суміші рахується за паспортною витратою: площа × товщина в сантиметрах × витрата на м² при шарі 1 см. Кількість мішків округлюється вгору.",
+        "example": "Приміщення 20 м² із шаром 5 см потребує 1 м³ розчину. За витрати 18 кг/м² на сантиметр це 1800 кг сухої суміші — 72 мішки по 25 кг.",
+        "faq": [
+          {
+            "q": "Яка мінімальна товщина стяжки?",
+            "a": "Для цементно-піщаної зазвичай 30 мм, для наливної підлоги — від 5 мм. Тонший шар тріскається, товщий понад 70 мм потребує армування."
+          },
+          {
+            "q": "Чому важлива паспортна витрата?",
+            "a": "Бо суміші різні за складом і насипною густиною. Витрата 15 і 20 кг на квадратний метр при сантиметрі шару дають різницю в третину від кількості мішків."
+          },
+          {
+            "q": "Скільки сохне стяжка?",
+            "a": "Орієнтир — тиждень на кожен сантиметр товщини для цементної. П’ятисантиметрова стяжка сохне близько місяця, і класти на неї покриття раніше не можна."
+          },
+          {
+            "q": "Чи враховано перепади підлоги?",
+            "a": "Ні, береться середня товщина. За помітного перепаду треба брати середнє між мінімальною й максимальною товщиною, інакше суміші не вистачить."
+          }
+        ]
+      },
+      "htmlSha256": "629d384b3ee270ad6a701cc41d044315ca8113ce22e4212b51c1353e2516d20b"
+    },
+    {
+      "id": "screed-calculator",
+      "locale": "de",
+      "path": "/de/heimwerken/estrichrechner/",
+      "name": "Estrichrechner",
+      "h1": "Estrichrechner",
+      "seoTitle": "Estrichrechner — Volumen und Säcke Trockenmischung",
+      "seoDescription": "Berechne das Estrichvolumen in Kubikmetern, die Masse der Trockenmischung und die Zahl der Säcke aus Fläche und Schichtdicke.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Rechenweg",
+          "type": "toggle",
+          "defaultValue": "room",
+          "options": [
+            {
+              "value": "room",
+              "label": "Nach Raum"
+            },
+            {
+              "value": "area",
+              "label": "Nach Fläche"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Länge",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Breite",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Fläche",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "thickness",
+          "label": "Schichtdicke, cm",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.1,
+          "step": 0.1
+        },
+        {
+          "name": "mixConsumption",
+          "label": "Ergiebigkeit, kg je m² bei 1 cm Schicht",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "bagWeight",
+          "label": "Sackgewicht, kg",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "reserve",
+          "label": "Reserve",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "bagPrice",
+          "label": "Preis je Sack",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "€",
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "room",
+        "length": 5,
+        "width": 4,
+        "manualArea": 20,
+        "thickness": 5,
+        "mixConsumption": 18,
+        "bagWeight": 25,
+        "reserve": 10,
+        "bagPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Объём раствора",
+          "value": "1,100 м³"
+        },
+        "secondary": [
+          {
+            "label": "Площадь",
+            "value": "20,00 м²"
+          },
+          {
+            "label": "Толщина слоя",
+            "value": "5,0 см"
+          },
+          {
+            "label": "Сухая смесь",
+            "value": "1 980 кг"
+          },
+          {
+            "label": "Мешков",
+            "value": "80 шт.",
+            "accent": "green"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Rechnet zwei Größen, die man leicht verwechselt: das Volumen des Estrichs in Kubikmetern und die Masse der Trockenmischung in Kilogramm. Das Volumen folgt aus Fläche und Schichtdicke, die Masse dagegen aus der Ergiebigkeit auf dem Sack, und diese Angabe gilt je Quadratmeter bei einem Zentimeter Schicht — genau so ist das Feld gemeint. Säcke werden aufgerundet, weil Trockenmischung in ganzen Säcken verkauft wird, und die Rundung geschieht nach dem Aufschlag der Reserve.",
+        "howToUse": [
+          "Wähle, ob du Raummaße oder eine fertige Fläche eingibst.",
+          "Trage die Schichtdicke in Zentimetern ein.",
+          "Trage die Ergiebigkeit vom Sack ein: Kilogramm je Quadratmeter bei 1 cm Schicht.",
+          "Trage das Sackgewicht ein und setze eine Reserve von 5–10 %."
+        ],
+        "howItWorks": "Volumen = Fläche × Schichtdicke in Metern. Masse der Trockenmischung = Fläche × Schichtdicke in Zentimetern × Ergiebigkeit. Beides wird mit der Reserve multipliziert, und die Zahl der Säcke ist die Masse geteilt durch das Sackgewicht, aufgerundet.",
+        "example": "Ein Raum von 5 × 4 m, 5 cm Schicht, 18 kg/m² je Zentimeter, Säcke zu 25 kg und 10 % Reserve ergeben 1,1 m³, 1980 kg Mischung und 80 Säcke.",
+        "faq": [
+          {
+            "q": "Welche Schichtdicke brauche ich?",
+            "a": "Das hängt vom Untergrund, vom Belag darüber und davon ab, ob Rohre oder Leitungen im Estrich liegen. Die kleinste zulässige Schicht steht immer auf dem Sack und unterscheidet sich stark zwischen Zementestrich und Fließspachtel."
+          },
+          {
+            "q": "Woher nehme ich die Ergiebigkeit?",
+            "a": "Von der Verpackung. Hersteller geben sie in Kilogramm je Quadratmeter bei 1 cm Schicht an, und eine Angabe für 10 mm ist dieselbe Zahl."
+          },
+          {
+            "q": "Warum werden die Säcke aufgerundet?",
+            "a": "Weil Trockenmischung in ganzen Säcken verkauft wird. Auch ein kleiner Rest verlangt einen weiteren, und gerundet wird nach der Reserve."
+          },
+          {
+            "q": "Wie viel Reserve ist sinnvoll?",
+            "a": "Meist 5–10 % für einen unebenen Untergrund, Verluste beim Anmischen und Material im Eimer. Auf einem stark welligen Boden lieber mehr, weil die tatsächliche mittlere Dicke über der geplanten liegt."
+          },
+          {
+            "q": "Rechnet das Zement und Sand getrennt?",
+            "a": "Nein, gerechnet wird eine fertige Trockenmischung. Die Anteile von Zement und Sand hängen von der geforderten Festigkeitsklasse ab und gehören in die Planung."
+          },
+          {
+            "q": "Taugt das für Fließspachtel?",
+            "a": "Ja, sofern du die Ergiebigkeit genau dieses Produkts einträgst. Die Formel ist für jede Trockenmischung dieselbe, es ändern sich nur Ergiebigkeit und kleinste Schicht."
+          }
+        ]
+      },
+      "htmlSha256": "8bc4f4be2c2c87501edaa21f32286ade8ae619966a0e3a330cdab3b460093b31"
+    },
+    {
+      "id": "screed-calculator",
+      "locale": "es",
+      "path": "/es/reformas/solera-de-mortero/",
+      "name": "Calculadora de solera de mortero",
+      "h1": "Calculadora de solera de mortero",
+      "seoTitle": "Calculadora de solera — volumen de mortero y sacos de mezcla seca",
+      "seoDescription": "Calcula el volumen de solera en metros cúbicos, la masa de mezcla seca y cuántos sacos necesitas a partir de la superficie y el espesor de la capa.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Método de cálculo",
+          "type": "toggle",
+          "defaultValue": "room",
+          "options": [
+            {
+              "value": "room",
+              "label": "Por habitación"
+            },
+            {
+              "value": "area",
+              "label": "Por área"
+            }
+          ]
+        },
+        {
+          "name": "length",
+          "label": "Largo",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "width",
+          "label": "Ancho",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "room"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Área",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "thickness",
+          "label": "Espesor de la capa",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0.1,
+          "step": 0.1
+        },
+        {
+          "name": "mixConsumption",
+          "label": "Rendimiento, kg por m² para una capa de 1 cm",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "bagWeight",
+          "label": "Peso del saco",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "reserve",
+          "label": "Reserva",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "bagPrice",
+          "label": "Precio del saco",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "€",
+          "min": 0,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "room",
+        "length": 5,
+        "width": 4,
+        "manualArea": 20,
+        "thickness": 5,
+        "mixConsumption": 18,
+        "bagWeight": 25,
+        "reserve": 10,
+        "bagPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Объём раствора",
+          "value": "1,100 м³"
+        },
+        "secondary": [
+          {
+            "label": "Площадь",
+            "value": "20,00 м²"
+          },
+          {
+            "label": "Толщина слоя",
+            "value": "5,0 см"
+          },
+          {
+            "label": "Сухая смесь",
+            "value": "1 980 кг"
+          },
+          {
+            "label": "Мешков",
+            "value": "80 шт.",
+            "accent": "green"
+          }
+        ]
+      },
+      "body": {
+        "longDescription": "Esta calculadora de solera convierte la superficie y el espesor de la capa en volumen de mortero, y lo transforma después en masa de mezcla seca y número de sacos. El rendimiento y el peso del saco salen de la etiqueta del producto, así que la estimación vale para cualquier mezcla seca: solera de cemento y arena, autonivelante u hormigón de arena. Un campo de reserva aparte cubre las irregularidades del soporte y el material que se queda en el cubo.",
+        "howToUse": [
+          "Elige cómo definir el suelo: por el largo y el ancho de la habitación o por una superficie conocida.",
+          "Fija el espesor de la capa en centímetros: depende del soporte y del acabado.",
+          "Copia el rendimiento y el peso del saco de la etiqueta de la mezcla que vayas a comprar.",
+          "Añade una reserva por soporte irregular y sobrantes, y consulta el volumen y el número de sacos."
+        ],
+        "howItWorks": "El volumen de mortero es la superficie multiplicada por el espesor de la capa: 20 m² a 5 cm son 20 × 0,05 = 1 m³. La masa de mezcla seca sale del rendimiento indicado en la etiqueta: superficie × espesor en centímetros × rendimiento por metro cuadrado para una capa de 1 cm. El número de sacos se redondea hacia arriba, porque la mezcla seca se vende en sacos enteros.",
+        "example": "Una habitación de 5 × 4 m, una capa de 5 cm, un rendimiento de 18 kg/m² por cada 1 cm, sacos de 25 kg y un 10 % de reserva dan 1,100 m³ de mortero, 1980 kg de mezcla y 80 sacos.",
+        "faq": [
+          {
+            "q": "¿Qué espesor de capa debo usar?",
+            "a": "Depende de lo irregular que esté el soporte, del acabado que vaya encima y de si dentro de la solera pasan tubos o cables. El espesor mínimo utilizable viene siempre impreso en el saco, y cambia mucho entre un hormigón de arena y un autonivelante."
+          },
+          {
+            "q": "¿Dónde encuentro la cifra de rendimiento?",
+            "a": "En el envase. Los fabricantes indican el rendimiento en kilogramos por metro cuadrado para una capa de 1 cm, y eso es exactamente lo que espera este campo. Un rendimiento dado para una capa de 10 mm es el mismo número."
+          },
+          {
+            "q": "¿Por qué el número de sacos se redondea hacia arriba?",
+            "a": "La mezcla seca se vende en sacos enteros, así que hasta un resto pequeño exige uno más. El redondeo ocurre después de aplicar la reserva."
+          },
+          {
+            "q": "¿Cuánta reserva debo añadir?",
+            "a": "Normalmente del 5 al 10 % por soporte irregular, pérdidas al amasar y material que se queda en el cubo. Sobre un suelo muy irregular conviene una reserva mayor, porque el espesor medio real acaba por encima del previsto."
+          },
+          {
+            "q": "¿Separa la mezcla en cemento y arena?",
+            "a": "No. La estimación se basa en una mezcla seca preparada. Las proporciones de cemento y arena dependen de la clase de mortero que necesites y deben seguir el proyecto o las indicaciones del fabricante."
+          },
+          {
+            "q": "¿Vale para un autonivelante?",
+            "a": "Sí, siempre que introduzcas el rendimiento impreso en ese producto concreto. La fórmula es la misma para cualquier mezcla seca: solo cambian el rendimiento y la capa mínima."
+          }
+        ]
+      },
+      "htmlSha256": "24f1e3933c31b562781c530c06e414adc3597df07c21d5898b42749ba9400bf5"
+    },
+    {
+      "id": "brick-calculator",
+      "locale": "ru",
+      "path": "/ru/building/brick-calculator/",
+      "name": "Калькулятор кирпича и блоков",
+      "h1": "Калькулятор кирпича и блоков",
+      "seoTitle": "Калькулятор кирпича и блоков — расчёт количества на стену",
+      "seoDescription": "Рассчитайте количество кирпича или блоков на стену: размеры стены или площадь, проёмы, размер камня, толщина шва и запас. Расчёт для одного слоя кладки.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Как задать стену",
+          "type": "toggle",
+          "defaultValue": "dimensions",
+          "options": [
+            {
+              "value": "dimensions",
+              "label": "Размеры"
+            },
+            {
+              "value": "area",
+              "label": "Площадь"
+            }
+          ]
+        },
+        {
+          "name": "wallLength",
+          "label": "Длина стены",
+          "type": "number",
+          "defaultValue": 6,
+          "unit": "м",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "wallHeight",
+          "label": "Высота стены",
+          "type": "number",
+          "defaultValue": 2.8,
+          "unit": "м",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Площадь стены",
+          "type": "number",
+          "defaultValue": 16.8,
+          "unit": "м²",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "openingsArea",
+          "label": "Площадь проёмов",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "м²",
+          "min": 0,
+          "step": 0.01
+        },
+        {
+          "name": "unitLength",
+          "label": "Длина камня",
+          "type": "number",
+          "defaultValue": 250,
+          "unit": "мм",
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "unitHeight",
+          "label": "Высота камня",
+          "type": "number",
+          "defaultValue": 65,
+          "unit": "мм",
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "joint",
+          "label": "Толщина шва",
+          "type": "number",
+          "defaultValue": 10,
+          "unit": "мм",
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "reserve",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "unit": "%",
+          "min": 0,
+          "max": 50,
+          "step": 1
+        },
+        {
+          "name": "unitPrice",
+          "label": "Цена за штуку",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "₽",
+          "min": 0,
+          "step": 0.01,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "dimensions",
+        "wallLength": 6,
+        "wallHeight": 2.8,
+        "manualArea": 16.8,
+        "openingsArea": 0,
+        "unitLength": 250,
+        "unitHeight": 65,
+        "joint": 10,
+        "reserve": 5,
+        "unitPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество камней",
+          "value": "905 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь кладки",
+            "value": "16,80 м²"
+          },
+          {
+            "label": "Камней без запаса",
+            "value": "862 шт."
+          },
+          {
+            "label": "Запас",
+            "value": "43 шт."
+          },
+          {
+            "label": "Расчётный модуль камня",
+            "value": "0,0195 м²"
+          },
+          {
+            "label": "Камней на квадратный метр",
+            "value": "51,3"
+          }
+        ],
+        "note": "Расчёт выполнен для одного слоя кладки по видимой плоскости стены. Кладка в кирпич и толще, перевязка, простенки и доборные элементы не моделируются, поэтому перед закупкой сверьтесь с проектом."
+      },
+      "body": {
+        "longDescription": "Калькулятор считает, сколько кирпичей или блоков закроют стену при кладке в один слой. Каждому камню принадлежит один шов справа и один сверху, поэтому расчётный модуль равен размеру камня плюс толщина шва по каждой стороне. Площадь проёмов вычитается из площади стены, а запас добавляется отдельной строкой, чтобы было видно, сколько камней уходит именно на него.",
+        "howToUse": [
+          "Задайте стену размерами или сразу её площадью, если она известна из проекта.",
+          "Укажите суммарную площадь оконных и дверных проёмов — она вычитается из площади кладки.",
+          "Введите длину и высоту камня в миллиметрах и толщину растворного шва.",
+          "Добавьте запас на бой и подрезку и при необходимости цену за штуку."
+        ],
+        "howItWorks": "Площадь кладки равна площади стены минус площадь проёмов. Каждому камню в кладке принадлежит один шов справа и один сверху, поэтому расчётный модуль равен произведению длины камня со швом на высоту камня со швом. Количество камней — площадь кладки, делённая на модуль и округлённая вверх до целого. Запас считается от того же числа и показывается отдельной строкой. Расчёт выполнен для одного слоя кладки: толщина стены в кирпич и больше не моделируется.",
+        "example": "Стена 6 × 2,8 м без проёмов, кирпич 250 × 65 мм со швом 10 мм. Модуль равен 0,26 × 0,075 = 0,0195 м², значит на 16,8 м² нужно 862 кирпича, а с запасом 5% — 905 штук.",
+        "faq": [
+          {
+            "q": "Учитывается ли растворный шов?",
+            "a": "Да. Каждому камню принадлежит один шов справа и один сверху: соседний шов уже относится к следующему камню. Поэтому к длине и к высоте камня добавляется толщина шва по одному разу, а не по два. При шве 10 мм кирпич 250 × 65 мм занимает в кладке 260 × 75 мм."
+          },
+          {
+            "q": "Для какой толщины стены выполнен расчёт?",
+            "a": "Для одного слоя кладки по видимой плоскости стены. Кладка в кирпич, в полтора кирпича, колодцевая и с облицовочным слоем требует геометрии перевязки, а не только площади, и в этом калькуляторе не моделируется. Для многослойной стены посчитайте каждый слой отдельно."
+          },
+          {
+            "q": "Почему количество округляется вверх?",
+            "a": "Купить часть кирпича нельзя, а на единицу меньше уже не хватит на всю площадь. Если площадь делится на модуль ровно, лишний камень не добавляется: округление защищено от двоичного шума и не превращает точное число в число плюс один."
+          },
+          {
+            "q": "Какой запас закладывать на бой и подрезку?",
+            "a": "Обычно от 5 до 10 процентов на бой при перевозке, подрезку у проёмов и брак. Для сложной кладки с большим числом резов запас берут больше. Калькулятор показывает количество запаса отдельной строкой, чтобы его было видно, а не только итог."
+          },
+          {
+            "q": "Что делать с проёмами?",
+            "a": "Сложите площади всех окон и дверей и введите сумму в поле проёмов. Она вычитается из площади стены. Если проёмы занимают всю стену, расчёт не выполняется: класть нечего."
+          },
+          {
+            "q": "Подходит ли расчёт для газоблоков и пеноблоков?",
+            "a": "Да, если задать их фактические размеры и толщину шва. Для тонкошовной кладки на клей укажите шов 2–3 мм вместо 10. Модель одинакова для любого прямоугольного камня, меняются только размеры."
+          },
+          {
+            "q": "Учитывается ли раствор и его расход?",
+            "a": "Нет. Калькулятор считает количество камней, а не объём раствора: он зависит от толщины стены и способа кладки, которые здесь не моделируются. Для раствора воспользуйтесь отдельным расчётом по проекту."
+          }
+        ]
+      },
+      "htmlSha256": "2ab98e71e7345a4fc1f4b0ddb8b84138550607970b93f6215a5c881217d59800"
+    },
+    {
+      "id": "brick-calculator",
+      "locale": "en",
+      "path": "/en/home-improvement/brick-calculator/",
+      "name": "Brick and block calculator",
+      "h1": "Brick and block calculator",
+      "seoTitle": "Brick and block calculator — units needed for a wall",
+      "seoDescription": "Calculate how many bricks or blocks a wall needs: wall size or area, openings, unit size, mortar joint and waste allowance. Single-leaf masonry.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Mode",
+          "type": "toggle",
+          "defaultValue": "dimensions",
+          "options": [
+            {
+              "value": "dimensions",
+              "label": "By dimensions"
+            },
+            {
+              "value": "area",
+              "label": "By area"
+            }
+          ]
+        },
+        {
+          "name": "wallLength",
+          "label": "Wall length",
+          "type": "number",
+          "defaultValue": 6,
+          "unit": "m",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "wallHeight",
+          "label": "Wall height",
+          "type": "number",
+          "defaultValue": 2.8,
+          "unit": "m",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Area",
+          "type": "number",
+          "defaultValue": 16.8,
+          "unit": "m²",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "openingsArea",
+          "label": "Openings area",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "m²",
+          "min": 0,
+          "step": 0.01
+        },
+        {
+          "name": "unitLength",
+          "label": "Unit length",
+          "type": "number",
+          "defaultValue": 250,
+          "unit": "mm",
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "unitHeight",
+          "label": "Unit height",
+          "type": "number",
+          "defaultValue": 65,
+          "unit": "mm",
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "joint",
+          "label": "Mortar joint",
+          "type": "number",
+          "defaultValue": 10,
+          "unit": "mm",
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "reserve",
+          "label": "Reserve",
+          "type": "number",
+          "defaultValue": 5,
+          "unit": "%",
+          "min": 0,
+          "max": 50,
+          "step": 1
+        },
+        {
+          "name": "unitPrice",
+          "label": "Selling price per unit",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "$",
+          "min": 0,
+          "step": 0.01,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "dimensions",
+        "wallLength": 6,
+        "wallHeight": 2.8,
+        "manualArea": 16.8,
+        "openingsArea": 0,
+        "unitLength": 250,
+        "unitHeight": 65,
+        "joint": 10,
+        "reserve": 5,
+        "unitPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество камней",
+          "value": "905 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь кладки",
+            "value": "16,80 м²"
+          },
+          {
+            "label": "Камней без запаса",
+            "value": "862 шт."
+          },
+          {
+            "label": "Запас",
+            "value": "43 шт."
+          },
+          {
+            "label": "Расчётный модуль камня",
+            "value": "0,0195 м²"
+          },
+          {
+            "label": "Камней на квадратный метр",
+            "value": "51,3"
+          }
+        ],
+        "note": "Расчёт выполнен для одного слоя кладки по видимой плоскости стены. Кладка в кирпич и толще, перевязка, простенки и доборные элементы не моделируются, поэтому перед закупкой сверьтесь с проектом."
+      },
+      "body": {
+        "longDescription": "This calculator works out how many bricks or blocks cover a wall built as a single leaf. Every unit owns one joint to its right and one above it, so the working module is the unit size plus the joint thickness on each side. The area of openings is subtracted from the wall area, and the waste allowance is reported on its own line so you can see exactly how many units it costs.",
+        "howToUse": [
+          "Describe the wall by its dimensions, or enter its area directly if you already know it.",
+          "Enter the total area of window and door openings — it is subtracted from the masonry area.",
+          "Enter the length and height of the unit in millimetres and the mortar joint thickness.",
+          "Add a waste allowance for breakage and cutting, and a price per unit if you need the cost."
+        ],
+        "howItWorks": "The masonry area is the wall area minus the openings. Every unit owns one joint to its right and one above it — the next joint belongs to the next unit — so the working module is the unit length plus one joint multiplied by the unit height plus one joint. The number of units is the masonry area divided by that module and rounded up. The waste allowance is taken from the same figure and shown separately. The calculation covers a single leaf: walls one brick thick or more are not modelled.",
+        "example": "A 6 by 2.8 m wall with no openings, built from 250 by 65 mm bricks with a 10 mm joint, gives a module of 0.26 by 0.075 = 0.0195 m², so 16.8 m² needs 862 bricks, or 905 with a 5% allowance.",
+        "faq": [
+          {
+            "q": "Is the mortar joint taken into account?",
+            "a": "Yes. Every unit owns one joint to its right and one above it; the neighbouring joint already belongs to the next unit. So the joint thickness is added once to the length and once to the height, not twice. With a 10 mm joint a 250 by 65 mm brick occupies 260 by 75 mm in the wall."
+          },
+          {
+            "q": "What wall thickness does this cover?",
+            "a": "A single leaf, measured on the visible face of the wall. Walls one brick thick, one and a half bricks, cavity walls and walls with a separate facing leaf need bonding geometry rather than just an area, and are not modelled here. For a multi-leaf wall, calculate each leaf separately."
+          },
+          {
+            "q": "Why is the number rounded up?",
+            "a": "You cannot buy part of a brick, and one unit fewer will not cover the whole area. When the area divides into the module exactly, no extra unit is added: the rounding is protected against binary noise and will not turn an exact number into that number plus one."
+          },
+          {
+            "q": "How much waste should I allow for breakage and cutting?",
+            "a": "Usually 5 to 10 per cent for breakage in transit, cutting around openings and defects. Complex masonry with a lot of cuts needs more. The calculator shows the allowance on its own line so you can see it rather than only the total."
+          },
+          {
+            "q": "How do I handle openings?",
+            "a": "Add up the areas of all windows and doors and enter the total in the openings field. It is subtracted from the wall area. If the openings fill the whole wall, no calculation is produced — there is nothing to build."
+          },
+          {
+            "q": "Does it work for aerated and foam blocks?",
+            "a": "Yes, as long as you enter their actual dimensions and joint thickness. For thin-bed adhesive masonry set the joint to 2–3 mm instead of 10. The model is the same for any rectangular unit; only the sizes change."
+          },
+          {
+            "q": "Does it include mortar consumption?",
+            "a": "No. The calculator counts units, not mortar volume: that depends on the wall thickness and the bonding pattern, neither of which is modelled here. Work the mortar out separately from your drawings."
+          }
+        ]
+      },
+      "htmlSha256": "3f5c92baaba89b4ccd15c8b64d33b494beb9f68fb324ed9aa7bb87e9ba320bcf"
+    },
+    {
+      "id": "brick-calculator",
+      "locale": "uk",
+      "path": "/uk/remont/kalkulyator-tsehly/",
+      "name": "Калькулятор цегли та блоків",
+      "h1": "Калькулятор цегли та блоків",
+      "seoTitle": "Калькулятор цегли та блоків - розрахунок на стіну",
+      "seoDescription": "Розрахуйте кількість цегли або блоків на стіну: розміри чи площа, прорізи, розмір каменю, товщина шва та запас.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Режим",
+          "type": "toggle",
+          "defaultValue": "dimensions",
+          "options": [
+            {
+              "value": "dimensions",
+              "label": "Розміри"
+            },
+            {
+              "value": "area",
+              "label": "За площею"
+            }
+          ]
+        },
+        {
+          "name": "wallLength",
+          "label": "Довжина стіни",
+          "type": "number",
+          "defaultValue": 6,
+          "unit": "м",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "wallHeight",
+          "label": "Висота стіни",
+          "type": "number",
+          "defaultValue": 2.8,
+          "unit": "м",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Площа",
+          "type": "number",
+          "defaultValue": 16.8,
+          "unit": "м²",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "openingsArea",
+          "label": "Площа прорізів",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "м²",
+          "min": 0,
+          "step": 0.01
+        },
+        {
+          "name": "unitLength",
+          "label": "Довжина каменю",
+          "type": "number",
+          "defaultValue": 250,
+          "unit": "мм",
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "unitHeight",
+          "label": "Висота каменю",
+          "type": "number",
+          "defaultValue": 65,
+          "unit": "мм",
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "joint",
+          "label": "Товщина шва",
+          "type": "number",
+          "defaultValue": 10,
+          "unit": "мм",
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "reserve",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 5,
+          "unit": "%",
+          "min": 0,
+          "max": 50,
+          "step": 1
+        },
+        {
+          "name": "unitPrice",
+          "label": "Ціна продажу одиниці",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "₴",
+          "min": 0,
+          "step": 0.01,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "dimensions",
+        "wallLength": 6,
+        "wallHeight": 2.8,
+        "manualArea": 16.8,
+        "openingsArea": 0,
+        "unitLength": 250,
+        "unitHeight": 65,
+        "joint": 10,
+        "reserve": 5,
+        "unitPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество камней",
+          "value": "905 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь кладки",
+            "value": "16,80 м²"
+          },
+          {
+            "label": "Камней без запаса",
+            "value": "862 шт."
+          },
+          {
+            "label": "Запас",
+            "value": "43 шт."
+          },
+          {
+            "label": "Расчётный модуль камня",
+            "value": "0,0195 м²"
+          },
+          {
+            "label": "Камней на квадратный метр",
+            "value": "51,3"
+          }
+        ],
+        "note": "Расчёт выполнен для одного слоя кладки по видимой плоскости стены. Кладка в кирпич и толще, перевязка, простенки и доборные элементы не моделируются, поэтому перед закупкой сверьтесь с проектом."
+      },
+      "body": {
+        "longDescription": "Калькулятор рахує, скільки цеглин або блоків закриють стіну за кладки в один шар. Кожному каменю належить один шов праворуч і один згори, тому розрахунковий модуль дорівнює розміру каменю плюс товщина шва по кожній стороні. Площа прорізів віднімається від площі стіни, а запас додається окремим рядком, щоб було видно, скільки каменів іде саме на нього.",
+        "howToUse": [
+          "Задайте стіну розмірами або одразу її площею, якщо вона відома з проєкту.",
+          "Вкажіть сумарну площу віконних і дверних прорізів — вона віднімається від площі кладки.",
+          "Введіть довжину та висоту каменю в міліметрах і товщину розчинного шва.",
+          "Додайте запас на бій і підрізку та за потреби ціну за штуку."
+        ],
+        "howItWorks": "Площа кладки дорівнює площі стіни мінус площа прорізів. Кожному каменю належить один шов праворуч і один згори, тому розрахунковий модуль дорівнює добутку довжини каменю зі швом на висоту каменю зі швом. Кількість каменів — площа кладки, поділена на модуль і округлена вгору до цілого. Запас рахується від того самого числа й показується окремим рядком. Розрахунок виконано для одного шару кладки: товщина стіни в цеглину й більше не моделюється.",
+        "example": "Стіна 6 × 2,8 м без прорізів, цегла 250 × 65 мм зі швом 10 мм. Модуль дорівнює 0,26 × 0,075 = 0,0195 м², отже на 16,8 м² потрібно 862 цеглини, а із запасом 5% — 905 штук.",
+        "faq": [
+          {
+            "q": "Чи враховується розчинний шов?",
+            "a": "Так. Кожному каменю належить один шов праворуч і один згори: сусідній шов уже стосується наступного каменю. Тому до довжини й до висоти каменю додається товщина шва по одному разу, а не по два. За шва 10 мм цегла 250 × 65 мм займає в кладці 260 × 75 мм."
+          },
+          {
+            "q": "Для якої товщини стіни виконано розрахунок?",
+            "a": "Для одного шару кладки по видимій площині стіни. Кладка в цеглину, у півтори цеглини, колодязна та з облицювальним шаром потребує геометрії перевʼязки, а не лише площі, і в цьому калькуляторі не моделюється. Для багатошарової стіни порахуйте кожен шар окремо."
+          },
+          {
+            "q": "Чому кількість округлюється вгору?",
+            "a": "Купити частину цеглини не можна, а на одиницю менше вже не вистачить на всю площу. Якщо площа ділиться на модуль рівно, зайвий камінь не додається: округлення захищене від двійкового шуму."
+          },
+          {
+            "q": "Який запас закладати на бій і підрізку?",
+            "a": "Зазвичай від 5 до 10 відсотків на бій під час перевезення, підрізку біля прорізів і брак. Для складної кладки з великою кількістю різів запас беруть більший. Калькулятор показує кількість запасу окремим рядком."
+          },
+          {
+            "q": "Що робити з прорізами?",
+            "a": "Складіть площі всіх вікон і дверей та введіть суму в поле прорізів. Вона віднімається від площі стіни. Якщо прорізи займають усю стіну, розрахунок не виконується: класти нічого."
+          },
+          {
+            "q": "Чи підходить розрахунок для газоблоків і піноблоків?",
+            "a": "Так, якщо задати їхні фактичні розміри та товщину шва. Для тонкошовної кладки на клей укажіть шов 2–3 мм замість 10. Модель однакова для будь-якого прямокутного каменю."
+          },
+          {
+            "q": "Чи враховується розчин і його витрата?",
+            "a": "Ні. Калькулятор рахує кількість каменів, а не обʼєм розчину: він залежить від товщини стіни та способу кладки, які тут не моделюються."
+          }
+        ]
+      },
+      "htmlSha256": "9fb1ab9734968d874e332e1d9ee1b149e88ab922d47d941a5af8badc38b285c6"
+    },
+    {
+      "id": "brick-calculator",
+      "locale": "de",
+      "path": "/de/heimwerken/ziegelrechner/",
+      "name": "Ziegel- und Steinrechner",
+      "h1": "Ziegel- und Steinrechner",
+      "seoTitle": "Ziegel- und Steinrechner — Steinbedarf für eine Wand",
+      "seoDescription": "Berechne, wie viele Ziegel oder Steine eine Wand braucht: Wandmaß oder Fläche, Öffnungen, Steinmaß, Fugendicke und Reserve. Einschaliges Mauerwerk.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Wand angegeben als",
+          "type": "toggle",
+          "defaultValue": "dimensions",
+          "options": [
+            {
+              "value": "dimensions",
+              "label": "Nach Maßen"
+            },
+            {
+              "value": "area",
+              "label": "Nach Fläche"
+            }
+          ]
+        },
+        {
+          "name": "wallLength",
+          "label": "Wandlänge",
+          "type": "number",
+          "defaultValue": 6,
+          "unit": "m",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "wallHeight",
+          "label": "Wandhöhe",
+          "type": "number",
+          "defaultValue": 2.8,
+          "unit": "m",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Wandfläche",
+          "type": "number",
+          "defaultValue": 16.8,
+          "unit": "m²",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "openingsArea",
+          "label": "Fläche der Öffnungen",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "m²",
+          "min": 0,
+          "step": 0.01
+        },
+        {
+          "name": "unitLength",
+          "label": "Steinlänge",
+          "type": "number",
+          "defaultValue": 250,
+          "unit": "mm",
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "unitHeight",
+          "label": "Steinhöhe",
+          "type": "number",
+          "defaultValue": 65,
+          "unit": "mm",
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "joint",
+          "label": "Fugendicke",
+          "type": "number",
+          "defaultValue": 10,
+          "unit": "mm",
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "reserve",
+          "label": "Reserve",
+          "type": "number",
+          "defaultValue": 5,
+          "unit": "%",
+          "min": 0,
+          "max": 50,
+          "step": 1
+        },
+        {
+          "name": "unitPrice",
+          "label": "Preis je Stein",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "€",
+          "min": 0,
+          "step": 0.01,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "dimensions",
+        "wallLength": 6,
+        "wallHeight": 2.8,
+        "manualArea": 16.8,
+        "openingsArea": 0,
+        "unitLength": 250,
+        "unitHeight": 65,
+        "joint": 10,
+        "reserve": 5,
+        "unitPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество камней",
+          "value": "905 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь кладки",
+            "value": "16,80 м²"
+          },
+          {
+            "label": "Камней без запаса",
+            "value": "862 шт."
+          },
+          {
+            "label": "Запас",
+            "value": "43 шт."
+          },
+          {
+            "label": "Расчётный модуль камня",
+            "value": "0,0195 м²"
+          },
+          {
+            "label": "Камней на квадратный метр",
+            "value": "51,3"
+          }
+        ],
+        "note": "Расчёт выполнен для одного слоя кладки по видимой плоскости стены. Кладка в кирпич и толще, перевязка, простенки и доборные элементы не моделируются, поэтому перед закупкой сверьтесь с проектом."
+      },
+      "body": {
+        "longDescription": "Der Kern der Rechnung ist das Rastermaß: jeder Stein besitzt eine Fuge rechts von sich und eine über sich, die nächste Fuge gehört bereits zum nächsten Stein. Deshalb wird die Fugendicke einmal zur Länge und einmal zur Höhe gezählt und nicht zweimal — ein Stein von 250 × 65 mm belegt mit 10 mm Fuge 260 × 75 mm in der Wand. Gerechnet wird eine einschalige Wand nach ihrer sichtbaren Fläche: Verband, Wandstärke über einen Stein hinaus, Pfeiler und Ergänzungssteine brauchen eine Geometrie und nicht nur eine Fläche und werden hier bewusst nicht abgebildet.",
+        "howToUse": [
+          "Wähle, ob du Wandmaße oder eine fertige Fläche eingibst.",
+          "Trage die Fläche aller Fenster und Türen ein — sie wird abgezogen.",
+          "Trage Länge und Höhe des Steins in Millimetern ein.",
+          "Trage die Fugendicke ein: 10 mm im Mörtelbett, 2–3 mm im Dünnbett."
+        ],
+        "howItWorks": "Mauerwerksfläche = Wandfläche minus Öffnungen. Rastermaß = (Steinlänge + Fuge) × (Steinhöhe + Fuge). Die Zahl der Steine ist die Mauerwerksfläche geteilt durch dieses Rastermaß, aufgerundet, und die Reserve wird gesondert ausgewiesen.",
+        "example": "Eine Wand von 6 × 2,8 m ohne Öffnungen aus Steinen 250 × 65 mm mit 10 mm Fuge ergibt ein Rastermaß von 0,0195 m², also 862 Steine für 16,8 m² und 905 mit 5 % Reserve.",
+        "faq": [
+          {
+            "q": "Ist die Fuge berücksichtigt?",
+            "a": "Ja, und zwar einmal je Richtung. Jeder Stein besitzt eine Fuge rechts und eine oben, die benachbarte gehört schon zum nächsten Stein — sie doppelt zu zählen ergäbe zu wenig Steine."
+          },
+          {
+            "q": "Für welche Wandstärke gilt das?",
+            "a": "Für eine Schale, gemessen an der sichtbaren Wandfläche. Wände von einem Stein Dicke und mehr, zweischalige Wände und Wände mit Verblendschale brauchen den Verband und werden hier nicht gerechnet — rechne jede Schale einzeln."
+          },
+          {
+            "q": "Warum wird aufgerundet?",
+            "a": "Einen halben Stein kann man nicht kaufen, und ein Stein weniger deckt die Fläche nicht. Geht die Rechnung genau auf, kommt kein zusätzlicher Stein hinzu."
+          },
+          {
+            "q": "Wie viel Reserve für Bruch und Zuschnitt?",
+            "a": "Meist 5 bis 10 % für Transportbruch, Schnitte an Öffnungen und Ausschuss. Aufwendiges Mauerwerk mit vielen Schnitten braucht mehr; die Reserve steht in einer eigenen Zeile, damit sie sichtbar bleibt."
+          },
+          {
+            "q": "Gilt das auch für Porenbeton?",
+            "a": "Ja, sofern du die tatsächlichen Maße und die Fugendicke einträgst. Im Dünnbett sind es 2–3 mm statt 10; das Modell gilt für jeden rechteckigen Stein."
+          },
+          {
+            "q": "Ist der Mörtelbedarf enthalten?",
+            "a": "Nein. Gezählt werden Steine, nicht Mörtelvolumen: das hängt von Wandstärke und Verband ab, die hier nicht abgebildet sind."
+          }
+        ]
+      },
+      "htmlSha256": "d8f8708bd26948dbdcbca0fc89477294b3f3967236e76bf243b26589fb853129"
+    },
+    {
+      "id": "brick-calculator",
+      "locale": "es",
+      "path": "/es/reformas/ladrillos-y-bloques/",
+      "name": "Calculadora de ladrillos y bloques",
+      "h1": "Calculadora de ladrillos y bloques",
+      "seoTitle": "Calculadora de ladrillos y bloques — piezas necesarias para un muro",
+      "seoDescription": "Calcula cuántos ladrillos o bloques necesita un muro: tamaño o superficie del muro, huecos, tamaño de la pieza, junta de mortero y merma. Fábrica de una hoja.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "El muro se indica como",
+          "type": "toggle",
+          "defaultValue": "dimensions",
+          "options": [
+            {
+              "value": "dimensions",
+              "label": "Por dimensiones"
+            },
+            {
+              "value": "area",
+              "label": "Por área"
+            }
+          ]
+        },
+        {
+          "name": "wallLength",
+          "label": "Largo del muro",
+          "type": "number",
+          "defaultValue": 6,
+          "unit": "m",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "wallHeight",
+          "label": "Alto del muro",
+          "type": "number",
+          "defaultValue": 2.8,
+          "unit": "m",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "dimensions"
+          }
+        },
+        {
+          "name": "manualArea",
+          "label": "Superficie del muro",
+          "type": "number",
+          "defaultValue": 16.8,
+          "unit": "m²",
+          "min": 0.01,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "area"
+          }
+        },
+        {
+          "name": "openingsArea",
+          "label": "Superficie de los huecos",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "m²",
+          "min": 0,
+          "step": 0.01
+        },
+        {
+          "name": "unitLength",
+          "label": "Largo de la pieza",
+          "type": "number",
+          "defaultValue": 250,
+          "unit": "mm",
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "unitHeight",
+          "label": "Alto de la pieza",
+          "type": "number",
+          "defaultValue": 65,
+          "unit": "mm",
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "joint",
+          "label": "Junta de mortero",
+          "type": "number",
+          "defaultValue": 10,
+          "unit": "mm",
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "reserve",
+          "label": "Reserva",
+          "type": "number",
+          "defaultValue": 5,
+          "unit": "%",
+          "min": 0,
+          "max": 50,
+          "step": 1
+        },
+        {
+          "name": "unitPrice",
+          "label": "Precio por pieza",
+          "type": "number",
+          "defaultValue": 0,
+          "unit": "€",
+          "min": 0,
+          "step": 0.01,
+          "optional": true
+        }
+      ],
+      "defaults": {
+        "mode": "dimensions",
+        "wallLength": 6,
+        "wallHeight": 2.8,
+        "manualArea": 16.8,
+        "openingsArea": 0,
+        "unitLength": 250,
+        "unitHeight": 65,
+        "joint": 10,
+        "reserve": 5,
+        "unitPrice": 0
+      },
+      "defaultResult": {
+        "primary": {
+          "label": "Количество камней",
+          "value": "905 шт."
+        },
+        "secondary": [
+          {
+            "label": "Площадь кладки",
+            "value": "16,80 м²"
+          },
+          {
+            "label": "Камней без запаса",
+            "value": "862 шт."
+          },
+          {
+            "label": "Запас",
+            "value": "43 шт."
+          },
+          {
+            "label": "Расчётный модуль камня",
+            "value": "0,0195 м²"
+          },
+          {
+            "label": "Камней на квадратный метр",
+            "value": "51,3"
+          }
+        ],
+        "note": "Расчёт выполнен для одного слоя кладки по видимой плоскости стены. Кладка в кирпич и толще, перевязка, простенки и доборные элементы не моделируются, поэтому перед закупкой сверьтесь с проектом."
+      },
+      "body": {
+        "longDescription": "Esta calculadora determina cuántos ladrillos o bloques cubren un muro levantado como una sola hoja. Cada pieza tiene una junta a su derecha y otra encima, así que el módulo de trabajo es el tamaño de la pieza más el espesor de la junta por cada lado. La superficie de los huecos se resta de la del muro, y la merma se indica en su propia línea para que veas exactamente cuántas piezas cuesta.",
+        "howToUse": [
+          "Describe el muro por sus dimensiones, o introduce su superficie directamente si ya la conoces.",
+          "Introduce la superficie total de los huecos de ventanas y puertas: se resta de la superficie de fábrica.",
+          "Introduce el largo y el alto de la pieza en milímetros y el espesor de la junta de mortero.",
+          "Añade una merma por roturas y cortes, y un precio por pieza si necesitas el coste."
+        ],
+        "howItWorks": "La superficie de fábrica es la del muro menos la de los huecos. Cada pieza tiene una junta a su derecha y otra encima —la junta siguiente pertenece a la pieza siguiente—, así que el módulo de trabajo es el largo de la pieza más una junta multiplicado por el alto de la pieza más una junta. El número de piezas es la superficie de fábrica dividida entre ese módulo y redondeada hacia arriba. La merma se toma de esa misma cifra y se muestra aparte. El cálculo cubre una sola hoja: los muros de un pie o más no se modelan.",
+        "example": "Un muro de 6 por 2,8 m sin huecos, levantado con ladrillos de 250 por 65 mm y junta de 10 mm, da un módulo de 0,26 por 0,075 = 0,0195 m², así que 16,8 m² necesitan 862 ladrillos, o 905 con un 5 % de merma.",
+        "faq": [
+          {
+            "q": "¿Se tiene en cuenta la junta de mortero?",
+            "a": "Sí. Cada pieza tiene una junta a su derecha y otra encima; la junta contigua ya pertenece a la pieza siguiente. Así que el espesor de la junta se suma una vez al largo y una vez al alto, no dos. Con una junta de 10 mm un ladrillo de 250 por 65 mm ocupa 260 por 75 mm en el muro."
+          },
+          {
+            "q": "¿Qué espesor de muro cubre esto?",
+            "a": "Una sola hoja, medida sobre la cara vista del muro. Los muros de un pie, de pie y medio, las cámaras y los muros con hoja de revestimiento aparte exigen la geometría del aparejo y no solo una superficie, y aquí no se modelan. Para un muro de varias hojas, calcula cada una por separado."
+          },
+          {
+            "q": "¿Por qué el número se redondea hacia arriba?",
+            "a": "No se puede comprar parte de un ladrillo, y una pieza menos no cubre toda la superficie. Cuando la superficie encaja exactamente en el módulo no se añade ninguna pieza extra: el redondeo está protegido frente al ruido binario y no convierte un número exacto en ese número más uno."
+          },
+          {
+            "q": "¿Cuánta merma debo prever por roturas y cortes?",
+            "a": "Normalmente del 5 al 10 por ciento por roturas en el transporte, cortes alrededor de los huecos y defectos. Una fábrica complicada con muchos cortes necesita más. La calculadora muestra la merma en su propia línea para que la veas y no solo el total."
+          },
+          {
+            "q": "¿Cómo trato los huecos?",
+            "a": "Suma las superficies de todas las ventanas y puertas e introduce el total en el campo de huecos. Se resta de la superficie del muro. Si los huecos ocupan todo el muro no se produce cálculo: no hay nada que levantar."
+          },
+          {
+            "q": "¿Vale para bloques de hormigón celular?",
+            "a": "Sí, siempre que introduzcas sus dimensiones reales y el espesor de junta. Para fábrica con adhesivo de capa fina, pon la junta en 2-3 mm en lugar de 10. El modelo es el mismo para cualquier pieza rectangular: solo cambian los tamaños."
+          },
+          {
+            "q": "¿Incluye el consumo de mortero?",
+            "a": "No. La calculadora cuenta piezas, no volumen de mortero: eso depende del espesor del muro y del aparejo, y ninguno de los dos se modela aquí. Calcula el mortero aparte a partir de tus planos."
+          }
+        ]
+      },
+      "htmlSha256": "48e53c74cfb5d3652ed4916be22b7e0cfb1db50a50b3a99d52e94226ac8fb571"
+    }
+  ],
+  "boundary": "Read-only beforecapture; subjectread happens separately;5legacy+1V2paint,30actual188HTML"
+}

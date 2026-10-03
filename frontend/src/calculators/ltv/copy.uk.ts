@@ -1,11 +1,17 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const ltvCopyUk: CalculatorSeoCopy = {
-  name: "Калькулятор LTV",
-  slug: "ltv",
-  shortDescription: "Цінність клієнта за строком життя або відтіком.",
-  seoTitle: "Калькулятор LTV — цінність клієнта за весь час",
-  seoDescription: "Обчисліть цінність клієнта за доходом на період, відтіком або строком і валовою маржею, з відношенням до CAC.",
-  h1: "Калькулятор LTV",
-  keywords: ["ltv калькулятор", "цінність клієнта", "ltv до cac"],
+export const ltvCopyUk: CalculatorCopy = {
+  "name": "Калькулятор LTV",
+  "slug": "ltv",
+  "shortDescription": "Цінність клієнта за строком життя або відтіком.",
+  "seoTitle": "Калькулятор LTV — цінність клієнта за весь час",
+  "seoDescription": "Цінність клієнта за місячним виторгом, строком або сталим місячним відтоком і валовою маржею, до CAC та неврахованих витрат.",
+  "h1": "Калькулятор LTV",
+  "keywords": [
+    "ltv калькулятор",
+    "цінність клієнта",
+    "ltv до cac"
+  ],
+  ...contractContent.uk,
 };

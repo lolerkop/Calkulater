@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 import type { CalculatorSeoCopy } from '../../lib/platform/types';
 
 export const testScorePercentCopyUk: CalculatorSeoCopy = {
@@ -8,4 +9,5 @@ export const testScorePercentCopyUk: CalculatorSeoCopy = {
   seoDescription: 'Переведіть правильні відповіді у відсоток за тест і перевірте, чи подолано прохідний бал.',
   h1: 'Калькулятор відсотка за тест',
   keywords: ['відсоток за тест', 'калькулятор балів', 'правильні відповіді відсоток'],
+  ...contractContent.uk
 };

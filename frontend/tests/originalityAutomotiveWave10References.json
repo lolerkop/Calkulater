@@ -1,0 +1,1794 @@
+[
+  {
+    "id": "car-depreciation",
+    "inputs": {
+      "firstYearPct": 20,
+      "price": 2400000,
+      "ratePct": 12,
+      "years": 4
+    },
+    "expected": {
+      "primary": {
+        "label": "Стоимость через срок",
+        "value": "1 308 426,24 ₽"
+      },
+      "secondary": [
+        {
+          "label": "Потеряно в деньгах",
+          "value": "1 091 573,76 ₽",
+          "accent": "red"
+        },
+        {
+          "label": "Потеряно, доля",
+          "value": "45,48%"
+        },
+        {
+          "label": "Цена покупки",
+          "value": "2 400 000,00 ₽"
+        }
+      ]
+    },
+    "name": "2 400 000, 4 года, 12 % в год, первый год 20 %"
+  },
+  {
+    "id": "car-depreciation",
+    "inputs": {
+      "firstYearPct": 15,
+      "price": 950000,
+      "ratePct": 10,
+      "years": 7
+    },
+    "expected": {
+      "primary": {
+        "label": "Стоимость через срок",
+        "value": "429 138,61 ₽"
+      },
+      "secondary": [
+        {
+          "label": "Потеряно в деньгах",
+          "value": "520 861,39 ₽",
+          "accent": "red"
+        },
+        {
+          "label": "Потеряно, доля",
+          "value": "54,83%"
+        },
+        {
+          "label": "Цена покупки",
+          "value": "950 000,00 ₽"
+        }
+      ]
+    },
+    "name": "950 000, 7 лет, 10 % в год, первый год 15 %"
+  },
+  {
+    "id": "car-depreciation",
+    "inputs": {
+      "firstYearPct": 20,
+      "price": 1500000,
+      "ratePct": 12,
+      "years": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Стоимость через срок",
+        "value": "1 500 000,00 ₽"
+      },
+      "secondary": [
+        {
+          "label": "Потеряно в деньгах",
+          "value": "0,00 ₽",
+          "accent": "red"
+        },
+        {
+          "label": "Потеряно, доля",
+          "value": "0,00%"
+        },
+        {
+          "label": "Цена покупки",
+          "value": "1 500 000,00 ₽"
+        }
+      ]
+    },
+    "name": "новый автомобиль, ноль лет"
+  },
+  {
+    "id": "car-depreciation",
+    "inputs": {
+      "firstYearPct": 20,
+      "price": 0,
+      "ratePct": 12,
+      "years": 3
+    },
+    "expected": {
+      "primary": {
+        "label": "Стоимость через срок",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Цена покупки должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "нулевая цена отклоняется"
+  },
+  {
+    "id": "compression-ratio",
+    "inputs": {
+      "displacement": 454.17,
+      "chamber": 45
+    },
+    "expected": {
+      "primary": {
+        "label": "Степень сжатия",
+        "value": "11,093"
+      },
+      "secondary": [
+        {
+          "label": "Полный объём цилиндра",
+          "value": "499,17 см³"
+        },
+        {
+          "label": "Объём камеры сгорания",
+          "value": "45 см³"
+        },
+        {
+          "label": "Рабочий объём цилиндра",
+          "value": "454,17 см³"
+        },
+        {
+          "label": "Записью",
+          "value": "11,093:1"
+        }
+      ]
+    },
+    "name": "цилиндр 454,17 см³ и камера 45 см³"
+  },
+  {
+    "id": "compression-ratio",
+    "inputs": {
+      "displacement": 500,
+      "chamber": 40
+    },
+    "expected": {
+      "primary": {
+        "label": "Степень сжатия",
+        "value": "13,5"
+      },
+      "secondary": [
+        {
+          "label": "Полный объём цилиндра",
+          "value": "540 см³"
+        },
+        {
+          "label": "Объём камеры сгорания",
+          "value": "40 см³"
+        },
+        {
+          "label": "Рабочий объём цилиндра",
+          "value": "500 см³"
+        },
+        {
+          "label": "Записью",
+          "value": "13,5:1"
+        }
+      ]
+    },
+    "name": "форсированный: 500 см³ и камера 40 см³"
+  },
+  {
+    "id": "compression-ratio",
+    "inputs": {
+      "displacement": 50,
+      "chamber": 50
+    },
+    "expected": {
+      "primary": {
+        "label": "Степень сжатия",
+        "value": "2"
+      },
+      "secondary": [
+        {
+          "label": "Полный объём цилиндра",
+          "value": "100 см³"
+        },
+        {
+          "label": "Объём камеры сгорания",
+          "value": "50 см³"
+        },
+        {
+          "label": "Рабочий объём цилиндра",
+          "value": "50 см³"
+        },
+        {
+          "label": "Записью",
+          "value": "2:1"
+        }
+      ]
+    },
+    "name": "граница: камера равна рабочему объёму"
+  },
+  {
+    "id": "compression-ratio",
+    "inputs": {
+      "displacement": 454.17,
+      "chamber": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Степень сжатия",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Объём камеры сгорания должен быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "нулевая камера отклоняется"
+  },
+  {
+    "id": "compression-ratio",
+    "inputs": {
+      "displacement": 0,
+      "chamber": 45
+    },
+    "expected": {
+      "primary": {
+        "label": "Степень сжатия",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Рабочий объём цилиндра должен быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "нулевой рабочий объём отклоняется"
+  },
+  {
+    "id": "engine-displacement",
+    "inputs": {
+      "bore": 82,
+      "stroke": 86,
+      "cylinders": 4
+    },
+    "expected": {
+      "primary": {
+        "label": "Рабочий объём",
+        "value": "1 816,67 см³"
+      },
+      "secondary": [
+        {
+          "label": "Объём одного цилиндра",
+          "value": "454,17 см³"
+        },
+        {
+          "label": "В литрах",
+          "value": "1,817 л"
+        },
+        {
+          "label": "Отношение хода к диаметру",
+          "value": "1,049"
+        },
+        {
+          "label": "Цилиндров",
+          "value": "4 шт"
+        }
+      ]
+    },
+    "name": "четыре цилиндра 82×86"
+  },
+  {
+    "id": "engine-displacement",
+    "inputs": {
+      "bore": 96,
+      "stroke": 92,
+      "cylinders": 6
+    },
+    "expected": {
+      "primary": {
+        "label": "Рабочий объём",
+        "value": "3 995,5 см³"
+      },
+      "secondary": [
+        {
+          "label": "Объём одного цилиндра",
+          "value": "665,92 см³"
+        },
+        {
+          "label": "В литрах",
+          "value": "3,996 л"
+        },
+        {
+          "label": "Отношение хода к диаметру",
+          "value": "0,9583"
+        },
+        {
+          "label": "Цилиндров",
+          "value": "6 шт"
+        }
+      ]
+    },
+    "name": "шесть цилиндров 96×92"
+  },
+  {
+    "id": "engine-displacement",
+    "inputs": {
+      "bore": 50,
+      "stroke": 50,
+      "cylinders": 1
+    },
+    "expected": {
+      "primary": {
+        "label": "Рабочий объём",
+        "value": "98,175 см³"
+      },
+      "secondary": [
+        {
+          "label": "Объём одного цилиндра",
+          "value": "98,175 см³"
+        },
+        {
+          "label": "В литрах",
+          "value": "0,0982 л"
+        },
+        {
+          "label": "Отношение хода к диаметру",
+          "value": "1"
+        },
+        {
+          "label": "Цилиндров",
+          "value": "1 шт"
+        }
+      ]
+    },
+    "name": "один цилиндр 50×50"
+  },
+  {
+    "id": "engine-displacement",
+    "inputs": {
+      "bore": 0,
+      "stroke": 86,
+      "cylinders": 4
+    },
+    "expected": {
+      "primary": {
+        "label": "Рабочий объём",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Диаметр цилиндра должен быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "нулевой диаметр отклоняется"
+  },
+  {
+    "id": "engine-displacement",
+    "inputs": {
+      "bore": 82,
+      "stroke": 86,
+      "cylinders": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Рабочий объём",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Цилиндров должно быть целое число, не меньше одного",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "ноль цилиндров отклоняется"
+  },
+  {
+    "id": "fuel-consumption",
+    "inputs": {
+      "mode": "measure",
+      "litres": 42,
+      "distance": 560
+    },
+    "expected": {
+      "primary": {
+        "label": "Расход",
+        "value": "7,50 л/100 км"
+      },
+      "secondary": [
+        {
+          "label": "Литров на 100 км",
+          "value": "7,50 л/100 км"
+        },
+        {
+          "label": "Километров на литр",
+          "value": "13,33 км/л"
+        },
+        {
+          "label": "Расход на 1000 км",
+          "value": "75,00 л"
+        }
+      ]
+    },
+    "name": "42 литра на 560 км — это 7,5 л/100 км"
+  },
+  {
+    "id": "fuel-consumption",
+    "inputs": {
+      "mode": "measure",
+      "litres": 55.4,
+      "distance": 623
+    },
+    "expected": {
+      "primary": {
+        "label": "Расход",
+        "value": "8,89 л/100 км"
+      },
+      "secondary": [
+        {
+          "label": "Литров на 100 км",
+          "value": "8,89 л/100 км"
+        },
+        {
+          "label": "Километров на литр",
+          "value": "11,25 км/л"
+        },
+        {
+          "label": "Расход на 1000 км",
+          "value": "88,92 л"
+        }
+      ]
+    },
+    "name": "55,4 литра на 623 км — это 8,89 л/100 км"
+  },
+  {
+    "id": "fuel-consumption",
+    "inputs": {
+      "mode": "kml",
+      "litres": 42,
+      "distance": 560
+    },
+    "expected": {
+      "primary": {
+        "label": "Расход",
+        "value": "13,33 км/л"
+      },
+      "secondary": [
+        {
+          "label": "Литров на 100 км",
+          "value": "7,50 л/100 км"
+        },
+        {
+          "label": "Километров на литр",
+          "value": "13,33 км/л"
+        },
+        {
+          "label": "Расход на 1000 км",
+          "value": "75,00 л"
+        }
+      ]
+    },
+    "name": "режим километров на литр: 42 литра на 560 км"
+  },
+  {
+    "id": "fuel-consumption",
+    "inputs": {
+      "mode": "need",
+      "distance": 800,
+      "consumption": 7.5
+    },
+    "expected": {
+      "primary": {
+        "label": "Нужно топлива",
+        "value": "60,00 л"
+      },
+      "secondary": [
+        {
+          "label": "Расход",
+          "value": "7,50 л/100 км"
+        },
+        {
+          "label": "Пробег",
+          "value": "800 км"
+        },
+        {
+          "label": "Километров на литр",
+          "value": "13,33 км/л"
+        }
+      ]
+    },
+    "name": "сколько топлива нужно: 800 км при 7,5 л/100 км"
+  },
+  {
+    "id": "fuel-consumption",
+    "inputs": {
+      "mode": "measure",
+      "litres": 10,
+      "distance": 100
+    },
+    "expected": {
+      "primary": {
+        "label": "Расход",
+        "value": "10,00 л/100 км"
+      },
+      "secondary": [
+        {
+          "label": "Литров на 100 км",
+          "value": "10,00 л/100 км"
+        },
+        {
+          "label": "Километров на литр",
+          "value": "10,00 км/л"
+        },
+        {
+          "label": "Расход на 1000 км",
+          "value": "100,00 л"
+        }
+      ]
+    },
+    "name": "граница: 10 литров на 100 км — ровно 10 в обе стороны"
+  },
+  {
+    "id": "fuel-consumption",
+    "inputs": {
+      "mode": "measure",
+      "litres": 42,
+      "distance": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Расход",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Пробег должен быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "недопустимо: нулевой пробег"
+  },
+  {
+    "id": "fuel-consumption",
+    "inputs": {
+      "mode": "need",
+      "distance": 800,
+      "consumption": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Расход",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Расход должен быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "недопустимо: нулевой расход в режиме потребности"
+  },
+  {
+    "id": "fuel-oil-mix",
+    "inputs": {
+      "fuel": 5,
+      "ratio": 50
+    },
+    "expected": {
+      "primary": {
+        "label": "Масла",
+        "value": "100 мл"
+      },
+      "secondary": [
+        {
+          "label": "Объём смеси",
+          "value": "5,1 л"
+        },
+        {
+          "label": "Доля масла",
+          "value": "1,9608 %"
+        },
+        {
+          "label": "Соотношение",
+          "value": "1:50"
+        },
+        {
+          "label": "Бензина",
+          "value": "5 л"
+        }
+      ]
+    },
+    "name": "пять литров при 1:50"
+  },
+  {
+    "id": "fuel-oil-mix",
+    "inputs": {
+      "fuel": 10,
+      "ratio": 25
+    },
+    "expected": {
+      "primary": {
+        "label": "Масла",
+        "value": "400 мл"
+      },
+      "secondary": [
+        {
+          "label": "Объём смеси",
+          "value": "10,4 л"
+        },
+        {
+          "label": "Доля масла",
+          "value": "3,8462 %"
+        },
+        {
+          "label": "Соотношение",
+          "value": "1:25"
+        },
+        {
+          "label": "Бензина",
+          "value": "10 л"
+        }
+      ]
+    },
+    "name": "десять литров при 1:25"
+  },
+  {
+    "id": "fuel-oil-mix",
+    "inputs": {
+      "fuel": 1,
+      "ratio": 100
+    },
+    "expected": {
+      "primary": {
+        "label": "Масла",
+        "value": "10 мл"
+      },
+      "secondary": [
+        {
+          "label": "Объём смеси",
+          "value": "1,01 л"
+        },
+        {
+          "label": "Доля масла",
+          "value": "0,9901 %"
+        },
+        {
+          "label": "Соотношение",
+          "value": "1:100"
+        },
+        {
+          "label": "Бензина",
+          "value": "1 л"
+        }
+      ]
+    },
+    "name": "литр при самой бедной смеси"
+  },
+  {
+    "id": "fuel-oil-mix",
+    "inputs": {
+      "fuel": 0,
+      "ratio": 50
+    },
+    "expected": {
+      "primary": {
+        "label": "Масла",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Объём топлива должен быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "нулевое топливо отклоняется"
+  },
+  {
+    "id": "fuel-oil-mix",
+    "inputs": {
+      "fuel": 5,
+      "ratio": 10
+    },
+    "expected": {
+      "primary": {
+        "label": "Масла",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Пропорция допустима от 1:20 до 1:100",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "соотношение вне 20…100 отклоняется"
+  },
+  {
+    "id": "power-to-weight",
+    "inputs": {
+      "power": 150,
+      "powerUnit": "ps",
+      "mass": 1400
+    },
+    "expected": {
+      "primary": {
+        "label": "Удельная мощность",
+        "value": "78,80 кВт/т"
+      },
+      "secondary": [
+        {
+          "label": "Лошадиных сил на тонну",
+          "value": "107,14 л.с./т"
+        },
+        {
+          "label": "Килограммов на силу",
+          "value": "9,33 кг/л.с."
+        },
+        {
+          "label": "Мощность",
+          "value": "110,32 кВт = 150,00 л.с."
+        },
+        {
+          "label": "Расчётная масса",
+          "value": "1 400 кг"
+        }
+      ]
+    },
+    "name": "150 л.с. при 1400 кг — 78,80 кВт/т"
+  },
+  {
+    "id": "power-to-weight",
+    "inputs": {
+      "power": 450,
+      "powerUnit": "ps",
+      "mass": 1650
+    },
+    "expected": {
+      "primary": {
+        "label": "Удельная мощность",
+        "value": "200,59 кВт/т"
+      },
+      "secondary": [
+        {
+          "label": "Лошадиных сил на тонну",
+          "value": "272,73 л.с./т"
+        },
+        {
+          "label": "Килограммов на силу",
+          "value": "3,67 кг/л.с."
+        },
+        {
+          "label": "Мощность",
+          "value": "330,97 кВт = 450,00 л.с."
+        },
+        {
+          "label": "Расчётная масса",
+          "value": "1 650 кг"
+        }
+      ]
+    },
+    "name": "450 л.с. при 1650 кг — 200,59 кВт/т"
+  },
+  {
+    "id": "power-to-weight",
+    "inputs": {
+      "power": 110.3248125,
+      "powerUnit": "kw",
+      "mass": 1400
+    },
+    "expected": {
+      "primary": {
+        "label": "Удельная мощность",
+        "value": "78,80 кВт/т"
+      },
+      "secondary": [
+        {
+          "label": "Лошадиных сил на тонну",
+          "value": "107,14 л.с./т"
+        },
+        {
+          "label": "Килограммов на силу",
+          "value": "9,33 кг/л.с."
+        },
+        {
+          "label": "Мощность",
+          "value": "110,32 кВт = 150,00 л.с."
+        },
+        {
+          "label": "Расчётная масса",
+          "value": "1 400 кг"
+        }
+      ]
+    },
+    "name": "ввод в киловаттах: 110,3248 кВт при 1400 кг — тот же результат"
+  },
+  {
+    "id": "power-to-weight",
+    "inputs": {
+      "power": 150,
+      "powerUnit": "ps",
+      "mass": 1400,
+      "payload": 200
+    },
+    "expected": {
+      "primary": {
+        "label": "Удельная мощность",
+        "value": "68,95 кВт/т"
+      },
+      "secondary": [
+        {
+          "label": "Лошадиных сил на тонну",
+          "value": "93,75 л.с./т"
+        },
+        {
+          "label": "Килограммов на силу",
+          "value": "10,67 кг/л.с."
+        },
+        {
+          "label": "Мощность",
+          "value": "110,32 кВт = 150,00 л.с."
+        },
+        {
+          "label": "Расчётная масса",
+          "value": "1 600 кг"
+        },
+        {
+          "label": "Без нагрузки было бы",
+          "value": "78,80 кВт/т"
+        }
+      ]
+    },
+    "name": "нагрузка увеличивает массу: 150 л.с., 1400 кг и 200 кг груза"
+  },
+  {
+    "id": "power-to-weight",
+    "inputs": {
+      "power": 1,
+      "powerUnit": "ps",
+      "mass": 1000
+    },
+    "expected": {
+      "primary": {
+        "label": "Удельная мощность",
+        "value": "0,74 кВт/т"
+      },
+      "secondary": [
+        {
+          "label": "Лошадиных сил на тонну",
+          "value": "1,00 л.с./т"
+        },
+        {
+          "label": "Килограммов на силу",
+          "value": "1 000,00 кг/л.с."
+        },
+        {
+          "label": "Мощность",
+          "value": "0,74 кВт = 1,00 л.с."
+        },
+        {
+          "label": "Расчётная масса",
+          "value": "1 000 кг"
+        }
+      ]
+    },
+    "name": "граница: 1 л.с. на 1000 кг — ровно 1 л.с. на тонну"
+  },
+  {
+    "id": "power-to-weight",
+    "inputs": {
+      "power": 150,
+      "powerUnit": "ps",
+      "mass": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Удельная мощность",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Масса должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "недопустимо: нулевая масса"
+  },
+  {
+    "id": "power-to-weight",
+    "inputs": {
+      "power": 0,
+      "powerUnit": "ps",
+      "mass": 1400
+    },
+    "expected": {
+      "primary": {
+        "label": "Удельная мощность",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Мощность должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "недопустимо: нулевая мощность"
+  },
+  {
+    "id": "quarter-mile-elapsed-time",
+    "inputs": {
+      "power": 150,
+      "mass": 1300
+    },
+    "expected": {
+      "primary": {
+        "label": "Время четверти мили",
+        "value": "15,572 с"
+      },
+      "secondary": [
+        {
+          "label": "Скорость на финише",
+          "value": "140,86 км/ч"
+        },
+        {
+          "label": "Удельная мощность",
+          "value": "115,38 л.с./т"
+        },
+        {
+          "label": "Масса в фунтах",
+          "value": "2 866,01 фунт"
+        },
+        {
+          "label": "Скорость на финише в милях в час",
+          "value": "87,529 миль/ч"
+        }
+      ]
+    },
+    "name": "обычный 1"
+  },
+  {
+    "id": "quarter-mile-elapsed-time",
+    "inputs": {
+      "power": 500,
+      "mass": 1600
+    },
+    "expected": {
+      "primary": {
+        "label": "Время четверти мили",
+        "value": "11,172 с"
+      },
+      "secondary": [
+        {
+          "label": "Скорость на финише",
+          "value": "196,35 км/ч"
+        },
+        {
+          "label": "Удельная мощность",
+          "value": "312,5 л.с./т"
+        },
+        {
+          "label": "Масса в фунтах",
+          "value": "3 527,4 фунт"
+        },
+        {
+          "label": "Скорость на финише в милях в час",
+          "value": "122,01 миль/ч"
+        }
+      ]
+    },
+    "name": "обычный 2"
+  },
+  {
+    "id": "quarter-mile-elapsed-time",
+    "inputs": {
+      "power": 1,
+      "mass": 1000
+    },
+    "expected": {
+      "primary": {
+        "label": "Время четверти мили",
+        "value": "75,812 с"
+      },
+      "secondary": [
+        {
+          "label": "Скорость на финише",
+          "value": "28,935 км/ч"
+        },
+        {
+          "label": "Удельная мощность",
+          "value": "1 л.с./т"
+        },
+        {
+          "label": "Масса в фунтах",
+          "value": "2 204,62 фунт"
+        },
+        {
+          "label": "Скорость на финише в милях в час",
+          "value": "17,979 миль/ч"
+        }
+      ]
+    },
+    "name": "граница 3"
+  },
+  {
+    "id": "quarter-mile-elapsed-time",
+    "inputs": {
+      "power": 0,
+      "mass": 1300
+    },
+    "expected": {
+      "primary": {
+        "label": "Время четверти мили",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Мощность должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "мощность должна быть больше нуля"
+  },
+  {
+    "id": "quarter-mile-elapsed-time",
+    "inputs": {
+      "power": 150,
+      "mass": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Время четверти мили",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Масса должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "масса должна быть больше нуля"
+  },
+  {
+    "id": "speed-distance-time",
+    "inputs": {
+      "mode": "speed",
+      "distance": 420,
+      "time": 5
+    },
+    "expected": {
+      "primary": {
+        "label": "Скорость",
+        "value": "84,00 км/ч"
+      },
+      "secondary": [
+        {
+          "label": "Время в пути",
+          "value": "5 ч 0 мин"
+        },
+        {
+          "label": "Скорость",
+          "value": "84,00 км/ч"
+        },
+        {
+          "label": "Расстояние",
+          "value": "420,00 км"
+        },
+        {
+          "label": "Минут на километр",
+          "value": "0,71"
+        }
+      ]
+    },
+    "name": "420 км за 5 часов — 84 км/ч"
+  },
+  {
+    "id": "speed-distance-time",
+    "inputs": {
+      "mode": "distance",
+      "speed": 90,
+      "time": 2.5
+    },
+    "expected": {
+      "primary": {
+        "label": "Расстояние",
+        "value": "225,00 км"
+      },
+      "secondary": [
+        {
+          "label": "Время в пути",
+          "value": "2 ч 30 мин"
+        },
+        {
+          "label": "Скорость",
+          "value": "90,00 км/ч"
+        },
+        {
+          "label": "Расстояние",
+          "value": "225,00 км"
+        },
+        {
+          "label": "Минут на километр",
+          "value": "0,67"
+        }
+      ]
+    },
+    "name": "90 км/ч в течение 2,5 часа — 225 км"
+  },
+  {
+    "id": "speed-distance-time",
+    "inputs": {
+      "mode": "time",
+      "distance": 150,
+      "speed": 60
+    },
+    "expected": {
+      "primary": {
+        "label": "Время",
+        "value": "2,5000 ч"
+      },
+      "secondary": [
+        {
+          "label": "Время в пути",
+          "value": "2 ч 30 мин"
+        },
+        {
+          "label": "Скорость",
+          "value": "60,00 км/ч"
+        },
+        {
+          "label": "Расстояние",
+          "value": "150,00 км"
+        },
+        {
+          "label": "Минут на километр",
+          "value": "1,00"
+        }
+      ]
+    },
+    "name": "150 км при 60 км/ч — два с половиной часа"
+  },
+  {
+    "id": "speed-distance-time",
+    "inputs": {
+      "mode": "time",
+      "distance": 150,
+      "speed": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Результат",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Скорость должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "граница: нулевая скорость не задаёт время"
+  },
+  {
+    "id": "speed-distance-time",
+    "inputs": {
+      "mode": "speed",
+      "distance": -10,
+      "time": 5
+    },
+    "expected": {
+      "primary": {
+        "label": "Результат",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Значения не могут быть отрицательными",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "недопустимо: отрицательное расстояние"
+  },
+  {
+    "id": "stopping-distance",
+    "inputs": {
+      "speed": 90,
+      "reaction": 1,
+      "mu": 0.7,
+      "grade": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Полный остановочный путь",
+        "value": "70,523 м"
+      },
+      "secondary": [
+        {
+          "label": "Путь за время реакции",
+          "value": "25 м"
+        },
+        {
+          "label": "Тормозной путь",
+          "value": "45,523 м"
+        },
+        {
+          "label": "Замедление",
+          "value": "6,865 м/с²"
+        },
+        {
+          "label": "Время торможения",
+          "value": "3,642 с"
+        }
+      ]
+    },
+    "name": "90 км/ч по сухому асфальту"
+  },
+  {
+    "id": "stopping-distance",
+    "inputs": {
+      "speed": 60,
+      "reaction": 1.2,
+      "mu": 0.4,
+      "grade": -5
+    },
+    "expected": {
+      "primary": {
+        "label": "Полный остановочный путь",
+        "value": "60,465 м"
+      },
+      "secondary": [
+        {
+          "label": "Путь за время реакции",
+          "value": "20 м"
+        },
+        {
+          "label": "Тормозной путь",
+          "value": "40,465 м"
+        },
+        {
+          "label": "Замедление",
+          "value": "3,432 м/с²"
+        },
+        {
+          "label": "Время торможения",
+          "value": "4,856 с"
+        }
+      ]
+    },
+    "name": "60 км/ч по мокрой дороге под уклон"
+  },
+  {
+    "id": "stopping-distance",
+    "inputs": {
+      "speed": 50,
+      "reaction": 0,
+      "mu": 0.7,
+      "grade": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Полный остановочный путь",
+        "value": "14,05 м"
+      },
+      "secondary": [
+        {
+          "label": "Путь за время реакции",
+          "value": "0 м"
+        },
+        {
+          "label": "Тормозной путь",
+          "value": "14,05 м"
+        },
+        {
+          "label": "Замедление",
+          "value": "6,865 м/с²"
+        },
+        {
+          "label": "Время торможения",
+          "value": "2,023 с"
+        }
+      ]
+    },
+    "name": "граница: нулевое время реакции"
+  },
+  {
+    "id": "stopping-distance",
+    "inputs": {
+      "speed": 0,
+      "reaction": 1,
+      "mu": 0.7,
+      "grade": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Полный остановочный путь",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Скорость должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "нулевая скорость отклоняется"
+  },
+  {
+    "id": "stopping-distance",
+    "inputs": {
+      "speed": 90,
+      "reaction": 1,
+      "mu": 0.3,
+      "grade": -40
+    },
+    "expected": {
+      "primary": {
+        "label": "Полный остановочный путь",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Спуск круче сцепления: остановиться торможением невозможно",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "уклон круче сцепления отклоняется"
+  },
+  {
+    "id": "tire-size",
+    "inputs": {
+      "width": 205,
+      "profile": 55,
+      "diameter": 16
+    },
+    "expected": {
+      "primary": {
+        "label": "Внешний диаметр",
+        "value": "631,9 мм"
+      },
+      "secondary": [
+        {
+          "label": "Высота профиля",
+          "value": "112,75 мм"
+        },
+        {
+          "label": "Длина окружности",
+          "value": "1 985,17 мм"
+        },
+        {
+          "label": "Оборотов на километр",
+          "value": "503,73"
+        },
+        {
+          "label": "Диаметр в дюймах",
+          "value": "24,878"
+        }
+      ]
+    },
+    "name": "типоразмер 205/55 R16"
+  },
+  {
+    "id": "tire-size",
+    "inputs": {
+      "width": 225,
+      "profile": 45,
+      "diameter": 17
+    },
+    "expected": {
+      "primary": {
+        "label": "Внешний диаметр",
+        "value": "634,3 мм"
+      },
+      "secondary": [
+        {
+          "label": "Высота профиля",
+          "value": "101,25 мм"
+        },
+        {
+          "label": "Длина окружности",
+          "value": "1 992,71 мм"
+        },
+        {
+          "label": "Оборотов на километр",
+          "value": "501,83"
+        },
+        {
+          "label": "Диаметр в дюймах",
+          "value": "24,972"
+        }
+      ]
+    },
+    "name": "типоразмер 225/45 R17"
+  },
+  {
+    "id": "tire-size",
+    "inputs": {
+      "width": 255,
+      "profile": 30,
+      "diameter": 20
+    },
+    "expected": {
+      "primary": {
+        "label": "Внешний диаметр",
+        "value": "661 мм"
+      },
+      "secondary": [
+        {
+          "label": "Высота профиля",
+          "value": "76,5 мм"
+        },
+        {
+          "label": "Длина окружности",
+          "value": "2 076,59 мм"
+        },
+        {
+          "label": "Оборотов на километр",
+          "value": "481,56"
+        },
+        {
+          "label": "Диаметр в дюймах",
+          "value": "26,024"
+        }
+      ]
+    },
+    "name": "граница: низкий профиль 30 на двадцатом диске"
+  },
+  {
+    "id": "tire-size",
+    "inputs": {
+      "width": 0,
+      "profile": 55,
+      "diameter": 16
+    },
+    "expected": {
+      "primary": {
+        "label": "Внешний диаметр",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Ширина шины должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "нулевая ширина отклоняется"
+  },
+  {
+    "id": "trip-cost",
+    "inputs": {
+      "distance": 800,
+      "consumption": 7.5,
+      "fuelPrice": 62,
+      "tolls": 0,
+      "passengers": 1
+    },
+    "expected": {
+      "primary": {
+        "label": "Стоимость поездки",
+        "value": "3 720,00 ₽"
+      },
+      "secondary": [
+        {
+          "label": "Топливо",
+          "value": "3 720,00 ₽"
+        },
+        {
+          "label": "Израсходовано литров",
+          "value": "60,00 л"
+        },
+        {
+          "label": "Пройденное расстояние",
+          "value": "800 км"
+        }
+      ]
+    },
+    "name": "800 км при 7,5 л/100 и цене 62 — 3720 рублей"
+  },
+  {
+    "id": "trip-cost",
+    "inputs": {
+      "distance": 1200,
+      "consumption": 9,
+      "fuelPrice": 58,
+      "tolls": 1500,
+      "passengers": 4
+    },
+    "expected": {
+      "primary": {
+        "label": "Стоимость поездки",
+        "value": "7 764,00 ₽"
+      },
+      "secondary": [
+        {
+          "label": "Топливо",
+          "value": "6 264,00 ₽"
+        },
+        {
+          "label": "Израсходовано литров",
+          "value": "108,00 л"
+        },
+        {
+          "label": "Пройденное расстояние",
+          "value": "1 200 км"
+        },
+        {
+          "label": "Платные дороги",
+          "value": "1 500,00 ₽"
+        },
+        {
+          "label": "На человека",
+          "value": "1 941,00 ₽"
+        },
+        {
+          "label": "Пассажиров",
+          "value": "4"
+        }
+      ]
+    },
+    "name": "с платными дорогами и делением на четверых"
+  },
+  {
+    "id": "trip-cost",
+    "inputs": {
+      "distance": 800,
+      "consumption": 7.5,
+      "fuelPrice": 62,
+      "tolls": 0,
+      "passengers": 1,
+      "roundTrip": "yes"
+    },
+    "expected": {
+      "primary": {
+        "label": "Стоимость поездки",
+        "value": "7 440,00 ₽"
+      },
+      "secondary": [
+        {
+          "label": "Топливо",
+          "value": "7 440,00 ₽"
+        },
+        {
+          "label": "Израсходовано литров",
+          "value": "120,00 л"
+        },
+        {
+          "label": "Пройденное расстояние",
+          "value": "1 600 км"
+        }
+      ]
+    },
+    "name": "туда и обратно удваивает путь и стоимость"
+  },
+  {
+    "id": "trip-cost",
+    "inputs": {
+      "distance": 100,
+      "consumption": 10,
+      "fuelPrice": 60,
+      "tolls": 0,
+      "passengers": 1
+    },
+    "expected": {
+      "primary": {
+        "label": "Стоимость поездки",
+        "value": "600,00 ₽"
+      },
+      "secondary": [
+        {
+          "label": "Топливо",
+          "value": "600,00 ₽"
+        },
+        {
+          "label": "Израсходовано литров",
+          "value": "10,00 л"
+        },
+        {
+          "label": "Пройденное расстояние",
+          "value": "100 км"
+        }
+      ]
+    },
+    "name": "граница: без платных дорог итог равен стоимости топлива"
+  },
+  {
+    "id": "trip-cost",
+    "inputs": {
+      "distance": 800,
+      "consumption": 7.5,
+      "fuelPrice": 62,
+      "tolls": 0,
+      "passengers": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Стоимость поездки",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Пассажиров должно быть не меньше одного",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "недопустимо: ноль пассажиров"
+  },
+  {
+    "id": "wheel-offset",
+    "inputs": {
+      "width": 7,
+      "offset": 35,
+      "newOffset": 45
+    },
+    "expected": {
+      "primary": {
+        "label": "Вылет назад",
+        "value": "136,6 мм"
+      },
+      "secondary": [
+        {
+          "label": "Ширина диска",
+          "value": "177,8 мм"
+        },
+        {
+          "label": "Смещение колеса",
+          "value": "10 мм"
+        },
+        {
+          "label": "Куда сместится",
+          "value": "внутрь"
+        },
+        {
+          "label": "Вылет назад после замены",
+          "value": "146,6 мм"
+        }
+      ]
+    },
+    "name": "диск 7 дюймов, вылет 35 на 45"
+  },
+  {
+    "id": "wheel-offset",
+    "inputs": {
+      "width": 9.5,
+      "offset": 20,
+      "newOffset": 0
+    },
+    "expected": {
+      "primary": {
+        "label": "Вылет назад",
+        "value": "153,35 мм"
+      },
+      "secondary": [
+        {
+          "label": "Ширина диска",
+          "value": "241,3 мм"
+        },
+        {
+          "label": "Смещение колеса",
+          "value": "20 мм"
+        },
+        {
+          "label": "Куда сместится",
+          "value": "наружу"
+        },
+        {
+          "label": "Вылет назад после замены",
+          "value": "133,35 мм"
+        }
+      ]
+    },
+    "name": "широкий 9,5 дюйма, вылет 20 на 0"
+  },
+  {
+    "id": "wheel-offset",
+    "inputs": {
+      "width": 7,
+      "offset": 35,
+      "newOffset": 35
+    },
+    "expected": {
+      "primary": {
+        "label": "Вылет назад",
+        "value": "136,6 мм"
+      },
+      "secondary": [
+        {
+          "label": "Ширина диска",
+          "value": "177,8 мм"
+        },
+        {
+          "label": "Смещение колеса",
+          "value": "0 мм"
+        },
+        {
+          "label": "Куда сместится",
+          "value": "без смещения"
+        },
+        {
+          "label": "Вылет назад после замены",
+          "value": "136,6 мм"
+        }
+      ]
+    },
+    "name": "граница: вылеты совпадают"
+  },
+  {
+    "id": "wheel-offset",
+    "inputs": {
+      "width": 0,
+      "offset": 35,
+      "newOffset": 45
+    },
+    "expected": {
+      "primary": {
+        "label": "Вылет назад",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Ширина диска должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "нулевая ширина отклоняется"
+  },
+  {
+    "id": "wheel-offset",
+    "inputs": {
+      "width": -7,
+      "offset": 35,
+      "newOffset": 45
+    },
+    "expected": {
+      "primary": {
+        "label": "Вылет назад",
+        "value": "—"
+      },
+      "secondary": [
+        {
+          "label": "Проверьте данные",
+          "value": "Ширина диска должна быть больше нуля",
+          "accent": "red"
+        }
+      ]
+    },
+    "name": "отрицательная ширина отклоняется"
+  }
+]

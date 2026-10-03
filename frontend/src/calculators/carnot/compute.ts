@@ -1,41 +1,31 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-import { formatMeasure, formatStatistic } from '../../lib/platform/measurement';
-
-// Предельный КПД тепловой машины: η = 1 − Tc/Th.
-//
-// Это ПОТОЛОК, а не фактический КПД: ни один настоящий двигатель его не
-// достигает, потому что цикл Карно требует бесконечно медленных процессов без
-// трения и теплообмена при конечной разности температур. Реальный ДВС отдаёт
-// около трети, паровая турбина — около половины того, что обещает Карно.
-//
-// Температуры только в кельвинах: формула про отношение абсолютных температур,
-// и подстановка градусов Цельсия дала бы бессмыслицу, включая отрицательный
-// КПД при комнатной температуре. Ноль и ниже отвергаются, а холодная сторона
-// не может быть теплее горячей — это не край диапазона, а перепутанные поля.
-const REFERENCE_HEAT = 1000;
+import { fmtNumber } from '../../lib/format';
+import { formatStatistic } from '../../lib/platform/measurement';
+import { INPUT, RANGE, read, qty } from '../../lib/platform/measurementScalar';
+import { add, exact, negative, times } from '../../lib/platform/geometryNumericInput';
+import { evaluated } from '../../lib/platform/electronicsNumericInput';
 
 export const compute: CalcFunction = (inputs) => {
-  const tHot = toNumber(inputs.tHot);
-  const tCold = toNumber(inputs.tCold);
-  const fail = (message: string) => ({
-    primary: { label: 'Предельный КПД', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (!(tHot > 0)) return fail('Температура нагревателя должна быть больше нуля кельвинов');
-  if (!(tCold > 0)) return fail('Температура холодильника должна быть больше нуля кельвинов');
+  const tHot = read(inputs.tHot), tCold = read(inputs.tCold);
+  const fail = (message: string) => ({ primary: { label: 'Предельный КПД', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (![tHot, tCold].every(Number.isFinite)) return fail(INPUT);
+  if (tHot <= 0) return fail('Температура нагревателя должна быть больше нуля кельвинов');
+  if (tCold <= 0) return fail('Температура холодильника должна быть больше нуля кельвинов');
   if (tCold >= tHot) return fail('Холодильник не может быть теплее нагревателя');
-
-  const eta = 1 - tCold / tHot;
-  const m = (value: number, unit: string) => `${formatMeasure(value, fmtNumber)} ${unit}`;
+  const difference = add(exact(tHot), negative(exact(tCold)));
+  const percent = evaluated(times(exact(100), difference), exact(tHot));
+  const useful = evaluated(times(exact(1000), difference), exact(tHot));
+  const discarded = evaluated(times(exact(1000), exact(tCold)), exact(tHot));
+  const delta = evaluated(difference), fraction = evaluated(exact(tCold), exact(tHot));
+  if (![percent, useful, discarded, delta, fraction].every(Number.isFinite)) return fail(RANGE);
+  const percentage = percent < 1e-4 ? qty(percent) : formatStatistic(percent, fmtNumber);
   return {
-    primary: { label: 'Предельный КПД', value: `${formatStatistic(eta * 100, fmtNumber)} %` },
+    primary: { label: 'Предельный КПД', value: `${percentage} %` },
     secondary: [
-      { label: 'Полезная работа из 1000 Дж тепла', value: m(eta * REFERENCE_HEAT, 'Дж') },
-      { label: 'Отдано холодильнику', value: m((1 - eta) * REFERENCE_HEAT, 'Дж') },
-      { label: 'Перепад температур', value: m(tHot - tCold, 'К') },
-      { label: 'Отношение температур', value: formatMeasure(tCold / tHot, fmtNumber) },
+      { label: 'Полезная работа из 1000 Дж тепла', value: `${qty(useful)} Дж` },
+      { label: 'Отдано холодильнику', value: `${qty(discarded)} Дж` },
+      { label: 'Перепад температур', value: `${qty(delta)} К` },
+      { label: 'Отношение температур', value: qty(fraction) },
     ],
   };
 };

@@ -1,5 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
+import { number as toNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
 
 // Оплата за месяц с учётом сверхурочных часов.
 //
@@ -26,6 +27,8 @@ export const compute: CalcFunction = (inputs) => {
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (rate === null || normalHours === null || overtimeHours === null || multiplier === null) return fail('Введите корректные числовые данные');
+
   if (!(rate > 0)) return fail('Ставка за час должна быть больше нуля');
   if (normalHours < 0 || overtimeHours < 0) return fail('Часы не могут быть отрицательными');
   if (!(multiplier >= 1)) return fail('Коэффициент сверхурочных не может быть меньше единицы');
@@ -33,14 +36,17 @@ export const compute: CalcFunction = (inputs) => {
   const base = rate * normalHours;
   const overtime = rate * multiplier * overtimeHours;
   const hours = normalHours + overtimeHours;
+  const total = base + overtime;
+  const average = hours > 0 ? base / hours + overtime / hours : null;
+  if (![base, overtime, hours, total].every(v => validOutput(v)) || (normalHours > 0 && base === 0) || (overtimeHours > 0 && overtime === 0) || (average !== null && !validOutput(average, true))) return fail('Результат вне допустимого диапазона');
   const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
 
   return {
-    primary: { label: 'Всего к оплате', value: money(base + overtime) },
+    primary: { label: 'Всего к оплате', value: money(total) },
     secondary: [
       { label: 'Оплата обычных часов', value: money(base) },
       { label: 'Оплата сверхурочных', value: money(overtime), accent: overtime > 0 ? 'green' : undefined },
-      { label: 'Средняя ставка за час', value: money(hours > 0 ? (base + overtime) / hours : 0) },
+      ...(average === null ? [] : [{ label: 'Средняя ставка за час', value: money(average) }]),
     ],
   };
 };

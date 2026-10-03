@@ -1,13 +1,36 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
+const contractValues = {
+  "en": {
+    "Введите корректные значения": "Enter valid numerical values",
+    "Результат выходит за числовые пределы расчёта": "The result exceeds the numerical limits of this calculation",
+    "Оплачиваемая доля должна быть больше нуля и не больше 100 %": "The billable share must be above zero and at most 100%"
+  },
+  "uk": {
+    "Введите корректные значения": "Введіть коректні числові значення",
+    "Результат выходит за числовые пределы расчёта": "Результат виходить за числові межі розрахунку",
+    "Оплачиваемая доля должна быть больше нуля и не больше 100 %": "Оплачувана частка має бути понад нуль і не більше 100%"
+  },
+  "de": {
+    "Введите корректные значения": "Gib gültige Zahlenwerte ein",
+    "Результат выходит за числовые пределы расчёта": "Das Ergebnis überschreitet die Zahlengrenzen dieser Rechnung",
+    "Оплачиваемая доля должна быть больше нуля и не больше 100 %": "Der abrechenbare Anteil muss über null und höchstens bei 100% liegen"
+  },
+  "es": {
+    "Введите корректные значения": "Introduce valores numéricos válidos",
+    "Результат выходит за числовые пределы расчёта": "El resultado supera los límites numéricos del cálculo",
+    "Оплачиваемая доля должна быть больше нуля и не больше 100 %": "La parte facturable debe superar cero y no exceder el 100%"
+  }
+} as const;
+
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'targetIncome': 'Zieleinkommen netto je Monat, €',
+      'targetIncome': 'Zieleinkommen netto je Monat',
       'workDays': 'Arbeitstage je Monat',
       'hoursPerDay': 'Arbeitsstunden je Tag',
       'billablePct': 'Abrechenbarer Anteil der Stunden, %',
-      'expenses': 'Betriebskosten je Monat, €',
+      'expenses': 'Betriebskosten je Monat',
       'taxPct': 'Steuersatz, %',
     },
     results: {
@@ -20,6 +43,7 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      ...contractValues.de,
       '₽': '€',
       'ч': 'h',
       'Желаемый доход должен быть больше нуля': 'Das Zieleinkommen muss größer als null sein',
@@ -32,11 +56,11 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      "targetIncome": "Target take-home per month, $",
+      "targetIncome": "Target take-home per month",
       "workDays": "Working days per month",
       "hoursPerDay": "Working hours per day",
       "billablePct": "Billable share of hours, %",
-      "expenses": "Business costs per month, $",
+      "expenses": "Business costs per month",
       "taxPct": "Tax rate, %",
     },
     options: {},
@@ -50,6 +74,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      ...contractValues.en,
       "₽": "$",
       "ч": "h",
       "Желаемый доход должен быть больше нуля": "The target income must be greater than zero",
@@ -62,11 +87,11 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      "targetIncome": "Бажаний дохід на руки за місяць, ₴",
+      "targetIncome": "Бажаний дохід на руки за місяць",
       "workDays": "Робочих днів на місяць",
       "hoursPerDay": "Робочих годин на день",
       "billablePct": "Частка оплачуваних годин, %",
-      "expenses": "Витрати на роботу за місяць, ₴",
+      "expenses": "Витрати на роботу за місяць",
       "taxPct": "Ставка податку, %",
     },
     options: {},
@@ -80,6 +105,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      ...contractValues.uk,
       "₽": "₴",
       "ч": "год",
       "Желаемый доход должен быть больше нуля": "Бажаний дохід має бути більшим за нуль",
@@ -92,11 +118,11 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "targetIncome": "Ingresos netos objetivo al mes, €",
+      "targetIncome": "Ingresos netos objetivo al mes",
       "workDays": "Días de trabajo al mes",
       "hoursPerDay": "Horas de trabajo al día",
       "billablePct": "Parte facturable de las horas, %",
-      "expenses": "Gastos del negocio al mes, €",
+      "expenses": "Gastos del negocio al mes",
       "taxPct": "Tipo impositivo, %",
     },
     options: {},
@@ -110,6 +136,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      ...contractValues.es,
       "₽": "€",
       "ч": "h",
       "Желаемый доход должен быть больше нуля": "Los ingresos objetivo deben ser mayores que cero",

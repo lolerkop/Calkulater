@@ -29,4 +29,39 @@ export const physicsTorqueReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: { force: 50, radius: -0.3, angle: 90 },
     expectPrimary: '—',
   },
+
+  // Wave 4: fixed expectations derived analytically from the stated model.
+  {
+  "name": "radius0.3м под30градусами означает плечо0.15м",
+  "inputs": {
+    "force": 50,
+    "radius": 0.3,
+    "angle": 30
+  },
+  "expectPrimary": "7,5 Н·м",
+  "expectSecondary": [
+    {
+      "label": "Плечо силы",
+      "value": "0,15 м"
+    }
+  ]
+},
+  {
+  "name": "развёрнутый угол180градусов точно даёт нулевой момент",
+  "inputs": {
+    "force": 50,
+    "radius": 0.3,
+    "angle": 180
+  },
+  "expectPrimary": "0 Н·м"
+},
+  {
+  "name": "ошибка: угол181градус вне принятого модуля0–180",
+  "inputs": {
+    "force": 50,
+    "radius": 0.3,
+    "angle": 181
+  },
+  "expectPrimary": "—"
+},
 ];

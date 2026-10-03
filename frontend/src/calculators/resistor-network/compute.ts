@@ -1,52 +1,25 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, parseLocalizedNumber, toStr } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
-
-// Сопротивление цепи резисторов.
-//
-// Отгруженный ohms-law связывает U, I, R и P для ОДНОГО резистора. Здесь другая
-// задача: несколько резисторов и способ их соединения.
-//
-// Наименьший и наибольший номиналы показаны рядом с итогом не для красоты.
-// Параллельное соединение всегда даёт меньше самого маленького номинала, а
-// последовательное — больше самого большого; две эти строки позволяют посетителю
-// проверить ответ, не пересчитывая цепь.
-
-const tokenize = (raw: string): string[] =>
-  raw.replace(/,(?=\s|$)/g, ' ').split(/[\s;]+/).filter(Boolean);
-
+import { fmtNumber } from '../../lib/format';
+import { read, INPUT, MODE, RANGE } from '../../lib/platform/measurementScalar';
+import { formatMeasure, formatQuantity } from '../../lib/platform/measurement';
 export const compute: CalcFunction = (inputs) => {
-  const parallel = toStr(inputs.mode, 'series') === 'parallel';
-  const fail = (message: string) => ({
-    primary: { label: 'Общее сопротивление', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  const values: number[] = [];
-  for (const token of tokenize(toStr(inputs.resistances, ''))) {
-    const value = parseLocalizedNumber(token, 'ru');
-    if (value === null) return fail(`Не число: ${token}`);
-    if (!(value > 0)) return fail('Сопротивление должно быть больше нуля');
-    values.push(value);
-  }
-  if (values.length < 2) return fail('Нужно хотя бы два резистора');
-
-  const total = parallel
-    ? 1 / values.reduce((sum, r) => sum + 1 / r, 0)
-    : values.reduce((sum, r) => sum + r, 0);
-
-  const ohm = (value: number) => `${formatMeasure(value, fmtNumber)} Ом`;
-
-  return {
-    primary: { label: 'Общее сопротивление', value: ohm(total) },
-    secondary: [
-      { label: 'Резисторов', value: fmtNumber(values.length, 0) },
-      { label: 'Наименьший', value: ohm(Math.min(...values)) },
-      { label: 'Наибольший', value: ohm(Math.max(...values)) },
-      {
-        label: 'Соединение',
-        value: parallel ? 'параллельное' : 'последовательное',
-      },
-    ],
-  };
+  const fail = (message: string) => ({ primary: { label: 'Общее сопротивление', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (inputs.mode !== 'series' && inputs.mode !== 'parallel') return fail(MODE);
+  if (typeof inputs.resistances !== 'string') return fail(INPUT);
+  if (inputs.resistances.length > 16384) return fail('Список ограничен 256 номиналами и 16 384 символами');
+  const tokens = inputs.resistances.trim().replace(/,(?=\s|$)/g, ' ').split(/[\s;]+/).filter(Boolean);
+  if (tokens.length < 2) return fail('Нужно хотя бы два резистора');
+  if (tokens.length > 256) return fail('Список ограничен 256 номиналами и 16 384 символами');
+  const values = tokens.map(read);
+  if (!values.every(Number.isFinite)) return fail(INPUT);
+  if (!values.every(n => n > 0)) return fail('Сопротивление должно быть больше нуля');
+  const min = values.reduce((a, b) => Math.min(a, b)), max = values.reduce((a, b) => Math.max(a, b));
+  // Scale conductances by the smallest resistance, avoiding reciprocal overflow.
+  const total = inputs.mode === 'parallel' ? min / values.reduce((sum, n) => sum + min / n, 0) : values.reduce((sum, n) => sum + n, 0);
+  if (!(Number.isFinite(total) && total > 0)) return fail(RANGE);
+  const ohm = (n: number) => (n < 1e-4 || n >= 1e12 ? formatQuantity(n, fmtNumber) : formatMeasure(n, fmtNumber)) + ' Ом';
+  return { primary: { label: 'Общее сопротивление', value: ohm(total) }, secondary: [
+    { label: 'Резисторов', value: fmtNumber(values.length, 0) }, { label: 'Наименьший', value: ohm(min) }, { label: 'Наибольший', value: ohm(max) },
+    { label: 'Соединение', value: inputs.mode === 'parallel' ? 'параллельное' : 'последовательное' },
+  ] };
 };

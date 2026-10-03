@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
@@ -13,4 +14,5 @@ export const readingSpeedCopyEs: CalculatorSeoCopy = {
   seoDescription: "Mide tu velocidad de lectura en palabras por minuto y estima cuánto tardarías en leer un libro de una extensión dada.",
   h1: "Calculadora de velocidad de lectura",
   keywords: ["calculadora de velocidad de lectura", "palabras por minuto", "prueba de velocidad lectora"],
+  ...contractContent.es
 };

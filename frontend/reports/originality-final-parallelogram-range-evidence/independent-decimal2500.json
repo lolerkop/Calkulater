@@ -1,0 +1,336 @@
+{
+  "provenance": "Independent Decimal2500 on exact binary64 input rationals; mathematical PI vs production rounded Math.PI/180 differs at <1ULP-relative level, well below declared4sig display precision. Trig Taylor remainder for these angles below1e-15000relative, Chudnovsky181terms error below~1e-2500. Not correct-rounding certification for arbitrary doubles.",
+  "displayPrecision": "Independent Decimal4significant scientific notation below1e-7/atleast1e12; otherwise declared fixed decimal2/3/4/6 half-expand quantization. Does not call production formatter.",
+  "cases": [
+    {
+      "expectedDisplayNumeric": {
+        "area": 8.623e-26,
+        "perimeter": 2e+300,
+        "height": 8.623e-26,
+        "largeDiagonal": 1e+300,
+        "smallDiagonal": 1e+300
+      },
+      "name": "unequal-MIN",
+      "input": {
+        "mode": "sides",
+        "unit": "m",
+        "a": 1.0,
+        "b": 1e+300,
+        "angle": 5e-324
+      },
+      "expected": {
+        "area": "8.6230722409219822573112000597184218677289437527958405832360301915754641139172744612281805516093921245E-26",
+        "perimeter": "2.0000000000000001050095205104088404974089371622163183098317082310236049159778163915727427501608957281E+300",
+        "height": "8.6230722409219822573112000597184218677289437527958405832360301915754641139172744612281805516093921245E-26",
+        "largeDiagonal": "1.0000000000000000525047602552044202487044685811081591549158541155118024579889081957863713750804478640E+300",
+        "smallDiagonal": "1.0000000000000000525047602552044202487044685811081591549158541155118024579889081957863713750804478640E+300"
+      },
+      "expectedNumeric": {
+        "area": 8.623072240921982e-26,
+        "perimeter": 2e+300,
+        "height": 8.623072240921982e-26,
+        "largeDiagonal": 1e+300,
+        "smallDiagonal": 1e+300
+      },
+      "radiansComputedWithBinaryFactor": 0.0,
+      "oracle": "Independent Python Decimal2500, exact binary64 input rationals, Chudnovsky PI2500,60term sin/cos. Stable half-angle diagonal formula; no production compute used."
+    },
+    {
+      "expectedDisplayNumeric": {
+        "area": 8.623e-26,
+        "perimeter": 4e+150,
+        "height": 8.623e-176,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 8.623e-176
+      },
+      "name": "equal-MIN",
+      "input": {
+        "mode": "sides",
+        "unit": "m",
+        "a": 1e+150,
+        "b": 1e+150,
+        "angle": 5e-324
+      },
+      "expected": {
+        "area": "8.6230722409219814740467820682529323472844259141216720111728065915937984842368628759657546228530903699E-26",
+        "perimeter": "3.9999999999999999233423846897494983622924800561212751723646592406164004488147143319051930744648846079E+150",
+        "height": "8.6230722409219816393028207275271828340294304907621019550489536476658484420621943481634470762810229393E-176",
+        "largeDiagonal": "1.9999999999999999616711923448747491811462400280606375861823296203082002244073571659525965372324423039E+150",
+        "smallDiagonal": "8.6230722409219816393028207275271828340294304907621019550489536476658484420621943481634470762810229393E-176"
+      },
+      "expectedNumeric": {
+        "area": 8.623072240921981e-26,
+        "perimeter": 4e+150,
+        "height": 8.623072240921982e-176,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 8.623072240921982e-176
+      },
+      "radiansComputedWithBinaryFactor": 0.0,
+      "oracle": "Independent Python Decimal2500, exact binary64 input rationals, Chudnovsky PI2500,60term sin/cos. Stable half-angle diagonal formula; no production compute used."
+    },
+    {
+      "expectedDisplayNumeric": {
+        "area": 1.725e-25,
+        "perimeter": 4e+150,
+        "height": 1.725e-175,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 1.725e-175
+      },
+      "name": "equal-2MIN",
+      "input": {
+        "mode": "sides",
+        "unit": "m",
+        "a": 1e+150,
+        "b": 1e+150,
+        "angle": 1e-323
+      },
+      "expected": {
+        "area": "1.7246144481843962948093564136505864694568851828243344022345613183187596968473725751931509245706180740E-25",
+        "perimeter": "3.9999999999999999233423846897494983622924800561212751723646592406164004488147143319051930744648846079E+150",
+        "height": "1.7246144481843963278605641455054365668058860981524203910097907295331696884124388696326894152562045879E-175",
+        "largeDiagonal": "1.9999999999999999616711923448747491811462400280606375861823296203082002244073571659525965372324423039E+150",
+        "smallDiagonal": "1.7246144481843963278605641455054365668058860981524203910097907295331696884124388696326894152562045879E-175"
+      },
+      "expectedNumeric": {
+        "area": 1.7246144481843962e-25,
+        "perimeter": 4e+150,
+        "height": 1.7246144481843965e-175,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 1.7246144481843965e-175
+      },
+      "radiansComputedWithBinaryFactor": 0.0,
+      "oracle": "Independent Python Decimal2500, exact binary64 input rationals, Chudnovsky PI2500,60term sin/cos. Stable half-angle diagonal formula; no production compute used."
+    },
+    {
+      "expectedDisplayNumeric": {
+        "area": 2.587e-25,
+        "perimeter": 4e+150,
+        "height": 2.587e-175,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 2.587e-175
+      },
+      "name": "equal-3MIN",
+      "input": {
+        "mode": "sides",
+        "unit": "m",
+        "a": 1e+150,
+        "b": 1e+150,
+        "angle": 1.5e-323
+      },
+      "expected": {
+        "area": "2.5869216722765944422140346204758797041853277742365016033518419774781395452710588627897263868559271110E-25",
+        "perimeter": "3.9999999999999999233423846897494983622924800561212751723646592406164004488147143319051930744648846079E+150",
+        "height": "2.5869216722765944917908462182581548502088291472286305865146860942997545326186583044490341228843068818E-175",
+        "largeDiagonal": "1.9999999999999999616711923448747491811462400280606375861823296203082002244073571659525965372324423039E+150",
+        "smallDiagonal": "2.5869216722765944917908462182581548502088291472286305865146860942997545326186583044490341228843068818E-175"
+      },
+      "expectedNumeric": {
+        "area": 2.5869216722765946e-25,
+        "perimeter": 4e+150,
+        "height": 2.5869216722765947e-175,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 2.5869216722765947e-175
+      },
+      "radiansComputedWithBinaryFactor": 0.0,
+      "oracle": "Independent Python Decimal2500, exact binary64 input rationals, Chudnovsky PI2500,60term sin/cos. Stable half-angle diagonal formula; no production compute used."
+    },
+    {
+      "expectedDisplayNumeric": {
+        "area": 1.745e+98,
+        "perimeter": 2e+200,
+        "height": 1.745e-102,
+        "largeDiagonal": 1e+200,
+        "smallDiagonal": 1e+200
+      },
+      "name": "scaled-tiny",
+      "input": {
+        "mode": "sides",
+        "unit": "m",
+        "a": 1e+200,
+        "b": 1e+100,
+        "angle": 1e-200
+      },
+      "expected": {
+        "area": "1.7453292519943295206128690066864218023070407037339322130385304628287723413310789564253634900234003759E+98",
+        "perimeter": "1.9999999999999999394662444250207233189490065509100472529648350190069369687110815106839267680941250376E+200",
+        "height": "1.7453292519943295734385361757295011371881665176440055116687212849903777440227805466293775368085718887E-102",
+        "largeDiagonal": "9.9999999999999996973312221251036165947450327545502362648241750950346848435554075534196338404706251878E+199",
+        "smallDiagonal": "9.9999999999999996973312221251036165947450327545502362648241750950346848435554075534196338404706251858E+199"
+      },
+      "expectedNumeric": {
+        "area": 1.7453292519943295e+98,
+        "perimeter": 2e+200,
+        "height": 1.7453292519943296e-102,
+        "largeDiagonal": 1e+200,
+        "smallDiagonal": 1e+200
+      },
+      "radiansComputedWithBinaryFactor": 1.7453292519943296e-202,
+      "oracle": "Independent Python Decimal2500, exact binary64 input rationals, Chudnovsky PI2500,60term sin/cos. Stable half-angle diagonal formula; no production compute used."
+    },
+    {
+      "expectedDisplayNumeric": {
+        "area": 8.623e-18,
+        "perimeter": 4e+154,
+        "height": 8.623e-172,
+        "largeDiagonal": 2e+154,
+        "smallDiagonal": 8.623e-172
+      },
+      "name": "larger-equal-MIN",
+      "input": {
+        "mode": "sides",
+        "unit": "m",
+        "a": 1e+154,
+        "b": 1e+154,
+        "angle": 5e-324
+      },
+      "expected": {
+        "area": "8.6230722409219824417615705725845635326672447609394167599185740233960698805184269551431303426285545596E-18",
+        "perimeter": "4.0000000000000001477901827522329061639236719319370753807691114208602174637388878388866052438821633310E+154",
+        "height": "8.6230722409219821231602149796929941244684987961642210684072022693482561784203505908196901100016554713E-172",
+        "largeDiagonal": "2.0000000000000000738950913761164530819618359659685376903845557104301087318694439194433026219410816655E+154",
+        "smallDiagonal": "8.6230722409219821231602149796929941244684987961642210684072022693482561784203505908196901100016554713E-172"
+      },
+      "expectedNumeric": {
+        "area": 8.623072240921983e-18,
+        "perimeter": 4e+154,
+        "height": 8.623072240921982e-172,
+        "largeDiagonal": 2e+154,
+        "smallDiagonal": 8.623072240921982e-172
+      },
+      "radiansComputedWithBinaryFactor": 0.0,
+      "oracle": "Independent Python Decimal2500, exact binary64 input rationals, Chudnovsky PI2500,60term sin/cos. Stable half-angle diagonal formula; no production compute used."
+    },
+    {
+      "expectedDisplayNumeric": {
+        "area": 1.492e+146,
+        "perimeter": 4e+150,
+        "height": 0.000149,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 0.000149
+      },
+      "name": "threshold-before",
+      "input": {
+        "mode": "sides",
+        "unit": "m",
+        "a": 1e+150,
+        "b": 1e+150,
+        "angle": 8.546628921365764e-153
+      },
+      "expected": {
+        "area": "1.4916681462400411582506477074061840513326527558251783507768286901052365298838499725956301915459344828E+146",
+        "perimeter": "3.9999999999999999233423846897494983622924800561212751723646592406164004488147143319051930744648846079E+150",
+        "height": "1.4916681462400411868375784386620754345077012753930487098308541650991822544955865790154760220253896527E-4",
+        "largeDiagonal": "1.9999999999999999616711923448747491811462400280606375861823296203082002244073571659525965372324423039E+150",
+        "smallDiagonal": "1.4916681462400411868375784386620754345077012753930487098308541650991822544955865790154760220253896527E-4"
+      },
+      "expectedNumeric": {
+        "area": 1.4916681462400412e+146,
+        "perimeter": 4e+150,
+        "height": 0.00014916681462400413,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 0.00014916681462400413
+      },
+      "radiansComputedWithBinaryFactor": 1.4916681462400412e-154,
+      "oracle": "Independent Python Decimal2500, exact binary64 input rationals, Chudnovsky PI2500,60term sin/cos. Stable half-angle diagonal formula; no production compute used."
+    },
+    {
+      "expectedDisplayNumeric": {
+        "area": 1.492e+146,
+        "perimeter": 4e+150,
+        "height": 0.000149,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 0.000149
+      },
+      "name": "threshold-exact",
+      "input": {
+        "mode": "sides",
+        "unit": "m",
+        "a": 1e+150,
+        "b": 1e+150,
+        "angle": 8.546628921365765e-153
+      },
+      "expected": {
+        "area": "1.4916681462400413432370419030887830302540930471036552032656117995417933504661457373829710561439367514E+146",
+        "perimeter": "3.9999999999999999233423846897494983622924800561212751723646592406164004488147143319051930744648846079E+150",
+        "height": "1.4916681462400413718239726343446779585831025374198260247782564952096014236409157445625774372853021896E-4",
+        "largeDiagonal": "1.9999999999999999616711923448747491811462400280606375861823296203082002244073571659525965372324423039E+150",
+        "smallDiagonal": "1.4916681462400413718239726343446779585831025374198260247782564952096014236409157445625774372853021896E-4"
+      },
+      "expectedNumeric": {
+        "area": 1.4916681462400414e+146,
+        "perimeter": 4e+150,
+        "height": 0.00014916681462400413,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 0.00014916681462400413
+      },
+      "radiansComputedWithBinaryFactor": 1.4916681462400413e-154,
+      "oracle": "Independent Python Decimal2500, exact binary64 input rationals, Chudnovsky PI2500,60term sin/cos. Stable half-angle diagonal formula; no production compute used."
+    },
+    {
+      "expectedDisplayNumeric": {
+        "area": 1.492e+146,
+        "perimeter": 4e+150,
+        "height": 0.000149,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 0.000149
+      },
+      "name": "threshold-after",
+      "input": {
+        "mode": "sides",
+        "unit": "m",
+        "a": 1e+150,
+        "b": 1e+150,
+        "angle": 8.546628921365766e-153
+      },
+      "expected": {
+        "area": "1.4916681462400415282234360987713820091755333383821320557543949089783501710484415021703119207419390199E+146",
+        "perimeter": "3.9999999999999999233423846897494983622924800561212751723646592406164004488147143319051930744648846079E+150",
+        "height": "1.4916681462400415568103668300272804826585037994466033397256588253200205927862449101096788525452147264E-4",
+        "largeDiagonal": "1.9999999999999999616711923448747491811462400280606375861823296203082002244073571659525965372324423039E+150",
+        "smallDiagonal": "1.4916681462400415568103668300272804826585037994466033397256588253200205927862449101096788525452147264E-4"
+      },
+      "expectedNumeric": {
+        "area": 1.4916681462400414e+146,
+        "perimeter": 4e+150,
+        "height": 0.00014916681462400416,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 0.00014916681462400416
+      },
+      "radiansComputedWithBinaryFactor": 1.4916681462400417e-154,
+      "oracle": "Independent Python Decimal2500, exact binary64 input rationals, Chudnovsky PI2500,60term sin/cos. Stable half-angle diagonal formula; no production compute used."
+    },
+    {
+      "expectedDisplayNumeric": {
+        "area": 2.983e+146,
+        "perimeter": 4e+150,
+        "height": 0.000298,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 0.000298
+      },
+      "name": "threshold-twice",
+      "input": {
+        "mode": "sides",
+        "unit": "m",
+        "a": 1e+150,
+        "b": 1e+150,
+        "angle": 1.709325784273153e-152
+      },
+      "expected": {
+        "area": "2.9833362924800826864740838061775660605081860942073104065312235990835867009322914747659421122878735027E+146",
+        "perimeter": "3.9999999999999999233423846897494983622924800561212751723646592406164004488147143319051930744648846079E+150",
+        "height": "2.9833362924800827436479452686893559171662050748396520495565129904192028472818314891251548745706043791E-4",
+        "largeDiagonal": "1.9999999999999999616711923448747491811462400280606375861823296203082002244073571659525965372324423039E+150",
+        "smallDiagonal": "2.9833362924800827436479452686893559171662050748396520495565129904192028472818314891251548745706043791E-4"
+      },
+      "expectedNumeric": {
+        "area": 2.983336292480083e+146,
+        "perimeter": 4e+150,
+        "height": 0.00029833362924800826,
+        "largeDiagonal": 2e+150,
+        "smallDiagonal": 0.00029833362924800826
+      },
+      "radiansComputedWithBinaryFactor": 2.983336292480083e-154,
+      "oracle": "Independent Python Decimal2500, exact binary64 input rationals, Chudnovsky PI2500,60term sin/cos. Stable half-angle diagonal formula; no production compute used."
+    }
+  ]
+}

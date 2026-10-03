@@ -2,12 +2,12 @@ import type { CalculatorLocalization } from '../../lib/platform/types';
 
 const RESULTS_EN = {
   'Размер модели': 'Model size', 'Размер натуры': 'Real size', 'Масштаб': 'Scale',
-  'Натура больше модели во столько раз': 'The original is larger by a factor of',
+  'Отношение натуры к модели': 'Original to model length ratio',
   'Проверьте данные': 'Check the values',
 };
 const RESULTS_UK = {
   'Размер модели': 'Розмір моделі', 'Размер натуры': 'Розмір натури', 'Масштаб': 'Масштаб',
-  'Натура больше модели во столько раз': 'Натура більша за модель у стільки разів',
+  'Отношение натуры к модели': 'Відношення натури до моделі',
   'Проверьте данные': 'Перевірте дані',
 };
 
@@ -28,10 +28,13 @@ export const localization: CalculatorLocalization = {
       'Размер модели': 'Maß am Modell',
       'Размер натуры': 'Maß am Original',
       'Масштаб': 'Maßstab',
-      'Натура больше модели во столько раз': 'Das Original ist größer um den Faktor',
+      'Отношение натуры к модели': 'Verhältnis Original zu Modell',
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Выберите режим расчёта": "Wähle einen Berechnungsmodus",
+      "Результат вне числового диапазона": "Das Ergebnis liegt außerhalb des Zahlenbereichs",
+
       'мм': 'mm',
       'Знаменатель масштаба должен быть больше нуля': 'Der Nenner des Maßstabs muss größer als null sein',
       'Размер модели должен быть больше нуля': 'Das Maß am Modell muss größer als null sein',
@@ -46,6 +49,9 @@ export const localization: CalculatorLocalization = {
     options: { toModel: 'model size', toReal: 'real size', findScale: 'scale' },
     results: RESULTS_EN,
     values: {
+      "Выберите режим расчёта": "Choose a calculation mode",
+      "Результат вне числового диапазона": "The result is outside the numeric range",
+
       'мм': 'mm',
       'Знаменатель масштаба должен быть больше нуля': 'The scale denominator must be greater than zero',
       'Размер модели должен быть больше нуля': 'The model size must be greater than zero',
@@ -60,6 +66,9 @@ export const localization: CalculatorLocalization = {
     options: { toModel: 'розмір моделі', toReal: 'розмір натури', findScale: 'масштаб' },
     results: RESULTS_UK,
     values: {
+      "Выберите режим расчёта": "Виберіть режим розрахунку",
+      "Результат вне числового диапазона": "Результат поза числовим діапазоном",
+
       'мм': 'мм',
       'Знаменатель масштаба должен быть больше нуля': 'Знаменник масштабу має бути більшим за нуль',
       'Размер модели должен быть больше нуля': 'Розмір моделі має бути більшим за нуль',
@@ -82,10 +91,13 @@ export const localization: CalculatorLocalization = {
       "Размер модели": "Medida de la maqueta",
       "Размер натуры": "Medida real",
       "Масштаб": "Escala",
-      "Натура больше модели во столько раз": "El original es mayor por un factor de",
+      "Отношение натуры к модели": "Relación entre original y maqueta",
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Выберите режим расчёта": "Elige un modo de cálculo",
+      "Результат вне числового диапазона": "El resultado está fuera del rango numérico",
+
       "мм": "mm",
       "Знаменатель масштаба должен быть больше нуля": "El denominador de la escala debe ser mayor que cero",
       "Размер модели должен быть больше нуля": "La medida de la maqueta debe ser mayor que cero",

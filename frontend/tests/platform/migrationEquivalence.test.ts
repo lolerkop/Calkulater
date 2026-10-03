@@ -18,9 +18,23 @@
 // маршруты и структуру, совпали побайтно, поэтому доказательство
 // эквивалентности миграции сохраняется. Плотность значков с этого момента
 // защищена воротами scripts/verify-dist-badges.mjs.
+//
+// Фаза originality percent/discount: у процентов устранены неподдерживаемые
+// обещания обратного режима и появился предметный контракт для пяти операций,
+// нулевой/отрицательной базы и процентных пунктов. В RU/EN/UK снимках обновлены
+// ровно девять проверенных редакционных полей: shortDescription,
+// seoDescription, longDescription, howToUse, howItWorks, example, faq,
+// disclaimer и производное seoContent. Перед записью проверено, что никаких
+// других отличий нет: маршруты, поля, значения по умолчанию, имена, h1,
+// seoTitle, каталог и связанные инструменты сохранены. Исторические снимки краски сохранены; отдельный файл проверенных
+// предметных изменений фиксирует точные before/after литералы. Полное
+// сравнение объектов и исходных SHA256 ниже остаётся обязательным.
 
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { amendedFieldHelp } from '../helpers/targetedFinishFieldHelp';
+import paintAmendments from './__baseline__/paint-originality-reviewed-amendments.json';
 import { getCalculatorById, locales } from '../../src/lib/i18n';
 
 const MIGRATED = ['percent-calculator', 'paint-calculator'] as const;
@@ -38,8 +52,24 @@ describe('эквивалентность миграции на Platform V2', () 
     for (const locale of PRE_MIGRATION_LOCALES) {
       // Снимки сняты для локалей, в которых калькулятор существует.
       if (!getCalculatorById(id, locale)) continue;
-      it(`${id} / ${locale} совпадает с baseline до миграции`, () => {
-        const baseline = JSON.parse(readFileSync(`tests/platform/__baseline__/${id}.${locale}.json`, 'utf8'));
+      it(`${id} / ${locale} совпадает с сохранённым baseline и явными предметными поправками`, () => {
+        const baselinePath = `tests/platform/__baseline__/${id}.${locale}.json`;
+        const bytes = readFileSync(baselinePath);
+        const baseline = JSON.parse(bytes.toString('utf8'));
+        if (id === 'paint-calculator') {
+          // Deliberate subject work is a bounded amendment to the original
+          // migration evidence. Original files are preserved, and every
+          // old/new literal is checked before the full object comparison.
+          const amendment = paintAmendments.records.find(record => record.locale === locale)!;
+          expect(amendment.baseline).toBe(baselinePath);
+          expect(createHash('sha256').update(bytes).digest('hex')).toBe(amendment.baselineSha256);
+          expect(amendment.changes.map(change => change.key)).toEqual(paintAmendments.approvedTopLevelKeys[locale as 'ru'|'en'|'uk']);
+          for (const change of amendment.changes) {
+            expect(baseline[change.key]).toEqual(change.before);
+            baseline[change.key] = change.after;
+          }
+        }
+        baseline.fields = baseline.fields.map((field: any) => amendedFieldHelp(id,locale,field));
         expect(getCalculatorById(id, locale)).toEqual(baseline);
       });
     }

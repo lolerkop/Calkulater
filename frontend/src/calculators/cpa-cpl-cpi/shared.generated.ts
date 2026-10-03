@@ -14,6 +14,7 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Check inputs',
       'Результат': 'Result',
       'В': 'To',
+      'Рост': 'Height',
     },
   },
   uk: {
@@ -21,6 +22,7 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Перевірте дані',
       'Результат': 'Результат',
       'В': 'У',
+      'Рост': 'Зріст',
     },
   },
   de: {
@@ -28,6 +30,7 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
       'Результат': 'Ergebnis',
       'В': 'Nach',
+      'Рост': 'Körpergröße',
     },
   },
   es: {
@@ -35,6 +38,7 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Revisa los datos',
       'Результат': 'Resultado',
       'В': 'A',
+      'Рост': 'Estatura',
     },
   },
 };

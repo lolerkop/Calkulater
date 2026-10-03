@@ -1,16 +1,8 @@
 import type { CalcFunction, CalcResultTable } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { number as readNumber, integer as readInteger, validOutput } from '../../lib/platform/scalarInputDisplay';
+import { fmtNumber } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
 
-// Табель за неделю: по строке на смену, «начало,конец,перерыв в минутах».
-//
-// Ночная смена — не ошибка ввода, а обычный случай: 22:00–06:00 значит переход
-// через полночь, поэтому конец меньше начала. Такая строка не отклоняется, к
-// концу добавляются сутки. Ошибкой считается только смена, у которой перерыв
-// съел всё время.
-//
-// Считаем в ЦЕЛЫХ МИНУТАХ и переводим в часы один раз на показе: иначе сумма
-// пяти смен по 7 ч 45 мин не сойдётся с тем, что стоит в табеле.
 const MIN_IN_DAY = 24 * 60;
 const OVERTIME_RATE = 1.5;
 
@@ -24,33 +16,37 @@ const parseClock = (raw: string): number | null => {
 };
 
 export const compute: CalcFunction = (inputs) => {
-  const rate = toNumber(inputs.rate);
-  const normal = toNumber(inputs.normal);
+  const rate = readNumber(inputs.rate);
+  const normal = readNumber(inputs.normal);
   const fail = (message: string) => ({
     primary: { label: 'Всего часов', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (rate === null || normal === null) return fail('Введите корректные числовые данные');
+
   if (!(rate >= 0)) return fail('Ставка не может быть отрицательной');
   if (!(normal >= 0)) return fail('Норма часов не может быть отрицательной');
 
+  if (typeof inputs.lines !== 'string') return fail('Введите строки табеля текстом');
   const rows: string[][] = [];
   let totalMinutes = 0;
-  for (const line of toStr(inputs.lines, '').split('\n')) {
+  for (const line of inputs.lines.split('\n')) {
     const text = line.trim();
     if (!text) continue;
     const parts = text.split(',').map((p) => p.trim());
-    if (parts.length < 2) return fail('В строке нужны начало и конец через запятую');
+    if (parts.length < 2 || parts.length > 3) return fail('В строке нужны начало и конец через запятую');
     const start = parseClock(parts[0]);
     const end = parseClock(parts[1]);
-    if (start === null || end === null) return fail(`Время задаётся как 09:00 в строке: ${text}`);
-    const breakMinutes = parts.length > 2 && parts[2] !== '' ? Number(parts[2]) : 0;
-    if (!Number.isFinite(breakMinutes) || breakMinutes < 0) {
-      return fail(`Перерыв задаётся целым числом минут в строке: ${text}`);
+    if (start === null || end === null) return fail('Время задаётся как 09:00');
+    const breakMinutes = parts.length > 2 && parts[2] !== '' ? readInteger(parts[2]) : 0;
+    if (breakMinutes === null || breakMinutes < 0) {
+      return fail('Перерыв задаётся целым числом минут');
     }
     const worked = (end < start ? end + MIN_IN_DAY : end) - start - breakMinutes;
-    if (worked < 0) return fail(`Перерыв длиннее смены в строке: ${text}`);
+    if (worked < 0) return fail('Перерыв длиннее смены');
     totalMinutes += worked;
+    if (!Number.isSafeInteger(totalMinutes)) return fail('Результат вне допустимого диапазона');
     rows.push([parts[0], parts[1], String(breakMinutes), formatMeasure(worked / 60, fmtNumber)]);
   }
   if (rows.length === 0) return fail('Введите хотя бы одну строку вида «09:00,18:00,60»');
@@ -59,6 +55,7 @@ export const compute: CalcFunction = (inputs) => {
   const overtime = Math.max(0, hours - normal);
   const base = Math.min(hours, normal);
   const pay = base * rate + overtime * rate * OVERTIME_RATE;
+  if (!validOutput(pay) || (rate > 0 && hours > 0 && pay === 0)) return fail('Результат вне допустимого диапазона');
   const table: CalcResultTable = {
     title: 'Смены',
     columns: ['Начало', 'Конец', 'Перерыв, мин', 'Часов'],

@@ -1,11 +1,11 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const geomCuboidCopyUk: CalculatorSeoCopy = {
-  name: 'Калькулятор прямокутного паралелепіпеда',
-  slug: 'paralelepiped',
-  shortDescription: 'Об’єм, площа поверхні та просторова діагональ за трьома ребрами.',
-  seoTitle: 'Калькулятор паралелепіпеда — об’єм, поверхня, діагональ',
-  seoDescription: 'Обчисліть об’єм, площу поверхні та просторову діагональ прямокутного паралелепіпеда за трьома ребрами.',
-  h1: 'Калькулятор прямокутного паралелепіпеда',
-  keywords: ['калькулятор паралелепіпеда', 'об’єм паралелепіпеда', 'діагональ коробки'],
+export const geomCuboidCopyUk: CalculatorCopy = {
+  name: "Калькулятор прямокутного паралелепіпеда",
+  slug: "paralelepiped",
+  seoTitle: "Калькулятор паралелепіпеда — об’єм, поверхня, діагональ",
+  h1: "Калькулятор прямокутного паралелепіпеда",
+  keywords: ["калькулятор паралелепіпеда", "об’єм паралелепіпеда", "діагональ коробки"],
+  ...contractContent.uk,
 };

@@ -1,75 +1,80 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { mechanicsScalarValues } from '../../lib/platform/mechanicsScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'mode': 'Was gesucht ist',
-      'm': 'Masse, kg',
-      'v': 'Geschwindigkeit, m/s',
-      'p': 'Impuls, kg·m/s',
-      'm2': 'Masse, kg',
-      'p2': 'Impuls, kg·m/s',
-      'v2': 'Geschwindigkeit, m/s',
+  "de": {
+    "fields": {
+      "mode": "Was gesucht ist",
+      "m": "Masse",
+      "v": "Geschwindigkeitskomponente",
+      "p": "Impulskomponente",
+      "m2": "Masse",
+      "p2": "Impulskomponente",
+      "v2": "Geschwindigkeitskomponente"
     },
-    options: {
-      'mm': 'Millimeter',
-      'cm': 'Zentimeter',
-      'm': 'die Masse',
-      'p': 'der Impuls',
-      'v': 'die Geschwindigkeit',
+    "options": {
+      "mm": "Millimeter",
+      "cm": "Zentimeter",
+      "m": "die Masse",
+      "p": "der Impuls",
+      "v": "die Geschwindigkeit"
     },
-    results: {
-      'Импульс': 'Impuls',
-      'Масса': 'Masse',
-      'Скорость': 'Geschwindigkeit',
-      'Кинетическая энергия': 'Kinetische Energie',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Импульс": "Impuls",
+      "Масса": "Masse",
+      "Скорость": "Geschwindigkeit",
+      "Кинетическая энергия": "Kinetische Energie",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'мм': 'mm',
-      'см': 'cm',
-      'м': 'm',
-      'мм²': 'mm²',
-      'см²': 'cm²',
-      'м²': 'm²',
-      'мм³': 'mm³',
-      'см³': 'cm³',
-      'м³': 'm³',
-      'кг·м/с': 'kg·m/s',
-      'кг': 'kg',
-      'м/с': 'm/s',
-      'Дж': 'J',
-      'Масса должна быть больше нуля': 'Die Masse muss größer als null sein',
-      'Скорость не может быть отрицательной': 'Die Geschwindigkeit kann nicht negativ sein',
-      'Импульс не может быть отрицательным': 'Der Impuls kann nicht negativ sein',
-      'Скорость должна быть больше нуля, иначе масса не определена': 'Die Geschwindigkeit muss größer als null sein, sonst ist die Masse nicht bestimmt',
-    },
+    "values": {
+      ...mechanicsScalarValues.de,
+      "мм": "mm",
+      "см": "cm",
+      "м": "m",
+      "мм²": "mm²",
+      "см²": "cm²",
+      "м²": "m²",
+      "мм³": "mm³",
+      "см³": "cm³",
+      "м³": "m³",
+      "кг·м/с": "kg·m/s",
+      "кг": "kg",
+      "м/с": "m/s",
+      "Дж": "J",
+      "Масса должна быть больше нуля": "Die Masse muss größer als null sein",
+      "Скорость не может быть отрицательной": "Die Geschwindigkeit kann nicht negativ sein",
+      "Импульс не может быть отрицательным": "Der Impuls kann nicht negativ sein",
+      "Скорость должна быть больше нуля, иначе масса не определена": "Die Geschwindigkeit muss größer als null sein, sonst ist die Masse nicht bestimmt",
+      "При нулевой скорости массу по импульсу найти нельзя": "Bei Geschwindigkeit null lässt sich die Masse nicht aus dem Impuls bestimmen",
+      "Для положительной массы импульс и скорость должны иметь одинаковый ненулевой знак": "Für eine positive Masse müssen Impuls und Geschwindigkeit dasselbe Vorzeichen haben und ungleich null sein"
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "mode": "What to find",
-      "m": "Mass, kg",
-      "v": "Speed, m/s",
-      "p": "Momentum, kg·m/s",
-      "m2": "Mass, kg",
-      "p2": "Momentum, kg·m/s",
-      "v2": "Speed, m/s",
+      "m": "Mass",
+      "v": "Velocity component",
+      "p": "Momentum component",
+      "m2": "Mass",
+      "p2": "Momentum component",
+      "v2": "Velocity component"
     },
-    options: {
+    "options": {
       "mm": "millimetres",
       "cm": "centimetres",
       "m": "the mass",
       "p": "the momentum",
-      "v": "the speed",
+      "v": "the velocity"
     },
-    results: {
+    "results": {
       "Импульс": "Momentum",
       "Масса": "Mass",
-      "Скорость": "Speed",
+      "Скорость": "Velocity",
       "Кинетическая энергия": "Kinetic energy",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
+    "values": {
+      ...mechanicsScalarValues.en,
       "мм": "mm",
       "см": "cm",
       "м": "m",
@@ -87,33 +92,36 @@ export const localization: CalculatorLocalization = {
       "Скорость не может быть отрицательной": "The speed cannot be negative",
       "Импульс не может быть отрицательным": "The momentum cannot be negative",
       "Скорость должна быть больше нуля, иначе масса не определена": "The speed must be greater than zero, otherwise the mass is undetermined",
-    },
+      "При нулевой скорости массу по импульсу найти нельзя": "Zero velocity cannot determine mass from momentum",
+      "Для положительной массы импульс и скорость должны иметь одинаковый ненулевой знак": "For a positive mass, momentum and velocity must have the same non-zero sign"
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "mode": "Що знайти",
-      "m": "Маса, кг",
-      "v": "Швидкість, м/с",
-      "p": "Імпульс, кг·м/с",
-      "m2": "Маса, кг",
-      "p2": "Імпульс, кг·м/с",
-      "v2": "Швидкість, м/с",
+      "m": "Маса",
+      "v": "Проєкція швидкості",
+      "p": "Проєкція імпульсу",
+      "m2": "Маса",
+      "p2": "Проєкція імпульсу",
+      "v2": "Проєкція швидкості"
     },
-    options: {
+    "options": {
       "mm": "міліметри",
       "cm": "сантиметри",
       "m": "масу",
       "p": "імпульс",
-      "v": "швидкість",
+      "v": "швидкість"
     },
-    results: {
+    "results": {
       "Импульс": "Імпульс",
       "Масса": "Маса",
       "Скорость": "Швидкість",
       "Кинетическая энергия": "Кінетична енергія",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
+    "values": {
+      ...mechanicsScalarValues.uk,
       "мм": "мм",
       "см": "см",
       "м": "м",
@@ -131,33 +139,36 @@ export const localization: CalculatorLocalization = {
       "Скорость не может быть отрицательной": "Швидкість не може бути від’ємною",
       "Импульс не может быть отрицательным": "Імпульс не може бути від’ємним",
       "Скорость должна быть больше нуля, иначе масса не определена": "Швидкість має бути більшою за нуль, інакше маса не визначена",
-    },
+      "При нулевой скорости массу по импульсу найти нельзя": "За нульової швидкості масу за імпульсом знайти не можна",
+      "Для положительной массы импульс и скорость должны иметь одинаковый ненулевой знак": "Для додатної маси імпульс і швидкість повинні мати однаковий ненульовий знак"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "mode": "Qué hallar",
-      "m": "Masa, kg",
-      "v": "Velocidad, m/s",
-      "p": "Momento lineal, kg·m/s",
-      "m2": "Masa, kg",
-      "p2": "Momento lineal, kg·m/s",
-      "v2": "Velocidad, m/s",
+      "m": "Masa",
+      "v": "Componente de velocidad",
+      "p": "Componente del momento",
+      "m2": "Masa",
+      "p2": "Componente del momento",
+      "v2": "Componente de velocidad"
     },
-    options: {
+    "options": {
       "p": "el momento lineal",
       "v": "la velocidad",
       "m": "la masa",
       "mm": "milímetros",
-      "cm": "centímetros",
+      "cm": "centímetros"
     },
-    results: {
+    "results": {
       "Импульс": "Momento lineal",
       "Масса": "Masa",
       "Скорость": "Velocidad",
       "Кинетическая энергия": "Energía cinética",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
+      ...mechanicsScalarValues.es,
       "мм": "mm",
       "см": "cm",
       "м": "m",
@@ -175,6 +186,8 @@ export const localization: CalculatorLocalization = {
       "Скорость не может быть отрицательной": "La velocidad no puede ser negativa",
       "Импульс не может быть отрицательным": "El momento lineal no puede ser negativo",
       "Скорость должна быть больше нуля, иначе масса не определена": "La velocidad debe ser mayor que cero; de lo contrario la masa queda indeterminada",
-    },
-  },
+      "При нулевой скорости массу по импульсу найти нельзя": "Con velocidad cero no se puede determinar la masa a partir del momento",
+      "Для положительной массы импульс и скорость должны иметь одинаковый ненулевой знак": "Para una masa positiva, momento y velocidad deben tener el mismo signo no nulo"
+    }
+  }
 };

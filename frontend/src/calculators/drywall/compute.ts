@@ -1,41 +1,35 @@
+import { measure as displayMeasure, read, integer, finite, INPUT, RANGE, INTEGER, exact, add, times, evaluated, mul, dproduct, ceilDecimal, reserveDecimal, reserve } from '../beam-deflection/buildingWave13Numeric';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
+import { fmtNumber } from '../../lib/format';
 
-// Гипсокартон: листы, профиль и саморезы.
-//
-// Запас берётся от площади ВСЕХ слоёв, а не от одного: обрезки появляются в
-// каждом слое, и однослойный запас на двухслойной обшивке кончится на середине.
-// Листы округляются вверх — половину листа в магазине не продадут.
-//
-// Профиль считается как стойки с заданным шагом плюс горизонтальные связи
-// примерно через метр: это привычная практика, а не норматив, и потому число
-// приблизительное. Саморезы — шестьдесят на лист на слой, обычная плотность
-// крепежа для стены.
 
 export const compute: CalcFunction = (inputs) => {
-  const area = toNumber(inputs.area);
-  const sheetLength = toNumber(inputs.sheetLength);
-  const sheetWidth = toNumber(inputs.sheetWidth);
-  const layers = toNumber(inputs.layers);
-  const profileStep = toNumber(inputs.profileStep);
-  const waste = toNumber(inputs.waste);
+  const area = read(inputs.area);
+  const sheetLength = read(inputs.sheetLength);
+  const sheetWidth = read(inputs.sheetWidth);
+  const layers = integer(inputs.layers);
+  const profileStep = read(inputs.profileStep);
+  const waste = read(inputs.waste);
   const fail = (message: string) => ({
     primary: { label: 'Листов', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (!finite(area,sheetLength,sheetWidth,profileStep,waste)) return fail(INPUT);
+  if (!finite(layers)) return fail(INTEGER);
   if (!(area > 0)) return fail('Площадь должна быть больше нуля');
   if (!(sheetLength > 0) || !(sheetWidth > 0)) return fail('Размеры листа должны быть больше нуля');
   if (!Number.isInteger(layers) || layers < 1 || layers > 3) return fail('Слоёв должно быть от одного до трёх');
   if (!(profileStep > 0)) return fail('Шаг профиля должен быть больше нуля');
   if (waste < 0 || waste > 50) return fail('Запас должен быть от 0 до 50 %');
 
-  const sheetArea = sheetLength * sheetWidth;
-  const withWaste = area * layers * (1 + waste / 100);
-  const sheets = Math.ceil(withWaste / sheetArea);
-  const profile = area / profileStep + area / 3;
-  const measure = (x: number) => formatMeasure(x, fmtNumber);
+  const sheetArea = mul(sheetLength,sheetWidth);
+  const withWaste = reserve(times(exact(area),exact(layers)),waste);
+  const sheets = ceilDecimal(reserveDecimal(dproduct(area,layers),waste),dproduct(sheetLength,sheetWidth));
+  const profile = evaluated(times(exact(area),add(exact(3),exact(profileStep))),times(exact(3),exact(profileStep)));
+  const screws = Number.isFinite(sheets) && sheets <= Number.MAX_SAFE_INTEGER / 60 ? sheets*60 : NaN;
+  if (!finite(sheetArea,withWaste,sheets,profile,screws)) return fail(RANGE);
+  const measure = (x: number) => displayMeasure(x);
 
   return {
     primary: { label: 'Листов', value: fmtNumber(sheets, 0) },
@@ -44,7 +38,7 @@ export const compute: CalcFunction = (inputs) => {
       { label: 'С запасом', value: `${measure(withWaste)} м²` },
       { label: 'Площадь листа', value: `${measure(sheetArea)} м²` },
       { label: 'Метров профиля', value: measure(profile) },
-      { label: 'Саморезов', value: fmtNumber(Math.ceil(sheets * 60 * layers), 0) },
+      { label: 'Саморезов', value: fmtNumber(screws, 0) },
     ],
   };
 };

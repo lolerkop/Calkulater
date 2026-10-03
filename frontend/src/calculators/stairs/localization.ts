@@ -1,3 +1,4 @@
+import { addBuildingWave16Messages } from '../rafters/buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 const RESULTS_EN = {
@@ -16,9 +17,9 @@ const RESULTS_UK = {
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'rise_total': 'Gesamte Geschosshöhe, m',
-      'tread': 'Auftrittstiefe, m',
-      'max_riser': 'Höchste Steigungshöhe, m',
+      'rise_total': "Gesamte Geschosshöhe",
+      'tread': "Auftrittstiefe",
+      'max_riser': "Höchste Steigungshöhe",
     },
     results: {
       'Подступенков': 'Steigungen',
@@ -42,7 +43,7 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      rise_total: 'Total rise, m', tread: 'Tread depth, m', max_riser: 'Maximum riser height, m',
+      rise_total: "Total rise", tread: "Tread depth", max_riser: "Maximum riser height",
     },
     options: {},
     results: RESULTS_EN,
@@ -56,8 +57,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      rise_total: 'Загальний підйом, м', tread: 'Проступ (глибина сходинки), м',
-      max_riser: 'Гранична висота сходинки, м',
+      rise_total: "Загальний підйом", tread: "Проступ (глибина сходинки)",
+      max_riser: "Гранична висота сходинки",
     },
     options: {},
     results: RESULTS_UK,
@@ -71,9 +72,9 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "rise_total": "Desnivel total, m",
-      "tread": "Profundidad de la huella, m",
-      "max_riser": "Altura máxima de contrahuella, m",
+      "rise_total": "Desnivel total",
+      "tread": "Profundidad de la huella",
+      "max_riser": "Altura máxima de contrahuella",
     },
     options: {},
     results: {
@@ -97,3 +98,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

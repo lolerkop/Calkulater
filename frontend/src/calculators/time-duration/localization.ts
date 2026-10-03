@@ -1,6 +1,7 @@
+import {dateTimeWave15Phrases} from '../../data/dateTimeWave15ResultPhrases';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
-export const localization: CalculatorLocalization = {
+const previousLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'mode': 'Was berechnet wird',
@@ -90,3 +91,6 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+const ownedKeys = ["Введите целую длительность: часы от 0 до 999, минуты от 0 до 59", "Введите целые часы от 0 до 23 и минуты от 0 до 59", "Выберите режим расчёта", "Переход вперёд через границу суток", "Переход назад через границу суток"] as const;
+export const localization:CalculatorLocalization = Object.fromEntries(['en','uk','de','es'].map(locale=>[locale,{...previousLocalization[locale as keyof typeof previousLocalization],results:{...previousLocalization[locale as keyof typeof previousLocalization]?.results,...dateTimeWave15Phrases(locale,['Переход вперёд через границу суток','Переход назад через границу суток'])},values:{...previousLocalization[locale as keyof typeof previousLocalization]?.values,...dateTimeWave15Phrases(locale,ownedKeys)}}]));

@@ -1,11 +1,7 @@
-// Испанский копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла испанской страницы не существует. Подробный текст живёт в
-// `src/data/esCalculatorContent.ts`.
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { photonEnergyContractContent } from './contractContent';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
-
-export const photonEnergyCopyEs: CalculatorSeoCopy = {
+export const photonEnergyCopyEs: CalculatorCopy = {
   name: "Calculadora de energía de un fotón",
   slug: "energia-de-un-foton",
   shortDescription: "Energía y frecuencia de un fotón a partir de la longitud de onda.",
@@ -13,4 +9,5 @@ export const photonEnergyCopyEs: CalculatorSeoCopy = {
   seoDescription: "Calcula la energía de un fotón en julios y electronvoltios, además de la frecuencia y el número de onda, a partir de la longitud de onda.",
   h1: "Calculadora de energía de un fotón",
   keywords: ["energía de un fotón", "constante de Planck", "longitud de onda de la luz", "electronvoltio"],
+  ...photonEnergyContractContent.es,
 };

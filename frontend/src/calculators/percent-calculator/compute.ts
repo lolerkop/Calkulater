@@ -1,16 +1,24 @@
-import type { CalcFunction } from '../../lib/types';
+import type { CalcFunction, CalcResult } from '../../lib/types';
 import { fmtNumber, toNumber, toStr } from '../../lib/format';
 
-// Универсальный калькулятор процентов: четыре режима.
+// Универсальный калькулятор процентов: пять режимов.
 //  - of:      сколько составит X% от числа A
 //  - what:    сколько процентов составляет A от B
 //  - addPct:  прибавить X% к числу A
 //  - subPct:  отнять X% от числа A
 //  - change:  на сколько процентов изменилось значение с A до B
 export const calcPercent: CalcFunction = (inputs) => {
+  if (inputs.mode !== undefined && typeof inputs.mode !== 'string') return percentError('Выберите допустимый режим расчёта.');
   const mode = toStr(inputs.mode, 'of');
-  const a = toNumber(inputs.a);
-  const b = toNumber(inputs.b);
+  if (!['of', 'what', 'addPct', 'subPct', 'change'].includes(mode)) {
+    return percentError('Выберите допустимый режим расчёта.');
+  }
+  if ([inputs.a, inputs.b].some((value) => typeof value !== 'number' && typeof value !== 'string')) {
+    return percentError('Введите конечные числовые значения.');
+  }
+  const a = toNumber(inputs.a, NaN);
+  const b = toNumber(inputs.b, NaN);
+  if (![a, b].every(Number.isFinite)) return percentError('Введите конечные числовые значения.');
 
   const modeLabels: Record<string, string> = {
     of: 'Процент от числа',
@@ -27,10 +35,10 @@ export const calcPercent: CalcFunction = (inputs) => {
     ...(hint ? [{ label: 'Подсказка', value: hint }] : []),
   ];
 
-  const result = (label: string, value: number, hint?: string) => ({
+  const result = (label: string, value: number, hint?: string): CalcResult => Number.isFinite(value) ? ({
     primary: { label, value: fmtNumber(value, 2) },
     secondary: secondary(hint),
-  });
+  }) : percentError('Результат выходит за пределы числовой точности.');
 
   switch (mode) {
     case 'of': {
@@ -47,6 +55,7 @@ export const calcPercent: CalcFunction = (inputs) => {
         };
       }
       const v = (a / b) * 100;
+      if (!Number.isFinite(v)) return percentError('Результат выходит за пределы числовой точности.');
       return {
         primary: { label: `${fmtNumber(a, 2)} от ${fmtNumber(b, 2)}`, value: `${fmtNumber(v, 2)}%` },
         secondary: secondary(),
@@ -71,18 +80,24 @@ export const calcPercent: CalcFunction = (inputs) => {
         };
       }
       const v = ((b - a) / a) * 100;
+      if (![v, b - a].every(Number.isFinite)) return percentError('Результат выходит за пределы числовой точности.');
+      const displayChange = v === 0 ? 0 : v;
       return {
-        primary: { label: 'Изменение', value: `${v >= 0 ? '+' : ''}${fmtNumber(v, 2)}%` },
+        primary: { label: 'Изменение', value: `${displayChange >= 0 ? '+' : ''}${fmtNumber(displayChange, 2)}%` },
         secondary: [
-          ...secondary(),
-          { label: 'Абсолютная разница', value: fmtNumber(b - a, 2) },
+          ...secondary(a < 0 ? 'При отрицательной исходной базе знак относительного изменения нельзя читать как направление роста или снижения.' : undefined),
+          { label: 'Разница B − A', value: fmtNumber(b - a, 2) },
         ],
       };
     }
     default:
-      return result('Результат', 0);
+      return percentError('Выберите допустимый режим расчёта.');
   }
 };
+
+function percentError(message: string): CalcResult {
+  return { primary: { label: 'Результат', value: '—' }, secondary: [{ label: 'Ошибка', value: message, accent: 'red' }] };
+}
 
 // Runtime-манифест импортирует функцию под фиксированным именем.
 export { calcPercent as compute };

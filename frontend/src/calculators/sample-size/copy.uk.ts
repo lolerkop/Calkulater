@@ -1,6 +1,7 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { mathWave8ContractContent } from './contractContent';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const sampleSizeCopyUk: CalculatorSeoCopy = {
+export const sampleSizeCopyUk: CalculatorCopy = {
   name: "Калькулятор розміру вибірки",
   slug: "rozmir-vybirky",
   shortDescription: "Скільки респондентів потрібно опитати за заданої точності.",
@@ -8,4 +9,5 @@ export const sampleSizeCopyUk: CalculatorSeoCopy = {
   seoDescription: "Розрахуйте потрібний розмір вибірки за довірчою ймовірністю, граничною похибкою та очікуваною часткою.",
   h1: "Калькулятор розміру вибірки",
   keywords: ["розмір вибірки", "репрезентативна вибірка", "гранична похибка"],
+  ...mathWave8ContractContent.uk,
 };

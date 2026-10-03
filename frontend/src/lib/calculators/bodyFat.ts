@@ -1,9 +1,9 @@
 import type { CalcFunction, CalcResultRow } from '../types';
-import { fmtNumber, toNumber, toStr } from '../format';
+import { fmtNumber, toNumber } from '../format';
 
-// Метод окружностей ВМС США (Hodgdon & Beckett, Naval Health Research Center,
-// отчёты 84-11 для мужчин и 84-29 для женщин, 1984). Регрессия построена по
-// обхватам и росту и калибрована по гидростатическому взвешиванию.
+// Historical Navy-style circumference model. Existing percentage coefficients
+// are preserved; exact verification against NHRC 84-11/84-29 is a documented
+// source gap. This is not a claim about the current Navy eligibility protocol.
 //
 // Исходный контракт задан в ДЮЙМАХ:
 //   мужчины: %жира = 86,010·log10(талия − шея) − 70,041·log10(рост) + 36,76
@@ -50,16 +50,18 @@ const invalid = (message: string) => ({
 });
 
 export const calcBodyFat: CalcFunction = (inputs) => {
-  const sex = toStr(inputs.sex, 'male') === 'female' ? 'female' : 'male';
-  const height = toNumber(inputs.height);
-  const neck = toNumber(inputs.neck);
-  const waist = toNumber(inputs.waist);
-  const hip = sex === 'female' ? toNumber(inputs.hip) : 0;
+  const sex = inputs.sex === undefined ? 'male' : inputs.sex;
+  if (sex !== 'male' && sex !== 'female') return invalid('Выберите мужскую или женскую формулу');
+  const read = (value: unknown) => typeof value === 'number' || typeof value === 'string' && value.trim() !== '' ? toNumber(value, Number.NaN) : Number.NaN;
+  const height = read(inputs.height);
+  const neck = read(inputs.neck);
+  const waist = read(inputs.waist);
+  const hip = sex === 'female' ? read(inputs.hip) : 0;
 
   const required: Array<[number, string]> = [
     [height, 'Введите рост больше нуля'],
     [neck, 'Введите обхват шеи больше нуля'],
-    [waist, 'Введите обхват талии больше нуля'],
+    [waist, sex === 'male' ? 'Введите обхват живота больше нуля' : 'Введите обхват талии больше нуля'],
   ];
   if (sex === 'female') required.push([hip, 'Введите обхват бёдер больше нуля']);
   for (const [value, message] of required) {
@@ -70,7 +72,7 @@ export const calcBodyFat: CalcFunction = (inputs) => {
   if (difference <= 0) {
     return invalid(sex === 'female'
       ? 'Сумма обхватов талии и бёдер должна быть больше обхвата шеи'
-      : 'Обхват талии должен быть больше обхвата шеи');
+      : 'Обхват живота должен быть больше обхвата шеи');
   }
 
   const percent = navyBodyFat(sex, height, neck, waist, hip);
@@ -84,20 +86,20 @@ export const calcBodyFat: CalcFunction = (inputs) => {
 
   const secondary: CalcResultRow[] = [
     { label: 'Метод расчёта', value: 'Обхваты, метод ВМС США' },
-    { label: 'Обхват талии', value: `${fmtNumber(waist, 1)} см` },
+    { label: sex === 'male' ? 'Обхват живота' : 'Обхват талии', value: `${fmtNumber(waist, 1)} см` },
     { label: 'Обхват шеи', value: `${fmtNumber(neck, 1)} см` },
   ];
   if (sex === 'female') {
     secondary.push({ label: 'Обхват бёдер', value: `${fmtNumber(hip, 1)} см` });
     secondary.push({ label: 'Талия плюс бёдра минус шея', value: `${fmtNumber(difference, 1)} см` });
   } else {
-    secondary.push({ label: 'Талия минус шея', value: `${fmtNumber(difference, 1)} см` });
+    secondary.push({ label: 'Живот минус шея', value: `${fmtNumber(difference, 1)} см` });
   }
   secondary.push({ label: 'Рост', value: `${fmtNumber(height, 1)} см` });
 
   return {
     primary: { label: 'Процент жира', value: `${fmtNumber(percent, 1)}%` },
     secondary,
-    note: 'Это оценка по обхватам, а не измерение. Погрешность метода составляет несколько процентных пунктов и растёт при неточных замерах ленты. Результат не является медицинским заключением.',
+    note: 'Историческая оценка по обхватам. У мужчин измеряют живот на уровне пупка, у женщин — естественную талию. Универсальная погрешность не гарантируется; результат не является медицинским заключением.',
   };
 };

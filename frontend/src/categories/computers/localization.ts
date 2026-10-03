@@ -163,23 +163,23 @@ export const copy: CategoryCopyByLocale = {
 
 export const faq: CategoryFaqByLocale = {
   ru: [
-    {
-      q: "Чем мегабайт отличается от мебибайта?",
-      a: "Мегабайт — это миллион байт, мебибайт — 1 048 576 байт. Разница около пяти процентов, и на больших файлах она заметна, поэтому единица выбирается явно.",
-    },
-    {
-      q: "Почему скорость канала в битах, а файл в байтах?",
-      a: "Так исторически сложилось: провайдеры измеряют канал в битах в секунду, а файлы хранятся в байтах. Один байт равен восьми битам, и калькулятор делает этот перевод сам.",
-    },
-    {
-      q: "Учитываются ли накладные расходы протокола?",
-      a: "Нет. Расчёт детерминированный: реальная скорость обычно ниже теоретической, и заложить запас можно отдельным полем там, где оно предусмотрено.",
-    },
-    {
-      q: "Почему 2560×1080 даёт 64:9, а не 21:9?",
-      a: "Точное отношение получается сокращением на наибольший общий делитель. «21:9» — маркетинговое округление, а не результат сокращения.",
-    },
-  ],
+        {
+          "q": "Чем мегабайт отличается от мебибайта?",
+          "a": "Мегабайт — это миллион байт, мебибайт — 1 048 576 байт. Разница около пяти процентов, и на больших файлах она заметна, поэтому единица выбирается явно."
+        },
+        {
+          "q": "Почему скорость канала в битах, а файл в байтах?",
+          "a": "Так исторически сложилось: провайдеры измеряют канал в битах в секунду, а файлы хранятся в байтах. Один байт равен восьми битам, и калькулятор делает этот перевод сам."
+        },
+        {
+          "q": "Учитываются ли накладные расходы протокола?",
+          "a": "Нет. Расчёт детерминированный: реальная скорость обычно ниже теоретической, и заложить запас можно отдельным полем там, где оно предусмотрено."
+        },
+        {
+          "q": "Почему 2560×1080 даёт 64:27, а не 21:9?",
+          "a": "Точное отношение получается сокращением на наибольший общий делитель. «21:9» — маркетинговое округление, а не результат сокращения."
+        }
+      ],
   en: [
     {
       q: "What is the difference between a megabyte and a mebibyte?",
@@ -217,23 +217,23 @@ export const faq: CategoryFaqByLocale = {
     },
   ],
   de: [
-    {
-      q: "What is the difference between a megabyte and a mebibyte?",
-      a: "A megabyte is a million bytes; a mebibyte is 1,048,576 bytes. The gap is about five percent and shows on large files, so the unit is chosen explicitly.",
-    },
-    {
-      q: "Why is link speed in bits but file size in bytes?",
-      a: "History: providers measure links in bits per second while files are stored in bytes. One byte is eight bits, and the calculator converts for you.",
-    },
-    {
-      q: "Is protocol overhead included?",
-      a: "No. The calculation is deterministic: real throughput is usually lower, and a margin can be added in a separate field where one is provided.",
-    },
-    {
-      q: "Why does 2560×1080 give 64:27 rather than 21:9?",
-      a: "The exact ratio comes from dividing by the greatest common divisor. \"21:9\" is a marketing round number, not the reduced ratio.",
-    },
-  ],
+        {
+          "q": "Was unterscheidet Megabyte und Mebibyte?",
+          "a": "Ein Megabyte sind eine Million Byte, ein Mebibyte 1.048.576 Byte. Der Unterschied beträgt rund 5% bezogen auf ein Megabyte; deshalb muss die verwendete Einheit eindeutig sein."
+        },
+        {
+          "q": "Warum stehen Datenraten in Bit und Dateigrößen in Byte?",
+          "a": "Datenraten werden häufig in Bit pro Sekunde angegeben, Dateigrößen in Byte. Ein Byte entspricht acht Bit; die entsprechenden Rechner rechnen diese Einheiten um."
+        },
+        {
+          "q": "Wird Protokoll-Overhead berücksichtigt?",
+          "a": "Es gibt keine automatische Prognose der tatsächlichen Verbindung. Wo ein Feld für Overhead oder nutzbare Bandbreite angeboten wird, geht nur der eingetragene Wert ein. Andernfalls basiert die Zeit auf der angegebenen nominalen Rate."
+        },
+        {
+          "q": "Warum ergeben 2560×1080 genau 64:27 statt 21:9?",
+          "a": "Der größte gemeinsame Teiler ist 40: 2560/40 = 64 und 1080/40 = 27. „21:9“ ist eine verbreitete gerundete Bezeichnung und nicht das vollständig gekürzte Verhältnis dieser Pixelzahlen."
+        }
+      ],
   fr: [
     {
       q: "What is the difference between a megabyte and a mebibyte?",

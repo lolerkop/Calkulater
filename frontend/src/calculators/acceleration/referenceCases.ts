@@ -26,4 +26,56 @@ export const accelerationReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"mode": "a", "t": 0, "v": 10, "v0": 0},
     expectPrimary: "—",
   },
+
+  // Wave 4: fixed expectations derived analytically from the stated model.
+  {
+  "name": "разворот: +10 до −10 за 4 с, путь 20 м при нулевом перемещении",
+  "inputs": {
+    "mode": "a",
+    "v0": 10,
+    "v": -10,
+    "t": 4
+  },
+  "expectPrimary": "-5 м/с²",
+  "expectSecondary": [
+    {
+      "label": "Пройденный путь",
+      "value": "20 м"
+    },
+    {
+      "label": "Перемещение",
+      "value": "0 м"
+    }
+  ]
+},
+  {
+  "name": "отрицательное направление: −10 до −20, скорость по модулю растёт",
+  "inputs": {
+    "mode": "a",
+    "v0": -10,
+    "v": -20,
+    "t": 2
+  },
+  "expectPrimary": "-5 м/с²",
+  "expectSecondary": [
+    {
+      "label": "Пройденный путь",
+      "value": "30 м"
+    },
+    {
+      "label": "Перемещение",
+      "value": "-30 м"
+    }
+  ]
+},
+  {
+  "name": "ошибка: логическое значение не измерение скорости",
+  "inputs": {
+    "mode": "a",
+    "v0": false,
+    "v": 20,
+    "t": 4
+  },
+  "expectPrimary": "—"
+},
 ];

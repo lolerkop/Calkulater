@@ -1,15 +1,9 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber as ordinaryNumber } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
 
-// Расстояние до телевизора считается не «по диагонали в дюймах», а по УГЛУ
-// обзора: THX рекомендует, чтобы экран занимал около 40 градусов поля зрения,
-// SMPTE — около 30. Отсюда две разные цифры для одного телевизора, и обе
-// правильные: первая для кино, вторая для обычного просмотра.
-//
-// Третья строка про другое: с какого расстояния глаз перестаёт различать
-// отдельные пиксели. Она зависит от разрешения, а не от угла, и объясняет,
-// зачем нужен 4K на большой диагонали и почему на маленькой он не нужен.
+// Geometric comparison at chosen horizontal angles 40° and 30°.
+// One-pixel angular size 1′ is a modelling assumption, not a vision guarantee.
 const CM_IN_INCH = 2.54;
 const THX_ANGLE = 40;
 const SMPTE_ANGLE = 30;
@@ -22,37 +16,45 @@ const RATIOS: Record<string, [number, number]> = {
   '4:3': [4, 3],
 };
 
+import { read, INPUT, RANGE } from '../../lib/platform/measurementScalar';
+import { integerInput } from '../../lib/platform/strictNumericInput';
+import { exact, times, ratio as divide } from '../../lib/platform/geometryNumericInput';
+
+const fmtNumber = (value: number, digits = 2): string => value !== 0 && Math.abs(value) < 0.5 * 10 ** -digits ? value.toExponential(3).replace('.', ',') : ordinaryNumber(value, digits);
+
 export const compute: CalcFunction = (inputs) => {
-  const diagonal = toNumber(inputs.diag);
-  const ratio = toStr(inputs.ratio, '16:9');
-  const lines = toNumber(inputs.lines);
+  const diagonal = read(inputs.diag);
+  const ratio = (typeof inputs.ratio === 'string' ? inputs.ratio : inputs.ratio === undefined ? '16:9' : '');
+  const lines = integerInput(inputs.lines) ?? NaN;
   const fail = (message: string) => ({
-    primary: { label: 'Комфортное расстояние по THX', value: '—' },
+    primary: { label: 'Расстояние при угле 40°', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
-  const shape = RATIOS[ratio];
+  const shape = Object.hasOwn(RATIOS, ratio) ? RATIOS[ratio] : null;
   if (!shape) return fail('Выберите пропорцию экрана из списка');
+  if (![diagonal, lines].every(Number.isFinite)) return fail(INPUT);
   if (!(diagonal > 0)) return fail('Диагональ должна быть больше нуля');
   if (!(lines > 0)) return fail('Число строк разрешения должно быть больше нуля');
 
   const [wRatio, hRatio] = shape;
   const diagonalCm = diagonal * CM_IN_INCH;
   const norm = Math.sqrt(wRatio * wRatio + hRatio * hRatio);
-  const width = (diagonalCm * wRatio) / norm;
-  const height = (diagonalCm * hRatio) / norm;
+  const width = divide(times(exact(diagonal), exact(CM_IN_INCH), exact(wRatio)), exact(norm));
+  const height = divide(times(exact(diagonal), exact(CM_IN_INCH), exact(hRatio)), exact(norm));
   const thx = width / 2 / Math.tan((THX_ANGLE / 2) * (Math.PI / 180));
   const smpte = width / 2 / Math.tan((SMPTE_ANGLE / 2) * (Math.PI / 180));
   const pixel = height / lines;
-  const sharp = (pixel * ARCMIN_IN_RADIAN) / CM_IN_M;
+  const sharp = divide(times(exact(height), exact(ARCMIN_IN_RADIAN)), times(exact(lines), exact(CM_IN_M)));
+  if (![width, height, thx / CM_IN_M, smpte / CM_IN_M, sharp].every(v => Number.isFinite(v) && v > 0)) return fail(RANGE);
 
   return {
-    primary: { label: 'Комфортное расстояние по THX', value: `${formatMeasure(thx / CM_IN_M, fmtNumber)} м` },
+    primary: { label: 'Расстояние при угле 40°', value: `${formatMeasure(thx / CM_IN_M, fmtNumber)} м` },
     secondary: [
-      { label: 'Комфортное по SMPTE', value: `${formatMeasure(smpte / CM_IN_M, fmtNumber)} м` },
+      { label: 'Расстояние при угле 30°', value: `${formatMeasure(smpte / CM_IN_M, fmtNumber)} м` },
       { label: 'Ширина экрана', value: `${formatMeasure(width, fmtNumber)} см` },
       { label: 'Высота экрана', value: `${formatMeasure(height, fmtNumber)} см` },
-      { label: 'Дальше этого пиксели не различить', value: `${formatMeasure(sharp, fmtNumber)} м` },
+      { label: 'Оценка для углового размера 1′', value: `${formatMeasure(sharp, fmtNumber)} м` },
     ],
   };
 };

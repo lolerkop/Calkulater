@@ -3,9 +3,10 @@
 // файла немецкой страницы не существует. Подробный текст живёт в
 // `src/data/deCalculatorContent.ts`.
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { exchangeFeeContractContent } from './contractContent';
 
-export const currencyExchangeFeeCopyDe: CalculatorSeoCopy = {
+export const currencyExchangeFeeCopyDe: CalculatorCopy = {
   name: 'Rechner für Wechselkosten',
   slug: 'wechselkosten-rechner',
   shortDescription: 'Was ein Umtausch wirklich kostet: Spread, prozentuale Gebühr und Festbetrag zusammen.',
@@ -13,4 +14,5 @@ export const currencyExchangeFeeCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Berechne, was nach einem Währungsumtausch übrig bleibt, unter Berücksichtigung von Spread, prozentualer Gebühr und Festbetrag.',
   h1: 'Rechner für Wechselkosten',
   keywords: ['Wechselkosten', 'Spread', 'Umtauschgebühr', 'Geld wechseln', 'Umtauschgebuehr', 'Rechner fuer Wechselkosten'],
+  ...exchangeFeeContractContent.de,
 };

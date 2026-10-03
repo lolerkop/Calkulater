@@ -1,36 +1,12 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, preserveNonZero, toNumber, toStr } from '../../lib/format';
-
-// Запас продукта: на сколько дней хватит при известном суточном расходе.
-//
-// Речь о ТОВАРНОМ запасе — корм, крупа, топливо, расходники, — а не о ценных
-// бумагах. Единицы не пересчитываются: запас и расход задаются в одних и тех же,
-// и калькулятор работает с их отношением.
-const days = (value: number): string => {
-  const text = fmtNumber(preserveNonZero(value, 1), 1);
-  return text.includes(',') ? text.replace(/0+$/, '').replace(/,$/, '') : text;
-};
-
-export const compute: CalcFunction = (inputs) => {
-  const stock = toNumber(inputs.stock);
-  const perDay = toNumber(inputs.perDay);
-  const reserve = toNumber(inputs.reserveDays);
-  const fail = (message: string) => ({
-    primary: { label: 'Хватит на', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  if (stock < 0) return fail('Запас не может быть отрицательным');
-  if (!(perDay > 0)) return fail('Расход в сутки должен быть больше нуля');
-
-  const total = stock / perDay;
-  const secondary = [{ label: 'Расход в сутки', value: days(perDay) }];
-  if (reserve > 0) {
-    const order = total - reserve;
-    secondary.push({
-      label: 'Заказать через',
-      value: order >= 0 ? `${days(order)} дней` : 'Страховой запас больше срока — заказывать нужно уже сейчас',
-    });
-  }
-
-  return { primary: { label: 'Хватит на', value: `${days(total)} дней` }, secondary };
+import { read, optional, finite, exact, times, add, negative, evaluated, scalar, INPUT, RANGE } from '../../lib/calculators/householdWave17Numeric';
+const days=(x:number)=>{const s=scalar(x,1);return s.includes(',')&&!s.includes('·')?s.replace(/0+$/,'').replace(/,$/,''):s;};
+export const compute: CalcFunction = inputs => {
+ const stock=read(inputs.stock),perDay=read(inputs.perDay),reserve=optional(inputs.reserveDays);
+ const fail=(value:string)=>({primary:{label:'Хватит на',value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ if(!finite(stock,perDay,reserve))return fail(INPUT);if(stock<0)return fail('Запас не может быть отрицательным');if(perDay<=0)return fail('Расход в сутки должен быть больше нуля');if(reserve<0)return fail('Страховой запас не может быть отрицательным');
+ const total=evaluated(exact(stock),exact(perDay));if(!finite(total))return fail(RANGE);
+ const secondary=[{label:'Расход в сутки',value:days(perDay)}];
+ if(reserve>0){const n=add(exact(stock),negative(times(exact(reserve),exact(perDay))));if(n.coefficient<0n)secondary.push({label:'Заказать через',value:'Страховой запас больше срока — заказывать нужно уже сейчас'});else{const order=evaluated(n,exact(perDay));if(!finite(order))return fail(RANGE);secondary.push({label:'Заказать через',value:`${days(order)} дней`});}}
+ return {primary:{label:'Хватит на',value:`${days(total)} дней`},secondary};
 };

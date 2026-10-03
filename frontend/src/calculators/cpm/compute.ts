@@ -1,62 +1,32 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtInt } from '../../lib/format';
+import { integer, money, number, text, validOutput } from './numeric';
 
-// CPM: стоимость тысячи показов.
-//
-// Знаменатель — показы, делённые на тысячу, и именно он отличает CPM от
-// соседних метрик: у CPC внизу клики, у CPA — действия. Формулы выглядят
-// одинаково, поэтому знаменатель назван прямо в подписи результата.
-const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
-
+// Only the two known inputs of the selected mode are read. Inverse delivery is
+// a constant-rate estimate, rounded to the nearest whole impression for display.
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'cpm');
-  const cost = toNumber(inputs.cost);
-  const impressions = Math.round(toNumber(inputs.impressions));
-  const cpm = toNumber(inputs.cpm);
-
-  const fail = (message: string) => ({
-    primary: { label: 'CPM', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+  const mode = inputs.mode === undefined ? 'cpm' : inputs.mode;
+  const fail = (message: string) => ({ primary: { label: 'CPM', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (mode !== 'cpm' && mode !== 'cost' && mode !== 'impressions') return fail('Неизвестный режим расчёта');
+  const cost = mode !== 'cost' ? number(inputs.cost) : 0;
+  const cpm = mode !== 'cpm' ? number(inputs.cpm) : 0;
+  const impressions = mode !== 'impressions' ? integer(inputs.impressions) : 1;
+  if (cost === null || cpm === null) return fail('Введите корректные числовые данные');
   if (cost < 0) return fail('Бюджет не может быть отрицательным');
-
+  if (mode !== 'cpm' && !(cpm > 0)) return fail('CPM должен быть больше нуля');
+  if (impressions === null || !Number.isSafeInteger(impressions)) return fail('Количество должно быть целым в допустимом диапазоне');
+  if (impressions < 1) return fail('Показов должно быть не меньше одного');
   if (mode === 'impressions') {
-    if (!(cpm > 0)) return fail('CPM должен быть больше нуля');
-    const shows = (cost / cpm) * 1000;
-    return {
-      primary: { label: 'Показы', value: fmtInt(shows) },
-      secondary: [
-        { label: 'CPM', value: money(cpm) },
-        { label: 'Бюджет', value: money(cost) },
-        { label: 'Стоимость показа', value: `${fmtNumber(cpm / 1000, 4)} ₽` },
-      ],
-    };
+    const shows = (cost / cpm) * 1000, perImpression = cpm / 1000;
+    if (!validOutput(shows, cost > 0) || shows > Number.MAX_SAFE_INTEGER || !validOutput(perImpression, true)) return fail('Результат вне допустимого диапазона');
+    return { primary: { label: 'Показы', value: fmtInt(shows) }, secondary: [{ label: 'CPM', value: money(cpm) }, { label: 'Бюджет', value: money(cost) }, { label: 'Стоимость показа', value: `${text(perImpression, 4)} ₽` }] };
   }
-
-  if (mode === 'cost') {
-    if (!(impressions >= 1)) return fail('Показов должно быть не меньше одного');
-    if (!(cpm > 0)) return fail('CPM должен быть больше нуля');
-    const budget = (cpm * impressions) / 1000;
-    return {
-      primary: { label: 'Бюджет', value: money(budget) },
-      secondary: [
-        { label: 'CPM', value: money(cpm) },
-        { label: 'Показы', value: fmtInt(impressions) },
-        { label: 'Стоимость показа', value: `${fmtNumber(cpm / 1000, 4)} ₽` },
-      ],
-    };
-  }
-
-  if (!(impressions >= 1)) return fail('Показов должно быть не меньше одного');
-  const value = (cost / impressions) * 1000;
-
-  return {
-    primary: { label: 'CPM', value: money(value) },
-    secondary: [
-      { label: 'Бюджет', value: money(cost) },
-      { label: 'Показы', value: fmtInt(impressions) },
-      { label: 'Стоимость показа', value: `${fmtNumber(value / 1000, 4)} ₽` },
-    ],
-  };
+  const budget = mode === 'cost' ? cpm * (impressions / 1000) : cost;
+  const value = mode === 'cpm' ? cost / (impressions / 1000) : cpm;
+  const perImpression = value / 1000;
+  if (!validOutput(budget, mode === 'cost') || !validOutput(value, budget > 0) || !validOutput(perImpression, budget > 0)) return fail('Результат вне допустимого диапазона');
+  return { primary: { label: mode === 'cost' ? 'Бюджет' : 'CPM', value: money(mode === 'cost' ? budget : value) }, secondary: [
+    { label: mode === 'cost' ? 'CPM' : 'Бюджет', value: money(mode === 'cost' ? cpm : cost) },
+    { label: 'Показы', value: fmtInt(impressions) }, { label: 'Стоимость показа', value: `${text(perImpression, 4)} ₽` },
+  ] };
 };

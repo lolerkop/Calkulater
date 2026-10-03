@@ -1,28 +1,23 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, toNumber } from '../../lib/format';
+import { fmtInt } from '../../lib/format';
+import { integerInput } from './numeric';
 
-// Деление с остатком.
-//
-// Соглашение о знаке выбрано и зафиксировано: частное усекается к нулю, а
-// остаток наследует знак делимого — так же, как оператор % в JavaScript и в
-// школьной записи «−17 = 5 · (−3) + (−2)». Языки расходятся именно здесь:
-// Python вернул бы остаток 3 со знаком делителя. Молчаливо взять поведение
-// платформы нельзя, поэтому оно проверяется отдельными эталонными случаями
-// с отрицательными числами.
+// Truncating division: the nonzero remainder has the dividend's sign.
+// BigInt keeps the quotient and remainder exact inside the public safe-integer range.
 export const compute: CalcFunction = (inputs) => {
-  const a = toNumber(inputs.a);
-  const b = toNumber(inputs.b);
+  const a = integerInput(inputs.a);
+  const b = integerInput(inputs.b);
 
   const fail = (message: string) => ({
     primary: { label: 'Остаток', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
-  if (!Number.isInteger(a) || !Number.isInteger(b)) return fail('Делимое и делитель должны быть целыми');
+  if (a === null || b === null) return fail('Введите целые числа по модулю до 9007199254740991');
   if (b === 0) return fail('Делитель не может быть нулём');
 
-  const quotient = Math.trunc(a / b);
-  const remainder = a - b * quotient;
+  const quotient = Number(BigInt(a) / BigInt(b));
+  const remainder = Number(BigInt(a) % BigInt(b));
 
   return {
     primary: { label: 'Остаток', value: fmtInt(remainder) },

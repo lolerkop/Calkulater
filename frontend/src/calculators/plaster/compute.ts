@@ -1,45 +1,46 @@
+import { read, finite, mode as selectedMode, INPUT, MODE, RANGE, exact, times, evaluated, mul, decimal, dproduct, dmul, ceilDecimal, scalar } from '../beam-deflection/buildingWave13Numeric';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 
-// Штукатурка: сухая смесь по площади и толщине слоя.
-//
-// Расход смеси — редактируемое поле, а не зашитый факт о материале: у гипсовых,
-// цементных и известковых составов он разный, и производитель пишет свой на мешке.
-// Значение по умолчанию 8,5 кг/м² на миллиметр слоя — типичная гипсовая смесь,
-// и оно названо допущением прямо на странице, а не спрятано в справочнике.
 
-const kg = (value: number): string => `${fmtNumber(value, 2)} кг`;
-// Мешок нельзя купить дробным, поэтому округление всегда вверх. Шум двоичной
-// арифметики срезается до округления: иначе ровно укладывающаяся масса дала бы
-// лишний мешок.
-const bags = (mass: number, bagWeight: number): number => Math.ceil(Number((mass / bagWeight).toFixed(6)));
+const kg = (value: number): string => `${scalar(value, 2)} кг`;
 
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'area');
-  const thickness = toNumber(inputs.thickness);
-  const consumption = toNumber(inputs.consumption);
-  const bagWeight = toNumber(inputs.bagWeight);
+  const mode = selectedMode(inputs.mode, 'area', ['area','dimensions']);
+  const thickness = read(inputs.thickness);
+  const consumption = read(inputs.consumption);
+  const bagWeight = read(inputs.bagWeight);
   const fail = (message: string) => ({
     primary: { label: 'Масса сухой смеси', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
-  const area = mode === 'dimensions'
-    ? toNumber(inputs.length) * toNumber(inputs.height)
-    : toNumber(inputs.area);
+  if (mode === null) return fail(MODE);
+  const length = mode === 'dimensions' ? read(inputs.length) : 1;
+  const height = mode === 'dimensions' ? read(inputs.height) : 1;
+  const suppliedArea = mode === 'area' ? read(inputs.area) : 1;
+  if (!finite(length,height,suppliedArea,thickness,consumption,bagWeight)) return fail(INPUT);
+  if (!(length > 0) || !(height > 0)) return fail(INPUT);
+  const areaD = mode === 'dimensions' ? times(exact(length),exact(height)) : exact(suppliedArea);
+  const area = evaluated(areaD);
 
+  if (mode === null) return fail(MODE);
   if (!(area > 0)) return fail('Площадь должна быть больше нуля');
   if (!(thickness > 0)) return fail('Толщина слоя должна быть больше нуля');
   if (!(consumption > 0)) return fail('Расход смеси должен быть больше нуля');
   if (!(bagWeight > 0)) return fail('Вес мешка должен быть больше нуля');
 
-  const mass = area * thickness * consumption;
+  const mass = evaluated(times(areaD,exact(thickness),exact(consumption)));
+  const areaDecimal = mode === 'dimensions' ? dproduct(length,height) : decimal(suppliedArea);
+  const count = ceilDecimal(dmul(areaDecimal,dproduct(thickness,consumption)),decimal(bagWeight));
+  const rate = mul(thickness,consumption);
+  if (!finite(area,mass,count,rate)) return fail(RANGE);
   return {
     primary: { label: 'Масса сухой смеси', value: kg(mass) },
     secondary: [
-      { label: 'Мешков', value: `${fmtNumber(bags(mass, bagWeight), 0)} шт` },
-      { label: 'Расход на м²', value: kg(thickness * consumption) },
-      { label: 'Площадь', value: `${fmtNumber(area, 2)} м²` },
+      { label: 'Мешков', value: `${fmtNumber(count, 0)} шт` },
+      { label: 'Расход на м²', value: kg(rate) },
+      { label: 'Площадь', value: `${scalar(area, 2)} м²` },
     ],
   };
 };

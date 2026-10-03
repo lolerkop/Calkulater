@@ -1,55 +1,38 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatQuantity } from '../../lib/platform/measurement';
+import { read, qty, RANGE, INPUT, MODE } from '../../lib/platform/measurementScalar';
 
-// Импульс: p = m · v.
-//
-// В отличие от кинетической энергии скорость входит в ПЕРВОЙ степени, поэтому
-// обратный ход по массе — обычное деление, и нулевая скорость его запрещает.
 
-const qty = (value: number): string => formatQuantity(value, fmtNumber);
 
+// One-dimensional signed momentum p = m v; energy remains non-negative.
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'p');
-  const fail = (message: string) => ({
-    primary: { label: 'Импульс', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  let m = 0;
-  let v = 0;
-  let p = 0;
-  let primaryLabel = 'Импульс';
+  const mode = inputs.mode;
+  const label = mode === 'v' ? 'Скорость' : mode === 'm' ? 'Масса' : 'Импульс';
+  const fail = (message: string) => ({ primary: { label, value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (mode !== 'p' && mode !== 'v' && mode !== 'm') return fail(MODE);
+  let m: number, v: number, p: number;
   if (mode === 'p') {
-    m = toNumber(inputs.m);
-    v = toNumber(inputs.v);
+    m = read(inputs.m); v = read(inputs.v);
+    if (![m, v].every(Number.isFinite)) return fail(INPUT);
     if (!(m > 0)) return fail('Масса должна быть больше нуля');
-    if (v < 0) return fail('Скорость не может быть отрицательной');
     p = m * v;
   } else if (mode === 'v') {
-    p = toNumber(inputs.p);
-    m = toNumber(inputs.m2);
-    if (p < 0) return fail('Импульс не может быть отрицательным');
+    p = read(inputs.p); m = read(inputs.m2);
+    if (![m, p].every(Number.isFinite)) return fail(INPUT);
     if (!(m > 0)) return fail('Масса должна быть больше нуля');
     v = p / m;
-    primaryLabel = 'Скорость';
   } else {
-    p = toNumber(inputs.p2);
-    v = toNumber(inputs.v2);
-    if (p < 0) return fail('Импульс не может быть отрицательным');
-    if (!(v > 0)) return fail('Скорость должна быть больше нуля, иначе масса не определена');
+    p = read(inputs.p2); v = read(inputs.v2);
+    if (![p, v].every(Number.isFinite)) return fail(INPUT);
+    if (v === 0) return fail('При нулевой скорости массу по импульсу найти нельзя');
+    if (p === 0 || Math.sign(p) !== Math.sign(v)) return fail('Для положительной массы импульс и скорость должны иметь одинаковый ненулевой знак');
     m = p / v;
-    primaryLabel = 'Масса';
   }
-
-  const primaryValue = mode === 'p' ? `${qty(p)} кг·м/с` : mode === 'v' ? `${qty(v)} м/с` : `${qty(m)} кг`;
-  return {
-    primary: { label: primaryLabel, value: primaryValue },
-    secondary: [
-      { label: 'Импульс', value: `${qty(p)} кг·м/с` },
-      { label: 'Масса', value: `${qty(m)} кг` },
-      { label: 'Скорость', value: `${qty(v)} м/с` },
-      { label: 'Кинетическая энергия', value: `${qty((p * v) / 2)} Дж` },
-    ],
-  };
+  if (![m, v, p].every(Number.isFinite) || !(m > 0) || (mode === 'p' && v !== 0 && p === 0) || (mode === 'v' && p !== 0 && v === 0)) return fail(RANGE);
+  // Dividing either factor first avoids overflow of p*v when the energy is finite.
+  const energy = v === 0 ? 0 : [(p / 2) * v, p * (v / 2), (p * v) / 2].find(x => Number.isFinite(x) && x > 0);
+  if (energy === undefined) return fail(RANGE);
+  return { primary: { label, value: mode === 'p' ? `${qty(p)} кг·м/с` : mode === 'v' ? `${qty(v)} м/с` : `${qty(m)} кг` }, secondary: [
+    { label: 'Импульс', value: `${qty(p)} кг·м/с` }, { label: 'Масса', value: `${qty(m)} кг` }, { label: 'Скорость', value: `${qty(v)} м/с` },
+    { label: 'Кинетическая энергия', value: `${qty(energy)} Дж` },
+  ] };
 };

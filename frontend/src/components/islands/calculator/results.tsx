@@ -33,6 +33,12 @@ function ResultBlock({
   locale: Locale;
 }) {
   const copy = calculatorCopy(locale);
+  const isLongInteger = (value: string) => /^-?\d+(?:[,\s]\d{3})*$/.test(value)
+    && value.replace(/[,\s-]/g, '').length >= 16;
+  const longInteger = isLongInteger(result.primary.value);
+  const integerText = (value: string) => isLongInteger(value) && /[,\s]/.test(value)
+    ? value.split(/(?<=[,\s])/).map((group, index) => <span className="inline-block whitespace-nowrap" key={index}>{group}</span>)
+    : value;
   // Идентификатор для aria-describedby таблицы. useId даёт одинаковое значение
   // на сервере и после гидратации, поэтому связь не рвётся при takeover.
   const tableNoteId = `${useId()}table-note`;
@@ -43,19 +49,22 @@ function ResultBlock({
       data-testid="calc-result"
     >
       <div className="border-b border-accent-100 bg-gradient-to-br from-white via-white to-accent-50 p-5 sm:p-7">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <div className="min-w-0">
+        <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
+          <div className="min-w-0 sm:basis-64 sm:flex-1">
             <div className="text-xs uppercase tracking-wider text-ink-500">
               {result.primary.label}
             </div>
             <div
-              className="mt-2 font-mono text-3xl font-semibold tracking-[-0.04em] text-accent [overflow-wrap:anywhere] sm:text-4xl"
+              className={[
+                'mt-2 font-mono font-semibold tracking-[-0.04em] text-accent [overflow-wrap:anywhere]',
+                longInteger ? 'text-2xl sm:text-3xl' : 'text-3xl sm:text-4xl',
+              ].join(' ')}
               data-testid="calc-result-primary"
             >
-              {result.primary.value}
+              {integerText(result.primary.value)}
             </div>
           </div>
-          <div className="flex shrink-0 gap-2 self-end print-hide sm:self-auto">
+          <div className="flex shrink-0 gap-2 self-end print-hide sm:ml-auto sm:self-auto">
             <button
               type="button"
               onClick={onEdit}
@@ -99,7 +108,7 @@ function ResultBlock({
         {result.secondary.map((row, i) => (
           <div
             key={i}
-            className="grid grid-cols-1 items-baseline gap-1 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,auto)] sm:gap-4 sm:px-6"
+            className="grid grid-cols-1 items-baseline gap-1 px-4 py-3 sm:grid-cols-2 sm:gap-4 sm:px-6"
             data-testid={`calc-result-row-${i}`}
           >
             <dt className="min-w-0 text-sm text-ink-500 text-fit">{row.label}</dt>
@@ -118,9 +127,9 @@ function ResultBlock({
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {row.value}
+                  {integerText(row.value)}
                 </a>
-              ) : row.value}
+              ) : integerText(row.value)}
             </dd>
           </div>
         ))}

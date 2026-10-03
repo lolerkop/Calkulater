@@ -1,0 +1,1649 @@
+{
+  "schemaVersion": 1,
+  "status": "IMPLEMENTED_LOCAL_TECHNICALLY_VERIFIED_NEEDS_HUMAN_REVIEW",
+  "scope": {
+    "calculatorIds": [
+      "bmi-calculator",
+      "calorie-calculator",
+      "body-fat-calculator",
+      "running-pace-calculator",
+      "one-rep-max-calculator",
+      "barbell-plates",
+      "bike-gear-ratio",
+      "bike-wheel-size"
+    ],
+    "canonicalEngines": 8,
+    "publishedLocalizedURLs": 40,
+    "locales": [
+      "ru",
+      "en",
+      "uk",
+      "de",
+      "es"
+    ],
+    "category": "sport",
+    "fullCatalogCompletionClaim": false
+  },
+  "review": {
+    "AIArithmeticAndSourceChecks": "2026-10-01",
+    "humanEditorialReview": "PENDING",
+    "medicalReview": "PENDING",
+    "currentNavyOriginalCoefficientVerification": "OPEN_SOURCE_GAP",
+    "browserAndFullReleaseChecks": "PARENT_INTEGRATION_REQUIRED",
+    "pushDeployExternalAccountActions": "NOT_PERFORMED"
+  },
+  "verification": {
+    "beforeInventory": "/tmp/calcuway-health-wave3-baseline.json",
+    "beforeActualComputeProbes": "/tmp/calcuway-health-wave3-probes.json",
+    "afterInventory": "/tmp/calcuway-fitness-wave3-implemented.json",
+    "focusedTests": {
+      "status": "PASS",
+      "total": 402,
+      "newSubjectTests": 311,
+      "legacyTests": 75,
+      "dataQualityTests": 16,
+      "log": "/tmp/calcuway-fitness-wave3-final.log",
+      "scope": "Full wave check before the narrowly authorized output-label refinement; numeric paths unchanged since this pass."
+    },
+    "sharedReferenceCases": {
+      "status": "PASS",
+      "total": 2170,
+      "log": "/tmp/calcuway-fitness-wave3-references.log"
+    },
+    "typecheck": {
+      "status": "PASS",
+      "log": "/tmp/calcuway-fitness-wave3-typecheck-final.log"
+    },
+    "metadataAdditionalTests": {
+      "status": "PASS",
+      "total": 8,
+      "meaning": "Five historical Navy metadata checks, two calorie estimate descriptions, Russian1RMestimated/fractionsnotprogram labels."
+    },
+    "actualRuntimeEvidence": {
+      "ownedCopyEquality40": true,
+      "FAQCountsPreserved40": true,
+      "explicitV2Units15": true,
+      "legacyNormalAndErrorResults20": true,
+      "V2ReferenceResults128": true,
+      "publicSubjectSources40": true
+    },
+    "sourceRetrievalDate": "2026-10-01",
+    "scopedLabelRefinement": {
+      "status": "PASS",
+      "total": 317,
+      "calorieTests": 6,
+      "waveSubjectAndActualRuntimeTests": 311,
+      "log": "/tmp/calcuway-fitness-wave3-calorie-label-final.log",
+      "typecheck": {
+        "status": "PASS",
+        "log": "/tmp/calcuway-fitness-wave3-calorie-label-typecheck.log"
+      },
+      "changes": "Only calorie primarylabel to daily energy estimate, resting secondarylabel toREE, corresponding test lookups andfive definition sentences; formula andnumbers unchanged. Rootaddednative mappings andgeneratedthem."
+    }
+  },
+  "engineDomains": {
+    "bmi-calculator": "Finite positive cm/kg; finite positiveBMI and inverse categoryweight bounds; adult20+eligibility documented, no age field. ExactBMI before display rounding. Smallpositivevalues scientific rather than zero.",
+    "calorie-calculator": "Declared male/female, maintain/lose/gain; age19–78product restriction matches developmentcohort but does not guarantee accuracy. Finite positivecm/kg; declaredactivity{1.2,1.375,1.55,1.725,1.9}. Activechange0–30, protein/fat10–60each and sum≤100; no silentclamp/rescale. Inactiveadjust ignored onmaintain. FinitepositiveREE/TDEE/target; ordinaryintegerdisplay retained.",
+    "body-fat-calculator": "Declared male/female; active finitepositivecm, malehipinactive; positiveA−N/W+P−N and adoptedmodelpercentage0<bf<100. Outputsare estimates, no diagnosticcategory.",
+    "running-pace-calculator": "Declaredkm/mi; finitepositivedistance, nonnegativefiniteh/m/s, aggregate>0; finitepositivepace/speed/forecasts. Blanktimecomponents0. Exactmile1.609344km.1.06powerlawadopted, not universalorwalkingvalidated.",
+    "one-rep-max-calculator": "Finitepositivekg andwhole1–12reps, matching pre-existingformmax12; allnamedmodels computedfromownacceptedformulas withpositivefiniteoutputs. r1primaryobservedweight. No fallbacksubstitution, no fractionalrounding.",
+    "barbell-plates": "Target/barfinite0–1000kg to.001kgprecision, target≥bar.≤32uniqueplatesfinitepositive.001–1000kg to.001precision. Unlimitedsymmetricpairs. MaxDPcapacity500000gram/gcdstates; ≤16Mcomparisons plus bounded arrays. Chooselargestreachableper-side≤target thenmincount; target−loadedpreservedincludingoddgramremainder.",
+    "bike-gear-ratio": "Positive safeinteger toothcounts, optionalcircumferenceblank/zero no development; otherwise finitepositive metres. Directchain-driveassumption, no internalhubratio. Finite development, scientificsmallpositiveoutputonly.",
+    "bike-wheel-size": "Declaredetrto/inches, onlyactiveinputsvalidate; finitepositiveBSD/inches, finitewidth≥0. ETRTOheight≈nominalwidthisexplicitapproximation. Finitepositivegeometry/rotations, measuredoutsideinchdiameterassumption."
+  },
+  "sources": [
+    {
+      "id": "cdc-adult-bmi",
+      "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html",
+      "appliesTo": [
+        "bmi-calculator"
+      ],
+      "accessStatus": "FULL_PRIMARY_PAGE",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "Adult age20+,BMI screening and exact18.5≤BMI<25 categories; not a personal target.",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "mifflin-1990",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/",
+      "appliesTo": [
+        "calorie-calculator"
+      ],
+      "accessStatus": "INDEXED_PRIMARY_ABSTRACT",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "498healthy adults aged19–78; simplified male/female resting expenditure formula. Does not validate our activity multipliers or macro presets.",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "niddk-adult-scope",
+      "url": "https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner",
+      "appliesTo": [
+        "calorie-calculator"
+      ],
+      "accessStatus": "FULL_PRIMARY_PAGE",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "Official planner scope excludes minors/pregnancy/breastfeeding; not validation of this static adjustment model.",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "efsa-energy-context",
+      "url": "https://www.efsa.europa.eu/en/press/news/130110",
+      "appliesTo": [
+        "calorie-calculator"
+      ],
+      "accessStatus": "OFFICIAL_SUMMARY",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "PAL represents daily lifestyle; does not validate our five workout-count multipliers or Mifflin×PAL combination.",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "navy-historical-sites-2025",
+      "url": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D",
+      "appliesTo": [
+        "body-fat-calculator"
+      ],
+      "accessStatus": "INDEXED_OFFICIAL_PDF_EXCERPT_DIRECT_FETCH403",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "Historical male navel abdomen, female natural waist/greatest buttock circumference and neck sites. Not current military eligibility policy and not exact percentage-coefficient verification.",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "vickers-vertosick-2016",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27570626/",
+      "appliesTo": [
+        "running-pace-calculator"
+      ],
+      "accessStatus": "INDEXED_PRIMARY_ABSTRACT",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "2303recreational runners; marathon predictions often optimistic. Does not establish a universal individual exponent or walking extrapolation.",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "fogelmark-2016",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4919094/",
+      "appliesTo": [
+        "running-pace-calculator"
+      ],
+      "accessStatus": "INDEXED_PRIMARY_FULL_TEXT",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "Discusses commonly used exponent1.06 and individual variation; not a claim that1.06 is a uniquely verified original universal constant.",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "lesuer-1997",
+      "url": "https://paulogentil.com/pdf/The%20Accuracy%20of%20Prediction%20Equations%20for%20Estimating%201-RM%20Performance%20in%20the%20Bench%20Press,%20Squat,%20and%20Deadlift.pdf",
+      "appliesTo": [
+        "one-rep-max-calculator"
+      ],
+      "accessStatus": "PRIMARY_PAPER_RENDERED_PAGE1_TABLE1_READ",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "67untrained college students, bench/squat/deadlift,≤10reps to fatigue; Table1Lander101.3−2.67123r exact, Epley0.0333 andBrzycki100/(102.78−2.78r) rounded variants differ slightly from preservedr/30 and36/(37−r).",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "reynolds-2006",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16937972/",
+      "appliesTo": [
+        "one-rep-max-calculator"
+      ],
+      "accessStatus": "INDEXED_PRIMARY_ABSTRACT",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "70subjects, bench/leg press comparison;5RMbest among measured protocols, recommends≤10for these linear prediction contexts, not universal error guarantees.",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "iwf-equipment",
+      "url": "https://iwf.sport/weightlifting_/equipment/",
+      "appliesTo": [
+        "barbell-plates"
+      ],
+      "accessStatus": "OFFICIAL_EQUIPMENT_PAGE",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "Competition menbar20kg, women15kg, two collars2.5kg each. Does not set our1000kg/precision/32denomination product caps or describe every gym bar.",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "schwalbe-sizes",
+      "url": "https://www.schwalbe.com/en/technology-faq/tire-sizes/",
+      "appliesTo": [
+        "bike-wheel-size"
+      ],
+      "accessStatus": "FULL_MANUFACTURER_PRIMARY_PAGE",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "ETRTOwidth and bead-seat diameter, ambiguous inch labels;28/29both622BSDpossible. Does not equate nominalwidth and radialheight.",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "schwalbe-rollout",
+      "url": "https://www.schwalbe.com/en/technology-faq/tire-dimensions/",
+      "appliesTo": [
+        "bike-wheel-size",
+        "bike-gear-ratio"
+      ],
+      "accessStatus": "FULL_MANUFACTURER_PRIMARY_PAGE",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "Rim/construction/pressure/load affect actual size and rollout; measured loaded one-revolution circumference is preferred.",
+      "verification": "AI source check, no human review claim"
+    },
+    {
+      "id": "shimano-internal-gear",
+      "url": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+      "appliesTo": [
+        "bike-gear-ratio"
+      ],
+      "accessStatus": "FULL_MANUFACTURER_SPECIFICATION_PDF_INDEXED",
+      "retrievedDate": "2026-10-01",
+      "supportsAndLimits": "2026–2027specification v2.7Sep17,2026lists internal hub ratios .733/1/1.364 forNEXUS3examples; chain tooth ratio alone is not whole drivetrain ratio.",
+      "verification": "AI source check, no human review claim"
+    }
+  ],
+  "tools": [
+    {
+      "id": "bmi-calculator",
+      "publishedLocaleRows": [
+        {
+          "locale": "ru",
+          "url": "/ru/sport/bmi-calculator/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "CDC: взрослые категории ИМТ от 20 лет и границы без округления",
+              "href": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Индекс массы тела по росту и весу с интерпретацией результата.",
+              "after": "Индекс массы тела по росту и весу с интерпретацией результата.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Рассчитайте ИМТ по росту и весу онлайн. Узнайте индекс массы тела, категорию результата и ограничения формулы BMI.",
+              "after": "Рассчитайте ИМТ по росту и весу онлайн. Узнайте индекс массы тела, категорию результата и ограничения формулы BMI.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "en",
+          "url": "/en/fitness/bmi-calculator/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "CDC: adult BMI categories from age 20 and unrounded cut-offs",
+              "href": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Calculate body mass index from height and weight.",
+              "after": "Calculate body mass index from height and weight.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Calculate BMI online from height and weight. Free body mass index calculator.",
+              "after": "Calculate BMI online from height and weight. Free body mass index calculator.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "uk",
+          "url": "/uk/fitness/kalkulyator-bmi/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 4,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "CDC: дорослі категорії ІМТ від 20 років і неокруглені межі",
+              "href": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Розрахуйте індекс маси тіла за зростом і масою тіла.",
+              "after": "Розрахуйте індекс маси тіла за зростом і масою тіла.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Розрахуйте ІМТ за зростом і масою тіла. Безкоштовний калькулятор BMI з поясненням результату.",
+              "after": "Розрахуйте ІМТ за зростом і масою тіла. Безкоштовний калькулятор BMI з поясненням результату.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "de",
+          "url": "/de/fitness/bmi-rechner/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "CDC: BMI-Kategorien ab 20 und ungerundete Grenzen",
+              "href": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Berechne den Body-Mass-Index aus Größe und Gewicht.",
+              "after": "Berechne den Body-Mass-Index aus Größe und Gewicht.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Berechne BMI online aus Größe und Gewicht. Kostenloser Body-Mass-Index-Rechner.",
+              "after": "Berechne BMI online aus Größe und Gewicht. Kostenloser Body-Mass-Index-Rechner.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "es",
+          "url": "/es/fitness/calculadora-imc/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "CDC: categorías de IMC desde los 20 años y límites sin redondear",
+              "href": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Calcula el índice de masa corporal a partir de altura y peso.",
+              "after": "Calcula el índice de masa corporal a partir de altura y peso.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Calcula el IMC online con altura y peso. Calculadora gratis de índice de masa corporal.",
+              "after": "Calcula el IMC online con altura y peso. Calculadora gratis de índice de masa corporal.",
+              "changed": false
+            }
+          }
+        }
+      ],
+      "defaultPrimaryBefore": {
+        "label": "ИМТ",
+        "value": "22,9"
+      },
+      "defaultPrimaryAfter": {
+        "label": "ИМТ",
+        "value": "22,9"
+      },
+      "confirmedBeforeAfter": [
+        {
+          "severity": "P1",
+          "before": "NaN height could produce an obesity-III category and an urgent medical instruction instead of an input error. Adult category notes prescribed gain/loss or urgency from BMI alone.",
+          "after": "Strict finite positive measurements and finite derived outputs; neutral category interpretation, no diagnosis or automatic treatment instruction."
+        },
+        {
+          "severity": "P2",
+          "before": "Inverse healthy-weight upper bound used24.9 while the category usedBMI<25. At200cm/99.99kg, normalBMI24.9975 lay outside the displayed interval.",
+          "after": "Exact exclusive25h² upper boundary, ≥/ < notation and a note that category selection precedes display rounding."
+        }
+      ]
+    },
+    {
+      "id": "calorie-calculator",
+      "publishedLocaleRows": [
+        {
+          "locale": "ru",
+          "url": "/ru/sport/calorie-calculator/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Mifflin и соавторы, 1990: уравнение энергии в покое, группа 19–78 лет",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+            },
+            {
+              "label": "NIDDK: ограничения взрослого планирования питания; не проверка нашего статического сценария",
+              "href": "https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Дневная норма калорий и БЖУ с учётом цели и активности.",
+              "after": "Оценка расхода энергии и сценария БЖУ по выбранной активности и цели.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Рассчитайте дневную норму калорий и БЖУ по формуле Миффлина — Сан Жеора с учётом пола, возраста, активности и цели.",
+              "after": "Оцените расход энергии в покое по формуле Миффлина—Сан Жеора для 19–78 лет и сценарий калорий и БЖУ с выбранными множителями и процентами.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "en",
+          "url": "/en/fitness/calorie-calculator/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 3,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Mifflin et al., 1990: resting energy equation, development cohort aged 19–78",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+            },
+            {
+              "label": "NIDDK: adult nutrition-planning limitations, not validation of this static scenario",
+              "href": "https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Estimate daily calories and macronutrients from body data and activity.",
+              "after": "Estimate daily calories and macronutrients from body data and activity.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Estimate daily calories, BMR, protein, fat and carbs with a free calorie calculator.",
+              "after": "Estimate daily calories, REE, protein, fat and carbs with a free calorie calculator.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "uk",
+          "url": "/uk/fitness/kalkulyator-kaloriy/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 4,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Mifflin та співавтори, 1990: енергія у спокої, група 19–78 років",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+            },
+            {
+              "label": "NIDDK: обмеження планування харчування дорослих, не перевірка нашого сценарію",
+              "href": "https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Оцініть денну норму калорій і макронутрієнти за даними тіла та активністю.",
+              "after": "Оцінка витрат енергії та сценарію БЖВ за обраними активністю й метою.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Оцініть денні калорії, BMR, білки, жири та вуглеводи безкоштовним калькулятором.",
+              "after": "Оцініть денні калорії, REE, білки, жири та вуглеводи безкоштовним калькулятором.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "de",
+          "url": "/de/fitness/kalorienrechner/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Mifflin et al., 1990: Ruheenergiegleichung, Entwicklungsgruppe von 19–78 Jahren",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+            },
+            {
+              "label": "NIDDK: Grenzen der Ernährungsplanung für Erwachsene, keine Prüfung dieses statischen Szenarios",
+              "href": "https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Schätze Tageskalorien und Makronährstoffe aus Körperdaten und Aktivität.",
+              "after": "Schätze Tageskalorien und Makronährstoffe aus Körperdaten und Aktivität.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Schätze Tageskalorien, BMR, Protein, Fett und Kohlenhydrate mit einem kostenlosen Rechner.",
+              "after": "Schätze Tageskalorien, REE, Protein, Fett und Kohlenhydrate mit einem kostenlosen Rechner.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "es",
+          "url": "/es/fitness/calculadora-calorias/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 3,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Mifflin y colaboradores, 1990: gasto en reposo, cohorte de 19–78 años",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/2305711/"
+            },
+            {
+              "label": "NIDDK: límites de planificación adulta, no validación de este escenario estático",
+              "href": "https://www.niddk.nih.gov/health-information/weight-management/body-weight-planner"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Estima calorías diarias y macronutrientes según cuerpo, actividad y objetivo.",
+              "after": "Estima calorías diarias y macronutrientes según cuerpo, actividad y objetivo.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Estima calorías diarias, BMR, proteína, grasa y carbohidratos con una calculadora gratis.",
+              "after": "Estima calorías diarias, REE, proteína, grasa y carbohidratos con una calculadora gratis.",
+              "changed": true
+            }
+          }
+        }
+      ],
+      "defaultPrimaryBefore": {
+        "label": "Дневная норма",
+        "value": "2 556 ккал"
+      },
+      "defaultPrimaryAfter": {
+        "label": "Дневная оценка энергии",
+        "value": "2 556 ккал"
+      },
+      "confirmedBeforeAfter": [
+        {
+          "severity": "P1",
+          "before": "Age1, invalid/nonfinite ages, negative activity multipliers, unknown sex/goal and booleans could be calculated or silently coerced. Protein60%+fat60% silently became50%+50%.",
+          "after": "Explicit age19–78 product scope, finite positive measurements, declared activity/sex/goal selections; macro sum>100 errors rather than changing the choice."
+        },
+        {
+          "severity": "P1",
+          "before": "Selected locale copy promised a generally safe15% deficit, optimal presets, a specific loss rate or universal formula error. Some copy described a fixed15% adjustment despite an editable0–30% field.",
+          "after": "Visible scenario assumptions, actual adjustable percentage, development-cohort limitations, no individual safety/rate prescription; normal integer kcal/g display preserved."
+        }
+      ]
+    },
+    {
+      "id": "body-fat-calculator",
+      "publishedLocaleRows": [
+        {
+          "locale": "ru",
+          "url": "/ru/sport/body-fat-calculator/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 7,
+          "faqAfter": 7,
+          "publicSources": [
+            {
+              "label": "ВМС США, февраль 2025: исторические места измерения обхватов; не текущая норма допуска",
+              "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Оценка доли жира по обхватам методом ВМС США.",
+              "after": "Историческая оценка доли жира по росту и обхватам с разным протоколом для двух формул.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Оцените процент жира в организме по обхватам шеи, талии и бёдер и росту. Метод ВМС США (формула Ходждона и Беккета) с пояснением точности.",
+              "after": "Оцените долю жира по исторической модели Navy: живот у мужчин, естественная талия и бёдра у женщин. Единицы, формулы и ограничения оценки.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "en",
+          "url": "/en/fitness/body-fat-calculator/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 7,
+          "faqAfter": 7,
+          "publicSources": [
+            {
+              "label": "US Navy, February 2025: historical circumference measurement sites, not current eligibility rules",
+              "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Estimate body fat from circumferences with the US Navy method.",
+              "after": "Historical body-fat estimate from height and circumferences, using branch-specific measurement sites.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Estimate your body fat percentage from neck, waist and hip circumferences and height. US Navy method (Hodgdon and Beckett formula) with its accuracy explained.",
+              "after": "Estimate body fat with a historical Navy-style model: male abdomen or female natural waist and hips. See measurement sites, inch-based formulas and limits.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "uk",
+          "url": "/uk/fitness/kalkulyator-vidsotka-zhyru/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 7,
+          "faqAfter": 7,
+          "publicSources": [
+            {
+              "label": "ВМС США, лютий 2025: історичні місця вимірювання обхватів, не чинні норми допуску",
+              "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Оцінка частки жиру за обхватами методом ВМС США.",
+              "after": "Історична оцінка жиру за зростом та обхватами з різними місцями вимірювання для двох формул.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Оцініть відсоток жиру в організмі за обхватами шиї, талії та стегон і зростом. Метод ВМС США з поясненням точності.",
+              "after": "Оцініть жир за історичною моделлю Navy: живіт у чоловіків, природна талія й стегна у жінок. Місця вимірювання, формули та обмеження.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "de",
+          "url": "/de/fitness/koerperfett-rechner/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 6,
+          "faqAfter": 7,
+          "publicSources": [
+            {
+              "label": "US Navy, Februar 2025: historische Umfangsmessstellen, keine aktuellen Eignungsregeln",
+              "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Schätze den Körperfettanteil aus Umfängen nach der Methode der US Navy.",
+              "after": "Historische Körperfettschätzung aus Größe und Umfängen mit unterschiedlichen Messstellen je Formel.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Schätze deinen Körperfettanteil aus Hals-, Taillen- und Hüftumfang und der Größe. Methode der US Navy nach Hodgdon und Beckett, mit erklärter Genauigkeit.",
+              "after": "Körperfett nach historischem Navy-Modell schätzen: männlicher Bauch oder weibliche Taille und Hüfte. Messstellen, Zollformeln und Grenzen erklärt.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "es",
+          "url": "/es/fitness/porcentaje-de-grasa-corporal/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 7,
+          "faqAfter": 7,
+          "publicSources": [
+            {
+              "label": "US Navy, febrero de 2025: puntos históricos de perímetro, no reglas vigentes de acceso",
+              "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Estima la grasa corporal a partir de perímetros con el método de la Marina de EE. UU.",
+              "after": "Estimación histórica de grasa con estatura y perímetros, usando puntos de medida distintos por fórmula.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Estima tu porcentaje de grasa corporal a partir de los perímetros de cuello, cintura y cadera y de la estatura. Método de la Marina de EE. UU. (fórmula de Hodgdon y Beckett) con su exactitud explicada.",
+              "after": "Estima grasa con un modelo Navy histórico: abdomen masculino o cintura natural y cadera femeninas. Puntos de medida, fórmulas en pulgadas y límites.",
+              "changed": true
+            }
+          }
+        }
+      ],
+      "defaultPrimaryBefore": {
+        "label": "Процент жира",
+        "value": "19,9%"
+      },
+      "defaultPrimaryAfter": {
+        "label": "Процент жира",
+        "value": "19,9%"
+      },
+      "confirmedBeforeAfter": [
+        {
+          "severity": "P1",
+          "before": "All five localized protocols directed a narrowest-waist measurement for the male branch, although historical male protocol measures abdomen at the navel. Unknown sex silently selected male; booleans were numbers.",
+          "after": "Male abdomen and female natural waist/hips distinguished in prose and integrated field label; strict branch/numeric input."
+        },
+        {
+          "severity": "P2",
+          "before": "Universal few-percentage-point accuracy and attribution of exact coefficients to unread NHRC originals were presented too strongly. Female refusal explanation sometimes incorrectly requiredwaist>neck.",
+          "after": "Historical adopted equations preserved with an explicit coefficient-source gap; no universal error promise; female condition useswaist+hips−neck>0. No medical/current-military-standard claim."
+        }
+      ]
+    },
+    {
+      "id": "running-pace-calculator",
+      "publishedLocaleRows": [
+        {
+          "locale": "ru",
+          "url": "/ru/sport/running-pace-calculator/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Vickers и Vertosick, 2016: проверка прогнозов любителей и ограничения марафонского переноса",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/27570626/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Темп на километр, скорость и прогнозы на 5, 10 км и полумарафон.",
+              "after": "Темп на километр, скорость и прогнозы на 5, 10 км и полумарафон.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Рассчитайте темп бега, среднюю скорость и прогноз времени на 5 км, 10 км и полумарафон по дистанции и результату.",
+              "after": "Рассчитайте темп бега, среднюю скорость и прогноз времени на 5 км, 10 км и полумарафон по дистанции и результату.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "en",
+          "url": "/en/fitness/running-pace-calculator/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 3,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Vickers and Vertosick, 2016: recreational race predictions and marathon-transfer limitations",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/27570626/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Calculate running pace, speed and race time predictions.",
+              "after": "Calculate running pace, speed and race time predictions.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Calculate running pace per kilometer, average speed and race time estimates online.",
+              "after": "Calculate running pace per kilometer, average speed and race time estimates online.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "uk",
+          "url": "/uk/fitness/kalkulyator-tempu-bigu/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 4,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Vickers і Vertosick, 2016: прогнози аматорів та обмеження перенесення на марафон",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/27570626/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Розрахуйте темп бігу, швидкість і прогноз часу на дистанції.",
+              "after": "Розрахуйте темп бігу, швидкість і прогноз часу на дистанції.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Розрахуйте темп бігу на кілометр, середню швидкість і прогноз часу онлайн.",
+              "after": "Розрахуйте темп бігу на кілометр, середню швидкість і прогноз часу онлайн.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "de",
+          "url": "/de/fitness/laufpace-rechner/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Vickers und Vertosick, 2016: Freizeitlaufprognosen und Grenzen beim Marathon",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/27570626/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Berechne Laufpace, Geschwindigkeit und Zielzeit-Prognosen.",
+              "after": "Berechne Laufpace, Geschwindigkeit und Zielzeit-Prognosen.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Berechne Laufpace pro Kilometer, Durchschnittsgeschwindigkeit und Laufzeit-Schätzungen online.",
+              "after": "Berechne Laufpace pro Kilometer, Durchschnittsgeschwindigkeit und Laufzeit-Schätzungen online.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "es",
+          "url": "/es/fitness/calculadora-ritmo-carrera/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 3,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Vickers y Vertosick, 2016: previsiones de aficionados y límites del maratón",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/27570626/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Calcula ritmo, velocidad y predicciones de tiempo para carreras.",
+              "after": "Calcula ritmo, velocidad y predicciones de tiempo para carreras.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Calcula ritmo por kilómetro, velocidad media y tiempos estimados de carrera online.",
+              "after": "Calcula ritmo por kilómetro, velocidad media y tiempos estimados de carrera online.",
+              "changed": false
+            }
+          }
+        }
+      ],
+      "defaultPrimaryBefore": {
+        "label": "Темп",
+        "value": "5:00/км"
+      },
+      "defaultPrimaryAfter": {
+        "label": "Темп",
+        "value": "5:00/км"
+      },
+      "confirmedBeforeAfter": [
+        {
+          "severity": "P1",
+          "before": "Negative hours could cancel positive minutes:−1h+90min yielded a valid-looking30min run. Unknown units and malformed values could default or leak dashed outputs without an error.",
+          "after": "Declared km/mi, finite positive distance and total time, nonnegative components, explicit overflow errors."
+        },
+        {
+          "severity": "P2",
+          "before": "UK described slowed extrapolation as inevitable; walking applicability did not separate arithmetic from running forecasts; DE implied forecasts were also mile races.",
+          "after": "Arithmetic pace separated from exponent1.06 race assumptions; exact1.609344 conversion and fixed metric forecast distances; evidence of optimistic marathon predictions."
+        }
+      ]
+    },
+    {
+      "id": "one-rep-max-calculator",
+      "publishedLocaleRows": [
+        {
+          "locale": "ru",
+          "url": "/ru/sport/one-rep-max-calculator/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "LeSuer и соавторы, 1997: сравнение моделей 1ПМ; таблица округлённых вариантов коэффициентов",
+              "href": "https://paulogentil.com/pdf/The%20Accuracy%20of%20Prediction%20Equations%20for%20Estimating%201-RM%20Performance%20in%20the%20Bench%20Press,%20Squat,%20and%20Deadlift.pdf"
+            },
+            {
+              "label": "Reynolds и соавторы, 2006: повторения и ошибка оценки в жиме и жиме ногами",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/16937972/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Разовый максимум и проценты для рабочих подходов.",
+              "after": "Оценка 1ПМ по Эпли, сравнение Бжицки и Лэндера и арифметические доли результата.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Рассчитайте свой 1ПМ по формуле Эпли. Проценты от 1ПМ для тренировочных подходов.",
+              "after": "Оцените 1ПМ по весу и 1–12 повторениям: Эпли, Бжицки и Лэндер. Процентные строки — доли оценки, не готовая программа нагрузок.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "en",
+          "url": "/en/fitness/one-rep-max-calculator/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 3,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "LeSuer et al., 1997: 1RM model comparison and rounded coefficient variants in Table 1",
+              "href": "https://paulogentil.com/pdf/The%20Accuracy%20of%20Prediction%20Equations%20for%20Estimating%201-RM%20Performance%20in%20the%20Bench%20Press,%20Squat,%20and%20Deadlift.pdf"
+            },
+            {
+              "label": "Reynolds et al., 2006: repetition ranges and prediction error in bench and leg presses",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/16937972/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Estimate one-rep max from weight and repetitions.",
+              "after": "Estimate one-rep max from weight and repetitions.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Estimate one-rep max and training percentages from working weight and reps.",
+              "after": "Estimate one-rep max and training percentages from working weight and reps.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "uk",
+          "url": "/uk/fitness/kalkulyator-1rm/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 4,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "LeSuer та співавтори, 1997: порівняння 1ПМ та округлені коефіцієнти таблиці 1",
+              "href": "https://paulogentil.com/pdf/The%20Accuracy%20of%20Prediction%20Equations%20for%20Estimating%201-RM%20Performance%20in%20the%20Bench%20Press,%20Squat,%20and%20Deadlift.pdf"
+            },
+            {
+              "label": "Reynolds та співавтори, 2006: повторення і похибка в жимі лежачи та ногами",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/16937972/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Оцініть максимум на одне повторення за вагою та кількістю повторів.",
+              "after": "Оцініть максимум на одне повторення за вагою та кількістю повторів.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Оцініть one-rep max і тренувальні відсотки за робочою вагою та повторами.",
+              "after": "Оцініть one-rep max і тренувальні відсотки за робочою вагою та повторами.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "de",
+          "url": "/de/fitness/one-rep-max-rechner/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "LeSuer et al., 1997: 1RM-Modellvergleich und gerundete Koeffizienten in Tabelle 1",
+              "href": "https://paulogentil.com/pdf/The%20Accuracy%20of%20Prediction%20Equations%20for%20Estimating%201-RM%20Performance%20in%20the%20Bench%20Press,%20Squat,%20and%20Deadlift.pdf"
+            },
+            {
+              "label": "Reynolds et al., 2006: Wiederholungen und Schätzfehler bei Bank- und Beinpresse",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/16937972/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Schätze dein One-Rep-Max aus Gewicht und Wiederholungen.",
+              "after": "Schätze dein One-Rep-Max aus Gewicht und Wiederholungen.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Schätze One-Rep-Max und Trainingsprozente aus Arbeitsgewicht und Wiederholungen.",
+              "after": "Schätze One-Rep-Max und Trainingsprozente aus Arbeitsgewicht und Wiederholungen.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "es",
+          "url": "/es/fitness/calculadora-1rm/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 3,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "LeSuer y colaboradores, 1997: comparación de 1RM y coeficientes redondeados en tabla 1",
+              "href": "https://paulogentil.com/pdf/The%20Accuracy%20of%20Prediction%20Equations%20for%20Estimating%201-RM%20Performance%20in%20the%20Bench%20Press,%20Squat,%20and%20Deadlift.pdf"
+            },
+            {
+              "label": "Reynolds y colaboradores, 2006: repeticiones y error en press de banca y piernas",
+              "href": "https://pubmed.ncbi.nlm.nih.gov/16937972/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Estima la repetición máxima a partir de peso y repeticiones.",
+              "after": "Estima la repetición máxima a partir de peso y repeticiones.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Estima 1RM y porcentajes de entrenamiento con peso de trabajo y repeticiones.",
+              "after": "Estima 1RM y porcentajes de entrenamiento con peso de trabajo y repeticiones.",
+              "changed": false
+            }
+          }
+        }
+      ],
+      "defaultPrimaryBefore": {
+        "label": "Примерный 1ПМ",
+        "value": "93,3 кг"
+      },
+      "defaultPrimaryAfter": {
+        "label": "Примерный 1ПМ",
+        "value": "93,3 кг"
+      },
+      "confirmedBeforeAfter": [
+        {
+          "severity": "P1",
+          "before": "For37+repetitions Brzycki was silently replaced by Epley; beyond the Lander pole it also became Epley under its own label. At80kg×37, Lander≈3246kg led to mean≈1201kg. Fractional5.5 repetitions were rounded to6.",
+          "after": "Runner enforces already published whole1–12 range. Unsupported repetitions return an error with no named model rows; accepted Epley/Brzycki/Lander equations unchanged."
+        },
+        {
+          "severity": "P1",
+          "before": "Some locale content promised a generic5% error or estimation without injury risk and treated percentage rows as training prescriptions.",
+          "after": "Exercise/cohort/effort limitations; mean is not confidence, maximum is not clearance, fractions do not prescribe sessions."
+        }
+      ]
+    },
+    {
+      "id": "barbell-plates",
+      "publishedLocaleRows": [
+        {
+          "locale": "ru",
+          "url": "/ru/sport/bliny-na-shtangu/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "IWF: массы соревновательных грифов и двух замков, не любого инвентаря зала",
+              "href": "https://iwf.sport/weightlifting_/equipment/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Какие блины навесить на каждую сторону, чтобы вышел нужный вес.",
+              "after": "Какие блины навесить на каждую сторону, чтобы вышел нужный вес.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Посчитайте, какие блины положить на каждую сторону штанги, чтобы вышел нужный вес, из тех блинов, что у вас есть.",
+              "after": "Посчитайте, какие блины положить на каждую сторону штанги, чтобы вышел нужный вес, из тех блинов, что у вас есть.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "en",
+          "url": "/en/fitness/barbell-plates/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "IWF: competition bar and collar masses, not all gym equipment",
+              "href": "https://iwf.sport/weightlifting_/equipment/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Which plates to load on each side to reach a target weight.",
+              "after": "Which plates to load on each side to reach a target weight.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Work out which plates to put on each side of the bar to reach your target weight, using the plates you actually have.",
+              "after": "Work out which plates to put on each side of the bar to reach your target weight, using the plates you actually have.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "uk",
+          "url": "/uk/fitness/blyny-na-shtangu/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "IWF: маси змагальних грифів і замків, не всього інвентарю залу",
+              "href": "https://iwf.sport/weightlifting_/equipment/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Які млинці навісити на кожну сторону, щоб вийшла потрібна вага.",
+              "after": "Які млинці навісити на кожну сторону, щоб вийшла потрібна вага.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Порахуйте, які млинці покласти на кожну сторону штанги, щоб вийшла потрібна вага, з тих млинців, що у вас є.",
+              "after": "Порахуйте, які млинці покласти на кожну сторону штанги, щоб вийшла потрібна вага, з тих млинців, що у вас є.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "de",
+          "url": "/de/fitness/hantelscheiben-rechner/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "IWF: Masse von Wettkampfstangen und Verschlüssen, nicht aller Studiogeräte",
+              "href": "https://iwf.sport/weightlifting_/equipment/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Welche Scheiben je Seite aufzulegen sind, um ein Zielgewicht zu erreichen.",
+              "after": "Welche Scheiben je Seite aufzulegen sind, um ein Zielgewicht zu erreichen.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Ermittle, welche Scheiben du je Seite auf die Stange legst, um dein Zielgewicht zu erreichen — mit den Scheiben, die du tatsächlich hast.",
+              "after": "Ermittle, welche Scheiben du je Seite auf die Stange legst, um dein Zielgewicht zu erreichen — mit den Scheiben, die du tatsächlich hast.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "es",
+          "url": "/es/fitness/discos-de-barra/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "IWF: masas de barras y collarines de competición, no de todo gimnasio",
+              "href": "https://iwf.sport/weightlifting_/equipment/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Qué discos poner en cada lado para llegar a un peso objetivo.",
+              "after": "Qué discos poner en cada lado para llegar a un peso objetivo.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Calcula qué discos poner en cada lado de la barra para llegar a tu peso objetivo, usando los discos de que dispones.",
+              "after": "Calcula qué discos poner en cada lado de la barra para llegar a tu peso objetivo, usando los discos de que dispones.",
+              "changed": false
+            }
+          }
+        }
+      ],
+      "defaultPrimaryBefore": {
+        "label": "Блины на сторону",
+        "value": "25×1 + 15×1"
+      },
+      "defaultPrimaryAfter": {
+        "label": "Блины на сторону",
+        "value": "25×1 + 15×1"
+      },
+      "confirmedBeforeAfter": [
+        {
+          "severity": "P1",
+          "before": "Greedy target32/bar20/plates4,3 usedone4per side and reported28kg although3+3 makes32kg exactly. Greedy was falsely called minimum plate count. Nonfinite target could yieldInfinityplatecounts.",
+          "after": "Bounded integer-gram dynamic programming finds largest reachable load≤target and minimum count at that load; strict finite product limits, clear zero-plate result."
+        },
+        {
+          "severity": "P2",
+          "before": "List of plates “you have” implied actual inventory quantities even though each denomination had unlimited supply. Collar advice did not explicitly total both.",
+          "after": "Unlimited symmetric pairs stated before interpretation; check actual stock/sleeve capacity, add combinedcollarmass; IWF scope distinguished from ordinary gym equipment."
+        }
+      ]
+    },
+    {
+      "id": "bike-gear-ratio",
+      "publishedLocaleRows": [
+        {
+          "locale": "ru",
+          "url": "/ru/sport/bike-gear-ratio/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 4,
+          "faqAfter": 7,
+          "publicSources": [
+            {
+              "label": "Schwalbe: зависимость проката от конструкции, обода, давления и нагрузки",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-dimensions/"
+            },
+            {
+              "label": "Shimano, спецификации 2026–2027: дополнительные внутренние отношения втулок",
+              "href": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Передаточное отношение велосипеда и развитие метража за оборот педалей.",
+              "after": "Передаточное отношение велосипеда и развитие метража за оборот педалей.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Рассчитайте передаточное отношение велосипеда по числу зубьев звёзд и развитие метража за оборот педалей.",
+              "after": "Рассчитайте передаточное отношение велосипеда по числу зубьев звёзд и развитие метража за оборот педалей.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "en",
+          "url": "/en/fitness/bike-gear-ratio-calculator/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 4,
+          "faqAfter": 7,
+          "publicSources": [
+            {
+              "label": "Schwalbe: construction, rim, pressure and load affect rollout",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-dimensions/"
+            },
+            {
+              "label": "Shimano 2026–2027 specifications: additional internal hub gear ratios",
+              "href": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Bicycle gear ratio and the distance covered per pedal revolution.",
+              "after": "Bicycle gear ratio and the distance covered per pedal revolution.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Calculate a bicycle gear ratio from the tooth counts and the development per pedal revolution.",
+              "after": "Calculate a bicycle gear ratio from the tooth counts and the development per pedal revolution.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "uk",
+          "url": "/uk/fitness/velosypedna-peredacha/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 4,
+          "faqAfter": 7,
+          "publicSources": [
+            {
+              "label": "Schwalbe: вплив конструкції, обода, тиску та навантаження на прокат",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-dimensions/"
+            },
+            {
+              "label": "Shimano, специфікації 2026–2027: додаткові внутрішні відношення втулок",
+              "href": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Передавальне відношення велосипеда й розвиток метражу за оберт педалей.",
+              "after": "Передавальне відношення велосипеда й розвиток метражу за оберт педалей.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Обчисліть передавальне відношення велосипеда та розвиток метражу за оберт педалей.",
+              "after": "Обчисліть передавальне відношення велосипеда та розвиток метражу за оберт педалей.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "de",
+          "url": "/de/fitness/fahrrad-uebersetzung/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 4,
+          "faqAfter": 7,
+          "publicSources": [
+            {
+              "label": "Schwalbe: Einfluss von Bauart, Felge, Druck und Last auf den Abrollumfang",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-dimensions/"
+            },
+            {
+              "label": "Shimano-Spezifikationen 2026–2027: zusätzliche interne Nabenübersetzungen",
+              "href": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Übersetzung eines Fahrrads und der Weg je Pedalumdrehung.",
+              "after": "Übersetzung eines Fahrrads und der Weg je Pedalumdrehung.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Berechne die Übersetzung eines Fahrrads aus den Zähnezahlen und die Entfaltung je Pedalumdrehung.",
+              "after": "Berechne die Übersetzung eines Fahrrads aus den Zähnezahlen und die Entfaltung je Pedalumdrehung.",
+              "changed": false
+            }
+          }
+        },
+        {
+          "locale": "es",
+          "url": "/es/fitness/desarrollo-de-bicicleta/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 4,
+          "faqAfter": 7,
+          "publicSources": [
+            {
+              "label": "Schwalbe: construcción, llanta, presión y carga afectan al rodamiento",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-dimensions/"
+            },
+            {
+              "label": "Especificaciones Shimano 2026–2027: relaciones adicionales de bujes internos",
+              "href": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Relación de transmisión de una bicicleta y distancia recorrida por pedalada.",
+              "after": "Relación de transmisión de una bicicleta y distancia recorrida por pedalada.",
+              "changed": false
+            },
+            "seoDescription": {
+              "before": "Calcula la relación de transmisión de una bicicleta a partir del número de dientes y el desarrollo por vuelta de pedal.",
+              "after": "Calcula la relación de transmisión de una bicicleta a partir del número de dientes y el desarrollo por vuelta de pedal.",
+              "changed": false
+            }
+          }
+        }
+      ],
+      "defaultPrimaryBefore": {
+        "label": "Передаточное отношение",
+        "value": "2,00"
+      },
+      "defaultPrimaryAfter": {
+        "label": "Передаточное отношение",
+        "value": "2,00"
+      },
+      "confirmedBeforeAfter": [
+        {
+          "severity": "P2",
+          "before": "Chain ratio was called wheel rotations for any drivetrain, omitting internal hub ratio. Invalid optional circumference was silently omitted or generated a dash. UK cadence advice lacked speed-unit conversion and a defensible universal target.",
+          "after": "Explicit direct-drive assumption, internal hub boundary, finite nonnegative optional circumference, exactL×rpm×0.06 speed example and individual cadence context."
+        }
+      ]
+    },
+    {
+      "id": "bike-wheel-size",
+      "publishedLocaleRows": [
+        {
+          "locale": "ru",
+          "url": "/ru/sport/razmer-velokolesa/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Schwalbe: значения ETRTO и неоднозначность дюймовых названий",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-sizes/"
+            },
+            {
+              "label": "Schwalbe: зависимость проката от конструкции, обода, давления и нагрузки",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-dimensions/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Диаметр и длина окружности велосипедного колеса по ETRTO или дюймам.",
+              "after": "Оценка геометрии по ETRTO или расчёт по измеренному внешнему диаметру.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Посчитайте диаметр, длину окружности и обороты на километр велосипедного колеса по ETRTO или дюймам.",
+              "after": "Оцените геометрию по ETRTO с допущением о высоте покрышки или рассчитайте окружность по измеренному диаметру.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "en",
+          "url": "/en/fitness/bike-wheel-size/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Schwalbe: ETRTO dimensions and ambiguous inch labels",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-sizes/"
+            },
+            {
+              "label": "Schwalbe: construction, rim, pressure and load affect rollout",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-dimensions/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Diameter and circumference of a bicycle wheel from ETRTO or inches.",
+              "after": "Estimate wheel geometry from ETRTO, or calculate it from a measured outside diameter.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Work out the diameter, circumference and revolutions per kilometre of a bicycle wheel from ETRTO or inches.",
+              "after": "Estimate wheel geometry from ETRTO, or calculate it from a measured outside diameter.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "uk",
+          "url": "/uk/fitness/rozmir-velokolesa/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Schwalbe: розміри ETRTO та неоднозначні дюймові назви",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-sizes/"
+            },
+            {
+              "label": "Schwalbe: вплив конструкції, обода, тиску та навантаження на прокат",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-dimensions/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Діаметр і довжина кола велосипедного колеса за ETRTO або дюймами.",
+              "after": "Оцінка геометрії за ETRTO або розрахунок за виміряним зовнішнім діаметром.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Порахуйте діаметр, довжину кола і оберти на кілометр велосипедного колеса за ETRTO або дюймами.",
+              "after": "Оцінка геометрії за ETRTO або розрахунок за виміряним зовнішнім діаметром.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "de",
+          "url": "/de/fitness/laufradgroesse-fahrrad/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Schwalbe: ETRTO-Maße und mehrdeutige Zollnamen",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-sizes/"
+            },
+            {
+              "label": "Schwalbe: Einfluss von Bauart, Felge, Druck und Last auf den Abrollumfang",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-dimensions/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Durchmesser und Umfang eines Fahrradlaufrads aus ETRTO oder Zoll.",
+              "after": "Radgeometrie aus ETRTO schätzen oder aus gemessenem Außendurchmesser berechnen.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Ermittle Durchmesser, Umfang und Umdrehungen je Kilometer eines Fahrradlaufrads aus ETRTO oder Zoll.",
+              "after": "Radgeometrie aus ETRTO schätzen oder aus gemessenem Außendurchmesser berechnen.",
+              "changed": true
+            }
+          }
+        },
+        {
+          "locale": "es",
+          "url": "/es/fitness/tamano-de-rueda-de-bicicleta/",
+          "urlAndSlugPreserved": true,
+          "titleAndH1Preserved": true,
+          "faqBefore": 5,
+          "faqAfter": 5,
+          "publicSources": [
+            {
+              "label": "Schwalbe: medidas ETRTO y nombres ambiguos en pulgadas",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-sizes/"
+            },
+            {
+              "label": "Schwalbe: construcción, llanta, presión y carga afectan al rodamiento",
+              "href": "https://www.schwalbe.com/en/technology-faq/tire-dimensions/"
+            }
+          ],
+          "metadataAudit": {
+            "shortDescription": {
+              "before": "Diámetro y perímetro de una rueda de bicicleta a partir del ETRTO o de las pulgadas.",
+              "after": "Estima geometría por ETRTO o calcúlala con diámetro exterior medido.",
+              "changed": true
+            },
+            "seoDescription": {
+              "before": "Calcula el diámetro, el perímetro y las vueltas por kilómetro de una rueda de bicicleta a partir del ETRTO o de las pulgadas.",
+              "after": "Estima geometría por ETRTO o calcúlala con diámetro exterior medido.",
+              "changed": true
+            }
+          }
+        }
+      ],
+      "defaultPrimaryBefore": {
+        "label": "Длина окружности",
+        "value": "2 111,15 мм"
+      },
+      "defaultPrimaryAfter": {
+        "label": "Длина окружности",
+        "value": "2 111,15 мм"
+      },
+      "confirmedBeforeAfter": [
+        {
+          "severity": "P1",
+          "before": "Every locale statedETRTOoutside diameter exactly equalsBSD+2×nominalWIDTH, treating width as radialheight without disclosure. Nominal inch labels were accepted as measured diameters.",
+          "after": "Same geometric calculation retained as approximationheight≈width, loaded rollout measurement explained; inch mode explicitly requires actual outside diameter."
+        },
+        {
+          "severity": "P2",
+          "before": "Malformed width defaultedto0, infinite rim generated non-error dashes; copy claimed circumference could only come from this calculator or tyre box.",
+          "after": "Strict active finite values and outputs; alternative measured rollout prioritized, no exact-fit/calibration promise."
+        }
+      ]
+    }
+  ],
+  "meaningfulTestDesign": {
+    "plateSearch": "Exhaustive independent count-vector enumeration for5arbitrarydenomination sets and21targets each (105comparisons), not reuse ofDP. Newrefsderive32kg=20+2*(3+3),32kg=20+2*6with2kgshortfall from34, andzeroadditionalplates when target=bar.",
+    "oneRmDomain": "Previous tests asserting apositive relabelledfallback outsideUIrange replaced by explicitunsupported-input expectations. Numericalsupportedgrid and100×5/60×12examples preserved. Overflowprobe1.7e308×12 chosen analytically;1e308×12remainsfinite and is not falsely expected to error.",
+    "medicalOutputs": "BMI exactboundary/unroundedcategory/neutralcomment, macroallocation2207kcalexample, strict enum/coercion errors, sex-specificlogarithmconditions and inactivefields.",
+    "content": "Actual getCalculatorById and SEOownedpriority checked40, existingFAQcounts not reduced; publicgetCalculatorEditorialsources actual40; all32V2refs×4translationruntimes checked for leakage."
+  },
+  "remaining": [
+    {
+      "type": "source-gap",
+      "id": "body-fat-original-coefficients",
+      "detail": "NHRC84-11/84-29primaryfulltext fetch failed. Exact linearpercentage coefficients preserved as adopted historicalmodel, publicly disclosedsourcegap; no claim of currentNavy norm. Historical2025measurement-site document doesnotverifythese coefficients."
+    },
+    {
+      "type": "model-assumption",
+      "id": "calorie-activity-and-goal",
+      "detail": "Mifflin validates resting equation in developmentcohort, not our5activitymultipliers, workoutcountlabels, macrodefaults or0–30%goal choices. Marked as selectedscenarios; noindividualdietrecommendation."
+    },
+    {
+      "type": "model-assumption",
+      "id": "oneRm-rounded-variants-and-range",
+      "detail": "LeSuerTable1roundsEpley to.0333 andBrzycki to100/(102.78−2.78r); preserved implementation usesr/30 and36/(37−r). Adoptedversions statedexplicitly.1–12productrangepreserved;10–12has warning and is not claimed universally validated."
+    },
+    {
+      "type": "human-review",
+      "detail": "Russian/English/Ukrainian/German/Spanishsubjecteditorial andmedicalreview remain pending. Tests/sources donot certifyoriginality, AdSenseeligibility or usermedicalapplicability."
+    },
+    {
+      "type": "release",
+      "detail": "Root must run unifiedtypecheck/build/staticquality/E2E, validate alllegacyfieldhelp+metadata and regeneratemapsafter integratedchoices. Existingpaths/lifecyclepreserved; no deployment/push."
+    }
+  ],
+  "resolvedOutputLabels": {
+    "primary": "Дневная оценка энергии",
+    "resting": "Расход энергии в покое (REE)",
+    "formulaValuesUnchanged": true,
+    "howItWorksDefinitionsUpdatedLocales": [
+      "ru",
+      "en",
+      "uk",
+      "de",
+      "es"
+    ],
+    "FAQBMRReferencesFound": 0,
+    "translatedNormalAndErrorCalorieResults": "PASS:en/uk/de/es,actualgeneratedruntime",
+    "priorPendingLabelLimitation": "RESOLVED"
+  },
+  "freeze": {
+    "status": "OWNED_SOURCE_FROZEN_AFTER_CALORIE_LABEL_REFINEMENT",
+    "date": "2026-10-01",
+    "files": {
+      "src/calculators/barbell-plates/compute.ts": "b22700e6bc9c23e97950e491be89a32c76ad08d5b3b7518c0c0190999697badd",
+      "src/calculators/barbell-plates/copy.de.ts": "69db04758ac0d1c7d58afc6d6b161d8705b7a442d1e8d0a2a1fcc09ccb56687f",
+      "src/calculators/barbell-plates/copy.en.ts": "2c65c900ed28b0e5eb30138fa93a2b21a263d9d2fe30e4a0564247969f19cf7d",
+      "src/calculators/barbell-plates/copy.es.ts": "917be41a822d506b16fb626a94a22bdf35c064cf351071da2660186c500cabdc",
+      "src/calculators/barbell-plates/copy.uk.ts": "6dd0d1f670ba7f1773e92e8e1532e7633f76d662782c459e1ee4e0031df47258",
+      "src/calculators/barbell-plates/definition.ts": "2c676ae459f2b339eb5d162744839b443a5c7273c23369a449bc16b54d1c306c",
+      "src/calculators/barbell-plates/localization.ts": "534b28fd7de3dfc0327a77166147f4e0515d57f87df53456a16c9cb629f7e6b2",
+      "src/calculators/barbell-plates/referenceCases.ts": "8e5e3fffb51547cf9eeabe0205415d191f79b7f859bcdbfc64c5974a934b610e",
+      "src/calculators/bike-gear-ratio/compute.ts": "d9ae995b5fb11ecd07a098fd3f2c453f2d88002fcd1b6d05a18bdbd8ef36e8a2",
+      "src/calculators/bike-gear-ratio/copy.de.ts": "c9a5368bb69325044b84a8cf53d613c0d586ef0c690383cfddf87365f8dc41f4",
+      "src/calculators/bike-gear-ratio/copy.en.ts": "4d39d8f8a251fd2c98b381d10577674cc3e70573d986ed551f633b7fbea43fb2",
+      "src/calculators/bike-gear-ratio/copy.es.ts": "b7b5ad70762d96ec20e02e55e33eaee73638970b54b3548cb0b28b329be3b38a",
+      "src/calculators/bike-gear-ratio/copy.uk.ts": "81dcb3e796e1a765448d5dc05009052631a3671245102c018adf065843e783ee",
+      "src/calculators/bike-gear-ratio/definition.ts": "b2fbef6948247e97f1f52619047cb49a3c81447ffdaf3f5c1287b1525866a70a",
+      "src/calculators/bike-gear-ratio/localization.ts": "d39261dc2017ddd25eeb16afa2c329196c34a6f894b1380a9bf4b819cd1b9fb0",
+      "src/calculators/bike-gear-ratio/referenceCases.ts": "e7f7cf4f76951dba3eec0579bd98c3e9ef713bf162fbb1b013c96219b4c7fe19",
+      "src/calculators/bike-wheel-size/compute.ts": "3de27bcc2f9ecb99ccd5e86465d9978396a48fc40fbdd93264f3dd6ae6cb685b",
+      "src/calculators/bike-wheel-size/copy.de.ts": "82f6bdd3b0d4f2730f7337c0e3269f1d55055935f00d833354eec602b896363a",
+      "src/calculators/bike-wheel-size/copy.en.ts": "5e36ad07910cc4b4c7628c627ddca605f80c6714cfb9b8baab63c1e123cf9919",
+      "src/calculators/bike-wheel-size/copy.es.ts": "be37be8d0a9175c01c23bec763767580158ac8555c48eca6ad9dea095d462daf",
+      "src/calculators/bike-wheel-size/copy.uk.ts": "e458062486afe67be60b2a459ded0b2d9f6c960ef7f4626f0d18393cdec3cfc0",
+      "src/calculators/bike-wheel-size/definition.ts": "92d9bf54d5919b6fff687a35d99e0384a3b74218480ae0076aabbbc0ccc73adb",
+      "src/calculators/bike-wheel-size/localization.ts": "11e171f53fa3c32be34f37232da46b59129d99fcaa46578b0713b84d2a843515",
+      "src/calculators/bike-wheel-size/referenceCases.ts": "2bd6ae47a27fce86099d6f14d30f43e07ad4a58c3460daceda1d3225be882b05",
+      "src/data/fitnessLegacyContractContent.ts": "8e8fc0152c8d7491fb9b159d732002fc3175c52e4952f6f92606b7801694df17",
+      "src/lib/calculators/bmi.ts": "a68fdcb82075077d36ee4353968526c9653180771b1a96210271d2ed6a8f6e4b",
+      "src/lib/calculators/bodyFat.ts": "72e08110068df6dbbe878bb6fd9781ab45c1300060390636a64b27bc97d640c4",
+      "src/lib/calculators/calorie.ts": "f34c482259c1b5e4b9e2c177bc45c3e384ef44eb8684467f23be84e41deec119",
+      "src/lib/calculators/oneRm.ts": "1a017c12bb9eb22b7bb72bd95c81ef06fc723a7f1e47a743fab04d13b0568047",
+      "src/lib/calculators/pace.ts": "e3b72d5966b21b3be533c48f24b20dd41058d3c8b2d32cc7a6ef1f1b01b42725",
+      "tests/bmi.test.ts": "974b087952e449c73c5338f90d9e338ccd2dfbc90c4afb2a0a6403e3c6bd1dda",
+      "tests/bodyFat.test.ts": "5b9eb1870b41a40dc5db012e596f8f542420d2219167d14360979e595a22383c",
+      "tests/calorie.test.ts": "48eaa3d2120e605b571f80691045b65126beef5e9311a4d767ef6e5dc800fa9a",
+      "tests/oneRm.test.ts": "afe37496217e4a89cca53fef7c60d327acd29e17b524ced6222eab935e1133e1",
+      "tests/oneRmDomain.test.ts": "b08a5247b746bdf4fa80a6668c4cb7ad428f4a25bec6179a31334b0705e904cf",
+      "tests/originalityFitnessWave3.test.ts": "5ef44d0eb7bb3f67bf380622c3cee2813bbbde00dfe24969793ad4230e0e99b3",
+      "tests/pace.test.ts": "bd3e1bef1d8e6e24e8a15c9c42423e43c6e2ee0207143f07f1c2d7685920c377"
+    },
+    "ownedSourceDigestSha256": "60a4b42eac73fbbcf2bc38952022b5969db071e5047b5a093bef3a41a55424b0",
+    "reportSelfHash": "Excluded to avoid a recursive hash; final report SHA256 delivered to root separately.",
+    "generatedSharedFiles": "Parent-owned generation andglobalchecks,excludedfromownedsourcehash."
+  }
+}

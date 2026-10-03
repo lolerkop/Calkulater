@@ -1,6 +1,9 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const roiCopyUk: CalculatorSeoCopy = {
+import { contractContent } from './contractContent';
+
+export const roiCopyUk: CalculatorCopy = {
   name: 'ROI-калькулятор',
   slug: 'roi-kalkulyator',
   shortDescription: 'Повернення на вкладення з правильним урахуванням додаткових витрат.',
@@ -8,4 +11,5 @@ export const roiCopyUk: CalculatorSeoCopy = {
   seoDescription: 'Розрахунок повернення на вкладення з отриманої та вкладеної сум, включно з додатковими витратами.',
   h1: 'ROI-калькулятор',
   keywords: ['ROI калькулятор', 'повернення на вкладення', 'дохідність інвестицій'],
+  ...contractContent.uk,
 };

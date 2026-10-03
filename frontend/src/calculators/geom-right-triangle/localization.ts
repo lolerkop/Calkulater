@@ -1,156 +1,125 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { geometryScalarValues } from '../../lib/platform/geometryScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'mode': 'Was bekannt ist',
-      'unit': 'Längeneinheit',
-      'a': 'Kathete a',
-      'b': 'Kathete b',
-      'c': 'Hypotenuse',
+  "de": {
+    "fields": {
+      "mode": "Was bekannt ist",
+      "unit": "Längeneinheit",
+      "a": "Kathete a",
+      "b": "Kathete b",
+      "c": "Hypotenuse"
     },
-    options: {
-      'mm': 'Millimeter',
-      'cm': 'Zentimeter',
-      'm': 'Meter',
-      'legs': 'zwei Katheten',
-      'legHyp': 'eine Kathete und die Hypotenuse',
+    "options": {
+      "mm": "Millimeter",
+      "cm": "Zentimeter",
+      "m": "Meter",
+      "legs": "zwei Katheten",
+      "legHyp": "eine Kathete und die Hypotenuse"
     },
-    results: {
-      'Гипотенуза': 'Hypotenuse',
-      'Второй катет': 'Fehlende Kathete',
-      'Площадь': 'Fläche',
-      'Периметр': 'Umfang',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Гипотенуза": "Hypotenuse",
+      "Второй катет": "Fehlende Kathete",
+      "Площадь": "Fläche",
+      "Периметр": "Umfang",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'мм': 'mm',
-      'см': 'cm',
-      'м': 'm',
-      'мм²': 'mm²',
-      'см²': 'cm²',
-      'м²': 'm²',
-      'мм³': 'mm³',
-      'см³': 'cm³',
-      'м³': 'm³',
-      'Катеты должны быть больше нуля': 'Die Katheten müssen größer als null sein',
-      'Катет и гипотенуза должны быть больше нуля': 'Kathete und Hypotenuse müssen größer als null sein',
-      'Гипотенуза должна быть длиннее катета': 'Die Hypotenuse muss länger als die Kathete sein',
-      'Значение слишком велико для расчёта': 'Der Wert ist zu groß für die Rechnung',
-    },
+    "values": {
+      ...geometryScalarValues.de,
+      "Катеты должны быть больше нуля": "Die Katheten müssen größer als null sein",
+      "Катет и гипотенуза должны быть больше нуля": "Kathete und Hypotenuse müssen größer als null sein",
+      "Гипотенуза должна быть длиннее катета": "Die Hypotenuse muss länger als die Kathete sein",
+      "Значение слишком велико для расчёта": "Der Wert ist zu groß für die Rechnung"
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "mode": "What is known",
       "unit": "Length unit",
       "a": "Leg a",
       "b": "Leg b",
-      "c": "Hypotenuse",
+      "c": "Hypotenuse"
     },
-    options: {
-      mm: "millimetres",
-      cm: "centimetres",
-      m: "metres",
+    "options": {
+      "mm": "millimetres",
+      "cm": "centimetres",
+      "m": "metres",
       "legs": "two legs",
-      "legHyp": "a leg and the hypotenuse",
+      "legHyp": "a leg and the hypotenuse"
     },
-    results: {
+    "results": {
       "Гипотенуза": "Hypotenuse",
       "Второй катет": "Missing leg",
       "Площадь": "Area",
       "Периметр": "Perimeter",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryScalarValues.en,
       "Катеты должны быть больше нуля": "The legs must be greater than zero",
       "Катет и гипотенуза должны быть больше нуля": "The leg and the hypotenuse must be greater than zero",
       "Гипотенуза должна быть длиннее катета": "The hypotenuse must be longer than the leg",
-      "Значение слишком велико для расчёта": "The value is too large to calculate",
-    },
+      "Значение слишком велико для расчёта": "The value is too large to calculate"
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "mode": "Що відомо",
       "unit": "Одиниця довжини",
       "a": "Катет a",
       "b": "Катет b",
-      "c": "Гіпотенуза",
+      "c": "Гіпотенуза"
     },
-    options: {
-      mm: "міліметри",
-      cm: "сантиметри",
-      m: "метри",
+    "options": {
+      "mm": "міліметри",
+      "cm": "сантиметри",
+      "m": "метри",
       "legs": "два катети",
-      "legHyp": "катет і гіпотенуза",
+      "legHyp": "катет і гіпотенуза"
     },
-    results: {
+    "results": {
       "Гипотенуза": "Гіпотенуза",
       "Второй катет": "Другий катет",
       "Площадь": "Площа",
       "Периметр": "Периметр",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
-      "мм": "мм",
-      "см": "см",
-      "м": "м",
-      "мм²": "мм²",
-      "см²": "см²",
-      "м²": "м²",
-      "мм³": "мм³",
-      "см³": "см³",
-      "м³": "м³",
+    "values": {
+      ...geometryScalarValues.uk,
       "Катеты должны быть больше нуля": "Катети мають бути більшими за нуль",
       "Катет и гипотенуза должны быть больше нуля": "Катет і гіпотенуза мають бути більшими за нуль",
       "Гипотенуза должна быть длиннее катета": "Гіпотенуза має бути довшою за катет",
-      "Значение слишком велико для расчёта": "Значення завелике для розрахунку",
-    },
+      "Значение слишком велико для расчёта": "Значення завелике для розрахунку"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "unit": "Unidad de longitud",
       "mode": "Dato conocido",
       "a": "Cateto a",
       "b": "Cateto b",
-      "c": "Hipotenusa",
+      "c": "Hipotenusa"
     },
-    options: {
+    "options": {
       "mm": "milímetros",
       "cm": "centímetros",
       "m": "metros",
       "legs": "dos catetos",
-      "legHyp": "un cateto y la hipotenusa",
+      "legHyp": "un cateto y la hipotenusa"
     },
-    results: {
+    "results": {
       "Гипотенуза": "Hipotenusa",
       "Второй катет": "Cateto que falta",
       "Площадь": "Área",
       "Периметр": "Perímetro",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryScalarValues.es,
       "Значение слишком велико для расчёта": "El valor es demasiado grande para calcularlo",
       "Катеты должны быть больше нуля": "Los catetos deben ser mayores que cero",
       "Катет и гипотенуза должны быть больше нуля": "El cateto y la hipotenusa deben ser mayores que cero",
-      "Гипотенуза должна быть длиннее катета": "La hipotenusa debe ser más larga que el cateto",
-    },
-  },
+      "Гипотенуза должна быть длиннее катета": "La hipotenusa debe ser más larga que el cateto"
+    }
+  }
 };

@@ -1,3 +1,5 @@
+import { contractContent } from './contractContent';
+import { contextualField } from './contextualField';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
@@ -12,6 +14,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  contextualField,
   copy: { en: leverageCopyEn, uk: leverageCopyUk, de: leverageCopyDe, es: leverageCopyEs },
   referenceCases: leverageReferenceCases,
   publishedExample: {
@@ -28,18 +31,46 @@ export const definition: CalculatorDefinitionV2 = {
     popularity: 22,
     isNew: false,
     shortDescription: 'Размер позиции, цена ликвидации и запас до неё.',
-    longDescription:
-      'Плечо умножает позицию и во столько же раз делит запас на ошибку, и вторую половину обычно недооценивают. Величина, обратная плечу, и есть весь запас: при пятикратном плече движение против позиции на двадцать процентов съедает залог целиком, при двадцатикратном хватает пяти. Поддерживающая маржа сдвигает цену ликвидации ещё ближе, потому что биржа закрывает позицию чуть раньше, чем средства действительно дойдут до нуля, а не после. Калькулятор показывает размер позиции, эту цену ликвидации и процент падения, которым она достигается.',
     seoTitle: 'Калькулятор кредитного плеча и цены ликвидации',
     seoDescription:
       'Рассчитайте размер позиции с плечом, цену ликвидации и процент падения до неё по залогу, плечу и поддерживающей марже.',
     h1: 'Калькулятор кредитного плеча',
     keywords: ['кредитное плечо', 'цена ликвидации', 'размер позиции', 'поддерживающая маржа'],
     fields: [
-      { name: 'equity', label: 'Залог, ₽', type: 'number', defaultValue: 50000, min: 0, step: 1000 },
-      { name: 'leverage', label: 'Плечо, ×', type: 'number', defaultValue: 5, min: 1, max: 200, step: 1 },
-      { name: 'entry', label: 'Цена входа, ₽', type: 'number', defaultValue: 2400, min: 0, step: 10 },
-      { name: 'maintenancePct', label: 'Поддерживающая маржа, %', type: 'number', defaultValue: 0.5, min: 0, max: 99, step: 0.1 },
+      {
+        "name": "equity",
+        "label": "Залог",
+        "type": "number",
+        "defaultValue": 50000,
+        "min": 0,
+        "step": 1000,
+        "unit": "₽"
+      },
+      {
+        "name": "leverage",
+        "label": "Плечо, ×",
+        "type": "number",
+        "defaultValue": 5,
+        "min": 1,
+        "step": 1
+      },
+      {
+        "name": "entry",
+        "label": "Цена входа",
+        "type": "number",
+        "defaultValue": 2400,
+        "min": 0,
+        "step": 10,
+        "unit": "₽"
+      },
+      {
+        "name": "maintenancePct",
+        "label": "Поддерживающая доля начальной позиции, %",
+        "type": "number",
+        "defaultValue": 0.5,
+        "min": 0,
+        "step": 0.1
+      }
     ],
     resultLabels: {
       position: 'Размер позиции',
@@ -48,34 +79,7 @@ export const definition: CalculatorDefinitionV2 = {
       drop: 'Падение до ликвидации',
       equity: 'Залог',
     },
-    howToUse: [
-      'Введите залог, который вы вносите.',
-      'Укажите кратность плеча.',
-      'Укажите цену входа в инструмент.',
-      'Укажите поддерживающую маржу, требуемую площадкой.',
-    ],
-    howItWorks:
-      'Позиция = залог × плечо. Цена ликвидации равна цене входа, умноженной на единицу минус обратное плечо плюс поддерживающая маржа, а падение до неё следует из двух цен.',
-    example: 'Залог 50 000 ₽ с плечом 5× при входе по 2 400 ₽ и марже 0,5 % ликвидируется на 1 932 ₽.',
-    faq: [
-      {
-        q: 'Почему при большем плече ликвидация настолько ближе?',
-        a: 'Потому что запас — величина, обратная плечу. Удвоение плеча вдвое сокращает переносимое движение, и на больших значениях эффект нарастает быстро: при плече 100× остаётся один процент.',
-      },
-      {
-        q: 'Для чего нужна поддерживающая маржа?',
-        a: 'Это нижняя граница средств, на которой настаивает площадка. Ликвидация происходит при падении до неё, а не до нуля, поэтому запускающая её цена всегда чуть ближе, чем даёт наивный расчёт.',
-      },
-      {
-        q: 'Подходит ли расчёт для короткой позиции?',
-        a: 'Арифметика зеркальна, но направление обратное: короткую позицию ликвидирует рост, а не падение. Этот расчёт написан для длинной позиции.',
-      },
-      {
-        q: 'Учитываются ли комиссии и фандинг?',
-        a: 'Нет. Фандинг, стоимость заёмных средств и торговые комиссии со временем размывают залог и подтягивают настоящую цену ликвидации ближе показанной.',
-      },
-    ],
+    ...contractContent.ru,
     relatedCalculatorIds: ['position-size', 'risk-reward', 'crypto-pnl'],
-    disclaimer: FIN_DISCLAIMER,
   },
 };

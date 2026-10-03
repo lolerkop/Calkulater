@@ -1,30 +1,19 @@
+import { measure as displayMeasure, read, finite, INPUT, RANGE, exact, add, times, negative, evaluated } from '../beam-deflection/buildingWave13Numeric';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
+import { fmtNumber } from '../../lib/format';
 
-// Масса трубы по кольцевому сечению.
-//
-// Труба отличается от круга не «поправкой», а самим сечением: работает кольцо
-// между наружным и внутренним диаметром, и именно поэтому вдвое более толстая
-// стенка не даёт вдвое большей массы. Внутренний диаметр печатается отдельно —
-// его же спрашивают при подборе фитингов.
-//
-// Плотность — вход: 7850 кг/м³ для стали, около 950 для полиэтилена, 8960 для
-// меди. Никаких скрытых таблиц сортамента здесь нет.
-const MM_IN_M = 1000;
-const CM2_IN_M2 = 1e4;
-const L_IN_M3 = 1000;
 
 export const compute: CalcFunction = (inputs) => {
-  const outer = toNumber(inputs.d);
-  const wall = toNumber(inputs.wall);
-  const length = toNumber(inputs.len);
-  const density = toNumber(inputs.rho);
+  const outer = read(inputs.d);
+  const wall = read(inputs.wall);
+  const length = read(inputs.len);
+  const density = read(inputs.rho);
   const fail = (message: string) => ({
     primary: { label: 'Масса трубы', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (!finite(outer,wall,length,density)) return fail(INPUT);
   if (!(outer > 0)) return fail('Наружный диаметр должен быть больше нуля');
   if (!(wall > 0)) return fail('Толщина стенки должна быть больше нуля');
   if (!(length > 0)) return fail('Длина должна быть больше нуля');
@@ -33,19 +22,23 @@ export const compute: CalcFunction = (inputs) => {
     return fail('Удвоенная стенка не может быть больше наружного диаметра или равна ему');
   }
 
-  const inner = outer - 2 * wall;
-  const outerM = outer / MM_IN_M;
-  const innerM = inner / MM_IN_M;
-  const area = (Math.PI / 4) * (outerM * outerM - innerM * innerM);
-  const mass = area * length * density;
+  const innerD = add(exact(outer),negative(times(exact(2),exact(wall))));
+  const inner = evaluated(innerD);
+  // π t(D−t), not a difference of nearly equal squared diameters.
+  const areaD = times(exact(Math.PI),exact(wall),add(exact(outer),negative(exact(wall))));
+  const mass = evaluated(times(areaD,exact(length),exact(density)),exact(1e6));
+  const linear = evaluated(times(areaD,exact(density)),exact(1e6));
+  const cmArea = evaluated(areaD,exact(100));
+  const litres = evaluated(times(exact(Math.PI),innerD,innerD,exact(length)),exact(4000));
+  if (!finite(inner,mass,linear,cmArea,litres)) return fail(RANGE);
 
   return {
-    primary: { label: 'Масса трубы', value: `${formatMeasure(mass, fmtNumber)} кг` },
+    primary: { label: 'Масса трубы', value: `${displayMeasure(mass)} кг` },
     secondary: [
-      { label: 'Масса погонного метра', value: `${formatMeasure(area * density, fmtNumber)} кг/м` },
-      { label: 'Внутренний диаметр', value: `${formatMeasure(inner, fmtNumber)} мм` },
-      { label: 'Площадь сечения металла', value: `${formatMeasure(area * CM2_IN_M2, fmtNumber)} см²` },
-      { label: 'Объём внутренней полости', value: `${formatMeasure((Math.PI / 4) * innerM * innerM * length * L_IN_M3, fmtNumber)} л` },
+      { label: 'Масса погонного метра', value: `${displayMeasure(linear)} кг/м` },
+      { label: 'Внутренний диаметр', value: `${displayMeasure(inner)} мм` },
+      { label: 'Площадь сечения металла', value: `${displayMeasure(cmArea)} см²` },
+      { label: 'Объём внутренней полости', value: `${displayMeasure(litres)} л` },
     ],
   };
 };

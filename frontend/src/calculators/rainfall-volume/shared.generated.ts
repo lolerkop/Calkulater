@@ -12,6 +12,7 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
       'Площадь': 'Area',
     },
@@ -19,6 +20,7 @@ export const shared: CalculatorLocalization = {
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
       'Площадь': 'Площа',
     },
@@ -26,6 +28,7 @@ export const shared: CalculatorLocalization = {
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Площадь': 'Fläche',
     },
@@ -33,6 +36,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
       'Площадь': 'Área',
     },

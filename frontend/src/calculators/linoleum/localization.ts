@@ -1,12 +1,13 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'length': 'Raumlänge, m',
-      'width': 'Raumbreite, m',
-      'rollWidth': 'Bahnenbreite, m',
-      'reserve': 'Zuschlag, %',
+      'length': "Raumlänge",
+      'width': "Raumbreite",
+      'rollWidth': "Bahnenbreite",
+      'reserve': "Zuschlag",
     },
     results: {
       'Погонных метров': 'Laufmeter',
@@ -26,7 +27,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { "length": "Room length, m", "width": "Room width, m", "rollWidth": "Roll width, m", "reserve": "Allowance, %" },
+    fields: { "length": "Room length", "width": "Room width", "rollWidth": "Roll width", "reserve": "Allowance" },
     options: {},
     results: {
       "Погонных метров": "Running metres", "Полос": "Strips", "Площадь пола": "Floor area",
@@ -40,7 +41,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { "length": "Довжина кімнати, м", "width": "Ширина кімнати, м", "rollWidth": "Ширина рулону, м", "reserve": "Запас, %" },
+    fields: { "length": "Довжина кімнати", "width": "Ширина кімнати", "rollWidth": "Ширина рулону", "reserve": "Запас" },
     options: {},
     results: {
       "Погонных метров": "Погонних метрів", "Полос": "Смуг", "Площадь пола": "Площа підлоги",
@@ -55,10 +56,10 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "length": "Largo de la habitación, m",
-      "width": "Ancho de la habitación, m",
-      "rollWidth": "Ancho del rollo, m",
-      "reserve": "Margen, %",
+      "length": "Largo de la habitación",
+      "width": "Ancho de la habitación",
+      "rollWidth": "Ancho del rollo",
+      "reserve": "Margen",
     },
     options: {},
     results: {
@@ -79,3 +80,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

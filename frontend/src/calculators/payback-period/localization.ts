@@ -22,6 +22,8 @@ export const localization: CalculatorLocalization = {
       'Годовой денежный поток должен быть больше нуля': 'Der jährliche Zahlungsstrom muss größer als null sein',
       'Ставка дисконтирования не может быть отрицательной': 'Der Abzinsungssatz kann nicht negativ sein',
       'При такой ставке дисконтированные потоки не покроют вложение никогда': 'Bei diesem Satz decken die abgezinsten Ströme die Investition nie',
+          "Введите конечные числовые значения.": "Gib endliche Zahlenwerte ein.",
+      "Результат вне допустимого диапазона": "Ergebnis außerhalb des unterstützten Bereichs",
     },
   },
   en: {
@@ -39,6 +41,8 @@ export const localization: CalculatorLocalization = {
       'Ставка дисконтирования не может быть отрицательной': 'The discount rate cannot be negative',
       'При такой ставке дисконтированные потоки не покроют вложение никогда':
         'At this rate the discounted flows will never cover the investment',
+          "Введите конечные числовые значения.": "Enter finite numerical values.",
+      "Результат вне допустимого диапазона": "Result outside the supported range",
     },
   },
   uk: {
@@ -56,6 +60,8 @@ export const localization: CalculatorLocalization = {
       'Ставка дисконтирования не может быть отрицательной': 'Ставка дисконтування не може бути від’ємною',
       'При такой ставке дисконтированные потоки не покроют вложение никогда':
         'За такої ставки дисконтовані потоки ніколи не покриють вкладення',
+          "Введите конечные числовые значения.": "Введіть скінченні числові значення.",
+      "Результат вне допустимого диапазона": "Результат поза допустимим діапазоном",
     },
   },
   es: {
@@ -80,6 +86,8 @@ export const localization: CalculatorLocalization = {
       "Годовой денежный поток должен быть больше нуля": "El flujo de caja anual debe ser mayor que cero",
       "Ставка дисконтирования не может быть отрицательной": "El tipo de descuento no puede ser negativo",
       "При такой ставке дисконтированные потоки не покроют вложение никогда": "Con ese tipo los flujos descontados no cubrirán la inversión nunca",
+          "Введите конечные числовые значения.": "Introduce valores numéricos finitos.",
+      "Результат вне допустимого диапазона": "Resultado fuera del intervalo admitido",
     },
   },
 };

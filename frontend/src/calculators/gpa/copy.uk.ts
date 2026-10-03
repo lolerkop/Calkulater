@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 import type { CalculatorSeoCopy } from '../../lib/platform/types';
 
 export const gpaCopyUk: CalculatorSeoCopy = {
@@ -8,4 +9,5 @@ export const gpaCopyUk: CalculatorSeoCopy = {
   seoDescription: "Розрахуйте середній бал за списком оцінок з вагами та порівняйте його з простим середнім без урахування кредитів.",
   h1: "Калькулятор середнього балу",
   keywords: ["середній бал", "GPA калькулятор", "середній бал з кредитами"],
+  ...contractContent.uk
 };

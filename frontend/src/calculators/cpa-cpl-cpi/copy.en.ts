@@ -1,41 +1,44 @@
 import type { CalculatorCopy } from '../../lib/platform/types';
 
 export const cpaCplCpiCopyEn: CalculatorCopy = {
-  name: 'CPA, CPL and CPI calculator',
-  slug: 'cpa-cpl-cpi-calculator',
-  shortDescription: 'Cost per action, lead or install from the budget and the number of actions.',
-  longDescription:
-    'The three metrics share one division and differ only in what counts as an action: any target action for CPA, an enquiry or lead for CPL, an app install for CPI. Keeping them on one page is deliberate — three separate calculators doing the same division would be three copies of the same page, and the confusion they cause is not arithmetic but definition. What actually decides the number is where you draw the line: counting form opens instead of submitted forms can halve a CPL without a single thing changing in the campaign.',
-  seoTitle: 'CPA, CPL and CPI calculator — cost per action',
-  seoDescription:
-    'Calculate the cost per action, per lead or per app install from an advertising budget and the number of actions received.',
-  h1: 'CPA, CPL and CPI calculator',
-  keywords: ['cpa calculator', 'cost per lead', 'cost per install', 'cost per action'],
-  howToUse: [
-    'Choose what the campaign counts as an action.',
-    'Enter the advertising budget spent.',
-    'Enter how many actions that budget produced.',
-    'Take both figures from the same period and the same campaign.',
+  "name": "CPA, CPL and CPI calculator",
+  "slug": "cpa-cpl-cpi-calculator",
+  "shortDescription": "Cost per action, lead or install from the budget and the number of actions.",
+  "seoTitle": "CPA, CPL and CPI calculator — cost per action",
+  "seoDescription": "Calculate the cost per action, per lead or per app install from an advertising budget and the number of actions received.",
+  "h1": "CPA, CPL and CPI calculator",
+  "keywords": [
+    "cpa calculator",
+    "cost per lead",
+    "cost per install",
+    "cost per action"
   ],
-  howItWorks:
-    'Cost per action = budget ÷ actions. The per-thousand figure is that result multiplied by a thousand, which is how media buying is often quoted.',
-  example: 'A budget of 84,000 that produced 320 leads gives a CPL of 262.50.',
-  faq: [
-    {
-      q: 'What is the difference between CPA, CPL and CPI?',
-      a: 'Only the definition of the action. CPA counts whatever the campaign treats as a conversion, CPL counts leads or enquiries, CPI counts app installs. The division itself is identical.',
-    },
-    {
-      q: 'Should the budget include agency fees?',
-      a: 'Include them if you want the true cost of an action. Ad-platform spend alone understates it, and campaigns are often compared on different bases without anyone noticing.',
-    },
-    {
-      q: 'Why does my CPL differ from the ad platform’s?',
-      a: 'Platforms count conversions their own way, usually with an attribution window and their own definition of a lead. Counting confirmed enquiries in your own CRM almost always gives a higher figure.',
-    },
-    {
-      q: 'Is a lower cost per action always better?',
-      a: 'No. Cheap actions of poor quality can cost more per sale than expensive good ones. This figure needs to be read next to what an action is actually worth to you.',
-    },
+  "longDescription": "CPA, CPL and CPI divide spend by an event count, but price different outcomes: a chosen conversion, a confirmed lead or an app install. Define the event and deduplication rule before comparing campaigns. Opening a form is not submitting it, and an install does not prove active use. This tool accepts actual whole event counts; fractional credits from attribution models use a different measurement base.",
+  "howItWorks": "CPA, CPL or CPI = spend ÷ the corresponding actions. The selector changes the label, not the division. “Per thousand actions” = cost per action × 1,000: it scales the same metric and is not CPM, which prices impressions. Both spend and the action count must be positive. Two-decimal money rounding does not add precision to the source data; tiny nonzero amounts remain visible.",
+  "howToUse": [
+    "Choose CPA for a defined conversion, CPL for a lead or CPI for an install; settle the event definition before counting.",
+    "Enter actual spend and decide beforehand whether agency fees and other costs are included.",
+    "Enter a positive whole count from the same campaign, no more than 9,007,199,254,740,991.",
+    "Match the period, attribution window and duplicate rule. Use one currency for all money values; the calculator applies no exchange rate and does not estimate profit."
   ],
+  "example": "Spend of 84,000 for 320 leads gives CPL = 84,000 ÷ 320 = 262.50. One thousand such leads at the same average price would cost 262,500. With zero leads the price cannot be calculated. With spend of 10,000, counting 100 form opens gives 100 per open, while counting 50 submitted leads gives 200 per lead.",
+  "faq": [
+    {
+      "q": "How do CPA, CPL and CPI differ?",
+      "a": "CPA prices the chosen conversion, CPL a lead and CPI an install. CPA may refer to a purchase or another action, so it need not exceed CPL. Compare the cost of the same defined event."
+    },
+    {
+      "q": "Should agency fees be included?",
+      "a": "You may measure media spend alone or a broader cost including fees and other expenses. Name that scope and apply it consistently across campaigns. The calculator does not decide which costs belong in it."
+    },
+    {
+      "q": "Why do the platform and CRM show different costs?",
+      "a": "Check attribution windows and models, click dates versus event dates, confirmation status, duplicate rules and cost scope. The difference can run either way; CRM costs are not always higher."
+    },
+    {
+      "q": "Is a lower action cost always better?",
+      "a": "No. Cheap leads may convert into paying customers less often, and installs may not become active users. Read CPL beside the lead-to-customer rate and CPI beside retention. Increasing the budget does not guarantee a rise in average action cost."
+    }
+  ],
+  "disclaimer": "Average cost of a defined event from supplied spend. Does not estimate profit, lead quality, attribution or currency exchange."
 };

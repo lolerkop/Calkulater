@@ -1,60 +1,30 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure, lengthSymbol } from '../../lib/platform/measurement';
-
-// Треугольник. По трём сторонам — формула Герона, по основанию и высоте — ½ah.
-//
-// Неравенство треугольника проверяется ДО вычисления площади. Формула Герона на
-// невозможном наборе сторон даёт отрицательное подкоренное выражение, и корень
-// из него — NaN; обрезать его нулём нельзя, потому что ноль читается как ответ,
-// а верный ответ здесь — «такой фигуры нет».
-
-
-const dim = (value: number): string => formatMeasure(value, fmtNumber);
+import { read, unit, valid, dim, product, exact, add, negative, times, scale, number, sqrt, INPUT, MODE, UNIT, RANGE } from '../../lib/platform/geometryNumericInput';
 
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'sss');
-  const unit = lengthSymbol(toStr(inputs.unit, 'cm'));
-  const fail = (message: string) => ({
-    primary: { label: 'Площадь', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+  const fail = (message: string) => ({ primary: { label: 'Площадь', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  const mode = inputs.mode, u = unit(inputs.unit);
+  if (mode !== 'sss' && mode !== 'baseHeight') return fail(MODE);
+  if (!u) return fail(UNIT);
   if (mode === 'baseHeight') {
-    const base = toNumber(inputs.base);
-    const height = toNumber(inputs.height);
-    if (!(base > 0) || !(height > 0)) return fail('Основание и высота должны быть больше нуля');
-    return {
-      primary: { label: 'Площадь', value: `${dim(base * height / 2)} ${unit}²` },
-      secondary: [
-        { label: 'Основание', value: `${dim(base)} ${unit}` },
-        { label: 'Высота', value: `${dim(height)} ${unit}` },
-      ],
-    };
+    const base = read(inputs.base), height = read(inputs.height);
+    if (![base, height].every(Number.isFinite)) return fail(INPUT);
+    if (!valid(base, height)) return fail('Основание и высота должны быть больше нуля');
+    const area = product(base, height, 0.5);
+    if (!valid(area)) return fail(RANGE);
+    return { primary: { label: 'Площадь', value: `${dim(area)} ${u}²` }, secondary: [{ label: 'Основание', value: `${dim(base)} ${u}` }, { label: 'Высота', value: `${dim(height)} ${u}` }] };
   }
-
-  const a = toNumber(inputs.a);
-  const b = toNumber(inputs.b);
-  const c = toNumber(inputs.c);
-  if (!(a > 0) || !(b > 0) || !(c > 0)) return fail('Все стороны должны быть больше нуля');
-  if (a + b <= c || a + c <= b || b + c <= a) {
-    return fail('Такого треугольника не существует: сумма двух сторон не превышает третью');
-  }
-
-  const p = (a + b + c) / 2;
-  const area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-  const sorted = [a, b, c].sort((x, y) => x - y);
-  const [s1, s2, s3] = sorted;
-  const lhs = s1 * s1 + s2 * s2;
-  const rhs = s3 * s3;
-  const tolerance = rhs * 1e-9;
-  const kind = Math.abs(lhs - rhs) <= tolerance ? 'прямоугольный' : lhs > rhs ? 'остроугольный' : 'тупоугольный';
-
-  return {
-    primary: { label: 'Площадь', value: `${dim(area)} ${unit}²` },
-    secondary: [
-      { label: 'Периметр', value: `${dim(a + b + c)} ${unit}` },
-      { label: 'Вид треугольника', value: kind },
-    ],
-  };
+  const sides = [read(inputs.a), read(inputs.b), read(inputs.c)];
+  if (!sides.every(Number.isFinite)) return fail(INPUT);
+  if (!valid(...sides)) return fail('Все стороны должны быть больше нуля');
+  const [a, b, c] = sides.sort((x, y) => y - x).map(exact);
+  // Exact bounded binary sums avoid losing a short side when the other two are equal and huge.
+  const f1 = add(a, b, c), f2 = add(negative(a), b, c), f3 = add(a, negative(b), c), f4 = add(a, b, negative(c));
+  if (f2.coefficient <= 0n) return fail('Такого треугольника не существует: сумма двух сторон не превышает третью');
+  // 16S² is the product of these four factors. Round only the final square root.
+  const area = sqrt(scale(times(f1, f2, f3, f4), -4)), perimeter = number(f1);
+  if (!valid(area, perimeter)) return fail(RANGE);
+  const comparison = add(times(b, b), times(c, c), negative(times(a, a))).coefficient;
+  const kind = comparison === 0n ? 'прямоугольный' : comparison > 0n ? 'остроугольный' : 'тупоугольный';
+  return { primary: { label: 'Площадь', value: `${dim(area)} ${u}²` }, secondary: [{ label: 'Периметр', value: `${dim(perimeter)} ${u}` }, { label: 'Вид треугольника', value: kind }] };
 };

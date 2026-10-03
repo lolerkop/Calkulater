@@ -73,6 +73,8 @@ describe('единицы переводятся одинаково на всём
     const split: string[] = [];
     for (const [ru, variants] of byUnit) {
       if (variants.size > 1) {
+        // Metric PS=735.49875W is explicit in power-to-weight; the inherited quarter-mile preset uses its entered hp without a conversion/calibration claim.
+        if (ru === 'л.с./т') { expect([...variants.keys()].sort()).toEqual(['PS/t','hp/t']); expect(variants.get('PS/t')).toEqual(['power-to-weight']); expect(variants.get('hp/t')).toEqual(['quarter-mile-elapsed-time']); continue; }
         const shown = [...variants].map(([en, ids]) => `«${en}» (${ids.slice(0, 4).join(', ')})`).join(' против ');
         split.push(`«${ru}» → ${shown}`);
       }

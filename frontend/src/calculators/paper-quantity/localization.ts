@@ -4,7 +4,7 @@ export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'format': 'Blattformat',
-      'grammage': 'Grammatur, g/m²',
+      'grammage': 'Grammatur',
       'sheets': 'Blätter',
     },
     options: {
@@ -25,6 +25,10 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Количество должно быть целым в допустимом диапазоне": "Die Anzahl muss eine ganze Zahl im zulässigen Bereich sein",
+      "Результат вне числового диапазона": "Das Ergebnis liegt außerhalb des Zahlenbereichs",
+      "Вне числового диапазона": "Außerhalb des Zahlenbereichs",
+
       'кг': 'kg',
       'г': 'g',
       'м²': 'm²',
@@ -36,7 +40,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { format: 'Sheet size', grammage: 'Grammage, gsm', sheets: 'Sheets' },
+    fields: { format: 'Sheet size', grammage: 'Grammage', sheets: 'Sheets' },
     options: { a0: 'A0 — 841×1189 mm', a1: 'A1 — 594×841 mm', a2: 'A2 — 420×594 mm', a3: 'A3 — 297×420 mm', a4: 'A4 — 210×297 mm', a5: 'A5 — 148×210 mm', a6: 'A6 — 105×148 mm' },
     results: {
       'Масса пачки': 'Ream mass', 'Масса одного листа': 'Single sheet mass',
@@ -44,6 +48,10 @@ export const localization: CalculatorLocalization = {
       'Листов в килограмме': 'Sheets per kilogram', 'Проверьте данные': 'Check the values',
     },
     values: {
+      "Количество должно быть целым в допустимом диапазоне": "The count must be a whole number within the allowed range",
+      "Результат вне числового диапазона": "The result is outside the numeric range",
+      "Вне числового диапазона": "Outside the numeric range",
+
       'кг': 'kg', 'г': 'g', 'м²': 'm²', 'мм': 'mm', 'шт': 'pcs',
       'Выберите формат листа из списка': 'Choose a sheet size from the list',
       'Плотность бумаги должна быть больше нуля': 'The grammage must be greater than zero',
@@ -51,7 +59,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { format: 'Формат аркуша', grammage: 'Щільність, г/м²', sheets: 'Аркушів' },
+    fields: { format: 'Формат аркуша', grammage: 'Щільність', sheets: 'Аркушів' },
     options: { a0: 'A0 — 841×1189 мм', a1: 'A1 — 594×841 мм', a2: 'A2 — 420×594 мм', a3: 'A3 — 297×420 мм', a4: 'A4 — 210×297 мм', a5: 'A5 — 148×210 мм', a6: 'A6 — 105×148 мм' },
     results: {
       'Масса пачки': 'Маса пачки', 'Масса одного листа': 'Маса одного аркуша',
@@ -59,6 +67,10 @@ export const localization: CalculatorLocalization = {
       'Листов в килограмме': 'Аркушів у кілограмі', 'Проверьте данные': 'Перевірте дані',
     },
     values: {
+      "Количество должно быть целым в допустимом диапазоне": "Кількість має бути цілою в допустимому діапазоні",
+      "Результат вне числового диапазона": "Результат поза числовим діапазоном",
+      "Вне числового диапазона": "Поза числовим діапазоном",
+
       'кг': 'кг', 'г': 'г', 'м²': 'м²', 'мм': 'мм', 'шт': 'шт',
       'Выберите формат листа из списка': 'Оберіть формат аркуша зі списку',
       'Плотность бумаги должна быть больше нуля': 'Щільність паперу має бути більшою за нуль',
@@ -68,7 +80,7 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "format": "Formato de hoja",
-      "grammage": "Gramaje, g/m²",
+      "grammage": "Gramaje",
       "sheets": "Hojas",
     },
     options: {
@@ -89,6 +101,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Количество должно быть целым в допустимом диапазоне": "La cantidad debe ser un entero dentro del rango permitido",
+      "Результат вне числового диапазона": "El resultado está fuera del rango numérico",
+      "Вне числового диапазона": "Fuera del rango numérico",
+
       "кг": "kg",
       "г": "g",
       "м²": "m²",

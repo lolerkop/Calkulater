@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 import type { CalculatorSeoCopy } from '../../lib/platform/types';
 
 export const leapYearCopyUk: CalculatorSeoCopy = {
@@ -8,4 +9,6 @@ export const leapYearCopyUk: CalculatorSeoCopy = {
   seoDescription: 'Перевірте, чи є рік високосним, подивіться довжину лютого та найближчі високосні роки.',
   h1: 'Калькулятор високосного року',
   keywords: ['високосний рік', 'чи високосний', '29 лютого'],
-};
+
+    ...dateTimeWave15ContractContent.uk['leap-year'],
+  };

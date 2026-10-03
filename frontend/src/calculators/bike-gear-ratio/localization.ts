@@ -5,7 +5,7 @@ export const localization: CalculatorLocalization = {
     fields: {
       'chainring': 'Zähne am Kettenblatt',
       'sprocket': 'Zähne am Ritzel',
-      'wheelCircumference': 'Radumfang, m',
+      'wheelCircumference': 'Radumfang',
     },
     results: {
       'Передаточное отношение': 'Übersetzungsverhältnis',
@@ -14,6 +14,10 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Окружность колеса должна быть конечным неотрицательным числом": "Radumfang muss eine endliche nichtnegative Zahl sein",
+      "Результат выходит за числовой диапазон": "Das Ergebnis überschreitet den Zahlenbereich",
+      "Число оборотов колеса предполагает прямую цепную передачу без дополнительного внутреннего передаточного отношения.": "Radumdrehungen setzen direkten Kettenantrieb ohne zusätzliches internes Verhältnis voraus.",
+
       'м': 'm',
       'Число зубьев должно быть целым': 'Die Zähnezahl muss eine ganze Zahl sein',
       'Зубьев на передней звезде должно быть больше нуля': 'Das Kettenblatt muss mehr als null Zähne haben',
@@ -24,7 +28,7 @@ export const localization: CalculatorLocalization = {
     fields: {
       "chainring": "Chainring teeth",
       "sprocket": "Sprocket teeth",
-      "wheelCircumference": "Wheel circumference, m",
+      "wheelCircumference": "Wheel circumference",
     },
     options: {
 
@@ -36,6 +40,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      "Окружность колеса должна быть конечным неотрицательным числом": "Wheel circumference must be a finite nonnegative number",
+      "Результат выходит за числовой диапазон": "The result exceeds the numeric range",
+      "Число оборотов колеса предполагает прямую цепную передачу без дополнительного внутреннего передаточного отношения.": "Wheel turns assume direct chain drive without an additional internal gear ratio.",
+
       "м": "m",
       "Число зубьев должно быть целым": "The tooth count must be a whole number",
       "Зубьев на передней звезде должно быть больше нуля": "The chainring must have more than zero teeth",
@@ -46,7 +54,7 @@ export const localization: CalculatorLocalization = {
     fields: {
       "chainring": "Зубців на передній зірці",
       "sprocket": "Зубців на задній зірці",
-      "wheelCircumference": "Довжина кола колеса, м",
+      "wheelCircumference": "Довжина кола колеса",
     },
     options: {
 
@@ -58,6 +66,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      "Окружность колеса должна быть конечным неотрицательным числом": "Окружність колеса має бути скінченним невід’ємним числом",
+      "Результат выходит за числовой диапазон": "Результат виходить за числовий діапазон",
+      "Число оборотов колеса предполагает прямую цепную передачу без дополнительного внутреннего передаточного отношения.": "Оберти колеса передбачають прямий ланцюговий привод без додаткового внутрішнього відношення.",
+
       "м": "м",
       "Число зубьев должно быть целым": "Кількість зубців має бути цілою",
       "Зубьев на передней звезде должно быть больше нуля": "Зубців на передній зірці має бути більше нуля",
@@ -68,7 +80,7 @@ export const localization: CalculatorLocalization = {
     fields: {
       "chainring": "Dientes del plato",
       "sprocket": "Dientes del piñón",
-      "wheelCircumference": "Perímetro de la rueda, m",
+      "wheelCircumference": "Perímetro de la rueda",
     },
     options: {},
     results: {
@@ -78,6 +90,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Окружность колеса должна быть конечным неотрицательным числом": "La circunferencia debe ser un número finito no negativo",
+      "Результат выходит за числовой диапазон": "El resultado excede el rango numérico",
+      "Число оборотов колеса предполагает прямую цепную передачу без дополнительного внутреннего передаточного отношения.": "Las vueltas suponen transmisión directa por cadena sin relación interna adicional.",
+
       "м": "m",
       "Число зубьев должно быть целым": "El número de dientes debe ser un número entero",
       "Зубьев на передней звезде должно быть больше нуля": "El plato debe tener más de cero dientes",

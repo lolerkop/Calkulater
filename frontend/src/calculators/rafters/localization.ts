@@ -1,11 +1,12 @@
+import { addBuildingWave16Messages } from './buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'span': 'Gebäudespannweite, m',
-      'rise': 'Firsthöhe über der Auflage, m',
-      'overhang': 'Dachüberstand, m',
+      'span': "Gebäudespannweite",
+      'rise': "Firsthöhe über der Auflage",
+      'overhang': "Überstand entlang des Sparrens",
     },
     results: {
       'Длина стропила': 'Sparrenlänge',
@@ -23,9 +24,9 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      span: 'Building span, m',
-      rise: 'Ridge rise, m',
-      overhang: 'Eaves overhang, m',
+      span: "Building span",
+      rise: "Ridge rise",
+      overhang: "Overhang along the rafter",
     },
     results: {
       'Длина стропила': 'Rafter length',
@@ -43,9 +44,9 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      span: 'Проліт будівлі, м',
-      rise: 'Підйом коника, м',
-      overhang: 'Звис карниза, м',
+      span: "Проліт будівлі",
+      rise: "Підйом коника",
+      overhang: "Звис уздовж крокви",
     },
     results: {
       'Длина стропила': 'Довжина кроквини',
@@ -62,9 +63,9 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "span": "Luz del edificio, m",
-      "rise": "Altura de cumbrera, m",
-      "overhang": "Vuelo del alero, m",
+      "span": "Luz del edificio",
+      "rise": "Altura de cumbrera",
+      "overhang": "Vuelo a lo largo del par",
     },
     options: {},
     results: {
@@ -82,3 +83,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

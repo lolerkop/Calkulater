@@ -1,57 +1,81 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'dividend': 'Jahresdividende je Aktie',
-      'price': 'Aktienkurs',
-      'shares': 'Zahl der Aktien',
+  "de": {
+    "fields": {
+      "dividend": "Jahresdividende je Aktie",
+      "price": "Aktienkurs",
+      "shares": "Zahl der Aktien"
     },
-    results: {
-      'Дивидендная доходность': 'Dividendenrendite',
-      'Дивиденд на акцию за год': 'Jahresdividende je Aktie',
-      'Дивиденды на пакет': 'Dividenden auf den Bestand',
-      'Стоимость пакета': 'Wert des Bestands',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Дивидендная доходность": "Dividendenrendite",
+      "Дивиденд на акцию за год": "Jahresdividende je Aktie",
+      "Дивиденды на пакет": "Dividenden auf den Bestand",
+      "Стоимость пакета": "Wert des Bestands",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'Цена акции должна быть больше нуля': 'Der Aktienkurs muss größer als null sein',
-      'Дивиденд не может быть отрицательным': 'Die Dividende kann nicht negativ sein',
-    },
+    "values": {
+      "Цена акции должна быть больше нуля": "Der Aktienkurs muss größer als null sein",
+      "Дивиденд не может быть отрицательным": "Die Dividende kann nicht negativ sein",
+      "Количество акций не может быть отрицательным": "Die Anzahl der Aktien darf nicht negativ sein"
+    }
   },
-  en: {
-    fields: { dividend: 'Annual dividend per share', price: 'Share price', shares: 'Number of shares' },
-    results: { 'Дивидендная доходность': 'Dividend yield', 'Дивиденд на акцию за год': 'Annual dividend per share', 'Дивиденды на пакет': 'Dividends on the holding', 'Стоимость пакета': 'Value of the holding', 'Проверьте данные': 'Check the values' },
-    values: {
-      'Цена акции должна быть больше нуля': 'The share price must be greater than zero',
-      'Дивиденд не может быть отрицательным': 'The dividend cannot be negative',
+  "en": {
+    "fields": {
+      "dividend": "Annual dividend per share",
+      "price": "Share price",
+      "shares": "Number of shares"
     },
-  },
-  uk: {
-    fields: { dividend: 'Річний дивіденд на акцію', price: 'Ціна акції', shares: 'Кількість акцій' },
-    results: { 'Дивидендная доходность': 'Дивідендна дохідність', 'Дивиденд на акцию за год': 'Річний дивіденд на акцію', 'Дивиденды на пакет': 'Дивіденди на пакет', 'Стоимость пакета': 'Вартість пакета', 'Проверьте данные': 'Перевірте дані' },
-    values: {
-      'Цена акции должна быть больше нуля': 'Ціна акції має бути більшою за нуль',
-      'Дивиденд не может быть отрицательным': 'Дивіденд не може бути від’ємним',
+    "results": {
+      "Дивидендная доходность": "Dividend yield",
+      "Дивиденд на акцию за год": "Annual dividend per share",
+      "Дивиденды на пакет": "Dividends on the holding",
+      "Стоимость пакета": "Value of the holding",
+      "Проверьте данные": "Check the values"
     },
+    "values": {
+      "Цена акции должна быть больше нуля": "The share price must be greater than zero",
+      "Дивиденд не может быть отрицательным": "The dividend cannot be negative",
+      "Количество акций не может быть отрицательным": "The number of shares cannot be negative"
+    }
   },
-  es: {
-    fields: {
+  "uk": {
+    "fields": {
+      "dividend": "Річний дивіденд на акцію",
+      "price": "Ціна акції",
+      "shares": "Кількість акцій"
+    },
+    "results": {
+      "Дивидендная доходность": "Дивідендна дохідність",
+      "Дивиденд на акцию за год": "Річний дивіденд на акцію",
+      "Дивиденды на пакет": "Дивіденди на пакет",
+      "Стоимость пакета": "Вартість пакета",
+      "Проверьте данные": "Перевірте дані"
+    },
+    "values": {
+      "Цена акции должна быть больше нуля": "Ціна акції має бути більшою за нуль",
+      "Дивиденд не может быть отрицательным": "Дивіденд не може бути від’ємним",
+      "Количество акций не может быть отрицательным": "Кількість акцій не може бути від’ємною"
+    }
+  },
+  "es": {
+    "fields": {
       "dividend": "Dividendo anual por acción",
       "price": "Precio de la acción",
-      "shares": "Número de acciones",
+      "shares": "Número de acciones"
     },
-    options: {},
-    results: {
+    "options": {},
+    "results": {
       "Дивидендная доходность": "Rentabilidad por dividendo",
       "Дивиденд на акцию за год": "Dividendo anual por acción",
       "Дивиденды на пакет": "Dividendos del paquete",
       "Стоимость пакета": "Valor del paquete",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "Цена акции должна быть больше нуля": "El precio de la acción debe ser mayor que cero",
       "Дивиденд не может быть отрицательным": "El dividendo no puede ser negativo",
-    },
-  },
+      "Количество акций не может быть отрицательным": "El número de acciones no puede ser negativo"
+    }
+  }
 };

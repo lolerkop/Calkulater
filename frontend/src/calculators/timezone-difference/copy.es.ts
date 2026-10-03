@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
@@ -13,4 +14,6 @@ export const timezoneDifferenceCopyEs: CalculatorSeoCopy = {
   seoDescription: "Convierte una hora entre dos husos horarios usando sus desfases UTC, con desfases fraccionarios y cambio de día incluidos.",
   h1: "Calculadora de diferencia horaria",
   keywords: ["calculadora de diferencia horaria", "conversor de desfase utc", "convertir la hora entre husos", "qué hora es allí"],
-};
+
+    ...dateTimeWave15ContractContent.es['timezone-difference'],
+  };

@@ -172,8 +172,13 @@ test.describe('таблица результата подсказывает, ч�
     await замер(page);
     await page.getByTestId('field-amount').fill('999999999999');
     await page.getByTestId('field-term').fill('50');
-    await page.getByTestId('field-rate').fill('99,9');
-    await page.waitForTimeout(700);
+    // Keep the long-number layout case inside the numeric contract. At 99.9%
+    // for 600 months, the scheduled principal becomes smaller than the floating
+    // point resolution; the corrected engine explicitly rejects that scenario.
+    await page.getByTestId('field-rate').fill('12');
+    // Independently: P × .01 / (1 − 1.01^−600) = 10,025,602,726.7746...
+    await expect(page.getByTestId('calc-result-primary')).toHaveText('10 025 602 727 ₽');
+    await page.locator(ОБЁРТКА).waitFor();
 
     await домотать(page, 'конец');
     const z = await замер(page);

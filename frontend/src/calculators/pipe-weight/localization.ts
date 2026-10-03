@@ -1,12 +1,13 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'd': 'Außendurchmesser, mm',
-      'wall': 'Wandstärke, mm',
-      'len': 'Länge, m',
-      'rho': 'Werkstoffdichte, kg/m³',
+      'd': "Außendurchmesser",
+      'wall': "Wandstärke",
+      'len': "Länge",
+      'rho': "Werkstoffdichte",
     },
     results: {
       'Масса трубы': 'Masse des Rohres',
@@ -30,8 +31,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      d: 'Outside diameter, mm', wall: 'Wall thickness, mm',
-      len: 'Length, m', rho: 'Material density, kg/m³',
+      d: "Outside diameter", wall: "Wall thickness",
+      len: "Length", rho: "Material density",
     },
     options: {},
     results: {
@@ -50,8 +51,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      d: 'Зовнішній діаметр, мм', wall: 'Товщина стінки, мм',
-      len: 'Довжина, м', rho: 'Густина матеріалу, кг/м³',
+      d: "Зовнішній діаметр", wall: "Товщина стінки",
+      len: "Довжина", rho: "Густина матеріалу",
     },
     options: {},
     results: {
@@ -70,10 +71,10 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "d": "Diámetro exterior, mm",
-      "wall": "Espesor de pared, mm",
-      "len": "Longitud, m",
-      "rho": "Densidad del material, kg/m³",
+      "d": "Diámetro exterior",
+      "wall": "Espesor de pared",
+      "len": "Longitud",
+      "rho": "Densidad del material",
     },
     options: {},
     results: {
@@ -97,3 +98,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

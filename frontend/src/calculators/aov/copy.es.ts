@@ -1,11 +1,9 @@
-// Испанский копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла испанской страницы не существует. Подробный текст живёт в
-// `src/data/esCalculatorContent.ts`.
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const aovCopyEs: CalculatorSeoCopy = {
+export const aovCopyEs: CalculatorCopy = {
   name: "Calculadora de ticket medio",
   slug: "ticket-medio",
   shortDescription: "Ingresos divididos entre el número de pedidos.",
@@ -13,4 +11,5 @@ export const aovCopyEs: CalculatorSeoCopy = {
   seoDescription: "Calcula el ticket medio dividiendo los ingresos de un periodo entre el número de pedidos del mismo periodo.",
   h1: "Calculadora de ticket medio",
   keywords: ["ticket medio", "valor medio de pedido", "cesta media"],
+  ...contractContent.es,
 };

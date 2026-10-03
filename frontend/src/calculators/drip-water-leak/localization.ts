@@ -1,59 +1,98 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'drops': 'Tropfen je Minute',
-      'price': 'Wasserpreis je m³',
-      'dropMl': 'Tropfenvolumen, ml',
-    },
-    results: {
-      'Утекает за сутки': 'Verlust am Tag',
-      'За месяц': 'Im Monat',
-      'За год': 'Im Jahr',
-      'В кубометрах за год': 'In Kubikmetern im Jahr',
-      'Стоимость за год': 'Kosten im Jahr',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'м³': 'm³',
-      'Число капель в минуту должно быть больше нуля': 'Die Zahl der Tropfen je Minute muss größer als null sein',
-      'Объём капли должен быть больше нуля': 'Das Tropfenvolumen muss größer als null sein',
-      'Цена воды не может быть отрицательной': 'Der Wasserpreis kann nicht negativ sein',
-    },
+  "en": {
+  "fields": {
+    "drops": "Drips per minute",
+    "price": "Water price per m³",
+    "dropMl": "Drop volume, ml"
   },
-  en: {
-    fields: { drops: 'Drips per minute', price: 'Water price per m³', dropMl: 'Drop volume, ml' },
-    options: {  },
-    results: { 'Утекает за сутки': 'Lost per day', 'За месяц': 'Per month', 'За год': 'Per year', 'В кубометрах за год': 'In cubic metres per year', 'Стоимость за год': 'Cost per year', 'Проверьте данные': 'Check the values' },
-    values: { 'м³': 'm³', 'Число капель в минуту должно быть больше нуля': 'The drips per minute must be greater than zero', 'Объём капли должен быть больше нуля': 'The drop volume must be greater than zero', 'Цена воды не может быть отрицательной': 'The price of water cannot be negative' },
+  "options": {},
+  "results": {
+    "Утекает за сутки": "Lost per day",
+    "За месяц": "Per month",
+    "За год": "Per year",
+    "В кубометрах за год": "In cubic metres per year",
+    "Стоимость за год": "Cost per year",
+    "Проверьте данные": "Check the values"
   },
-  uk: {
-    fields: { drops: 'Крапель за хвилину', price: 'Ціна води, ₴ за м³', dropMl: 'Обʼєм краплі, мл' },
-    options: {  },
-    results: { 'Утекает за сутки': 'Витікає за добу', 'За месяц': 'За місяць', 'За год': 'За рік', 'В кубометрах за год': 'У кубометрах за рік', 'Стоимость за год': 'Вартість за рік', 'Проверьте данные': 'Перевірте дані' },
-    values: { 'л': 'л', 'м³': 'м³', '₽': '₴', 'Число капель в минуту должно быть больше нуля': 'Кількість крапель за хвилину має бути більшою за нуль', 'Объём капли должен быть больше нуля': 'Обʼєм краплі має бути більшим за нуль', 'Цена воды не может быть отрицательной': 'Ціна води не може бути відʼємною' },
+  "values": {
+    ...marketingScalarValues.en,
+    "м³": "m³",
+    "Число капель в минуту должно быть больше нуля": "The drips per minute must be greater than zero",
+    "Объём капли должен быть больше нуля": "The drop volume must be greater than zero",
+    "Цена воды не может быть отрицательной": "The price of water cannot be negative"
+  }
+},
+  "uk": {
+  "fields": {
+    "drops": "Крапель за хвилину",
+    "price": "Ціна води за м³",
+    "dropMl": "Обʼєм краплі, мл"
   },
-  es: {
-    fields: {
-      "drops": "Gotas por minuto",
-      "price": "Precio del agua por m³",
-      "dropMl": "Volumen de la gota, ml",
-    },
-    options: {},
-    results: {
-      "Утекает за сутки": "Se pierde al día",
-      "За месяц": "Al mes",
-      "За год": "Al año",
-      "В кубометрах за год": "En metros cúbicos al año",
-      "Стоимость за год": "Coste al año",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "м³": "m³",
-      "Число капель в минуту должно быть больше нуля": "Las gotas por minuto deben ser más de cero",
-      "Объём капли должен быть больше нуля": "El volumen de la gota debe ser mayor que cero",
-      "Цена воды не может быть отрицательной": "El precio del agua no puede ser negativo",
-    },
+  "options": {},
+  "results": {
+    "Утекает за сутки": "Витікає за добу",
+    "За месяц": "За місяць",
+    "За год": "За рік",
+    "В кубометрах за год": "У кубометрах за рік",
+    "Стоимость за год": "Вартість за рік",
+    "Проверьте данные": "Перевірте дані"
   },
+  "values": {
+    ...marketingScalarValues.uk,
+    "л": "л",
+    "м³": "м³",
+    "₽": "₴",
+    "Число капель в минуту должно быть больше нуля": "Кількість крапель за хвилину має бути більшою за нуль",
+    "Объём капли должен быть больше нуля": "Обʼєм краплі має бути більшим за нуль",
+    "Цена воды не может быть отрицательной": "Ціна води не може бути відʼємною"
+  }
+},
+  "de": {
+  "fields": {
+    "drops": "Tropfen je Minute",
+    "price": "Wasserpreis je m³",
+    "dropMl": "Tropfenvolumen, ml"
+  },
+  "results": {
+    "Утекает за сутки": "Verlust am Tag",
+    "За месяц": "Im Monat",
+    "За год": "Im Jahr",
+    "В кубометрах за год": "In Kubikmetern im Jahr",
+    "Стоимость за год": "Kosten im Jahr",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "м³": "m³",
+    "Число капель в минуту должно быть больше нуля": "Die Zahl der Tropfen je Minute muss größer als null sein",
+    "Объём капли должен быть больше нуля": "Das Tropfenvolumen muss größer als null sein",
+    "Цена воды не может быть отрицательной": "Der Wasserpreis kann nicht negativ sein"
+  }
+},
+  "es": {
+  "fields": {
+    "drops": "Gotas por minuto",
+    "price": "Precio del agua por m³",
+    "dropMl": "Volumen de la gota, ml"
+  },
+  "options": {},
+  "results": {
+    "Утекает за сутки": "Se pierde al día",
+    "За месяц": "Al mes",
+    "За год": "Al año",
+    "В кубометрах за год": "En metros cúbicos al año",
+    "Стоимость за год": "Coste al año",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "м³": "m³",
+    "Число капель в минуту должно быть больше нуля": "Las gotas por minuto deben ser más de cero",
+    "Объём капли должен быть больше нуля": "El volumen de la gota debe ser mayor que cero",
+    "Цена воды не может быть отрицательной": "El precio del agua no puede ser negativo"
+  }
+}
 };

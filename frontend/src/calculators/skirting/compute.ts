@@ -1,52 +1,22 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
-import { ceilUnits } from '../../lib/rounding';
-
-// Плинтус по периметру комнаты за вычетом дверных проёмов.
-//
-// Считать «по площади» здесь бессмысленно: плинтус живёт по периметру, и
-// главная ошибка — забыть вычесть проёмы, а потом купить лишнюю планку. Вторая
-// ошибка обратная: вычесть проёмы и забыть про запас на подрезку углов, где
-// каждая планка теряет длину на косой рез.
-//
-// Планки считаются вверх целыми: половину планки в магазине не продают.
-const PERCENT = 100;
-
-export const compute: CalcFunction = (inputs) => {
-  const length = toNumber(inputs.length);
-  const width = toNumber(inputs.width);
-  const doors = toNumber(inputs.doors);
-  const doorWidth = toNumber(inputs.doorWidth);
-  const plank = toNumber(inputs.plank);
-  const waste = toNumber(inputs.waste);
-  const fail = (message: string) => ({
-    primary: { label: 'Длина с запасом', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (!(length > 0)) return fail('Длина комнаты должна быть больше нуля');
-  if (!(width > 0)) return fail('Ширина комнаты должна быть больше нуля');
-  if (!(doors >= 0)) return fail('Число проёмов не может быть отрицательным');
-  if (!(doorWidth >= 0)) return fail('Ширина проёма не может быть отрицательной');
-  if (!(plank > 0)) return fail('Длина планки должна быть больше нуля');
-  if (!(waste >= 0)) return fail('Запас не может быть отрицательным');
-
-  const perimeter = 2 * (length + width);
-  const openings = doors * doorWidth;
-  const net = perimeter - openings;
-  if (!(net > 0)) return fail('Проёмы длиннее периметра — проверьте данные');
-
-  const withWaste = net * (1 + waste / PERCENT);
-  const planks = ceilUnits(withWaste / plank);
-
-  return {
-    primary: { label: 'Длина с запасом', value: `${formatMeasure(withWaste, fmtNumber)} м` },
-    secondary: [
-      { label: 'Периметр комнаты', value: `${formatMeasure(perimeter, fmtNumber)} м` },
-      { label: 'Вычет на проёмы', value: `${formatMeasure(openings, fmtNumber)} м` },
-      { label: 'Планок', value: `${planks} шт` },
-      { label: 'Куплено с запасом', value: `${formatMeasure(planks * plank, fmtNumber)} м` },
-    ],
-  };
+import { fmtNumber } from '../../lib/format';
+import { INPUT, RANGE, INTEGER, finite, read, integer, exact, add, times, negative, evaluated, mul, reserve, decimal, dmul, dadd, dminus, dproduct, reserveDecimal, ceilDecimal, measure } from '../rafters/buildingWave16Numeric';
+export const compute:CalcFunction=inputs=>{
+ const length=read(inputs.length),width=read(inputs.width),doors=integer(inputs.doors),doorWidth=read(inputs.doorWidth),plank=read(inputs.plank),waste=read(inputs.waste);
+ const fail=(value:string)=>({primary:{label:'Длина с запасом',value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ if(!finite(length,width,doorWidth,plank,waste))return fail(INPUT);
+ if(!Number.isSafeInteger(doors))return fail(INTEGER);
+ if(!(length>0))return fail('Длина комнаты должна быть больше нуля');
+ if(!(width>0))return fail('Ширина комнаты должна быть больше нуля');
+ if(doors<0)return fail('Число проёмов не может быть отрицательным');
+ if(doorWidth<0)return fail('Ширина проёма не может быть отрицательной');
+ if(!(plank>0))return fail('Длина планки должна быть больше нуля');
+ if(waste<0)return fail('Запас не может быть отрицательным');
+ const p=times(exact(2),add(exact(length),exact(width))),o=times(exact(doors),exact(doorWidth)),net=add(p,negative(o));
+ if(net.coefficient<=0n)return fail('Проёмы длиннее периметра — проверьте данные');
+ const perimeter=evaluated(p),openings=evaluated(o),total=reserve(net,waste);
+ const decimalNet=dminus(dmul(decimal(2),dadd(decimal(length),decimal(width))),dproduct(doors,doorWidth));
+ const planks=ceilDecimal(reserveDecimal(decimalNet,waste),decimal(plank)),purchased=mul(planks,plank);
+ if(!finite(perimeter,openings,total,planks,purchased))return fail(RANGE);
+ return {primary:{label:'Длина с запасом',value:`${measure(total)} м`},secondary:[{label:'Периметр комнаты',value:`${measure(perimeter)} м`},{label:'Вычет на проёмы',value:`${measure(openings)} м`},{label:'Планок',value:`${planks} шт`},{label:'Куплено с запасом',value:`${measure(purchased)} м`}]};
 };

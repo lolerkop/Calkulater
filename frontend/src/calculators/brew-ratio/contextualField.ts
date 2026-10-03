@@ -1,14 +1,30 @@
-import type { CalculatorContextualField } from '../../lib/platform/types';
+import { createFieldHelp } from '../../lib/platform/financeWave14Input';
 
-// Решаемая величина зависит от режима, а `showIf` умеет только одно равенство:
-// «показывать во всех режимах, кроме одного» им не выражается. Поле остаётся на
-// месте, становится только для чтения и подписывается как вычисляемое — тот же
-// приём, что у закона Ома.
-const COMPUTED: Record<string, string> = { coffee: 'coffee', water: 'water', ratio: 'ratio' };
-const SUFFIX: Record<string, string> = { ru: ' (вычисляется)', en: ' (computed)', uk: ' (обчислюється)' };
-
-export const contextualField: CalculatorContextualField = (field, values, locale) => {
-  const mode = String(values.mode ?? 'coffee');
-  if (field.name !== COMPUTED[mode]) return field;
-  return { ...field, readOnly: true, label: `${field.label}${SUFFIX[locale] ?? SUFFIX.en}` };
+const help = createFieldHelp({
+  "ru": {
+    "water": "Миллилитры воды, поданной на заваривание, не выход готовой чашки.",
+    "ratio": "k = мл входной воды на 1 г сухого кофе; положительное значение, без температурной конвертации в массу."
+  },
+  "en": {
+    "water": "Millilitres of input brewing water, not finished cup yield.",
+    "ratio": "k = input water mL per 1 g dry coffee; positive, without temperature-based mass conversion."
+  },
+  "uk": {
+    "water": "Мілілітри вхідної води для заварювання, не вихід готової чашки.",
+    "ratio": "k = мл вхідної води на 1 г сухої кави; додатне, без температурного перерахунку в масу."
+  },
+  "de": {
+    "water": "Milliliter zugeführtes Brühwasser, nicht fertige Tassenmenge.",
+    "ratio": "k = ml Eingangswasser je 1 g trockenen Kaffee; positiv, ohne temperaturabhängige Massenumrechnung."
+  },
+  "es": {
+    "water": "Mililitros de agua de entrada, no rendimiento final de taza.",
+    "ratio": "k = ml de agua de entrada por 1 g de café seco; positivo, sin conversión de masa por temperatura."
+  }
+});
+const suffix: Record<string, string> = { ru: ' (вычисляется)', en: ' (computed)', uk: ' (обчислюється)', de: ' (berechnet)', es: ' (calculado)' } as const;
+export const contextualField: typeof help = (field, values, locale) => {
+  const shown = help(field, values, locale);
+  const mode = values.mode === undefined ? 'coffee' : values.mode;
+  return shown.name === mode ? { ...shown, readOnly: true, label: shown.label + (suffix[locale] ?? suffix.en) } : shown;
 };

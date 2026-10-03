@@ -1,33 +1,39 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
-
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'address': 'IPv4-Adresse',
-      'prefix': 'Präfixlänge, Bit',
+  "de": {
+    "fields": {
+      "address": "IPv4-Adresse",
+      "prefix": "Präfixlänge, Bit"
     },
-    results: {
-      'Адрес сети': 'Netzadresse',
-      'Маска подсети': 'Subnetzmaske',
-      'Широковещательный': 'Broadcast-Adresse',
-      'Первый узел': 'Erster Host',
-      'Последний узел': 'Letzter Host',
-      'Узлов в сети': 'Nutzbare Hosts',
-      'Обратная маска': 'Wildcard-Maske',
-      'Запись CIDR': 'CIDR-Schreibweise',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Адрес сети": "Netzadresse",
+      "Маска подсети": "Subnetzmaske",
+      "Широковещательный": "Broadcast-Adresse",
+      "Первый узел": "Erster Host",
+      "Последний узел": "Letzter Host",
+      "Узлов в сети": "Nutzbare Hosts",
+      "Обратная маска": "Wildcard-Maske",
+      "Запись CIDR": "CIDR-Schreibweise",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'нет': 'keine',
-      'Адрес должен состоять из четырёх октетов через точку': 'Die Adresse muss aus vier durch Punkte getrennten Oktetten bestehen',
-      'Каждый октет должен быть числом от 0 до 255': 'Jedes Oktett muss eine Zahl von 0 bis 255 sein',
-      'Длина префикса должна быть целым числом от 0 до 32': 'Die Präfixlänge muss eine ganze Zahl von 0 bis 32 sein',
-    },
+    "values": {
+      "нет": "keine",
+      "Адрес должен состоять из четырёх октетов через точку": "Die Adresse muss aus vier durch Punkte getrennten Oktetten bestehen",
+      "Каждый октет должен быть числом от 0 до 255": "Jedes Oktett muss eine Zahl von 0 bis 255 sein",
+      "Длина префикса должна быть целым числом от 0 до 32": "Die Präfixlänge muss eine ganze Zahl von 0 bis 32 sein",
+      "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+      "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Rechenmodus",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "Das Ergebnis liegt außerhalb des Zahlenbereichs; prüfe die Größenordnung der Eingaben",
+      "бит": "Bit"
+    }
   },
-  en: {
-    fields: { "address": "IPv4 address", "prefix": "Prefix length, bits" },
-    options: {},
-    results: {
+  "en": {
+    "fields": {
+      "address": "IPv4 address",
+      "prefix": "Prefix length, bits"
+    },
+    "options": {},
+    "results": {
       "Адрес сети": "Network address",
       "Маска подсети": "Subnet mask",
       "Широковещательный": "Broadcast address",
@@ -36,19 +42,26 @@ export const localization: CalculatorLocalization = {
       "Узлов в сети": "Usable hosts",
       "Обратная маска": "Wildcard mask",
       "Запись CIDR": "CIDR notation",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
+    "values": {
       "нет": "none",
       "Адрес должен состоять из четырёх октетов через точку": "The address must have four dot-separated octets",
       "Каждый октет должен быть числом от 0 до 255": "Each octet must be a number from 0 to 255",
       "Длина префикса должна быть целым числом от 0 до 32": "The prefix length must be a whole number from 0 to 32",
-    },
+      "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+      "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "The result is outside the numerical range; check the input scale",
+      "бит": "bits"
+    }
   },
-  uk: {
-    fields: { "address": "IPv4-адреса", "prefix": "Довжина префікса, біт" },
-    options: {},
-    results: {
+  "uk": {
+    "fields": {
+      "address": "IPv4-адреса",
+      "prefix": "Довжина префікса, біт"
+    },
+    "options": {},
+    "results": {
       "Адрес сети": "Адреса мережі",
       "Маска подсети": "Маска підмережі",
       "Широковещательный": "Широкомовна адреса",
@@ -57,22 +70,26 @@ export const localization: CalculatorLocalization = {
       "Узлов в сети": "Придатних вузлів",
       "Обратная маска": "Зворотна маска",
       "Запись CIDR": "Запис CIDR",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
+    "values": {
       "нет": "немає",
       "Адрес должен состоять из четырёх октетов через точку": "Адреса має складатися з чотирьох октетів через крапку",
       "Каждый октет должен быть числом от 0 до 255": "Кожен октет має бути числом від 0 до 255",
       "Длина префикса должна быть целым числом от 0 до 32": "Довжина префікса має бути цілим числом від 0 до 32",
-    },
+      "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+      "Выберите поддерживаемый режим расчёта": "Оберіть підтримуваний режим розрахунку",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "Результат поза числовим діапазоном; перевірте масштаб вхідних величин",
+      "бит": "біт"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "address": "Dirección IPv4",
-      "prefix": "Longitud del prefijo, bits",
+      "prefix": "Longitud del prefijo, bits"
     },
-    options: {},
-    results: {
+    "options": {},
+    "results": {
       "Адрес сети": "Dirección de red",
       "Маска подсети": "Máscara de subred",
       "Широковещательный": "Dirección de difusión",
@@ -81,13 +98,17 @@ export const localization: CalculatorLocalization = {
       "Узлов в сети": "Hosts utilizables",
       "Обратная маска": "Máscara comodín",
       "Запись CIDR": "Notación CIDR",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "нет": "ninguno",
       "Адрес должен состоять из четырёх октетов через точку": "La dirección debe tener cuatro octetos separados por puntos",
       "Каждый октет должен быть числом от 0 до 255": "Cada octeto debe ser un número de 0 a 255",
       "Длина префикса должна быть целым числом от 0 до 32": "La longitud del prefijo debe ser un número entero de 0 a 32",
-    },
-  },
+      "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+      "Выберите поддерживаемый режим расчёта": "Selecciona un modo de cálculo admitido",
+      "Результат выходит за числовой диапазон; проверьте масштаб исходных величин": "El resultado está fuera del intervalo numérico; revisa la escala de las entradas",
+      "бит": "bits"
+    }
+  }
 };

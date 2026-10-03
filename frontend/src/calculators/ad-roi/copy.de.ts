@@ -1,16 +1,15 @@
-// Немецкий копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла немецкой страницы не существует. Подробный текст живёт в
-// `src/data/deContent/`.
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const adRoiCopyDe: CalculatorSeoCopy = {
+export const adRoiCopyDe: CalculatorCopy = {
   name: 'Rechner für den Werbe-ROI',
   slug: 'werbe-roi-rechner',
-  shortDescription: 'Rückfluss einer Kampagne als ROI und ROAS nebeneinander.',
+  shortDescription: "ROAS und vereinfachter ROI aus Umsatz und Werbekosten.",
   seoTitle: 'Werbe-ROI berechnen — ROI und ROAS aus Kosten und Umsatz',
-  seoDescription: 'Berechne den Rückfluss einer Werbekampagne: ROI in Prozent und ROAS als Verhältnis, aus Kampagnenkosten und Umsatz.',
+  seoDescription: "Berechne ROAS und vereinfachten ROI aus Kampagnenumsatz und reinen Werbekosten. Warenkosten, Gebühren und andere Ausgaben sind nicht Teil der Eingaben.",
   h1: 'Rechner für den Werbe-ROI',
   keywords: ['Werbe-ROI berechnen', 'ROAS', 'Rückfluss Werbung', 'Werbe ROI'],
+  ...contractContent.de,
 };

@@ -1,11 +1,7 @@
-// Испанский копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла испанской страницы не существует. Подробный текст живёт в
-// `src/data/esCalculatorContent.ts`.
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { idealGasLawContractContent } from './contractContent';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
-
-export const idealGasLawCopyEs: CalculatorSeoCopy = {
+export const idealGasLawCopyEs: CalculatorCopy = {
   name: "Calculadora de la ley de los gases ideales",
   slug: "ley-de-los-gases-ideales",
   shortDescription: "PV = nRT: la presión o el volumen de un gas a partir del resto.",
@@ -13,4 +9,5 @@ export const idealGasLawCopyEs: CalculatorSeoCopy = {
   seoDescription: "Calcula la presión o el volumen de un gas ideal con PV = nRT, eligiendo las unidades de presión, volumen y temperatura.",
   h1: "Calculadora de la ley de los gases ideales",
   keywords: ["calculadora de la ley de los gases ideales", "pv nrt", "constante de los gases", "ecuación de los gases"],
+  ...idealGasLawContractContent.es,
 };

@@ -1,0 +1,8565 @@
+{
+  "method": "Python Decimal100, seed170006; six independent area/stock/strip/module formulas; no application imports",
+  "cases": [
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.2,
+        "width": 7.6,
+        "tileLength": 20.0,
+        "tileWidth": 30.0,
+        "packArea": 1.2,
+        "reserve": 2.0,
+        "glueConsumption": 4.7,
+        "packPrice": 119.0
+      },
+      "primary": 672,
+      "rows": {
+        "Количество упаковок": 34
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 5.2,
+        "width": 7.6,
+        "height": 6.7,
+        "rollWidth": 1.06,
+        "rollLength": 11.5,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 119.0
+      },
+      "primary": 24,
+      "rows": {
+        "Количество полотен": 24,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 39.52,
+        "consumption": 0.23,
+        "coats": 5,
+        "canVolume": 1.0,
+        "reserve": 2.0,
+        "canPrice": 119.0
+      },
+      "primary": 46.35696,
+      "rows": {
+        "Количество банок": 47
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 5.2,
+        "width": 7.6,
+        "packArea": 1.2,
+        "reserve": 2.0,
+        "packPrice": 119.0,
+        "underlayPrice": 10
+      },
+      "primary": 34,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.2,
+        "width": 7.6,
+        "thickness": 9.0,
+        "mixConsumption": 5.4,
+        "bagWeight": 20.0,
+        "reserve": 2.0,
+        "bagPrice": 119.0
+      },
+      "primary": 3.627936,
+      "rows": {
+        "Сухая смесь": 1960,
+        "Мешков": 98
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 39.52,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 2.0,
+        "reserve": 2.0,
+        "unitPrice": 119.0
+      },
+      "primary": 817,
+      "rows": {
+        "Камней без запаса": 801
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.8,
+        "width": 9.6,
+        "tileLength": 59.0,
+        "tileWidth": 17.0,
+        "packArea": 5.1,
+        "reserve": 35.0,
+        "glueConsumption": 1.0,
+        "packPrice": 324.0
+      },
+      "primary": 750,
+      "rows": {
+        "Количество упаковок": 15
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 5.8,
+        "width": 9.6,
+        "height": 9.8,
+        "rollWidth": 0.53,
+        "rollLength": 10.05,
+        "windows": 0,
+        "doors": 1,
+        "pattern": 32.0,
+        "rollPrice": 324.0
+      },
+      "primary": 58,
+      "rows": {
+        "Количество полотен": 58,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 55.68,
+        "consumption": 0.28,
+        "coats": 3,
+        "canVolume": 0.5,
+        "reserve": 35.0,
+        "canPrice": 324.0
+      },
+      "primary": 63.14112,
+      "rows": {
+        "Количество банок": 127
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 5.8,
+        "width": 9.6,
+        "packArea": 5.1,
+        "reserve": 35.0,
+        "packPrice": 324.0,
+        "underlayPrice": 10
+      },
+      "primary": 15,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.8,
+        "width": 9.6,
+        "thickness": 6.7,
+        "mixConsumption": 11.8,
+        "bagWeight": 40.0,
+        "reserve": 35.0,
+        "bagPrice": 324.0
+      },
+      "primary": 5.036256,
+      "rows": {
+        "Сухая смесь": 5943,
+        "Мешков": 149
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 55.68,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 65.0,
+        "joint": 2.0,
+        "reserve": 35.0,
+        "unitPrice": 324.0
+      },
+      "primary": 2801,
+      "rows": {
+        "Камней без запаса": 2075
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.0,
+        "width": 3.0,
+        "tileLength": 52.0,
+        "tileWidth": 42.0,
+        "packArea": 4.9,
+        "reserve": 46.0,
+        "glueConsumption": 4.5,
+        "packPrice": 413.0
+      },
+      "primary": 21,
+      "rows": {
+        "Количество упаковок": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 1.0,
+        "width": 3.0,
+        "height": 8.9,
+        "rollWidth": 0.7,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 23.0,
+        "rollPrice": 413.0
+      },
+      "primary": 11,
+      "rows": {
+        "Количество полотен": 11,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 3.0,
+        "consumption": 0.35,
+        "coats": 5,
+        "canVolume": 1.0,
+        "reserve": 46.0,
+        "canPrice": 413.0
+      },
+      "primary": 7.665,
+      "rows": {
+        "Количество банок": 8
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 1.0,
+        "width": 3.0,
+        "packArea": 4.9,
+        "reserve": 46.0,
+        "packPrice": 413.0,
+        "underlayPrice": 10
+      },
+      "primary": 1,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.0,
+        "width": 3.0,
+        "thickness": 8.4,
+        "mixConsumption": 19.9,
+        "bagWeight": 25.0,
+        "reserve": 46.0,
+        "bagPrice": 413.0
+      },
+      "primary": 0.36792,
+      "rows": {
+        "Сухая смесь": 733,
+        "Мешков": 30
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 3.0,
+        "openingsArea": 0.75,
+        "unitLength": 250.0,
+        "unitHeight": 200.0,
+        "joint": 0.0,
+        "reserve": 46.0,
+        "unitPrice": 413.0
+      },
+      "primary": 66,
+      "rows": {
+        "Камней без запаса": 45
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.0,
+        "width": 4.7,
+        "tileLength": 17.0,
+        "tileWidth": 52.0,
+        "packArea": 3.8,
+        "reserve": 34.0,
+        "glueConsumption": 1.4,
+        "packPrice": 402.0
+      },
+      "primary": 357,
+      "rows": {
+        "Количество упаковок": 9
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 5.0,
+        "width": 4.7,
+        "height": 0.8,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 2,
+        "pattern": 64.0,
+        "rollPrice": 402.0
+      },
+      "primary": 3,
+      "rows": {
+        "Количество полотен": 19,
+        "Полотен из рулона": 8
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 23.5,
+        "consumption": 0.11,
+        "coats": 6,
+        "canVolume": 2.5,
+        "reserve": 34.0,
+        "canPrice": 402.0
+      },
+      "primary": 20.7834,
+      "rows": {
+        "Количество банок": 9
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 5.0,
+        "width": 4.7,
+        "packArea": 3.8,
+        "reserve": 34.0,
+        "packPrice": 402.0,
+        "underlayPrice": 10
+      },
+      "primary": 9,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.0,
+        "width": 4.7,
+        "thickness": 0.6,
+        "mixConsumption": 4.8,
+        "bagWeight": 20.0,
+        "reserve": 34.0,
+        "bagPrice": 402.0
+      },
+      "primary": 0.18894,
+      "rows": {
+        "Сухая смесь": 91,
+        "Мешков": 5
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 23.5,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 65.0,
+        "joint": 2.0,
+        "reserve": 34.0,
+        "unitPrice": 402.0
+      },
+      "primary": 1138,
+      "rows": {
+        "Камней без запаса": 850
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.3,
+        "width": 3.0,
+        "tileLength": 58.0,
+        "tileWidth": 28.0,
+        "packArea": 4.6,
+        "reserve": 27.0,
+        "glueConsumption": 2.2,
+        "packPrice": 51.0
+      },
+      "primary": 54,
+      "rows": {
+        "Количество упаковок": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.3,
+        "width": 3.0,
+        "height": 2.7,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 64.0,
+        "rollPrice": 51.0
+      },
+      "primary": 5,
+      "rows": {
+        "Количество полотен": 13,
+        "Полотен из рулона": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 6.9,
+        "consumption": 0.34,
+        "coats": 1,
+        "canVolume": 1.0,
+        "reserve": 27.0,
+        "canPrice": 51.0
+      },
+      "primary": 2.97942,
+      "rows": {
+        "Количество банок": 3
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.3,
+        "width": 3.0,
+        "packArea": 4.6,
+        "reserve": 27.0,
+        "packPrice": 51.0,
+        "underlayPrice": 10
+      },
+      "primary": 2,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.3,
+        "width": 3.0,
+        "thickness": 2.6,
+        "mixConsumption": 11.0,
+        "bagWeight": 40.0,
+        "reserve": 27.0,
+        "bagPrice": 51.0
+      },
+      "primary": 0.227838,
+      "rows": {
+        "Сухая смесь": 251,
+        "Мешков": 7
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 6.9,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 65.0,
+        "joint": 3.0,
+        "reserve": 27.0,
+        "unitPrice": 51.0
+      },
+      "primary": 421,
+      "rows": {
+        "Камней без запаса": 332
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.7,
+        "width": 9.0,
+        "tileLength": 48.0,
+        "tileWidth": 48.0,
+        "packArea": 1.7,
+        "reserve": 46.0,
+        "glueConsumption": 4.5,
+        "packPrice": 793.0
+      },
+      "primary": 440,
+      "rows": {
+        "Количество упаковок": 60
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.7,
+        "width": 9.0,
+        "height": 1.5,
+        "rollWidth": 0.53,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 2,
+        "pattern": 23.0,
+        "rollPrice": 793.0
+      },
+      "primary": 10,
+      "rows": {
+        "Количество полотен": 57,
+        "Полотен из рулона": 6
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 69.3,
+        "consumption": 0.04,
+        "coats": 5,
+        "canVolume": 2.5,
+        "reserve": 46.0,
+        "canPrice": 793.0
+      },
+      "primary": 20.2356,
+      "rows": {
+        "Количество банок": 9
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.7,
+        "width": 9.0,
+        "packArea": 1.7,
+        "reserve": 46.0,
+        "packPrice": 793.0,
+        "underlayPrice": 10
+      },
+      "primary": 60,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.7,
+        "width": 9.0,
+        "thickness": 6.8,
+        "mixConsumption": 21.4,
+        "bagWeight": 30.0,
+        "reserve": 46.0,
+        "bagPrice": 793.0
+      },
+      "primary": 6.880104,
+      "rows": {
+        "Сухая смесь": 14724,
+        "Мешков": 491
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 69.3,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 200.0,
+        "joint": 0.0,
+        "reserve": 46.0,
+        "unitPrice": 793.0
+      },
+      "primary": 829,
+      "rows": {
+        "Камней без запаса": 568
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.0,
+        "width": 3.4,
+        "tileLength": 28.0,
+        "tileWidth": 57.0,
+        "packArea": 2.1,
+        "reserve": 36.0,
+        "glueConsumption": 2.9,
+        "packPrice": 955.0
+      },
+      "primary": 116,
+      "rows": {
+        "Количество упаковок": 9
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 4.0,
+        "width": 3.4,
+        "height": 6.2,
+        "rollWidth": 0.7,
+        "rollLength": 11.5,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 64.0,
+        "rollPrice": 955.0
+      },
+      "primary": 21,
+      "rows": {
+        "Количество полотен": 21,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 13.6,
+        "consumption": 0.31,
+        "coats": 3,
+        "canVolume": 1.0,
+        "reserve": 36.0,
+        "canPrice": 955.0
+      },
+      "primary": 17.20128,
+      "rows": {
+        "Количество банок": 18
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 4.0,
+        "width": 3.4,
+        "packArea": 2.1,
+        "reserve": 36.0,
+        "packPrice": 955.0,
+        "underlayPrice": 10
+      },
+      "primary": 9,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.0,
+        "width": 3.4,
+        "thickness": 8.0,
+        "mixConsumption": 13.1,
+        "bagWeight": 30.0,
+        "reserve": 36.0,
+        "bagPrice": 955.0
+      },
+      "primary": 1.47968,
+      "rows": {
+        "Сухая смесь": 1939,
+        "Мешков": 65
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 13.6,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 65.0,
+        "joint": 3.0,
+        "reserve": 36.0,
+        "unitPrice": 955.0
+      },
+      "primary": 981,
+      "rows": {
+        "Камней без запаса": 721
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 6.2,
+        "width": 1.9,
+        "tileLength": 55.0,
+        "tileWidth": 60.0,
+        "packArea": 1.2,
+        "reserve": 22.0,
+        "glueConsumption": 0.3,
+        "packPrice": 398.0
+      },
+      "primary": 44,
+      "rows": {
+        "Количество упаковок": 12
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 6.2,
+        "width": 1.9,
+        "height": 3.1,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 23.0,
+        "rollPrice": 398.0
+      },
+      "primary": 8,
+      "rows": {
+        "Количество полотен": 22,
+        "Полотен из рулона": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 11.78,
+        "consumption": 0.05,
+        "coats": 4,
+        "canVolume": 1.0,
+        "reserve": 22.0,
+        "canPrice": 398.0
+      },
+      "primary": 2.87432,
+      "rows": {
+        "Количество банок": 3
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 6.2,
+        "width": 1.9,
+        "packArea": 1.2,
+        "reserve": 22.0,
+        "packPrice": 398.0,
+        "underlayPrice": 10
+      },
+      "primary": 12,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 6.2,
+        "width": 1.9,
+        "thickness": 0.9,
+        "mixConsumption": 5.4,
+        "bagWeight": 20.0,
+        "reserve": 22.0,
+        "bagPrice": 398.0
+      },
+      "primary": 0.1293444,
+      "rows": {
+        "Сухая смесь": 70,
+        "Мешков": 4
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 11.78,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 0.0,
+        "reserve": 22.0,
+        "unitPrice": 398.0
+      },
+      "primary": 275,
+      "rows": {
+        "Камней без запаса": 226
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.1,
+        "width": 6.0,
+        "tileLength": 8.0,
+        "tileWidth": 45.0,
+        "packArea": 5.9,
+        "reserve": 44.0,
+        "glueConsumption": 0.8,
+        "packPrice": 244.0
+      },
+      "primary": 744,
+      "rows": {
+        "Количество упаковок": 5
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 3.1,
+        "width": 6.0,
+        "height": 8.6,
+        "rollWidth": 0.53,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 64.0,
+        "rollPrice": 244.0
+      },
+      "primary": 34,
+      "rows": {
+        "Количество полотен": 34,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 18.6,
+        "consumption": 0.22,
+        "coats": 4,
+        "canVolume": 0.5,
+        "reserve": 44.0,
+        "canPrice": 244.0
+      },
+      "primary": 23.56992,
+      "rows": {
+        "Количество банок": 48
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 3.1,
+        "width": 6.0,
+        "packArea": 5.9,
+        "reserve": 44.0,
+        "packPrice": 244.0,
+        "underlayPrice": 10
+      },
+      "primary": 5,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.1,
+        "width": 6.0,
+        "thickness": 2.6,
+        "mixConsumption": 5.7,
+        "bagWeight": 30.0,
+        "reserve": 44.0,
+        "bagPrice": 244.0
+      },
+      "primary": 0.696384,
+      "rows": {
+        "Сухая смесь": 397,
+        "Мешков": 14
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 18.6,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 65.0,
+        "joint": 10.0,
+        "reserve": 44.0,
+        "unitPrice": 244.0
+      },
+      "primary": 836,
+      "rows": {
+        "Камней без запаса": 580
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.4,
+        "width": 4.1,
+        "tileLength": 27.0,
+        "tileWidth": 5.0,
+        "packArea": 0.1,
+        "reserve": 12.0,
+        "glueConsumption": 3.5,
+        "packPrice": 34.0
+      },
+      "primary": 1837,
+      "rows": {
+        "Количество упаковок": 248
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 5.4,
+        "width": 4.1,
+        "height": 8.0,
+        "rollWidth": 0.7,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 34.0
+      },
+      "primary": 27,
+      "rows": {
+        "Количество полотен": 27,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 22.14,
+        "consumption": 0.16,
+        "coats": 5,
+        "canVolume": 5.0,
+        "reserve": 12.0,
+        "canPrice": 34.0
+      },
+      "primary": 19.83744,
+      "rows": {
+        "Количество банок": 4
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 5.4,
+        "width": 4.1,
+        "packArea": 0.1,
+        "reserve": 12.0,
+        "packPrice": 34.0,
+        "underlayPrice": 10
+      },
+      "primary": 248,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.4,
+        "width": 4.1,
+        "thickness": 3.8,
+        "mixConsumption": 9.0,
+        "bagWeight": 25.0,
+        "reserve": 12.0,
+        "bagPrice": 34.0
+      },
+      "primary": 0.9422784,
+      "rows": {
+        "Сухая смесь": 849,
+        "Мешков": 34
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 22.14,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 10.0,
+        "reserve": 12.0,
+        "unitPrice": 34.0
+      },
+      "primary": 456,
+      "rows": {
+        "Камней без запаса": 407
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.2,
+        "width": 4.7,
+        "tileLength": 36.0,
+        "tileWidth": 20.0,
+        "packArea": 1.2,
+        "reserve": 26.0,
+        "glueConsumption": 4.0,
+        "packPrice": 67.0
+      },
+      "primary": 181,
+      "rows": {
+        "Количество упаковок": 11
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.2,
+        "width": 4.7,
+        "height": 3.6,
+        "rollWidth": 1.06,
+        "rollLength": 11.5,
+        "windows": 0,
+        "doors": 0,
+        "pattern": 64.0,
+        "rollPrice": 67.0
+      },
+      "primary": 7,
+      "rows": {
+        "Количество полотен": 14,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 10.34,
+        "consumption": 0.06,
+        "coats": 1,
+        "canVolume": 0.5,
+        "reserve": 26.0,
+        "canPrice": 67.0
+      },
+      "primary": 0.781704,
+      "rows": {
+        "Количество банок": 2
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.2,
+        "width": 4.7,
+        "packArea": 1.2,
+        "reserve": 26.0,
+        "packPrice": 67.0,
+        "underlayPrice": 10
+      },
+      "primary": 11,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.2,
+        "width": 4.7,
+        "thickness": 0.3,
+        "mixConsumption": 9.5,
+        "bagWeight": 30.0,
+        "reserve": 26.0,
+        "bagPrice": 67.0
+      },
+      "primary": 0.0390852,
+      "rows": {
+        "Сухая смесь": 38,
+        "Мешков": 2
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 10.34,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 200.0,
+        "joint": 10.0,
+        "reserve": 26.0,
+        "unitPrice": 67.0
+      },
+      "primary": 90,
+      "rows": {
+        "Камней без запаса": 72
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.2,
+        "width": 8.1,
+        "tileLength": 52.0,
+        "tileWidth": 22.0,
+        "packArea": 5.0,
+        "reserve": 46.0,
+        "glueConsumption": 3.0,
+        "packPrice": 263.0
+      },
+      "primary": 435,
+      "rows": {
+        "Количество упаковок": 10
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 4.2,
+        "width": 8.1,
+        "height": 3.4,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 0.0,
+        "rollPrice": 263.0
+      },
+      "primary": 12,
+      "rows": {
+        "Количество полотен": 34,
+        "Полотен из рулона": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 34.02,
+        "consumption": 0.11,
+        "coats": 6,
+        "canVolume": 0.5,
+        "reserve": 46.0,
+        "canPrice": 263.0
+      },
+      "primary": 32.781672,
+      "rows": {
+        "Количество банок": 66
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 4.2,
+        "width": 8.1,
+        "packArea": 5.0,
+        "reserve": 46.0,
+        "packPrice": 263.0,
+        "underlayPrice": 10
+      },
+      "primary": 10,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.2,
+        "width": 8.1,
+        "thickness": 1.5,
+        "mixConsumption": 9.4,
+        "bagWeight": 25.0,
+        "reserve": 46.0,
+        "bagPrice": 263.0
+      },
+      "primary": 0.745038,
+      "rows": {
+        "Сухая смесь": 701,
+        "Мешков": 29
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 34.02,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 200.0,
+        "joint": 2.0,
+        "reserve": 46.0,
+        "unitPrice": 263.0
+      },
+      "primary": 606,
+      "rows": {
+        "Камней без запаса": 415
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.5,
+        "width": 5.3,
+        "tileLength": 58.0,
+        "tileWidth": 36.0,
+        "packArea": 5.6,
+        "reserve": 24.0,
+        "glueConsumption": 3.6,
+        "packPrice": 995.0
+      },
+      "primary": 79,
+      "rows": {
+        "Количество упаковок": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.5,
+        "width": 5.3,
+        "height": 7.4,
+        "rollWidth": 1.06,
+        "rollLength": 10.05,
+        "windows": 0,
+        "doors": 1,
+        "pattern": 64.0,
+        "rollPrice": 995.0
+      },
+      "primary": 15,
+      "rows": {
+        "Количество полотен": 15,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 13.25,
+        "consumption": 0.32,
+        "coats": 6,
+        "canVolume": 2.5,
+        "reserve": 24.0,
+        "canPrice": 995.0
+      },
+      "primary": 31.5456,
+      "rows": {
+        "Количество банок": 13
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.5,
+        "width": 5.3,
+        "packArea": 5.6,
+        "reserve": 24.0,
+        "packPrice": 995.0,
+        "underlayPrice": 10
+      },
+      "primary": 3,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.5,
+        "width": 5.3,
+        "thickness": 3.8,
+        "mixConsumption": 18.1,
+        "bagWeight": 30.0,
+        "reserve": 24.0,
+        "bagPrice": 995.0
+      },
+      "primary": 0.62434,
+      "rows": {
+        "Сухая смесь": 1131,
+        "Мешков": 38
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 13.25,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 10.0,
+        "reserve": 24.0,
+        "unitPrice": 995.0
+      },
+      "primary": 291,
+      "rows": {
+        "Камней без запаса": 235
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 8.7,
+        "width": 4.8,
+        "tileLength": 52.0,
+        "tileWidth": 17.0,
+        "packArea": 3.6,
+        "reserve": 27.0,
+        "glueConsumption": 4.9,
+        "packPrice": 730.0
+      },
+      "primary": 600,
+      "rows": {
+        "Количество упаковок": 15
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 8.7,
+        "width": 4.8,
+        "height": 7.0,
+        "rollWidth": 0.53,
+        "rollLength": 11.5,
+        "windows": 0,
+        "doors": 1,
+        "pattern": 23.0,
+        "rollPrice": 730.0
+      },
+      "primary": 51,
+      "rows": {
+        "Количество полотен": 51,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 41.76,
+        "consumption": 0.01,
+        "coats": 3,
+        "canVolume": 1.0,
+        "reserve": 27.0,
+        "canPrice": 730.0
+      },
+      "primary": 1.591056,
+      "rows": {
+        "Количество банок": 2
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 8.7,
+        "width": 4.8,
+        "packArea": 3.6,
+        "reserve": 27.0,
+        "packPrice": 730.0,
+        "underlayPrice": 10
+      },
+      "primary": 15,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 8.7,
+        "width": 4.8,
+        "thickness": 5.7,
+        "mixConsumption": 15.2,
+        "bagWeight": 30.0,
+        "reserve": 27.0,
+        "bagPrice": 730.0
+      },
+      "primary": 3.0230064,
+      "rows": {
+        "Сухая смесь": 4595,
+        "Мешков": 154
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 41.76,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 65.0,
+        "joint": 3.0,
+        "reserve": 27.0,
+        "unitPrice": 730.0
+      },
+      "primary": 1928,
+      "rows": {
+        "Камней без запаса": 1518
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.7,
+        "width": 9.6,
+        "tileLength": 24.0,
+        "tileWidth": 37.0,
+        "packArea": 3.5,
+        "reserve": 13.0,
+        "glueConsumption": 4.5,
+        "packPrice": 771.0
+      },
+      "primary": 86,
+      "rows": {
+        "Количество упаковок": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 0.7,
+        "width": 9.6,
+        "height": 8.2,
+        "rollWidth": 0.7,
+        "rollLength": 11.5,
+        "windows": 0,
+        "doors": 0,
+        "pattern": 64.0,
+        "rollPrice": 771.0
+      },
+      "primary": 30,
+      "rows": {
+        "Количество полотен": 30,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 6.72,
+        "consumption": 0.11,
+        "coats": 1,
+        "canVolume": 5.0,
+        "reserve": 13.0,
+        "canPrice": 771.0
+      },
+      "primary": 0.835296,
+      "rows": {
+        "Количество банок": 1
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 0.7,
+        "width": 9.6,
+        "packArea": 3.5,
+        "reserve": 13.0,
+        "packPrice": 771.0,
+        "underlayPrice": 10
+      },
+      "primary": 3,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.7,
+        "width": 9.6,
+        "thickness": 8.9,
+        "mixConsumption": 17.9,
+        "bagWeight": 30.0,
+        "reserve": 13.0,
+        "bagPrice": 771.0
+      },
+      "primary": 0.6758304,
+      "rows": {
+        "Сухая смесь": 1210,
+        "Мешков": 41
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 6.72,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 2.0,
+        "reserve": 13.0,
+        "unitPrice": 771.0
+      },
+      "primary": 131,
+      "rows": {
+        "Камней без запаса": 116
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.8,
+        "width": 4.1,
+        "tileLength": 35.0,
+        "tileWidth": 41.0,
+        "packArea": 5.4,
+        "reserve": 49.0,
+        "glueConsumption": 5.4,
+        "packPrice": 463.0
+      },
+      "primary": 120,
+      "rows": {
+        "Количество упаковок": 4
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.8,
+        "width": 4.1,
+        "height": 7.8,
+        "rollWidth": 0.53,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 0.0,
+        "rollPrice": 463.0
+      },
+      "primary": 26,
+      "rows": {
+        "Количество полотен": 26,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 11.48,
+        "consumption": 0.18,
+        "coats": 2,
+        "canVolume": 1.0,
+        "reserve": 49.0,
+        "canPrice": 463.0
+      },
+      "primary": 6.157872,
+      "rows": {
+        "Количество банок": 7
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.8,
+        "width": 4.1,
+        "packArea": 5.4,
+        "reserve": 49.0,
+        "packPrice": 463.0,
+        "underlayPrice": 10
+      },
+      "primary": 4,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.8,
+        "width": 4.1,
+        "thickness": 5.7,
+        "mixConsumption": 10.6,
+        "bagWeight": 20.0,
+        "reserve": 49.0,
+        "bagPrice": 463.0
+      },
+      "primary": 0.9749964,
+      "rows": {
+        "Сухая смесь": 1034,
+        "Мешков": 52
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 11.48,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 200.0,
+        "joint": 0.0,
+        "reserve": 49.0,
+        "unitPrice": 463.0
+      },
+      "primary": 307,
+      "rows": {
+        "Камней без запаса": 206
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.3,
+        "width": 7.5,
+        "tileLength": 25.0,
+        "tileWidth": 7.0,
+        "packArea": 2.9,
+        "reserve": 34.0,
+        "glueConsumption": 4.4,
+        "packPrice": 140.0
+      },
+      "primary": 747,
+      "rows": {
+        "Количество упаковок": 5
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 1.3,
+        "width": 7.5,
+        "height": 3.0,
+        "rollWidth": 1.06,
+        "rollLength": 10.05,
+        "windows": 0,
+        "doors": 2,
+        "pattern": 0.0,
+        "rollPrice": 140.0
+      },
+      "primary": 6,
+      "rows": {
+        "Количество полотен": 16,
+        "Полотен из рулона": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 9.75,
+        "consumption": 0.34,
+        "coats": 1,
+        "canVolume": 0.5,
+        "reserve": 34.0,
+        "canPrice": 140.0
+      },
+      "primary": 4.4421,
+      "rows": {
+        "Количество банок": 9
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 1.3,
+        "width": 7.5,
+        "packArea": 2.9,
+        "reserve": 34.0,
+        "packPrice": 140.0,
+        "underlayPrice": 10
+      },
+      "primary": 5,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.3,
+        "width": 7.5,
+        "thickness": 3.1,
+        "mixConsumption": 8.2,
+        "bagWeight": 25.0,
+        "reserve": 34.0,
+        "bagPrice": 140.0
+      },
+      "primary": 0.405015,
+      "rows": {
+        "Сухая смесь": 333,
+        "Мешков": 14
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 9.75,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 200.0,
+        "joint": 10.0,
+        "reserve": 34.0,
+        "unitPrice": 140.0
+      },
+      "primary": 210,
+      "rows": {
+        "Камней без запаса": 157
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.2,
+        "width": 2.5,
+        "tileLength": 10.0,
+        "tileWidth": 57.0,
+        "packArea": 5.2,
+        "reserve": 3.0,
+        "glueConsumption": 5.7,
+        "packPrice": 715.0
+      },
+      "primary": 326,
+      "rows": {
+        "Количество упаковок": 4
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.2,
+        "width": 2.5,
+        "height": 1.3,
+        "rollWidth": 1.06,
+        "rollLength": 11.5,
+        "windows": 2,
+        "doors": 2,
+        "pattern": 32.0,
+        "rollPrice": 715.0
+      },
+      "primary": 2,
+      "rows": {
+        "Количество полотен": 14,
+        "Полотен из рулона": 7
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 18.0,
+        "consumption": 0.23,
+        "coats": 1,
+        "canVolume": 5.0,
+        "reserve": 3.0,
+        "canPrice": 715.0
+      },
+      "primary": 4.2642,
+      "rows": {
+        "Количество банок": 1
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.2,
+        "width": 2.5,
+        "packArea": 5.2,
+        "reserve": 3.0,
+        "packPrice": 715.0,
+        "underlayPrice": 10
+      },
+      "primary": 4,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.2,
+        "width": 2.5,
+        "thickness": 1.3,
+        "mixConsumption": 7.3,
+        "bagWeight": 30.0,
+        "reserve": 3.0,
+        "bagPrice": 715.0
+      },
+      "primary": 0.24102,
+      "rows": {
+        "Сухая смесь": 176,
+        "Мешков": 6
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 18.0,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 200.0,
+        "joint": 3.0,
+        "reserve": 3.0,
+        "unitPrice": 715.0
+      },
+      "primary": 217,
+      "rows": {
+        "Камней без запаса": 211
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.7,
+        "width": 8.8,
+        "tileLength": 13.0,
+        "tileWidth": 28.0,
+        "packArea": 3.4,
+        "reserve": 21.0,
+        "glueConsumption": 3.5,
+        "packPrice": 530.0
+      },
+      "primary": 1083,
+      "rows": {
+        "Количество упаковок": 12
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 3.7,
+        "width": 8.8,
+        "height": 2.4,
+        "rollWidth": 0.53,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 0.0,
+        "rollPrice": 530.0
+      },
+      "primary": 12,
+      "rows": {
+        "Количество полотен": 45,
+        "Полотен из рулона": 4
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 32.56,
+        "consumption": 0.39,
+        "coats": 6,
+        "canVolume": 2.5,
+        "reserve": 21.0,
+        "canPrice": 530.0
+      },
+      "primary": 92.190384,
+      "rows": {
+        "Количество банок": 37
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 3.7,
+        "width": 8.8,
+        "packArea": 3.4,
+        "reserve": 21.0,
+        "packPrice": 530.0,
+        "underlayPrice": 10
+      },
+      "primary": 12,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.7,
+        "width": 8.8,
+        "thickness": 3.1,
+        "mixConsumption": 13.5,
+        "bagWeight": 20.0,
+        "reserve": 21.0,
+        "bagPrice": 530.0
+      },
+      "primary": 1.2213256,
+      "rows": {
+        "Сухая смесь": 1649,
+        "Мешков": 83
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 32.56,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 65.0,
+        "joint": 0.0,
+        "reserve": 21.0,
+        "unitPrice": 530.0
+      },
+      "primary": 973,
+      "rows": {
+        "Камней без запаса": 805
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.8,
+        "width": 5.4,
+        "tileLength": 13.0,
+        "tileWidth": 40.0,
+        "packArea": 5.3,
+        "reserve": 36.0,
+        "glueConsumption": 1.9,
+        "packPrice": 92.0
+      },
+      "primary": 396,
+      "rows": {
+        "Количество упаковок": 4
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.8,
+        "width": 5.4,
+        "height": 1.6,
+        "rollWidth": 0.53,
+        "rollLength": 10.05,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 64.0,
+        "rollPrice": 92.0
+      },
+      "primary": 6,
+      "rows": {
+        "Количество полотен": 28,
+        "Полотен из рулона": 5
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 15.12,
+        "consumption": 0.08,
+        "coats": 1,
+        "canVolume": 5.0,
+        "reserve": 36.0,
+        "canPrice": 92.0
+      },
+      "primary": 1.645056,
+      "rows": {
+        "Количество банок": 1
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.8,
+        "width": 5.4,
+        "packArea": 5.3,
+        "reserve": 36.0,
+        "packPrice": 92.0,
+        "underlayPrice": 10
+      },
+      "primary": 4,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.8,
+        "width": 5.4,
+        "thickness": 2.3,
+        "mixConsumption": 18.7,
+        "bagWeight": 25.0,
+        "reserve": 36.0,
+        "bagPrice": 92.0
+      },
+      "primary": 0.4729536,
+      "rows": {
+        "Сухая смесь": 885,
+        "Мешков": 36
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 15.12,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 200.0,
+        "joint": 0.0,
+        "reserve": 36.0,
+        "unitPrice": 92.0
+      },
+      "primary": 158,
+      "rows": {
+        "Камней без запаса": 116
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.5,
+        "width": 7.0,
+        "tileLength": 59.0,
+        "tileWidth": 46.0,
+        "packArea": 3.9,
+        "reserve": 9.0,
+        "glueConsumption": 2.5,
+        "packPrice": 314.0
+      },
+      "primary": 268,
+      "rows": {
+        "Количество упаковок": 19
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 9.5,
+        "width": 7.0,
+        "height": 1.2,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 2,
+        "pattern": 0.0,
+        "rollPrice": 314.0
+      },
+      "primary": 5,
+      "rows": {
+        "Количество полотен": 40,
+        "Полотен из рулона": 9
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 66.5,
+        "consumption": 0.26,
+        "coats": 5,
+        "canVolume": 1.0,
+        "reserve": 9.0,
+        "canPrice": 314.0
+      },
+      "primary": 94.2305,
+      "rows": {
+        "Количество банок": 95
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 9.5,
+        "width": 7.0,
+        "packArea": 3.9,
+        "reserve": 9.0,
+        "packPrice": 314.0,
+        "underlayPrice": 10
+      },
+      "primary": 19,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.5,
+        "width": 7.0,
+        "thickness": 9.9,
+        "mixConsumption": 11.5,
+        "bagWeight": 25.0,
+        "reserve": 9.0,
+        "bagPrice": 314.0
+      },
+      "primary": 7.176015,
+      "rows": {
+        "Сухая смесь": 8253,
+        "Мешков": 331
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 66.5,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 3.0,
+        "reserve": 9.0,
+        "unitPrice": 314.0
+      },
+      "primary": 1473,
+      "rows": {
+        "Камней без запаса": 1352
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 6.3,
+        "width": 6.4,
+        "tileLength": 48.0,
+        "tileWidth": 19.0,
+        "packArea": 3.6,
+        "reserve": 21.0,
+        "glueConsumption": 3.1,
+        "packPrice": 440.0
+      },
+      "primary": 535,
+      "rows": {
+        "Количество упаковок": 14
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 6.3,
+        "width": 6.4,
+        "height": 5.9,
+        "rollWidth": 0.7,
+        "rollLength": 10.05,
+        "windows": 1,
+        "doors": 2,
+        "pattern": 32.0,
+        "rollPrice": 440.0
+      },
+      "primary": 36,
+      "rows": {
+        "Количество полотен": 36,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 40.32,
+        "consumption": 0.1,
+        "coats": 2,
+        "canVolume": 2.5,
+        "reserve": 21.0,
+        "canPrice": 440.0
+      },
+      "primary": 9.75744,
+      "rows": {
+        "Количество банок": 4
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 6.3,
+        "width": 6.4,
+        "packArea": 3.6,
+        "reserve": 21.0,
+        "packPrice": 440.0,
+        "underlayPrice": 10
+      },
+      "primary": 14,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 6.3,
+        "width": 6.4,
+        "thickness": 9.1,
+        "mixConsumption": 13.6,
+        "bagWeight": 25.0,
+        "reserve": 21.0,
+        "bagPrice": 440.0
+      },
+      "primary": 4.4396352,
+      "rows": {
+        "Сухая смесь": 6038,
+        "Мешков": 242
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 40.32,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 200.0,
+        "joint": 2.0,
+        "reserve": 21.0,
+        "unitPrice": 440.0
+      },
+      "primary": 598,
+      "rows": {
+        "Камней без запаса": 495
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.5,
+        "width": 6.3,
+        "tileLength": 52.0,
+        "tileWidth": 39.0,
+        "packArea": 4.0,
+        "reserve": 44.0,
+        "glueConsumption": 2.3,
+        "packPrice": 395.0
+      },
+      "primary": 336,
+      "rows": {
+        "Количество упаковок": 18
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.5,
+        "width": 6.3,
+        "height": 7.2,
+        "rollWidth": 1.06,
+        "rollLength": 11.5,
+        "windows": 1,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 395.0
+      },
+      "primary": 26,
+      "rows": {
+        "Количество полотен": 26,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 47.25,
+        "consumption": 0.05,
+        "coats": 4,
+        "canVolume": 2.5,
+        "reserve": 44.0,
+        "canPrice": 395.0
+      },
+      "primary": 13.608,
+      "rows": {
+        "Количество банок": 6
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.5,
+        "width": 6.3,
+        "packArea": 4.0,
+        "reserve": 44.0,
+        "packPrice": 395.0,
+        "underlayPrice": 10
+      },
+      "primary": 18,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.5,
+        "width": 6.3,
+        "thickness": 6.2,
+        "mixConsumption": 9.8,
+        "bagWeight": 25.0,
+        "reserve": 44.0,
+        "bagPrice": 395.0
+      },
+      "primary": 4.21848,
+      "rows": {
+        "Сухая смесь": 4135,
+        "Мешков": 166
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 47.25,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 188.0,
+        "joint": 2.0,
+        "reserve": 44.0,
+        "unitPrice": 395.0
+      },
+      "primary": 891,
+      "rows": {
+        "Камней без запаса": 619
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.2,
+        "width": 2.8,
+        "tileLength": 33.0,
+        "tileWidth": 5.0,
+        "packArea": 5.2,
+        "reserve": 45.0,
+        "glueConsumption": 1.6,
+        "packPrice": 24.0
+      },
+      "primary": 1772,
+      "rows": {
+        "Количество упаковок": 6
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.2,
+        "width": 2.8,
+        "height": 4.7,
+        "rollWidth": 1.06,
+        "rollLength": 11.5,
+        "windows": 1,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 24.0
+      },
+      "primary": 10,
+      "rows": {
+        "Количество полотен": 19,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 20.16,
+        "consumption": 0.14,
+        "coats": 2,
+        "canVolume": 2.5,
+        "reserve": 45.0,
+        "canPrice": 24.0
+      },
+      "primary": 8.18496,
+      "rows": {
+        "Количество банок": 4
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.2,
+        "width": 2.8,
+        "packArea": 5.2,
+        "reserve": 45.0,
+        "packPrice": 24.0,
+        "underlayPrice": 10
+      },
+      "primary": 6,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.2,
+        "width": 2.8,
+        "thickness": 4.6,
+        "mixConsumption": 20.6,
+        "bagWeight": 25.0,
+        "reserve": 45.0,
+        "bagPrice": 24.0
+      },
+      "primary": 1.344672,
+      "rows": {
+        "Сухая смесь": 2771,
+        "Мешков": 111
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 20.16,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 65.0,
+        "joint": 0.0,
+        "reserve": 45.0,
+        "unitPrice": 24.0
+      },
+      "primary": 705,
+      "rows": {
+        "Камней без запаса": 487
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.7,
+        "width": 9.2,
+        "tileLength": 28.0,
+        "tileWidth": 27.0,
+        "packArea": 0.6,
+        "reserve": 12.0,
+        "glueConsumption": 3.4,
+        "packPrice": 839.0
+      },
+      "primary": 1050,
+      "rows": {
+        "Количество упаковок": 133
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.7,
+        "width": 9.2,
+        "height": 4.7,
+        "rollWidth": 1.06,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 2,
+        "pattern": 23.0,
+        "rollPrice": 839.0
+      },
+      "primary": 16,
+      "rows": {
+        "Количество полотен": 31,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 70.84,
+        "consumption": 0.38,
+        "coats": 4,
+        "canVolume": 5.0,
+        "reserve": 12.0,
+        "canPrice": 839.0
+      },
+      "primary": 120.598016,
+      "rows": {
+        "Количество банок": 25
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.7,
+        "width": 9.2,
+        "packArea": 0.6,
+        "reserve": 12.0,
+        "packPrice": 839.0,
+        "underlayPrice": 10
+      },
+      "primary": 133,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.7,
+        "width": 9.2,
+        "thickness": 2.8,
+        "mixConsumption": 16.5,
+        "bagWeight": 25.0,
+        "reserve": 12.0,
+        "bagPrice": 839.0
+      },
+      "primary": 2.2215424,
+      "rows": {
+        "Сухая смесь": 3666,
+        "Мешков": 147
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 70.84,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 188.0,
+        "joint": 3.0,
+        "reserve": 12.0,
+        "unitPrice": 839.0
+      },
+      "primary": 678,
+      "rows": {
+        "Камней без запаса": 605
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.6,
+        "width": 1.0,
+        "tileLength": 54.0,
+        "tileWidth": 30.0,
+        "packArea": 4.2,
+        "reserve": 30.0,
+        "glueConsumption": 1.5,
+        "packPrice": 647.0
+      },
+      "primary": 61,
+      "rows": {
+        "Количество упаковок": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.6,
+        "width": 1.0,
+        "height": 6.1,
+        "rollWidth": 0.7,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 0.0,
+        "rollPrice": 647.0
+      },
+      "primary": 24,
+      "rows": {
+        "Количество полотен": 24,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 7.6,
+        "consumption": 0.28,
+        "coats": 2,
+        "canVolume": 1.0,
+        "reserve": 30.0,
+        "canPrice": 647.0
+      },
+      "primary": 5.5328,
+      "rows": {
+        "Количество банок": 6
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.6,
+        "width": 1.0,
+        "packArea": 4.2,
+        "reserve": 30.0,
+        "packPrice": 647.0,
+        "underlayPrice": 10
+      },
+      "primary": 3,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.6,
+        "width": 1.0,
+        "thickness": 9.5,
+        "mixConsumption": 15.6,
+        "bagWeight": 30.0,
+        "reserve": 30.0,
+        "bagPrice": 647.0
+      },
+      "primary": 0.9386,
+      "rows": {
+        "Сухая смесь": 1465,
+        "Мешков": 49
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 7.6,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 2.0,
+        "reserve": 30.0,
+        "unitPrice": 647.0
+      },
+      "primary": 174,
+      "rows": {
+        "Камней без запаса": 134
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.6,
+        "width": 7.2,
+        "tileLength": 10.0,
+        "tileWidth": 35.0,
+        "packArea": 0.5,
+        "reserve": 12.0,
+        "glueConsumption": 2.2,
+        "packPrice": 883.0
+      },
+      "primary": 830,
+      "rows": {
+        "Количество упаковок": 59
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 3.6,
+        "width": 7.2,
+        "height": 6.0,
+        "rollWidth": 0.53,
+        "rollLength": 11.5,
+        "windows": 1,
+        "doors": 2,
+        "pattern": 23.0,
+        "rollPrice": 883.0
+      },
+      "primary": 40,
+      "rows": {
+        "Количество полотен": 40,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 25.92,
+        "consumption": 0.32,
+        "coats": 4,
+        "canVolume": 1.0,
+        "reserve": 12.0,
+        "canPrice": 883.0
+      },
+      "primary": 37.158912,
+      "rows": {
+        "Количество банок": 38
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 3.6,
+        "width": 7.2,
+        "packArea": 0.5,
+        "reserve": 12.0,
+        "packPrice": 883.0,
+        "underlayPrice": 10
+      },
+      "primary": 59,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.6,
+        "width": 7.2,
+        "thickness": 1.1,
+        "mixConsumption": 6.3,
+        "bagWeight": 20.0,
+        "reserve": 12.0,
+        "bagPrice": 883.0
+      },
+      "primary": 0.3193344,
+      "rows": {
+        "Сухая смесь": 202,
+        "Мешков": 11
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 25.92,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 200.0,
+        "joint": 3.0,
+        "reserve": 12.0,
+        "unitPrice": 883.0
+      },
+      "primary": 227,
+      "rows": {
+        "Камней без запаса": 202
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.9,
+        "width": 1.3,
+        "tileLength": 21.0,
+        "tileWidth": 37.0,
+        "packArea": 0.3,
+        "reserve": 43.0,
+        "glueConsumption": 3.1,
+        "packPrice": 791.0
+      },
+      "primary": 190,
+      "rows": {
+        "Количество упаковок": 49
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.9,
+        "width": 1.3,
+        "height": 6.7,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 23.0,
+        "rollPrice": 791.0
+      },
+      "primary": 26,
+      "rows": {
+        "Количество полотен": 26,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 10.27,
+        "consumption": 0.06,
+        "coats": 4,
+        "canVolume": 5.0,
+        "reserve": 43.0,
+        "canPrice": 791.0
+      },
+      "primary": 3.524664,
+      "rows": {
+        "Количество банок": 1
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.9,
+        "width": 1.3,
+        "packArea": 0.3,
+        "reserve": 43.0,
+        "packPrice": 791.0,
+        "underlayPrice": 10
+      },
+      "primary": 49,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.9,
+        "width": 1.3,
+        "thickness": 4.6,
+        "mixConsumption": 9.0,
+        "bagWeight": 40.0,
+        "reserve": 43.0,
+        "bagPrice": 791.0
+      },
+      "primary": 0.6755606,
+      "rows": {
+        "Сухая смесь": 609,
+        "Мешков": 16
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 10.27,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 200.0,
+        "joint": 0.0,
+        "reserve": 43.0,
+        "unitPrice": 791.0
+      },
+      "primary": 260,
+      "rows": {
+        "Камней без запаса": 182
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.9,
+        "width": 7.3,
+        "tileLength": 50.0,
+        "tileWidth": 52.0,
+        "packArea": 5.4,
+        "reserve": 12.0,
+        "glueConsumption": 0.6,
+        "packPrice": 783.0
+      },
+      "primary": 92,
+      "rows": {
+        "Количество упаковок": 5
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.9,
+        "width": 7.3,
+        "height": 2.8,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 64.0,
+        "rollPrice": 783.0
+      },
+      "primary": 9,
+      "rows": {
+        "Количество полотен": 27,
+        "Полотен из рулона": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 21.17,
+        "consumption": 0.35,
+        "coats": 1,
+        "canVolume": 2.5,
+        "reserve": 12.0,
+        "canPrice": 783.0
+      },
+      "primary": 8.29864,
+      "rows": {
+        "Количество банок": 4
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.9,
+        "width": 7.3,
+        "packArea": 5.4,
+        "reserve": 12.0,
+        "packPrice": 783.0,
+        "underlayPrice": 10
+      },
+      "primary": 5,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.9,
+        "width": 7.3,
+        "thickness": 5.5,
+        "mixConsumption": 21.0,
+        "bagWeight": 40.0,
+        "reserve": 12.0,
+        "bagPrice": 783.0
+      },
+      "primary": 1.304072,
+      "rows": {
+        "Сухая смесь": 2739,
+        "Мешков": 69
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 21.17,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 188.0,
+        "joint": 3.0,
+        "reserve": 12.0,
+        "unitPrice": 783.0
+      },
+      "primary": 298,
+      "rows": {
+        "Камней без запаса": 267
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.5,
+        "width": 3.6,
+        "tileLength": 22.0,
+        "tileWidth": 43.0,
+        "packArea": 5.6,
+        "reserve": 47.0,
+        "glueConsumption": 5.6,
+        "packPrice": 367.0
+      },
+      "primary": 28,
+      "rows": {
+        "Количество упаковок": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 0.5,
+        "width": 3.6,
+        "height": 3.8,
+        "rollWidth": 0.53,
+        "rollLength": 11.5,
+        "windows": 0,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 367.0
+      },
+      "primary": 8,
+      "rows": {
+        "Количество полотен": 16,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 1.8,
+        "consumption": 0.16,
+        "coats": 4,
+        "canVolume": 1.0,
+        "reserve": 47.0,
+        "canPrice": 367.0
+      },
+      "primary": 1.69344,
+      "rows": {
+        "Количество банок": 2
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 0.5,
+        "width": 3.6,
+        "packArea": 5.6,
+        "reserve": 47.0,
+        "packPrice": 367.0,
+        "underlayPrice": 10
+      },
+      "primary": 1,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.5,
+        "width": 3.6,
+        "thickness": 9.9,
+        "mixConsumption": 12.4,
+        "bagWeight": 30.0,
+        "reserve": 47.0,
+        "bagPrice": 367.0
+      },
+      "primary": 0.261954,
+      "rows": {
+        "Сухая смесь": 325,
+        "Мешков": 11
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 1.8,
+        "openingsArea": 0.45,
+        "unitLength": 390.0,
+        "unitHeight": 65.0,
+        "joint": 2.0,
+        "reserve": 47.0,
+        "unitPrice": 367.0
+      },
+      "primary": 76,
+      "rows": {
+        "Камней без запаса": 52
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.7,
+        "width": 9.1,
+        "tileLength": 14.0,
+        "tileWidth": 52.0,
+        "packArea": 1.1,
+        "reserve": 26.0,
+        "glueConsumption": 0.1,
+        "packPrice": 911.0
+      },
+      "primary": 426,
+      "rows": {
+        "Количество упаковок": 29
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.7,
+        "width": 9.1,
+        "height": 6.0,
+        "rollWidth": 0.53,
+        "rollLength": 11.5,
+        "windows": 1,
+        "doors": 0,
+        "pattern": 23.0,
+        "rollPrice": 911.0
+      },
+      "primary": 45,
+      "rows": {
+        "Количество полотен": 45,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 24.57,
+        "consumption": 0.09,
+        "coats": 1,
+        "canVolume": 1.0,
+        "reserve": 26.0,
+        "canPrice": 911.0
+      },
+      "primary": 2.786238,
+      "rows": {
+        "Количество банок": 3
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.7,
+        "width": 9.1,
+        "packArea": 1.1,
+        "reserve": 26.0,
+        "packPrice": 911.0,
+        "underlayPrice": 10
+      },
+      "primary": 29,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.7,
+        "width": 9.1,
+        "thickness": 2.3,
+        "mixConsumption": 20.7,
+        "bagWeight": 20.0,
+        "reserve": 26.0,
+        "bagPrice": 911.0
+      },
+      "primary": 0.7120386,
+      "rows": {
+        "Сухая смесь": 1474,
+        "Мешков": 74
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 24.57,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 200.0,
+        "joint": 2.0,
+        "reserve": 26.0,
+        "unitPrice": 911.0
+      },
+      "primary": 372,
+      "rows": {
+        "Камней без запаса": 296
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.2,
+        "width": 6.7,
+        "tileLength": 45.0,
+        "tileWidth": 38.0,
+        "packArea": 3.5,
+        "reserve": 37.0,
+        "glueConsumption": 0.2,
+        "packPrice": 317.0
+      },
+      "primary": 387,
+      "rows": {
+        "Количество упаковок": 19
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.2,
+        "width": 6.7,
+        "height": 9.9,
+        "rollWidth": 1.06,
+        "rollLength": 11.0,
+        "windows": 0,
+        "doors": 0,
+        "pattern": 64.0,
+        "rollPrice": 317.0
+      },
+      "primary": 27,
+      "rows": {
+        "Количество полотен": 27,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 48.24,
+        "consumption": 0.1,
+        "coats": 5,
+        "canVolume": 5.0,
+        "reserve": 37.0,
+        "canPrice": 317.0
+      },
+      "primary": 33.0444,
+      "rows": {
+        "Количество банок": 7
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.2,
+        "width": 6.7,
+        "packArea": 3.5,
+        "reserve": 37.0,
+        "packPrice": 317.0,
+        "underlayPrice": 10
+      },
+      "primary": 19,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.2,
+        "width": 6.7,
+        "thickness": 8.8,
+        "mixConsumption": 18.7,
+        "bagWeight": 30.0,
+        "reserve": 37.0,
+        "bagPrice": 317.0
+      },
+      "primary": 5.8158144,
+      "rows": {
+        "Сухая смесь": 10876,
+        "Мешков": 363
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 48.24,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 188.0,
+        "joint": 2.0,
+        "reserve": 37.0,
+        "unitPrice": 317.0
+      },
+      "primary": 866,
+      "rows": {
+        "Камней без запаса": 632
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.2,
+        "width": 3.5,
+        "tileLength": 38.0,
+        "tileWidth": 5.0,
+        "packArea": 0.1,
+        "reserve": 46.0,
+        "glueConsumption": 2.9,
+        "packPrice": 930.0
+      },
+      "primary": 592,
+      "rows": {
+        "Количество упаковок": 113
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.2,
+        "width": 3.5,
+        "height": 3.2,
+        "rollWidth": 0.53,
+        "rollLength": 11.5,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 0.0,
+        "rollPrice": 930.0
+      },
+      "primary": 7,
+      "rows": {
+        "Количество полотен": 19,
+        "Полотен из рулона": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 7.7,
+        "consumption": 0.32,
+        "coats": 6,
+        "canVolume": 5.0,
+        "reserve": 46.0,
+        "canPrice": 930.0
+      },
+      "primary": 21.58464,
+      "rows": {
+        "Количество банок": 5
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.2,
+        "width": 3.5,
+        "packArea": 0.1,
+        "reserve": 46.0,
+        "packPrice": 930.0,
+        "underlayPrice": 10
+      },
+      "primary": 113,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.2,
+        "width": 3.5,
+        "thickness": 2.8,
+        "mixConsumption": 8.9,
+        "bagWeight": 30.0,
+        "reserve": 46.0,
+        "bagPrice": 930.0
+      },
+      "primary": 0.314776,
+      "rows": {
+        "Сухая смесь": 281,
+        "Мешков": 10
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 7.7,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 200.0,
+        "joint": 10.0,
+        "reserve": 46.0,
+        "unitPrice": 930.0
+      },
+      "primary": 113,
+      "rows": {
+        "Камней без запаса": 78
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.9,
+        "width": 0.5,
+        "tileLength": 35.0,
+        "tileWidth": 45.0,
+        "packArea": 4.0,
+        "reserve": 9.0,
+        "glueConsumption": 5.5,
+        "packPrice": 379.0
+      },
+      "primary": 28,
+      "rows": {
+        "Количество упаковок": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.9,
+        "width": 0.5,
+        "height": 7.8,
+        "rollWidth": 1.06,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 379.0
+      },
+      "primary": 16,
+      "rows": {
+        "Количество полотен": 16,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 3.95,
+        "consumption": 0.26,
+        "coats": 5,
+        "canVolume": 2.5,
+        "reserve": 9.0,
+        "canPrice": 379.0
+      },
+      "primary": 5.59715,
+      "rows": {
+        "Количество банок": 3
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.9,
+        "width": 0.5,
+        "packArea": 4.0,
+        "reserve": 9.0,
+        "packPrice": 379.0,
+        "underlayPrice": 10
+      },
+      "primary": 2,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.9,
+        "width": 0.5,
+        "thickness": 9.9,
+        "mixConsumption": 0.7,
+        "bagWeight": 20.0,
+        "reserve": 9.0,
+        "bagPrice": 379.0
+      },
+      "primary": 0.4262445,
+      "rows": {
+        "Сухая смесь": 30,
+        "Мешков": 2
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 3.95,
+        "openingsArea": 0.9875,
+        "unitLength": 600.0,
+        "unitHeight": 188.0,
+        "joint": 2.0,
+        "reserve": 9.0,
+        "unitPrice": 379.0
+      },
+      "primary": 29,
+      "rows": {
+        "Камней без запаса": 26
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 8.0,
+        "width": 8.5,
+        "tileLength": 9.0,
+        "tileWidth": 49.0,
+        "packArea": 4.8,
+        "reserve": 22.0,
+        "glueConsumption": 0.8,
+        "packPrice": 626.0
+      },
+      "primary": 1882,
+      "rows": {
+        "Количество упаковок": 18
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 8.0,
+        "width": 8.5,
+        "height": 6.8,
+        "rollWidth": 1.06,
+        "rollLength": 11.0,
+        "windows": 0,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 626.0
+      },
+      "primary": 32,
+      "rows": {
+        "Количество полотен": 32,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 68.0,
+        "consumption": 0.25,
+        "coats": 3,
+        "canVolume": 5.0,
+        "reserve": 22.0,
+        "canPrice": 626.0
+      },
+      "primary": 62.22,
+      "rows": {
+        "Количество банок": 13
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 8.0,
+        "width": 8.5,
+        "packArea": 4.8,
+        "reserve": 22.0,
+        "packPrice": 626.0,
+        "underlayPrice": 10
+      },
+      "primary": 18,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 8.0,
+        "width": 8.5,
+        "thickness": 6.8,
+        "mixConsumption": 2.4,
+        "bagWeight": 30.0,
+        "reserve": 22.0,
+        "bagPrice": 626.0
+      },
+      "primary": 5.64128,
+      "rows": {
+        "Сухая смесь": 1354,
+        "Мешков": 46
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 68.0,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 65.0,
+        "joint": 10.0,
+        "reserve": 22.0,
+        "unitPrice": 626.0
+      },
+      "primary": 1782,
+      "rows": {
+        "Камней без запаса": 1461
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.3,
+        "width": 7.1,
+        "tileLength": 35.0,
+        "tileWidth": 12.0,
+        "packArea": 0.9,
+        "reserve": 40.0,
+        "glueConsumption": 2.9,
+        "packPrice": 43.0
+      },
+      "primary": 2201,
+      "rows": {
+        "Количество упаковок": 103
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 9.3,
+        "width": 7.1,
+        "height": 9.4,
+        "rollWidth": 0.7,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 32.0,
+        "rollPrice": 43.0
+      },
+      "primary": 47,
+      "rows": {
+        "Количество полотен": 47,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 66.03,
+        "consumption": 0.37,
+        "coats": 5,
+        "canVolume": 1.0,
+        "reserve": 40.0,
+        "canPrice": 43.0
+      },
+      "primary": 171.0177,
+      "rows": {
+        "Количество банок": 172
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 9.3,
+        "width": 7.1,
+        "packArea": 0.9,
+        "reserve": 40.0,
+        "packPrice": 43.0,
+        "underlayPrice": 10
+      },
+      "primary": 103,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.3,
+        "width": 7.1,
+        "thickness": 1.5,
+        "mixConsumption": 3.4,
+        "bagWeight": 40.0,
+        "reserve": 40.0,
+        "bagPrice": 43.0
+      },
+      "primary": 1.38663,
+      "rows": {
+        "Сухая смесь": 472,
+        "Мешков": 12
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 66.03,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 200.0,
+        "joint": 0.0,
+        "reserve": 40.0,
+        "unitPrice": 43.0
+      },
+      "primary": 1816,
+      "rows": {
+        "Камней без запаса": 1297
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.4,
+        "width": 1.6,
+        "tileLength": 50.0,
+        "tileWidth": 25.0,
+        "packArea": 2.7,
+        "reserve": 47.0,
+        "glueConsumption": 3.2,
+        "packPrice": 781.0
+      },
+      "primary": 46,
+      "rows": {
+        "Количество упаковок": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.4,
+        "width": 1.6,
+        "height": 6.6,
+        "rollWidth": 1.06,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 32.0,
+        "rollPrice": 781.0
+      },
+      "primary": 7,
+      "rows": {
+        "Количество полотен": 7,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 3.84,
+        "consumption": 0.09,
+        "coats": 4,
+        "canVolume": 0.5,
+        "reserve": 47.0,
+        "canPrice": 781.0
+      },
+      "primary": 2.032128,
+      "rows": {
+        "Количество банок": 5
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.4,
+        "width": 1.6,
+        "packArea": 2.7,
+        "reserve": 47.0,
+        "packPrice": 781.0,
+        "underlayPrice": 10
+      },
+      "primary": 3,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.4,
+        "width": 1.6,
+        "thickness": 5.1,
+        "mixConsumption": 19.6,
+        "bagWeight": 40.0,
+        "reserve": 47.0,
+        "bagPrice": 781.0
+      },
+      "primary": 0.2878848,
+      "rows": {
+        "Сухая смесь": 565,
+        "Мешков": 15
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 3.84,
+        "openingsArea": 0.96,
+        "unitLength": 390.0,
+        "unitHeight": 188.0,
+        "joint": 2.0,
+        "reserve": 47.0,
+        "unitPrice": 781.0
+      },
+      "primary": 57,
+      "rows": {
+        "Камней без запаса": 39
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.3,
+        "width": 9.1,
+        "tileLength": 24.0,
+        "tileWidth": 15.0,
+        "packArea": 1.5,
+        "reserve": 24.0,
+        "glueConsumption": 3.6,
+        "packPrice": 61.0
+      },
+      "primary": 721,
+      "rows": {
+        "Количество упаковок": 18
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.3,
+        "width": 9.1,
+        "height": 9.8,
+        "rollWidth": 0.53,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 2,
+        "pattern": 32.0,
+        "rollPrice": 61.0
+      },
+      "primary": 42,
+      "rows": {
+        "Количество полотен": 42,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 20.93,
+        "consumption": 0.23,
+        "coats": 2,
+        "canVolume": 1.0,
+        "reserve": 24.0,
+        "canPrice": 61.0
+      },
+      "primary": 11.938472,
+      "rows": {
+        "Количество банок": 12
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.3,
+        "width": 9.1,
+        "packArea": 1.5,
+        "reserve": 24.0,
+        "packPrice": 61.0,
+        "underlayPrice": 10
+      },
+      "primary": 18,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.3,
+        "width": 9.1,
+        "thickness": 0.1,
+        "mixConsumption": 19.4,
+        "bagWeight": 25.0,
+        "reserve": 24.0,
+        "bagPrice": 61.0
+      },
+      "primary": 0.0259532,
+      "rows": {
+        "Сухая смесь": 51,
+        "Мешков": 3
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 20.93,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 188.0,
+        "joint": 2.0,
+        "reserve": 24.0,
+        "unitPrice": 61.0
+      },
+      "primary": 214,
+      "rows": {
+        "Камней без запаса": 173
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 8.5,
+        "width": 4.2,
+        "tileLength": 42.0,
+        "tileWidth": 13.0,
+        "packArea": 4.8,
+        "reserve": 45.0,
+        "glueConsumption": 5.6,
+        "packPrice": 652.0
+      },
+      "primary": 949,
+      "rows": {
+        "Количество упаковок": 11
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 8.5,
+        "width": 4.2,
+        "height": 5.4,
+        "rollWidth": 1.06,
+        "rollLength": 10.05,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 0.0,
+        "rollPrice": 652.0
+      },
+      "primary": 24,
+      "rows": {
+        "Количество полотен": 24,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 35.7,
+        "consumption": 0.36,
+        "coats": 6,
+        "canVolume": 5.0,
+        "reserve": 45.0,
+        "canPrice": 652.0
+      },
+      "primary": 111.8124,
+      "rows": {
+        "Количество банок": 23
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 8.5,
+        "width": 4.2,
+        "packArea": 4.8,
+        "reserve": 45.0,
+        "packPrice": 652.0,
+        "underlayPrice": 10
+      },
+      "primary": 11,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 8.5,
+        "width": 4.2,
+        "thickness": 7.9,
+        "mixConsumption": 17.9,
+        "bagWeight": 40.0,
+        "reserve": 45.0,
+        "bagPrice": 652.0
+      },
+      "primary": 4.089435,
+      "rows": {
+        "Сухая смесь": 7321,
+        "Мешков": 184
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 35.7,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 188.0,
+        "joint": 0.0,
+        "reserve": 45.0,
+        "unitPrice": 652.0
+      },
+      "primary": 683,
+      "rows": {
+        "Камней без запаса": 471
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.5,
+        "width": 3.3,
+        "tileLength": 17.0,
+        "tileWidth": 10.0,
+        "packArea": 2.0,
+        "reserve": 11.0,
+        "glueConsumption": 3.6,
+        "packPrice": 453.0
+      },
+      "primary": 970,
+      "rows": {
+        "Количество упаковок": 9
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 4.5,
+        "width": 3.3,
+        "height": 8.8,
+        "rollWidth": 0.53,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 23.0,
+        "rollPrice": 453.0
+      },
+      "primary": 29,
+      "rows": {
+        "Количество полотен": 29,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 14.85,
+        "consumption": 0.22,
+        "coats": 2,
+        "canVolume": 2.5,
+        "reserve": 11.0,
+        "canPrice": 453.0
+      },
+      "primary": 7.25274,
+      "rows": {
+        "Количество банок": 3
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 4.5,
+        "width": 3.3,
+        "packArea": 2.0,
+        "reserve": 11.0,
+        "packPrice": 453.0,
+        "underlayPrice": 10
+      },
+      "primary": 9,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.5,
+        "width": 3.3,
+        "thickness": 5.7,
+        "mixConsumption": 8.3,
+        "bagWeight": 25.0,
+        "reserve": 11.0,
+        "bagPrice": 453.0
+      },
+      "primary": 0.9395595,
+      "rows": {
+        "Сухая смесь": 780,
+        "Мешков": 32
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 14.85,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 200.0,
+        "joint": 3.0,
+        "reserve": 11.0,
+        "unitPrice": 453.0
+      },
+      "primary": 190,
+      "rows": {
+        "Камней без запаса": 172
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.9,
+        "width": 0.9,
+        "tileLength": 28.0,
+        "tileWidth": 33.0,
+        "packArea": 3.7,
+        "reserve": 39.0,
+        "glueConsumption": 3.9,
+        "packPrice": 894.0
+      },
+      "primary": 53,
+      "rows": {
+        "Количество упаковок": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 3.9,
+        "width": 0.9,
+        "height": 9.2,
+        "rollWidth": 1.06,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 894.0
+      },
+      "primary": 9,
+      "rows": {
+        "Количество полотен": 9,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 3.51,
+        "consumption": 0.38,
+        "coats": 1,
+        "canVolume": 5.0,
+        "reserve": 39.0,
+        "canPrice": 894.0
+      },
+      "primary": 1.853982,
+      "rows": {
+        "Количество банок": 1
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 3.9,
+        "width": 0.9,
+        "packArea": 3.7,
+        "reserve": 39.0,
+        "packPrice": 894.0,
+        "underlayPrice": 10
+      },
+      "primary": 2,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.9,
+        "width": 0.9,
+        "thickness": 7.3,
+        "mixConsumption": 17.2,
+        "bagWeight": 40.0,
+        "reserve": 39.0,
+        "bagPrice": 894.0
+      },
+      "primary": 0.3561597,
+      "rows": {
+        "Сухая смесь": 613,
+        "Мешков": 16
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 3.51,
+        "openingsArea": 0.8775,
+        "unitLength": 390.0,
+        "unitHeight": 65.0,
+        "joint": 0.0,
+        "reserve": 39.0,
+        "unitPrice": 894.0
+      },
+      "primary": 145,
+      "rows": {
+        "Камней без запаса": 104
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.3,
+        "width": 9.7,
+        "tileLength": 37.0,
+        "tileWidth": 40.0,
+        "packArea": 1.0,
+        "reserve": 50.0,
+        "glueConsumption": 5.9,
+        "packPrice": 205.0
+      },
+      "primary": 227,
+      "rows": {
+        "Количество упаковок": 34
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.3,
+        "width": 9.7,
+        "height": 1.5,
+        "rollWidth": 0.53,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 2,
+        "pattern": 64.0,
+        "rollPrice": 205.0
+      },
+      "primary": 8,
+      "rows": {
+        "Количество полотен": 37,
+        "Полотен из рулона": 5
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 22.31,
+        "consumption": 0.29,
+        "coats": 3,
+        "canVolume": 5.0,
+        "reserve": 50.0,
+        "canPrice": 205.0
+      },
+      "primary": 29.11455,
+      "rows": {
+        "Количество банок": 6
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.3,
+        "width": 9.7,
+        "packArea": 1.0,
+        "reserve": 50.0,
+        "packPrice": 205.0,
+        "underlayPrice": 10
+      },
+      "primary": 34,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.3,
+        "width": 9.7,
+        "thickness": 4.6,
+        "mixConsumption": 14.8,
+        "bagWeight": 25.0,
+        "reserve": 50.0,
+        "bagPrice": 205.0
+      },
+      "primary": 1.53939,
+      "rows": {
+        "Сухая смесь": 2279,
+        "Мешков": 92
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 22.31,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 65.0,
+        "joint": 0.0,
+        "reserve": 50.0,
+        "unitPrice": 205.0
+      },
+      "primary": 1250,
+      "rows": {
+        "Камней без запаса": 833
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.4,
+        "width": 5.5,
+        "tileLength": 17.0,
+        "tileWidth": 30.0,
+        "packArea": 5.4,
+        "reserve": 17.0,
+        "glueConsumption": 0.5,
+        "packPrice": 555.0
+      },
+      "primary": 934,
+      "rows": {
+        "Количество упаковок": 9
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.4,
+        "width": 5.5,
+        "height": 6.0,
+        "rollWidth": 0.53,
+        "rollLength": 11.5,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 23.0,
+        "rollPrice": 555.0
+      },
+      "primary": 48,
+      "rows": {
+        "Количество полотен": 48,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 40.7,
+        "consumption": 0.05,
+        "coats": 1,
+        "canVolume": 0.5,
+        "reserve": 17.0,
+        "canPrice": 555.0
+      },
+      "primary": 2.38095,
+      "rows": {
+        "Количество банок": 5
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.4,
+        "width": 5.5,
+        "packArea": 5.4,
+        "reserve": 17.0,
+        "packPrice": 555.0,
+        "underlayPrice": 10
+      },
+      "primary": 9,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.4,
+        "width": 5.5,
+        "thickness": 10.0,
+        "mixConsumption": 8.7,
+        "bagWeight": 40.0,
+        "reserve": 17.0,
+        "bagPrice": 555.0
+      },
+      "primary": 4.7619,
+      "rows": {
+        "Сухая смесь": 4143,
+        "Мешков": 104
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 40.7,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 65.0,
+        "joint": 0.0,
+        "reserve": 17.0,
+        "unitPrice": 555.0
+      },
+      "primary": 1824,
+      "rows": {
+        "Камней без запаса": 1559
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 6.2,
+        "width": 7.3,
+        "tileLength": 6.0,
+        "tileWidth": 22.0,
+        "packArea": 3.4,
+        "reserve": 9.0,
+        "glueConsumption": 1.7,
+        "packPrice": 214.0
+      },
+      "primary": 3738,
+      "rows": {
+        "Количество упаковок": 15
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 6.2,
+        "width": 7.3,
+        "height": 5.1,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 23.0,
+        "rollPrice": 214.0
+      },
+      "primary": 19,
+      "rows": {
+        "Количество полотен": 38,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 45.26,
+        "consumption": 0.27,
+        "coats": 6,
+        "canVolume": 1.0,
+        "reserve": 9.0,
+        "canPrice": 214.0
+      },
+      "primary": 79.920108,
+      "rows": {
+        "Количество банок": 80
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 6.2,
+        "width": 7.3,
+        "packArea": 3.4,
+        "reserve": 9.0,
+        "packPrice": 214.0,
+        "underlayPrice": 10
+      },
+      "primary": 15,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 6.2,
+        "width": 7.3,
+        "thickness": 3.7,
+        "mixConsumption": 13.5,
+        "bagWeight": 25.0,
+        "reserve": 9.0,
+        "bagPrice": 214.0
+      },
+      "primary": 1.8253358,
+      "rows": {
+        "Сухая смесь": 2465,
+        "Мешков": 99
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 45.26,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 200.0,
+        "joint": 3.0,
+        "reserve": 9.0,
+        "unitPrice": 214.0
+      },
+      "primary": 393,
+      "rows": {
+        "Камней без запаса": 360
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.9,
+        "width": 7.2,
+        "tileLength": 48.0,
+        "tileWidth": 53.0,
+        "packArea": 3.2,
+        "reserve": 15.0,
+        "glueConsumption": 1.9,
+        "packPrice": 435.0
+      },
+      "primary": 258,
+      "rows": {
+        "Количество упаковок": 21
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.9,
+        "width": 7.2,
+        "height": 3.5,
+        "rollWidth": 1.06,
+        "rollLength": 11.0,
+        "windows": 0,
+        "doors": 0,
+        "pattern": 0.0,
+        "rollPrice": 435.0
+      },
+      "primary": 10,
+      "rows": {
+        "Количество полотен": 29,
+        "Полотен из рулона": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 56.88,
+        "consumption": 0.29,
+        "coats": 4,
+        "canVolume": 5.0,
+        "reserve": 15.0,
+        "canPrice": 435.0
+      },
+      "primary": 75.87792,
+      "rows": {
+        "Количество банок": 16
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.9,
+        "width": 7.2,
+        "packArea": 3.2,
+        "reserve": 15.0,
+        "packPrice": 435.0,
+        "underlayPrice": 10
+      },
+      "primary": 21,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.9,
+        "width": 7.2,
+        "thickness": 5.4,
+        "mixConsumption": 7.5,
+        "bagWeight": 25.0,
+        "reserve": 15.0,
+        "bagPrice": 435.0
+      },
+      "primary": 3.532248,
+      "rows": {
+        "Сухая смесь": 2650,
+        "Мешков": 106
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 56.88,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 65.0,
+        "joint": 10.0,
+        "reserve": 15.0,
+        "unitPrice": 435.0
+      },
+      "primary": 3284,
+      "rows": {
+        "Камней без запаса": 2856
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.7,
+        "width": 4.1,
+        "tileLength": 18.0,
+        "tileWidth": 35.0,
+        "packArea": 0.7,
+        "reserve": 36.0,
+        "glueConsumption": 2.2,
+        "packPrice": 780.0
+      },
+      "primary": 328,
+      "rows": {
+        "Количество упаковок": 30
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 3.7,
+        "width": 4.1,
+        "height": 0.6,
+        "rollWidth": 1.06,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 2,
+        "pattern": 0.0,
+        "rollPrice": 780.0
+      },
+      "primary": 1,
+      "rows": {
+        "Количество полотен": 5,
+        "Полотен из рулона": 16
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 15.17,
+        "consumption": 0.13,
+        "coats": 3,
+        "canVolume": 0.5,
+        "reserve": 36.0,
+        "canPrice": 780.0
+      },
+      "primary": 8.046168,
+      "rows": {
+        "Количество банок": 17
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 3.7,
+        "width": 4.1,
+        "packArea": 0.7,
+        "reserve": 36.0,
+        "packPrice": 780.0,
+        "underlayPrice": 10
+      },
+      "primary": 30,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.7,
+        "width": 4.1,
+        "thickness": 8.6,
+        "mixConsumption": 10.8,
+        "bagWeight": 20.0,
+        "reserve": 36.0,
+        "bagPrice": 780.0
+      },
+      "primary": 1.7742832,
+      "rows": {
+        "Сухая смесь": 1917,
+        "Мешков": 96
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 15.17,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 200.0,
+        "joint": 3.0,
+        "reserve": 36.0,
+        "unitPrice": 780.0
+      },
+      "primary": 239,
+      "rows": {
+        "Камней без запаса": 176
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.8,
+        "width": 4.2,
+        "tileLength": 27.0,
+        "tileWidth": 58.0,
+        "packArea": 4.8,
+        "reserve": 11.0,
+        "glueConsumption": 4.5,
+        "packPrice": 930.0
+      },
+      "primary": 292,
+      "rows": {
+        "Количество упаковок": 10
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 9.8,
+        "width": 4.2,
+        "height": 2.9,
+        "rollWidth": 0.53,
+        "rollLength": 11.5,
+        "windows": 2,
+        "doors": 2,
+        "pattern": 0.0,
+        "rollPrice": 930.0
+      },
+      "primary": 17,
+      "rows": {
+        "Количество полотен": 49,
+        "Полотен из рулона": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 41.16,
+        "consumption": 0.37,
+        "coats": 2,
+        "canVolume": 1.0,
+        "reserve": 11.0,
+        "canPrice": 930.0
+      },
+      "primary": 33.808824,
+      "rows": {
+        "Количество банок": 34
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 9.8,
+        "width": 4.2,
+        "packArea": 4.8,
+        "reserve": 11.0,
+        "packPrice": 930.0,
+        "underlayPrice": 10
+      },
+      "primary": 10,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.8,
+        "width": 4.2,
+        "thickness": 9.8,
+        "mixConsumption": 3.0,
+        "bagWeight": 40.0,
+        "reserve": 11.0,
+        "bagPrice": 930.0
+      },
+      "primary": 4.4773848,
+      "rows": {
+        "Сухая смесь": 1344,
+        "Мешков": 34
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 41.16,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 65.0,
+        "joint": 2.0,
+        "reserve": 11.0,
+        "unitPrice": 930.0
+      },
+      "primary": 1100,
+      "rows": {
+        "Камней без запаса": 991
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.2,
+        "width": 0.5,
+        "tileLength": 52.0,
+        "tileWidth": 47.0,
+        "packArea": 0.9,
+        "reserve": 46.0,
+        "glueConsumption": 2.3,
+        "packPrice": 911.0
+      },
+      "primary": 22,
+      "rows": {
+        "Количество упаковок": 6
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.2,
+        "width": 0.5,
+        "height": 0.9,
+        "rollWidth": 1.06,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 0,
+        "pattern": 23.0,
+        "rollPrice": 911.0
+      },
+      "primary": 2,
+      "rows": {
+        "Количество полотен": 13,
+        "Полотен из рулона": 11
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 3.6,
+        "consumption": 0.26,
+        "coats": 6,
+        "canVolume": 0.5,
+        "reserve": 46.0,
+        "canPrice": 911.0
+      },
+      "primary": 8.19936,
+      "rows": {
+        "Количество банок": 17
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.2,
+        "width": 0.5,
+        "packArea": 0.9,
+        "reserve": 46.0,
+        "packPrice": 911.0,
+        "underlayPrice": 10
+      },
+      "primary": 6,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.2,
+        "width": 0.5,
+        "thickness": 9.7,
+        "mixConsumption": 17.7,
+        "bagWeight": 40.0,
+        "reserve": 46.0,
+        "bagPrice": 911.0
+      },
+      "primary": 0.509832,
+      "rows": {
+        "Сухая смесь": 903,
+        "Мешков": 23
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 3.6,
+        "openingsArea": 0.9,
+        "unitLength": 390.0,
+        "unitHeight": 200.0,
+        "joint": 3.0,
+        "reserve": 46.0,
+        "unitPrice": 911.0
+      },
+      "primary": 50,
+      "rows": {
+        "Камней без запаса": 34
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.7,
+        "width": 1.6,
+        "tileLength": 47.0,
+        "tileWidth": 26.0,
+        "packArea": 1.4,
+        "reserve": 36.0,
+        "glueConsumption": 2.1,
+        "packPrice": 432.0
+      },
+      "primary": 13,
+      "rows": {
+        "Количество упаковок": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 0.7,
+        "width": 1.6,
+        "height": 4.3,
+        "rollWidth": 0.53,
+        "rollLength": 10.05,
+        "windows": 0,
+        "doors": 2,
+        "pattern": 0.0,
+        "rollPrice": 432.0
+      },
+      "primary": 4,
+      "rows": {
+        "Количество полотен": 8,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 1.12,
+        "consumption": 0.21,
+        "coats": 2,
+        "canVolume": 0.5,
+        "reserve": 36.0,
+        "canPrice": 432.0
+      },
+      "primary": 0.639744,
+      "rows": {
+        "Количество банок": 2
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 0.7,
+        "width": 1.6,
+        "packArea": 1.4,
+        "reserve": 36.0,
+        "packPrice": 432.0,
+        "underlayPrice": 10
+      },
+      "primary": 2,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.7,
+        "width": 1.6,
+        "thickness": 4.5,
+        "mixConsumption": 20.1,
+        "bagWeight": 30.0,
+        "reserve": 36.0,
+        "bagPrice": 432.0
+      },
+      "primary": 0.068544,
+      "rows": {
+        "Сухая смесь": 138,
+        "Мешков": 5
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 1.12,
+        "openingsArea": 0.28,
+        "unitLength": 600.0,
+        "unitHeight": 200.0,
+        "joint": 2.0,
+        "reserve": 36.0,
+        "unitPrice": 432.0
+      },
+      "primary": 10,
+      "rows": {
+        "Камней без запаса": 7
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.6,
+        "width": 6.9,
+        "tileLength": 11.0,
+        "tileWidth": 60.0,
+        "packArea": 3.9,
+        "reserve": 42.0,
+        "glueConsumption": 4.8,
+        "packPrice": 784.0
+      },
+      "primary": 1426,
+      "rows": {
+        "Количество упаковок": 25
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 9.6,
+        "width": 6.9,
+        "height": 4.2,
+        "rollWidth": 1.06,
+        "rollLength": 11.5,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 64.0,
+        "rollPrice": 784.0
+      },
+      "primary": 16,
+      "rows": {
+        "Количество полотен": 31,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 66.24,
+        "consumption": 0.2,
+        "coats": 3,
+        "canVolume": 1.0,
+        "reserve": 42.0,
+        "canPrice": 784.0
+      },
+      "primary": 56.43648,
+      "rows": {
+        "Количество банок": 57
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 9.6,
+        "width": 6.9,
+        "packArea": 3.9,
+        "reserve": 42.0,
+        "packPrice": 784.0,
+        "underlayPrice": 10
+      },
+      "primary": 25,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.6,
+        "width": 6.9,
+        "thickness": 0.5,
+        "mixConsumption": 16.0,
+        "bagWeight": 25.0,
+        "reserve": 42.0,
+        "bagPrice": 784.0
+      },
+      "primary": 0.470304,
+      "rows": {
+        "Сухая смесь": 753,
+        "Мешков": 31
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 66.24,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 188.0,
+        "joint": 2.0,
+        "reserve": 42.0,
+        "unitPrice": 784.0
+      },
+      "primary": 808,
+      "rows": {
+        "Камней без запаса": 569
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.6,
+        "width": 5.6,
+        "tileLength": 36.0,
+        "tileWidth": 16.0,
+        "packArea": 1.3,
+        "reserve": 23.0,
+        "glueConsumption": 3.0,
+        "packPrice": 995.0
+      },
+      "primary": 72,
+      "rows": {
+        "Количество упаковок": 4
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 0.6,
+        "width": 5.6,
+        "height": 8.4,
+        "rollWidth": 0.53,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 995.0
+      },
+      "primary": 23,
+      "rows": {
+        "Количество полотен": 23,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 3.36,
+        "consumption": 0.31,
+        "coats": 3,
+        "canVolume": 5.0,
+        "reserve": 23.0,
+        "canPrice": 995.0
+      },
+      "primary": 3.843504,
+      "rows": {
+        "Количество банок": 1
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 0.6,
+        "width": 5.6,
+        "packArea": 1.3,
+        "reserve": 23.0,
+        "packPrice": 995.0,
+        "underlayPrice": 10
+      },
+      "primary": 4,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.6,
+        "width": 5.6,
+        "thickness": 6.6,
+        "mixConsumption": 7.1,
+        "bagWeight": 40.0,
+        "reserve": 23.0,
+        "bagPrice": 995.0
+      },
+      "primary": 0.2727648,
+      "rows": {
+        "Сухая смесь": 194,
+        "Мешков": 5
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 3.36,
+        "openingsArea": 0.84,
+        "unitLength": 600.0,
+        "unitHeight": 188.0,
+        "joint": 3.0,
+        "reserve": 23.0,
+        "unitPrice": 995.0
+      },
+      "primary": 27,
+      "rows": {
+        "Камней без запаса": 22
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.6,
+        "width": 9.8,
+        "tileLength": 50.0,
+        "tileWidth": 45.0,
+        "packArea": 3.1,
+        "reserve": 21.0,
+        "glueConsumption": 1.8,
+        "packPrice": 817.0
+      },
+      "primary": 401,
+      "rows": {
+        "Количество упаковок": 30
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.6,
+        "width": 9.8,
+        "height": 7.7,
+        "rollWidth": 0.7,
+        "rollLength": 11.5,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 23.0,
+        "rollPrice": 817.0
+      },
+      "primary": 50,
+      "rows": {
+        "Количество полотен": 50,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 74.48,
+        "consumption": 0.4,
+        "coats": 4,
+        "canVolume": 0.5,
+        "reserve": 21.0,
+        "canPrice": 817.0
+      },
+      "primary": 144.19328,
+      "rows": {
+        "Количество банок": 289
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.6,
+        "width": 9.8,
+        "packArea": 3.1,
+        "reserve": 21.0,
+        "packPrice": 817.0,
+        "underlayPrice": 10
+      },
+      "primary": 30,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.6,
+        "width": 9.8,
+        "thickness": 7.2,
+        "mixConsumption": 21.8,
+        "bagWeight": 30.0,
+        "reserve": 21.0,
+        "bagPrice": 817.0
+      },
+      "primary": 6.4886976,
+      "rows": {
+        "Сухая смесь": 14146,
+        "Мешков": 472
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 74.48,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 65.0,
+        "joint": 3.0,
+        "reserve": 21.0,
+        "unitPrice": 817.0
+      },
+      "primary": 3318,
+      "rows": {
+        "Камней без запаса": 2743
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.3,
+        "width": 8.8,
+        "tileLength": 10.0,
+        "tileWidth": 45.0,
+        "packArea": 0.1,
+        "reserve": 20.0,
+        "glueConsumption": 2.8,
+        "packPrice": 673.0
+      },
+      "primary": 306,
+      "rows": {
+        "Количество упаковок": 138
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 1.3,
+        "width": 8.8,
+        "height": 7.6,
+        "rollWidth": 0.7,
+        "rollLength": 10.05,
+        "windows": 0,
+        "doors": 1,
+        "pattern": 32.0,
+        "rollPrice": 673.0
+      },
+      "primary": 29,
+      "rows": {
+        "Количество полотен": 29,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 11.44,
+        "consumption": 0.05,
+        "coats": 1,
+        "canVolume": 2.5,
+        "reserve": 20.0,
+        "canPrice": 673.0
+      },
+      "primary": 0.6864,
+      "rows": {
+        "Количество банок": 1
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 1.3,
+        "width": 8.8,
+        "packArea": 0.1,
+        "reserve": 20.0,
+        "packPrice": 673.0,
+        "underlayPrice": 10
+      },
+      "primary": 138,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.3,
+        "width": 8.8,
+        "thickness": 0.9,
+        "mixConsumption": 15.6,
+        "bagWeight": 30.0,
+        "reserve": 20.0,
+        "bagPrice": 673.0
+      },
+      "primary": 0.123552,
+      "rows": {
+        "Сухая смесь": 193,
+        "Мешков": 7
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 11.44,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 3.0,
+        "reserve": 20.0,
+        "unitPrice": 673.0
+      },
+      "primary": 255,
+      "rows": {
+        "Камней без запаса": 212
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 8.5,
+        "width": 8.8,
+        "tileLength": 8.0,
+        "tileWidth": 59.0,
+        "packArea": 5.4,
+        "reserve": 12.0,
+        "glueConsumption": 4.4,
+        "packPrice": 968.0
+      },
+      "primary": 1775,
+      "rows": {
+        "Количество упаковок": 16
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 8.5,
+        "width": 8.8,
+        "height": 8.2,
+        "rollWidth": 0.53,
+        "rollLength": 10.05,
+        "windows": 0,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 968.0
+      },
+      "primary": 66,
+      "rows": {
+        "Количество полотен": 66,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 74.8,
+        "consumption": 0.35,
+        "coats": 4,
+        "canVolume": 5.0,
+        "reserve": 12.0,
+        "canPrice": 968.0
+      },
+      "primary": 117.2864,
+      "rows": {
+        "Количество банок": 24
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 8.5,
+        "width": 8.8,
+        "packArea": 5.4,
+        "reserve": 12.0,
+        "packPrice": 968.0,
+        "underlayPrice": 10
+      },
+      "primary": 16,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 8.5,
+        "width": 8.8,
+        "thickness": 3.3,
+        "mixConsumption": 11.9,
+        "bagWeight": 40.0,
+        "reserve": 12.0,
+        "bagPrice": 968.0
+      },
+      "primary": 2.764608,
+      "rows": {
+        "Сухая смесь": 3290,
+        "Мешков": 83
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 74.8,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 65.0,
+        "joint": 10.0,
+        "reserve": 12.0,
+        "unitPrice": 968.0
+      },
+      "primary": 4228,
+      "rows": {
+        "Камней без запаса": 3775
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.0,
+        "width": 9.1,
+        "tileLength": 28.0,
+        "tileWidth": 21.0,
+        "packArea": 2.5,
+        "reserve": 6.0,
+        "glueConsumption": 1.8,
+        "packPrice": 496.0
+      },
+      "primary": 165,
+      "rows": {
+        "Количество упаковок": 4
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 1.0,
+        "width": 9.1,
+        "height": 1.0,
+        "rollWidth": 0.53,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 64.0,
+        "rollPrice": 496.0
+      },
+      "primary": 5,
+      "rows": {
+        "Количество полотен": 30,
+        "Полотен из рулона": 7
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 9.1,
+        "consumption": 0.02,
+        "coats": 4,
+        "canVolume": 5.0,
+        "reserve": 6.0,
+        "canPrice": 496.0
+      },
+      "primary": 0.77168,
+      "rows": {
+        "Количество банок": 1
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 1.0,
+        "width": 9.1,
+        "packArea": 2.5,
+        "reserve": 6.0,
+        "packPrice": 496.0,
+        "underlayPrice": 10
+      },
+      "primary": 4,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.0,
+        "width": 9.1,
+        "thickness": 9.3,
+        "mixConsumption": 17.8,
+        "bagWeight": 30.0,
+        "reserve": 6.0,
+        "bagPrice": 496.0
+      },
+      "primary": 0.897078,
+      "rows": {
+        "Сухая смесь": 1597,
+        "Мешков": 54
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 9.1,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 65.0,
+        "joint": 3.0,
+        "reserve": 6.0,
+        "unitPrice": 496.0
+      },
+      "primary": 205,
+      "rows": {
+        "Камней без запаса": 193
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.3,
+        "width": 5.7,
+        "tileLength": 21.0,
+        "tileWidth": 21.0,
+        "packArea": 3.6,
+        "reserve": 8.0,
+        "glueConsumption": 2.0,
+        "packPrice": 522.0
+      },
+      "primary": 1299,
+      "rows": {
+        "Количество упаковок": 16
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 9.3,
+        "width": 5.7,
+        "height": 1.0,
+        "rollWidth": 0.7,
+        "rollLength": 11.5,
+        "windows": 1,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 522.0
+      },
+      "primary": 6,
+      "rows": {
+        "Количество полотен": 41,
+        "Полотен из рулона": 8
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 53.01,
+        "consumption": 0.16,
+        "coats": 3,
+        "canVolume": 2.5,
+        "reserve": 8.0,
+        "canPrice": 522.0
+      },
+      "primary": 27.480384,
+      "rows": {
+        "Количество банок": 11
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 9.3,
+        "width": 5.7,
+        "packArea": 3.6,
+        "reserve": 8.0,
+        "packPrice": 522.0,
+        "underlayPrice": 10
+      },
+      "primary": 16,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.3,
+        "width": 5.7,
+        "thickness": 3.1,
+        "mixConsumption": 16.6,
+        "bagWeight": 25.0,
+        "reserve": 8.0,
+        "bagPrice": 522.0
+      },
+      "primary": 1.7747748,
+      "rows": {
+        "Сухая смесь": 2947,
+        "Мешков": 118
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 53.01,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 200.0,
+        "joint": 0.0,
+        "reserve": 8.0,
+        "unitPrice": 522.0
+      },
+      "primary": 467,
+      "rows": {
+        "Камней без запаса": 432
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.4,
+        "width": 9.2,
+        "tileLength": 9.0,
+        "tileWidth": 28.0,
+        "packArea": 3.4,
+        "reserve": 18.0,
+        "glueConsumption": 5.4,
+        "packPrice": 305.0
+      },
+      "primary": 1896,
+      "rows": {
+        "Количество упаковок": 15
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 4.4,
+        "width": 9.2,
+        "height": 8.1,
+        "rollWidth": 0.53,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 0.0,
+        "rollPrice": 305.0
+      },
+      "primary": 51,
+      "rows": {
+        "Количество полотен": 51,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 40.48,
+        "consumption": 0.05,
+        "coats": 6,
+        "canVolume": 1.0,
+        "reserve": 18.0,
+        "canPrice": 305.0
+      },
+      "primary": 14.32992,
+      "rows": {
+        "Количество банок": 15
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 4.4,
+        "width": 9.2,
+        "packArea": 3.4,
+        "reserve": 18.0,
+        "packPrice": 305.0,
+        "underlayPrice": 10
+      },
+      "primary": 15,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.4,
+        "width": 9.2,
+        "thickness": 4.3,
+        "mixConsumption": 7.9,
+        "bagWeight": 40.0,
+        "reserve": 18.0,
+        "bagPrice": 305.0
+      },
+      "primary": 2.0539552,
+      "rows": {
+        "Сухая смесь": 1623,
+        "Мешков": 41
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 40.48,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 0.0,
+        "reserve": 18.0,
+        "unitPrice": 305.0
+      },
+      "primary": 987,
+      "rows": {
+        "Камней без запаса": 836
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.4,
+        "width": 3.3,
+        "tileLength": 36.0,
+        "tileWidth": 25.0,
+        "packArea": 1.7,
+        "reserve": 47.0,
+        "glueConsumption": 4.8,
+        "packPrice": 315.0
+      },
+      "primary": 130,
+      "rows": {
+        "Количество упаковок": 7
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.4,
+        "width": 3.3,
+        "height": 7.3,
+        "rollWidth": 1.06,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 64.0,
+        "rollPrice": 315.0
+      },
+      "primary": 11,
+      "rows": {
+        "Количество полотен": 11,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 7.92,
+        "consumption": 0.38,
+        "coats": 5,
+        "canVolume": 0.5,
+        "reserve": 47.0,
+        "canPrice": 315.0
+      },
+      "primary": 22.12056,
+      "rows": {
+        "Количество банок": 45
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.4,
+        "width": 3.3,
+        "packArea": 1.7,
+        "reserve": 47.0,
+        "packPrice": 315.0,
+        "underlayPrice": 10
+      },
+      "primary": 7,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.4,
+        "width": 3.3,
+        "thickness": 5.7,
+        "mixConsumption": 12.5,
+        "bagWeight": 30.0,
+        "reserve": 47.0,
+        "bagPrice": 315.0
+      },
+      "primary": 0.6636168,
+      "rows": {
+        "Сухая смесь": 830,
+        "Мешков": 28
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 7.92,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 65.0,
+        "joint": 3.0,
+        "reserve": 47.0,
+        "unitPrice": 315.0
+      },
+      "primary": 241,
+      "rows": {
+        "Камней без запаса": 164
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.3,
+        "width": 5.0,
+        "tileLength": 43.0,
+        "tileWidth": 36.0,
+        "packArea": 2.9,
+        "reserve": 25.0,
+        "glueConsumption": 3.9,
+        "packPrice": 994.0
+      },
+      "primary": 134,
+      "rows": {
+        "Количество упаковок": 8
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 3.3,
+        "width": 5.0,
+        "height": 7.4,
+        "rollWidth": 0.7,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 32.0,
+        "rollPrice": 994.0
+      },
+      "primary": 23,
+      "rows": {
+        "Количество полотен": 23,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 16.5,
+        "consumption": 0.21,
+        "coats": 6,
+        "canVolume": 5.0,
+        "reserve": 25.0,
+        "canPrice": 994.0
+      },
+      "primary": 25.9875,
+      "rows": {
+        "Количество банок": 6
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 3.3,
+        "width": 5.0,
+        "packArea": 2.9,
+        "reserve": 25.0,
+        "packPrice": 994.0,
+        "underlayPrice": 10
+      },
+      "primary": 8,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.3,
+        "width": 5.0,
+        "thickness": 9.5,
+        "mixConsumption": 21.5,
+        "bagWeight": 30.0,
+        "reserve": 25.0,
+        "bagPrice": 994.0
+      },
+      "primary": 1.959375,
+      "rows": {
+        "Сухая смесь": 4213,
+        "Мешков": 141
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 16.5,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 200.0,
+        "joint": 0.0,
+        "reserve": 25.0,
+        "unitPrice": 994.0
+      },
+      "primary": 383,
+      "rows": {
+        "Камней без запаса": 306
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.3,
+        "width": 0.7,
+        "tileLength": 20.0,
+        "tileWidth": 12.0,
+        "packArea": 1.8,
+        "reserve": 35.0,
+        "glueConsumption": 1.2,
+        "packPrice": 114.0
+      },
+      "primary": 209,
+      "rows": {
+        "Количество упаковок": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 5.3,
+        "width": 0.7,
+        "height": 1.6,
+        "rollWidth": 0.53,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 64.0,
+        "rollPrice": 114.0
+      },
+      "primary": 4,
+      "rows": {
+        "Количество полотен": 20,
+        "Полотен из рулона": 5
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 3.71,
+        "consumption": 0.37,
+        "coats": 4,
+        "canVolume": 0.5,
+        "reserve": 35.0,
+        "canPrice": 114.0
+      },
+      "primary": 7.41258,
+      "rows": {
+        "Количество банок": 15
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 5.3,
+        "width": 0.7,
+        "packArea": 1.8,
+        "reserve": 35.0,
+        "packPrice": 114.0,
+        "underlayPrice": 10
+      },
+      "primary": 3,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.3,
+        "width": 0.7,
+        "thickness": 8.7,
+        "mixConsumption": 21.2,
+        "bagWeight": 25.0,
+        "reserve": 35.0,
+        "bagPrice": 114.0
+      },
+      "primary": 0.4357395,
+      "rows": {
+        "Сухая смесь": 924,
+        "Мешков": 37
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 3.71,
+        "openingsArea": 0.9275,
+        "unitLength": 250.0,
+        "unitHeight": 65.0,
+        "joint": 0.0,
+        "reserve": 35.0,
+        "unitPrice": 114.0
+      },
+      "primary": 232,
+      "rows": {
+        "Камней без запаса": 172
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.8,
+        "width": 0.5,
+        "tileLength": 19.0,
+        "tileWidth": 37.0,
+        "packArea": 1.0,
+        "reserve": 12.0,
+        "glueConsumption": 1.6,
+        "packPrice": 112.0
+      },
+      "primary": 7,
+      "rows": {
+        "Количество упаковок": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 0.8,
+        "width": 0.5,
+        "height": 4.4,
+        "rollWidth": 1.06,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 0,
+        "pattern": 64.0,
+        "rollPrice": 112.0
+      },
+      "primary": 2,
+      "rows": {
+        "Количество полотен": 3,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 0.4,
+        "consumption": 0.07,
+        "coats": 1,
+        "canVolume": 0.5,
+        "reserve": 12.0,
+        "canPrice": 112.0
+      },
+      "primary": 0.03136,
+      "rows": {
+        "Количество банок": 1
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 0.8,
+        "width": 0.5,
+        "packArea": 1.0,
+        "reserve": 12.0,
+        "packPrice": 112.0,
+        "underlayPrice": 10
+      },
+      "primary": 1,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.8,
+        "width": 0.5,
+        "thickness": 9.9,
+        "mixConsumption": 20.5,
+        "bagWeight": 40.0,
+        "reserve": 12.0,
+        "bagPrice": 112.0
+      },
+      "primary": 0.044352,
+      "rows": {
+        "Сухая смесь": 91,
+        "Мешков": 3
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 0.4,
+        "openingsArea": 0.1,
+        "unitLength": 390.0,
+        "unitHeight": 200.0,
+        "joint": 3.0,
+        "reserve": 12.0,
+        "unitPrice": 112.0
+      },
+      "primary": 5,
+      "rows": {
+        "Камней без запаса": 4
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.8,
+        "width": 6.0,
+        "tileLength": 41.0,
+        "tileWidth": 52.0,
+        "packArea": 1.1,
+        "reserve": 35.0,
+        "glueConsumption": 1.7,
+        "packPrice": 161.0
+      },
+      "primary": 69,
+      "rows": {
+        "Количество упаковок": 14
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 1.8,
+        "width": 6.0,
+        "height": 4.6,
+        "rollWidth": 0.53,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 2,
+        "pattern": 32.0,
+        "rollPrice": 161.0
+      },
+      "primary": 14,
+      "rows": {
+        "Количество полотен": 27,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 10.8,
+        "consumption": 0.38,
+        "coats": 5,
+        "canVolume": 0.5,
+        "reserve": 35.0,
+        "canPrice": 161.0
+      },
+      "primary": 27.702,
+      "rows": {
+        "Количество банок": 56
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 1.8,
+        "width": 6.0,
+        "packArea": 1.1,
+        "reserve": 35.0,
+        "packPrice": 161.0,
+        "underlayPrice": 10
+      },
+      "primary": 14,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.8,
+        "width": 6.0,
+        "thickness": 4.6,
+        "mixConsumption": 10.8,
+        "bagWeight": 30.0,
+        "reserve": 35.0,
+        "bagPrice": 161.0
+      },
+      "primary": 0.67068,
+      "rows": {
+        "Сухая смесь": 725,
+        "Мешков": 25
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 10.8,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 200.0,
+        "joint": 3.0,
+        "reserve": 35.0,
+        "unitPrice": 161.0
+      },
+      "primary": 163,
+      "rows": {
+        "Камней без запаса": 121
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 6.5,
+        "width": 2.0,
+        "tileLength": 21.0,
+        "tileWidth": 35.0,
+        "packArea": 2.5,
+        "reserve": 45.0,
+        "glueConsumption": 3.5,
+        "packPrice": 918.0
+      },
+      "primary": 257,
+      "rows": {
+        "Количество упаковок": 8
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 6.5,
+        "width": 2.0,
+        "height": 9.7,
+        "rollWidth": 1.06,
+        "rollLength": 10.05,
+        "windows": 0,
+        "doors": 2,
+        "pattern": 32.0,
+        "rollPrice": 918.0
+      },
+      "primary": 16,
+      "rows": {
+        "Количество полотен": 16,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 13.0,
+        "consumption": 0.14,
+        "coats": 2,
+        "canVolume": 1.0,
+        "reserve": 45.0,
+        "canPrice": 918.0
+      },
+      "primary": 5.278,
+      "rows": {
+        "Количество банок": 6
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 6.5,
+        "width": 2.0,
+        "packArea": 2.5,
+        "reserve": 45.0,
+        "packPrice": 918.0,
+        "underlayPrice": 10
+      },
+      "primary": 8,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 6.5,
+        "width": 2.0,
+        "thickness": 1.9,
+        "mixConsumption": 0.3,
+        "bagWeight": 30.0,
+        "reserve": 45.0,
+        "bagPrice": 918.0
+      },
+      "primary": 0.35815,
+      "rows": {
+        "Сухая смесь": 11,
+        "Мешков": 1
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 13.0,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 65.0,
+        "joint": 3.0,
+        "reserve": 45.0,
+        "unitPrice": 918.0
+      },
+      "primary": 418,
+      "rows": {
+        "Камней без запаса": 288
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.9,
+        "width": 9.7,
+        "tileLength": 47.0,
+        "tileWidth": 34.0,
+        "packArea": 1.2,
+        "reserve": 3.0,
+        "glueConsumption": 2.4,
+        "packPrice": 840.0
+      },
+      "primary": 369,
+      "rows": {
+        "Количество упаковок": 50
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 5.9,
+        "width": 9.7,
+        "height": 9.8,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 2,
+        "pattern": 0.0,
+        "rollPrice": 840.0
+      },
+      "primary": 44,
+      "rows": {
+        "Количество полотен": 44,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 57.23,
+        "consumption": 0.32,
+        "coats": 2,
+        "canVolume": 0.5,
+        "reserve": 3.0,
+        "canPrice": 840.0
+      },
+      "primary": 37.726016,
+      "rows": {
+        "Количество банок": 76
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 5.9,
+        "width": 9.7,
+        "packArea": 1.2,
+        "reserve": 3.0,
+        "packPrice": 840.0,
+        "underlayPrice": 10
+      },
+      "primary": 50,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.9,
+        "width": 9.7,
+        "thickness": 2.7,
+        "mixConsumption": 8.9,
+        "bagWeight": 20.0,
+        "reserve": 3.0,
+        "bagPrice": 840.0
+      },
+      "primary": 1.5915663,
+      "rows": {
+        "Сухая смесь": 1417,
+        "Мешков": 71
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 57.23,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 65.0,
+        "joint": 0.0,
+        "reserve": 3.0,
+        "unitPrice": 840.0
+      },
+      "primary": 3552,
+      "rows": {
+        "Камней без запаса": 3448
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.4,
+        "width": 9.9,
+        "tileLength": 37.0,
+        "tileWidth": 43.0,
+        "packArea": 1.5,
+        "reserve": 35.0,
+        "glueConsumption": 5.1,
+        "packPrice": 465.0
+      },
+      "primary": 118,
+      "rows": {
+        "Количество упаковок": 13
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 1.4,
+        "width": 9.9,
+        "height": 1.5,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 2,
+        "pattern": 32.0,
+        "rollPrice": 465.0
+      },
+      "primary": 5,
+      "rows": {
+        "Количество полотен": 28,
+        "Полотен из рулона": 6
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 13.86,
+        "consumption": 0.18,
+        "coats": 6,
+        "canVolume": 1.0,
+        "reserve": 35.0,
+        "canPrice": 465.0
+      },
+      "primary": 20.20788,
+      "rows": {
+        "Количество банок": 21
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 1.4,
+        "width": 9.9,
+        "packArea": 1.5,
+        "reserve": 35.0,
+        "packPrice": 465.0,
+        "underlayPrice": 10
+      },
+      "primary": 13,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.4,
+        "width": 9.9,
+        "thickness": 5.6,
+        "mixConsumption": 9.4,
+        "bagWeight": 40.0,
+        "reserve": 35.0,
+        "bagPrice": 465.0
+      },
+      "primary": 1.047816,
+      "rows": {
+        "Сухая смесь": 985,
+        "Мешков": 25
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 13.86,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 200.0,
+        "joint": 3.0,
+        "reserve": 35.0,
+        "unitPrice": 465.0
+      },
+      "primary": 333,
+      "rows": {
+        "Камней без запаса": 247
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.3,
+        "width": 8.0,
+        "tileLength": 53.0,
+        "tileWidth": 26.0,
+        "packArea": 5.3,
+        "reserve": 33.0,
+        "glueConsumption": 0.8,
+        "packPrice": 278.0
+      },
+      "primary": 410,
+      "rows": {
+        "Количество упаковок": 11
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 5.3,
+        "width": 8.0,
+        "height": 2.8,
+        "rollWidth": 0.53,
+        "rollLength": 10.05,
+        "windows": 0,
+        "doors": 1,
+        "pattern": 0.0,
+        "rollPrice": 278.0
+      },
+      "primary": 17,
+      "rows": {
+        "Количество полотен": 49,
+        "Полотен из рулона": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 42.4,
+        "consumption": 0.03,
+        "coats": 2,
+        "canVolume": 2.5,
+        "reserve": 33.0,
+        "canPrice": 278.0
+      },
+      "primary": 3.38352,
+      "rows": {
+        "Количество банок": 2
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 5.3,
+        "width": 8.0,
+        "packArea": 5.3,
+        "reserve": 33.0,
+        "packPrice": 278.0,
+        "underlayPrice": 10
+      },
+      "primary": 11,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 5.3,
+        "width": 8.0,
+        "thickness": 2.2,
+        "mixConsumption": 8.2,
+        "bagWeight": 25.0,
+        "reserve": 33.0,
+        "bagPrice": 278.0
+      },
+      "primary": 1.240624,
+      "rows": {
+        "Сухая смесь": 1018,
+        "Мешков": 41
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 42.4,
+        "openingsArea": 1.2,
+        "unitLength": 600.0,
+        "unitHeight": 200.0,
+        "joint": 2.0,
+        "reserve": 33.0,
+        "unitPrice": 278.0
+      },
+      "primary": 451,
+      "rows": {
+        "Камней без запаса": 339
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.0,
+        "width": 8.4,
+        "tileLength": 30.0,
+        "tileWidth": 19.0,
+        "packArea": 5.1,
+        "reserve": 49.0,
+        "glueConsumption": 1.2,
+        "packPrice": 247.0
+      },
+      "primary": 220,
+      "rows": {
+        "Количество упаковок": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 1.0,
+        "width": 8.4,
+        "height": 4.9,
+        "rollWidth": 1.06,
+        "rollLength": 11.5,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 64.0,
+        "rollPrice": 247.0
+      },
+      "primary": 9,
+      "rows": {
+        "Количество полотен": 18,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 8.4,
+        "consumption": 0.01,
+        "coats": 2,
+        "canVolume": 1.0,
+        "reserve": 49.0,
+        "canPrice": 247.0
+      },
+      "primary": 0.25032,
+      "rows": {
+        "Количество банок": 1
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 1.0,
+        "width": 8.4,
+        "packArea": 5.1,
+        "reserve": 49.0,
+        "packPrice": 247.0,
+        "underlayPrice": 10
+      },
+      "primary": 3,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.0,
+        "width": 8.4,
+        "thickness": 1.8,
+        "mixConsumption": 18.4,
+        "bagWeight": 30.0,
+        "reserve": 49.0,
+        "bagPrice": 247.0
+      },
+      "primary": 0.225288,
+      "rows": {
+        "Сухая смесь": 415,
+        "Мешков": 14
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 8.4,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 200.0,
+        "joint": 3.0,
+        "reserve": 49.0,
+        "unitPrice": 247.0
+      },
+      "primary": 209,
+      "rows": {
+        "Камней без запаса": 141
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.4,
+        "width": 8.0,
+        "tileLength": 39.0,
+        "tileWidth": 17.0,
+        "packArea": 0.4,
+        "reserve": 19.0,
+        "glueConsumption": 2.4,
+        "packPrice": 620.0
+      },
+      "primary": 345,
+      "rows": {
+        "Количество упаковок": 58
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.4,
+        "width": 8.0,
+        "height": 2.3,
+        "rollWidth": 0.53,
+        "rollLength": 11.5,
+        "windows": 0,
+        "doors": 2,
+        "pattern": 32.0,
+        "rollPrice": 620.0
+      },
+      "primary": 10,
+      "rows": {
+        "Количество полотен": 37,
+        "Полотен из рулона": 4
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 19.2,
+        "consumption": 0.16,
+        "coats": 4,
+        "canVolume": 1.0,
+        "reserve": 19.0,
+        "canPrice": 620.0
+      },
+      "primary": 14.62272,
+      "rows": {
+        "Количество банок": 15
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.4,
+        "width": 8.0,
+        "packArea": 0.4,
+        "reserve": 19.0,
+        "packPrice": 620.0,
+        "underlayPrice": 10
+      },
+      "primary": 58,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.4,
+        "width": 8.0,
+        "thickness": 7.6,
+        "mixConsumption": 22.0,
+        "bagWeight": 30.0,
+        "reserve": 19.0,
+        "bagPrice": 620.0
+      },
+      "primary": 1.736448,
+      "rows": {
+        "Сухая смесь": 3821,
+        "Мешков": 128
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 19.2,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 10.0,
+        "reserve": 19.0,
+        "unitPrice": 620.0
+      },
+      "primary": 417,
+      "rows": {
+        "Камней без запаса": 350
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.8,
+        "width": 6.8,
+        "tileLength": 23.0,
+        "tileWidth": 32.0,
+        "packArea": 1.7,
+        "reserve": 36.0,
+        "glueConsumption": 4.2,
+        "packPrice": 429.0
+      },
+      "primary": 478,
+      "rows": {
+        "Количество упаковок": 21
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 3.8,
+        "width": 6.8,
+        "height": 5.0,
+        "rollWidth": 0.53,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 64.0,
+        "rollPrice": 429.0
+      },
+      "primary": 20,
+      "rows": {
+        "Количество полотен": 39,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 25.84,
+        "consumption": 0.36,
+        "coats": 3,
+        "canVolume": 0.5,
+        "reserve": 36.0,
+        "canPrice": 429.0
+      },
+      "primary": 37.953792,
+      "rows": {
+        "Количество банок": 76
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 3.8,
+        "width": 6.8,
+        "packArea": 1.7,
+        "reserve": 36.0,
+        "packPrice": 429.0,
+        "underlayPrice": 10
+      },
+      "primary": 21,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.8,
+        "width": 6.8,
+        "thickness": 1.5,
+        "mixConsumption": 0.8,
+        "bagWeight": 25.0,
+        "reserve": 36.0,
+        "bagPrice": 429.0
+      },
+      "primary": 0.527136,
+      "rows": {
+        "Сухая смесь": 43,
+        "Мешков": 2
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 25.84,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 188.0,
+        "joint": 3.0,
+        "reserve": 36.0,
+        "unitPrice": 429.0
+      },
+      "primary": 447,
+      "rows": {
+        "Камней без запаса": 329
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.8,
+        "width": 9.0,
+        "tileLength": 5.0,
+        "tileWidth": 6.0,
+        "packArea": 0.7,
+        "reserve": 40.0,
+        "glueConsumption": 1.5,
+        "packPrice": 436.0
+      },
+      "primary": 11760,
+      "rows": {
+        "Количество упаковок": 51
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 2.8,
+        "width": 9.0,
+        "height": 8.0,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 436.0
+      },
+      "primary": 34,
+      "rows": {
+        "Количество полотен": 34,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 25.2,
+        "consumption": 0.36,
+        "coats": 4,
+        "canVolume": 1.0,
+        "reserve": 40.0,
+        "canPrice": 436.0
+      },
+      "primary": 50.8032,
+      "rows": {
+        "Количество банок": 51
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 2.8,
+        "width": 9.0,
+        "packArea": 0.7,
+        "reserve": 40.0,
+        "packPrice": 436.0,
+        "underlayPrice": 10
+      },
+      "primary": 51,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 2.8,
+        "width": 9.0,
+        "thickness": 3.3,
+        "mixConsumption": 13.5,
+        "bagWeight": 30.0,
+        "reserve": 40.0,
+        "bagPrice": 436.0
+      },
+      "primary": 1.16424,
+      "rows": {
+        "Сухая смесь": 1572,
+        "Мешков": 53
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 25.2,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 65.0,
+        "joint": 10.0,
+        "reserve": 40.0,
+        "unitPrice": 436.0
+      },
+      "primary": 1120,
+      "rows": {
+        "Камней без запаса": 800
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.5,
+        "width": 4.6,
+        "tileLength": 28.0,
+        "tileWidth": 43.0,
+        "packArea": 3.1,
+        "reserve": 37.0,
+        "glueConsumption": 0.5,
+        "packPrice": 390.0
+      },
+      "primary": 27,
+      "rows": {
+        "Количество упаковок": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 0.5,
+        "width": 4.6,
+        "height": 2.9,
+        "rollWidth": 1.06,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 0.0,
+        "rollPrice": 390.0
+      },
+      "primary": 3,
+      "rows": {
+        "Количество полотен": 9,
+        "Полотен из рулона": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 2.3,
+        "consumption": 0.2,
+        "coats": 2,
+        "canVolume": 1.0,
+        "reserve": 37.0,
+        "canPrice": 390.0
+      },
+      "primary": 1.2604,
+      "rows": {
+        "Количество банок": 2
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 0.5,
+        "width": 4.6,
+        "packArea": 3.1,
+        "reserve": 37.0,
+        "packPrice": 390.0,
+        "underlayPrice": 10
+      },
+      "primary": 2,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.5,
+        "width": 4.6,
+        "thickness": 5.4,
+        "mixConsumption": 9.7,
+        "bagWeight": 20.0,
+        "reserve": 37.0,
+        "bagPrice": 390.0
+      },
+      "primary": 0.170154,
+      "rows": {
+        "Сухая смесь": 166,
+        "Мешков": 9
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 2.3,
+        "openingsArea": 0.575,
+        "unitLength": 250.0,
+        "unitHeight": 65.0,
+        "joint": 3.0,
+        "reserve": 37.0,
+        "unitPrice": 390.0
+      },
+      "primary": 138,
+      "rows": {
+        "Камней без запаса": 101
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.0,
+        "width": 1.9,
+        "tileLength": 11.0,
+        "tileWidth": 6.0,
+        "packArea": 2.2,
+        "reserve": 30.0,
+        "glueConsumption": 2.0,
+        "packPrice": 193.0
+      },
+      "primary": 1123,
+      "rows": {
+        "Количество упаковок": 4
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 3.0,
+        "width": 1.9,
+        "height": 2.2,
+        "rollWidth": 0.53,
+        "rollLength": 11.5,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 23.0,
+        "rollPrice": 193.0
+      },
+      "primary": 4,
+      "rows": {
+        "Количество полотен": 16,
+        "Полотен из рулона": 5
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 5.7,
+        "consumption": 0.17,
+        "coats": 4,
+        "canVolume": 0.5,
+        "reserve": 30.0,
+        "canPrice": 193.0
+      },
+      "primary": 5.0388,
+      "rows": {
+        "Количество банок": 11
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 3.0,
+        "width": 1.9,
+        "packArea": 2.2,
+        "reserve": 30.0,
+        "packPrice": 193.0,
+        "underlayPrice": 10
+      },
+      "primary": 4,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 3.0,
+        "width": 1.9,
+        "thickness": 6.3,
+        "mixConsumption": 6.4,
+        "bagWeight": 20.0,
+        "reserve": 30.0,
+        "bagPrice": 193.0
+      },
+      "primary": 0.46683,
+      "rows": {
+        "Сухая смесь": 299,
+        "Мешков": 15
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 5.7,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 2.0,
+        "reserve": 30.0,
+        "unitPrice": 193.0
+      },
+      "primary": 123,
+      "rows": {
+        "Камней без запаса": 94
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.5,
+        "width": 0.8,
+        "tileLength": 32.0,
+        "tileWidth": 39.0,
+        "packArea": 3.9,
+        "reserve": 0.0,
+        "glueConsumption": 2.8,
+        "packPrice": 910.0
+      },
+      "primary": 10,
+      "rows": {
+        "Количество упаковок": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 1.5,
+        "width": 0.8,
+        "height": 5.9,
+        "rollWidth": 0.53,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 2,
+        "pattern": 32.0,
+        "rollPrice": 910.0
+      },
+      "primary": 8,
+      "rows": {
+        "Количество полотен": 8,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 1.2,
+        "consumption": 0.29,
+        "coats": 4,
+        "canVolume": 0.5,
+        "reserve": 0.0,
+        "canPrice": 910.0
+      },
+      "primary": 1.392,
+      "rows": {
+        "Количество банок": 3
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 1.5,
+        "width": 0.8,
+        "packArea": 3.9,
+        "reserve": 0.0,
+        "packPrice": 910.0,
+        "underlayPrice": 10
+      },
+      "primary": 1,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.5,
+        "width": 0.8,
+        "thickness": 7.7,
+        "mixConsumption": 20.9,
+        "bagWeight": 25.0,
+        "reserve": 0.0,
+        "bagPrice": 910.0
+      },
+      "primary": 0.0924,
+      "rows": {
+        "Сухая смесь": 194,
+        "Мешков": 8
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 1.2,
+        "openingsArea": 0.3,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 3.0,
+        "reserve": 0.0,
+        "unitPrice": 910.0
+      },
+      "primary": 19,
+      "rows": {
+        "Камней без запаса": 19
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.4,
+        "width": 3.2,
+        "tileLength": 30.0,
+        "tileWidth": 33.0,
+        "packArea": 0.4,
+        "reserve": 22.0,
+        "glueConsumption": 3.5,
+        "packPrice": 69.0
+      },
+      "primary": 56,
+      "rows": {
+        "Количество упаковок": 14
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 1.4,
+        "width": 3.2,
+        "height": 8.3,
+        "rollWidth": 0.53,
+        "rollLength": 11.5,
+        "windows": 0,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 69.0
+      },
+      "primary": 18,
+      "rows": {
+        "Количество полотен": 18,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 4.48,
+        "consumption": 0.22,
+        "coats": 3,
+        "canVolume": 2.5,
+        "reserve": 22.0,
+        "canPrice": 69.0
+      },
+      "primary": 3.607296,
+      "rows": {
+        "Количество банок": 2
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 1.4,
+        "width": 3.2,
+        "packArea": 0.4,
+        "reserve": 22.0,
+        "packPrice": 69.0,
+        "underlayPrice": 10
+      },
+      "primary": 14,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 1.4,
+        "width": 3.2,
+        "thickness": 2.9,
+        "mixConsumption": 3.6,
+        "bagWeight": 25.0,
+        "reserve": 22.0,
+        "bagPrice": 69.0
+      },
+      "primary": 0.1585024,
+      "rows": {
+        "Сухая смесь": 58,
+        "Мешков": 3
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 4.48,
+        "openingsArea": 1.12,
+        "unitLength": 600.0,
+        "unitHeight": 200.0,
+        "joint": 2.0,
+        "reserve": 22.0,
+        "unitPrice": 69.0
+      },
+      "primary": 34,
+      "rows": {
+        "Камней без запаса": 28
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.7,
+        "width": 5.7,
+        "tileLength": 58.0,
+        "tileWidth": 59.0,
+        "packArea": 0.8,
+        "reserve": 0.0,
+        "glueConsumption": 3.4,
+        "packPrice": 505.0
+      },
+      "primary": 12,
+      "rows": {
+        "Количество упаковок": 5
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 0.7,
+        "width": 5.7,
+        "height": 6.8,
+        "rollWidth": 0.7,
+        "rollLength": 11.0,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 64.0,
+        "rollPrice": 505.0
+      },
+      "primary": 18,
+      "rows": {
+        "Количество полотен": 18,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 3.99,
+        "consumption": 0.23,
+        "coats": 3,
+        "canVolume": 0.5,
+        "reserve": 0.0,
+        "canPrice": 505.0
+      },
+      "primary": 2.7531,
+      "rows": {
+        "Количество банок": 6
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 0.7,
+        "width": 5.7,
+        "packArea": 0.8,
+        "reserve": 0.0,
+        "packPrice": 505.0,
+        "underlayPrice": 10
+      },
+      "primary": 5,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 0.7,
+        "width": 5.7,
+        "thickness": 4.8,
+        "mixConsumption": 20.8,
+        "bagWeight": 30.0,
+        "reserve": 0.0,
+        "bagPrice": 505.0
+      },
+      "primary": 0.19152,
+      "rows": {
+        "Сухая смесь": 399,
+        "Мешков": 14
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 3.99,
+        "openingsArea": 0.9975,
+        "unitLength": 390.0,
+        "unitHeight": 188.0,
+        "joint": 0.0,
+        "reserve": 0.0,
+        "unitPrice": 505.0
+      },
+      "primary": 41,
+      "rows": {
+        "Камней без запаса": 41
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.8,
+        "width": 4.0,
+        "tileLength": 7.0,
+        "tileWidth": 11.0,
+        "packArea": 4.9,
+        "reserve": 11.0,
+        "glueConsumption": 3.8,
+        "packPrice": 376.0
+      },
+      "primary": 2768,
+      "rows": {
+        "Количество упаковок": 5
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 4.8,
+        "width": 4.0,
+        "height": 1.8,
+        "rollWidth": 1.06,
+        "rollLength": 11.5,
+        "windows": 0,
+        "doors": 2,
+        "pattern": 64.0,
+        "rollPrice": 376.0
+      },
+      "primary": 3,
+      "rows": {
+        "Количество полотен": 15,
+        "Полотен из рулона": 5
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 19.2,
+        "consumption": 0.29,
+        "coats": 5,
+        "canVolume": 5.0,
+        "reserve": 11.0,
+        "canPrice": 376.0
+      },
+      "primary": 30.9024,
+      "rows": {
+        "Количество банок": 7
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 4.8,
+        "width": 4.0,
+        "packArea": 4.9,
+        "reserve": 11.0,
+        "packPrice": 376.0,
+        "underlayPrice": 10
+      },
+      "primary": 5,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.8,
+        "width": 4.0,
+        "thickness": 6.9,
+        "mixConsumption": 3.7,
+        "bagWeight": 20.0,
+        "reserve": 11.0,
+        "bagPrice": 376.0
+      },
+      "primary": 1.470528,
+      "rows": {
+        "Сухая смесь": 545,
+        "Мешков": 28
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 19.2,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 65.0,
+        "joint": 2.0,
+        "reserve": 11.0,
+        "unitPrice": 376.0
+      },
+      "primary": 1184,
+      "rows": {
+        "Камней без запаса": 1067
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.2,
+        "width": 9.3,
+        "tileLength": 28.0,
+        "tileWidth": 37.0,
+        "packArea": 1.6,
+        "reserve": 11.0,
+        "glueConsumption": 0.1,
+        "packPrice": 317.0
+      },
+      "primary": 917,
+      "rows": {
+        "Количество упаковок": 60
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 9.2,
+        "width": 9.3,
+        "height": 2.8,
+        "rollWidth": 0.53,
+        "rollLength": 11.5,
+        "windows": 2,
+        "doors": 0,
+        "pattern": 32.0,
+        "rollPrice": 317.0
+      },
+      "primary": 23,
+      "rows": {
+        "Количество полотен": 68,
+        "Полотен из рулона": 3
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 85.56,
+        "consumption": 0.27,
+        "coats": 4,
+        "canVolume": 1.0,
+        "reserve": 11.0,
+        "canPrice": 317.0
+      },
+      "primary": 102.569328,
+      "rows": {
+        "Количество банок": 103
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 9.2,
+        "width": 9.3,
+        "packArea": 1.6,
+        "reserve": 11.0,
+        "packPrice": 317.0,
+        "underlayPrice": 10
+      },
+      "primary": 60,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 9.2,
+        "width": 9.3,
+        "thickness": 6.5,
+        "mixConsumption": 18.6,
+        "bagWeight": 25.0,
+        "reserve": 11.0,
+        "bagPrice": 317.0
+      },
+      "primary": 6.173154,
+      "rows": {
+        "Сухая смесь": 11483,
+        "Мешков": 460
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 85.56,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 200.0,
+        "joint": 2.0,
+        "reserve": 11.0,
+        "unitPrice": 317.0
+      },
+      "primary": 1840,
+      "rows": {
+        "Камней без запаса": 1658
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.6,
+        "width": 4.7,
+        "tileLength": 48.0,
+        "tileWidth": 36.0,
+        "packArea": 5.7,
+        "reserve": 16.0,
+        "glueConsumption": 4.5,
+        "packPrice": 739.0
+      },
+      "primary": 146,
+      "rows": {
+        "Количество упаковок": 5
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 4.6,
+        "width": 4.7,
+        "height": 5.1,
+        "rollWidth": 0.53,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 2,
+        "pattern": 32.0,
+        "rollPrice": 739.0
+      },
+      "primary": 17,
+      "rows": {
+        "Количество полотен": 34,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 21.62,
+        "consumption": 0.34,
+        "coats": 4,
+        "canVolume": 1.0,
+        "reserve": 16.0,
+        "canPrice": 739.0
+      },
+      "primary": 34.107712,
+      "rows": {
+        "Количество банок": 35
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 4.6,
+        "width": 4.7,
+        "packArea": 5.7,
+        "reserve": 16.0,
+        "packPrice": 739.0,
+        "underlayPrice": 10
+      },
+      "primary": 5,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.6,
+        "width": 4.7,
+        "thickness": 9.2,
+        "mixConsumption": 0.9,
+        "bagWeight": 20.0,
+        "reserve": 16.0,
+        "bagPrice": 739.0
+      },
+      "primary": 2.3072864,
+      "rows": {
+        "Сухая смесь": 208,
+        "Мешков": 11
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 21.62,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 188.0,
+        "joint": 0.0,
+        "reserve": 16.0,
+        "unitPrice": 739.0
+      },
+      "primary": 504,
+      "rows": {
+        "Камней без запаса": 435
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.6,
+        "width": 4.7,
+        "tileLength": 17.0,
+        "tileWidth": 48.0,
+        "packArea": 2.3,
+        "reserve": 38.0,
+        "glueConsumption": 0.6,
+        "packPrice": 889.0
+      },
+      "primary": 605,
+      "rows": {
+        "Количество упаковок": 22
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 7.6,
+        "width": 4.7,
+        "height": 8.8,
+        "rollWidth": 1.06,
+        "rollLength": 10.05,
+        "windows": 2,
+        "doors": 1,
+        "pattern": 23.0,
+        "rollPrice": 889.0
+      },
+      "primary": 23,
+      "rows": {
+        "Количество полотен": 23,
+        "Полотен из рулона": 1
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 35.72,
+        "consumption": 0.28,
+        "coats": 1,
+        "canVolume": 2.5,
+        "reserve": 38.0,
+        "canPrice": 889.0
+      },
+      "primary": 13.802208,
+      "rows": {
+        "Количество банок": 6
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 7.6,
+        "width": 4.7,
+        "packArea": 2.3,
+        "reserve": 38.0,
+        "packPrice": 889.0,
+        "underlayPrice": 10
+      },
+      "primary": 22,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 7.6,
+        "width": 4.7,
+        "thickness": 8.8,
+        "mixConsumption": 0.6,
+        "bagWeight": 20.0,
+        "reserve": 38.0,
+        "bagPrice": 889.0
+      },
+      "primary": 4.3378368,
+      "rows": {
+        "Сухая смесь": 261,
+        "Мешков": 14
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 35.72,
+        "openingsArea": 1.2,
+        "unitLength": 390.0,
+        "unitHeight": 65.0,
+        "joint": 2.0,
+        "reserve": 38.0,
+        "unitPrice": 889.0
+      },
+      "primary": 1814,
+      "rows": {
+        "Камней без запаса": 1315
+      },
+      "digits": 0
+    },
+    {
+      "id": "tile-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.6,
+        "width": 4.5,
+        "tileLength": 33.0,
+        "tileWidth": 13.0,
+        "packArea": 3.1,
+        "reserve": 20.0,
+        "glueConsumption": 1.0,
+        "packPrice": 958.0
+      },
+      "primary": 580,
+      "rows": {
+        "Количество упаковок": 9
+      },
+      "digits": 0
+    },
+    {
+      "id": "wallpaper-calculator",
+      "input": {
+        "length": 4.6,
+        "width": 4.5,
+        "height": 3.9,
+        "rollWidth": 0.53,
+        "rollLength": 11.0,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 0.0,
+        "rollPrice": 958.0
+      },
+      "primary": 17,
+      "rows": {
+        "Количество полотен": 33,
+        "Полотен из рулона": 2
+      },
+      "digits": 0
+    },
+    {
+      "id": "paint-calculator",
+      "input": {
+        "mode": "manual",
+        "area": 20.7,
+        "consumption": 0.14,
+        "coats": 2,
+        "canVolume": 0.5,
+        "reserve": 20.0,
+        "canPrice": 958.0
+      },
+      "primary": 6.9552,
+      "rows": {
+        "Количество банок": 14
+      },
+      "digits": 1
+    },
+    {
+      "id": "laminate-calculator",
+      "input": {
+        "length": 4.6,
+        "width": 4.5,
+        "packArea": 3.1,
+        "reserve": 20.0,
+        "packPrice": 958.0,
+        "underlayPrice": 10
+      },
+      "primary": 9,
+      "rows": {},
+      "digits": 0
+    },
+    {
+      "id": "screed-calculator",
+      "input": {
+        "mode": "room",
+        "length": 4.6,
+        "width": 4.5,
+        "thickness": 3.1,
+        "mixConsumption": 12.2,
+        "bagWeight": 40.0,
+        "reserve": 20.0,
+        "bagPrice": 958.0
+      },
+      "primary": 0.77004,
+      "rows": {
+        "Сухая смесь": 940,
+        "Мешков": 24
+      },
+      "digits": 3
+    },
+    {
+      "id": "brick-calculator",
+      "input": {
+        "mode": "area",
+        "manualArea": 20.7,
+        "openingsArea": 1.2,
+        "unitLength": 250.0,
+        "unitHeight": 200.0,
+        "joint": 0.0,
+        "reserve": 20.0,
+        "unitPrice": 958.0
+      },
+      "primary": 468,
+      "rows": {
+        "Камней без запаса": 390
+      },
+      "digits": 0
+    }
+  ]
+}

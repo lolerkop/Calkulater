@@ -1,93 +1,48 @@
-import type { CalcFunction, CalcResult } from '../types';
-import { fmtInt, toStr } from '../format';
-import { parseIsoDate } from '../date';
-
-function isoDate(d: Date): string {
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${y}-${m}-${day}`;
-}
+import type { CalcFunction } from '../types';
+import { fmtInt } from '../format';
+import { calendarDayNumberUtc, parseCalendarDateUtc } from '../date';
+import { enumValue } from './dateTimeNumeric';
 
 export function parseExcludedDates(value: string): { dates: Set<string>; invalid: string[] } {
   const dates = new Set<string>();
   const invalid: string[] = [];
-
-  for (const token of value.split(/[,;\n]+/).map((item) => item.trim()).filter(Boolean)) {
-    const parsed = parseIsoDate(token);
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(token) || !parsed || isoDate(parsed) !== token) {
-      invalid.push(token);
-      continue;
-    }
-    dates.add(token);
+  for (const token of value.split(/[,;\n]+/).map(item => item.trim()).filter(Boolean)) {
+    if (!parseCalendarDateUtc(token)) invalid.push(token); else dates.add(token);
   }
-
   return { dates, invalid };
 }
 
 export const calcWorkingDays: CalcFunction = (inputs) => {
-  const startStr = toStr(inputs.startDate);
-  const endStr = toStr(inputs.endDate);
-  const includeWeekends = toStr(inputs.includeWeekends, 'no') === 'yes';
-  const saturdayWorking = toStr(inputs.saturdayWorking, 'no') === 'yes';
-  const excludedStr = toStr(inputs.excludedDates);
-
-  const start = parseIsoDate(startStr);
-  const end = parseIsoDate(endStr);
-
-  if (!start || !end) {
-    return {
-      primary: { label: 'Рабочие дни', value: '—' },
-      secondary: [{ label: 'Проверьте данные', value: 'Выберите начало и конец', accent: 'red' }],
-    };
-  }
-
-  if (end < start) {
-    return {
-      primary: { label: 'Рабочие дни', value: '—' },
-      secondary: [{ label: 'Ошибка', value: 'Дата конца раньше начала', accent: 'red' }],
-    };
-  }
-
-  const { dates: excluded, invalid } = parseExcludedDates(excludedStr);
-  if (invalid.length > 0) {
-    return {
-      primary: { label: 'Рабочие дни', value: '—' },
-      secondary: [{ label: 'Ошибка формата', value: `Проверьте даты: ${invalid.join(', ')}`, accent: 'red' }],
-    };
-  }
-
-  let calendar = 0;
-  let working = 0;
-  let weekendCount = 0;
+  const start = parseCalendarDateUtc(inputs.startDate);
+  const end = parseCalendarDateUtc(inputs.endDate);
+  const fail = (message: string, label = 'Проверьте данные') => ({ primary: { label: 'Рабочие дни', value: '—' }, secondary: [{ label, value: message, accent: 'red' as const }] });
+  if (!start || !end) return fail('Выберите начало и конец');
+  if (end < start) return fail('Дата конца раньше начала', 'Ошибка');
+  const include = enumValue(inputs.includeWeekends, ['yes', 'no'], 'no');
+  const saturday = enumValue(inputs.saturdayWorking, ['yes', 'no'], 'no');
+  if (include === null || saturday === null) return fail('Выберите режим учёта выходных');
+  const rawExcluded = inputs.excludedDates === undefined ? '' : inputs.excludedDates;
+  if (typeof rawExcluded !== 'string') return fail('Используйте список дат в формате ГГГГ-ММ-ДД');
+  const { dates: excluded, invalid } = parseExcludedDates(rawExcluded);
+  if (invalid.length) return fail(`Проверьте даты: ${invalid.join(', ')}`, 'Ошибка формата');
+  const first = calendarDayNumberUtc(start);
+  const last = calendarDayNumberUtc(end);
+  const calendar = last - first + 1;
+  const isWeekend = (day: number) => include === 'no' && (day === 0 || day === 6 && saturday === 'no');
+  // Every complete block of seven calendar days contains each weekday once.
+  let weekends = Math.floor(calendar / 7) * (include === 'yes' ? 0 : saturday === 'yes' ? 1 : 2);
+  for (let i = 0; i < calendar % 7; i++) if (isWeekend((start.getUTCDay() + i) % 7)) weekends++;
   let excludedCount = 0;
-
-  const cursor = new Date(start);
-  while (cursor <= end) {
-    calendar++;
-    const day = cursor.getDay(); // 0=Sun, 6=Sat
-    const iso = isoDate(cursor);
-
-    if (excluded.has(iso)) {
-      excludedCount++;
-    } else if (day === 0 || (day === 6 && !saturdayWorking)) {
-      if (includeWeekends) {
-        working++;
-      } else {
-        weekendCount++;
-      }
-    } else {
-      working++;
-    }
-    cursor.setDate(cursor.getDate() + 1);
+  for (const token of excluded) {
+    const date = parseCalendarDateUtc(token)!;
+    const ordinal = calendarDayNumberUtc(date);
+    if (ordinal < first || ordinal > last) continue;
+    excludedCount++;
+    // Exclusions take precedence; do not count the same day as a weekend too.
+    if (isWeekend(date.getUTCDay())) weekends--;
   }
-
-  return {
-    primary: { label: 'Рабочие дни', value: `${fmtInt(working)} дн.` },
-    secondary: [
-      { label: 'Календарные дни', value: fmtInt(calendar) },
-      { label: 'Выходные дни', value: fmtInt(weekendCount) },
-      { label: 'Исключённые даты', value: fmtInt(excludedCount) },
-    ],
-  };
+  const working = calendar - weekends - excludedCount;
+  return { primary: { label: 'Рабочие дни', value: `${fmtInt(working)} дн.` }, secondary: [
+    { label: 'Календарные дни', value: fmtInt(calendar) }, { label: 'Выходные дни', value: fmtInt(weekends) }, { label: 'Исключённые даты', value: fmtInt(excludedCount) },
+  ] };
 };

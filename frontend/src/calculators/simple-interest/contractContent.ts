@@ -1,0 +1,77 @@
+import type { CalculatorDef } from '../../lib/types';
+type Copy = Pick<CalculatorDef, 'longDescription' | 'howToUse' | 'howItWorks' | 'example' | 'faq' | 'disclaimer'>;
+
+// Individual subject explanations. Positive fractional years are supported;
+// this model keeps the initial principal constant and does not amortize debt.
+export const contractContent: Record<'ru' | 'en' | 'uk' | 'de' | 'es', Copy> = {
+  ru: {
+    longDescription: 'Здесь проценты считаются от неизменной начальной суммы. Начисленный доход не присоединяется к базе, а срок задаётся в годах, включая дробные значения. Можно найти доход по годовой ставке или восстановить ставку по известному доходу. Это модель фиксированной базы; график погашения кредита, пополнения и календарные правила начисления в неё не входят.',
+    howToUse: ['Выберите доход или необходимую ставку: используется только поле выбранного режима.', 'Введите положительную начальную сумму и положительный срок в годах; 0,5 означает полгода.', 'Ставка или известные проценты должны быть неотрицательными. Все суммы относятся к одной валюте; пересчёта валют нет.', 'Сверьте с договором базу начисления, способ определения доли года и расходы, которые здесь не вводятся.'],
+    howItWorks: 'При начальной сумме P, годовой ставке r в процентах и сроке t доход I = P × r × t / 100, итог = P + I. Обратный режим даёт r = 100 × I / P / t. Сумма P и срок t должны быть больше нуля; нулевая ставка и нулевой доход допустимы. Промежуточные суммы не округляются. Обычные денежные итоги показываются целыми единицами, суммы меньше единицы — с дробной частью; очень малые значения могут использовать показательную запись.',
+    example: '100 000 денежных единиц под 8 % на 3 года дают 24 000 процентов и итог 124 000. Обратный ввод 24 000 процентов при той же базе и сроке даёт 8 %. При 0 % доход равен 0, итог остаётся 100 000; 50 000 под 12 % на 0,5 года дают 3 000.',
+    faq: [
+      { q: 'Когда фиксированная база совпадает с простыми процентами?', a: 'Когда договор или учебная задача начисляет доход на исходную сумму и не добавляет проценты к этой базе. Само название продукта этого не гарантирует: проверяйте фактические условия.' },
+      { q: 'Почему по этой формуле нельзя получить кредитный график?', a: 'В погашаемом кредите проценты могут считаться от сокращающегося остатка. Умножение исходной суммы на ставку и срок может дать больше таких процентов; комиссии и иной порядок платежей также меняют сравнение.' },
+      { q: 'Всегда ли капитализация даёт строго больший результат?', a: 'При одном годовом начислении результаты могут совпадать. Для сравнения нужны одинаковые ставки, сроки и правила капитализации, в том числе для неполного периода; одно слово «сложные» не задаёт этих условий.' },
+      { q: 'Как задать несколько месяцев без календарных дат?', a: 'Переведите срок в годы по принятому в задаче правилу: 6 месяцев — 0,5 года. Конкретный договор может использовать фактические дни и базу 360 или 365; калькулятор такую конвенцию не выбирает.' },
+      { q: 'Почему нельзя восстановить ставку за нулевой срок?', a: 'В обратной формуле срок стоит в знаменателе. Поэтому оба режима требуют положительного срока; нулевая ставка или нулевые проценты при положительном сроке остаются допустимыми.' },
+    ],
+    disclaimer: 'Учебная модель постоянной начальной базы. Не рассчитывает APR/ПСК, налоги, комиссии, инфляцию, пополнения или погашение долга.',
+  },
+  en: {
+    longDescription: 'This calculation keeps the initial amount unchanged throughout the term. Earned interest is not added to the interest base. Enter a rate to find interest, or enter a known interest amount to recover the annual rate. A positive fraction of a year is supported. Repayments, extra deposits and the day-count convention of a contract require a different model.',
+    howToUse: ['Select interest earned or required rate; the other mode’s amount is inactive.', 'Use a positive principal and a positive term in years. Half a year is 0.5.', 'Enter a nonnegative annual percentage rate or nonnegative known interest. Use one currency for every monetary amount; no exchange conversion takes place.', 'Check whether your agreement keeps the principal unchanged and how it defines a partial year.'],
+    howItWorks: 'With principal P, annual interest rate r in percent and term t, interest I = P × r × t / 100 and the final amount is P + I. The inverse is r = 100 × I / P / t. Zero interest or a zero rate is valid, while P and t must be positive. Calculations retain unrounded values. Ordinary monetary results use whole units, amounts below one unit retain decimals, and very small figures may use scientific notation.',
+    example: '100,000 monetary units at 8% for 3 years earn 24,000 and become 124,000. Recovering the rate from interest of 24,000 gives 8%. At 0% interest is zero and the principal remains 100,000. A separate half-year case, 50,000 at 12%, earns 3,000.',
+    faq: [
+      { q: 'What must remain fixed in this interest model?', a: 'The initial principal remains the interest base for the full term. Interest paid out or retained separately does not earn further interest here. Verify that this assumption matches the product rather than relying on its name.' },
+      { q: 'Can this estimate an amortizing loan’s interest accurately?', a: 'Interest on an amortizing loan can depend on its declining outstanding balance. A fixed-principal calculation can exceed that amount; fees and payment timing can change the comparison again. It does not produce a repayment schedule.' },
+      { q: 'Does compound interest always give strictly more?', a: 'A single annual capitalization can give the same result. A comparison must specify the rate, capitalization frequency and treatment of partial periods. Equal term labels alone do not make the conventions identical.' },
+      { q: 'How are months or days converted into years?', a: 'Supply the fraction required by your task: six months can be 0.5 years. A contract may use actual days and a 360- or 365-day basis. This form has no dates and does not select a day-count convention.' },
+      { q: 'Why is a zero duration outside the form’s domain?', a: 'Duration is a divisor in the inverse-rate formula, so both modes require a positive duration. A rate or known interest amount of zero is still allowed for a positive duration.' },
+    ],
+    disclaimer: 'Educational fixed-principal model. APR, taxes, fees, inflation, contributions and debt repayments are excluded.',
+  },
+  uk: {
+    longDescription: 'Цей розрахунок весь час використовує початкову суму як базу. Нараховані проценти не збільшують її. Режим доходу працює з відомою річною ставкою, а зворотний режим визначає ставку за сумою процентів. Дробовий строк у роках дозволений. Графік погашення, зміни залишку та календарна база договору тут не моделюються.',
+    howToUse: ['Оберіть проценти або потрібну ставку: неактивне поле іншого режиму не впливає на відповідь.', 'Задайте додатну початкову суму й додатний строк у роках; пів року — 0,5.', 'Ставка та відомі проценти не можуть бути від’ємними. Грошові суми мають бути в одній валюті; валютного обміну немає.', 'У договорі перевірте базу процентів, частку неповного року та додаткові витрати.'],
+    howItWorks: 'Для суми P, річної ставки r у процентах і строку t: I = P × r × t / 100, підсумок = P + I. Для відомого доходу r = 100 × I / P / t. Початкова сума й строк більші за нуль; нульові ставка або проценти допустимі. Обчислення виконуються до округлення. Звичайні грошові підсумки показано цілими одиницями, суми менші за одиницю — з дробовою частиною, дуже малі — за потреби в показниковій формі.',
+    example: '100 000 грошових одиниць під 8 % на 3 роки дають 24 000 процентів і підсумок 124 000. У зворотному режимі ті самі 24 000 дають 8 %. За 0 % проценти становлять 0, сума лишається 100 000. Для 50 000 під 12 % на 0,5 року проценти дорівнюють 3 000.',
+    faq: [
+      { q: 'Яку суму ця модель вважає базою нарахування?', a: 'Початкову суму протягом усього строку. Вона підходить лише там, де умови передбачають незмінну базу без процентів на вже отримані проценти; назви фінансового продукту для цього недостатньо.' },
+      { q: 'Чи обов’язково такий розрахунок занижує проценти за кредитом?', a: 'Ні. Для кредиту з погашенням проценти можуть нараховуватись на залишок, що зменшується. Нарахування на початкову суму тоді може бути більшим. Комісії, строки платежів і конкретний договір потребують окремого розрахунку.' },
+      { q: 'Чи завжди складні проценти більші на тому самому строку?', a: 'Після одного річного нарахування результати можуть збігатися. Для порівняння задають частоту капіталізації, ставку та правило неповного періоду. Строге «завжди менше» без цих умов неправильне.' },
+      { q: 'Що означає пів року без дат у формі?', a: 'Це введений строк 0,5 року. Перерахунок днів залежить від завдання або договору: фактичні дні та база 360/365 можуть давати іншу частку. Форма не визначає таку базу автоматично.' },
+      { q: 'Навіщо відхиляти нульовий строк у двох режимах?', a: 'Зворотна формула ділить на строк, тож форма вимагає додатного строку для обох режимів. Водночас нульовий дохід і нульова ставка за додатного строку допустимі.' },
+    ],
+    disclaimer: 'Навчальна модель незмінної початкової бази. Не враховує APR/повну вартість кредиту, податки, комісії, інфляцію, поповнення та погашення.',
+  },
+  de: {
+    longDescription: 'Die Anfangssumme bleibt hier während der gesamten Laufzeit die Zinsbasis. Bereits entstandene Zinsen werden ihr nicht zugeschlagen. Der Rechner ermittelt entweder den Zinsertrag oder aus einem bekannten Ertrag den Jahreszinssatz. Positive Bruchteile eines Jahres sind möglich. Ein Tilgungsplan und die Zinstage eines Vertrags gehören zu einem anderen Modell.',
+    howToUse: ['Wähle Zinsertrag oder benötigten Zinssatz; das inaktive Feld des anderen Modus wird nicht verwendet.', 'Anfangsbetrag und Laufzeit müssen positiv sein. Ein halbes Jahr wird als 0,5 eingegeben.', 'Zinssatz und bekannter Zinsertrag sind nicht negativ. Alle Geldbeträge verwenden dieselbe Währung; es wird kein Wechselkurs angewendet.', 'Prüfe im Vertrag, ob die Zinsbasis unverändert bleibt und wie ein Teiljahr gezählt wird.'],
+    howItWorks: 'Mit Anfangsbetrag P, Jahreszinssatz r in Prozent und Laufzeit t gilt I = P × r × t / 100 und Endbetrag = P + I. Umgekehrt gilt r = 100 × I / P / t. P und t sind positiv; Zinssatz und Ertrag dürfen null sein. Zwischenwerte werden nicht gerundet. Übliche Geldbeträge erscheinen in ganzen Einheiten, Beträge unter einer Einheit mit Dezimalstellen; sehr kleine Ergebnisse können in wissenschaftlicher Schreibweise erscheinen.',
+    example: '100 000 Geldeinheiten zu 8 % für 3 Jahre ergeben 24 000 Zinsen und 124 000 als Endbetrag. Die Rückrechnung aus 24 000 Zinsen liefert 8 %. Bei 0 % bleiben Zinsen null und der Betrag 100 000. 50 000 zu 12 % für 0,5 Jahre ergeben 3 000 Zinsen.',
+    faq: [
+      { q: 'Welche Zinsbasis wird unverändert gehalten?', a: 'Der ursprüngliche Betrag über die gesamte Laufzeit. Separat ausgezahlte Zinsen erwirtschaften hier keine weiteren Zinsen. Ob ein Produkt diese Annahme erfüllt, steht in seinen Bedingungen.' },
+      { q: 'Ist das eine Zinsberechnung für ein getilgtes Darlehen?', a: 'Ein getilgtes Darlehen kann Zinsen auf die sinkende Restschuld berechnen. Zinsen auf den unveränderten Anfangsbetrag können höher sein. Gebühren und Zahlungstermine ändern den Vergleich zusätzlich; ein Tilgungsplan entsteht hier nicht.' },
+      { q: 'Liefert Zinseszins bei gleicher Laufzeit immer mehr?', a: 'Eine einzige jährliche Zinsgutschrift kann dasselbe Ergebnis liefern. Zinssatz, Häufigkeit der Gutschrift und Behandlung eines Teilzeitraums müssen für den Vergleich feststehen.' },
+      { q: 'Wie werden Monate oder Tage in Jahre umgerechnet?', a: 'Gib den Bruchteil nach der verwendeten Konvention an: sechs Monate können 0,5 Jahre sein. Verträge können tatsächliche Tage und eine Basis von 360 oder 365 Tagen verwenden. Dieser Rechner hat kein Kalenderfeld.' },
+      { q: 'Warum ist eine Laufzeit von null ausgeschlossen?', a: 'In der umgekehrten Formel wird durch die Laufzeit geteilt. Beide Modi benötigen daher eine positive Laufzeit. Nullzinsen oder ein Zinsertrag von null sind dabei weiterhin möglich.' },
+    ],
+    disclaimer: 'Lernmodell mit fester Anfangssumme. Effektiver Jahreszins, Steuern, Gebühren, Inflation, Einzahlungen und Tilgung werden nicht berechnet.',
+  },
+  es: {
+    longDescription: 'La base de cálculo es el importe inicial durante todo el plazo. Los intereses obtenidos no se añaden a esa base. Puedes calcular intereses con un tipo anual conocido o recuperar el tipo a partir de un importe de intereses. Se admiten fracciones positivas de año. Los pagos de un préstamo y el cómputo de días del contrato requieren otro cálculo.',
+    howToUse: ['Elige intereses generados o tipo necesario; el campo del otro modo queda fuera del cálculo.', 'Introduce un capital positivo y un plazo positivo en años. Medio año se expresa como 0,5.', 'El tipo y los intereses conocidos deben ser no negativos. Usa una sola moneda para los importes; no se realiza conversión de divisas.', 'Comprueba que la base permanece fija y cómo se define una fracción de año en tus condiciones.'],
+    howItWorks: 'Con capital P, tipo anual r en porcentaje y plazo t: I = P × r × t / 100; total = P + I. La operación inversa es r = 100 × I / P / t. Capital y plazo son positivos; tipo o intereses cero son válidos. Se conserva la precisión de los valores intermedios. Los importes habituales se muestran en unidades enteras, los inferiores a una unidad con decimales y los muy pequeños pueden usar notación científica.',
+    example: '100 000 unidades monetarias al 8 % durante 3 años generan 24 000 de intereses y un total de 124 000. El cálculo inverso con esos 24 000 obtiene el 8 %. Al 0 % los intereses son cero y el capital sigue en 100 000. 50 000 al 12 % durante 0,5 años generan 3 000.',
+    faq: [
+      { q: '¿Qué importe permanece como base de los intereses?', a: 'El capital inicial durante todo el plazo. Los intereses pagados o mantenidos aparte no generan nuevos intereses aquí. Hay que comprobar que esta condición coincide con el producto.' },
+      { q: '¿Sirve para los intereses de un préstamo con amortización?', a: 'Un préstamo puede cobrar intereses sobre el saldo pendiente, que disminuye con las devoluciones. Aplicarlos al capital inicial fijo puede dar una cifra mayor. Comisiones y fechas también afectan al resultado; esta forma no crea un cuadro de amortización.' },
+      { q: '¿El interés compuesto siempre produce estrictamente más?', a: 'Una única capitalización anual puede dar el mismo resultado. La comparación exige fijar tipo, frecuencia de capitalización y tratamiento de los periodos incompletos; un plazo con el mismo nombre no garantiza iguales reglas.' },
+      { q: '¿Cómo introduzco meses o días como fracción de año?', a: 'Usa la fracción definida por tu supuesto: seis meses pueden ser 0,5 años. Un contrato puede usar días efectivos y una base de 360 o 365. Aquí no hay fechas ni selección automática de esa base.' },
+      { q: '¿Por qué no se permite un plazo de cero?', a: 'El cálculo inverso divide entre el plazo, por lo que ambos modos requieren un plazo positivo. Un tipo o unos intereses de cero sí son válidos con duración positiva.' },
+    ],
+    disclaimer: 'Modelo educativo de capital inicial fijo. Excluye APR/TAE, impuestos, comisiones, inflación, aportaciones y amortización.',
+  },
+};

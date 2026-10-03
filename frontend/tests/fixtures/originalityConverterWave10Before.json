@@ -1,0 +1,3923 @@
+{
+  "checkedAt": "2026-10-02T00:25:52.036Z",
+  "ids": [
+    "coordinate-convert",
+    "number-scale-names",
+    "number-to-words",
+    "paper-quantity",
+    "scale-model"
+  ],
+  "files": [
+    {
+      "path": "src/calculators/coordinate-convert/compute.ts",
+      "sha256": "b1622817c0f0555bcdb5bf0887be38487c214507bee093ffc1c6b02264d6d4a1"
+    },
+    {
+      "path": "src/calculators/coordinate-convert/copy.de.ts",
+      "sha256": "0d0a51c65a148cd66f28305c3f30401ddf14d00a5290ba596f1d265f61b96205"
+    },
+    {
+      "path": "src/calculators/coordinate-convert/copy.en.ts",
+      "sha256": "781b4629536d3fbf4f11739145b3f163a066aa6e043ca74b92f064d8c0c4efd2"
+    },
+    {
+      "path": "src/calculators/coordinate-convert/copy.es.ts",
+      "sha256": "69e709487b2b1162a9d7a8fc128665fc6d4b3dae1f1a7a6ce87a4ca4cfaf0ebe"
+    },
+    {
+      "path": "src/calculators/coordinate-convert/copy.uk.ts",
+      "sha256": "8c279c97c5ab1e1c459cd346bc436cc37cd4f7c19915b6de585f73d7aa8dd28a"
+    },
+    {
+      "path": "src/calculators/coordinate-convert/definition.ts",
+      "sha256": "cfef70c4c7c89ca82329cfe7d8611160543bdc0a759d7c9d5ba649b26b72e5b6"
+    },
+    {
+      "path": "src/calculators/coordinate-convert/localization.ts",
+      "sha256": "55c010b76d66ee3e47136e1406a9d06c20b3ef8362aeec560edc23ea993592d5"
+    },
+    {
+      "path": "src/calculators/coordinate-convert/referenceCases.ts",
+      "sha256": "cd105a54c3619e0aea52700828fdcb41aecc17214790ed5765a64ef57ae95db4"
+    },
+    {
+      "path": "src/calculators/number-scale-names/compute.ts",
+      "sha256": "47b61924bb31422a96b4699fa10c1789342ef2c2101dcf5343cc24134255d72a"
+    },
+    {
+      "path": "src/calculators/number-scale-names/copy.de.ts",
+      "sha256": "333b50cee945b28a25cf247b7fae6eec1e912c4ebac3127f20abe60fe0015c66"
+    },
+    {
+      "path": "src/calculators/number-scale-names/copy.en.ts",
+      "sha256": "1cf8f25ca4243682fa5f0fe49786a594606b49a07c3423c93266f6d5232ffcbb"
+    },
+    {
+      "path": "src/calculators/number-scale-names/copy.es.ts",
+      "sha256": "c5265eb425a032648143044fc5d68add0d1f93646000bf8607fca0527f29739f"
+    },
+    {
+      "path": "src/calculators/number-scale-names/copy.uk.ts",
+      "sha256": "85d07ffe07607391579c02a23caa010b37c2172dccad697eb848efa88b025a57"
+    },
+    {
+      "path": "src/calculators/number-scale-names/definition.ts",
+      "sha256": "1ddedb69833561f1912f7d8c1ebd9314c5316d68d61f0a3abc0112de8cb6f449"
+    },
+    {
+      "path": "src/calculators/number-scale-names/localization.ts",
+      "sha256": "344d59b587dfa232d11a657396279970052955341e3c2f8a45b2f8de5a3ce021"
+    },
+    {
+      "path": "src/calculators/number-scale-names/referenceCases.ts",
+      "sha256": "0418a97fc8d367d8ccc7e993d1ff593d7165af22d9c14f4bb4b28fc03815c750"
+    },
+    {
+      "path": "src/calculators/number-to-words/compute.ts",
+      "sha256": "b8d752f282e2bf096e34ebc41413e888846c574f9a05191f47557eccce6af539"
+    },
+    {
+      "path": "src/calculators/number-to-words/copy.en.ts",
+      "sha256": "5df6bd8218cdebf4f344777a26fa599e68ee1b0cb8883996f384f7f29d382b39"
+    },
+    {
+      "path": "src/calculators/number-to-words/copy.uk.ts",
+      "sha256": "fb6065f32e33057570e6673aaebfe9dfcca843fd7c59e237ccf01b16183bea35"
+    },
+    {
+      "path": "src/calculators/number-to-words/definition.ts",
+      "sha256": "d6b669f126ac0f46b8d37c59085e3f53672dd101d7b8c25f65ef7c2b9b0d7f1b"
+    },
+    {
+      "path": "src/calculators/number-to-words/localization.ts",
+      "sha256": "2674abe99f12a81bfbe6d93b3ea57b02629a5b1e4e677c371103573e54c471e5"
+    },
+    {
+      "path": "src/calculators/number-to-words/referenceCases.ts",
+      "sha256": "014281581441b6034761897cdbb934d6668ec7418a7e04c23ac33916807ebb2e"
+    },
+    {
+      "path": "src/calculators/paper-quantity/compute.ts",
+      "sha256": "87b80d12fc295e43d998716cb9a4b4fb20881abbaf637089fde5c8db03ec35fd"
+    },
+    {
+      "path": "src/calculators/paper-quantity/copy.de.ts",
+      "sha256": "1ee6959576bd3e1a7a649f751afc47a2b46c0d67cb90f83fdc629c5e760aa96c"
+    },
+    {
+      "path": "src/calculators/paper-quantity/copy.en.ts",
+      "sha256": "29bb0d153ccc6f2e511abecac44c4a690e83090f321d5940c22c529e83dbc731"
+    },
+    {
+      "path": "src/calculators/paper-quantity/copy.es.ts",
+      "sha256": "2ed8fb4d5f1305685a747b61e68d28fce3a8f7fde790ded67708ed2bb8abf2d1"
+    },
+    {
+      "path": "src/calculators/paper-quantity/copy.uk.ts",
+      "sha256": "db3d4002fa7a34e606f2c4a642cd2edeb688dc056acc21ab7372498670380cdf"
+    },
+    {
+      "path": "src/calculators/paper-quantity/definition.ts",
+      "sha256": "f2b874c7482af78149aac8531eaaf5c3ad943b17dab13a8c144754da5608855e"
+    },
+    {
+      "path": "src/calculators/paper-quantity/localization.ts",
+      "sha256": "72ca2e9dae3fa3e561b2880159e679660b24d2d19184a760769fed947373d8ba"
+    },
+    {
+      "path": "src/calculators/paper-quantity/referenceCases.ts",
+      "sha256": "f6aab268265a5d32658e5c553a8a11c8a9fa64d9bf461a21b31148c7e1c733a5"
+    },
+    {
+      "path": "src/calculators/scale-model/compute.ts",
+      "sha256": "7debdb18db11397b7c103f71f05f5c50df221f43a08e2edf3b0ac79f56b31632"
+    },
+    {
+      "path": "src/calculators/scale-model/contextualField.ts",
+      "sha256": "90d64c049f77776eb14c331ed30be77c1cf69afb97939a92cf38d647ad90b5d1"
+    },
+    {
+      "path": "src/calculators/scale-model/copy.de.ts",
+      "sha256": "b919628943a6a0c8e94d5d60176faa663775a94530fbab38c9de086fc12b2462"
+    },
+    {
+      "path": "src/calculators/scale-model/copy.en.ts",
+      "sha256": "37cf80eb670a8c5f9d174f62a2973c5ded290076a87719f8233eebeeceb2c630"
+    },
+    {
+      "path": "src/calculators/scale-model/copy.es.ts",
+      "sha256": "edf70a06c43ce4a547fcc533ed61835fca53f9ec47a5697b352290dac9d03b9d"
+    },
+    {
+      "path": "src/calculators/scale-model/copy.uk.ts",
+      "sha256": "4d9ab1cbe35b100f9889c3dbd9cc2c56fdb28ec664d435ef6d2b4d72af979341"
+    },
+    {
+      "path": "src/calculators/scale-model/definition.ts",
+      "sha256": "f6a7ef899d2a80596b4301648f0719eeb6a55901305754fd9e9833fb19a6f257"
+    },
+    {
+      "path": "src/calculators/scale-model/localization.ts",
+      "sha256": "a962e08af1d1cf27b5157853e7db4e1e3bac81ace30745ad98ac0f718b2c9cea"
+    },
+    {
+      "path": "src/calculators/scale-model/referenceCases.ts",
+      "sha256": "8d1174546e2fed582f0db44405de59f333f8963201c395b2c1c558347583ea84"
+    }
+  ],
+  "pages": [
+    {
+      "id": "coordinate-convert",
+      "locale": "ru",
+      "path": "/ru/converters/koordinaty-gradusy-minuty-sekundy/",
+      "name": "Конвертер координат — градусы, минуты, секунды",
+      "h1": "Конвертер координат — градусы, минуты, секунды",
+      "seoTitle": "Конвертер координат — градусы минуты секунды в десятичные",
+      "seoDescription": "Переведите географические координаты из градусов, минут и секунд в десятичные градусы и обратно, с учётом полушария.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Направление перевода",
+          "type": "select",
+          "defaultValue": "toDecimal",
+          "options": [
+            {
+              "value": "toDecimal",
+              "label": "ГМС → десятичные"
+            },
+            {
+              "value": "toDms",
+              "label": "десятичные → ГМС"
+            }
+          ]
+        },
+        {
+          "name": "deg",
+          "label": "Градусы",
+          "type": "number",
+          "defaultValue": 55,
+          "min": 0,
+          "max": 180,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "minutes",
+          "label": "Минуты",
+          "type": "number",
+          "defaultValue": 45,
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "seconds",
+          "label": "Секунды",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "hemisphere",
+          "label": "Полушарие",
+          "type": "select",
+          "defaultValue": "N",
+          "options": [
+            {
+              "value": "N",
+              "label": "северное или восточное"
+            },
+            {
+              "value": "S",
+              "label": "южное или западное"
+            }
+          ],
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "decimal",
+          "label": "Десятичные градусы",
+          "type": "number",
+          "defaultValue": -37.6173,
+          "signed": true,
+          "step": 0.0001,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDms"
+          }
+        }
+      ],
+      "content": {
+        "intro": "Переводит географическую координату из записи «градусы, минуты, секунды» в десятичные градусы и обратно. Карты и навигаторы показывают координату по-разному: бумажные карты и авиационные данные держат минуты и секунды, а карты в браузере и файлы GPX — десятичные градусы со знаком. Знак в этой паре несёт полушарие: в записи ГМС минус не пишут, вместо него ставят букву, поэтому направление здесь отдельное поле, а не часть числа.",
+        "howItWorks": "Десятичные градусы = градусы + минуты ÷ 60 + секунды ÷ 3600. Обратно: целая часть даёт градусы, дробная умножается на 60 для минут, остаток снова на 60 для секунд.",
+        "example": "55°45′30″ северной широты — это 55,7583 десятичных градуса.",
+        "tips": "Выберите направление перевода. Для перевода из ГМС введите градусы, минуты и секунды и укажите полушарие. Для обратного перевода введите десятичные градусы со знаком: минус означает юг или запад. Проверьте область: широта не превышает 90°, долгота — 180°.",
+        "faq": [
+          {
+            "q": "Почему полушарие вынесено отдельным полем?",
+            "a": "Потому что в записи ГМС минус не пишут: направление обозначают буквой. Знак появляется только в десятичной записи, и смешивать эти две системы в одном поле значило бы приглашать ошибку."
+          },
+          {
+            "q": "Сколько знаков после запятой достаточно?",
+            "a": "Четыре знака — это около одиннадцати метров по широте. Для адреса или точки на карте этого хватает; для геодезии нужны шесть и более."
+          },
+          {
+            "q": "Почему секунды показаны дробными?",
+            "a": "Потому что округление секунды до целой сдвигает точку примерно на тридцать метров. Дробная часть здесь не педантизм, а точность."
+          },
+          {
+            "q": "Широта или долгота?",
+            "a": "Формула одна и та же. Различается только область: широта не выходит за 90°, долгота — за 180°."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Переводит географическую координату из записи «градусы, минуты, секунды» в десятичные градусы и обратно. Карты и навигаторы показывают координату по-разному: бумажные карты и авиационные данные держат минуты и секунды, а карты в браузере и файлы GPX — десятичные градусы со знаком. Знак в этой паре несёт полушарие: в записи ГМС минус не пишут, вместо него ставят букву, поэтому направление здесь отдельное поле, а не часть числа.",
+        "howToUse": [
+          "Выберите направление перевода.",
+          "Для перевода из ГМС введите градусы, минуты и секунды и укажите полушарие.",
+          "Для обратного перевода введите десятичные градусы со знаком: минус означает юг или запад.",
+          "Проверьте область: широта не превышает 90°, долгота — 180°."
+        ],
+        "howItWorks": "Десятичные градусы = градусы + минуты ÷ 60 + секунды ÷ 3600. Обратно: целая часть даёт градусы, дробная умножается на 60 для минут, остаток снова на 60 для секунд.",
+        "example": "55°45′30″ северной широты — это 55,7583 десятичных градуса.",
+        "faq": [
+          {
+            "q": "Почему полушарие вынесено отдельным полем?",
+            "a": "Потому что в записи ГМС минус не пишут: направление обозначают буквой. Знак появляется только в десятичной записи, и смешивать эти две системы в одном поле значило бы приглашать ошибку."
+          },
+          {
+            "q": "Сколько знаков после запятой достаточно?",
+            "a": "Четыре знака — это около одиннадцати метров по широте. Для адреса или точки на карте этого хватает; для геодезии нужны шесть и более."
+          },
+          {
+            "q": "Почему секунды показаны дробными?",
+            "a": "Потому что округление секунды до целой сдвигает точку примерно на тридцать метров. Дробная часть здесь не педантизм, а точность."
+          },
+          {
+            "q": "Широта или долгота?",
+            "a": "Формула одна и та же. Различается только область: широта не выходит за 90°, долгота — за 180°."
+          }
+        ]
+      },
+      "htmlSha256": "b5c2cd9ae162a7a6d9b0ce22b1f72e2351327c854597f79d5d00733b1f090191"
+    },
+    {
+      "id": "coordinate-convert",
+      "locale": "en",
+      "path": "/en/converters/coordinates-dms-decimal/",
+      "name": "Coordinate converter — DMS and decimal degrees",
+      "h1": "Coordinate converter — DMS and decimal degrees",
+      "seoTitle": "Coordinate converter — degrees minutes seconds to decimal",
+      "seoDescription": "Convert geographic coordinates from degrees, minutes and seconds into decimal degrees and back, with the hemisphere handled explicitly.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Direction",
+          "type": "select",
+          "defaultValue": "toDecimal",
+          "options": [
+            {
+              "value": "toDecimal",
+              "label": "DMS → decimal"
+            },
+            {
+              "value": "toDms",
+              "label": "decimal → DMS"
+            }
+          ]
+        },
+        {
+          "name": "deg",
+          "label": "Degrees",
+          "type": "number",
+          "defaultValue": 55,
+          "min": 0,
+          "max": 180,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "minutes",
+          "label": "Minutes",
+          "type": "number",
+          "defaultValue": 45,
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "seconds",
+          "label": "Seconds",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "hemisphere",
+          "label": "Hemisphere",
+          "type": "select",
+          "defaultValue": "N",
+          "options": [
+            {
+              "value": "N",
+              "label": "north or east"
+            },
+            {
+              "value": "S",
+              "label": "south or west"
+            }
+          ],
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "decimal",
+          "label": "Decimal degrees",
+          "type": "number",
+          "defaultValue": -37.6173,
+          "signed": true,
+          "step": 0.0001,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDms"
+          }
+        }
+      ],
+      "content": {
+        "intro": "Converts a geographic coordinate from degrees, minutes and seconds into decimal degrees and back. Maps and devices disagree on the notation: paper charts and aviation data keep minutes and seconds, while browser maps and GPX files use signed decimal degrees. In that pair the sign carries the hemisphere — DMS never writes a minus, it writes a letter instead — so the direction lives in its own field here rather than inside the number.",
+        "howItWorks": "Decimal degrees = degrees + minutes ÷ 60 + seconds ÷ 3600. Back again: the integer part gives degrees, the fraction times 60 gives minutes, and the remainder times 60 gives seconds.",
+        "example": "55°45′30″ north is 55.7583 decimal degrees.",
+        "tips": "Choose the direction of the conversion. From DMS, enter degrees, minutes and seconds and pick the hemisphere. The other way, enter signed decimal degrees: a minus means south or west. Mind the range: latitude stays within 90°, longitude within 180°.",
+        "faq": [
+          {
+            "q": "Why is the hemisphere a separate field?",
+            "a": "Because DMS never writes a minus — direction is a letter. The sign only appears in the decimal notation, and mixing the two systems in one field would invite mistakes."
+          },
+          {
+            "q": "How many decimals are enough?",
+            "a": "Four decimals is roughly eleven metres of latitude. That covers an address or a map pin; surveying needs six or more."
+          },
+          {
+            "q": "Why are seconds shown with a fraction?",
+            "a": "Because rounding a second to a whole number shifts the point by about thirty metres. The fraction is precision, not pedantry."
+          },
+          {
+            "q": "Latitude or longitude?",
+            "a": "The formula is identical. Only the range differs: latitude stops at 90°, longitude at 180°."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Converts a geographic coordinate from degrees, minutes and seconds into decimal degrees and back. Maps and devices disagree on the notation: paper charts and aviation data keep minutes and seconds, while browser maps and GPX files use signed decimal degrees. In that pair the sign carries the hemisphere — DMS never writes a minus, it writes a letter instead — so the direction lives in its own field here rather than inside the number.",
+        "howToUse": [
+          "Choose the direction of the conversion.",
+          "From DMS, enter degrees, minutes and seconds and pick the hemisphere.",
+          "The other way, enter signed decimal degrees: a minus means south or west.",
+          "Mind the range: latitude stays within 90°, longitude within 180°."
+        ],
+        "howItWorks": "Decimal degrees = degrees + minutes ÷ 60 + seconds ÷ 3600. Back again: the integer part gives degrees, the fraction times 60 gives minutes, and the remainder times 60 gives seconds.",
+        "example": "55°45′30″ north is 55.7583 decimal degrees.",
+        "faq": [
+          {
+            "q": "Why is the hemisphere a separate field?",
+            "a": "Because DMS never writes a minus — direction is a letter. The sign only appears in the decimal notation, and mixing the two systems in one field would invite mistakes."
+          },
+          {
+            "q": "How many decimals are enough?",
+            "a": "Four decimals is roughly eleven metres of latitude. That covers an address or a map pin; surveying needs six or more."
+          },
+          {
+            "q": "Why are seconds shown with a fraction?",
+            "a": "Because rounding a second to a whole number shifts the point by about thirty metres. The fraction is precision, not pedantry."
+          },
+          {
+            "q": "Latitude or longitude?",
+            "a": "The formula is identical. Only the range differs: latitude stops at 90°, longitude at 180°."
+          }
+        ]
+      },
+      "htmlSha256": "88da5d4e3cd1f83a24d453ef1d694ae13831c21f609e5f93788e14e18b861d32"
+    },
+    {
+      "id": "coordinate-convert",
+      "locale": "uk",
+      "path": "/uk/konvertery/koordynaty-hradusy-hvylyny/",
+      "name": "Конвертер координат — градуси, хвилини, секунди",
+      "h1": "Конвертер координат — градуси, хвилини, секунди",
+      "seoTitle": "Конвертер координат — градуси хвилини секунди в десяткові",
+      "seoDescription": "Переведіть географічні координати з градусів, хвилин і секунд у десяткові градуси та навпаки, з урахуванням півкулі.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Напрям переведення",
+          "type": "select",
+          "defaultValue": "toDecimal",
+          "options": [
+            {
+              "value": "toDecimal",
+              "label": "ГХС → десяткові"
+            },
+            {
+              "value": "toDms",
+              "label": "десяткові → ГХС"
+            }
+          ]
+        },
+        {
+          "name": "deg",
+          "label": "Градуси",
+          "type": "number",
+          "defaultValue": 55,
+          "min": 0,
+          "max": 180,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "minutes",
+          "label": "Хвилини",
+          "type": "number",
+          "defaultValue": 45,
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "seconds",
+          "label": "Секунди",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "hemisphere",
+          "label": "Півкуля",
+          "type": "select",
+          "defaultValue": "N",
+          "options": [
+            {
+              "value": "N",
+              "label": "північна або східна"
+            },
+            {
+              "value": "S",
+              "label": "південна або західна"
+            }
+          ],
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "decimal",
+          "label": "Десяткові градуси",
+          "type": "number",
+          "defaultValue": -37.6173,
+          "signed": true,
+          "step": 0.0001,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDms"
+          }
+        }
+      ],
+      "content": {
+        "intro": "Географічні координати записують двома способами: десятковими градусами, які розуміють картографічні сервіси, і градусами з мінутами й секундами, які досі стоять на морських картах і в кадастрових документах. Помилка на одну кутову мінуту широти — це майже два кілометри на місцевості.",
+        "howItWorks": "Десяткові градуси рахуються як градуси + мінути ÷ 60 + секунди ÷ 3600. У зворотному напрямку ціла частина дає градуси, дробова множиться на 60 для мінут, залишок знову на 60 для секунд.",
+        "example": "55°45′30″ північної широти — це 55,7583 десяткового градуса. Одна кутова мінута широти відповідає приблизно 1852 метрам — це і є морська миля.",
+        "tips": "Виберіть напрямок переведення. Для градусів з мінутами введіть кожну частину окремо. Знак або літера півкулі задають північ чи південь, схід чи захід.",
+        "faq": [
+          {
+            "q": "Наскільки точна одна кутова секунда?",
+            "a": "Приблизно 31 метр по широті. Мінута — близько 1852 метрів, тобто морська миля. По довготі відстань менша й залежить від широти: на екваторі така сама, а біля полюсів прямує до нуля."
+          },
+          {
+            "q": "Що означає знак координати?",
+            "a": "Додатна широта — північ, від’ємна — південь. Додатна довгота — схід, від’ємна — захід. У записі з мінутами замість знака часто ставлять літеру півкулі."
+          },
+          {
+            "q": "Чому картографічні сервіси беруть десяткові градуси?",
+            "a": "Бо з ними простіше рахувати відстані й зберігати дані. Формат із мінутами й секундами лишився з часів, коли кути знімали секстантом і транспортиром."
+          },
+          {
+            "q": "Скільки знаків після коми потрібно?",
+            "a": "П’ять знаків дають точність близько метра, чотири — близько десяти метрів. Для навігації автомобіля вистачає п’яти, для геодезії потрібно більше."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Географічні координати записують двома способами: десятковими градусами, які розуміють картографічні сервіси, і градусами з мінутами й секундами, які досі стоять на морських картах і в кадастрових документах. Помилка на одну кутову мінуту широти — це майже два кілометри на місцевості.",
+        "howToUse": [
+          "Виберіть напрямок переведення.",
+          "Для градусів з мінутами введіть кожну частину окремо.",
+          "Знак або літера півкулі задають північ чи південь, схід чи захід."
+        ],
+        "howItWorks": "Десяткові градуси рахуються як градуси + мінути ÷ 60 + секунди ÷ 3600. У зворотному напрямку ціла частина дає градуси, дробова множиться на 60 для мінут, залишок знову на 60 для секунд.",
+        "example": "55°45′30″ північної широти — це 55,7583 десяткового градуса. Одна кутова мінута широти відповідає приблизно 1852 метрам — це і є морська миля.",
+        "faq": [
+          {
+            "q": "Наскільки точна одна кутова секунда?",
+            "a": "Приблизно 31 метр по широті. Мінута — близько 1852 метрів, тобто морська миля. По довготі відстань менша й залежить від широти: на екваторі така сама, а біля полюсів прямує до нуля."
+          },
+          {
+            "q": "Що означає знак координати?",
+            "a": "Додатна широта — північ, від’ємна — південь. Додатна довгота — схід, від’ємна — захід. У записі з мінутами замість знака часто ставлять літеру півкулі."
+          },
+          {
+            "q": "Чому картографічні сервіси беруть десяткові градуси?",
+            "a": "Бо з ними простіше рахувати відстані й зберігати дані. Формат із мінутами й секундами лишився з часів, коли кути знімали секстантом і транспортиром."
+          },
+          {
+            "q": "Скільки знаків після коми потрібно?",
+            "a": "П’ять знаків дають точність близько метра, чотири — близько десяти метрів. Для навігації автомобіля вистачає п’яти, для геодезії потрібно більше."
+          }
+        ]
+      },
+      "htmlSha256": "9505c5c13fdca403793c33a1f7c21c0e30eaab24ff6c3a261e2332d61539dd4f"
+    },
+    {
+      "id": "coordinate-convert",
+      "locale": "de",
+      "path": "/de/umrechner/koordinaten-umrechner/",
+      "name": "Koordinatenumrechner — Grad, Minuten, Sekunden und Dezimalgrad",
+      "h1": "Koordinatenumrechner — Grad, Minuten, Sekunden und Dezimalgrad",
+      "seoTitle": "Koordinaten umrechnen — Grad Minuten Sekunden in Dezimalgrad",
+      "seoDescription": "Rechne geografische Koordinaten aus Grad, Minuten und Sekunden in Dezimalgrad um und zurück, mit ausdrücklich gewählter Himmelsrichtung.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Richtung",
+          "type": "select",
+          "defaultValue": "toDecimal",
+          "options": [
+            {
+              "value": "toDecimal",
+              "label": "GMS → dezimal"
+            },
+            {
+              "value": "toDms",
+              "label": "dezimal → GMS"
+            }
+          ]
+        },
+        {
+          "name": "deg",
+          "label": "Grad",
+          "type": "number",
+          "defaultValue": 55,
+          "min": 0,
+          "max": 180,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "minutes",
+          "label": "Minuten",
+          "type": "number",
+          "defaultValue": 45,
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "seconds",
+          "label": "Sekunden",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "hemisphere",
+          "label": "Halbkugel",
+          "type": "select",
+          "defaultValue": "N",
+          "options": [
+            {
+              "value": "N",
+              "label": "Nord oder Ost"
+            },
+            {
+              "value": "S",
+              "label": "Süd oder West"
+            }
+          ],
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "decimal",
+          "label": "Dezimalgrad",
+          "type": "number",
+          "defaultValue": -37.6173,
+          "signed": true,
+          "step": 0.0001,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDms"
+          }
+        }
+      ],
+      "content": {
+        "intro": "Rechnet eine geografische Koordinate aus Grad, Minuten und Sekunden in Dezimalgrad um und zurück. Karten und Geräte sind sich über die Schreibweise nicht einig: Papierkarten und Luftfahrtdaten behalten Minuten und Sekunden, während Kartendienste im Browser und GPX-Dateien vorzeichenbehaftete Dezimalgrad verwenden. In diesem Paar trägt das Vorzeichen die Himmelsrichtung — GMS schreibt nie ein Minus, sondern einen Buchstaben —, deshalb steht die Richtung hier in einem eigenen Feld und nicht in der Zahl.",
+        "howItWorks": "Dezimalgrad = Grad + Minuten ÷ 60 + Sekunden ÷ 3600. Zurück: der ganzzahlige Teil ergibt die Grad, der Bruchteil mal 60 die Minuten, und der Rest mal 60 die Sekunden.",
+        "example": "55°45′30″ nördlicher Breite sind 55,7583 Dezimalgrad.",
+        "tips": "Wähle die Richtung der Umrechnung. Aus GMS trägst du Grad, Minuten und Sekunden ein und wählst die Halbkugel. Andersherum trägst du vorzeichenbehaftete Dezimalgrad ein: ein Minus bedeutet Süd oder West. Achte auf den Bereich: die Breite bleibt innerhalb von 90°, die Länge innerhalb von 180°.",
+        "faq": [
+          {
+            "q": "Warum ist die Halbkugel ein eigenes Feld?",
+            "a": "Weil GMS nie ein Minus schreibt — die Richtung ist ein Buchstabe. Das Vorzeichen erscheint nur in der Dezimalschreibweise, und beide Systeme in einem Feld zu mischen lüde zu Fehlern ein."
+          },
+          {
+            "q": "Wie viele Nachkommastellen reichen?",
+            "a": "Vier Nachkommastellen sind rund elf Meter in der Breite. Das deckt eine Anschrift oder eine Kartenmarkierung ab; die Vermessung braucht sechs oder mehr."
+          },
+          {
+            "q": "Warum werden Sekunden mit Bruchteil angezeigt?",
+            "a": "Weil eine Sekunde auf eine ganze Zahl zu runden den Punkt um rund dreißig Meter verschiebt. Der Bruchteil ist Genauigkeit und keine Pedanterie."
+          },
+          {
+            "q": "Breite oder Länge?",
+            "a": "Die Formel ist dieselbe. Nur der Bereich unterscheidet sich: die Breite endet bei 90°, die Länge bei 180°."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Rechnet eine geografische Koordinate aus Grad, Minuten und Sekunden in Dezimalgrad um und zurück. Karten und Geräte sind sich über die Schreibweise nicht einig: Papierkarten und Luftfahrtdaten behalten Minuten und Sekunden, während Kartendienste im Browser und GPX-Dateien vorzeichenbehaftete Dezimalgrad verwenden. In diesem Paar trägt das Vorzeichen die Himmelsrichtung — GMS schreibt nie ein Minus, sondern einen Buchstaben —, deshalb steht die Richtung hier in einem eigenen Feld und nicht in der Zahl.",
+        "howToUse": [
+          "Wähle die Richtung der Umrechnung.",
+          "Aus GMS trägst du Grad, Minuten und Sekunden ein und wählst die Halbkugel.",
+          "Andersherum trägst du vorzeichenbehaftete Dezimalgrad ein: ein Minus bedeutet Süd oder West.",
+          "Achte auf den Bereich: die Breite bleibt innerhalb von 90°, die Länge innerhalb von 180°."
+        ],
+        "howItWorks": "Dezimalgrad = Grad + Minuten ÷ 60 + Sekunden ÷ 3600. Zurück: der ganzzahlige Teil ergibt die Grad, der Bruchteil mal 60 die Minuten, und der Rest mal 60 die Sekunden.",
+        "example": "55°45′30″ nördlicher Breite sind 55,7583 Dezimalgrad.",
+        "faq": [
+          {
+            "q": "Warum ist die Halbkugel ein eigenes Feld?",
+            "a": "Weil GMS nie ein Minus schreibt — die Richtung ist ein Buchstabe. Das Vorzeichen erscheint nur in der Dezimalschreibweise, und beide Systeme in einem Feld zu mischen lüde zu Fehlern ein."
+          },
+          {
+            "q": "Wie viele Nachkommastellen reichen?",
+            "a": "Vier Nachkommastellen sind rund elf Meter in der Breite. Das deckt eine Anschrift oder eine Kartenmarkierung ab; die Vermessung braucht sechs oder mehr."
+          },
+          {
+            "q": "Warum werden Sekunden mit Bruchteil angezeigt?",
+            "a": "Weil eine Sekunde auf eine ganze Zahl zu runden den Punkt um rund dreißig Meter verschiebt. Der Bruchteil ist Genauigkeit und keine Pedanterie."
+          },
+          {
+            "q": "Breite oder Länge?",
+            "a": "Die Formel ist dieselbe. Nur der Bereich unterscheidet sich: die Breite endet bei 90°, die Länge bei 180°."
+          }
+        ]
+      },
+      "htmlSha256": "3825ae594da1528bbc9d6682da570511a73dadfbf277ea734bfe4dd32e7791e9"
+    },
+    {
+      "id": "coordinate-convert",
+      "locale": "es",
+      "path": "/es/conversores/coordenadas-gms-decimales/",
+      "name": "Conversor de coordenadas — GMS y grados decimales",
+      "h1": "Conversor de coordenadas — GMS y grados decimales",
+      "seoTitle": "Conversor de coordenadas — de grados, minutos y segundos a decimales",
+      "seoDescription": "Convierte coordenadas geográficas de grados, minutos y segundos a grados decimales y al revés, con el hemisferio tratado de forma explícita.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Sentido",
+          "type": "select",
+          "defaultValue": "toDecimal",
+          "options": [
+            {
+              "value": "toDecimal",
+              "label": "GMS → decimales"
+            },
+            {
+              "value": "toDms",
+              "label": "decimales → GMS"
+            }
+          ]
+        },
+        {
+          "name": "deg",
+          "label": "Grados",
+          "type": "number",
+          "defaultValue": 55,
+          "min": 0,
+          "max": 180,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "minutes",
+          "label": "Minutos",
+          "type": "number",
+          "defaultValue": 45,
+          "min": 0,
+          "max": 59,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "seconds",
+          "label": "Segundos",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "hemisphere",
+          "label": "Hemisferio",
+          "type": "select",
+          "defaultValue": "N",
+          "options": [
+            {
+              "value": "N",
+              "label": "norte o este"
+            },
+            {
+              "value": "S",
+              "label": "sur u oeste"
+            }
+          ],
+          "showIf": {
+            "field": "mode",
+            "equals": "toDecimal"
+          }
+        },
+        {
+          "name": "decimal",
+          "label": "Grados decimales",
+          "type": "number",
+          "defaultValue": -37.6173,
+          "signed": true,
+          "step": 0.0001,
+          "showIf": {
+            "field": "mode",
+            "equals": "toDms"
+          }
+        }
+      ],
+      "content": {
+        "intro": "Convierte una coordenada geográfica de grados, minutos y segundos a grados decimales y al revés. Los mapas y los aparatos no se ponen de acuerdo en la notación: las cartas en papel y los datos de aviación mantienen minutos y segundos, mientras que los mapas del navegador y los archivos GPX usan grados decimales con signo. En esa pareja el signo lleva el hemisferio —los GMS nunca escriben un menos, escriben una letra—, así que aquí la dirección vive en su propio campo y no dentro del número.",
+        "howItWorks": "Grados decimales = grados + minutos ÷ 60 + segundos ÷ 3600. A la inversa: la parte entera da los grados, la fracción por 60 da los minutos y el resto por 60 da los segundos.",
+        "example": "55°45′30″ norte son 55,7583 grados decimales.",
+        "tips": "Elige el sentido de la conversión. Desde GMS, introduce grados, minutos y segundos y elige el hemisferio. En el otro sentido, introduce grados decimales con signo: un menos significa sur u oeste. Ten en cuenta el intervalo: la latitud se queda dentro de 90° y la longitud, dentro de 180°.",
+        "faq": [
+          {
+            "q": "¿Por qué el hemisferio es un campo aparte?",
+            "a": "Porque los GMS nunca escriben un menos: la dirección es una letra. El signo solo aparece en la notación decimal, y mezclar los dos sistemas en un mismo campo invitaría al error."
+          },
+          {
+            "q": "¿Cuántos decimales bastan?",
+            "a": "Cuatro decimales son unos once metros de latitud. Eso cubre una dirección o una chincheta en el mapa; la topografía necesita seis o más."
+          },
+          {
+            "q": "¿Por qué los segundos aparecen con decimales?",
+            "a": "Porque redondear un segundo a un número entero desplaza el punto unos treinta metros. La fracción es precisión, no pedantería."
+          },
+          {
+            "q": "¿Latitud o longitud?",
+            "a": "La fórmula es idéntica. Solo cambia el intervalo: la latitud se detiene en 90° y la longitud, en 180°."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Convierte una coordenada geográfica de grados, minutos y segundos a grados decimales y al revés. Los mapas y los aparatos no se ponen de acuerdo en la notación: las cartas en papel y los datos de aviación mantienen minutos y segundos, mientras que los mapas del navegador y los archivos GPX usan grados decimales con signo. En esa pareja el signo lleva el hemisferio —los GMS nunca escriben un menos, escriben una letra—, así que aquí la dirección vive en su propio campo y no dentro del número.",
+        "howToUse": [
+          "Elige el sentido de la conversión.",
+          "Desde GMS, introduce grados, minutos y segundos y elige el hemisferio.",
+          "En el otro sentido, introduce grados decimales con signo: un menos significa sur u oeste.",
+          "Ten en cuenta el intervalo: la latitud se queda dentro de 90° y la longitud, dentro de 180°."
+        ],
+        "howItWorks": "Grados decimales = grados + minutos ÷ 60 + segundos ÷ 3600. A la inversa: la parte entera da los grados, la fracción por 60 da los minutos y el resto por 60 da los segundos.",
+        "example": "55°45′30″ norte son 55,7583 grados decimales.",
+        "faq": [
+          {
+            "q": "¿Por qué el hemisferio es un campo aparte?",
+            "a": "Porque los GMS nunca escriben un menos: la dirección es una letra. El signo solo aparece en la notación decimal, y mezclar los dos sistemas en un mismo campo invitaría al error."
+          },
+          {
+            "q": "¿Cuántos decimales bastan?",
+            "a": "Cuatro decimales son unos once metros de latitud. Eso cubre una dirección o una chincheta en el mapa; la topografía necesita seis o más."
+          },
+          {
+            "q": "¿Por qué los segundos aparecen con decimales?",
+            "a": "Porque redondear un segundo a un número entero desplaza el punto unos treinta metros. La fracción es precisión, no pedantería."
+          },
+          {
+            "q": "¿Latitud o longitud?",
+            "a": "La fórmula es idéntica. Solo cambia el intervalo: la latitud se detiene en 90° y la longitud, en 180°."
+          }
+        ]
+      },
+      "htmlSha256": "9f91654ed7568dce6ed5376fbae41bab8f79c5fda53315bd8f08dc7ee1375d4a"
+    },
+    {
+      "id": "number-scale-names",
+      "locale": "ru",
+      "path": "/ru/converters/lakh-i-kror/",
+      "name": "Калькулятор лакхов и кроров",
+      "h1": "Калькулятор лакхов и кроров",
+      "seoTitle": "Лакхи и кроры в миллионы — калькулятор шкал чисел",
+      "seoDescription": "Переведите лакхи и кроры в тысячи, миллионы и миллиарды и обратно, с показом величины сразу в трёх шкалах.",
+      "fields": [
+        {
+          "name": "value",
+          "label": "Значение",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "from",
+          "label": "Из шкалы",
+          "type": "select",
+          "defaultValue": "lakh",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        },
+        {
+          "name": "to",
+          "label": "В шкалу",
+          "type": "select",
+          "defaultValue": "million",
+          "options": [
+            {
+              "value": "unit",
+              "label": "единицы"
+            },
+            {
+              "value": "thousand",
+              "label": "тысячи"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "миллионы"
+            },
+            {
+              "value": "crore",
+              "label": "кроры"
+            },
+            {
+              "value": "billion",
+              "label": "миллиарды"
+            }
+          ]
+        }
+      ],
+      "content": {
+        "intro": "В южноазиатской системе счёт идёт не тройками: после тысячи стоит лакх — сто тысяч, а после него крор — десять миллионов. Поэтому «два крора» это не два миллиона, а двадцать, и запись 1,00,00,000 группируется иначе, чем привычная 10,000,000. Калькулятор переводит в обе стороны и сразу показывает величину в единицах, в лакхах и в крорах, чтобы порядок был виден целиком.",
+        "howItWorks": "Каждая шкала — это множитель к единице: тысяча 10³, лакх 10⁵, миллион 10⁶, крор 10⁷, миллиард 10⁹.",
+        "example": "25 лакхов — это 2,5 миллиона, то есть 2 500 000.",
+        "tips": "Введите число и выберите, в какой шкале оно записано. Выберите шкалу, в которую нужно перевести. Строки «в единицах», «в лакхах» и «в крорах» показывают ту же величину сразу в трёх видах. Для очень больших и очень малых значений ответ выводится с показателем степени.",
+        "faq": [
+          {
+            "q": "Сколько это — один крор?",
+            "a": "Десять миллионов. Крор идёт после лакха, который равен ста тысячам, поэтому в кроре ровно сто лакхов."
+          },
+          {
+            "q": "Почему запись группируется иначе?",
+            "a": "Потому что после первой тройки цифры идут парами: 1,00,00,000 — это один крор. Западная запись 10,000,000 группирует всё по три."
+          },
+          {
+            "q": "Где используются эти названия?",
+            "a": "В Индии, Пакистане, Бангладеш, Непале и Шри-Ланке — в новостях, ценах на недвижимость и финансовой отчётности. Встретив их в тексте, легко ошибиться на порядок."
+          },
+          {
+            "q": "Почему у единицы в лакхах показатель степени?",
+            "a": "Одна единица — это 0,00001 лакха, а платформа переходит на показательную запись ниже 10⁻⁴, чтобы значение не превратилось в ноль при округлении."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "В южноазиатской системе счёт идёт не тройками: после тысячи стоит лакх — сто тысяч, а после него крор — десять миллионов. Поэтому «два крора» это не два миллиона, а двадцать, и запись 1,00,00,000 группируется иначе, чем привычная 10,000,000. Калькулятор переводит в обе стороны и сразу показывает величину в единицах, в лакхах и в крорах, чтобы порядок был виден целиком.",
+        "howToUse": [
+          "Введите число и выберите, в какой шкале оно записано.",
+          "Выберите шкалу, в которую нужно перевести.",
+          "Строки «в единицах», «в лакхах» и «в крорах» показывают ту же величину сразу в трёх видах.",
+          "Для очень больших и очень малых значений ответ выводится с показателем степени."
+        ],
+        "howItWorks": "Каждая шкала — это множитель к единице: тысяча 10³, лакх 10⁵, миллион 10⁶, крор 10⁷, миллиард 10⁹.",
+        "example": "25 лакхов — это 2,5 миллиона, то есть 2 500 000.",
+        "faq": [
+          {
+            "q": "Сколько это — один крор?",
+            "a": "Десять миллионов. Крор идёт после лакха, который равен ста тысячам, поэтому в кроре ровно сто лакхов."
+          },
+          {
+            "q": "Почему запись группируется иначе?",
+            "a": "Потому что после первой тройки цифры идут парами: 1,00,00,000 — это один крор. Западная запись 10,000,000 группирует всё по три."
+          },
+          {
+            "q": "Где используются эти названия?",
+            "a": "В Индии, Пакистане, Бангладеш, Непале и Шри-Ланке — в новостях, ценах на недвижимость и финансовой отчётности. Встретив их в тексте, легко ошибиться на порядок."
+          },
+          {
+            "q": "Почему у единицы в лакхах показатель степени?",
+            "a": "Одна единица — это 0,00001 лакха, а платформа переходит на показательную запись ниже 10⁻⁴, чтобы значение не превратилось в ноль при округлении."
+          }
+        ]
+      },
+      "htmlSha256": "0ca795718b4c77ebc6a5394bfb7ab80285f8aef369910745a6f8370b392a6aac"
+    },
+    {
+      "id": "number-scale-names",
+      "locale": "en",
+      "path": "/en/converters/lakh-crore-converter/",
+      "name": "Lakh and crore converter",
+      "h1": "Lakh and crore converter",
+      "seoTitle": "Lakh and crore to million — number scale converter",
+      "seoDescription": "Convert lakh and crore into thousands, millions and billions and back, with the value shown in three scales at once.",
+      "fields": [
+        {
+          "name": "value",
+          "label": "Value",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "from",
+          "label": "From scale",
+          "type": "select",
+          "defaultValue": "lakh",
+          "options": [
+            {
+              "value": "unit",
+              "label": "units"
+            },
+            {
+              "value": "thousand",
+              "label": "thousands"
+            },
+            {
+              "value": "lakh",
+              "label": "lakh"
+            },
+            {
+              "value": "million",
+              "label": "millions"
+            },
+            {
+              "value": "crore",
+              "label": "crore"
+            },
+            {
+              "value": "billion",
+              "label": "billions"
+            }
+          ]
+        },
+        {
+          "name": "to",
+          "label": "To scale",
+          "type": "select",
+          "defaultValue": "million",
+          "options": [
+            {
+              "value": "unit",
+              "label": "units"
+            },
+            {
+              "value": "thousand",
+              "label": "thousands"
+            },
+            {
+              "value": "lakh",
+              "label": "lakh"
+            },
+            {
+              "value": "million",
+              "label": "millions"
+            },
+            {
+              "value": "crore",
+              "label": "crore"
+            },
+            {
+              "value": "billion",
+              "label": "billions"
+            }
+          ]
+        }
+      ],
+      "content": {
+        "intro": "The South Asian system does not count in threes: after the thousand comes the lakh, a hundred thousand, and after that the crore, ten million. So two crore is not two million but twenty, and 1,00,00,000 groups its digits differently from the familiar 10,000,000. The converter works both ways and shows the quantity in units, in lakh and in crore at once, so the order of magnitude is visible whole.",
+        "howItWorks": "Each scale is a multiplier over the unit: thousand 10³, lakh 10⁵, million 10⁶, crore 10⁷, billion 10⁹.",
+        "example": "25 lakh is 2.5 million, that is 2,500,000.",
+        "tips": "Enter the number and pick the scale it is written in. Pick the scale you want it converted to. The units, lakh and crore rows show the same quantity three ways at once. Very large and very small results are shown in exponent notation.",
+        "faq": [
+          {
+            "q": "How much is one crore?",
+            "a": "Ten million. The crore follows the lakh, which is a hundred thousand, so one crore holds exactly a hundred lakh."
+          },
+          {
+            "q": "Why are the digits grouped differently?",
+            "a": "Because after the first group of three the digits go in pairs: 1,00,00,000 is one crore. Western notation groups everything in threes."
+          },
+          {
+            "q": "Where are these names used?",
+            "a": "In India, Pakistan, Bangladesh, Nepal and Sri Lanka — in news, property prices and financial reports. Meeting them in a text, it is easy to be out by an order of magnitude."
+          },
+          {
+            "q": "Why does one unit in lakh show an exponent?",
+            "a": "One unit is 0.00001 lakh, and the platform switches to exponent notation below 10⁻⁴ so that the value does not round away to zero."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "The South Asian system does not count in threes: after the thousand comes the lakh, a hundred thousand, and after that the crore, ten million. So two crore is not two million but twenty, and 1,00,00,000 groups its digits differently from the familiar 10,000,000. The converter works both ways and shows the quantity in units, in lakh and in crore at once, so the order of magnitude is visible whole.",
+        "howToUse": [
+          "Enter the number and pick the scale it is written in.",
+          "Pick the scale you want it converted to.",
+          "The units, lakh and crore rows show the same quantity three ways at once.",
+          "Very large and very small results are shown in exponent notation."
+        ],
+        "howItWorks": "Each scale is a multiplier over the unit: thousand 10³, lakh 10⁵, million 10⁶, crore 10⁷, billion 10⁹.",
+        "example": "25 lakh is 2.5 million, that is 2,500,000.",
+        "faq": [
+          {
+            "q": "How much is one crore?",
+            "a": "Ten million. The crore follows the lakh, which is a hundred thousand, so one crore holds exactly a hundred lakh."
+          },
+          {
+            "q": "Why are the digits grouped differently?",
+            "a": "Because after the first group of three the digits go in pairs: 1,00,00,000 is one crore. Western notation groups everything in threes."
+          },
+          {
+            "q": "Where are these names used?",
+            "a": "In India, Pakistan, Bangladesh, Nepal and Sri Lanka — in news, property prices and financial reports. Meeting them in a text, it is easy to be out by an order of magnitude."
+          },
+          {
+            "q": "Why does one unit in lakh show an exponent?",
+            "a": "One unit is 0.00001 lakh, and the platform switches to exponent notation below 10⁻⁴ so that the value does not round away to zero."
+          }
+        ]
+      },
+      "htmlSha256": "3783ba1f3258e99da60312a975b7195231a11d7569dbded86891ff3cc76d14a8"
+    },
+    {
+      "id": "number-scale-names",
+      "locale": "uk",
+      "path": "/uk/konvertery/lakh-i-kror/",
+      "name": "Калькулятор лакхів і кророрів",
+      "h1": "Калькулятор лакхів і кророрів",
+      "seoTitle": "Лакхи та крори в мільйони — калькулятор шкал чисел",
+      "seoDescription": "Переведіть лакхи та крори в тисячі, мільйони та мільярди і навпаки.",
+      "fields": [
+        {
+          "name": "value",
+          "label": "Значення",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "from",
+          "label": "Зі шкали",
+          "type": "select",
+          "defaultValue": "lakh",
+          "options": [
+            {
+              "value": "unit",
+              "label": "одиниці"
+            },
+            {
+              "value": "thousand",
+              "label": "тисячі"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "мільйони"
+            },
+            {
+              "value": "crore",
+              "label": "крори"
+            },
+            {
+              "value": "billion",
+              "label": "мільярди"
+            }
+          ]
+        },
+        {
+          "name": "to",
+          "label": "У шкалу",
+          "type": "select",
+          "defaultValue": "million",
+          "options": [
+            {
+              "value": "unit",
+              "label": "одиниці"
+            },
+            {
+              "value": "thousand",
+              "label": "тисячі"
+            },
+            {
+              "value": "lakh",
+              "label": "лакхи"
+            },
+            {
+              "value": "million",
+              "label": "мільйони"
+            },
+            {
+              "value": "crore",
+              "label": "крори"
+            },
+            {
+              "value": "billion",
+              "label": "мільярди"
+            }
+          ]
+        }
+      ],
+      "content": {
+        "intro": "Індійська система числення користується власними розрядами: лакх — це сто тисяч, крор — десять мільйонів. Вони постійно трапляються в новинах, звітах і цінах на нерухомість Індії та сусідніх країн, а прямого відповідника в європейській системі не мають.",
+        "howItWorks": "Кожна шкала — це множник до одиниці: тисяча 10³, лакх 10⁵, мільйон 10⁶, крор 10⁷, мільярд 10⁹. Індійська система групує цифри інакше за європейську: після перших трьох розрядів вона йде парами, а не трійками.",
+        "example": "25 лакхів — це 2,5 мільйона, тобто 2 500 000. А 3 крори дорівнюють 30 мільйонам.",
+        "tips": "Виберіть шкалу, з якої переводите. Введіть значення. Виберіть цільову шкалу та прочитайте результат.",
+        "faq": [
+          {
+            "q": "Скільки це — один крор?",
+            "a": "Десять мільйонів, тобто сто лакхів. У новинах і цінах на нерухомість Індії це основна одиниця великих сум."
+          },
+          {
+            "q": "Чому індійська система групує цифри інакше?",
+            "a": "Бо після перших трьох розрядів вона йде парами: 1,00,00,000 замість 10,000,000. Це відповідає структурі назв — лакх і крор відрізняються на два порядки, а не на три."
+          },
+          {
+            "q": "Що таке білліон?",
+            "a": "Залежить від традиції. У короткій шкалі (США, сучасна Британія) це мільярд, у довгій (частина Європи) — трильйон. Через це в перекладах фінансових текстів і виникають помилки на три порядки."
+          },
+          {
+            "q": "Де ще вживають лакх і крор?",
+            "a": "В Індії, Пакистані, Бангладеш, Шрі-Ланці й Непалі — і в англомовній пресі цих країн без перекладу."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Індійська система числення користується власними розрядами: лакх — це сто тисяч, крор — десять мільйонів. Вони постійно трапляються в новинах, звітах і цінах на нерухомість Індії та сусідніх країн, а прямого відповідника в європейській системі не мають.",
+        "howToUse": [
+          "Виберіть шкалу, з якої переводите.",
+          "Введіть значення.",
+          "Виберіть цільову шкалу та прочитайте результат."
+        ],
+        "howItWorks": "Кожна шкала — це множник до одиниці: тисяча 10³, лакх 10⁵, мільйон 10⁶, крор 10⁷, мільярд 10⁹. Індійська система групує цифри інакше за європейську: після перших трьох розрядів вона йде парами, а не трійками.",
+        "example": "25 лакхів — це 2,5 мільйона, тобто 2 500 000. А 3 крори дорівнюють 30 мільйонам.",
+        "faq": [
+          {
+            "q": "Скільки це — один крор?",
+            "a": "Десять мільйонів, тобто сто лакхів. У новинах і цінах на нерухомість Індії це основна одиниця великих сум."
+          },
+          {
+            "q": "Чому індійська система групує цифри інакше?",
+            "a": "Бо після перших трьох розрядів вона йде парами: 1,00,00,000 замість 10,000,000. Це відповідає структурі назв — лакх і крор відрізняються на два порядки, а не на три."
+          },
+          {
+            "q": "Що таке білліон?",
+            "a": "Залежить від традиції. У короткій шкалі (США, сучасна Британія) це мільярд, у довгій (частина Європи) — трильйон. Через це в перекладах фінансових текстів і виникають помилки на три порядки."
+          },
+          {
+            "q": "Де ще вживають лакх і крор?",
+            "a": "В Індії, Пакистані, Бангладеш, Шрі-Ланці й Непалі — і в англомовній пресі цих країн без перекладу."
+          }
+        ]
+      },
+      "htmlSha256": "24f19b42164297c2afaee32f4c159daaa82158b62680e7e2155587b6d6044073"
+    },
+    {
+      "id": "number-scale-names",
+      "locale": "de",
+      "path": "/de/umrechner/lakh-crore-umrechner/",
+      "name": "Umrechner für Lakh und Crore",
+      "h1": "Umrechner für Lakh und Crore",
+      "seoTitle": "Lakh und Crore in Millionen — Umrechner für Zahlenskalen",
+      "seoDescription": "Rechne Lakh und Crore in Tausender, Millionen und Milliarden um und zurück, mit dem Wert in drei Skalen zugleich.",
+      "fields": [
+        {
+          "name": "value",
+          "label": "Wert",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "from",
+          "label": "Von Skala",
+          "type": "select",
+          "defaultValue": "lakh",
+          "options": [
+            {
+              "value": "unit",
+              "label": "Einheiten"
+            },
+            {
+              "value": "thousand",
+              "label": "Tausender"
+            },
+            {
+              "value": "lakh",
+              "label": "Lakh"
+            },
+            {
+              "value": "million",
+              "label": "Millionen"
+            },
+            {
+              "value": "crore",
+              "label": "Crore"
+            },
+            {
+              "value": "billion",
+              "label": "Milliarden"
+            }
+          ]
+        },
+        {
+          "name": "to",
+          "label": "Nach Skala",
+          "type": "select",
+          "defaultValue": "million",
+          "options": [
+            {
+              "value": "unit",
+              "label": "Einheiten"
+            },
+            {
+              "value": "thousand",
+              "label": "Tausender"
+            },
+            {
+              "value": "lakh",
+              "label": "Lakh"
+            },
+            {
+              "value": "million",
+              "label": "Millionen"
+            },
+            {
+              "value": "crore",
+              "label": "Crore"
+            },
+            {
+              "value": "billion",
+              "label": "Milliarden"
+            }
+          ]
+        }
+      ],
+      "content": {
+        "intro": "Das südasiatische System zählt nicht in Dreiergruppen: nach dem Tausender kommt das Lakh mit hunderttausend und danach das Crore mit zehn Millionen. Zwei Crore sind also nicht zwei Millionen, sondern zwanzig, und 1,00,00,000 gruppiert seine Ziffern anders als die vertrauten 10 000 000. Der Umrechner arbeitet in beide Richtungen und zeigt die Menge zugleich in Einheiten, in Lakh und in Crore, damit die Größenordnung als Ganzes sichtbar bleibt.",
+        "howItWorks": "Jede Skala ist ein Faktor über der Einheit: Tausend 10³, Lakh 10⁵, Million 10⁶, Crore 10⁷, Milliarde 10⁹.",
+        "example": "25 Lakh sind 2,5 Millionen, also 2 500 000.",
+        "tips": "Trage die Zahl ein und wähle die Skala, in der sie geschrieben ist. Wähle die Skala, in die sie umgerechnet werden soll. Die Zeilen für Einheiten, Lakh und Crore zeigen dieselbe Menge dreifach zugleich. Sehr große und sehr kleine Ergebnisse erscheinen in Exponentialschreibweise.",
+        "faq": [
+          {
+            "q": "Wie viel ist ein Crore?",
+            "a": "Zehn Millionen. Das Crore folgt auf das Lakh, das hunderttausend ist, ein Crore hält also genau hundert Lakh."
+          },
+          {
+            "q": "Warum werden die Ziffern anders gruppiert?",
+            "a": "Weil nach der ersten Dreiergruppe die Ziffern paarweise gehen: 1,00,00,000 ist ein Crore. Die westliche Schreibweise gruppiert durchgehend in Dreiergruppen."
+          },
+          {
+            "q": "Wo werden diese Namen verwendet?",
+            "a": "In Indien, Pakistan, Bangladesch, Nepal und Sri Lanka — in Nachrichten, Immobilienpreisen und Geschäftsberichten. Begegnen sie einem im Text, ist man leicht um eine Größenordnung daneben."
+          },
+          {
+            "q": "Warum zeigt eine Einheit in Lakh einen Exponenten?",
+            "a": "Eine Einheit sind 0,00001 Lakh, und unterhalb von 10⁻⁴ wechselt die Anzeige in die Exponentialschreibweise, damit der Wert nicht auf null gerundet wird."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Das südasiatische System zählt nicht in Dreiergruppen: nach dem Tausender kommt das Lakh mit hunderttausend und danach das Crore mit zehn Millionen. Zwei Crore sind also nicht zwei Millionen, sondern zwanzig, und 1,00,00,000 gruppiert seine Ziffern anders als die vertrauten 10 000 000. Der Umrechner arbeitet in beide Richtungen und zeigt die Menge zugleich in Einheiten, in Lakh und in Crore, damit die Größenordnung als Ganzes sichtbar bleibt.",
+        "howToUse": [
+          "Trage die Zahl ein und wähle die Skala, in der sie geschrieben ist.",
+          "Wähle die Skala, in die sie umgerechnet werden soll.",
+          "Die Zeilen für Einheiten, Lakh und Crore zeigen dieselbe Menge dreifach zugleich.",
+          "Sehr große und sehr kleine Ergebnisse erscheinen in Exponentialschreibweise."
+        ],
+        "howItWorks": "Jede Skala ist ein Faktor über der Einheit: Tausend 10³, Lakh 10⁵, Million 10⁶, Crore 10⁷, Milliarde 10⁹.",
+        "example": "25 Lakh sind 2,5 Millionen, also 2 500 000.",
+        "faq": [
+          {
+            "q": "Wie viel ist ein Crore?",
+            "a": "Zehn Millionen. Das Crore folgt auf das Lakh, das hunderttausend ist, ein Crore hält also genau hundert Lakh."
+          },
+          {
+            "q": "Warum werden die Ziffern anders gruppiert?",
+            "a": "Weil nach der ersten Dreiergruppe die Ziffern paarweise gehen: 1,00,00,000 ist ein Crore. Die westliche Schreibweise gruppiert durchgehend in Dreiergruppen."
+          },
+          {
+            "q": "Wo werden diese Namen verwendet?",
+            "a": "In Indien, Pakistan, Bangladesch, Nepal und Sri Lanka — in Nachrichten, Immobilienpreisen und Geschäftsberichten. Begegnen sie einem im Text, ist man leicht um eine Größenordnung daneben."
+          },
+          {
+            "q": "Warum zeigt eine Einheit in Lakh einen Exponenten?",
+            "a": "Eine Einheit sind 0,00001 Lakh, und unterhalb von 10⁻⁴ wechselt die Anzeige in die Exponentialschreibweise, damit der Wert nicht auf null gerundet wird."
+          }
+        ]
+      },
+      "htmlSha256": "7c153121182319605f343f965868338ed2e16c0a56ce92ad2b96c50ab447942b"
+    },
+    {
+      "id": "number-scale-names",
+      "locale": "es",
+      "path": "/es/conversores/conversor-lakh-crore/",
+      "name": "Conversor de lakh y crore",
+      "h1": "Conversor de lakh y crore",
+      "seoTitle": "De lakh y crore a millones — conversor de escalas numéricas",
+      "seoDescription": "Convierte lakh y crore a miles, millones y miles de millones y al revés, con el valor mostrado en tres escalas a la vez.",
+      "fields": [
+        {
+          "name": "value",
+          "label": "Valor",
+          "type": "number",
+          "defaultValue": 25,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "from",
+          "label": "Escala de origen",
+          "type": "select",
+          "defaultValue": "lakh",
+          "options": [
+            {
+              "value": "unit",
+              "label": "unidades"
+            },
+            {
+              "value": "thousand",
+              "label": "miles"
+            },
+            {
+              "value": "lakh",
+              "label": "lakh"
+            },
+            {
+              "value": "million",
+              "label": "millones"
+            },
+            {
+              "value": "crore",
+              "label": "crore"
+            },
+            {
+              "value": "billion",
+              "label": "miles de millones"
+            }
+          ]
+        },
+        {
+          "name": "to",
+          "label": "Escala de destino",
+          "type": "select",
+          "defaultValue": "million",
+          "options": [
+            {
+              "value": "unit",
+              "label": "unidades"
+            },
+            {
+              "value": "thousand",
+              "label": "miles"
+            },
+            {
+              "value": "lakh",
+              "label": "lakh"
+            },
+            {
+              "value": "million",
+              "label": "millones"
+            },
+            {
+              "value": "crore",
+              "label": "crore"
+            },
+            {
+              "value": "billion",
+              "label": "miles de millones"
+            }
+          ]
+        }
+      ],
+      "content": {
+        "intro": "El sistema del sur de Asia no cuenta de tres en tres: después del millar viene el lakh, cien mil, y después el crore, diez millones. Así que dos crore no son dos millones, sino veinte, y 1,00,00,000 agrupa sus cifras de otra manera que el habitual 10.000.000. El conversor funciona en ambos sentidos y muestra la cantidad en unidades, en lakh y en crore a la vez, de modo que el orden de magnitud se ve entero.",
+        "howItWorks": "Cada escala es un multiplicador sobre la unidad: millar 10³, lakh 10⁵, millón 10⁶, crore 10⁷, mil millones 10⁹.",
+        "example": "25 lakh son 2,5 millones, es decir, 2.500.000.",
+        "tips": "Introduce el número y elige la escala en la que está escrito. Elige la escala a la que quieres convertirlo. Las filas de unidades, lakh y crore muestran la misma cantidad de tres maneras a la vez. Los resultados muy grandes y muy pequeños se muestran en notación exponencial.",
+        "faq": [
+          {
+            "q": "¿Cuánto es un crore?",
+            "a": "Diez millones. El crore sigue al lakh, que son cien mil, así que un crore contiene exactamente cien lakh."
+          },
+          {
+            "q": "¿Por qué se agrupan las cifras de otra forma?",
+            "a": "Porque tras el primer grupo de tres las cifras van de dos en dos: 1,00,00,000 es un crore. La notación occidental lo agrupa todo de tres en tres."
+          },
+          {
+            "q": "¿Dónde se usan estos nombres?",
+            "a": "En India, Pakistán, Bangladés, Nepal y Sri Lanka: en las noticias, en los precios de la vivienda y en los informes financieros. Al encontrarlos en un texto es fácil equivocarse en un orden de magnitud."
+          },
+          {
+            "q": "¿Por qué una unidad en lakh aparece con exponente?",
+            "a": "Una unidad son 0,00001 lakh, y la plataforma pasa a notación exponencial por debajo de 10⁻⁴ para que el valor no se redondee hasta desaparecer."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "El sistema del sur de Asia no cuenta de tres en tres: después del millar viene el lakh, cien mil, y después el crore, diez millones. Así que dos crore no son dos millones, sino veinte, y 1,00,00,000 agrupa sus cifras de otra manera que el habitual 10.000.000. El conversor funciona en ambos sentidos y muestra la cantidad en unidades, en lakh y en crore a la vez, de modo que el orden de magnitud se ve entero.",
+        "howToUse": [
+          "Introduce el número y elige la escala en la que está escrito.",
+          "Elige la escala a la que quieres convertirlo.",
+          "Las filas de unidades, lakh y crore muestran la misma cantidad de tres maneras a la vez.",
+          "Los resultados muy grandes y muy pequeños se muestran en notación exponencial."
+        ],
+        "howItWorks": "Cada escala es un multiplicador sobre la unidad: millar 10³, lakh 10⁵, millón 10⁶, crore 10⁷, mil millones 10⁹.",
+        "example": "25 lakh son 2,5 millones, es decir, 2.500.000.",
+        "faq": [
+          {
+            "q": "¿Cuánto es un crore?",
+            "a": "Diez millones. El crore sigue al lakh, que son cien mil, así que un crore contiene exactamente cien lakh."
+          },
+          {
+            "q": "¿Por qué se agrupan las cifras de otra forma?",
+            "a": "Porque tras el primer grupo de tres las cifras van de dos en dos: 1,00,00,000 es un crore. La notación occidental lo agrupa todo de tres en tres."
+          },
+          {
+            "q": "¿Dónde se usan estos nombres?",
+            "a": "En India, Pakistán, Bangladés, Nepal y Sri Lanka: en las noticias, en los precios de la vivienda y en los informes financieros. Al encontrarlos en un texto es fácil equivocarse en un orden de magnitud."
+          },
+          {
+            "q": "¿Por qué una unidad en lakh aparece con exponente?",
+            "a": "Una unidad son 0,00001 lakh, y la plataforma pasa a notación exponencial por debajo de 10⁻⁴ para que el valor no se redondee hasta desaparecer."
+          }
+        ]
+      },
+      "htmlSha256": "b9a311bbdd6752d84423a5bd58dc3836ed381ee8b2b7f87f9c3e1d98ad03e975"
+    },
+    {
+      "id": "number-to-words",
+      "locale": "ru",
+      "path": "/ru/converters/chislo-propisyu/",
+      "name": "Число прописью",
+      "h1": "Число прописью",
+      "seoTitle": "Число прописью — запись числа словами онлайн",
+      "seoDescription": "Переведите число в запись словами и получите сумму прописью с копейками для договора или накладной.",
+      "fields": [
+        {
+          "name": "value",
+          "label": "Число",
+          "type": "number",
+          "defaultValue": 1234,
+          "signed": true,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Записывает число словами по триадам: миллиарды, миллионы, тысячи, остаток. Согласование рода живёт в тысячах — «одна тысяча», но «два миллиона», — а форма масштабного слова выбирается по последним двум цифрам триады, как того требует грамматика. Рядом выводится сумма прописью с копейками: та самая строка, которую просят договоры и накладные. Отрицательные числа начинаются со слова «минус», ноль так и остаётся нулём.",
+        "howItWorks": "Число режется на триады, каждая записывается словами, к триаде добавляется масштабное слово в нужной форме.",
+        "example": "1234 записывается как «одна тысяча двести тридцать четыре».",
+        "tips": "Введите целое число — дробную часть запись словами не принимает. Для суммы в документе берите строку «Сумма прописью»: она уже содержит копейки. Отрицательное число начнётся со слова «минус». Предел записи — 999 999 999 999 по модулю.",
+        "faq": [
+          {
+            "q": "Почему «одна тысяча», а не «один тысяча»?",
+            "a": "Тысяча в русском женского рода, и числительное согласуется с ней: одна тысяча, две тысячи. Миллион и миллиард мужского рода, поэтому там «один миллион» и «два миллиона»."
+          },
+          {
+            "q": "Откуда берётся форма «тысяч» вместо «тысячи»?",
+            "a": "Форма выбирается по последним двум цифрам триады: 1 — тысяча, 2–4 — тысячи, остальное — тысяч, а числа от 11 до 14 всегда берут последнюю форму."
+          },
+          {
+            "q": "Можно ли записать дробное число?",
+            "a": "Нет, запись словами работает с целыми. Для денег используйте строку суммы прописью: рубли идут словами, копейки цифрами — так принято в документах."
+          },
+          {
+            "q": "Почему есть предел в 999 999 999 999?",
+            "a": "Дальше начинаются триллионы, названия которых в разных традициях расходятся: то, что в одной зовётся биллионом, в другой — миллиардом. Предел выбран там, где путаницы ещё нет."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Записывает число словами по триадам: миллиарды, миллионы, тысячи, остаток. Согласование рода живёт в тысячах — «одна тысяча», но «два миллиона», — а форма масштабного слова выбирается по последним двум цифрам триады, как того требует грамматика. Рядом выводится сумма прописью с копейками: та самая строка, которую просят договоры и накладные. Отрицательные числа начинаются со слова «минус», ноль так и остаётся нулём.",
+        "howToUse": [
+          "Введите целое число — дробную часть запись словами не принимает.",
+          "Для суммы в документе берите строку «Сумма прописью»: она уже содержит копейки.",
+          "Отрицательное число начнётся со слова «минус».",
+          "Предел записи — 999 999 999 999 по модулю."
+        ],
+        "howItWorks": "Число режется на триады, каждая записывается словами, к триаде добавляется масштабное слово в нужной форме.",
+        "example": "1234 записывается как «одна тысяча двести тридцать четыре».",
+        "faq": [
+          {
+            "q": "Почему «одна тысяча», а не «один тысяча»?",
+            "a": "Тысяча в русском женского рода, и числительное согласуется с ней: одна тысяча, две тысячи. Миллион и миллиард мужского рода, поэтому там «один миллион» и «два миллиона»."
+          },
+          {
+            "q": "Откуда берётся форма «тысяч» вместо «тысячи»?",
+            "a": "Форма выбирается по последним двум цифрам триады: 1 — тысяча, 2–4 — тысячи, остальное — тысяч, а числа от 11 до 14 всегда берут последнюю форму."
+          },
+          {
+            "q": "Можно ли записать дробное число?",
+            "a": "Нет, запись словами работает с целыми. Для денег используйте строку суммы прописью: рубли идут словами, копейки цифрами — так принято в документах."
+          },
+          {
+            "q": "Почему есть предел в 999 999 999 999?",
+            "a": "Дальше начинаются триллионы, названия которых в разных традициях расходятся: то, что в одной зовётся биллионом, в другой — миллиардом. Предел выбран там, где путаницы ещё нет."
+          }
+        ]
+      },
+      "htmlSha256": "48ea0da3b507bdae5173d8432d14caccc98401bf0af5e1922a7572156a2b1e90"
+    },
+    {
+      "id": "number-to-words",
+      "locale": "en",
+      "path": "/en/converters/number-to-words/",
+      "name": "Number to words converter",
+      "h1": "Number to words converter",
+      "seoTitle": "Number to words converter — write numbers out online",
+      "seoDescription": "Convert a number into words and get the amount in words with kopecks for a contract or an invoice.",
+      "fields": [
+        {
+          "name": "value",
+          "label": "Number",
+          "type": "number",
+          "defaultValue": 1234,
+          "signed": true,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Writes a number out in words group by group: billions, millions, thousands, remainder. Grammatical agreement lives in the thousands — one thousand, two thousand — and the scale word takes the form the last two digits of the group require. Alongside comes the amount in words with kopecks: the line contracts and invoices ask for. Negative numbers start with the word minus, and zero stays zero.",
+        "howItWorks": "The number is split into groups of three, each group is written in words, and the scale word is added in the required form.",
+        "example": "1234 is written as \"one thousand two hundred thirty four\".",
+        "tips": "Enter a whole number — written-out form does not take a fractional part. For a document, use the \"Amount in words\" line: it already carries the kopecks. A negative number begins with the word minus. The limit is 999,999,999,999 in absolute value.",
+        "faq": [
+          {
+            "q": "Why does the thousands group change form?",
+            "a": "In Russian the word for thousand is feminine and the numeral agrees with it, while million and billion are masculine. The written form follows the grammar of the source language."
+          },
+          {
+            "q": "Where does the ending of the scale word come from?",
+            "a": "It is chosen by the last two digits of the group: 1 takes one form, 2 to 4 another, everything else a third, and numbers from 11 to 14 always take the last one."
+          },
+          {
+            "q": "Can a fractional number be written out?",
+            "a": "No, the written form works with whole numbers. For money use the amount line: roubles go in words and kopecks in digits, as documents expect."
+          },
+          {
+            "q": "Why is there a limit of 999,999,999,999?",
+            "a": "Beyond it come the trillions, whose names diverge between traditions: what one calls a billion another calls a milliard. The limit sits where that confusion has not started yet."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Writes a number out in words group by group: billions, millions, thousands, remainder. Grammatical agreement lives in the thousands — one thousand, two thousand — and the scale word takes the form the last two digits of the group require. Alongside comes the amount in words with kopecks: the line contracts and invoices ask for. Negative numbers start with the word minus, and zero stays zero.",
+        "howToUse": [
+          "Enter a whole number — written-out form does not take a fractional part.",
+          "For a document, use the \"Amount in words\" line: it already carries the kopecks.",
+          "A negative number begins with the word minus.",
+          "The limit is 999,999,999,999 in absolute value."
+        ],
+        "howItWorks": "The number is split into groups of three, each group is written in words, and the scale word is added in the required form.",
+        "example": "1234 is written as \"one thousand two hundred thirty four\".",
+        "faq": [
+          {
+            "q": "Why does the thousands group change form?",
+            "a": "In Russian the word for thousand is feminine and the numeral agrees with it, while million and billion are masculine. The written form follows the grammar of the source language."
+          },
+          {
+            "q": "Where does the ending of the scale word come from?",
+            "a": "It is chosen by the last two digits of the group: 1 takes one form, 2 to 4 another, everything else a third, and numbers from 11 to 14 always take the last one."
+          },
+          {
+            "q": "Can a fractional number be written out?",
+            "a": "No, the written form works with whole numbers. For money use the amount line: roubles go in words and kopecks in digits, as documents expect."
+          },
+          {
+            "q": "Why is there a limit of 999,999,999,999?",
+            "a": "Beyond it come the trillions, whose names diverge between traditions: what one calls a billion another calls a milliard. The limit sits where that confusion has not started yet."
+          }
+        ]
+      },
+      "htmlSha256": "e62d3c03ad304082ef216cc3c952c9b5e40bb4daf31c8500e8142eb0acc9c443"
+    },
+    {
+      "id": "number-to-words",
+      "locale": "uk",
+      "path": "/uk/konvertery/chyslo-propysom/",
+      "name": "Число прописом",
+      "h1": "Число прописом",
+      "seoTitle": "Число прописом — запис числа словами онлайн",
+      "seoDescription": "Переведіть число в запис словами та отримайте суму прописом із копійками для договору чи накладної.",
+      "fields": [
+        {
+          "name": "value",
+          "label": "Число",
+          "type": "number",
+          "defaultValue": 1234,
+          "signed": true,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Запис числа прописом потрібен там, де цифру легко підробити або невірно прочитати: у договорах, платіжних документах і довіреностях. Складність не в самих словах, а в узгодженні: «одна тисяча», але «два мільйони», і форма залежить від останніх цифр триади.",
+        "howItWorks": "Число ріжеться на триади, кожна записується словами, і до триади додається масштабне слово в потрібній формі. Форма залежить від останніх цифр: «одна тисяча», «дві тисячі», «п’ять тисяч» — правило узгодження числівників з іменниками.",
+        "example": "Число 1234 записується як «одна тисяча двісті тридцять чотири». А 2000 дасть «дві тисячі», бо форма залежить саме від останньої цифри триади.",
+        "tips": "Введіть число цифрами. Прочитайте запис прописом. Звірте узгодження, якщо вставляєте текст у документ.",
+        "faq": [
+          {
+            "q": "Навіщо писати числа прописом?",
+            "a": "Щоб виключити підробку й помилку читання. У платіжних документах сума дублюється прописом саме тому: дописати нуль до цифри легко, а переписати весь текст — ні."
+          },
+          {
+            "q": "Чому форма слова змінюється?",
+            "a": "Через узгодження числівника з іменником: «одна тисяча», «дві тисячі», «п’ять тисяч». Форма визначається останньою цифрою триади, а для чисел від 11 до 14 діє окреме правило."
+          },
+          {
+            "q": "Як записувати копійки?",
+            "a": "Зазвичай цифрами після суми прописом: «одна тисяча двісті гривень 50 копійок». Копійки прописом пишуть рідше, і банківські форми зазвичай цього не вимагають."
+          },
+          {
+            "q": "Чи є обмеження на розмір числа?",
+            "a": "Практичне: після мільярда назви триад стають рідковживаними й радше заплутують. Для документів числа такого порядку зазвичай записують інакше."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Запис числа прописом потрібен там, де цифру легко підробити або невірно прочитати: у договорах, платіжних документах і довіреностях. Складність не в самих словах, а в узгодженні: «одна тисяча», але «два мільйони», і форма залежить від останніх цифр триади.",
+        "howToUse": [
+          "Введіть число цифрами.",
+          "Прочитайте запис прописом.",
+          "Звірте узгодження, якщо вставляєте текст у документ."
+        ],
+        "howItWorks": "Число ріжеться на триади, кожна записується словами, і до триади додається масштабне слово в потрібній формі. Форма залежить від останніх цифр: «одна тисяча», «дві тисячі», «п’ять тисяч» — правило узгодження числівників з іменниками.",
+        "example": "Число 1234 записується як «одна тисяча двісті тридцять чотири». А 2000 дасть «дві тисячі», бо форма залежить саме від останньої цифри триади.",
+        "faq": [
+          {
+            "q": "Навіщо писати числа прописом?",
+            "a": "Щоб виключити підробку й помилку читання. У платіжних документах сума дублюється прописом саме тому: дописати нуль до цифри легко, а переписати весь текст — ні."
+          },
+          {
+            "q": "Чому форма слова змінюється?",
+            "a": "Через узгодження числівника з іменником: «одна тисяча», «дві тисячі», «п’ять тисяч». Форма визначається останньою цифрою триади, а для чисел від 11 до 14 діє окреме правило."
+          },
+          {
+            "q": "Як записувати копійки?",
+            "a": "Зазвичай цифрами після суми прописом: «одна тисяча двісті гривень 50 копійок». Копійки прописом пишуть рідше, і банківські форми зазвичай цього не вимагають."
+          },
+          {
+            "q": "Чи є обмеження на розмір числа?",
+            "a": "Практичне: після мільярда назви триад стають рідковживаними й радше заплутують. Для документів числа такого порядку зазвичай записують інакше."
+          }
+        ]
+      },
+      "htmlSha256": "9ac018380f0a5f04cfb85ccca5c9e1b6585d7e89447904444113e9f6f550a005"
+    },
+    {
+      "id": "paper-quantity",
+      "locale": "ru",
+      "path": "/ru/converters/ves-i-kolichestvo-bumagi/",
+      "name": "Калькулятор веса и количества бумаги",
+      "h1": "Калькулятор веса и количества бумаги",
+      "seoTitle": "Калькулятор веса бумаги — по формату, плотности и числу листов",
+      "seoDescription": "Рассчитайте массу пачки бумаги по формату A0–A6, плотности в граммах на квадратный метр и числу листов.",
+      "fields": [
+        {
+          "name": "format",
+          "label": "Формат листа",
+          "type": "select",
+          "defaultValue": "a4",
+          "options": [
+            {
+              "value": "a0",
+              "label": "A0 — 841×1189 мм"
+            },
+            {
+              "value": "a1",
+              "label": "A1 — 594×841 мм"
+            },
+            {
+              "value": "a2",
+              "label": "A2 — 420×594 мм"
+            },
+            {
+              "value": "a3",
+              "label": "A3 — 297×420 мм"
+            },
+            {
+              "value": "a4",
+              "label": "A4 — 210×297 мм"
+            },
+            {
+              "value": "a5",
+              "label": "A5 — 148×210 мм"
+            },
+            {
+              "value": "a6",
+              "label": "A6 — 105×148 мм"
+            }
+          ]
+        },
+        {
+          "name": "grammage",
+          "label": "Плотность, г/м²",
+          "type": "number",
+          "defaultValue": 80,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "sheets",
+          "label": "Листов",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Плотность бумаги указывают в граммах на квадратный метр, а покупают её листами — и связать одно с другим помогает устройство A-серии. По ISO 216 лист A0 имеет площадь ровно квадратный метр, а каждый следующий формат вдвое меньше предыдущего. Поэтому «80 г/м²» для A4 означает ровно 80/16 = 5 граммов на лист, а пачка в 500 листов весит 2,5 килограмма. Это нужно и для почтовых тарифов, и для выбора принтера, и для расчёта груза.",
+        "howItWorks": "Масса = площадь листа × плотность × число листов.",
+        "example": "Пачка A4 по 80 г/м² из 500 листов весит ровно 2,5 килограмма.",
+        "tips": "Плотность указана на упаковке: 80 г/м² — офисная, 160–300 — картон и фотобумага. Формат берётся по ISO 216, где A0 равен квадратному метру, а каждый следующий вдвое меньше. Для нестандартного формата возьмите ближайший и пересчитайте по отношению площадей. Масса считается без упаковки: коробка и обёртка добавят сверху.",
+        "faq": [
+          {
+            "q": "Сколько весит пачка A4?",
+            "a": "A0 равен квадратному метру, а A4 меньше его в шестнадцать раз. При 80 г/м² лист весит 5 граммов, и 500 листов дают ровно 2500 граммов бумаги — вес самой пачки без коробки составляет 2,5 кг, а при 64 г/м² выйдет 2 кг."
+          },
+          {
+            "q": "Чем отличается плотность от толщины?",
+            "a": "Плотность — это масса на площадь, а толщина зависит ещё и от рыхлости волокна. Две бумаги по 80 г/м² могут отличаться по толщине в полтора раза: рыхлая офсетная толще плотной мелованной."
+          },
+          {
+            "q": "Как считать для конверта или посылки?",
+            "a": "Сложите массу всех листов и добавьте конверт. Почтовые тарифы ступенчатые, поэтому важен не точный вес, а то, в какую ступень он попадает — расчёт показывает, останетесь ли вы в пределах."
+          },
+          {
+            "q": "Что такое «листов в килограмме»?",
+            "a": "Обратная величина: сколько листов данного формата и плотности уместится в килограмм. Ею удобно пересчитывать оптовые поставки, где бумагу продают тоннами, а расходуют листами."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Плотность бумаги указывают в граммах на квадратный метр, а покупают её листами — и связать одно с другим помогает устройство A-серии. По ISO 216 лист A0 имеет площадь ровно квадратный метр, а каждый следующий формат вдвое меньше предыдущего. Поэтому «80 г/м²» для A4 означает ровно 80/16 = 5 граммов на лист, а пачка в 500 листов весит 2,5 килограмма. Это нужно и для почтовых тарифов, и для выбора принтера, и для расчёта груза.",
+        "howToUse": [
+          "Плотность указана на упаковке: 80 г/м² — офисная, 160–300 — картон и фотобумага.",
+          "Формат берётся по ISO 216, где A0 равен квадратному метру, а каждый следующий вдвое меньше.",
+          "Для нестандартного формата возьмите ближайший и пересчитайте по отношению площадей.",
+          "Масса считается без упаковки: коробка и обёртка добавят сверху."
+        ],
+        "howItWorks": "Масса = площадь листа × плотность × число листов.",
+        "example": "Пачка A4 по 80 г/м² из 500 листов весит ровно 2,5 килограмма.",
+        "faq": [
+          {
+            "q": "Сколько весит пачка A4?",
+            "a": "A0 равен квадратному метру, а A4 меньше его в шестнадцать раз. При 80 г/м² лист весит 5 граммов, и 500 листов дают ровно 2500 граммов бумаги — вес самой пачки без коробки составляет 2,5 кг, а при 64 г/м² выйдет 2 кг."
+          },
+          {
+            "q": "Чем отличается плотность от толщины?",
+            "a": "Плотность — это масса на площадь, а толщина зависит ещё и от рыхлости волокна. Две бумаги по 80 г/м² могут отличаться по толщине в полтора раза: рыхлая офсетная толще плотной мелованной."
+          },
+          {
+            "q": "Как считать для конверта или посылки?",
+            "a": "Сложите массу всех листов и добавьте конверт. Почтовые тарифы ступенчатые, поэтому важен не точный вес, а то, в какую ступень он попадает — расчёт показывает, останетесь ли вы в пределах."
+          },
+          {
+            "q": "Что такое «листов в килограмме»?",
+            "a": "Обратная величина: сколько листов данного формата и плотности уместится в килограмм. Ею удобно пересчитывать оптовые поставки, где бумагу продают тоннами, а расходуют листами."
+          }
+        ]
+      },
+      "htmlSha256": "7321655ba007930972855806c4674679fc05a4ab9fb280f20a2ad2bdf6865616"
+    },
+    {
+      "id": "paper-quantity",
+      "locale": "en",
+      "path": "/en/converters/paper-weight-and-sheets/",
+      "name": "Paper weight and sheets calculator",
+      "h1": "Paper weight and sheets calculator",
+      "seoTitle": "Paper weight calculator — by size, grammage and sheet count",
+      "seoDescription": "Calculate the mass of a paper ream from A0–A6 size, grammage in grams per square metre and the number of sheets.",
+      "fields": [
+        {
+          "name": "format",
+          "label": "Sheet size",
+          "type": "select",
+          "defaultValue": "a4",
+          "options": [
+            {
+              "value": "a0",
+              "label": "A0 — 841×1189 mm"
+            },
+            {
+              "value": "a1",
+              "label": "A1 — 594×841 mm"
+            },
+            {
+              "value": "a2",
+              "label": "A2 — 420×594 mm"
+            },
+            {
+              "value": "a3",
+              "label": "A3 — 297×420 mm"
+            },
+            {
+              "value": "a4",
+              "label": "A4 — 210×297 mm"
+            },
+            {
+              "value": "a5",
+              "label": "A5 — 148×210 mm"
+            },
+            {
+              "value": "a6",
+              "label": "A6 — 105×148 mm"
+            }
+          ]
+        },
+        {
+          "name": "grammage",
+          "label": "Grammage, gsm",
+          "type": "number",
+          "defaultValue": 80,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "sheets",
+          "label": "Sheets",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Paper is specified in grams per square metre but bought by the sheet, and the A series is what ties the two together. Under ISO 216 an A0 sheet is exactly one square metre, and each next size is half the previous one. So \"80 gsm\" on A4 means exactly 80/16 = 5 grams per sheet, and a 500-sheet ream weighs 2.5 kilograms. That matters for postage brackets, for picking a printer and for working out freight.",
+        "howItWorks": "Mass = sheet area × grammage × number of sheets.",
+        "example": "A ream of 500 A4 sheets at 80 gsm weighs exactly 2.5 kilograms.",
+        "tips": "Grammage is printed on the wrapper: 80 gsm is office paper, 160–300 is card and photo stock. Sizes follow ISO 216, where A0 is one square metre and each next size is half of it. For a non-standard size take the nearest one and scale by the area ratio. The mass excludes packaging: the box and wrapper add on top.",
+        "faq": [
+          {
+            "q": "Why does an A4 ream weigh what it does?",
+            "a": "Because A0 is one square metre and A4 is sixteen times smaller. At 80 gsm a sheet weighs 5 grams, so 500 sheets come to 2500 grams of paper; at 64 gsm the same ream lands at 2 kg."
+          },
+          {
+            "q": "How does grammage differ from thickness?",
+            "a": "Grammage is mass per area, while thickness also depends on how bulky the fibre is. Two 80 gsm papers can differ in thickness by half again: loose offset stock is thicker than dense coated stock."
+          },
+          {
+            "q": "How do I work out postage?",
+            "a": "Add up all the sheets and include the envelope. Postal rates come in steps, so what matters is not the exact weight but which step it falls into — the calculation shows whether you stay inside."
+          },
+          {
+            "q": "What is \"sheets per kilogram\"?",
+            "a": "The inverse figure: how many sheets of this size and grammage fit into a kilogram. It is handy for wholesale, where paper is sold by the tonne but used by the sheet."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Paper is specified in grams per square metre but bought by the sheet, and the A series is what ties the two together. Under ISO 216 an A0 sheet is exactly one square metre, and each next size is half the previous one. So \"80 gsm\" on A4 means exactly 80/16 = 5 grams per sheet, and a 500-sheet ream weighs 2.5 kilograms. That matters for postage brackets, for picking a printer and for working out freight.",
+        "howToUse": [
+          "Grammage is printed on the wrapper: 80 gsm is office paper, 160–300 is card and photo stock.",
+          "Sizes follow ISO 216, where A0 is one square metre and each next size is half of it.",
+          "For a non-standard size take the nearest one and scale by the area ratio.",
+          "The mass excludes packaging: the box and wrapper add on top."
+        ],
+        "howItWorks": "Mass = sheet area × grammage × number of sheets.",
+        "example": "A ream of 500 A4 sheets at 80 gsm weighs exactly 2.5 kilograms.",
+        "faq": [
+          {
+            "q": "Why does an A4 ream weigh what it does?",
+            "a": "Because A0 is one square metre and A4 is sixteen times smaller. At 80 gsm a sheet weighs 5 grams, so 500 sheets come to 2500 grams of paper; at 64 gsm the same ream lands at 2 kg."
+          },
+          {
+            "q": "How does grammage differ from thickness?",
+            "a": "Grammage is mass per area, while thickness also depends on how bulky the fibre is. Two 80 gsm papers can differ in thickness by half again: loose offset stock is thicker than dense coated stock."
+          },
+          {
+            "q": "How do I work out postage?",
+            "a": "Add up all the sheets and include the envelope. Postal rates come in steps, so what matters is not the exact weight but which step it falls into — the calculation shows whether you stay inside."
+          },
+          {
+            "q": "What is \"sheets per kilogram\"?",
+            "a": "The inverse figure: how many sheets of this size and grammage fit into a kilogram. It is handy for wholesale, where paper is sold by the tonne but used by the sheet."
+          }
+        ]
+      },
+      "htmlSha256": "7ae4109f87d74e9fd29cb385d29edfa85d9029f9794e9bb604f66725fc6a9a00"
+    },
+    {
+      "id": "paper-quantity",
+      "locale": "uk",
+      "path": "/uk/konvertery/vaga-i-kilkist-paperu/",
+      "name": "Калькулятор ваги та кількості паперу",
+      "h1": "Калькулятор ваги та кількості паперу",
+      "seoTitle": "Калькулятор ваги паперу — за форматом і щільністю",
+      "seoDescription": "Розрахуйте масу пачки паперу за форматом A0–A6, щільністю та кількістю аркушів.",
+      "fields": [
+        {
+          "name": "format",
+          "label": "Формат аркуша",
+          "type": "select",
+          "defaultValue": "a4",
+          "options": [
+            {
+              "value": "a0",
+              "label": "A0 — 841×1189 мм"
+            },
+            {
+              "value": "a1",
+              "label": "A1 — 594×841 мм"
+            },
+            {
+              "value": "a2",
+              "label": "A2 — 420×594 мм"
+            },
+            {
+              "value": "a3",
+              "label": "A3 — 297×420 мм"
+            },
+            {
+              "value": "a4",
+              "label": "A4 — 210×297 мм"
+            },
+            {
+              "value": "a5",
+              "label": "A5 — 148×210 мм"
+            },
+            {
+              "value": "a6",
+              "label": "A6 — 105×148 мм"
+            }
+          ]
+        },
+        {
+          "name": "grammage",
+          "label": "Щільність, г/м²",
+          "type": "number",
+          "defaultValue": 80,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "sheets",
+          "label": "Аркушів",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Формат A задумано так, що аркуш A0 має площу рівно один квадратний метр, а кожен наступний удвічі менший. Звідси й проста арифметика ваги: пачка A4 із 500 аркушів по 80 г/м² важить рівно два кілограми, без жодних наближень.",
+        "howItWorks": "Маса дорівнює площа аркуша × щільність × кількість аркушів. Площа A4 становить 1/16 квадратного метра, бо A0 має площу рівно один квадратний метр, а кожен наступний формат удвічі менший за попередній.",
+        "example": "Пачка A4 по 80 г/м² із 500 аркушів важить рівно 2,5 кілограма. Той самий папір щільністю 64 г/м² дав би рівно 2 кг.",
+        "tips": "Виберіть формат аркуша. Введіть щільність паперу в грамах на квадратний метр. Введіть кількість аркушів і прочитайте загальну масу.",
+        "faq": [
+          {
+            "q": "Скільки важить пачка A4?",
+            "a": "За щільності 80 г/м² аркуш A4 важить рівно 5 г, бо його площа становить одну шістнадцяту квадратного метра. Пачка з 500 аркушів дає 2500 г, тобто 2,5 кілограма самого паперу без коробки."
+          },
+          {
+            "q": "Що означає щільність у грамах на квадратний метр?",
+            "a": "Масу одного квадратного метра паперу. Офісний папір — 80 г/м², щільніший для друку фотографій — 160–250 г/м², картон — від 300."
+          },
+          {
+            "q": "Чому кожен наступний формат удвічі менший?",
+            "a": "Бо співвідношення сторін дорівнює кореню з двох. Складений навпіл аркуш зберігає пропорції — саме тому масштабування між форматами не спотворює зображення."
+          },
+          {
+            "q": "Навіщо знати вагу паперу?",
+            "a": "Для розрахунку поштової пересилки, навантаження на полиці й транспортування тиражу. Тираж у тисячу аркушів A3 щільністю 120 г/м² важить понад 21 кілограм."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Формат A задумано так, що аркуш A0 має площу рівно один квадратний метр, а кожен наступний удвічі менший. Звідси й проста арифметика ваги: пачка A4 із 500 аркушів по 80 г/м² важить рівно два кілограми, без жодних наближень.",
+        "howToUse": [
+          "Виберіть формат аркуша.",
+          "Введіть щільність паперу в грамах на квадратний метр.",
+          "Введіть кількість аркушів і прочитайте загальну масу."
+        ],
+        "howItWorks": "Маса дорівнює площа аркуша × щільність × кількість аркушів. Площа A4 становить 1/16 квадратного метра, бо A0 має площу рівно один квадратний метр, а кожен наступний формат удвічі менший за попередній.",
+        "example": "Пачка A4 по 80 г/м² із 500 аркушів важить рівно 2,5 кілограма. Той самий папір щільністю 64 г/м² дав би рівно 2 кг.",
+        "faq": [
+          {
+            "q": "Скільки важить пачка A4?",
+            "a": "За щільності 80 г/м² аркуш A4 важить рівно 5 г, бо його площа становить одну шістнадцяту квадратного метра. Пачка з 500 аркушів дає 2500 г, тобто 2,5 кілограма самого паперу без коробки."
+          },
+          {
+            "q": "Що означає щільність у грамах на квадратний метр?",
+            "a": "Масу одного квадратного метра паперу. Офісний папір — 80 г/м², щільніший для друку фотографій — 160–250 г/м², картон — від 300."
+          },
+          {
+            "q": "Чому кожен наступний формат удвічі менший?",
+            "a": "Бо співвідношення сторін дорівнює кореню з двох. Складений навпіл аркуш зберігає пропорції — саме тому масштабування між форматами не спотворює зображення."
+          },
+          {
+            "q": "Навіщо знати вагу паперу?",
+            "a": "Для розрахунку поштової пересилки, навантаження на полиці й транспортування тиражу. Тираж у тисячу аркушів A3 щільністю 120 г/м² важить понад 21 кілограм."
+          }
+        ]
+      },
+      "htmlSha256": "fbd942afed1421700652e0fed1c5eb6f85f4d7e2bfe70681ff29701e35829fd4"
+    },
+    {
+      "id": "paper-quantity",
+      "locale": "de",
+      "path": "/de/umrechner/papiergewicht-rechner/",
+      "name": "Rechner für Papiergewicht und Blattzahl",
+      "h1": "Rechner für Papiergewicht und Blattzahl",
+      "seoTitle": "Papiergewicht berechnen — nach Format, Grammatur und Blattzahl",
+      "seoDescription": "Berechne das Gewicht eines Papierpakets aus dem Format A0–A6, der Grammatur in Gramm je Quadratmeter und der Blattzahl.",
+      "fields": [
+        {
+          "name": "format",
+          "label": "Blattformat",
+          "type": "select",
+          "defaultValue": "a4",
+          "options": [
+            {
+              "value": "a0",
+              "label": "A0 — 841×1189 mm"
+            },
+            {
+              "value": "a1",
+              "label": "A1 — 594×841 mm"
+            },
+            {
+              "value": "a2",
+              "label": "A2 — 420×594 mm"
+            },
+            {
+              "value": "a3",
+              "label": "A3 — 297×420 mm"
+            },
+            {
+              "value": "a4",
+              "label": "A4 — 210×297 mm"
+            },
+            {
+              "value": "a5",
+              "label": "A5 — 148×210 mm"
+            },
+            {
+              "value": "a6",
+              "label": "A6 — 105×148 mm"
+            }
+          ]
+        },
+        {
+          "name": "grammage",
+          "label": "Grammatur, g/m²",
+          "type": "number",
+          "defaultValue": 80,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "sheets",
+          "label": "Blätter",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Papier wird in Gramm je Quadratmeter angegeben, aber blattweise gekauft, und die A-Reihe verbindet beides. Nach ISO 216 misst ein Bogen A0 genau einen Quadratmeter, und jedes nächste Format ist die Hälfte des vorigen. „80 g/m²“ auf A4 bedeuten also genau 80/16 = 5 Gramm je Blatt, und ein Paket mit 500 Blatt wiegt 2,5 Kilogramm. Das zählt für Portostufen, für die Wahl eines Druckers und für die Frachtberechnung.",
+        "howItWorks": "Gewicht = Blattfläche × Grammatur × Blattzahl.",
+        "example": "Ein Paket mit 500 Blatt A4 zu 80 g/m² wiegt genau 2,5 Kilogramm.",
+        "tips": "Die Grammatur steht auf der Verpackung: 80 g/m² ist Büropapier, 160–300 sind Karton und Fotopapier. Die Formate folgen ISO 216, wo A0 einen Quadratmeter misst und jedes nächste die Hälfte davon. Für ein abweichendes Format nimm das nächstgelegene und rechne über das Flächenverhältnis hoch. Das Gewicht ist ohne Verpackung: Karton und Umschlag kommen hinzu.",
+        "faq": [
+          {
+            "q": "Warum wiegt ein Paket A4 gerade so viel?",
+            "a": "Weil A0 einen Quadratmeter misst und A4 sechzehnmal kleiner ist. Bei 80 g/m² wiegt ein Blatt 5 Gramm, 500 Blatt kommen also auf 2500 Gramm Papier; bei 64 g/m² landet dasselbe Paket bei 2 kg."
+          },
+          {
+            "q": "Wie unterscheidet sich die Grammatur von der Dicke?",
+            "a": "Die Grammatur ist Masse je Fläche, während die Dicke auch davon abhängt, wie voluminös die Faser ist. Zwei Papiere mit 80 g/m² können sich in der Dicke um die Hälfte unterscheiden: lockeres Offsetpapier ist dicker als dichtes gestrichenes."
+          },
+          {
+            "q": "Wie ermittle ich das Porto?",
+            "a": "Zähle alle Blätter zusammen und rechne den Umschlag dazu. Portotarife gehen in Stufen, wichtig ist also nicht das genaue Gewicht, sondern in welche Stufe es fällt — die Rechnung zeigt, ob du darunter bleibst."
+          },
+          {
+            "q": "Was sind „Blätter je Kilogramm“?",
+            "a": "Die Umkehrzahl: wie viele Blätter dieses Formats und dieser Grammatur auf ein Kilogramm gehen. Praktisch im Großhandel, wo Papier nach Tonnen verkauft und nach Blatt verbraucht wird."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Papier wird in Gramm je Quadratmeter angegeben, aber blattweise gekauft, und die A-Reihe verbindet beides. Nach ISO 216 misst ein Bogen A0 genau einen Quadratmeter, und jedes nächste Format ist die Hälfte des vorigen. „80 g/m²“ auf A4 bedeuten also genau 80/16 = 5 Gramm je Blatt, und ein Paket mit 500 Blatt wiegt 2,5 Kilogramm. Das zählt für Portostufen, für die Wahl eines Druckers und für die Frachtberechnung.",
+        "howToUse": [
+          "Die Grammatur steht auf der Verpackung: 80 g/m² ist Büropapier, 160–300 sind Karton und Fotopapier.",
+          "Die Formate folgen ISO 216, wo A0 einen Quadratmeter misst und jedes nächste die Hälfte davon.",
+          "Für ein abweichendes Format nimm das nächstgelegene und rechne über das Flächenverhältnis hoch.",
+          "Das Gewicht ist ohne Verpackung: Karton und Umschlag kommen hinzu."
+        ],
+        "howItWorks": "Gewicht = Blattfläche × Grammatur × Blattzahl.",
+        "example": "Ein Paket mit 500 Blatt A4 zu 80 g/m² wiegt genau 2,5 Kilogramm.",
+        "faq": [
+          {
+            "q": "Warum wiegt ein Paket A4 gerade so viel?",
+            "a": "Weil A0 einen Quadratmeter misst und A4 sechzehnmal kleiner ist. Bei 80 g/m² wiegt ein Blatt 5 Gramm, 500 Blatt kommen also auf 2500 Gramm Papier; bei 64 g/m² landet dasselbe Paket bei 2 kg."
+          },
+          {
+            "q": "Wie unterscheidet sich die Grammatur von der Dicke?",
+            "a": "Die Grammatur ist Masse je Fläche, während die Dicke auch davon abhängt, wie voluminös die Faser ist. Zwei Papiere mit 80 g/m² können sich in der Dicke um die Hälfte unterscheiden: lockeres Offsetpapier ist dicker als dichtes gestrichenes."
+          },
+          {
+            "q": "Wie ermittle ich das Porto?",
+            "a": "Zähle alle Blätter zusammen und rechne den Umschlag dazu. Portotarife gehen in Stufen, wichtig ist also nicht das genaue Gewicht, sondern in welche Stufe es fällt — die Rechnung zeigt, ob du darunter bleibst."
+          },
+          {
+            "q": "Was sind „Blätter je Kilogramm“?",
+            "a": "Die Umkehrzahl: wie viele Blätter dieses Formats und dieser Grammatur auf ein Kilogramm gehen. Praktisch im Großhandel, wo Papier nach Tonnen verkauft und nach Blatt verbraucht wird."
+          }
+        ]
+      },
+      "htmlSha256": "12225acdf5716afd5087643003c1a13abd05f472bf3cc15b46753d102653f519"
+    },
+    {
+      "id": "paper-quantity",
+      "locale": "es",
+      "path": "/es/conversores/peso-del-papel-y-hojas/",
+      "name": "Calculadora de peso del papel y número de hojas",
+      "h1": "Calculadora de peso del papel y número de hojas",
+      "seoTitle": "Calculadora de peso del papel — por formato, gramaje y hojas",
+      "seoDescription": "Calcula el peso de una resma de papel a partir del formato A0–A6, el gramaje en gramos por metro cuadrado y el número de hojas.",
+      "fields": [
+        {
+          "name": "format",
+          "label": "Formato de hoja",
+          "type": "select",
+          "defaultValue": "a4",
+          "options": [
+            {
+              "value": "a0",
+              "label": "A0 — 841×1189 mm"
+            },
+            {
+              "value": "a1",
+              "label": "A1 — 594×841 mm"
+            },
+            {
+              "value": "a2",
+              "label": "A2 — 420×594 mm"
+            },
+            {
+              "value": "a3",
+              "label": "A3 — 297×420 mm"
+            },
+            {
+              "value": "a4",
+              "label": "A4 — 210×297 mm"
+            },
+            {
+              "value": "a5",
+              "label": "A5 — 148×210 mm"
+            },
+            {
+              "value": "a6",
+              "label": "A6 — 105×148 mm"
+            }
+          ]
+        },
+        {
+          "name": "grammage",
+          "label": "Gramaje, g/m²",
+          "type": "number",
+          "defaultValue": 80,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "sheets",
+          "label": "Hojas",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "El papel se especifica en gramos por metro cuadrado pero se compra por hojas, y la serie A es lo que une ambas cosas. Según la norma ISO 216, una hoja A0 es exactamente un metro cuadrado, y cada formato siguiente es la mitad del anterior. Así que «80 g/m²» en A4 significa exactamente 80/16 = 5 gramos por hoja, y una resma de 500 hojas pesa 2,5 kilogramos. Eso importa para los tramos de franqueo, para elegir impresora y para calcular el transporte.",
+        "howItWorks": "Peso = superficie de la hoja × gramaje × número de hojas.",
+        "example": "Una resma de 500 hojas A4 de 80 g/m² pesa exactamente 2,5 kilogramos.",
+        "tips": "El gramaje viene impreso en el envoltorio: 80 g/m² es papel de oficina y 160–300 es cartulina o papel fotográfico. Los formatos siguen la norma ISO 216, donde A0 es un metro cuadrado y cada siguiente es su mitad. Para un formato no normalizado, toma el más próximo y escala por la relación de superficies. El peso no incluye el embalaje: la caja y el envoltorio suman aparte.",
+        "faq": [
+          {
+            "q": "¿Por qué una resma de A4 pesa lo que pesa?",
+            "a": "Porque A0 es un metro cuadrado y A4 es dieciséis veces menor. A 80 g/m² una hoja pesa 5 gramos, así que 500 hojas suman 2500 gramos de papel; a 64 g/m² la misma resma se queda en 2 kg."
+          },
+          {
+            "q": "¿En qué se diferencian el gramaje y el grosor?",
+            "a": "El gramaje es masa por superficie, mientras que el grosor depende además de lo voluminosa que sea la fibra. Dos papeles de 80 g/m² pueden diferir en grosor hasta la mitad: el papel offset suelto es más grueso que el estucado denso."
+          },
+          {
+            "q": "¿Cómo calculo el franqueo?",
+            "a": "Suma todas las hojas e incluye el sobre. Las tarifas postales van por tramos, así que lo que importa no es el peso exacto sino en qué tramo cae: el cálculo enseña si te mantienes dentro."
+          },
+          {
+            "q": "¿Qué son las «hojas por kilogramo»?",
+            "a": "La cifra inversa: cuántas hojas de este formato y gramaje caben en un kilogramo. Es útil en el mayorista, donde el papel se vende por toneladas y se usa por hojas."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "El papel se especifica en gramos por metro cuadrado pero se compra por hojas, y la serie A es lo que une ambas cosas. Según la norma ISO 216, una hoja A0 es exactamente un metro cuadrado, y cada formato siguiente es la mitad del anterior. Así que «80 g/m²» en A4 significa exactamente 80/16 = 5 gramos por hoja, y una resma de 500 hojas pesa 2,5 kilogramos. Eso importa para los tramos de franqueo, para elegir impresora y para calcular el transporte.",
+        "howToUse": [
+          "El gramaje viene impreso en el envoltorio: 80 g/m² es papel de oficina y 160–300 es cartulina o papel fotográfico.",
+          "Los formatos siguen la norma ISO 216, donde A0 es un metro cuadrado y cada siguiente es su mitad.",
+          "Para un formato no normalizado, toma el más próximo y escala por la relación de superficies.",
+          "El peso no incluye el embalaje: la caja y el envoltorio suman aparte."
+        ],
+        "howItWorks": "Peso = superficie de la hoja × gramaje × número de hojas.",
+        "example": "Una resma de 500 hojas A4 de 80 g/m² pesa exactamente 2,5 kilogramos.",
+        "faq": [
+          {
+            "q": "¿Por qué una resma de A4 pesa lo que pesa?",
+            "a": "Porque A0 es un metro cuadrado y A4 es dieciséis veces menor. A 80 g/m² una hoja pesa 5 gramos, así que 500 hojas suman 2500 gramos de papel; a 64 g/m² la misma resma se queda en 2 kg."
+          },
+          {
+            "q": "¿En qué se diferencian el gramaje y el grosor?",
+            "a": "El gramaje es masa por superficie, mientras que el grosor depende además de lo voluminosa que sea la fibra. Dos papeles de 80 g/m² pueden diferir en grosor hasta la mitad: el papel offset suelto es más grueso que el estucado denso."
+          },
+          {
+            "q": "¿Cómo calculo el franqueo?",
+            "a": "Suma todas las hojas e incluye el sobre. Las tarifas postales van por tramos, así que lo que importa no es el peso exacto sino en qué tramo cae: el cálculo enseña si te mantienes dentro."
+          },
+          {
+            "q": "¿Qué son las «hojas por kilogramo»?",
+            "a": "La cifra inversa: cuántas hojas de este formato y gramaje caben en un kilogramo. Es útil en el mayorista, donde el papel se vende por toneladas y se usa por hojas."
+          }
+        ]
+      },
+      "htmlSha256": "205be2c382ccd631eb3b25a4832b63cb6f73ff295adaefdd156f912c72088c6a"
+    },
+    {
+      "id": "scale-model",
+      "locale": "ru",
+      "path": "/ru/converters/masshtab-modeli/",
+      "name": "Калькулятор масштаба модели",
+      "h1": "Калькулятор масштаба модели",
+      "seoTitle": "Калькулятор масштаба модели — 1:87, 1:43, 1:72",
+      "seoDescription": "Переведите размер натуры в размер модели и обратно при любом масштабе, а по паре размеров найдите сам масштаб.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Что найти",
+          "type": "select",
+          "defaultValue": "toModel",
+          "options": [
+            {
+              "value": "toModel",
+              "label": "размер модели"
+            },
+            {
+              "value": "toReal",
+              "label": "размер натуры"
+            },
+            {
+              "value": "findScale",
+              "label": "масштаб"
+            }
+          ]
+        },
+        {
+          "name": "real",
+          "label": "Размер натуры, мм",
+          "type": "number",
+          "defaultValue": 4350,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "model",
+          "label": "Размер модели, мм",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "scale",
+          "label": "Знаменатель масштаба, 1:N",
+          "type": "number",
+          "defaultValue": 87,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Пересчитывает размеры в три стороны: каким выйдет размер модели, какой размер был у натуры и в каком масштабе сделана уже готовая пара размеров. Знаменатель масштаба здесь первоклассный вход в словаре моделиста — 1:87, 1:43, 1:72, — а не безымянный член пропорции: переворачивать её в уме не нужно. Ответ приходит в миллиметрах, а найденный масштаб печатается привычной записью «1:N».",
+        "howItWorks": "Размер модели = натура ÷ знаменатель; размер натуры = модель × знаменатель; масштаб = натура ÷ модель.",
+        "example": "Вагон длиной 4350 мм в масштабе 1:87 даёт модель 50 мм.",
+        "tips": "Выберите, что нужно найти: размер модели, размер натуры или сам масштаб. Вводите размеры в миллиметрах — так подписаны чертежи и так измеряют модели. Знаменатель масштаба — второе число записи: у 1:87 это 87. Поле решаемой величины подписано «вычисляется» и заполняется расчётом.",
+        "faq": [
+          {
+            "q": "Что означает вторая цифра в записи 1:87?",
+            "a": "Во сколько раз модель меньше натуры. При 1:87 каждый миллиметр модели соответствует 87 миллиметрам настоящего предмета."
+          },
+          {
+            "q": "Чем это отличается от калькулятора пропорции?",
+            "a": "Пропорция решает безымянное a : b = c : d, и знаменатель приходится ставить самому. Здесь масштаб — отдельное поле, ответ идёт в миллиметрах, а найденный масштаб выводится записью «1:N»."
+          },
+          {
+            "q": "Масштаб получился дробным — это ошибка?",
+            "a": "Нет. Пара произвольных размеров редко даёт круглое число: 1:12,5 означает, что натура ровно в 12,5 раза больше. Для стандартных линеек выбирайте ближайший принятый масштаб."
+          },
+          {
+            "q": "Работает ли расчёт для площадей и объёмов?",
+            "a": "Поля считают линейные размеры. Площадь уменьшается в N², объём — в N³, поэтому подставлять сюда квадратные метры нельзя."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Пересчитывает размеры в три стороны: каким выйдет размер модели, какой размер был у натуры и в каком масштабе сделана уже готовая пара размеров. Знаменатель масштаба здесь первоклассный вход в словаре моделиста — 1:87, 1:43, 1:72, — а не безымянный член пропорции: переворачивать её в уме не нужно. Ответ приходит в миллиметрах, а найденный масштаб печатается привычной записью «1:N».",
+        "howToUse": [
+          "Выберите, что нужно найти: размер модели, размер натуры или сам масштаб.",
+          "Вводите размеры в миллиметрах — так подписаны чертежи и так измеряют модели.",
+          "Знаменатель масштаба — второе число записи: у 1:87 это 87.",
+          "Поле решаемой величины подписано «вычисляется» и заполняется расчётом."
+        ],
+        "howItWorks": "Размер модели = натура ÷ знаменатель; размер натуры = модель × знаменатель; масштаб = натура ÷ модель.",
+        "example": "Вагон длиной 4350 мм в масштабе 1:87 даёт модель 50 мм.",
+        "faq": [
+          {
+            "q": "Что означает вторая цифра в записи 1:87?",
+            "a": "Во сколько раз модель меньше натуры. При 1:87 каждый миллиметр модели соответствует 87 миллиметрам настоящего предмета."
+          },
+          {
+            "q": "Чем это отличается от калькулятора пропорции?",
+            "a": "Пропорция решает безымянное a : b = c : d, и знаменатель приходится ставить самому. Здесь масштаб — отдельное поле, ответ идёт в миллиметрах, а найденный масштаб выводится записью «1:N»."
+          },
+          {
+            "q": "Масштаб получился дробным — это ошибка?",
+            "a": "Нет. Пара произвольных размеров редко даёт круглое число: 1:12,5 означает, что натура ровно в 12,5 раза больше. Для стандартных линеек выбирайте ближайший принятый масштаб."
+          },
+          {
+            "q": "Работает ли расчёт для площадей и объёмов?",
+            "a": "Поля считают линейные размеры. Площадь уменьшается в N², объём — в N³, поэтому подставлять сюда квадратные метры нельзя."
+          }
+        ]
+      },
+      "htmlSha256": "ded2eee3e19da434ed6d3ed482600418b71bc6f4b7cb41a3da9b9d5c8ea0509e"
+    },
+    {
+      "id": "scale-model",
+      "locale": "en",
+      "path": "/en/converters/scale-model-converter/",
+      "name": "Model scale calculator",
+      "h1": "Model scale calculator",
+      "seoTitle": "Model scale calculator — 1:87, 1:43, 1:72",
+      "seoDescription": "Convert a real size into a model size and back at any scale, and find the scale itself from a pair of measurements.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "What to find",
+          "type": "select",
+          "defaultValue": "toModel",
+          "options": [
+            {
+              "value": "toModel",
+              "label": "model size"
+            },
+            {
+              "value": "toReal",
+              "label": "real size"
+            },
+            {
+              "value": "findScale",
+              "label": "scale"
+            }
+          ]
+        },
+        {
+          "name": "real",
+          "label": "Real size, mm",
+          "type": "number",
+          "defaultValue": 4350,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "model",
+          "label": "Model size, mm",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "scale",
+          "label": "Scale denominator, 1:N",
+          "type": "number",
+          "defaultValue": 87,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Converts three ways: what the model size will be, what the original measured, and what scale an existing pair of sizes represents. The scale denominator is a first-class input in a modeller's own vocabulary — 1:87, 1:43, 1:72 — not an anonymous term of a proportion you have to arrange yourself. Answers come in millimetres, and a scale you look up is printed the familiar way, as 1:N.",
+        "howItWorks": "Model = original ÷ denominator; original = model × denominator; scale = original ÷ model.",
+        "example": "A 4350 mm wagon at 1:87 gives a 50 mm model.",
+        "tips": "Choose what to find: the model size, the real size, or the scale itself. Enter sizes in millimetres — that is how drawings are marked and models are measured. The scale denominator is the second number of the notation: for 1:87 it is 87. The field being solved is labelled \"computed\" and filled in by the calculation.",
+        "faq": [
+          {
+            "q": "What does the second number in 1:87 mean?",
+            "a": "How many times smaller the model is. At 1:87 every millimetre of the model stands for 87 millimetres of the real thing."
+          },
+          {
+            "q": "How is this different from a proportion calculator?",
+            "a": "A proportion solves an anonymous a : b = c : d and leaves you to place the denominator. Here the scale is its own field, answers carry millimetres, and a scale you look up prints as 1:N."
+          },
+          {
+            "q": "The scale came out fractional — is that wrong?",
+            "a": "No. An arbitrary pair of sizes rarely lands on a round number: 1:12.5 simply means the original is 12.5 times larger. For standard rulers pick the nearest accepted scale."
+          },
+          {
+            "q": "Does it work for areas and volumes?",
+            "a": "The fields handle linear sizes. Area shrinks by N² and volume by N³, so square metres must not be entered here."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Converts three ways: what the model size will be, what the original measured, and what scale an existing pair of sizes represents. The scale denominator is a first-class input in a modeller's own vocabulary — 1:87, 1:43, 1:72 — not an anonymous term of a proportion you have to arrange yourself. Answers come in millimetres, and a scale you look up is printed the familiar way, as 1:N.",
+        "howToUse": [
+          "Choose what to find: the model size, the real size, or the scale itself.",
+          "Enter sizes in millimetres — that is how drawings are marked and models are measured.",
+          "The scale denominator is the second number of the notation: for 1:87 it is 87.",
+          "The field being solved is labelled \"computed\" and filled in by the calculation."
+        ],
+        "howItWorks": "Model = original ÷ denominator; original = model × denominator; scale = original ÷ model.",
+        "example": "A 4350 mm wagon at 1:87 gives a 50 mm model.",
+        "faq": [
+          {
+            "q": "What does the second number in 1:87 mean?",
+            "a": "How many times smaller the model is. At 1:87 every millimetre of the model stands for 87 millimetres of the real thing."
+          },
+          {
+            "q": "How is this different from a proportion calculator?",
+            "a": "A proportion solves an anonymous a : b = c : d and leaves you to place the denominator. Here the scale is its own field, answers carry millimetres, and a scale you look up prints as 1:N."
+          },
+          {
+            "q": "The scale came out fractional — is that wrong?",
+            "a": "No. An arbitrary pair of sizes rarely lands on a round number: 1:12.5 simply means the original is 12.5 times larger. For standard rulers pick the nearest accepted scale."
+          },
+          {
+            "q": "Does it work for areas and volumes?",
+            "a": "The fields handle linear sizes. Area shrinks by N² and volume by N³, so square metres must not be entered here."
+          }
+        ]
+      },
+      "htmlSha256": "9284221553f615232f823c77336ad90a46efe777fc9e53a613c0ce3edfa2334b"
+    },
+    {
+      "id": "scale-model",
+      "locale": "uk",
+      "path": "/uk/konvertery/masshtab-modeli/",
+      "name": "Калькулятор масштабу моделі",
+      "h1": "Калькулятор масштабу моделі",
+      "seoTitle": "Калькулятор масштабу моделі — 1:87, 1:43, 1:72",
+      "seoDescription": "Переведіть розмір натури в розмір моделі та навпаки за будь-якого масштабу, а за парою розмірів знайдіть сам масштаб.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Що знайти",
+          "type": "select",
+          "defaultValue": "toModel",
+          "options": [
+            {
+              "value": "toModel",
+              "label": "розмір моделі"
+            },
+            {
+              "value": "toReal",
+              "label": "розмір натури"
+            },
+            {
+              "value": "findScale",
+              "label": "масштаб"
+            }
+          ]
+        },
+        {
+          "name": "real",
+          "label": "Розмір натури, мм",
+          "type": "number",
+          "defaultValue": 4350,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "model",
+          "label": "Розмір моделі, мм",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "scale",
+          "label": "Знаменник масштабу, 1:N",
+          "type": "number",
+          "defaultValue": 87,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Масштаб моделі — це відношення, у якому зменшено натуру, і в моделізмі закріпилися свої стандартні ряди: 1:87 для залізниці типорозміру H0, 1:35 для військової техніки, 1:72 для авіації. Знання ряду важливе: деталі різних масштабів між собою не стикуються.",
+        "howItWorks": "Розмір моделі дорівнює натура ÷ знаменник масштабу; розмір натури — модель × знаменник; сам масштаб — натура ÷ модель. Усі три задачі розв’язуються одним співвідношенням, тому одиниці мають бути однаковими з обох боків.",
+        "example": "Вагон завдовжки 4350 мм у масштабі 1:87 дає модель 50 мм. У масштабі 1:160 той самий вагон вийшов би 27 мм.",
+        "tips": "Виберіть, що шукати: розмір моделі, розмір натури чи сам масштаб. Введіть відомі величини в однакових одиницях. Прочитайте результат.",
+        "faq": [
+          {
+            "q": "Що означає запис 1:87?",
+            "a": "Що модель у 87 разів менша за натуру. Це масштаб типорозміру H0 — найпоширенішого в залізничному моделізмі."
+          },
+          {
+            "q": "Як масштаб впливає на площу й об’єм?",
+            "a": "Площа зменшується у квадраті масштабу, об’єм — у кубі. Модель 1:10 має вдесятеро менші розміри, у сто разів меншу площу й у тисячу разів менший об’єм — і саме тому важить у тисячу разів менше."
+          },
+          {
+            "q": "Які масштаби найпоширеніші?",
+            "a": "У залізничному моделізмі 1:87 (H0) і 1:160 (N), в авіації 1:72 і 1:48, у військовій техніці 1:35, в автомобілях 1:24 і 1:43. Ряди склалися історично й між собою не узгоджені."
+          },
+          {
+            "q": "Чи можна змішувати масштаби?",
+            "a": "Візуально — ні: різниця помітна одразу. Навіть близькі масштаби на кшталт 1:72 і 1:76 дають розбіжність у розмірах фігур, яка кидається в очі на одній діорамі."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Масштаб моделі — це відношення, у якому зменшено натуру, і в моделізмі закріпилися свої стандартні ряди: 1:87 для залізниці типорозміру H0, 1:35 для військової техніки, 1:72 для авіації. Знання ряду важливе: деталі різних масштабів між собою не стикуються.",
+        "howToUse": [
+          "Виберіть, що шукати: розмір моделі, розмір натури чи сам масштаб.",
+          "Введіть відомі величини в однакових одиницях.",
+          "Прочитайте результат."
+        ],
+        "howItWorks": "Розмір моделі дорівнює натура ÷ знаменник масштабу; розмір натури — модель × знаменник; сам масштаб — натура ÷ модель. Усі три задачі розв’язуються одним співвідношенням, тому одиниці мають бути однаковими з обох боків.",
+        "example": "Вагон завдовжки 4350 мм у масштабі 1:87 дає модель 50 мм. У масштабі 1:160 той самий вагон вийшов би 27 мм.",
+        "faq": [
+          {
+            "q": "Що означає запис 1:87?",
+            "a": "Що модель у 87 разів менша за натуру. Це масштаб типорозміру H0 — найпоширенішого в залізничному моделізмі."
+          },
+          {
+            "q": "Як масштаб впливає на площу й об’єм?",
+            "a": "Площа зменшується у квадраті масштабу, об’єм — у кубі. Модель 1:10 має вдесятеро менші розміри, у сто разів меншу площу й у тисячу разів менший об’єм — і саме тому важить у тисячу разів менше."
+          },
+          {
+            "q": "Які масштаби найпоширеніші?",
+            "a": "У залізничному моделізмі 1:87 (H0) і 1:160 (N), в авіації 1:72 і 1:48, у військовій техніці 1:35, в автомобілях 1:24 і 1:43. Ряди склалися історично й між собою не узгоджені."
+          },
+          {
+            "q": "Чи можна змішувати масштаби?",
+            "a": "Візуально — ні: різниця помітна одразу. Навіть близькі масштаби на кшталт 1:72 і 1:76 дають розбіжність у розмірах фігур, яка кидається в очі на одній діорамі."
+          }
+        ]
+      },
+      "htmlSha256": "2c97af7112886a924be2b736f8e454b730d298cdb502dad766925997a386464c"
+    },
+    {
+      "id": "scale-model",
+      "locale": "de",
+      "path": "/de/umrechner/modellmassstab-rechner/",
+      "name": "Rechner für den Modellmaßstab",
+      "h1": "Rechner für den Modellmaßstab",
+      "seoTitle": "Modellmaßstab berechnen — 1:87, 1:43, 1:72",
+      "seoDescription": "Rechne ein wirkliches Maß in ein Modellmaß um und zurück, bei beliebigem Maßstab, und finde den Maßstab selbst aus einem Maßpaar.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Was gesucht ist",
+          "type": "select",
+          "defaultValue": "toModel",
+          "options": [
+            {
+              "value": "toModel",
+              "label": "das Modellmaß"
+            },
+            {
+              "value": "toReal",
+              "label": "das Maß am Original"
+            },
+            {
+              "value": "findScale",
+              "label": "der Maßstab"
+            }
+          ]
+        },
+        {
+          "name": "real",
+          "label": "Maß am Original, mm",
+          "type": "number",
+          "defaultValue": 4350,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "model",
+          "label": "Maß am Modell, mm",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "scale",
+          "label": "Nenner des Maßstabs, 1:N",
+          "type": "number",
+          "defaultValue": 87,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Rechnet in drei Richtungen: wie groß das Modellmaß wird, wie groß das Original war und welchen Maßstab ein vorhandenes Maßpaar darstellt. Der Nenner des Maßstabs ist ein eigenständiges Eingabefeld in der Sprache des Modellbaus — 1:87, 1:43, 1:72 — und kein namenloses Glied einer Verhältnisgleichung, das du selbst einsortieren müsstest. Die Antworten kommen in Millimetern, und ein ermittelter Maßstab wird in der vertrauten Form als 1:N ausgegeben.",
+        "howItWorks": "Modell = Original ÷ Nenner; Original = Modell × Nenner; Maßstab = Original ÷ Modell.",
+        "example": "Ein Waggon mit 4350 mm ergibt in 1:87 ein Modell von 50 mm.",
+        "tips": "Wähle, was gesucht ist: das Modellmaß, das Maß am Original oder der Maßstab selbst. Trage die Maße in Millimetern ein — so sind Zeichnungen beschriftet und so werden Modelle gemessen. Der Nenner des Maßstabs ist die zweite Zahl der Schreibweise: bei 1:87 ist er 87. Das gesuchte Feld ist als „wird berechnet“ gekennzeichnet und wird von der Rechnung gefüllt.",
+        "faq": [
+          {
+            "q": "Was bedeutet die zweite Zahl in 1:87?",
+            "a": "Um wie viel kleiner das Modell ist. Bei 1:87 steht jeder Millimeter am Modell für 87 Millimeter am wirklichen Vorbild."
+          },
+          {
+            "q": "Wie unterscheidet sich das von einem Rechner für Verhältnisse?",
+            "a": "Ein Verhältnis löst ein namenloses a : b = c : d und überlässt dir, wo der Nenner hingehört. Hier ist der Maßstab ein eigenes Feld, die Antworten tragen Millimeter, und ein ermittelter Maßstab erscheint als 1:N."
+          },
+          {
+            "q": "Der Maßstab kam gebrochen heraus — ist das falsch?",
+            "a": "Nein. Ein beliebiges Maßpaar landet selten auf einer runden Zahl: 1:12,5 heißt schlicht, dass das Original 12,5-mal größer ist. Für die üblichen Baugrößen nimm den nächstgelegenen anerkannten Maßstab."
+          },
+          {
+            "q": "Gilt das auch für Flächen und Volumen?",
+            "a": "Die Felder behandeln lineare Maße. Eine Fläche schrumpft um N² und ein Volumen um N³, Quadratmeter dürfen hier also nicht eingetragen werden."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Rechnet in drei Richtungen: wie groß das Modellmaß wird, wie groß das Original war und welchen Maßstab ein vorhandenes Maßpaar darstellt. Der Nenner des Maßstabs ist ein eigenständiges Eingabefeld in der Sprache des Modellbaus — 1:87, 1:43, 1:72 — und kein namenloses Glied einer Verhältnisgleichung, das du selbst einsortieren müsstest. Die Antworten kommen in Millimetern, und ein ermittelter Maßstab wird in der vertrauten Form als 1:N ausgegeben.",
+        "howToUse": [
+          "Wähle, was gesucht ist: das Modellmaß, das Maß am Original oder der Maßstab selbst.",
+          "Trage die Maße in Millimetern ein — so sind Zeichnungen beschriftet und so werden Modelle gemessen.",
+          "Der Nenner des Maßstabs ist die zweite Zahl der Schreibweise: bei 1:87 ist er 87.",
+          "Das gesuchte Feld ist als „wird berechnet“ gekennzeichnet und wird von der Rechnung gefüllt."
+        ],
+        "howItWorks": "Modell = Original ÷ Nenner; Original = Modell × Nenner; Maßstab = Original ÷ Modell.",
+        "example": "Ein Waggon mit 4350 mm ergibt in 1:87 ein Modell von 50 mm.",
+        "faq": [
+          {
+            "q": "Was bedeutet die zweite Zahl in 1:87?",
+            "a": "Um wie viel kleiner das Modell ist. Bei 1:87 steht jeder Millimeter am Modell für 87 Millimeter am wirklichen Vorbild."
+          },
+          {
+            "q": "Wie unterscheidet sich das von einem Rechner für Verhältnisse?",
+            "a": "Ein Verhältnis löst ein namenloses a : b = c : d und überlässt dir, wo der Nenner hingehört. Hier ist der Maßstab ein eigenes Feld, die Antworten tragen Millimeter, und ein ermittelter Maßstab erscheint als 1:N."
+          },
+          {
+            "q": "Der Maßstab kam gebrochen heraus — ist das falsch?",
+            "a": "Nein. Ein beliebiges Maßpaar landet selten auf einer runden Zahl: 1:12,5 heißt schlicht, dass das Original 12,5-mal größer ist. Für die üblichen Baugrößen nimm den nächstgelegenen anerkannten Maßstab."
+          },
+          {
+            "q": "Gilt das auch für Flächen und Volumen?",
+            "a": "Die Felder behandeln lineare Maße. Eine Fläche schrumpft um N² und ein Volumen um N³, Quadratmeter dürfen hier also nicht eingetragen werden."
+          }
+        ]
+      },
+      "htmlSha256": "35dd0ddd117e405e36016cc0a8d419d6f5a57017718dee0f04b3c2cea29cb158"
+    },
+    {
+      "id": "scale-model",
+      "locale": "es",
+      "path": "/es/conversores/escala-de-maquetas/",
+      "name": "Calculadora de escala de maquetas",
+      "h1": "Calculadora de escala de maquetas",
+      "seoTitle": "Calculadora de escala de maquetas — 1:87, 1:43 y 1:72",
+      "seoDescription": "Convierte una medida real en una medida de maqueta y al revés a cualquier escala, y halla la propia escala a partir de un par de medidas.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Qué hallar",
+          "type": "select",
+          "defaultValue": "toModel",
+          "options": [
+            {
+              "value": "toModel",
+              "label": "la medida de la maqueta"
+            },
+            {
+              "value": "toReal",
+              "label": "la medida real"
+            },
+            {
+              "value": "findScale",
+              "label": "la escala"
+            }
+          ]
+        },
+        {
+          "name": "real",
+          "label": "Medida real, mm",
+          "type": "number",
+          "defaultValue": 4350,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "model",
+          "label": "Medida de la maqueta, mm",
+          "type": "number",
+          "defaultValue": 50,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "scale",
+          "label": "Denominador de la escala, 1:N",
+          "type": "number",
+          "defaultValue": 87,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "content": {
+        "intro": "Convierte en tres sentidos: cuál será la medida de la maqueta, cuánto medía el original y qué escala representa un par de medidas ya existente. El denominador de la escala es una entrada de primera clase en el vocabulario propio del modelista —1:87, 1:43, 1:72— y no un término anónimo de una proporción que tengas que colocar tú. Las respuestas vienen en milímetros, y una escala que consultes se imprime de la manera habitual, como 1:N.",
+        "howItWorks": "Maqueta = original ÷ denominador; original = maqueta × denominador; escala = original ÷ maqueta.",
+        "example": "Un vagón de 4350 mm a escala 1:87 da una maqueta de 50 mm.",
+        "tips": "Elige qué hallar: la medida de la maqueta, la real o la propia escala. Introduce las medidas en milímetros: así se acotan los planos y se miden las maquetas. El denominador de la escala es el segundo número de la notación: en 1:87 es 87. El campo que se está despejando lleva la etiqueta «se calcula» y lo rellena el cálculo.",
+        "faq": [
+          {
+            "q": "¿Qué significa el segundo número de 1:87?",
+            "a": "Cuántas veces menor es la maqueta. A 1:87, cada milímetro de la maqueta representa 87 milímetros del original."
+          },
+          {
+            "q": "¿En qué se diferencia de una calculadora de proporciones?",
+            "a": "Una proporción resuelve un anónimo a : b = c : d y te deja a ti colocar el denominador. Aquí la escala es un campo propio, las respuestas llevan milímetros y una escala consultada se imprime como 1:N."
+          },
+          {
+            "q": "La escala ha salido con decimales, ¿está mal?",
+            "a": "No. Un par arbitrario de medidas rara vez cae en un número redondo: 1:12,5 significa simplemente que el original es 12,5 veces mayor. Para reglas normalizadas, elige la escala aceptada más próxima."
+          },
+          {
+            "q": "¿Sirve para superficies y volúmenes?",
+            "a": "Los campos manejan medidas lineales. La superficie se reduce por N² y el volumen por N³, así que aquí no deben introducirse metros cuadrados."
+          }
+        ]
+      },
+      "effectiveBody": {
+        "longDescription": "Convierte en tres sentidos: cuál será la medida de la maqueta, cuánto medía el original y qué escala representa un par de medidas ya existente. El denominador de la escala es una entrada de primera clase en el vocabulario propio del modelista —1:87, 1:43, 1:72— y no un término anónimo de una proporción que tengas que colocar tú. Las respuestas vienen en milímetros, y una escala que consultes se imprime de la manera habitual, como 1:N.",
+        "howToUse": [
+          "Elige qué hallar: la medida de la maqueta, la real o la propia escala.",
+          "Introduce las medidas en milímetros: así se acotan los planos y se miden las maquetas.",
+          "El denominador de la escala es el segundo número de la notación: en 1:87 es 87.",
+          "El campo que se está despejando lleva la etiqueta «se calcula» y lo rellena el cálculo."
+        ],
+        "howItWorks": "Maqueta = original ÷ denominador; original = maqueta × denominador; escala = original ÷ maqueta.",
+        "example": "Un vagón de 4350 mm a escala 1:87 da una maqueta de 50 mm.",
+        "faq": [
+          {
+            "q": "¿Qué significa el segundo número de 1:87?",
+            "a": "Cuántas veces menor es la maqueta. A 1:87, cada milímetro de la maqueta representa 87 milímetros del original."
+          },
+          {
+            "q": "¿En qué se diferencia de una calculadora de proporciones?",
+            "a": "Una proporción resuelve un anónimo a : b = c : d y te deja a ti colocar el denominador. Aquí la escala es un campo propio, las respuestas llevan milímetros y una escala consultada se imprime como 1:N."
+          },
+          {
+            "q": "La escala ha salido con decimales, ¿está mal?",
+            "a": "No. Un par arbitrario de medidas rara vez cae en un número redondo: 1:12,5 significa simplemente que el original es 12,5 veces mayor. Para reglas normalizadas, elige la escala aceptada más próxima."
+          },
+          {
+            "q": "¿Sirve para superficies y volúmenes?",
+            "a": "Los campos manejan medidas lineales. La superficie se reduce por N² y el volumen por N³, así que aquí no deben introducirse metros cuadrados."
+          }
+        ]
+      },
+      "htmlSha256": "06011c2e74d91fc70c64d7db60e3e343a088f047316067e3e7ae55a5f0e3fe84"
+    }
+  ],
+  "originalReferenceCases": [
+    {
+      "id": "coordinate-convert",
+      "ref": {
+        "name": "55°45′30″ северной широты в десятичные",
+        "inputs": {
+          "mode": "toDecimal",
+          "deg": 55,
+          "minutes": 45,
+          "seconds": 30,
+          "decimal": 0,
+          "hemisphere": "N"
+        },
+        "expectPrimary": "55,7583°",
+        "expectSecondary": [
+          {
+            "label": "Градусы, минуты, секунды",
+            "value": "55° 45′ 30″"
+          },
+          {
+            "label": "Полушарие",
+            "value": "северное или восточное"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Десятичные градусы",
+          "value": "55,7583°"
+        },
+        "secondary": [
+          {
+            "label": "Градусы, минуты, секунды",
+            "value": "55° 45′ 30″"
+          },
+          {
+            "label": "Полушарие",
+            "value": "северное или восточное"
+          },
+          {
+            "label": "Только градусы и минуты",
+            "value": "55° 45,5′"
+          }
+        ]
+      }
+    },
+    {
+      "id": "coordinate-convert",
+      "ref": {
+        "name": "−37,6173 в градусы, минуты и секунды",
+        "inputs": {
+          "mode": "toDms",
+          "deg": 0,
+          "minutes": 0,
+          "seconds": 0,
+          "decimal": -37.6173,
+          "hemisphere": "S"
+        },
+        "expectPrimary": "37° 37′ 2,28″",
+        "expectSecondary": [
+          {
+            "label": "Десятичные градусы",
+            "value": "-37,6173°"
+          },
+          {
+            "label": "Полушарие",
+            "value": "южное или западное"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Градусы, минуты, секунды",
+          "value": "37° 37′ 2,28″"
+        },
+        "secondary": [
+          {
+            "label": "Десятичные градусы",
+            "value": "-37,6173°"
+          },
+          {
+            "label": "Полушарие",
+            "value": "южное или западное"
+          },
+          {
+            "label": "Только градусы и минуты",
+            "value": "37° 37,038′"
+          }
+        ]
+      }
+    },
+    {
+      "id": "coordinate-convert",
+      "ref": {
+        "name": "граница: ровно 180 градусов",
+        "inputs": {
+          "mode": "toDecimal",
+          "deg": 180,
+          "minutes": 0,
+          "seconds": 0,
+          "decimal": 0,
+          "hemisphere": "N"
+        },
+        "expectPrimary": "180°",
+        "expectSecondary": [
+          {
+            "label": "Градусы, минуты, секунды",
+            "value": "180° 0′ 0″"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Десятичные градусы",
+          "value": "180°"
+        },
+        "secondary": [
+          {
+            "label": "Градусы, минуты, секунды",
+            "value": "180° 0′ 0″"
+          },
+          {
+            "label": "Полушарие",
+            "value": "северное или восточное"
+          },
+          {
+            "label": "Только градусы и минуты",
+            "value": "180° 0′"
+          }
+        ]
+      }
+    },
+    {
+      "id": "coordinate-convert",
+      "ref": {
+        "name": "шестьдесят минут отклоняются",
+        "inputs": {
+          "mode": "toDecimal",
+          "deg": 10,
+          "minutes": 60,
+          "seconds": 0,
+          "decimal": 0,
+          "hemisphere": "N"
+        },
+        "expectPrimary": "—"
+      },
+      "result": {
+        "primary": {
+          "label": "Десятичные градусы",
+          "value": "—"
+        },
+        "secondary": [
+          {
+            "label": "Проверьте данные",
+            "value": "Минуты должны быть от 0 до 59",
+            "accent": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "coordinate-convert",
+      "ref": {
+        "name": "больше 180 градусов в десятичных отклоняется",
+        "inputs": {
+          "mode": "toDms",
+          "deg": 0,
+          "minutes": 0,
+          "seconds": 0,
+          "decimal": 200,
+          "hemisphere": "N"
+        },
+        "expectPrimary": "—"
+      },
+      "result": {
+        "primary": {
+          "label": "Градусы, минуты, секунды",
+          "value": "—"
+        },
+        "secondary": [
+          {
+            "label": "Проверьте данные",
+            "value": "Десятичные градусы должны быть от −180 до 180",
+            "accent": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-scale-names",
+      "ref": {
+        "name": "25 лакхов в миллионы",
+        "inputs": {
+          "value": 25,
+          "from": "lakh",
+          "to": "million"
+        },
+        "expectPrimary": "2,5",
+        "expectSecondary": [
+          {
+            "label": "В единицах",
+            "value": "2 500 000"
+          },
+          {
+            "label": "В лакхах",
+            "value": "25"
+          },
+          {
+            "label": "В крорах",
+            "value": "0,25"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Результат",
+          "value": "2,5"
+        },
+        "secondary": [
+          {
+            "label": "В единицах",
+            "value": "2 500 000"
+          },
+          {
+            "label": "В лакхах",
+            "value": "25"
+          },
+          {
+            "label": "В крорах",
+            "value": "0,25"
+          },
+          {
+            "label": "Отношение шкал",
+            "value": "0,1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-scale-names",
+      "ref": {
+        "name": "3 крора в миллионы",
+        "inputs": {
+          "value": 3,
+          "from": "crore",
+          "to": "million"
+        },
+        "expectPrimary": "30",
+        "expectSecondary": [
+          {
+            "label": "В единицах",
+            "value": "30 000 000"
+          },
+          {
+            "label": "В лакхах",
+            "value": "300"
+          },
+          {
+            "label": "В крорах",
+            "value": "3"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Результат",
+          "value": "30"
+        },
+        "secondary": [
+          {
+            "label": "В единицах",
+            "value": "30 000 000"
+          },
+          {
+            "label": "В лакхах",
+            "value": "300"
+          },
+          {
+            "label": "В крорах",
+            "value": "3"
+          },
+          {
+            "label": "Отношение шкал",
+            "value": "10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-scale-names",
+      "ref": {
+        "name": "единица в единицу",
+        "inputs": {
+          "value": 1,
+          "from": "unit",
+          "to": "unit"
+        },
+        "expectPrimary": "1",
+        "expectSecondary": [
+          {
+            "label": "В единицах",
+            "value": "1"
+          },
+          {
+            "label": "В лакхах",
+            "value": "1,000·10^-5"
+          },
+          {
+            "label": "В крорах",
+            "value": "1,000·10^-7"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Результат",
+          "value": "1"
+        },
+        "secondary": [
+          {
+            "label": "В единицах",
+            "value": "1"
+          },
+          {
+            "label": "В лакхах",
+            "value": "1,000·10^-5"
+          },
+          {
+            "label": "В крорах",
+            "value": "1,000·10^-7"
+          },
+          {
+            "label": "Отношение шкал",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-scale-names",
+      "ref": {
+        "name": "нулевое значение отклоняется",
+        "inputs": {
+          "value": 0,
+          "from": "lakh",
+          "to": "million"
+        },
+        "expectPrimary": "—"
+      },
+      "result": {
+        "primary": {
+          "label": "Результат",
+          "value": "—"
+        },
+        "secondary": [
+          {
+            "label": "Проверьте данные",
+            "value": "Значение должно быть больше нуля",
+            "accent": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-scale-names",
+      "ref": {
+        "name": "отрицательное значение отклоняется",
+        "inputs": {
+          "value": -5,
+          "from": "lakh",
+          "to": "million"
+        },
+        "expectPrimary": "—"
+      },
+      "result": {
+        "primary": {
+          "label": "Результат",
+          "value": "—"
+        },
+        "secondary": [
+          {
+            "label": "Проверьте данные",
+            "value": "Значение должно быть больше нуля",
+            "accent": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-to-words",
+      "ref": {
+        "name": "тысяча двести тридцать четыре",
+        "inputs": {
+          "value": 1234
+        },
+        "expectPrimary": "одна тысяча двести тридцать четыре",
+        "expectSecondary": [
+          {
+            "label": "Цифрами",
+            "value": "1 234"
+          },
+          {
+            "label": "Триад в записи",
+            "value": "2"
+          },
+          {
+            "label": "Знаков в числе",
+            "value": "4"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Прописью",
+          "value": "одна тысяча двести тридцать четыре"
+        },
+        "secondary": [
+          {
+            "label": "Сумма прописью",
+            "value": "одна тысяча двести тридцать четыре рубля 00 копеек"
+          },
+          {
+            "label": "Цифрами",
+            "value": "1 234"
+          },
+          {
+            "label": "Триад в записи",
+            "value": "2"
+          },
+          {
+            "label": "Знаков в числе",
+            "value": "4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-to-words",
+      "ref": {
+        "name": "отрицательное с пропуском разряда",
+        "inputs": {
+          "value": -2000105
+        },
+        "expectPrimary": "минус два миллиона сто пять",
+        "expectSecondary": [
+          {
+            "label": "Цифрами",
+            "value": "-2 000 105"
+          },
+          {
+            "label": "Триад в записи",
+            "value": "3"
+          },
+          {
+            "label": "Знаков в числе",
+            "value": "7"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Прописью",
+          "value": "минус два миллиона сто пять"
+        },
+        "secondary": [
+          {
+            "label": "Сумма прописью",
+            "value": "минус два миллиона сто пять рублей 00 копеек"
+          },
+          {
+            "label": "Цифрами",
+            "value": "-2 000 105"
+          },
+          {
+            "label": "Триад в записи",
+            "value": "3"
+          },
+          {
+            "label": "Знаков в числе",
+            "value": "7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-to-words",
+      "ref": {
+        "name": "ноль",
+        "inputs": {
+          "value": 0
+        },
+        "expectPrimary": "ноль",
+        "expectSecondary": [
+          {
+            "label": "Цифрами",
+            "value": "0"
+          },
+          {
+            "label": "Триад в записи",
+            "value": "1"
+          },
+          {
+            "label": "Знаков в числе",
+            "value": "1"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Прописью",
+          "value": "ноль"
+        },
+        "secondary": [
+          {
+            "label": "Сумма прописью",
+            "value": "ноль рублей 00 копеек"
+          },
+          {
+            "label": "Цифрами",
+            "value": "0"
+          },
+          {
+            "label": "Триад в записи",
+            "value": "1"
+          },
+          {
+            "label": "Знаков в числе",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-to-words",
+      "ref": {
+        "name": "нецелое отклоняется",
+        "inputs": {
+          "value": 1.5
+        },
+        "expectPrimary": "—"
+      },
+      "result": {
+        "primary": {
+          "label": "Прописью",
+          "value": "—"
+        },
+        "secondary": [
+          {
+            "label": "Проверьте данные",
+            "value": "Число должно быть целым",
+            "accent": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "number-to-words",
+      "ref": {
+        "name": "за пределом триллиона отклоняется",
+        "inputs": {
+          "value": 10000000000000
+        },
+        "expectPrimary": "—"
+      },
+      "result": {
+        "primary": {
+          "label": "Прописью",
+          "value": "—"
+        },
+        "secondary": [
+          {
+            "label": "Проверьте данные",
+            "value": "Число не может быть больше 999 999 999 999 по модулю",
+            "accent": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "paper-quantity",
+      "ref": {
+        "name": "пачка A4 по 80 г/м², 500 листов",
+        "inputs": {
+          "format": "a4",
+          "grammage": 80,
+          "sheets": 500
+        },
+        "expectPrimary": "2,495 кг",
+        "expectSecondary": [
+          {
+            "label": "Масса одного листа",
+            "value": "4,99 г"
+          },
+          {
+            "label": "Площадь листа",
+            "value": "0,0624 м²"
+          },
+          {
+            "label": "Размер листа",
+            "value": "210×297 мм"
+          },
+          {
+            "label": "Листов в килограмме",
+            "value": "200,42 шт"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Масса пачки",
+          "value": "2,495 кг"
+        },
+        "secondary": [
+          {
+            "label": "Масса одного листа",
+            "value": "4,99 г"
+          },
+          {
+            "label": "Площадь листа",
+            "value": "0,0624 м²"
+          },
+          {
+            "label": "Размер листа",
+            "value": "210×297 мм"
+          },
+          {
+            "label": "Листов в килограмме",
+            "value": "200,42 шт"
+          }
+        ]
+      }
+    },
+    {
+      "id": "paper-quantity",
+      "ref": {
+        "name": "плотная A3 по 200 г/м², 100 листов",
+        "inputs": {
+          "format": "a3",
+          "grammage": 200,
+          "sheets": 100
+        },
+        "expectPrimary": "2,495 кг",
+        "expectSecondary": [
+          {
+            "label": "Масса одного листа",
+            "value": "24,948 г"
+          },
+          {
+            "label": "Площадь листа",
+            "value": "0,1247 м²"
+          },
+          {
+            "label": "Размер листа",
+            "value": "297×420 мм"
+          },
+          {
+            "label": "Листов в килограмме",
+            "value": "40,083 шт"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Масса пачки",
+          "value": "2,495 кг"
+        },
+        "secondary": [
+          {
+            "label": "Масса одного листа",
+            "value": "24,948 г"
+          },
+          {
+            "label": "Площадь листа",
+            "value": "0,1247 м²"
+          },
+          {
+            "label": "Размер листа",
+            "value": "297×420 мм"
+          },
+          {
+            "label": "Листов в килограмме",
+            "value": "40,083 шт"
+          }
+        ]
+      }
+    },
+    {
+      "id": "paper-quantity",
+      "ref": {
+        "name": "граница: один лист A0",
+        "inputs": {
+          "format": "a0",
+          "grammage": 80,
+          "sheets": 1
+        },
+        "expectPrimary": "0,08 кг",
+        "expectSecondary": [
+          {
+            "label": "Масса одного листа",
+            "value": "79,996 г"
+          },
+          {
+            "label": "Площадь листа",
+            "value": "0,9999 м²"
+          },
+          {
+            "label": "Размер листа",
+            "value": "841×1189 мм"
+          },
+          {
+            "label": "Листов в килограмме",
+            "value": "12,501 шт"
+          }
+        ]
+      },
+      "result": {
+        "primary": {
+          "label": "Масса пачки",
+          "value": "0,08 кг"
+        },
+        "secondary": [
+          {
+            "label": "Масса одного листа",
+            "value": "79,996 г"
+          },
+          {
+            "label": "Площадь листа",
+            "value": "0,9999 м²"
+          },
+          {
+            "label": "Размер листа",
+            "value": "841×1189 мм"
+          },
+          {
+            "label": "Листов в килограмме",
+            "value": "12,501 шт"
+          }
+        ]
+      }
+    },
+    {
+      "id": "paper-quantity",
+      "ref": {
+        "name": "нулевая плотность отклоняется",
+        "inputs": {
+          "format": "a4",
+          "grammage": 0,
+          "sheets": 500
+        },
+        "expectPrimary": "—"
+      },
+      "result": {
+        "primary": {
+          "label": "Масса пачки",
+          "value": "—"
+        },
+        "secondary": [
+          {
+            "label": "Проверьте данные",
+            "value": "Плотность бумаги должна быть больше нуля",
+            "accent": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "paper-quantity",
+      "ref": {
+        "name": "неизвестный формат отклоняется",
+        "inputs": {
+          "format": "b5",
+          "grammage": 80,
+          "sheets": 500
+        },
+        "expectPrimary": "—"
+      },
+      "result": {
+        "primary": {
+          "label": "Масса пачки",
+          "value": "—"
+        },
+        "secondary": [
+          {
+            "label": "Проверьте данные",
+            "value": "Выберите формат листа из списка",
+            "accent": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scale-model",
+      "ref": {
+        "name": "вагон 4350 мм в масштабе 1:87",
+        "inputs": {
+          "mode": "toModel",
+          "real": 4350,
+          "model": 0,
+          "scale": 87
+        },
+        "expectPrimary": "50 мм"
+      },
+      "result": {
+        "primary": {
+          "label": "Размер модели",
+          "value": "50 мм"
+        },
+        "secondary": [
+          {
+            "label": "Масштаб",
+            "value": "1:87"
+          },
+          {
+            "label": "Размер натуры",
+            "value": "4 350 мм"
+          },
+          {
+            "label": "Размер модели",
+            "value": "50 мм"
+          },
+          {
+            "label": "Натура больше модели во столько раз",
+            "value": "87"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scale-model",
+      "ref": {
+        "name": "модель 50 мм в масштабе 1:43",
+        "inputs": {
+          "mode": "toReal",
+          "real": 0,
+          "model": 50,
+          "scale": 43
+        },
+        "expectPrimary": "2 150 мм"
+      },
+      "result": {
+        "primary": {
+          "label": "Размер натуры",
+          "value": "2 150 мм"
+        },
+        "secondary": [
+          {
+            "label": "Масштаб",
+            "value": "1:43"
+          },
+          {
+            "label": "Размер натуры",
+            "value": "2 150 мм"
+          },
+          {
+            "label": "Размер модели",
+            "value": "50 мм"
+          },
+          {
+            "label": "Натура больше модели во столько раз",
+            "value": "43"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scale-model",
+      "ref": {
+        "name": "найти масштаб по паре размеров",
+        "inputs": {
+          "mode": "findScale",
+          "real": 1000,
+          "model": 100,
+          "scale": 0
+        },
+        "expectPrimary": "1:10"
+      },
+      "result": {
+        "primary": {
+          "label": "Масштаб",
+          "value": "1:10"
+        },
+        "secondary": [
+          {
+            "label": "Масштаб",
+            "value": "1:10"
+          },
+          {
+            "label": "Размер натуры",
+            "value": "1 000 мм"
+          },
+          {
+            "label": "Размер модели",
+            "value": "100 мм"
+          },
+          {
+            "label": "Натура больше модели во столько раз",
+            "value": "10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scale-model",
+      "ref": {
+        "name": "нулевой масштаб отклоняется",
+        "inputs": {
+          "mode": "toModel",
+          "real": 4350,
+          "model": 0,
+          "scale": 0
+        },
+        "expectPrimary": "—"
+      },
+      "result": {
+        "primary": {
+          "label": "Размер модели",
+          "value": "—"
+        },
+        "secondary": [
+          {
+            "label": "Проверьте данные",
+            "value": "Знаменатель масштаба должен быть больше нуля",
+            "accent": "red"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scale-model",
+      "ref": {
+        "name": "нулевая модель при поиске масштаба",
+        "inputs": {
+          "mode": "findScale",
+          "real": 1000,
+          "model": 0,
+          "scale": 0
+        },
+        "expectPrimary": "—"
+      },
+      "result": {
+        "primary": {
+          "label": "Масштаб",
+          "value": "—"
+        },
+        "secondary": [
+          {
+            "label": "Проверьте данные",
+            "value": "Размер модели должен быть больше нуля",
+            "accent": "red"
+          }
+        ]
+      }
+    }
+  ],
+  "unpublishedLocales": [
+    {
+      "id": "number-to-words",
+      "locale": "de"
+    },
+    {
+      "id": "number-to-words",
+      "locale": "es"
+    }
+  ]
+}

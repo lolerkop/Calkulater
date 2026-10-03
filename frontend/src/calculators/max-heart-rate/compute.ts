@@ -1,74 +1,32 @@
-import type { CalcFunction, CalcResultTable } from '../../lib/types';
+import type { CalcFunction } from '../../lib/types';
 import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { formatMeasure } from '../../lib/platform/measurement';
 
-// Максимальный пульс и тренировочные зоны.
-//
-// Формул несколько, и они расходятся заметно: «220 − возраст» проще всех, но
-// систематически завышает результат у пожилых и занижает у молодых; формула
-// Танаки построена на измерениях и даёт другой наклон. Выбор оставлен
-// посетителю, а не спрятан в код, потому что разница в 5–7 ударов меняет
-// границы зон.
-//
-// Если задан пульс покоя, зоны считаются по резерву сердца (метод Карвонена):
-// доля берётся не от максимума, а от разности между максимумом и покоем, и
-// прибавляется к покою. Без пульса покоя резерв равен максимуму, и формула
-// естественно вырождается в простые доли — отдельной ветки для этого не нужно.
-//
-// Границы зон округляются до целого: пульс считают ударами, а не долями удара.
+// Validate the active numeric contract before arithmetic; malformed values must
+// never turn into a valid zero or a health interpretation.
+const number = (value: unknown) => typeof value === 'string' || typeof value === 'number' ? toNumber(value, NaN) : NaN;
 
-const FORMULAS: Record<string, (age: number) => number> = {
-  '220-age': (age) => 220 - age,
-  tanaka: (age) => 208 - 0.7 * age,
-  gulati: (age) => 206 - 0.88 * age,
-};
-const ZONES: Array<[number, number, string]> = [
-  [50, 60, 'Разминка'],
-  [60, 70, 'Жиросжигание'],
-  [70, 80, 'Аэробная'],
-  [80, 90, 'Анаэробная'],
-  [90, 100, 'Максимальная'],
-];
-
+const FORMULAS = { '220-age': (age: number) => 220 - age, tanaka: (age: number) => 208 - .7 * age, gulati: (age: number) => 206 - .88 * age } as const;
 export const compute: CalcFunction = (inputs) => {
-  const age = toNumber(inputs.age);
-  const formula = toStr(inputs.formula, '220-age');
-  const restingHr = toNumber(inputs.restingHr);
-
-  const fail = (message: string) => ({
-    primary: { label: 'Максимальный пульс', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (!(age >= 1) || age > 120) return fail('Возраст должен быть от 1 до 120 лет');
-  if (restingHr < 0) return fail('Пульс покоя не может быть отрицательным');
-
-  const maximum = (FORMULAS[formula] ?? FORMULAS['220-age'])(age);
-  if (restingHr >= maximum) return fail('Пульс покоя не может быть выше максимального');
-
-  const reserve = maximum - restingHr;
-  const bound = (share: number) => restingHr + (reserve * share) / 100;
-
-  const table: CalcResultTable = {
-    title: 'Тренировочные зоны',
-    columns: ['Зона', 'Доля резерва', 'Пульс, уд/мин'],
-    rows: ZONES.map(([low, high, name]) => [
-      name,
-      `${fmtNumber(low, 0)}–${fmtNumber(high, 0)} %`,
-      `${fmtNumber(bound(low), 0)}–${fmtNumber(bound(high), 0)}`,
-    ]),
-    note: restingHr > 0
-      ? 'Зоны посчитаны по резерву сердца: доля берётся от разности максимума и пульса покоя.'
-      : 'Пульс покоя не задан, поэтому зоны — прямые доли максимального пульса.',
-  };
-
-  return {
-    primary: { label: 'Максимальный пульс', value: `${fmtNumber(maximum, 0)} уд/мин` },
-    secondary: [
-      { label: 'Резерв сердца', value: `${fmtNumber(reserve, 0)} уд/мин` },
-      { label: 'Пульс покоя', value: `${fmtNumber(restingHr, 0)} уд/мин` },
-      { label: 'Аэробная зона 70–80 %', value: `${fmtNumber(bound(70), 0)}–${fmtNumber(bound(80), 0)} уд/мин` },
-      { label: 'Жиросжигающая зона 60–70 %', value: `${fmtNumber(bound(60), 0)}–${fmtNumber(bound(70), 0)} уд/мин` },
-    ],
-    table,
-  };
+  const fail = (value: string) => ({ primary: { label: 'Максимальный пульс', value: '—' }, secondary: [{ label: 'Проверьте данные', value, accent: 'red' as const }] });
+  const age = number(inputs.age), formula = toStr(inputs.formula, '220-age');
+  if (!Object.hasOwn(FORMULAS, formula)) return fail('Неизвестная формула оценки');
+  const optional = inputs.restingHr == null || inputs.restingHr === '';
+  const rest = optional ? 0 : number(inputs.restingHr);
+  if (![age, rest].every(Number.isFinite)) return fail('Введите конечные числа для выбранного режима');
+  if (!Number.isInteger(age) || age < 18 || age > 120) return fail('Возраст должен быть целым числом от 18 до 120 лет');
+  if (rest < 0) return fail('Пульс покоя не может быть отрицательным');
+  const max = FORMULAS[formula as keyof typeof FORMULAS](age), reserve = max - rest;
+  if (rest >= max) return fail('Пульс покоя должен быть ниже оценённого максимума');
+  const bound = (percent: number) => rest + reserve * percent / 100;
+  const range = (low: number) => `${fmtNumber(bound(low), 0)}–${fmtNumber(bound(low + 10), 0)}`;
+  return { primary: { label: 'Максимальный пульс', value: `${fmtNumber(max, 0)} уд/мин` }, secondary: [
+    { label: 'Резерв сердца', value: `${fmtNumber(reserve, 0)} уд/мин` },
+    { label: 'Пульс покоя', value: rest ? `${fmtNumber(rest, 0)} уд/мин` : 'не задан' },
+    { label: 'Диапазон 70–80 %', value: `${range(70)} уд/мин` },
+    { label: 'Диапазон 60–70 %', value: `${range(60)} уд/мин` },
+  ], table: { title: 'Процентные диапазоны пульса', columns: ['Диапазон', rest > 0 ? 'Доля резерва' : 'Доля максимума', 'Пульс, уд/мин'],
+    rows: [50, 60, 70, 80, 90].map(low => [`${low}–${low + 10} %`, `${low}–${low + 10} %`, range(low)]),
+    note: rest > 0 ? 'Граница = пульс покоя + доля × (оценка максимума − пульс покоя).' : 'Пульс покоя не задан: границы — доли оценённого максимума.',
+  }, note: 'Процентные диапазоны не определяют индивидуальный порог, безопасную нагрузку или скорость сжигания жира.' };
 };

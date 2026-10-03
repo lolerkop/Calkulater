@@ -22,13 +22,22 @@ export const dayOfWeekReferenceCases: readonly CalculatorReferenceCase[] = [
     name: 'конец високосного года: 31 декабря 2024 — вторник',
     inputs: { date: '2024-12-31' },
     expectPrimary: 'вторник',
-    expectSecondary: [{ label: 'Дней в году', value: '366' }],
+    expectSecondary: [
+      { label: 'Дней в году', value: '366' },
+      { label: 'Номер недели ISO', value: '1' },
+      { label: 'Год недели ISO', value: '2025' },
+    ],
   },
   {
     name: 'граница недель ISO: 1 января 2023 принадлежит прошлому году',
     inputs: { date: '2023-01-01' },
     expectPrimary: 'воскресенье',
-    expectSecondary: [{ label: 'Номер недели ISO', value: 'последняя неделя предыдущего года' }],
+    // Strengthened after fixing the previous non-numeric placeholder: Python's
+    // independent isocalendar confirms 2023-01-01 = 2022-W52-7.
+    expectSecondary: [
+      { label: 'Номер недели ISO', value: '52' },
+      { label: 'Год недели ISO', value: '2022' },
+    ],
   },
   {
     name: 'выходной отмечается отдельно',

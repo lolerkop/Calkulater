@@ -1,11 +1,12 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'length': 'Länge des Zauns, m',
-      'span': 'Feldbreite, m',
-      'height': 'Höhe des Zauns, m',
+      'length': "Länge des Zauns",
+      'span': "Feldbreite",
+      'height': "Höhe des Zauns",
       'rails': 'Riegel je Feld',
       'gates': 'Tore und Öffnungen',
     },
@@ -29,7 +30,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { "length": "Fence length, m", "span": "Bay width, m", "height": "Fence height, m", "rails": "Rails per bay", "gates": "Gates and openings" },
+    fields: { "length": "Fence length", "span": "Bay width", "height": "Fence height", "rails": "Rails per bay", "gates": "Gates and openings" },
     options: {},
     results: {
       "Столбов": "Posts", "Секций": "Bays", "Метров лаг": "Metres of rail",
@@ -46,7 +47,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { "length": "Довжина паркану, м", "span": "Проліт, м", "height": "Висота паркану, м", "rails": "Лаг на проліт", "gates": "Хвіртки і ворота" },
+    fields: { "length": "Довжина паркану", "span": "Проліт", "height": "Висота паркану", "rails": "Лаг на проліт", "gates": "Хвіртки і ворота" },
     options: {},
     results: {
       "Столбов": "Стовпів", "Секций": "Секцій", "Метров лаг": "Метрів лаг",
@@ -64,9 +65,9 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "length": "Longitud de la valla, m",
-      "span": "Ancho del tramo, m",
-      "height": "Altura de la valla, m",
+      "length": "Longitud de la valla",
+      "span": "Ancho del tramo",
+      "height": "Altura de la valla",
       "rails": "Travesaños por tramo",
       "gates": "Puertas y huecos",
     },
@@ -91,3 +92,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

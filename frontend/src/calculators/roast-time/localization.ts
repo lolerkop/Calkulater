@@ -1,94 +1,112 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
-
-const RESULTS_EN = {
-  'Время в духовке': 'Time in the oven', 'Минут готовки': 'Cooking minutes',
-  'Отдых после духовки': 'Resting after the oven', 'Всего с отдыхом': 'Total including rest',
-  'Норма на килограмм': 'Minutes per kilogram', 'Проверьте данные': 'Check the values',
-};
-const RESULTS_UK = {
-  'Время в духовке': 'Час у духовці', 'Минут готовки': 'Хвилин готування',
-  'Отдых после духовки': 'Відпочинок після духовки', 'Всего с отдыхом': 'Усього з відпочинком',
-  'Норма на килограмм': 'Норма на кілограм', 'Проверьте данные': 'Перевірте дані',
-};
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'weight': 'Gewicht, kg',
-      'minutes_per_kg': 'Minuten je Kilogramm',
-      'base_minutes': 'Fester Anteil, min',
-      'rest_pct': 'Ruhezeit, %',
-    },
-    results: {
-      'Время в духовке': 'Zeit im Ofen',
-      'Минут готовки': 'Garminuten',
-      'Отдых после духовки': 'Ruhezeit nach dem Ofen',
-      'Всего с отдыхом': 'Insgesamt mit Ruhezeit',
-      'Норма на килограмм': 'Richtwert je Kilogramm',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'мин': 'min',
-      'ч': 'h',
-      'Масса должна быть больше нуля': 'Das Gewicht muss größer als null sein',
-      'Норма минут на килограмм должна быть больше нуля': 'Die Minuten je Kilogramm müssen größer als null sein',
-      'Постоянная часть не может быть отрицательной': 'Der feste Anteil kann nicht negativ sein',
-      'Отдых должен быть от 0 до 50 %': 'Die Ruhezeit muss zwischen 0 und 50 % liegen',
-    },
+  "en": {
+  "fields": {
+    "weight": "Weight, kg",
+    "minutes_per_kg": "Minutes per kilogram",
+    "base_minutes": "Fixed part, min",
+    "rest_pct": "Resting time, %"
   },
-  en: {
-    fields: {
-      weight: 'Weight, kg', minutes_per_kg: 'Minutes per kilogram',
-      base_minutes: 'Fixed part, min', rest_pct: 'Resting time, %',
-    },
-    options: {},
-    results: RESULTS_EN,
-    values: {
-      'мин': 'min', 'ч': 'h',
-      'Масса должна быть больше нуля': 'The weight must be greater than zero',
-      'Норма минут на килограмм должна быть больше нуля': 'The minutes per kilogram must be greater than zero',
-      'Постоянная часть не может быть отрицательной': 'The fixed part cannot be negative',
-      'Отдых должен быть от 0 до 50 %': 'The resting time must be between 0 and 50%',
-    },
+  "options": {},
+  "results": {
+    "Время в духовке": "Time in the oven",
+    "Минут готовки": "Cooking minutes",
+    "Отдых после духовки": "Resting after the oven",
+    "Всего с отдыхом": "Total including rest",
+    "Норма на килограмм": "Minutes per kilogram",
+    "Проверьте данные": "Check the values"
   },
-  uk: {
-    fields: {
-      weight: 'Маса, кг', minutes_per_kg: 'Хвилин на кілограм',
-      base_minutes: 'Постійна частина, хв', rest_pct: 'Відпочинок після духовки, %',
-    },
-    options: {},
-    results: RESULTS_UK,
-    values: {
-      'мин': 'хв', 'ч': 'год',
-      'Масса должна быть больше нуля': 'Маса має бути більшою за нуль',
-      'Норма минут на килограмм должна быть больше нуля': 'Норма хвилин на кілограм має бути більшою за нуль',
-      'Постоянная часть не может быть отрицательной': "Постійна частина не може бути від'ємною",
-      'Отдых должен быть от 0 до 50 %': 'Відпочинок має бути від 0 до 50 %',
-    },
+  "values": {
+    ...marketingScalarValues.en,
+    "мин": "min",
+    "ч": "h",
+    "Масса должна быть больше нуля": "The weight must be greater than zero",
+    "Норма минут на килограмм должна быть больше нуля": "The minutes per kilogram must be greater than zero",
+    "Постоянная часть не может быть отрицательной": "The fixed part cannot be negative",
+    "Отдых должен быть от 0 до 50 %": "The resting time must be between 0 and 50%",
+    "Линейный расчёт планирует время по заданному рецепту; безопасная готовность проверяется термометром для конкретного продукта. Процент отдыха не заменяет правила безопасности.": "The linear calculation schedules a selected recipe; safe doneness requires a food-specific thermometer check. Rest percentage does not replace safety requirements."
+  }
+},
+  "uk": {
+  "fields": {
+    "weight": "Маса, кг",
+    "minutes_per_kg": "Хвилин на кілограм",
+    "base_minutes": "Постійна частина, хв",
+    "rest_pct": "Відпочинок після духовки, %"
   },
-  es: {
-    fields: {
-      "weight": "Peso, kg",
-      "minutes_per_kg": "Minutos por kilogramo",
-      "base_minutes": "Parte fija, min",
-      "rest_pct": "Tiempo de reposo, %",
-    },
-    options: {},
-    results: {
-      "Время в духовке": "Tiempo en el horno",
-      "Минут готовки": "Minutos de cocción",
-      "Отдых после духовки": "Reposo tras el horno",
-      "Всего с отдыхом": "Total con reposo",
-      "Норма на килограмм": "Minutos por kilogramo",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "мин": "min",
-      "ч": "h",
-      "Масса должна быть больше нуля": "El peso debe ser mayor que cero",
-      "Норма минут на килограмм должна быть больше нуля": "Los minutos por kilogramo deben ser más de cero",
-      "Постоянная часть не может быть отрицательной": "La parte fija no puede ser negativa",
-      "Отдых должен быть от 0 до 50 %": "El reposo debe estar entre 0 y 50 %",
-    },
+  "options": {},
+  "results": {
+    "Время в духовке": "Час у духовці",
+    "Минут готовки": "Хвилин готування",
+    "Отдых после духовки": "Відпочинок після духовки",
+    "Всего с отдыхом": "Усього з відпочинком",
+    "Норма на килограмм": "Норма на кілограм",
+    "Проверьте данные": "Перевірте дані"
   },
+  "values": {
+    ...marketingScalarValues.uk,
+    "мин": "хв",
+    "ч": "год",
+    "Масса должна быть больше нуля": "Маса має бути більшою за нуль",
+    "Норма минут на килограмм должна быть больше нуля": "Норма хвилин на кілограм має бути більшою за нуль",
+    "Постоянная часть не может быть отрицательной": "Постійна частина не може бути від'ємною",
+    "Отдых должен быть от 0 до 50 %": "Відпочинок має бути від 0 до 50 %",
+    "Линейный расчёт планирует время по заданному рецепту; безопасная готовность проверяется термометром для конкретного продукта. Процент отдыха не заменяет правила безопасности.": "Лінійний розрахунок планує час за обраним рецептом; безпечна готовність потребує термометра для конкретного продукту. Відсоток відпочинку не замінює вимоги безпеки."
+  }
+},
+  "de": {
+  "fields": {
+    "weight": "Gewicht, kg",
+    "minutes_per_kg": "Minuten je Kilogramm",
+    "base_minutes": "Fester Anteil, min",
+    "rest_pct": "Ruhezeit, %"
+  },
+  "results": {
+    "Время в духовке": "Zeit im Ofen",
+    "Минут готовки": "Garminuten",
+    "Отдых после духовки": "Ruhezeit nach dem Ofen",
+    "Всего с отдыхом": "Insgesamt mit Ruhezeit",
+    "Норма на килограмм": "Richtwert je Kilogramm",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "мин": "min",
+    "ч": "h",
+    "Масса должна быть больше нуля": "Das Gewicht muss größer als null sein",
+    "Норма минут на килограмм должна быть больше нуля": "Die Minuten je Kilogramm müssen größer als null sein",
+    "Постоянная часть не может быть отрицательной": "Der feste Anteil kann nicht negativ sein",
+    "Отдых должен быть от 0 до 50 %": "Die Ruhezeit muss zwischen 0 und 50 % liegen",
+    "Линейный расчёт планирует время по заданному рецепту; безопасная готовность проверяется термометром для конкретного продукта. Процент отдыха не заменяет правила безопасности.": "Lineare Rechnung plant ein gewähltes Rezept; sichere Garung erfordert produktbezogene Thermometerprüfung. Ruheprozent ersetzt keine Sicherheitsanforderungen."
+  }
+},
+  "es": {
+  "fields": {
+    "weight": "Peso, kg",
+    "minutes_per_kg": "Minutos por kilogramo",
+    "base_minutes": "Parte fija, min",
+    "rest_pct": "Tiempo de reposo, %"
+  },
+  "options": {},
+  "results": {
+    "Время в духовке": "Tiempo en el horno",
+    "Минут готовки": "Minutos de cocción",
+    "Отдых после духовки": "Reposo tras el horno",
+    "Всего с отдыхом": "Total con reposo",
+    "Норма на килограмм": "Minutos por kilogramo",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "мин": "min",
+    "ч": "h",
+    "Масса должна быть больше нуля": "El peso debe ser mayor que cero",
+    "Норма минут на килограмм должна быть больше нуля": "Los minutos por kilogramo deben ser más de cero",
+    "Постоянная часть не может быть отрицательной": "La parte fija no puede ser negativa",
+    "Отдых должен быть от 0 до 50 %": "El reposo debe estar entre 0 y 50 %",
+    "Линейный расчёт планирует время по заданному рецепту; безопасная готовность проверяется термометром для конкретного продукта. Процент отдыха не заменяет правила безопасности.": "Cálculo lineal planifica receta elegida; cocción segura exige comprobación por termómetro según alimento. Porcentaje de reposo no sustituye requisitos de seguridad."
+  }
+}
 };

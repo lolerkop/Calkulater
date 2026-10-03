@@ -20,6 +20,7 @@ import {
   readValuesFromSearch,
 } from '../../lib/shareLink';
 import { trackAnalyticsEvent } from '../../lib/analytics';
+import { withSelectedConverterInputUnit } from '../../lib/converterFieldUnits';
 import {
   calculatorCopy,
   shareWarningCopy,
@@ -63,6 +64,7 @@ function readPreHydrationEdits(fields: Field[]): FormValues {
   if (typeof document === 'undefined') return edits;
 
   for (const field of fields) {
+    if (field.readOnly || field.name === 'excludedDates') continue;
     const element = document.getElementById(`f-${field.name}`);
     if (!element) continue;
 
@@ -88,6 +90,36 @@ function readPreHydrationEdits(fields: Field[]): FormValues {
     }
   }
 
+  return edits;
+}
+
+// Короткий журнал событий принадлежит SSR-секции, а не управляемым полям:
+// запись React в value не может удалить уже полученное событие пользователя.
+type PreHydrationJournal = {
+  calculatorId: string;
+  edits: FormValues;
+  stop: () => void;
+};
+type CalculatorHydrationRoot = HTMLElement & {
+  __calcuwayInputJournal?: PreHydrationJournal;
+};
+
+function consumePreHydrationJournal(
+  form: HTMLFormElement | null,
+  calculatorId: string,
+  fields: Field[],
+): FormValues {
+  const root = form?.closest('#calculator') as CalculatorHydrationRoot | null;
+  const journal = root?.__calcuwayInputJournal;
+  if (!journal || journal.calculatorId !== calculatorId) return {};
+  const allowed = new Set(fields
+    .filter((field) => !field.readOnly && field.name !== 'excludedDates'
+      && ['number', 'date', 'textarea', 'select', 'checkbox'].includes(field.type))
+    .map((field) => field.name));
+  const edits = Object.fromEntries(Object.entries(journal.edits)
+    .filter(([name]) => allowed.has(name))) as FormValues;
+  // После восстановления обычные обработчики React сами сохраняют изменения.
+  journal.stop();
   return edits;
 }
 
@@ -136,6 +168,8 @@ export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props
   const inputStartedRef = useRef(false);
   const resultTrackedRef = useRef(false);
   const validationTrackedRef = useRef(false);
+  const initialRestoreDoneRef = useRef(false);
+  const earlyReactEditsRef = useRef<FormValues>({});
   // Первый рендер обязан совпасть с серверным, поэтому автоматические даты здесь
   // ещё пустые; настоящие подставляются после монтирования.
   const [values, setValues] = useState<FormValues>(() => buildHydrationValues(calc.fields));
@@ -198,9 +232,17 @@ export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props
   useEffect(() => {
     const defaults = buildInitialValues(calc.fields);
     const restored = readValuesFromUrl(calc.fields, defaults, locale);
-    setValues(Object.keys(preHydrationEdits).length > 0
-      ? { ...restored, ...preHydrationEdits }
-      : restored);
+    const journalEdits = consumePreHydrationJournal(formRef.current, calc.id, calc.fields);
+    // Функциональное обновление сохраняет правки, уже обработанные React между
+    // первым снимком DOM и этим эффектом; нетронутые поля берутся из ссылки.
+    setValues((previous) => ({
+      ...previous,
+      ...restored,
+      ...preHydrationEdits,
+      ...journalEdits,
+      ...earlyReactEditsRef.current,
+    }));
+    initialRestoreDoneRef.current = true;
     setHydrated(true);
     // запускаем один раз для текущего калькулятора
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -323,6 +365,9 @@ export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props
   }, [shareWarningOpen, calc.id, locale]);
 
   const updateField = (fieldName: string, next: string | number | boolean) => {
+    if (!initialRestoreDoneRef.current) {
+      earlyReactEditsRef.current[fieldName] = next;
+    }
     if (!inputStartedRef.current) {
       inputStartedRef.current = true;
       trackAnalyticsEvent('calculator_input_started', { calculator_id: calc.id, locale });
@@ -343,7 +388,7 @@ export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props
   };
 
   const copyResult = async () => {
-    if (typeof window === 'undefined' || !result) return;
+    if (typeof window === 'undefined' || !result || hasValidationErrors) return;
     const text = resultToText(calc, localizeResult(result, locale, calc.id, runtime), locale);
     let ok = false;
     try {
@@ -369,7 +414,7 @@ export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props
   };
 
   const visibleFields = calc.fields.filter((f) => isVisible(f, values));
-  const displayResult = result ? localizeResult(result, locale, calc.id, runtime) : null;
+  const displayResult = result && !hasValidationErrors ? localizeResult(result, locale, calc.id, runtime) : null;
 
   return (
     <div className="grid min-w-0 gap-5 sm:gap-8 lg:grid-cols-5" data-testid={`calculator-island-${calc.id}`}>
@@ -396,7 +441,7 @@ export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props
           {visibleFields.map((f) => (
             <div key={f.name} className={f.type === 'textarea' ? 'sm:col-span-2' : ''}>
               <FieldRenderer
-                field={contextualField(f, runtime, values, locale)}
+                field={withSelectedConverterInputUnit(calc.id, contextualField(f, runtime, values, locale), calc.fields, values, locale)}
                 value={values[f.name] as string | number | boolean}
                 error={visibleErrors[f.name]}
                 locale={locale}

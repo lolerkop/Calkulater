@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 import type { CalculatorSeoCopy } from '../../lib/platform/types';
 
 export const workHoursCopyUk: CalculatorSeoCopy = {
@@ -8,4 +9,6 @@ export const workHoursCopyUk: CalculatorSeoCopy = {
   seoDescription: "Порахуйте відпрацьовані години за часом початку та кінця зміни з відрахуванням перерви, включно з нічними змінами через північ.",
   h1: "Калькулятор робочих годин",
   keywords: ["калькулятор робочих годин", "облік відпрацьованого часу", "години за зміну"],
-};
+
+    ...dateTimeWave15ContractContent.uk['work-hours'],
+  };

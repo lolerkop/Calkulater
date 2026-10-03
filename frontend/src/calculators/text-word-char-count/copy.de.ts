@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
@@ -13,4 +14,5 @@ export const textWordCharCountCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Zähle Wörter, Zeichen mit und ohne Leerzeichen, Sätze und Absätze in einem Text, dazu die mittlere Wortlänge.',
   h1: 'Wörter- und Zeichenzähler',
   keywords: ['Wörter zählen', 'Zeichen zählen', 'wie viele Zeichen hat der Text', 'Zeichen mit Leerzeichen', 'Woerter zaehlen', 'Zeichen zaehlen'],
+  ...contractContent.de
 };

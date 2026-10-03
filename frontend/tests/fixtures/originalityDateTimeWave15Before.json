@@ -1,0 +1,3481 @@
+{
+  "pages": [
+    {
+      "id": "age-calculator",
+      "locale": "ru",
+      "path": "/ru/date-time/age-calculator/",
+      "name": "Калькулятор возраста",
+      "h1": "Калькулятор возраста",
+      "seoTitle": "Калькулятор возраста онлайн — точный возраст в днях",
+      "seoDescription": "Точный возраст по дате рождения онлайн: годы, месяцы, дни, общее число прожитых дней и расчёт на любую выбранную дату.",
+      "fields": [
+        {
+          "name": "birthDate",
+          "label": "Дата рождения",
+          "type": "date",
+          "defaultValue": "1990-01-01"
+        },
+        {
+          "name": "targetDate",
+          "label": "Дата расчёта",
+          "type": "date",
+          "defaultValue": ""
+        }
+      ],
+      "body": {
+        "longDescription": "Калькулятор возраста считает полный возраст по дате рождения: годы, месяцы, дни и общее количество прожитых дней. Можно считать не только на сегодня, но и на любую выбранную дату, что удобно для анкет, документов, поздравлений и проверки будущего возраста.",
+        "howToUse": [
+          "Выберите дату рождения.",
+          "Дата расчёта по умолчанию — сегодня, но её можно изменить.",
+          "Посмотрите полный возраст и общее число дней.",
+          "Для будущей даты укажите её вручную в поле расчёта."
+        ],
+        "howItWorks": "Калькулятор вычитает дату рождения из даты расчёта и приводит результат к годам, месяцам и дням.",
+        "example": "Родились 01.01.1990, сегодня 01.02.2026 → 36 лет 1 месяц.",
+        "faq": [
+          {
+            "q": "Учитываются ли високосные годы?",
+            "a": "Да, расчёт идёт по календарным датам с високосными годами."
+          },
+          {
+            "q": "Когда считается день рождения 29 февраля?",
+            "a": "В невисокосный год калькулятор считает годовщину 28 февраля; 1 марта показывает следующий полный день после годовщины."
+          },
+          {
+            "q": "Можно ли посчитать сколько до дня рождения?",
+            "a": "Поставьте в «Дате расчёта» свой следующий день рождения — увидите остаток."
+          },
+          {
+            "q": "Можно ли считать возраст на прошлую дату?",
+            "a": "Да, укажите нужную дату расчёта в прошлом, и калькулятор покажет возраст на тот день."
+          },
+          {
+            "q": "Почему возраст в месяцах и днях не равен простому делению?",
+            "a": "Месяцы имеют разную длину, поэтому расчёт ведётся по календарю, а не через среднее число дней."
+          },
+          {
+            "q": "Подходит ли калькулятор для документов?",
+            "a": "Он помогает быстро проверить возраст, но для официальных документов всегда ориентируйтесь на требования конкретной организации."
+          }
+        ]
+      },
+      "htmlSha256": "d81f72538cb7e4dfe6ff940981d789eb4635cae16fff8f9adf90fb165ac3e658"
+    },
+    {
+      "id": "age-calculator",
+      "locale": "en",
+      "path": "/en/date-time/age-calculator/",
+      "name": "Age calculator",
+      "h1": "Age calculator",
+      "seoTitle": "Age calculator — exact age in years, months and days",
+      "seoDescription": "Calculate exact age from date of birth to today or another date.",
+      "fields": [
+        {
+          "name": "birthDate",
+          "label": "Date of birth",
+          "type": "date",
+          "defaultValue": "1990-01-01"
+        },
+        {
+          "name": "targetDate",
+          "label": "Target date",
+          "type": "date",
+          "defaultValue": ""
+        }
+      ],
+      "body": {
+        "longDescription": "Use this age calculator to find exact age on today or another target date.",
+        "howToUse": [
+          "Enter date of birth.",
+          "Choose target date if needed.",
+          "Review exact age and total days."
+        ],
+        "howItWorks": "The calculator compares calendar dates and accounts for month lengths and leap years.",
+        "example": "Enter a birth date to calculate age on a specific future date.",
+        "faq": [
+          {
+            "q": "Which dates are compared for age?",
+            "a": "Enter the date of birth and optionally a reference date. Without a reference date, the calculator uses today."
+          },
+          {
+            "q": "How are years, months and days counted?",
+            "a": "The calculation compares calendar dates, accounting for different month lengths and leap years rather than dividing elapsed milliseconds by 24 hours."
+          },
+          {
+            "q": "What does total lived days mean?",
+            "a": "It is the count of calendar days from the birth date to the reference date, independent of daylight-saving clock changes."
+          }
+        ]
+      },
+      "htmlSha256": "0b33d456bb3cb70b97f252fa54d1c9e43e3998211c59976d2b8a21096b6a7a46"
+    },
+    {
+      "id": "age-calculator",
+      "locale": "uk",
+      "path": "/uk/daty/kalkulyator-viku/",
+      "name": "Калькулятор віку",
+      "h1": "Калькулятор віку",
+      "seoTitle": "Калькулятор віку - точний вік за датою народження",
+      "seoDescription": "Розрахуйте точний вік у роках, місяцях, днях і загальну кількість прожитих днів.",
+      "fields": [
+        {
+          "name": "birthDate",
+          "label": "Дата народження",
+          "type": "date",
+          "defaultValue": "1990-01-01"
+        },
+        {
+          "name": "targetDate",
+          "label": "Цільова дата",
+          "type": "date",
+          "defaultValue": ""
+        }
+      ],
+      "body": {
+        "longDescription": "Вік рахується не діленням днів на 365, а календарним відніманням: спершу роки, потім місяці, потім дні. Саме тому вік у роках і місяцях завжди точний, а перерахунок «у днях» дає інше число через високосні роки.",
+        "howToUse": [
+          "Введіть дату народження.",
+          "Введіть дату, на яку рахувати вік.",
+          "Прочитайте вік у роках, місяцях і днях."
+        ],
+        "howItWorks": "Калькулятор віднімає дату народження з дати розрахунку й наводить результат до років, місяців і днів. Порядок важливий: спершу повні роки, потім місяці від останнього дня народження, потім залишок днів.",
+        "example": "Народилися 01.01.1990, сьогодні 01.02.2026 — вийде 36 років 1 місяць.",
+        "faq": [
+          {
+            "q": "Чому не можна поділити дні на 365?",
+            "a": "Через високосні роки. За сорок років набігає близько десяти зайвих днів, і вік у роках вийде заниженим на кілька днів."
+          },
+          {
+            "q": "Як рахується вік для народжених 29 лютого?",
+            "a": "У невисокосні роки день народження зазвичай вважають 28 лютого або 1 березня — залежно від юрисдикції. Розрахунок бере найближчий наявний день місяця."
+          },
+          {
+            "q": "Чому місяці рахуються по-різному?",
+            "a": "Бо в них різна кількість днів. Місяць від 31 січня до 28 лютого — це повний місяць, хоча днів у ньому лише 28."
+          },
+          {
+            "q": "Навіщо потрібен вік у днях?",
+            "a": "Для медичних розрахунків у немовлят, для юридичних строків і просто з цікавості. Але для звичайних задач вік у роках і місяцях однозначніший."
+          }
+        ]
+      },
+      "htmlSha256": "a6a125aae71f5d7db5b3cb245f009b7dbc223878d60ed9ed3a69cd616c0faf08"
+    },
+    {
+      "id": "age-calculator",
+      "locale": "de",
+      "path": "/de/datum-zeit/altersrechner/",
+      "name": "Altersrechner",
+      "h1": "Altersrechner",
+      "seoTitle": "Altersrechner — genaues Alter in Jahren, Monaten und Tagen",
+      "seoDescription": "Berechne genaues Alter vom Geburtsdatum bis heute oder zu einem anderen Datum.",
+      "fields": [
+        {
+          "name": "birthDate",
+          "label": "Geburtsdatum",
+          "type": "date",
+          "defaultValue": "1990-01-01"
+        },
+        {
+          "name": "targetDate",
+          "label": "Zieldatum",
+          "type": "date",
+          "defaultValue": ""
+        }
+      ],
+      "body": {
+        "longDescription": "Zählt das Alter so, wie der Kalender es zählt, und nicht durch Teilen der Tage: zuerst volle Jahre, dann die vollen Monate darüber hinaus, dann die restlichen Tage. Genau daran scheitert die Näherung durch 365,25 — sie liefert eine Zahl, die an keinem Geburtstag stimmt. Neben der Zerlegung stehen die insgesamt gelebten Tage, der Wochentag der Geburt und die Zeit bis zum nächsten Geburtstag; Schaltjahre ergeben sich von selbst, weil dem Kalender gefolgt wird.",
+        "howToUse": [
+          "Trage das Geburtsdatum ein.",
+          "Lass das Rechendatum auf heute stehen oder wähle ein anderes.",
+          "Lies das Alter in Jahren, Monaten und Tagen ab."
+        ],
+        "howItWorks": "Vom Rechendatum werden zuerst die vollen Jahre abgezogen, dann die vollen Monate, dann bleiben die Tage. Ist der Tag im Zielmonat noch nicht erreicht, wird ein Monat weniger gezählt und die Tage aus der Länge des vorangegangenen Monats ergänzt.",
+        "example": "Wer am 15. März 1990 geboren wurde, ist am 29. August 2026 genau 36 Jahre, 5 Monate und 14 Tage alt.",
+        "faq": [
+          {
+            "q": "Warum nicht einfach die Tage durch 365,25 teilen?",
+            "a": "Weil das Alter am Geburtstag um eins steigt und nicht nach einer mittleren Jahreslänge. Die Näherung weicht je nach Lage der Schaltjahre um Tage ab."
+          },
+          {
+            "q": "Wie wird der 29. Februar behandelt?",
+            "a": "In Jahren ohne Schalttag gilt der 28. Februar als Geburtstag. Die gezählten Tage folgen dem wirklichen Kalender, der Schalttag ist dort ein Tag wie jeder andere."
+          },
+          {
+            "q": "Kann ich das Alter zu einem anderen Datum berechnen?",
+            "a": "Ja, das Rechendatum lässt sich frei setzen — auch in der Zukunft, etwa um das Alter zu einem Stichtag zu prüfen."
+          },
+          {
+            "q": "Warum steht der Wochentag der Geburt dabei?",
+            "a": "Weil er sich aus demselben Datum ergibt und häufig gesucht wird. Gerechnet wird er nach dem gregorianischen Kalender."
+          }
+        ]
+      },
+      "htmlSha256": "8fec8d8bb1e7f37967781d191f87726476507071c9a40dc950b3ad29b5c93c7b"
+    },
+    {
+      "id": "age-calculator",
+      "locale": "es",
+      "path": "/es/fechas/calculadora-edad/",
+      "name": "Calculadora de edad",
+      "h1": "Calculadora de edad",
+      "seoTitle": "Calculadora de edad — edad exacta en años, meses y días",
+      "seoDescription": "Calcula edad exacta desde la fecha de nacimiento hasta hoy u otra fecha.",
+      "fields": [
+        {
+          "name": "birthDate",
+          "label": "Fecha de nacimiento",
+          "type": "date",
+          "defaultValue": "1990-01-01"
+        },
+        {
+          "name": "targetDate",
+          "label": "Fecha objetivo",
+          "type": "date",
+          "defaultValue": ""
+        }
+      ],
+      "body": {
+        "longDescription": "Calcula la edad exacta entre dos fechas en años, meses y días, no solo en años cumplidos. La cuenta sigue el calendario y no una media de días: los meses tienen distinta duración y los años bisiestos añaden un día, así que restar y dividir entre 365 da un resultado que se desvía. La fecha de referencia es hoy por defecto, pero puede cambiarse por cualquier otra, que es lo que se necesita para saber qué edad se tendrá en una fecha futura o qué edad se tenía en una pasada.",
+        "howToUse": [
+          "Introduce la fecha de nacimiento.",
+          "Cambia la fecha de referencia si no quieres calcular la edad de hoy.",
+          "Consulta la edad exacta, los días vividos y los días que faltan para el próximo cumpleaños."
+        ],
+        "howItWorks": "Los años se cuentan mientras la fecha de nacimiento quepa entera en el intervalo; después se cuentan los meses completos y, por último, los días que sobran. Los años bisiestos se tienen en cuenta al pasar de febrero.",
+        "example": "De una fecha de nacimiento del 31 de enero de 2000 al 1 de marzo de 2026 hay 26 años, 1 mes y 1 día.",
+        "faq": [
+          {
+            "q": "¿Por qué no basta con restar los años?",
+            "a": "Porque la edad solo aumenta cuando ya ha pasado el cumpleaños. De 2000 a 2026 hay 26 años en el calendario, pero si el cumpleaños aún no ha llegado, la edad cumplida son 25."
+          },
+          {
+            "q": "¿Cómo se cuentan los años bisiestos?",
+            "a": "Se cuentan solos: el cálculo recorre fechas reales del calendario y no una media de 365,25 días, así que un 29 de febrero se trata como el día que es."
+          },
+          {
+            "q": "¿Qué edad tiene quien nació un 29 de febrero?",
+            "a": "En los años no bisiestos su cumpleaños se sitúa en el 1 de marzo a efectos de la cuenta: es la convención más habitual, y evita que se quede sin cumpleaños tres años de cada cuatro."
+          },
+          {
+            "q": "¿Puedo poner una fecha de referencia en el futuro?",
+            "a": "Sí. Es justo para eso: saber qué edad tendrás en una fecha concreta, por ejemplo el día de un examen o de un trámite."
+          },
+          {
+            "q": "¿Qué son los días vividos en total?",
+            "a": "El número de días del calendario entre ambas fechas, bisiestos incluidos. Es una cifra distinta de la edad en años, meses y días, y suele sorprender."
+          }
+        ]
+      },
+      "htmlSha256": "125edabe0807a9f9e34c48e7250becb2ffed33830ce31a392bf60d6a47306f85"
+    },
+    {
+      "id": "working-days-calculator",
+      "locale": "ru",
+      "path": "/ru/date-time/working-days-calculator/",
+      "name": "Калькулятор рабочих дней",
+      "h1": "Калькулятор рабочих дней",
+      "seoTitle": "Калькулятор рабочих дней онлайн — между двумя датами",
+      "seoDescription": "Сколько рабочих дней между двумя датами. Учёт выходных и пользовательских исключений.",
+      "fields": [
+        {
+          "name": "startDate",
+          "label": "Дата начала",
+          "type": "date"
+        },
+        {
+          "name": "endDate",
+          "label": "Дата окончания",
+          "type": "date"
+        },
+        {
+          "name": "includeWeekends",
+          "label": "Учитывать выходные как рабочие",
+          "type": "toggle",
+          "defaultValue": "no",
+          "options": [
+            {
+              "value": "no",
+              "label": "Нет"
+            },
+            {
+              "value": "yes",
+              "label": "Да"
+            }
+          ]
+        },
+        {
+          "name": "saturdayWorking",
+          "label": "Суббота считается рабочим днём",
+          "type": "toggle",
+          "defaultValue": "no",
+          "options": [
+            {
+              "value": "no",
+              "label": "Нет"
+            },
+            {
+              "value": "yes",
+              "label": "Да"
+            }
+          ],
+          "showIf": {
+            "field": "includeWeekends",
+            "equals": "no"
+          }
+        },
+        {
+          "name": "excludedDates",
+          "label": "Исключаемые даты",
+          "type": "textarea",
+          "defaultValue": ""
+        }
+      ],
+      "body": {
+        "longDescription": "Калькулятор рабочих дней считает календарные, рабочие и выходные дни между двумя датами. Он полезен для планирования задач, отпусков, сроков по договору и внутренних дедлайнов. Праздники и нестандартные нерабочие даты можно добавить вручную как исключения.",
+        "howToUse": [
+          "Выберите даты начала и окончания.",
+          "Включите учёт выходных, если суббота и воскресенье считаются рабочими.",
+          "Через запятую введите даты праздников, которые нужно исключить.",
+          "Проверьте результат с календарём вашей страны или компании."
+        ],
+        "howItWorks": "Калькулятор перебирает каждый день диапазона, отделяя выходные и исключённые даты.",
+        "example": "01.02.2026 — 28.02.2026 → 28 календарных, 20 рабочих, 8 выходных.",
+        "faq": [
+          {
+            "q": "Какие дни считаются выходными?",
+            "a": "Суббота и воскресенье. Праздничные дни нужно указать вручную."
+          },
+          {
+            "q": "Можно ли указать диапазон дат для исключения?",
+            "a": "Сейчас нет — только список конкретных дат через запятую."
+          },
+          {
+            "q": "Включаются ли начальная и конечная даты?",
+            "a": "Да, диапазон считается по календарным дням внутри выбранных дат. Если дата попадает под выходной или исключение, она не добавляется к рабочим."
+          },
+          {
+            "q": "Можно ли считать шестидневную рабочую неделю?",
+            "a": "Да. Включите режим рабочей субботы: воскресенье останется выходным, а суббота будет учитываться как рабочий день. Праздники и переносы добавляйте в исключённые даты."
+          },
+          {
+            "q": "Подходит ли расчёт для юридических сроков?",
+            "a": "Для предварительной оценки — да. Для официальных сроков сверяйте правила исчисления дней в договоре, законе или локальном календаре."
+          }
+        ]
+      },
+      "htmlSha256": "04ed41e2de50699a4d877eaa98cd13a06d47b87d04e8833f1e6a765aee49abe2"
+    },
+    {
+      "id": "working-days-calculator",
+      "locale": "en",
+      "path": "/en/date-time/business-days-calculator/",
+      "name": "Business days calculator",
+      "h1": "Business days calculator",
+      "seoTitle": "Business days calculator — count workdays between dates",
+      "seoDescription": "Calculate business days between two dates with optional weekends and excluded dates.",
+      "fields": [
+        {
+          "name": "startDate",
+          "label": "Start date",
+          "type": "date"
+        },
+        {
+          "name": "endDate",
+          "label": "End date",
+          "type": "date"
+        },
+        {
+          "name": "includeWeekends",
+          "label": "Count weekends as workdays",
+          "type": "toggle",
+          "defaultValue": "no",
+          "options": [
+            {
+              "value": "no",
+              "label": "No"
+            },
+            {
+              "value": "yes",
+              "label": "Yes"
+            }
+          ]
+        },
+        {
+          "name": "saturdayWorking",
+          "label": "Count Saturday as a workday",
+          "type": "toggle",
+          "defaultValue": "no",
+          "options": [
+            {
+              "value": "no",
+              "label": "No"
+            },
+            {
+              "value": "yes",
+              "label": "Yes"
+            }
+          ],
+          "showIf": {
+            "field": "includeWeekends",
+            "equals": "no"
+          }
+        },
+        {
+          "name": "excludedDates",
+          "label": "Excluded dates",
+          "type": "textarea",
+          "defaultValue": ""
+        }
+      ],
+      "body": {
+        "longDescription": "Use this business days calculator to count weekdays, weekends and manually excluded dates between two dates.",
+        "howToUse": [
+          "Enter start and end dates.",
+          "Choose whether weekends count as workdays.",
+          "Add excluded dates if needed."
+        ],
+        "howItWorks": "The calculator iterates through calendar days and counts days that match the selected workday rules.",
+        "example": "Count workdays between two dates and exclude holidays manually.",
+        "faq": [
+          {
+            "q": "How are business days counted?",
+            "a": "The calculator walks the dates between the start and end and counts days that match the workday rules you select."
+          },
+          {
+            "q": "Can I change how weekends are treated?",
+            "a": "Yes. Choose whether weekend days count as workdays before reading the total."
+          },
+          {
+            "q": "Are public holidays excluded automatically?",
+            "a": "No. Enter any holidays or other dates to exclude yourself; the calculator does not assume a country-specific holiday calendar."
+          }
+        ]
+      },
+      "htmlSha256": "c07e33b9e9af27fa58c04b2eb03020eab96b0bff0b49619151666e9bac0fbbf9"
+    },
+    {
+      "id": "working-days-calculator",
+      "locale": "uk",
+      "path": "/uk/daty/kalkulyator-robochyh-dniv/",
+      "name": "Калькулятор робочих днів",
+      "h1": "Калькулятор робочих днів",
+      "seoTitle": "Калькулятор робочих днів - порахувати робочі дні",
+      "seoDescription": "Розрахуйте робочі дні, календарні дні та вихідні між двома датами онлайн.",
+      "fields": [
+        {
+          "name": "startDate",
+          "label": "Початкова дата",
+          "type": "date"
+        },
+        {
+          "name": "endDate",
+          "label": "Кінцева дата",
+          "type": "date"
+        },
+        {
+          "name": "includeWeekends",
+          "label": "Враховувати вихідні як робочі дні",
+          "type": "toggle",
+          "defaultValue": "no",
+          "options": [
+            {
+              "value": "no",
+              "label": "Ні"
+            },
+            {
+              "value": "yes",
+              "label": "Так"
+            }
+          ]
+        },
+        {
+          "name": "saturdayWorking",
+          "label": "Вважати суботу робочим днем",
+          "type": "toggle",
+          "defaultValue": "no",
+          "options": [
+            {
+              "value": "no",
+              "label": "Ні"
+            },
+            {
+              "value": "yes",
+              "label": "Так"
+            }
+          ],
+          "showIf": {
+            "field": "includeWeekends",
+            "equals": "no"
+          }
+        },
+        {
+          "name": "excludedDates",
+          "label": "Виключені дати",
+          "type": "textarea",
+          "defaultValue": ""
+        }
+      ],
+      "body": {
+        "longDescription": "Робочі дні рахуються перебором кожної дати діапазону, а не діленням на сім: так коректно обробляються неповні тижні на краях і виключені дати. Свята треба задавати самому — вони різні для кожної країни й року.",
+        "howToUse": [
+          "Введіть початкову й кінцеву дати.",
+          "Додайте свята й вихідні, які треба виключити.",
+          "Прочитайте кількість календарних, робочих і вихідних днів."
+        ],
+        "howItWorks": "Калькулятор перебирає кожен день діапазону, відділяючи вихідні та виключені дати. Перебір, а не ділення на сім, потрібен саме для коректної обробки неповних тижнів на краях діапазону.",
+        "example": "З 01.02.2026 по 28.02.2026 — 28 календарних днів, 20 робочих і 8 вихідних.",
+        "faq": [
+          {
+            "q": "Чому не можна просто поділити на сім?",
+            "a": "Через неповні тижні на краях. Діапазон із понеділка по понеділок містить не рівне число тижнів, і ділення дасть помилку в один-два дні."
+          },
+          {
+            "q": "Чи враховуються свята?",
+            "a": "Тільки ті, які ви ввели самі. Календар свят різний для кожної країни й змінюється рік до року, тому зашивати його в розрахунок було б хибно."
+          },
+          {
+            "q": "Чи входять граничні дати в розрахунок?",
+            "a": "Так, обидві. Діапазон з 1 по 28 лютого містить 28 днів, а не 27 — це важливо для строків договорів."
+          },
+          {
+            "q": "Як рахувати перенесені вихідні?",
+            "a": "Додайте робочу суботу як виключення навпаки або скоригуйте підсумок вручну. Перенесення надто різняться між країнами, щоб автоматизувати їх надійно."
+          }
+        ]
+      },
+      "htmlSha256": "9c5168a02d256d0651084196a0ba652e60e6d0eb806ea62ca41d022a7ed7751d"
+    },
+    {
+      "id": "working-days-calculator",
+      "locale": "de",
+      "path": "/de/datum-zeit/arbeitstage-rechner/",
+      "name": "Arbeitstage-Rechner",
+      "h1": "Arbeitstage-Rechner",
+      "seoTitle": "Arbeitstage-Rechner — Arbeitstage zwischen Daten zählen",
+      "seoDescription": "Berechne Arbeitstage zwischen zwei Daten mit Wochenenden und optional ausgeschlossenen Daten.",
+      "fields": [
+        {
+          "name": "startDate",
+          "label": "Startdatum",
+          "type": "date"
+        },
+        {
+          "name": "endDate",
+          "label": "Enddatum",
+          "type": "date"
+        },
+        {
+          "name": "includeWeekends",
+          "label": "Wochenenden als Arbeitstage zählen",
+          "type": "toggle",
+          "defaultValue": "no",
+          "options": [
+            {
+              "value": "no",
+              "label": "Nein"
+            },
+            {
+              "value": "yes",
+              "label": "Ja"
+            }
+          ]
+        },
+        {
+          "name": "saturdayWorking",
+          "label": "Samstag als Arbeitstag zählen",
+          "type": "toggle",
+          "defaultValue": "no",
+          "options": [
+            {
+              "value": "no",
+              "label": "Nein"
+            },
+            {
+              "value": "yes",
+              "label": "Ja"
+            }
+          ],
+          "showIf": {
+            "field": "includeWeekends",
+            "equals": "no"
+          }
+        },
+        {
+          "name": "excludedDates",
+          "label": "Ausgeschlossene Daten",
+          "type": "textarea",
+          "defaultValue": ""
+        }
+      ],
+      "body": {
+        "longDescription": "Zählt die Arbeitstage zwischen zwei Daten und überlässt die Regeln dir, statt einen Feiertagskalender vorzugeben: ob der Samstag als Arbeitstag zählt und welche einzelnen Tage entfallen, hängt vom Land, von der Branche und vom Vertrag ab. Feiertage werden nicht erraten, sondern als Liste eingetragen — ein fest eingebauter Kalender wäre für die Hälfte der Leser schlicht falsch. Beide Grenztage zählen mit, und Kalendertage, Arbeitstage und Wochenendtage stehen getrennt.",
+        "howToUse": [
+          "Trage Anfangs- und Enddatum ein — beide Tage zählen mit.",
+          "Stelle ein, ob Wochenenden als Arbeitstage gelten.",
+          "Stelle gesondert ein, ob der Samstag ein Arbeitstag ist.",
+          "Trage Feiertage und andere freie Tage als Liste ein."
+        ],
+        "howItWorks": "Gezählt werden alle Tage von Anfang bis Ende einschließlich. Samstag und Sonntag entfallen, sofern die Einstellungen nichts anderes sagen, und die eingetragenen Daten werden zusätzlich abgezogen.",
+        "example": "Vom 1. bis 30. September 2026 liegen 30 Kalendertage, davon 22 Arbeitstage bei einer Fünftagewoche.",
+        "faq": [
+          {
+            "q": "Warum sind keine Feiertage eingebaut?",
+            "a": "Weil sie sich nach Land und Bundesland unterscheiden und sich jedes Jahr verschieben. Ein fest eingebauter Kalender wäre für viele Leser falsch, deshalb trägst du die Tage selbst ein."
+          },
+          {
+            "q": "Zählen Anfangs- und Endtag mit?",
+            "a": "Ja, beide. Für einen Abstand ohne den ersten Tag zieh eins ab."
+          },
+          {
+            "q": "Was ist der Unterschied zwischen Arbeitstag und Werktag?",
+            "a": "Der Werktag umfasst rechtlich meist auch den Samstag, der Arbeitstag folgt dem Dienstplan. Deshalb gibt es einen eigenen Schalter für den Samstag."
+          },
+          {
+            "q": "In welchem Format trage ich die freien Tage ein?",
+            "a": "Als Liste von Daten, ein Datum je Zeile. Tage außerhalb des Zeitraums bleiben ohne Wirkung."
+          },
+          {
+            "q": "Taugt das für gesetzliche Fristen?",
+            "a": "Als Schätzung. Fristen zählen je nach Gesetz in Kalendertagen, Werktagen oder Bankarbeitstagen, und die maßgebliche Regel steht im Vertrag oder Gesetz."
+          }
+        ]
+      },
+      "htmlSha256": "1b113245338ec159c3e2e9e4ac052a40548a5fd8e0977a03920290a7aa23ea94"
+    },
+    {
+      "id": "working-days-calculator",
+      "locale": "es",
+      "path": "/es/fechas/calculadora-dias-laborables/",
+      "name": "Calculadora de días laborables",
+      "h1": "Calculadora de días laborables",
+      "seoTitle": "Calculadora de días laborables — contar días de trabajo",
+      "seoDescription": "Calcula días laborables entre dos fechas con fines de semana y fechas excluidas opcionales.",
+      "fields": [
+        {
+          "name": "startDate",
+          "label": "Fecha inicial",
+          "type": "date"
+        },
+        {
+          "name": "endDate",
+          "label": "Fecha final",
+          "type": "date"
+        },
+        {
+          "name": "includeWeekends",
+          "label": "Contar fines de semana como laborables",
+          "type": "toggle",
+          "defaultValue": "no",
+          "options": [
+            {
+              "value": "no",
+              "label": "No"
+            },
+            {
+              "value": "yes",
+              "label": "Sí"
+            }
+          ]
+        },
+        {
+          "name": "saturdayWorking",
+          "label": "Contar el sábado como laborable",
+          "type": "toggle",
+          "defaultValue": "no",
+          "options": [
+            {
+              "value": "no",
+              "label": "No"
+            },
+            {
+              "value": "yes",
+              "label": "Sí"
+            }
+          ],
+          "showIf": {
+            "field": "includeWeekends",
+            "equals": "no"
+          }
+        },
+        {
+          "name": "excludedDates",
+          "label": "Fechas excluidas",
+          "type": "textarea",
+          "defaultValue": ""
+        }
+      ],
+      "body": {
+        "longDescription": "Usa esta calculadora de días laborables para contar los días de diario, los fines de semana y las fechas excluidas a mano entre dos fechas.",
+        "howToUse": [
+          "Introduce la fecha de inicio y la de fin.",
+          "Elige si los fines de semana cuentan como laborables.",
+          "Añade fechas excluidas si hace falta."
+        ],
+        "howItWorks": "La calculadora recorre los días del calendario y cuenta los que cumplen las reglas de jornada laboral elegidas.",
+        "example": "Cuenta los días laborables entre dos fechas y excluye los festivos a mano.",
+        "faq": [
+          {
+            "q": "¿Cómo se cuentan los días laborables?",
+            "a": "Se recorren las fechas entre el inicio y el final y se cuentan las que cumplen las reglas de jornada elegidas."
+          },
+          {
+            "q": "¿Puedo cambiar el tratamiento de los fines de semana?",
+            "a": "Sí. Elige si los días de fin de semana deben contar como laborables antes de consultar el total."
+          },
+          {
+            "q": "¿Se excluyen los festivos automáticamente?",
+            "a": "No. Introduce a mano los festivos u otras fechas que quieras excluir; no se presupone un calendario nacional."
+          }
+        ]
+      },
+      "htmlSha256": "1f36507c9b66bbc71a713cae5ac6ab135e352dc785043ce7759e830016e09cc9"
+    },
+    {
+      "id": "date-shift-calculator",
+      "locale": "ru",
+      "path": "/ru/date-time/date-calculator/",
+      "name": "Калькулятор дат",
+      "h1": "Калькулятор дат",
+      "seoTitle": "Калькулятор дат онлайн — прибавить или отнять дни, недели и месяцы",
+      "seoDescription": "Узнайте, какая дата будет через заданное число дней, недель, месяцев или лет. Калькулятор дат показывает день недели, номер дня в году и неделю по ISO 8601.",
+      "fields": [
+        {
+          "name": "startDate",
+          "label": "Исходная дата",
+          "type": "date"
+        },
+        {
+          "name": "shiftDirection",
+          "label": "Направление",
+          "type": "toggle",
+          "defaultValue": "forward",
+          "options": [
+            {
+              "value": "forward",
+              "label": "Прибавить"
+            },
+            {
+              "value": "backward",
+              "label": "Отнять"
+            }
+          ]
+        },
+        {
+          "name": "shiftYears",
+          "label": "Лет",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftMonths",
+          "label": "Месяцев",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftWeeks",
+          "label": "Недель",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftDays",
+          "label": "Дней",
+          "type": "number",
+          "defaultValue": 90,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "body": {
+        "longDescription": "Калькулятор дат прибавляет к выбранной дате или вычитает из неё интервал: годы, месяцы, недели и дни. Он отвечает на вопросы вида «какое число будет через 90 дней» и «какая дата была за 3 месяца до». Кроме самой даты калькулятор показывает день недели, общее смещение в календарных днях, номер дня в году и номер недели по ISO 8601.",
+        "howToUse": [
+          "Выберите исходную дату — по умолчанию подставляется сегодняшняя.",
+          "Укажите направление: прибавить интервал к дате или отнять от неё.",
+          "Заполните нужные поля интервала: годы, месяцы, недели, дни. Их можно комбинировать.",
+          "Проверьте итоговую дату, день недели и общее смещение в календарных днях."
+        ],
+        "howItWorks": "Сначала применяются годы и месяцы, затем недели и дни. Если в целевом месяце нет такого числа, дата усекается до последнего дня месяца: 31 января плюс один месяц даёт 28 февраля, а в високосный год — 29 февраля. Високосные годы учитываются автоматически, потому что расчёт идёт по календарю, а не по фиксированной длине года.",
+        "example": "01.01.2026 плюс 90 дней → 01.04.2026, среда. Смещение — 90 календарных дней, 91-й день года, 14-я неделя по ISO 8601.",
+        "faq": [
+          {
+            "q": "Как считаются месяцы, если в них разное число дней?",
+            "a": "Месяцы прибавляются по календарю, а не по 30 дней. Если в целевом месяце нужного числа нет, берётся последний день месяца: 31 января плюс месяц даёт 28 февраля."
+          },
+          {
+            "q": "Почему прибавить месяц и потом отнять месяц не всегда возвращает исходную дату?",
+            "a": "Из-за усечения. 31 января плюс месяц — это 28 февраля, а 28 февраля минус месяц — 28 января. Это обычное поведение календарной арифметики, а не ошибка расчёта."
+          },
+          {
+            "q": "Что будет, если исходная дата — 29 февраля?",
+            "a": "При сдвиге на годы и месяцы 29 февраля переносится на 28-е, если в целевом году нет високосного дня. Сдвиг на дни и недели идёт по реальному календарю, поэтому високосный день просто учитывается как обычный."
+          },
+          {
+            "q": "Считаются ли выходные и праздники?",
+            "a": "Нет, здесь считаются календарные дни подряд. Если нужны только рабочие дни, воспользуйтесь калькулятором рабочих дней."
+          },
+          {
+            "q": "Что такое номер недели по ISO 8601?",
+            "a": "Это международный стандарт нумерации недель: неделя начинается с понедельника, а первой неделей года считается та, в которую попадает первый четверг. Поэтому 1 января иногда относится к последней неделе предыдущего года."
+          },
+          {
+            "q": "Можно ли комбинировать годы, месяцы и дни?",
+            "a": "Да. Сначала применяются годы и месяцы, затем недели и дни. Порядок важен: он влияет на результат, когда происходит усечение до конца месяца."
+          }
+        ]
+      },
+      "htmlSha256": "654cdb0ee2e824cb2335f95825bb5f86044f253bf73757b9023d5cfa5136daf2"
+    },
+    {
+      "id": "date-shift-calculator",
+      "locale": "en",
+      "path": "/en/date-time/date-calculator/",
+      "name": "Date calculator",
+      "h1": "Date calculator",
+      "seoTitle": "Date calculator — add or subtract days, weeks and months",
+      "seoDescription": "Find the date after adding or subtracting days, weeks, months and years. Shows the weekday, day of the year and ISO 8601 week number.",
+      "fields": [
+        {
+          "name": "startDate",
+          "label": "Start date",
+          "type": "date"
+        },
+        {
+          "name": "shiftDirection",
+          "label": "Direction",
+          "type": "toggle",
+          "defaultValue": "forward",
+          "options": [
+            {
+              "value": "forward",
+              "label": "Add to the date"
+            },
+            {
+              "value": "backward",
+              "label": "Subtract from the date"
+            }
+          ]
+        },
+        {
+          "name": "shiftYears",
+          "label": "Years",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftMonths",
+          "label": "Months",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftWeeks",
+          "label": "Weeks",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftDays",
+          "label": "Days",
+          "type": "number",
+          "defaultValue": 90,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "body": {
+        "longDescription": "Use this date calculator to add an interval to a date or subtract one from it. It answers questions like \"what date is 90 days from today\" and also reports the weekday, the total shift in calendar days, the day of the year and the ISO 8601 week number.",
+        "howToUse": [
+          "Pick the start date — today is filled in by default.",
+          "Choose whether to add the interval to the date or subtract it.",
+          "Fill in the parts of the interval you need: years, months, weeks and days can be combined.",
+          "Check the resulting date, its weekday and the total shift in calendar days."
+        ],
+        "howItWorks": "Years and months are applied first, then weeks and days. When the target month is shorter, the date is clamped to the last day of that month: 31 January plus one month gives 28 February, or 29 February in a leap year. Leap years are handled automatically because the calculation follows the calendar rather than a fixed year length.",
+        "example": "1 January 2026 plus 90 days is 1 April 2026, a Wednesday — a shift of 90 calendar days, the 91st day of the year, ISO week 14.",
+        "faq": [
+          {
+            "q": "How are months counted when they have different lengths?",
+            "a": "Months are added by the calendar, not as 30 days. If the target month has no such day, the last day of that month is used: 31 January plus one month gives 28 February."
+          },
+          {
+            "q": "Why does adding a month and then subtracting one not always return the original date?",
+            "a": "Because of clamping. 31 January plus a month is 28 February, and 28 February minus a month is 28 January. That is normal calendar arithmetic, not a rounding error."
+          },
+          {
+            "q": "What happens when the start date is 29 February?",
+            "a": "When you shift by years or months, 29 February moves to the 28th if the target year has no leap day. Shifts by days and weeks follow the real calendar, so a leap day simply counts as an ordinary day."
+          },
+          {
+            "q": "Does it skip weekends and holidays?",
+            "a": "No, it counts consecutive calendar days. Use the business days calculator when you need working days only."
+          },
+          {
+            "q": "What is the ISO 8601 week number?",
+            "a": "It is the international standard for numbering weeks: a week starts on Monday, and the first week of a year is the one containing the first Thursday. That is why 1 January sometimes belongs to the last week of the previous year."
+          },
+          {
+            "q": "Can I combine years, months and days?",
+            "a": "Yes. Years and months are applied first, then weeks and days. The order matters whenever clamping to the end of a month happens."
+          }
+        ]
+      },
+      "htmlSha256": "5681f57c83ff394ef12a09058a9c0a451a3bfec7e68969947cb24f2438f8d68f"
+    },
+    {
+      "id": "date-shift-calculator",
+      "locale": "uk",
+      "path": "/uk/daty/kalkulyator-dat/",
+      "name": "Калькулятор дат",
+      "h1": "Калькулятор дат",
+      "seoTitle": "Калькулятор дат - додати або відняти дні та місяці",
+      "seoDescription": "Обчисліть дату після додавання чи віднімання днів, тижнів, місяців і років. Показує день тижня та номер тижня за ISO 8601.",
+      "fields": [
+        {
+          "name": "startDate",
+          "label": "Початкова дата",
+          "type": "date"
+        },
+        {
+          "name": "shiftDirection",
+          "label": "Напрямок",
+          "type": "toggle",
+          "defaultValue": "forward",
+          "options": [
+            {
+              "value": "forward",
+              "label": "Додати до дати"
+            },
+            {
+              "value": "backward",
+              "label": "Відняти від дати"
+            }
+          ]
+        },
+        {
+          "name": "shiftYears",
+          "label": "Років",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftMonths",
+          "label": "Місяців",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftWeeks",
+          "label": "Тижнів",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftDays",
+          "label": "Днів",
+          "type": "number",
+          "defaultValue": 90,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "body": {
+        "longDescription": "Додавання строку до дати не є простим додаванням днів: спершу застосовуються роки й місяці, потім тижні й дні. Ключове правило — якщо в цільовому місяці немає такого числа, дата усікається до останнього дня місяця.",
+        "howToUse": [
+          "Введіть початкову дату.",
+          "Виберіть напрямок: додати чи відняти.",
+          "Введіть роки, місяці, тижні й дні."
+        ],
+        "howItWorks": "Спершу застосовуються роки й місяці, потім тижні й дні. Якщо в цільовому місяці немає такого числа, дата усікається до останнього дня: 31 січня плюс один місяць дає 28 лютого, а у високосний рік — 29 лютого.",
+        "example": "31 січня плюс один місяць дає 28 лютого у звичайному році й 29 лютого — у високосному.",
+        "faq": [
+          {
+            "q": "Чому 31 січня плюс місяць — це 28 лютого?",
+            "a": "Бо 31 лютого не існує, і дата усікається до останнього дня місяця. Це стандартна поведінка календарних бібліотек і юридичних строків."
+          },
+          {
+            "q": "Чому порядок операцій має значення?",
+            "a": "Бо додавання місяця й потім дня дає інший результат, ніж навпаки. Прийнято спершу застосовувати більші одиниці — так само рахують строки в договорах."
+          },
+          {
+            "q": "Чи враховуються високосні роки?",
+            "a": "Так, автоматично. Рік від 29 лютого 2024 дає 28 лютого 2025 — саме тому, що 29 лютого в невисокосному році немає."
+          },
+          {
+            "q": "Чи можна відняти строк?",
+            "a": "Так, виберіть напрямок «відняти». Правило усікання при цьому працює так само."
+          }
+        ]
+      },
+      "htmlSha256": "e077957471649fcfdd285b75e884e9f9f46ca1b4a261981a4acf496c5fd0d575"
+    },
+    {
+      "id": "date-shift-calculator",
+      "locale": "de",
+      "path": "/de/datum-zeit/datumsrechner/",
+      "name": "Datumsrechner",
+      "h1": "Datumsrechner",
+      "seoTitle": "Datumsrechner — Tage, Wochen und Monate addieren oder abziehen",
+      "seoDescription": "Finde das Datum nach Addition oder Abzug von Tagen, Wochen, Monaten und Jahren. Zeigt Wochentag, Tag des Jahres und Kalenderwoche nach ISO 8601.",
+      "fields": [
+        {
+          "name": "startDate",
+          "label": "Ausgangsdatum",
+          "type": "date"
+        },
+        {
+          "name": "shiftDirection",
+          "label": "Richtung",
+          "type": "toggle",
+          "defaultValue": "forward",
+          "options": [
+            {
+              "value": "forward",
+              "label": "Zum Datum addieren"
+            },
+            {
+              "value": "backward",
+              "label": "Vom Datum abziehen"
+            }
+          ]
+        },
+        {
+          "name": "shiftYears",
+          "label": "Jahre",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftMonths",
+          "label": "Monate",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftWeeks",
+          "label": "Wochen",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftDays",
+          "label": "Tage",
+          "type": "number",
+          "defaultValue": 90,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "body": {
+        "longDescription": "Verschiebt ein Datum um Jahre, Monate, Wochen und Tage und folgt dabei dem Kalender statt einer festen Jahreslänge. Die Reihenfolge ist festgelegt: zuerst Jahre und Monate, danach Wochen und Tage. Ist der Zielmonat kürzer, wird auf seinen letzten Tag gekappt — der 31. Januar plus ein Monat ist der 28. Februar, im Schaltjahr der 29. Deshalb führt ein Monat vor und ein Monat zurück nicht immer auf dasselbe Datum, und das ist gewöhnliche Kalenderarithmetik und kein Rundungsfehler. Wochentag, Tag des Jahres und Kalenderwoche nach ISO 8601 stehen mit im Ergebnis.",
+        "howToUse": [
+          "Trage das Ausgangsdatum ein.",
+          "Wähle, ob addiert oder abgezogen wird.",
+          "Trage Jahre, Monate, Wochen und Tage ein — sie wirken zusammen.",
+          "Lies Ergebnisdatum, Wochentag und Kalenderwoche ab."
+        ],
+        "howItWorks": "Zuerst werden Jahre und Monate angewendet und bei einem kürzeren Zielmonat auf dessen letzten Tag gekappt, danach Wochen und Tage. Schaltjahre ergeben sich von selbst, weil dem Kalender gefolgt wird.",
+        "example": "Der 1. Januar 2026 plus 90 Tage ist der 1. April 2026, ein Mittwoch — der 91. Tag des Jahres in der Kalenderwoche 14.",
+        "faq": [
+          {
+            "q": "Wie werden Monate verschiedener Länge gezählt?",
+            "a": "Nach dem Kalender und nicht als 30 Tage. Gibt es den Tag im Zielmonat nicht, wird sein letzter Tag genommen: der 31. Januar plus ein Monat ist der 28. Februar."
+          },
+          {
+            "q": "Warum führt ein Monat vor und zurück nicht immer zum Ausgangsdatum?",
+            "a": "Wegen der Kappung. Der 31. Januar plus ein Monat ist der 28. Februar, und der 28. Februar minus ein Monat ist der 28. Januar."
+          },
+          {
+            "q": "Was geschieht mit dem 29. Februar?",
+            "a": "Bei einer Verschiebung um Jahre oder Monate rückt er in Jahren ohne Schalttag auf den 28. Bei Tagen und Wochen zählt er als gewöhnlicher Tag."
+          },
+          {
+            "q": "Werden Wochenenden und Feiertage übersprungen?",
+            "a": "Nein, gezählt werden zusammenhängende Kalendertage. Für Arbeitstage nimm den Arbeitstage-Rechner."
+          },
+          {
+            "q": "Was ist die Kalenderwoche nach ISO 8601?",
+            "a": "Die internationale Wochenzählung: eine Woche beginnt am Montag, und die erste Woche eines Jahres ist die mit dem ersten Donnerstag. Deshalb gehört der 1. Januar manchmal zur letzten Woche des Vorjahres."
+          }
+        ]
+      },
+      "htmlSha256": "93e15d9005a272d2be37fe4464a7df2efca82e44cd04f53edc729b6613c592f4"
+    },
+    {
+      "id": "date-shift-calculator",
+      "locale": "es",
+      "path": "/es/fechas/calculadora-de-fechas/",
+      "name": "Calculadora de fechas",
+      "h1": "Calculadora de fechas",
+      "seoTitle": "Calculadora de fechas — sumar o restar días, semanas y meses",
+      "seoDescription": "Halla la fecha resultante de sumar o restar días, semanas, meses y años. Muestra el día de la semana, el día del año y el número de semana ISO 8601.",
+      "fields": [
+        {
+          "name": "startDate",
+          "label": "Fecha de partida",
+          "type": "date"
+        },
+        {
+          "name": "shiftDirection",
+          "label": "Sentido",
+          "type": "toggle",
+          "defaultValue": "forward",
+          "options": [
+            {
+              "value": "forward",
+              "label": "Sumar a la fecha"
+            },
+            {
+              "value": "backward",
+              "label": "Restar de la fecha"
+            }
+          ]
+        },
+        {
+          "name": "shiftYears",
+          "label": "Años",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftMonths",
+          "label": "Meses",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftWeeks",
+          "label": "Semanas",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "shiftDays",
+          "label": "Días",
+          "type": "number",
+          "defaultValue": 90,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "body": {
+        "longDescription": "Usa esta calculadora de fechas para sumar un intervalo a una fecha o restárselo. Responde a preguntas como «qué fecha cae 90 días después de hoy» e indica además el día de la semana, el desplazamiento total en días naturales, el día del año y el número de semana ISO 8601.",
+        "howToUse": [
+          "Elige la fecha de partida: hoy viene puesta por defecto.",
+          "Elige si quieres sumar el intervalo a la fecha o restárselo.",
+          "Rellena las partes del intervalo que necesites: años, meses, semanas y días se pueden combinar.",
+          "Consulta la fecha resultante, su día de la semana y el desplazamiento total en días naturales."
+        ],
+        "howItWorks": "Primero se aplican los años y los meses, y después las semanas y los días. Cuando el mes de destino es más corto, la fecha se ajusta al último día de ese mes: el 31 de enero más un mes da el 28 de febrero, o el 29 en un año bisiesto. Los años bisiestos se gestionan solos porque el cálculo sigue el calendario y no una duración fija de año.",
+        "example": "El 1 de enero de 2026 más 90 días es el 1 de abril de 2026, un miércoles: un desplazamiento de 90 días naturales, el día 91 del año, semana ISO 14.",
+        "faq": [
+          {
+            "q": "¿Cómo se cuentan los meses si tienen distinta duración?",
+            "a": "Los meses se suman por el calendario, no como 30 días. Si el mes de destino no tiene ese día, se usa el último día de ese mes: el 31 de enero más un mes da el 28 de febrero."
+          },
+          {
+            "q": "¿Por qué sumar un mes y después restarlo no siempre devuelve la fecha original?",
+            "a": "Por el ajuste al final de mes. El 31 de enero más un mes es el 28 de febrero, y el 28 de febrero menos un mes es el 28 de enero. Eso es aritmética de calendario normal, no un error de redondeo."
+          },
+          {
+            "q": "¿Qué ocurre cuando la fecha de partida es el 29 de febrero?",
+            "a": "Al desplazar por años o meses, el 29 de febrero pasa al 28 si el año de destino no tiene día bisiesto. Los desplazamientos por días y semanas siguen el calendario real, así que un día bisiesto cuenta simplemente como uno más."
+          },
+          {
+            "q": "¿Se saltan los fines de semana y los festivos?",
+            "a": "No, cuenta días naturales consecutivos. Usa la calculadora de días laborables cuando necesites solo días hábiles."
+          },
+          {
+            "q": "¿Qué es el número de semana ISO 8601?",
+            "a": "Es la norma internacional para numerar semanas: una semana empieza en lunes, y la primera semana del año es la que contiene el primer jueves. Por eso el 1 de enero pertenece a veces a la última semana del año anterior."
+          },
+          {
+            "q": "¿Puedo combinar años, meses y días?",
+            "a": "Sí. Primero se aplican los años y los meses, y después las semanas y los días. El orden importa siempre que haya un ajuste al final de mes."
+          }
+        ]
+      },
+      "htmlSha256": "8a5e122ce9ed7c050697207a4346fd6c927139ead120e230849e36f4f289108b"
+    },
+    {
+      "id": "leap-year",
+      "locale": "ru",
+      "path": "/ru/date-time/leap-year/",
+      "name": "Калькулятор високосного года",
+      "h1": "Калькулятор високосного года",
+      "seoTitle": "Калькулятор високосного года — високосный ли этот год",
+      "seoDescription": "Проверьте, високосный ли год, посмотрите длину февраля и ближайшие високосные годы.",
+      "fields": [
+        {
+          "name": "year",
+          "label": "Год",
+          "type": "number",
+          "defaultValue": 2024,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "body": {
+        "longDescription": "Применяет григорианское правило: год, делящийся на четыре, високосный, кроме вековых, которые должны делиться ещё и на четыреста. Именно поэтому 1900 год был обычным, а 2000 — високосным.",
+        "howToUse": [
+          "Введите год.",
+          "Прочитайте ответ.",
+          "При необходимости посмотрите ближайшие високосные годы."
+        ],
+        "howItWorks": "Год делится на 4 и при этом либо не делится на 100, либо делится на 400.",
+        "example": "2024 год високосный, 1900 не был, а 2000 был — потому что делится на 400.",
+        "faq": [
+          {
+            "q": "Зачем нужно вековое исключение?",
+            "a": "Тропический год длится около 365,2422 суток — чуть меньше 365,25. Отбрасывание трёх високосных дней за четыре века удерживает календарь в согласии с временами года."
+          },
+          {
+            "q": "Был ли 1900 год високосным?",
+            "a": "Нет. Он делится на 100, но не на 400, поэтому февраль был из 28 дней."
+          },
+          {
+            "q": "Как часто встречается високосный год?",
+            "a": "Раз в четыре года, за вычетом вековых исключений — 97 високосных лет на каждые 400."
+          },
+          {
+            "q": "Работает ли правило для старых дат?",
+            "a": "Григорианский календарь введён в 1582 году; для более ранних дат действовало юлианское правило, где високосным был каждый четвёртый год без исключений."
+          }
+        ]
+      },
+      "htmlSha256": "9f32fbce568bee938abf88c7d35e9639ae92f0af56cce1fe75dc173b1a82cf9f"
+    },
+    {
+      "id": "leap-year",
+      "locale": "en",
+      "path": "/en/date-time/leap-year/",
+      "name": "Leap year calculator",
+      "h1": "Leap year calculator",
+      "seoTitle": "Leap year calculator — is this year a leap year",
+      "seoDescription": "Check whether a year is a leap year, see the length of February and the nearest leap years.",
+      "fields": [
+        {
+          "name": "year",
+          "label": "Year",
+          "type": "number",
+          "defaultValue": 2024,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "body": {
+        "longDescription": "Applies the Gregorian rule: a year divisible by four is a leap year, except century years, which must also be divisible by four hundred. That is why 1900 was ordinary and 2000 was not.",
+        "howToUse": [
+          "Enter the year.",
+          "Read the answer.",
+          "Check the nearest leap years if you need them."
+        ],
+        "howItWorks": "Divisible by 4 and either not divisible by 100 or divisible by 400.",
+        "example": "2024 is a leap year, 1900 was not, and 2000 was — because it divides by 400.",
+        "faq": [
+          {
+            "q": "Why is the century exception needed?",
+            "a": "A tropical year is about 365.2422 days, slightly less than 365.25. Dropping three leap days every four centuries keeps the calendar aligned with the seasons."
+          },
+          {
+            "q": "Was 1900 a leap year?",
+            "a": "No. It divides by 100 but not by 400, so February had 28 days."
+          },
+          {
+            "q": "How often does a leap year occur?",
+            "a": "Every four years, apart from those century exceptions — 97 leap years in every 400."
+          },
+          {
+            "q": "Does the rule work for old dates?",
+            "a": "The Gregorian calendar was introduced in 1582; for earlier dates the Julian rule applied, where every fourth year was a leap year without exception."
+          }
+        ]
+      },
+      "htmlSha256": "b22ab34531f5cb33e1c3c7479718e9e0f92b2b0f7b79c381fe414bc49511ebd4"
+    },
+    {
+      "id": "leap-year",
+      "locale": "uk",
+      "path": "/uk/daty/vysokosnyi-rik/",
+      "name": "Калькулятор високосного року",
+      "h1": "Калькулятор високосного року",
+      "seoTitle": "Калькулятор високосного року — чи високосний цей рік",
+      "seoDescription": "Перевірте, чи є рік високосним, подивіться довжину лютого та найближчі високосні роки.",
+      "fields": [
+        {
+          "name": "year",
+          "label": "Рік",
+          "type": "number",
+          "defaultValue": 2024,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "body": {
+        "longDescription": "Правило високосного року складніше за «кожні чотири роки»: рік має ділитися на 4 і при цьому або не ділитися на 100, або ділитися на 400. Саме тому 1900-й високосним не був, а 2000-й був — і саме ця деталь ламала програми на межі тисячоліття.",
+        "howToUse": [
+          "Введіть рік.",
+          "Прочитайте відповідь і пояснення.",
+          "Подивіться найближчі високосні роки."
+        ],
+        "howItWorks": "Рік високосний, якщо ділиться на 4 і при цьому або не ділиться на 100, або ділиться на 400. Три умови разом і дають середню тривалість року 365,2425 доби — близьку до астрономічної.",
+        "example": "2024 рік високосний, 1900 не був, а 2000 був — саме тому, що ділиться на 400.",
+        "faq": [
+          {
+            "q": "Навіщо потрібне правило про 400?",
+            "a": "Бо астрономічний рік триває близько 365,2422 доби, а не рівно 365,25. Просте правило чотирьох років давало б помилку в добу за 128 років — виняток для сотень і четвертих сотень її й прибирає."
+          },
+          {
+            "q": "Чому 1900 не був високосним?",
+            "a": "Бо ділиться на 100, але не на 400. А 2000-й ділиться на 400 і високосним був — саме ця відмінність і породила частину проблем 2000 року в старих програмах."
+          },
+          {
+            "q": "Наскільки точний григоріанський календар?",
+            "a": "Помилка накопичується приблизно на добу за 3200 років. Для практичних потреб цього більш ніж достатньо."
+          },
+          {
+            "q": "Що таке високосна секунда?",
+            "a": "Це зовсім інше: поправка на нерівномірність обертання Землі, яку додають до всесвітнього часу. З високосними роками вона не пов’язана."
+          }
+        ]
+      },
+      "htmlSha256": "8449a697b47f0a942e5918d5783fd5748088bb4df06a083b8703f2097bbb551f"
+    },
+    {
+      "id": "leap-year",
+      "locale": "de",
+      "path": "/de/datum-zeit/schaltjahr-rechner/",
+      "name": "Schaltjahr-Rechner",
+      "h1": "Schaltjahr-Rechner",
+      "seoTitle": "Schaltjahr berechnen — ist dieses Jahr ein Schaltjahr",
+      "seoDescription": "Prüfe, ob ein Jahr ein Schaltjahr ist, sieh die Länge des Februars und die nächstgelegenen Schaltjahre.",
+      "fields": [
+        {
+          "name": "year",
+          "label": "Jahr",
+          "type": "number",
+          "defaultValue": 2024,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "body": {
+        "longDescription": "Wendet die gregorianische Regel an: Ein durch vier teilbares Jahr ist ein Schaltjahr, außer den vollen Jahrhunderten — die müssen zusätzlich durch vierhundert teilbar sein. Deshalb war 1900 ein gewöhnliches Jahr und 2000 nicht.",
+        "howToUse": [
+          "Trage das Jahr ein.",
+          "Lies die Antwort ab.",
+          "Sieh bei Bedarf die nächstgelegenen Schaltjahre nach."
+        ],
+        "howItWorks": "Teilbar durch 4 und entweder nicht teilbar durch 100 oder teilbar durch 400.",
+        "example": "2024 ist ein Schaltjahr, 1900 war keines, und 2000 war eines — weil es durch 400 teilbar ist.",
+        "faq": [
+          {
+            "q": "Wozu die Ausnahme bei den Jahrhunderten?",
+            "a": "Ein tropisches Jahr dauert rund 365,2422 Tage, etwas weniger als 365,25. Drei ausgelassene Schalttage je vier Jahrhunderte halten den Kalender mit den Jahreszeiten im Takt."
+          },
+          {
+            "q": "War 1900 ein Schaltjahr?",
+            "a": "Nein. Es ist durch 100 teilbar, aber nicht durch 400, deshalb hatte der Februar 28 Tage."
+          },
+          {
+            "q": "Wie oft kommt ein Schaltjahr vor?",
+            "a": "Alle vier Jahre, abgesehen von den Jahrhundertausnahmen — 97 Schaltjahre auf je 400 Jahre."
+          },
+          {
+            "q": "Gilt die Regel auch für alte Daten?",
+            "a": "Der gregorianische Kalender wurde 1582 eingeführt; für frühere Daten galt die julianische Regel, nach der jedes vierte Jahr ausnahmslos ein Schaltjahr war."
+          }
+        ]
+      },
+      "htmlSha256": "4ae7357c8d5beeadfc6f127a55f263beef5f295248327fddbd228f045cc9dcd1"
+    },
+    {
+      "id": "leap-year",
+      "locale": "es",
+      "path": "/es/fechas/ano-bisiesto/",
+      "name": "Calculadora de años bisiestos",
+      "h1": "Calculadora de años bisiestos",
+      "seoTitle": "Calculadora de años bisiestos — ¿es bisiesto este año?",
+      "seoDescription": "Comprueba si un año es bisiesto, consulta la duración de febrero y los años bisiestos más cercanos.",
+      "fields": [
+        {
+          "name": "year",
+          "label": "Año",
+          "type": "number",
+          "defaultValue": 2024,
+          "min": 1,
+          "step": 1
+        }
+      ],
+      "body": {
+        "longDescription": "Aplica la regla gregoriana: un año divisible entre cuatro es bisiesto, salvo los años de fin de siglo, que además deben ser divisibles entre cuatrocientos. Por eso 1900 fue común y 2000 no lo fue.",
+        "howToUse": [
+          "Introduce el año.",
+          "Consulta la respuesta.",
+          "Comprueba los años bisiestos más cercanos si los necesitas."
+        ],
+        "howItWorks": "Divisible entre 4 y, o bien no divisible entre 100, o bien divisible entre 400.",
+        "example": "2024 es bisiesto, 1900 no lo fue y 2000 sí, porque se divide entre 400.",
+        "faq": [
+          {
+            "q": "¿Por qué hace falta la excepción de los siglos?",
+            "a": "Un año trópico dura unos 365,2422 días, algo menos de 365,25. Suprimir tres días bisiestos cada cuatro siglos mantiene el calendario alineado con las estaciones."
+          },
+          {
+            "q": "¿1900 fue bisiesto?",
+            "a": "No. Se divide entre 100 pero no entre 400, así que febrero tuvo 28 días."
+          },
+          {
+            "q": "¿Cada cuánto hay un año bisiesto?",
+            "a": "Cada cuatro años, salvo esas excepciones de fin de siglo: 97 años bisiestos por cada 400."
+          },
+          {
+            "q": "¿La regla vale para fechas antiguas?",
+            "a": "El calendario gregoriano se implantó en 1582; para fechas anteriores regía la regla juliana, en la que cada cuarto año era bisiesto sin excepción."
+          }
+        ]
+      },
+      "htmlSha256": "0a9caea94723c2e65b4b2839f833fe5db61a52c78ec4fe871de95dc7854a88f6"
+    },
+    {
+      "id": "sleep-time",
+      "locale": "ru",
+      "path": "/ru/date-time/sleep-time/",
+      "name": "Калькулятор времени сна",
+      "h1": "Калькулятор времени сна",
+      "seoTitle": "Калькулятор времени сна по циклам в 90 минут",
+      "seoDescription": "Подберите время подъёма или отхода ко сну по числу циклов в 90 минут с поправкой на время, которое уходит на засыпание.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Что известно",
+          "type": "select",
+          "defaultValue": "bedtime",
+          "options": [
+            {
+              "value": "bedtime",
+              "label": "когда ложусь спать"
+            },
+            {
+              "value": "wake",
+              "label": "когда нужно встать"
+            }
+          ]
+        },
+        {
+          "name": "hour",
+          "label": "Час",
+          "type": "number",
+          "defaultValue": 23,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "minute",
+          "label": "Минуты",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "cycles",
+          "label": "Циклов сна",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 1,
+          "max": 12,
+          "step": 1
+        },
+        {
+          "name": "fallAsleep",
+          "label": "Время на засыпание, мин",
+          "type": "number",
+          "defaultValue": 15,
+          "min": 0,
+          "step": 5
+        }
+      ],
+      "body": {
+        "longDescription": "Девяносто минут — принятая средняя длительность цикла сна, а не измерение конкретного человека: настоящие циклы идут примерно от 80 до 110 минут и меняются в течение ночи. Смысл расчёта не в точности, а в том, чтобы будильник пришёлся между циклами, а не посреди глубокой фазы, — поэтому цель задаётся целым числом циклов, а не круглыми восемью часами. Пробуждение в середине цикла ощущается разбитым даже после долгой ночи, а в конце цикла — отдохнувшим даже после короткой. Время на засыпание прибавляется отдельно, потому что это время в постели, а не сон.",
+        "howToUse": [
+          "Выберите, что вам известно: время отхода ко сну или будильник.",
+          "Введите это время в часах и минутах.",
+          "Укажите желаемое число циклов — пяти или шести хватает большинству взрослых.",
+          "Введите, сколько времени у вас обычно уходит на засыпание."
+        ],
+        "howItWorks": "Время в постели = циклы × 90 минут + время на засыпание. Оно прибавляется ко времени отхода ко сну или вычитается из времени подъёма, сворачиваясь через полночь.",
+        "example": "Отход ко сну в 23:00 при пяти циклах и 15 минутах на засыпание даёт будильник на 06:45.",
+        "faq": [
+          {
+            "q": "Цикл сна действительно длится 90 минут?",
+            "a": "В среднем и приблизительно. Отдельные циклы идут примерно от 80 до 110 минут и удлиняются к утру, поэтому результат стоит считать ориентиром, а не расписанием."
+          },
+          {
+            "q": "Сколько циклов выбирать?",
+            "a": "Пять или шесть для большинства взрослых — это от семи с половиной до девяти часов сна. Четыре — короткая ночь, которая иногда работает, но не как правило."
+          },
+          {
+            "q": "Зачем прибавлять время на засыпание отдельно?",
+            "a": "Потому что это время в постели, а не сон. Будильник без этой поправки крадёт разницу у последнего цикла — ровно от этого расчёт и защищает."
+          },
+          {
+            "q": "Почему результат иногда приходится на следующий день?",
+            "a": "Потому что часы сворачиваются через полночь. Лечь в 23:00 и проспать девять часов означает 08:00 следующего утра, а не 32:00."
+          }
+        ]
+      },
+      "htmlSha256": "d6762c819ed742992522c0d241362854391d36b6552dd0ac1b047718e2ac02ad"
+    },
+    {
+      "id": "sleep-time",
+      "locale": "en",
+      "path": "/en/date-time/sleep-time-calculator/",
+      "name": "Sleep time calculator",
+      "h1": "Sleep time calculator",
+      "seoTitle": "Sleep time calculator — 90-minute cycles",
+      "seoDescription": "Find the time to wake up or to go to bed from a number of 90-minute sleep cycles, adjusted for how long you take to fall asleep.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "What is known",
+          "type": "select",
+          "defaultValue": "bedtime",
+          "options": [
+            {
+              "value": "bedtime",
+              "label": "the time I go to bed"
+            },
+            {
+              "value": "wake",
+              "label": "the time I must wake up"
+            }
+          ]
+        },
+        {
+          "name": "hour",
+          "label": "Hour",
+          "type": "number",
+          "defaultValue": 23,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "minute",
+          "label": "Minutes",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "cycles",
+          "label": "Sleep cycles",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 1,
+          "max": 12,
+          "step": 1
+        },
+        {
+          "name": "fallAsleep",
+          "label": "Time to fall asleep, min",
+          "type": "number",
+          "defaultValue": 15,
+          "min": 0,
+          "step": 5
+        }
+      ],
+      "body": {
+        "longDescription": "Ninety minutes is the accepted average length of a sleep cycle rather than a measurement of any particular person — real cycles run from roughly 80 to 110 minutes and change through the night. The point of the calculation is not precision but landing the alarm between cycles instead of in the middle of deep sleep, which is why the target is a whole number of cycles rather than a round eight hours. Waking mid-cycle feels wrecked even after a long night, and waking at the end of one feels rested even after a short one. The time to fall asleep is added separately because it is time in bed rather than sleep.",
+        "howToUse": [
+          "Choose whether you know your bedtime or your alarm.",
+          "Enter that time in hours and minutes.",
+          "Choose how many cycles you want — five or six suits most adults.",
+          "Enter how long you usually take to fall asleep."
+        ],
+        "howItWorks": "Time in bed = cycles × 90 minutes + time to fall asleep. That is added to a bedtime or subtracted from a wake-up time, wrapping around midnight.",
+        "example": "Going to bed at 23:00 for five cycles with 15 minutes to fall asleep gives a 06:45 alarm.",
+        "faq": [
+          {
+            "q": "Is a sleep cycle really 90 minutes?",
+            "a": "On average and roughly. Individual cycles run from about 80 to 110 minutes and lengthen through the night, so treat the result as a target rather than a schedule."
+          },
+          {
+            "q": "How many cycles should I aim for?",
+            "a": "Five or six for most adults, which is seven and a half to nine hours of sleep. Four is a short night that works occasionally, not routinely."
+          },
+          {
+            "q": "Why add time to fall asleep separately?",
+            "a": "Because it is time in bed, not sleep. Setting an alarm without it steals the difference from the last cycle, which is exactly what the calculation exists to avoid."
+          },
+          {
+            "q": "Why does the result sometimes fall on the next day?",
+            "a": "Because the clock wraps around midnight. Going to bed at 23:00 and sleeping nine hours means 08:00 the next morning, not 32:00."
+          }
+        ]
+      },
+      "htmlSha256": "aa314d4e5c9b6bb511edbf515abd80e1af7bed0eeb2f59c5b93ec4a2691f52b0"
+    },
+    {
+      "id": "sleep-time",
+      "locale": "uk",
+      "path": "/uk/daty/chas-snu/",
+      "name": "Калькулятор часу сну",
+      "h1": "Калькулятор часу сну",
+      "seoTitle": "Калькулятор часу сну за циклами по 90 хвилин",
+      "seoDescription": "Підбір часу підйому або відходу до сну за кількістю циклів по 90 хвилин із поправкою на час засинання.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Що відомо",
+          "type": "select",
+          "defaultValue": "bedtime",
+          "options": [
+            {
+              "value": "bedtime",
+              "label": "коли лягаю спати"
+            },
+            {
+              "value": "wake",
+              "label": "коли треба встати"
+            }
+          ]
+        },
+        {
+          "name": "hour",
+          "label": "Година",
+          "type": "number",
+          "defaultValue": 23,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "minute",
+          "label": "Хвилини",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "cycles",
+          "label": "Циклів сну",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 1,
+          "max": 12,
+          "step": 1
+        },
+        {
+          "name": "fallAsleep",
+          "label": "Час на засинання, хв",
+          "type": "number",
+          "defaultValue": 15,
+          "min": 0,
+          "step": 5
+        }
+      ],
+      "body": {
+        "longDescription": "Розрахунок часу сну спирається на цикли приблизно по 90 хвилин: прокидатися легше наприкінці циклу, а не посеред глибокої фази. Тому підйом за 7,5 години часто відчувається бадьорішим, ніж за 8 — і це не парадокс, а фаза сну.",
+        "howToUse": [
+          "Введіть час відходу до сну або бажаний час підйому.",
+          "Задайте кількість циклів — зазвичай 5–6.",
+          "Додайте час на засинання, зазвичай 15 хвилин."
+        ],
+        "howItWorks": "Час у ліжку дорівнює цикли × 90 хвилин плюс час на засинання. Воно додається до часу відходу до сну або віднімається від бажаного підйому — залежно від обраного напрямку.",
+        "example": "Відхід до сну о 23:00 за п’яти циклів і 15 хвилин на засинання дає будильник на 06:45.",
+        "faq": [
+          {
+            "q": "Чому цикл саме 90 хвилин?",
+            "a": "Це усереднена тривалість повного циклу сну. Індивідуально вона коливається від 80 до 110 хвилин, тому розрахунок дає орієнтир, а не точний час."
+          },
+          {
+            "q": "Чому прокидатися посеред циклу важче?",
+            "a": "Бо в глибокій фазі організм найменш готовий до пробудження. Наприкінці циклу сон поверхневий, і підйом дається легше — навіть якщо спали менше."
+          },
+          {
+            "q": "Скільки циклів потрібно?",
+            "a": "П’ять-шість для дорослого, тобто 7,5–9 годин. Менше чотирьох регулярно — це вже дефіцит сну з накопичувальним ефектом."
+          },
+          {
+            "q": "Чи допоможе це, якщо лягати щоразу в різний час?",
+            "a": "Частково. Значно сильніше працює стабільний розклад: організм підлаштовує цикли під регулярний режим, і пробудження стає легшим саме собою."
+          }
+        ]
+      },
+      "htmlSha256": "a2dac207f4c45b289c66ead14d588407dfc8f43668b32ee3db552de0cd6cb1a5"
+    },
+    {
+      "id": "sleep-time",
+      "locale": "de",
+      "path": "/de/datum-zeit/schlafrechner/",
+      "name": "Schlafrechner",
+      "h1": "Schlafrechner",
+      "seoTitle": "Schlafrechner — Zyklen zu 90 Minuten",
+      "seoDescription": "Finde die Zeit zum Aufstehen oder zum Zubettgehen aus einer Zahl von 90-Minuten-Zyklen, mit Einschlafdauer.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Was bekannt ist",
+          "type": "select",
+          "defaultValue": "bedtime",
+          "options": [
+            {
+              "value": "bedtime",
+              "label": "wann ich ins Bett gehe"
+            },
+            {
+              "value": "wake",
+              "label": "wann ich aufstehen muss"
+            }
+          ]
+        },
+        {
+          "name": "hour",
+          "label": "Stunde",
+          "type": "number",
+          "defaultValue": 23,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "minute",
+          "label": "Minuten",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "cycles",
+          "label": "Schlafzyklen",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 1,
+          "max": 12,
+          "step": 1
+        },
+        {
+          "name": "fallAsleep",
+          "label": "Einschlafdauer, min",
+          "type": "number",
+          "defaultValue": 15,
+          "min": 0,
+          "step": 5
+        }
+      ],
+      "body": {
+        "longDescription": "Neunzig Minuten sind die anerkannte durchschnittliche Länge eines Schlafzyklus, keine Messung an einem bestimmten Menschen — echte Zyklen laufen etwa 80 bis 110 Minuten und ändern sich im Lauf der Nacht. Es geht hier nicht um Genauigkeit, sondern darum, den Wecker zwischen zwei Zyklen zu setzen statt mitten in den Tiefschlaf; deshalb ist das Ziel eine ganze Zahl von Zyklen und nicht eine runde Zahl von acht Stunden. Mitten im Zyklus aufzuwachen fühlt sich auch nach einer langen Nacht zerschlagen an, am Ende eines Zyklus auch nach einer kurzen erholt. Die Einschlafdauer kommt getrennt hinzu, weil sie Zeit im Bett ist und nicht Schlaf.",
+        "howToUse": [
+          "Wähle, ob du deine Zubettgehzeit oder deinen Wecker kennst.",
+          "Trage diese Zeit in Stunden und Minuten ein.",
+          "Wähle die Zahl der Zyklen — fünf oder sechs passen den meisten Erwachsenen.",
+          "Trage ein, wie lange du gewöhnlich zum Einschlafen brauchst."
+        ],
+        "howItWorks": "Zeit im Bett = Zyklen × 90 Minuten + Einschlafdauer. Das wird zu einer Zubettgehzeit addiert oder von einer Aufstehzeit abgezogen, mit Übergang über Mitternacht.",
+        "example": "Um 23:00 ins Bett, fünf Zyklen, 15 Minuten zum Einschlafen — der Wecker steht auf 06:45.",
+        "faq": [
+          {
+            "q": "Dauert ein Schlafzyklus wirklich 90 Minuten?",
+            "a": "Im Mittel und ungefähr. Einzelne Zyklen laufen etwa 80 bis 110 Minuten und werden im Lauf der Nacht länger; nimm das Ergebnis als Zielmarke, nicht als Fahrplan."
+          },
+          {
+            "q": "Wie viele Zyklen sollte ich anstreben?",
+            "a": "Fünf oder sechs für die meisten Erwachsenen, das sind siebeneinhalb bis neun Stunden Schlaf. Vier sind eine kurze Nacht, die gelegentlich trägt, aber nicht dauerhaft."
+          },
+          {
+            "q": "Warum kommt die Einschlafdauer getrennt hinzu?",
+            "a": "Weil sie Zeit im Bett ist und nicht Schlaf. Einen Wecker ohne sie zu stellen, nimmt die Differenz vom letzten Zyklus weg — genau das soll die Rechnung verhindern."
+          },
+          {
+            "q": "Warum liegt das Ergebnis manchmal am nächsten Tag?",
+            "a": "Weil die Uhr über Mitternacht läuft. Um 23:00 ins Bett und neun Stunden Schlaf heißt 08:00 am nächsten Morgen und nicht 32:00."
+          }
+        ]
+      },
+      "htmlSha256": "7cdfaa8f07e69acae7e08a0e0dd804df97288643abc335bea3d7091161092e8a"
+    },
+    {
+      "id": "sleep-time",
+      "locale": "es",
+      "path": "/es/fechas/horas-de-sueno/",
+      "name": "Calculadora de horas de sueño",
+      "h1": "Calculadora de horas de sueño",
+      "seoTitle": "Calculadora de horas de sueño — ciclos de 90 minutos",
+      "seoDescription": "Halla la hora de despertarte o de acostarte a partir de un número de ciclos de sueño de 90 minutos, ajustada por lo que tardas en dormirte.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Qué se conoce",
+          "type": "select",
+          "defaultValue": "bedtime",
+          "options": [
+            {
+              "value": "bedtime",
+              "label": "la hora a la que me acuesto"
+            },
+            {
+              "value": "wake",
+              "label": "la hora a la que debo levantarme"
+            }
+          ]
+        },
+        {
+          "name": "hour",
+          "label": "Hora",
+          "type": "number",
+          "defaultValue": 23,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "minute",
+          "label": "Minutos",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "cycles",
+          "label": "Ciclos de sueño",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 1,
+          "max": 12,
+          "step": 1
+        },
+        {
+          "name": "fallAsleep",
+          "label": "Tiempo para dormirse, min",
+          "type": "number",
+          "defaultValue": 15,
+          "min": 0,
+          "step": 5
+        }
+      ],
+      "body": {
+        "longDescription": "Noventa minutos es la duración media aceptada de un ciclo de sueño, no una medida de ninguna persona en concreto: los ciclos reales van de unos 80 a unos 110 minutos y cambian a lo largo de la noche. El sentido del cálculo no es la precisión, sino que el despertador caiga entre ciclos y no en mitad del sueño profundo, y por eso el objetivo es un número entero de ciclos y no unas redondas ocho horas. Despertarse a mitad de ciclo deja hecho polvo incluso tras una noche larga, y despertarse al final de uno deja descansado incluso tras una corta. El tiempo para dormirse se suma aparte porque es tiempo en la cama, no sueño.",
+        "howToUse": [
+          "Elige si conoces la hora de acostarte o la del despertador.",
+          "Introduce esa hora en horas y minutos.",
+          "Elige cuántos ciclos quieres: cinco o seis van bien para la mayoría de los adultos.",
+          "Introduce cuánto sueles tardar en dormirte."
+        ],
+        "howItWorks": "Tiempo en la cama = ciclos × 90 minutos + tiempo para dormirse. Eso se suma a una hora de acostarse o se resta de una hora de despertar, dando la vuelta a la medianoche.",
+        "example": "Acostarse a las 23:00 para cinco ciclos con 15 minutos para dormirse da un despertador a las 06:45.",
+        "faq": [
+          {
+            "q": "¿Un ciclo de sueño dura de verdad 90 minutos?",
+            "a": "De media y de forma aproximada. Los ciclos individuales van de unos 80 a unos 110 minutos y se alargan a lo largo de la noche, así que toma el resultado como un objetivo y no como un horario."
+          },
+          {
+            "q": "¿Cuántos ciclos debo buscar?",
+            "a": "Cinco o seis para la mayoría de los adultos, que son de siete horas y media a nueve de sueño. Cuatro es una noche corta que funciona de vez en cuando, no de forma habitual."
+          },
+          {
+            "q": "¿Por qué se suma aparte el tiempo para dormirse?",
+            "a": "Porque es tiempo en la cama, no sueño. Poner el despertador sin él roba esa diferencia al último ciclo, que es justo lo que el cálculo existe para evitar."
+          },
+          {
+            "q": "¿Por qué el resultado cae a veces al día siguiente?",
+            "a": "Porque el reloj da la vuelta a la medianoche. Acostarse a las 23:00 y dormir nueve horas significa las 08:00 de la mañana siguiente, no las 32:00."
+          }
+        ]
+      },
+      "htmlSha256": "953f8a3b7303abc5eec68bcb6b7b1d940a8f1852d54f35ed9aa8cf491ee1d13c"
+    },
+    {
+      "id": "time-duration",
+      "locale": "ru",
+      "path": "/ru/date-time/time-duration/",
+      "name": "Калькулятор продолжительности времени",
+      "h1": "Калькулятор продолжительности времени",
+      "seoTitle": "Калькулятор продолжительности времени — часы и минуты",
+      "seoDescription": "Расчёт промежутка между двумя моментами, прибавление и вычитание часов и минут, включая переход через полночь.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Что рассчитать",
+          "type": "select",
+          "defaultValue": "difference",
+          "options": [
+            {
+              "value": "difference",
+              "label": "Промежуток между моментами"
+            },
+            {
+              "value": "add",
+              "label": "Прибавить длительность"
+            },
+            {
+              "value": "subtract",
+              "label": "Вычесть длительность"
+            }
+          ]
+        },
+        {
+          "name": "startHour",
+          "label": "Час начала",
+          "type": "number",
+          "defaultValue": 9,
+          "min": 0,
+          "max": 23
+        },
+        {
+          "name": "startMinute",
+          "label": "Минута начала",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59
+        },
+        {
+          "name": "endHour",
+          "label": "Час окончания",
+          "type": "number",
+          "defaultValue": 17,
+          "min": 0,
+          "max": 23,
+          "showIf": {
+            "field": "mode",
+            "equals": "difference"
+          }
+        },
+        {
+          "name": "endMinute",
+          "label": "Минута окончания",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "showIf": {
+            "field": "mode",
+            "equals": "difference"
+          }
+        },
+        {
+          "name": "spanHour",
+          "label": "Часов длительности",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "max": 999,
+          "showIf": {
+            "field": "mode",
+            "equals": "add"
+          }
+        },
+        {
+          "name": "spanMinute",
+          "label": "Минут длительности",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "showIf": {
+            "field": "mode",
+            "equals": "add"
+          }
+        }
+      ],
+      "body": {
+        "longDescription": "Считает, сколько времени проходит между двумя моментами, и во сколько получится время после прибавления или вычитания длительности. Переход через полночь обрабатывается как обычный случай, а не как ошибка.",
+        "howToUse": [
+          "Выберите, что нужно рассчитать.",
+          "Введите время в часах и минутах.",
+          "Прочитайте промежуток или получившееся время."
+        ],
+        "howItWorks": "Всё переводится в минуты от полуночи, а результат замыкается в сутки.",
+        "example": "С 22:15 до 06:45 проходит 8 часов 30 минут.",
+        "faq": [
+          {
+            "q": "Что если окончание раньше начала?",
+            "a": "Это считается переходом через полночь — именно так работает ночная смена. Результат отмечается отдельной строкой."
+          },
+          {
+            "q": "Может ли длительность превышать сутки?",
+            "a": "Прибавляемая или вычитаемая длительность может быть больше 24 часов; получившееся время замыкается по кругу."
+          },
+          {
+            "q": "Поддерживаются ли секунды?",
+            "a": "Нет, расчёт идёт в целых минутах — этого достаточно для смен и расписаний."
+          },
+          {
+            "q": "Что происходит со значениями вне диапазона?",
+            "a": "Часы приводятся к 0–23, минуты к 0–59, поэтому опечатка даёт осмысленное время, а не сломанный результат."
+          }
+        ]
+      },
+      "htmlSha256": "d0ec737e75e134898fd9e0ff1b79c09bba774610db0c9a7f5d3c8e02acc24bee"
+    },
+    {
+      "id": "time-duration",
+      "locale": "en",
+      "path": "/en/date-time/time-duration-calculator/",
+      "name": "Time duration calculator",
+      "h1": "Time duration calculator",
+      "seoTitle": "Time duration calculator — hours and minutes between times",
+      "seoDescription": "Calculate the duration between two times, or add and subtract hours and minutes from a time.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "What to calculate",
+          "type": "select",
+          "defaultValue": "difference",
+          "options": [
+            {
+              "value": "difference",
+              "label": "Duration between two times"
+            },
+            {
+              "value": "add",
+              "label": "Add a duration"
+            },
+            {
+              "value": "subtract",
+              "label": "Subtract a duration"
+            }
+          ]
+        },
+        {
+          "name": "startHour",
+          "label": "Start hour",
+          "type": "number",
+          "defaultValue": 9,
+          "min": 0,
+          "max": 23
+        },
+        {
+          "name": "startMinute",
+          "label": "Start minute",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59
+        },
+        {
+          "name": "endHour",
+          "label": "End hour",
+          "type": "number",
+          "defaultValue": 17,
+          "min": 0,
+          "max": 23,
+          "showIf": {
+            "field": "mode",
+            "equals": "difference"
+          }
+        },
+        {
+          "name": "endMinute",
+          "label": "End minute",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "showIf": {
+            "field": "mode",
+            "equals": "difference"
+          }
+        },
+        {
+          "name": "spanHour",
+          "label": "Duration hours",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "max": 999,
+          "showIf": {
+            "field": "mode",
+            "equals": "add"
+          }
+        },
+        {
+          "name": "spanMinute",
+          "label": "Duration minutes",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "showIf": {
+            "field": "mode",
+            "equals": "add"
+          }
+        }
+      ],
+      "body": {
+        "longDescription": "Works out how long it is between two times, or what time it becomes after adding or subtracting a duration. Times that cross midnight are handled as a normal case rather than an error.",
+        "howToUse": [
+          "Choose what to calculate.",
+          "Enter the times in hours and minutes.",
+          "Read the duration or the resulting time."
+        ],
+        "howItWorks": "Everything is converted to minutes from midnight, then wrapped into a 24-hour day.",
+        "example": "From 22:15 to 06:45 is 8 hours 30 minutes.",
+        "faq": [
+          {
+            "q": "What if the end time is earlier than the start?",
+            "a": "It is treated as crossing midnight, which is what an overnight shift needs. The result is flagged on its own line."
+          },
+          {
+            "q": "Can the duration be longer than a day?",
+            "a": "Durations you add or subtract can exceed 24 hours; the resulting time wraps around the clock."
+          },
+          {
+            "q": "Are seconds supported?",
+            "a": "No. The calculator works in whole minutes, which is what shift and schedule arithmetic needs."
+          },
+          {
+            "q": "What happens to out-of-range values?",
+            "a": "Hours are clamped to 0–23 and minutes to 0–59, so a typo produces a sensible time rather than a broken result."
+          }
+        ]
+      },
+      "htmlSha256": "c22bea5efa02a1546afd08bb7d93d859ac50ed00904a6ec9bf35d72a83df7e5f"
+    },
+    {
+      "id": "time-duration",
+      "locale": "uk",
+      "path": "/uk/daty/kalkulyator-tryvalosti-chasu/",
+      "name": "Калькулятор тривалості часу",
+      "h1": "Калькулятор тривалості часу",
+      "seoTitle": "Калькулятор тривалості часу — години та хвилини",
+      "seoDescription": "Розрахунок тривалості між двома моментами, додавання та віднімання годин і хвилин.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Що розрахувати",
+          "type": "select",
+          "defaultValue": "difference",
+          "options": [
+            {
+              "value": "difference",
+              "label": "Тривалість між моментами"
+            },
+            {
+              "value": "add",
+              "label": "Додати тривалість"
+            },
+            {
+              "value": "subtract",
+              "label": "Відняти тривалість"
+            }
+          ]
+        },
+        {
+          "name": "startHour",
+          "label": "Година початку",
+          "type": "number",
+          "defaultValue": 9,
+          "min": 0,
+          "max": 23
+        },
+        {
+          "name": "startMinute",
+          "label": "Хвилина початку",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59
+        },
+        {
+          "name": "endHour",
+          "label": "Година завершення",
+          "type": "number",
+          "defaultValue": 17,
+          "min": 0,
+          "max": 23,
+          "showIf": {
+            "field": "mode",
+            "equals": "difference"
+          }
+        },
+        {
+          "name": "endMinute",
+          "label": "Хвилина завершення",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "showIf": {
+            "field": "mode",
+            "equals": "difference"
+          }
+        },
+        {
+          "name": "spanHour",
+          "label": "Годин тривалості",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "max": 999,
+          "showIf": {
+            "field": "mode",
+            "equals": "add"
+          }
+        },
+        {
+          "name": "spanMinute",
+          "label": "Хвилин тривалості",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "showIf": {
+            "field": "mode",
+            "equals": "add"
+          }
+        }
+      ],
+      "body": {
+        "longDescription": "Тривалість між двома моментами рахується переведенням у хвилини від опівночі — і саме тому коректно обробляється перехід через північ. Зміна з 22:15 до 06:45 триває вісім із половиною годин, а не мінус п’ятнадцять.",
+        "howToUse": [
+          "Введіть час початку.",
+          "Введіть час закінчення.",
+          "Прочитайте тривалість у годинах і хвилинах."
+        ],
+        "howItWorks": "Обидва моменти переводяться у хвилини від опівночі, а результат замикається в добу: якщо кінець менший за початок, додається 1440 хвилин. Саме це й дає правильну обробку переходу через північ.",
+        "example": "З 22:15 до 06:45 минає 8 годин 30 хвилин.",
+        "faq": [
+          {
+            "q": "Як обробляється перехід через північ?",
+            "a": "До результату додається доба. Зміна з 22:15 до 06:45 дає 8 годин 30 хвилин, а не від’ємне значення — розрахунок розпізнає це автоматично."
+          },
+          {
+            "q": "Чи можна порахувати тривалість понад добу?",
+            "a": "Ні, розрахунок працює в межах доби. Для довших проміжків потрібні дати, а не лише час."
+          },
+          {
+            "q": "Чому результат у годинах і хвилинах, а не в десяткових годинах?",
+            "a": "Бо так зручніше читати. Для розрахунку оплати потрібні саме десяткові години: 8 годин 30 хвилин — це 8,5 години."
+          },
+          {
+            "q": "Чи враховано перехід на літній час?",
+            "a": "Ні. У дні переведення годинників доба триває 23 або 25 годин, і для точного обліку потрібен розрахунок за датами з часовим поясом."
+          }
+        ]
+      },
+      "htmlSha256": "07a251bcdabcee3a212f0d36ea36f7bb9251fb068f6f4df67d9e4cd1f22a1b6d"
+    },
+    {
+      "id": "time-duration",
+      "locale": "de",
+      "path": "/de/datum-zeit/zeitdauer-rechner/",
+      "name": "Rechner für die Zeitdauer",
+      "h1": "Rechner für die Zeitdauer",
+      "seoTitle": "Zeitdauer berechnen — Stunden und Minuten zwischen Uhrzeiten",
+      "seoDescription": "Berechne die Dauer zwischen zwei Uhrzeiten oder addiere und subtrahiere Stunden und Minuten von einer Uhrzeit.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Was berechnet wird",
+          "type": "select",
+          "defaultValue": "difference",
+          "options": [
+            {
+              "value": "difference",
+              "label": "Dauer zwischen zwei Uhrzeiten"
+            },
+            {
+              "value": "add",
+              "label": "Eine Dauer addieren"
+            },
+            {
+              "value": "subtract",
+              "label": "Eine Dauer abziehen"
+            }
+          ]
+        },
+        {
+          "name": "startHour",
+          "label": "Startstunde",
+          "type": "number",
+          "defaultValue": 9,
+          "min": 0,
+          "max": 23
+        },
+        {
+          "name": "startMinute",
+          "label": "Startminute",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59
+        },
+        {
+          "name": "endHour",
+          "label": "Endstunde",
+          "type": "number",
+          "defaultValue": 17,
+          "min": 0,
+          "max": 23,
+          "showIf": {
+            "field": "mode",
+            "equals": "difference"
+          }
+        },
+        {
+          "name": "endMinute",
+          "label": "Endminute",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "showIf": {
+            "field": "mode",
+            "equals": "difference"
+          }
+        },
+        {
+          "name": "spanHour",
+          "label": "Dauer, Stunden",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "max": 999,
+          "showIf": {
+            "field": "mode",
+            "equals": "add"
+          }
+        },
+        {
+          "name": "spanMinute",
+          "label": "Dauer, Minuten",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "showIf": {
+            "field": "mode",
+            "equals": "add"
+          }
+        }
+      ],
+      "body": {
+        "longDescription": "Rechnet aus, wie lang es zwischen zwei Uhrzeiten ist, oder welche Uhrzeit sich ergibt, wenn eine Dauer addiert oder abgezogen wird. Uhrzeiten, die über Mitternacht laufen, gelten als Normalfall und nicht als Fehler.",
+        "howToUse": [
+          "Wähle, was berechnet werden soll.",
+          "Trage die Uhrzeiten in Stunden und Minuten ein.",
+          "Lies die Dauer oder die sich ergebende Uhrzeit ab."
+        ],
+        "howItWorks": "Alles wird in Minuten ab Mitternacht umgerechnet und danach in einen 24-Stunden-Tag zurückgeführt.",
+        "example": "Von 22:15 bis 06:45 sind es 8 Stunden 30 Minuten.",
+        "faq": [
+          {
+            "q": "Was gilt, wenn die Endzeit vor der Startzeit liegt?",
+            "a": "Das zählt als Übergang über Mitternacht, genau das braucht eine Nachtschicht. Das Ergebnis wird in einer eigenen Zeile ausgewiesen."
+          },
+          {
+            "q": "Kann die Dauer länger als ein Tag sein?",
+            "a": "Dauern, die du addierst oder abziehst, dürfen 24 Stunden überschreiten; die sich ergebende Uhrzeit läuft dann um die Uhr herum."
+          },
+          {
+            "q": "Werden Sekunden unterstützt?",
+            "a": "Nein. Der Rechner arbeitet in ganzen Minuten, und das ist es, was Schicht- und Terminrechnungen brauchen."
+          },
+          {
+            "q": "Was passiert mit Werten außerhalb des Bereichs?",
+            "a": "Stunden werden auf 0–23 und Minuten auf 0–59 begrenzt, ein Tippfehler ergibt also eine sinnvolle Uhrzeit statt eines kaputten Ergebnisses."
+          }
+        ]
+      },
+      "htmlSha256": "7fa4d2aad5ffba4f83286ffc94bd65772579c6488b6e6a917a7a786399332512"
+    },
+    {
+      "id": "time-duration",
+      "locale": "es",
+      "path": "/es/fechas/duracion-de-tiempo/",
+      "name": "Calculadora de duración de tiempo",
+      "h1": "Calculadora de duración de tiempo",
+      "seoTitle": "Calculadora de duración — horas y minutos entre dos horas",
+      "seoDescription": "Calcula la duración entre dos horas, o suma y resta horas y minutos a una hora.",
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Qué calcular",
+          "type": "select",
+          "defaultValue": "difference",
+          "options": [
+            {
+              "value": "difference",
+              "label": "Duración entre dos horas"
+            },
+            {
+              "value": "add",
+              "label": "Sumar una duración"
+            },
+            {
+              "value": "subtract",
+              "label": "Restar una duración"
+            }
+          ]
+        },
+        {
+          "name": "startHour",
+          "label": "Hora de inicio",
+          "type": "number",
+          "defaultValue": 9,
+          "min": 0,
+          "max": 23
+        },
+        {
+          "name": "startMinute",
+          "label": "Minuto de inicio",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59
+        },
+        {
+          "name": "endHour",
+          "label": "Hora de fin",
+          "type": "number",
+          "defaultValue": 17,
+          "min": 0,
+          "max": 23,
+          "showIf": {
+            "field": "mode",
+            "equals": "difference"
+          }
+        },
+        {
+          "name": "endMinute",
+          "label": "Minuto de fin",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "showIf": {
+            "field": "mode",
+            "equals": "difference"
+          }
+        },
+        {
+          "name": "spanHour",
+          "label": "Horas de duración",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "max": 999,
+          "showIf": {
+            "field": "mode",
+            "equals": "add"
+          }
+        },
+        {
+          "name": "spanMinute",
+          "label": "Minutos de duración",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "showIf": {
+            "field": "mode",
+            "equals": "add"
+          }
+        }
+      ],
+      "body": {
+        "longDescription": "Calcula cuánto hay entre dos horas, o qué hora resulta tras sumar o restar una duración. Las horas que cruzan la medianoche se tratan como un caso normal y no como un error.",
+        "howToUse": [
+          "Elige qué calcular.",
+          "Introduce las horas en horas y minutos.",
+          "Consulta la duración o la hora resultante."
+        ],
+        "howItWorks": "Todo se convierte a minutos desde la medianoche y después se ajusta a un día de 24 horas.",
+        "example": "De las 22:15 a las 06:45 hay 8 horas y 30 minutos.",
+        "faq": [
+          {
+            "q": "¿Y si la hora de fin es anterior a la de inicio?",
+            "a": "Se trata como un cruce de medianoche, que es lo que necesita un turno de noche. El resultado se señala en su propia línea."
+          },
+          {
+            "q": "¿La duración puede pasar de un día?",
+            "a": "Las duraciones que sumas o restas pueden superar las 24 horas; la hora resultante da la vuelta al reloj."
+          },
+          {
+            "q": "¿Se admiten segundos?",
+            "a": "No. La calculadora trabaja en minutos enteros, que es lo que necesita la aritmética de turnos y horarios."
+          },
+          {
+            "q": "¿Qué ocurre con los valores fuera de rango?",
+            "a": "Las horas se ajustan a 0-23 y los minutos a 0-59, así que una errata produce una hora razonable en lugar de un resultado roto."
+          }
+        ]
+      },
+      "htmlSha256": "eb664c7169819f89e4e0c768f04984d6aaca567f97631db47184ff1da7b71f60"
+    },
+    {
+      "id": "timezone-difference",
+      "locale": "ru",
+      "path": "/ru/date-time/timezone-difference/",
+      "name": "Калькулятор разницы часовых поясов",
+      "h1": "Калькулятор разницы часовых поясов",
+      "seoTitle": "Калькулятор разницы часовых поясов по смещению UTC",
+      "seoDescription": "Переведите время между двумя часовыми поясами по их смещениям UTC, включая дробные смещения и переход через полночь.",
+      "fields": [
+        {
+          "name": "fromOffset",
+          "label": "Смещение UTC откуда",
+          "type": "number",
+          "defaultValue": 3,
+          "min": -12,
+          "max": 14,
+          "step": 0.25,
+          "signed": true
+        },
+        {
+          "name": "toOffset",
+          "label": "Смещение UTC куда",
+          "type": "number",
+          "defaultValue": -5,
+          "min": -12,
+          "max": 14,
+          "step": 0.25,
+          "signed": true
+        },
+        {
+          "name": "hour",
+          "label": "Часы",
+          "type": "number",
+          "defaultValue": 14,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "minute",
+          "label": "Минуты",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        }
+      ],
+      "body": {
+        "longDescription": "Переводит время между двумя часовыми поясами, заданными смещениями UTC. Смещения вводятся числами, и это осознанное ограничение: калькулятор не знает базы часовых поясов, не выводит переход на летнее время и не хранит историю правил — он сравнивает ровно те смещения, которые вы указали. Дробные смещения поддерживаются: UTC+5:30 в Индии и UTC+5:45 в Непале не исключения, а действующие пояса, поэтому разница считается в минутах. Переход через полночь показан отдельной строкой, иначе время выглядело бы тем же календарным днём.",
+        "howToUse": [
+          "Введите смещение UTC того пояса, где известно время.",
+          "Введите смещение UTC того пояса, в который переводите.",
+          "Укажите часы и минуты исходного времени.",
+          "Проверьте строку календарного дня: время могло уйти на соседние сутки."
+        ],
+        "howItWorks": "Разница смещений переводится в минуты и прибавляется к исходному времени. Если сумма выходит за пределы суток, время переносится на соседний день, а сдвиг показывается отдельно.",
+        "example": "14:30 при смещении UTC+3 соответствует 06:30 того же дня при смещении UTC−5.",
+        "faq": [
+          {
+            "q": "Почему пояса вводятся числами, а не выбираются из списка?",
+            "a": "Потому что список требует базы часовых поясов и её ежегодного обновления. Показывать устаревшее правило хуже, чем попросить смещение, которое вы можете проверить прямо сейчас."
+          },
+          {
+            "q": "Учитывается ли переход на летнее время?",
+            "a": "Нет. Если в одном из поясов действует летнее время, укажите смещение уже с его учётом — например UTC+2 вместо UTC+1."
+          },
+          {
+            "q": "Поддерживаются ли получасовые пояса?",
+            "a": "Да. Индия использует UTC+5:30, Непал — UTC+5:45, и такие смещения вводятся как 5,5 и 5,75."
+          },
+          {
+            "q": "Что означает сдвиг суток?",
+            "a": "Что переведённое время попало на соседний календарный день: плюс единица — следующие сутки, минус единица — предыдущие."
+          },
+          {
+            "q": "Как узнать смещение нужного города?",
+            "a": "Оно указано в настройках часового пояса на телефоне и компьютере рядом с названием города — обычно в виде UTC+3 или GMT+3."
+          }
+        ]
+      },
+      "htmlSha256": "cdf43824e1043f1abdd256314880d9acff5b5b9d7e29f7a83079c20e42d5ea49"
+    },
+    {
+      "id": "timezone-difference",
+      "locale": "en",
+      "path": "/en/date-time/time-zone-difference-calculator/",
+      "name": "Time zone difference calculator",
+      "h1": "Time zone difference calculator",
+      "seoTitle": "Time zone difference calculator by UTC offset",
+      "seoDescription": "Convert a time between two time zones using their UTC offsets, including fractional offsets and rollover past midnight.",
+      "fields": [
+        {
+          "name": "fromOffset",
+          "label": "UTC offset — from",
+          "type": "number",
+          "defaultValue": 3,
+          "min": -12,
+          "max": 14,
+          "step": 0.25,
+          "signed": true
+        },
+        {
+          "name": "toOffset",
+          "label": "UTC offset — to",
+          "type": "number",
+          "defaultValue": -5,
+          "min": -12,
+          "max": 14,
+          "step": 0.25,
+          "signed": true
+        },
+        {
+          "name": "hour",
+          "label": "Hours",
+          "type": "number",
+          "defaultValue": 14,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "minute",
+          "label": "Minutes",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        }
+      ],
+      "body": {
+        "longDescription": "Converts a time between two zones given as UTC offsets. The offsets are entered as numbers, and that is a deliberate limitation: this calculator holds no time-zone database, does not infer daylight saving and keeps no history of past rules — it compares exactly the offsets you supply. Fractional offsets work: India at UTC+5:30 and Nepal at UTC+5:45 are current zones rather than curiosities, so the difference is computed in minutes. A rollover past midnight is shown on its own row, since otherwise the time would appear to be the same calendar day.",
+        "howToUse": [
+          "Enter the UTC offset of the zone where the time is known.",
+          "Enter the UTC offset of the zone you are converting to.",
+          "Enter the hours and minutes of the source time.",
+          "Check the calendar-day row: the time may have moved to an adjacent day."
+        ],
+        "howItWorks": "The difference between the offsets is converted to minutes and added to the source time. If the sum falls outside the day, the time rolls to the neighbouring day and the shift is reported separately.",
+        "example": "14:30 at UTC+3 corresponds to 06:30 on the same day at UTC−5.",
+        "faq": [
+          {
+            "q": "Why are zones entered as numbers rather than picked from a list?",
+            "a": "Because a list needs a time-zone database and yearly updates to it. Showing a stale rule is worse than asking for an offset you can verify right now."
+          },
+          {
+            "q": "Is daylight saving taken into account?",
+            "a": "No. If one of the zones is on summer time, enter the offset that already includes it — UTC+2 instead of UTC+1, for example."
+          },
+          {
+            "q": "Are half-hour zones supported?",
+            "a": "Yes. India uses UTC+5:30 and Nepal UTC+5:45; enter those as 5.5 and 5.75."
+          },
+          {
+            "q": "What does the day shift mean?",
+            "a": "That the converted time landed on a neighbouring calendar day: plus one is the next day, minus one the previous."
+          },
+          {
+            "q": "How do I find a city's offset?",
+            "a": "It is shown in the time-zone settings on your phone or computer next to the city name, usually as UTC+3 or GMT+3."
+          }
+        ]
+      },
+      "htmlSha256": "c70b94221ae3cb66a7f8e6cd807aad1761e999345a8aecd5345accd87b498362"
+    },
+    {
+      "id": "timezone-difference",
+      "locale": "uk",
+      "path": "/uk/daty/riznytsya-chasovyh-poyasiv/",
+      "name": "Калькулятор різниці часових поясів",
+      "h1": "Калькулятор різниці часових поясів",
+      "seoTitle": "Калькулятор різниці часових поясів за зміщенням UTC",
+      "seoDescription": "Переведіть час між двома часовими поясами за їхніми зміщеннями UTC, включно з дробовими зміщеннями та переходом через північ.",
+      "fields": [
+        {
+          "name": "fromOffset",
+          "label": "Зміщення UTC звідки",
+          "type": "number",
+          "defaultValue": 3,
+          "min": -12,
+          "max": 14,
+          "step": 0.25,
+          "signed": true
+        },
+        {
+          "name": "toOffset",
+          "label": "Зміщення UTC куди",
+          "type": "number",
+          "defaultValue": -5,
+          "min": -12,
+          "max": 14,
+          "step": 0.25,
+          "signed": true
+        },
+        {
+          "name": "hour",
+          "label": "Години",
+          "type": "number",
+          "defaultValue": 14,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "minute",
+          "label": "Хвилини",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        }
+      ],
+      "body": {
+        "longDescription": "Різниця часових поясів рахується як різниця зсувів від UTC, і головна пастка тут — перехід через добу: 14:30 за UTC+3 у поясі UTC−5 припадає на 06:30 того самого дня, а от вечірній час легко переїде на попередню добу.",
+        "howToUse": [
+          "Введіть час і зсув вихідного поясу.",
+          "Введіть зсув цільового поясу.",
+          "Прочитайте час і зсув доби."
+        ],
+        "howItWorks": "Різниця зсувів переводиться у хвилини й додається до вихідного часу. Якщо сума виходить за межі доби, вона замикається, а результат супроводжується позначкою про зсув на добу вперед або назад.",
+        "example": "14:30 за зсуву UTC+3 відповідає 06:30 того самого дня за зсуву UTC−5.",
+        "faq": [
+          {
+            "q": "Чи враховано літній час?",
+            "a": "Ні, ви задаєте зсуви самі. Це навмисно: правила переведення годинників різні в кожній країні й змінюються, тому надійніше вводити фактичний зсув на потрібну дату."
+          },
+          {
+            "q": "Чому бувають зсуви з половиною години?",
+            "a": "Бо частина країн обрала саме такі: Індія живе за UTC+5:30, Непал за UTC+5:45. Це політичне рішення, а не географічна необхідність."
+          },
+          {
+            "q": "Як не переплутати напрямок?",
+            "a": "Зсув показує, наскільки місцевий час випереджає UTC. Пояс UTC+3 попереду за UTC на три години, UTC−5 — позаду на п’ять; різниця між ними вісім годин."
+          },
+          {
+            "q": "Що робити з міжнародними дзвінками?",
+            "a": "Перевіряти не лише час, а й дату: різниця в 12 годин легко переносить зустріч на іншу добу — і саме тому позначка про зсув доби показується окремо."
+          }
+        ]
+      },
+      "htmlSha256": "29eb39a2c7e1296d0c4c1c5d661504665c9c09b80c8b467b0515ceada0115365"
+    },
+    {
+      "id": "timezone-difference",
+      "locale": "de",
+      "path": "/de/datum-zeit/zeitverschiebung-rechner/",
+      "name": "Rechner für die Zeitverschiebung",
+      "h1": "Rechner für die Zeitverschiebung",
+      "seoTitle": "Zeitverschiebung berechnen nach UTC-Abweichung",
+      "seoDescription": "Rechne eine Uhrzeit zwischen zwei Zeitzonen über ihre UTC-Abweichung um, auch bei halben Stunden und über Mitternacht hinweg.",
+      "fields": [
+        {
+          "name": "fromOffset",
+          "label": "UTC-Abweichung — von",
+          "type": "number",
+          "defaultValue": 3,
+          "min": -12,
+          "max": 14,
+          "step": 0.25,
+          "signed": true
+        },
+        {
+          "name": "toOffset",
+          "label": "UTC-Abweichung — nach",
+          "type": "number",
+          "defaultValue": -5,
+          "min": -12,
+          "max": 14,
+          "step": 0.25,
+          "signed": true
+        },
+        {
+          "name": "hour",
+          "label": "Stunden",
+          "type": "number",
+          "defaultValue": 14,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "minute",
+          "label": "Minuten",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        }
+      ],
+      "body": {
+        "longDescription": "Rechnet eine Uhrzeit zwischen zwei Zonen um, die als UTC-Abweichung angegeben werden. Die Abweichungen werden als Zahlen eingetragen, und das ist eine bewusste Einschränkung: dieser Rechner führt keine Zeitzonendatenbank, erschließt keine Sommerzeit und kennt keine Geschichte früherer Regeln — er vergleicht genau die Abweichungen, die du angibst. Halbe und viertelstündige Abweichungen funktionieren: Indien mit UTC+5:30 und Nepal mit UTC+5:45 sind gültige Zonen und keine Kuriositäten, deshalb wird der Unterschied in Minuten gerechnet. Ein Übergang über Mitternacht steht in einer eigenen Zeile, sonst sähe die Uhrzeit nach demselben Kalendertag aus.",
+        "howToUse": [
+          "Trage die UTC-Abweichung der Zone ein, in der die Uhrzeit bekannt ist.",
+          "Trage die UTC-Abweichung der Zone ein, in die umgerechnet wird.",
+          "Trage Stunden und Minuten der Ausgangszeit ein.",
+          "Prüfe die Zeile zum Kalendertag: die Uhrzeit kann auf einen Nachbartag gerutscht sein."
+        ],
+        "howItWorks": "Der Unterschied zwischen den Abweichungen wird in Minuten umgerechnet und zur Ausgangszeit addiert. Fällt die Summe aus dem Tag heraus, rutscht die Uhrzeit auf den Nachbartag, und der Versatz wird gesondert ausgewiesen.",
+        "example": "14:30 bei UTC+3 entsprechen 06:30 am selben Tag bei UTC−5.",
+        "faq": [
+          {
+            "q": "Warum werden Zonen als Zahl eingetragen statt aus einer Liste gewählt?",
+            "a": "Weil eine Liste eine Zeitzonendatenbank braucht und jährliche Pflege dazu. Eine veraltete Regel anzuzeigen ist schlechter, als nach einer Abweichung zu fragen, die du jetzt gerade nachsehen kannst."
+          },
+          {
+            "q": "Wird die Sommerzeit berücksichtigt?",
+            "a": "Nein. Wenn eine der Zonen auf Sommerzeit läuft, trage die Abweichung ein, die sie schon enthält — also etwa UTC+2 statt UTC+1."
+          },
+          {
+            "q": "Sind Zonen mit halben Stunden möglich?",
+            "a": "Ja. Indien nutzt UTC+5:30 und Nepal UTC+5:45; trage sie als 5,5 und 5,75 ein."
+          },
+          {
+            "q": "Was bedeutet der Tagesversatz?",
+            "a": "Dass die umgerechnete Uhrzeit auf einem Nachbartag gelandet ist: plus eins ist der Folgetag, minus eins der Vortag."
+          },
+          {
+            "q": "Wie finde ich die Abweichung einer Stadt?",
+            "a": "Sie steht in den Zeitzoneneinstellungen deines Telefons oder Rechners neben dem Städtenamen, meist als UTC+3 oder GMT+3."
+          }
+        ]
+      },
+      "htmlSha256": "08d97d273f27eaec61f801c9fe73b79ef413bde06a28036b13e2ba0567613622"
+    },
+    {
+      "id": "timezone-difference",
+      "locale": "es",
+      "path": "/es/fechas/diferencia-horaria/",
+      "name": "Calculadora de diferencia horaria",
+      "h1": "Calculadora de diferencia horaria",
+      "seoTitle": "Calculadora de diferencia horaria por desfase UTC",
+      "seoDescription": "Convierte una hora entre dos husos horarios usando sus desfases UTC, con desfases fraccionarios y cambio de día incluidos.",
+      "fields": [
+        {
+          "name": "fromOffset",
+          "label": "Desfase UTC de origen",
+          "type": "number",
+          "defaultValue": 3,
+          "min": -12,
+          "max": 14,
+          "step": 0.25,
+          "signed": true
+        },
+        {
+          "name": "toOffset",
+          "label": "Desfase UTC de destino",
+          "type": "number",
+          "defaultValue": -5,
+          "min": -12,
+          "max": 14,
+          "step": 0.25,
+          "signed": true
+        },
+        {
+          "name": "hour",
+          "label": "Horas",
+          "type": "number",
+          "defaultValue": 14,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "minute",
+          "label": "Minutos",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        }
+      ],
+      "body": {
+        "longDescription": "Convierte una hora entre dos husos dados como desfases UTC. Los desfases se introducen como números, y esa es una limitación deliberada: esta calculadora no incorpora ninguna base de datos de husos, no deduce el horario de verano y no guarda historial de reglas pasadas; compara exactamente los desfases que le des. Los desfases fraccionarios funcionan: la India en UTC+5:30 y Nepal en UTC+5:45 son husos actuales y no curiosidades, así que la diferencia se calcula en minutos. Un cambio de día se muestra en su propia fila, porque de lo contrario la hora parecería del mismo día del calendario.",
+        "howToUse": [
+          "Introduce el desfase UTC del huso en el que conoces la hora.",
+          "Introduce el desfase UTC del huso al que conviertes.",
+          "Introduce las horas y los minutos de la hora de origen.",
+          "Comprueba la fila del día del calendario: la hora puede haber pasado a un día contiguo."
+        ],
+        "howItWorks": "La diferencia entre los desfases se convierte a minutos y se suma a la hora de origen. Si la suma se sale del día, la hora pasa al día contiguo y el desplazamiento se indica aparte.",
+        "example": "Las 14:30 en UTC+3 corresponden a las 06:30 del mismo día en UTC−5.",
+        "faq": [
+          {
+            "q": "¿Por qué los husos se introducen como números en vez de elegirse de una lista?",
+            "a": "Porque una lista exige una base de datos de husos y actualizarla cada año. Mostrar una regla caducada es peor que pedir un desfase que puedes comprobar ahora mismo."
+          },
+          {
+            "q": "¿Se tiene en cuenta el horario de verano?",
+            "a": "No. Si uno de los husos está en horario de verano, introduce el desfase que ya lo incluya: UTC+2 en lugar de UTC+1, por ejemplo."
+          },
+          {
+            "q": "¿Se admiten husos de media hora?",
+            "a": "Sí. La India usa UTC+5:30 y Nepal UTC+5:45; introdúcelos como 5,5 y 5,75."
+          },
+          {
+            "q": "¿Qué significa el cambio de día?",
+            "a": "Que la hora convertida cayó en un día del calendario contiguo: más uno es el día siguiente y menos uno, el anterior."
+          },
+          {
+            "q": "¿Cómo encuentro el desfase de una ciudad?",
+            "a": "Aparece en los ajustes de huso horario de tu teléfono u ordenador junto al nombre de la ciudad, normalmente como UTC+3 o GMT+3."
+          }
+        ]
+      },
+      "htmlSha256": "ec428136cf543cd2f57121369b7999b9aac1a1b3e7d38f06032380f1b77f7379"
+    },
+    {
+      "id": "work-hours",
+      "locale": "ru",
+      "path": "/ru/date-time/work-hours/",
+      "name": "Калькулятор рабочих часов",
+      "h1": "Калькулятор рабочих часов",
+      "seoTitle": "Калькулятор рабочих часов за смену и месяц",
+      "seoDescription": "Посчитайте отработанные часы по времени начала и конца смены с вычетом перерыва, включая ночные смены через полночь.",
+      "fields": [
+        {
+          "name": "startHour",
+          "label": "Начало смены, часы",
+          "type": "number",
+          "defaultValue": 9,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "startMin",
+          "label": "Начало смены, минуты",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "endHour",
+          "label": "Конец смены, часы",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "endMin",
+          "label": "Конец смены, минуты",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "breakMin",
+          "label": "Перерыв, минут",
+          "type": "number",
+          "defaultValue": 60,
+          "min": 0,
+          "step": 5
+        },
+        {
+          "name": "days",
+          "label": "Число смен",
+          "type": "number",
+          "defaultValue": 21,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "ratePerHour",
+          "label": "Ставка за час, ₽",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 0,
+          "step": 50
+        }
+      ],
+      "body": {
+        "longDescription": "Считает фактически отработанные часы, а не рабочие дни календаря: из длины смены вычитается перерыв, а остаток умножается на число смен. Ночная смена обрабатывается отдельно — когда конец меньше начала, смена переходит через полночь, и прямая разность даёт отрицательное число. Прибавление суток здесь не поправка на удобство, а единственный способ получить восемь часов из «22:00 — 06:00» вместо минус шестнадцати. Перерыв длиннее смены отклоняется: отрицательного рабочего времени не бывает, и показать его значило бы выдать правдоподобную бессмыслицу.",
+        "howToUse": [
+          "Введите время начала смены в часах и минутах.",
+          "Введите время окончания — если смена ночная, просто укажите утренний час.",
+          "Укажите продолжительность перерыва в минутах.",
+          "Задайте число смен в периоде и ставку за час."
+        ],
+        "howItWorks": "Длина смены = конец минус начало, а при переходе через полночь к разности прибавляются сутки. Рабочее время = длина смены минус перерыв, часы за период = рабочее время × число смен.",
+        "example": "Смена 9:00–18:00 с часовым перерывом даёт 8 часов, а за 21 смену — 168 часов и 84 000 ₽ при ставке 500 ₽.",
+        "faq": [
+          {
+            "q": "Как считается смена через полночь?",
+            "a": "Если время окончания меньше времени начала, к разности прибавляются сутки. Смена 22:00–06:00 поэтому даёт восемь часов, а не минус шестнадцать."
+          },
+          {
+            "q": "Почему перерыв длиннее смены не считается?",
+            "a": "Потому что рабочее время стало бы отрицательным. Такой результат выглядел бы правдоподобно, но означал бы ошибку во вводе, поэтому он отклоняется."
+          },
+          {
+            "q": "Чем это отличается от подсчёта рабочих дней?",
+            "a": "Здесь считаются часы внутри смены, а не количество дней в календаре. Производственный календарь с праздниками считается отдельным калькулятором."
+          },
+          {
+            "q": "Учитываются ли переработки по повышенной ставке?",
+            "a": "Нет, ставка применяется ко всем часам одинаково. Для повышенных часов посчитайте их отдельной смены с другой ставкой."
+          },
+          {
+            "q": "Что показывает длина смены до перерыва?",
+            "a": "Полное время присутствия от начала до конца, включая перерыв. Оплачиваемое время — строкой выше, уже без него."
+          }
+        ]
+      },
+      "htmlSha256": "8234ed6118724ff1b211c2d1c340a09a77a5907b8e0c03dd5269516094d3475d"
+    },
+    {
+      "id": "work-hours",
+      "locale": "en",
+      "path": "/en/date-time/work-hours-calculator/",
+      "name": "Work hours calculator",
+      "h1": "Work hours calculator",
+      "seoTitle": "Work hours calculator per shift and month",
+      "seoDescription": "Count hours worked from the shift start and end times with the break deducted, including night shifts that cross midnight.",
+      "fields": [
+        {
+          "name": "startHour",
+          "label": "Shift start, hours",
+          "type": "number",
+          "defaultValue": 9,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "startMin",
+          "label": "Shift start, minutes",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "endHour",
+          "label": "Shift end, hours",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "endMin",
+          "label": "Shift end, minutes",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "breakMin",
+          "label": "Break, minutes",
+          "type": "number",
+          "defaultValue": 60,
+          "min": 0,
+          "step": 5
+        },
+        {
+          "name": "days",
+          "label": "Number of shifts",
+          "type": "number",
+          "defaultValue": 21,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "ratePerHour",
+          "label": "Hourly rate, $",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 0,
+          "step": 50
+        }
+      ],
+      "body": {
+        "longDescription": "Counts hours actually worked rather than working days on a calendar: the break is subtracted from the length of the shift, and what is left is multiplied by the number of shifts. Night shifts are handled separately — when the end is earlier than the start the shift crosses midnight, and a plain subtraction returns a negative number. Adding a day there is not a convenience fudge but the only way to get eight hours out of «22:00 — 06:00» instead of minus sixteen. A break longer than the shift is rejected: negative working time does not exist, and showing it would be plausible nonsense.",
+        "howToUse": [
+          "Enter the shift start time in hours and minutes.",
+          "Enter the end time — for a night shift simply give the morning hour.",
+          "Enter the length of the break in minutes.",
+          "Set the number of shifts in the period and the hourly rate."
+        ],
+        "howItWorks": "Shift length = end minus start, with a day added when it crosses midnight. Working time = shift length minus the break, and hours for the period = working time × number of shifts.",
+        "example": "A 9:00–18:00 shift with an hour's break gives 8 hours — 168 hours over 21 shifts, or 84000 at a rate of 500.",
+        "faq": [
+          {
+            "q": "How is a shift across midnight handled?",
+            "a": "If the end time is earlier than the start time, a day is added to the difference. A 22:00–06:00 shift therefore gives eight hours rather than minus sixteen."
+          },
+          {
+            "q": "Why is a break longer than the shift rejected?",
+            "a": "Because working time would become negative. Such a result would look plausible while actually signalling a typo, so it is refused."
+          },
+          {
+            "q": "How is this different from counting working days?",
+            "a": "This counts hours inside a shift, not days on a calendar. A working calendar with public holidays is a separate calculator."
+          },
+          {
+            "q": "Is overtime at a higher rate included?",
+            "a": "No, the rate applies to every hour equally. For premium hours, count them as a separate shift at a different rate."
+          },
+          {
+            "q": "What does the shift length before the break show?",
+            "a": "Total time on site from start to end, break included. Paid time is the row above, already without it."
+          }
+        ]
+      },
+      "htmlSha256": "bc5280ec1f5cef8fc67e901a1b83e02974802f27bb93bb2916fbf2d2f96158f9"
+    },
+    {
+      "id": "work-hours",
+      "locale": "uk",
+      "path": "/uk/daty/robochi-hodyny/",
+      "name": "Калькулятор робочих годин",
+      "h1": "Калькулятор робочих годин",
+      "seoTitle": "Калькулятор робочих годин за зміну та місяць",
+      "seoDescription": "Порахуйте відпрацьовані години за часом початку та кінця зміни з відрахуванням перерви, включно з нічними змінами через північ.",
+      "fields": [
+        {
+          "name": "startHour",
+          "label": "Початок зміни, години",
+          "type": "number",
+          "defaultValue": 9,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "startMin",
+          "label": "Початок зміни, хвилини",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "endHour",
+          "label": "Кінець зміни, години",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "endMin",
+          "label": "Кінець зміни, хвилини",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "breakMin",
+          "label": "Перерва, хвилин",
+          "type": "number",
+          "defaultValue": 60,
+          "min": 0,
+          "step": 5
+        },
+        {
+          "name": "days",
+          "label": "Кількість змін",
+          "type": "number",
+          "defaultValue": 21,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "ratePerHour",
+          "label": "Ставка за годину, ₴",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 0,
+          "step": 50
+        }
+      ],
+      "body": {
+        "longDescription": "Облік робочих годин зводиться до різниці між кінцем і початком за вирахуванням перерви, але саме перерва й перехід через північ дають більшість помилок. Помножені на кількість змін, ці хвилини перетворюються на години розбіжності за місяць.",
+        "howToUse": [
+          "Введіть час початку й кінця зміни.",
+          "Введіть тривалість перерви у хвилинах.",
+          "Введіть кількість змін і ставку."
+        ],
+        "howItWorks": "Тривалість зміни дорівнює кінець мінус початок, а за переходу через північ до різниці додається доба. Перерва віднімається. Підсумок за період — це тривалість, помножена на кількість змін.",
+        "example": "Зміна 9:00–18:00 з годинною перервою дає 8 годин, а за 21 зміну — 168 годин і 84 000 ₴ за ставки 500 ₴ на годину.",
+        "faq": [
+          {
+            "q": "Чи оплачується обідня перерва?",
+            "a": "Зазвичай ні: обідня перерва не оплачується й віднімається. Коротка технологічна перерва може входити — це визначає трудовий договір."
+          },
+          {
+            "q": "Як рахується нічна зміна?",
+            "a": "До різниці додається доба. Зміна з 22:00 до 06:00 дає вісім годин; розрахунок розпізнає перехід через північ автоматично."
+          },
+          {
+            "q": "Звідки береться норма 168 годин на місяць?",
+            "a": "Це 21 робочий день по 8 годин — усереднене значення. Фактична норма коливається від 150 до 184 годин залежно від календаря місяця."
+          },
+          {
+            "q": "Чи враховано надурочні?",
+            "a": "Ні, тут рахується проста сума. Для годин понад норму з підвищувальним коефіцієнтом потрібен окремий розрахунок надурочних."
+          }
+        ]
+      },
+      "htmlSha256": "c54a76302695ac31ded010f32711f072dce9c13ef7197ac983e4464f054521bc"
+    },
+    {
+      "id": "work-hours",
+      "locale": "de",
+      "path": "/de/datum-zeit/arbeitszeitrechner/",
+      "name": "Arbeitszeitrechner",
+      "h1": "Arbeitszeitrechner",
+      "seoTitle": "Arbeitszeit berechnen je Schicht und Monat",
+      "seoDescription": "Zähle die geleisteten Stunden aus Schichtbeginn und Schichtende mit abgezogener Pause, auch bei Nachtschichten über Mitternacht.",
+      "fields": [
+        {
+          "name": "startHour",
+          "label": "Schichtbeginn, Stunden",
+          "type": "number",
+          "defaultValue": 9,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "startMin",
+          "label": "Schichtbeginn, Minuten",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "endHour",
+          "label": "Schichtende, Stunden",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "endMin",
+          "label": "Schichtende, Minuten",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "breakMin",
+          "label": "Pause, Minuten",
+          "type": "number",
+          "defaultValue": 60,
+          "min": 0,
+          "step": 5
+        },
+        {
+          "name": "days",
+          "label": "Zahl der Schichten",
+          "type": "number",
+          "defaultValue": 21,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "ratePerHour",
+          "label": "Stundensatz, €",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 0,
+          "step": 50
+        }
+      ],
+      "body": {
+        "longDescription": "Zählt tatsächlich geleistete Stunden und nicht Arbeitstage im Kalender: die Pause wird von der Schichtlänge abgezogen, und was bleibt, wird mit der Zahl der Schichten multipliziert. Nachtschichten werden gesondert behandelt — liegt das Ende vor dem Beginn, läuft die Schicht über Mitternacht, und ein schlichtes Abziehen liefert eine negative Zahl. Dort einen Tag zu addieren ist kein bequemer Kniff, sondern der einzige Weg, aus „22:00 — 06:00“ acht Stunden statt minus sechzehn zu bekommen. Eine Pause, die länger ist als die Schicht, wird abgewiesen: negative Arbeitszeit gibt es nicht, und sie anzuzeigen wäre plausibler Unsinn.",
+        "howToUse": [
+          "Trage den Schichtbeginn in Stunden und Minuten ein.",
+          "Trage das Ende ein — bei einer Nachtschicht einfach die Morgenstunde.",
+          "Trage die Länge der Pause in Minuten ein.",
+          "Setze die Zahl der Schichten im Zeitraum und den Stundensatz."
+        ],
+        "howItWorks": "Schichtlänge = Ende minus Beginn, mit einem addierten Tag beim Übergang über Mitternacht. Arbeitszeit = Schichtlänge minus Pause, und die Stunden im Zeitraum sind Arbeitszeit × Zahl der Schichten.",
+        "example": "Eine Schicht von 9:00 bis 18:00 mit einer Stunde Pause ergibt 8 Stunden — bei 21 Schichten 168 Stunden, bei einem Stundensatz von 25 € also 4200 €.",
+        "faq": [
+          {
+            "q": "Wie wird eine Schicht über Mitternacht behandelt?",
+            "a": "Liegt die Endzeit vor der Startzeit, wird ein Tag zur Differenz addiert. Eine Schicht von 22:00 bis 06:00 ergibt deshalb acht Stunden statt minus sechzehn."
+          },
+          {
+            "q": "Warum wird eine Pause abgewiesen, die länger als die Schicht ist?",
+            "a": "Weil die Arbeitszeit negativ würde. Ein solches Ergebnis sähe plausibel aus, während es in Wahrheit einen Tippfehler anzeigt — deshalb wird es verweigert."
+          },
+          {
+            "q": "Worin unterscheidet sich das vom Zählen der Arbeitstage?",
+            "a": "Hier werden Stunden innerhalb einer Schicht gezählt und keine Tage im Kalender. Ein Arbeitskalender mit Feiertagen ist ein eigener Rechner."
+          },
+          {
+            "q": "Sind Zuschläge für Überstunden enthalten?",
+            "a": "Nein, der Satz gilt für jede Stunde gleich. Rechne Stunden mit Zuschlag als eigene Schicht zu einem anderen Satz."
+          },
+          {
+            "q": "Was zeigt die Schichtlänge vor der Pause?",
+            "a": "Die gesamte Anwesenheit von Beginn bis Ende, Pause eingeschlossen. Die bezahlte Zeit steht in der Zeile darüber, dort schon ohne sie."
+          }
+        ]
+      },
+      "htmlSha256": "8589f14bfd61a6994dcbf1d6d3b385dea3ceb97752d2ee7c198537e80d522d9a"
+    },
+    {
+      "id": "work-hours",
+      "locale": "es",
+      "path": "/es/fechas/horas-de-trabajo/",
+      "name": "Calculadora de horas de trabajo",
+      "h1": "Calculadora de horas de trabajo",
+      "seoTitle": "Calculadora de horas de trabajo por turno y por mes",
+      "seoDescription": "Cuenta las horas trabajadas a partir de la hora de inicio y de fin del turno con el descanso descontado, incluidos los turnos de noche que cruzan la medianoche.",
+      "fields": [
+        {
+          "name": "startHour",
+          "label": "Inicio del turno, horas",
+          "type": "number",
+          "defaultValue": 9,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "startMin",
+          "label": "Inicio del turno, minutos",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "endHour",
+          "label": "Fin del turno, horas",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "max": 23,
+          "step": 1
+        },
+        {
+          "name": "endMin",
+          "label": "Fin del turno, minutos",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 59,
+          "step": 5
+        },
+        {
+          "name": "breakMin",
+          "label": "Descanso, minutos",
+          "type": "number",
+          "defaultValue": 60,
+          "min": 0,
+          "step": 5
+        },
+        {
+          "name": "days",
+          "label": "Número de turnos",
+          "type": "number",
+          "defaultValue": 21,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "ratePerHour",
+          "label": "Tarifa por hora, €",
+          "type": "number",
+          "defaultValue": 500,
+          "min": 0,
+          "step": 50
+        }
+      ],
+      "body": {
+        "longDescription": "Cuenta las horas realmente trabajadas y no los días laborables de un calendario: el descanso se resta de la duración del turno, y lo que queda se multiplica por el número de turnos. Los turnos de noche se tratan aparte: cuando el fin es anterior al inicio el turno cruza la medianoche, y una resta simple devuelve un número negativo. Sumar un día ahí no es un apaño de comodidad, sino la única manera de sacar ocho horas de un «22:00 — 06:00» en lugar de menos dieciséis. Un descanso más largo que el turno se rechaza: el tiempo de trabajo negativo no existe, y mostrarlo sería un disparate verosímil.",
+        "howToUse": [
+          "Introduce la hora de inicio del turno en horas y minutos.",
+          "Introduce la hora de fin: para un turno de noche basta con dar la hora de la mañana.",
+          "Introduce la duración del descanso en minutos.",
+          "Fija el número de turnos del periodo y la tarifa por hora."
+        ],
+        "howItWorks": "Duración del turno = fin menos inicio, sumando un día cuando cruza la medianoche. Tiempo de trabajo = duración del turno menos el descanso, y las horas del periodo = tiempo de trabajo × número de turnos.",
+        "example": "Un turno de 9:00 a 18:00 con una hora de descanso da 8 horas: 168 horas en 21 turnos, o 84 000 con una tarifa de 500.",
+        "faq": [
+          {
+            "q": "¿Cómo se trata un turno que cruza la medianoche?",
+            "a": "Si la hora de fin es anterior a la de inicio, se suma un día a la diferencia. Un turno de 22:00 a 06:00 da por tanto ocho horas y no menos dieciséis."
+          },
+          {
+            "q": "¿Por qué se rechaza un descanso más largo que el turno?",
+            "a": "Porque el tiempo de trabajo saldría negativo. Un resultado así parecería verosímil cuando en realidad señala una errata, así que se rechaza."
+          },
+          {
+            "q": "¿En qué se diferencia de contar días laborables?",
+            "a": "Esto cuenta horas dentro de un turno, no días en un calendario. Un calendario laboral con festivos es otra calculadora."
+          },
+          {
+            "q": "¿Se incluyen las horas extra a tarifa mayor?",
+            "a": "No, la tarifa se aplica por igual a todas las horas. Para las horas con recargo, cuéntalas como un turno aparte con otra tarifa."
+          },
+          {
+            "q": "¿Qué indica la duración del turno antes del descanso?",
+            "a": "El tiempo total de presencia desde el inicio hasta el fin, descanso incluido. El tiempo retribuido es la fila de encima, ya sin él."
+          }
+        ]
+      },
+      "htmlSha256": "1a48ca03ca36b7b1b58761f27a8f36b707bf66ee9d237389515e9cf1aa0c76b2"
+    }
+  ]
+}

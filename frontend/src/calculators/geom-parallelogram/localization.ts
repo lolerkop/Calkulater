@@ -1,130 +1,129 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
-
-// Единицы принадлежат калькулятору: центральный словарь единиц не трогается.
-const RESULTS_EN = {
-  'Площадь': 'Area',
-  'Периметр': 'Perimeter',
-  'Высота к стороне a': 'Height to side a',
-  'Основание': 'Base',
-  'Высота': 'Height',
-  'Большая диагональ': 'Longer diagonal',
-  'Меньшая диагональ': 'Shorter diagonal',
-  'Проверьте данные': 'Check the values',
-};
-const RESULTS_UK = {
-  'Площадь': 'Площа',
-  'Периметр': 'Периметр',
-  'Высота к стороне a': 'Висота до сторони a',
-  'Основание': 'Основа',
-  'Высота': 'Висота',
-  'Большая диагональ': 'Більша діагональ',
-  'Меньшая диагональ': 'Менша діагональ',
-  'Проверьте данные': 'Перевірте дані',
-};
+import { geometryScalarValues } from '../../lib/platform/geometryScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'unit': 'Längeneinheit',
-      'mode': 'Was bekannt ist',
-      'a': 'Seite a',
-      'h': 'Höhe zur Seite a',
-      'b': 'Seite b',
-      'angle': 'Winkel zwischen den Seiten, Grad',
+  "de": {
+    "fields": {
+      "unit": "Längeneinheit",
+      "mode": "Was bekannt ist",
+      "a": "Seite a",
+      "h": "Höhe zur Seite a",
+      "b": "Seite b",
+      "angle": "Winkel zwischen den Seiten"
     },
-    options: {
-      'mm': 'Millimeter',
-      'cm': 'Zentimeter',
-      'm': 'Meter',
-      'height': 'eine Grundseite und eine Höhe',
-      'sides': 'zwei Seiten und ein Winkel',
+    "options": {
+      "mm": "Millimeter",
+      "cm": "Zentimeter",
+      "m": "Meter",
+      "height": "eine Grundseite und eine Höhe",
+      "sides": "zwei Seiten und ein Winkel"
     },
-    results: {
-      'Площадь': 'Fläche',
-      'Периметр': 'Umfang',
-      'Высота к стороне a': 'Höhe zur Seite a',
-      'Основание': 'Grundseite',
-      'Высота': 'Höhe',
-      'Большая диагональ': 'Längere Diagonale',
-      'Меньшая диагональ': 'Kürzere Diagonale',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Площадь": "Fläche",
+      "Периметр": "Umfang",
+      "Высота к стороне a": "Höhe zur Seite a",
+      "Основание": "Grundseite",
+      "Высота": "Höhe",
+      "Большая диагональ": "Längere Diagonale",
+      "Меньшая диагональ": "Kürzere Diagonale",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'мм': 'mm',
-      'см': 'cm',
-      'м': 'm',
-      'мм²': 'mm²',
-      'см²': 'cm²',
-      'м²': 'm²',
-      'мм³': 'mm³',
-      'см³': 'cm³',
-      'м³': 'm³',
-      'Сторона должна быть больше нуля': 'Die Seite muss größer als null sein',
-      'Вторая сторона должна быть больше нуля': 'Die zweite Seite muss größer als null sein',
-      'Угол должен быть больше 0 и меньше 180 градусов': 'Der Winkel muss größer als 0 und kleiner als 180 Grad sein',
-      'При таком угле параллелограмм вырождается в отрезок': 'Bei diesem Winkel entartet das Parallelogramm zu einer Strecke',
-      'Высота должна быть больше нуля': 'Die Höhe muss größer als null sein',
-    },
+    "values": {
+      ...geometryScalarValues.de,
+      "Сторона должна быть больше нуля": "Die Seite muss größer als null sein",
+      "Вторая сторона должна быть больше нуля": "Die zweite Seite muss größer als null sein",
+      "Угол должен быть больше 0 и меньше 180 градусов": "Der Winkel muss größer als 0 und kleiner als 180 Grad sein",
+      "При таком угле параллелограмм вырождается в отрезок": "Bei diesem Winkel entartet das Parallelogramm zu einer Strecke",
+      "Высота должна быть больше нуля": "Die Höhe muss größer als null sein"
+    }
   },
-  en: {
-    fields: { unit: 'Length unit', mode: 'What is known', a: 'Side a', h: 'Height to side a', b: 'Side b', angle: 'Angle between the sides, degrees', },
-    options: { mm: 'millimetres', cm: 'centimetres', m: 'metres', height: 'a base and a height', sides: 'two sides and an angle', },
-    results: RESULTS_EN,
-    values: {
-      'мм': 'mm',
-      'см': 'cm',
-      'м': 'm',
-      'мм²': 'mm²',
-      'см²': 'cm²',
-      'м²': 'm²',
-      'мм³': 'mm³',
-      'см³': 'cm³',
-      'м³': 'm³',
-      'Сторона должна быть больше нуля': 'The side must be greater than zero',
-      'Вторая сторона должна быть больше нуля': 'The second side must be greater than zero',
-      'Угол должен быть больше 0 и меньше 180 градусов': 'The angle must be greater than 0 and less than 180 degrees',
-      'При таком угле параллелограмм вырождается в отрезок': 'At that angle the parallelogram collapses into a line',
-      'Высота должна быть больше нуля': 'The height must be greater than zero',
+  "en": {
+    "fields": {
+      "unit": "Length unit",
+      "mode": "What is known",
+      "a": "Side a",
+      "h": "Height to side a",
+      "b": "Side b",
+      "angle": "Angle between sides"
     },
-  },
-  uk: {
-    fields: { unit: 'Одиниця довжини', mode: 'Що відомо', a: 'Сторона a', h: 'Висота до сторони a', b: 'Сторона b', angle: 'Кут між сторонами, градусів', },
-    options: { mm: 'міліметри', cm: 'сантиметри', m: 'метри', height: 'основа і висота', sides: 'дві сторони і кут', },
-    results: RESULTS_UK,
-    values: {
-      'мм': 'мм',
-      'см': 'см',
-      'м': 'м',
-      'мм²': 'мм²',
-      'см²': 'см²',
-      'м²': 'м²',
-      'мм³': 'мм³',
-      'см³': 'см³',
-      'м³': 'м³',
-      'Сторона должна быть больше нуля': 'Сторона має бути більшою за нуль',
-      'Вторая сторона должна быть больше нуля': 'Друга сторона має бути більшою за нуль',
-      'Угол должен быть больше 0 и меньше 180 градусов': 'Кут має бути більшим за 0 і меншим за 180 градусів',
-      'При таком угле параллелограмм вырождается в отрезок': 'За такого кута паралелограм вироджується у відрізок',
-      'Высота должна быть больше нуля': 'Висота має бути більшою за нуль',
+    "options": {
+      "mm": "millimetres",
+      "cm": "centimetres",
+      "m": "metres",
+      "height": "a base and a height",
+      "sides": "two sides and an angle"
     },
+    "results": {
+      "Площадь": "Area",
+      "Периметр": "Perimeter",
+      "Высота к стороне a": "Height to side a",
+      "Основание": "Base",
+      "Высота": "Height",
+      "Большая диагональ": "Longer diagonal",
+      "Меньшая диагональ": "Shorter diagonal",
+      "Проверьте данные": "Check the values"
+    },
+    "values": {
+      ...geometryScalarValues.en,
+      "Сторона должна быть больше нуля": "The side must be greater than zero",
+      "Вторая сторона должна быть больше нуля": "The second side must be greater than zero",
+      "Угол должен быть больше 0 и меньше 180 градусов": "The angle must be greater than 0 and less than 180 degrees",
+      "При таком угле параллелограмм вырождается в отрезок": "At that angle the parallelogram collapses into a line",
+      "Высота должна быть больше нуля": "The height must be greater than zero"
+    }
   },
-  es: {
-    fields: {
+  "uk": {
+    "fields": {
+      "unit": "Одиниця довжини",
+      "mode": "Що відомо",
+      "a": "Сторона a",
+      "h": "Висота до сторони a",
+      "b": "Сторона b",
+      "angle": "Кут між сторонами"
+    },
+    "options": {
+      "mm": "міліметри",
+      "cm": "сантиметри",
+      "m": "метри",
+      "height": "основа і висота",
+      "sides": "дві сторони і кут"
+    },
+    "results": {
+      "Площадь": "Площа",
+      "Периметр": "Периметр",
+      "Высота к стороне a": "Висота до сторони a",
+      "Основание": "Основа",
+      "Высота": "Висота",
+      "Большая диагональ": "Більша діагональ",
+      "Меньшая диагональ": "Менша діагональ",
+      "Проверьте данные": "Перевірте дані"
+    },
+    "values": {
+      ...geometryScalarValues.uk,
+      "Сторона должна быть больше нуля": "Сторона має бути більшою за нуль",
+      "Вторая сторона должна быть больше нуля": "Друга сторона має бути більшою за нуль",
+      "Угол должен быть больше 0 и меньше 180 градусов": "Кут має бути більшим за 0 і меншим за 180 градусів",
+      "При таком угле параллелограмм вырождается в отрезок": "За такого кута паралелограм вироджується у відрізок",
+      "Высота должна быть больше нуля": "Висота має бути більшою за нуль"
+    }
+  },
+  "es": {
+    "fields": {
       "unit": "Unidad de longitud",
       "mode": "Dato conocido",
       "a": "Lado a",
       "h": "Altura sobre el lado a",
       "b": "Lado b",
-      "angle": "Ángulo entre los lados, grados",
+      "angle": "Ángulo entre los lados"
     },
-    options: {
+    "options": {
       "mm": "milímetros",
       "cm": "centímetros",
       "m": "metros",
       "height": "una base y una altura",
-      "sides": "dos lados y un ángulo",
+      "sides": "dos lados y un ángulo"
     },
-    results: {
+    "results": {
       "Площадь": "Área",
       "Периметр": "Perímetro",
       "Высота к стороне a": "Altura sobre el lado a",
@@ -132,23 +131,15 @@ export const localization: CalculatorLocalization = {
       "Высота": "Altura",
       "Большая диагональ": "Diagonal mayor",
       "Меньшая диагональ": "Diagonal menor",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryScalarValues.es,
       "Сторона должна быть больше нуля": "El lado debe ser mayor que cero",
       "Вторая сторона должна быть больше нуля": "El segundo lado debe ser mayor que cero",
       "Угол должен быть больше 0 и меньше 180 градусов": "El ángulo debe ser mayor que 0 y menor que 180 grados",
       "При таком угле параллелограмм вырождается в отрезок": "Con ese ángulo el paralelogramo se degenera en un segmento",
-      "Высота должна быть больше нуля": "La altura debe ser mayor que cero",
-    },
-  },
+      "Высота должна быть больше нуля": "La altura debe ser mayor que cero"
+    }
+  }
 };

@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
@@ -13,4 +14,5 @@ export const gpaCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Berechne den Notendurchschnitt aus einer Liste von Noten mit Gewichten und vergleiche ihn mit dem ungewichteten Mittel.',
   h1: 'Notendurchschnitt-Rechner',
   keywords: ['Notendurchschnitt', 'gewichteter Durchschnitt', 'Leistungspunkte', 'Noten berechnen'],
+  ...contractContent.de
 };

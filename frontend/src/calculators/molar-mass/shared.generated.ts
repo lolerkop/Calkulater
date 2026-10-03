@@ -12,24 +12,28 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
+      'Из': 'From',
       'В': 'To',
     },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
+      'Из': 'З',
       'В': 'У',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
+      'Из': 'Von',
       'В': 'Nach',
     },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Из': 'De',
       'В': 'A',
     },
   },

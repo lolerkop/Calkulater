@@ -10,12 +10,29 @@
 
 import type { Locale } from './clientI18n';
 import { localizeLabel, localizeText } from './resultText';
+import { fitnessResultPhrases } from '../data/fitnessLegacyContractContent';
 
 type ResultValueMap = Partial<Record<Locale, Record<string, string>>> & {
   en: Record<string, string>;
 };
 
 export const resultPhrases: Record<string, Partial<Record<Locale, string>>> = {
+  ...Object.fromEntries(Object.keys(fitnessResultPhrases.en).map((key) => [key,
+    Object.fromEntries((['en', 'uk', 'de', 'es'] as const).map((locale) => [locale, (fitnessResultPhrases[locale] as Record<string, string>)[key]])),
+  ])),
+  'Сумма должна быть конечным неотрицательным числом.': { en: 'The amount must be a finite nonnegative number.', uk: 'Сума має бути скінченним невід’ємним числом.', de: 'Der Betrag muss eine endliche nichtnegative Zahl sein.', es: 'El importe debe ser un número finito no negativo.' },
+  'Сборы превышают доступную сумму обмена.': { en: 'The charges exceed the available exchange amount.', uk: 'Збори перевищують доступну суму обміну.', de: 'Die Gebühren übersteigen den verfügbaren Umtauschbetrag.', es: 'Los cargos superan el importe disponible para el cambio.' },
+  'Введите конечные числовые значения.': { en: 'Enter finite numeric values.', uk: 'Введіть скінченні числові значення.', de: 'Gib endliche Zahlenwerte ein.', es: 'Introduce valores numéricos finitos.' },
+  'Результат выходит за пределы числовой точности.': { en: 'The result exceeds numerical precision.', uk: 'Результат виходить за межі числової точності.', de: 'Das Ergebnis überschreitet die Zahlengenauigkeit.', es: 'El resultado supera la precisión numérica.' },
+  'Количество должно быть положительным целым числом.': { en: 'Quantity must be a positive whole number.', uk: 'Кількість має бути додатним цілим числом.', de: 'Die Menge muss eine positive ganze Zahl sein.', es: 'La cantidad debe ser un número entero positivo.' },
+  'Сумма скидки не может быть отрицательной.': { en: 'The discount amount cannot be negative.', uk: 'Сума знижки не може бути відʼємною.', de: 'Der Rabattbetrag darf nicht negativ sein.', es: 'El importe del descuento no puede ser negativo.' },
+  'Процентная скидка ограничена диапазоном от 0 до 100%.': { en: 'The percentage discount is limited to the range from 0 to 100%.', uk: 'Відсоткову знижку обмежено діапазоном від 0 до 100%.', de: 'Der prozentuale Rabatt ist auf den Bereich von 0 bis 100 % begrenzt.', es: 'El descuento porcentual se limita al intervalo del 0 al 100%.' },
+  'Скидка ограничена исходной ценой.': { en: 'The discount is limited to the original price.', uk: 'Знижку обмежено початковою ціною.', de: 'Der Rabatt ist auf den ursprünglichen Preis begrenzt.', es: 'El descuento se limita al precio original.' },
+  'Выберите допустимый режим расчёта.': { en: 'Choose a supported calculation mode.', uk: 'Оберіть допустимий режим розрахунку.', de: 'Wähle eine unterstützte Rechenart.', es: 'Elige un modo de cálculo válido.' },
+  'Срок должен составлять от 1 до 1200 целых месяцев.': { en: 'The term must be between 1 and 1200 whole months.', uk: 'Строк має становити від 1 до 1200 цілих місяців.', de: 'Die Laufzeit muss zwischen 1 und 1200 ganzen Monaten liegen.', es: 'El plazo debe ser de entre 1 y 1200 meses completos.' },
+  'Срок должен составлять от 1 до 12000 целых месяцев.': { en: 'The term must be between 1 and 12000 whole months.', uk: 'Строк має становити від 1 до 12000 цілих місяців.', de: 'Die Laufzeit muss zwischen 1 und 12000 ganzen Monaten liegen.', es: 'El plazo debe ser de entre 1 y 12000 meses completos.' },
+  'Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.': { en: 'The calculation exceeds numerical precision. Reduce the amount, rate or term.', uk: 'Розрахунок виходить за межі числової точності. Зменште суму, ставку або строк.', de: 'Die Berechnung überschreitet die Zahlengenauigkeit. Verringere Betrag, Zinssatz oder Laufzeit.', es: 'El cálculo supera la precisión numérica. Reduce el importe, el tipo o el plazo.' },
+  'Показаны первые 30 лет и итоговый период.': { en: 'The first 30 years and the final period are shown.', uk: 'Показано перші 30 років та підсумковий період.', de: 'Die ersten 30 Jahre und der letzte Zeitraum werden angezeigt.', es: 'Se muestran los primeros 30 años y el periodo final.' },
   'Введите положительные размеры и толщину': { en: 'Enter positive dimensions and thickness', de: 'Trage positive Maße und eine positive Dicke ein', uk: 'Введіть додатні розміри та товщину', es: "Introduce dimensiones y un espesor positivos" },
   'Вес мешка должен быть больше нуля': { en: 'The bag weight must be greater than zero', de: 'Das Sackgewicht muss größer als null sein', uk: 'Вага мішка має бути більшою за нуль', es: "El peso del saco debe ser mayor que cero" },
   'Введите себестоимость больше нуля': { en: 'Enter a cost greater than zero', de: 'Trage Selbstkosten größer als null ein', uk: 'Введіть собівартість більшу за нуль', es: "Introduce un coste mayor que cero" },
@@ -32,6 +49,8 @@ export const resultPhrases: Record<string, Partial<Record<Locale, string>>> = {
   'Плановый объём меньше точки безубыточности, поэтому запас прочности отрицательный, а расчёт показывает убыток.': { en: 'The planned volume is below the break-even point, so the margin of safety is negative and the calculation shows a loss.', de: 'Die geplante Menge liegt unter der Gewinnschwelle, deshalb ist die Sicherheitsspanne negativ und die Rechnung weist einen Verlust aus.', uk: 'Плановий обсяг менший за точку беззбитковості, тому запас міцності відʼємний, а розрахунок показує збиток.', es: "El volumen previsto está por debajo del punto de equilibrio, así que el margen de seguridad es negativo y el cálculo muestra pérdidas." },
   'Обхваты, метод ВМС США': { en: 'U.S. Navy circumference method', de: 'Umfänge, Methode der US Navy', uk: 'Метод ВМС США за обхватами', es: "Perímetros, método de la Marina de EE. UU." },
   'Это оценка по обхватам, а не измерение. Погрешность метода составляет несколько процентных пунктов и растёт при неточных замерах ленты. Результат не является медицинским заключением.': { en: 'This is an estimate from circumferences, not a measurement. The method is accurate to within a few percentage points, and the error grows with imprecise tape work. The result is not a medical assessment.', de: 'Das ist eine Schätzung aus Umfängen und keine Messung. Die Methode trifft auf wenige Prozentpunkte genau, und der Fehler wächst bei ungenauem Anlegen des Maßbands. Das Ergebnis ist kein medizinischer Befund.', uk: 'Це оцінка за обхватами, а не вимірювання. Похибка методу становить кілька відсоткових пунктів і зростає за неточних замірів стрічкою. Результат не є медичним висновком.', es: "Es una estimación a partir de perímetros, no una medida. El error del método es de unos pocos puntos porcentuales y crece con mediciones imprecisas con la cinta. El resultado no es un diagnóstico médico." },
+  'Введите обхват живота больше нуля': { en: 'Enter an abdomen circumference greater than zero', uk: 'Введіть обхват живота більше нуля', de: 'Gib einen Bauchumfang größer als null ein', es: 'Introduce un perímetro abdominal mayor que cero' },
+  'Обхват живота должен быть больше обхвата шеи': { en: 'The abdomen circumference must exceed the neck circumference', uk: 'Обхват живота має бути більшим за обхват шиї', de: 'Der Bauchumfang muss größer als der Halsumfang sein', es: 'El perímetro abdominal debe superar el perímetro del cuello' },
   'Обхват талии должен быть больше обхвата шеи': { en: 'The waist circumference must be larger than the neck circumference', de: 'Der Taillenumfang muss größer als der Halsumfang sein', uk: 'Обхват талії має бути більшим за обхват шиї', es: "El perímetro de la cintura debe ser mayor que el del cuello" },
   'Сумма обхватов талии и бёдер должна быть больше обхвата шеи': { en: 'Waist plus hip circumference must be larger than the neck circumference', de: 'Taillen- und Hüftumfang zusammen müssen größer als der Halsumfang sein', uk: 'Сума обхватів талії та стегон має бути більшою за обхват шиї', es: "La suma de los perímetros de cintura y cadera debe ser mayor que el del cuello" },
   'Сочетание обхватов выходит за пределы применимости метода — проверьте измерения': { en: 'This combination of circumferences falls outside the range where the method applies — check the measurements', de: 'Diese Kombination von Umfängen liegt außerhalb des Bereichs, in dem die Methode gilt — prüfe die Messungen', uk: 'Поєднання обхватів виходить за межі застосовності методу — перевірте виміри', es: "La combinación de perímetros queda fuera del rango en el que se aplica el método: revisa las medidas" },
@@ -126,6 +145,8 @@ export const resultPhrases: Record<string, Partial<Record<Locale, string>>> = {
 // «перевод совпадает с русским». По выводу функции их не различить —
 // «Запас» по-украински тоже «Запас», — а по факту объявления различить можно.
 export const resultLabelPhrases: Record<string, Partial<Record<Locale, string>>> = {
+  'Обхват живота': { en: 'Abdomen circumference', uk: 'Обхват живота', de: 'Bauchumfang', es: 'Perímetro abdominal' },
+  'Живот минус шея': { en: 'Abdomen minus neck', uk: 'Живіт мінус шия', de: 'Bauch minus Hals', es: 'Abdomen menos cuello' },
   'Количество камней': { en: 'Units needed', uk: 'Кількість каменів', de: 'Anzahl der Steine', es: "Número de piezas" },
   'Площадь кладки': { en: 'Masonry area', uk: 'Площа кладки', de: 'Mauerwerksfläche', es: "Superficie de fábrica" },
   'Площадь проёмов': { en: 'Openings area', uk: 'Площа прорізів', es: "Superficie de los huecos" },
@@ -153,7 +174,7 @@ export const resultLabelPhrases: Record<string, Partial<Record<Locale, string>>>
   'Переменные затраты на единицу': { en: 'Variable cost per unit', uk: 'Змінні витрати на одиницю', es: "Coste variable por unidad" },
   'Ежемесячный платеж': { en: 'Monthly payment', uk: 'Щомісячний платіж', de: 'Monatliche Rate', es: "Cuota mensual" },
   'Общая сумма выплат': { en: 'Total repayment', uk: 'Загальна сума виплат', de: 'Summe aller Zahlungen', es: "Total a devolver" },
-  'Переплата': { en: 'Overpayment', uk: 'Переплата', de: 'Mehrkosten', es: "Intereses totales" },
+  'Переплата': { en: 'Overpayment', uk: 'Переплата', de: 'Mehrkosten', es: "Coste adicional" },
   'Сумма процентов': { en: 'Interest amount', uk: 'Сума відсотків', de: 'Zinsen insgesamt', es: "Total de intereses" },
   'Срок': { en: 'Term', uk: 'Строк', de: 'Laufzeit', es: "Plazo" },
   'Проверьте данные': { en: 'Check inputs', uk: 'Перевірте дані', de: 'Prüfe die Werte', es: "Revisa los datos" },
@@ -186,6 +207,8 @@ export const resultLabelPhrases: Record<string, Partial<Record<Locale, string>>>
   'Комментарий': { en: 'Note', uk: 'Коментар', de: 'Hinweis', es: "Comentario" },
   'Рост': { en: 'Height', uk: 'Зріст', de: 'Körpergröße', es: "Estatura" },
   'Вес': { en: 'Weight', uk: 'Вага', de: 'Gewicht', es: "Peso" },
+  'Дневная оценка энергии': { en: 'Daily energy estimate', uk: 'Денна оцінка енергії', de: 'Tagesenergieschätzung', es: 'Estimación de energía diaria' },
+  'Расход энергии в покое (REE)': { en: 'Resting energy expenditure (REE)', uk: 'Витрати енергії у спокої (REE)', de: 'Ruheenergieverbrauch (REE)', es: 'Gasto energético en reposo (REE)' },
   'Дневная норма': { en: 'Daily target', uk: 'Добова норма', de: 'Tagesbedarf', es: "Ración diaria" },
   'Базовый обмен (BMR)': { en: 'Basal metabolic rate (BMR)', uk: 'Базовий обмін (BMR)', de: 'Grundumsatz (BMR)', es: "Metabolismo basal (TMB)" },
   'Белки': { en: 'Protein', uk: 'Білки', de: 'Eiweiß', es: "Proteínas" },

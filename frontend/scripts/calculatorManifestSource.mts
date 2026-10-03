@@ -14,7 +14,7 @@
 // работает в vitest без плагинов Vite, не зависит от порядка сборки, и любое
 // расхождение ловится проверкой `calculators:verify`.
 
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { resultPhrases, resultLabelPhrases } from '../src/lib/resultPhrases';
 import { TRANSLATED_LOCALES } from '../src/lib/platform/types';
@@ -63,7 +63,7 @@ export const shared: CalculatorLocalization = ${renderSharedBundle(calculatorLit
  * `localization.ts` и `copy.*.ts` не читаются: первый содержит собственные
  * переводы, которые и так важнее, второй — копирайт, а не строки результата.
  */
-const SLICE_SOURCES = ['compute.ts', 'validate.ts', 'contextualField.ts', 'definition.ts', 'referenceCases.ts'];
+const SLICE_SOURCES = ['compute.ts', 'validate.ts', 'validateDate.ts', 'contextualField.ts', 'definition.ts', 'referenceCases.ts'];
 
 type PhraseMap = Record<string, Partial<Record<string, string>>>;
 
@@ -142,7 +142,7 @@ export function calculatorLiterals(id: string, dir: string = CALC_DIR): string {
   // Граф расчёта обходится вглубь: напечатать можно только то, до чего он
   // дотягивается. Определение и эталоны читаются как есть — это объявления,
   // и их импорты ведут в копирайт, а не в строки результата.
-  const deep = ['compute.ts', 'validate.ts', 'contextualField.ts'].map((file) => join(dir, id, file));
+  const deep = ['compute.ts', 'validate.ts', 'validateDate.ts', 'contextualField.ts'].map((file) => join(dir, id, file));
   const shallow: string[] = [];
   for (const file of ['definition.ts', 'referenceCases.ts']) {
     try { literalsOf(readFileSync(join(dir, id, file), 'utf8'), shallow); } catch { /* нет файла */ }
@@ -173,6 +173,7 @@ export function runtimeModules(id: string, dir: string = CALC_DIR) {
   return {
     compute: has('compute.ts'),
     validate: has('validate.ts'),
+    validateDate: has('validateDate.ts'),
     contextualField: has('contextualField.ts'),
     localization: has('localization.ts'),
   };
@@ -219,7 +220,7 @@ import type {
   CalculatorCopy,
   CalculatorDefinitionV2,
   CalculatorPublishedExample,
-  CalculatorSeoCopy,
+  CalculatorLocalizedCopy,
 } from '../lib/platform/types';
 import { isPublished } from '../lib/platform/types';
 ${imports ? '\n' + imports + '\n' : ''}
@@ -242,15 +243,15 @@ export const v2EnCopy: Record<string, CalculatorCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.en).map((d) => [d.id, d.copy!.en!]),
 );
 
-export const v2UkCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
+export const v2UkCopy: Record<string, CalculatorLocalizedCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.uk).map((d) => [d.id, d.copy!.uk!]),
 );
 
-export const v2DeCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
+export const v2DeCopy: Record<string, CalculatorLocalizedCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.de).map((d) => [d.id, d.copy!.de!]),
 );
 
-export const v2EsCopy: Record<string, CalculatorSeoCopy> = Object.fromEntries(
+export const v2EsCopy: Record<string, CalculatorLocalizedCopy> = Object.fromEntries(
   published.filter((d) => d.copy?.es).map((d) => [d.id, d.copy!.es!]),
 );
 
@@ -282,6 +283,7 @@ export function renderRuntimeManifest(ids: readonly string[], dir?: string): str
   const imports: string[] = [];
   const compute: string[] = [];
   const validators: string[] = [];
+  const dateValidators: string[] = [];
   const contextual: string[] = [];
   const shared: string[] = [];
 
@@ -296,6 +298,10 @@ export function renderRuntimeManifest(ids: readonly string[], dir?: string): str
     if (modules.validate) {
       imports.push(`import { validate as ${alias(id, 'validate')} } from './${id}/validate';`);
       validators.push(`  '${id}': ${alias(id, 'validate')},`);
+    }
+    if (modules.validateDate) {
+      imports.push(`import { validateDate as ${alias(id, 'validateDate')} } from './${id}/validateDate';`);
+      dateValidators.push(`  '${id}': ${alias(id, 'validateDate')},`);
     }
     if (modules.contextualField) {
       imports.push(`import { contextualField as ${alias(id, 'ctx')} } from './${id}/contextualField';`);
@@ -313,14 +319,26 @@ export function renderRuntimeManifest(ids: readonly string[], dir?: string): str
   }
   for (const [id] of legacy) {
     imports.push(`import { shared as ${alias(id, 'legacy')} } from '../components/islands/legacy/${id}/shared.generated';`);
+    const modules = legacyRuntimeModules(id);
+    for (const kind of ['validate', 'validateDate', 'contextualField', 'localization'] as const) {
+      if (modules[kind]) imports.push(`import { ${kind} as ${alias(id, 'legacy_' + kind)} } from '../components/islands/legacy/${id}/${kind}';`);
+    }
   }
   const legacyRuntimes = legacy
-    .map(([id, entry]) => `  '${id}': { compute: ${entry.name}, localization: ${alias(id, 'legacy')} },`)
+    .map(([id, entry]) => {
+      const modules = legacyRuntimeModules(id);
+      const hooks = ['validate', 'validateDate', 'contextualField'].filter(kind => modules[kind as keyof typeof modules])
+        .map(kind => `${kind}: ${alias(id, 'legacy_' + kind)}, `).join('');
+      const localization = modules.localization
+        ? `withSharedPhrases(${alias(id, 'legacy_localization')}, ${alias(id, 'legacy')})`
+        : alias(id, 'legacy');
+      return `  '${id}': { compute: ${entry.name}, ${hooks}localization: ${localization} },`;
+    })
     .join('\n');
 
   return `// СГЕНЕРИРОВАНО. Не редактировать руками.
-// Только runtime: этот файл попадает в клиентский бандл, поэтому он не должен
-// импортировать definition-объекты с SEO-текстами и FAQ.
+// Полный runtime-реестр для сборки и тестов. Клиентские точки входа его
+// не импортируют и получают только фразы выбранного языка через Astro props.
 //
 // Каждый runtime-модуль калькулятора обязан экспортировать функцию под
 // фиксированным именем: compute.ts → compute, validate.ts → validate,
@@ -347,6 +365,10 @@ export const v2Validators: Record<string, CalculatorValidator> = {
 ${validators.join('\n')}
 };
 
+export const v2DateValidators: Record<string, NonNullable<CalculatorClientRuntime['validateDate']>> = {
+${dateValidators.join('\n')}
+};
+
 export const v2ContextualFields: Record<string, CalculatorContextualField> = {
 ${contextual.join('\n')}
 };
@@ -366,6 +388,7 @@ export const v2Runtimes: Record<string, CalculatorClientRuntime> = Object.fromEn
   Object.keys(v2Runners).map((id) => [id, {
     compute: v2Runners[id],
     validate: v2Validators[id],
+    validateDate: v2DateValidators[id],
     contextualField: v2ContextualFields[id],
     localization: withSharedPhrases(
       Object.fromEntries(
@@ -457,18 +480,15 @@ export function renderIslandEntry(id: string, dir?: string): string {
   const imports = [
     "import CalculatorIsland from '../../components/islands/CalculatorIsland';",
     "import type { CalculatorClientRuntime } from '../../lib/platform/runtime';",
-    "import { withSharedPhrases } from '../../lib/platform/runtime';",
-    "import { shared } from './shared.generated';",
     "import { compute } from './compute';",
   ];
   const fields = ['  compute,'];
   if (modules.validate) { imports.push("import { validate } from './validate';"); fields.push('  validate,'); }
+  if (modules.validateDate) { imports.push("import { validateDate } from './validateDate';"); fields.push('  validateDate,'); }
   if (modules.contextualField) {
     imports.push("import { contextualField } from './contextualField';");
     fields.push('  contextualField,');
   }
-  if (modules.localization) imports.push("import { localization } from './localization';");
-  fields.push(`  localization: withSharedPhrases(${modules.localization ? 'localization' : 'undefined'}, shared),`);
   const name = id.split(/[^a-zA-Z0-9]+/).map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join('');
 
   return `// СГЕНЕРИРОВАНО. Не редактировать руками.
@@ -480,10 +500,13 @@ const runtime: CalculatorClientRuntime = {
 ${fields.join('\n')}
 };
 
-type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'>;
+type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'> & {
+  runtimeLocalization: NonNullable<CalculatorClientRuntime['localization']>;
+};
 
 export default function ${name}Island(props: Props) {
-  return <CalculatorIsland {...props} runtime={runtime} />;
+  const { runtimeLocalization, ...islandProps } = props;
+  return <CalculatorIsland {...islandProps} runtime={{ ...runtime, localization: runtimeLocalization }} />;
 }
 `;
 }
@@ -536,15 +559,37 @@ export const legacyIslandPath = (id: string) =>
 export const legacySharedPath = (id: string) =>
   join(ROOT, 'src/components/islands/legacy', id, 'shared.generated.ts');
 
+/** Optional hooks are discovered in the owning directory, as for V2. */
+export function legacyRuntimeModules(id: string) {
+  const own = join(ROOT, 'src/components/islands/legacy', id);
+  return Object.fromEntries(['validate', 'validateDate', 'contextualField', 'localization']
+    .map(kind => [kind, existsSync(join(own, `${kind}.ts`))])) as Record<'validate' | 'validateDate' | 'contextualField' | 'localization', boolean>;
+}
+
 /** Отобранные фразы наследственного калькулятора — отдельным модулем, как у V2. */
 export function renderLegacySharedPhrases(id: string): string {
+  const bundle = renderSharedBundle(legacyLiterals(id), '');
+  const v2Ids = new Set(discoverCalculatorIds());
+  // Reuse only the complete byte-identical phrase bundle. Calculation entry
+  // points stay separate, and no unrelated phrases enter a page's runtime.
+  for (const candidate of legacyRunnerMap().keys()) {
+    if (candidate === id) break;
+    if (v2Ids.has(candidate)) continue;
+    if (renderSharedBundle(legacyLiterals(candidate), '') !== bundle) continue;
+    return `// СГЕНЕРИРОВАНО. Не редактировать руками.
+// Побайтово одинаковые общие фразы ${id} и ${candidate}.
+// Перегенерировать: npm run calculators:generate
+
+export { shared } from '../${candidate}/shared.generated';
+`;
+  }
   return `// СГЕНЕРИРОВАНО. Не редактировать руками.
 // Общие фразы результата, отобранные под наследственный калькулятор ${id}.
 // Перегенерировать: npm run calculators:generate
 
 import type { CalculatorLocalization } from '../../../../lib/platform/types';
 
-export const shared: CalculatorLocalization = ${renderSharedBundle(legacyLiterals(id), '')};
+export const shared: CalculatorLocalization = ${bundle};
 `;
 }
 
@@ -556,6 +601,10 @@ export function legacyLiterals(id: string): string {
   const entry = legacyRunnerMap().get(id);
   const parts: string[] = [];
   if (entry) parts.push(literalsFromGraph([join(ROOT, 'src/lib', `${entry.module.replace(/^\.\//, '')}.ts`)]));
+  const modules = legacyRuntimeModules(id);
+  parts.push(literalsFromGraph(['validate', 'validateDate', 'contextualField']
+    .filter(kind => modules[kind as keyof typeof modules])
+    .map(kind => join(ROOT, 'src/components/islands/legacy', id, `${kind}.ts`))));
   const calculator = legacyCalculators.find((item) => item.id === id);
   if (calculator?.resultLabels) parts.push(...Object.values(calculator.resultLabels));
   return parts.join('\u0000');
@@ -572,6 +621,10 @@ export function renderLegacyIsland(id: string): string {
   const entry = legacyRunnerMap().get(id);
   if (!entry) throw new Error(`Наследственный калькулятор ${id} не найден в реестре расчётов`);
   const name = id.split(/[^a-zA-Z0-9]+/).map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+  const modules = legacyRuntimeModules(id);
+  const hooks = ['validate', 'validateDate', 'contextualField'].filter(kind => modules[kind as keyof typeof modules]);
+  const hookImports = hooks.map(kind => `import { ${kind} } from './${kind}';`).join('\n');
+  const hookFields = hooks.map(kind => `  ${kind},`).join('\n');
   return `// СГЕНЕРИРОВАНО. Не редактировать руками.
 // Точка входа наследственного калькулятора ${id}.
 // Перегенерировать: npm run calculators:generate
@@ -579,17 +632,20 @@ export function renderLegacyIsland(id: string): string {
 import CalculatorIsland from '../../CalculatorIsland';
 import type { CalculatorClientRuntime } from '../../../../lib/platform/runtime';
 import { ${entry.name} } from '../../../../lib/calculators/${entry.module.replace(/^\.\/calculators\//, '')}';
-import { shared } from './shared.generated';
+${hookImports}
 
 const runtime: CalculatorClientRuntime = {
   compute: ${entry.name},
-  localization: shared,
+${hookFields}
 };
 
-type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'>;
+type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'> & {
+  runtimeLocalization: NonNullable<CalculatorClientRuntime['localization']>;
+};
 
 export default function ${name}LegacyIsland(props: Props) {
-  return <CalculatorIsland {...props} runtime={runtime} />;
+  const { runtimeLocalization, ...islandProps } = props;
+  return <CalculatorIsland {...islandProps} runtime={{ ...runtime, localization: runtimeLocalization }} />;
 }
 `;
 }
@@ -602,7 +658,7 @@ export function renderDispatch(ids: readonly string[], dir?: string): string {
     .map((id) => `import ${name(id)} from '../calculators/${id}/island';`)
     .join('\n');
   const branches = released
-    .map((id) => `{id === '${id}' && <${name(id)} calc={calc} locale={locale} client:load />}`)
+    .map((id) => `{id === '${id}' && <${name(id)} calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}`)
     .join('\n');
   const legacyName = (id: string) =>
     id.split(/[^a-zA-Z0-9]+/).map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join('') + 'LegacyIsland';
@@ -611,7 +667,7 @@ export function renderDispatch(ids: readonly string[], dir?: string): string {
     .map((id) => `import ${legacyName(id)} from './islands/legacy/${id}/island';`)
     .join('\n');
   const legacyBranches = legacyIds
-    .map((id) => `{id === '${id}' && <${legacyName(id)} calc={calc} locale={locale} client:load />}`)
+    .map((id) => `{id === '${id}' && <${legacyName(id)} calc={calc} locale={locale} runtimeLocalization={runtimeLocalization} client:load />}`)
     .join('\n');
 
   return `---
@@ -626,9 +682,13 @@ export function renderDispatch(ids: readonly string[], dir?: string): string {
 // расчёт и свои фразы, а не реестр всех расчётов и весь словарь.
 ${legacyImports}
 ${imports}
+import { runtimeFor } from '../calculators/runtime.generated';
+import { selectRuntimeLocalization } from '../lib/platform/runtime';
 
 const { calc, locale } = Astro.props;
 const id = calc.id;
+// Only the active language is serialized into the page, together with its form.
+const runtimeLocalization = selectRuntimeLocalization(runtimeFor(id), locale);
 ---
 
 ${branches}

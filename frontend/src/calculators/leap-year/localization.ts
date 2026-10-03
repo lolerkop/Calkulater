@@ -1,3 +1,4 @@
+import {dateTimeWave15Phrases} from '../../data/dateTimeWave15ResultPhrases';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 const RESULTS_EN = {
@@ -11,7 +12,7 @@ const RESULTS_UK = {
   'Предыдущий високосный': 'Попередній високосний', 'Проверьте данные': 'Перевірте дані',
 };
 
-export const localization: CalculatorLocalization = {
+const previousLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'year': 'Jahr',
@@ -66,3 +67,6 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+const ownedKeys = ["Введите целый год от 1 до 9999"] as const;
+export const localization:CalculatorLocalization = Object.fromEntries(['en','uk','de','es'].map(locale=>[locale,{...previousLocalization[locale as keyof typeof previousLocalization],values:{...previousLocalization[locale as keyof typeof previousLocalization]?.values,...dateTimeWave15Phrases(locale,ownedKeys)}}]));

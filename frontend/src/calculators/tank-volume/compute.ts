@@ -1,68 +1,79 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure, formatStatistic } from '../../lib/platform/measurement';
+import { fmtNumber } from '../../lib/format';
+import { formatStatistic } from '../../lib/platform/measurement';
+import { sqrt } from '../../lib/platform/geometryNumericInput';
+import { INPUT, MODE, RANGE, finite, mode, read, exact, add, times, negative, evaluated, plus, minus, quotient, measure, quantity, sqrtRatio, type Dyadic } from '../rafters/buildingWave16Numeric';
 
-// Объём ёмкости и объём налитого при заданном уровне.
-//
-// Вертикальный цилиндр и прямоугольная ёмкость считаются площадью основания на
-// уровень. Горизонтальный цилиндр — нет: сечение налитой части там СЕГМЕНТ
-// круга, и его площадь равна r²(θ − sin θ)/2, где θ — центральный угол,
-// θ = 2·arccos((r − h)/r). Именно поэтому половина высоты горизонтальной
-// цистерны даёт ровно половину объёма, а четверть высоты — заметно меньше
-// четверти объёма.
-//
-// Отличие от цилиндра из геометрии: тот даёт полный объём тела. Здесь есть
-// уровень налива и положение ёмкости, и главный ответ — сколько ЖИДКОСТИ внутри.
-const SHAPES = ['vertical-cylinder', 'horizontal-cylinder', 'rect', 'capsule'];
-
-export const compute: CalcFunction = (inputs) => {
-  const shape = toStr(inputs.shape, 'vertical-cylinder');
-  const d = toNumber(inputs.d);
-  const len = toNumber(inputs.len);
-  const level = toNumber(inputs.level);
-  const fail = (message: string) => ({
-    primary: { label: 'Объём налитого', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  const m = (value: number, unit: string) => `${formatMeasure(value, fmtNumber)} ${unit}`;
-
-  if (!SHAPES.includes(shape)) return fail('Неизвестная форма ёмкости');
-  if (!(d > 0)) return fail('Размер сечения должен быть больше нуля');
-  if (!(len > 0)) return fail('Длина или высота должна быть больше нуля');
-  if (!(level >= 0)) return fail('Уровень не может быть отрицательным');
-
-  const r = d / 2;
-  // У горизонтальной ёмкости налив ограничен ДИАМЕТРОМ, у остальных — длиной,
-  // которая для них и есть высота.
-  const height = shape === 'horizontal-cylinder' ? d : len;
-  if (level > height) return fail('Уровень не может быть выше самой ёмкости');
-
-  let full: number;
-  let filled: number;
-  if (shape === 'horizontal-cylinder') {
-    full = Math.PI * r * r * len;
-    const theta = 2 * Math.acos((r - level) / r);
-    filled = ((r * r * (theta - Math.sin(theta))) / 2) * len;
-  } else if (shape === 'rect') {
-    full = d * d * len;
-    filled = d * d * level;
-  } else if (shape === 'capsule') {
-    const cylinder = Math.PI * r * r * len;
-    const sphere = (4 / 3) * Math.PI * r * r * r;
-    full = cylinder + sphere;
-    filled = (full * level) / (len + d);
-  } else {
-    full = Math.PI * r * r * len;
-    filled = Math.PI * r * r * level;
-  }
-
-  return {
-    primary: { label: 'Объём налитого', value: m(filled, 'м³') },
-    secondary: [
-      { label: 'Полный объём', value: m(full, 'м³') },
-      { label: 'Заполнено', value: `${formatStatistic((filled / full) * 100, fmtNumber)} %` },
-      { label: 'В литрах', value: m(filled * 1000, 'л') },
-      { label: 'Свободно', value: m(full - filled, 'м³') },
-    ],
-  };
+/** Circular segment = 2 L ∫₀ʰ sqrt(d y - y²) dy. A bounded binomial
+ * expansion avoids θ-sinθ cancellation when h/d <= .001. Twelve terms
+ * have negligible truncation error there; IEEE-754 and entered dimensions
+ * still bound the precision. Internal tiny h/d may round to zero only in
+ * a correction whose effect is then below binary64 precision. */
+function correction(t:number):number {
+ let term=1,result=1;
+ for(let k=1;k<=12;k++){term*=((0.5-(k-1))/k)*(-t);result+=term*3/(2*k+3);}
+ return result;
+}
+function smallSegment(d:number,len:number,h:number,scale=1):number {
+ if(h===0)return 0;
+ const t=h/d;
+ if(t<=0.001){
+  const factor=4*correction(t)*scale/3;
+  const result=sqrt(times(exact(d),exact(h),exact(h),exact(h),exact(len),exact(len),exact(factor),exact(factor)));
+  return result===0?NaN:result;
+ }
+ const theta=2*Math.acos(1-2*t);
+ return quotient([d,d,len,theta-Math.sin(theta),scale],[8]);
+}
+function smallPercent(d:number,h:number):number {
+ if(h===0)return 0;
+ const t=h/d;
+ if(t<=0.001){
+  const factor=1600*correction(t)/(3*Math.PI);
+  return sqrtRatio(times(exact(h),exact(h),exact(h),exact(factor),exact(factor)),times(exact(d),exact(d),exact(d)));
+ }
+ const theta=2*Math.acos(1-2*t);
+ return (theta-Math.sin(theta))*50/Math.PI;
+}
+export const compute:CalcFunction=inputs=>{
+ const shape=mode(inputs.shape,'vertical-cylinder',['vertical-cylinder','horizontal-cylinder','rect','capsule']);
+ const d=read(inputs.d),len=read(inputs.len),level=read(inputs.level);
+ const fail=(value:string)=>({primary:{label:'Объём налитого',value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ if(!shape)return fail(MODE);
+ if(!finite(d,len,level))return fail(INPUT);
+ if(!(d>0))return fail('Размер сечения должен быть больше нуля');
+ if(!(len>0))return fail('Длина или высота должна быть больше нуля');
+ if(level<0)return fail('Уровень не может быть отрицательным');
+ const height=shape==='horizontal-cylinder'?d:shape==='capsule'?plus(len,d):len;
+ if(!Number.isFinite(height))return fail(RANGE);
+ if(level>height)return fail('Уровень не может быть выше самой ёмкости');
+ let full:number,filled:number,free:number,litres:number,percent:number;
+ if(shape==='horizontal-cylinder'){
+  const capacity=times(exact(Math.PI),exact(d),exact(d),exact(len));
+  full=evaluated(capacity,exact(4));
+  const upper=level>d/2,depth=upper?minus(d,level):level;
+  const small=smallSegment(d,len,depth),smallLitres=smallSegment(d,len,depth,1000),pct=smallPercent(d,depth);
+  if(!finite(full,small,smallLitres,pct))return fail(RANGE);
+  const largeFraction=1-pct/100;
+  const large=evaluated(times(capacity,exact(largeFraction)),exact(4));
+  filled=upper?large:small;free=upper?small:large;
+  litres=upper?evaluated(times(capacity,exact(largeFraction),exact(1000)),exact(4)):smallLitres;
+  percent=upper?100-pct:pct;
+ }else{
+  let capacity:Dyadic,base:Dyadic,denominator:Dyadic;
+  if(shape==='rect'){base=times(exact(d),exact(d));capacity=times(base,exact(len));denominator=exact(1);}
+  else if(shape==='capsule'){
+   capacity=add(times(exact(Math.PI),exact(d),exact(d),exact(len),exact(3)),times(exact(Math.PI),exact(d),exact(d),exact(d),exact(2)));
+   base=capacity;denominator=times(exact(12),exact(height));
+  }else{base=times(exact(Math.PI),exact(d),exact(d));capacity=times(base,exact(len));denominator=exact(4);}
+  full=evaluated(capacity,exact(shape==='rect'?1:shape==='capsule'?12:4));
+  filled=evaluated(times(base,exact(level)),denominator);
+  free=evaluated(times(base,add(exact(height),negative(exact(level)))),denominator);
+  litres=evaluated(times(base,exact(level),exact(1000)),denominator);
+  percent=quotient([level,100],[height]);
+ }
+ if(!finite(full,filled,free,litres,percent)||full<=0||(level>0&&filled<=0)||(level<height&&free<=0))return fail(RANGE);
+ const m=(x:number,unit:string)=>`${measure(x)} ${unit}`;
+ const pct=percent!==0&&(percent<1e-4||percent>=1e12)?quantity(percent):formatStatistic(percent,fmtNumber);
+ return {primary:{label:'Объём налитого',value:m(filled,'м³')},secondary:[{label:'Полный объём',value:m(full,'м³')},{label:'Заполнено',value:`${pct} %`},{label:'В литрах',value:m(litres,'л')},{label:'Свободно',value:m(free,'м³')}],...(shape==='capsule'?{note:'Для капсулы налив оценён линейно по уровню: это приближение, а не точный объём сферических торцов.'}:{})};
 };

@@ -36,4 +36,42 @@ export const leverMomentReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: { mode: 'distance2', f1: 100, d1: 2, d2: 0, f2: 0 },
     expectPrimary: "—",
   },
+
+  // Wave 4: fixed expectations derived analytically from the stated model.
+  {
+  "name": "нулевая первая сила с заданными плечами даёт нулевую вторую силу",
+  "inputs": {
+    "mode": "force2",
+    "f1": 0,
+    "d1": 2,
+    "d2": 0.5
+  },
+  "expectPrimary": "0 Н",
+  "expectSecondary": [
+    {
+      "label": "Выигрыш в силе",
+      "value": "4"
+    }
+  ]
+},
+  {
+  "name": "ошибка: нулевая первая сила не даёт положительного плеча приF2>0",
+  "inputs": {
+    "mode": "distance2",
+    "f1": 0,
+    "d1": 2,
+    "f2": 400
+  },
+  "expectPrimary": "—"
+},
+  {
+  "name": "ошибка: отрицательный модуль первой силы",
+  "inputs": {
+    "mode": "force2",
+    "f1": -100,
+    "d1": 2,
+    "d2": 0.5
+  },
+  "expectPrimary": "—"
+},
 ];

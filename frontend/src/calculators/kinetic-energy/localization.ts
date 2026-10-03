@@ -4,19 +4,19 @@ export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'mode': 'Was gesucht ist',
-      'm': 'Masse, kg',
-      'v': 'Geschwindigkeit, m/s',
-      'E': 'Energie, J',
-      'm2': 'Masse, kg',
-      'E2': 'Energie, J',
-      'v2': 'Geschwindigkeit, m/s',
+      'm': "Masse",
+      'v': "Geschwindigkeit",
+      'E': "Energie",
+      'm2': "Masse",
+      'E2': "Energie",
+      'v2': "Geschwindigkeit",
     },
     options: {
       'mm': 'Millimeter',
       'cm': 'Zentimeter',
-      'm': 'die Masse',
-      'E': 'die Energie',
-      'v': 'die Geschwindigkeit',
+      'm': "die Masse",
+      'E': "die Energie",
+      'v': "die Geschwindigkeit",
     },
     results: {
       'Кинетическая энергия': 'Kinetische Energie',
@@ -25,6 +25,10 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Неизвестный режим расчёта": "Unbekannter Berechnungsmodus",
+      "Введите конечные числа для выбранного режима": "Gib endliche Zahlen für den gewählten Modus ein",
+      "Результат выходит за числовой диапазон": "Das Ergebnis überschreitet den Zahlenbereich",
+
       'мм': 'mm',
       'см': 'cm',
       'м': 'm',
@@ -46,12 +50,12 @@ export const localization: CalculatorLocalization = {
   en: {
     fields: {
       "mode": "What to find",
-      "m": "Mass, kg",
-      "v": "Speed, m/s",
-      "E": "Energy, J",
-      "m2": "Mass, kg",
-      "E2": "Energy, J",
-      "v2": "Speed, m/s",
+      "m": "Mass",
+      "v": "Speed",
+      "E": "Energy",
+      "m2": "Mass",
+      "E2": "Energy",
+      "v2": "Speed",
     },
     options: {
       "mm": "millimetres",
@@ -67,6 +71,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      "Неизвестный режим расчёта": "Unknown calculation mode",
+      "Введите конечные числа для выбранного режима": "Enter finite numbers for the selected mode",
+      "Результат выходит за числовой диапазон": "The result exceeds the numerical range",
+
       "мм": "mm",
       "см": "cm",
       "м": "m",
@@ -88,12 +96,12 @@ export const localization: CalculatorLocalization = {
   uk: {
     fields: {
       "mode": "Що знайти",
-      "m": "Маса, кг",
-      "v": "Швидкість, м/с",
-      "E": "Енергія, Дж",
-      "m2": "Маса, кг",
-      "E2": "Енергія, Дж",
-      "v2": "Швидкість, м/с",
+      "m": "Маса",
+      "v": "Швидкість",
+      "E": "Енергія",
+      "m2": "Маса",
+      "E2": "Енергія",
+      "v2": "Швидкість",
     },
     options: {
       "mm": "міліметри",
@@ -109,6 +117,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      "Неизвестный режим расчёта": "Невідомий режим розрахунку",
+      "Введите конечные числа для выбранного режима": "Введіть скінченні числа для обраного режиму",
+      "Результат выходит за числовой диапазон": "Результат виходить за числовий діапазон",
+
       "мм": "мм",
       "см": "см",
       "м": "м",
@@ -130,12 +142,12 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "mode": "Qué hallar",
-      "m": "Masa, kg",
-      "v": "Velocidad, m/s",
-      "E": "Energía, J",
-      "m2": "Masa, kg",
-      "E2": "Energía, J",
-      "v2": "Velocidad, m/s",
+      "m": "Masa",
+      "v": "Velocidad",
+      "E": "Energía",
+      "m2": "Masa",
+      "E2": "Energía",
+      "v2": "Velocidad",
     },
     options: {
       "E": "la energía",
@@ -151,6 +163,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Неизвестный режим расчёта": "Modo de cálculo desconocido",
+      "Введите конечные числа для выбранного режима": "Introduce números finitos para el modo elegido",
+      "Результат выходит за числовой диапазон": "El resultado supera el rango numérico",
+
       "мм": "mm",
       "см": "cm",
       "м": "m",

@@ -163,65 +163,65 @@ export const copy: CategoryCopyByLocale = {
 
 export const faq: CategoryFaqByLocale = {
   ru: [
-    {
-      q: "За какой период считать метрики?",
-      a: "За тот же, за который взяты исходные суммы. Смешивать месячные расходы с квартальной выручкой нельзя — показатель получится бессмысленным.",
-    },
-    {
-      q: "Учитывать ли налоги?",
-      a: "Берите те суммы, которыми вы управляете. Главное — считать все показатели по одному правилу, иначе периоды перестанут сравниваться.",
-    },
-    {
-      q: "Почему ROI бывает отрицательным?",
-      a: "Значит, вернулось меньше вложенного. Калькулятор показывает это прямо, а не обрезает до нуля.",
-    },
-    {
-      q: "Чем ROI отличается от ROAS?",
-      a: "ROAS — это отношение выручки к расходам, ROI — доля прибыли от вложений. При выручке вдвое больше расходов ROAS равен 2, а ROI — 100 %.",
-    },
-  ],
+        {
+          "q": "За какой период считать метрики?",
+          "a": "За тот же, за который взяты исходные суммы. Смешивать месячные расходы с квартальной выручкой нельзя — показатель получится бессмысленным."
+        },
+        {
+          "q": "Учитывать ли налоги?",
+          "a": "Берите те суммы, которыми вы управляете. Главное — считать все показатели по одному правилу, иначе периоды перестанут сравниваться."
+        },
+        {
+          "q": "Почему ROI бывает отрицательным?",
+          "a": "Значит, вернулось меньше вложенного. Калькулятор показывает это прямо, а не обрезает до нуля."
+        },
+        {
+          "q": "Чем ROI отличается от ROAS?",
+          "a": "ROAS сравнивает выручку с рекламными расходами, ROI — прибыль с выбранной базой вложений. Без дополнительных затрат выручка 200 при расходах 100 даёт ROAS 2 и ROI 100%. Дополнительные затраты меняют ROI; используйте поля и базу расходов конкретного калькулятора."
+        }
+      ],
   en: [
-    {
-      q: "Which period should the metrics cover?",
-      a: "The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.",
-    },
-    {
-      q: "Why can ROI be negative?",
-      a: "It means less came back than went in. The calculator states that plainly instead of clamping to zero.",
-    },
-    {
-      q: "How does ROI differ from ROAS?",
-      a: "ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.",
-    },
-  ],
+        {
+          "q": "Which period should the metrics cover?",
+          "a": "The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless."
+        },
+        {
+          "q": "Why can ROI be negative?",
+          "a": "It means less came back than went in. The calculator states that plainly instead of clamping to zero."
+        },
+        {
+          "q": "How does ROI differ from ROAS?",
+          "a": "ROAS compares revenue with ad spend; ROI compares profit with the stated investment. With no additional costs, revenue of 200 on spend of 100 gives ROAS 2 and ROI 100%. Additional costs change ROI; use the particular calculator’s fields and cost basis."
+        }
+      ],
   es: [
-    {
-      q: "¿Qué periodo deben cubrir las métricas?",
-      a: "El mismo del que proceden los importes introducidos. Mezclar costes mensuales con ingresos trimestrales deja la cifra sin sentido.",
-    },
-    {
-      q: "¿Por qué el ROI puede salir negativo?",
-      a: "Significa que ha vuelto menos de lo que se invirtió. La calculadora lo dice tal cual en lugar de recortarlo a cero.",
-    },
-    {
-      q: "¿En qué se diferencian el ROI y el ROAS?",
-      a: "El ROAS son ingresos entre inversión; el ROI es el beneficio como parte de lo invertido. Con unos ingresos que doblan la inversión, el ROAS es 2 y el ROI es del 100 %.",
-    },
-  ],
+        {
+          "q": "¿Qué periodo deben cubrir las métricas?",
+          "a": "El mismo del que proceden los importes introducidos. Mezclar costes mensuales con ingresos trimestrales deja la cifra sin sentido."
+        },
+        {
+          "q": "¿Por qué el ROI puede salir negativo?",
+          "a": "Significa que ha vuelto menos de lo que se invirtió. La calculadora lo dice tal cual en lugar de recortarlo a cero."
+        },
+        {
+          "q": "¿En qué se diferencian el ROI y el ROAS?",
+          "a": "El ROAS compara ingresos con gasto publicitario; el ROI compara beneficio con la inversión considerada. Sin costes adicionales, ingresos de 200 y gasto de 100 dan ROAS 2 y ROI del 100%. Otros costes cambian el ROI: usa los campos y la base del instrumento concreto."
+        }
+      ],
   de: [
-    {
-      q: "Which period should the metrics cover?",
-      a: "The same one the input amounts come from. Mixing monthly costs with quarterly revenue makes the figure meaningless.",
-    },
-    {
-      q: "Why can ROI be negative?",
-      a: "It means less came back than went in. The calculator states that plainly instead of clamping to zero.",
-    },
-    {
-      q: "How does ROI differ from ROAS?",
-      a: "ROAS is revenue over spend; ROI is profit as a share of the investment. With revenue twice the spend, ROAS is 2 and ROI is 100%.",
-    },
-  ],
+        {
+          "q": "Welchen Zeitraum sollen die Kennzahlen abdecken?",
+          "a": "Denselben Zeitraum, aus dem die eingegebenen Beträge stammen. Monatliche Kosten mit einem Quartalsumsatz zu vergleichen würde die Kennzahl verfälschen."
+        },
+        {
+          "q": "Warum kann der ROI negativ sein?",
+          "a": "Dann ist weniger zurückgeflossen, als investiert wurde. Der Rechner zeigt das Ergebnis mit seinem Vorzeichen, statt es auf null zu begrenzen."
+        },
+        {
+          "q": "Wie unterscheiden sich ROI und ROAS?",
+          "a": "ROAS vergleicht Umsatz mit Werbeausgaben, ROI den Gewinn mit dem angesetzten Investment. Ohne weitere Kosten ergibt ein Umsatz von 200 bei Ausgaben von 100 einen ROAS von 2 und einen ROI von 100%. Weitere Kosten ändern den ROI; verwende die Felder und Kostenbasis des jeweiligen Rechners."
+        }
+      ],
   fr: [
     {
       q: "Which period should the metrics cover?",
@@ -363,19 +363,19 @@ export const faq: CategoryFaqByLocale = {
     },
   ],
   uk: [
-    {
-      q: "За який період рахувати метрики?",
-      a: "За той самий, з якого взяті вихідні суми. Змішувати місячні витрати з квартальним виторгом не можна.",
-    },
-    {
-      q: "Чому ROI буває від’ємним?",
-      a: "Отже, повернулося менше вкладеного. Калькулятор показує це прямо, а не обрізає до нуля.",
-    },
-    {
-      q: "Чим ROI відрізняється від ROAS?",
-      a: "ROAS — відношення виторгу до витрат, ROI — частка прибутку від вкладень. За виторгу вдвічі більшого за витрати ROAS дорівнює 2, а ROI — 100 %.",
-    },
-  ],
+        {
+          "q": "За який період рахувати метрики?",
+          "a": "За той самий, з якого взяті вихідні суми. Змішувати місячні витрати з квартальним виторгом не можна."
+        },
+        {
+          "q": "Чому ROI буває від’ємним?",
+          "a": "Отже, повернулося менше вкладеного. Калькулятор показує це прямо, а не обрізає до нуля."
+        },
+        {
+          "q": "Чим ROI відрізняється від ROAS?",
+          "a": "ROAS порівнює виторг із рекламними витратами, ROI — прибуток із визначеною базою вкладень. Без додаткових витрат виторг 200 за витрат 100 дає ROAS 2 і ROI 100%. Додаткові витрати змінюють ROI; користуйтеся полями й базою конкретного калькулятора."
+        }
+      ],
   sk: [
     {
       q: "Which period should the metrics cover?",

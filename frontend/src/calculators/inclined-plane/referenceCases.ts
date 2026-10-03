@@ -27,7 +27,7 @@ export const inclinedPlaneReferenceCases: readonly CalculatorReferenceCase[] = [
     ],
   },
   {
-    name: "горизонтальная плоскость",
+    name: "горизонтальная плоскость: замедление уже скользящего тела",
     inputs: { m: 50, angle: 0, mu: 0.2 },
     expectPrimary: "0 Н",
     expectSecondary: [
@@ -46,5 +46,11 @@ export const inclinedPlaneReferenceCases: readonly CalculatorReferenceCase[] = [
     name: "угол больше 90 отклоняется",
     inputs: { m: 50, angle: 100, mu: 0.2 },
     expectPrimary: "—",
+  },
+  {
+    name: "вертикальный предел: mg = 9,80665 Н, N = 0",
+    inputs: { m: 1, angle: 90, mu: 100 },
+    expectPrimary: '9,807 Н',
+    expectSecondary: [{ label: 'Сила нормального давления', value: '0 Н' }, { label: 'Сила трения', value: '0 Н' }, { label: 'Ускорение', value: '9,807 м/с²' }],
   },
 ];

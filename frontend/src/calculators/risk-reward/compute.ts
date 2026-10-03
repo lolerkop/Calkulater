@@ -1,40 +1,38 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
+import { number as toNumber, optionalNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
+import { choice } from '../../lib/platform/financeWave14Input';
 import { formatStatistic } from '../../lib/platform/measurement';
 
 // Отношение риска к прибыли по трём ценам сделки.
 //
-// Отличается от размера позиции тем, что не считает объём: там из допустимой
-// потери выводится, СКОЛЬКО брать, здесь из трёх цен выводится, СТОИТ ЛИ брать.
-// Объём — необязательная величина и влияет только на пересчёт в деньги.
-//
-// Главная строка — не само отношение, а безубыточная доля сделок: при R:R = 3
-// достаточно выигрывать четверть сделок, чтобы не терять, и именно это число
-// связывает отношение с торговой статистикой. 1/(1+R) — доля, при которой
-// матожидание обращается в нуль.
-//
-// Расстояния берутся по модулю: в шорте стоп выше входа, а цель ниже, и знак
-// разности зависит от направления, тогда как риск и прибыль — всегда величины.
+// Размер позиции здесь не выводится: три цены задают условные расстояния,
+// а необязательный объём переводит их в деньги. Доля 100/(1+R) является
+// порогом серии одинаковых исходов без расходов, не оценкой качества сделки.
+// Неверный порядок цен отмечается предупреждением; исполнение не гарантируется.
 
 const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
 const stat = (value: number) => formatStatistic(value, fmtNumber);
 
 export const compute: CalcFunction = (inputs) => {
-  const direction = toStr(inputs.direction, 'long');
+  const direction = choice(inputs.direction, ['long', 'short'], 'long');
   const entry = toNumber(inputs.entry);
   const stop = toNumber(inputs.stop);
   const target = toNumber(inputs.target);
-  const qty = toNumber(inputs.qty);
+  const qty = optionalNumber(inputs.qty);
 
   const fail = (message: string) => ({
     primary: { label: 'Отношение риск/прибыль', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (direction === null) return fail('Неизвестный режим расчёта');
+  if (entry === null || stop === null || target === null || qty === null) return fail('Введите корректные числовые данные');
+
   if (!(entry > 0)) return fail('Цена входа должна быть больше нуля');
   if (!(stop > 0)) return fail('Цена стоп-приказа должна быть больше нуля');
   if (!(target > 0)) return fail('Целевая цена должна быть больше нуля');
-  if (!(qty > 0)) return fail('Объём должен быть больше нуля');
+  if (qty < 0) return fail('Объём не может быть отрицательным');
 
   const risk = Math.abs(entry - stop);
   const reward = Math.abs(target - entry);
@@ -42,6 +40,9 @@ export const compute: CalcFunction = (inputs) => {
 
   const ratio = reward / risk;
   const breakEven = (1 / (1 + ratio)) * 100;
+  const cashRisk = risk * qty;
+  const cashReward = reward * qty;
+  if (![risk, reward, ratio, breakEven, cashRisk, cashReward].every(v => validOutput(v)) || (reward > 0 && ratio === 0) || breakEven <= 0 || (qty > 0 && cashRisk <= 0) || (qty > 0 && reward > 0 && cashReward === 0)) return fail('Результат вне допустимого диапазона');
   const consistent = direction === 'long' ? stop < entry && target > entry : stop > entry && target < entry;
 
   return {
@@ -49,12 +50,14 @@ export const compute: CalcFunction = (inputs) => {
     secondary: [
       { label: 'Риск на единицу', value: money(risk) },
       { label: 'Прибыль на единицу', value: money(reward) },
-      { label: 'Риск в деньгах', value: money(risk * qty) },
-      { label: 'Прибыль в деньгах', value: money(reward * qty) },
+      ...(qty > 0 ? [
+        { label: 'Риск в деньгах', value: money(cashRisk) },
+        { label: 'Прибыль в деньгах', value: money(cashReward) },
+      ] : []),
       {
         label: 'Безубыточная доля сделок',
         value: `${fmtNumber(breakEven, 2)}%`,
-        accent: (ratio >= 1 ? 'green' : 'red') as 'green' | 'red',
+        accent: 'neutral' as const,
       },
       ...(consistent
         ? []

@@ -1,0 +1,16 @@
+import {expect,it} from 'vitest';
+import oracle from './fixtures/originalityHouseholdWave17Oracle.json';
+import type {CalculatorFormValues,CalculatorDefinitionV2} from '../src/lib/platform/types';
+import {definition as curtain} from '../src/calculators/curtain-size/definition';
+import {definition as luggage} from '../src/calculators/luggage-linear/definition';
+import {definition as frame} from '../src/calculators/picture-frame-mat/definition';
+import {definition as price} from '../src/calculators/price-per-unit/definition';
+import {definition as print} from '../src/calculators/print-3d-cost/definition';
+import {definition as stock} from '../src/calculators/stock-duration/definition';
+import {definition as subs} from '../src/calculators/subscriptions-cost/definition';
+import {definition as tip} from '../src/calculators/tip/definition';
+import {definition as trip} from '../src/calculators/trip-budget/definition';
+const defs:Record<string,CalculatorDefinitionV2>=Object.fromEntries([curtain,luggage,frame,price,print,stock,subs,tip,trip].map(d=>[d.id,d]));
+const num=(s:string)=>Number(/^[-+\d.,\s\u00a0]+/.exec(s)?.[0].replace(/[\s\u00a0]/g,'').replace(',','.'));
+for(const c of oracle.cases)it(c.id+'/'+c.name+': independent Decimal90 literal',()=>{const r=defs[c.id].compute(c.inputs as unknown as CalculatorFormValues);expect(r.primary.value).not.toBe('—');for(const t of c.targets){const text=t.label==='primary'?r.primary.value:r.secondary.find(x=>x.label===t.label)?.value;expect(text,t.label).toBeDefined();const actual=num(text!),expected=Number(t.expected);const quantum=t.kind==='money'?.01:t.kind==='count'?0:t.kind==='day'?.1:Math.abs(expected)>=100?.01:Math.abs(expected)>=1?.001:Math.abs(expected)>=.01?.0001:.000001;expect(Math.abs(actual-expected),t.label).toBeLessThanOrEqual(quantum/2+1e-9);}});
+it('fixture coverage is20 per all9 subjects with declared independent arithmetic',()=>{expect(oracle.precision).toBe(90);expect(oracle.cases).toHaveLength(180);for(const id of Object.keys(defs))expect(oracle.cases.filter(c=>c.id===id)).toHaveLength(20);});

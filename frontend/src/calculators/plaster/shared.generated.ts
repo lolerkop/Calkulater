@@ -12,6 +12,7 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
       'Вес': 'Weight',
       'Площадь': 'Area',
@@ -20,12 +21,14 @@ export const shared: CalculatorLocalization = {
       'Мешков': 'Bags',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'The result exceeds the numeric range',
       'Вес мешка должен быть больше нуля': 'The bag weight must be greater than zero',
     },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
       'Вес': 'Вага',
       'Площадь': 'Площа',
@@ -34,12 +37,14 @@ export const shared: CalculatorLocalization = {
       'Мешков': 'Мішків',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'Результат виходить за числовий діапазон',
       'Вес мешка должен быть больше нуля': 'Вага мішка має бути більшою за нуль',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Вес': 'Gewicht',
       'Площадь': 'Fläche',
@@ -48,12 +53,14 @@ export const shared: CalculatorLocalization = {
       'Мешков': 'Säcke',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'Das Ergebnis überschreitet den Zahlenbereich',
       'Вес мешка должен быть больше нуля': 'Das Sackgewicht muss größer als null sein',
     },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
       'Вес': 'Peso',
       'Площадь': 'Área',
@@ -62,6 +69,7 @@ export const shared: CalculatorLocalization = {
       'Мешков': 'Sacos',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'El resultado excede el rango numérico',
       'Вес мешка должен быть больше нуля': 'El peso del saco debe ser mayor que cero',
     },
   },

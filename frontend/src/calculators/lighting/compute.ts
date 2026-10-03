@@ -1,17 +1,15 @@
+import { number as toNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
+import { ceilUnits } from '../../lib/rounding';
 
 // Освещение комнаты: сколько нужно люмен и сколько ламп.
 //
-// Норма освещённости — ВИДИМОЕ редактируемое допущение, а не спрятанная
-// константа: для гостиной привычны 150 лк, для рабочего стола втрое больше, а
-// нормативные значения различаются от страны к стране. Поле показывает, из
-// чего получился ответ, и позволяет его изменить.
-//
-// Коэффициент запаса учитывает загрязнение и старение ламп: светильник со
-// временем светит слабее, и делить на него — способ заложить это заранее.
-// Число ламп округляется ВВЕРХ: половины лампы не бывает.
+// Упрощённая прикидка: коэффициент использования принят равным1.
+// Сохранённый коэффициент 0,4..1 — доля сохраняющегося света,
+// а не гарантия измеренной освещённости или выполнения местного стандарта.
+// Число одинаковых ламп округляется вверх.
 
 export const compute: CalcFunction = (inputs) => {
   const area = toNumber(inputs.area);
@@ -23,13 +21,16 @@ export const compute: CalcFunction = (inputs) => {
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (area === null || norm === null || lamp === null || loss === null) return fail('Введите корректные числовые данные');
+
   if (!(area > 0)) return fail('Площадь должна быть больше нуля');
   if (!(norm > 0)) return fail('Норма освещённости должна быть больше нуля');
   if (!(lamp > 0)) return fail('Световой поток лампы должен быть больше нуля');
   if (!(loss >= 0.4 && loss <= 1)) return fail('Коэффициент запаса должен быть от 0,4 до 1');
 
   const need = (area * norm) / loss;
-  const lamps = Math.ceil(need / lamp);
+  const lamps = need <= lamp ? 1 : ceilUnits(need / lamp);
+  if (!validOutput(need, true) || !validOutput(need / area, true) || !Number.isSafeInteger(lamps) || lamps < 1 || !validOutput(lamps * lamp, true)) return fail('Результат вне допустимого диапазона');
   const measure = (x: number) => formatMeasure(x, fmtNumber);
 
   return {
@@ -41,6 +42,6 @@ export const compute: CalcFunction = (inputs) => {
       { label: 'Коэффициент запаса', value: measure(loss) },
       { label: 'Установленный поток', value: `${measure(lamps * lamp)} лм` },
     ],
-    note: 'Норма освещённости — допущение, которое можно менять: для гостиной обычно берут около 150 лк, для рабочего места втрое больше. Нормативные значения различаются по странам.',
+    note: 'Освещённость — выбранная цель. Использование света принято равным 1; распределение и измеренные люксы не рассчитываются.',
   };
 };

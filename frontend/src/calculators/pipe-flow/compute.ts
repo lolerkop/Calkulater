@@ -1,42 +1,19 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
-
-// Скорость потока в трубе: v = Q / S.
-//
-// Диаметр берётся ВНУТРЕННИЙ: наружный отличается на две толщины стенки, и
-// у полипропилена эта разница доходит до трети сечения. Площадь входит
-// квадратом, поэтому ошибка в диаметре обходится вдвое дороже ошибки в расходе.
-//
-// Расход в кубометрах в час — так его задают насосы и счётчики; литры в секунду
-// и в минуту выведены отдельными строками, потому что в разных таблицах
-// подбора встречаются все три.
-const SECONDS_IN_HOUR = 3600;
-const MINUTES_IN_HOUR = 60;
-const L_IN_M3 = 1000;
-const MM_IN_M = 1000;
-const MM2_IN_M2 = 1e6;
-
-export const compute: CalcFunction = (inputs) => {
-  const flow = toNumber(inputs.flow);
-  const diameter = toNumber(inputs.diameter);
-  const fail = (message: string) => ({
-    primary: { label: 'Скорость потока', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (!(flow > 0)) return fail('Расход должен быть больше нуля');
-  if (!(diameter > 0)) return fail('Внутренний диаметр должен быть больше нуля');
-
-  const area = (Math.PI * Math.pow(diameter / MM_IN_M, 2)) / 4;
-
-  return {
-    primary: { label: 'Скорость потока', value: `${formatMeasure(flow / SECONDS_IN_HOUR / area, fmtNumber)} м/с` },
-    secondary: [
-      { label: 'Площадь сечения', value: `${formatMeasure(area * MM2_IN_M2, fmtNumber)} мм²` },
-      { label: 'Расход в литрах в секунду', value: `${formatMeasure((flow * L_IN_M3) / SECONDS_IN_HOUR, fmtNumber)} л/с` },
-      { label: 'Расход в литрах в минуту', value: `${formatMeasure((flow * L_IN_M3) / MINUTES_IN_HOUR, fmtNumber)} л/мин` },
-      { label: 'Внутренний диаметр', value: `${formatMeasure(diameter, fmtNumber)} мм` },
-    ],
-  };
+import { INPUT, RANGE, qty } from '../../lib/platform/measurementScalar';
+import { read, exact, times, evaluated, finite } from '../../lib/platform/electronicsNumericInput';
+/** Q/A is the cross-section mean velocity at the entered volume-flow conditions. */
+export const compute:CalcFunction=inputs=>{
+ const flow=read(inputs.flow),diameter=read(inputs.diameter);
+ const fail=(value:string)=>({primary:{label:'Скорость потока',value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ if(!finite(flow,diameter))return fail(INPUT);
+ if(!(flow>0))return fail('Расход должен быть больше нуля');
+ if(!(diameter>0))return fail('Внутренний диаметр должен быть больше нуля');
+ const area=times(exact(Math.PI),exact(diameter),exact(diameter));
+ const speed=evaluated(times(exact(flow),exact(4e6)),times(exact(3600),area));
+ const squareMm=evaluated(area,exact(4)),lps=evaluated(times(exact(flow),exact(1000)),exact(3600)),lpm=evaluated(times(exact(flow),exact(1000)),exact(60));
+ if(!finite(speed,squareMm,lps,lpm))return fail(RANGE);
+ return {primary:{label:'Скорость потока',value:`${qty(speed)} м/с`},secondary:[
+  {label:'Площадь сечения',value:`${qty(squareMm)} мм²`},{label:'Расход в литрах в секунду',value:`${qty(lps)} л/с`},
+  {label:'Расход в литрах в минуту',value:`${qty(lpm)} л/мин`},{label:'Внутренний диаметр',value:`${qty(diameter)} мм`},
+ ]};
 };

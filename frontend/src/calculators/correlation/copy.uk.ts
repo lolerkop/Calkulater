@@ -1,6 +1,7 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { mathWave8ContractContent } from './contractContent';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const correlationCopyUk: CalculatorSeoCopy = {
+export const correlationCopyUk: CalculatorCopy = {
   name: "Калькулятор кореляції",
   slug: "korelyatsiya",
   shortDescription: "Коефіцієнт кореляції Пірсона для двох рядів і рівняння лінії регресії.",
@@ -8,4 +9,5 @@ export const correlationCopyUk: CalculatorSeoCopy = {
   seoDescription: "Розрахуйте коефіцієнт кореляції Пірсона, коефіцієнт детермінації, коваріацію та рівняння лінії регресії за двома рядами значень.",
   h1: "Калькулятор кореляції",
   keywords: ["коефіцієнт кореляції", "кореляція Пірсона", "лінія регресії"],
+  ...mathWave8ContractContent.uk,
 };

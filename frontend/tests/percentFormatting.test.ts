@@ -43,6 +43,8 @@ describe('percent formatting follows the locale', () => {
       let raw: CalcResult;
       try { raw = run(buildInitialValues(calculator.fields) as never); } catch { continue; }
       for (const row of raw.secondary) {
+        // A CSS hsl(...) literal uses dot decimals by syntax in every language.
+        if (calculator.id === 'color-convert' && row.label === 'HSL') { expect(row.value).toMatch(/^hsl\(\d+(?:\.\d+)?, \d+(?:\.\d+)?%, \d+(?:\.\d+)?%\)$/); continue; }
         if (/\d+\.\d+\s*%/.test(row.value)) offenders.push(`${calculator.id}: ${row.label} = ${row.value}`);
       }
     }

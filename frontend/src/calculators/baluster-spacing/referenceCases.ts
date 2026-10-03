@@ -11,7 +11,7 @@ export const balusterSpacingReferenceCases: readonly CalculatorReferenceCase[] =
     expectPrimary: "21 шт",
     expectSecondary: [
       { label: "Фактический просвет", value: "98,182 мм" },
-      { label: "Шаг между осями", value: "140,83 мм" },
+      { label: "Шаг между осями", value: "138,18 мм" },
       { label: "Суммарная ширина стоек", value: "840 мм" },
     ],
   },
@@ -30,7 +30,7 @@ export const balusterSpacingReferenceCases: readonly CalculatorReferenceCase[] =
     expectPrimary: "1 шт",
     expectSecondary: [
       { label: "Фактический просвет", value: "130 мм" },
-      { label: "Шаг между осями", value: "215 мм" },
+      { label: "Шаг между осями", value: "170 мм" },
     ],
   },
   {

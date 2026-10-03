@@ -1,5 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
+import { number as toNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
 import { formatMeasure } from '../../lib/platform/measurement';
 
 // Размер позиции по допустимому риску.
@@ -11,8 +12,8 @@ import { formatMeasure } from '../../lib/platform/measurement';
 // стопа, а не ошибка расчёта, и доля депозита выводится отдельной строкой
 // именно затем, чтобы это было видно.
 //
-// Целые единицы округляются ВНИЗ: дробная акция или лот не покупается, а
-// округление вверх превысило бы заданный риск.
+// Дробный объём показан основным результатом. Если инструмент требует целых
+// единиц, отдельная строка округляет вниз; допустимый шаг лота не проверяется.
 
 const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
 
@@ -27,17 +28,22 @@ export const compute: CalcFunction = (inputs) => {
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (deposit === null || riskPct === null || entry === null || stop === null) return fail('Введите корректные числовые данные');
+
   if (!(deposit > 0)) return fail('Депозит должен быть больше нуля');
   if (!(riskPct > 0)) return fail('Допустимый риск должен быть больше нуля');
+  if (riskPct > 100) return fail('Допустимый риск не может превышать сто процентов');
   if (!(entry > 0)) return fail('Цена входа должна быть больше нуля');
   if (stop < 0) return fail('Цена стопа не может быть отрицательной');
 
   const riskPerUnit = Math.abs(entry - stop);
   if (!(riskPerUnit > 0)) return fail('Стоп не может совпадать с ценой входа');
 
-  const riskAmount = (deposit * riskPct) / 100;
+  const riskAmount = deposit * (riskPct / 100);
   const quantity = riskAmount / riskPerUnit;
   const positionValue = quantity * entry;
+  const share = positionValue / deposit * 100;
+  if (![riskAmount, quantity, positionValue, share].every(v => validOutput(v, true)) || !Number.isSafeInteger(Math.floor(quantity))) return fail('Результат вне допустимого диапазона');
 
   return {
     primary: { label: 'Размер позиции', value: `${formatMeasure(quantity, fmtNumber)} шт` },
@@ -48,7 +54,7 @@ export const compute: CalcFunction = (inputs) => {
       { label: 'Стоимость позиции', value: money(positionValue) },
       {
         label: 'Доля депозита',
-        value: `${fmtNumber((positionValue / deposit) * 100, 2)}%`,
+        value: `${fmtNumber(share, 2)}%`,
         accent: (positionValue > deposit ? 'red' : 'neutral') as 'red' | 'neutral',
       },
     ],

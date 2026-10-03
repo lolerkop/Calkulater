@@ -86,8 +86,8 @@ describe('dateShift: нулевые и граничные значения', () 
     expect(row(r, 'Номер дня в году')).toBe('1');
   });
 
-  it('дробный ввод усекается до целого', () => {
-    expect(run({ startDate: '2026-01-01', shiftDays: 1.9 }).primary.value).toBe('2026-01-02');
+  it('дробный интервал отклоняется без усечения', () => {
+    expect(run({ startDate: '2026-01-01', shiftDays: 1.9 }).primary.value).toBe('—');
   });
 });
 

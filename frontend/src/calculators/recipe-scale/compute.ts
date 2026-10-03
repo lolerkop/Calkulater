@@ -1,20 +1,10 @@
+import { tokenizeIngredientLine as tokenize, ingredientNumber as parseLocalizedNumber } from '../../lib/platform/householdIngredientLines';
+import { number as toNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
 import type { CalcFunction, CalcResultTable } from '../../lib/types';
-import { fmtNumber, parseLocalizedNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 import { formatMeasure, formatStatistic } from '../../lib/platform/measurement';
 
-// Пересчёт рецепта на другое число порций.
-//
-// Грамматика проще, чем у стоимости рецепта: в конце строки ОДНО число —
-// количество, всё перед ним название. Разделители те же, что у отгруженных
-// списковых калькуляторов, поэтому «0,5» остаётся дробью.
-//
-// Коэффициент показан отдельной строкой намеренно: посетитель обычно хочет
-// знать не только новые граммы, но и во сколько раз он увеличивает замес —
-// это число проще держать в голове, чем четыре пересчитанных веса.
-
-const tokenize = (raw: string): string[] =>
-  raw.replace(/,(?=\s|$)/g, ' ').split(/[\s;]+/).filter(Boolean);
-
+// Linear per-row scaling; a mixed-unit numerical sum is not a physical total.
 export const compute: CalcFunction = (inputs) => {
   const from = toNumber(inputs.fromServings);
   const to = toNumber(inputs.toServings);
@@ -23,16 +13,19 @@ export const compute: CalcFunction = (inputs) => {
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (from === null || to === null) return fail('Введите корректные числовые данные');
   if (!(from > 0)) return fail('Исходное число порций должно быть больше нуля');
   if (!(to > 0)) return fail('Нужное число порций должно быть больше нуля');
 
+  if (typeof inputs.ingredients !== 'string') return fail('Введите список ингредиентов текстом');
+
   const rows: Array<{ name: string; qty: number }> = [];
-  for (const line of toStr(inputs.ingredients, '').split('\n')) {
+  for (const line of inputs.ingredients.split('\n')) {
     const text = line.trim();
     if (!text) continue;
     const tokens = tokenize(text);
     if (tokens.length < 2) return fail(`Нужны название и количество в строке: ${text}`);
-    const qty = parseLocalizedNumber(tokens[tokens.length - 1], 'ru');
+    const qty = parseLocalizedNumber(tokens[tokens.length - 1]);
     if (qty === null) return fail(`Количество должно быть числом в строке: ${text}`);
     if (qty < 0) return fail('Количество не может быть отрицательным');
     rows.push({ name: tokens.slice(0, -1).join(' '), qty });
@@ -42,6 +35,7 @@ export const compute: CalcFunction = (inputs) => {
   const k = to / from;
   const oldTotal = rows.reduce((s, r) => s + r.qty, 0);
 
+  if (!validOutput(k, true) || !validOutput(oldTotal) || !validOutput(oldTotal * k, oldTotal > 0) || rows.some(r => !validOutput(r.qty * k, r.qty > 0))) return fail('Результат вне допустимого диапазона');
   const table: CalcResultTable = {
     title: 'Пересчёт ингредиентов',
     columns: ['Ингредиент', 'Было', 'Стало'],
@@ -49,13 +43,14 @@ export const compute: CalcFunction = (inputs) => {
   };
 
   return {
+    note: 'Суммы количества имеют смысл только при одной общей единице во всех строках. Смешанные единицы сохраняются по строкам, но их сумму нельзя читать как массу или объём.',
     primary: { label: 'Коэффициент', value: formatStatistic(k, fmtNumber) },
     secondary: [
       { label: 'Ингредиентов', value: fmtNumber(rows.length, 0) },
       { label: 'Было всего', value: formatMeasure(oldTotal, fmtNumber) },
       { label: 'Стало всего', value: formatMeasure(oldTotal * k, fmtNumber) },
-      { label: 'Порций было', value: fmtNumber(from, 0) },
-      { label: 'Порций стало', value: fmtNumber(to, 0) },
+      { label: 'Порций было', value: formatMeasure(from, fmtNumber) },
+      { label: 'Порций стало', value: formatMeasure(to, fmtNumber) },
     ],
     table,
   };

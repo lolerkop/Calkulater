@@ -8,6 +8,7 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
       'Темп': 'Pace',
       'Средняя скорость': 'Average speed',
@@ -21,13 +22,17 @@ export const shared: CalculatorLocalization = {
       'Время': 'Time',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'The result exceeds the numeric range',
+      'Выберите километры или мили': 'Select kilometres or miles',
+      'Введите конечную дистанцию больше нуля и неотрицательные часы, минуты и секунды': 'Enter a finite positive distance and nonnegative hours, minutes and seconds',
+      'Прогнозы используют степенную модель с показателем 1,06. Они не учитывают подготовку, рельеф и погоду; перенос на марафон может существенно завышать скорость.': 'Forecasts use a power law with exponent 1.06. They omit preparation, terrain and weather; marathon transfer can substantially overestimate speed.',
       'Таблица предполагает равномерный темп на всей дистанции.': 'The table assumes an even pace over the entire distance.',
-      'Введите дистанцию и время': 'Enter distance and time',
     },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
       'Темп': 'Темп',
       'Средняя скорость': 'Середня швидкість',
@@ -41,13 +46,17 @@ export const shared: CalculatorLocalization = {
       'Время': 'Час',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'Результат виходить за числовий діапазон',
+      'Выберите километры или мили': 'Оберіть кілометри або милі',
+      'Введите конечную дистанцию больше нуля и неотрицательные часы, минуты и секунды': 'Введіть скінченну додатну дистанцію й невід’ємні години, хвилини та секунди',
+      'Прогнозы используют степенную модель с показателем 1,06. Они не учитывают подготовку, рельеф и погоду; перенос на марафон может существенно завышать скорость.': 'Прогнози використовують степеневу модель 1,06 без підготовки, рельєфу й погоди; перенесення на марафон може суттєво завищувати швидкість.',
       'Таблица предполагает равномерный темп на всей дистанции.': 'Таблиця передбачає рівномірний темп на всій дистанції.',
-      'Введите дистанцию и время': 'Введіть дистанцію та час',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Темп': 'Tempo',
       'Средняя скорость': 'Durchschnittsgeschwindigkeit',
@@ -61,13 +70,17 @@ export const shared: CalculatorLocalization = {
       'Время': 'Zeit',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'Das Ergebnis überschreitet den Zahlenbereich',
+      'Выберите километры или мили': 'Kilometer oder Meilen auswählen',
+      'Введите конечную дистанцию больше нуля и неотрицательные часы, минуты и секунды': 'Endliche positive Strecke und nichtnegative Stunden, Minuten und Sekunden eingeben',
+      'Прогнозы используют степенную модель с показателем 1,06. Они не учитывают подготовку, рельеф и погоду; перенос на марафон может существенно завышать скорость.': 'Prognosen nutzen ein Potenzmodell 1,06 ohne Vorbereitung, Gelände und Wetter; Marathonübertragung kann die Geschwindigkeit deutlich überschätzen.',
       'Таблица предполагает равномерный темп на всей дистанции.': 'Die Tabelle setzt ein gleichmäßiges Tempo über die ganze Strecke voraus.',
-      'Введите дистанцию и время': 'Trage Strecke und Zeit ein',
     },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
       'Темп': 'Ritmo',
       'Средняя скорость': 'Velocidad media',
@@ -81,8 +94,11 @@ export const shared: CalculatorLocalization = {
       'Время': 'Tiempo',
     },
     values: {
+      'Результат выходит за числовой диапазон': 'El resultado excede el rango numérico',
+      'Выберите километры или мили': 'Selecciona kilómetros o millas',
+      'Введите конечную дистанцию больше нуля и неотрицательные часы, минуты и секунды': 'Introduce distancia finita positiva y horas, minutos y segundos no negativos',
+      'Прогнозы используют степенную модель с показателем 1,06. Они не учитывают подготовку, рельеф и погоду; перенос на марафон может существенно завышать скорость.': 'Pronósticos con modelo potencial 1,06 sin preparación, relieve ni clima; transferir a maratón puede sobreestimar mucho la velocidad.',
       'Таблица предполагает равномерный темп на всей дистанции.': 'La tabla supone un ritmo uniforme en toda la distancia.',
-      'Введите дистанцию и время': 'Introduce la distancia y el tiempo',
     },
   },
 };

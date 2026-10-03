@@ -35,6 +35,12 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Ненулевой угол меньше числового диапазона": "Ein Winkel ungleich null liegt unterhalb des Zahlenbereichs",
+      "Количество должно быть целым в допустимом диапазоне": "Die Anzahl muss eine ganze Zahl im zulässigen Bereich sein",
+      "Выберите направление перевода": "Wähle die Umrechnungsrichtung",
+      "Выберите полушарие": "Wähle eine Halbkugel",
+      "Секунды должны быть от 0 до менее 60": "Sekunden müssen mindestens 0 und kleiner als 60 sein",
+
       'северное или восточное': 'Nord oder Ost',
       'южное или западное': 'Süd oder West',
       'Десятичные градусы должны быть от −180 до 180': 'Dezimalgrad müssen zwischen −180 und 180 liegen',
@@ -55,6 +61,12 @@ export const localization: CalculatorLocalization = {
     },
     results: RESULTS_EN,
     values: {
+      "Ненулевой угол меньше числового диапазона": "A nonzero angle is below the numerical range",
+      "Количество должно быть целым в допустимом диапазоне": "The count must be a whole number within the allowed range",
+      "Выберите направление перевода": "Choose a conversion direction",
+      "Выберите полушарие": "Choose a hemisphere",
+      "Секунды должны быть от 0 до менее 60": "Seconds must be at least 0 and below 60",
+
       'северное или восточное': 'north or east', 'южное или западное': 'south or west',
       'Десятичные градусы должны быть от −180 до 180': 'Decimal degrees must be between −180 and 180',
       'Градусы должны быть от 0 до 180': 'Degrees must be between 0 and 180',
@@ -74,6 +86,12 @@ export const localization: CalculatorLocalization = {
     },
     results: RESULTS_UK,
     values: {
+      "Ненулевой угол меньше числового диапазона": "Ненульовий кут менший за числовий діапазон",
+      "Количество должно быть целым в допустимом диапазоне": "Кількість має бути цілою в допустимому діапазоні",
+      "Выберите направление перевода": "Виберіть напрям переведення",
+      "Выберите полушарие": "Виберіть півкулю",
+      "Секунды должны быть от 0 до менее 60": "Секунди мають бути від 0 до менш ніж 60",
+
       'северное или восточное': 'північна або східна', 'южное или западное': 'південна або західна',
       'Десятичные градусы должны быть от −180 до 180': 'Десяткові градуси мають бути від −180 до 180',
       'Градусы должны быть от 0 до 180': 'Градуси мають бути від 0 до 180',
@@ -105,6 +123,12 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Ненулевой угол меньше числового диапазона": "Un ángulo no nulo queda por debajo del rango numérico",
+      "Количество должно быть целым в допустимом диапазоне": "La cantidad debe ser un entero dentro del rango permitido",
+      "Выберите направление перевода": "Elige un sentido de conversión",
+      "Выберите полушарие": "Elige un hemisferio",
+      "Секунды должны быть от 0 до менее 60": "Los segundos deben ser al menos 0 y menores que 60",
+
       "северное или восточное": "norte o este",
       "южное или западное": "sur u oeste",
       "Десятичные градусы должны быть от −180 до 180": "Los grados decimales deben estar entre −180 y 180",

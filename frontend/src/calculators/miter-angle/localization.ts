@@ -1,9 +1,10 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'corner': 'Eckwinkel, °',
+      'corner': "Eckwinkel",
     },
     results: {
       'Угол реза': 'Schnittwinkel',
@@ -17,7 +18,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { corner: 'Corner angle, °' },
+    fields: { corner: "Corner angle" },
     options: {},
     results: {
       'Угол реза': 'Cut angle', 'Угол на пиле от 90°': 'Saw setting from 90°',
@@ -29,7 +30,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { corner: 'Кут стику, °' },
+    fields: { corner: "Кут стику" },
     options: {},
     results: {
       'Угол реза': 'Кут різу', 'Угол на пиле от 90°': 'Кут на пилці від 90°',
@@ -42,7 +43,7 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "corner": "Ángulo de la esquina, °",
+      "corner": "Ángulo de la esquina",
     },
     options: {},
     results: {
@@ -57,3 +58,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

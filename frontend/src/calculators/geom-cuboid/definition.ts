@@ -1,3 +1,5 @@
+import { contextualField } from './contextualField';
+import { contractContent } from './contractContent';
 // Прямоугольный параллелепипед: объём, поверхность и диагональ.
 
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
@@ -13,10 +15,12 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  contextualField,
   copy: { en: geomCuboidCopyEn, uk: geomCuboidCopyUk, de: geomCuboidCopyDe, es: geomCuboidCopyEs },
   referenceCases: geomCuboidReferenceCases,
   publishedExample: { inputs: { unit: 'cm', a: 3, b: 4, c: 5 }, expected: ['60 см³'] },
   presentation: {
+    ...contractContent.ru,
     id: 'geom-cuboid',
     name: 'Калькулятор прямоугольного параллелепипеда',
     slug: 'cuboid',
@@ -25,11 +29,7 @@ export const definition: CalculatorDefinitionV2 = {
     icon: 'shapes',
     popularity: 46,
     isNew: false,
-    shortDescription: 'Объём, площадь поверхности и пространственная диагональ по трём рёбрам.',
-    longDescription:
-      'Считает прямоугольный параллелепипед по трём рёбрам: объём, площадь поверхности, пространственную диагональ и сумму длин рёбер. Диагональ — та самая величина, которая отвечает на вопрос, пролезет ли предмет в коробку по косой. Куб не выделен в отдельную фигуру: это частный случай с тремя равными рёбрами, и он считается тем же расчётом. Единица длины выбирается один раз — объём выводится в её кубе, площадь в квадрате.',
     seoTitle: 'Калькулятор параллелепипеда — объём, поверхность, диагональ',
-    seoDescription: 'Рассчитайте объём, площадь поверхности и пространственную диагональ прямоугольного параллелепипеда по трём рёбрам.',
     h1: 'Калькулятор прямоугольного параллелепипеда',
     keywords: ['калькулятор параллелепипеда', 'объём параллелепипеда', 'площадь поверхности', 'диагональ коробки'],
     fields: [
@@ -41,21 +41,11 @@ export const definition: CalculatorDefinitionV2 = {
           { value: 'm', label: 'метры' },
         ],
       },
-      { name: 'a', label: 'Ребро a', type: 'number', defaultValue: 3, min: 0, step: 0.1 },
-      { name: 'b', label: 'Ребро b', type: 'number', defaultValue: 4, min: 0, step: 0.1 },
-      { name: 'c', label: 'Ребро c', type: 'number', defaultValue: 5, min: 0, step: 0.1 },
+      { name: 'a', label: 'Ребро a', type: 'number', unit: 'см', defaultValue: 3, min: 0, step: 0.1 },
+      { name: 'b', label: 'Ребро b', type: 'number', unit: 'см', defaultValue: 4, min: 0, step: 0.1 },
+      { name: 'c', label: 'Ребро c', type: 'number', unit: 'см', defaultValue: 5, min: 0, step: 0.1 },
     ],
     resultLabels: { volume: 'Объём', surface: 'Площадь поверхности', diagonal: 'Диагональ', edges: 'Сумма длин рёбер' },
-    howToUse: ['Выберите единицу длины.', 'Введите три ребра.', 'Прочитайте объём, поверхность и диагональ.'],
-    howItWorks:
-      'V = abc; S = 2(ab + bc + ca); пространственная диагональ d = √(a² + b² + c²) по теореме Пифагора, применённой дважды. Сумма длин рёбер равна 4(a + b + c), потому что рёбер каждого направления по четыре.',
-    example: 'Коробка 3 × 4 × 5 см имеет объём 60 см³, поверхность 94 см² и диагональ 7,071 см.',
-    faq: [
-      { q: 'Что показывает пространственная диагональ?', a: 'Расстояние между противоположными вершинами — самый длинный отрезок, помещающийся внутри. По нему проверяют, войдёт ли предмет в коробку по косой.' },
-      { q: 'Считается ли куб этим калькулятором?', a: 'Да. Куб — параллелепипед с тремя равными рёбрами: введите одно и то же значение трижды, и все формулы останутся верными.' },
-      { q: 'Почему объём в кубических единицах, а поверхность в квадратных?', a: 'Потому что объём измеряется в кубе выбранной единицы, а площадь — в её квадрате. Пересчитывать их линейным множителем при смене единицы нельзя.' },
-      { q: 'Как посчитать вес по объёму?', a: 'Умножьте объём на плотность материала — это делает калькулятор плотности, куда объём переносится напрямую.' },
-    ],
     relatedCalculatorIds: ['geom-square', 'geom-rectangle', 'geom-cylinder'],
   },
 };

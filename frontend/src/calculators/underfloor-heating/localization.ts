@@ -1,14 +1,15 @@
+import { addBuildingWave16Messages } from '../rafters/buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'area': 'Beheizte Fläche, m²',
-      'step': 'Verlegeabstand, m',
-      'loopMax': 'Höchstlänge eines Heizkreises, m',
-      'edgeZone': 'Fläche der Randzone, m²',
-      'edgeStep': 'Verlegeabstand in der Randzone, m',
-      'waste': 'Zuschlag, %',
+      'area': "Beheizte Fläche",
+      'step': "Verlegeabstand",
+      'loopMax': "Höchstlänge eines Heizkreises",
+      'edgeZone': "Fläche der Randzone",
+      'edgeStep': "Verlegeabstand in der Randzone",
+      'waste': "Zuschlag",
     },
     results: {
       'Длина трубы': 'Rohrlänge',
@@ -31,8 +32,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      "area": "Heated area, m²", "step": "Pipe spacing, m", "loopMax": "Maximum loop length, m",
-      "edgeZone": "Edge zone area, m²", "edgeStep": "Edge zone spacing, m", "waste": "Allowance, %",
+      "area": "Heated area", "step": "Pipe spacing", "loopMax": "Maximum loop length",
+      "edgeZone": "Edge zone area", "edgeStep": "Edge zone spacing", "waste": "Allowance",
     },
     options: {},
     results: {
@@ -55,8 +56,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      "area": "Площа обігріву, м²", "step": "Крок укладання, м", "loopMax": "Гранична довжина петлі, м",
-      "edgeZone": "Площа краєвої зони, м²", "edgeStep": "Крок у краєвій зоні, м", "waste": "Запас, %",
+      "area": "Площа обігріву", "step": "Крок укладання", "loopMax": "Гранична довжина петлі",
+      "edgeZone": "Площа краєвої зони", "edgeStep": "Крок у краєвій зоні", "waste": "Запас",
     },
     options: {},
     results: {
@@ -79,12 +80,12 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "area": "Superficie calefactada, m²",
-      "step": "Separación del tubo, m",
-      "loopMax": "Longitud máxima del circuito, m",
-      "edgeZone": "Superficie de la zona perimetral, m²",
-      "edgeStep": "Separación en la zona perimetral, m",
-      "waste": "Margen, %",
+      "area": "Superficie calefactada",
+      "step": "Separación del tubo",
+      "loopMax": "Longitud máxima del circuito",
+      "edgeZone": "Superficie de la zona perimetral",
+      "edgeStep": "Separación en la zona perimetral",
+      "waste": "Margen",
     },
     options: {},
     results: {
@@ -107,3 +108,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

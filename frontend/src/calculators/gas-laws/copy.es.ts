@@ -1,11 +1,7 @@
-// Испанский копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла испанской страницы не существует. Подробный текст живёт в
-// `src/data/esCalculatorContent.ts`.
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { gasLawsContractContent } from './contractContent';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
-
-export const gasLawsCopyEs: CalculatorSeoCopy = {
+export const gasLawsCopyEs: CalculatorCopy = {
   name: "Calculadora de la ley combinada de los gases",
   slug: "ley-combinada-de-los-gases",
   shortDescription: "Un gas que pasa de un estado a otro: p₁V₁/T₁ = p₂V₂/T₂.",
@@ -13,4 +9,5 @@ export const gasLawsCopyEs: CalculatorSeoCopy = {
   seoDescription: "Calcula la presión, el volumen o la temperatura de un gas que pasa de un estado a otro con la ley combinada de los gases.",
   h1: "Calculadora de la ley combinada de los gases",
   keywords: ["calculadora de la ley combinada de los gases", "calculadora de la ley de Boyle", "calculadora de la ley de Charles", "p1v1 t1 p2v2 t2"],
+  ...gasLawsContractContent.es,
 };

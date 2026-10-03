@@ -12,33 +12,33 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
       'Объём раствора': 'Mortar volume',
-      'Режим': 'Mode',
     },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
       'Объём раствора': 'Об’єм розчину',
-      'Режим': 'Режим',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Объём раствора': 'Estrichvolumen',
-      'Режим': 'Aufgabe',
     },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
       'Объём раствора': 'Volumen de mortero',
-      'Режим': 'Modo',
     },
   },
 };

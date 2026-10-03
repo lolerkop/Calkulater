@@ -1,3 +1,5 @@
+import { validate } from './validate';
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { workHoursCopyEn } from './copy.en';
@@ -11,6 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  validate,
   copy: { en: workHoursCopyEn, uk: workHoursCopyUk, de: workHoursCopyDe, es: workHoursCopyEs },
   referenceCases: workHoursReferenceCases,
   publishedExample: {
@@ -27,20 +30,18 @@ export const definition: CalculatorDefinitionV2 = {
     popularity: 42,
     isNew: false,
     shortDescription: "Часы за период по началу и концу смены с перерывом, включая ночные смены.",
-    longDescription:
-      "Считает фактически отработанные часы, а не рабочие дни календаря: из длины смены вычитается перерыв, а остаток умножается на число смен. Ночная смена обрабатывается отдельно — когда конец меньше начала, смена переходит через полночь, и прямая разность даёт отрицательное число. Прибавление суток здесь не поправка на удобство, а единственный способ получить восемь часов из «22:00 — 06:00» вместо минус шестнадцати. Перерыв длиннее смены отклоняется: отрицательного рабочего времени не бывает, и показать его значило бы выдать правдоподобную бессмыслицу.",
     seoTitle: "Калькулятор рабочих часов за смену и месяц",
     seoDescription: "Посчитайте отработанные часы по времени начала и конца смены с вычетом перерыва, включая ночные смены через полночь.",
     h1: "Калькулятор рабочих часов",
     keywords: ["калькулятор рабочих часов", "учёт отработанного времени", "часы за смену", "ночная смена расчёт"],
     fields: [
       { name: 'startHour', label: 'Начало смены, часы', type: 'number', defaultValue: 9, min: 0, max: 23, step: 1 },
-      { name: 'startMin', label: 'Начало смены, минуты', type: 'number', defaultValue: 0, min: 0, max: 59, step: 5 },
+      { name: 'startMin', label: 'Начало смены, минуты', type: 'number', defaultValue: 0, min: 0, max: 59, step: 1 },
       { name: 'endHour', label: 'Конец смены, часы', type: 'number', defaultValue: 18, min: 0, max: 23, step: 1 },
-      { name: 'endMin', label: 'Конец смены, минуты', type: 'number', defaultValue: 0, min: 0, max: 59, step: 5 },
-      { name: 'breakMin', label: 'Перерыв, минут', type: 'number', defaultValue: 60, min: 0, step: 5 },
-      { name: 'days', label: 'Число смен', type: 'number', defaultValue: 21, min: 0, step: 1 },
-      { name: 'ratePerHour', label: 'Ставка за час, ₽', type: 'number', defaultValue: 500, min: 0, step: 50 },
+      { name: 'endMin', label: 'Конец смены, минуты', type: 'number', defaultValue: 0, min: 0, max: 59, step: 1 },
+      { name: 'breakMin', label: 'Перерыв, минут', type: 'number', defaultValue: 60, min: 0, step: 1 },
+      { name: 'days', label: 'Число смен', type: 'number', defaultValue: 21, min: 1, step: 1 },
+      { name: 'ratePerHour', label: 'Ставка за час', unit: 'ден. ед./ч', type: 'number', defaultValue: 500, min: 0, step: 10 },
     ],
     resultLabels: {
       "total": "Часов за период",
@@ -49,22 +50,8 @@ export const definition: CalculatorDefinitionV2 = {
       "span": "Длина смены до перерыва",
       "pay": "Заработок",
     },
-    howToUse: [
-      "Введите время начала смены в часах и минутах.",
-      "Введите время окончания — если смена ночная, просто укажите утренний час.",
-      "Укажите продолжительность перерыва в минутах.",
-      "Задайте число смен в периоде и ставку за час.",
-    ],
-    howItWorks:
-      "Длина смены = конец минус начало, а при переходе через полночь к разности прибавляются сутки. Рабочее время = длина смены минус перерыв, часы за период = рабочее время × число смен.",
-    example: "Смена 9:00–18:00 с часовым перерывом даёт 8 часов, а за 21 смену — 168 часов и 84 000 ₽ при ставке 500 ₽.",
-    faq: [
-      { q: "Как считается смена через полночь?", a: "Если время окончания меньше времени начала, к разности прибавляются сутки. Смена 22:00–06:00 поэтому даёт восемь часов, а не минус шестнадцать." },
-      { q: "Почему перерыв длиннее смены не считается?", a: "Потому что рабочее время стало бы отрицательным. Такой результат выглядел бы правдоподобно, но означал бы ошибку во вводе, поэтому он отклоняется." },
-      { q: "Чем это отличается от подсчёта рабочих дней?", a: "Здесь считаются часы внутри смены, а не количество дней в календаре. Производственный календарь с праздниками считается отдельным калькулятором." },
-      { q: "Учитываются ли переработки по повышенной ставке?", a: "Нет, ставка применяется ко всем часам одинаково. Для повышенных часов посчитайте их отдельной смены с другой ставкой." },
-      { q: "Что показывает длина смены до перерыва?", a: "Полное время присутствия от начала до конца, включая перерыв. Оплачиваемое время — строкой выше, уже без него." },
-    ],
     relatedCalculatorIds: ["working-days-calculator", "time-duration", "workday-cost"],
+  
+    ...dateTimeWave15ContractContent.ru['work-hours'],
   },
 };

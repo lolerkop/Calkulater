@@ -1,5 +1,7 @@
+import { buildingWave16ContractContent } from './contractContent';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
+import { validate } from './validate';
 import { skirtingCopyEn } from './copy.en';
 import { skirtingCopyUk } from './copy.uk';
 import { skirtingCopyDe } from './copy.de';
@@ -11,6 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  validate,
   copy: { en: skirtingCopyEn, uk: skirtingCopyUk, de: skirtingCopyDe, es: skirtingCopyEs },
   referenceCases: skirtingReferenceCases,
   publishedExample: { inputs: { length: 5.2, width: 3.4, doors: 2, doorWidth: 0.9, plank: 2.5, waste: 5 }, expected: ["16,17 м"] },
@@ -25,37 +28,28 @@ export const definition: CalculatorDefinitionV2 = {
     isNew: true,
     shortDescription: "Длина плинтуса по периметру комнаты с вычетом проёмов и раскроем на планки.",
     longDescription:
-      "Плинтус живёт по периметру, а не по площади, и обе типичные ошибки лежат по разные стороны от этого. Первая — забыть вычесть дверные проёмы и купить лишнее. Вторая, дороже, — вычесть их и не заложить запас: каждый угол съедает длину на косой рез, и на комнате с пятью углами это заметно. Планки считаются вверх целыми, потому что в магазине половину планки не продают.",
+      buildingWave16ContractContent.ru.longDescription,
     seoTitle: "Калькулятор плинтуса — длина и количество планок",
     seoDescription: "Рассчитайте длину плинтуса по размерам комнаты с вычетом дверных проёмов, запасом на подрезку и числом планок.",
     h1: "Калькулятор плинтуса",
     keywords: ["плинтус", "длина плинтуса", "напольный плинтус", "раскрой планок"],
     fields: [
-      { name: 'length', label: 'Длина комнаты, м', type: 'number', defaultValue: 5.2, min: 0, step: 0.1 },
-      { name: 'width', label: 'Ширина комнаты, м', type: 'number', defaultValue: 3.4, min: 0, step: 0.1 },
+      { name: 'length', label: "Длина комнаты", type: 'number', defaultValue: 5.2, min: 0, step: 0.1 , unit: "м" },
+      { name: 'width', label: "Ширина комнаты", type: 'number', defaultValue: 3.4, min: 0, step: 0.1 , unit: "м" },
       { name: 'doors', label: 'Дверных проёмов', type: 'number', defaultValue: 2, min: 0, step: 1 },
-      { name: 'doorWidth', label: 'Ширина проёма, м', type: 'number', defaultValue: 0.9, min: 0, step: 0.1 },
-      { name: 'plank', label: 'Длина планки, м', type: 'number', defaultValue: 2.5, min: 0, step: 0.1 },
-      { name: 'waste', label: 'Запас на подрезку, %', type: 'number', defaultValue: 5, min: 0, max: 100, step: 1 },
+      { name: 'doorWidth', label: "Ширина проёма", type: 'number', defaultValue: 0.9, min: 0, step: 0.1 , unit: "м" },
+      { name: 'plank', label: "Длина планки", type: 'number', defaultValue: 2.5, min: 0, step: 0.1 , unit: "м" },
+      { name: 'waste', label: "Запас на подрезку", type: 'number', defaultValue: 5, min: 0, max: 100, step: 1 , unit: "%" },
     ],
     resultLabels: {
       "need": "Длина с запасом", "perimeter": "Периметр комнаты",
       "openings": "Вычет на проёмы", "planks": "Планок", "bought": "Куплено с запасом",
     },
-    howToUse: [
-      "Размеры берите по стенам, а не по полу: плинтус ставится вдоль стен.",
-      "Проёмы вычитаются целиком: под дверной коробкой плинтуса нет.",
-      "Запас 5 процентов хватает на прямоугольную комнату, для сложного контура берите 10.",
-      "Ниши и выступы добавьте к длине или ширине вручную: калькулятор считает прямоугольник.",
-    ],
-    howItWorks: "Периметр 2·(длина+ширина) минус проёмы, умноженный на запас; планки округляются вверх до целых.",
-    example: "Комната 5,2×3,4 с двумя проёмами по 0,9 м требует 16,17 м плинтуса — семь планок по 2,5 м.",
-    faq: [
-      { q: "Почему нужен запас, если периметр известен точно?", a: "Каждый внутренний и внешний угол режется под сорок пять градусов, и часть планки уходит в срез. На прямоугольной комнате это около пяти процентов, на комнате с нишами — вдвое больше." },
-      { q: "Нужно ли вычитать проёмы?", a: "Да, под дверной коробкой плинтус не ставят. Если у вас арка без коробки, проём вычитать не надо — задайте ноль проёмов и добавьте её ширину обратно." },
-      { q: "Как считать комнату сложной формы?", a: "Сложите периметр по частям вручную и подставьте половину суммы как длину, а вторую половину как ширину: калькулятор всё равно берёт удвоенную сумму сторон." },
-      { q: "Считать ли плинтус за мебелью?", a: "Обычно да: за встроенной мебелью плинтус часто ставят, чтобы стык был закрыт при перестановке. Если точно знаете, что он не нужен, вычтите эту длину как дополнительный проём." },
-    ],
+    howToUse: buildingWave16ContractContent.ru.howToUse,
+    howItWorks: buildingWave16ContractContent.ru.howItWorks,
+    example: buildingWave16ContractContent.ru.example,
+    faq: buildingWave16ContractContent.ru.faq,
     relatedCalculatorIds: ["laminate-calculator", "linoleum", "room-volume"],
+      disclaimer: buildingWave16ContractContent.ru.disclaimer,
   },
 };

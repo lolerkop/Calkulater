@@ -1,54 +1,23 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, parseLocalizedNumber, toStr } from '../../lib/format';
-import { formatStatistic } from '../../lib/platform/measurement';
-
-// Средневзвешенное значение по парам «значение вес».
-//
-// Грамматика построчная и намеренно строже, чем у плоского списка: строка
-// обязана содержать ровно два числа. Строку с одним числом нельзя ни пропустить,
-// ни достроить весом 1 — и то и другое посчитало бы не тот набор, который видит
-// посетитель. Внутри строки действует то же правило запятой, что и в списке:
-// «4,5 2» — это значение 4,5 с весом 2, а не три числа.
-
-const parseLine = (line: string): [number, number] | null => {
-  const tokens = line.replace(/,(?=\s|$)/g, ' ').split(/[\s;]+/).filter(Boolean);
-  if (tokens.length !== 2) return null;
-  const value = parseLocalizedNumber(tokens[0], 'ru');
-  const weight = parseLocalizedNumber(tokens[1], 'ru');
-  if (value === null || weight === null) return null;
-  // Отрицательный вес не имеет смысла: он вычитал бы наблюдение из выборки.
-  if (weight < 0) return null;
-  return [value, weight];
-};
-
-const statNumber = (value: number): string => formatStatistic(value, fmtNumber);
+import { add, exact, LIMIT, MAX_ITEMS, nonzeroFinite, RANGE, ratio, read, shown, stat, times, tokens } from '../stats-descriptive/statisticsNumeric';
 
 export const compute: CalcFunction = (inputs) => {
-  const fail = (label: string, message: string) => ({
-    primary: { label: 'Взвешенное среднее', value: '—' },
-    secondary: [{ label, value: message, accent: 'red' as const }],
-  });
-
-  const lines = toStr(inputs.pairs, '').split('\n').map((line) => line.trim()).filter(Boolean);
-  if (lines.length === 0) return fail('Проверьте данные', 'Введите хотя бы одну пару «значение вес»');
-
-  const pairs: [number, number][] = [];
+  const fail = (label: string, message: string) => ({ primary: { label: 'Взвешенное среднее', value: '—' }, secondary: [{ label, value: message, accent: 'red' as const }] });
+  if (typeof inputs.pairs !== 'string') return fail('Проверьте данные', 'Введите хотя бы одну пару «значение вес»');
+  if (inputs.pairs.length > 1000000) return fail('Проверьте данные', LIMIT);
+  const lines = inputs.pairs.split('\n').map(line => line.trim()).filter(Boolean);
+  if (!lines.length) return fail('Проверьте данные', 'Введите хотя бы одну пару «значение вес»');
+  if (lines.length > MAX_ITEMS) return fail('Проверьте данные', LIMIT);
+  let weights = exact(0), products = exact(0);
   for (const line of lines) {
-    const pair = parseLine(line);
-    if (pair === null) return fail('Строка не разобрана', line);
-    pairs.push(pair);
+    const parts = tokens(line), value = read(parts[0]), weight = read(parts[1]);
+    if (parts.length !== 2 || !Number.isFinite(value) || !Number.isFinite(weight) || weight < 0) return fail('Строка не разобрана', line);
+    weights = add(weights, exact(weight)); products = add(products, times(exact(value), exact(weight)));
   }
-
-  const weightSum = pairs.reduce((acc, [, w]) => acc + w, 0);
-  if (!(weightSum > 0)) return fail('Проверьте данные', 'Сумма весов должна быть больше нуля');
-  const productSum = pairs.reduce((acc, [v, w]) => acc + v * w, 0);
-
-  return {
-    primary: { label: 'Взвешенное среднее', value: statNumber(productSum / weightSum) },
-    secondary: [
-      { label: 'Сумма весов', value: statNumber(weightSum) },
-      { label: 'Сумма произведений', value: statNumber(productSum) },
-      { label: 'Количество пар', value: statNumber(pairs.length) },
-    ],
-  };
+  if (!weights.coefficient) return fail('Проверьте данные', 'Сумма весов должна быть больше нуля');
+  const mean = ratio(products, weights);
+  if (!nonzeroFinite(mean, products)) return fail('Проверьте данные', RANGE);
+  return { primary: { label: 'Взвешенное среднее', value: stat(mean) }, secondary: [
+    { label: 'Сумма весов', value: shown(weights) }, { label: 'Сумма произведений', value: shown(products) }, { label: 'Количество пар', value: stat(lines.length) },
+  ] };
 };

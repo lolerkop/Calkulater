@@ -24,7 +24,7 @@ export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'solve': 'Was gesucht ist',
-      'n': 'Stoffmenge, mol',
+      'n': 'Stoffmenge',
       'tempUnit': 'Einheit der Temperatur',
       't': 'Temperatur',
       'volumeUnit': 'Einheit des Volumens',
@@ -73,7 +73,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { solve: 'What to find', n: 'Amount of substance, mol', tempUnit: 'Temperature unit', t: 'Temperature', volumeUnit: 'Volume unit', v: 'Volume', pressureUnit: 'Pressure unit', p: 'Pressure', },
+    fields: { solve: 'What to find', n: 'Amount of substance', tempUnit: 'Temperature unit', t: 'Temperature', volumeUnit: 'Volume unit', v: 'Volume', pressureUnit: 'Pressure unit', p: 'Pressure', },
     options: { p: 'the pressure', v: 'the volume', k: 'kelvin', c: 'degrees Celsius', m3: 'cubic metres', l: 'litres', pa: 'pascals', kpa: 'kilopascals', atm: 'atmospheres', },
     results: RESULTS_EN,
     values: {
@@ -98,7 +98,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { solve: 'Що знайти', n: 'Кількість речовини, моль', tempUnit: 'Одиниця температури', t: 'Температура', volumeUnit: 'Одиниця об’єму', v: 'Об’єм', pressureUnit: 'Одиниця тиску', p: 'Тиск', },
+    fields: { solve: 'Що знайти', n: 'Кількість речовини', tempUnit: 'Одиниця температури', t: 'Температура', volumeUnit: 'Одиниця об’єму', v: 'Об’єм', pressureUnit: 'Одиниця тиску', p: 'Тиск', },
     options: { p: 'тиск', v: 'об’єм', k: 'кельвіни', c: 'градуси Цельсія', m3: 'кубометри', l: 'літри', pa: 'паскалі', kpa: 'кілопаскалі', atm: 'атмосфери', },
     results: RESULTS_UK,
     values: {
@@ -122,7 +122,7 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "solve": "Qué hallar",
-      "n": "Cantidad de sustancia, mol",
+      "n": "Cantidad de sustancia",
       "tempUnit": "Unidad de temperatura",
       "t": "Temperatura",
       "volumeUnit": "Unidad de volumen",
@@ -171,3 +171,44 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+// Reviewed errors belong to this exact gas model, in every published locale.
+const reviewedGasValues = {
+  "en": {
+    "Введите конечные числа во все известные поля": "Enter finite numbers in every known field",
+    "Выберите поддерживаемый режим расчёта": "Choose a supported calculation mode",
+    "Абсолютное давление, объём и температура в кельвинах должны быть больше нуля": "Absolute pressure, volume and Kelvin temperature must be greater than zero",
+    "Результат выходит за числовой диапазон; проверьте масштаб величин": "The result is outside the numeric range; check the scale of the quantities",
+    "Выберите поддерживаемые единицы": "Choose supported units",
+    "0 K — формальный предел уравнения, а не физическое состояние идеального газа": "0 K is a formal limit of the equation, not a physical state of an ideal gas"
+  },
+  "uk": {
+    "Введите конечные числа во все известные поля": "Введіть скінченні числа в усі відомі поля",
+    "Выберите поддерживаемый режим расчёта": "Виберіть підтримуваний режим розрахунку",
+    "Абсолютное давление, объём и температура в кельвинах должны быть больше нуля": "Абсолютний тиск, об’єм і температура в кельвінах мають бути більшими за нуль",
+    "Результат выходит за числовой диапазон; проверьте масштаб величин": "Результат виходить за числовий діапазон; перевірте масштаб величин",
+    "Выберите поддерживаемые единицы": "Виберіть підтримувані одиниці",
+    "0 K — формальный предел уравнения, а не физическое состояние идеального газа": "0 K — формальна границя рівняння, а не фізичний стан ідеального газу"
+  },
+  "de": {
+    "Введите конечные числа во все известные поля": "Gib endliche Zahlen in alle bekannten Felder ein",
+    "Выберите поддерживаемый режим расчёта": "Wähle einen unterstützten Rechenmodus",
+    "Абсолютное давление, объём и температура в кельвинах должны быть больше нуля": "Absoluter Druck, Volumen und Kelvin-Temperatur müssen größer als null sein",
+    "Результат выходит за числовой диапазон; проверьте масштаб величин": "Das Ergebnis liegt außerhalb des Zahlenbereichs; prüfe die Größenordnung der Werte",
+    "Выберите поддерживаемые единицы": "Wähle unterstützte Einheiten",
+    "0 K — формальный предел уравнения, а не физическое состояние идеального газа": "0 K ist ein formaler Grenzfall der Gleichung und kein physikalischer Zustand eines idealen Gases"
+  },
+  "es": {
+    "Введите конечные числа во все известные поля": "Introduce números finitos en todos los campos conocidos",
+    "Выберите поддерживаемый режим расчёта": "Elige un modo de cálculo admitido",
+    "Абсолютное давление, объём и температура в кельвинах должны быть больше нуля": "La presión absoluta, el volumen y la temperatura en kelvin deben ser mayores que cero",
+    "Результат выходит за числовой диапазон; проверьте масштаб величин": "El resultado queda fuera del intervalo numérico; revisa la escala de las magnitudes",
+    "Выберите поддерживаемые единицы": "Elige unidades admitidas",
+    "0 K — формальный предел уравнения, а не физическое состояние идеального газа": "0 K es un límite formal de la ecuación, no un estado físico de un gas ideal"
+  }
+} as const;
+for (const locale of ['en', 'uk', 'de', 'es'] as const) {
+  Object.assign(localization[locale]!.values!, reviewedGasValues[locale]);
+}
+const limitLabels = { en: 'Model limit', uk: 'Границя моделі', de: 'Modellgrenze', es: 'Límite del modelo' };
+for (const locale of ['en', 'uk', 'de', 'es'] as const) Object.assign(localization[locale]!.results!, { 'Предел модели': limitLabels[locale] });

@@ -1,5 +1,6 @@
+import { number as toNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
 
 // Потери воды из подтекающего крана.
@@ -10,7 +11,7 @@ import { formatMeasure } from '../../lib/platform/measurement';
 // счётчик считает кубометры, а не капли.
 //
 // Объём капли — вход, а не константа: он зависит от крана и от того, срывается
-// капля или течёт. Умолчание 0,05 мл — обычная капля с бытового смесителя.
+// капля или течёт. Умолчание 0,05 мл — сохранённый входной пример, не универсальный размер.
 const MIN_IN_DAY = 60 * 24;
 const DAYS_IN_MONTH = 30;
 const DAYS_IN_YEAR = 365;
@@ -26,20 +27,25 @@ export const compute: CalcFunction = (inputs) => {
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (drops === null || price === null || dropMl === null) return fail('Введите корректные числовые данные');
+
   if (!(drops > 0)) return fail('Число капель в минуту должно быть больше нуля');
   if (!(dropMl > 0)) return fail('Объём капли должен быть больше нуля');
   if (!(price >= 0)) return fail('Цена воды не может быть отрицательной');
 
   const perDay = (drops * MIN_IN_DAY * dropMl) / ML_IN_L;
   const perYear = perDay * DAYS_IN_YEAR;
+  const month = perDay * DAYS_IN_MONTH;
+  const cost = (perYear / L_IN_M3) * price;
+  if (![perDay, perYear, month, perYear / L_IN_M3].every(v => validOutput(v, true)) || (!validOutput(cost) || (price > 0 && cost === 0))) return fail('Результат вне допустимого диапазона');
 
   return {
     primary: { label: 'Утекает за сутки', value: `${formatMeasure(perDay, fmtNumber)} л` },
     secondary: [
-      { label: 'За месяц', value: `${formatMeasure(perDay * DAYS_IN_MONTH, fmtNumber)} л` },
+      { label: 'За месяц', value: `${formatMeasure(month, fmtNumber)} л` },
       { label: 'За год', value: `${formatMeasure(perYear, fmtNumber)} л` },
       { label: 'В кубометрах за год', value: `${formatMeasure(perYear / L_IN_M3, fmtNumber)} м³` },
-      { label: 'Стоимость за год', value: `${formatMeasure((perYear / L_IN_M3) * price, fmtNumber)} ₽` },
+      { label: 'Стоимость за год', value: `${formatMeasure(cost, fmtNumber)} ₽` },
     ],
   };
 };

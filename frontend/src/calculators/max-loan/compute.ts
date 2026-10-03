@@ -1,5 +1,7 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
+import { number as toNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
+import { divideRate, scheduledLoanInterest, wholeMonthsFromYears } from '../../lib/platform/financeMath';
 
 // Максимальная сумма кредита по доходу — обратная задача к кредитному
 // калькулятору: тот идёт от суммы к платежу, здесь от посильного платежа к сумме.
@@ -21,17 +23,23 @@ export const compute: CalcFunction = (inputs) => {
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (income === null || dti === null || rate === null || years === null) return fail('Введите корректные числовые данные');
+
   if (!(income > 0)) return fail('Доход должен быть больше нуля');
   if (!(dti > 0)) return fail('Долговая нагрузка должна быть больше нуля');
   if (dti > 100) return fail('Долговая нагрузка не может превышать ста процентов');
   if (rate < 0) return fail('Ставка не может быть отрицательной');
-  if (!(years > 0)) return fail('Срок должен быть больше нуля');
+  if (!(years >= 1 / 12)) return fail('Срок должен быть не меньше месяца');
 
-  const payment = (income * dti) / 100;
-  const i = rate / 1200;
-  const n = years * 12;
-  const amount = i === 0 ? payment * n : (payment * (1 - Math.pow(1 + i, -n))) / i;
+  const payment = income * (dti / 100);
+  const i = divideRate(rate, 1200);
+  const n = wholeMonthsFromYears(years);
+  if (i === null || n === null) return fail('Результат вне допустимого диапазона');
+  const factor = i === 0 ? n : -Math.expm1(-n * Math.log1p(i)) / i;
+  const amount = payment * factor;
   const total = payment * n;
+  const interest = scheduledLoanInterest(amount, i, n);
+  if (![payment, amount, total, interest].every(v => validOutput(v)) || payment <= 0 || amount <= 0 || interest < 0) return fail('Результат вне допустимого диапазона');
   const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
 
   return {
@@ -39,7 +47,7 @@ export const compute: CalcFunction = (inputs) => {
     secondary: [
       { label: 'Допустимый платёж', value: money(payment) },
       { label: 'Всего выплат', value: money(total) },
-      { label: 'Переплата', value: money(total - amount) },
+      { label: 'Переплата', value: money(interest) },
       { label: 'Платежей', value: fmtNumber(n, 0) },
     ],
   };

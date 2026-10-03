@@ -42,6 +42,15 @@ export function validateDefinitions(definitions: readonly CalculatorDefinitionV2
       if (field.showIf && !presentation.fields.some((other) => other.name === field.showIf!.field)) {
         fail(`поле ${field.name} зависит от несуществующего поля ${field.showIf.field}`);
       }
+      if (field.showIf && 'oneOf' in field.showIf) {
+        const alternatives = field.showIf.oneOf;
+        if (!Array.isArray(alternatives) || alternatives.length === 0
+          || alternatives.some((value) => !['string', 'number', 'boolean'].includes(typeof value)
+            || (typeof value === 'number' && !Number.isFinite(value)))
+          || 'equals' in field.showIf) {
+          fail(`поле ${field.name} имеет некорректное условие oneOf`);
+        }
+      }
     }
 
     if (definition.lifecycle === 'released') {

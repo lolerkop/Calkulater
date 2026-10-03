@@ -30,4 +30,9 @@ export const bikeGearRatioReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"chainring": 50, "sprocket": 0, "wheelCircumference": 0},
     expectPrimary: "—",
   },
+  {name:'invalid optional circumference is not silently omitted',inputs:{chainring:50,sprocket:25,wheelCircumference:'junk'},expectPrimary:'—'},
+  {name:'nonfinite optional circumference rejected',inputs:{chainring:50,sprocket:25,wheelCircumference:'Infinity'},expectPrimary:'—'},
+  {name:'negative optional circumference rejected',inputs:{chainring:50,sprocket:25,wheelCircumference:-1},expectPrimary:'—'},
+  {name:'blank optional circumference leaves ratio only',inputs:{chainring:50,sprocket:25,wheelCircumference:''},expectPrimary:'2,00'},
+  {name:'boolean tooth count rejected',inputs:{chainring:true,sprocket:25},expectPrimary:'—'},
 ];

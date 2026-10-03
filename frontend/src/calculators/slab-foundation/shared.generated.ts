@@ -12,45 +12,53 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
-      'Из': 'From',
+      'Результат': 'Result',
       'В': 'To',
       'Вес': 'Weight',
       'Площадь': 'Area',
       'Запас': 'Reserve',
-      'Слоёв': 'Coats',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'The result exceeds the numeric range',
     },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
-      'Из': 'З',
+      'Результат': 'Результат',
       'В': 'У',
       'Вес': 'Вага',
       'Площадь': 'Площа',
       'Запас': 'Запас',
-      'Слоёв': 'Шарів',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Результат виходить за числовий діапазон',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
-      'Из': 'Von',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Вес': 'Gewicht',
       'Площадь': 'Fläche',
       'Запас': 'Reserve',
-      'Слоёв': 'Anstriche',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Das Ergebnis überschreitet den Zahlenbereich',
     },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
-      'Из': 'De',
+      'Результат': 'Resultado',
       'В': 'A',
       'Вес': 'Peso',
       'Площадь': 'Área',
       'Запас': 'Reserva',
-      'Слоёв': 'Manos',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'El resultado excede el rango numérico',
     },
   },
 };

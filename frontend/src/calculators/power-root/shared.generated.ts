@@ -15,6 +15,7 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Result',
       'Из': 'From',
       'В': 'To',
+      'Режим': 'Mode',
     },
   },
   uk: {
@@ -23,6 +24,7 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Результат',
       'Из': 'З',
       'В': 'У',
+      'Режим': 'Режим',
     },
   },
   de: {
@@ -31,6 +33,7 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Ergebnis',
       'Из': 'Von',
       'В': 'Nach',
+      'Режим': 'Aufgabe',
     },
   },
   es: {
@@ -39,6 +42,7 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Resultado',
       'Из': 'De',
       'В': 'A',
+      'Режим': 'Modo',
     },
   },
 };

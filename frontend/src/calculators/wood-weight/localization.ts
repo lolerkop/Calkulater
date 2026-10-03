@@ -1,11 +1,12 @@
+import { addBuildingWave16Messages } from '../rafters/buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'volume': 'Volumen, m³',
+      'volume': "Volumen",
       'species': 'Holzart',
-      'moisture': 'Holzfeuchte, %',
+      'moisture': "Holzfeuchte",
     },
     options: {
       'pine': 'Kiefer',
@@ -35,7 +36,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { "volume": "Volume, m³", "species": "Species", "moisture": "Moisture content, %" },
+    fields: { "volume": "Volume", "species": "Species", "moisture": "Moisture content" },
     options: { "pine": "Pine",
       "spruce": "Spruce",
       "birch": "Birch",
@@ -60,7 +61,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { "volume": "Об’єм, м³", "species": "Порода", "moisture": "Вологість, %" },
+    fields: { "volume": "Об’єм", "species": "Порода", "moisture": "Вологість" },
     options: { "pine": "Сосна",
       "spruce": "Ялина",
       "birch": "Береза",
@@ -86,9 +87,9 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "volume": "Volumen, m³",
+      "volume": "Volumen",
       "species": "Especie",
-      "moisture": "Humedad, %",
+      "moisture": "Humedad",
     },
     options: {
       "pine": "Pino",
@@ -118,3 +119,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

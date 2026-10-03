@@ -1,58 +1,26 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-
-// Удельная мощность автомобиля.
-//
-// Лошадиная сила здесь метрическая (PS) — ровно 735,49875 Вт, то есть
-// 75 кгс·м/с при g = 9,80665. Именно её пишут в документах на транспортное
-// средство в России и Европе. Механическая hp в 745,699872 Вт отличается на
-// полтора процента, и подмена одной другой тихо испортила бы любое сравнение,
-// поэтому используется только метрическая.
-//
-// Три вывода — не семейство единиц и не конвертер: это одна и та же удельная
-// мощность, показанная так, как её привыкли обсуждать. Обратная величина
-// «килограммы на силу» полезна тем, что меньшее значение означает лучшую
-// динамику, и её часто помнят именно в таком виде.
+import { add, exact, evaluated, finite, INPUT, mode, MODE, optional, positive, quotient, RANGE, read, scalar, times } from '../engine-displacement/automotiveNumeric';
 const WATTS_PER_PS = 735.49875;
-
-export const compute: CalcFunction = (inputs) => {
-  const power = toNumber(inputs.power);
-  const unit = toStr(inputs.powerUnit, 'ps');
-  const mass = toNumber(inputs.mass);
-  const payload = toNumber(inputs.payload);
-
-  const fail = (message: string) => ({
-    primary: { label: 'Удельная мощность', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+export const compute: CalcFunction = inputs => {
+  const selected = mode(inputs.powerUnit, 'ps', ['ps', 'kw']);
+  const power = read(inputs.power), mass = read(inputs.mass), payload = optional(inputs.payload);
+  const fail = (message: string) => ({ primary: { label: 'Удельная мощность', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (!selected) return fail(MODE);
+  if (!finite(power, mass, payload)) return fail(INPUT);
   if (!(power > 0)) return fail('Мощность должна быть больше нуля');
   if (!(mass > 0)) return fail('Масса должна быть больше нуля');
   if (payload < 0) return fail('Дополнительная нагрузка не может быть отрицательной');
-
-  const totalMass = mass + payload;
-  const kilowatts = unit === 'kw' ? power : (power * WATTS_PER_PS) / 1000;
-  const metricHp = unit === 'kw' ? (power * 1000) / WATTS_PER_PS : power;
-  const tonnes = totalMass / 1000;
-
+  const totalExact = add(exact(mass), exact(payload)), totalMass = evaluated(totalExact);
+  const kwExact = times(exact(power), exact(selected === 'kw' ? 1000 : WATTS_PER_PS));
+  const kilowatts = evaluated(kwExact, exact(1000)), metricHp = evaluated(kwExact, exact(WATTS_PER_PS));
+  const perTonne = evaluated(kwExact, totalExact), hpPerTonne = evaluated(times(kwExact, exact(1000)), times(totalExact, exact(WATTS_PER_PS)));
+  const kgPerHp = evaluated(times(totalExact, exact(WATTS_PER_PS)), kwExact);
+  const unloaded = payload > 0 ? evaluated(kwExact, exact(mass)) : 0;
+  if (!positive(totalMass, kilowatts, metricHp, perTonne, hpPerTonne, kgPerHp) || (payload > 0 && !positive(unloaded))) return fail(RANGE);
   const secondary = [
-    { label: 'Лошадиных сил на тонну', value: `${fmtNumber(metricHp / tonnes, 2)} л.с./т` },
-    { label: 'Килограммов на силу', value: `${fmtNumber(totalMass / metricHp, 2)} кг/л.с.` },
-    { label: 'Мощность', value: `${fmtNumber(kilowatts, 2)} кВт = ${fmtNumber(metricHp, 2)} л.с.` },
-    { label: 'Расчётная масса', value: `${fmtNumber(totalMass, 0)} кг` },
+    { label: 'Лошадиных сил на тонну', value: `${scalar(hpPerTonne)} л.с./т` }, { label: 'Килограммов на силу', value: `${scalar(kgPerHp)} кг/л.с.` },
+    { label: 'Мощность', value: `${scalar(kilowatts)} кВт = ${scalar(metricHp)} л.с.` }, { label: 'Расчётная масса', value: `${scalar(totalMass, 0)} кг` },
   ];
-
-  // Нагрузка задана — показываем, сколько удельной мощности она забрала.
-  // Без неё строки нет: сравнивать не с чем.
-  if (payload > 0) {
-    secondary.push({
-      label: 'Без нагрузки было бы',
-      value: `${fmtNumber(kilowatts / (mass / 1000), 2)} кВт/т`,
-    });
-  }
-
-  return {
-    primary: { label: 'Удельная мощность', value: `${fmtNumber(kilowatts / tonnes, 2)} кВт/т` },
-    secondary,
-  };
+  if (payload > 0) secondary.push({ label: 'Без нагрузки было бы', value: `${scalar(unloaded)} кВт/т` });
+  return { primary: { label: 'Удельная мощность', value: `${scalar(perTonne)} кВт/т` }, secondary };
 };

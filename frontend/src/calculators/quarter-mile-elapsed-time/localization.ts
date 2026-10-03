@@ -1,9 +1,10 @@
+import { automotiveMessages } from '../engine-displacement/automotiveMessages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
-export const localization: CalculatorLocalization = {
+const originalLocalization: CalculatorLocalization = {
   de: {
     fields: {
-      'power': 'Leistung, PS',
+      'power': 'Leistung, hp (mechanisch)',
       'mass': 'Leermasse mit Fahrer, kg',
     },
     results: {
@@ -17,7 +18,7 @@ export const localization: CalculatorLocalization = {
     values: {
       'с': 's',
       'км/ч': 'km/h',
-      'л.с./т': 'PS/t',
+      'л.с./т': 'hp/t',
       'фунт': 'lb',
       'миль/ч': 'mph',
       'Мощность должна быть больше нуля': 'Die Leistung muss größer als null sein',
@@ -40,7 +41,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { power: 'Потужність, к.с.', mass: 'Спорядна маса з водієм, кг' },
+    fields: { power: 'Потужність, hp (механічні)', mass: 'Спорядна маса з водієм, кг' },
     options: {},
     results: {
       'Время четверти мили': 'Час чверті милі', 'Скорость на финише': 'Швидкість на фініші',
@@ -49,14 +50,14 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Перевірте дані',
     },
     values: {
-      'с': 'с', 'км/ч': 'км/год', 'л.с./т': 'к.с./т', 'фунт': 'фунт', 'миль/ч': 'миль/год',
+      'с': 'с', 'км/ч': 'км/год', 'л.с./т': 'hp/т', 'фунт': 'фунт', 'миль/ч': 'миль/год',
       'Мощность должна быть больше нуля': 'Потужність має бути більшою за нуль',
       'Масса должна быть больше нуля': 'Маса має бути більшою за нуль',
     },
   },
   es: {
     fields: {
-      "power": "Potencia, CV",
+      "power": "Potencia, hp mecánicos",
       "mass": "Masa en vacío con conductor, kg",
     },
     options: {},
@@ -71,7 +72,7 @@ export const localization: CalculatorLocalization = {
     values: {
       "с": "s",
       "км/ч": "km/h",
-      "л.с./т": "CV/t",
+      "л.с./т": "hp/t",
       "фунт": "lb",
       "миль/ч": "mph",
       "Мощность должна быть больше нуля": "La potencia debe ser mayor que cero",
@@ -79,3 +80,7 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(originalLocalization).map(([locale, bundle]) => [locale, { ...bundle, values: { ...bundle.values, ...automotiveMessages[locale as keyof typeof automotiveMessages] } }]),
+);

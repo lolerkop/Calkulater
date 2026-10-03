@@ -41,12 +41,14 @@ describe('on-page content quality', () => {
       expect(editorial.limitation.trim()).not.toBe('');
     }
 
-    expect(getCalculatorEditorial(priorityCalculator('ru', 'age-calculator'), 'ru').sources).toEqual([]);
-    expect(getCalculatorEditorial(priorityCalculator('ru', 'tile-calculator'), 'ru').sources).toEqual([]);
+    expect(getCalculatorEditorial(priorityCalculator('ru', 'age-calculator'), 'ru').sources).toEqual([{href:'https://eclipse.gsfc.nasa.gov/SEhelp/calendars.html',label:'NASA, раздел 2.1: григорианское правило и продолженный календарь; правила годовщин и сдвига выбирает эта модель'}]);
+    // This bounded product datasheet was actually read; it supports product-
+    // dependent adhesive consumption and does not establish a universal rate.
+    expect(getCalculatorEditorial(priorityCalculator('ru', 'tile-calculator'), 'ru').sources).toEqual([{href:'https://datasheets.tdx.henkel.com/CERESIT-CM-11-PLUS-en_GL.pdf',label:'Ceresit CM 11 Plus: расход именно этого продукта зависит от плитки и шпателя; 5 кг/м² не универсальная норма'}]);
     expect(getCalculatorEditorial(priorityCalculator('ru', 'currency-converter'), 'ru').sources[0].href).toBe('https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html');
     expect(getCalculatorEditorial(priorityCalculator('ru', 'income-tax-calculator'), 'ru').sources[0].href).toContain('nalog.gov.ru');
     expect(getCalculatorEditorial(priorityCalculator('ru', 'vat-calculator'), 'ru').sources[0].href).toContain('nalog.gov.ru');
-    expect(getCalculatorEditorial(priorityCalculator('uk', 'bmi-calculator'), 'uk').sources[0].href).toContain('who.int');
+    expect(getCalculatorEditorial(priorityCalculator('uk', 'bmi-calculator'), 'uk').sources[0].href).toBe('https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html');
   });
 
   it('renders visible source data and only emits FAQ schema for visible FAQ', () => {

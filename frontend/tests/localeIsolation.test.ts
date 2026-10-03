@@ -18,7 +18,10 @@ const russianMarkers = [
 describe('active locale isolation', () => {
   it('does not expose Cyrillic strings in English calculator and category data', () => {
     const data = JSON.stringify({ calculators: getCalculators('en'), categories: getCategories('en') });
-    const fragments = [...data.matchAll(/[^"\\]*[\u0400-\u04ff][^"\\]*/gu)].map((match) => match[0]);
+    // Same zero-Cyrillic condition, with linear scanning rather than repeatedly
+    // backtracking through every English string. Keep bounded error context.
+    const fragments = [...data.matchAll(/[\u0400-\u04ff]/gu)]
+      .map((match) => data.slice(Math.max(0, match.index! - 40), match.index! + 41));
     expect([...new Set(fragments)]).toEqual([]);
   });
 

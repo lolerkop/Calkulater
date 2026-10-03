@@ -39,4 +39,7 @@ export const geomSquareReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: { mode: 'side', unit: 'cm', side: -3 },
     expectPrimary: '—',
   },
+  // Независимые аналитические случаи: масштабирование формул и явные границы области.
+  {"name": "обратная малая площадь сохраняет положительную сторону", "inputs": {"mode": "area", "unit": "m", "area": 4e-200}, "expectPrimary": "4,000·10^-200 м²", "expectSecondary": [{"label": "Сторона", "value": "2,000·10^-100 м"}]},
+  {"name": "переполнение площади не даёт частично успешный ответ", "inputs": {"mode": "side", "unit": "m", "side": 1e+155}, "expectPrimary": "—"},
 ];

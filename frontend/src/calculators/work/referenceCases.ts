@@ -34,4 +34,36 @@ export const workReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"mode": "s", "W": 100, "F": 0, "angleDeg": 0},
     expectPrimary: "—",
   },
+
+  // Wave 4: fixed expectations derived analytically from the stated model.
+  {
+  "name": "обратный режим отрицательной работы−50Дж при180градусах даёт5м",
+  "inputs": {
+    "mode": "s",
+    "F": 10,
+    "W": -50,
+    "angleDeg": 180
+  },
+  "expectPrimary": "5 м"
+},
+  {
+  "name": "ошибка: положительная работа противоречит углу180градусов",
+  "inputs": {
+    "mode": "s",
+    "F": 10,
+    "W": 50,
+    "angleDeg": 180
+  },
+  "expectPrimary": "—"
+},
+  {
+  "name": "нулевая сила совершает нулевую работу при заданном перемещении",
+  "inputs": {
+    "mode": "W",
+    "F": 0,
+    "s": 5,
+    "angleDeg": 0
+  },
+  "expectPrimary": "0 Дж"
+},
 ];

@@ -1,88 +1,27 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { runtimeScalarPhrases } from '../../lib/platform/runtimeScalarPhrases';
 
-const RESULTS_EN = {
-    "Нужный балл": "Mark you need",
-    "Вклад текущей оценки": "Contribution of the current grade",
-    "Вес экзамена": "Exam weight",
-    "Цель недостижима": "Target out of reach",
-    "Цель уже достигнута": "Target already met",
-    "Проверьте данные": "Check the values",
-};
-const RESULTS_UK = {
-    "Нужный балл": "Потрібний бал",
-    "Вклад текущей оценки": "Внесок поточної оцінки",
-    "Вес экзамена": "Вага іспиту",
-    "Цель недостижима": "Мета недосяжна",
-    "Цель уже достигнута": "Мета вже досягнута",
-    "Проверьте данные": "Перевірте дані",
-};
-
-export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'current': 'Aktuelle Note, %',
-      'target': 'Wunschnote, %',
-      'weight': 'Gewicht der Prüfung, %',
-    },
-    results: {
-      'Нужный балл': 'Nötige Punktzahl',
-      'Вклад текущей оценки': 'Beitrag der aktuellen Note',
-      'Вес экзамена': 'Gewicht der Prüfung',
-      'Цель недостижима': 'Ziel nicht erreichbar',
-      'Цель уже достигнута': 'Ziel bereits erreicht',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального': 'Mit einer Prüfung ist diese Endnote nicht mehr zu erreichen: nötig wäre eine Punktzahl über dem Höchstwert',
-      'Итоговая выйдет не ниже желаемой при любом результате экзамена': 'Die Endnote bleibt bei jedem Prüfungsergebnis mindestens auf dem Wunschwert',
-      'Текущая оценка задаётся в диапазоне от 0 до 100': 'Die aktuelle Note liegt im Bereich von 0 bis 100',
-      'Желаемая оценка задаётся в диапазоне от 0 до 100': 'Die Wunschnote liegt im Bereich von 0 bis 100',
-      'Вес экзамена задаётся в диапазоне от 0 до 100 процентов': 'Das Gewicht der Prüfung liegt im Bereich von 0 bis 100 Prozent',
-    },
+// Final effective owned bundles; overwritten intermediate maps removed after deep equality proof.
+export const localization:CalculatorLocalization={
+  "de": {
+    fields: {"current": "Aktuelle Note", "target": "Wunschnote", "weight": "Gewicht der Prüfung"},
+    results: { ...runtimeScalarPhrases("de",[8]),"Нужный балл": "Nötige Punktzahl", "Вклад текущей оценки": "Beitrag der aktuellen Note", "Вес экзамена": "Gewicht der Prüfung", "Цель недостижима": "Ziel nicht erreichbar", "Цель уже достигнута": "Ziel bereits erreicht" },
+    values: { ...runtimeScalarPhrases("de",[1, 9]),"Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального": "Mit einer Prüfung ist diese Endnote nicht mehr zu erreichen: nötig wäre eine Punktzahl über dem Höchstwert", "Итоговая выйдет не ниже желаемой при любом результате экзамена": "Die Endnote bleibt bei jedem Prüfungsergebnis mindestens auf dem Wunschwert", "Текущая оценка задаётся в диапазоне от 0 до 100": "Die aktuelle Note liegt im Bereich von 0 bis 100", "Желаемая оценка задаётся в диапазоне от 0 до 100": "Die Wunschnote liegt im Bereich von 0 bis 100", "Вес экзамена задаётся в диапазоне от 0 до 100 процентов": "Das Gewicht der Prüfung liegt im Bereich von 0 bis 100 Prozent", "Вес экзамена должен быть больше 0 и не больше 100 процентов": "Das Prüfungsgewicht muss größer als 0 und höchstens 100 Prozent sein" },
   },
-  en: {
-    fields: { current: "Current grade, %", target: "Target grade, %", weight: "Exam weight, %" },
-    results: RESULTS_EN,
-    values: {
-    "Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального": "One exam can no longer reach that final grade: it would need a mark above the maximum",
-    "Итоговая выйдет не ниже желаемой при любом результате экзамена": "The final grade stays at or above the target whatever the exam result",
-    "Текущая оценка задаётся в диапазоне от 0 до 100": "The current grade is set between 0 and 100",
-    "Желаемая оценка задаётся в диапазоне от 0 до 100": "The target grade is set between 0 and 100",
-    "Вес экзамена задаётся в диапазоне от 0 до 100 процентов": "The exam weight is set between 0 and 100 percent",
-    },
+  "en": {
+    fields: {"current": "Current grade", "target": "Target grade", "weight": "Exam weight"},
+    results: { ...runtimeScalarPhrases("en",[6]),"Нужный балл": "Mark you need", "Вклад текущей оценки": "Contribution of the current grade", "Вес экзамена": "Exam weight", "Цель недостижима": "Target out of reach", "Цель уже достигнута": "Target already met" },
+    values: { ...runtimeScalarPhrases("en",[1, 8]),"Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального": "One exam can no longer reach that final grade: it would need a mark above the maximum", "Итоговая выйдет не ниже желаемой при любом результате экзамена": "The final grade stays at or above the target whatever the exam result", "Текущая оценка задаётся в диапазоне от 0 до 100": "The current grade is set between 0 and 100", "Желаемая оценка задаётся в диапазоне от 0 до 100": "The target grade is set between 0 and 100", "Вес экзамена задаётся в диапазоне от 0 до 100 процентов": "The exam weight is set between 0 and 100 percent", "Вес экзамена должен быть больше 0 и не больше 100 процентов": "The exam weight must be greater than 0 and at most 100 percent" },
   },
-  uk: {
-    fields: { current: "Поточна оцінка, %", target: "Бажана оцінка, %", weight: "Вага іспиту, %" },
-    results: RESULTS_UK,
-    values: {
-    "Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального": "Одним іспитом цю підсумкову вже не набрати: потрібен бал вищий за максимальний",
-    "Итоговая выйдет не ниже желаемой при любом результате экзамена": "Підсумкова буде не нижчою за бажану за будь-якого результату іспиту",
-    "Текущая оценка задаётся в диапазоне от 0 до 100": "Поточна оцінка задається в діапазоні від 0 до 100",
-    "Желаемая оценка задаётся в диапазоне от 0 до 100": "Бажана оцінка задається в діапазоні від 0 до 100",
-    "Вес экзамена задаётся в диапазоне от 0 до 100 процентов": "Вага іспиту задається в діапазоні від 0 до 100 відсотків",
-    },
+  "uk": {
+    fields: {"current": "Поточна оцінка", "target": "Бажана оцінка", "weight": "Вага іспиту"},
+    results: { ...runtimeScalarPhrases("uk",[8]),"Нужный балл": "Потрібний бал", "Вклад текущей оценки": "Внесок поточної оцінки", "Вес экзамена": "Вага іспиту", "Цель недостижима": "Мета недосяжна", "Цель уже достигнута": "Мета вже досягнута" },
+    values: { ...runtimeScalarPhrases("uk",[2, 10]),"Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального": "Одним іспитом цю підсумкову вже не набрати: потрібен бал вищий за максимальний", "Итоговая выйдет не ниже желаемой при любом результате экзамена": "Підсумкова буде не нижчою за бажану за будь-якого результату іспиту", "Текущая оценка задаётся в диапазоне от 0 до 100": "Поточна оцінка задається в діапазоні від 0 до 100", "Желаемая оценка задаётся в диапазоне от 0 до 100": "Бажана оцінка задається в діапазоні від 0 до 100", "Вес экзамена задаётся в диапазоне от 0 до 100 процентов": "Вага іспиту задається в діапазоні від 0 до 100 відсотків", "Вес экзамена должен быть больше 0 и не больше 100 процентов": "Вага іспиту має бути більшою за 0 і не більшою за 100 відсотків" },
   },
-  es: {
-    fields: {
-      "current": "Nota actual, %",
-      "target": "Nota objetivo, %",
-      "weight": "Peso del examen, %",
-    },
+  "es": {
+    fields: {"current": "Nota actual", "target": "Nota objetivo", "weight": "Peso del examen"},
     options: {},
-    results: {
-      "Нужный балл": "Nota que necesitas",
-      "Вклад текущей оценки": "Aportación de la nota actual",
-      "Вес экзамена": "Peso del examen",
-      "Цель недостижима": "Objetivo inalcanzable",
-      "Цель уже достигнута": "Objetivo ya alcanzado",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального": "Con un solo examen ya no se llega a esa nota final: haría falta una nota por encima del máximo",
-      "Итоговая выйдет не ниже желаемой при любом результате экзамена": "La nota final quedará igual o por encima de la deseada sea cual sea el resultado del examen",
-      "Текущая оценка задаётся в диапазоне от 0 до 100": "La nota actual se indica de 0 a 100",
-      "Желаемая оценка задаётся в диапазоне от 0 до 100": "La nota deseada se indica de 0 a 100",
-      "Вес экзамена задаётся в диапазоне от 0 до 100 процентов": "El peso del examen se indica del 0 al 100 por ciento",
-    },
+    results: { ...runtimeScalarPhrases("es",[7]),"Нужный балл": "Nota que necesitas", "Вклад текущей оценки": "Aportación de la nota actual", "Вес экзамена": "Peso del examen", "Цель недостижима": "Objetivo inalcanzable", "Цель уже достигнута": "Objetivo ya alcanzado" },
+    values: { ...runtimeScalarPhrases("es",[1, 8]),"Одним экзаменом эту итоговую уже не набрать: нужен балл выше максимального": "Con un solo examen ya no se llega a esa nota final: haría falta una nota por encima del máximo", "Итоговая выйдет не ниже желаемой при любом результате экзамена": "La nota final quedará igual o por encima de la deseada sea cual sea el resultado del examen", "Текущая оценка задаётся в диапазоне от 0 до 100": "La nota actual se indica de 0 a 100", "Желаемая оценка задаётся в диапазоне от 0 до 100": "La nota deseada se indica de 0 a 100", "Вес экзамена задаётся в диапазоне от 0 до 100 процентов": "El peso del examen se indica del 0 al 100 por ciento", "Вес экзамена должен быть больше 0 и не больше 100 процентов": "El peso del examen debe ser mayor que 0 y no superar 100 por ciento" },
   },
 };

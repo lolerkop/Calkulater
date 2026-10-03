@@ -1,0 +1,2566 @@
+{
+  "wave": "business-math-3",
+  "reviewDate": "2026-10-01",
+  "status": "COMPUTE_AND_RENDERING_DATA_CHECKED_NEEDS_HUMAN_REVIEW",
+  "scope": {
+    "canonicalIds": [
+      "ad-roi",
+      "aov",
+      "day-of-week",
+      "difference-abs-rel",
+      "dividend-yield",
+      "logarithm",
+      "return-rate",
+      "revenue-per-employee",
+      "roi",
+      "shipping-per-unit"
+    ],
+    "publicCopies": 50,
+    "locales": [
+      "ru",
+      "en",
+      "uk",
+      "de",
+      "es"
+    ],
+    "publication": "LOCAL_ONLY_NO_PUSH_OR_DEPLOY",
+    "legacyRoi": "No legacy roi.ts exists; canonical roi is V2",
+    "sourceFreeze": true
+  },
+  "evidenceBoundary": "Reviewed the actual public getCalculatorById text, fields and result variants individually. Compute and rendering-data checks do not prove production publication, full browser interaction or human financial/editorial approval.",
+  "publicBaseline": {
+    "ad-roi": {
+      "ru": {
+        "name": "Калькулятор ROI рекламы",
+        "slug": "ad-roi",
+        "fullPath": "/ru/business/ad-roi/",
+        "category": "business",
+        "h1": "Калькулятор ROI рекламы",
+        "seoTitle": "Калькулятор ROI рекламы — ROI и ROAS из расходов и выручки",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Выручка от кампании",
+            "type": "number",
+            "defaultValue": 300000,
+            "min": 0
+          },
+          {
+            "name": "spend",
+            "label": "Расходы на кампанию",
+            "type": "number",
+            "defaultValue": 100000,
+            "min": 0
+          }
+        ],
+        "resultLabels": {
+          "roi": "ROI рекламы",
+          "roas": "ROAS"
+        },
+        "relatedCalculatorIds": [
+          "cac",
+          "aov",
+          "contribution-margin"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "en": {
+        "name": "Advertising ROI calculator",
+        "slug": "advertising-roi",
+        "fullPath": "/en/business/advertising-roi/",
+        "category": "business",
+        "h1": "Advertising ROI calculator",
+        "seoTitle": "Advertising ROI calculator — ROI and ROAS from spend and revenue",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Revenue from the campaign",
+            "type": "number",
+            "defaultValue": 300000,
+            "min": 0
+          },
+          {
+            "name": "spend",
+            "label": "Campaign spend",
+            "type": "number",
+            "defaultValue": 100000,
+            "min": 0
+          }
+        ],
+        "resultLabels": {
+          "roi": "Advertising ROI",
+          "roas": "ROAS"
+        },
+        "relatedCalculatorIds": [
+          "cac",
+          "aov",
+          "contribution-margin"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "uk": {
+        "name": "Калькулятор ROI реклами",
+        "slug": "roi-reklamy",
+        "fullPath": "/uk/business/roi-reklamy/",
+        "category": "business",
+        "h1": "Калькулятор ROI реклами",
+        "seoTitle": "Калькулятор ROI реклами — ROI та ROAS з витрат і виторгу",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Виторг від кампанії",
+            "type": "number",
+            "defaultValue": 300000,
+            "min": 0
+          },
+          {
+            "name": "spend",
+            "label": "Витрати на кампанію",
+            "type": "number",
+            "defaultValue": 100000,
+            "min": 0
+          }
+        ],
+        "resultLabels": {
+          "roi": "ROI реклами",
+          "roas": "ROAS"
+        },
+        "relatedCalculatorIds": [
+          "cac",
+          "aov",
+          "contribution-margin"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "de": {
+        "name": "Rechner für den Werbe-ROI",
+        "slug": "werbe-roi-rechner",
+        "fullPath": "/de/business/werbe-roi-rechner/",
+        "category": "business",
+        "h1": "Rechner für den Werbe-ROI",
+        "seoTitle": "Werbe-ROI berechnen — ROI und ROAS aus Kosten und Umsatz",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Umsatz aus der Kampagne",
+            "type": "number",
+            "defaultValue": 300000,
+            "min": 0
+          },
+          {
+            "name": "spend",
+            "label": "Kosten der Kampagne",
+            "type": "number",
+            "defaultValue": 100000,
+            "min": 0
+          }
+        ],
+        "resultLabels": {
+          "roi": "Werbe-ROI",
+          "roas": "ROAS"
+        },
+        "relatedCalculatorIds": [
+          "cac",
+          "aov",
+          "contribution-margin"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "es": {
+        "name": "Calculadora de ROI publicitario",
+        "slug": "roi-publicitario",
+        "fullPath": "/es/negocios/roi-publicitario/",
+        "category": "business",
+        "h1": "Calculadora de ROI publicitario",
+        "seoTitle": "Calculadora de ROI publicitario — ROI y ROAS a partir de la inversión y los ingresos",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Ingresos de la campaña",
+            "type": "number",
+            "defaultValue": 300000,
+            "min": 0
+          },
+          {
+            "name": "spend",
+            "label": "Inversión en la campaña",
+            "type": "number",
+            "defaultValue": 100000,
+            "min": 0
+          }
+        ],
+        "resultLabels": {
+          "roi": "ROI publicitario",
+          "roas": "ROAS"
+        },
+        "relatedCalculatorIds": [
+          "cac",
+          "aov",
+          "contribution-margin"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      }
+    },
+    "aov": {
+      "ru": {
+        "name": "Калькулятор среднего чека",
+        "slug": "aov",
+        "fullPath": "/ru/business/aov/",
+        "category": "business",
+        "h1": "Калькулятор среднего чека",
+        "seoTitle": "Калькулятор среднего чека — AOV из выручки и заказов",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Выручка за период",
+            "type": "number",
+            "defaultValue": 250000,
+            "min": 0
+          },
+          {
+            "name": "orders",
+            "label": "Число заказов",
+            "type": "number",
+            "defaultValue": 200,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "aov": "Средний чек"
+        },
+        "relatedCalculatorIds": [
+          "contribution-margin",
+          "cac",
+          "return-rate"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "en": {
+        "name": "Average order value calculator",
+        "slug": "average-order-value",
+        "fullPath": "/en/business/average-order-value/",
+        "category": "business",
+        "h1": "Average order value calculator",
+        "seoTitle": "Average order value calculator — AOV from revenue and orders",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Revenue for the period",
+            "type": "number",
+            "defaultValue": 250000,
+            "min": 0
+          },
+          {
+            "name": "orders",
+            "label": "Number of orders",
+            "type": "number",
+            "defaultValue": 200,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "aov": "Average order value"
+        },
+        "relatedCalculatorIds": [
+          "contribution-margin",
+          "cac",
+          "return-rate"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "uk": {
+        "name": "Калькулятор середнього чека",
+        "slug": "serednii-chek",
+        "fullPath": "/uk/business/serednii-chek/",
+        "category": "business",
+        "h1": "Калькулятор середнього чека",
+        "seoTitle": "Калькулятор середнього чека — AOV з виторгу та замовлень",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Виторг за період",
+            "type": "number",
+            "defaultValue": 250000,
+            "min": 0
+          },
+          {
+            "name": "orders",
+            "label": "Кількість замовлень",
+            "type": "number",
+            "defaultValue": 200,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "aov": "Середній чек"
+        },
+        "relatedCalculatorIds": [
+          "contribution-margin",
+          "cac",
+          "return-rate"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "de": {
+        "name": "Rechner für den durchschnittlichen Bestellwert",
+        "slug": "durchschnittlicher-bestellwert",
+        "fullPath": "/de/business/durchschnittlicher-bestellwert/",
+        "category": "business",
+        "h1": "Rechner für den durchschnittlichen Bestellwert",
+        "seoTitle": "Durchschnittlichen Bestellwert berechnen — aus Umsatz und Bestellungen",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Umsatz im Zeitraum",
+            "type": "number",
+            "defaultValue": 250000,
+            "min": 0
+          },
+          {
+            "name": "orders",
+            "label": "Zahl der Bestellungen",
+            "type": "number",
+            "defaultValue": 200,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "aov": "Durchschnittlicher Bestellwert"
+        },
+        "relatedCalculatorIds": [
+          "contribution-margin",
+          "cac",
+          "return-rate"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "es": {
+        "name": "Calculadora de ticket medio",
+        "slug": "ticket-medio",
+        "fullPath": "/es/negocios/ticket-medio/",
+        "category": "business",
+        "h1": "Calculadora de ticket medio",
+        "seoTitle": "Calculadora de ticket medio — a partir de los ingresos y los pedidos",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Ingresos del periodo",
+            "type": "number",
+            "defaultValue": 250000,
+            "min": 0
+          },
+          {
+            "name": "orders",
+            "label": "Número de pedidos",
+            "type": "number",
+            "defaultValue": 200,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "aov": "Ticket medio"
+        },
+        "relatedCalculatorIds": [
+          "contribution-margin",
+          "cac",
+          "return-rate"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      }
+    },
+    "day-of-week": {
+      "ru": {
+        "name": "Калькулятор дня недели",
+        "slug": "day-of-week",
+        "fullPath": "/ru/date-time/day-of-week/",
+        "category": "date-time",
+        "h1": "Калькулятор дня недели",
+        "seoTitle": "Калькулятор дня недели — день недели для любой даты",
+        "fields": [
+          {
+            "name": "date",
+            "label": "Дата",
+            "type": "date",
+            "defaultValue": "2024-02-29"
+          }
+        ],
+        "resultLabels": {
+          "weekday": "День недели",
+          "dayOfYear": "День года"
+        },
+        "relatedCalculatorIds": [
+          "leap-year",
+          "week-number",
+          "age-calculator"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "en": {
+        "name": "Day of the week calculator",
+        "slug": "day-of-week",
+        "fullPath": "/en/date-time/day-of-week/",
+        "category": "date-time",
+        "h1": "Day of the week calculator",
+        "seoTitle": "Day of the week calculator — weekday for any date",
+        "fields": [
+          {
+            "name": "date",
+            "label": "Date",
+            "type": "date",
+            "defaultValue": "2024-02-29"
+          }
+        ],
+        "resultLabels": {
+          "weekday": "Day of the week",
+          "dayOfYear": "Day of the year"
+        },
+        "relatedCalculatorIds": [
+          "leap-year",
+          "week-number",
+          "age-calculator"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "uk": {
+        "name": "Калькулятор дня тижня",
+        "slug": "den-tyzhnya",
+        "fullPath": "/uk/daty/den-tyzhnya/",
+        "category": "date-time",
+        "h1": "Калькулятор дня тижня",
+        "seoTitle": "Калькулятор дня тижня — день тижня для будь-якої дати",
+        "fields": [
+          {
+            "name": "date",
+            "label": "Дата",
+            "type": "date",
+            "defaultValue": "2024-02-29"
+          }
+        ],
+        "resultLabels": {
+          "weekday": "День тижня",
+          "dayOfYear": "День року"
+        },
+        "relatedCalculatorIds": [
+          "leap-year",
+          "week-number",
+          "age-calculator"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "de": {
+        "name": "Wochentagsrechner",
+        "slug": "wochentag-berechnen",
+        "fullPath": "/de/datum-zeit/wochentag-berechnen/",
+        "category": "date-time",
+        "h1": "Wochentagsrechner",
+        "seoTitle": "Wochentag berechnen — Wochentag zu jedem Datum",
+        "fields": [
+          {
+            "name": "date",
+            "label": "Datum",
+            "type": "date",
+            "defaultValue": "2024-02-29"
+          }
+        ],
+        "resultLabels": {
+          "weekday": "Wochentag",
+          "dayOfYear": "Tag des Jahres"
+        },
+        "relatedCalculatorIds": [
+          "leap-year",
+          "week-number",
+          "age-calculator"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "es": {
+        "name": "Calculadora del día de la semana",
+        "slug": "dia-de-la-semana",
+        "fullPath": "/es/fechas/dia-de-la-semana/",
+        "category": "date-time",
+        "h1": "Calculadora del día de la semana",
+        "seoTitle": "Calculadora del día de la semana — el día de cualquier fecha",
+        "fields": [
+          {
+            "name": "date",
+            "label": "Fecha",
+            "type": "date",
+            "defaultValue": "2024-02-29"
+          }
+        ],
+        "resultLabels": {
+          "weekday": "Día de la semana",
+          "dayOfYear": "Día del año"
+        },
+        "relatedCalculatorIds": [
+          "leap-year",
+          "week-number",
+          "age-calculator"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      }
+    },
+    "difference-abs-rel": {
+      "ru": {
+        "name": "Абсолютная и относительная разница",
+        "slug": "difference-abs-rel",
+        "fullPath": "/ru/math/difference-abs-rel/",
+        "category": "math",
+        "h1": "Абсолютная и относительная разница",
+        "seoTitle": "Калькулятор абсолютной и относительной разницы",
+        "fields": [
+          {
+            "name": "from",
+            "label": "Было",
+            "type": "number",
+            "defaultValue": 100,
+            "signed": true
+          },
+          {
+            "name": "to",
+            "label": "Стало",
+            "type": "number",
+            "defaultValue": 120,
+            "signed": true
+          }
+        ],
+        "resultLabels": {
+          "absolute": "Абсолютная разница",
+          "relative": "Относительная разница"
+        },
+        "relatedCalculatorIds": [
+          "proportion",
+          "logarithm",
+          "percent-calculator"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "en": {
+        "name": "Absolute and relative difference",
+        "slug": "absolute-relative-difference",
+        "fullPath": "/en/math/absolute-relative-difference/",
+        "category": "math",
+        "h1": "Absolute and relative difference",
+        "seoTitle": "Absolute and relative difference calculator",
+        "fields": [
+          {
+            "name": "from",
+            "label": "Before",
+            "type": "number",
+            "defaultValue": 100,
+            "signed": true
+          },
+          {
+            "name": "to",
+            "label": "After",
+            "type": "number",
+            "defaultValue": 120,
+            "signed": true
+          }
+        ],
+        "resultLabels": {
+          "absolute": "Absolute difference",
+          "relative": "Relative difference"
+        },
+        "relatedCalculatorIds": [
+          "proportion",
+          "logarithm",
+          "percent-calculator"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "uk": {
+        "name": "Абсолютна та відносна різниця",
+        "slug": "abs-rel-riznytsya",
+        "fullPath": "/uk/math/abs-rel-riznytsya/",
+        "category": "math",
+        "h1": "Абсолютна та відносна різниця",
+        "seoTitle": "Калькулятор абсолютної та відносної різниці",
+        "fields": [
+          {
+            "name": "from",
+            "label": "Було",
+            "type": "number",
+            "defaultValue": 100,
+            "signed": true
+          },
+          {
+            "name": "to",
+            "label": "Стало",
+            "type": "number",
+            "defaultValue": 120,
+            "signed": true
+          }
+        ],
+        "resultLabels": {
+          "absolute": "Абсолютна різниця",
+          "relative": "Відносна різниця"
+        },
+        "relatedCalculatorIds": [
+          "proportion",
+          "logarithm",
+          "percent-calculator"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "de": {
+        "name": "Absolute und relative Differenz",
+        "slug": "absolute-relative-differenz",
+        "fullPath": "/de/mathematik/absolute-relative-differenz/",
+        "category": "math",
+        "h1": "Absolute und relative Differenz",
+        "seoTitle": "Absolute und relative Differenz berechnen",
+        "fields": [
+          {
+            "name": "from",
+            "label": "Vorher",
+            "type": "number",
+            "defaultValue": 100,
+            "signed": true
+          },
+          {
+            "name": "to",
+            "label": "Nachher",
+            "type": "number",
+            "defaultValue": 120,
+            "signed": true
+          }
+        ],
+        "resultLabels": {
+          "absolute": "Absolute Differenz",
+          "relative": "Relative Differenz"
+        },
+        "relatedCalculatorIds": [
+          "proportion",
+          "logarithm",
+          "percent-calculator"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "es": {
+        "name": "Diferencia absoluta y relativa",
+        "slug": "diferencia-absoluta-y-relativa",
+        "fullPath": "/es/matematicas/diferencia-absoluta-y-relativa/",
+        "category": "math",
+        "h1": "Diferencia absoluta y relativa",
+        "seoTitle": "Calculadora de diferencia absoluta y relativa",
+        "fields": [
+          {
+            "name": "from",
+            "label": "Antes",
+            "type": "number",
+            "defaultValue": 100,
+            "signed": true
+          },
+          {
+            "name": "to",
+            "label": "Después",
+            "type": "number",
+            "defaultValue": 120,
+            "signed": true
+          }
+        ],
+        "resultLabels": {
+          "absolute": "Diferencia absoluta",
+          "relative": "Diferencia relativa"
+        },
+        "relatedCalculatorIds": [
+          "proportion",
+          "logarithm",
+          "percent-calculator"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      }
+    },
+    "dividend-yield": {
+      "ru": {
+        "name": "Калькулятор дивидендной доходности",
+        "slug": "dividend-yield",
+        "fullPath": "/ru/finance/dividend-yield/",
+        "category": "finance",
+        "h1": "Калькулятор дивидендной доходности",
+        "seoTitle": "Калькулятор дивидендной доходности — доходность в процентах",
+        "fields": [
+          {
+            "name": "dividend",
+            "label": "Дивиденд на акцию за год",
+            "type": "number",
+            "defaultValue": 12,
+            "min": 0
+          },
+          {
+            "name": "price",
+            "label": "Цена акции",
+            "type": "number",
+            "defaultValue": 200,
+            "min": 0
+          },
+          {
+            "name": "shares",
+            "label": "Число акций",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "step": 1,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "yield": "Дивидендная доходность"
+        },
+        "relatedCalculatorIds": [
+          "roi",
+          "simple-interest",
+          "compound-interest"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "en": {
+        "name": "Dividend yield calculator",
+        "slug": "dividend-yield",
+        "fullPath": "/en/finance/dividend-yield/",
+        "category": "finance",
+        "h1": "Dividend yield calculator",
+        "seoTitle": "Dividend yield calculator — yield in per cent",
+        "fields": [
+          {
+            "name": "dividend",
+            "label": "Annual dividend per share",
+            "type": "number",
+            "defaultValue": 12,
+            "min": 0
+          },
+          {
+            "name": "price",
+            "label": "Share price",
+            "type": "number",
+            "defaultValue": 200,
+            "min": 0
+          },
+          {
+            "name": "shares",
+            "label": "Number of shares",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "step": 1,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "yield": "Dividend yield"
+        },
+        "relatedCalculatorIds": [
+          "roi",
+          "simple-interest",
+          "compound-interest"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "uk": {
+        "name": "Калькулятор дивідендної дохідності",
+        "slug": "dyvidendna-dokhidnist",
+        "fullPath": "/uk/finansy/dyvidendna-dokhidnist/",
+        "category": "finance",
+        "h1": "Калькулятор дивідендної дохідності",
+        "seoTitle": "Калькулятор дивідендної дохідності — дохідність у відсотках",
+        "fields": [
+          {
+            "name": "dividend",
+            "label": "Річний дивіденд на акцію",
+            "type": "number",
+            "defaultValue": 12,
+            "min": 0
+          },
+          {
+            "name": "price",
+            "label": "Ціна акції",
+            "type": "number",
+            "defaultValue": 200,
+            "min": 0
+          },
+          {
+            "name": "shares",
+            "label": "Кількість акцій",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "step": 1,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "yield": "Дивідендна дохідність"
+        },
+        "relatedCalculatorIds": [
+          "roi",
+          "simple-interest",
+          "compound-interest"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "de": {
+        "name": "Rechner für die Dividendenrendite",
+        "slug": "dividendenrendite-rechner",
+        "fullPath": "/de/finanzen/dividendenrendite-rechner/",
+        "category": "finance",
+        "h1": "Rechner für die Dividendenrendite",
+        "seoTitle": "Dividendenrendite berechnen — Rendite in Prozent",
+        "fields": [
+          {
+            "name": "dividend",
+            "label": "Jahresdividende je Aktie",
+            "type": "number",
+            "defaultValue": 12,
+            "min": 0
+          },
+          {
+            "name": "price",
+            "label": "Aktienkurs",
+            "type": "number",
+            "defaultValue": 200,
+            "min": 0
+          },
+          {
+            "name": "shares",
+            "label": "Zahl der Aktien",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "step": 1,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "yield": "Dividendenrendite"
+        },
+        "relatedCalculatorIds": [
+          "roi",
+          "simple-interest",
+          "compound-interest"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "es": {
+        "name": "Calculadora de rentabilidad por dividendo",
+        "slug": "rentabilidad-por-dividendo",
+        "fullPath": "/es/finanzas/rentabilidad-por-dividendo/",
+        "category": "finance",
+        "h1": "Calculadora de rentabilidad por dividendo",
+        "seoTitle": "Calculadora de rentabilidad por dividendo — rentabilidad en porcentaje",
+        "fields": [
+          {
+            "name": "dividend",
+            "label": "Dividendo anual por acción",
+            "type": "number",
+            "defaultValue": 12,
+            "min": 0
+          },
+          {
+            "name": "price",
+            "label": "Precio de la acción",
+            "type": "number",
+            "defaultValue": 200,
+            "min": 0
+          },
+          {
+            "name": "shares",
+            "label": "Número de acciones",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "step": 1,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "yield": "Rentabilidad por dividendo"
+        },
+        "relatedCalculatorIds": [
+          "roi",
+          "simple-interest",
+          "compound-interest"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      }
+    },
+    "logarithm": {
+      "ru": {
+        "name": "Калькулятор логарифма",
+        "slug": "logarithm",
+        "fullPath": "/ru/math/logarithm/",
+        "category": "math",
+        "h1": "Калькулятор логарифма",
+        "seoTitle": "Калькулятор логарифма — по основанию 10, натуральный и любой",
+        "fields": [
+          {
+            "name": "mode",
+            "label": "Тип логарифма",
+            "type": "select",
+            "defaultValue": "log10",
+            "options": [
+              {
+                "value": "log10",
+                "label": "Десятичный, основание 10"
+              },
+              {
+                "value": "ln",
+                "label": "Натуральный, основание e"
+              },
+              {
+                "value": "custom",
+                "label": "Произвольное основание"
+              }
+            ]
+          },
+          {
+            "name": "value",
+            "label": "Число",
+            "type": "number",
+            "defaultValue": 1000,
+            "min": 0
+          },
+          {
+            "name": "base",
+            "label": "Основание",
+            "type": "number",
+            "defaultValue": 2,
+            "min": 0,
+            "showIf": {
+              "field": "mode",
+              "equals": "custom"
+            }
+          }
+        ],
+        "resultLabels": {
+          "result": "Логарифм",
+          "check": "Проверка возведением"
+        },
+        "relatedCalculatorIds": [
+          "quadratic-equation",
+          "proportion",
+          "modulo"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "en": {
+        "name": "Logarithm calculator",
+        "slug": "logarithm-calculator",
+        "fullPath": "/en/math/logarithm-calculator/",
+        "category": "math",
+        "h1": "Logarithm calculator",
+        "seoTitle": "Logarithm calculator — log base 10, natural log and any base",
+        "fields": [
+          {
+            "name": "mode",
+            "label": "Logarithm type",
+            "type": "select",
+            "defaultValue": "log10",
+            "options": [
+              {
+                "value": "log10",
+                "label": "Common, base 10"
+              },
+              {
+                "value": "ln",
+                "label": "Natural, base e"
+              },
+              {
+                "value": "custom",
+                "label": "Custom base"
+              }
+            ]
+          },
+          {
+            "name": "value",
+            "label": "Number",
+            "type": "number",
+            "defaultValue": 1000,
+            "min": 0
+          },
+          {
+            "name": "base",
+            "label": "Base",
+            "type": "number",
+            "defaultValue": 2,
+            "min": 0,
+            "showIf": {
+              "field": "mode",
+              "equals": "custom"
+            }
+          }
+        ],
+        "resultLabels": {
+          "result": "Logarithm",
+          "check": "Check by exponentiation"
+        },
+        "relatedCalculatorIds": [
+          "quadratic-equation",
+          "proportion",
+          "modulo"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "uk": {
+        "name": "Калькулятор логарифма",
+        "slug": "kalkulyator-logaryfma",
+        "fullPath": "/uk/math/kalkulyator-logaryfma/",
+        "category": "math",
+        "h1": "Калькулятор логарифма",
+        "seoTitle": "Калькулятор логарифма — за основою 10, e та довільною",
+        "fields": [
+          {
+            "name": "mode",
+            "label": "Тип логарифма",
+            "type": "select",
+            "defaultValue": "log10",
+            "options": [
+              {
+                "value": "log10",
+                "label": "Десятковий, основа 10"
+              },
+              {
+                "value": "ln",
+                "label": "Натуральний, основа e"
+              },
+              {
+                "value": "custom",
+                "label": "Довільна основа"
+              }
+            ]
+          },
+          {
+            "name": "value",
+            "label": "Число",
+            "type": "number",
+            "defaultValue": 1000,
+            "min": 0
+          },
+          {
+            "name": "base",
+            "label": "Основа",
+            "type": "number",
+            "defaultValue": 2,
+            "min": 0,
+            "showIf": {
+              "field": "mode",
+              "equals": "custom"
+            }
+          }
+        ],
+        "resultLabels": {
+          "result": "Логарифм",
+          "check": "Перевірка піднесенням"
+        },
+        "relatedCalculatorIds": [
+          "quadratic-equation",
+          "proportion",
+          "modulo"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "de": {
+        "name": "Logarithmusrechner",
+        "slug": "logarithmus-rechner",
+        "fullPath": "/de/mathematik/logarithmus-rechner/",
+        "category": "math",
+        "h1": "Logarithmusrechner",
+        "seoTitle": "Logarithmus berechnen — Zehnerlogarithmus, ln und beliebige Basis",
+        "fields": [
+          {
+            "name": "mode",
+            "label": "Art des Logarithmus",
+            "type": "select",
+            "defaultValue": "log10",
+            "options": [
+              {
+                "value": "log10",
+                "label": "Zehnerlogarithmus, Basis 10"
+              },
+              {
+                "value": "ln",
+                "label": "Natürlicher, Basis e"
+              },
+              {
+                "value": "custom",
+                "label": "Eigene Basis"
+              }
+            ]
+          },
+          {
+            "name": "value",
+            "label": "Zahl",
+            "type": "number",
+            "defaultValue": 1000,
+            "min": 0
+          },
+          {
+            "name": "base",
+            "label": "Basis",
+            "type": "number",
+            "defaultValue": 2,
+            "min": 0,
+            "showIf": {
+              "field": "mode",
+              "equals": "custom"
+            }
+          }
+        ],
+        "resultLabels": {
+          "result": "Logarithmus",
+          "check": "Probe durch Potenzieren"
+        },
+        "relatedCalculatorIds": [
+          "quadratic-equation",
+          "proportion",
+          "modulo"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "es": {
+        "name": "Calculadora de logaritmos",
+        "slug": "calculadora-de-logaritmos",
+        "fullPath": "/es/matematicas/calculadora-de-logaritmos/",
+        "category": "math",
+        "h1": "Calculadora de logaritmos",
+        "seoTitle": "Calculadora de logaritmos — base 10, logaritmo natural y cualquier base",
+        "fields": [
+          {
+            "name": "mode",
+            "label": "Tipo de logaritmo",
+            "type": "select",
+            "defaultValue": "log10",
+            "options": [
+              {
+                "value": "log10",
+                "label": "Decimal, base 10"
+              },
+              {
+                "value": "ln",
+                "label": "Natural, base e"
+              },
+              {
+                "value": "custom",
+                "label": "Base personalizada"
+              }
+            ]
+          },
+          {
+            "name": "value",
+            "label": "Número",
+            "type": "number",
+            "defaultValue": 1000,
+            "min": 0
+          },
+          {
+            "name": "base",
+            "label": "Base",
+            "type": "number",
+            "defaultValue": 2,
+            "min": 0,
+            "showIf": {
+              "field": "mode",
+              "equals": "custom"
+            }
+          }
+        ],
+        "resultLabels": {
+          "result": "Logaritmo",
+          "check": "Comprobación por potenciación"
+        },
+        "relatedCalculatorIds": [
+          "quadratic-equation",
+          "proportion",
+          "modulo"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      }
+    },
+    "return-rate": {
+      "ru": {
+        "name": "Калькулятор доли возвратов",
+        "slug": "return-rate",
+        "fullPath": "/ru/business/return-rate/",
+        "category": "business",
+        "h1": "Калькулятор доли возвратов",
+        "seoTitle": "Калькулятор доли возвратов — процент возвращённых заказов",
+        "fields": [
+          {
+            "name": "returns",
+            "label": "Возвращено заказов",
+            "type": "number",
+            "defaultValue": 45,
+            "min": 0,
+            "step": 1
+          },
+          {
+            "name": "orders",
+            "label": "Всего заказов",
+            "type": "number",
+            "defaultValue": 900,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "rate": "Доля возвратов",
+          "kept": "Оставлено покупателями"
+        },
+        "relatedCalculatorIds": [
+          "aov",
+          "contribution-margin",
+          "cac"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "en": {
+        "name": "Return rate calculator",
+        "slug": "return-rate",
+        "fullPath": "/en/business/return-rate/",
+        "category": "business",
+        "h1": "Return rate calculator",
+        "seoTitle": "Return rate calculator — share of orders returned",
+        "fields": [
+          {
+            "name": "returns",
+            "label": "Returned orders",
+            "type": "number",
+            "defaultValue": 45,
+            "min": 0,
+            "step": 1
+          },
+          {
+            "name": "orders",
+            "label": "Total orders",
+            "type": "number",
+            "defaultValue": 900,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "rate": "Return rate",
+          "kept": "Kept by customers"
+        },
+        "relatedCalculatorIds": [
+          "aov",
+          "contribution-margin",
+          "cac"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "uk": {
+        "name": "Калькулятор частки повернень",
+        "slug": "chastka-povernen",
+        "fullPath": "/uk/business/chastka-povernen/",
+        "category": "business",
+        "h1": "Калькулятор частки повернень",
+        "seoTitle": "Калькулятор частки повернень — відсоток повернутих замовлень",
+        "fields": [
+          {
+            "name": "returns",
+            "label": "Повернені замовлення",
+            "type": "number",
+            "defaultValue": 45,
+            "min": 0,
+            "step": 1
+          },
+          {
+            "name": "orders",
+            "label": "Усього замовлень",
+            "type": "number",
+            "defaultValue": 900,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "rate": "Частка повернень",
+          "kept": "Залишено покупцями"
+        },
+        "relatedCalculatorIds": [
+          "aov",
+          "contribution-margin",
+          "cac"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "de": {
+        "name": "Rechner für die Rücksendequote",
+        "slug": "ruecksendequote-rechner",
+        "fullPath": "/de/business/ruecksendequote-rechner/",
+        "category": "business",
+        "h1": "Rechner für die Rücksendequote",
+        "seoTitle": "Rücksendequote berechnen — Anteil zurückgeschickter Bestellungen",
+        "fields": [
+          {
+            "name": "returns",
+            "label": "Zurückgeschickte Bestellungen",
+            "type": "number",
+            "defaultValue": 45,
+            "min": 0,
+            "step": 1
+          },
+          {
+            "name": "orders",
+            "label": "Bestellungen insgesamt",
+            "type": "number",
+            "defaultValue": 900,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "rate": "Rücksendequote",
+          "kept": "Von Kunden behalten"
+        },
+        "relatedCalculatorIds": [
+          "aov",
+          "contribution-margin",
+          "cac"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "es": {
+        "name": "Calculadora de tasa de devoluciones",
+        "slug": "tasa-de-devoluciones",
+        "fullPath": "/es/negocios/tasa-de-devoluciones/",
+        "category": "business",
+        "h1": "Calculadora de tasa de devoluciones",
+        "seoTitle": "Calculadora de tasa de devoluciones — proporción de pedidos devueltos",
+        "fields": [
+          {
+            "name": "returns",
+            "label": "Pedidos devueltos",
+            "type": "number",
+            "defaultValue": 45,
+            "min": 0,
+            "step": 1
+          },
+          {
+            "name": "orders",
+            "label": "Pedidos totales",
+            "type": "number",
+            "defaultValue": 900,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "rate": "Tasa de devoluciones",
+          "kept": "Se lo quedaron los clientes"
+        },
+        "relatedCalculatorIds": [
+          "aov",
+          "contribution-margin",
+          "cac"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      }
+    },
+    "revenue-per-employee": {
+      "ru": {
+        "name": "Калькулятор выручки на сотрудника",
+        "slug": "revenue-per-employee",
+        "fullPath": "/ru/business/revenue-per-employee/",
+        "category": "business",
+        "h1": "Калькулятор выручки на сотрудника",
+        "seoTitle": "Калькулятор выручки на сотрудника — производительность труда",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Годовая выручка",
+            "type": "number",
+            "defaultValue": 12000000,
+            "min": 0
+          },
+          {
+            "name": "employees",
+            "label": "Число сотрудников",
+            "type": "number",
+            "defaultValue": 40,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "perEmployee": "Выручка на сотрудника"
+        },
+        "relatedCalculatorIds": [
+          "aov",
+          "contribution-margin",
+          "cac"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "en": {
+        "name": "Revenue per employee calculator",
+        "slug": "revenue-per-employee",
+        "fullPath": "/en/business/revenue-per-employee/",
+        "category": "business",
+        "h1": "Revenue per employee calculator",
+        "seoTitle": "Revenue per employee calculator — labour productivity",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Annual revenue",
+            "type": "number",
+            "defaultValue": 12000000,
+            "min": 0
+          },
+          {
+            "name": "employees",
+            "label": "Number of employees",
+            "type": "number",
+            "defaultValue": 40,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "perEmployee": "Revenue per employee"
+        },
+        "relatedCalculatorIds": [
+          "aov",
+          "contribution-margin",
+          "cac"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "uk": {
+        "name": "Калькулятор виторгу на співробітника",
+        "slug": "vytorh-na-spivrobitnyka",
+        "fullPath": "/uk/business/vytorh-na-spivrobitnyka/",
+        "category": "business",
+        "h1": "Калькулятор виторгу на співробітника",
+        "seoTitle": "Калькулятор виторгу на співробітника — продуктивність праці",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Річний виторг",
+            "type": "number",
+            "defaultValue": 12000000,
+            "min": 0
+          },
+          {
+            "name": "employees",
+            "label": "Кількість співробітників",
+            "type": "number",
+            "defaultValue": 40,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "perEmployee": "Виторг на співробітника"
+        },
+        "relatedCalculatorIds": [
+          "aov",
+          "contribution-margin",
+          "cac"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "de": {
+        "name": "Rechner für den Umsatz je Mitarbeiter",
+        "slug": "umsatz-je-mitarbeiter",
+        "fullPath": "/de/business/umsatz-je-mitarbeiter/",
+        "category": "business",
+        "h1": "Rechner für den Umsatz je Mitarbeiter",
+        "seoTitle": "Umsatz je Mitarbeiter berechnen — Arbeitsproduktivität",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Jahresumsatz",
+            "type": "number",
+            "defaultValue": 12000000,
+            "min": 0
+          },
+          {
+            "name": "employees",
+            "label": "Zahl der Mitarbeiter",
+            "type": "number",
+            "defaultValue": 40,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "perEmployee": "Umsatz je Mitarbeiter"
+        },
+        "relatedCalculatorIds": [
+          "aov",
+          "contribution-margin",
+          "cac"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "es": {
+        "name": "Calculadora de ingresos por empleado",
+        "slug": "ingresos-por-empleado",
+        "fullPath": "/es/negocios/ingresos-por-empleado/",
+        "category": "business",
+        "h1": "Calculadora de ingresos por empleado",
+        "seoTitle": "Calculadora de ingresos por empleado — productividad laboral",
+        "fields": [
+          {
+            "name": "revenue",
+            "label": "Ingresos anuales",
+            "type": "number",
+            "defaultValue": 12000000,
+            "min": 0
+          },
+          {
+            "name": "employees",
+            "label": "Número de empleados",
+            "type": "number",
+            "defaultValue": 40,
+            "min": 0,
+            "step": 1
+          }
+        ],
+        "resultLabels": {
+          "perEmployee": "Ingresos por empleado"
+        },
+        "relatedCalculatorIds": [
+          "aov",
+          "contribution-margin",
+          "cac"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      }
+    },
+    "roi": {
+      "ru": {
+        "name": "ROI-калькулятор",
+        "slug": "roi",
+        "fullPath": "/ru/finance/roi/",
+        "category": "finance",
+        "h1": "ROI-калькулятор",
+        "seoTitle": "ROI-калькулятор — возврат на вложения в процентах",
+        "fields": [
+          {
+            "name": "received",
+            "label": "Полученная сумма",
+            "type": "number",
+            "defaultValue": 130000,
+            "min": 0
+          },
+          {
+            "name": "invested",
+            "label": "Вложенная сумма",
+            "type": "number",
+            "defaultValue": 100000,
+            "min": 0
+          },
+          {
+            "name": "extra",
+            "label": "Дополнительные затраты",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "roi": "ROI",
+          "profit": "Прибыль"
+        },
+        "relatedCalculatorIds": [
+          "simple-interest",
+          "compound-interest",
+          "dti"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "en": {
+        "name": "ROI calculator",
+        "slug": "roi-calculator",
+        "fullPath": "/en/finance/roi-calculator/",
+        "category": "finance",
+        "h1": "ROI calculator",
+        "seoTitle": "ROI calculator — return on investment in per cent",
+        "fields": [
+          {
+            "name": "received",
+            "label": "Amount received",
+            "type": "number",
+            "defaultValue": 130000,
+            "min": 0
+          },
+          {
+            "name": "invested",
+            "label": "Amount invested",
+            "type": "number",
+            "defaultValue": 100000,
+            "min": 0
+          },
+          {
+            "name": "extra",
+            "label": "Additional costs",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "roi": "ROI",
+          "profit": "Profit"
+        },
+        "relatedCalculatorIds": [
+          "simple-interest",
+          "compound-interest",
+          "dti"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "uk": {
+        "name": "ROI-калькулятор",
+        "slug": "roi-kalkulyator",
+        "fullPath": "/uk/finansy/roi-kalkulyator/",
+        "category": "finance",
+        "h1": "ROI-калькулятор",
+        "seoTitle": "ROI-калькулятор — повернення на вкладення у відсотках",
+        "fields": [
+          {
+            "name": "received",
+            "label": "Отримана сума",
+            "type": "number",
+            "defaultValue": 130000,
+            "min": 0
+          },
+          {
+            "name": "invested",
+            "label": "Вкладена сума",
+            "type": "number",
+            "defaultValue": 100000,
+            "min": 0
+          },
+          {
+            "name": "extra",
+            "label": "Додаткові витрати",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "roi": "ROI",
+          "profit": "Прибуток"
+        },
+        "relatedCalculatorIds": [
+          "simple-interest",
+          "compound-interest",
+          "dti"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "de": {
+        "name": "ROI-Rechner",
+        "slug": "roi-rechner",
+        "fullPath": "/de/finanzen/roi-rechner/",
+        "category": "finance",
+        "h1": "ROI-Rechner",
+        "seoTitle": "ROI berechnen — Kapitalrendite in Prozent",
+        "fields": [
+          {
+            "name": "received",
+            "label": "Erhaltener Betrag",
+            "type": "number",
+            "defaultValue": 130000,
+            "min": 0
+          },
+          {
+            "name": "invested",
+            "label": "Eingesetzter Betrag",
+            "type": "number",
+            "defaultValue": 100000,
+            "min": 0
+          },
+          {
+            "name": "extra",
+            "label": "Zusätzliche Kosten",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "roi": "ROI",
+          "profit": "Gewinn"
+        },
+        "relatedCalculatorIds": [
+          "simple-interest",
+          "compound-interest",
+          "dti"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "es": {
+        "name": "Calculadora de ROI",
+        "slug": "calculadora-de-roi",
+        "fullPath": "/es/finanzas/calculadora-de-roi/",
+        "category": "finance",
+        "h1": "Calculadora de ROI",
+        "seoTitle": "Calculadora de ROI — retorno de la inversión en porcentaje",
+        "fields": [
+          {
+            "name": "received",
+            "label": "Importe recibido",
+            "type": "number",
+            "defaultValue": 130000,
+            "min": 0
+          },
+          {
+            "name": "invested",
+            "label": "Importe invertido",
+            "type": "number",
+            "defaultValue": 100000,
+            "min": 0
+          },
+          {
+            "name": "extra",
+            "label": "Costes adicionales",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "roi": "ROI",
+          "profit": "Beneficio"
+        },
+        "relatedCalculatorIds": [
+          "simple-interest",
+          "compound-interest",
+          "dti"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      }
+    },
+    "shipping-per-unit": {
+      "ru": {
+        "name": "Калькулятор доставки на единицу товара",
+        "slug": "shipping-per-unit",
+        "fullPath": "/ru/business/shipping-per-unit/",
+        "category": "business",
+        "h1": "Калькулятор доставки на единицу товара",
+        "seoTitle": "Калькулятор доставки на единицу товара — логистика на товар",
+        "fields": [
+          {
+            "name": "shipping",
+            "label": "Стоимость доставки",
+            "type": "number",
+            "defaultValue": 1500,
+            "min": 0
+          },
+          {
+            "name": "units",
+            "label": "Единиц в партии",
+            "type": "number",
+            "defaultValue": 25,
+            "min": 0,
+            "step": 1
+          },
+          {
+            "name": "packaging",
+            "label": "Стоимость упаковки",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "perUnit": "Доставка на единицу"
+        },
+        "relatedCalculatorIds": [
+          "contribution-margin",
+          "aov",
+          "return-rate"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "en": {
+        "name": "Shipping per unit calculator",
+        "slug": "shipping-per-unit",
+        "fullPath": "/en/business/shipping-per-unit/",
+        "category": "business",
+        "h1": "Shipping per unit calculator",
+        "seoTitle": "Shipping per unit calculator — logistics cost per item",
+        "fields": [
+          {
+            "name": "shipping",
+            "label": "Shipping cost",
+            "type": "number",
+            "defaultValue": 1500,
+            "min": 0
+          },
+          {
+            "name": "units",
+            "label": "Units in the batch",
+            "type": "number",
+            "defaultValue": 25,
+            "min": 0,
+            "step": 1
+          },
+          {
+            "name": "packaging",
+            "label": "Packaging cost",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "perUnit": "Shipping per unit"
+        },
+        "relatedCalculatorIds": [
+          "contribution-margin",
+          "aov",
+          "return-rate"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "uk": {
+        "name": "Калькулятор доставки на одиницю",
+        "slug": "dostavka-na-odynytsyu",
+        "fullPath": "/uk/business/dostavka-na-odynytsyu/",
+        "category": "business",
+        "h1": "Калькулятор доставки на одиницю",
+        "seoTitle": "Калькулятор доставки на одиницю — логістика на товар",
+        "fields": [
+          {
+            "name": "shipping",
+            "label": "Вартість доставки",
+            "type": "number",
+            "defaultValue": 1500,
+            "min": 0
+          },
+          {
+            "name": "units",
+            "label": "Одиниць у партії",
+            "type": "number",
+            "defaultValue": 25,
+            "min": 0,
+            "step": 1
+          },
+          {
+            "name": "packaging",
+            "label": "Вартість пакування",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "perUnit": "Доставка на одиницю"
+        },
+        "relatedCalculatorIds": [
+          "contribution-margin",
+          "aov",
+          "return-rate"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "de": {
+        "name": "Rechner für Versandkosten je Stück",
+        "slug": "versandkosten-je-stueck",
+        "fullPath": "/de/business/versandkosten-je-stueck/",
+        "category": "business",
+        "h1": "Rechner für Versandkosten je Stück",
+        "seoTitle": "Versandkosten je Stück berechnen — Logistik je Artikel",
+        "fields": [
+          {
+            "name": "shipping",
+            "label": "Lieferkosten",
+            "type": "number",
+            "defaultValue": 1500,
+            "min": 0
+          },
+          {
+            "name": "units",
+            "label": "Stück in der Sendung",
+            "type": "number",
+            "defaultValue": 25,
+            "min": 0,
+            "step": 1
+          },
+          {
+            "name": "packaging",
+            "label": "Verpackungskosten",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "perUnit": "Versand je Stück"
+        },
+        "relatedCalculatorIds": [
+          "contribution-margin",
+          "aov",
+          "return-rate"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      },
+      "es": {
+        "name": "Calculadora de envío por unidad",
+        "slug": "envio-por-unidad",
+        "fullPath": "/es/negocios/envio-por-unidad/",
+        "category": "business",
+        "h1": "Calculadora de envío por unidad",
+        "seoTitle": "Calculadora de envío por unidad — coste logístico por artículo",
+        "fields": [
+          {
+            "name": "shipping",
+            "label": "Coste del envío",
+            "type": "number",
+            "defaultValue": 1500,
+            "min": 0
+          },
+          {
+            "name": "units",
+            "label": "Unidades del lote",
+            "type": "number",
+            "defaultValue": 25,
+            "min": 0,
+            "step": 1
+          },
+          {
+            "name": "packaging",
+            "label": "Coste del embalaje",
+            "type": "number",
+            "defaultValue": 0,
+            "min": 0,
+            "optional": true
+          }
+        ],
+        "resultLabels": {
+          "perUnit": "Envío por unidad"
+        },
+        "relatedCalculatorIds": [
+          "contribution-margin",
+          "aov",
+          "return-rate"
+        ],
+        "isNew": false,
+        "faqCount": 4
+      }
+    }
+  },
+  "beforeComputeEvidence": [
+    {
+      "id": "ad-roi",
+      "inputs": {
+        "revenue": true,
+        "spend": 100
+      },
+      "result": {
+        "primary": {
+          "label": "ROI рекламы",
+          "value": "-99,00 %"
+        },
+        "secondary": [
+          {
+            "label": "ROAS",
+            "value": "0,01 : 1",
+            "accent": "red"
+          },
+          {
+            "label": "Прибыль кампании",
+            "value": "-99 ₽",
+            "accent": "red"
+          },
+          {
+            "label": "Расходы на кампанию",
+            "value": "100 ₽"
+          }
+        ]
+      }
+    },
+    {
+      "id": "aov",
+      "inputs": {
+        "revenue": true,
+        "orders": 1
+      },
+      "result": {
+        "primary": {
+          "label": "Средний чек",
+          "value": "1 ₽"
+        },
+        "secondary": [
+          {
+            "label": "Выручка",
+            "value": "1 ₽"
+          },
+          {
+            "label": "Заказов",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "day-of-week",
+      "inputs": {
+        "date": "2024-12-31"
+      },
+      "result": {
+        "primary": {
+          "label": "День недели",
+          "value": "вторник"
+        },
+        "secondary": [
+          {
+            "label": "День года",
+            "value": "366"
+          },
+          {
+            "label": "Номер недели ISO",
+            "value": "53"
+          },
+          {
+            "label": "Дней в году",
+            "value": "366"
+          },
+          {
+            "label": "Выходной",
+            "value": "Нет",
+            "accent": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "id": "day-of-week",
+      "inputs": {
+        "date": "2023-01-01"
+      },
+      "result": {
+        "primary": {
+          "label": "День недели",
+          "value": "воскресенье"
+        },
+        "secondary": [
+          {
+            "label": "День года",
+            "value": "1"
+          },
+          {
+            "label": "Номер недели ISO",
+            "value": "последняя неделя предыдущего года"
+          },
+          {
+            "label": "Дней в году",
+            "value": "365"
+          },
+          {
+            "label": "Выходной",
+            "value": "Да",
+            "accent": "green"
+          }
+        ]
+      }
+    },
+    {
+      "id": "difference-abs-rel",
+      "inputs": {
+        "from": true,
+        "to": 5
+      },
+      "result": {
+        "primary": {
+          "label": "Абсолютная разница",
+          "value": "4"
+        },
+        "secondary": [
+          {
+            "label": "Относительная разница",
+            "value": "400,00 %",
+            "accent": "green"
+          },
+          {
+            "label": "Было",
+            "value": "1"
+          },
+          {
+            "label": "Стало",
+            "value": "5"
+          },
+          {
+            "label": "Направление",
+            "value": "Рост"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dividend-yield",
+      "inputs": {
+        "dividend": 12,
+        "price": 200,
+        "shares": -2
+      },
+      "result": {
+        "primary": {
+          "label": "Дивидендная доходность",
+          "value": "6,00 %"
+        },
+        "secondary": [
+          {
+            "label": "Дивиденд на акцию за год",
+            "value": "12 ₽"
+          }
+        ]
+      }
+    },
+    {
+      "id": "logarithm",
+      "inputs": {
+        "mode": "typo",
+        "value": 100
+      },
+      "result": {
+        "primary": {
+          "label": "Логарифм",
+          "value": "2"
+        },
+        "secondary": [
+          {
+            "label": "Запись",
+            "value": "log(100) по основанию 10 = 2"
+          },
+          {
+            "label": "Проверка возведением",
+            "value": "10 в степени 2 = 100"
+          },
+          {
+            "label": "Натуральный логарифм",
+            "value": "4,605170"
+          }
+        ]
+      }
+    },
+    {
+      "id": "return-rate",
+      "inputs": {
+        "returns": 0,
+        "orders": true
+      },
+      "result": {
+        "primary": {
+          "label": "Доля возвратов",
+          "value": "0,00 %"
+        },
+        "secondary": [
+          {
+            "label": "Оставлено покупателями",
+            "value": "100,00 %",
+            "accent": "green"
+          },
+          {
+            "label": "Возвратов",
+            "value": "0"
+          },
+          {
+            "label": "Всего заказов",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "revenue-per-employee",
+      "inputs": {
+        "revenue": "garbage",
+        "employees": 2
+      },
+      "result": {
+        "primary": {
+          "label": "Выручка на сотрудника",
+          "value": "0 ₽"
+        },
+        "secondary": [
+          {
+            "label": "Выручка",
+            "value": "0 ₽"
+          },
+          {
+            "label": "Сотрудников",
+            "value": "2"
+          },
+          {
+            "label": "В месяц на сотрудника",
+            "value": "0 ₽"
+          }
+        ]
+      }
+    },
+    {
+      "id": "roi",
+      "inputs": {
+        "received": 130000,
+        "invested": 100000,
+        "extra": -5000
+      },
+      "result": {
+        "primary": {
+          "label": "ROI",
+          "value": "30,00 %"
+        },
+        "secondary": [
+          {
+            "label": "Прибыль",
+            "value": "30 000 ₽",
+            "accent": "green"
+          },
+          {
+            "label": "Всего вложено",
+            "value": "100 000 ₽"
+          },
+          {
+            "label": "Получено",
+            "value": "130 000 ₽"
+          }
+        ]
+      }
+    },
+    {
+      "id": "shipping-per-unit",
+      "inputs": {
+        "shipping": 100,
+        "units": 5,
+        "packaging": -25
+      },
+      "result": {
+        "primary": {
+          "label": "Доставка на единицу",
+          "value": "20 ₽"
+        },
+        "secondary": [
+          {
+            "label": "Всего логистики",
+            "value": "100 ₽"
+          },
+          {
+            "label": "Единиц в партии",
+            "value": "5"
+          }
+        ]
+      }
+    }
+  ],
+  "intentionalMetadataChanges": {
+    "ad-roi": [
+      "shortDescription",
+      "seoDescription"
+    ],
+    "day-of-week": [
+      "seoDescription"
+    ],
+    "difference-abs-rel": [
+      "seoDescription"
+    ],
+    "dividend-yield": [
+      "shortDescription"
+    ],
+    "return-rate": [
+      "seoDescription"
+    ],
+    "revenue-per-employee": [
+      "shortDescription",
+      "seoDescription"
+    ]
+  },
+  "perCalculator": {
+    "ad-roi": {
+      "decision": "PRESERVE_FORMULAS_FIX_VALIDATION_AND_PROFIT_CLAIM",
+      "contract": "ROI=(revenue-adSpend)/adSpend*100; ROAS=revenue/adSpend; revenue>=0, adSpend>0, both finite real numbers. These are advertising-only costs, not full business profit.",
+      "fixes": [
+        "Boolean/malformed/nonfinite required fields now error rather than coercion/defaults. Negative revenue rejected. Overflow errors explicitly.",
+        "Renamed revenue-minus-ad-spend result so it no longer claims net campaign profit. Corrected gross revenue input, attribution, margin and break-even distinctions."
+      ],
+      "independentExamples": [
+        "200000 revenue/50000 ad spend => 300% ROI, 4:1 ROAS, 150000 revenue-minus-ads",
+        "Revenue 0 => -100% and 0:1; equality => 0% and 1:1",
+        "20% contribution before ads on 200000 revenue gives 40000; subtracting 50000 ads gives -10000 despite displayed positive simplified ROI"
+      ],
+      "remainingHumanChecks": [
+        "Confirm product terminology for simplified advertising ROI and review attribution wording."
+      ]
+    },
+    "aov": {
+      "decision": "PRESERVE_DIVISION_FIX_VALIDATION_AND_FREE_GROWTH_CLAIM",
+      "contract": "revenue>=0 divided by positive safe whole order count; same revenue/order cohort and accounting basis.",
+      "fixes": [
+        "Reject active booleans, malformed/nonfinite values and unsafe counts.",
+        "Removed claims that larger baskets are free to obtain or necessarily more profitable; preserved subject FAQs on refunds, delivery and whole orders."
+      ],
+      "independentExamples": [
+        "250000/200=1250",
+        "0/200=0; orders=0 and orders=2.5 invalid"
+      ],
+      "remainingHumanChecks": [
+        "Review order/revenue accounting conventions for intended merchant audience."
+      ]
+    },
+    "day-of-week": {
+      "decision": "FIX_CONFIRMED_ISO_YEAR_BOUNDARIES_AND_CALENDAR_PARSER",
+      "contract": "Valid four-digit Gregorian date, year1..9999; weekday and ordinal independent of timezone; Monday ISO weeks use the Thursday week-year; weekend means Saturday/Sunday.",
+      "fixes": [
+        "2024-12-31 was week53, now ISO2025-W01. 2023-01-01 placeholder now numeric ISO2022-W52.",
+        "Added separate localized ISO week-year result. UTC calendar components avoid local DST/whole-day omissions and JS1900 offset for years1..99.",
+        "Clarified historical Gregorian projection without automatic Julian/country transition conversion and weekend without legal holiday calendar."
+      ],
+      "independentExamples": [
+        "Python datetime.isocalendar: 2018-12-31=2019-W01-1; 2024-12-31=2025-W01-2; 2021-01-01=2020-W53-5; 2023-01-01=2022-W52-7",
+        "2024-02-29 Thursday ordinal60 ISO2024-W09; 1900/2100 not leap; 2000 leap",
+        "0001-01-01 Monday ISO1-W01; 0099-12-31 Thursday ISO99-W53; 9999-12-31 Friday ISO9999-W52",
+        "2011-12-30 Friday Gregorian date; old local shared parser rejected it in Pacific/Apia"
+      ],
+      "remainingHumanChecks": [
+        "Native date widget browser review for early years and timezone transition dates in all published locales.",
+        "Human review of Gregorian historical-calendar limitation and weekend description."
+      ]
+    },
+    "difference-abs-rel": {
+      "decision": "PRESERVE_SIGNED_DIFFERENCE_CONVENTION_FIX_VALIDATION_AND_CLARITY",
+      "contract": "delta=to-from (signed unit difference); relative=delta/abs(from)*100 when from!=0; at zero only the unit difference exists.",
+      "fixes": [
+        "Reject malformed/boolean/nonfinite inputs and overflow.",
+        "Preserved negative-base semantics rather than substituting percentage-calculator denominator; made signed meaning explicit in steps, limitation and metadata."
+      ],
+      "independentExamples": [
+        "120->150 = +30 and +25%; reverse150->120 = -30 and -20%",
+        "-50->50 = +100 and +200%; 0->5 = +5, relative undefined"
+      ],
+      "remainingHumanChecks": [
+        "Confirm established title absolute difference is adequately explained as signed unit difference."
+      ]
+    },
+    "dividend-yield": {
+      "decision": "PRESERVE_ANNUAL_YIELD_AND_FRACTIONAL_SHARES_FIX_OPTIONAL_VALIDATION",
+      "contract": "annualDividend/sharePrice*100; dividend>=0, price>0; optional shares>=0 may be fractional, blank means omit holding. Dividend/price and holding totals must remain finite.",
+      "fixes": [
+        "Negative or malformed optional shares no longer silently omit holding; booleans and nonfinite required inputs error.",
+        "Clarified annual dividend input, current-price vs purchase-cost yield, no live quotes, taxes, capital-gain total return or guaranteed payouts. Removed unsupported empirical high-yield generalisations."
+      ],
+      "independentExamples": [
+        "12/200*100=6%; 2.5 shares => annual30, cost500",
+        "Dividend0=>0%; price0 invalid; blank shares omitted"
+      ],
+      "remainingHumanChecks": [
+        "Human financial review of yield terminology and tax example conventions."
+      ]
+    },
+    "logarithm": {
+      "decision": "PRESERVE_THREE_REAL_LOG_MODES_FIX_ENUM_INPUT_AND_EXTREME_DISPLAY",
+      "contract": "log_b(x)=ln(x)/ln(b), x>0, b>0,b!=1; mode log10/ln/custom only. Fixed modes ignore inactive base.",
+      "fixes": [
+        "Unknown mode no longer silently defaults to log10; strict active numeric guards and explicit overflow/underflow check.",
+        "Valid tiny input no longer rendered falsely as log(0); near-one valid base no longer shown as exactly1.",
+        "Explained positive fractional bases, complex-number exclusion and approximate rounded power check."
+      ],
+      "independentExamples": [
+        "log2(1024)=10; log0.5(4)=-2; log_b(1)=0; log10(1000)=3; ln(e)=1",
+        "x=1e-100 => -100 with scientific notation in the written/check rows",
+        "Fixed-base ln/log10 accept inactive malformed base; custom mode requires valid base"
+      ],
+      "remainingHumanChecks": [
+        "Human mathematical review of rounding/scientific notation wording."
+      ]
+    },
+    "return-rate": {
+      "decision": "PRESERVE_RATE_FIX_VALIDATION_AND_COHORT_SCOPE",
+      "contract": "uniqueReturnedOrders/wholeCohortOrders*100; safe integers 0<=returns<=orders and orders>0. Complement is 100%-rate, not a guarantee no future return will occur.",
+      "fixes": [
+        "Reject boolean/malformed/nonfinite counts and unsafe integers.",
+        "Use matching order cohort rather than mixing sale-month and return-month events; remove unsupported industry normal-rate ranges and universal cause claims."
+      ],
+      "independentExamples": [
+        "45/900=5%, complement95%; 0/900=0%;900/900=100%",
+        "901/900, negatives, fractions and zero orders invalid"
+      ],
+      "remainingHumanChecks": [
+        "Review partial-return policy language and same observation-window advice."
+      ]
+    },
+    "revenue-per-employee": {
+      "decision": "PRESERVE_WHOLE_HEADCOUNT_FIX_FTE_AND_MONTHLY_CLAIMS",
+      "contract": "annualRevenue/positive safe whole employee headcount; monthly average=annual ratio/12; no fractional FTE.",
+      "fixes": [
+        "Reject malformed/nonfinite/boolean inputs and unsafe counts.",
+        "Corrected all-locale FAQ recommending fractional FTE against integer-only form; monthly value is an annual average, not wages/profit/seasonal monthly actual. Removed industry order-of-magnitude generalisation."
+      ],
+      "independentExamples": [
+        "12000000/20=600000 annual, /12=50000 monthly",
+        "Revenue0=>0; employees2.5 rejected without rounding"
+      ],
+      "remainingHumanChecks": [
+        "Review chosen headcount convention explanation; this implementation intentionally keeps existing integer contract."
+      ]
+    },
+    "roi": {
+      "decision": "PRESERVE_TOTAL_COST_FORMULA_FIX_NEGATIVE_OPTIONAL_AND_ANNUALISATION_PROMISE",
+      "contract": "total=invested+extra>0; ROI=(received-total)/total*100; all amounts nonnegative finite; optional blank extra0. Time and intermediate cash flows not modelled.",
+      "fixes": [
+        "Negative/malformed/nonfinite extra no longer silently drops; bool required/optional inputs error; intermediate overflow errors.",
+        "Annualised loss calculation not falsely delegated to a compound tool that rejects negative rates; explicit separate annualisation formula for no intermediate cash flows."
+      ],
+      "independentExamples": [
+        "(130000-105000)/105000*100=23.8095238... =>23.81%, profit25000",
+        "Received0 with total100000=>-100%; invested0 extra50 received100=>100%"
+      ],
+      "remainingHumanChecks": [
+        "Human financial review of investment-basis and annualisation assumptions."
+      ]
+    },
+    "shipping-per-unit": {
+      "decision": "PRESERVE_EQUAL_BATCH_ALLOCATION_FIX_NEGATIVE_OPTIONAL_AND_TARIFF_CLAIMS",
+      "contract": "(wholeBatchShipping+wholeBatchPackaging)/positive safe whole units; costs>=0, optional blank packaging0. No carrier tariff or weight/volume allocation.",
+      "fixes": [
+        "Negative/malformed/nonfinite packaging no longer silently drops; all active booleans error, safe counts and explicit total overflow.",
+        "Corrected universal fixed/variable tariff statements and UK mixed-batch advice to distinguish manual external weighting from equal allocation actually provided."
+      ],
+      "independentExamples": [
+        "(5000+1000)/100=60; without packaging5000/100=50; both0=>0",
+        "Units0, units2.5, negative packaging invalid"
+      ],
+      "remainingHumanChecks": [
+        "Review batch-vs-item packaging wording and mixed-item cost-allocation limitations."
+      ]
+    }
+  },
+  "sources": {
+    "ad-roi": {
+      "file": "src/calculators/ad-roi/methodSources.ts",
+      "reason": "Google Ads defines full ROI with relevant costs; supports stating the narrower boundary here, not claiming this advertising-only model is full net ROI."
+    },
+    "day-of-week": {
+      "file": "src/calculators/day-of-week/methodSources.ts",
+      "reason": "Python official docs describe ISO first-Thursday and separate ISO week-year; independent oracle used."
+    },
+    "dividend-yield": {
+      "file": "src/calculators/dividend-yield/methodSources.ts",
+      "reason": "FINRA explains annual dividend/price yield and that dividends may be cut; educational information, not globally normative financial law."
+    }
+  },
+  "faqCoverage": "All50 published URLs retain at least4 specific subject questions; existing useful questions remain, inaccurate answers amended.",
+  "verification": {
+    "focusedCompute": {
+      "status": "PASS",
+      "tests": 35,
+      "file": "tests/businessMathContracts.test.ts",
+      "includes": "Independent algebra, all9 numeric engines malformed/boolean/nonfinite guards;13 Python-calendar oracle dates; UTC/Kyiv/NewYork/Apia agreement for date-only compute and owned validator."
+    },
+    "renderingData": {
+      "status": "PASS",
+      "tests": 300,
+      "file": "tests/businessMathContent.test.ts",
+      "includes": "All50 actual getCalculatorById versions: structural baseline preservation, authored SEO, FAQ coverage, numeric prose claims and corresponding publishedExample engine scenarios, source boundary, actual runtime localized input/new optional-negative errors."
+    },
+    "browser": {
+      "status": "PENDING_ROOT_GROUP_CHECK",
+      "boundary": "Source/rendering-data tests do not certify built HTML, actual native date widgets or production."
+    },
+    "human": {
+      "status": "NOT_PERFORMED"
+    },
+    "production": {
+      "status": "NOT_DEPLOYED"
+    },
+    "typecheck": {
+      "status": "PASS",
+      "command": "npm run typecheck"
+    },
+    "ownedLegacyReferences": {
+      "status": "PASS",
+      "tests": 70,
+      "suite": "tests/platform/referenceCases.test.ts filtered to the10 owned canonicalIDs",
+      "unchanged": "All previous valid numeric assertions preserved except the explicitly strengthened incorrect ISO placeholder; other changes were semantic reference names/comments."
+    },
+    "globalLegacyGuardObservation": {
+      "status": "ONE_OUT_OF_SCOPE_FAILURE",
+      "passed": 2203,
+      "failed": 1,
+      "failure": "barbell-plates empty-bar reference expected dash but current compute returns Без дополнительных блинов; reported to root/physics owner, no fixture edited by this agent."
+    },
+    "formDateIntegration": {
+      "status": "PASS_REPORTED_BY_ROOT",
+      "tests": 41,
+      "file": "tests/originalityCalendarIntegration.test.ts",
+      "implementation": "Root added optional runtime.validateDate; only day-of-week declares UTC calendar validity. The shared local parseIsoDate and other date calculators retain their previous validation."
+    }
+  },
+  "allPagesVerified": false,
+  "integration": {
+    "ownedSeoPriority": "Root integrated all10 IDs; actual rendered equality covered in300 focused tests.",
+    "sources": "Root integrated3 owned methodSources mappings, only sources supporting these specific model boundaries.",
+    "newResultsAndErrors": "Owned localization for ISO week-year, revenue-minus-ad-spend, negative revenue/shares/ROI amounts/packaging. Existing generic finite/mode/precision errors reused.",
+    "dateUi": "Root integrated narrow date validation hook; other calculators untouched."
+  },
+  "sourceFreezeNote": "No new subject source edits after completion of these10. Subsequent business/finance/date findings are read-only and remain outside this reviewed group. Separate health source-label localization authorized by root does not alter these engines/copies."
+}

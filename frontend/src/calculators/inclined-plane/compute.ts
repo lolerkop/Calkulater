@@ -9,22 +9,22 @@ import { formatMeasure, sinDegrees } from '../../lib/platform/measurement';
 // же выпущенным помощником с его порогом машинного нуля, чтобы на вертикали
 // нормальная сила выходила РОВНО нулевой, а не 6·10⁻¹⁷.
 //
-// Равнодействующая считается как скатывающая минус трение и может выйти
-// ОТРИЦАТЕЛЬНОЙ: это означает, что трения хватает и тело стоит. Гасить знак
-// нулём было бы удобнее на вид, но скрыло бы запас устойчивости — по модулю
-// отрицательной равнодействующей видно, насколько склон далёк от срыва.
+// Направление вниз положительно. Модель описывает УЖЕ скользящее вниз тело
+// и коэффициент трения скольжения. Отрицательные сила и ускорение означают
+// замедление до остановки, а не трение покоя или запас устойчивости.
 const G = 9.80665;
 const MAX_ANGLE = 90;
 
 export const compute: CalcFunction = (inputs) => {
-  const m = toNumber(inputs.m);
-  const angle = toNumber(inputs.angle);
-  const mu = toNumber(inputs.mu);
+  const m = toNumber(inputs.m, Number.NaN);
+  const angle = toNumber(inputs.angle, Number.NaN);
+  const mu = toNumber(inputs.mu, Number.NaN);
   const fail = (message: string) => ({
     primary: { label: 'Скатывающая сила', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (['m', 'angle', 'mu'].some((key) => typeof inputs[key] === 'boolean') || ![m, angle, mu].every(Number.isFinite)) return fail('Введите конечные числа для выбранного режима');
   if (!(m > 0)) return fail('Масса должна быть больше нуля');
   if (!(angle >= 0) || !(angle <= MAX_ANGLE)) return fail('Угол наклона задаётся от 0 до 90 градусов');
   if (!(mu >= 0)) return fail('Коэффициент трения не может быть отрицательным');
@@ -34,6 +34,7 @@ export const compute: CalcFunction = (inputs) => {
   const normal = weight * sinDegrees(MAX_ANGLE - angle);
   const friction = mu * normal;
   const net = along - friction;
+  if (![along, normal, friction, net, net / m].every(Number.isFinite)) return fail('Результат выходит за числовой диапазон');
   const measure = (value: number, unit: string) => `${formatMeasure(value, fmtNumber)} ${unit}`;
 
   return {

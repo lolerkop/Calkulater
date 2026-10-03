@@ -1,3 +1,4 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 const RESULTS_EN = {
@@ -16,11 +17,11 @@ const RESULTS_UK = {
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'wall_area': 'Wandfläche, m²',
-      'board_len': 'Brettlänge, m',
-      'board_width': 'Brettbreite, m',
-      'overlap': 'Überlappung, m',
-      'waste': 'Zuschnittverlust, %',
+      'wall_area': "Wandfläche",
+      'board_len': "Brettlänge",
+      'board_width': "Brettbreite",
+      'overlap': "Überlappung",
+      'waste': "Zuschnittverlust",
     },
     results: {
       'Досок': 'Bretter',
@@ -43,8 +44,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      wall_area: 'Wall area, m²', board_len: 'Board length, m', board_width: 'Board width, m',
-      overlap: 'Overlap, m', waste: 'Cutting waste, %',
+      wall_area: "Wall area", board_len: "Board length", board_width: "Board width",
+      overlap: "Overlap", waste: "Cutting waste",
     },
     options: {},
     results: RESULTS_EN,
@@ -58,8 +59,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      wall_area: 'Площа стіни, м²', board_len: 'Довжина дошки, м', board_width: 'Ширина дошки, м',
-      overlap: 'Нахлест, м', waste: 'Запас на підрізання, %',
+      wall_area: "Площа стіни", board_len: "Довжина дошки", board_width: "Ширина дошки",
+      overlap: "Нахлест", waste: "Запас на підрізання",
     },
     options: {},
     results: RESULTS_UK,
@@ -73,11 +74,11 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "wall_area": "Superficie de la pared, m²",
-      "board_len": "Largo de la tabla, m",
-      "board_width": "Ancho de la tabla, m",
-      "overlap": "Solape, m",
-      "waste": "Merma de corte, %",
+      "wall_area": "Superficie de la pared",
+      "board_len": "Largo de la tabla",
+      "board_width": "Ancho de la tabla",
+      "overlap": "Solape",
+      "waste": "Merma de corte",
     },
     options: {},
     results: {
@@ -100,3 +101,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

@@ -1,6 +1,7 @@
+import { automotiveMessages } from '../engine-displacement/automotiveMessages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
-export const localization: CalculatorLocalization = {
+const originalLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'price': 'Kaufpreis, €',
@@ -18,8 +19,8 @@ export const localization: CalculatorLocalization = {
     values: {
       'Цена покупки должна быть больше нуля': 'Der Kaufpreis muss größer als null sein',
       'Срок владения не может быть отрицательным': 'Die Besitzdauer kann nicht negativ sein',
-      'Ставка потери должна быть от нуля до ста процентов': 'Der Verlustsatz muss zwischen null und hundert Prozent liegen',
-      'Потеря за первый год должна быть от нуля до ста процентов': 'Der Verlust im ersten Jahr muss zwischen null und hundert Prozent liegen',
+      'Годовая ставка должна быть от 0 включительно до 100 % исключительно': 'Der Jahressatz muss mindestens 0 % und kleiner als 100 % sein',
+      'Потеря за первый год должна быть от 0 включительно до 100 % исключительно': 'Der Verlust im ersten Jahr muss mindestens 0 % und kleiner als 100 % sein',
     },
   },
   en: {
@@ -39,8 +40,8 @@ export const localization: CalculatorLocalization = {
     values: {
       'Цена покупки должна быть больше нуля': 'The purchase price must be greater than zero',
       'Срок владения не может быть отрицательным': 'The ownership period cannot be negative',
-      'Ставка потери должна быть от нуля до ста процентов': 'The loss rate must be between zero and one hundred per cent',
-      'Потеря за первый год должна быть от нуля до ста процентов': 'The first-year loss must be between zero and one hundred per cent',
+      'Годовая ставка должна быть от 0 включительно до 100 % исключительно': 'The annual rate must be at least 0% and less than 100%',
+      'Потеря за первый год должна быть от 0 включительно до 100 % исключительно': 'The first-year loss must be at least 0% and less than 100%',
     },
   },
   uk: {
@@ -60,8 +61,8 @@ export const localization: CalculatorLocalization = {
     values: {
       'Цена покупки должна быть больше нуля': 'Ціна купівлі має бути більшою за нуль',
       'Срок владения не может быть отрицательным': 'Строк володіння не може бути від’ємним',
-      'Ставка потери должна быть от нуля до ста процентов': 'Ставка втрати має бути від нуля до ста відсотків',
-      'Потеря за первый год должна быть от нуля до ста процентов': 'Втрата за перший рік має бути від нуля до ста відсотків',
+      'Годовая ставка должна быть от 0 включительно до 100 % исключительно': 'Річна ставка має бути від 0 включно до 100 % виключно',
+      'Потеря за первый год должна быть от 0 включительно до 100 % исключительно': 'Втрата за перший рік має бути від 0 включно до 100 % виключно',
     },
   },
   es: {
@@ -82,8 +83,12 @@ export const localization: CalculatorLocalization = {
     values: {
       "Цена покупки должна быть больше нуля": "El precio de compra debe ser mayor que cero",
       "Срок владения не может быть отрицательным": "El periodo de propiedad no puede ser negativo",
-      "Ставка потери должна быть от нуля до ста процентов": "La tasa de pérdida debe estar entre cero y cien por ciento",
-      "Потеря за первый год должна быть от нуля до ста процентов": "La pérdida del primer año debe estar entre cero y cien por ciento",
+      "Годовая ставка должна быть от 0 включительно до 100 % исключительно": "La tasa anual debe ser al menos del 0 % y menor del 100 %",
+      "Потеря за первый год должна быть от 0 включительно до 100 % исключительно": "La pérdida del primer año debe ser al menos del 0 % y menor del 100 %",
     },
   },
 };
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(originalLocalization).map(([locale, bundle]) => [locale, { ...bundle, values: { ...bundle.values, ...automotiveMessages[locale as keyof typeof automotiveMessages] } }]),
+);

@@ -24,7 +24,7 @@ const stateScenarios: Record<string, StateScenario> = {
   'arpu-arppu': { query: { revenue: 1200000, users: 40000, payingUsers: 5200 }, result: { primary: '30,00 ₽', rows: [{ label: 'ARPPU', value: '230,77 ₽' }, { label: 'Доля платящих', value: '13,00%' }, { label: 'Выручка', value: '1 200 000,00 ₽' }] } },
   'bakers-percentage': { query: { flour: 900, ingredients: 'water 72\nsalt 2\nyeast 0.8' }, result: { primary: '1 573,2 г', rows: [{ label: 'Гидратация', value: '72,00%' }, { label: 'Мука', value: '900 г' }] } },
   'churn-retention': { query: { startCustomers: 4200, lost: 315, gained: 210 }, result: { primary: '7,50%', rows: [{ label: 'Удержание', value: '92,50%' }, { label: 'Клиентов на конец', value: '4 095' }, { label: 'Чистый прирост', value: '-2,50%' }] } },
-  'color-convert': { query: { hex: '#F0A' }, result: { primary: 'rgb(255, 0, 170)', rows: [{ label: 'HSL', value: 'hsl(320, 100,00%, 50,00%)' }, { label: 'HEX', value: '#FF00AA' }, { label: 'Яркость', value: '50,00' }] } },
+  'color-convert': { query: { hex: '#F0A' }, result: { primary: 'rgb(255, 0, 170)', rows: [{ label: 'HSL', value: 'hsl(320, 100.00%, 50.00%)' }, { label: 'HEX', value: '#FF00AA' }, { label: 'Яркость', value: '50,00' }] } },
   'conversion-rate': { query: { visitors: 1500, conversions: 27, cost: 45000 }, result: { primary: '1,80%', rows: [{ label: 'Конверсий', value: '27' }, { label: 'Визитов', value: '1 500' }, { label: 'Цена конверсии', value: '1 666,67 ₽' }] } },
   'convert-fuel-economy': { query: { value: 35, fromUnit: 'mpgus', toUnit: 'l100km' }, result: { primary: '6,72', rows: [{ label: 'В л/100 км', value: '6,72' }, { label: 'В км/л', value: '14,88' }, { label: 'В mpg Великобритании', value: '42,033' }] } },
   'dca': { query: { monthly: 5000, months: 24, priceGrowthPct: -1, startPrice: 200 }, result: { primary: '107 160,93 ₽', rows: [{ label: 'Вложено всего', value: '120 000,00 ₽' }, { label: 'Куплено единиц', value: '675,14' }, { label: 'Средняя цена', value: '177,74 ₽' }] } },
@@ -77,30 +77,31 @@ const stateScenarios: Record<string, StateScenario> = {
   'slab-foundation': { query: { length: 12, width: 9, thickness: 0.25, meshStep: 0.25, rebarDiameter: 14, waste: 7 }, result: { primary: '28,89 м³', rows: [{ label: 'Площадь плиты', value: '108 м²' }, { label: 'Чистый объём', value: '27 м³' }, { label: 'Вес арматуры', value: '2 138,89 кг' }] } },
   // Волна 19, партия B1. Ожидаемые значения выведены независимой моделью
   // Phase 19P (refmodel.py) на НЕумолчальных входах:
-  //   медь 0,0175: R = 0,0175·35/4 = 0,1531 Ом; три фазы -> √3·0,1531·25 = 6,631 В
+  //   медь 0,0175: Rжилы = 0,0175·35/4 = 0,153125 Ом;
+  //   три фазы -> ΔU = √3·R·25 = 6,631 В, потери трёх жил = 3·25²·R = 287,11 Вт
   //   берёза при 18 %: 650 × 1,06 = 689 кг/м³, ×3,2 м³ = 2204,8 кг
   //   (26/0,2 + 6/0,15) × 1,08 = (130 + 40) × 1,08 = 183,6 м, петель 2
   //   24 × 200 / 0,85 = 5647,06 лм; ламп ⌈5647,06/1500⌉ = 4
   //   58 × 2 × 1,08 = 125,28 м²; лист 3×1,2 = 3,6; ⌈125,28/3,6⌉ = 35 листов
   //   ⌈4,2/3,5⌉ = 2 полосы × 6,5 × 1,07 = 13,91 погонных метра
-  'voltage-drop': { query: { current: 25, length: 35, section: 4, material: 'copper', phase: 'three', voltage: 400 }, result: { primary: '6,631 В', rows: [{ label: 'Напряжение у нагрузки', value: '393,37 В' }, { label: 'Сопротивление линии', value: '0,1531 Ом' }, { label: 'Потери мощности', value: '165,76 Вт' }] } },
+  'voltage-drop': { query: { current: 25, length: 35, section: 4, material: 'copper', phase: 'three', voltage: 400 }, result: { primary: '6,631 В', rows: [{ label: 'Напряжение у нагрузки', value: '393,37 В' }, { label: 'Сопротивление одной жилы', value: '0,1531 Ом' }, { label: 'Потери мощности', value: '287,11 Вт' }] } },
   'wood-weight': { query: { volume: 3.2, species: 'birch', moisture: 18 }, result: { primary: '2 204,8 кг', rows: [{ label: 'Плотность при заданной влажности', value: '689 кг/м³' }, { label: 'Базовая плотность при 12 %', value: '650 кг/м³' }, { label: 'Объём', value: '3,2 м³' }] } },
   'underfloor-heating': { query: { area: 32, step: 0.2, loopMax: 100, edgeZone: 6, edgeStep: 0.15, waste: 8 }, result: { primary: '183,6 м', rows: [{ label: 'Петель', value: '2' }, { label: 'На петлю', value: '91,8 м' }, { label: 'Краевая зона', value: '6 м²' }] } },
   'lighting': { query: { area: 24, norm: 200, lampLumens: 1500, lossFactor: 0.85 }, result: { primary: '5 647,06 лм', rows: [{ label: 'Ламп', value: '4' }, { label: 'Люмен на квадратный метр', value: '235,29' }, { label: 'Установленный поток', value: '6 000 лм' }] } },
-  'drywall': { query: { area: 58, sheetLength: 3, sheetWidth: 1.2, layers: 2, profileStep: 0.4, waste: 8 }, result: { primary: '35', rows: [{ label: 'С запасом', value: '125,28 м²' }, { label: 'Площадь листа', value: '3,6 м²' }, { label: 'Саморезов', value: '4 200' }] } },
+  'drywall': { query: { area: 58, sheetLength: 3, sheetWidth: 1.2, layers: 2, profileStep: 0.4, waste: 8 }, result: { primary: '35', rows: [{ label: 'С запасом', value: '125,28 м²' }, { label: 'Площадь листа', value: '3,6 м²' }, { label: 'Саморезов', value: '2 100' }] } },
   'linoleum': { query: { length: 6.5, width: 4.2, rollWidth: 3.5, reserve: 7 }, result: { primary: '13,91 м', rows: [{ label: 'Полос', value: '2' }, { label: 'Площадь пола', value: '27,3 м²' }, { label: 'Швов', value: '1' }] } },
   // Волна 19, партия B2. Ожидаемые значения выведены независимой моделью
   // Phase 19P (refmodel.py) на НЕумолчальных входах:
   //   ⌈64/3⌉ = 22 секции, столбов 22 + 1 + 2 ворот = 25; фактический шаг 2,909
   //   95/0,4 × 1,12 = 266 м; брусков ⌈266/4,5⌉ = 60
   //   свая π·0,175²·2,2 = 0,2117 м³, ×20 = 4,233; ростверк 44·0,5·0,5 = 11
-  //   женщина 172 см: дюймов свыше пяти футов 7,717; среднее четырёх 62,859
-  //   102/183 = 0,5574 — повышенный; 4,5 мкЗв = 4500 нЗв
+  //   женщина 172 см: дюймов свыше пяти футов 7,716535; Hamwi в lb × 0,45359237; среднее 62,955169
+  //   102/183 = 0,5574 — повышенное центральное жироотложение (0,5 ≤ r < 0,6); 4,5 мкЗв = 4500 нЗв
   'fence': { query: { length: 64, span: 3, height: 2, rails: 3, gates: 2 }, result: { primary: '25', rows: [{ label: 'Секций', value: '22' }, { label: 'Метров лаг', value: '198' }, { label: 'Фактический шаг столбов', value: '2,909 м' }] } },
   'roof-battens': { query: { area: 95, step: 0.4, battenLength: 4.5, sectionWidth: 40, sectionHeight: 60, waste: 12 }, result: { primary: '266 м', rows: [{ label: 'Брусков', value: '60' }, { label: 'Объём древесины', value: '0,6384 м³' }, { label: 'Метров на квадратный метр', value: '2,5' }] } },
   'pile-foundation': { query: { count: 20, diameter: 0.35, depth: 2.2, grillageLength: 44, grillageWidth: 0.5, grillageHeight: 0.5, waste: 8 }, result: { primary: '16,452 м³', rows: [{ label: 'Объём свай', value: '4,233 м³' }, { label: 'Объём ростверка', value: '11 м³' }, { label: 'Объём одной сваи', value: '0,2117 м³' }] } },
-  'ideal-weight': { query: { sex: 'female', height: 172 }, result: { primary: '62,859 кг', rows: [{ label: 'Девайн', value: '63,248 кг' }, { label: 'Миллер', value: '63,594 кг' }, { label: 'Хамви', value: '62,476 кг' }] } },
-  'waist-ratio': { query: { waist: 102, hip: 106, height: 183 }, result: { primary: '0,5574', rows: [{ label: 'Отношение талии к бёдрам', value: '0,9623' }, { label: 'Категория', value: 'повышенный' }, { label: 'Обхват талии', value: '102 см' }] } },
+  'ideal-weight': { query: { sex: 'female', height: 172 }, result: { primary: '62,955 кг', rows: [{ label: 'Девайн', value: '63,248 кг' }, { label: 'Миллер', value: '63,594 кг' }, { label: 'Хамви', value: '62,86 кг' }] } },
+  'waist-ratio': { query: { waist: 102, hip: 106, height: 183 }, result: { primary: '0,5574', rows: [{ label: 'Отношение талии к бёдрам', value: '0,9623' }, { label: 'Категория', value: 'центральное жироотложение: повышено (0,5 ≤ r < 0,6)' }, { label: 'Обхват талии', value: '102 см' }] } },
   'convert-radiation': { query: { value: 4.5, from: 'uSv', to: 'nSv' }, result: { primary: '4 500', rows: [{ label: 'Исходное значение', value: '4,5' }, { label: 'Соотношение', value: '1 000' }] } },
   // Волна 5, батч B3 — подсеть, средний балл, корреляция и молярная масса.
   // Ожидаемые значения выведены вручную:
@@ -110,7 +111,7 @@ const stateScenarios: Record<string, StateScenario> = {
   //   Na2CO3 = 2·22,990 + 12,011 + 3·15,999 = 105,988 г/моль
   // Текстовые наборы намеренно многострочные: перенос обязан пережить URL и сброс.
   'ipv4-subnet': { query: { address: '172.16.34.200', prefix: 26 }, result: { primary: '172.16.34.192', rows: [{ label: 'Маска подсети', value: '255.255.255.192' }, { label: 'Узлов в сети', value: '62' }] } },
-  'gpa': { query: { grades: '4,5 6\n3 2\n5' }, result: { primary: '4,2222', rows: [{ label: 'Сумма кредитов', value: '9' }, { label: 'Предметов', value: '3' }] } },
+  'gpa': { query: { grades: '4,5 6\n3 2\n5' }, result: { primary: '4,2222', rows: [{ label: 'Сумма весов', value: '9' }, { label: 'Предметов', value: '3' }] } },
   'correlation': { query: { xs: '2 4 6 8 10 12', ys: '1 3 2 5 4 7' }, result: { primary: '0,8908', rows: [{ label: 'Пар значений', value: '6' }, { label: 'Наклон линии', value: '0,5143' }] } },
   'molar-mass': { query: { formula: 'Na2CO3' }, result: { primary: '105,988 г/моль', rows: [{ label: 'Атомов всего', value: '6' }, { label: 'Элементов', value: '3' }] } },
   // Волна 5, батч B2 — часовые пояса, пульсовые зоны и два текстовых счётчика.
@@ -121,7 +122,7 @@ const stateScenarios: Record<string, StateScenario> = {
   //   54 символа с пробелами, 47 без, два предложения, два абзаца
   // Текстовые наборы намеренно многострочные: перенос обязан пережить URL и сброс.
   'timezone-difference': { query: { fromOffset: -3, toOffset: 5.5, hour: 8, minute: 15 }, result: { primary: '16:45', rows: [{ label: 'Разница', value: '8,5 ч' }, { label: 'Календарный день', value: 'те же сутки' }] } },
-  'max-heart-rate': { query: { age: 50, formula: 'gulati', restingHr: 48 }, result: { primary: '162 уд/мин', rows: [{ label: 'Резерв сердца', value: '114 уд/мин' }, { label: 'Аэробная зона 70–80 %', value: '128–139 уд/мин' }] } },
+  'max-heart-rate': { query: { age: 50, formula: 'gulati', restingHr: 48 }, result: { primary: '162 уд/мин', rows: [{ label: 'Резерв сердца', value: '114 уд/мин' }, { label: 'Диапазон 70–80 %', value: '128–139 уд/мин' }] } },
   'text-reading-time': { query: { mode: 'text', text: 'Первая строка теста для проверки.\nВторая строка здесь!', wpm: 150, speechWpm: 110 }, result: { primary: '0 мин 3 с', rows: [{ label: 'Время вслух', value: '0 мин 4 с' }, { label: 'Слов', value: '8' }] } },
   'text-word-char-count': { query: { text: 'Первая строка теста для проверки.\nВторая строка здесь!' }, result: { primary: '8', rows: [{ label: 'Символов с пробелами', value: '54' }, { label: 'Абзацев', value: '2' }] } },
   // Волна 5, батч B1 — риск/прибыль, доверительный интервал, биномиальная вероятность и обмен.
@@ -138,13 +139,13 @@ const stateScenarios: Record<string, StateScenario> = {
   'currency-exchange-fee': { query: { direction: 'buy', amount: 250000, rate: 88.4, spreadPct: 1.2, feePct: 0.8, feeFixed: 300 }, result: { primary: '2 768,84 ед. валюты', rows: [{ label: 'Курс с учётом спреда', value: '89,4608' }, { label: 'Фиксированный сбор', value: '3,35 ед. валюты' }] } },
   // Волна 5, батч A3 — активность, разварка, смены и размер позиции.
   // Ожидаемые значения выведены вручную:
-  //   бег MET 9,8: 9,8 × 3,5 × 82 / 200 = 14,063 в минуту; × 30 = 421,89 -> 422
+  //   Compendium2024, код12050: MET9,3; 9,3 × 3,5 × 82 / 200 = 13,3455 в минуту; ×30 = 400,365 -> 400; ×60 = 800,73 -> 801
   //   900 г готового / 2,2 = 409,0909… г сухого
   //   8:30–17:15 = 525 мин; минус 45 -> 480 мин = 8 ч; × 18 = 144 ч
   //   250 000 × 1,5 % = 3750; |480 − 460| = 20; 3750 / 20 = 187,5 -> целых 187
   // Наборы намеренно отличаются от значений по умолчанию: контракт reset
   // проверяет, что сброс возвращает форму к исходному состоянию.
-  'activity-calories': { query: { activity: 'running', weightKg: 82, minutes: 30 }, result: { primary: '422 ккал', rows: [{ label: 'Коэффициент MET', value: '9,8' }, { label: 'Расход в час', value: '844 ккал' }] } },
+  'activity-calories': { query: { activity: 'running', weightKg: 82, minutes: 30 }, result: { primary: '400 ккал', rows: [{ label: 'Коэффициент MET', value: '9,3' }, { label: 'Расход в час', value: '801 ккал' }] } },
   'cooked-weight': { query: { mode: 'cookedToRaw', cooked: 900, factor: 2.2, kcalPer100Raw: 330 }, result: { primary: '409,09 г', rows: [{ label: 'Готовый вес', value: '900 г' }, { label: 'Коэффициент разварки', value: '2,2' }] } },
   'work-hours': { query: { startHour: 8, startMin: 30, endHour: 17, endMin: 15, breakMin: 45, days: 18, ratePerHour: 650 }, result: { primary: '144 ч', rows: [{ label: 'В часах и минутах', value: '8 ч 0 мин' }, { label: 'Длина смены до перерыва', value: '8 ч 45 мин' }] } },
   'position-size': { query: { deposit: 250000, riskPct: 1.5, entry: 480, stop: 460 }, result: { primary: '187,5 шт', rows: [{ label: 'Целых единиц', value: '187 шт' }, { label: 'Сумма риска', value: '3 750,00 ₽' }] } },
@@ -535,7 +536,7 @@ const stateScenarios: Record<string, StateScenario> = {
     },
     result: {
       primary: '1 237 ккал',
-      rows: [{ label: 'Базовый обмен (BMR)', value: '1 289 ккал' }],
+      rows: [{ label: 'Расход энергии в покое (REE)', value: '1 289 ккал' }],
     },
   },
   'running-pace-calculator': {
@@ -822,7 +823,7 @@ const stateScenarios: Record<string, StateScenario> = {
   // проверяет, что сброс возвращает форму к исходному состоянию.
   // У vo2max, rounding, salary-raise и wave выбран НЕ умолчальный режим.
   'vo2max': { query: { mode: 'hr', hrRest: 50, hrMax: 195 }, result: { primary: '59,67 мл/кг/мин', rows: [{ label: 'Метод', value: 'по пульсу' }, { label: 'Пульс покоя', value: '50' }, { label: 'Максимальный пульс', value: '195' }] } },
-  'water-intake': { query: { weight: 90, activityMinutes: 60, hotWeather: 'yes' }, result: { primary: '4,037 л', rows: [{ label: 'Базовая норма', value: '2,97 л' }, { label: 'Надбавка за нагрузку', value: '0,7 л' }, { label: 'Стаканов по 250 мл', value: '16,148' }] } },
+  'water-intake': { query: { weight: 90, activityMinutes: 60, hotWeather: 'yes' }, result: { primary: '4,037 л', rows: [{ label: 'Часть от массы', value: '2,97 л' }, { label: 'Часть от нагрузки', value: '0,7 л' }, { label: 'Эквивалент стаканов по 250 мл', value: '16,148' }] } },
   'overtime': { query: { rate: 900, normalHours: 120, overtimeHours: 20, multiplier: 2 }, result: { primary: '144 000,00 ₽', rows: [{ label: 'Оплата обычных часов', value: '108 000,00 ₽' }, { label: 'Оплата сверхурочных', value: '36 000,00 ₽' }, { label: 'Средняя ставка за час', value: '1 028,57 ₽' }] } },
   'rounding': { query: { value: 12.3401, digits: 2, mode: 'up' }, result: { primary: '12,35', rows: [{ label: 'Исходное значение', value: '12,3401' }, { label: 'Знаков', value: '2' }] } },
   'salary-convert': { query: { amount: 1000, fromPeriod: 'hour', toPeriod: 'day' }, result: { primary: '8 000,00 ₽', rows: [{ label: 'В час', value: '1 000,00 ₽' }, { label: 'В месяц', value: '168 000,00 ₽' }, { label: 'В год', value: '2 016 000,00 ₽' }] } },
@@ -908,11 +909,11 @@ const stateScenarios: Record<string, StateScenario> = {
   //   500 мл пива 5,4 % -> 27 мл спирта -> 21,303 г -> 1,52 единицы по 14 г
   'alcohol-units': { query: { volume_ml: 500, abv: 5.4, standard_g: 14 }, result: { primary: '1,52', rows: [{ label: 'Чистого спирта по массе', value: '21,303 г' }, { label: 'Чистого спирта по объёму', value: '27 мл' }, { label: 'Норма единицы', value: '14 г' }] } },
   //   2400 мм со стойкой 60 при пределе 90: 15 мало (92,5), 16 даёт 84,71
-  'baluster-spacing': { query: { run: 2400, baluster_width: 60, max_gap: 90 }, result: { primary: '16 шт', rows: [{ label: 'Фактический просвет', value: '84,706 мм' }, { label: 'Шаг между осями', value: '146,16 мм' }, { label: 'Просветов', value: '17 шт' }] } },
+  'baluster-spacing': { query: { run: 2400, baluster_width: 60, max_gap: 90 }, result: { primary: '16 шт', rows: [{ label: 'Фактический просвет', value: '84,706 мм' }, { label: 'Шаг между осями', value: '144,71 мм' }, { label: 'Просветов', value: '17 шт' }] } },
   // Волна 21, подпартия 21A1. Значения выведены независимой моделью Phase 21P
   // на НЕумолчальных входах; решаемое поле в набор не входит.
   //   модель 72 мм в масштабе 1:72 -> натура 5184 мм
-  'scale-model': { query: { mode: 'toReal', model: 72, scale: 72 }, result: { primary: '5 184 мм', rows: [{ label: 'Масштаб', value: '1:72' }, { label: 'Размер модели', value: '72 мм' }, { label: 'Натура больше модели во столько раз', value: '72' }] } },
+  'scale-model': { query: { mode: 'toReal', model: 72, scale: 72 }, result: { primary: '5 184 мм', rows: [{ label: 'Масштаб', value: '1:72' }, { label: 'Размер модели', value: '72 мм' }, { label: 'Отношение натуры к модели', value: '72' }] } },
   //   те же долги снежным комом: 27 месяцев против 26 у лавины
   'debt-snowball-avalanche': { query: { debts: 'small 40000 12 2000\nbig 200000 26 6000', extra: 4000, strategy: 'snowball' }, result: { primary: '27 мес', rows: [{ label: 'Переплата процентами', value: '75 082,64 ₽' }, { label: 'Долгов', value: '2' }] } },
   //   2 000 105 -> «два миллиона сто пять», семь знаков в трёх триадах
@@ -943,7 +944,7 @@ const stateScenarios: Record<string, StateScenario> = {
   //   низкая орбита Марса, радиус 3600 км -> 1,82 часа, 13,175 оборота в сутки
   'orbital-period': { query: { mass24: 0.64171, radiusKm: 3600 }, result: { primary: '6 557,85 с', rows: [{ label: 'В часах', value: '1,822 ч' }, { label: 'Орбитальная скорость', value: '3 449,22 м/с' }, { label: 'Оборотов в сутки', value: '13,175' }] } },
   //   тепловой нейтрон 2,2 км/с -> 0,18 нм, порядок межатомных расстояний
-  'de-broglie': { query: { mass27: 1.67492749, velocityKmS: 2.2 }, result: { primary: '1,798·10^-10 м', rows: [{ label: 'Импульс', value: '3,685·10^-24 кг·м/с' }, { label: 'Частота', value: '1,223·10^13 Гц' }, { label: 'В нанометрах', value: '0,1798 нм' }] } },
+  'de-broglie': { query: { mass27: 1.67492749, velocityKmS: 2.2 }, result: { primary: '1,798·10^-10 м', rows: [{ label: 'Импульс', value: '3,685·10^-24 кг·м/с' }, { label: 'Доля скорости света', value: '7,338·10^-6' }, { label: 'В нанометрах', value: '0,1798 нм' }] } },
   //   источник удаляется (-30), наблюдатель догоняет (+25): итог ниже исходной
   'doppler': { query: { f: 1000, vSource: -30, vObserver: 25, c: 343 }, result: { primary: '986,6 Гц', rows: [{ label: 'Сдвиг частоты', value: '-13,405 Гц' }, { label: 'Относительный сдвиг', value: '-1,3405 %' }, { label: 'Скорость волны', value: '343 м/с' }] } },
   //   приближение с 4 м до 1,6 м: рост в 6,25 раза, а не в 2,5
@@ -967,7 +968,7 @@ const stateScenarios: Record<string, StateScenario> = {
   'belt-length': { query: { center: 450, d1: 80, d2: 320 }, result: { primary: "1 560,32 мм", rows: [{ label: "В метрах", value: "1,56 м" }, { label: "Угол обхвата малого шкива", value: "149,07 °" }, { label: "Передаточное отношение", value: "4" }] } },
   // Волна 22, подпартия 22B1.
   'photon-energy': { query: { wavelengthNm: 1064 }, result: { primary: "1,867·10^-19 Дж", rows: [{ label: "В электронвольтах", value: "1,165 эВ" }, { label: "Частота", value: "2,818·10^14 Гц" }, { label: "Волновое число", value: "9 398,5 1/см" }] } },
-  'relativity-dilation': { query: { beta: 0.87, properTime: 3600 }, result: { primary: "7 301,47 с", rows: [{ label: "Множитель Лоренца", value: "2,028" }, { label: "Сокращение длины", value: "49,3052 %" }, { label: "Разница во времени", value: "3 701,47 с" }] } },
+  'relativity-dilation': { query: { beta: 0.87, properTime: 3600 }, result: { primary: "7 301,47 с", rows: [{ label: "Множитель Лоренца", value: "2,028" }, { label: "Длина от собственной", value: "49,3052 %" }, { label: "Разница во времени", value: "3 701,47 с" }] } },
   'water-heating': { query: { volume: 50, tFrom: 5, tTo: 45, power: 3.5, efficiency: 88 }, result: { primary: "0,7551 ч", rows: [{ label: "Часы и минуты", value: "0 ч 45 мин" }, { label: "Энергия", value: "2,326 кВт·ч" }, { label: "Перепад температур", value: "40 К" }] } },
   'air-density': { query: { t: 30, pressure: 980, humidity: 70 }, result: { primary: "1,113 кг/м³", rows: [{ label: "Плотность сухого воздуха", value: "1,126 кг/м³" }, { label: "Давление водяного пара", value: "29,698 гПа" }, { label: "Отклонение от 1,225", value: "-9,1219 %" }] } },
   'pendulum': { query: { length: 2.5, g: 1.62 }, result: { primary: "7,805 с", rows: [{ label: "Частота", value: "0,1281 Гц" }, { label: "Колебаний в минуту", value: "7,687" }, { label: "Длина для периода 1 с", value: "0,041 м" }] } },
@@ -975,7 +976,7 @@ const stateScenarios: Record<string, StateScenario> = {
   // Волна 22, подпартия 22B2.
   'payback-period': { query: { investment: 2500000, cashflow: 450000, rate: 8 }, result: { primary: "5,556 лет", rows: [{ label: "В месяцах", value: "66,667 мес" }, { label: "Дисконтированный срок", value: "7,646 лет" }, { label: "Возврат за простой срок", value: "2 500 000 ₽" }] } },
   'picture-frame-mat': { query: { photoWidth: 13, photoHeight: 18, border: 4, bottomExtra: 1.5 }, result: { primary: "21×27,5 см", rows: [{ label: "Нижнее поле", value: "5,5 см" }, { label: "Верх и бока", value: "4 см" }, { label: "Площадь паспарту", value: "343,5 см²" }] } },
-  'curtain-size': { query: { windowWidth: 220, fullness: 2.5, fabricWidth: 140, height: 230, hem: 30 }, result: { primary: "10,4 м", rows: [{ label: "Полотнищ", value: "4 шт" }, { label: "Ширина в сборке", value: "550 см" }, { label: "Длина отреза", value: "260 см" }] } },
+  'curtain-size': { query: { windowWidth: 220, fullness: 2.5, fabricWidth: 140, height: 230, hem: 30 }, result: { primary: "10,4 м", rows: [{ label: "Полотнищ", value: "4 шт" }, { label: "Ширина ткани до сборки", value: "550 см" }, { label: "Длина отреза", value: "260 см" }] } },
   'lease-payment': { query: { price: 4500000, down: 900000, residualPct: 30, months: 48, rate: 14 }, result: { primary: "75 750 ₽", rows: [{ label: "Амортизационная часть", value: "46 875 ₽" }, { label: "Процентная часть", value: "28 875 ₽" }, { label: "Остаточная стоимость", value: "1 350 000 ₽" }] } },
   'stopping-distance': { query: { speed: 120, reaction: 1.5, mu: 0.55, grade: 3 }, result: { primary: "147,67 м", rows: [{ label: "Путь за время реакции", value: "50 м" }, { label: "Тормозной путь", value: "97,674 м" }, { label: "Замедление", value: "5,688 м/с²" }] } },
   'humidity-convert': { query: { t: 28, rh: 75, pressure: 995 }, result: { primary: "20,398 г/м³", rows: [{ label: "Давление пара", value: "28,347 гПа" }, { label: "Давление насыщения", value: "37,796 гПа" }, { label: "Влагосодержание", value: "18,239 г/кг" }] } },
@@ -992,7 +993,7 @@ const stateScenarios: Record<string, StateScenario> = {
   //   470 мкГн с 22 нФ — середина средневолнового диапазона
   'lc-resonance': { query: { l: 470, c: 22 }, result: { primary: '49 494,83 Гц', rows: [{ label: 'В килогерцах', value: '49,495 кГц' }, { label: 'Период', value: '2,020·10^-5 с' }, { label: 'Волновое сопротивление', value: '146,16 Ом' }] } },
   //   62×45×28 против нормы ручной клади 115 см: перебор на 20 см
-  'luggage-linear': { query: { l: 62, w: 45, h: 28, limit: 115 }, result: { primary: '135 см', rows: [{ label: 'Запас до предела', value: '-20 см' }, { label: 'В дюймах', value: '53,15 дюйма' }, { label: 'Объём коробки', value: '78,12 л' }, { label: 'Норма', value: 'превышена' }] } },
+  'luggage-linear': { query: { l: 62, w: 45, h: 28, limit: 115 }, result: { primary: '135 см', rows: [{ label: 'Запас до предела', value: '-20 см' }, { label: 'В дюймах', value: '53,15 дюйма' }, { label: 'Объём коробки', value: '78,12 л' }, { label: 'По введённому пределу', value: 'превышена' }] } },
   //   угол правильного пятиугольника 108°: рез 54°, а на пиле 36° — числа расходятся
   'miter-angle': { query: { corner: 108 }, result: { primary: '54 °', rows: [{ label: 'Угол на пиле от 90°', value: '36 °' }, { label: 'Угол стыка', value: '108 °' }, { label: 'Сумма двух резов', value: '108 °' }] } },
   // Волна 20B, партия 2. Те же правила: значения выведены независимой моделью,
@@ -1021,7 +1022,7 @@ const stateScenarios: Record<string, StateScenario> = {
   // Волна 23, подпартия 23A2. Значения выведены независимой моделью Phase 23P
   // на НЕумолчальных входах; ожидания взяты из неё, а не набраны руками.
   'mach-number': { query: { v: 2400, t: 15 }, result: { primary: "1,959", rows: [{ label: "Скорость звука", value: "340,28 м/с" }, { label: "Режим", value: "сверхзвуковой" }, { label: "Скорость в метрах в секунду", value: "666,67 м/с" }] } },
-  'tv-monitor-viewing-distance': { query: { diag: 32, ratio: "16:9", lines: 1080 }, result: { primary: "0,9732 м", rows: [{ label: "Комфортное по SMPTE", value: "1,322 м" }, { label: "Ширина экрана", value: "70,842 см" }, { label: "Высота экрана", value: "39,848 см" }] } },
+  'tv-monitor-viewing-distance': { query: { diag: 32, ratio: "16:9", lines: 1080 }, result: { primary: "0,9732 м", rows: [{ label: "Расстояние при угле 30°", value: "1,322 м" }, { label: "Ширина экрана", value: "70,842 см" }, { label: "Высота экрана", value: "39,848 см" }] } },
   'ne555-timer-astable': { query: { r1: 1, r2: 1, c: 10 }, result: { primary: "48 089,83 Гц", rows: [{ label: "Период", value: "0,0208 мс" }, { label: "Время высокого уровня", value: "0,0139 мс" }, { label: "Время низкого уровня", value: "0,006931 мс" }] } },
   'home-equity': { query: { value: 5000000, balance: 0, ltv: 70, rate: 15, years: 5 }, result: { primary: "3 500 000 ₽", rows: [{ label: "Собственный капитал в жилье", value: "5 000 000 ₽" }, { label: "Предел по доле залога", value: "3 500 000 ₽" }, { label: "Доля собственного капитала", value: "100 %" }] } },
   'terminal-velocity': { query: { m: 0.145, a: 0.00426, cd: 0.47, rho: 1.225 }, result: { primary: "34,052 м/с", rows: [{ label: "В километрах в час", value: "122,59 км/ч" }, { label: "Сила сопротивления при этой скорости", value: "1,422 Н" }, { label: "Время разгона до 95 процентов", value: "6,36 с" }] } },
@@ -1039,7 +1040,7 @@ const stateScenarios: Record<string, StateScenario> = {
   'drip-water-leak': { query: { drops: 60, price: 60, dropMl: 0.04 }, result: { primary: "3,456 л", rows: [{ label: "За месяц", value: "103,68 л" }, { label: "За год", value: "1 261,44 л" }, { label: "В кубометрах за год", value: "1,261 м³" }] } },
   'quarter-mile-elapsed-time': { query: { power: 500, mass: 1600 }, result: { primary: "11,172 с", rows: [{ label: "Скорость на финише", value: "196,35 км/ч" }, { label: "Удельная мощность", value: "312,5 л.с./т" }, { label: "Масса в фунтах", value: "3 527,4 фунт" }] } },
   'sealant-volume': { query: { width: 10, depth: 8, length: 5, cart: 600, waste: 5 }, result: { primary: "420 мл", rows: [{ label: "Без запаса", value: "400 мл" }, { label: "Картриджей", value: "1 шт" }, { label: "Метров из одного картриджа", value: "7,5 м" }] } },
-  'wind-power': { query: { d: 50, v: 12, cp: 0.45, rho: 1.2 }, result: { primary: "916,09 кВт", rows: [{ label: "Мощность потока", value: "2 035,75 кВт" }, { label: "Ометаемая площадь", value: "1 963,5 м²" }, { label: "Предел Бетца", value: "1 207,2 кВт" }] } },
+  'wind-power': { query: { d: 50, v: 12, cp: 0.45, rho: 1.2 }, result: { primary: "916,09 кВт", rows: [{ label: "Мощность потока", value: "2 035,75 кВт" }, { label: "Ометаемая площадь", value: "1 963,5 м²" }, { label: "Предел Бетца", value: "1 206,37 кВт" }] } },
   'coaxial-cable-impedance': { query: { dIn: 1.63, dOut: 7.25, eps: 2.3 }, result: { primary: "58,978 Ом", rows: [{ label: "Ёмкость на метр", value: "85,736 пФ/м" }, { label: "Коэффициент укорочения", value: "0,6594" }, { label: "Задержка на метр", value: "5,059 нс/м" }] } },
   'pyramid-frustum': { query: { a: 30, b: 12, h: 25 }, result: { primary: "11 700 см³", rows: [{ label: "Апофема", value: "26,571 см" }, { label: "Боковая поверхность", value: "2 231,94 см²" }, { label: "Полная поверхность", value: "3 275,94 см²" }] } },
 };
@@ -1134,10 +1135,13 @@ function staticDefaultValue(field: Field): string | number | boolean {
   return '';
 }
 
-function isVisibleAtDefaults(field: Field, fields: Field[]): boolean {
+function isVisibleForValues(field: Field, fields: Field[], values: Record<string, QueryValue> = {}): boolean {
   if (!field.showIf) return true;
-  const controller = fields.find((candidate) => candidate.name === field.showIf?.field);
-  return Boolean(controller && staticDefaultValue(controller) === field.showIf.equals);
+  const condition = field.showIf;
+  const controller = fields.find((candidate) => candidate.name === condition.field);
+  if (!controller) return false;
+  const value = Object.hasOwn(values, condition.field) ? values[condition.field] : staticDefaultValue(controller);
+  return 'oneOf' in condition ? condition.oneOf.some(candidate => candidate === value) : value === condition.equals;
 }
 
 async function browserDefaultValue(page: Page, field: Field): Promise<string | number | boolean> {
@@ -1156,7 +1160,7 @@ async function expectDefaultFields(
 ): Promise<void> {
   for (const field of calculator.fields) {
     const control = page.getByTestId(`field-${field.name}`);
-    if (!isVisibleAtDefaults(field, calculator.fields)) {
+    if (!isVisibleForValues(field, calculator.fields)) {
       await expect(control).toHaveCount(0);
       continue;
     }
@@ -1188,6 +1192,12 @@ async function expectQueryFields(
     if (!field) throw new Error(`Unknown field ${calculator.id}.${name}`);
 
     const control = page.getByTestId(`field-${name}`);
+    // A restored query may carry an old value for the unknown solver target.
+    // Its absence is part of the contract; every active value is still checked.
+    if (!isVisibleForValues(field, calculator.fields, query)) {
+      await expect(control).toHaveCount(0);
+      continue;
+    }
     if (name === 'excludedDates') {
       const dates = String(expected).split(/[,;\n]+/).map((value) => value.trim()).filter(Boolean);
       await expect(page.getByTestId('excluded-date-chip')).toHaveText(dates);

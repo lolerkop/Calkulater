@@ -1,3 +1,5 @@
+import { validate } from './validate';
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { sleepTimeCopyEn } from './copy.en';
@@ -11,6 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  validate,
   copy: { en: sleepTimeCopyEn, uk: sleepTimeCopyUk, de: sleepTimeCopyDe, es: sleepTimeCopyEs },
   referenceCases: sleepTimeReferenceCases,
   publishedExample: {
@@ -26,14 +29,11 @@ export const definition: CalculatorDefinitionV2 = {
     icon: 'clock',
     popularity: 22,
     isNew: false,
-    shortDescription: 'Время подъёма или отхода ко сну по циклам сна.',
-    longDescription:
-      'Девяносто минут — принятая средняя длительность цикла сна, а не измерение конкретного человека: настоящие циклы идут примерно от 80 до 110 минут и меняются в течение ночи. Смысл расчёта не в точности, а в том, чтобы будильник пришёлся между циклами, а не посреди глубокой фазы, — поэтому цель задаётся целым числом циклов, а не круглыми восемью часами. Пробуждение в середине цикла ощущается разбитым даже после долгой ночи, а в конце цикла — отдохнувшим даже после короткой. Время на засыпание прибавляется отдельно, потому что это время в постели, а не сон.',
+    shortDescription: "Время подъёма или отхода ко сну по условным 90-минутным блокам.",
     seoTitle: 'Калькулятор времени сна по циклам в 90 минут',
-    seoDescription:
-      'Подберите время подъёма или отхода ко сну по числу циклов в 90 минут с поправкой на время, которое уходит на засыпание.',
+    seoDescription: "Сравните время подъёма и отхода ко сну по фиксированным блокам 90 минут и времени на засыпание; расчёт не определяет реальные фазы сна.",
     h1: 'Калькулятор времени сна',
-    keywords: ['циклы сна', 'когда лечь спать', 'время подъёма', 'фазы сна'],
+    keywords: ["время сна", "когда лечь спать", "время подъёма", "90 минут расчёт"],
     fields: [
       {
         name: 'mode', label: 'Что известно', type: 'select', defaultValue: 'bedtime',
@@ -43,9 +43,9 @@ export const definition: CalculatorDefinitionV2 = {
         ],
       },
       { name: 'hour', label: 'Час', type: 'number', defaultValue: 23, min: 0, max: 23, step: 1 },
-      { name: 'minute', label: 'Минуты', type: 'number', defaultValue: 0, min: 0, max: 59, step: 5 },
-      { name: 'cycles', label: 'Циклов сна', type: 'number', defaultValue: 5, min: 1, max: 12, step: 1 },
-      { name: 'fallAsleep', label: 'Время на засыпание, мин', type: 'number', defaultValue: 15, min: 0, step: 5 },
+      { name: 'minute', label: 'Минуты', type: 'number', defaultValue: 0, min: 0, max: 59, step: 1 },
+      { name: 'cycles', label: '90-минутных блоков', type: 'number', defaultValue: 5, min: 1, max: 12, step: 1 },
+      { name: 'fallAsleep', label: 'Время на засыпание, мин', type: 'number', defaultValue: 15, min: 0, step: 1 },
     ],
     resultLabels: {
       wake: 'Когда вставать',
@@ -54,33 +54,8 @@ export const definition: CalculatorDefinitionV2 = {
       sleep: 'Чистый сон',
       cycles: 'Циклов',
     },
-    howToUse: [
-      'Выберите, что вам известно: время отхода ко сну или будильник.',
-      'Введите это время в часах и минутах.',
-      'Укажите желаемое число циклов — пяти или шести хватает большинству взрослых.',
-      'Введите, сколько времени у вас обычно уходит на засыпание.',
-    ],
-    howItWorks:
-      'Время в постели = циклы × 90 минут + время на засыпание. Оно прибавляется ко времени отхода ко сну или вычитается из времени подъёма, сворачиваясь через полночь.',
-    example: 'Отход ко сну в 23:00 при пяти циклах и 15 минутах на засыпание даёт будильник на 06:45.',
-    faq: [
-      {
-        q: 'Цикл сна действительно длится 90 минут?',
-        a: 'В среднем и приблизительно. Отдельные циклы идут примерно от 80 до 110 минут и удлиняются к утру, поэтому результат стоит считать ориентиром, а не расписанием.',
-      },
-      {
-        q: 'Сколько циклов выбирать?',
-        a: 'Пять или шесть для большинства взрослых — это от семи с половиной до девяти часов сна. Четыре — короткая ночь, которая иногда работает, но не как правило.',
-      },
-      {
-        q: 'Зачем прибавлять время на засыпание отдельно?',
-        a: 'Потому что это время в постели, а не сон. Будильник без этой поправки крадёт разницу у последнего цикла — ровно от этого расчёт и защищает.',
-      },
-      {
-        q: 'Почему результат иногда приходится на следующий день?',
-        a: 'Потому что часы сворачиваются через полночь. Лечь в 23:00 и проспать девять часов означает 08:00 следующего утра, а не 32:00.',
-      },
-    ],
     relatedCalculatorIds: ['time-duration', 'timezone-difference', 'water-intake'],
+  
+    ...dateTimeWave15ContractContent.ru['sleep-time'],
   },
 };

@@ -11,30 +11,38 @@ import type { CalculatorLocalization } from '../../lib/platform/types';
 export const shared: CalculatorLocalization = {
   en: {
     results: {
+      'Срок': 'Term',
       'Проверьте данные': 'Check inputs',
       'Результат': 'Result',
       'В': 'To',
+      'Год': 'Year',
     },
   },
   uk: {
     results: {
+      'Срок': 'Строк',
       'Проверьте данные': 'Перевірте дані',
       'Результат': 'Результат',
       'В': 'У',
+      'Год': 'Рік',
     },
   },
   de: {
     results: {
+      'Срок': 'Laufzeit',
       'Проверьте данные': 'Prüfe die Werte',
       'Результат': 'Ergebnis',
       'В': 'Nach',
+      'Год': 'Jahr',
     },
   },
   es: {
     results: {
+      'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
       'Результат': 'Resultado',
       'В': 'A',
+      'Год': 'Año',
     },
   },
 };

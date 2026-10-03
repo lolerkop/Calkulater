@@ -1,29 +1,48 @@
 import type { CalculatorCopy } from '../../lib/platform/types';
 
 export const waistRatioCopyEn: CalculatorCopy = {
-  name: "Waist ratio calculator",
-  slug: "waist-ratio",
-  shortDescription: "Waist-to-height and waist-to-hip ratios, with the band they fall in.",
-  longDescription:
-    "Both ratios are dimensionless, so the units do not matter as long as the measurements are taken the same way. The band comes from waist-to-height rather than waist-to-hip: the first compares across people of different heights, while the second depends more on build. The boundary at half your height is the best known and the simplest of the guidelines — waist under half your height — and it is exactly where the healthy band ends and the increased one begins.",
-  seoTitle: "Waist-to-height and waist-to-hip ratio calculator",
-  seoDescription: "Work out your waist-to-height and waist-to-hip ratios and see which band the first one falls in.",
-  h1: "Waist ratio calculator",
-  keywords: ["waist to height ratio", "waist to hip ratio", "WHtR calculator", "waist measurement health"],
-  howToUse: [
-    "Measure the waist at the narrowest point, breathing out normally.",
-    "Measure the hip at the widest point.",
-    "Enter your height measured without shoes.",
-    "Read the waist-to-height ratio: under 0.5 is the healthy band.",
+  "name": "Waist ratio calculator",
+  "slug": "waist-ratio",
+  "shortDescription": "WHtR and WHR with measurement protocol and conditional NICE adult-screening boundaries.",
+  "longDescription": "Calculates two dimensionless ratios: waist-to-height (WHtR) and waist-to-hip (WHR). The category applies only to WHtR and describes central-adiposity screening, not overall health. These NICE boundaries are for adults with BMI below 35: 0.4–<0.5 without increased central adiposity, 0.5–<0.6 increased, 0.6 and above high. BMI is not calculated in this form, so check that condition separately. Values below 0.4 lie outside these three categories and do not become an underweight diagnosis.",
+  "seoTitle": "Waist-to-height and waist-to-hip ratio calculator",
+  "seoDescription": "WHtR and WHR with measurement protocol and conditional NICE adult-screening boundaries.",
+  "h1": "Waist ratio calculator",
+  "keywords": [
+    "waist to height ratio",
+    "waist to hip ratio",
+    "WHtR calculator",
+    "waist measurement health"
   ],
-  howItWorks:
-    "Waist-to-height is the waist divided by the height. Waist-to-hip is the waist divided by the hip. The band is taken from the first: under 0.4 below usual, under 0.5 healthy, under 0.6 increased, above that high.",
-  example: "An 84 cm waist at 178 cm of height gives 0.4719 — inside the healthy band.",
-  faq: [
-    { q: "Where exactly is the waist measured?", a: "At the narrowest point between the ribs and the hips, breathing out but not holding it in. Measuring at the navel instead gives a larger number and a different answer." },
-    { q: "Why waist-to-height rather than BMI?", a: "Because it notices where the weight sits. Two people of the same BMI can have very different waists, and the waist is the part that the research associates with risk." },
-    { q: "Does the half-your-height rule really hold at any height?", a: "It is a guideline, not a law, and it works better in the middle of the height range than at the extremes. That is why the exact ratio is shown next to the band." },
-    { q: "What is waist-to-hip for then?", a: "It describes shape rather than size and is used in its own right, with different thresholds for men and women. It is shown here as a number, without a verdict." },
-    { q: "Does this replace a doctor?", a: "No. It is one number among many, and no ratio can tell you anything a measurement tape cannot see." },
+  "howToUse": [
+    "Find the bottom ribs and top of the hips; measure waist midway between them after a natural exhalation.",
+    "Keep the tape horizontal without compressing skin or holding your stomach in.",
+    "Measure the widest hip circumference and height without shoes; enter centimetres.",
+    "Read the category as conditional adult screening at BMI<35, not a personal medical verdict."
   ],
+  "howItWorks": "WHtR = waist/height; WHR = waist/hip. Category uses unrounded WHtR: 0.4≤r<0.5; 0.5≤r<0.6; r≥0.6. Exact 0.5 and 0.6 enter the next band. Displayed ratios are rounded; the category interval shows the side of the threshold used by the actual ratio.",
+  "example": "84 cm/178 cm=0.4719; with 100 cm hips, WHR=0.84.80 cm/160 cm=0.5 already enters the increased band; 79 cm/160 cm=0.4938 is below 0.5. Very close values can display alike after rounding; classification occurs beforehand.",
+  "faq": [
+    {
+      "q": "Where should waist be measured for these WHtR boundaries?",
+      "a": "NICE uses the midpoint between bottom ribs and top hips after a natural exhalation. The narrowest point or navel need not match it; do not mix measurement protocols."
+    },
+    {
+      "q": "Why use WHtR alongside ordinary BMI?",
+      "a": "BMI describes weight relative to height; WHtR describes abdominal circumference relative to height. NICE uses it as additional screening in adults with BMI<35. Neither figure alone confirms health."
+    },
+    {
+      "q": "Are these WHtR boundaries the same for different people?",
+      "a": "The cited NICE adult categories apply across sexes and ethnicities with BMI<35. That does not guarantee equal personal risk; pregnancy and other circumference changes need another context."
+    },
+    {
+      "q": "Why is WHR shown without a sex category?",
+      "a": "Waist-to-hip is a separate measure with different conditions and thresholds. This form does not ask sex and shows WHR arithmetic only, without a verdict based on a hidden assumption."
+    },
+    {
+      "q": "What should an increased waist category mean next?",
+      "a": "It is a reason to discuss further assessment with a healthcare professional, not an independent diagnosis or treatment plan. A category without increase does not rule out other risk factors."
+    }
+  ],
+  "disclaimer": "Circumference ratios and conditional adult WHtR screening at BMI<35. Not an overall-health diagnosis; pregnancy and abdominal-circumference-changing conditions need separate assessment."
 };

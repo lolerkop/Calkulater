@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
@@ -13,4 +14,5 @@ export const finalGradeCopyEs: CalculatorSeoCopy = {
   seoDescription: "Calcula la nota de examen necesaria para alcanzar una nota final objetivo a partir de tu situación actual y el peso del examen.",
   h1: "Calculadora de nota final",
   keywords: ["calculadora de nota final", "nota de examen necesaria", "peso de la nota"],
+  ...contractContent.es
 };

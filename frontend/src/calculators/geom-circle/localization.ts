@@ -1,172 +1,141 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { geometryScalarValues } from '../../lib/platform/geometryScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'mode': 'Was bekannt ist',
-      'unit': 'Längeneinheit',
-      'r': 'Radius',
-      'd': 'Durchmesser',
-      'c': 'Umfang',
-      'area': 'Fläche',
+  "de": {
+    "fields": {
+      "mode": "Was bekannt ist",
+      "unit": "Längeneinheit",
+      "r": "Radius",
+      "d": "Durchmesser",
+      "c": "Umfang",
+      "area": "Fläche"
     },
-    options: {
-      'mm': 'Millimeter',
-      'cm': 'Zentimeter',
-      'm': 'Meter',
-      'radius': 'der Radius',
-      'diameter': 'der Durchmesser',
-      'circumference': 'der Umfang',
-      'area': 'die Fläche',
+    "options": {
+      "mm": "Millimeter",
+      "cm": "Zentimeter",
+      "m": "Meter",
+      "radius": "der Radius",
+      "diameter": "der Durchmesser",
+      "circumference": "der Umfang",
+      "area": "die Fläche"
     },
-    results: {
-      'Площадь': 'Fläche',
-      'Радиус': 'Radius',
-      'Диаметр': 'Durchmesser',
-      'Длина окружности': 'Umfang',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Площадь": "Fläche",
+      "Радиус": "Radius",
+      "Диаметр": "Durchmesser",
+      "Длина окружности": "Umfang",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'мм': 'mm',
-      'см': 'cm',
-      'м': 'm',
-      'мм²': 'mm²',
-      'см²': 'cm²',
-      'м²': 'm²',
-      'мм³': 'mm³',
-      'см³': 'cm³',
-      'м³': 'm³',
-      'Радиус должен быть больше нуля': 'Der Radius muss größer als null sein',
-      'Диаметр должен быть больше нуля': 'Der Durchmesser muss größer als null sein',
-      'Длина окружности должна быть больше нуля': 'Der Umfang muss größer als null sein',
-      'Площадь должна быть больше нуля': 'Die Fläche muss größer als null sein',
-      'Значение слишком велико для расчёта': 'Der Wert ist zu groß für die Rechnung',
-    },
+    "values": {
+      ...geometryScalarValues.de,
+      "Радиус должен быть больше нуля": "Der Radius muss größer als null sein",
+      "Диаметр должен быть больше нуля": "Der Durchmesser muss größer als null sein",
+      "Длина окружности должна быть больше нуля": "Der Umfang muss größer als null sein",
+      "Площадь должна быть больше нуля": "Die Fläche muss größer als null sein",
+      "Значение слишком велико для расчёта": "Der Wert ist zu groß für die Rechnung"
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "mode": "What is known",
       "unit": "Length unit",
       "r": "Radius",
       "d": "Diameter",
       "c": "Circumference",
-      "area": "Area",
+      "area": "Area"
     },
-    options: {
-      mm: "millimetres",
-      cm: "centimetres",
-      m: "metres",
+    "options": {
+      "mm": "millimetres",
+      "cm": "centimetres",
+      "m": "metres",
       "radius": "the radius",
       "diameter": "the diameter",
       "circumference": "the circumference",
-      "area": "the area",
+      "area": "the area"
     },
-    results: {
+    "results": {
       "Площадь": "Area",
       "Радиус": "Radius",
       "Диаметр": "Diameter",
       "Длина окружности": "Circumference",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryScalarValues.en,
       "Радиус должен быть больше нуля": "The radius must be greater than zero",
       "Диаметр должен быть больше нуля": "The diameter must be greater than zero",
       "Длина окружности должна быть больше нуля": "The circumference must be greater than zero",
       "Площадь должна быть больше нуля": "The area must be greater than zero",
-      "Значение слишком велико для расчёта": "The value is too large to calculate",
-    },
+      "Значение слишком велико для расчёта": "The value is too large to calculate"
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "mode": "Що відомо",
       "unit": "Одиниця довжини",
       "r": "Радіус",
       "d": "Діаметр",
       "c": "Довжина кола",
-      "area": "Площа",
+      "area": "Площа"
     },
-    options: {
-      mm: "міліметри",
-      cm: "сантиметри",
-      m: "метри",
+    "options": {
+      "mm": "міліметри",
+      "cm": "сантиметри",
+      "m": "метри",
       "radius": "радіус",
       "diameter": "діаметр",
       "circumference": "довжина кола",
-      "area": "площа",
+      "area": "площа"
     },
-    results: {
+    "results": {
       "Площадь": "Площа",
       "Радиус": "Радіус",
       "Диаметр": "Діаметр",
       "Длина окружности": "Довжина кола",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
-      "мм": "мм",
-      "см": "см",
-      "м": "м",
-      "мм²": "мм²",
-      "см²": "см²",
-      "м²": "м²",
-      "мм³": "мм³",
-      "см³": "см³",
-      "м³": "м³",
+    "values": {
+      ...geometryScalarValues.uk,
       "Радиус должен быть больше нуля": "Радіус має бути більшим за нуль",
       "Диаметр должен быть больше нуля": "Діаметр має бути більшим за нуль",
       "Длина окружности должна быть больше нуля": "Довжина кола має бути більшою за нуль",
       "Площадь должна быть больше нуля": "Площа має бути більшою за нуль",
-      "Значение слишком велико для расчёта": "Значення завелике для розрахунку",
-    },
+      "Значение слишком велико для расчёта": "Значення завелике для розрахунку"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "unit": "Unidad de longitud",
       "mode": "Dato conocido",
       "r": "Radio",
       "d": "Diámetro",
       "c": "Longitud de la circunferencia",
-      "area": "Área",
+      "area": "Área"
     },
-    options: {
+    "options": {
       "mm": "milímetros",
       "cm": "centímetros",
       "m": "metros",
       "radius": "el radio",
       "diameter": "el diámetro",
       "circumference": "la longitud de la circunferencia",
-      "area": "el área",
+      "area": "el área"
     },
-    results: {
+    "results": {
       "Площадь": "Área",
       "Радиус": "Radio",
       "Диаметр": "Diámetro",
       "Длина окружности": "Longitud de la circunferencia",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryScalarValues.es,
       "Радиус должен быть больше нуля": "El radio debe ser mayor que cero",
       "Диаметр должен быть больше нуля": "El diámetro debe ser mayor que cero",
       "Длина окружности должна быть больше нуля": "La longitud de la circunferencia debe ser mayor que cero",
       "Площадь должна быть больше нуля": "El área debe ser mayor que cero",
-      "Значение слишком велико для расчёта": "El valor es demasiado grande para calcularlo",
-    },
-  },
+      "Значение слишком велико для расчёта": "El valor es demasiado grande para calcularlo"
+    }
+  }
 };

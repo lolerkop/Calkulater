@@ -1,43 +1,18 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure, formatStatistic, lengthSymbol } from '../../lib/platform/measurement';
+import { read, valid, unit as lengthUnit, dim, exact, add, times, negative, sqrt, product, INPUT, UNIT, RANGE } from '../../lib/platform/geometryNumericInput';
 
-// Эллипс по полуосям. Площадь точна: S = πab.
-//
-// Периметр эллипса в элементарных функциях не выражается — он требует
-// эллиптического интеграла, — поэтому берётся приближение Рамануджана
-// π[3(a+b) − √((3a+b)(a+3b))]. Его погрешность ниже 10⁻⁵ % при умеренном
-// сжатии, то есть меньше, чем разница в отображаемых разрядах, и подпись
-// честно называет источник.
-//
-// Эксцентриситет считается от БОЛЬШЕЙ полуоси, поэтому полуоси сортируются:
-// иначе при b > a под корнем оказалось бы отрицательное число.
-
-const dim = (value: number): string => formatMeasure(value, fmtNumber);
-
+// Keep the first Ramanujan approximation; its model error is independent of display rounding.
 export const compute: CalcFunction = (inputs) => {
-  const unit = lengthSymbol(toStr(inputs.unit, 'cm'));
-  const a0 = toNumber(inputs.a);
-  const b0 = toNumber(inputs.b);
-  const fail = (message: string) => ({
-    primary: { label: 'Площадь', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  if (!(a0 > 0) || !(b0 > 0)) return fail('Обе полуоси должны быть больше нуля');
-
-  const a = Math.max(a0, b0);
-  const b = Math.min(a0, b0);
-  const perimeter = Math.PI * (3 * (a + b) - Math.sqrt((3 * a + b) * (a + 3 * b)));
-  const c = Math.sqrt(a * a - b * b);
-
-  return {
-    primary: { label: 'Площадь', value: `${dim(Math.PI * a * b)} ${unit}²` },
-    secondary: [
-      { label: 'Периметр (Рамануджан)', value: `${dim(perimeter)} ${unit}` },
-      { label: 'Эксцентриситет', value: formatStatistic(c / a, fmtNumber) },
-      { label: 'Расстояние между фокусами', value: `${dim(2 * c)} ${unit}` },
-      { label: 'Большая полуось', value: `${dim(a)} ${unit}` },
-      { label: 'Малая полуось', value: `${dim(b)} ${unit}` },
-    ],
-  };
+ const fail=(message:string)=>({primary:{label:'Площадь',value:'—'},secondary:[{label:'Проверьте данные',value:message,accent:'red' as const}]});
+ const u=lengthUnit(inputs.unit === undefined ? 'cm' : inputs.unit);if(!u)return fail(UNIT);
+ const first=read(inputs.a),second=read(inputs.b);if(![first,second].every(Number.isFinite))return fail(INPUT);
+ if(!valid(first,second))return fail('Обе полуоси должны быть больше нуля');
+ const a=Math.max(first,second),b=Math.min(first,second),q=b/a;
+ const area=product(Math.PI,a,b),perimeter=product(Math.PI,a,3*(1+q)-Math.sqrt((3+q)*(1+3*q)));
+ const focusSquared=times(add(exact(a),negative(exact(b))),add(exact(a),exact(b)));
+ const halfFocus=sqrt(focusSquared),focus=product(2,halfFocus),eccentricity=halfFocus/a;
+ if(!valid(area,perimeter)||![focus,eccentricity].every(Number.isFinite)||(a!==b&&(focus===0||eccentricity===0)))return fail(RANGE);
+ return {primary:{label:'Площадь',value:dim(area)+' '+u+'²'},secondary:[{label:'Периметр (Рамануджан)',value:dim(perimeter)+' '+u},
+ {label:'Эксцентриситет',value:dim(eccentricity)},{label:'Расстояние между фокусами',value:dim(focus)+' '+u},
+ {label:'Большая полуось',value:dim(a)+' '+u},{label:'Малая полуось',value:dim(b)+' '+u}]};
 };

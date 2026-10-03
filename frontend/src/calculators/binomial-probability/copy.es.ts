@@ -1,11 +1,12 @@
+import { mathWave8ContractContent } from './contractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
 // `src/data/esCalculatorContent.ts`.
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const binomialProbabilityCopyEs: CalculatorSeoCopy = {
+export const binomialProbabilityCopyEs: CalculatorCopy = {
   name: "Calculadora de probabilidad binomial",
   slug: "probabilidad-binomial",
   shortDescription: "Probabilidad de exactamente k, como máximo k y al menos k éxitos en una serie de pruebas independientes.",
@@ -13,4 +14,5 @@ export const binomialProbabilityCopyEs: CalculatorSeoCopy = {
   seoDescription: "Calcula la probabilidad binomial de exactamente k, como máximo k o al menos k éxitos en una serie de pruebas independientes.",
   h1: "Calculadora de probabilidad binomial",
   keywords: ["probabilidad binomial", "probabilidad de k éxitos", "pruebas de Bernoulli", "binomial acumulada"],
+  ...mathWave8ContractContent.es,
 };

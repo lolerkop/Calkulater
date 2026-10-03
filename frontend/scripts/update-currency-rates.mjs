@@ -245,10 +245,20 @@ export async function fetchBnm(fetchImpl, now = new Date()) {
   throw new Error(`BNM unavailable (${errors[0]})`);
 }
 
+/** Ask for the effective Ukrainian calendar date, rather than a preannounced next-day quote. */
+export function nbuRequestUrl(now = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Kyiv', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).formatToParts(now);
+  const part = (type) => parts.find((item) => item.type === type)?.value;
+  const date = part('year') + part('month') + part('day');
+  return PROVIDERS.nbu.url + '&date=' + date;
+}
+
 async function collectPrimary(fetchImpl, now, logger) {
   const attempts = {
     ecb: () => fetchText(PROVIDERS.ecb.url, fetchImpl).then(parseEcbXml),
-    nbu: () => fetchJson(PROVIDERS.nbu.url, fetchImpl).then(parseNbuJson),
+    nbu: () => fetchJson(nbuRequestUrl(now), fetchImpl).then(parseNbuJson),
     bnm: () => fetchBnm(fetchImpl, now),
   };
 

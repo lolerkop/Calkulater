@@ -1,54 +1,16 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, fmtNumber, toNumber } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
-import { ceilUnits } from '../../lib/rounding';
-
-// Разбивка лестничного марша.
-//
-//   подступенков n = ⌈общий подъём / предельная высота ступени⌉
-//   высота ступени h = общий подъём / n
-//   проступей = n − 1          (верхняя площадка — не ступень)
-//   длина марша = (n − 1) × проступь
-//   шаг = 2h + b               формула удобства, норма примерно 0,60–0,65 м
-//   угол = arctg(h / b)
-//
-// Число подступенков округляется ВВЕРХ и только вверх: округление вниз дало бы
-// ступень выше предельной, а предел здесь — ограничение безопасности, а не
-// пожелание. Высота ступени после этого пересчитывается обратно, поэтому все
-// ступени выходят одинаковыми — разная высота ступеней в одном марше и есть
-// самая частая причина спотыкания.
-export const compute: CalcFunction = (inputs) => {
-  const riseTotal = toNumber(inputs.rise_total);
-  const tread = toNumber(inputs.tread);
-  const maxRiser = toNumber(inputs.max_riser);
-  const fail = (message: string) => ({
-    primary: { label: 'Подступенков', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (!(riseTotal > 0)) return fail('Общий подъём должен быть больше нуля');
-  if (!(tread > 0)) return fail('Проступь должна быть больше нуля');
-  if (!(maxRiser > 0)) return fail('Предельная высота ступени должна быть больше нуля');
-
-  const risers = ceilUnits(riseTotal / maxRiser);
-  const riser = riseTotal / risers;
-  const step = 2 * riser + tread;
-  const angle = (Math.atan(riser / tread) * 180) / Math.PI;
-  const q = (value: number, unit: string) => `${formatMeasure(value, fmtNumber)} ${unit}`;
-
-  return {
-    primary: { label: 'Подступенков', value: `${fmtInt(risers)} шт` },
-    secondary: [
-      { label: 'Высота подступенка', value: q(riser, 'м') },
-      { label: 'Проступей', value: `${fmtInt(risers - 1)} шт` },
-      { label: 'Длина марша', value: q((risers - 1) * tread, 'м') },
-      { label: 'Угол наклона', value: `${formatMeasure(angle, fmtNumber)}°` },
-      { label: 'Формула удобства 2h + b', value: q(step, 'м') },
-      {
-        label: 'Оценка шага',
-        value: step >= 0.6 && step <= 0.65 ? 'в норме' : 'вне нормы 0,60–0,65 м',
-        accent: step >= 0.6 && step <= 0.65 ? 'green' as const : 'red' as const,
-      },
-    ],
-  };
+import { fmtNumber } from '../../lib/format';
+import { angleDegrees, INPUT, RANGE, finite, read, mul, plus, quotient, decimal, ceilDecimal, measure } from '../rafters/buildingWave16Numeric';
+// Chosen riser ceiling and a 0.60–0.65 m product heuristic, not code compliance.
+export const compute:CalcFunction=inputs=>{
+ const rise=read(inputs.rise_total),tread=read(inputs.tread),maxRiser=read(inputs.max_riser);
+ const fail=(value:string)=>({primary:{label:'Подступенков',value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ if(!finite(rise,tread,maxRiser))return fail(INPUT);
+ if(!(rise>0))return fail('Общий подъём должен быть больше нуля');
+ if(!(tread>0))return fail('Проступь должна быть больше нуля');
+ if(!(maxRiser>0))return fail('Предельная высота ступени должна быть больше нуля');
+ const n=ceilDecimal(decimal(rise),decimal(maxRiser)),h=quotient([rise],[n]),run=mul(n-1,tread),step=plus(mul(2,h),tread),angle=angleDegrees(h,tread);
+ if(!finite(n,h,run,step,angle)||h<=0||angle<=0)return fail(RANGE);
+ const q=(x:number)=>`${measure(x)} м`,within=step>=0.6&&step<=0.65;
+ return {primary:{label:'Подступенков',value:`${fmtNumber(n,0)} шт`},secondary:[{label:'Высота подступенка',value:q(h)},{label:'Проступей',value:`${fmtNumber(n-1,0)} шт`},{label:'Длина марша',value:q(run)},{label:'Угол наклона',value:`${measure(angle)}°`},{label:'Формула удобства 2h + b',value:q(step)},{label:'Оценка шага',value:within?'в диапазоне модели':'вне диапазона модели 0,60–0,65 м',accent:within?'green' as const:'red' as const}]};
 };

@@ -28,4 +28,6 @@ export const finalGradeReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: { current: 120, target: 85, weight: 30 },
     expectPrimary: '—',
   },
+  {"name": "очень малый вес при равных текущем и целевом баллах", "inputs": {"current": 50, "target": 50, "weight": 1e-300}, "expectPrimary": "50,00%"},
+  {"name": "нулевой вес экзамена отклоняется", "inputs": {"current": 78, "target": 85, "weight": 0}, "expectPrimary": "—"},
 ];

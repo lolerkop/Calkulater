@@ -34,4 +34,7 @@ export const geomRectangleReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"mode": "sides", "unit": "cm", "a": 0, "b": 5},
     expectPrimary: "—",
   },
+  // Независимые аналитические случаи: масштабирование формул и явные границы области.
+  {"name": "обратный режим на малой площади", "inputs": {"mode": "areaSide", "unit": "m", "area": 6e-200, "a": 2e-100}, "expectPrimary": "6,000·10^-200 м²", "expectSecondary": [{"label": "Вторая сторона", "value": "3,000·10^-100 м"}]},
+  {"name": "невозможная для представления положительная сторона отклоняется", "inputs": {"mode": "areaSide", "unit": "m", "area": 5e-324, "a": 1e+308}, "expectPrimary": "—"},
 ];

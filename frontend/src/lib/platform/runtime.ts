@@ -22,6 +22,8 @@ import type {
 export type CalculatorClientRuntime = {
   readonly compute: CalcFunction;
   readonly validate?: CalculatorValidator;
+  /** Calendar validity may belong to a date-only calculator rather than a local instant. */
+  readonly validateDate?: (value: string) => boolean;
   readonly contextualField?: CalculatorContextualField;
   /** Локализация только этого калькулятора; общие строки остаются в clientI18n. */
   readonly localization?: Readonly<Partial<Record<TranslatedLocale, CalculatorLocaleBundle>>>;
@@ -81,4 +83,14 @@ export function withSharedPhrases(
     };
   }
   return merged;
+}
+
+/** Serialize only the active page language; computations remain in its own entry. */
+export function selectRuntimeLocalization(
+  runtime: CalculatorClientRuntime,
+  locale: string,
+): NonNullable<CalculatorClientRuntime['localization']> {
+  if (!isTranslatedLocale(locale)) return {};
+  const bundle = runtime.localization?.[locale];
+  return bundle ? { [locale]: bundle } : {};
 }

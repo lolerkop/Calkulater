@@ -1,47 +1,19 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
-import { ceilUnits } from '../../lib/rounding';
-
-// Ткань на шторы: ширина карниза, умноженная на коэффициент сборки, делится на
-// ширину полотна и округляется вверх до целых полотнищ.
-//
-// Коэффициент сборки — то, во сколько раз ткани берут больше ширины карниза:
-// от полутора при плоской подвеске до трёх у густой сборки. Именно он, а не
-// длина, определяет расход и вид готовой шторы.
-//
-// Округление вверх идёт через выпущенный ceilUnits: обычный Math.ceil на
-// двоичном хвосте вида 2.0000000000000004 добавил бы лишнее полотнище.
-const CM_IN_M = 100;
-
-export const compute: CalcFunction = (inputs) => {
-  const windowWidth = toNumber(inputs.windowWidth);
-  const fullness = toNumber(inputs.fullness);
-  const fabricWidth = toNumber(inputs.fabricWidth);
-  const height = toNumber(inputs.height);
-  const hem = toNumber(inputs.hem);
-  const fail = (message: string) => ({
-    primary: { label: 'Ткани потребуется', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (!(windowWidth > 0)) return fail('Ширина карниза должна быть больше нуля');
-  if (!(fullness > 0)) return fail('Коэффициент сборки должен быть больше нуля');
-  if (!(fabricWidth > 0)) return fail('Ширина полотна должна быть больше нуля');
-  if (!(height > 0)) return fail('Готовая высота должна быть больше нуля');
-  if (!(hem >= 0)) return fail('Припуск не может быть отрицательным');
-
-  const needed = windowWidth * fullness;
-  const panels = ceilUnits(needed / fabricWidth);
-  const cut = height + hem;
-
-  return {
-    primary: { label: 'Ткани потребуется', value: `${formatMeasure((panels * cut) / CM_IN_M, fmtNumber)} м` },
-    secondary: [
-      { label: 'Полотнищ', value: `${formatMeasure(panels, fmtNumber)} шт` },
-      { label: 'Ширина в сборке', value: `${formatMeasure(needed, fmtNumber)} см` },
-      { label: 'Длина отреза', value: `${formatMeasure(cut, fmtNumber)} см` },
-      { label: 'Коэффициент сборки', value: formatMeasure(fullness, fmtNumber) },
-    ],
-  };
+import { read, finite, exact, times, add, evaluated, decimal, dmul, ceiling, measure, INPUT, RANGE } from '../../lib/calculators/householdWave17Numeric';
+export const compute: CalcFunction = inputs => {
+ const w=read(inputs.windowWidth),f=read(inputs.fullness),fw=read(inputs.fabricWidth),h=read(inputs.height),hem=read(inputs.hem);
+ const fail=(value:string)=>({primary:{label:'Ткани потребуется',value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ if(!finite(w,f,fw,h,hem))return fail(INPUT);
+ if(w<=0)return fail('Ширина карниза должна быть больше нуля');
+ if(f<=0)return fail('Коэффициент сборки должен быть больше нуля');
+ if(fw<=0)return fail('Ширина полотна должна быть больше нуля');
+ if(h<=0)return fail('Готовая высота должна быть больше нуля');
+ if(hem<0)return fail('Припуск не может быть отрицательным');
+ const needed=evaluated(times(exact(w),exact(f))),panels=ceiling(dmul(decimal(w),decimal(f)),decimal(fw));
+ if(!Number.isFinite(panels))return fail(RANGE);
+ const cutD=add(exact(h),exact(hem)),cut=evaluated(cutD),fabric=evaluated(times(exact(panels),cutD),exact(100));
+ if(!finite(needed,cut,fabric))return fail(RANGE);
+ return {primary:{label:'Ткани потребуется',value:`${measure(fabric)} м`},secondary:[
+ {label:'Полотнищ',value:`${measure(panels)} шт`},{label:'Ширина ткани до сборки',value:`${measure(needed)} см`},
+ {label:'Длина отреза',value:`${measure(cut)} см`},{label:'Коэффициент сборки',value:measure(f)}]};
 };

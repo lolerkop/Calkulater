@@ -1,16 +1,17 @@
-// Немецкий копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла немецкой страницы не существует. Подробный текст живёт в
-// `src/data/deContent/`.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
-
-export const voltageDropCopyDe: CalculatorSeoCopy = {
-  name: 'Rechner für den Spannungsfall',
-  slug: 'spannungsfall-leitung',
-  shortDescription: 'Spannungsverlust auf einer Leitung aus Länge, Querschnitt und Material.',
-  seoTitle: 'Spannungsfall berechnen für Kupfer- und Aluminiumleitung',
-  seoDescription: 'Ermittle den Spannungsfall auf einer Leitung aus Strom, Länge, Querschnitt und Leitermaterial, für einphasige oder dreiphasige Versorgung.',
-  h1: 'Rechner für den Spannungsfall',
-  keywords: ['Spannungsfall berechnen', 'Spannungsverlust Leitung', 'Leitungsquerschnitt Spannungsfall', 'Kupfer Aluminium Widerstand'],
+export const voltageDropCopyDe: CalculatorCopy = {
+  name: "Rechner für den Spannungsfall",
+  slug: "spannungsfall-leitung",
+  shortDescription: "Spannungsverlust auf einer Leitung aus Länge, Querschnitt und Material.",
+  seoTitle: "Spannungsfall berechnen für Kupfer- und Aluminiumleitung",
+  seoDescription: "Ermittle den Spannungsfall auf einer Leitung aus Strom, Länge, Querschnitt und Leitermaterial, für einphasige oder dreiphasige Versorgung.",
+  h1: "Rechner für den Spannungsfall",
+  keywords: ["Spannungsfall berechnen", "Spannungsverlust Leitung", "Leitungsquerschnitt Spannungsfall", "Kupfer Aluminium Widerstand"],
+  longDescription: "Vergleiche Spannungsverluste bei anderer Kabellänge, anderem Querschnitt oder Material. Das Modell ist rein ohmsch: Für einen einphasigen Zweileiterkreis zählen beide Leiter, bei symmetrischem Drehstrom die Spannung zwischen den Phasen. Der Strom gilt je Leiter, der angezeigte Widerstand für einen Leiter der einfachen Strecke und die Verlustleistung für alle stromführenden Leiter zusammen. Reaktanz, Unsymmetrie, Erwärmung und Kontakte fehlen.",
+  howToUse: ["Gib Ampere und die einfache Länge in Metern ein; verdopple die Länge nicht selbst.", "Verwende den Querschnitt eines Leiters in mm², nicht den Durchmesser, und wähle Kupfer oder Aluminium.", "Einphasig gilt die Spannung zwischen den beiden Drähten; dreiphasig die Außenleiterspannung, etwa 400 V statt 230 V.", "Strom null ergibt Verlust null. Übersteigt der Spannungsfall die Nennspannung, liegen die Eingaben außerhalb dieses Versorgungsmodells."],
+  howItWorks: "RL = ρL/S mit angesetzten Modellwerten bei 20 °C: Kupfer 0,0175 und Aluminium 0,0282 Ω·mm²/m. ΔU = 2IRL für zwei Leiter; ΔU = √3IRL für symmetrischen Drehstrom bei cos φ = 1. Gesamte Wärmeverluste: 2I²RL beziehungsweise 3I²RL. Prozent = 100ΔU/U; Lastspannung = U − ΔU.",
+  example: "Kupfer, 16 A, 20 m, 2,5 mm², 230 V: RL = 0,0175 × 20/2,5 = 0,14 Ω; ΔU = 4,48 V = 1,95 %; Lastspannung 225,52 V; Verlust 71,68 W. Aluminium, 32 A, 50 m, 6 mm², drei Phasen, 400 V: RL = 0,235 Ω; ΔU = 13,025 V; Gesamtverlust = 3 × 32² × 0,235 = 721,92 W.",
+  faq: [{"q": "Warum ist der Drehstromverlust nicht Strom mal Spannungsfall?", "a": "√3IRL ist der Spannungsfall zwischen den Außenleitern. Drei Leiter erzeugen Wärme: 3I²RL = √3IΔU. Der Faktor √3 für Spannung ersetzt nicht den Faktor 3 für Wärme."}, {"q": "Was bedeutet der angezeigte Kabelwiderstand?", "a": "Der Widerstand eines Leiters von Quelle zu Last. Die Zweileiterschleife verdoppelt ihn; bei Drehstrom gibt es keinen gemeinsamen Schleifenwiderstand."}, {"q": "Reicht der prozentuale Spannungsfall zur Kabelauswahl?", "a": "Nein. Strombelastbarkeit, Schutz, Verlegeart und geltende örtliche Regeln sind zusätzlich nötig. Der Rechner prüft sie nicht und legt keinen normativen Grenzwert fest."}, {"q": "Warum weicht ein warmes Kabel ab?", "a": "Die Koeffizienten gelten bei 20 °C. Reale Temperatur, Toleranzen und Kontakte unterscheiden sich; Betriebstemperatur und reaktive Last benötigen ein vollständigeres Modell."}, {"q": "Was ändert sich bei einem Querschnitt von 5 statt 2,5 mm²?", "a": "Bei gleichem Strom, gleicher Länge und gleichem Material halbiert sich R = ρL/S; ebenso Spannungsfall und I²R-Verluste. Im einphasigen Kupferbeispiel mit 16 A und 20 m entstehen 2,24 V und 35,84 W statt 4,48 V und 71,68 W. Die Strombelastbarkeit wird damit nicht geprüft."}],
+  disclaimer: "Ohmsche Schätzung bei 20 °C und cos φ = 1, keine normgerechte Kabelauslegung. Die spezifischen Widerstände sind Modellansätze, keine Produkttabelle.",
 };

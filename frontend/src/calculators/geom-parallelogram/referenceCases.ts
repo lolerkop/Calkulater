@@ -28,4 +28,7 @@ export const geomParallelogramReferenceCases: readonly CalculatorReferenceCase[]
     inputs: { unit: 'cm', mode: 'sides', a: 10, b: 8, angle: 180 },
     expectPrimary: '—',
   },
+  // Независимые аналитические случаи: масштабирование формул и явные границы области.
+  {"name": "положительный малый угол не считается вырождением", "inputs": {"mode": "sides", "unit": "m", "a": 1, "b": 1, "angle": 1e-11}, "expectPrimary": "1,745·10^-13 м²", "expectSecondary": [{"label": "Меньшая диагональ", "value": "1,745·10^-13 м"}]},
+  {"name": "угол ноль исключён из области положительной площади", "inputs": {"mode": "sides", "unit": "m", "a": 1, "b": 1, "angle": 0}, "expectPrimary": "—"},
 ];

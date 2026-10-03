@@ -1,101 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { runtimeScalarPhrases } from '../../lib/platform/runtimeScalarPhrases';
 
-export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'parts': 'Glieder des Verhältnisses — mit Leerzeichen oder Doppelpunkten getrennt',
-      'total': 'Aufzuteilender Betrag',
-    },
-    results: {
-      'Отношение': 'Verhältnis',
-      'Сумма частей': 'Summe der Glieder',
-      'Доля первой части': 'Anteil des ersten Gliedes',
-      'Частей': 'Glieder',
-      'Сокращено на': 'Gekürzt durch',
-      'Разбиение суммы': 'Aufteilung des Betrags',
-      'Разбор по частям': 'Aufschlüsselung nach Gliedern',
-      'Часть': 'Glied',
-      'Значение': 'Wert',
-      'Доля': 'Anteil',
-      'Сумма': 'Betrag',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'Не число:': 'Keine Zahl:',
-      'Каждая часть должна быть больше нуля': 'Jedes Glied muss größer als null sein',
-      'Нужно хотя бы две части': 'Es werden mindestens zwei Glieder gebraucht',
-    },
+// Final effective owned bundles; overwritten intermediate maps removed after deep equality proof.
+export const localization:CalculatorLocalization={
+  "de": {
+    fields: {"parts": "Glieder des Verhältnisses — mit Leerzeichen oder Doppelpunkten getrennt", "total": "Aufzuteilender Betrag"},
+    results: { ...runtimeScalarPhrases("de",[4, 8]),"Отношение": "Verhältnis", "Сумма частей": "Summe der Glieder", "Доля первой части": "Anteil des ersten Gliedes", "Частей": "Glieder", "Сокращено на": "Gekürzt durch", "Разбиение суммы": "Aufteilung des Betrags", "Разбор по частям": "Aufschlüsselung nach Gliedern", "Часть": "Glied", "Доля": "Anteil", "Сумма": "Betrag" },
+    values: {"Не число:": "Keine Zahl:", "Каждая часть должна быть больше нуля": "Jedes Glied muss größer als null sein", "Нужно хотя бы две части": "Es werden mindestens zwei Glieder gebraucht", "Введите от 2 до 1000 положительных частей; текст до 20000 символов": "Geben Sie 2 bis 1000 positive Anteile ein; höchstens 20000 Zeichen", "Введите положительные конечные числа для частей": "Geben Sie positive endliche Zahlen für die Anteile ein", "Целые части должны быть не больше 9007199254740991": "Ganzzahlige Anteile dürfen 9007199254740991 nicht überschreiten", "Сумма должна быть конечной и неотрицательной; пустое поле или нуль отключают разбиение": "Der Betrag muss endlich und nicht negativ sein; ein leeres Feld oder null deaktiviert die Aufteilung", "Результат вне числового диапазона: переполнение или потеря ненулевого значения": "Das Ergebnis liegt außerhalb des Zahlenbereichs: Überlauf oder Verlust eines von null verschiedenen Werts"},
   },
-  en: {
-    fields: { "parts": "Ratio parts — separated by spaces or colons", "total": "Amount to divide" },
+  "en": {
+    fields: {"parts": "Ratio parts — separated by spaces or colons", "total": "Amount to divide"},
     options: {},
-    results: {
-      "Отношение": "Ratio",
-      "Сумма частей": "Sum of the parts",
-      "Доля первой части": "Share of the first part",
-      "Частей": "Parts",
-      "Сокращено на": "Reduced by",
-      "Разбиение суммы": "Amount split",
-      "Разбор по частям": "Breakdown by part",
-      "Часть": "Part",
-      "Значение": "Value",
-      "Доля": "Share",
-      "Сумма": "Amount",
-      "Проверьте данные": "Check the values",
-    },
-    values: {
-      "Не число:": "Not a number:",
-      "Каждая часть должна быть больше нуля": "Every part must be greater than zero",
-      "Нужно хотя бы две части": "At least two parts are needed",
-    },
+    results: { ...runtimeScalarPhrases("en",[3, 6]),"Отношение": "Ratio", "Сумма частей": "Sum of the parts", "Доля первой части": "Share of the first part", "Частей": "Parts", "Сокращено на": "Reduced by", "Разбиение суммы": "Amount split", "Разбор по частям": "Breakdown by part", "Часть": "Part", "Доля": "Share", "Сумма": "Amount" },
+    values: {"Не число:": "Not a number:", "Каждая часть должна быть больше нуля": "Every part must be greater than zero", "Нужно хотя бы две части": "At least two parts are needed", "Введите от 2 до 1000 положительных частей; текст до 20000 символов": "Enter 2 to 1000 positive parts; at most 20000 characters", "Введите положительные конечные числа для частей": "Enter positive finite numbers for the parts", "Целые части должны быть не больше 9007199254740991": "Integer parts must not exceed 9007199254740991", "Сумма должна быть конечной и неотрицательной; пустое поле или нуль отключают разбиение": "The amount must be finite and nonnegative; a blank field or zero disables allocation", "Результат вне числового диапазона: переполнение или потеря ненулевого значения": "The result is outside the numeric range: overflow or loss of a nonzero value"},
   },
-  uk: {
-    fields: { "parts": "Частини відношення — через пробіл або двокрапку", "total": "Сума для розподілу" },
+  "uk": {
+    fields: {"parts": "Частини відношення — через пробіл або двокрапку", "total": "Сума для розподілу"},
     options: {},
-    results: {
-      "Отношение": "Відношення",
-      "Сумма частей": "Сума частин",
-      "Доля первой части": "Частка першої частини",
-      "Частей": "Частин",
-      "Сокращено на": "Скорочено на",
-      "Разбиение суммы": "Розподіл суми",
-      "Разбор по частям": "Розбір за частинами",
-      "Часть": "Частина",
-      "Значение": "Значення",
-      "Доля": "Частка",
-      "Сумма": "Сума",
-      "Проверьте данные": "Перевірте дані",
-    },
-    values: {
-      "Не число:": "Не число:",
-      "Каждая часть должна быть больше нуля": "Кожна частина має бути більшою за нуль",
-      "Нужно хотя бы две части": "Потрібно щонайменше дві частини",
-    },
+    results: { ...runtimeScalarPhrases("uk",[4, 8]),"Отношение": "Відношення", "Сумма частей": "Сума частин", "Доля первой части": "Частка першої частини", "Частей": "Частин", "Сокращено на": "Скорочено на", "Разбиение суммы": "Розподіл суми", "Разбор по частям": "Розбір за частинами", "Часть": "Частина", "Доля": "Частка", "Сумма": "Сума" },
+    values: {"Не число:": "Не число:", "Каждая часть должна быть больше нуля": "Кожна частина має бути більшою за нуль", "Нужно хотя бы две части": "Потрібно щонайменше дві частини", "Введите от 2 до 1000 положительных частей; текст до 20000 символов": "Введіть від 2 до 1000 додатних частин; текст до 20000 символів", "Введите положительные конечные числа для частей": "Введіть додатні скінченні числа для частин", "Целые части должны быть не больше 9007199254740991": "Цілі частини мають бути не більшими за 9007199254740991", "Сумма должна быть конечной и неотрицательной; пустое поле или нуль отключают разбиение": "Сума має бути скінченною й невід’ємною; порожнє поле або нуль вимикають розподіл", "Результат вне числового диапазона: переполнение или потеря ненулевого значения": "Результат поза числовим діапазоном: переповнення або втрата ненульового значення"},
   },
-  es: {
-    fields: {
-      "parts": "Partes de la razón: separadas por espacios o dos puntos",
-      "total": "Cantidad a repartir",
-    },
+  "es": {
+    fields: {"parts": "Partes de la razón: separadas por espacios o dos puntos", "total": "Cantidad a repartir"},
     options: {},
-    results: {
-      "Отношение": "Razón",
-      "Сумма частей": "Suma de las partes",
-      "Доля первой части": "Parte del primer término",
-      "Частей": "Partes",
-      "Сокращено на": "Simplificado entre",
-      "Разбиение суммы": "Reparto de la cantidad",
-      "Разбор по частям": "Desglose por partes",
-      "Часть": "Parte",
-      "Значение": "Valor",
-      "Доля": "Proporción",
-      "Сумма": "Cantidad",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "Не число:": "No es un número:",
-      "Каждая часть должна быть больше нуля": "Cada parte debe ser mayor que cero",
-      "Нужно хотя бы две части": "Hacen falta al menos dos partes",
-    },
+    results: { ...runtimeScalarPhrases("es",[3, 7]),"Отношение": "Razón", "Сумма частей": "Suma de las partes", "Доля первой части": "Parte del primer término", "Частей": "Partes", "Сокращено на": "Simplificado entre", "Разбиение суммы": "Reparto de la cantidad", "Разбор по частям": "Desglose por partes", "Часть": "Parte", "Доля": "Proporción", "Сумма": "Cantidad" },
+    values: {"Не число:": "No es un número:", "Каждая часть должна быть больше нуля": "Cada parte debe ser mayor que cero", "Нужно хотя бы две части": "Hacen falta al menos dos partes", "Введите от 2 до 1000 положительных частей; текст до 20000 символов": "Introduzca entre 2 y 1000 partes positivas; hasta 20000 caracteres", "Введите положительные конечные числа для частей": "Introduzca números positivos y finitos para las partes", "Целые части должны быть не больше 9007199254740991": "Las partes enteras no deben superar 9007199254740991", "Сумма должна быть конечной и неотрицательной; пустое поле или нуль отключают разбиение": "La cantidad debe ser finita y no negativa; un campo vacío o cero desactiva el reparto", "Результат вне числового диапазона: переполнение или потеря ненулевого значения": "El resultado está fuera del rango numérico: desbordamiento o pérdida de un valor distinto de cero"},
   },
 };

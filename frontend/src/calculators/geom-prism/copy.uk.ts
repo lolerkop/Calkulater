@@ -1,12 +1,11 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const geomPrismCopyUk: CalculatorSeoCopy = {
-  name: 'Калькулятор призми',
-  slug: 'pryzma',
-  shortDescription: 'Об’єм і площі правильної призми за стороною основи та висотою.',
-  seoTitle: 'Калькулятор призми: об’єм і площа поверхні',
-  seoDescription:
-    'Розрахунок об’єму, площі основи, бічної та повної поверхні правильної призми за кількістю сторін, стороною основи та висотою.',
-  h1: 'Калькулятор призми',
-  keywords: ['калькулятор призми', 'об’єм призми', 'площа поверхні призми', 'правильна призма'],
+export const geomPrismCopyUk: CalculatorCopy = {
+  name: "Калькулятор призми",
+  slug: "pryzma",
+  seoTitle: "Калькулятор призми: об’єм і площа поверхні",
+  h1: "Калькулятор призми",
+  keywords: ["калькулятор призми", "об’єм призми", "площа поверхні призми", "правильна призма"],
+  ...contractContent.uk,
 };

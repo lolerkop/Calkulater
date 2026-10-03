@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
@@ -13,4 +14,5 @@ export const textReadingTimeCopyEs: CalculatorSeoCopy = {
   seoDescription: "Averigua cuánto se tarda en leer un texto en silencio y cuánto dura leído en voz alta, a partir de un número de palabras o del propio texto.",
   h1: "Calculadora de tiempo de lectura",
   keywords: ["calculadora de tiempo de lectura", "calculadora de duración de un discurso", "cuánto cuesta leer", "de palabras a minutos"],
+  ...contractContent.es
 };

@@ -1,12 +1,19 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const emergencyFundCopyUk: CalculatorSeoCopy = {
-  name: 'Калькулятор фінансової подушки',
-  slug: 'finansova-podushka',
-  shortDescription: 'Ціль подушки в місяцях витрат і готовність до неї.',
-  seoTitle: 'Калькулятор фінансової подушки безпеки',
-  seoDescription:
-    'Розрахунок цілі фінансової подушки за місячними витратами та бажаним запасом у місяцях із показом готовності та нестачі.',
-  h1: 'Калькулятор фінансової подушки',
-  keywords: ['фінансова подушка', 'резервний фонд', 'запас на місяці', 'накопичення'],
+export const emergencyFundCopyUk: CalculatorCopy = {
+  "name": "Калькулятор фінансової подушки",
+  "slug": "finansova-podushka",
+  "shortDescription": "Ціль подушки в місяцях витрат і готовність до неї.",
+  "seoTitle": "Калькулятор фінансової подушки безпеки",
+  "seoDescription": "Розрахунок цілі фінансової подушки за місячними витратами та бажаним запасом у місяцях із показом готовності та нестачі.",
+  "h1": "Калькулятор фінансової подушки",
+  "keywords": [
+    "фінансова подушка",
+    "резервний фонд",
+    "запас на місяці",
+    "накопичення"
+  ],
+  "resultTitle": "Калькулятор фінансової подушки",
+  ...contractContent.uk,
 };

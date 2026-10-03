@@ -30,4 +30,39 @@ export const momentumReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"mode": "m", "p2": 18, "v2": 0},
     expectPrimary: "—",
   },
+
+  // Wave 4: fixed expectations derived analytically from the stated model.
+  {
+  "name": "знаковый импульс: 3кг при−4м/с, энергия24Дж",
+  "inputs": {
+    "mode": "p",
+    "m": 3,
+    "v": -4
+  },
+  "expectPrimary": "-12 кг·м/с",
+  "expectSecondary": [
+    {
+      "label": "Кинетическая энергия",
+      "value": "24 Дж"
+    }
+  ]
+},
+  {
+  "name": "обращение двух отрицательных проекций даёт положительную массу2кг",
+  "inputs": {
+    "mode": "m",
+    "p2": -18,
+    "v2": -9
+  },
+  "expectPrimary": "2 кг"
+},
+  {
+  "name": "ошибка: противоположные знаки импульса и скорости при положительной массе",
+  "inputs": {
+    "mode": "m",
+    "p2": -18,
+    "v2": 9
+  },
+  "expectPrimary": "—"
+},
 ];

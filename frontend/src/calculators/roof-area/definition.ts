@@ -1,3 +1,4 @@
+import { buildingWave16ContractContent } from './contractContent';
 // Площадь крыши по габаритам основания и уклону.
 
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
@@ -27,7 +28,7 @@ export const definition: CalculatorDefinitionV2 = {
     isNew: false,
     shortDescription: 'Площадь скатов по размерам основания и уклону, в градусах или процентах.',
     longDescription:
-      'Считает площадь крыши по габаритам основания и уклону. Полезно знать до расчёта: у любой крыши постоянного уклона над одним и тем же основанием площадь одна и та же — основание, делённое на косинус угла. Односкатная, двускатная и вальмовая различаются не итогом, а тем, на сколько плоскостей он делится, поэтому выбор формы меняет разбивку, а не сумму. Уклон задаётся градусами или процентами: процент переводится в угол через арктангенс, а не приравнивается к нему.',
+      buildingWave16ContractContent.ru.longDescription,
     seoTitle: 'Калькулятор площади крыши — скаты по уклону',
     seoDescription: 'Рассчитайте площадь крыши по длине и ширине основания и уклону в градусах или процентах.',
     h1: 'Калькулятор площади крыши',
@@ -41,8 +42,8 @@ export const definition: CalculatorDefinitionV2 = {
           { value: 'hip', label: 'вальмовая' },
         ],
       },
-      { name: 'length', label: 'Длина основания, м', type: 'number', defaultValue: 10, min: 0, step: 0.1 },
-      { name: 'width', label: 'Ширина основания, м', type: 'number', defaultValue: 8, min: 0, step: 0.1 },
+      { name: 'length', label: "Длина основания", type: 'number', defaultValue: 10, min: 0, step: 0.1 , unit: "м" },
+      { name: 'width', label: "Ширина основания", type: 'number', defaultValue: 8, min: 0, step: 0.1 , unit: "м" },
       {
         name: 'slopeMode', label: 'Как задан уклон', type: 'select', defaultValue: 'degrees',
         options: [
@@ -50,23 +51,19 @@ export const definition: CalculatorDefinitionV2 = {
           { value: 'percent', label: 'в процентах' },
         ],
       },
-      { name: 'angle', label: 'Уклон, градусов', type: 'number', defaultValue: 30, min: 0, max: 89, step: 1, showIf: { field: 'slopeMode', equals: 'degrees' } },
-      { name: 'slopePercent', label: 'Уклон, %', type: 'number', defaultValue: 30, min: 0, step: 1, showIf: { field: 'slopeMode', equals: 'percent' } },
+      { name: 'angle', label: "Уклон", type: 'number', defaultValue: 30, min: 0, max: 90, step: 1, showIf: { field: 'slopeMode', equals: 'degrees' } , unit: "°" },
+      { name: 'slopePercent', label: "Уклон", type: 'number', defaultValue: 30, min: 0, step: 1, showIf: { field: 'slopeMode', equals: 'percent' } , unit: "%" },
     ],
     resultLabels: {
       total: 'Площадь крыши', slope: 'Площадь одного ската', slopes: 'Скатов',
       plan: 'Площадь основания', angle: 'Уклон', check: 'Проверьте данные',
     },
-    howToUse: ['Выберите форму крыши.', 'Введите длину и ширину основания.', 'Задайте уклон в градусах или процентах.'],
+    howToUse: buildingWave16ContractContent.ru.howToUse,
     howItWorks:
-      'Площадь основания делится на косинус угла уклона: скат длиннее своей проекции ровно во столько раз. Угол переводится в радианы явно, а уклон в процентах — в угол через арктангенс. При 90 градусах скат вертикален, косинус обращается в нуль, и площади не существует.',
-    example: 'Двускатная крыша над основанием 10 × 8 м при уклоне 30° имеет площадь 92,376 м² — по 46,188 м² на скат.',
-    faq: [
-      { q: 'Почему у односкатной и двускатной крыши площадь одинаковая?', a: 'Потому что она зависит только от площади основания и уклона. Двускатная делит ту же площадь на два ската вдвое меньших — сумма не меняется.' },
-      { q: 'Чем уклон в процентах отличается от уклона в градусах?', a: 'Процент — это отношение подъёма к заложению, умноженное на сто. Угол получается через арктангенс: уклон 100 % — это 45°, а не 90°.' },
-      { q: 'Учитываются ли свесы?', a: 'Нет. Вводите габариты того прямоугольника, который крыша реально накрывает, включая свесы, если хотите их посчитать.' },
-      { q: 'Почему для вальмовой крыши не показана площадь одного ската?', a: 'Потому что она зависит от длины конька, а её здесь не спрашивают. Общая площадь при этом верна: она определяется основанием и уклоном.' },
-    ],
+      buildingWave16ContractContent.ru.howItWorks,
+    example: buildingWave16ContractContent.ru.example,
+    faq: buildingWave16ContractContent.ru.faq,
     relatedCalculatorIds: ['insulation', 'brick-calculator', 'room-volume'],
+      disclaimer: buildingWave16ContractContent.ru.disclaimer,
   },
 };

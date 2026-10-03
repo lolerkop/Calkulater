@@ -1,6 +1,7 @@
+import { automotiveMessages } from '../engine-displacement/automotiveMessages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
-export const localization: CalculatorLocalization = {
+const originalLocalization: CalculatorLocalization = {
   en: {
     fields: {
       "width": "Tire width, mm",
@@ -90,3 +91,7 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(originalLocalization).map(([locale, bundle]) => [locale, { ...bundle, values: { ...bundle.values, ...automotiveMessages[locale as keyof typeof automotiveMessages] } }]),
+);

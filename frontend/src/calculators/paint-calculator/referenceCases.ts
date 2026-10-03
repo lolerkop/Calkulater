@@ -68,7 +68,7 @@ export const paintReferenceCases: readonly CalculatorReferenceCase[] = [
     name: 'нулевая площадь даёт прочерк, а не ноль литров',
     inputs: { mode: 'manual', area: 0, coats: 2, consumption: 0.12, canVolume: 2.5 },
     expectPrimary: '—',
-    expectSecondary: [{ label: 'Проверьте данные', value: 'Введите положительные размеры' }],
+    expectSecondary: [{ label: 'Проверьте данные', value: 'Введите положительные размеры, расход и объём банки; запас и цена неотрицательные' }],
   },
   {
     name: 'нулевой расход даёт прочерк',

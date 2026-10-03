@@ -17,6 +17,25 @@ const RESULTS_UK = {
   'Проверьте данные': 'Перевірте дані',
 };
 
+const contractValues = {
+  "en": {
+    "Введите корректные значения": "Enter valid numerical values",
+    "Результат выходит за числовые пределы расчёта": "The result exceeds the numerical limits of this calculation"
+  },
+  "uk": {
+    "Введите корректные значения": "Введіть коректні числові значення",
+    "Результат выходит за числовые пределы расчёта": "Результат виходить за числові межі розрахунку"
+  },
+  "de": {
+    "Введите корректные значения": "Gib gültige Zahlenwerte ein",
+    "Результат выходит за числовые пределы расчёта": "Das Ergebnis überschreitet die Zahlengrenzen dieser Rechnung"
+  },
+  "es": {
+    "Введите корректные значения": "Introduce valores numéricos válidos",
+    "Результат выходит за числовые пределы расчёта": "El resultado supera los límites numéricos del cálculo"
+  }
+} as const;
+
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
@@ -40,6 +59,7 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      ...contractValues.de,
       'мес': 'Mon.',
       'Показаны первые 36 месяцев': 'Gezeigt werden die ersten 36 Monate',
       'Долг должен быть больше нуля': 'Der Saldo muss größer als null sein',
@@ -54,6 +74,7 @@ export const localization: CalculatorLocalization = {
     options: {},
     results: RESULTS_EN,
     values: {
+      ...contractValues.en,
       'мес': 'mo', 'Показаны первые 36 месяцев': 'Showing the first 36 months',
       'Долг должен быть больше нуля': 'The balance must be greater than zero',
       'Ставка не может быть отрицательной': 'The rate cannot be negative',
@@ -67,6 +88,7 @@ export const localization: CalculatorLocalization = {
     options: {},
     results: RESULTS_UK,
     values: {
+      ...contractValues.uk,
       'мес': 'міс', 'Показаны первые 36 месяцев': 'Показано перші 36 місяців',
       'Долг должен быть больше нуля': 'Борг має бути більшим за нуль',
       'Ставка не может быть отрицательной': "Ставка не може бути від'ємною",
@@ -98,6 +120,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      ...contractValues.es,
       "мес": "mes",
       "Показаны первые 36 месяцев": "Se muestran los 36 primeros meses",
       "Долг должен быть больше нуля": "El saldo debe ser mayor que cero",

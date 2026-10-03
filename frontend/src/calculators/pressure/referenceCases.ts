@@ -30,4 +30,33 @@ export const pressureReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"mode": "p", "F": 100, "A": 0},
     expectPrimary: "—",
   },
+
+  // Wave 4: fixed expectations derived analytically from the stated model.
+  {
+  "name": "нулевая нормальная сила на положительной площади даёт нулевое давление",
+  "inputs": {
+    "mode": "p",
+    "F": 0,
+    "A": 2
+  },
+  "expectPrimary": "0 Па"
+},
+  {
+  "name": "площадь1см²=0.0001м²: 1000Н дают10МПа",
+  "inputs": {
+    "mode": "p",
+    "F": 1000,
+    "A": 0.0001
+  },
+  "expectPrimary": "10 000 000 Па"
+},
+  {
+  "name": "ошибка: нулевая сила и ненулевойp не дают положительную площадь",
+  "inputs": {
+    "mode": "A",
+    "F2": 0,
+    "p2": 100000
+  },
+  "expectPrimary": "—"
+},
 ];

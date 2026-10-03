@@ -1,39 +1,33 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { number as readNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
+import { displayMoney, displayNumber } from '../../lib/platform/financeDisplay';
 
-// Прибыль, маржа и наценка — три числа, которые постоянно путают между собой.
-//
-//   прибыль = выручка − затраты
-//   маржа   = прибыль / ВЫРУЧКА  × 100
-//   наценка = прибыль / ЗАТРАТЫ  × 100
-//
-// Знаменатель и есть вся разница. Наценка в 100 % — это маржа 50 %, и оба числа
-// описывают одну и ту же сделку. Договориться «работаем с сорока процентами»,
-// не назвав знаменатель, — обычный способ разойтись в цене в полтора раза.
-//
-// При нулевых затратах наценка не определена: делить прибыль не на что.
-// Строка не выводится вовсе — бесконечность на экране хуже отсутствия строки.
 export const compute: CalcFunction = (inputs) => {
-  const revenue = toNumber(inputs.revenue);
-  const cost = toNumber(inputs.cost);
+  const revenue = readNumber(inputs.revenue);
+  const cost = readNumber(inputs.cost);
 
   const fail = (message: string) => ({
     primary: { label: 'Прибыль', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (revenue === null || cost === null) return fail('Введите корректные числовые данные');
+
   if (!(revenue > 0)) return fail('Выручка должна быть больше нуля');
   if (cost < 0) return fail('Затраты не могут быть отрицательными');
 
   const profit = revenue - cost;
-  const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
-  const pct = (value: number) => `${fmtNumber(value, 2)}%`;
+  const margin = (profit / revenue) * 100;
+  const markup = cost > 0 ? (profit / cost) * 100 : null;
+  if (![profit, margin].every(value => validOutput(value)) || (markup !== null && !validOutput(markup)) || (profit !== 0 && (margin === 0 || markup === 0))) return fail('Результат вне допустимого диапазона');
+  const money = displayMoney;
+  const pct = (value: number) => `${displayNumber(value, 2)}%`;
 
   return {
     primary: { label: 'Прибыль', value: money(profit) },
     secondary: [
-      { label: 'Маржа', value: pct((profit / revenue) * 100), accent: profit >= 0 ? 'green' : 'red' },
-      ...(cost > 0 ? [{ label: 'Наценка', value: pct((profit / cost) * 100) }] : []),
+      { label: 'Маржа', value: pct(margin), accent: profit >= 0 ? 'green' : 'red' },
+      ...(cost > 0 ? [{ label: 'Наценка', value: pct(markup!) }] : []),
       { label: 'Выручка', value: money(revenue) },
       { label: 'Затраты', value: money(cost) },
     ],

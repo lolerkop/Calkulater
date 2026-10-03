@@ -1,13 +1,14 @@
+import { addBuildingWave16Messages } from '../rafters/buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'width': 'Fugenbreite, mm',
-      'depth': 'Fugentiefe, mm',
-      'length': 'Fugenlänge, m',
-      'cart': 'Inhalt der Kartusche, ml',
-      'waste': 'Zuschlag, %',
+      'width': "Fugenbreite",
+      'depth': "Fugentiefe",
+      'length': "Fugenlänge",
+      'cart': "Inhalt der Kartusche",
+      'waste': "Zuschlag",
     },
     results: {
       'Нужно герметика': 'Nötiger Dichtstoff',
@@ -31,8 +32,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      width: 'Joint width, mm', depth: 'Joint depth, mm', length: 'Joint length, m',
-      cart: 'Cartridge volume, ml', waste: 'Allowance, %',
+      width: "Joint width", depth: "Joint depth", length: "Joint length",
+      cart: "Cartridge volume", waste: "Allowance",
     },
     options: {},
     results: {
@@ -51,8 +52,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      width: 'Ширина шва, мм', depth: 'Глибина шва, мм', length: 'Довжина шва, м',
-      cart: 'Обʼєм картриджа, мл', waste: 'Запас, %',
+      width: "Ширина шва", depth: "Глибина шва", length: "Довжина шва",
+      cart: "Обʼєм картриджа", waste: "Запас",
     },
     options: {},
     results: {
@@ -71,11 +72,11 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "width": "Ancho de la junta, mm",
-      "depth": "Profundidad de la junta, mm",
-      "length": "Longitud de la junta, m",
-      "cart": "Volumen del cartucho, ml",
-      "waste": "Margen, %",
+      "width": "Ancho de la junta",
+      "depth": "Profundidad de la junta",
+      "length": "Longitud de la junta",
+      "cart": "Volumen del cartucho",
+      "waste": "Margen",
     },
     options: {},
     results: {
@@ -99,3 +100,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

@@ -1,16 +1,19 @@
-// Немецкий копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла немецкой страницы не существует. Подробный текст живёт в
-// `src/data/deCalculatorContent.ts`.
+import { automotiveWave10ContractContent } from './contractContent';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
-
-export const tireSizeCopyDe: CalculatorSeoCopy = {
-  name: 'Reifenrechner',
-  slug: 'reifenrechner',
-  shortDescription: 'Abrolldurchmesser, Flankenhöhe und Umdrehungen je Kilometer aus der Reifengröße.',
-  seoTitle: 'Reifenrechner — Durchmesser und Umdrehungen',
-  seoDescription: 'Berechne aus der Reifengröße den Abrolldurchmesser, die Flankenhöhe, den Umfang und die Umdrehungen je Kilometer.',
-  h1: 'Reifenrechner',
-  keywords: ['Reifenrechner', 'Reifengröße', 'Abrolldurchmesser', 'Flankenhöhe', 'Reifengroesse', 'Flankenhoehe'],
+export const tireSizeCopyDe: CalculatorCopy = {
+  "name": "Reifenrechner",
+  "slug": "reifenrechner",
+  "shortDescription": "Abrolldurchmesser, Flankenhöhe und Umdrehungen je Kilometer aus der Reifengröße.",
+  "seoTitle": "Reifenrechner — Durchmesser und Umdrehungen",
+  "h1": "Reifenrechner",
+  "keywords": [
+    "Reifenrechner",
+    "Reifengröße",
+    "Abrolldurchmesser",
+    "Flankenhöhe",
+    "Reifengroesse",
+    "Flankenhoehe"
+  ],
+  ...automotiveWave10ContractContent.de,
 };

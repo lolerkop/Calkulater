@@ -1,6 +1,7 @@
-import type { CalculatorLocalization } from '../../lib/platform/types';
+import type { CalculatorLocalization, CalculatorLocaleBundle, TranslatedLocale } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
-export const localization: CalculatorLocalization = {
+const previousLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'lines': 'Schichten: Beginn, Ende, Pause in Minuten',
@@ -101,3 +102,51 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+const contractOverrides: Record<TranslatedLocale, CalculatorLocaleBundle> = {
+  "en": {
+    "fields": {},
+    "values": {
+      "Введите строки табеля текстом": "Enter the shift rows as text",
+      "Время задаётся как 09:00": "Enter clock times in the form 09:00",
+      "Перерыв задаётся целым числом минут": "Breaks must be whole nonnegative minutes",
+      "Перерыв длиннее смены": "The break is longer than the shift"
+    }
+  },
+  "uk": {
+    "fields": {},
+    "values": {
+      "Введите строки табеля текстом": "Введіть рядки табеля текстом",
+      "Время задаётся как 09:00": "Час задається у форматі 09:00",
+      "Перерыв задаётся целым числом минут": "Перерва задається цілим невід’ємним числом хвилин",
+      "Перерыв длиннее смены": "Перерва довша за зміну"
+    }
+  },
+  "de": {
+    "fields": {},
+    "values": {
+      "Введите строки табеля текстом": "Gib die Schichtzeilen als Text ein",
+      "Время задаётся как 09:00": "Uhrzeiten werden im Format 09:00 eingegeben",
+      "Перерыв задаётся целым числом минут": "Pausen müssen ganze nicht negative Minuten sein",
+      "Перерыв длиннее смены": "Die Pause ist länger als die Schicht"
+    }
+  },
+  "es": {
+    "fields": {},
+    "values": {
+      "Введите строки табеля текстом": "Introduce las filas de turnos como texto",
+      "Время задаётся как 09:00": "Introduce las horas con el formato 09:00",
+      "Перерыв задаётся целым числом минут": "Los descansos deben ser minutos enteros no negativos",
+      "Перерыв длиннее смены": "El descanso es más largo que el turno"
+    }
+  }
+};
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(contractOverrides).map(([locale, additions]) => {
+    const key = locale as keyof typeof marketingScalarValues;
+    const prior = previousLocalization[key];
+    const nativeFields = Object.fromEntries(Object.entries(prior?.fields ?? {}).map(([name, label]) => [name, label.replace(/, [₽$₴€%]$/, '')]));
+    return [locale, { ...prior, fields: { ...nativeFields, ...additions.fields }, values: { ...prior?.values, ...marketingScalarValues[key], ...additions.values } }];
+  }),
+);

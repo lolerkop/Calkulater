@@ -1,11 +1,12 @@
+import { mathWave8ContractContent } from './contractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
 // `src/data/deContent/`.
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const probabilityBasicCopyDe: CalculatorSeoCopy = {
+export const probabilityBasicCopyDe: CalculatorCopy = {
   name: 'Wahrscheinlichkeitsrechner',
   slug: 'wahrscheinlichkeit-rechner',
   shortDescription: 'Wahrscheinlichkeit eines Ereignisses, seines Gegenereignisses und zweier unabhängiger Ereignisse.',
@@ -13,4 +14,5 @@ export const probabilityBasicCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Berechne die Wahrscheinlichkeit eines Ereignisses aus günstigen Ausgängen, die Wahrscheinlichkeit des Gegenereignisses und Wahrscheinlichkeiten zweier unabhängiger Ereignisse.',
   h1: 'Wahrscheinlichkeitsrechner',
   keywords: ['Wahrscheinlichkeit berechnen', 'Gegenereignis', 'unabhängige Ereignisse', 'mindestens eines'],
+  ...mathWave8ContractContent.de,
 };

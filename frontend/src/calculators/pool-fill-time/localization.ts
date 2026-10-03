@@ -1,69 +1,37 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
-const RESULTS_EN = {
+export const localization: CalculatorLocalization = {
+  "en": {
+  "fields": {
+    "mode": "Pool shape",
+    "volume": "Volume, m³",
+    "length": "Length, m",
+    "width": "Width, m",
+    "depth": "Depth, m",
+    "diameter": "Diameter, m",
+    "flow": "Flow rate",
+    "flowUnit": "Flow unit"
+  },
+  "options": {
+    "volume": "known volume",
+    "rect": "rectangular",
+    "round": "round",
+    "lmin": "L/min",
+    "lhour": "L/h",
+    "m3hour": "m³/h"
+  },
+  "results": {
     "Время наполнения": "Time to fill",
     "Часы и минуты": "Hours and minutes",
     "Всего минут": "Total minutes",
     "Объём чаши": "Pool volume",
     "Объём в литрах": "Volume in litres",
     "Расход": "Flow rate",
-    "Проверьте данные": "Check the values",
-};
-const RESULTS_UK = {
-    "Время наполнения": "Час наповнення",
-    "Часы и минуты": "Години та хвилини",
-    "Всего минут": "Усього хвилин",
-    "Объём чаши": "Об’єм чаші",
-    "Объём в литрах": "Об’єм у літрах",
-    "Расход": "Витрата",
-    "Проверьте данные": "Перевірте дані",
-};
-
-export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'mode': 'Form des Beckens',
-      'volume': 'Volumen, m³',
-      'length': 'Länge, m',
-      'width': 'Breite, m',
-      'depth': 'Tiefe, m',
-      'diameter': 'Durchmesser, m',
-      'flow': 'Durchfluss',
-      'flowUnit': 'Einheit des Durchflusses',
-    },
-    options: {
-      'volume': 'bekanntes Volumen',
-      'rect': 'rechteckig',
-      'round': 'rund',
-      'lmin': 'l/min',
-      'lhour': 'l/h',
-      'm3hour': 'm³/h',
-    },
-    results: {
-      'Время наполнения': 'Füllzeit',
-      'Часы и минуты': 'Stunden und Minuten',
-      'Всего минут': 'Minuten insgesamt',
-      'Объём чаши': 'Volumen des Beckens',
-      'Объём в литрах': 'Volumen in Litern',
-      'Расход': 'Durchfluss',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'ч': 'h',
-      'мин': 'min',
-      'м³': 'm³',
-      'м³/ч': 'm³/h',
-      'Размеры чаши должны быть больше нуля': 'Die Maße des Beckens müssen größer als null sein',
-      'Диаметр и глубина должны быть больше нуля': 'Durchmesser und Tiefe müssen größer als null sein',
-      'Объём должен быть больше нуля': 'Das Volumen muss größer als null sein',
-      'Расход воды должен быть больше нуля': 'Der Durchfluss muss größer als null sein',
-    },
+    "Проверьте данные": "Check the values"
   },
-  en: {
-    fields: { mode: "Pool shape", volume: "Volume, m³", length: "Length, m", width: "Width, m", depth: "Depth, m", diameter: "Diameter, m", flow: "Flow rate", flowUnit: "Flow unit" },
-    options: { volume: "known volume", rect: "rectangular", round: "round", lmin: "L/min", lhour: "L/h", m3hour: "m³/h" },
-    results: RESULTS_EN,
-    values: {
+  "values": {
+    ...marketingScalarValues.en,
     "ч": "h",
     "мин": "min",
     "м³": "m³",
@@ -72,13 +40,40 @@ export const localization: CalculatorLocalization = {
     "Диаметр и глубина должны быть больше нуля": "The diameter and depth must be greater than zero",
     "Объём должен быть больше нуля": "The volume must be greater than zero",
     "Расход воды должен быть больше нуля": "The flow rate must be greater than zero",
-    },
+    "Выберите корректную форму чаши": "Choose a valid pool shape",
+    "Выберите корректную единицу расхода": "Choose a valid flow unit"
+  }
+},
+  "uk": {
+  "fields": {
+    "mode": "Форма чаші",
+    "volume": "Об’єм, м³",
+    "length": "Довжина, м",
+    "width": "Ширина, м",
+    "depth": "Глибина, м",
+    "diameter": "Діаметр, м",
+    "flow": "Витрата",
+    "flowUnit": "Одиниця витрати"
   },
-  uk: {
-    fields: { mode: "Форма чаші", volume: "Об’єм, м³", length: "Довжина, м", width: "Ширина, м", depth: "Глибина, м", diameter: "Діаметр, м", flow: "Витрата", flowUnit: "Одиниця витрати" },
-    options: { volume: "відомий об’єм", rect: "прямокутна", round: "кругла", lmin: "л/хв", lhour: "л/год", m3hour: "м³/год" },
-    results: RESULTS_UK,
-    values: {
+  "options": {
+    "volume": "відомий об’єм",
+    "rect": "прямокутна",
+    "round": "кругла",
+    "lmin": "л/хв",
+    "lhour": "л/год",
+    "m3hour": "м³/год"
+  },
+  "results": {
+    "Время наполнения": "Час наповнення",
+    "Часы и минуты": "Години та хвилини",
+    "Всего минут": "Усього хвилин",
+    "Объём чаши": "Об’єм чаші",
+    "Объём в литрах": "Об’єм у літрах",
+    "Расход": "Витрата",
+    "Проверьте данные": "Перевірте дані"
+  },
+  "values": {
+    ...marketingScalarValues.uk,
     "ч": "год",
     "мин": "хв",
     "м³": "м³",
@@ -87,45 +82,92 @@ export const localization: CalculatorLocalization = {
     "Диаметр и глубина должны быть больше нуля": "Діаметр і глибина мають бути більшими за нуль",
     "Объём должен быть больше нуля": "Об’єм має бути більшим за нуль",
     "Расход воды должен быть больше нуля": "Витрата води має бути більшою за нуль",
-    },
+    "Выберите корректную форму чаши": "Оберіть коректну форму чаші",
+    "Выберите корректную единицу расхода": "Оберіть коректну одиницю витрати"
+  }
+},
+  "de": {
+  "fields": {
+    "mode": "Form des Beckens",
+    "volume": "Volumen, m³",
+    "length": "Länge, m",
+    "width": "Breite, m",
+    "depth": "Tiefe, m",
+    "diameter": "Durchmesser, m",
+    "flow": "Durchfluss",
+    "flowUnit": "Einheit des Durchflusses"
   },
-  es: {
-    fields: {
-      "mode": "Forma de la piscina",
-      "volume": "Volumen, m³",
-      "length": "Largo, m",
-      "width": "Ancho, m",
-      "diameter": "Diámetro, m",
-      "depth": "Profundidad, m",
-      "flow": "Caudal",
-      "flowUnit": "Unidad de caudal",
-    },
-    options: {
-      "volume": "volumen conocido",
-      "rect": "rectangular",
-      "round": "redonda",
-      "lmin": "l/min",
-      "lhour": "l/h",
-      "m3hour": "m³/h",
-    },
-    results: {
-      "Время наполнения": "Tiempo de llenado",
-      "Часы и минуты": "Horas y minutos",
-      "Всего минут": "Minutos en total",
-      "Объём чаши": "Volumen del vaso",
-      "Объём в литрах": "Volumen en litros",
-      "Расход": "Caudal",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "ч": "h",
-      "мин": "min",
-      "м³": "m³",
-      "м³/ч": "m³/h",
-      "Размеры чаши должны быть больше нуля": "Las dimensiones del vaso deben ser mayores que cero",
-      "Диаметр и глубина должны быть больше нуля": "El diámetro y la profundidad deben ser mayores que cero",
-      "Объём должен быть больше нуля": "El volumen debe ser mayor que cero",
-      "Расход воды должен быть больше нуля": "El caudal de agua debe ser mayor que cero",
-    },
+  "options": {
+    "volume": "bekanntes Volumen",
+    "rect": "rechteckig",
+    "round": "rund",
+    "lmin": "l/min",
+    "lhour": "l/h",
+    "m3hour": "m³/h"
   },
+  "results": {
+    "Время наполнения": "Füllzeit",
+    "Часы и минуты": "Stunden und Minuten",
+    "Всего минут": "Minuten insgesamt",
+    "Объём чаши": "Volumen des Beckens",
+    "Объём в литрах": "Volumen in Litern",
+    "Расход": "Durchfluss",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "ч": "h",
+    "мин": "min",
+    "м³": "m³",
+    "м³/ч": "m³/h",
+    "Размеры чаши должны быть больше нуля": "Die Maße des Beckens müssen größer als null sein",
+    "Диаметр и глубина должны быть больше нуля": "Durchmesser und Tiefe müssen größer als null sein",
+    "Объём должен быть больше нуля": "Das Volumen muss größer als null sein",
+    "Расход воды должен быть больше нуля": "Der Durchfluss muss größer als null sein",
+    "Выберите корректную форму чаши": "Wähle eine gültige Beckenform",
+    "Выберите корректную единицу расхода": "Wähle eine gültige Durchflusseinheit"
+  }
+},
+  "es": {
+  "fields": {
+    "mode": "Forma de la piscina",
+    "volume": "Volumen, m³",
+    "length": "Largo, m",
+    "width": "Ancho, m",
+    "diameter": "Diámetro, m",
+    "depth": "Profundidad, m",
+    "flow": "Caudal",
+    "flowUnit": "Unidad de caudal"
+  },
+  "options": {
+    "volume": "volumen conocido",
+    "rect": "rectangular",
+    "round": "redonda",
+    "lmin": "l/min",
+    "lhour": "l/h",
+    "m3hour": "m³/h"
+  },
+  "results": {
+    "Время наполнения": "Tiempo de llenado",
+    "Часы и минуты": "Horas y minutos",
+    "Всего минут": "Minutos en total",
+    "Объём чаши": "Volumen del vaso",
+    "Объём в литрах": "Volumen en litros",
+    "Расход": "Caudal",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "ч": "h",
+    "мин": "min",
+    "м³": "m³",
+    "м³/ч": "m³/h",
+    "Размеры чаши должны быть больше нуля": "Las dimensiones del vaso deben ser mayores que cero",
+    "Диаметр и глубина должны быть больше нуля": "El diámetro y la profundidad deben ser mayores que cero",
+    "Объём должен быть больше нуля": "El volumen debe ser mayor que cero",
+    "Расход воды должен быть больше нуля": "El caudal de agua debe ser mayor que cero",
+    "Выберите корректную форму чаши": "Elige una forma de piscina válida",
+    "Выберите корректную единицу расхода": "Elige una unidad de caudal válida"
+  }
+}
 };

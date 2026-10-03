@@ -1,0 +1,2308 @@
+{
+  "manifestSha": "478578357d0ae22451814b1a041ee1938e74825edf55a0582605dd62592eb6df",
+  "pages": [
+    {
+      "id": "curtain-size",
+      "locale": "ru",
+      "path": "/ru/household/raschet-shtor/",
+      "name": "Калькулятор ткани на шторы",
+      "h1": "Калькулятор ткани на шторы",
+      "seoTitle": "Калькулятор ткани на шторы — по ширине карниза и сборке",
+      "questions": [
+        "Какой коэффициент сборки выбрать?",
+        "Почему полотнища округляются вверх?",
+        "Считать ли раппорт рисунка?",
+        "Ткань какой ширины выгоднее?"
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "locale": "en",
+      "path": "/en/household/curtain-size/",
+      "name": "Curtain fabric calculator",
+      "h1": "Curtain fabric calculator",
+      "seoTitle": "Curtain fabric calculator — from track width and fullness",
+      "questions": [
+        "Which fullness should I choose?",
+        "Why round drops up?",
+        "Should I allow for the pattern repeat?",
+        "Which fabric width is more economical?"
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "locale": "uk",
+      "path": "/uk/pobut/rozrahunok-shtor/",
+      "name": "Калькулятор тканини на штори",
+      "h1": "Калькулятор тканини на штори",
+      "seoTitle": "Калькулятор тканини на штори — за шириною карниза і збіркою",
+      "questions": [
+        "Який коефіцієнт збирання обрати?",
+        "Скільки закладати на припуски?",
+        "Чи враховано рапорт малюнка?",
+        "Чи дає усадку тканина?"
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "locale": "de",
+      "path": "/de/haushalt/gardinenstoff-rechner/",
+      "name": "Rechner für den Stoffbedarf von Gardinen",
+      "h1": "Rechner für den Stoffbedarf von Gardinen",
+      "seoTitle": "Gardinenstoff berechnen — aus Schienenbreite und Faltenverhältnis",
+      "questions": [
+        "Welches Faltenverhältnis soll ich wählen?",
+        "Warum werden Bahnen aufgerundet?",
+        "Muss ich den Rapport berücksichtigen?",
+        "Welche Stoffbreite ist sparsamer?"
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "locale": "es",
+      "path": "/es/hogar/tela-para-cortinas/",
+      "name": "Calculadora de tela para cortinas",
+      "h1": "Calculadora de tela para cortinas",
+      "seoTitle": "Calculadora de tela para cortinas — por ancho de riel y fruncido",
+      "questions": [
+        "¿Qué fruncido debo elegir?",
+        "¿Por qué se redondean los paños hacia arriba?",
+        "¿Debo prever el repetido del estampado?",
+        "¿Qué ancho de tela sale más económico?"
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "locale": "ru",
+      "path": "/ru/household/lineynye-gabarity-bagazha/",
+      "name": "Калькулятор линейных габаритов багажа",
+      "h1": "Калькулятор линейных габаритов багажа",
+      "seoTitle": "Калькулятор линейных габаритов багажа — сумма трёх сторон",
+      "questions": [
+        "Почему считают сумму, а не каждую сторону?",
+        "Входят ли колёса и ручка?",
+        "Что такое 62 linear inches?",
+        "Что делать при превышении?"
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "locale": "en",
+      "path": "/en/household/luggage-linear-inches/",
+      "name": "Luggage linear inches calculator",
+      "h1": "Luggage linear inches calculator",
+      "seoTitle": "Luggage linear inches calculator — sum of three sides",
+      "questions": [
+        "Why a sum rather than each side?",
+        "Do wheels and the handle count?",
+        "What are 62 linear inches?",
+        "What to do when over?"
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "locale": "uk",
+      "path": "/uk/pobut/liniyni-gabaryty-bagazhu/",
+      "name": "Калькулятор лінійних габаритів багажу",
+      "h1": "Калькулятор лінійних габаритів багажу",
+      "seoTitle": "Калькулятор лінійних габаритів багажу — сума трьох сторін",
+      "questions": [
+        "Чи включати колеса й ручку?",
+        "Яка типова норма?",
+        "Що буде за перевищення?",
+        "Чи важлива форма валізи?"
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "locale": "de",
+      "path": "/de/haushalt/koffermasse-rechner/",
+      "name": "Rechner für die Gesamtmaße eines Koffers",
+      "h1": "Rechner für die Gesamtmaße eines Koffers",
+      "seoTitle": "Koffermaße berechnen — Summe der drei Seiten",
+      "questions": [
+        "Warum eine Summe und nicht jede Seite einzeln?",
+        "Zählen Rollen und Griff mit?",
+        "Was sind 62 linear inches?",
+        "Was tun bei Überschreitung?"
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "locale": "es",
+      "path": "/es/hogar/dimensiones-lineales-de-equipaje/",
+      "name": "Calculadora de dimensiones lineales de equipaje",
+      "h1": "Calculadora de dimensiones lineales de equipaje",
+      "seoTitle": "Calculadora de dimensiones lineales de equipaje — suma de tres lados",
+      "questions": [
+        "¿Por qué una suma y no cada lado?",
+        "¿Cuentan las ruedas y el asa?",
+        "¿Qué son 62 pulgadas lineales?",
+        "¿Qué hago si me paso?"
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "locale": "ru",
+      "path": "/ru/household/polya-passepartu/",
+      "name": "Калькулятор паспарту и рамы",
+      "h1": "Калькулятор паспарту и рамы",
+      "seoTitle": "Калькулятор паспарту и рамы — размер под фотографию",
+      "questions": [
+        "Зачем нижнее поле шире?",
+        "Какой ширины делать поля?",
+        "Считать ли нахлёст паспарту на фотографию?",
+        "Подойдёт ли расчёт для холста?"
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "locale": "en",
+      "path": "/en/household/picture-frame-mat/",
+      "name": "Picture frame mat calculator",
+      "h1": "Picture frame mat calculator",
+      "seoTitle": "Picture frame mat calculator — size for a photograph",
+      "questions": [
+        "Why is the bottom border wider?",
+        "How wide should the borders be?",
+        "Should I allow for the mat overlap?",
+        "Does this work for canvas?"
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "locale": "uk",
+      "path": "/uk/pobut/polya-pasparta/",
+      "name": "Калькулятор паспарту та рами",
+      "h1": "Калькулятор паспарту та рами",
+      "seoTitle": "Калькулятор паспарту та рами — розмір під фотографію",
+      "questions": [
+        "Навіщо нижнє поле ширше?",
+        "Якої ширини робити поле?",
+        "Чи потрібне паспарту взагалі?",
+        "Як обрати колір паспарту?"
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "locale": "de",
+      "path": "/de/haushalt/passepartout-rechner/",
+      "name": "Rechner für Bilderrahmen und Passepartout",
+      "h1": "Rechner für Bilderrahmen und Passepartout",
+      "seoTitle": "Passepartout berechnen — Rahmengröße für ein Foto",
+      "questions": [
+        "Warum ist der untere Rand breiter?",
+        "Wie breit sollen die Ränder sein?",
+        "Muss ich die Überdeckung berücksichtigen?",
+        "Funktioniert das auch für Leinwand?"
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "locale": "es",
+      "path": "/es/hogar/paspartu-y-marco/",
+      "name": "Calculadora de paspartú y marco",
+      "h1": "Calculadora de paspartú y marco",
+      "seoTitle": "Calculadora de paspartú — tamaño para una fotografía",
+      "questions": [
+        "¿Por qué el margen inferior es más ancho?",
+        "¿De qué anchura deben ser los márgenes?",
+        "¿Debo prever el solape del paspartú?",
+        "¿Vale para un lienzo?"
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "locale": "ru",
+      "path": "/ru/household/price-per-unit/",
+      "name": "Калькулятор цены за единицу",
+      "h1": "Калькулятор цены за единицу",
+      "seoTitle": "Калькулятор цены за единицу — сравнение упаковок",
+      "questions": [
+        "Зачем приводить цену к единице?",
+        "Что вводить в поле количества?",
+        "Что показывает переплата?",
+        "Учитываются ли скидки и акции?"
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "locale": "en",
+      "path": "/en/household/price-per-unit-calculator/",
+      "name": "Price per unit calculator",
+      "h1": "Price per unit calculator",
+      "seoTitle": "Price per unit calculator — compare pack sizes",
+      "questions": [
+        "Why reduce prices to a unit?",
+        "What goes in the amount field?",
+        "What does the overpayment show?",
+        "Are discounts included?"
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "locale": "uk",
+      "path": "/uk/pobut/tsina-za-odynytsyu/",
+      "name": "Калькулятор ціни за одиницю",
+      "h1": "Калькулятор ціни за одиницю",
+      "seoTitle": "Калькулятор ціни за одиницю — порівняння упаковок",
+      "questions": [
+        "Чи завжди велика упаковка вигідніша?",
+        "Що робити з різними одиницями?",
+        "Чи вказана питома ціна на ціннику?",
+        "Коли велика упаковка все ж невигідна?"
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "locale": "de",
+      "path": "/de/haushalt/grundpreis-rechner/",
+      "name": "Rechner für den Grundpreis",
+      "h1": "Rechner für den Grundpreis",
+      "seoTitle": "Grundpreis berechnen — Packungsgrößen vergleichen",
+      "questions": [
+        "Warum Preise auf eine Einheit bringen?",
+        "Was gehört ins Feld für den Inhalt?",
+        "Was zeigt der Mehrpreis?",
+        "Sind Rabatte enthalten?"
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "locale": "es",
+      "path": "/es/hogar/precio-por-unidad/",
+      "name": "Calculadora de precio por unidad",
+      "h1": "Calculadora de precio por unidad",
+      "seoTitle": "Calculadora de precio por unidad — compara tamaños de envase",
+      "questions": [
+        "¿Por qué reducir los precios a una unidad?",
+        "¿Qué va en el campo de la cantidad?",
+        "¿Qué indica el sobrecoste?",
+        "¿Se incluyen los descuentos?"
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "locale": "ru",
+      "path": "/ru/household/print-3d-cost/",
+      "name": "Калькулятор стоимости 3D-печати",
+      "h1": "Калькулятор стоимости 3D-печати",
+      "seoTitle": "Калькулятор стоимости 3D-печати — себестоимость детали",
+      "questions": [
+        "Почему цена грамма не вводится напрямую?",
+        "Какую мощность принтера указывать?",
+        "Что относить к амортизации?",
+        "Наценка считается от пластика?",
+        "Учитывается ли брак?"
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "locale": "en",
+      "path": "/en/household/3d-printing-cost-calculator/",
+      "name": "3D printing cost calculator",
+      "h1": "3D printing cost calculator",
+      "seoTitle": "3D printing cost calculator — cost per part",
+      "questions": [
+        "Why is the price per gram not entered directly?",
+        "Which printer power should I enter?",
+        "What counts as wear?",
+        "Is markup applied to filament only?",
+        "Are failed prints included?"
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "locale": "uk",
+      "path": "/uk/pobut/vartist-3d-druku/",
+      "name": "Калькулятор вартості 3D-друку",
+      "h1": "Калькулятор вартості 3D-друку",
+      "seoTitle": "Калькулятор вартості 3D-друку — собівартість деталі",
+      "questions": [
+        "Чому електрика така дешева?",
+        "Що ще входить у реальну собівартість?",
+        "Як дізнатися вагу деталі до друку?",
+        "Чи враховано підтримки?"
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "locale": "de",
+      "path": "/de/haushalt/3d-druck-kosten/",
+      "name": "Rechner für die Kosten eines 3D-Drucks",
+      "h1": "Rechner für die Kosten eines 3D-Drucks",
+      "seoTitle": "3D-Druck-Kosten berechnen — Kosten je Teil",
+      "questions": [
+        "Warum wird der Preis je Gramm nicht unmittelbar eingetragen?",
+        "Welche Leistung des Druckers soll ich eintragen?",
+        "Was zählt als Verschleiß?",
+        "Gilt der Aufschlag nur für das Filament?",
+        "Sind fehlgeschlagene Drucke enthalten?"
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "locale": "es",
+      "path": "/es/hogar/coste-de-impresion-3d/",
+      "name": "Calculadora de coste de impresión 3D",
+      "h1": "Calculadora de coste de impresión 3D",
+      "seoTitle": "Calculadora de coste de impresión 3D — coste por pieza",
+      "questions": [
+        "¿Por qué no se introduce directamente el precio por gramo?",
+        "¿Qué potencia de impresora debo introducir?",
+        "¿Qué cuenta como desgaste?",
+        "¿El margen se aplica solo al filamento?",
+        "¿Se incluyen las impresiones fallidas?"
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "locale": "ru",
+      "path": "/ru/household/stock-duration/",
+      "name": "Калькулятор запаса продукта",
+      "h1": "Калькулятор запаса продукта",
+      "seoTitle": "Калькулятор запаса — на сколько дней хватит",
+      "questions": [
+        "В каких единицах вводить запас?",
+        "Что такое страховой запас в днях?",
+        "Учитывается ли неравномерный расход?",
+        "Речь о товарном запасе или об акциях?"
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "locale": "en",
+      "path": "/en/household/stock-duration-calculator/",
+      "name": "Stock duration calculator",
+      "h1": "Stock duration calculator",
+      "seoTitle": "Stock duration calculator — how long supplies last",
+      "questions": [
+        "What unit should the stock be in?",
+        "What is the safety buffer in days?",
+        "Is uneven consumption handled?",
+        "Is this about supplies or about shares?"
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "locale": "uk",
+      "path": "/uk/pobut/zapas-produktu/",
+      "name": "Калькулятор запасу продукту",
+      "h1": "Калькулятор запасу продукту",
+      "seoTitle": "Калькулятор запасу — на скільки днів вистачить",
+      "questions": [
+        "Який страховий запас закладати?",
+        "Що робити з нерівномірною витратою?",
+        "Чи підходить це для складу?",
+        "Чому не замовляти впритул до нуля?"
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "locale": "de",
+      "path": "/de/haushalt/vorratsreichweite-rechner/",
+      "name": "Rechner für die Reichweite eines Vorrats",
+      "h1": "Rechner für die Reichweite eines Vorrats",
+      "seoTitle": "Reichweite eines Vorrats berechnen — wie lange er hält",
+      "questions": [
+        "In welcher Einheit soll der Vorrat stehen?",
+        "Was ist die Sicherheitsreserve in Tagen?",
+        "Wird ungleichmäßiger Verbrauch berücksichtigt?",
+        "Geht es um Vorräte oder um Aktien?"
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "locale": "es",
+      "path": "/es/hogar/duracion-de-existencias/",
+      "name": "Calculadora de duración de existencias",
+      "h1": "Calculadora de duración de existencias",
+      "seoTitle": "Calculadora de duración de existencias — cuánto duran los suministros",
+      "questions": [
+        "¿En qué unidad van las existencias?",
+        "¿Qué es la reserva de seguridad en días?",
+        "¿Se admite un consumo irregular?",
+        "¿Habla de suministros o de acciones?"
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "locale": "ru",
+      "path": "/ru/household/stoimost-podpisok/",
+      "name": "Калькулятор стоимости подписок",
+      "h1": "Калькулятор стоимости подписок",
+      "seoTitle": "Калькулятор стоимости подписок: месяц и год одним числом",
+      "questions": [
+        "Почему период числом, а не «ежемесячно» или «ежегодно»?",
+        "Как ввести квартальный тариф?",
+        "Почему годовое число не равно двенадцати округлённым месяцам?",
+        "Учитывается ли пробный период?",
+        "Всегда ли самый дешёвый месячный тариф выгоднее?"
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "locale": "en",
+      "path": "/en/household/subscriptions-cost/",
+      "name": "Subscriptions cost calculator",
+      "h1": "Subscriptions cost calculator",
+      "seoTitle": "Subscriptions cost calculator: monthly and yearly in one figure",
+      "questions": [
+        "Why is the period a number and not «monthly» or «yearly»?",
+        "How do I enter a quarterly plan?",
+        "Why is the yearly figure not twelve times the rounded month?",
+        "Does it account for a free trial?",
+        "Is the cheapest monthly plan always the cheapest?"
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "locale": "uk",
+      "path": "/uk/pobut/vartist-pidpysok/",
+      "name": "Калькулятор вартості підписок",
+      "h1": "Калькулятор вартості підписок",
+      "seoTitle": "Калькулятор вартості підписок: місяць і рік одним числом",
+      "questions": [
+        "Чому період числом, а не «щомісяця» чи «щороку»?",
+        "Як ввести квартальний тариф?",
+        "Чому річне число не дорівнює дванадцяти округленим місяцям?",
+        "Чи враховується безкоштовний період?",
+        "Чи завжди найдешевший місячний тариф найвигідніший?"
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "locale": "de",
+      "path": "/de/haushalt/abokosten-rechner/",
+      "name": "Rechner für Abokosten",
+      "h1": "Rechner für Abokosten",
+      "seoTitle": "Abokosten berechnen: monatlich und jährlich in einer Zahl",
+      "questions": [
+        "Warum ist der Zeitraum eine Zahl und nicht „monatlich“ oder „jährlich“?",
+        "Wie trage ich einen Vierteljahrestarif ein?",
+        "Warum ist die Jahreszahl nicht das Zwölffache des gerundeten Monats?",
+        "Wird eine kostenlose Probezeit berücksichtigt?",
+        "Ist der billigste Monatstarif immer der billigste?"
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "locale": "es",
+      "path": "/es/hogar/coste-de-suscripciones/",
+      "name": "Calculadora de coste de suscripciones",
+      "h1": "Calculadora de coste de suscripciones",
+      "seoTitle": "Calculadora de coste de suscripciones: mensuales y anuales en una cifra",
+      "questions": [
+        "¿Por qué el periodo es un número y no «mensual» o «anual»?",
+        "¿Cómo introduzco un plan trimestral?",
+        "¿Por qué la cifra anual no es doce veces el mes redondeado?",
+        "¿Tiene en cuenta un periodo de prueba gratuito?",
+        "¿El plan mensual más barato es siempre el más barato?"
+      ]
+    },
+    {
+      "id": "tip",
+      "locale": "ru",
+      "path": "/ru/household/tip/",
+      "name": "Калькулятор чаевых",
+      "h1": "Калькулятор чаевых",
+      "seoTitle": "Калькулятор чаевых — чаевые, итог и сумма с человека",
+      "questions": [
+        "Сколько принято оставлять на чай?",
+        "Что делает округление доли вверх?",
+        "Вычитается ли уже включённое обслуживание?",
+        "Можно ли считать без деления на компанию?"
+      ]
+    },
+    {
+      "id": "tip",
+      "locale": "en",
+      "path": "/en/household/tip-calculator/",
+      "name": "Tip calculator",
+      "h1": "Tip calculator",
+      "seoTitle": "Tip calculator — tip, total and split per person",
+      "questions": [
+        "How much should I tip?",
+        "What does rounding each share up do?",
+        "Is service already included subtracted?",
+        "Can I use it without splitting?"
+      ]
+    },
+    {
+      "id": "tip",
+      "locale": "uk",
+      "path": "/uk/pobut/chayovi/",
+      "name": "Калькулятор чайових",
+      "h1": "Калькулятор чайових",
+      "seoTitle": "Калькулятор чайових — чайові, підсумок і поділ на людину",
+      "questions": [
+        "Скільки прийнято залишати?",
+        "Від якої суми рахувати відсоток?",
+        "Чому частка рахується від підсумку?",
+        "Як розділити нерівно?"
+      ]
+    },
+    {
+      "id": "tip",
+      "locale": "de",
+      "path": "/de/haushalt/trinkgeld-rechner/",
+      "name": "Trinkgeldrechner",
+      "h1": "Trinkgeldrechner",
+      "seoTitle": "Trinkgeld berechnen — Trinkgeld, Summe und Anteil je Person",
+      "questions": [
+        "Wie viel Trinkgeld soll ich geben?",
+        "Was bewirkt das Aufrunden je Anteil?",
+        "Wird ein bereits enthaltener Bedienzuschlag abgezogen?",
+        "Kann ich ihn ohne Aufteilen nutzen?"
+      ]
+    },
+    {
+      "id": "tip",
+      "locale": "es",
+      "path": "/es/hogar/calculadora-de-propina/",
+      "name": "Calculadora de propina",
+      "h1": "Calculadora de propina",
+      "seoTitle": "Calculadora de propina — propina, total y reparto por persona",
+      "questions": [
+        "¿Cuánta propina debo dejar?",
+        "¿Qué hace redondear al alza cada parte?",
+        "¿Se resta el servicio ya incluido?",
+        "¿Puedo usarla sin repartir?"
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "locale": "ru",
+      "path": "/ru/household/trip-budget/",
+      "name": "Калькулятор бюджета поездки",
+      "h1": "Калькулятор бюджета поездки",
+      "seoTitle": "Калькулятор бюджета поездки — сколько стоит отпуск",
+      "questions": [
+        "Почему ночи и дни вводятся отдельно?",
+        "Питание считается на всех сразу?",
+        "Куда отнести билеты на самолёт?",
+        "Что показывает стоимость в день?",
+        "Учитывается ли курс валюты?"
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "locale": "en",
+      "path": "/en/household/trip-budget-calculator/",
+      "name": "Trip budget calculator",
+      "h1": "Trip budget calculator",
+      "seoTitle": "Trip budget calculator — what a holiday costs",
+      "questions": [
+        "Why are nights and days entered separately?",
+        "Is the food budget for everyone at once?",
+        "Where do flights belong?",
+        "What does the cost per day show?",
+        "Are exchange rates applied?"
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "locale": "uk",
+      "path": "/uk/pobut/byudzhet-podorozhi/",
+      "name": "Калькулятор бюджету подорожі",
+      "h1": "Калькулятор бюджету подорожі",
+      "seoTitle": "Калькулятор бюджету подорожі — скільки коштує відпустка",
+      "questions": [
+        "Чому ночей менше, ніж днів?",
+        "Що зазвичай забувають закласти?",
+        "Як рахувати харчування?",
+        "Чи враховано курс валюти?"
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "locale": "de",
+      "path": "/de/haushalt/reisebudget-rechner/",
+      "name": "Rechner für das Reisebudget",
+      "h1": "Rechner für das Reisebudget",
+      "seoTitle": "Reisebudget berechnen — was ein Urlaub kostet",
+      "questions": [
+        "Warum werden Nächte und Tage getrennt eingetragen?",
+        "Gilt das Essensbudget für alle zusammen?",
+        "Wohin gehören Flüge?",
+        "Was zeigen die Kosten je Tag?",
+        "Werden Wechselkurse angewendet?"
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "locale": "es",
+      "path": "/es/hogar/presupuesto-de-viaje/",
+      "name": "Calculadora de presupuesto de viaje",
+      "h1": "Calculadora de presupuesto de viaje",
+      "seoTitle": "Calculadora de presupuesto de viaje — lo que cuestan unas vacaciones",
+      "questions": [
+        "¿Por qué se introducen las noches y los días por separado?",
+        "¿El presupuesto de comida es para todos a la vez?",
+        "¿Dónde van los vuelos?",
+        "¿Qué indica el coste por día?",
+        "¿Se aplican tipos de cambio?"
+      ]
+    }
+  ],
+  "source": [
+    {
+      "id": "curtain-size",
+      "defaults": {
+        "windowWidth": 140,
+        "fullness": 2,
+        "fabricWidth": 280,
+        "height": 250,
+        "hem": 20
+      },
+      "fields": [
+        {
+          "name": "windowWidth",
+          "label": "Ширина карниза, см",
+          "type": "number",
+          "defaultValue": 140,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "fullness",
+          "label": "Коэффициент сборки",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 0.5
+        },
+        {
+          "name": "fabricWidth",
+          "label": "Ширина полотна, см",
+          "type": "number",
+          "defaultValue": 280,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "height",
+          "label": "Готовая высота, см",
+          "type": "number",
+          "defaultValue": 250,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "hem",
+          "label": "Припуск сверху и снизу, см",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0,
+          "step": 5
+        }
+      ],
+      "defaultResult": {
+        "primary": {
+          "label": "Ткани потребуется",
+          "value": "2,7 м"
+        },
+        "secondary": [
+          {
+            "label": "Полотнищ",
+            "value": "1 шт"
+          },
+          {
+            "label": "Ширина в сборке",
+            "value": "280 см"
+          },
+          {
+            "label": "Длина отреза",
+            "value": "270 см"
+          },
+          {
+            "label": "Коэффициент сборки",
+            "value": "2"
+          }
+        ]
+      },
+      "publishedExample": {
+        "inputs": {
+          "windowWidth": 140,
+          "fullness": 2,
+          "fabricWidth": 280,
+          "height": 250,
+          "hem": 20
+        },
+        "expected": [
+          "2,7 м"
+        ]
+      },
+      "references": [
+        {
+          "name": "карниз 140 см с коэффициентом 2",
+          "inputs": {
+            "windowWidth": 140,
+            "fullness": 2,
+            "fabricWidth": 280,
+            "height": 250,
+            "hem": 20
+          },
+          "expectPrimary": "2,7 м",
+          "expectSecondary": [
+            {
+              "label": "Полотнищ",
+              "value": "1 шт"
+            },
+            {
+              "label": "Ширина в сборке",
+              "value": "280 см"
+            },
+            {
+              "label": "Длина отреза",
+              "value": "270 см"
+            },
+            {
+              "label": "Коэффициент сборки",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "name": "карниз 300 см с коэффициентом 2,5 на узком полотне",
+          "inputs": {
+            "windowWidth": 300,
+            "fullness": 2.5,
+            "fabricWidth": 150,
+            "height": 270,
+            "hem": 25
+          },
+          "expectPrimary": "14,75 м",
+          "expectSecondary": [
+            {
+              "label": "Полотнищ",
+              "value": "5 шт"
+            },
+            {
+              "label": "Ширина в сборке",
+              "value": "750 см"
+            },
+            {
+              "label": "Длина отреза",
+              "value": "295 см"
+            },
+            {
+              "label": "Коэффициент сборки",
+              "value": "2,5"
+            }
+          ]
+        },
+        {
+          "name": "граница: сборка ровно в одно полотнище",
+          "inputs": {
+            "windowWidth": 140,
+            "fullness": 2,
+            "fabricWidth": 280,
+            "height": 200,
+            "hem": 0
+          },
+          "expectPrimary": "2 м",
+          "expectSecondary": [
+            {
+              "label": "Полотнищ",
+              "value": "1 шт"
+            },
+            {
+              "label": "Ширина в сборке",
+              "value": "280 см"
+            },
+            {
+              "label": "Длина отреза",
+              "value": "200 см"
+            },
+            {
+              "label": "Коэффициент сборки",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "name": "нулевая ширина полотна отклоняется",
+          "inputs": {
+            "windowWidth": 140,
+            "fullness": 2,
+            "fabricWidth": 0,
+            "height": 250,
+            "hem": 20
+          },
+          "expectPrimary": "—"
+        },
+        {
+          "name": "нулевой коэффициент сборки отклоняется",
+          "inputs": {
+            "windowWidth": 140,
+            "fullness": 0,
+            "fabricWidth": 280,
+            "height": 250,
+            "hem": 20
+          },
+          "expectPrimary": "—"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "defaults": {
+        "l": 55,
+        "w": 40,
+        "h": 23,
+        "limit": 158
+      },
+      "fields": [
+        {
+          "name": "l",
+          "label": "Длина, см",
+          "type": "number",
+          "defaultValue": 55,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "w",
+          "label": "Ширина, см",
+          "type": "number",
+          "defaultValue": 40,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "h",
+          "label": "Высота, см",
+          "type": "number",
+          "defaultValue": 23,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "limit",
+          "label": "Норма авиакомпании, см",
+          "type": "number",
+          "defaultValue": 158,
+          "min": 0,
+          "step": 1
+        }
+      ],
+      "defaultResult": {
+        "primary": {
+          "label": "Линейные габариты",
+          "value": "118 см"
+        },
+        "secondary": [
+          {
+            "label": "Запас до предела",
+            "value": "40 см"
+          },
+          {
+            "label": "В дюймах",
+            "value": "46,457 дюйма"
+          },
+          {
+            "label": "Объём коробки",
+            "value": "50,6 л"
+          },
+          {
+            "label": "Норма",
+            "value": "проходит"
+          }
+        ]
+      },
+      "publishedExample": {
+        "inputs": {
+          "l": 55,
+          "w": 40,
+          "h": 23,
+          "limit": 158
+        },
+        "expected": [
+          "118 см"
+        ]
+      },
+      "references": [
+        {
+          "name": "ручная кладь в пределах нормы",
+          "inputs": {
+            "l": 55,
+            "w": 40,
+            "h": 23,
+            "limit": 158
+          },
+          "expectPrimary": "118 см",
+          "expectSecondary": [
+            {
+              "label": "Запас до предела",
+              "value": "40 см"
+            },
+            {
+              "label": "В дюймах",
+              "value": "46,457 дюйма"
+            },
+            {
+              "label": "Объём коробки",
+              "value": "50,6 л"
+            }
+          ]
+        },
+        {
+          "name": "чемодан сверх нормы",
+          "inputs": {
+            "l": 75,
+            "w": 50,
+            "h": 40,
+            "limit": 158
+          },
+          "expectPrimary": "165 см",
+          "expectSecondary": [
+            {
+              "label": "Запас до предела",
+              "value": "-7 см"
+            },
+            {
+              "label": "В дюймах",
+              "value": "64,961 дюйма"
+            },
+            {
+              "label": "Объём коробки",
+              "value": "150 л"
+            }
+          ]
+        },
+        {
+          "name": "ровно по пределу",
+          "inputs": {
+            "l": 78,
+            "w": 50,
+            "h": 30,
+            "limit": 158
+          },
+          "expectPrimary": "158 см",
+          "expectSecondary": [
+            {
+              "label": "Запас до предела",
+              "value": "0 см"
+            },
+            {
+              "label": "В дюймах",
+              "value": "62,205 дюйма"
+            },
+            {
+              "label": "Объём коробки",
+              "value": "117 л"
+            }
+          ]
+        },
+        {
+          "name": "нулевая сторона отклоняется",
+          "inputs": {
+            "l": 0,
+            "w": 40,
+            "h": 23,
+            "limit": 158
+          },
+          "expectPrimary": "—"
+        },
+        {
+          "name": "нулевой предел отклоняется",
+          "inputs": {
+            "l": 55,
+            "w": 40,
+            "h": 23,
+            "limit": 0
+          },
+          "expectPrimary": "—"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "defaults": {
+        "photoWidth": 20,
+        "photoHeight": 30,
+        "border": 5,
+        "bottomExtra": 1
+      },
+      "fields": [
+        {
+          "name": "photoWidth",
+          "label": "Ширина фотографии, см",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "photoHeight",
+          "label": "Высота фотографии, см",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "border",
+          "label": "Поле сверху и по бокам, см",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "step": 0.5
+        },
+        {
+          "name": "bottomExtra",
+          "label": "Утяжеление нижнего поля, см",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "step": 0.5
+        }
+      ],
+      "defaultResult": {
+        "primary": {
+          "label": "Размер рамы",
+          "value": "30×41 см"
+        },
+        "secondary": [
+          {
+            "label": "Нижнее поле",
+            "value": "6 см"
+          },
+          {
+            "label": "Верх и бока",
+            "value": "5 см"
+          },
+          {
+            "label": "Площадь паспарту",
+            "value": "630 см²"
+          },
+          {
+            "label": "Соотношение сторон рамы",
+            "value": "0,7317"
+          }
+        ]
+      },
+      "publishedExample": {
+        "inputs": {
+          "photoWidth": 20,
+          "photoHeight": 30,
+          "border": 5,
+          "bottomExtra": 1
+        },
+        "expected": [
+          "30×41 см"
+        ]
+      },
+      "references": [
+        {
+          "name": "фотография 20×30 с полем 5 см",
+          "inputs": {
+            "photoWidth": 20,
+            "photoHeight": 30,
+            "border": 5,
+            "bottomExtra": 1
+          },
+          "expectPrimary": "30×41 см",
+          "expectSecondary": [
+            {
+              "label": "Нижнее поле",
+              "value": "6 см"
+            },
+            {
+              "label": "Верх и бока",
+              "value": "5 см"
+            },
+            {
+              "label": "Площадь паспарту",
+              "value": "630 см²"
+            },
+            {
+              "label": "Соотношение сторон рамы",
+              "value": "0,7317"
+            }
+          ]
+        },
+        {
+          "name": "квадрат 30×30 с полем 8 см без утяжеления",
+          "inputs": {
+            "photoWidth": 30,
+            "photoHeight": 30,
+            "border": 8,
+            "bottomExtra": 0
+          },
+          "expectPrimary": "46×46 см",
+          "expectSecondary": [
+            {
+              "label": "Нижнее поле",
+              "value": "8 см"
+            },
+            {
+              "label": "Верх и бока",
+              "value": "8 см"
+            },
+            {
+              "label": "Площадь паспарту",
+              "value": "1 216 см²"
+            },
+            {
+              "label": "Соотношение сторон рамы",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "name": "граница: поле в один миллиметр",
+          "inputs": {
+            "photoWidth": 10,
+            "photoHeight": 15,
+            "border": 0.1,
+            "bottomExtra": 0
+          },
+          "expectPrimary": "10,2×15,2 см",
+          "expectSecondary": [
+            {
+              "label": "Нижнее поле",
+              "value": "0,1 см"
+            },
+            {
+              "label": "Верх и бока",
+              "value": "0,1 см"
+            },
+            {
+              "label": "Площадь паспарту",
+              "value": "5,04 см²"
+            },
+            {
+              "label": "Соотношение сторон рамы",
+              "value": "0,6711"
+            }
+          ]
+        },
+        {
+          "name": "нулевое поле отклоняется",
+          "inputs": {
+            "photoWidth": 20,
+            "photoHeight": 30,
+            "border": 0,
+            "bottomExtra": 1
+          },
+          "expectPrimary": "—"
+        },
+        {
+          "name": "нулевая сторона фотографии отклоняется",
+          "inputs": {
+            "photoWidth": 0,
+            "photoHeight": 30,
+            "border": 5,
+            "bottomExtra": 1
+          },
+          "expectPrimary": "—"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "defaults": {
+        "mode": "single",
+        "unit": "kg",
+        "price": 150,
+        "amount": 0.5,
+        "priceA": 150,
+        "amountA": 0.5,
+        "priceB": 260,
+        "amountB": 1
+      },
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Что делаем",
+          "type": "select",
+          "defaultValue": "single",
+          "options": [
+            {
+              "value": "single",
+              "label": "цена за единицу"
+            },
+            {
+              "value": "compare",
+              "label": "сравнить две упаковки"
+            }
+          ]
+        },
+        {
+          "name": "unit",
+          "label": "Единица",
+          "type": "select",
+          "defaultValue": "kg",
+          "options": [
+            {
+              "value": "kg",
+              "label": "килограмм"
+            },
+            {
+              "value": "l",
+              "label": "литр"
+            },
+            {
+              "value": "pcs",
+              "label": "штука"
+            }
+          ]
+        },
+        {
+          "name": "price",
+          "label": "Цена упаковки, ₽",
+          "type": "number",
+          "defaultValue": 150,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "amount",
+          "label": "Количество в упаковке",
+          "type": "number",
+          "defaultValue": 0.5,
+          "min": 0,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "priceA",
+          "label": "Цена упаковки A, ₽",
+          "type": "number",
+          "defaultValue": 150,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "compare"
+          }
+        },
+        {
+          "name": "amountA",
+          "label": "Количество в упаковке A",
+          "type": "number",
+          "defaultValue": 0.5,
+          "min": 0,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "compare"
+          }
+        },
+        {
+          "name": "priceB",
+          "label": "Цена упаковки B, ₽",
+          "type": "number",
+          "defaultValue": 260,
+          "min": 0,
+          "step": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "compare"
+          }
+        },
+        {
+          "name": "amountB",
+          "label": "Количество в упаковке B",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 0,
+          "step": 0.01,
+          "showIf": {
+            "field": "mode",
+            "equals": "compare"
+          }
+        }
+      ],
+      "defaultResult": {
+        "primary": {
+          "label": "Цена за единицу",
+          "value": "300,00 ₽ за кг"
+        },
+        "secondary": [
+          {
+            "label": "Цена упаковки",
+            "value": "150,00 ₽"
+          },
+          {
+            "label": "Количество в упаковке",
+            "value": "0,50"
+          }
+        ]
+      },
+      "publishedExample": {
+        "inputs": {
+          "mode": "single",
+          "unit": "kg",
+          "price": 150,
+          "amount": 0.5
+        },
+        "expected": [
+          "300,00 ₽ за кг"
+        ]
+      },
+      "references": [
+        {
+          "name": "полкило за 150 — это 300 за килограмм",
+          "inputs": {
+            "mode": "single",
+            "unit": "kg",
+            "price": 150,
+            "amount": 0.5
+          },
+          "expectPrimary": "300,00 ₽ за кг"
+        },
+        {
+          "name": "литровая упаковка за 89",
+          "inputs": {
+            "mode": "single",
+            "unit": "l",
+            "price": 89,
+            "amount": 1
+          },
+          "expectPrimary": "89,00 ₽ за л"
+        },
+        {
+          "name": "сравнение: килограмм за 260 выгоднее полкило за 150",
+          "inputs": {
+            "mode": "compare",
+            "unit": "kg",
+            "priceA": 150,
+            "amountA": 0.5,
+            "priceB": 260,
+            "amountB": 1
+          },
+          "expectPrimary": "B",
+          "expectSecondary": [
+            {
+              "label": "Упаковка A",
+              "value": "300,00 ₽ за кг"
+            },
+            {
+              "label": "Упаковка B",
+              "value": "260,00 ₽ за кг"
+            },
+            {
+              "label": "Переплата за единицу",
+              "value": "40,00 ₽ за кг"
+            }
+          ]
+        },
+        {
+          "name": "граница: одинаковые удельные цены",
+          "inputs": {
+            "mode": "compare",
+            "unit": "kg",
+            "priceA": 100,
+            "amountA": 1,
+            "priceB": 100,
+            "amountB": 1
+          },
+          "expectPrimary": "одинаково"
+        },
+        {
+          "name": "нулевое количество отклоняется",
+          "inputs": {
+            "mode": "single",
+            "unit": "kg",
+            "price": 150,
+            "amount": 0
+          },
+          "expectPrimary": "—"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "defaults": {
+        "grams": 85,
+        "spoolPrice": 1800,
+        "spoolWeight": 1000,
+        "hours": 6.5,
+        "powerW": 120,
+        "kwhPrice": 5.5,
+        "wearPerHour": 0,
+        "markupPct": 0
+      },
+      "fields": [
+        {
+          "name": "grams",
+          "label": "Вес детали, г",
+          "type": "number",
+          "defaultValue": 85,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "spoolPrice",
+          "label": "Цена катушки, ₽",
+          "type": "number",
+          "defaultValue": 1800,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "spoolWeight",
+          "label": "Вес катушки, г",
+          "type": "number",
+          "defaultValue": 1000,
+          "min": 0,
+          "step": 50
+        },
+        {
+          "name": "hours",
+          "label": "Время печати, ч",
+          "type": "number",
+          "defaultValue": 6.5,
+          "min": 0,
+          "step": 0.5
+        },
+        {
+          "name": "powerW",
+          "label": "Мощность принтера, Вт",
+          "type": "number",
+          "defaultValue": 120,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "kwhPrice",
+          "label": "Цена киловатт-часа, ₽",
+          "type": "number",
+          "defaultValue": 5.5,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "wearPerHour",
+          "label": "Амортизация за час, ₽",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1,
+          "optional": true
+        },
+        {
+          "name": "markupPct",
+          "label": "Наценка, %",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1,
+          "optional": true
+        }
+      ],
+      "defaultResult": {
+        "primary": {
+          "label": "Себестоимость печати",
+          "value": "157,29 ₽"
+        },
+        "secondary": [
+          {
+            "label": "Пластик",
+            "value": "153,00 ₽"
+          },
+          {
+            "label": "Электричество",
+            "value": "4,29 ₽"
+          },
+          {
+            "label": "Израсходовано энергии",
+            "value": "0,78 кВт·ч"
+          },
+          {
+            "label": "Цена грамма пластика",
+            "value": "1,80 ₽"
+          }
+        ]
+      },
+      "publishedExample": {
+        "inputs": {
+          "grams": 85,
+          "spoolPrice": 1800,
+          "spoolWeight": 1000,
+          "hours": 6.5,
+          "powerW": 120,
+          "kwhPrice": 5.5,
+          "wearPerHour": 0,
+          "markupPct": 0
+        },
+        "expected": [
+          "157,29 ₽"
+        ]
+      },
+      "references": [
+        {
+          "name": "деталь 85 граммов за 6,5 часа печати",
+          "inputs": {
+            "grams": 85,
+            "spoolPrice": 1800,
+            "spoolWeight": 1000,
+            "hours": 6.5,
+            "powerW": 120,
+            "kwhPrice": 5.5,
+            "wearPerHour": 0,
+            "markupPct": 0
+          },
+          "expectPrimary": "157,29 ₽",
+          "expectSecondary": [
+            {
+              "label": "Пластик",
+              "value": "153,00 ₽"
+            },
+            {
+              "label": "Электричество",
+              "value": "4,29 ₽"
+            },
+            {
+              "label": "Цена грамма пластика",
+              "value": "1,80 ₽"
+            }
+          ]
+        },
+        {
+          "name": "крупная модель с амортизацией и наценкой 25 процентов",
+          "inputs": {
+            "grams": 340,
+            "spoolPrice": 2400,
+            "spoolWeight": 1000,
+            "hours": 21.5,
+            "powerW": 150,
+            "kwhPrice": 6.2,
+            "wearPerHour": 3,
+            "markupPct": 25
+          },
+          "expectPrimary": "1 125,62 ₽",
+          "expectSecondary": [
+            {
+              "label": "Пластик",
+              "value": "816,00 ₽"
+            },
+            {
+              "label": "Электричество",
+              "value": "20,00 ₽"
+            },
+            {
+              "label": "Амортизация принтера",
+              "value": "64,50 ₽"
+            }
+          ]
+        },
+        {
+          "name": "граница: расходуется ровно вся катушка",
+          "inputs": {
+            "grams": 1000,
+            "spoolPrice": 1800,
+            "spoolWeight": 1000,
+            "hours": 40,
+            "powerW": 120,
+            "kwhPrice": 5.5,
+            "wearPerHour": 0,
+            "markupPct": 0
+          },
+          "expectPrimary": "1 826,40 ₽",
+          "expectSecondary": [
+            {
+              "label": "Пластик",
+              "value": "1 800,00 ₽"
+            }
+          ]
+        },
+        {
+          "name": "нулевой вес катушки отклоняется",
+          "inputs": {
+            "grams": 85,
+            "spoolPrice": 1800,
+            "spoolWeight": 0,
+            "hours": 6.5,
+            "powerW": 120,
+            "kwhPrice": 5.5,
+            "wearPerHour": 0,
+            "markupPct": 0
+          },
+          "expectPrimary": "—"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "defaults": {
+        "stock": 30,
+        "perDay": 2,
+        "reserveDays": 0
+      },
+      "fields": [
+        {
+          "name": "stock",
+          "label": "Запас",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "perDay",
+          "label": "Расход в сутки",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 0.1
+        },
+        {
+          "name": "reserveDays",
+          "label": "Страховой запас, дней",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1,
+          "optional": true
+        }
+      ],
+      "defaultResult": {
+        "primary": {
+          "label": "Хватит на",
+          "value": "15 дней"
+        },
+        "secondary": [
+          {
+            "label": "Расход в сутки",
+            "value": "2"
+          }
+        ]
+      },
+      "publishedExample": {
+        "inputs": {
+          "stock": 30,
+          "perDay": 2,
+          "reserveDays": 0
+        },
+        "expected": [
+          "15 дней"
+        ]
+      },
+      "references": [
+        {
+          "name": "30 кг при расходе 2 кг в сутки",
+          "inputs": {
+            "stock": 30,
+            "perDay": 2,
+            "reserveDays": 0
+          },
+          "expectPrimary": "15 дней"
+        },
+        {
+          "name": "1000 при расходе 75 в сутки",
+          "inputs": {
+            "stock": 1000,
+            "perDay": 75,
+            "reserveDays": 0
+          },
+          "expectPrimary": "13,3 дней"
+        },
+        {
+          "name": "со страховым запасом в 3 дня",
+          "inputs": {
+            "stock": 30,
+            "perDay": 2,
+            "reserveDays": 3
+          },
+          "expectPrimary": "15 дней",
+          "expectSecondary": [
+            {
+              "label": "Заказать через",
+              "value": "12 дней"
+            }
+          ]
+        },
+        {
+          "name": "граница: суточного запаса хватит на день",
+          "inputs": {
+            "stock": 1,
+            "perDay": 1,
+            "reserveDays": 0
+          },
+          "expectPrimary": "1 дней"
+        },
+        {
+          "name": "нулевой расход отклоняется",
+          "inputs": {
+            "stock": 30,
+            "perDay": 0,
+            "reserveDays": 0
+          },
+          "expectPrimary": "—"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "defaults": {
+        "items": "streaming 299 1\ncloud 1990 12\nmusic 169 1"
+      },
+      "fields": [
+        {
+          "name": "items",
+          "label": "Подписки: название, цена и период в месяцах в строке",
+          "type": "textarea",
+          "defaultValue": "streaming 299 1\ncloud 1990 12\nmusic 169 1"
+        }
+      ],
+      "defaultResult": {
+        "primary": {
+          "label": "В месяц",
+          "value": "633,83 ₽"
+        },
+        "secondary": [
+          {
+            "label": "В год",
+            "value": "7 606,00 ₽"
+          },
+          {
+            "label": "Подписок",
+            "value": "3"
+          },
+          {
+            "label": "Самая дорогая",
+            "value": "streaming"
+          },
+          {
+            "label": "Её вклад в месяц",
+            "value": "299,00 ₽"
+          }
+        ],
+        "table": {
+          "title": "Подписки в пересчёте на месяц",
+          "columns": [
+            "Подписка",
+            "Цена",
+            "Месяцев",
+            "В месяц"
+          ],
+          "rows": [
+            [
+              "streaming",
+              "299,00",
+              "1",
+              "299,00"
+            ],
+            [
+              "cloud",
+              "1 990,00",
+              "12",
+              "165,83"
+            ],
+            [
+              "music",
+              "169,00",
+              "1",
+              "169,00"
+            ]
+          ]
+        }
+      },
+      "publishedExample": {
+        "inputs": {
+          "items": "стриминг 299 1\nоблако 1990 12\nмузыка 169 1"
+        },
+        "expected": [
+          "633,83 ₽"
+        ]
+      },
+      "references": [
+        {
+          "name": "три подписки с разной периодичностью",
+          "inputs": {
+            "items": "стриминг 299 1\nоблако 1990 12\nмузыка 169 1"
+          },
+          "expectPrimary": "633,83 ₽",
+          "expectSecondary": [
+            {
+              "label": "В год",
+              "value": "7 606,00 ₽"
+            },
+            {
+              "label": "Подписок",
+              "value": "3"
+            },
+            {
+              "label": "Самая дорогая",
+              "value": "стриминг"
+            },
+            {
+              "label": "Её вклад в месяц",
+              "value": "299,00 ₽"
+            }
+          ]
+        },
+        {
+          "name": "одна годовая подписка",
+          "inputs": {
+            "items": "хостинг 4800 12"
+          },
+          "expectPrimary": "400,00 ₽",
+          "expectSecondary": [
+            {
+              "label": "В год",
+              "value": "4 800,00 ₽"
+            },
+            {
+              "label": "Подписок",
+              "value": "1"
+            },
+            {
+              "label": "Самая дорогая",
+              "value": "хостинг"
+            },
+            {
+              "label": "Её вклад в месяц",
+              "value": "400,00 ₽"
+            }
+          ]
+        },
+        {
+          "name": "граница: бесплатный пробный период",
+          "inputs": {
+            "items": "пробный 0 1"
+          },
+          "expectPrimary": "0,00 ₽",
+          "expectSecondary": [
+            {
+              "label": "В год",
+              "value": "0,00 ₽"
+            },
+            {
+              "label": "Подписок",
+              "value": "1"
+            },
+            {
+              "label": "Самая дорогая",
+              "value": "пробный"
+            },
+            {
+              "label": "Её вклад в месяц",
+              "value": "0,00 ₽"
+            }
+          ]
+        },
+        {
+          "name": "пустой список отклоняется",
+          "inputs": {
+            "items": ""
+          },
+          "expectPrimary": "—"
+        },
+        {
+          "name": "нулевая периодичность отклоняется",
+          "inputs": {
+            "items": "стриминг 299 0"
+          },
+          "expectPrimary": "—"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "defaults": {
+        "bill": 3200,
+        "tipPercent": 10,
+        "people": 1,
+        "roundPerPerson": "no"
+      },
+      "fields": [
+        {
+          "name": "bill",
+          "label": "Сумма счёта",
+          "type": "number",
+          "defaultValue": 3200,
+          "unit": "₽",
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "tipPercent",
+          "label": "Чаевые, %",
+          "type": "number",
+          "defaultValue": 10,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "name": "people",
+          "label": "Человек",
+          "type": "number",
+          "defaultValue": 1,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "roundPerPerson",
+          "label": "Округлять долю вверх",
+          "type": "toggle",
+          "defaultValue": "no",
+          "options": [
+            {
+              "value": "no",
+              "label": "Нет"
+            },
+            {
+              "value": "yes",
+              "label": "Да"
+            }
+          ]
+        }
+      ],
+      "defaultResult": {
+        "primary": {
+          "label": "Итого к оплате",
+          "value": "3 520,00 ₽"
+        },
+        "secondary": [
+          {
+            "label": "Чаевые",
+            "value": "320,00 ₽"
+          },
+          {
+            "label": "Счёт без чаевых",
+            "value": "3 200,00 ₽"
+          }
+        ]
+      },
+      "publishedExample": {
+        "inputs": {
+          "bill": 3200,
+          "tipPercent": 10,
+          "people": 1
+        },
+        "expected": [
+          "3 520,00 ₽"
+        ]
+      },
+      "references": [
+        {
+          "name": "счёт 3200 и 10 % — итого 3520",
+          "inputs": {
+            "bill": 3200,
+            "tipPercent": 10,
+            "people": 1
+          },
+          "expectPrimary": "3 520,00 ₽",
+          "expectSecondary": [
+            {
+              "label": "Чаевые",
+              "value": "320,00 ₽"
+            }
+          ]
+        },
+        {
+          "name": "счёт 5400 и 15 % на четверых — 1552,50 с человека",
+          "inputs": {
+            "bill": 5400,
+            "tipPercent": 15,
+            "people": 4
+          },
+          "expectPrimary": "6 210,00 ₽",
+          "expectSecondary": [
+            {
+              "label": "Чаевые",
+              "value": "810,00 ₽"
+            },
+            {
+              "label": "С человека",
+              "value": "1 552,50 ₽"
+            }
+          ]
+        },
+        {
+          "name": "граница: без чаевых счёт делится как есть",
+          "inputs": {
+            "bill": 1000,
+            "tipPercent": 0,
+            "people": 3
+          },
+          "expectPrimary": "1 000,00 ₽",
+          "expectSecondary": [
+            {
+              "label": "Чаевые",
+              "value": "0,00 ₽"
+            },
+            {
+              "label": "С человека",
+              "value": "333,33 ₽"
+            }
+          ]
+        },
+        {
+          "name": "округление вверх поднимает и итог: 1000 на троих по 334",
+          "inputs": {
+            "bill": 1000,
+            "tipPercent": 0,
+            "people": 3,
+            "roundPerPerson": "yes"
+          },
+          "expectPrimary": "1 002,00 ₽",
+          "expectSecondary": [
+            {
+              "label": "С человека",
+              "value": "334,00 ₽"
+            },
+            {
+              "label": "Сверх счёта из-за округления",
+              "value": "2,00 ₽"
+            }
+          ]
+        },
+        {
+          "name": "недопустимо: ноль человек",
+          "inputs": {
+            "bill": 3200,
+            "tipPercent": 10,
+            "people": 0
+          },
+          "expectPrimary": "—"
+        },
+        {
+          "name": "недопустимо: нулевой счёт",
+          "inputs": {
+            "bill": 0,
+            "tipPercent": 10,
+            "people": 2
+          },
+          "expectPrimary": "—"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "defaults": {
+        "nights": 4,
+        "days": 5,
+        "people": 2,
+        "hotelPerNight": 3500,
+        "foodPerDayPerPerson": 1200,
+        "transport": 12000,
+        "activities": 5000,
+        "other": 0
+      },
+      "fields": [
+        {
+          "name": "nights",
+          "label": "Ночей в отеле",
+          "type": "number",
+          "defaultValue": 4,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "days",
+          "label": "Дней поездки",
+          "type": "number",
+          "defaultValue": 5,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "people",
+          "label": "Человек",
+          "type": "number",
+          "defaultValue": 2,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "hotelPerNight",
+          "label": "Проживание за ночь, ₽",
+          "type": "number",
+          "defaultValue": 3500,
+          "min": 0,
+          "step": 100
+        },
+        {
+          "name": "foodPerDayPerPerson",
+          "label": "Питание на человека в день, ₽",
+          "type": "number",
+          "defaultValue": 1200,
+          "min": 0,
+          "step": 100
+        },
+        {
+          "name": "transport",
+          "label": "Транспорт за поездку, ₽",
+          "type": "number",
+          "defaultValue": 12000,
+          "min": 0,
+          "step": 100
+        },
+        {
+          "name": "activities",
+          "label": "Развлечения за поездку, ₽",
+          "type": "number",
+          "defaultValue": 5000,
+          "min": 0,
+          "step": 100
+        },
+        {
+          "name": "other",
+          "label": "Прочие расходы, ₽",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 100,
+          "optional": true
+        }
+      ],
+      "defaultResult": {
+        "primary": {
+          "label": "Бюджет поездки",
+          "value": "43 000,00 ₽"
+        },
+        "secondary": [
+          {
+            "label": "На человека",
+            "value": "21 500,00 ₽"
+          },
+          {
+            "label": "В день",
+            "value": "8 600,00 ₽"
+          },
+          {
+            "label": "Проживание",
+            "value": "14 000,00 ₽"
+          },
+          {
+            "label": "Питание",
+            "value": "12 000,00 ₽"
+          },
+          {
+            "label": "Транспорт",
+            "value": "12 000,00 ₽"
+          },
+          {
+            "label": "Развлечения",
+            "value": "5 000,00 ₽"
+          }
+        ]
+      },
+      "publishedExample": {
+        "inputs": {
+          "nights": 4,
+          "days": 5,
+          "people": 2,
+          "hotelPerNight": 3500,
+          "foodPerDayPerPerson": 1200,
+          "transport": 12000,
+          "activities": 5000,
+          "other": 0
+        },
+        "expected": [
+          "43 000,00 ₽"
+        ]
+      },
+      "references": [
+        {
+          "name": "двое на пять дней и четыре ночи",
+          "inputs": {
+            "nights": 4,
+            "days": 5,
+            "people": 2,
+            "hotelPerNight": 3500,
+            "foodPerDayPerPerson": 1200,
+            "transport": 12000,
+            "activities": 5000,
+            "other": 0
+          },
+          "expectPrimary": "43 000,00 ₽",
+          "expectSecondary": [
+            {
+              "label": "На человека",
+              "value": "21 500,00 ₽"
+            },
+            {
+              "label": "В день",
+              "value": "8 600,00 ₽"
+            },
+            {
+              "label": "Проживание",
+              "value": "14 000,00 ₽"
+            },
+            {
+              "label": "Питание",
+              "value": "12 000,00 ₽"
+            }
+          ]
+        },
+        {
+          "name": "семья из четверых на восемь дней",
+          "inputs": {
+            "nights": 7,
+            "days": 8,
+            "people": 4,
+            "hotelPerNight": 5200,
+            "foodPerDayPerPerson": 1500,
+            "transport": 48000,
+            "activities": 12000,
+            "other": 3000
+          },
+          "expectPrimary": "147 400,00 ₽",
+          "expectSecondary": [
+            {
+              "label": "На человека",
+              "value": "36 850,00 ₽"
+            },
+            {
+              "label": "В день",
+              "value": "18 425,00 ₽"
+            },
+            {
+              "label": "Прочее",
+              "value": "3 000,00 ₽"
+            }
+          ]
+        },
+        {
+          "name": "граница: один человек — на человека равно всему бюджету",
+          "inputs": {
+            "nights": 3,
+            "days": 4,
+            "people": 1,
+            "hotelPerNight": 2800,
+            "foodPerDayPerPerson": 900,
+            "transport": 6000,
+            "activities": 0,
+            "other": 0
+          },
+          "expectPrimary": "18 000,00 ₽",
+          "expectSecondary": [
+            {
+              "label": "На человека",
+              "value": "18 000,00 ₽"
+            }
+          ]
+        },
+        {
+          "name": "нулевое число дней отклоняется",
+          "inputs": {
+            "nights": 4,
+            "days": 0,
+            "people": 2,
+            "hotelPerNight": 3500,
+            "foodPerDayPerPerson": 1200,
+            "transport": 12000,
+            "activities": 5000,
+            "other": 0
+          },
+          "expectPrimary": "—"
+        }
+      ]
+    }
+  ]
+}

@@ -1,55 +1,88 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'age': 'Alter, Jahre',
-      'formula': 'Formel für die Schätzung',
-      'restingHr': 'Ruhepuls, Schläge/min',
+  "de": {
+    "fields": {
+      "age": "Alter",
+      "formula": "Formel für die Schätzung",
+      "restingHr": "Ruhepuls"
     },
-    options: {
-      '220-age': '220 − Alter, die klassische',
-      'tanaka': 'Tanaka: 208 − 0,7 × Alter',
-      'gulati': 'Gulati: 206 − 0,88 × Alter',
+    "options": {
+      "220-age": "220 − Alter, die klassische",
+      "tanaka": "Tanaka: 208 − 0,7 × Alter",
+      "gulati": "Gulati: symptomfreie Frauen, 206 − 0,88 × Alter"
     },
-    results: {
-      'Максимальный пульс': 'Maximalpuls',
-      'Резерв сердца': 'Herzfrequenzreserve',
-      'Пульс покоя': 'Ruhepuls',
-      'Аэробная зона 70–80 %': 'Aerober Bereich 70–80 %',
-      'Жиросжигающая зона 60–70 %': 'Fettverbrennungsbereich 60–70 %',
-      'Тренировочные зоны': 'Trainingsbereiche',
-      'Зона': 'Bereich',
-      'Доля резерва': 'Anteil der Reserve',
-      'Пульс, уд/мин': 'Puls, Schläge/min',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Максимальный пульс": "Maximalpuls",
+      "Резерв сердца": "Herzfrequenzreserve",
+      "Пульс покоя": "Ruhepuls",
+      "Аэробная зона 70–80 %": "Aerober Bereich 70–80 %",
+      "Жиросжигающая зона 60–70 %": "Fettverbrennungsbereich 60–70 %",
+      "Тренировочные зоны": "Trainingsbereiche",
+      "Зона": "Bereich",
+      "Доля резерва": "Anteil der Reserve",
+      "Пульс, уд/мин": "Puls, Schläge/min",
+      "Проверьте данные": "Prüfe die Werte",
+      "Неизвестная формула оценки": "Unbekannte Schätzformel",
+      "Возраст должен быть целым числом от 18 до 120 лет": "Das Alter muss ganzzahlig zwischen 18 und 120 Jahren liegen",
+      "Пульс покоя должен быть ниже оценённого максимума": "Der Ruhepuls muss unter dem geschätzten Maximum liegen",
+      "не задан": "nicht angegeben",
+      "Диапазон 70–80 %": "Bereich 70–80 %",
+      "Диапазон 60–70 %": "Bereich 60–70 %",
+      "Процентные диапазоны пульса": "Prozentbereiche der Herzfrequenz",
+      "Диапазон": "Bereich",
+      "Доля максимума": "Anteil des Maximums",
+      "Граница = пульс покоя + доля × (оценка максимума − пульс покоя).": "Grenze = Ruhepuls + Anteil × (geschätztes Maximum − Ruhepuls).",
+      "Пульс покоя не задан: границы — доли оценённого максимума.": "Kein Ruhepuls angegeben: Grenzen sind Anteile des geschätzten Maximums.",
+      "Процентные диапазоны не определяют индивидуальный порог, безопасную нагрузку или скорость сжигания жира.": "Prozentbereiche bestimmen keine persönlichen Schwellen, sichere Belastung oder Fettverbrennungsrate."
     },
-    values: {
-      'уд/мин': 'Schläge/min',
-      'Разминка': 'Aufwärmen',
-      'Жиросжигание': 'Fettverbrennung',
-      'Аэробная': 'Aerob',
-      'Анаэробная': 'Anaerob',
-      'Максимальная': 'Maximal',
-      'Зоны посчитаны по резерву сердца: доля берётся от разности максимума и пульса покоя.': 'Die Bereiche folgen der Herzfrequenzreserve: der Anteil wird aus dem Abstand zwischen Maximalpuls und Ruhepuls genommen.',
-      'Пульс покоя не задан, поэтому зоны — прямые доли максимального пульса.': 'Es wurde kein Ruhepuls angegeben, die Bereiche sind deshalb unmittelbare Anteile des Maximalpulses.',
-      'Возраст должен быть от 1 до 120 лет': 'Das Alter muss zwischen 1 und 120 Jahren liegen',
-      'Пульс покоя не может быть отрицательным': 'Der Ruhepuls kann nicht negativ sein',
-      'Пульс покоя не может быть выше максимального': 'Der Ruhepuls kann nicht über dem Maximalpuls liegen',
-    },
+    "values": {
+      "уд/мин": "Schläge/min",
+      "Разминка": "Aufwärmen",
+      "Жиросжигание": "Fettverbrennung",
+      "Аэробная": "Aerob",
+      "Анаэробная": "Anaerob",
+      "Максимальная": "Maximal",
+      "Зоны посчитаны по резерву сердца: доля берётся от разности максимума и пульса покоя.": "Die Bereiche folgen der Herzfrequenzreserve: der Anteil wird aus dem Abstand zwischen Maximalpuls und Ruhepuls genommen.",
+      "Пульс покоя не задан, поэтому зоны — прямые доли максимального пульса.": "Es wurde kein Ruhepuls angegeben, die Bereiche sind deshalb unmittelbare Anteile des Maximalpulses.",
+      "Возраст должен быть от 1 до 120 лет": "Das Alter muss zwischen 1 und 120 Jahren liegen",
+      "Пульс покоя не может быть отрицательным": "Der Ruhepuls kann nicht negativ sein",
+      "Пульс покоя не может быть выше максимального": "Der Ruhepuls kann nicht über dem Maximalpuls liegen",
+      "Введите конечные числа для выбранного режима": "Gib endliche Zahlen für den gewählten Modus ein",
+      "Результат выходит за числовой диапазон": "Das Ergebnis überschreitet den Zahlenbereich",
+      "ккал": "kcal",
+      "кг": "kg",
+      "см": "cm",
+      "км": "km",
+      "м": "m",
+      "л": "L",
+      "мл/кг/мин": "ml/kg/min",
+      "Неизвестная формула оценки": "Unbekannte Schätzformel",
+      "Возраст должен быть целым числом от 18 до 120 лет": "Das Alter muss ganzzahlig zwischen 18 und 120 Jahren liegen",
+      "Пульс покоя должен быть ниже оценённого максимума": "Der Ruhepuls muss unter dem geschätzten Maximum liegen",
+      "не задан": "nicht angegeben",
+      "Диапазон 70–80 %": "Bereich 70–80 %",
+      "Диапазон 60–70 %": "Bereich 60–70 %",
+      "Процентные диапазоны пульса": "Prozentbereiche der Herzfrequenz",
+      "Диапазон": "Bereich",
+      "Доля максимума": "Anteil des Maximums",
+      "Граница = пульс покоя + доля × (оценка максимума − пульс покоя).": "Grenze = Ruhepuls + Anteil × (geschätztes Maximum − Ruhepuls).",
+      "Пульс покоя не задан: границы — доли оценённого максимума.": "Kein Ruhepuls angegeben: Grenzen sind Anteile des geschätzten Maximums.",
+      "Процентные диапазоны не определяют индивидуальный порог, безопасную нагрузку или скорость сжигания жира.": "Prozentbereiche bestimmen keine persönlichen Schwellen, sichere Belastung oder Fettverbrennungsrate."
+    }
   },
-  en: {
-    fields: {
-      "age": "Age, years",
+  "en": {
+    "fields": {
+      "age": "Age",
       "formula": "Estimation formula",
-      "restingHr": "Resting heart rate, bpm",
+      "restingHr": "Resting heart rate"
     },
-    options: {
+    "options": {
       "220-age": "220 − age, the classic",
       "tanaka": "Tanaka: 208 − 0.7 × age",
-      "gulati": "Gulati: 206 − 0.88 × age",
+      "gulati": "Gulati: asymptomatic women, 206 − 0.88 × age"
     },
-    results: {
+    "results": {
       "Максимальный пульс": "Maximum heart rate",
       "Резерв сердца": "Heart rate reserve",
       "Пульс покоя": "Resting heart rate",
@@ -60,8 +93,20 @@ export const localization: CalculatorLocalization = {
       "Доля резерва": "Share of reserve",
       "Пульс, уд/мин": "Heart rate, bpm",
       "Проверьте данные": "Check the values",
+      "Неизвестная формула оценки": "Unknown estimation formula",
+      "Возраст должен быть целым числом от 18 до 120 лет": "Age must be a whole number from 18 to 120 years",
+      "Пульс покоя должен быть ниже оценённого максимума": "Resting heart rate must be below the estimated maximum",
+      "не задан": "not supplied",
+      "Диапазон 70–80 %": "Range 70–80 %",
+      "Диапазон 60–70 %": "Range 60–70 %",
+      "Процентные диапазоны пульса": "Heart-rate percentage ranges",
+      "Диапазон": "Range",
+      "Доля максимума": "Share of maximum",
+      "Граница = пульс покоя + доля × (оценка максимума − пульс покоя).": "Boundary = rest + share × (estimated maximum − rest).",
+      "Пульс покоя не задан: границы — доли оценённого максимума.": "Resting pulse not supplied: boundaries are shares of estimated maximum.",
+      "Процентные диапазоны не определяют индивидуальный порог, безопасную нагрузку или скорость сжигания жира.": "Percentage ranges do not identify individual thresholds, safe intensity or fat-burning rate."
     },
-    values: {
+    "values": {
       "уд/мин": "bpm",
       "Разминка": "Warm-up",
       "Жиросжигание": "Fat burning",
@@ -73,20 +118,41 @@ export const localization: CalculatorLocalization = {
       "Возраст должен быть от 1 до 120 лет": "Age must be between 1 and 120",
       "Пульс покоя не может быть отрицательным": "The resting heart rate cannot be negative",
       "Пульс покоя не может быть выше максимального": "The resting rate cannot exceed the maximum",
-    },
+      "Введите конечные числа для выбранного режима": "Enter finite numbers for the selected mode",
+      "Результат выходит за числовой диапазон": "The result exceeds the numerical range",
+      "ккал": "kcal",
+      "кг": "kg",
+      "см": "cm",
+      "км": "km",
+      "м": "m",
+      "л": "L",
+      "мл/кг/мин": "mL/kg/min",
+      "Неизвестная формула оценки": "Unknown estimation formula",
+      "Возраст должен быть целым числом от 18 до 120 лет": "Age must be a whole number from 18 to 120 years",
+      "Пульс покоя должен быть ниже оценённого максимума": "Resting heart rate must be below the estimated maximum",
+      "не задан": "not supplied",
+      "Диапазон 70–80 %": "Range 70–80 %",
+      "Диапазон 60–70 %": "Range 60–70 %",
+      "Процентные диапазоны пульса": "Heart-rate percentage ranges",
+      "Диапазон": "Range",
+      "Доля максимума": "Share of maximum",
+      "Граница = пульс покоя + доля × (оценка максимума − пульс покоя).": "Boundary = rest + share × (estimated maximum − rest).",
+      "Пульс покоя не задан: границы — доли оценённого максимума.": "Resting pulse not supplied: boundaries are shares of estimated maximum.",
+      "Процентные диапазоны не определяют индивидуальный порог, безопасную нагрузку или скорость сжигания жира.": "Percentage ranges do not identify individual thresholds, safe intensity or fat-burning rate."
+    }
   },
-  uk: {
-    fields: {
-      "age": "Вік, років",
+  "uk": {
+    "fields": {
+      "age": "Вік",
       "formula": "Формула оцінки",
-      "restingHr": "Пульс спокою, уд/хв",
+      "restingHr": "Пульс спокою"
     },
-    options: {
+    "options": {
       "220-age": "220 − вік, класична",
       "tanaka": "Танака: 208 − 0,7 × вік",
-      "gulati": "Гулаті: 206 − 0,88 × вік",
+      "gulati": "Гулати: жінки без симптомів, 206 − 0,88 × вік"
     },
-    results: {
+    "results": {
       "Максимальный пульс": "Максимальний пульс",
       "Резерв сердца": "Резерв серця",
       "Пульс покоя": "Пульс спокою",
@@ -97,8 +163,20 @@ export const localization: CalculatorLocalization = {
       "Доля резерва": "Частка резерву",
       "Пульс, уд/мин": "Пульс, уд/хв",
       "Проверьте данные": "Перевірте дані",
+      "Неизвестная формула оценки": "Невідома формула оцінки",
+      "Возраст должен быть целым числом от 18 до 120 лет": "Вік має бути цілим числом від 18 до 120 років",
+      "Пульс покоя должен быть ниже оценённого максимума": "Пульс спокою має бути нижчим за оцінений максимум",
+      "не задан": "не задано",
+      "Диапазон 70–80 %": "Діапазон 70–80 %",
+      "Диапазон 60–70 %": "Діапазон 60–70 %",
+      "Процентные диапазоны пульса": "Відсоткові діапазони пульсу",
+      "Диапазон": "Діапазон",
+      "Доля максимума": "Частка максимуму",
+      "Граница = пульс покоя + доля × (оценка максимума − пульс покоя).": "Межа = спокій + частка × (оцінка максимуму − спокій).",
+      "Пульс покоя не задан: границы — доли оценённого максимума.": "Пульс спокою не задано: межі — частки оціненого максимуму.",
+      "Процентные диапазоны не определяют индивидуальный порог, безопасную нагрузку или скорость сжигания жира.": "Відсоткові діапазони не визначають особисті пороги, безпечне навантаження чи швидкість спалювання жиру."
     },
-    values: {
+    "values": {
       "уд/мин": "уд/хв",
       "Разминка": "Розминка",
       "Жиросжигание": "Жироспалювання",
@@ -110,20 +188,41 @@ export const localization: CalculatorLocalization = {
       "Возраст должен быть от 1 до 120 лет": "Вік має бути від 1 до 120 років",
       "Пульс покоя не может быть отрицательным": "Пульс спокою не може бути від'ємним",
       "Пульс покоя не может быть выше максимального": "Пульс спокою не може бути вищим за максимальний",
-    },
+      "Введите конечные числа для выбранного режима": "Введіть скінченні числа для обраного режиму",
+      "Результат выходит за числовой диапазон": "Результат виходить за числовий діапазон",
+      "ккал": "ккал",
+      "кг": "кг",
+      "см": "см",
+      "км": "км",
+      "м": "м",
+      "л": "л",
+      "мл/кг/мин": "мл/кг/хв",
+      "Неизвестная формула оценки": "Невідома формула оцінки",
+      "Возраст должен быть целым числом от 18 до 120 лет": "Вік має бути цілим числом від 18 до 120 років",
+      "Пульс покоя должен быть ниже оценённого максимума": "Пульс спокою має бути нижчим за оцінений максимум",
+      "не задан": "не задано",
+      "Диапазон 70–80 %": "Діапазон 70–80 %",
+      "Диапазон 60–70 %": "Діапазон 60–70 %",
+      "Процентные диапазоны пульса": "Відсоткові діапазони пульсу",
+      "Диапазон": "Діапазон",
+      "Доля максимума": "Частка максимуму",
+      "Граница = пульс покоя + доля × (оценка максимума − пульс покоя).": "Межа = спокій + частка × (оцінка максимуму − спокій).",
+      "Пульс покоя не задан: границы — доли оценённого максимума.": "Пульс спокою не задано: межі — частки оціненого максимуму.",
+      "Процентные диапазоны не определяют индивидуальный порог, безопасную нагрузку или скорость сжигания жира.": "Відсоткові діапазони не визначають особисті пороги, безпечне навантаження чи швидкість спалювання жиру."
+    }
   },
-  es: {
-    fields: {
-      "age": "Edad, años",
+  "es": {
+    "fields": {
+      "age": "Edad",
       "formula": "Fórmula de estimación",
-      "restingHr": "Frecuencia cardíaca en reposo, ppm",
+      "restingHr": "Frecuencia cardíaca en reposo"
     },
-    options: {
+    "options": {
       "220-age": "220 − edad, la clásica",
       "tanaka": "Tanaka: 208 − 0,7 × edad",
-      "gulati": "Gulati: 206 − 0,88 × edad",
+      "gulati": "Gulati: mujeres sin síntomas, 206 − 0,88 × edad"
     },
-    results: {
+    "results": {
       "Максимальный пульс": "Frecuencia cardíaca máxima",
       "Резерв сердца": "Reserva cardíaca",
       "Пульс покоя": "Frecuencia en reposo",
@@ -134,9 +233,21 @@ export const localization: CalculatorLocalization = {
       "Доля резерва": "Proporción de la reserva",
       "Пульс, уд/мин": "Frecuencia, ppm",
       "Проверьте данные": "Revisa los datos",
+      "Неизвестная формула оценки": "Fórmula de estimación desconocida",
+      "Возраст должен быть целым числом от 18 до 120 лет": "La edad debe ser un entero entre 18 y 120 años",
+      "Пульс покоя должен быть ниже оценённого максимума": "El pulso en reposo debe ser menor que el máximo estimado",
+      "не задан": "no indicado",
+      "Диапазон 70–80 %": "Rango 70–80 %",
+      "Диапазон 60–70 %": "Rango 60–70 %",
+      "Процентные диапазоны пульса": "Rangos porcentuales del pulso",
+      "Диапазон": "Rango",
+      "Доля максимума": "Porcentaje del máximo",
+      "Граница = пульс покоя + доля × (оценка максимума − пульс покоя).": "Límite = reposo + proporción × (máximo estimado − reposo).",
+      "Пульс покоя не задан: границы — доли оценённого максимума.": "Reposo no indicado: límites como porcentajes del máximo estimado.",
+      "Процентные диапазоны не определяют индивидуальный порог, безопасную нагрузку или скорость сжигания жира.": "Los porcentajes no determinan umbrales personales, intensidad segura ni ritmo de quema de grasa."
     },
-    values: {
-      "уд/мин": "ppm",
+    "values": {
+      "уд/мин": "lat/min",
       "Разминка": "Calentamiento",
       "Жиросжигание": "Quema de grasa",
       "Аэробная": "Aeróbica",
@@ -147,6 +258,27 @@ export const localization: CalculatorLocalization = {
       "Возраст должен быть от 1 до 120 лет": "La edad debe estar entre 1 y 120 años",
       "Пульс покоя не может быть отрицательным": "La frecuencia en reposo no puede ser negativa",
       "Пульс покоя не может быть выше максимального": "La frecuencia en reposo no puede superar a la máxima",
-    },
-  },
+      "Введите конечные числа для выбранного режима": "Introduce números finitos para el modo elegido",
+      "Результат выходит за числовой диапазон": "El resultado supera el rango numérico",
+      "ккал": "kcal",
+      "кг": "kg",
+      "см": "cm",
+      "км": "km",
+      "м": "m",
+      "л": "L",
+      "мл/кг/мин": "ml/kg/min",
+      "Неизвестная формула оценки": "Fórmula de estimación desconocida",
+      "Возраст должен быть целым числом от 18 до 120 лет": "La edad debe ser un entero entre 18 y 120 años",
+      "Пульс покоя должен быть ниже оценённого максимума": "El pulso en reposo debe ser menor que el máximo estimado",
+      "не задан": "no indicado",
+      "Диапазон 70–80 %": "Rango 70–80 %",
+      "Диапазон 60–70 %": "Rango 60–70 %",
+      "Процентные диапазоны пульса": "Rangos porcentuales del pulso",
+      "Диапазон": "Rango",
+      "Доля максимума": "Porcentaje del máximo",
+      "Граница = пульс покоя + доля × (оценка максимума − пульс покоя).": "Límite = reposo + proporción × (máximo estimado − reposo).",
+      "Пульс покоя не задан: границы — доли оценённого максимума.": "Reposo no indicado: límites como porcentajes del máximo estimado.",
+      "Процентные диапазоны не определяют индивидуальный порог, безопасную нагрузку или скорость сжигания жира.": "Los porcentajes no determinan umbrales personales, intensidad segura ni ritmo de quema de grasa."
+    }
+  }
 };

@@ -27,4 +27,6 @@ export const textReadingTimeReferenceCases: readonly CalculatorReferenceCase[] =
     inputs: { "mode": "words", "text": "", "words": 1200, "wpm": 0, "speechWpm": 130 },
     expectPrimary: "—",
   },
+  {"name": "диакритика и украинские апострофы сохраняют пять токенов", "inputs": {"mode": "text", "text": "größer résumé español З’їж м’яких", "wpm": 60, "speechWpm": 60}, "expectPrimary": "0 мин 5 с", "expectSecondary": [{"label": "Слов", "value": "5"}]},
+  {"name": "дробное готовое число слов отклоняется", "inputs": {"mode": "words", "words": 1.5, "wpm": 200, "speechWpm": 130}, "expectPrimary": "—"},
 ];

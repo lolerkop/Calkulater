@@ -1,15 +1,18 @@
 import type { CalcFunction } from '../types';
-import { fmtMoney, toNumber, toStr } from '../format';
+import { fmtMoney } from '../format';
+import { number } from '../platform/scalarInputDisplay';
+import { choice } from '../platform/financeWave11Input';
+import { isValidIsoDate } from '../date';
 
 // Калькулятор НДС: выделить или начислить.
 // Поддерживает ставки 22% (основная), 20% (историческая), 10%, 7%, 5% и 0%.
 export const calcVat: CalcFunction = (inputs) => {
-  const amount = toNumber(inputs.amount);
-  const rate = toNumber(inputs.rate, 22);
-  const operation = toStr(inputs.operation, 'extract'); // extract — выделить из суммы, add — начислить сверху
-  const operationDate = toStr(inputs.operationDate);
+  const amount = number(inputs.amount);
+  const rate = number(inputs.rate === undefined ? 22 : inputs.rate);
+  const operation = choice(inputs.operation, ['extract', 'add'], 'extract'); // extract — выделить из суммы, add — начислить сверху
+  const operationDate = inputs.operationDate === undefined ? '' : typeof inputs.operationDate === 'string' ? inputs.operationDate : null;
 
-  if (amount <= 0 || rate < 0) {
+  if (amount === null || rate === null || operation === null || operationDate === null || (operationDate !== '' && !isValidIsoDate(operationDate)) || amount <= 0 || ![0, 5, 7, 10, 20, 22].includes(rate)) {
     return {
       primary: { label: 'НДС', value: '—' },
       secondary: [{ label: 'Проверьте данные', value: 'Введите корректные значения', accent: 'red' }],
@@ -27,10 +30,11 @@ export const calcVat: CalcFunction = (inputs) => {
     gross = amount + vat;
   } else {
     gross = amount;
-    vat = (amount * r) / (1 + r);
+    vat = amount * (r / (1 + r));
     net = amount - vat;
   }
 
+  if (![net, vat, gross].every(Number.isFinite) || net <= 0) return { primary: { label: 'НДС', value: '—' }, secondary: [{ label: 'Проверьте данные', value: 'Результат выходит за числовые пределы расчёта', accent: 'red' }] };
   return {
     primary: { label: `НДС ${rate}%`, value: fmtMoney(vat) },
     secondary: [

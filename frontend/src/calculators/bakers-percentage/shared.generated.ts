@@ -12,42 +12,33 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
       'Вес': 'Weight',
-      'Проценты': 'Interest',
-    },
-    values: {
-      'Проценты': 'Percentages',
     },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
       'Вес': 'Вага',
-      'Проценты': 'Відсотки',
-    },
-    values: {
-      'Проценты': 'Відсотки',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Вес': 'Gewicht',
-      'Проценты': 'Zinsen',
-    },
-    values: {
-      'Проценты': 'Prozent',
     },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
       'Вес': 'Peso',
-      'Проценты': 'Intereses',
     },
   },
 };

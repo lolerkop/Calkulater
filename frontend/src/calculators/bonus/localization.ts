@@ -1,9 +1,28 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
+const contractValues = {
+  "en": {
+    "Введите корректные значения": "Enter valid numerical values",
+    "Результат выходит за числовые пределы расчёта": "The result exceeds the numerical limits of this calculation"
+  },
+  "uk": {
+    "Введите корректные значения": "Введіть коректні числові значення",
+    "Результат выходит за числовые пределы расчёта": "Результат виходить за числові межі розрахунку"
+  },
+  "de": {
+    "Введите корректные значения": "Gib gültige Zahlenwerte ein",
+    "Результат выходит за числовые пределы расчёта": "Das Ergebnis überschreitet die Zahlengrenzen dieser Rechnung"
+  },
+  "es": {
+    "Введите корректные значения": "Introduce valores numéricos válidos",
+    "Результат выходит за числовые пределы расчёта": "El resultado supera los límites numéricos del cálculo"
+  }
+} as const;
+
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'salary': 'Grundgehalt, €',
+      'salary': 'Grundgehalt',
       'bonusPct': 'Bonus, % des Gehalts',
       'taxPct': 'Steuersatz, %',
     },
@@ -15,6 +34,7 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      ...contractValues.de,
       'Оклад должен быть больше нуля': 'Das Gehalt muss größer als null sein',
       'Процент премии не может быть отрицательным': 'Der Bonusprozentsatz kann nicht negativ sein',
       'Ставка налога должна быть от нуля до ста процентов': 'Der Steuersatz muss zwischen null und hundert Prozent liegen',
@@ -22,7 +42,7 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      salary: 'Base salary, ₽',
+      salary: 'Base salary',
       bonusPct: 'Bonus, % of salary',
       taxPct: 'Income tax rate, %',
     },
@@ -34,6 +54,7 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Check the values',
     },
     values: {
+      ...contractValues.en,
       'Оклад должен быть больше нуля': 'The salary must be greater than zero',
       'Процент премии не может быть отрицательным': 'The bonus percentage cannot be negative',
       'Ставка налога должна быть от нуля до ста процентов': 'The tax rate must be between zero and one hundred per cent',
@@ -41,7 +62,7 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      salary: 'Оклад, ₽',
+      salary: 'Оклад',
       bonusPct: 'Премія, % від окладу',
       taxPct: 'Ставка податку на доходи, %',
     },
@@ -53,6 +74,7 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Перевірте дані',
     },
     values: {
+      ...contractValues.uk,
       'Оклад должен быть больше нуля': 'Оклад має бути більшим за нуль',
       'Процент премии не может быть отрицательным': 'Відсоток премії не може бути від’ємним',
       'Ставка налога должна быть от нуля до ста процентов': 'Ставка податку має бути від нуля до ста відсотків',
@@ -60,7 +82,7 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "salary": "Salario base, €",
+      "salary": "Salario base",
       "bonusPct": "Bonus, % del salario",
       "taxPct": "Tipo de retención, %",
     },
@@ -73,6 +95,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      ...contractValues.es,
       "Оклад должен быть больше нуля": "El salario debe ser mayor que cero",
       "Процент премии не может быть отрицательным": "El porcentaje del bonus no puede ser negativo",
       "Ставка налога должна быть от нуля до ста процентов": "El tipo de retención debe estar entre cero y cien por ciento",

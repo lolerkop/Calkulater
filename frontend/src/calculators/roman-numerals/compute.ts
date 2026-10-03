@@ -1,18 +1,8 @@
 import type { CalcFunction } from '../../lib/types';
-import { toNumber, toStr } from '../../lib/format';
+import { integer, MODE, mode as readMode } from '../stats-descriptive/statisticsNumeric';
 
-// Римские и арабские числа.
-//
-// Область определения — от 1 до 3999: без черты над символом римская запись
-// больше не выражает тысячи, а нуля и отрицательных чисел в ней нет вовсе.
-// Обратный разбор принимает только каноническую запись: IIII отклоняется, хотя
-// на циферблатах и встречается. Принять его значило бы согласиться, что у числа
-// несколько правильных записей, и тогда обратный перевод перестал бы быть
-// однозначным.
-//
-// Разряды намеренно не разделяются: MMXXIV — это 2024, а не «2 024». Римскими
-// пишут годы и порядковые номера, и группировка тысяч в таком числе выглядела
-// бы как ошибка, хотя в денежных суммах она уместна.
+// Chosen modern canonical notation, I..MMMCMXCIX. Historical additive
+// notation and overlines are outside this product's contract.
 const PAIRS: [number, string][] = [
   [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'],
   [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'],
@@ -34,7 +24,7 @@ function toRoman(value: number): string {
 
 function toArabic(text: string): number | null {
   const normalized = text.trim().toUpperCase();
-  if (!/^[IVXLCDM]+$/.test(normalized)) return null;
+  if (normalized.length > 15 || !/^[IVXLCDM]+$/.test(normalized)) return null;
   let total = 0;
   for (let i = 0; i < normalized.length; i += 1) {
     const current = VALUES[normalized[i]];
@@ -47,10 +37,11 @@ function toArabic(text: string): number | null {
 }
 
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'toRoman');
+  const mode = readMode(inputs.mode, 'toRoman', ['toRoman', 'toArabic']);
+  if (!mode) return { primary: { label: 'Римское число', value: '—' }, secondary: [{ label: 'Проверьте данные', value: MODE, accent: 'red' as const }] };
 
   if (mode === 'toArabic') {
-    const parsed = toArabic(toStr(inputs.roman, ''));
+    const parsed = typeof inputs.roman === 'string' ? toArabic(inputs.roman) : null;
     if (parsed === null) {
       return {
         primary: { label: 'Арабское число', value: '—' },
@@ -66,7 +57,7 @@ export const compute: CalcFunction = (inputs) => {
     };
   }
 
-  const value = toNumber(inputs.arabic);
+  const value = integer(inputs.arabic);
   if (!Number.isInteger(value) || value < 1 || value > 3999) {
     return {
       primary: { label: 'Римское число', value: '—' },

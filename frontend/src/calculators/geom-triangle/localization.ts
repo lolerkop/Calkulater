@@ -1,176 +1,145 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { geometryScalarValues } from '../../lib/platform/geometryScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'mode': 'Was bekannt ist',
-      'unit': 'Längeneinheit',
-      'a': 'Seite a',
-      'b': 'Seite b',
-      'c': 'Seite c',
-      'base': 'Grundseite',
-      'height': 'Höhe',
+  "de": {
+    "fields": {
+      "mode": "Was bekannt ist",
+      "unit": "Längeneinheit",
+      "a": "Seite a",
+      "b": "Seite b",
+      "c": "Seite c",
+      "base": "Grundseite",
+      "height": "Höhe"
     },
-    options: {
-      'mm': 'Millimeter',
-      'cm': 'Zentimeter',
-      'm': 'Meter',
-      'sss': 'drei Seiten',
-      'baseHeight': 'Grundseite und Höhe',
+    "options": {
+      "mm": "Millimeter",
+      "cm": "Zentimeter",
+      "m": "Meter",
+      "sss": "drei Seiten",
+      "baseHeight": "Grundseite und Höhe"
     },
-    results: {
-      'Площадь': 'Fläche',
-      'Периметр': 'Umfang',
-      'Вид треугольника': 'Art des Dreiecks',
-      'Основание': 'Grundseite',
-      'Высота': 'Höhe',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Площадь": "Fläche",
+      "Периметр": "Umfang",
+      "Вид треугольника": "Art des Dreiecks",
+      "Основание": "Grundseite",
+      "Высота": "Höhe",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'мм': 'mm',
-      'см': 'cm',
-      'м': 'm',
-      'мм²': 'mm²',
-      'см²': 'cm²',
-      'м²': 'm²',
-      'мм³': 'mm³',
-      'см³': 'cm³',
-      'м³': 'm³',
-      'Все стороны должны быть больше нуля': 'Alle Seiten müssen größer als null sein',
-      'Такого треугольника не существует: сумма двух сторон не превышает третью': 'Ein solches Dreieck gibt es nicht: die Summe zweier Seiten übersteigt die dritte nicht',
-      'Основание и высота должны быть больше нуля': 'Grundseite und Höhe müssen größer als null sein',
-      'прямоугольный': 'rechtwinklig',
-      'остроугольный': 'spitzwinklig',
-      'тупоугольный': 'stumpfwinklig',
-    },
+    "values": {
+      ...geometryScalarValues.de,
+      "Все стороны должны быть больше нуля": "Alle Seiten müssen größer als null sein",
+      "Такого треугольника не существует: сумма двух сторон не превышает третью": "Ein solches Dreieck gibt es nicht: die Summe zweier Seiten übersteigt die dritte nicht",
+      "Основание и высота должны быть больше нуля": "Grundseite und Höhe müssen größer als null sein",
+      "прямоугольный": "rechtwinklig",
+      "остроугольный": "spitzwinklig",
+      "тупоугольный": "stumpfwinklig"
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "mode": "What is known",
       "unit": "Length unit",
       "a": "Side a",
       "b": "Side b",
       "c": "Side c",
       "base": "Base",
-      "height": "Height",
+      "height": "Height"
     },
-    options: {
-      mm: "millimetres",
-      cm: "centimetres",
-      m: "metres",
+    "options": {
+      "mm": "millimetres",
+      "cm": "centimetres",
+      "m": "metres",
       "sss": "three sides",
-      "baseHeight": "base and height",
+      "baseHeight": "base and height"
     },
-    results: {
+    "results": {
       "Площадь": "Area",
       "Периметр": "Perimeter",
       "Вид треугольника": "Kind of triangle",
       "Основание": "Base",
       "Высота": "Height",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryScalarValues.en,
       "Все стороны должны быть больше нуля": "All sides must be greater than zero",
       "Такого треугольника не существует: сумма двух сторон не превышает третью": "No such triangle exists: two sides do not exceed the third",
       "Основание и высота должны быть больше нуля": "The base and the height must be greater than zero",
       "прямоугольный": "right",
       "остроугольный": "acute",
-      "тупоугольный": "obtuse",
-    },
+      "тупоугольный": "obtuse"
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "mode": "Що відомо",
       "unit": "Одиниця довжини",
       "a": "Сторона a",
       "b": "Сторона b",
       "c": "Сторона c",
       "base": "Основа",
-      "height": "Висота",
+      "height": "Висота"
     },
-    options: {
-      mm: "міліметри",
-      cm: "сантиметри",
-      m: "метри",
+    "options": {
+      "mm": "міліметри",
+      "cm": "сантиметри",
+      "m": "метри",
       "sss": "три сторони",
-      "baseHeight": "основа й висота",
+      "baseHeight": "основа й висота"
     },
-    results: {
+    "results": {
       "Площадь": "Площа",
       "Периметр": "Периметр",
       "Вид треугольника": "Вид трикутника",
       "Основание": "Основа",
       "Высота": "Висота",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
-      "мм": "мм",
-      "см": "см",
-      "м": "м",
-      "мм²": "мм²",
-      "см²": "см²",
-      "м²": "м²",
-      "мм³": "мм³",
-      "см³": "см³",
-      "м³": "м³",
+    "values": {
+      ...geometryScalarValues.uk,
       "Все стороны должны быть больше нуля": "Усі сторони мають бути більшими за нуль",
       "Такого треугольника не существует: сумма двух сторон не превышает третью": "Такого трикутника не існує: сума двох сторін не перевищує третю",
       "Основание и высота должны быть больше нуля": "Основа й висота мають бути більшими за нуль",
       "прямоугольный": "прямокутний",
       "остроугольный": "гострокутний",
-      "тупоугольный": "тупокутний",
-    },
+      "тупоугольный": "тупокутний"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "unit": "Unidad de longitud",
       "mode": "Dato conocido",
       "a": "Lado a",
       "b": "Lado b",
       "c": "Lado c",
       "base": "Base",
-      "height": "Altura",
+      "height": "Altura"
     },
-    options: {
+    "options": {
       "mm": "milímetros",
       "cm": "centímetros",
       "m": "metros",
       "sss": "tres lados",
-      "baseHeight": "base y altura",
+      "baseHeight": "base y altura"
     },
-    results: {
+    "results": {
       "Площадь": "Área",
       "Периметр": "Perímetro",
       "Вид треугольника": "Tipo de triángulo",
       "Основание": "Base",
       "Высота": "Altura",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryScalarValues.es,
       "Все стороны должны быть больше нуля": "Todos los lados deben ser mayores que cero",
       "Такого треугольника не существует: сумма двух сторон не превышает третью": "Ese triángulo no existe: la suma de dos lados no supera al tercero",
       "Основание и высота должны быть больше нуля": "La base y la altura deben ser mayores que cero",
       "прямоугольный": "rectángulo",
       "остроугольный": "acutángulo",
-      "тупоугольный": "obtusángulo",
-    },
-  },
+      "тупоугольный": "obtusángulo"
+    }
+  }
 };

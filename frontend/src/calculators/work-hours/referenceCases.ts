@@ -14,7 +14,7 @@ export const workHoursReferenceCases: readonly CalculatorReferenceCase[] = [
     expectSecondary: [
       { label: "Часов в смену", value: "8 ч" },
       { label: "В часах и минутах", value: "8 ч 0 мин" },
-      { label: "Заработок", value: "84 000,00 ₽" },
+      { label: "Заработок", value: "84 000,00 ден. ед." },
     ],
   },
   {

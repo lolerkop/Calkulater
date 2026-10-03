@@ -1,3 +1,4 @@
+import{validate}from './validate';
 // Калькулятор краски — второй переведённый калькулятор.
 //
 // Он выбран не за простоту, а наоборот: два режима расчёта, шесть условных
@@ -5,7 +6,7 @@
 // текстовая семантика Pack G. Если V2 справляется с ним без специальных
 // случаев в общем коде, архитектура пригодна не только для двух полей.
 //
-// Определение перенесено из `src/data/calculators.ts` дословно.
+// Публичный диапазон полей согласован с активными режимами и проверкой целых счётчиков.
 
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { BUILD_DISCLAIMER } from '../../lib/disclaimers';
@@ -43,16 +44,16 @@ export const definition: CalculatorDefinitionV2 = {
         name: 'mode', label: 'Способ расчёта', type: 'toggle', defaultValue: 'manual',
         options: [{ value: 'manual', label: 'Площадь вручную' }, { value: 'room', label: 'По размерам комнаты' }],
       },
-      { name: 'area', label: 'Площадь, м²', type: 'number', defaultValue: 30, min: 0.01, showIf: { field: 'mode', equals: 'manual' } },
-      { name: 'length', label: 'Длина, м', type: 'number', defaultValue: 5, min: 0.01, showIf: { field: 'mode', equals: 'room' } },
-      { name: 'width', label: 'Ширина, м', type: 'number', defaultValue: 4, min: 0.01, showIf: { field: 'mode', equals: 'room' } },
-      { name: 'height', label: 'Высота, м', type: 'number', defaultValue: 2.7, min: 0.01, step: 0.1, showIf: { field: 'mode', equals: 'room' } },
-      { name: 'windows', label: 'Количество окон', type: 'number', defaultValue: 1, min: 0, showIf: { field: 'mode', equals: 'room' } },
-      { name: 'doors', label: 'Количество дверей', type: 'number', defaultValue: 1, min: 0, showIf: { field: 'mode', equals: 'room' } },
-      { name: 'coats', label: 'Количество слоёв', type: 'number', defaultValue: 2, min: 1, max: 4 },
-      { name: 'consumption', label: 'Расход на м², л', type: 'number', defaultValue: 0.15, min: 0.01, step: 0.01 },
-      { name: 'canVolume', label: 'Объём банки, л', type: 'number', defaultValue: 2.5, min: 0.01, step: 0.1 },
-      { name: 'reserve', label: 'Запас, %', type: 'number', defaultValue: 10, min: 0, max: 50 },
+      { name: 'area', label: 'Площадь, м²', type: 'number', defaultValue: 30, min: 0, showIf: { field: 'mode', equals: 'manual' } },
+      { name: 'length', label: 'Длина, м', type: 'number', defaultValue: 5, min: 0, showIf: { field: 'mode', equals: 'room' } },
+      { name: 'width', label: 'Ширина, м', type: 'number', defaultValue: 4, min: 0, showIf: { field: 'mode', equals: 'room' } },
+      { name: 'height', label: 'Высота, м', type: 'number', defaultValue: 2.7, min: 0, step: 0.1, showIf: { field: 'mode', equals: 'room' } },
+      { name: 'windows', label: 'Количество окон', type: 'number', defaultValue: 1, min: 0, max: Number.MAX_SAFE_INTEGER, step: 1, showIf: { field: 'mode', equals: 'room' } },
+      { name: 'doors', label: 'Количество дверей', type: 'number', defaultValue: 1, min: 0, max: Number.MAX_SAFE_INTEGER, step: 1, showIf: { field: 'mode', equals: 'room' } },
+      { name: 'coats', label: 'Количество слоёв', type: 'number', defaultValue: 2, min: 1, max: Number.MAX_SAFE_INTEGER, step: 1 },
+      { name: 'consumption', label: 'Расход на м², л', type: 'number', defaultValue: 0.15, min: 0, step: 0.01 },
+      { name: 'canVolume', label: 'Объём банки, л', type: 'number', defaultValue: 2.5, min: 0, step: 0.1 },
+      { name: 'reserve', label: 'Запас, %', type: 'number', defaultValue: 10, min: 0 },
       { name: 'canPrice', label: 'Цена одной банки', type: 'number', defaultValue: 0, min: 0, optional: true },
     ],
     resultLabels: {

@@ -1,49 +1,51 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
-
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'nights': 'Übernachtungen',
-      'days': 'Reisetage',
-      'people': 'Reisende',
-      'hotelPerNight': 'Unterkunft je Nacht, €',
-      'foodPerDayPerPerson': 'Essen je Person und Tag, €',
-      'transport': 'Fahrt für die Reise, €',
-      'activities': 'Unternehmungen für die Reise, €',
-      'other': 'Sonstige Kosten, €',
+  "de": {
+    "fields": {
+      "nights": "Übernachtungen",
+      "days": "Reisetage",
+      "people": "Reisende",
+      "hotelPerNight": "Unterkunft je Nacht",
+      "foodPerDayPerPerson": "Essen je Person und Tag",
+      "transport": "Fahrt für die Reise",
+      "activities": "Unternehmungen für die Reise",
+      "other": "Sonstige Kosten"
     },
-    results: {
-      'Бюджет поездки': 'Reisebudget',
-      'На человека': 'Je Reisendem',
-      'В день': 'Je Tag',
-      'Проживание': 'Unterkunft',
-      'Питание': 'Essen',
-      'Транспорт': 'Fahrt',
-      'Развлечения': 'Unternehmungen',
-      'Прочее': 'Sonstiges',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Бюджет поездки": "Reisebudget",
+      "На человека": "Je Reisendem",
+      "В день": "Je Tag",
+      "Проживание": "Unterkunft",
+      "Питание": "Essen",
+      "Транспорт": "Fahrt",
+      "Развлечения": "Unternehmungen",
+      "Прочее": "Sonstiges",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      '₽': '€',
-      'Число дней должно быть больше нуля': 'Die Zahl der Tage muss größer als null sein',
-      'Число человек должно быть больше нуля': 'Die Zahl der Reisenden muss größer als null sein',
-      'Число ночей не может быть отрицательным': 'Die Zahl der Übernachtungen kann nicht negativ sein',
-      'Сумма не может быть отрицательной': 'Ein Betrag kann nicht negativ sein',
-    },
+    "values": {
+      "₽": "€",
+      "Число дней должно быть больше нуля": "Die Zahl der Tage muss größer als null sein",
+      "Число человек должно быть больше нуля": "Die Zahl der Reisenden muss größer als null sein",
+      "Число ночей не может быть отрицательным": "Die Zahl der Übernachtungen kann nicht negativ sein",
+      "Сумма не может быть отрицательной": "Ein Betrag kann nicht negativ sein",
+      "Введите конечные числа во все активные поля": "Geben Sie in jedes aktive Feld eine endliche Zahl ein",
+      "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändern Sie die Eingaben",
+      "Введите целое число в допустимом диапазоне": "Geben Sie eine ganze Zahl im zulässigen Bereich ein"
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "nights": "Hotel nights",
       "days": "Trip days",
       "people": "Travellers",
-      "hotelPerNight": "Accommodation per night, $",
-      "foodPerDayPerPerson": "Food per person per day, $",
-      "transport": "Transport for the trip, $",
-      "activities": "Activities for the trip, $",
-      "other": "Other costs, $",
+      "hotelPerNight": "Accommodation per night",
+      "foodPerDayPerPerson": "Food per person per day",
+      "transport": "Transport for the trip",
+      "activities": "Activities for the trip",
+      "other": "Other costs"
     },
-    options: {},
-    results: {
+    "options": {},
+    "results": {
       "Бюджет поездки": "Trip budget",
       "На человека": "Per traveller",
       "В день": "Per day",
@@ -52,29 +54,32 @@ export const localization: CalculatorLocalization = {
       "Транспорт": "Transport",
       "Развлечения": "Activities",
       "Прочее": "Other",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
+    "values": {
       "₽": "$",
       "Число дней должно быть больше нуля": "The number of days must be greater than zero",
       "Число человек должно быть больше нуля": "The number of travellers must be greater than zero",
       "Число ночей не может быть отрицательным": "The number of nights cannot be negative",
       "Сумма не может быть отрицательной": "An amount cannot be negative",
-    },
+      "Введите конечные числа во все активные поля": "Enter finite numbers in every active field",
+      "Результат выходит за числовой диапазон; измените данные": "The result is outside the numeric range; change the inputs",
+      "Введите целое число в допустимом диапазоне": "Enter a whole number within the allowed range"
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "nights": "Ночей у готелі",
       "days": "Днів подорожі",
       "people": "Людей",
-      "hotelPerNight": "Проживання за ніч, ₴",
-      "foodPerDayPerPerson": "Харчування на людину на день, ₴",
-      "transport": "Транспорт за подорож, ₴",
-      "activities": "Розваги за подорож, ₴",
-      "other": "Інші витрати, ₴",
+      "hotelPerNight": "Проживання за ніч",
+      "foodPerDayPerPerson": "Харчування на людину на день",
+      "transport": "Транспорт за подорож",
+      "activities": "Розваги за подорож",
+      "other": "Інші витрати"
     },
-    options: {},
-    results: {
+    "options": {},
+    "results": {
       "Бюджет поездки": "Бюджет подорожі",
       "На человека": "На людину",
       "В день": "На день",
@@ -83,29 +88,32 @@ export const localization: CalculatorLocalization = {
       "Транспорт": "Транспорт",
       "Развлечения": "Розваги",
       "Прочее": "Інше",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
+    "values": {
       "₽": "₴",
       "Число дней должно быть больше нуля": "Кількість днів має бути більшою за нуль",
       "Число человек должно быть больше нуля": "Кількість людей має бути більшою за нуль",
       "Число ночей не может быть отрицательным": "Кількість ночей не може бути від'ємною",
       "Сумма не может быть отрицательной": "Сума не може бути від'ємною",
-    },
+      "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+      "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+      "Введите целое число в допустимом диапазоне": "Введіть ціле число в допустимому діапазоні"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "nights": "Noches de hotel",
       "days": "Días de viaje",
       "people": "Viajeros",
-      "hotelPerNight": "Alojamiento por noche, €",
-      "foodPerDayPerPerson": "Comida por persona y día, €",
-      "transport": "Transporte del viaje, €",
-      "activities": "Actividades del viaje, €",
-      "other": "Otros gastos, €",
+      "hotelPerNight": "Alojamiento por noche",
+      "foodPerDayPerPerson": "Comida por persona y día",
+      "transport": "Transporte del viaje",
+      "activities": "Actividades del viaje",
+      "other": "Otros gastos"
     },
-    options: {},
-    results: {
+    "options": {},
+    "results": {
       "Бюджет поездки": "Presupuesto del viaje",
       "На человека": "Por viajero",
       "В день": "Por día",
@@ -114,14 +122,17 @@ export const localization: CalculatorLocalization = {
       "Транспорт": "Transporte",
       "Развлечения": "Actividades",
       "Прочее": "Otros",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "₽": "€",
       "Число дней должно быть больше нуля": "El número de días debe ser mayor que cero",
       "Число человек должно быть больше нуля": "El número de viajeros debe ser mayor que cero",
       "Число ночей не может быть отрицательным": "El número de noches no puede ser negativo",
       "Сумма не может быть отрицательной": "Un importe no puede ser negativo",
-    },
-  },
+      "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+      "Результат выходит за числовой диапазон; измените данные": "El resultado queda fuera del intervalo numérico; cambia los datos",
+      "Введите целое число в допустимом диапазоне": "Introduce un entero dentro del intervalo permitido"
+    }
+  }
 };

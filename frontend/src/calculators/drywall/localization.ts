@@ -1,14 +1,15 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'area': 'Zu beplankende Fläche, m²',
-      'sheetLength': 'Plattenlänge, m',
-      'sheetWidth': 'Plattenbreite, m',
+      'area': "Zu beplankende Fläche",
+      'sheetLength': "Plattenlänge",
+      'sheetWidth': "Plattenbreite",
       'layers': 'Lagen',
-      'profileStep': 'Achsabstand der Profile, m',
-      'waste': 'Zuschlag, %',
+      'profileStep': "Achsabstand der Profile",
+      'waste': "Zuschlag",
     },
     results: {
       'Листов': 'Platten',
@@ -30,8 +31,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      "area": "Area to cover, m²", "sheetLength": "Sheet length, m", "sheetWidth": "Sheet width, m",
-      "layers": "Layers", "profileStep": "Stud spacing, m", "waste": "Allowance, %",
+      "area": "Area to cover", "sheetLength": "Sheet length", "sheetWidth": "Sheet width",
+      "layers": "Layers", "profileStep": "Stud spacing", "waste": "Allowance",
     },
     options: {},
     results: {
@@ -50,8 +51,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      "area": "Площа обшивки, м²", "sheetLength": "Довжина листа, м", "sheetWidth": "Ширина листа, м",
-      "layers": "Шарів", "profileStep": "Крок профілю, м", "waste": "Запас, %",
+      "area": "Площа обшивки", "sheetLength": "Довжина листа", "sheetWidth": "Ширина листа",
+      "layers": "Шарів", "profileStep": "Крок профілю", "waste": "Запас",
     },
     options: {},
     results: {
@@ -70,12 +71,12 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "area": "Superficie a cubrir, m²",
-      "sheetLength": "Largo de la placa, m",
-      "sheetWidth": "Ancho de la placa, m",
+      "area": "Superficie a cubrir",
+      "sheetLength": "Largo de la placa",
+      "sheetWidth": "Ancho de la placa",
       "layers": "Capas",
-      "profileStep": "Separación entre montantes, m",
-      "waste": "Margen, %",
+      "profileStep": "Separación entre montantes",
+      "waste": "Margen",
     },
     options: {},
     results: {
@@ -97,3 +98,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

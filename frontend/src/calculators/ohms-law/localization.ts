@@ -11,25 +11,33 @@ const RESULTS_UK = {
 
 export const localization: CalculatorLocalization = {
   en: {
-    fields: { mode: 'Known pair', voltage: 'Voltage, V', current: 'Current, A', resistance: 'Resistance, ohm' },
+    fields: { mode: 'Known pair', voltage: "Voltage", current: "Current", resistance: "Resistance" },
     options: {
       vi: 'voltage and current', vr: 'voltage and resistance', ir: 'current and resistance',
     },
     results: RESULTS_EN,
     values: {
+      "Неизвестный режим расчёта": "Unknown calculation mode",
+      "Введите конечные числа для выбранного режима": "Enter finite numbers for the selected mode",
+      "Результат выходит за числовой диапазон": "The result exceeds the numerical range",
+
       'Ом': 'Ω', 'В': 'V', 'А': 'A', 'Вт': 'W', '(вычисляется)': '(computed)',
       'Значения не могут быть отрицательными': 'The values cannot be negative',
-      'Ток должен быть больше нуля, иначе сопротивление не определено': 'The current must be greater than zero, otherwise the resistance is undefined',
-      'Сопротивление должно быть больше нуля, иначе ток не определён': 'The resistance must be greater than zero, otherwise the current is undefined',
+      'Ток должен быть больше нуля, иначе сопротивление не определено': 'The current must be greater than zero, otherwise the resistance has no defined value',
+      'Сопротивление должно быть больше нуля, иначе ток не определён': 'The resistance must be greater than zero, otherwise the current has no defined value',
     },
   },
   uk: {
-    fields: { mode: 'Відома пара', voltage: 'Напруга, В', current: 'Струм, А', resistance: 'Опір, Ом' },
+    fields: { mode: 'Відома пара', voltage: "Напруга", current: "Струм", resistance: "Опір" },
     options: {
       vi: 'напруга і струм', vr: 'напруга і опір', ir: 'струм і опір',
     },
     results: RESULTS_UK,
     values: {
+      "Неизвестный режим расчёта": "Невідомий режим розрахунку",
+      "Введите конечные числа для выбранного режима": "Введіть скінченні числа для обраного режиму",
+      "Результат выходит за числовой диапазон": "Результат виходить за числовий діапазон",
+
       'Ом': 'Ом', 'В': 'В', 'А': 'А', 'Вт': 'Вт', '(вычисляется)': '(обчислюється)',
       'Значения не могут быть отрицательными': 'Значення не можуть бути від’ємними',
       'Ток должен быть больше нуля, иначе сопротивление не определено': 'Струм має бути більшим за нуль, інакше опір не визначений',
@@ -39,9 +47,9 @@ export const localization: CalculatorLocalization = {
   de: {
       fields: {
         'mode': 'Bekanntes Paar',
-        'voltage': 'Spannung, V',
-        'current': 'Strom, A',
-        'resistance': 'Widerstand, Ω',
+        'voltage': "Spannung",
+        'current': "Strom",
+        'resistance': "Widerstand",
       },
       options: {
         'vi': 'Spannung und Strom',
@@ -57,6 +65,10 @@ export const localization: CalculatorLocalization = {
         'Проверьте данные': 'Prüfe die Werte',
       },
       values: {
+      "Неизвестный режим расчёта": "Unbekannter Berechnungsmodus",
+      "Введите конечные числа для выбранного режима": "Gib endliche Zahlen für den gewählten Modus ein",
+      "Результат выходит за числовой диапазон": "Das Ergebnis überschreitet den Zahlenbereich",
+
         'Ом': 'Ω',
         'В': 'V',
         'А': 'A',
@@ -70,9 +82,9 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "mode": "Par conocido",
-      "voltage": "Tensión, V",
-      "current": "Corriente, A",
-      "resistance": "Resistencia, Ω",
+      "voltage": "Tensión",
+      "current": "Corriente",
+      "resistance": "Resistencia",
     },
     options: {
       "vi": "tensión y corriente",
@@ -88,6 +100,10 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Неизвестный режим расчёта": "Modo de cálculo desconocido",
+      "Введите конечные числа для выбранного режима": "Introduce números finitos para el modo elegido",
+      "Результат выходит за числовой диапазон": "El resultado supera el rango numérico",
+
       "Ом": "Ω",
       "В": "V",
       "А": "A",

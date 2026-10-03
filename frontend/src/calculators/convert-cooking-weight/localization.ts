@@ -1,56 +1,58 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'value': 'Menge',
-      'unit': 'Einheit des Volumens',
-      'product': 'Zutat',
-      'direction': 'Richtung',
+  "de": {
+    "fields": {
+      "value": "Menge",
+      "unit": "Einheit des Volumens",
+      "product": "Zutat",
+      "direction": "Richtung"
     },
-    options: {
-      'water': 'Wasser',
-      'milk': 'Milch',
-      'flour': 'Mehl',
-      'sugar': 'Zucker',
-      'salt': 'Salz',
-      'rice': 'Reis',
-      'oil': 'Pflanzenöl',
-      'honey': 'Honig',
-      'butter': 'Butter',
-      'ml': 'Milliliter',
-      'l': 'Liter',
-      'cup': 'Tassen (240 ml)',
-      'tbsp': 'Esslöffel (15 ml)',
-      'tsp': 'Teelöffel (5 ml)',
-      'toGrams': 'Volumen in Gramm',
-      'toVolume': 'Gramm in Volumen',
+    "options": {
+      "water": "Wasser",
+      "milk": "Milch",
+      "flour": "Mehl",
+      "sugar": "Zucker",
+      "salt": "Salz",
+      "rice": "Reis",
+      "oil": "Pflanzenöl",
+      "honey": "Honig",
+      "butter": "Butter",
+      "ml": "Milliliter",
+      "l": "Liter",
+      "cup": "Tassen (240 ml)",
+      "tbsp": "Esslöffel (15 ml)",
+      "tsp": "Teelöffel (5 ml)",
+      "toGrams": "Volumen in Gramm",
+      "toVolume": "Gramm in Volumen"
     },
-    results: {
-      'Результат': 'Ergebnis',
-      'Плотность продукта': 'Dichte der Zutat',
-      'В миллилитрах': 'In Millilitern',
-      'Исходное значение': 'Ausgangswert',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Результат": "Ergebnis",
+      "Плотность продукта": "Dichte der Zutat",
+      "В миллилитрах": "In Millilitern",
+      "Исходное значение": "Ausgangswert",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'г/мл': 'g/ml',
-      'мл': 'ml',
-      'Неизвестный продукт': 'Unbekannte Zutat',
-      'Неизвестная единица объёма': 'Unbekannte Einheit des Volumens',
-      'Неизвестное направление': 'Unbekannte Richtung',
-      'Значение не может быть отрицательным': 'Der Wert kann nicht negativ sein',
-      'Чашка здесь метрическая, 240 мл. Плотности сыпучих продуктов зависят от того, как их насыпали: разброс до четверти — обычное дело.': 'Die Tasse ist hier metrisch, 240 ml. Die Dichte streufähiger Zutaten hängt davon ab, wie sie eingefüllt wurden: eine Streuung bis zu einem Viertel ist gewöhnlich.',
-    },
+    "values": {
+      "г/мл": "g/ml",
+      "мл": "ml",
+      "Неизвестный продукт": "Unbekannte Zutat",
+      "Неизвестная единица объёма": "Unbekannte Einheit des Volumens",
+      "Неизвестное направление": "Unbekannte Richtung",
+      "Значение не может быть отрицательным": "Der Wert kann nicht negativ sein",
+      "Введите конечное число": "Gib eine endliche Zahl ein",
+      "Результат вне допустимого диапазона": "Das Ergebnis liegt außerhalb des unterstützten Zahlenbereichs",
+      "Чашка этого калькулятора — 240 мл. Плотности продуктов приблизительны; результат зависит от состава и способа наполнения мерной посуды.": "Dieser Rechner verwendet eine Tasse mit 240 ml. Die Zutatendichten sind Näherungswerte; das Ergebnis hängt von Zusammensetzung und Füllweise ab."
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "value": "Amount",
       "unit": "Unit of volume",
       "product": "Product",
-      "direction": "Direction",
+      "direction": "Direction"
     },
-    options: {
+    "options": {
       "water": "Water",
       "milk": "Milk",
       "flour": "Flour",
@@ -66,33 +68,35 @@ export const localization: CalculatorLocalization = {
       "tbsp": "Tablespoons (15 ml)",
       "tsp": "Teaspoons (5 ml)",
       "toGrams": "Volume to grams",
-      "toVolume": "Grams to volume",
+      "toVolume": "Grams to volume"
     },
-    results: {
+    "results": {
       "Результат": "Result",
       "Плотность продукта": "Density of the product",
       "В миллилитрах": "In millilitres",
       "Исходное значение": "Input value",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
+    "values": {
       "г/мл": "g/ml",
       "мл": "mL",
       "Неизвестный продукт": "Unknown product",
       "Неизвестная единица объёма": "Unknown unit of volume",
       "Неизвестное направление": "Unknown direction",
       "Значение не может быть отрицательным": "The value cannot be negative",
-      "Чашка здесь метрическая, 240 мл. Плотности сыпучих продуктов зависят от того, как их насыпали: разброс до четверти — обычное дело.": "The cup here is metric, 240 ml. Densities of dry goods depend on how they were poured: a quarter either way is normal.",
-    },
+      "Введите конечное число": "Enter a finite number",
+      "Результат вне допустимого диапазона": "The result is outside the supported numeric range",
+      "Чашка этого калькулятора — 240 мл. Плотности продуктов приблизительны; результат зависит от состава и способа наполнения мерной посуды.": "This calculator uses a 240 mL cup. Product densities are approximate; the result depends on composition and how the measuring vessel is filled."
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "value": "Кількість",
       "unit": "Одиниця об’єму",
       "product": "Продукт",
-      "direction": "Напрямок",
+      "direction": "Напрямок"
     },
-    options: {
+    "options": {
       "water": "Вода",
       "milk": "Молоко",
       "flour": "Борошно",
@@ -108,33 +112,35 @@ export const localization: CalculatorLocalization = {
       "tbsp": "Столові ложки (15 мл)",
       "tsp": "Чайні ложки (5 мл)",
       "toGrams": "Об’єм у грами",
-      "toVolume": "Грами в об’єм",
+      "toVolume": "Грами в об’єм"
     },
-    results: {
+    "results": {
       "Результат": "Результат",
       "Плотность продукта": "Густина продукту",
       "В миллилитрах": "У мілілітрах",
       "Исходное значение": "Вхідне значення",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
+    "values": {
       "г/мл": "г/мл",
       "мл": "мл",
       "Неизвестный продукт": "Невідомий продукт",
       "Неизвестная единица объёма": "Невідома одиниця об’єму",
       "Неизвестное направление": "Невідомий напрямок",
       "Значение не может быть отрицательным": "Значення не може бути від’ємним",
-      "Чашка здесь метрическая, 240 мл. Плотности сыпучих продуктов зависят от того, как их насыпали: разброс до четверти — обычное дело.": "Склянка тут метрична, 240 мл. Густина сипких продуктів залежить від того, як їх насипали: розбіжність до чверті — звична річ.",
-    },
+      "Введите конечное число": "Введіть скінченне число",
+      "Результат вне допустимого диапазона": "Результат поза допустимим числовим діапазоном",
+      "Чашка этого калькулятора — 240 мл. Плотности продуктов приблизительны; результат зависит от состава и способа наполнения мерной посуды.": "Склянка цього калькулятора — 240 мл. Густини продуктів приблизні; результат залежить від складу й способу наповнення мірного посуду."
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "value": "Cantidad",
       "unit": "Unidad de volumen",
       "product": "Producto",
-      "direction": "Sentido",
+      "direction": "Sentido"
     },
-    options: {
+    "options": {
       "ml": "Mililitros",
       "l": "Litros",
       "cup": "Tazas (240 ml)",
@@ -150,23 +156,25 @@ export const localization: CalculatorLocalization = {
       "honey": "Miel",
       "butter": "Mantequilla",
       "toGrams": "De volumen a gramos",
-      "toVolume": "De gramos a volumen",
+      "toVolume": "De gramos a volumen"
     },
-    results: {
+    "results": {
       "Результат": "Resultado",
       "Плотность продукта": "Densidad del producto",
       "В миллилитрах": "En mililitros",
       "Исходное значение": "Valor introducido",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "г/мл": "g/ml",
       "мл": "ml",
       "Неизвестный продукт": "Producto desconocido",
       "Неизвестная единица объёма": "Unidad de volumen desconocida",
       "Неизвестное направление": "Sentido desconocido",
       "Значение не может быть отрицательным": "El valor no puede ser negativo",
-      "Чашка здесь метрическая, 240 мл. Плотности сыпучих продуктов зависят от того, как их насыпали: разброс до четверти — обычное дело.": "Aquí la taza es la métrica, de 240 ml. La densidad de los productos secos depende de cómo se hayan echado: una diferencia de hasta una cuarta parte es normal.",
-    },
-  },
+      "Введите конечное число": "Introduce un número finito",
+      "Результат вне допустимого диапазона": "El resultado está fuera del intervalo numérico admitido",
+      "Чашка этого калькулятора — 240 мл. Плотности продуктов приблизительны; результат зависит от состава и способа наполнения мерной посуды.": "Esta calculadora usa una taza de 240 ml. Las densidades de los productos son aproximadas; el resultado depende de la composición y de cómo se llena el recipiente."
+    }
+  }
 };

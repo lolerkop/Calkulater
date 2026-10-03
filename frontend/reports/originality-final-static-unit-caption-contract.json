@@ -1,0 +1,1910 @@
+{
+  "curationSourceSHA256": "b6a3bd40f10e8faa5c4a049bb6e726a7aa31c8b381efb7dfff6970af6731f786",
+  "scope": {
+    "numericPairs": 339,
+    "numericLocaleRecords": 1689,
+    "otherPairs": 22,
+    "otherLocaleRecords": 110,
+    "revisePairs": 155,
+    "reviseNumericPairs": 144,
+    "reviseOtherPairs": 11,
+    "reviseLocaleRecords": 771,
+    "reviseIdCount": 80,
+    "revisePublishedUrlCount": 396,
+    "keepPairs": 206,
+    "keepNumericPairs": 195,
+    "keepOtherPairs": 11,
+    "keepLocaleRecords": 1028,
+    "deduplicatedCalendarClockPairs": 17,
+    "existingCurrencyAmendmentRecordsExcluded": 20
+  },
+  "rootConciseCaptionDispositions": [
+    {
+      "id": "credit-calculator",
+      "field": "term",
+      "before": {
+        "ru": "месяцы или годы — по выбранной единице срока",
+        "en": "months or years, as selected for the term",
+        "uk": "місяці або роки — за вибраною одиницею строку",
+        "de": "Monate oder Jahre gemäß gewählter Laufzeiteinheit",
+        "es": "meses o años, según la unidad del plazo seleccionada"
+      },
+      "after": {
+        "ru": "месяцы / годы",
+        "en": "months / years",
+        "uk": "місяці / роки",
+        "de": "Monate / Jahre",
+        "es": "meses / años"
+      },
+      "reason": "Static unit list states both actualtermUnit options; current selectoralreadychooses one. Concise supportedunits preserve meaning and unchanged HTML budget."
+    }
+  ],
+  "contracts": {
+    "ad-roi": {
+      "revenue": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      },
+      "spend": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      }
+    },
+    "alcohol-units": {
+      "standard_g": {
+        "type": "number",
+        "captions": {
+          "ru": "г",
+          "en": "g",
+          "uk": "г",
+          "de": "g",
+          "es": "g"
+        },
+        "semanticMeaning": "g"
+      },
+      "volume_ml": {
+        "type": "number",
+        "captions": {
+          "ru": "мл",
+          "en": "mL",
+          "uk": "мл",
+          "de": "ml",
+          "es": "ml"
+        },
+        "semanticMeaning": "mL"
+      }
+    },
+    "annuity": {
+      "months": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцы",
+          "en": "months",
+          "uk": "місяці",
+          "de": "Monate",
+          "es": "meses"
+        },
+        "semanticMeaning": "months"
+      }
+    },
+    "aov": {
+      "revenue": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      }
+    },
+    "aquarium-water-change": {
+      "volume": {
+        "type": "number",
+        "captions": {
+          "ru": "л",
+          "en": "L",
+          "uk": "л",
+          "de": "l",
+          "es": "l"
+        },
+        "semanticMeaning": "L"
+      }
+    },
+    "bakers-percentage": {
+      "flour": {
+        "type": "number",
+        "captions": {
+          "ru": "г",
+          "en": "g",
+          "uk": "г",
+          "de": "g",
+          "es": "g"
+        },
+        "semanticMeaning": "g"
+      }
+    },
+    "barbell-plates": {
+      "plates": {
+        "type": "textarea",
+        "captions": {
+          "ru": "кг",
+          "en": "kg",
+          "uk": "кг",
+          "de": "kg",
+          "es": "kg"
+        },
+        "semanticMeaning": "kg per token"
+      }
+    },
+    "brew-ratio": {
+      "coffee": {
+        "type": "number",
+        "captions": {
+          "ru": "г",
+          "en": "g",
+          "uk": "г",
+          "de": "g",
+          "es": "g"
+        },
+        "semanticMeaning": "g"
+      },
+      "ratio": {
+        "type": "number",
+        "captions": {
+          "ru": "мл/г",
+          "en": "mL/g",
+          "uk": "мл/г",
+          "de": "ml/g",
+          "es": "ml/g"
+        },
+        "semanticMeaning": "mL/g"
+      },
+      "water": {
+        "type": "number",
+        "captions": {
+          "ru": "мл",
+          "en": "mL",
+          "uk": "мл",
+          "de": "ml",
+          "es": "ml"
+        },
+        "semanticMeaning": "mL"
+      }
+    },
+    "budget-split": {
+      "incomes": {
+        "type": "textarea",
+        "captions": {
+          "ru": "имя и доход в одной денежной единице",
+          "en": "name and income in one monetary unit",
+          "uk": "ім’я та дохід в одній грошовій одиниці",
+          "de": "Name und Einkommen in derselben Geldeinheit",
+          "es": "nombre e ingresos en una misma unidad monetaria"
+        },
+        "semanticMeaning": "fixed physical unit"
+      }
+    },
+    "cagr": {
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "calorie-calculator": {
+      "age": {
+        "type": "number",
+        "captions": {
+          "ru": "лет",
+          "en": "years",
+          "uk": "років",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "calendar years"
+      }
+    },
+    "calories-per-serving": {
+      "ingredients": {
+        "type": "textarea",
+        "captions": {
+          "ru": "название; масса в г; ккал на 100 г",
+          "en": "name; mass in g; kcal per 100 g",
+          "uk": "назва; маса в г; ккал на 100 г",
+          "de": "Name; Masse in g; kcal je 100 g",
+          "es": "nombre; masa en g; kcal por 100 g"
+        },
+        "semanticMeaning": "name; mass in g; energy in kcal/(100 g)"
+      }
+    },
+    "commission": {
+      "a": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      },
+      "b": {
+        "type": "number",
+        "captions": {
+          "ru": "денежная сумма или % — по режиму расчёта",
+          "en": "monetary amount or %, according to calculation mode",
+          "uk": "грошова сума або % — за режимом розрахунку",
+          "de": "Geldbetrag oder % je nach Berechnungsmodus",
+          "es": "importe monetario o %, según el modo de cálculo"
+        },
+        "semanticMeaning": "moneyOrCommissionPct"
+      }
+    },
+    "compound-interest": {
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "contribution-margin": {
+      "price": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы/единицу товара",
+          "en": "monetary units/item",
+          "uk": "грошові одиниці/одиницю товару",
+          "de": "Geldeinheiten/Artikeleinheit",
+          "es": "unidades monetarias/unidad de producto"
+        },
+        "semanticMeaning": "moneyPerItem"
+      },
+      "variable": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы/единицу товара",
+          "en": "monetary units/item",
+          "uk": "грошові одиниці/одиницю товару",
+          "de": "Geldeinheiten/Artikeleinheit",
+          "es": "unidades monetarias/unidad de producto"
+        },
+        "semanticMeaning": "moneyPerItem"
+      }
+    },
+    "convert-cooking-weight": {
+      "value": {
+        "type": "number",
+        "captions": {
+          "ru": "г или выбранная единица объёма — по направлению",
+          "en": "g or selected volume unit, according to direction",
+          "uk": "г або вибрана одиниця об’єму — за напрямом",
+          "de": "g oder gewählte Volumeneinheit gemäß Richtung",
+          "es": "g o unidad de volumen seleccionada, según dirección"
+        },
+        "semanticMeaning": "selected volume unit when direction=toGrams; g when direction=toVolume"
+      }
+    },
+    "cooked-weight": {
+      "cooked": {
+        "type": "number",
+        "captions": {
+          "ru": "г",
+          "en": "g",
+          "uk": "г",
+          "de": "g",
+          "es": "g"
+        },
+        "semanticMeaning": "g"
+      },
+      "kcalPer100Raw": {
+        "type": "number",
+        "captions": {
+          "ru": "ккал/100 г",
+          "en": "kcal/100 g",
+          "uk": "ккал/100 г",
+          "de": "kcal/100 g",
+          "es": "kcal/100 g"
+        },
+        "semanticMeaning": "kcal/(100 g)"
+      },
+      "raw": {
+        "type": "number",
+        "captions": {
+          "ru": "г",
+          "en": "g",
+          "uk": "г",
+          "de": "g",
+          "es": "g"
+        },
+        "semanticMeaning": "g"
+      }
+    },
+    "credit-calculator": {
+      "term": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцы / годы",
+          "en": "months / years",
+          "uk": "місяці / роки",
+          "de": "Monate / Jahre",
+          "es": "meses / años"
+        },
+        "semanticMeaning": "selectedLoanTerm"
+      }
+    },
+    "currency-exchange-fee": {
+      "amount": {
+        "type": "number",
+        "captions": {
+          "ru": "единицы обмениваемой валюты при продаже; денежные единицы расчёта при покупке",
+          "en": "foreign-currency units when selling; payment-currency units when buying",
+          "uk": "одиниці обмінюваної валюти під час продажу; грошові одиниці розрахунку під час купівлі",
+          "de": "Fremdwährungseinheiten beim Verkauf; Zahlungswährungseinheiten beim Kauf",
+          "es": "unidades de divisa al vender; unidades de la moneda de pago al comprar"
+        },
+        "semanticMeaning": "foreignOrPaymentCurrency"
+      },
+      "feeFixed": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы расчёта",
+          "en": "payment-currency units",
+          "uk": "грошові одиниці розрахунку",
+          "de": "Zahlungswährungseinheiten",
+          "es": "unidades de la moneda de pago"
+        },
+        "semanticMeaning": "paymentCurrency"
+      },
+      "rate": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы расчёта за 1 единицу обмениваемой валюты",
+          "en": "payment-currency units per 1 foreign-currency unit",
+          "uk": "грошові одиниці розрахунку за 1 одиницю обмінюваної валюти",
+          "de": "Zahlungswährungseinheiten je 1 Fremdwährungseinheit",
+          "es": "unidades de la moneda de pago por 1 unidad de divisa"
+        },
+        "semanticMeaning": "paymentPerForeignCurrency"
+      }
+    },
+    "date-shift-calculator": {
+      "shiftDays": {
+        "type": "number",
+        "captions": {
+          "ru": "дней",
+          "en": "days",
+          "uk": "днів",
+          "de": "Tage",
+          "es": "días"
+        },
+        "semanticMeaning": "calendar days"
+      },
+      "shiftMonths": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцев",
+          "en": "months",
+          "uk": "місяців",
+          "de": "Monate",
+          "es": "meses"
+        },
+        "semanticMeaning": "calendar months"
+      },
+      "shiftWeeks": {
+        "type": "number",
+        "captions": {
+          "ru": "недель",
+          "en": "weeks",
+          "uk": "тижнів",
+          "de": "Wochen",
+          "es": "semanas"
+        },
+        "semanticMeaning": "calendar weeks"
+      },
+      "shiftYears": {
+        "type": "number",
+        "captions": {
+          "ru": "лет",
+          "en": "years",
+          "uk": "років",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "calendar years"
+      }
+    },
+    "dca": {
+      "months": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцы",
+          "en": "months",
+          "uk": "місяці",
+          "de": "Monate",
+          "es": "meses"
+        },
+        "semanticMeaning": "months"
+      }
+    },
+    "debt-snowball-avalanche": {
+      "debts": {
+        "type": "textarea",
+        "captions": {
+          "ru": "название; остаток и месячный платёж в одной валюте; годовая ставка в %",
+          "en": "name; balance and monthly payment in one currency; annual rate in %",
+          "uk": "назва; залишок і місячний платіж в одній валюті; річна ставка у %",
+          "de": "Name; Restschuld und Monatszahlung in derselben Währung; Jahreszins in %",
+          "es": "nombre; saldo y pago mensual en una misma moneda; tipo anual en %"
+        },
+        "semanticMeaning": "fixed physical unit"
+      }
+    },
+    "deposit-calculator": {
+      "months": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцы",
+          "en": "months",
+          "uk": "місяці",
+          "de": "Monate",
+          "es": "meses"
+        },
+        "semanticMeaning": "months"
+      }
+    },
+    "depreciation-methods": {
+      "life": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "dilution": {
+      "c1": {
+        "type": "number",
+        "captions": {
+          "ru": "в одинаковых единицах концентрации на объём",
+          "en": "in matching concentration-per-volume units",
+          "uk": "в однакових одиницях концентрації на об’єм",
+          "de": "in gleichen Einheiten der Konzentration je Volumen",
+          "es": "en las mismas unidades de concentración por volumen"
+        },
+        "semanticMeaning": "matchingConcentrationPerVolume"
+      },
+      "c2": {
+        "type": "number",
+        "captions": {
+          "ru": "в одинаковых единицах концентрации на объём",
+          "en": "in matching concentration-per-volume units",
+          "uk": "в однакових одиницях концентрації на об’єм",
+          "de": "in gleichen Einheiten der Konzentration je Volumen",
+          "es": "en las mismas unidades de concentración por volumen"
+        },
+        "semanticMeaning": "matchingConcentrationPerVolume"
+      },
+      "v1": {
+        "type": "number",
+        "captions": {
+          "ru": "мл",
+          "en": "mL",
+          "uk": "мл",
+          "de": "mL",
+          "es": "mL"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "v2": {
+        "type": "number",
+        "captions": {
+          "ru": "мл",
+          "en": "mL",
+          "uk": "мл",
+          "de": "mL",
+          "es": "mL"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      }
+    },
+    "discount-calculator": {
+      "discountAmt": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      }
+    },
+    "dividend-yield": {
+      "dividend": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы на акцию за год",
+          "en": "monetary units per share over one year",
+          "uk": "грошові одиниці на акцію за рік",
+          "de": "Geldeinheiten je Aktie für ein Jahr",
+          "es": "unidades monetarias por acción durante un año"
+        },
+        "semanticMeaning": "annualDividendPerShare"
+      },
+      "price": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы/акцию",
+          "en": "monetary units/share",
+          "uk": "грошові одиниці/акцію",
+          "de": "Geldeinheiten/Aktie",
+          "es": "unidades monetarias/acción"
+        },
+        "semanticMeaning": "moneyPerShare"
+      }
+    },
+    "drip-water-leak": {
+      "dropMl": {
+        "type": "number",
+        "captions": {
+          "ru": "мл",
+          "en": "mL",
+          "uk": "мл",
+          "de": "ml",
+          "es": "ml"
+        },
+        "semanticMeaning": "mL"
+      },
+      "drops": {
+        "type": "number",
+        "captions": {
+          "ru": "капель/мин",
+          "en": "drops/min",
+          "uk": "крапель/хв",
+          "de": "Tropfen/min",
+          "es": "gotas/min"
+        },
+        "semanticMeaning": "drops/min"
+      }
+    },
+    "early-repayment": {
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "electricity-usage": {
+      "days": {
+        "type": "number",
+        "captions": {
+          "ru": "сутки",
+          "en": "days",
+          "uk": "доби",
+          "de": "Tage",
+          "es": "días"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "hoursPerDay": {
+        "type": "number",
+        "captions": {
+          "ru": "ч/сутки",
+          "en": "h/day",
+          "uk": "год/добу",
+          "de": "h/Tag",
+          "es": "h/día"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "power": {
+        "type": "number",
+        "captions": {
+          "ru": "в выбранной единице мощности",
+          "en": "in the selected power unit",
+          "uk": "у вибраній одиниці потужності",
+          "de": "in der gewählten Leistungseinheit",
+          "es": "en la unidad de potencia seleccionada"
+        },
+        "semanticMeaning": "selectedPower"
+      }
+    },
+    "emergency-fund": {
+      "months": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцы",
+          "en": "months",
+          "uk": "місяці",
+          "de": "Monate",
+          "es": "meses"
+        },
+        "semanticMeaning": "months"
+      }
+    },
+    "freelance-rate": {
+      "hoursPerDay": {
+        "type": "number",
+        "captions": {
+          "ru": "ч/рабочий день",
+          "en": "h/working day",
+          "uk": "год/робочий день",
+          "de": "h/Arbeitstag",
+          "es": "h/día de trabajo"
+        },
+        "semanticMeaning": "hoursPerWorkingDay"
+      },
+      "workDays": {
+        "type": "number",
+        "captions": {
+          "ru": "рабочие дни/месяц",
+          "en": "working days/month",
+          "uk": "робочі дні/місяць",
+          "de": "Arbeitstage/Monat",
+          "es": "días de trabajo/mes"
+        },
+        "semanticMeaning": "workingDaysPerMonth"
+      }
+    },
+    "generator-fuel": {
+      "hours": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "h"
+      },
+      "load": {
+        "type": "number",
+        "captions": {
+          "ru": "кВт",
+          "en": "kW",
+          "uk": "кВт",
+          "de": "kW",
+          "es": "kW"
+        },
+        "semanticMeaning": "kW"
+      },
+      "sfc": {
+        "type": "number",
+        "captions": {
+          "ru": "л/(кВт·ч)",
+          "en": "L/kWh",
+          "uk": "л/(кВт·год)",
+          "de": "l/kWh",
+          "es": "l/kWh"
+        },
+        "semanticMeaning": "L/kWh"
+      }
+    },
+    "geom-polygon-coords": {
+      "points": {
+        "type": "textarea",
+        "captions": {
+          "ru": "общая единица длины координат",
+          "en": "common coordinate length unit",
+          "uk": "спільна одиниця довжини координат",
+          "de": "gemeinsame Längeneinheit der Koordinaten",
+          "es": "unidad común de longitud de las coordenadas"
+        },
+        "semanticMeaning": "commonCoordinateLength"
+      }
+    },
+    "heating-power": {
+      "area": {
+        "type": "number",
+        "captions": {
+          "ru": "м²",
+          "en": "m²",
+          "uk": "м²",
+          "de": "m²",
+          "es": "m²"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "height": {
+        "type": "number",
+        "captions": {
+          "ru": "м",
+          "en": "m",
+          "uk": "м",
+          "de": "m",
+          "es": "m"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "wattsPerM3": {
+        "type": "number",
+        "captions": {
+          "ru": "Вт/м³",
+          "en": "W/m³",
+          "uk": "Вт/м³",
+          "de": "W/m³",
+          "es": "W/m³"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      }
+    },
+    "home-equity": {
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "inflation": {
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "installment": {
+      "months": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцы",
+          "en": "months",
+          "uk": "місяці",
+          "de": "Monate",
+          "es": "meses"
+        },
+        "semanticMeaning": "months"
+      }
+    },
+    "lease-payment": {
+      "months": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцы",
+          "en": "months",
+          "uk": "місяці",
+          "de": "Monate",
+          "es": "meses"
+        },
+        "semanticMeaning": "months"
+      }
+    },
+    "led-resistor": {
+      "current": {
+        "type": "number",
+        "captions": {
+          "ru": "в выбранной единице тока",
+          "en": "in the selected current unit",
+          "uk": "у вибраній одиниці струму",
+          "de": "in der gewählten Stromeinheit",
+          "es": "en la unidad de corriente seleccionada"
+        },
+        "semanticMeaning": "selectedCurrent"
+      }
+    },
+    "lighting": {
+      "area": {
+        "type": "number",
+        "captions": {
+          "ru": "м²",
+          "en": "m²",
+          "uk": "м²",
+          "de": "m²",
+          "es": "m²"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "lampLumens": {
+        "type": "number",
+        "captions": {
+          "ru": "лм",
+          "en": "lm",
+          "uk": "лм",
+          "de": "lm",
+          "es": "lm"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "norm": {
+        "type": "number",
+        "captions": {
+          "ru": "лк",
+          "en": "lx",
+          "uk": "лк",
+          "de": "lx",
+          "es": "lx"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      }
+    },
+    "ltv": {
+      "months": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцы",
+          "en": "months",
+          "uk": "місяці",
+          "de": "Monate",
+          "es": "meses"
+        },
+        "semanticMeaning": "months"
+      }
+    },
+    "max-loan": {
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "molarity": {
+      "mass": {
+        "type": "number",
+        "captions": {
+          "ru": "г",
+          "en": "g",
+          "uk": "г",
+          "de": "g",
+          "es": "g"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "molarMass": {
+        "type": "number",
+        "captions": {
+          "ru": "г/моль",
+          "en": "g/mol",
+          "uk": "г/моль",
+          "de": "g/mol",
+          "es": "g/mol"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "moles": {
+        "type": "number",
+        "captions": {
+          "ru": "моль",
+          "en": "mol",
+          "uk": "моль",
+          "de": "mol",
+          "es": "mol"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "volume": {
+        "type": "number",
+        "captions": {
+          "ru": "в выбранной единице объёма",
+          "en": "in the selected volume unit",
+          "uk": "у вибраній одиниці об’єму",
+          "de": "in der gewählten Volumeneinheit",
+          "es": "en la unidad de volumen seleccionada"
+        },
+        "semanticMeaning": "selectedVolume"
+      }
+    },
+    "moles": {
+      "mass": {
+        "type": "number",
+        "captions": {
+          "ru": "г",
+          "en": "g",
+          "uk": "г",
+          "de": "g",
+          "es": "g"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "molarMass": {
+        "type": "number",
+        "captions": {
+          "ru": "г/моль",
+          "en": "g/mol",
+          "uk": "г/моль",
+          "de": "g/mol",
+          "es": "g/mol"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "moles": {
+        "type": "number",
+        "captions": {
+          "ru": "моль",
+          "en": "mol",
+          "uk": "моль",
+          "de": "mol",
+          "es": "mol"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      }
+    },
+    "mortgage-calculator": {
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "one-rep-max-calculator": {
+      "weight": {
+        "type": "number",
+        "captions": {
+          "ru": "кг",
+          "en": "kg",
+          "uk": "кг",
+          "de": "kg",
+          "es": "kg"
+        },
+        "semanticMeaning": "kg"
+      }
+    },
+    "overtime": {
+      "normalHours": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "hours"
+      },
+      "overtimeHours": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "hours"
+      }
+    },
+    "payback-period": {
+      "cashflow": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы/год",
+          "en": "monetary units/year",
+          "uk": "грошові одиниці/рік",
+          "de": "Geldeinheiten/Jahr",
+          "es": "unidades monetarias/año"
+        },
+        "semanticMeaning": "moneyPerYear"
+      },
+      "investment": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      }
+    },
+    "pet-age": {
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "лет",
+          "en": "years",
+          "uk": "років",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "calendar years"
+      }
+    },
+    "pet-food": {
+      "kcalPer100": {
+        "type": "number",
+        "captions": {
+          "ru": "ккал/100 г",
+          "en": "kcal/100 g",
+          "uk": "ккал/100 г",
+          "de": "kcal/100 g",
+          "es": "kcal/100 g"
+        },
+        "semanticMeaning": "kcal/(100 g)"
+      },
+      "weight": {
+        "type": "number",
+        "captions": {
+          "ru": "кг",
+          "en": "kg",
+          "uk": "кг",
+          "de": "kg",
+          "es": "kg"
+        },
+        "semanticMeaning": "kg"
+      }
+    },
+    "ph-poh": {
+      "h": {
+        "type": "number",
+        "captions": {
+          "ru": "моль/л",
+          "en": "mol/L",
+          "uk": "моль/л",
+          "de": "mol/L",
+          "es": "mol/L"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      }
+    },
+    "pool-fill-time": {
+      "depth": {
+        "type": "number",
+        "captions": {
+          "ru": "м",
+          "en": "m",
+          "uk": "м",
+          "de": "m",
+          "es": "m"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "diameter": {
+        "type": "number",
+        "captions": {
+          "ru": "м",
+          "en": "m",
+          "uk": "м",
+          "de": "m",
+          "es": "m"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "flow": {
+        "type": "number",
+        "captions": {
+          "ru": "в выбранной единице объёмного расхода",
+          "en": "in the selected volume-flow unit",
+          "uk": "у вибраній одиниці об’ємної витрати",
+          "de": "in der gewählten Einheit des Volumenstroms",
+          "es": "en la unidad de caudal volumétrico seleccionada"
+        },
+        "semanticMeaning": "selectedFlow"
+      },
+      "length": {
+        "type": "number",
+        "captions": {
+          "ru": "м",
+          "en": "m",
+          "uk": "м",
+          "de": "m",
+          "es": "m"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "volume": {
+        "type": "number",
+        "captions": {
+          "ru": "м³",
+          "en": "m³",
+          "uk": "м³",
+          "de": "m³",
+          "es": "m³"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "width": {
+        "type": "number",
+        "captions": {
+          "ru": "м",
+          "en": "m",
+          "uk": "м",
+          "de": "m",
+          "es": "m"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      }
+    },
+    "rainfall-volume": {
+      "area": {
+        "type": "number",
+        "captions": {
+          "ru": "м²",
+          "en": "m²",
+          "uk": "м²",
+          "de": "m²",
+          "es": "m²"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "depth": {
+        "type": "number",
+        "captions": {
+          "ru": "мм",
+          "en": "mm",
+          "uk": "мм",
+          "de": "mm",
+          "es": "mm"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      }
+    },
+    "real-return": {
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "recipe-cost": {
+      "ingredients": {
+        "type": "textarea",
+        "captions": {
+          "ru": "название; количество в единице ингредиента; цена за неё в одной валюте",
+          "en": "name; quantity in ingredient unit; price per that unit in one currency",
+          "uk": "назва; кількість в одиниці інгредієнта; ціна за неї в одній валюті",
+          "de": "Name; Menge in Zutateneinheit; Preis je Einheit in einer Währung",
+          "es": "nombre; cantidad en la unidad del ingrediente; precio por ella en una moneda"
+        },
+        "semanticMeaning": "name; quantity in ingredient unit; price in one currency per matching quantity unit"
+      }
+    },
+    "recipe-scale": {
+      "ingredients": {
+        "type": "textarea",
+        "captions": {
+          "ru": "название; количество в исходной единице ингредиента",
+          "en": "name; quantity in the ingredient’s original unit",
+          "uk": "назва; кількість у початковій одиниці інгредієнта",
+          "de": "Name; Menge in der ursprünglichen Einheit der Zutat",
+          "es": "nombre; cantidad en la unidad original del ingrediente"
+        },
+        "semanticMeaning": "name; quantity in the ingredient unit (unchanged per row)"
+      }
+    },
+    "refinancing": {
+      "newMonths": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцы",
+          "en": "months",
+          "uk": "місяці",
+          "de": "Monate",
+          "es": "meses"
+        },
+        "semanticMeaning": "months"
+      },
+      "oldMonths": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцы",
+          "en": "months",
+          "uk": "місяці",
+          "de": "Monate",
+          "es": "meses"
+        },
+        "semanticMeaning": "months"
+      }
+    },
+    "revenue-per-employee": {
+      "revenue": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      }
+    },
+    "roast-time": {
+      "base_minutes": {
+        "type": "number",
+        "captions": {
+          "ru": "мин",
+          "en": "min",
+          "uk": "хв",
+          "de": "min",
+          "es": "min"
+        },
+        "semanticMeaning": "min"
+      },
+      "minutes_per_kg": {
+        "type": "number",
+        "captions": {
+          "ru": "мин/кг",
+          "en": "min/kg",
+          "uk": "хв/кг",
+          "de": "min/kg",
+          "es": "min/kg"
+        },
+        "semanticMeaning": "min/kg"
+      },
+      "weight": {
+        "type": "number",
+        "captions": {
+          "ru": "кг",
+          "en": "kg",
+          "uk": "кг",
+          "de": "kg",
+          "es": "kg"
+        },
+        "semanticMeaning": "kg"
+      }
+    },
+    "roi": {
+      "extra": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      },
+      "invested": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      },
+      "received": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      }
+    },
+    "running-pace-calculator": {
+      "distance": {
+        "type": "number",
+        "captions": {
+          "ru": "выбранная единица дистанции — км или мили",
+          "en": "selected distance unit — km or mi",
+          "uk": "вибрана одиниця дистанції — км або милі",
+          "de": "gewählte Streckeneinheit — km oder mi",
+          "es": "unidad de distancia seleccionada — km o mi"
+        },
+        "semanticMeaning": "selected distance unit (km or mi)"
+      },
+      "hours": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "h"
+      },
+      "minutes": {
+        "type": "number",
+        "captions": {
+          "ru": "мин",
+          "en": "min",
+          "uk": "хв",
+          "de": "min",
+          "es": "min"
+        },
+        "semanticMeaning": "min"
+      },
+      "seconds": {
+        "type": "number",
+        "captions": {
+          "ru": "с",
+          "en": "s",
+          "uk": "с",
+          "de": "s",
+          "es": "s"
+        },
+        "semanticMeaning": "s"
+      }
+    },
+    "savings-goal": {
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "scale-model": {
+      "model": {
+        "type": "number",
+        "captions": {
+          "ru": "мм",
+          "en": "mm",
+          "uk": "мм",
+          "de": "mm",
+          "es": "mm"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "real": {
+        "type": "number",
+        "captions": {
+          "ru": "мм",
+          "en": "mm",
+          "uk": "мм",
+          "de": "mm",
+          "es": "mm"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      }
+    },
+    "shipping-per-unit": {
+      "packaging": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      },
+      "shipping": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      }
+    },
+    "simple-interest": {
+      "interest": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      },
+      "principal": {
+        "type": "number",
+        "captions": {
+          "ru": "денежные единицы",
+          "en": "monetary units",
+          "uk": "грошові одиниці",
+          "de": "Geldeinheiten",
+          "es": "unidades monetarias"
+        },
+        "semanticMeaning": "money"
+      },
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "sleep-time": {
+      "fallAsleep": {
+        "type": "number",
+        "captions": {
+          "ru": "мин",
+          "en": "min",
+          "uk": "хв",
+          "de": "min",
+          "es": "min"
+        },
+        "semanticMeaning": "min"
+      },
+      "hour": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "h"
+      },
+      "minute": {
+        "type": "number",
+        "captions": {
+          "ru": "мин",
+          "en": "min",
+          "uk": "хв",
+          "de": "min",
+          "es": "min"
+        },
+        "semanticMeaning": "min"
+      }
+    },
+    "solution-concentration": {
+      "solute": {
+        "type": "number",
+        "captions": {
+          "ru": "г",
+          "en": "g",
+          "uk": "г",
+          "de": "g",
+          "es": "g"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "solution": {
+        "type": "number",
+        "captions": {
+          "ru": "г",
+          "en": "g",
+          "uk": "г",
+          "de": "g",
+          "es": "g"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "volume": {
+        "type": "number",
+        "captions": {
+          "ru": "мл",
+          "en": "mL",
+          "uk": "мл",
+          "de": "mL",
+          "es": "mL"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      }
+    },
+    "subscriptions-cost": {
+      "items": {
+        "type": "textarea",
+        "captions": {
+          "ru": "название; цена в одной валюте; период в месяцах",
+          "en": "name; price in one currency; period in months",
+          "uk": "назва; ціна в одній валюті; період у місяцях",
+          "de": "Name; Preis in derselben Währung; Zeitraum in Monaten",
+          "es": "nombre; precio en una misma moneda; periodo en meses"
+        },
+        "semanticMeaning": "fixed physical unit"
+      }
+    },
+    "time-duration": {
+      "endHour": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "h"
+      },
+      "endMinute": {
+        "type": "number",
+        "captions": {
+          "ru": "мин",
+          "en": "min",
+          "uk": "хв",
+          "de": "min",
+          "es": "min"
+        },
+        "semanticMeaning": "min"
+      },
+      "spanHour": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "h"
+      },
+      "spanMinute": {
+        "type": "number",
+        "captions": {
+          "ru": "мин",
+          "en": "min",
+          "uk": "хв",
+          "de": "min",
+          "es": "min"
+        },
+        "semanticMeaning": "min"
+      },
+      "startHour": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "h"
+      },
+      "startMinute": {
+        "type": "number",
+        "captions": {
+          "ru": "мин",
+          "en": "min",
+          "uk": "хв",
+          "de": "min",
+          "es": "min"
+        },
+        "semanticMeaning": "min"
+      }
+    },
+    "time-value-money": {
+      "years": {
+        "type": "number",
+        "captions": {
+          "ru": "годы",
+          "en": "years",
+          "uk": "роки",
+          "de": "Jahre",
+          "es": "años"
+        },
+        "semanticMeaning": "years"
+      }
+    },
+    "timesheet-week": {
+      "lines": {
+        "type": "textarea",
+        "captions": {
+          "ru": "начало и конец HH:MM; перерыв в минутах",
+          "en": "start and end HH:MM; break in minutes",
+          "uk": "початок і кінець HH:MM; перерва у хвилинах",
+          "de": "Beginn und Ende HH:MM; Pause in Minuten",
+          "es": "inicio y fin HH:MM; pausa en minutos"
+        },
+        "semanticMeaning": "fixed physical unit"
+      }
+    },
+    "timezone-difference": {
+      "fromOffset": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "h"
+      },
+      "hour": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "h"
+      },
+      "minute": {
+        "type": "number",
+        "captions": {
+          "ru": "мин",
+          "en": "min",
+          "uk": "хв",
+          "de": "min",
+          "es": "min"
+        },
+        "semanticMeaning": "min"
+      },
+      "toOffset": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "h"
+      }
+    },
+    "utility-total": {
+      "meters": {
+        "type": "textarea",
+        "captions": {
+          "ru": "название; расход в единицах услуги; тариф в денежных единицах за такую единицу",
+          "en": "name; usage in service units; tariff in monetary units per matching service unit",
+          "uk": "назва; споживання в одиницях послуги; тариф у грошових одиницях за таку одиницю",
+          "de": "Name; Verbrauch in Serviceeinheiten; Tarif in Geldeinheiten je entsprechender Serviceeinheit",
+          "es": "nombre; consumo en unidades del servicio; tarifa en unidades monetarias por esa misma unidad"
+        },
+        "semanticMeaning": "fixed physical unit"
+      }
+    },
+    "vacation-accrual": {
+      "daysPerYear": {
+        "type": "number",
+        "captions": {
+          "ru": "дни/год",
+          "en": "days/year",
+          "uk": "дні/рік",
+          "de": "Tage/Jahr",
+          "es": "días/año"
+        },
+        "semanticMeaning": "daysPerYear"
+      },
+      "daysUsed": {
+        "type": "number",
+        "captions": {
+          "ru": "дни",
+          "en": "days",
+          "uk": "дні",
+          "de": "Tage",
+          "es": "días"
+        },
+        "semanticMeaning": "days"
+      },
+      "monthsWorked": {
+        "type": "number",
+        "captions": {
+          "ru": "месяцы",
+          "en": "months",
+          "uk": "місяці",
+          "de": "Monate",
+          "es": "meses"
+        },
+        "semanticMeaning": "months"
+      }
+    },
+    "water-heating": {
+      "power": {
+        "type": "number",
+        "captions": {
+          "ru": "кВт",
+          "en": "kW",
+          "uk": "кВт",
+          "de": "kW",
+          "es": "kW"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "tFrom": {
+        "type": "number",
+        "captions": {
+          "ru": "°C",
+          "en": "°C",
+          "uk": "°C",
+          "de": "°C",
+          "es": "°C"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "tTo": {
+        "type": "number",
+        "captions": {
+          "ru": "°C",
+          "en": "°C",
+          "uk": "°C",
+          "de": "°C",
+          "es": "°C"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      },
+      "volume": {
+        "type": "number",
+        "captions": {
+          "ru": "л",
+          "en": "L",
+          "uk": "л",
+          "de": "L",
+          "es": "L"
+        },
+        "semanticMeaning": "FIXED_UNIT"
+      }
+    },
+    "weighted-mean": {
+      "pairs": {
+        "type": "textarea",
+        "captions": {
+          "ru": "значение в общей единице данных; вес в согласованной основе",
+          "en": "value in a common data unit; weight on a consistent basis",
+          "uk": "значення у спільній одиниці даних; вага на узгодженій основі",
+          "de": "Wert in gemeinsamer Dateneinheit; Gewicht mit einheitlicher Grundlage",
+          "es": "valor en una unidad común de datos; peso con una base coherente"
+        },
+        "semanticMeaning": "value in one common data unit; weight in one consistent basis; no fixed SI unit is inferred"
+      }
+    },
+    "work-hours": {
+      "breakMin": {
+        "type": "number",
+        "captions": {
+          "ru": "мин",
+          "en": "min",
+          "uk": "хв",
+          "de": "min",
+          "es": "min"
+        },
+        "semanticMeaning": "minutes"
+      },
+      "endHour": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "hours"
+      },
+      "endMin": {
+        "type": "number",
+        "captions": {
+          "ru": "мин",
+          "en": "min",
+          "uk": "хв",
+          "de": "min",
+          "es": "min"
+        },
+        "semanticMeaning": "minutes"
+      },
+      "startHour": {
+        "type": "number",
+        "captions": {
+          "ru": "ч",
+          "en": "h",
+          "uk": "год",
+          "de": "h",
+          "es": "h"
+        },
+        "semanticMeaning": "hours"
+      },
+      "startMin": {
+        "type": "number",
+        "captions": {
+          "ru": "мин",
+          "en": "min",
+          "uk": "хв",
+          "de": "min",
+          "es": "min"
+        },
+        "semanticMeaning": "minutes"
+      }
+    },
+    "workday-cost": {
+      "days": {
+        "type": "number",
+        "captions": {
+          "ru": "рабочие дни/месяц",
+          "en": "working days/month",
+          "uk": "робочі дні/місяць",
+          "de": "Arbeitstage/Monat",
+          "es": "días de trabajo/mes"
+        },
+        "semanticMeaning": "workingDaysPerMonth"
+      },
+      "hours": {
+        "type": "number",
+        "captions": {
+          "ru": "ч/рабочий день",
+          "en": "h/working day",
+          "uk": "год/робочий день",
+          "de": "h/Arbeitstag",
+          "es": "h/día de trabajo"
+        },
+        "semanticMeaning": "hoursPerWorkingDay"
+      }
+    },
+    "yeast-convert": {
+      "value": {
+        "type": "number",
+        "captions": {
+          "ru": "г",
+          "en": "g",
+          "uk": "г",
+          "de": "g",
+          "es": "g"
+        },
+        "semanticMeaning": "g"
+      }
+    }
+  },
+  "boundary": "Human-independent source/quantity review packet preserved; exacttyped SSR captions only. These are metadata expectations, not new mathematical oracles. No fields/compute/client changes."
+}

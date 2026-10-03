@@ -14,7 +14,9 @@ export const shared: CalculatorLocalization = {
       'Переплата': 'Overpayment',
       'Срок': 'Term',
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
+      'Платеж': 'Payment',
       'Проценты': 'Interest',
     },
     values: {
@@ -26,7 +28,9 @@ export const shared: CalculatorLocalization = {
       'Переплата': 'Переплата',
       'Срок': 'Строк',
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
+      'Платеж': 'Платіж',
       'Проценты': 'Відсотки',
     },
     values: {
@@ -38,7 +42,9 @@ export const shared: CalculatorLocalization = {
       'Переплата': 'Mehrkosten',
       'Срок': 'Laufzeit',
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
+      'Платеж': 'Rate',
       'Проценты': 'Zinsen',
     },
     values: {
@@ -47,10 +53,12 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
-      'Переплата': 'Intereses totales',
+      'Переплата': 'Coste adicional',
       'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
+      'Платеж': 'Cuota',
       'Проценты': 'Intereses',
     },
   },

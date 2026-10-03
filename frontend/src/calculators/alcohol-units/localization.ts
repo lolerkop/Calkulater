@@ -1,82 +1,100 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
-
-const RESULTS_EN = {
-  'Стандартных единиц': 'Standard units', 'Чистого спирта по массе': 'Pure alcohol by mass',
-  'Чистого спирта по объёму': 'Pure alcohol by volume', 'Норма единицы': 'Unit definition',
-  'Крепость': 'Strength', 'Проверьте данные': 'Check the values',
-};
-const RESULTS_UK = {
-  'Стандартных единиц': 'Стандартних одиниць', 'Чистого спирта по массе': 'Чистого спирту за масою',
-  'Чистого спирта по объёму': "Чистого спирту за об'ємом", 'Норма единицы': 'Норма одиниці',
-  'Крепость': 'Міцність', 'Проверьте данные': 'Перевірте дані',
-};
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'volume_ml': 'Menge der Portion, ml',
-      'abv': 'Stärke, % vol',
-      'standard_g': 'Festlegung der Einheit, g Alkohol',
-    },
-    results: {
-      'Стандартных единиц': 'Standardeinheiten',
-      'Чистого спирта по массе': 'Reiner Alkohol nach Masse',
-      'Чистого спирта по объёму': 'Reiner Alkohol nach Volumen',
-      'Норма единицы': 'Festlegung der Einheit',
-      'Крепость': 'Stärke',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'мл': 'ml',
-      'г': 'g',
-      'Объём должен быть больше нуля': 'Die Menge muss größer als null sein',
-      'Крепость должна быть от 0 до 100 %': 'Die Stärke muss zwischen 0 und 100 % liegen',
-      'Норма единицы должна быть больше нуля': 'Die Festlegung der Einheit muss größer als null sein',
-    },
+  "en": {
+  "fields": {
+    "volume_ml": "Serving volume, ml",
+    "abv": "Strength, % ABV",
+    "standard_g": "Unit definition, g of alcohol"
   },
-  en: {
-    fields: { volume_ml: 'Serving volume, ml', abv: 'Strength, % ABV', standard_g: 'Unit definition, g of alcohol' },
-    options: {},
-    results: RESULTS_EN,
-    values: {
-      'мл': 'mL', 'г': 'g',
-      'Объём должен быть больше нуля': 'The volume must be greater than zero',
-      'Крепость должна быть от 0 до 100 %': 'The strength must be between 0 and 100%',
-      'Норма единицы должна быть больше нуля': 'The unit definition must be greater than zero',
-    },
+  "options": {},
+  "results": {
+    "Стандартных единиц": "Standard units",
+    "Чистого спирта по массе": "Pure alcohol by mass",
+    "Чистого спирта по объёму": "Pure alcohol by volume",
+    "Норма единицы": "Unit definition",
+    "Крепость": "Strength",
+    "Проверьте данные": "Check the values"
   },
-  uk: {
-    fields: { volume_ml: "Об'єм порції, мл", abv: 'Міцність, %', standard_g: 'Норма одиниці, г спирту' },
-    options: {},
-    results: RESULTS_UK,
-    values: {
-      'мл': 'мл', 'г': 'г',
-      'Объём должен быть больше нуля': "Об'єм має бути більшим за нуль",
-      'Крепость должна быть от 0 до 100 %': 'Міцність має бути від 0 до 100 %',
-      'Норма единицы должна быть больше нуля': 'Норма одиниці має бути більшою за нуль',
-    },
+  "values": {
+    ...marketingScalarValues.en,
+    "мл": "mL",
+    "г": "g",
+    "Объём должен быть больше нуля": "The volume must be greater than zero",
+    "Крепость должна быть от 0 до 100 %": "The strength must be between 0 and 100%",
+    "Норма единицы должна быть больше нуля": "The unit definition must be greater than zero"
+  }
+},
+  "uk": {
+  "fields": {
+    "volume_ml": "Об'єм порції, мл",
+    "abv": "Міцність, %",
+    "standard_g": "Норма одиниці, г спирту"
   },
-  es: {
-    fields: {
-      "volume_ml": "Volumen de la consumición, ml",
-      "abv": "Graduación, % vol.",
-      "standard_g": "Definición de unidad, g de alcohol",
-    },
-    options: {},
-    results: {
-      "Стандартных единиц": "Unidades estándar",
-      "Чистого спирта по массе": "Alcohol puro en masa",
-      "Чистого спирта по объёму": "Alcohol puro en volumen",
-      "Норма единицы": "Definición de unidad",
-      "Крепость": "Graduación",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "мл": "ml",
-      "г": "g",
-      "Объём должен быть больше нуля": "El volumen debe ser mayor que cero",
-      "Крепость должна быть от 0 до 100 %": "La graduación debe estar entre 0 y 100 %",
-      "Норма единицы должна быть больше нуля": "La definición de unidad debe ser mayor que cero",
-    },
+  "options": {},
+  "results": {
+    "Стандартных единиц": "Стандартних одиниць",
+    "Чистого спирта по массе": "Чистого спирту за масою",
+    "Чистого спирта по объёму": "Чистого спирту за об'ємом",
+    "Норма единицы": "Норма одиниці",
+    "Крепость": "Міцність",
+    "Проверьте данные": "Перевірте дані"
   },
+  "values": {
+    ...marketingScalarValues.uk,
+    "мл": "мл",
+    "г": "г",
+    "Объём должен быть больше нуля": "Об'єм має бути більшим за нуль",
+    "Крепость должна быть от 0 до 100 %": "Міцність має бути від 0 до 100 %",
+    "Норма единицы должна быть больше нуля": "Норма одиниці має бути більшою за нуль"
+  }
+},
+  "de": {
+  "fields": {
+    "volume_ml": "Menge der Portion, ml",
+    "abv": "Stärke, % vol",
+    "standard_g": "Festlegung der Einheit, g Alkohol"
+  },
+  "results": {
+    "Стандартных единиц": "Standardeinheiten",
+    "Чистого спирта по массе": "Reiner Alkohol nach Masse",
+    "Чистого спирта по объёму": "Reiner Alkohol nach Volumen",
+    "Норма единицы": "Festlegung der Einheit",
+    "Крепость": "Stärke",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "мл": "ml",
+    "г": "g",
+    "Объём должен быть больше нуля": "Die Menge muss größer als null sein",
+    "Крепость должна быть от 0 до 100 %": "Die Stärke muss zwischen 0 und 100 % liegen",
+    "Норма единицы должна быть больше нуля": "Die Festlegung der Einheit muss größer als null sein"
+  }
+},
+  "es": {
+  "fields": {
+    "volume_ml": "Volumen de la consumición, ml",
+    "abv": "Graduación, % vol.",
+    "standard_g": "Definición de unidad, g de alcohol"
+  },
+  "options": {},
+  "results": {
+    "Стандартных единиц": "Unidades estándar",
+    "Чистого спирта по массе": "Alcohol puro en masa",
+    "Чистого спирта по объёму": "Alcohol puro en volumen",
+    "Норма единицы": "Definición de unidad",
+    "Крепость": "Graduación",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "мл": "ml",
+    "г": "g",
+    "Объём должен быть больше нуля": "El volumen debe ser mayor que cero",
+    "Крепость должна быть от 0 до 100 %": "La graduación debe estar entre 0 y 100 %",
+    "Норма единицы должна быть больше нуля": "La definición de unidad debe ser mayor que cero"
+  }
+}
 };

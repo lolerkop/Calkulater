@@ -1,11 +1,13 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const numberToWordsCopyUk: CalculatorSeoCopy = {
+export const numberToWordsCopyUk: CalculatorCopy = {
   name: "Число прописом",
   slug: "chyslo-propysom",
-  shortDescription: "Запис числа словами та сума прописом для документів.",
+  shortDescription: "Запис цілого числа словами; грошовий рядок фіксований у RUB із00 копійок.",
   seoTitle: "Число прописом — запис числа словами онлайн",
-  seoDescription: "Переведіть число в запис словами та отримайте суму прописом із копійками для договору чи накладної.",
+  seoDescription: "Запишіть ціле число словами: від мінус999 999 999 999 до999 999 999 999. Грошовий рядок фіксований у рублях RUB із00 копійок.",
   h1: "Число прописом",
   keywords: ["число прописом", "сума прописом", "число словами"],
+  ...contractContent.uk
 };

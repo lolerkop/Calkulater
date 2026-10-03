@@ -1,130 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { runtimeScalarPhrases } from '../../lib/platform/runtimeScalarPhrases';
 
-export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'mode': 'Schrittlänge',
-      'steps': 'Schritte',
-      'height': 'Größe, cm',
-      'stride': 'Schrittlänge, cm',
-      'weight': 'Körpergewicht, kg',
-      'kcalPerKgKm': 'kcal je kg und km',
-    },
-    options: {
-      'height': 'aus der Größe schätzen',
-      'stride': 'ich kenne meine Schrittlänge',
-    },
-    results: {
-      'Расстояние': 'Strecke',
-      'Калории': 'Kalorien',
-      'Длина шага': 'Schrittlänge',
-      'Шагов на километр': 'Schritte je Kilometer',
-      'Ккал на километр': 'kcal je Kilometer',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'км': 'km',
-      'ккал': 'kcal',
-      'см': 'cm',
-      'Число шагов не может быть отрицательным': 'Die Zahl der Schritte kann nicht negativ sein',
-      'Вес должен быть больше нуля': 'Das Gewicht muss größer als null sein',
-      'Расход на километр должен быть больше нуля': 'Der Verbrauch je Kilometer muss größer als null sein',
-      'Рост должен быть от 120 до 230 см': 'Die Größe muss zwischen 120 und 230 cm liegen',
-      'Длина шага должна быть больше нуля': 'Die Schrittlänge muss größer als null sein',
-      'Неизвестный режим': 'Unbekannter Modus',
-    },
+// Final effective owned bundles; overwritten intermediate maps removed after deep equality proof.
+export const localization:CalculatorLocalization={
+  "de": {
+    fields: {"mode": "Schrittlänge", "steps": "Schritte", "height": "Größe", "stride": "Länge eines Schritts", "weight": "Körpergewicht", "kcalPerKgKm": "kcal je kg und km"},
+    options: {"height": "aus der Größe schätzen", "stride": "Gemessene Schrittlänge"},
+    results: { ...runtimeScalarPhrases("de",[8]),"Расстояние": "Strecke", "Калории": "Kalorien", "Длина шага": "Schrittlänge", "Шагов на километр": "Schritte je Kilometer", "Ккал на километр": "kcal je Kilometer", "Число шагов должно быть целым и неотрицательным": "Die Schrittzahl muss eine nichtnegative ganze Zahl sein", "Калории зависят от введённого коэффициента. Формула не определяет, включает ли он расход покоя.": "Kalorien hängen vom angegebenen Faktor ab. Die Formel bestimmt nicht, ob er den Ruheverbrauch enthält." },
+    values: {"км": "km", "ккал": "kcal", "см": "cm", "Число шагов не может быть отрицательным": "Die Zahl der Schritte kann nicht negativ sein", "Вес должен быть больше нуля": "Das Gewicht muss größer als null sein", "Расход на километр должен быть больше нуля": "Der Verbrauch je Kilometer muss größer als null sein", "Рост должен быть от 120 до 230 см": "Die Größe muss zwischen 120 und 230 cm liegen", "Длина шага должна быть больше нуля": "Die Schrittlänge muss größer als null sein", "Неизвестный режим": "Unbekannter Modus", "Введите конечные числа для выбранного режима": "Gib endliche Zahlen für den gewählten Modus ein", "Результат выходит за числовой диапазон": "Das Ergebnis überschreitet den Zahlenbereich", "кг": "kg", "м": "m", "л": "L", "уд/мин": "Schläge/min", "мл/кг/мин": "ml/kg/min", "Число шагов должно быть целым и неотрицательным": "Die Schrittzahl muss eine nichtnegative ganze Zahl sein", "Калории зависят от введённого коэффициента. Формула не определяет, включает ли он расход покоя.": "Kalorien hängen vom angegebenen Faktor ab. Die Formel bestimmt nicht, ob er den Ruheverbrauch enthält."},
   },
-  en: {
-    fields: {
-      "mode": "Stride length",
-      "steps": "Steps",
-      "height": "Height, cm",
-      "stride": "Stride length, cm",
-      "weight": "Body weight, kg",
-      "kcalPerKgKm": "Kcal per kg per km",
-    },
-    options: { "height": "Estimate from height", "stride": "I know my stride" },
-    results: {
-      "Расстояние": "Distance",
-      "Калории": "Calories",
-      "Длина шага": "Stride length",
-      "Шагов на километр": "Steps per kilometre",
-      "Ккал на километр": "Kcal per kilometre",
-      "Проверьте данные": "Check the values",
-    },
-    values: {
-      "км": "km",
-      "ккал": "kcal",
-      "см": "cm",
-      "Число шагов не может быть отрицательным": "The number of steps cannot be negative",
-      "Вес должен быть больше нуля": "The weight must be greater than zero",
-      "Расход на километр должен быть больше нуля": "The energy per kilometre must be greater than zero",
-      "Рост должен быть от 120 до 230 см": "Height must be between 120 and 230 cm",
-      "Длина шага должна быть больше нуля": "The stride length must be greater than zero",
-      "Неизвестный режим": "Unknown mode",
-    },
+  "en": {
+    fields: {"mode": "Stride length", "steps": "Steps", "height": "Height", "stride": "One step length", "weight": "Body weight", "kcalPerKgKm": "Kcal per kg per km"},
+    options: {"height": "Estimate from height", "stride": "Measured step length"},
+    results: { ...runtimeScalarPhrases("en",[6]),"Расстояние": "Distance", "Калории": "Calories", "Длина шага": "Stride length", "Шагов на километр": "Steps per kilometre", "Ккал на километр": "Kcal per kilometre", "Число шагов должно быть целым и неотрицательным": "Step count must be a nonnegative integer", "Калории зависят от введённого коэффициента. Формула не определяет, включает ли он расход покоя.": "Calories depend on the supplied coefficient. The equation cannot determine whether it includes resting expenditure." },
+    values: {"км": "km", "ккал": "kcal", "см": "cm", "Число шагов не может быть отрицательным": "The number of steps cannot be negative", "Вес должен быть больше нуля": "The weight must be greater than zero", "Расход на километр должен быть больше нуля": "The energy per kilometre must be greater than zero", "Рост должен быть от 120 до 230 см": "Height must be between 120 and 230 cm", "Длина шага должна быть больше нуля": "The stride length must be greater than zero", "Неизвестный режим": "Unknown mode", "Введите конечные числа для выбранного режима": "Enter finite numbers for the selected mode", "Результат выходит за числовой диапазон": "The result exceeds the numerical range", "кг": "kg", "м": "m", "л": "L", "уд/мин": "bpm", "мл/кг/мин": "mL/kg/min", "Число шагов должно быть целым и неотрицательным": "Step count must be a nonnegative integer", "Калории зависят от введённого коэффициента. Формула не определяет, включает ли он расход покоя.": "Calories depend on the supplied coefficient. The equation cannot determine whether it includes resting expenditure."},
   },
-  uk: {
-    fields: {
-      "mode": "Довжина кроку",
-      "steps": "Кроки",
-      "height": "Зріст, см",
-      "stride": "Довжина кроку, см",
-      "weight": "Вага тіла, кг",
-      "kcalPerKgKm": "Ккал на кг на км",
-    },
-    options: { "height": "Оцінити за зростом", "stride": "Знаю свій крок" },
-    results: {
-      "Расстояние": "Відстань",
-      "Калории": "Калорії",
-      "Длина шага": "Довжина кроку",
-      "Шагов на километр": "Кроків на кілометр",
-      "Ккал на километр": "Ккал на кілометр",
-      "Проверьте данные": "Перевірте дані",
-    },
-    values: {
-      "км": "км",
-      "ккал": "ккал",
-      "см": "см",
-      "Число шагов не может быть отрицательным": "Кількість кроків не може бути від’ємною",
-      "Вес должен быть больше нуля": "Вага має бути більшою за нуль",
-      "Расход на километр должен быть больше нуля": "Витрата на кілометр має бути більшою за нуль",
-      "Рост должен быть от 120 до 230 см": "Зріст має бути від 120 до 230 см",
-      "Длина шага должна быть больше нуля": "Довжина кроку має бути більшою за нуль",
-      "Неизвестный режим": "Невідомий режим",
-    },
+  "uk": {
+    fields: {"mode": "Довжина кроку", "steps": "Кроки", "height": "Зріст", "stride": "Довжина одного кроку", "weight": "Вага тіла", "kcalPerKgKm": "Ккал на кг на км"},
+    options: {"height": "Оцінити за зростом", "stride": "Виміряний крок"},
+    results: { ...runtimeScalarPhrases("uk",[8]),"Расстояние": "Відстань", "Калории": "Калорії", "Длина шага": "Довжина кроку", "Шагов на километр": "Кроків на кілометр", "Ккал на километр": "Ккал на кілометр", "Число шагов должно быть целым и неотрицательным": "Кількість кроків має бути цілою й невід’ємною", "Калории зависят от введённого коэффициента. Формула не определяет, включает ли он расход покоя.": "Калорії залежать від заданого коефіцієнта. Формула не визначає, чи включено витрату спокою." },
+    values: {"км": "км", "ккал": "ккал", "см": "см", "Число шагов не может быть отрицательным": "Кількість кроків не може бути від’ємною", "Вес должен быть больше нуля": "Вага має бути більшою за нуль", "Расход на километр должен быть больше нуля": "Витрата на кілометр має бути більшою за нуль", "Рост должен быть от 120 до 230 см": "Зріст має бути від 120 до 230 см", "Длина шага должна быть больше нуля": "Довжина кроку має бути більшою за нуль", "Неизвестный режим": "Невідомий режим", "Введите конечные числа для выбранного режима": "Введіть скінченні числа для обраного режиму", "Результат выходит за числовой диапазон": "Результат виходить за числовий діапазон", "кг": "кг", "м": "м", "л": "л", "уд/мин": "уд/хв", "мл/кг/мин": "мл/кг/хв", "Число шагов должно быть целым и неотрицательным": "Кількість кроків має бути цілою й невід’ємною", "Калории зависят от введённого коэффициента. Формула не определяет, включает ли он расход покоя.": "Калорії залежать від заданого коефіцієнта. Формула не визначає, чи включено витрату спокою."},
   },
-  es: {
-    fields: {
-      "mode": "Longitud de zancada",
-      "steps": "Pasos",
-      "height": "Estatura, cm",
-      "stride": "Longitud de zancada, cm",
-      "weight": "Peso corporal, kg",
-      "kcalPerKgKm": "Kcal por kg y km",
-    },
-    options: {
-      "height": "Estimar a partir de la estatura",
-      "stride": "Conozco mi zancada",
-    },
-    results: {
-      "Расстояние": "Distancia",
-      "Калории": "Calorías",
-      "Длина шага": "Longitud de zancada",
-      "Шагов на километр": "Pasos por kilómetro",
-      "Ккал на километр": "Kcal por kilómetro",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "км": "km",
-      "ккал": "kcal",
-      "см": "cm",
-      "Число шагов не может быть отрицательным": "El número de pasos no puede ser negativo",
-      "Вес должен быть больше нуля": "El peso debe ser mayor que cero",
-      "Расход на километр должен быть больше нуля": "El gasto por kilómetro debe ser mayor que cero",
-      "Рост должен быть от 120 до 230 см": "La estatura debe estar entre 120 y 230 cm",
-      "Длина шага должна быть больше нуля": "La longitud de zancada debe ser mayor que cero",
-      "Неизвестный режим": "Modo desconocido",
-    },
+  "es": {
+    fields: {"mode": "Longitud de zancada", "steps": "Pasos", "height": "Estatura", "stride": "Longitud de un paso", "weight": "Peso corporal", "kcalPerKgKm": "Kcal por kg y km"},
+    options: {"height": "Estimar a partir de la estatura", "stride": "Paso medido"},
+    results: { ...runtimeScalarPhrases("es",[7]),"Расстояние": "Distancia", "Калории": "Calorías", "Длина шага": "Longitud de zancada", "Шагов на километр": "Pasos por kilómetro", "Ккал на километр": "Kcal por kilómetro", "Число шагов должно быть целым и неотрицательным": "Los pasos deben ser un entero no negativo", "Калории зависят от введённого коэффициента. Формула не определяет, включает ли он расход покоя.": "Las calorías dependen del coeficiente indicado. La fórmula no determina si incluye gasto de reposo." },
+    values: {"км": "km", "ккал": "kcal", "см": "cm", "Число шагов не может быть отрицательным": "El número de pasos no puede ser negativo", "Вес должен быть больше нуля": "El peso debe ser mayor que cero", "Расход на километр должен быть больше нуля": "El gasto por kilómetro debe ser mayor que cero", "Рост должен быть от 120 до 230 см": "La estatura debe estar entre 120 y 230 cm", "Длина шага должна быть больше нуля": "La longitud de zancada debe ser mayor que cero", "Неизвестный режим": "Modo desconocido", "Введите конечные числа для выбранного режима": "Introduce números finitos para el modo elegido", "Результат выходит за числовой диапазон": "El resultado supera el rango numérico", "кг": "kg", "м": "m", "л": "L", "уд/мин": "lat/min", "мл/кг/мин": "ml/kg/min", "Число шагов должно быть целым и неотрицательным": "Los pasos deben ser un entero no negativo", "Калории зависят от введённого коэффициента. Формула не определяет, включает ли он расход покоя.": "Las calorías dependen del coeficiente indicado. La fórmula no determina si incluye gasto de reposo."},
   },
 };

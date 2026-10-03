@@ -1,3 +1,6 @@
+import { contextualField } from './contextualField';
+import { contractContent } from './contractContent';
+import { validate } from './validate';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { ppiDpiCopyEn } from './copy.en';
@@ -11,10 +14,13 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  contextualField,
+  validate,
   copy: { en: ppiDpiCopyEn, uk: ppiDpiCopyUk, de: ppiDpiCopyDe, es: ppiDpiCopyEs },
   referenceCases: ppiDpiReferenceCases,
   publishedExample: { inputs: { w: 1920, h: 1080, diagonal: 15.6 }, expected: ["141,21 ppi"] },
   presentation: {
+    ...contractContent.ru,
     id: "ppi-dpi",
     name: "Калькулятор плотности пикселей PPI",
     slug: "ppi",
@@ -23,33 +29,44 @@ export const definition: CalculatorDefinitionV2 = {
     icon: "monitor",
     popularity: 44,
     isNew: false,
-    shortDescription: "Плотность пикселей экрана по разрешению и диагонали.",
-    longDescription:
-      "Считает PPI — сколько пикселей приходится на дюйм экрана. Именно это число, а не разрешение само по себе, определяет, видна ли зернистость: 1920×1080 выглядит резко на ноутбуке и грубо на большом телевизоре, потому что те же пиксели растянуты по большей диагонали. Диагональ в пикселях находится по теореме Пифагора и делится на диагональ в дюймах.\n\nПро экраны говорят PPI, про печать — DPI: величины считаются одинаково, но точка принтера и пиксель экрана — разные вещи, и путать их не стоит.",
     seoTitle: "Калькулятор PPI — плотность пикселей экрана",
-    seoDescription: "Рассчитайте плотность пикселей экрана (PPI) по разрешению и диагонали в дюймах, а также размер одного пикселя.",
     h1: "Калькулятор плотности пикселей PPI",
     keywords: ["калькулятор ppi", "плотность пикселей", "ppi монитора", "пиксели на дюйм"],
     fields: [
-      { name: 'w', label: 'Разрешение по горизонтали, пикс', type: 'number', defaultValue: 1920, min: 1, step: 1 },
-      { name: 'h', label: 'Разрешение по вертикали, пикс', type: 'number', defaultValue: 1080, min: 1, step: 1 },
-      { name: 'diagonal', label: 'Диагональ, дюймов', type: 'number', defaultValue: 15.6, min: 0, step: 0.1 },
-    ],
+  {
+    "name": "w",
+    "label": "Разрешение по горизонтали",
+    "type": "number",
+    "defaultValue": 1920,
+    "min": 1,
+    "step": 1,
+    "unit": "px"
+  },
+  {
+    "name": "h",
+    "label": "Разрешение по вертикали",
+    "type": "number",
+    "defaultValue": 1080,
+    "min": 1,
+    "step": 1,
+    "unit": "px"
+  },
+  {
+    "name": "diagonal",
+    "label": "Диагональ",
+    "type": "number",
+    "defaultValue": 15.6,
+    "min": 0,
+    "step": 0.1,
+    "unit": "in"
+  }
+],
     resultLabels: {
       "ppi": "Плотность пикселей",
       "diagPx": "Диагональ в пикселях",
       "pixel": "Размер пикселя",
       "total": "Всего пикселей",
     },
-    howToUse: ["Введите разрешение экрана в пикселях.", "Укажите диагональ в дюймах.", "Прочитайте плотность пикселей и размер одного пикселя."],
-    howItWorks: "Диагональ в пикселях = √(ширина² + высота²); PPI = эта диагональ ÷ диагональ в дюймах. Размер пикселя — 25,4 мм, делённые на PPI.",
-    example: "Экран 1920×1080 с диагональю 15,6 дюйма имеет плотность 141,21 ppi.",
-    faq: [
-      { q: "Чем PPI отличается от DPI?", a: "Считаются они одинаково, но PPI описывает пиксели экрана, а DPI — точки печати. Точка принтера и пиксель монитора устроены по-разному, поэтому переносить одно число на другое напрямую нельзя." },
-      { q: "Почему одно и то же разрешение выглядит по-разному?", a: "Потому что важна не сама сетка пикселей, а её плотность. 1920×1080 на 15 дюймах даёт около 141 ppi, а на 40 дюймах — около 55, и зерно становится заметным." },
-      { q: "Какая плотность считается достаточной?", a: "Зависит от расстояния до экрана: телефон держат близко, и ему нужно больше, телевизор смотрят издалека, и ему хватает меньшего. Универсального порога нет." },
-      { q: "Что показывает размер пикселя?", a: "Сторону одного пикселя в миллиметрах. По ней удобно прикинуть, будет ли различима тонкая линия или мелкий шрифт." },
-    ],
     relatedCalculatorIds: ["aspect-ratio", "files-on-disk", "fps-frametime"],
   },
 };

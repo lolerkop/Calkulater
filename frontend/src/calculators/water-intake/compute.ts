@@ -1,47 +1,28 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { fmtNumber, toNumber, toStr } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
 
-// Суточная норма воды: базовая часть от массы плюс надбавка за нагрузку.
-//
-//   базовая  = масса × 0,033 л            ≈ 33 мл на килограмм
-//   надбавка = минуты / 30 × 0,35 л       ≈ 350 мл на каждые полчаса нагрузки
-//   итого    = (базовая + надбавка) × 1,1 в жару
-//
-// Три числа — это принятые ориентиры, а не измерения конкретного организма:
-// потребность зависит от питания, здоровья и климата сильнее, чем от массы.
-// Поэтому множитель жары применяется ко ВСЕЙ сумме, а не только к надбавке:
-// в жару растёт и фоновая потеря влаги, не только потовая при нагрузке.
-//
-// Стаканы стоят рядом потому, что литрами воду никто не пьёт, а «одиннадцать
-// стаканов» — то число, которое можно удержать в голове до вечера.
+// Validate the active numeric contract before arithmetic; malformed values must
+// never turn into a valid zero or a health interpretation.
+const number = (value: unknown) => typeof value === 'string' || typeof value === 'number' ? toNumber(value, NaN) : NaN;
+
+// Existing educational scenario retained. No primary validation found for these
+// three adopted coefficients; this must not be presented as a drinking norm.
 export const compute: CalcFunction = (inputs) => {
-  const weight = toNumber(inputs.weight);
-  const activityMinutes = toNumber(inputs.activityMinutes);
-  // Переключатель приходит строкой 'yes'; locked-случаи Phase 17P несут
-  // настоящее булево. Принимаются обе формы: расчёт не должен зависеть от того,
-  // пришло значение из формы, из адреса или из эталонного случая.
-  const hotWeather = inputs.hotWeather === 'yes' || inputs.hotWeather === true;
-
-  const fail = (message: string) => ({
-    primary: { label: 'Норма воды в сутки', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+  const fail = (value: string) => ({ primary: { label: 'Оценка жидкости по модели', value: '—' }, secondary: [{ label: 'Проверьте данные', value, accent: 'red' as const }] });
+  const weight = number(inputs.weight), minutes = number(inputs.activityMinutes);
+  const weather = inputs.hotWeather;
+  if (!['yes', 'no', true, false].includes(weather as string | boolean)) return fail('Укажите жаркую погоду: да или нет');
+  if (![weight, minutes].every(Number.isFinite)) return fail('Введите конечные числа для выбранного режима');
   if (!(weight > 0)) return fail('Масса тела должна быть больше нуля');
-  if (activityMinutes < 0) return fail('Минуты нагрузки не могут быть отрицательными');
-
-  const base = weight * 0.033;
-  const extra = (activityMinutes / 30) * 0.35;
-  const total = (base + extra) * (hotWeather ? 1.1 : 1);
-  const num = (value: number) => formatMeasure(value, fmtNumber);
-
-  return {
-    primary: { label: 'Норма воды в сутки', value: `${num(total)} л` },
-    secondary: [
-      { label: 'Базовая норма', value: `${num(base)} л` },
-      { label: 'Надбавка за нагрузку', value: `${num(extra)} л` },
-      { label: 'Стаканов по 250 мл', value: num(total / 0.25) },
-    ],
-  };
+  if (minutes < 0) return fail('Минуты нагрузки не могут быть отрицательными');
+  const hot = weather === 'yes' || weather === true;
+  const base = weight * .033, extra = minutes * (.35 / 30), subtotal = base + extra;
+  const total = subtotal * (hot ? 1.1 : 1), heat = hot ? subtotal * .1 : 0, glasses = total / .25;
+  if (![base, extra, total, heat, glasses].every(Number.isFinite)) return fail('Результат выходит за числовой диапазон');
+  const measure = (x: number) => formatMeasure(x, fmtNumber);
+  return { primary: { label: 'Оценка жидкости по модели', value: `${measure(total)} л` }, secondary: [
+    { label: 'Часть от массы', value: `${measure(base)} л` }, { label: 'Часть от нагрузки', value: `${measure(extra)} л` },
+    { label: 'Поправка модели на жару', value: `${measure(heat)} л` }, { label: 'Эквивалент стаканов по 250 мл', value: measure(glasses) },
+  ], note: 'Коэффициенты 33 мл/кг, 350 мл/30 мин и +10 % в жару — допущения этой модели. Итог не предписывает объём питья и не учитывает индивидуальные ограничения жидкости.' };
 };

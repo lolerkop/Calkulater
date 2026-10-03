@@ -1,3 +1,4 @@
+import { automotiveMessages } from '../engine-displacement/automotiveMessages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 const RESULTS_EN = {
@@ -21,12 +22,12 @@ const RESULTS_UK = {
     "Проверьте данные": "Перевірте дані",
 };
 
-export const localization: CalculatorLocalization = {
+const originalLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'distance': 'Strecke, km',
       'consumption': 'Verbrauch, l/100 km',
-      'fuelPrice': 'Kraftstoffpreis',
+      'fuelPrice': 'Kraftstoffpreis je Liter',
       'tolls': 'Maut',
       'passengers': 'Mitfahrende',
       'roundTrip': 'Rückfahrt',
@@ -51,13 +52,13 @@ export const localization: CalculatorLocalization = {
       'км': 'km',
       'Расстояние должно быть больше нуля': 'Die Strecke muss größer als null sein',
       'Расход должен быть больше нуля': 'Der Verbrauch muss größer als null sein',
-      'Цена топлива должна быть больше нуля': 'Der Kraftstoffpreis muss größer als null sein',
+      'Цена топлива должна быть больше нуля': 'Der Kraftstoffpreis je Liter muss größer als null sein',
       'Плата за дороги не может быть отрицательной': 'Die Maut kann nicht negativ sein',
       'Пассажиров должно быть не меньше одного': 'Es muss mindestens eine Person sein',
     },
   },
   en: {
-    fields: { distance: "Distance, km", consumption: "Consumption, L/100 km", fuelPrice: "Fuel price", tolls: "Tolls", passengers: "Passengers", roundTrip: "Return trip" },
+    fields: { distance: "Distance, km", consumption: "Consumption, L/100 km", fuelPrice: "Fuel price per litre", tolls: "Tolls", passengers: "Passengers", roundTrip: "Return trip" },
     options: { no: "No", yes: "Yes" },
     results: RESULTS_EN,
     values: {
@@ -72,7 +73,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { distance: "Відстань, км", consumption: "Витрата, л/100 км", fuelPrice: "Ціна пального", tolls: "Платні дороги", passengers: "Пасажирів", roundTrip: "Туди і назад" },
+    fields: { distance: "Відстань, км", consumption: "Витрата, л/100 км", fuelPrice: "Ціна пального за літр", tolls: "Платні дороги", passengers: "Пасажирів", roundTrip: "Туди і назад" },
     options: { no: "Ні", yes: "Так" },
     results: RESULTS_UK,
     values: {
@@ -81,7 +82,7 @@ export const localization: CalculatorLocalization = {
     "км": "км",
     "Расстояние должно быть больше нуля": "Відстань має бути більшою за нуль",
     "Расход должен быть больше нуля": "Витрата має бути більшою за нуль",
-    "Цена топлива должна быть больше нуля": "Ціна пального має бути більшою за нуль",
+    "Цена топлива должна быть больше нуля": "Ціна пального за літр має бути більшою за нуль",
     "Плата за дороги не может быть отрицательной": "Плата за дороги не може бути від’ємною",
     "Пассажиров должно быть не меньше одного": "Пасажирів має бути щонайменше один",
     },
@@ -90,7 +91,7 @@ export const localization: CalculatorLocalization = {
     fields: {
       "distance": "Distancia, km",
       "consumption": "Consumo, l/100 km",
-      "fuelPrice": "Precio del combustible",
+      "fuelPrice": "Precio del combustible por litro",
       "tolls": "Peajes",
       "passengers": "Ocupantes",
       "roundTrip": "Ida y vuelta",
@@ -121,3 +122,7 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(originalLocalization).map(([locale, bundle]) => [locale, { ...bundle, values: { ...bundle.values, ...automotiveMessages[locale as keyof typeof automotiveMessages] } }]),
+);

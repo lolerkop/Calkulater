@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { cryptoPnlCopyEn } from './copy.en';
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: cryptoPnlCopyEn, uk: cryptoPnlCopyUk, de: cryptoPnlCopyDe, es: cryptoPnlCopyEs },
+  copy: { en: { ...cryptoPnlCopyEn, ...contractContent.en }, uk: { ...cryptoPnlCopyUk, ...contractContent.uk }, de: { ...cryptoPnlCopyDe, ...contractContent.de }, es: { ...cryptoPnlCopyEs, ...contractContent.es } },
   referenceCases: cryptoPnlReferenceCases,
   publishedExample: {
     inputs: { direction: 'long', entry: 30000, exit: 34500, qty: 0.5, feePct: 0.1, leverage: 1 },
@@ -27,8 +28,6 @@ export const definition: CalculatorDefinitionV2 = {
     popularity: 43,
     isNew: false,
     shortDescription: "Результат сделки в лонг и в шорт с учётом комиссий на входе и выходе и плеча.",
-    longDescription:
-      "Считает результат сделки так, как его считает биржа: с направлением, двумя комиссиями и плечом. В шорте прибыль даёт падение цены, поэтому знак разности меняется — расчёт «по росту» показал бы там убыток вместо дохода. Комиссия удерживается дважды, на входе и на выходе, и берётся от оборота каждой стороны, а не от результата, так что убыточная сделка тоже стоит денег. Плечо не меняет саму прибыль, но меняет её отношение к собственным средствам — именно это отношение и показывает доходность позиции.",
     seoTitle: "Калькулятор прибыли криптовалюты — лонг и шорт",
     seoDescription: "Рассчитайте результат сделки по криптовалюте в лонг или шорт с учётом комиссий на входе и выходе, плеча и изменения цены.",
     h1: "Калькулятор прибыли криптовалюты",
@@ -41,8 +40,8 @@ export const definition: CalculatorDefinitionV2 = {
           { value: 'short', label: 'шорт — заработок на падении' },
         ],
       },
-      { name: 'entry', label: 'Цена входа', type: 'number', defaultValue: 30000, min: 0, step: 1 },
-      { name: 'exit', label: 'Цена выхода', type: 'number', defaultValue: 34500, min: 0, step: 1 },
+      { name: 'entry', label: 'Цена входа', unit: '₽', type: 'number', defaultValue: 30000, min: 0, step: 1 },
+      { name: 'exit', label: 'Цена выхода', unit: '₽', type: 'number', defaultValue: 34500, min: 0, step: 1 },
       { name: 'qty', label: 'Объём, монет', type: 'number', defaultValue: 0.5, min: 0, step: 0.01 },
       { name: 'feePct', label: 'Комиссия одной стороны, %', type: 'number', defaultValue: 0.1, min: 0, max: 100, step: 0.001 },
       { name: 'leverage', label: 'Плечо', type: 'number', defaultValue: 1, min: 0, step: 1 },
@@ -55,22 +54,7 @@ export const definition: CalculatorDefinitionV2 = {
       "roi": "Доходность позиции",
       "change": "Изменение цены",
     },
-    howToUse: [
-      "Выберите направление: лонг зарабатывает на росте, шорт — на падении.",
-      "Введите цену входа, цену выхода и объём в монетах.",
-      "Укажите комиссию биржи за одну сторону сделки.",
-      "Поставьте плечо, если позиция открывалась с заёмными средствами.",
-    ],
-    howItWorks:
-      "Результат до комиссий = (выход − вход) × объём для лонга и (вход − выход) × объём для шорта. Комиссия берётся от оборота входа и оборота выхода. Вложено = оборот входа ÷ плечо, и доходность считается от него.",
-    example: "Лонг 0,5 монеты с 30 000 до 34 500 при комиссии 0,1 % даёт 2217,75 чистыми и доходность 14,79 %.",
-    faq: [
-      { q: "Почему в шорте знак меняется?", a: "Потому что шорт зарабатывает на падении: прибыль появляется, когда цена выхода ниже цены входа. Расчёт «по росту» показал бы там убыток вместо дохода." },
-      { q: "Почему комиссия считается дважды?", a: "Биржа удерживает её и при открытии, и при закрытии позиции. Каждая сторона считается от своего оборота, поэтому выход по более высокой цене стоит дороже." },
-      { q: "Как плечо влияет на результат?", a: "Сама прибыль в деньгах от плеча не меняется — меняется вложенная сумма. Плечо 2 вдвое уменьшает собственные средства и вдвое увеличивает доходность позиции." },
-      { q: "Учитывается ли ставка финансирования?", a: "Нет, фандинг зависит от биржи и времени удержания позиции. Здесь считается результат самой сделки." },
-      { q: "Что показывает изменение цены?", a: "Насколько выросла или упала цена между входом и выходом, независимо от направления сделки и плеча." },
-    ],
+    ...contractContent.ru,
     relatedCalculatorIds: ["roi", "market-cap", "percent-calculator"],
   },
 };

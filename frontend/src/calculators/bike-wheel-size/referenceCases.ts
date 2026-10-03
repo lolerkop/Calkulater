@@ -49,4 +49,9 @@ export const bikeWheelSizeReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: { "etrtoRim": 622, "etrtoTire": 25, "inches": 26, "mode": "wheel" },
     expectPrimary: "—",
   },
+  {name:'junk width rejected rather than defaulting to zero',inputs:{mode:'etrto',etrtoRim:622,etrtoTire:'junk'},expectPrimary:'—'},
+  {name:'nonfinite rim rejected',inputs:{mode:'etrto',etrtoRim:'Infinity',etrtoTire:25},expectPrimary:'—'},
+  {name:'boolean rim rejected',inputs:{mode:'etrto',etrtoRim:true,etrtoTire:25},expectPrimary:'—'},
+  {name:'inactive etrto values do not invalidate inch mode',inputs:{mode:'inches',inches:26,etrtoRim:'junk',etrtoTire:'junk'},expectPrimary:'2 074,71 мм'},
+  {name:'overflow result rejected',inputs:{mode:'inches',inches:1e308},expectPrimary:'—'},
 ];

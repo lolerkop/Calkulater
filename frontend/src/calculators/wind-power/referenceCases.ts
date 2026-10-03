@@ -11,7 +11,7 @@ export const windPowerReferenceCases: readonly CalculatorReferenceCase[] = [
     expectSecondary: [
       { label: "Мощность потока", value: "1,485 кВт" },
       { label: "Ометаемая площадь", value: "7,069 м²" },
-      { label: "Предел Бетца", value: "0,8806 кВт" },
+      { label: "Предел Бетца", value: "0,88 кВт" },
       { label: "Выработка за сутки", value: "14,256 кВт·ч" },
     ],
   },
@@ -22,7 +22,7 @@ export const windPowerReferenceCases: readonly CalculatorReferenceCase[] = [
     expectSecondary: [
       { label: "Мощность потока", value: "2 035,75 кВт" },
       { label: "Ометаемая площадь", value: "1 963,5 м²" },
-      { label: "Предел Бетца", value: "1 207,2 кВт" },
+      { label: "Предел Бетца", value: "1 206,37 кВт" },
       { label: "Выработка за сутки", value: "21 986,12 кВт·ч" },
     ],
   },

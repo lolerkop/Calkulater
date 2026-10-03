@@ -1,29 +1,48 @@
 import type { CalculatorCopy } from '../../lib/platform/types';
 
 export const stepsDistanceCaloriesCopyEn: CalculatorCopy = {
-  name: "Steps to distance and calories calculator",
-  slug: "steps-to-distance",
-  shortDescription: "Turns a step count into kilometres walked and calories spent.",
-  longDescription:
-    "Turns the number on your pedometer into distance and energy. The stride comes either from your height by the usual 0.415 ratio or straight from a measurement you have made yourself — a measured stride always beats an estimated one, and anyone who has measured theirs has no reason to trust a coefficient. The energy per kilometre is an editable, visible assumption: 0.53 kcal per kilogram of body weight per kilometre is ordinary walking, and running, a backpack or a climb all change it. Hiding that number inside the code would look like precision this calculation does not have.",
-  seoTitle: "Steps to distance and calories calculator",
-  seoDescription: "Convert steps into kilometres and calories using your height or your measured stride length.",
-  h1: "Steps to distance and calories",
-  keywords: ["steps to km", "steps to calories", "pedometer distance calculator", "stride length calculator"],
-  howToUse: [
-    "Enter the number of steps.",
-    "Either give your height or switch to entering your measured stride.",
-    "Enter your body weight — calories scale with it.",
-    "Adjust the energy per kilometre if you were not simply walking.",
+  "name": "Steps to distance and calories calculator",
+  "slug": "steps-to-distance",
+  "shortDescription": "Distance from step count and measured length or height; energy from an explicit editable coefficient.",
+  "longDescription": "Converts counted steps to distance using the length of one step. Without a measurement it uses an adopted 0.415×height assumption, not a universally validated relation. The measured-step mode lets you calibrate distance for your walk. Energy is calculated separately from an editable kcal/kg/km coefficient, initially 0.53. Its definition determines whether energy is gross or additional: without time and the coefficient’s provenance, this tool cannot subtract resting expenditure.",
+  "seoTitle": "Steps to distance and calories — stride length and weight",
+  "seoDescription": "Distance from step count and measured length or height; energy from an explicit editable coefficient.",
+  "h1": "Steps to distance and calories",
+  "keywords": [
+    "steps to km",
+    "steps to calories",
+    "pedometer distance calculator",
+    "stride length calculator"
   ],
-  howItWorks:
-    "Stride is height times 0.415 unless you enter it directly. Distance is steps times stride, and calories are the energy coefficient times weight times distance in kilometres.",
-  example: "10,000 steps at 175 cm of height is 7.263 km and about 269 kcal for a 70 kg walker.",
-  faq: [
-    { q: "How accurate is the 0.415 ratio?", a: "It is a common rule of thumb for walking, not a law. Individual strides vary with leg length, pace and shoe; if it matters, measure ten steps and divide." },
-    { q: "Why is the calorie coefficient a field?", a: "Because it depends on what you were doing. Walking is around 0.5 kcal per kilogram per kilometre; running is noticeably higher, and so is carrying weight or going uphill." },
-    { q: "Does it count the calories I would burn anyway?", a: "No. The figure is the energy of the movement itself, not the difference from lying still, so it slightly overstates the extra you spent." },
-    { q: "Why does weight change the calories?", a: "Because moving a heavier body over the same distance takes more work. Distance stays the same; energy does not." },
-    { q: "How is this different from the activity calories calculator?", a: "That one starts from an activity and a duration through MET values. This one starts from steps and a stride, with no clock involved." },
+  "howToUse": [
+    "Enter a whole step count; zero gives zero distance and energy.",
+    "Measure, for example, 20 steps and divide centimetres travelled by 20.",
+    "Enter one counted step length, not a full two-step gait stride.",
+    "Enter weight and a coefficient with a known definition; 0.53 is a starting assumption."
   ],
+  "howItWorks": "Height mode: L =0.415 H; measured mode: L is supplied, both lengths in cm. D =N×L/100000 km. E =c×m×D kcal, c in kcal/kg/km and m in kg. Steps per kilometre =100000/L. Step counter, length and coefficient introduce separate uncertainty.",
+  "example": "20 steps over 14 m give 70 cm/step. 10000 steps then mean 7 km; at 70 kg and c=0.53, 0.53×70×7=259.7 kcal before rounding, or 260 kcal in the result. Height 175 cm gives 72.625 cm per step, 7.263 km and 269 kcal.",
+  "faq": [
+    {
+      "q": "How reliable is the 0.415×height step estimate?",
+      "a": "It is an adopted starting approximation with no claimed universal error. Pace, shoes, leg length and movement conditions change step length. A comparable personal measurement is usually more useful."
+    },
+    {
+      "q": "How do I measure one step for a step counter?",
+      "a": "Walk a known distance at normal pace and divide by counted individual steps. 14 m over 20 steps gives 70 cm. A gait stride from one foot to the same foot includes two steps."
+    },
+    {
+      "q": "Why can I change the step calorie coefficient?",
+      "a": "Pace, slope and carried load affect energy. 0.53 here is an assumption, not a proven standard for every walk. Use a coefficient with clear units and conditions."
+    },
+    {
+      "q": "Do step calories include resting expenditure?",
+      "a": "That depends on the coefficient you enter. A gross coefficient gives gross energy; an additional coefficient gives additional energy. Without time the calculator cannot verify this or measure a dietary deficit."
+    },
+    {
+      "q": "How does step calculation differ from MET?",
+      "a": "This method starts with distance from step count. The MET tool uses activity and duration. Different models need not agree; keep assumptions consistent when comparing walks."
+    }
+  ],
+  "disclaimer": "Distance and energy estimate under supplied assumptions, not personal metabolism measurement. The height relation is an adult approximation and does not account for child gait or movement impairment."
 };

@@ -1,9 +1,10 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
+import { number as toNumber, integer, optionalNumber } from '../../lib/platform/scalarInputDisplay';
 
 // Рассрочка: равные платежи по цене с наценкой, без начисления процентов
-// на остаток. Это не заём: наценка задаётся один раз от суммы рассрочки,
-// поэтому досрочное погашение её не уменьшает и график остаётся линейным.
+// на остаток. Наценка применяется один раз к финансируемой сумме;
+// юридическая классификация и досрочное погашение здесь не определяются.
 //
 // Снос округления, как и в аннуитете, забирает последний платёж — иначе сумма
 // одинаковых платежей разошлась бы с итогом на копейки.
@@ -13,13 +14,16 @@ const round2 = (value: number): number => Number(value.toFixed(2));
 
 export const compute: CalcFunction = (inputs) => {
   const price = toNumber(inputs.price);
-  const down = toNumber(inputs.down);
-  const months = Math.trunc(toNumber(inputs.months));
+  const down = optionalNumber(inputs.down);
+  const months = integer(inputs.months);
   const markup = toNumber(inputs.markup);
   const fail = (message: string) => ({
     primary: { label: 'Ежемесячный платёж', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
+
+  if (price === null || down === null || markup === null) return fail('Введите корректные числовые данные');
+  if (months === null) return fail('Количество должно быть целым в допустимом диапазоне');
 
   if (!(price > 0)) return fail('Цена должна быть больше нуля');
   if (down < 0) return fail('Первоначальный взнос не может быть отрицательным');
@@ -30,15 +34,25 @@ export const compute: CalcFunction = (inputs) => {
 
   const financed = round2(price - down);
   const total = round2(financed * (1 + markup / 100));
-  const payment = round2(total / months);
-  const last = round2(total - payment * (months - 1));
+  const financedCents = Math.round(financed * 100);
+  const totalCents = Math.round(total * 100);
+  if (!Number.isSafeInteger(financedCents) || !Number.isSafeInteger(totalCents) || financedCents <= 0 || totalCents < financedCents) return fail('Результат вне допустимого диапазона');
+  let paymentCents = Math.round(round2(total / months) * 100);
+  // Keep the inherited ordinary schedule and its final rounding adjustment.
+  // Tiny totals cannot fund n−1 rounded-up instalments: round those down
+  // instead of creating a negative balance or a negative final payment.
+  if (paymentCents * (months - 1) > totalCents) paymentCents = Math.floor(totalCents / months);
+  const lastCents = totalCents - paymentCents * (months - 1);
+  const payment = paymentCents / 100;
+  const last = lastCents / 100;
 
   const rows: string[][] = [];
-  let left = total;
+  let leftCents = totalCents;
   for (let month = 1; month <= months; month += 1) {
-    const due = month === months ? last : payment;
-    left = round2(left - due);
-    rows.push([String(month), money(due), money(left)]);
+    const dueCents = month === months ? lastCents : paymentCents;
+    leftCents -= dueCents;
+    if (!Number.isSafeInteger(leftCents) || leftCents < 0) return fail('Результат вне допустимого диапазона');
+    rows.push([String(month), money(dueCents / 100), money(leftCents / 100)]);
   }
 
   return {

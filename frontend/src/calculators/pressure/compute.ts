@@ -1,57 +1,38 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatQuantity } from '../../lib/platform/measurement';
+import { read, qty, RANGE, INPUT, MODE } from '../../lib/platform/measurementScalar';
 
-// Механическое давление: p = F ÷ A.
-//
-// Считается именно отношение силы к площади. Атмосферное давление не
-// добавляется: манометрическое и абсолютное различаются на 101 325 Па, и
-// подмешивать это молча нельзя.
+
+
+// Non-negative mean normal pressure. atm is a unit, not an ambient correction.
 const PASCALS_PER_ATM = 101325;
-
-const qty = (value: number): string => formatQuantity(value, fmtNumber);
-
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'p');
-  const fail = (message: string) => ({
-    primary: { label: 'Давление', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  let f = 0;
-  let a = 0;
-  let p = 0;
-  let primaryLabel = 'Давление';
+  const mode = inputs.mode;
+  const label = mode === 'F' ? 'Сила' : mode === 'A' ? 'Площадь' : 'Давление';
+  const fail = (message: string) => ({ primary: { label, value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (mode !== 'p' && mode !== 'F' && mode !== 'A') return fail(MODE);
+  let f: number, a: number, p: number;
   if (mode === 'p') {
-    f = toNumber(inputs.F);
-    a = toNumber(inputs.A);
-    if (!(f > 0)) return fail('Сила должна быть больше нуля');
+    f = read(inputs.F); a = read(inputs.A);
+    if (![f, a].every(Number.isFinite)) return fail(INPUT);
+    if (f < 0) return fail('Сила не может быть отрицательной');
     if (!(a > 0)) return fail('Площадь должна быть больше нуля');
     p = f / a;
   } else if (mode === 'F') {
-    p = toNumber(inputs.p);
-    a = toNumber(inputs.A2);
-    if (!(p > 0)) return fail('Давление должно быть больше нуля');
+    p = read(inputs.p); a = read(inputs.A2);
+    if (![p, a].every(Number.isFinite)) return fail(INPUT);
+    if (p < 0) return fail('Давление не может быть отрицательным');
     if (!(a > 0)) return fail('Площадь должна быть больше нуля');
     f = p * a;
-    primaryLabel = 'Сила';
   } else {
-    f = toNumber(inputs.F2);
-    p = toNumber(inputs.p2);
-    if (!(f > 0)) return fail('Сила должна быть больше нуля');
+    f = read(inputs.F2); p = read(inputs.p2);
+    if (![f, p].every(Number.isFinite)) return fail(INPUT);
+    if (!(f > 0)) return fail('Для положительной площади сила и давление должны быть больше нуля');
     if (!(p > 0)) return fail('Давление должно быть больше нуля');
     a = f / p;
-    primaryLabel = 'Площадь';
   }
-
-  const primaryValue = mode === 'p' ? `${qty(p)} Па` : mode === 'F' ? `${qty(f)} Н` : `${qty(a)} м²`;
-  return {
-    primary: { label: primaryLabel, value: primaryValue },
-    secondary: [
-      { label: 'Давление', value: `${qty(p)} Па` },
-      { label: 'Сила', value: `${qty(f)} Н` },
-      { label: 'Площадь', value: `${qty(a)} м²` },
-      { label: 'В атмосферах', value: `${qty(p / PASCALS_PER_ATM)} атм` },
-    ],
-  };
+  const atm = p / PASCALS_PER_ATM;
+  if (![f, a, p, atm].every(Number.isFinite) || !(a > 0) || (mode === 'p' && f > 0 && p === 0) || (mode === 'F' && p > 0 && f === 0) || (p > 0 && atm === 0)) return fail(RANGE);
+  return { primary: { label, value: mode === 'p' ? `${qty(p)} Па` : mode === 'F' ? `${qty(f)} Н` : `${qty(a)} м²` }, secondary: [
+    { label: 'Давление', value: `${qty(p)} Па` }, { label: 'Сила', value: `${qty(f)} Н` }, { label: 'Площадь', value: `${qty(a)} м²` }, { label: 'В атмосферах', value: `${qty(atm)} атм` },
+  ] };
 };

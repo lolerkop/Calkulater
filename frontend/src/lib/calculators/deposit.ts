@@ -2,19 +2,27 @@ import type { CalcFunction, CalcResult } from '../types';
 import { fmtMoney, fmtPct, toNumber, toStr } from '../format';
 
 export const calcDeposit: CalcFunction = (inputs) => {
-  const amount = toNumber(inputs.amount);
-  const months = Math.round(toNumber(inputs.months));
-  const rate = toNumber(inputs.rate);
-  const hasCap = toStr(inputs.capitalization, 'yes') === 'yes';
+  if ([inputs.amount, inputs.months, inputs.rate, inputs.topUp].some((value) => typeof value === 'boolean')) {
+    return errorResult();
+  }
+  const amount = toNumber(inputs.amount, NaN);
+  const months = toNumber(inputs.months, NaN);
+  const rate = toNumber(inputs.rate, NaN);
+  const capitalization = toStr(inputs.capitalization, 'yes');
+  const hasCap = capitalization === 'yes';
   const capPeriod = toStr(inputs.capPeriod, 'month');
-  const topUp = toNumber(inputs.topUp);
+  const topUp = toNumber(inputs.topUp ?? 0, NaN);
   const topUpTiming = toStr(inputs.topUpTiming, 'end');
 
-  if (months <= 0 || amount < 0 || rate < 0) {
-    return {
-      primary: { label: 'Итоговая сумма', value: '—' },
-      secondary: [{ label: 'Проверьте данные', value: 'Введите положительные значения', accent: 'red' }],
-    };
+  if (![amount, months, rate, topUp].every(Number.isFinite) || amount < 0 || rate < 0 || topUp < 0) {
+    return errorResult();
+  }
+  if (!['yes', 'no'].includes(capitalization) || (hasCap && !['month', 'quarter', 'year'].includes(capPeriod))
+    || !['beginning', 'end'].includes(topUpTiming)) {
+    return errorResult('Выберите допустимый режим расчёта.');
+  }
+  if (!Number.isInteger(months) || months < 1 || months > 1200) {
+    return errorResult('Срок должен составлять от 1 до 1200 целых месяцев.');
   }
 
   const monthlyRate = rate / 100 / 12;
@@ -47,6 +55,9 @@ export const calcDeposit: CalcFunction = (inputs) => {
       balance += topUp;
       totalTopUps += topUp;
     }
+    if (![balance, totalTopUps, interestAccrued, interestPool, balance + interestPool].every(Number.isFinite)) {
+      return errorResult('Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.');
+    }
     if (m <= 24 || m === months) {
       rows.push([String(m), fmtMoney(amount + totalTopUps), fmtMoney(balance + interestPool)]);
     }
@@ -59,6 +70,9 @@ export const calcDeposit: CalcFunction = (inputs) => {
   const effectiveRate = hasCap
     ? (Math.pow(1 + rate / 100 / periodsPerYear, periodsPerYear) - 1) * 100
     : rate;
+  if (![finalAmount, profit, effectiveRate].every(Number.isFinite)) {
+    return errorResult('Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.');
+  }
 
   return {
     primary: { label: 'Итоговая сумма', value: fmtMoney(finalAmount) },
@@ -76,3 +90,10 @@ export const calcDeposit: CalcFunction = (inputs) => {
     },
   };
 };
+
+function errorResult(message = 'Введите положительные значения'): CalcResult {
+  return {
+    primary: { label: 'Итоговая сумма', value: '—' },
+    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' }],
+  };
+}

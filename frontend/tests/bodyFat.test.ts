@@ -2,12 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { calcBodyFat, navyBodyFat, navyCircumferenceDifference } from '../src/lib/calculators/bodyFat';
 import type { CalcResult } from '../src/lib/types';
 
-// Контракт формулы взят из первоисточника — регрессии Ходждона и Беккета
-// (Naval Health Research Center, отчёты 84-11 и 84-29, 1984), заданной в дюймах:
-//   мужчины: 86,010·log10(талия − шея) − 70,041·log10(рост) + 36,76
-//   женщины: 163,205·log10(талия + бёдра − шея) − 97,684·log10(рост) − 78,387
-// Оракул ниже записан заново и проверяет две вещи сразу: и коэффициенты, и то,
-// что сантиметры переведены в дюймы, а не подставлены в дюймовые константы.
+// Independent arithmetic oracle for the explicitly adopted inch-based
+// percentage equation. This verifies units and implementation, not a claim
+// that the original NHRC full-text coefficients have been independently read.
+// The historical source gap is recorded in the wave-3 report and public copy.
 
 const INCH = 2.54;
 const oracleMale = (h: number, neck: number, waist: number) =>

@@ -70,6 +70,12 @@ export function convert<Id extends string>(
   to: Id,
 ): number {
   if (from === to) return value;
+  // Combine purely multiplicative factors before scaling the input. A large
+  // kilometre value may have a finite mile result even when its unnecessary
+  // intermediate metre value would overflow.
+  if (!(units[from].offset ?? 0) && !(units[to].offset ?? 0)) {
+    return value * (units[from].factor / units[to].factor);
+  }
   return fromBase(units[to], toBase(units[from], value));
 }
 
@@ -107,7 +113,7 @@ export function buildConverter<Id extends string>(spec: ConversionSpec<Id>): Cal
   const known = new Set<string>(ids);
 
   return (inputs): CalcResult => {
-    const value = toNumber(inputs.value);
+    const value = toNumber(inputs.value, Number.NaN);
     const from = toStr(inputs.from, spec.defaultFrom) as Id;
     const to = toStr(inputs.to, spec.defaultTo) as Id;
 
@@ -117,7 +123,7 @@ export function buildConverter<Id extends string>(spec: ConversionSpec<Id>): Cal
         secondary: [{ label: 'Проверьте данные', value: 'Выберите единицы из списка', accent: 'red' }],
       };
     }
-    if (!Number.isFinite(value)) {
+    if (typeof inputs.value === 'boolean' || !Number.isFinite(value)) {
       return {
         primary: { label: spec.resultLabel, value: '—' },
         secondary: [{ label: 'Проверьте данные', value: 'Введите конечное число', accent: 'red' }],
@@ -127,7 +133,8 @@ export function buildConverter<Id extends string>(spec: ConversionSpec<Id>): Cal
     const fromUnit = spec.units[from];
     const toUnit = spec.units[to];
     const converted = convert(spec.units, value, from, to);
-    if (!Number.isFinite(converted)) {
+    const linear = !(fromUnit.offset ?? 0) && !(toUnit.offset ?? 0);
+    if (!Number.isFinite(converted) || (linear && value !== 0 && converted === 0)) {
       return {
         primary: { label: spec.resultLabel, value: '—' },
         secondary: [{ label: 'Проверьте данные', value: 'Результат вне допустимого диапазона', accent: 'red' }],

@@ -1,64 +1,25 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
-
-// Однофазная сеть: связь напряжения, тока, коэффициента мощности и трёх мощностей.
-//
-//   P = U · I · cos φ      активная, Вт   — то, что реально совершает работу
-//   S = U · I              полная,   ВА   — то, на что рассчитан кабель и автомат
-//   Q = √(S² − P²)         реактивная, вар — то, что ходит туда-обратно
-//
-// Режим «найти ток» — прямое обращение первой формулы: I = P / (U · cos φ).
-// Он нужен потому, что практическая задача чаще обратная: мощность прибора
-// известна с шильдика, а выбрать нужно сечение провода и номинал автомата,
-// то есть именно ток.
-//
-// Коэффициент мощности больше единицы физически невозможен, и его ввод
-// отклоняется: иначе подкоренное выражение стало бы отрицательным.
+import { fmtNumber } from '../../lib/format';
+import { read, INPUT, MODE, RANGE } from '../../lib/platform/measurementScalar';
+import { positiveRatio } from '../../lib/platform/scaledPositiveRatio';
+import { formatMeasure, formatQuantity } from '../../lib/platform/measurement';
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'P');
-  const voltage = toNumber(inputs.voltage);
-  const powerFactor = toNumber(inputs.powerFactor);
-  const currentInput = toNumber(inputs.current);
-  const powerInput = toNumber(inputs.power);
-
-  const primaryLabel = mode === 'current' ? 'Ток' : 'Активная мощность';
-  const fail = (message: string) => ({
-    primary: { label: primaryLabel, value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+  const mode = inputs.mode;
+  const label = mode === 'current' ? 'Ток' : 'Активная мощность';
+  const fail = (message: string) => ({ primary: { label, value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (mode !== 'P' && mode !== 'current') return fail(MODE);
+  const voltage = read(inputs.voltage), pf = read(inputs.powerFactor), known = read(mode === 'P' ? inputs.current : inputs.power);
+  if (![voltage, pf, known].every(Number.isFinite)) return fail(INPUT);
   if (!(voltage > 0)) return fail('Напряжение должно быть больше нуля');
-  if (!(powerFactor > 0 && powerFactor <= 1)) return fail('Коэффициент мощности должен быть больше нуля и не больше единицы');
-
-  let active: number;
-  let current: number;
-  if (mode === 'current') {
-    if (!(powerInput > 0)) return fail('Активная мощность должна быть больше нуля');
-    active = powerInput;
-    current = active / (voltage * powerFactor);
-  } else {
-    if (!(currentInput > 0)) return fail('Ток должен быть больше нуля');
-    current = currentInput;
-    active = voltage * current * powerFactor;
-  }
-
-  const apparent = voltage * current;
-  const reactive = Math.sqrt(Math.max(0, apparent * apparent - active * active));
-  const q = (value: number, unit: string) => `${formatMeasure(value, fmtNumber)} ${unit}`;
-
-  const rows = [
-    { label: 'Полная мощность', value: q(apparent, 'ВА') },
-    { label: 'Реактивная мощность', value: q(reactive, 'вар') },
-  ];
-
-  return mode === 'current'
-    ? {
-        primary: { label: 'Ток', value: q(current, 'А') },
-        secondary: [{ label: 'Активная мощность', value: q(active, 'Вт') }, ...rows],
-      }
-    : {
-        primary: { label: 'Активная мощность', value: q(active, 'Вт') },
-        secondary: [...rows, { label: 'Ток', value: q(current, 'А') }],
-      };
+  if (!(pf > 0 && pf <= 1)) return fail('Коэффициент мощности должен быть больше нуля и не больше единицы');
+  if (known < 0) return fail(mode === 'P' ? 'Ток должен быть неотрицательным' : 'Активная мощность должна быть неотрицательной');
+  const current = mode === 'P' ? known : positiveRatio([known], [voltage, pf]);
+  const active = mode === 'current' ? known : positiveRatio([voltage, known, pf], []);
+  const apparent = mode === 'P' ? positiveRatio([voltage, known], []) : positiveRatio([known], [pf]);
+  const reactive = positiveRatio([apparent, Math.sqrt((1 - pf) * (1 + pf))], []);
+  if (![current, active, apparent, reactive].every(Number.isFinite) || (known > 0 && (current === 0 || active === 0 || apparent === 0 || (pf < 1 && reactive === 0)))) return fail(RANGE);
+  const q = (n: number, unit: string) => (n > 0 && (n < 1e-4 || n >= 1e12) ? formatQuantity(n, fmtNumber) : formatMeasure(n, fmtNumber)) + ' ' + unit;
+  const rows = [{ label: 'Полная мощность', value: q(apparent, 'ВА') }, { label: 'Реактивная мощность', value: q(reactive, 'вар') }];
+  return mode === 'current' ? { primary: { label: 'Ток', value: q(current, 'А') }, secondary: [{ label: 'Активная мощность', value: q(active, 'Вт') }, ...rows] }
+    : { primary: { label: 'Активная мощность', value: q(active, 'Вт') }, secondary: [...rows, { label: 'Ток', value: q(current, 'А') }] };
 };

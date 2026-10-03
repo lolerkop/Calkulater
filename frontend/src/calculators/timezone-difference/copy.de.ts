@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
@@ -13,4 +14,6 @@ export const timezoneDifferenceCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Rechne eine Uhrzeit zwischen zwei Zeitzonen über ihre UTC-Abweichung um, auch bei halben Stunden und über Mitternacht hinweg.',
   h1: 'Rechner für die Zeitverschiebung',
   keywords: ['Zeitverschiebung berechnen', 'UTC-Abweichung umrechnen', 'Uhrzeit zwischen Zonen', 'wie spät ist es dort'],
-};
+
+    ...dateTimeWave15ContractContent.de['timezone-difference'],
+  };

@@ -1,10 +1,11 @@
+import { addBuildingWave16Messages } from '../rafters/buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   en: {
     fields: {
-      length: 'Room length, m', width: 'Room width, m', doors: 'Doorways',
-      doorWidth: 'Doorway width, m', plank: 'Plank length, m', waste: 'Cutting allowance, %',
+      length: "Room length", width: "Room width", doors: 'Doorways',
+      doorWidth: "Doorway width", plank: "Plank length", waste: "Cutting allowance",
     },
     options: {},
     results: {
@@ -25,8 +26,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      length: 'Довжина кімнати, м', width: 'Ширина кімнати, м', doors: 'Дверних прорізів',
-      doorWidth: 'Ширина прорізу, м', plank: 'Довжина планки, м', waste: 'Запас на підрізання, %',
+      length: "Довжина кімнати", width: "Ширина кімнати", doors: 'Дверних прорізів',
+      doorWidth: "Ширина прорізу", plank: "Довжина планки", waste: "Запас на підрізання",
     },
     options: {},
     results: {
@@ -47,12 +48,12 @@ export const localization: CalculatorLocalization = {
   },
   de: {
       fields: {
-        'length': 'Raumlänge, m',
-        'width': 'Raumbreite, m',
+        'length': "Raumlänge",
+        'width': "Raumbreite",
         'doors': 'Türöffnungen',
-        'doorWidth': 'Breite einer Türöffnung, m',
-        'plank': 'Leistenlänge, m',
-        'waste': 'Verschnitt, %',
+        'doorWidth': "Breite einer Türöffnung",
+        'plank': "Leistenlänge",
+        'waste': "Verschnitt",
       },
       options: {},
       results: {
@@ -77,12 +78,12 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "length": "Largo de la habitación, m",
-      "width": "Ancho de la habitación, m",
+      "length": "Largo de la habitación",
+      "width": "Ancho de la habitación",
       "doors": "Huecos de puerta",
-      "doorWidth": "Ancho del hueco, m",
-      "plank": "Largo del tramo, m",
-      "waste": "Margen de corte, %",
+      "doorWidth": "Ancho del hueco",
+      "plank": "Largo del tramo",
+      "waste": "Margen de corte",
     },
     options: {},
     results: {
@@ -106,3 +107,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

@@ -1,33 +1,16 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure, lengthSymbol } from '../../lib/platform/measurement';
+import { read, valid, unit as lengthUnit, dim, exact, add, times, number as rounded, ratio, product, INPUT, UNIT, RANGE } from '../../lib/platform/geometryNumericInput';
 
-// Конус. Образующая — наклонная от вершины до края основания, не высота.
-//
-// l = √(r² + h²): подкоренное выражение положительно при любых допустимых
-// r и h, поэтому отдельной проверки области определения тут не нужно —
-// достаточно того, что обе величины строго положительны.
-
-const dim = (value: number): string => formatMeasure(value, fmtNumber);
-
+// Right circular cone: vertical height and radius meet at the base centre.
 export const compute: CalcFunction = (inputs) => {
-  const unit = lengthSymbol(toStr(inputs.unit, 'cm'));
-  const r = toNumber(inputs.r);
-  const h = toNumber(inputs.h);
-  const fail = (message: string) => ({
-    primary: { label: 'Объём', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  if (!(r > 0)) return fail('Радиус должен быть больше нуля');
-  if (!(h > 0)) return fail('Высота должна быть больше нуля');
-
-  const slant = Math.hypot(r, h);
-  return {
-    primary: { label: 'Объём', value: `${dim((Math.PI * r * r * h) / 3)} ${unit}³` },
-    secondary: [
-      { label: 'Образующая', value: `${dim(slant)} ${unit}` },
-      { label: 'Боковая поверхность', value: `${dim(Math.PI * r * slant)} ${unit}²` },
-      { label: 'Полная поверхность', value: `${dim(Math.PI * r * (r + slant))} ${unit}²` },
-    ],
-  };
+ const fail=(message:string)=>({primary:{label:'Объём',value:'—'},secondary:[{label:'Проверьте данные',value:message,accent:'red' as const}]});
+ const u=lengthUnit(inputs.unit === undefined ? 'cm' : inputs.unit);if(!u)return fail(UNIT);
+ const r=read(inputs.r),h=read(inputs.h);if(![r,h].every(Number.isFinite))return fail(INPUT);
+ if(!valid(r,h))return fail('Радиус и высота должны быть больше нуля');
+ const l=Math.hypot(r,h),volume=ratio(times(exact(Math.PI),exact(r),exact(r),exact(h)),exact(3));
+ if(!valid(l))return fail(RANGE);
+ const lateral=product(Math.PI,r,l),total=rounded(times(exact(Math.PI),exact(r),add(exact(r),exact(l))));
+ if(!valid(l,volume,lateral,total))return fail(RANGE);
+ return {primary:{label:'Объём',value:dim(volume)+' '+u+'³'},secondary:[{label:'Образующая',value:dim(l)+' '+u},
+ {label:'Боковая поверхность',value:dim(lateral)+' '+u+'²'},{label:'Полная поверхность',value:dim(total)+' '+u+'²'}]};
 };

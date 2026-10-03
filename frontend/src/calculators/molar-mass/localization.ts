@@ -1,10 +1,12 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
-  en: {
-    fields: { "formula": "Chemical formula" },
-    options: {},
-    results: {
+  "en": {
+    "fields": {
+      "formula": "Chemical formula"
+    },
+    "options": {},
+    "results": {
       "Молярная масса": "Molar mass",
       "Атомов всего": "Atoms in total",
       "Элементов": "Elements",
@@ -15,9 +17,9 @@ export const localization: CalculatorLocalization = {
       "Атомная масса": "Atomic mass",
       "Вклад в массу": "Contribution to mass",
       "Доля массы": "Share of mass",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
+    "values": {
       "г/моль": "g/mol",
       "·10⁻²⁴ г": "·10⁻²⁴ g",
       "Атомные массы — стандартные атомные веса IUPAC в сокращённой записи.": "Atomic masses are IUPAC standard atomic weights in abridged form.",
@@ -25,12 +27,17 @@ export const localization: CalculatorLocalization = {
       "Лишняя закрывающая скобка": "Unmatched closing bracket",
       "Не хватает закрывающей скобки": "A closing bracket is missing",
       "Множитель группы не может быть нулём": "A group multiplier cannot be zero",
-    },
+      "Слишком сложная химическая формула": "The chemical formula exceeds the supported length or nesting depth",
+      "Пустая группа в химической формуле": "The chemical formula contains an empty group",
+      "Индексы и число атомов должны быть положительными безопасными целыми числами": "Indices and atom counts must be positive safely representable integers"
+    }
   },
-  uk: {
-    fields: { "formula": "Хімічна формула" },
-    options: {},
-    results: {
+  "uk": {
+    "fields": {
+      "formula": "Хімічна формула"
+    },
+    "options": {},
+    "results": {
       "Молярная масса": "Молярна маса",
       "Атомов всего": "Атомів усього",
       "Элементов": "Елементів",
@@ -41,9 +48,9 @@ export const localization: CalculatorLocalization = {
       "Атомная масса": "Атомна маса",
       "Вклад в массу": "Внесок у масу",
       "Доля массы": "Частка маси",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
+    "values": {
       "г/моль": "г/моль",
       "·10⁻²⁴ г": "·10⁻²⁴ г",
       "Атомные массы — стандартные атомные веса IUPAC в сокращённой записи.": "Атомні маси — стандартні атомні ваги IUPAC у скороченому записі.",
@@ -51,42 +58,48 @@ export const localization: CalculatorLocalization = {
       "Лишняя закрывающая скобка": "Зайва закривна дужка",
       "Не хватает закрывающей скобки": "Бракує закривної дужки",
       "Множитель группы не может быть нулём": "Множник групи не може бути нулем",
-    },
+      "Слишком сложная химическая формула": "Хімічна формула перевищує допустиму довжину або глибину вкладення",
+      "Пустая группа в химической формуле": "Хімічна формула містить порожню групу",
+      "Индексы и число атомов должны быть положительными безопасными целыми числами": "Індекси й число атомів мають бути додатними безпечними цілими числами"
+    }
   },
-  de: {
-      fields: {
-        'formula': 'Summenformel',
-      },
-      options: {},
-      results: {
-        'Молярная масса': 'Molare Masse',
-        'Атомов всего': 'Atome insgesamt',
-        'Элементов': 'Elemente',
-        'Масса одной молекулы': 'Masse eines Moleküls',
-        'Состав вещества': 'Zusammensetzung',
-        'Элемент': 'Element',
-        'Атомов': 'Atome',
-        'Атомная масса': 'Atommasse',
-        'Вклад в массу': 'Massenbeitrag',
-        'Доля массы': 'Massenanteil',
-        'Проверьте данные': 'Prüfe die Werte',
-      },
-      values: {
-        'г/моль': 'g/mol',
-        '·10⁻²⁴ г': '·10⁻²⁴ g',
-        'Атомные массы — стандартные атомные веса IUPAC в сокращённой записи.': 'Die Atommassen sind die abgekürzten Standard-Atomgewichte der IUPAC.',
-        'Введите химическую формулу': 'Gib eine Summenformel ein',
-        'Лишняя закрывающая скобка': 'Überzählige schließende Klammer',
-        'Не хватает закрывающей скобки': 'Es fehlt eine schließende Klammer',
-        'Множитель группы не может быть нулём': 'Ein Gruppenfaktor darf nicht null sein',
-      },
-  },
-  es: {
-    fields: {
-      "formula": "Fórmula química",
+  "de": {
+    "fields": {
+      "formula": "Summenformel"
     },
-    options: {},
-    results: {
+    "options": {},
+    "results": {
+      "Молярная масса": "Molare Masse",
+      "Атомов всего": "Atome insgesamt",
+      "Элементов": "Elemente",
+      "Масса одной молекулы": "Masse eines Moleküls",
+      "Состав вещества": "Zusammensetzung",
+      "Элемент": "Element",
+      "Атомов": "Atome",
+      "Атомная масса": "Atommasse",
+      "Вклад в массу": "Massenbeitrag",
+      "Доля массы": "Massenanteil",
+      "Проверьте данные": "Prüfe die Werte"
+    },
+    "values": {
+      "г/моль": "g/mol",
+      "·10⁻²⁴ г": "·10⁻²⁴ g",
+      "Атомные массы — стандартные атомные веса IUPAC в сокращённой записи.": "Die Atommassen sind die abgekürzten Standard-Atomgewichte der IUPAC.",
+      "Введите химическую формулу": "Gib eine Summenformel ein",
+      "Лишняя закрывающая скобка": "Überzählige schließende Klammer",
+      "Не хватает закрывающей скобки": "Es fehlt eine schließende Klammer",
+      "Множитель группы не может быть нулём": "Ein Gruppenfaktor darf nicht null sein",
+      "Слишком сложная химическая формула": "Die chemische Formel überschreitet die unterstützte Länge oder Klammer-Tiefe",
+      "Пустая группа в химической формуле": "Die chemische Formel enthält eine leere Gruppe",
+      "Индексы и число атомов должны быть положительными безопасными целыми числами": "Indizes und Atomzahlen müssen positive sicher darstellbare ganze Zahlen sein"
+    }
+  },
+  "es": {
+    "fields": {
+      "formula": "Fórmula química"
+    },
+    "options": {},
+    "results": {
       "Молярная масса": "Masa molar",
       "Атомов всего": "Átomos en total",
       "Элементов": "Elementos",
@@ -97,9 +110,9 @@ export const localization: CalculatorLocalization = {
       "Атомная масса": "Masa atómica",
       "Вклад в массу": "Aportación a la masa",
       "Доля массы": "Proporción de la masa",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "г/моль": "g/mol",
       "·10⁻²⁴ г": "·10⁻²⁴ g",
       "Атомные массы — стандартные атомные веса IUPAC в сокращённой записи.": "Las masas atómicas son los pesos atómicos estándar de la IUPAC en forma abreviada.",
@@ -107,6 +120,9 @@ export const localization: CalculatorLocalization = {
       "Лишняя закрывающая скобка": "Paréntesis de cierre sobrante",
       "Не хватает закрывающей скобки": "Falta un paréntesis de cierre",
       "Множитель группы не может быть нулём": "El multiplicador de un grupo no puede ser cero",
-    },
-  },
+      "Слишком сложная химическая формула": "La fórmula química supera la longitud o profundidad de anidación admitida",
+      "Пустая группа в химической формуле": "La fórmula química contiene un grupo vacío",
+      "Индексы и число атомов должны быть положительными безопасными целыми числами": "Los índices y el número de átomos deben ser enteros positivos representables con seguridad"
+    }
+  }
 };

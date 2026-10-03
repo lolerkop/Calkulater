@@ -14,11 +14,17 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Check inputs',
       'В': 'To',
     },
+    values: {
+      'Введите конечные числовые значения.': 'Enter finite numeric values.',
+    },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
       'В': 'У',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Введіть скінченні числові значення.',
     },
   },
   de: {
@@ -26,11 +32,17 @@ export const shared: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
       'В': 'Nach',
     },
+    values: {
+      'Введите конечные числовые значения.': 'Gib endliche Zahlenwerte ein.',
+    },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'В': 'A',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Introduce valores numéricos finitos.',
     },
   },
 };

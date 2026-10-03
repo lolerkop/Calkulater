@@ -1,3 +1,4 @@
+import { addBuildingWave16Messages } from '../rafters/buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 // Единицы принадлежат калькулятору: центральный словарь единиц не трогается.
@@ -22,11 +23,11 @@ export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'mode': 'Dachform',
-      'length': 'Länge des Grundrisses, m',
-      'width': 'Breite des Grundrisses, m',
+      'length': "Länge des Grundrisses",
+      'width': "Breite des Grundrisses",
       'slopeMode': 'Wie die Neigung angegeben ist',
-      'angle': 'Neigung, Grad',
-      'slopePercent': 'Neigung, %',
+      'angle': "Neigung",
+      'slopePercent': "Neigung",
     },
     options: {
       'shed': 'Pultdach',
@@ -50,7 +51,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { mode: 'Roof shape', length: 'Footprint length, m', width: 'Footprint width, m', slopeMode: 'How the pitch is given', angle: 'Pitch, degrees', slopePercent: 'Pitch, %', },
+    fields: { mode: 'Roof shape', length: "Footprint length", width: "Footprint width", slopeMode: 'How the pitch is given', angle: "Pitch", slopePercent: "Pitch", },
     options: { shed: 'single-slope', gable: 'gable', hip: 'hip', degrees: 'in degrees', percent: 'as a percentage', },
     results: RESULTS_EN,
     values: {
@@ -60,7 +61,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { mode: 'Форма даху', length: 'Довжина основи, м', width: 'Ширина основи, м', slopeMode: 'Як задано ухил', angle: 'Ухил, градусів', slopePercent: 'Ухил, %', },
+    fields: { mode: 'Форма даху', length: "Довжина основи", width: "Ширина основи", slopeMode: 'Як задано ухил', angle: "Ухил", slopePercent: "Ухил", },
     options: { shed: 'односхилий', gable: 'двосхилий', hip: 'вальмовий', degrees: 'у градусах', percent: 'у відсотках', },
     results: RESULTS_UK,
     values: {
@@ -72,11 +73,11 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "mode": "Forma de la cubierta",
-      "length": "Largo en planta, m",
-      "width": "Ancho en planta, m",
+      "length": "Largo en planta",
+      "width": "Ancho en planta",
       "slopeMode": "Cómo se indica la pendiente",
-      "angle": "Pendiente, grados",
-      "slopePercent": "Pendiente, %",
+      "angle": "Pendiente",
+      "slopePercent": "Pendiente",
     },
     options: {
       "shed": "a un agua",
@@ -100,3 +101,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

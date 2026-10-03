@@ -1,5 +1,7 @@
 import type { CalcFunction } from '../types';
-import { fmtMoney, fmtPct, toNumber, toStr } from '../format';
+import { fmtMoney, fmtPct } from '../format';
+import { number, integer } from '../platform/scalarInputDisplay';
+import { choice } from '../platform/financeWave11Input';
 
 // Наценка и маржа — два разных отношения к одной и той же прибыли:
 // наценка считается от себестоимости, маржа — от цены продажи.
@@ -17,25 +19,32 @@ const invalid = (message: string) => ({
 });
 
 export const calcMargin: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'fromPrice');
-  const cost = toNumber(inputs.cost);
-  const quantity = Math.max(1, Math.trunc(toNumber(inputs.quantity, 1)));
+  const mode = choice(inputs.mode, ['fromPrice', 'fromMarkup', 'fromMargin'], 'fromPrice');
+  const cost = number(inputs.cost);
+  const quantity = integer(inputs.quantity === undefined ? 1 : inputs.quantity);
 
-  if (cost <= 0) {
+  if (mode === null) return invalid('Выберите корректный режим расчёта');
+  if (quantity === null || quantity < 1) return invalid('Количество должно быть целым числом не меньше 1');
+  if (cost === null || cost <= 0) {
     return invalid('Введите себестоимость больше нуля');
   }
 
   let price: number;
   if (mode === 'fromMarkup') {
-    price = cost * (1 + toNumber(inputs.markupPct) / 100);
+    const markup = number(inputs.markupPct);
+    if (markup === null) return invalid('Введите корректные значения');
+    price = cost * (1 + markup / 100);
   } else if (mode === 'fromMargin') {
-    const marginPct = toNumber(inputs.marginPct);
+    const marginPct = number(inputs.marginPct);
+    if (marginPct === null) return invalid('Введите корректные значения');
     if (marginPct >= 100) {
       return invalid('Маржа должна быть меньше 100%');
     }
     price = cost / (1 - marginPct / 100);
   } else {
-    price = toNumber(inputs.sellPrice);
+    const selling = number(inputs.sellPrice);
+    if (selling === null) return invalid('Введите корректные значения');
+    price = selling;
   }
 
   if (!Number.isFinite(price) || price <= 0) {
@@ -46,6 +55,7 @@ export const calcMargin: CalcFunction = (inputs) => {
   const markupPct = (profit / cost) * 100;
   const marginPct = (profit / price) * 100;
 
+  if (![markupPct, marginPct, profit * quantity].every(Number.isFinite)) return invalid('Результат выходит за числовые пределы расчёта');
   return {
     primary: { label: 'Цена продажи', value: fmtMoney(price) },
     secondary: [

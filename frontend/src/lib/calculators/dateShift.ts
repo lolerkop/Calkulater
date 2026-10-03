@@ -1,95 +1,57 @@
 import type { CalcFunction } from '../types';
-import { fmtInt, toNumber, toStr } from '../format';
-import { parseIsoDate } from '../date';
-
-const MS_PER_CALENDAR_DAY = 86_400_000;
+import { fmtInt } from '../format';
+import { addCalendarMonthsUtc, calendarDateUtc, calendarDayNumberUtc, formatCalendarDateUtc, isSupportedCalendarDate, localCalendarToUtc, parseCalendarDateUtc, utcCalendarToLocal } from '../date';
+import { enumValue, shiftWhole } from './dateTimeNumeric';
 
 const WEEKDAYS = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
 
-function calendarDayNumber(date: Date): number {
-  return Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / MS_PER_CALENDAR_DAY;
-}
+/** Existing exported helpers retain local Date component semantics. */
+export const formatIsoDate = (date: Date): string => formatCalendarDateUtc(localCalendarToUtc(date));
+export const addCalendarMonths = (date: Date, totalMonths: number): Date => utcCalendarToLocal(addCalendarMonthsUtc(localCalendarToUtc(date), totalMonths));
 
-export function formatIsoDate(date: Date): string {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-}
-
-// Календарные единицы применяются первыми и усекаются до последнего дня месяца:
-// 31 января + 1 месяц = 28 (или 29) февраля. Иначе дата «перетекала» бы в март.
-export function addCalendarMonths(date: Date, totalMonths: number): Date {
-  const shifted = date.getFullYear() * 12 + date.getMonth() + totalMonths;
-  const targetYear = Math.floor(shifted / 12);
-  const targetMonth = shifted - targetYear * 12;
-  const lastDayOfTargetMonth = new Date(targetYear, targetMonth + 1, 0).getDate();
-  return new Date(targetYear, targetMonth, Math.min(date.getDate(), lastDayOfTargetMonth));
-}
-
-export function shiftDate(
-  start: Date,
-  shift: { years?: number; months?: number; weeks?: number; days?: number },
-  sign: 1 | -1,
-): Date {
+function shiftCalendarDate(start: Date, shift: { years?: number; months?: number; weeks?: number; days?: number }, sign: 1 | -1): Date {
   const months = sign * ((shift.years ?? 0) * 12 + (shift.months ?? 0));
-  const withMonths = addCalendarMonths(start, months);
-  const exactDays = sign * ((shift.weeks ?? 0) * 7 + (shift.days ?? 0));
-  return new Date(withMonths.getFullYear(), withMonths.getMonth(), withMonths.getDate() + exactDays);
+  const withMonths = addCalendarMonthsUtc(start, months);
+  return calendarDateUtc(withMonths.getUTCFullYear(), withMonths.getUTCMonth(), withMonths.getUTCDate() + sign * ((shift.weeks ?? 0) * 7 + (shift.days ?? 0)));
 }
+export const shiftDate = (start: Date, shift: { years?: number; months?: number; weeks?: number; days?: number }, sign: 1 | -1): Date => utcCalendarToLocal(shiftCalendarDate(localCalendarToUtc(start), shift, sign));
 
-// Номер недели по ISO 8601: неделя начинается с понедельника, первая неделя года
-// содержит первый четверг.
-export function isoWeekNumber(date: Date): number {
-  const target = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-  const dayOfWeek = (target.getUTCDay() + 6) % 7; // 0 = понедельник
-  target.setUTCDate(target.getUTCDate() - dayOfWeek + 3); // четверг этой недели
-  const firstThursday = new Date(Date.UTC(target.getUTCFullYear(), 0, 4));
-  const firstDayOfWeek = (firstThursday.getUTCDay() + 6) % 7;
-  firstThursday.setUTCDate(firstThursday.getUTCDate() - firstDayOfWeek + 3);
-  return 1 + Math.round((target.getTime() - firstThursday.getTime()) / (7 * MS_PER_CALENDAR_DAY));
+function isoWeekCalendar(date: Date): number {
+  const thursday = new Date(date);
+  thursday.setUTCDate(thursday.getUTCDate() - (thursday.getUTCDay() + 6) % 7 + 3);
+  const firstThursday = calendarDateUtc(thursday.getUTCFullYear(), 0, 4);
+  firstThursday.setUTCDate(firstThursday.getUTCDate() - (firstThursday.getUTCDay() + 6) % 7 + 3);
+  return 1 + Math.round((calendarDayNumberUtc(thursday) - calendarDayNumberUtc(firstThursday)) / 7);
 }
-
-function dayOfYear(date: Date): number {
-  return calendarDayNumber(date) - calendarDayNumber(new Date(date.getFullYear(), 0, 1)) + 1;
-}
+export const isoWeekNumber = (date: Date): number => isoWeekCalendar(localCalendarToUtc(date));
 
 export const calcDateShift: CalcFunction = (inputs) => {
-  const startStr = toStr(inputs.startDate);
-  const start = parseIsoDate(startStr);
-  const sign: 1 | -1 = toStr(inputs.shiftDirection, 'forward') === 'backward' ? -1 : 1;
-  const shift = {
-    years: Math.trunc(toNumber(inputs.shiftYears)),
-    months: Math.trunc(toNumber(inputs.shiftMonths)),
-    weeks: Math.trunc(toNumber(inputs.shiftWeeks)),
-    days: Math.trunc(toNumber(inputs.shiftDays)),
-  };
-
-  if (!start) {
-    return {
-      primary: { label: 'Итоговая дата', value: '—' },
-      secondary: [{ label: 'Проверьте данные', value: 'Выберите исходную дату', accent: 'red' }],
-    };
+  const start = parseCalendarDateUtc(inputs.startDate);
+  const fail = (message: string, label = 'Проверьте данные') => ({ primary: { label: 'Итоговая дата', value: '—' }, secondary: [{ label, value: message, accent: 'red' as const }] });
+  if (!start) return fail('Выберите исходную дату');
+  const direction = enumValue(inputs.shiftDirection, ['forward', 'backward'], 'forward');
+  if (direction === null) return fail('Выберите направление сдвига');
+  const values = ['shiftYears', 'shiftMonths', 'shiftWeeks', 'shiftDays'].map(name => shiftWhole(inputs[name]));
+  if (values.some(value => value === null)) {
+    const negative = ['shiftYears', 'shiftMonths', 'shiftWeeks', 'shiftDays'].some(name => typeof inputs[name] === 'number' && (inputs[name] as number) < 0 || typeof inputs[name] === 'string' && /^\s*-\d/.test(inputs[name] as string));
+    return fail(negative ? 'Интервал не может быть отрицательным' : 'Интервал должен состоять из целых неотрицательных чисел', negative ? 'Ошибка' : 'Проверьте данные');
   }
-
-  if (Object.values(shift).some((value) => value < 0)) {
-    return {
-      primary: { label: 'Итоговая дата', value: '—' },
-      secondary: [{ label: 'Ошибка', value: 'Интервал не может быть отрицательным', accent: 'red' }],
-    };
-  }
-
-  const result = shiftDate(start, shift, sign);
-  const totalDays = calendarDayNumber(result) - calendarDayNumber(start);
-
+  const [years, months, weeks, days] = values as number[];
+  // Every final date within the supported range is at most this far away.
+  // Separate nonnegative components cannot cancel, so this early bound loses no valid result.
+  const totalMonths = BigInt(years) * 12n + BigInt(months);
+  const totalDays = BigInt(weeks) * 7n + BigInt(days);
+  if (totalMonths > 119987n || totalDays > 3652058n) return fail('Итоговая дата должна быть в диапазоне 0001–9999');
+  const result = shiftCalendarDate(start, { years, months, weeks, days }, direction === 'backward' ? -1 : 1);
+  if (!isSupportedCalendarDate(result)) return fail('Итоговая дата должна быть в диапазоне 0001–9999');
   return {
-    primary: { label: 'Итоговая дата', value: formatIsoDate(result) },
+    primary: { label: 'Итоговая дата', value: formatCalendarDateUtc(result) },
     secondary: [
-      { label: 'День недели', value: WEEKDAYS[result.getDay()], accent: 'green' },
-      { label: 'Исходная дата', value: formatIsoDate(start) },
-      { label: 'Всего календарных дней', value: fmtInt(totalDays) },
-      { label: 'Номер дня в году', value: fmtInt(dayOfYear(result)) },
-      { label: 'Номер недели (ISO)', value: fmtInt(isoWeekNumber(result)) },
+      { label: 'День недели', value: WEEKDAYS[result.getUTCDay()], accent: 'green' },
+      { label: 'Исходная дата', value: formatCalendarDateUtc(start) },
+      { label: 'Всего календарных дней', value: fmtInt(calendarDayNumberUtc(result) - calendarDayNumberUtc(start)) },
+      { label: 'Номер дня в году', value: fmtInt(calendarDayNumberUtc(result) - calendarDayNumberUtc(calendarDateUtc(result.getUTCFullYear(), 0, 1)) + 1) },
+      { label: 'Номер недели (ISO)', value: fmtInt(isoWeekCalendar(result)) },
     ],
   };
 };

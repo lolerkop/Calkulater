@@ -1,85 +1,35 @@
 import type { CalcFunction, CalcResultTable } from '../../lib/types';
-import { fmtNumber, parseLocalizedNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
+import { fmtNumber, fmtInt, isIntegralNumberText } from '../../lib/format';
+import { finiteInput, integerInput } from '../../lib/platform/strictNumericInput';
+import { formatQuantity } from '../../lib/platform/measurement';
+import { exact, add, times, ratio as divide, number } from '../../lib/platform/geometryNumericInput';
 
-// Отношение: сокращение и разбиение суммы.
-//
-// Отгруженный proportion решает уравнение a/b = c/d относительно неизвестного.
-// Здесь другая задача: сократить отношение и, если задана сумма, разложить её
-// по частям.
-//
-// Сокращение делается ТОЧНО, через наибольший общий делитель, и только когда
-// все части целые: делить дробные части на НОД нечего, и попытка выдать
-// «1,5:2,5» за сокращённый вид была бы неправдой. Такое отношение показывается
-// как есть.
-//
-// Сумма частей считается по ИСХОДНЫМ значениям, а не по сокращённым: посетитель
-// вводил их, и доли должны сходиться именно с введённым.
-
-const tokenize = (raw: string): string[] =>
-  raw.replace(/,(?=\s|$)/g, ' ').split(/[\s;:]+/).filter(Boolean);
-
-const gcd2 = (a: number, b: number): number => {
-  let x = a;
-  let y = b;
-  while (y > 0) [x, y] = [y, x % y];
-  return x;
-};
-
+const tokenize = (raw: string) => raw.replace(/,(?=\s|$)/g, ' ').split(/[\s;:]+/).filter(Boolean);
+const gcd = (a: bigint, b: bigint): bigint => { while (b) [a, b] = [b, a % b]; return a; };
 export const compute: CalcFunction = (inputs) => {
-  const total = toNumber(inputs.total);
-  const fail = (message: string) => ({
-    primary: { label: 'Отношение', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  const parts: number[] = [];
-  for (const token of tokenize(toStr(inputs.parts, ''))) {
-    const value = parseLocalizedNumber(token, 'ru');
-    if (value === null) return fail(`Не число: ${token}`);
-    if (!(value > 0)) return fail('Каждая часть должна быть больше нуля');
-    parts.push(value);
-  }
-  if (parts.length < 2) return fail('Нужно хотя бы две части');
-
-  const sum = parts.reduce((a, b) => a + b, 0);
-  const whole = parts.every((value) => Number.isInteger(value));
-  const divisor = whole ? parts.reduce(gcd2) : 1;
-  const reduced = parts.map((value) => value / divisor);
-
-  const columns = ['Часть', 'Значение', 'Доля'];
-  if (total > 0) columns.push('Сумма');
-  const table: CalcResultTable = {
-    title: 'Разбор по частям',
-    columns,
-    rows: parts.map((value, i) => {
-      const row = [
-        fmtNumber(i + 1, 0),
-        formatMeasure(value, fmtNumber),
-        `${fmtNumber((value / sum) * 100, 2)}%`,
-      ];
-      if (total > 0) row.push(formatMeasure((total * value) / sum, fmtNumber));
-      return row;
-    }),
-  };
-
-  return {
-    primary: {
-      label: 'Отношение',
-      value: reduced.map((value) => formatMeasure(value, fmtNumber)).join(':'),
-    },
-    secondary: [
-      { label: 'Сумма частей', value: formatMeasure(sum, fmtNumber) },
-      { label: 'Доля первой части', value: `${fmtNumber((parts[0] / sum) * 100, 2)}%` },
-      { label: 'Частей', value: fmtNumber(parts.length, 0) },
-      ...(divisor > 1 ? [{ label: 'Сокращено на', value: fmtNumber(divisor, 0) }] : []),
-      ...(total > 0
-        ? [{
-            label: 'Разбиение суммы',
-            value: parts.map((value) => formatMeasure((total * value) / sum, fmtNumber)).join(' · '),
-          }]
-        : []),
-    ],
-    table,
-  };
+  const fail = (message: string) => ({ primary: { label: 'Отношение', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (typeof inputs.parts !== 'string') return fail('Введите от 2 до 1000 положительных частей; текст до 20000 символов');
+  const text = inputs.parts.trim();
+  if (text.length > 20000) return fail('Введите от 2 до 1000 положительных частей; текст до 20000 символов');
+  const tokens = tokenize(text);
+  if (tokens.length < 2 || tokens.length > 1000) return fail('Введите от 2 до 1000 положительных частей; текст до 20000 символов');
+  const parts = tokens.map(finiteInput);
+  if (parts.some(value => value === null || value <= 0)) return fail('Введите положительные конечные числа для частей');
+  const values = parts as number[];
+  if (tokens.some((token, i) => isIntegralNumberText(token, 'ru') === true && integerInput(token) === null)) return fail('Целые части должны быть не больше 9007199254740991');
+  const rawTotal = inputs.total;
+  const total = rawTotal === undefined || (typeof rawTotal === 'string' && rawTotal.trim() === '') ? 0 : finiteInput(rawTotal);
+  if (total === null || total < 0) return fail('Сумма должна быть конечной и неотрицательной; пустое поле или нуль отключают разбиение');
+  const sumExact = add(...values.map(exact)), sum = number(sumExact);
+  const whole = tokens.every(token => integerInput(token) !== null);
+  const divisor = whole ? values.map(BigInt).reduce(gcd) : 1n;
+  const reduced = whole ? values.map(value => Number(BigInt(value) / divisor)) : values;
+  const percentages = values.map(value => divide(times(exact(value), exact(100)), sumExact));
+  const allocations = total > 0 ? values.map(value => divide(times(exact(total), exact(value)), sumExact)) : [];
+  if (!Number.isFinite(sum) || sum <= 0 || percentages.some(value => !Number.isFinite(value) || value <= 0) || allocations.some(value => !Number.isFinite(value) || value <= 0)) return fail('Результат вне числового диапазона: переполнение или потеря ненулевого значения');
+  const show = (value: number) => formatQuantity(value, fmtNumber);
+  const percent = (value: number) => `${value < .005 ? show(value) : fmtNumber(value, 2)}%`;
+  const columns = ['Часть', 'Значение', 'Доля']; if (total > 0) columns.push('Сумма');
+  const table: CalcResultTable = { title: 'Разбор по частям', columns, rows: values.map((value, i) => [fmtInt(i + 1), show(value), percent(percentages[i]), ...(total > 0 ? [show(allocations[i])] : [])]) };
+  return { primary: { label: 'Отношение', value: reduced.map(value => whole ? fmtInt(value) : show(value)).join(':') }, secondary: [{ label: 'Сумма частей', value: whole ? new Intl.NumberFormat('ru-RU').format(values.map(BigInt).reduce((a, b) => a + b, 0n)) : show(sum) }, { label: 'Доля первой части', value: percent(percentages[0]) }, { label: 'Частей', value: fmtInt(values.length) }, ...(divisor > 1n ? [{ label: 'Сокращено на', value: new Intl.NumberFormat('ru-RU').format(divisor) }] : []), ...(total > 0 ? [{ label: 'Разбиение суммы', value: allocations.map(show).join(' · ') }] : [])], table };
 };

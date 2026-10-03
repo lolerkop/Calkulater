@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { freelanceRateCopyEn } from './copy.en';
@@ -11,7 +12,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
-  copy: { en: freelanceRateCopyEn, uk: freelanceRateCopyUk, de: freelanceRateCopyDe, es: freelanceRateCopyEs },
+  copy: { en: { ...freelanceRateCopyEn, ...contractContent.en }, uk: { ...freelanceRateCopyUk, ...contractContent.uk }, de: { ...freelanceRateCopyDe, ...contractContent.de }, es: { ...freelanceRateCopyEs, ...contractContent.es } },
   referenceCases: freelanceRateReferenceCases,
   publishedExample: {
     inputs: { targetIncome: 150000, workDays: 21, hoursPerDay: 6, billablePct: 70, expenses: 15000, taxPct: 6 },
@@ -27,18 +28,16 @@ export const definition: CalculatorDefinitionV2 = {
     popularity: 40,
     isNew: false,
     shortDescription: "Часовая ставка, которая даёт нужный доход после налога и неоплачиваемых часов.",
-    longDescription:
-      "Считает ставку в обратную сторону: не «сколько выйдет при такой цене часа», а «какую цену часа выставлять, чтобы получить нужную сумму на руки». Между желаемым доходом и ставкой стоят две поправки, без которых цена часа систематически занижается. Первая — оплачиваемая доля: часть недели уходит на переписку, счета и поиск заказов, и делить доход на все рабочие часы значит работать половину времени бесплатно. Вторая — налог: он берётся с оборота, поэтому выставить нужно больше, чем хочется получить.",
     seoTitle: "Калькулятор ставки фрилансера — цена часа работы",
     seoDescription: "Рассчитайте часовую ставку фрилансера по желаемому доходу с учётом налога, расходов и доли неоплачиваемых часов.",
     h1: "Калькулятор ставки фрилансера",
     keywords: ["ставка фрилансера", "цена часа работы", "сколько брать за час", "расчёт часовой ставки"],
     fields: [
-      { name: 'targetIncome', label: 'Желаемый доход на руки в месяц, ₽', type: 'number', defaultValue: 150000, min: 0, step: 1000 },
+      { name: 'targetIncome', label: 'Желаемый доход на руки в месяц', unit: '₽', type: 'number', defaultValue: 150000, min: 0, step: 1000 },
       { name: 'workDays', label: 'Рабочих дней в месяце', type: 'number', defaultValue: 21, min: 0, step: 1 },
       { name: 'hoursPerDay', label: 'Рабочих часов в дне', type: 'number', defaultValue: 6, min: 0, step: 0.5 },
       { name: 'billablePct', label: 'Доля оплачиваемых часов, %', type: 'number', defaultValue: 70, min: 0, max: 100, step: 1 },
-      { name: 'expenses', label: 'Расходы на работу в месяц, ₽', type: 'number', defaultValue: 0, min: 0, step: 1000, optional: true },
+      { name: 'expenses', label: 'Расходы на работу в месяц', unit: '₽', type: 'number', defaultValue: 0, min: 0, step: 1000, optional: true },
       { name: 'taxPct', label: 'Ставка налога, %', type: 'number', defaultValue: 6, min: 0, max: 99, step: 0.5 },
     ],
     resultLabels: {
@@ -49,22 +48,7 @@ export const definition: CalculatorDefinitionV2 = {
       "expenses": "Расходы на работу",
       "tax": "Налог",
     },
-    howToUse: [
-      "Введите сумму, которую хотите получать на руки за месяц.",
-      "Укажите рабочие дни и часы — столько времени вы готовы работать.",
-      "Задайте долю оплачиваемых часов: обычно это 50–75 %, а не 100 %.",
-      "Добавьте расходы на работу и ставку своего налогового режима.",
-    ],
-    howItWorks:
-      "Оплачиваемые часы = дни × часы × доля. Выставить нужно (доход + расходы) ÷ (1 − ставка налога), потому что налог берётся с оборота. Ставка за час = эта сумма ÷ оплачиваемые часы.",
-    example: "Чтобы получать 150 000 ₽ при 21 дне по 6 часов и 70 % оплачиваемого времени, час стоит 1990,16 ₽.",
-    faq: [
-      { q: "Почему нельзя делить доход на все рабочие часы?", a: "Потому что часть времени не оплачивается: переписка, счета, правки и поиск заказов. Если считать по всем часам, ставка выйдет заниженной ровно на долю этой работы." },
-      { q: "Какую долю оплачиваемых часов ставить?", a: "У большинства фрилансеров она между 50 и 75 %. Это оценка, а не норматив, поэтому доля вводится вручную — посчитайте её по своему последнему месяцу." },
-      { q: "Почему налог делит, а не прибавляется?", a: "Налог берётся с полученной суммы, а не с желаемой. Чтобы после вычета осталось 100 000 при ставке 6 %, выставить надо 106 383, а не 106 000." },
-      { q: "Что относить к расходам на работу?", a: "Подписки, оборудование, аренду места и комиссии площадок — всё, что оплачивается из дохода до того, как он станет вашим." },
-      { q: "Ставка за день — это дневной заработок?", a: "Это оплачиваемая часть дня по выведенной ставке. Полный рабочий день длиннее, потому что часть его не оплачивается." },
-    ],
+    ...contractContent.ru,
     relatedCalculatorIds: ["workday-cost", "income-tax-calculator", "savings-rate"],
   },
 };

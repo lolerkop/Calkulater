@@ -1,5 +1,36 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
+const contractValues = {
+  "en": {
+    "Выберите корректный режим расчёта": "Choose a valid calculation mode",
+    "Результат выходит за числовые пределы расчёта": "The result exceeds the numerical limits of this calculation",
+    "Введите имена и числовые доходы по одному участнику в строке": "Enter one name and numerical income per line",
+    "Сумма должна округляться хотя бы до одной копейки и укладываться в точные целые копейки": "The rounded amount must contain at least one cent and fit exactly representable whole cents",
+    "Доход должен быть неотрицательным числом": "Income must be a non-negative number"
+  },
+  "uk": {
+    "Выберите корректный режим расчёта": "Оберіть коректний режим розрахунку",
+    "Результат выходит за числовые пределы расчёта": "Результат виходить за числові межі розрахунку",
+    "Введите имена и числовые доходы по одному участнику в строке": "Введіть ім’я та числовий дохід одного учасника в кожному рядку",
+    "Сумма должна округляться хотя бы до одной копейки и укладываться в точные целые копейки": "Округлена сума має містити хоча б одну копійку й уміщатися в точно представлені цілі копійки",
+    "Доход должен быть неотрицательным числом": "Дохід має бути невід’ємним числом"
+  },
+  "de": {
+    "Выберите корректный режим расчёта": "Wähle einen gültigen Rechenmodus",
+    "Результат выходит за числовые пределы расчёта": "Das Ergebnis überschreitet die Zahlengrenzen dieser Rechnung",
+    "Введите имена и числовые доходы по одному участнику в строке": "Gib je Zeile einen Namen und ein numerisches Einkommen ein",
+    "Сумма должна округляться хотя бы до одной копейки и укладываться в точные целые копейки": "Der gerundete Betrag muss mindestens einen Cent enthalten und in exakt darstellbare ganze Cent passen",
+    "Доход должен быть неотрицательным числом": "Das Einkommen muss eine nicht negative Zahl sein"
+  },
+  "es": {
+    "Выберите корректный режим расчёта": "Elige un modo de cálculo válido",
+    "Результат выходит за числовые пределы расчёта": "El resultado supera los límites numéricos del cálculo",
+    "Введите имена и числовые доходы по одному участнику в строке": "Introduce un nombre y un ingreso numérico por línea",
+    "Сумма должна округляться хотя бы до одной копейки и укладываться в точные целые копейки": "El importe redondeado debe incluir al menos un céntimo y caber en céntimos enteros representables exactamente",
+    "Доход должен быть неотрицательным числом": "Los ingresos deben ser un número no negativo"
+  }
+} as const;
+
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
@@ -25,6 +56,7 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      ...contractValues.de,
       'Нужны имя и доход в строке:': 'In der Zeile werden Name und Einkommen gebraucht:',
       'Доход должен быть числом в строке:': 'Das Einkommen muss eine Zahl sein, in der Zeile:',
       '₽': '€',
@@ -55,6 +87,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      ...contractValues.en,
       "Нужны имя и доход в строке:": "Name and income are required on the line:",
       "Доход должен быть числом в строке:": "The income must be a number on the line:",
       "₽": "$",
@@ -85,6 +118,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      ...contractValues.uk,
       "Нужны имя и доход в строке:": "Потрібні ім'я і дохід у рядку:",
       "Доход должен быть числом в строке:": "Дохід має бути числом у рядку:",
       "₽": "₴",
@@ -118,6 +152,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      ...contractValues.es,
       "Нужны имя и доход в строке:": "Hacen falta un nombre y unos ingresos en la línea:",
       "Доход должен быть числом в строке:": "Los ingresos deben ser un número en la línea:",
       "₽": "€",

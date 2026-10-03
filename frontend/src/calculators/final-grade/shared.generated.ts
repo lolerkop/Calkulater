@@ -15,6 +15,10 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Result',
       'В': 'To',
       'Вес': 'Weight',
+      'Средняя оценка': 'Average estimate',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'The result exceeds the numeric range',
     },
   },
   uk: {
@@ -23,6 +27,10 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Результат',
       'В': 'У',
       'Вес': 'Вага',
+      'Средняя оценка': 'Середня оцінка',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Результат виходить за числовий діапазон',
     },
   },
   de: {
@@ -31,6 +39,10 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Ergebnis',
       'В': 'Nach',
       'Вес': 'Gewicht',
+      'Средняя оценка': 'Mittelwert der Schätzungen',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Das Ergebnis überschreitet den Zahlenbereich',
     },
   },
   es: {
@@ -39,6 +51,10 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Resultado',
       'В': 'A',
       'Вес': 'Peso',
+      'Средняя оценка': 'Estimación media',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'El resultado excede el rango numérico',
     },
   },
 };

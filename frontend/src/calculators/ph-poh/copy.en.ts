@@ -1,23 +1,43 @@
 import type { CalculatorCopy } from '../../lib/platform/types';
 
 export const phPohCopyEn: CalculatorCopy = {
-  name: 'pH and pOH calculator',
-  slug: 'ph-calculator',
-  shortDescription: 'pH from hydrogen ion concentration and back, with pOH and the medium.',
-  longDescription:
-    'Converts a hydrogen ion concentration into pH and back, reporting pOH and whether the medium is acidic, neutral or alkaline. pH and pOH add to fourteen not always but at 25 °C: that is the ion product of water, and at another temperature it differs, so the caveat sits on the page rather than in small print. The logarithm is defined only for a positive concentration, so zero is rejected instead of becoming infinity.',
-  seoTitle: 'pH and pOH calculator — acidity of a solution',
-  seoDescription: 'Calculate pH from the hydrogen ion concentration or the concentration from pH, together with pOH and the medium.',
-  h1: 'pH and pOH calculator',
-  keywords: ['ph calculator', 'ph and poh', 'acidity of a solution', 'hydrogen ion concentration'],
-  howToUse: ['Choose whether you know the concentration or the pH.', 'Enter the value.', 'Read the other quantity, the pOH and the medium.'],
-  howItWorks:
-    'pH = −log₁₀[H⁺], the decimal logarithm of the concentration with the sign reversed. The reverse gives [H⁺] = 10^−pH. At 25 °C the ion product of water is 10⁻¹⁴, which is why pH + pOH = 14.',
-  example: 'A hydrogen ion concentration of 10⁻³ mol/L corresponds to pH 3 and pOH 11 — an acidic medium.',
-  faq: [
-    { q: 'Do pH and pOH always add up to 14?', a: 'No, only at 25 °C. The sum equals the exponent of the ion product of water, which depends on temperature: at 60 °C it is already about 13.0.' },
-    { q: 'What does pH 7 mean?', a: 'That the concentrations of hydrogen and hydroxide ions are equal — a neutral medium. Again, this holds at 25 °C.' },
-    { q: 'Why is a zero concentration not accepted?', a: 'Zero has no logarithm. A solution with no hydrogen ions at all is physically impossible, so an error is reported instead of infinity.' },
-    { q: 'Can pH fall outside 0 to 14?', a: 'Formally yes in very concentrated solutions, but the scale stops being meaningful there and the usual approximations break down. The range is limited here deliberately.' },
+  "name": "pH and pOH calculator",
+  "slug": "ph-calculator",
+  "shortDescription": "pH from hydrogen ion concentration and back, with pOH and the medium.",
+  "longDescription": "An educational calculation from H⁺ concentration in mol/L or from a specified pH. Strictly, pH is defined by hydrogen-ion activity; here activity is approximated by concentration relative to 1 mol/L, commonly used for sufficiently dilute solutions. pOH uses the assumed pKw = 14 at 25 °C. Temperature and activity coefficients are not inputs.",
+  "seoTitle": "pH and pOH calculator — acidity of a solution",
+  "seoDescription": "Calculate pH from the hydrogen ion concentration or the concentration from pH, together with pOH and the medium.",
+  "h1": "pH and pOH calculator",
+  "keywords": [
+    "ph calculator",
+    "ph and poh",
+    "acidity of a solution",
+    "hydrogen ion concentration"
   ],
+  "howToUse": [
+    "Choose H⁺ concentration or pH.",
+    "Enter a finite positive concentration in mol/L or pH from 0 to 14.",
+    "Interpret the result within the approximation at 25 °C."
+  ],
+  "howItWorks": "pH = −log₁₀ a(H⁺). The model uses a(H⁺) ≈ [H⁺]/c°, with c° = 1 mol/L; inversely [H⁺] ≈ c° × 10⁻pH. pOH = 14 − pH. The model’s neutral point is pH 7. The product accepts pH from 0 to 14 and corresponding positive concentrations; these are calculator limits, not universal limits of the pH scale.",
+  "example": "For [H⁺] = 10⁻³ mol/L, the model gives pH 3.00 and pOH 11.00. At pH 8.4 it gives approximately 3.981 × 10⁻⁹ mol/L and pOH 5.60.",
+  "faq": [
+    {
+      "q": "Does pH + pOH always equal 14?",
+      "a": "No. The sum is pKw, which depends on temperature and medium. This model fixes the educational assumption pKw = 14 at 25 °C; other temperatures are not calculated."
+    },
+    {
+      "q": "Is concentration the exact definition of pH?",
+      "a": "No. The definition uses dimensionless activity. The concentration approximation omits activity coefficients and can be inaccurate in concentrated solutions."
+    },
+    {
+      "q": "Can pH be outside 0–14?",
+      "a": "Yes, the scale remains meaningful beyond those bounds. This calculator deliberately accepts only 0–14 and does not model such solutions."
+    },
+    {
+      "q": "Why is zero concentration rejected?",
+      "a": "The logarithm of zero has no finite real value. Blank or malformed input also gives an error instead of being replaced with zero."
+    }
+  ],
+  "disclaimer": "Activity is approximated by concentration; pKw = 14 at 25 °C. The product range 0–14 is not a physical pH limit. Ionic strength, temperature and measurement corrections are not modelled."
 };

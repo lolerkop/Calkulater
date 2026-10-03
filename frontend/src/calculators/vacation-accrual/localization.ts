@@ -1,85 +1,94 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'daysPerYear': 'Jahresanspruch, Tage',
-      'monthsWorked': 'Gearbeitete Monate',
-      'daysUsed': 'Bereits genommene Tage',
-    },
-    results: {
-      'Остаток отпуска': 'Resturlaub',
-      'Накоплено': 'Erworben',
-      'За месяц': 'Erworben je Monat',
-      'Использовано': 'Genommene Tage',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'дн.': 'Tage',
-      'Годовая норма отпуска должна быть больше нуля': 'Der Jahresanspruch muss größer als null sein',
-      'Отработанные месяцы не могут быть отрицательными': 'Die gearbeiteten Monate können nicht negativ sein',
-      'Использованные дни не могут быть отрицательными': 'Die genommenen Tage können nicht negativ sein',
-    },
+  "en": {
+  "fields": {
+    "daysPerYear": "Annual leave entitlement, days",
+    "monthsWorked": "Months worked",
+    "daysUsed": "Days already taken"
   },
-  en: {
-    fields: {
-      daysPerYear: 'Annual leave entitlement, days',
-      monthsWorked: 'Months worked',
-      daysUsed: 'Days already taken',
-    },
-    results: {
-      'Остаток отпуска': 'Leave balance',
-      'Накоплено': 'Accrued',
-      'За месяц': 'Accrued per month',
-      'Использовано': 'Days taken',
-      'Проверьте данные': 'Check the values',
-    },
-    values: {
-      'дн.': 'd',
-      'Годовая норма отпуска должна быть больше нуля': 'The annual entitlement must be greater than zero',
-      'Отработанные месяцы не могут быть отрицательными': 'Months worked cannot be negative',
-      'Использованные дни не могут быть отрицательными': 'Days taken cannot be negative',
-    },
+  "results": {
+    "Остаток отпуска": "Leave balance",
+    "Накоплено": "Accrued",
+    "За месяц": "Accrued per month",
+    "Использовано": "Days taken",
+    "Проверьте данные": "Check the values"
   },
-  uk: {
-    fields: {
-      daysPerYear: 'Річна норма відпустки, днів',
-      monthsWorked: 'Відпрацьовано місяців',
-      daysUsed: 'Уже використано днів',
-    },
-    results: {
-      'Остаток отпуска': 'Залишок відпустки',
-      'Накоплено': 'Накопичено',
-      'За месяц': 'За місяць',
-      'Использовано': 'Використано',
-      'Проверьте данные': 'Перевірте дані',
-    },
-    values: {
-      'дн.': 'дн.',
-      'Годовая норма отпуска должна быть больше нуля': 'Річна норма відпустки має бути більшою за нуль',
-      'Отработанные месяцы не могут быть отрицательными': 'Відпрацьовані місяці не можуть бути від’ємними',
-      'Использованные дни не могут быть отрицательными': 'Використані дні не можуть бути від’ємними',
-    },
+  "values": {
+    ...marketingScalarValues.en,
+    "дн.": "d",
+    "Годовая норма отпуска должна быть больше нуля": "The annual entitlement must be greater than zero",
+    "Отработанные месяцы не могут быть отрицательными": "Months worked cannot be negative",
+    "Использованные дни не могут быть отрицательными": "Days taken cannot be negative",
+    "Отработанные месяцы должны быть в пределах одного года": "Months worked must be within one year"
+  }
+},
+  "uk": {
+  "fields": {
+    "daysPerYear": "Річна норма відпустки, днів",
+    "monthsWorked": "Відпрацьовано місяців",
+    "daysUsed": "Уже використано днів"
   },
-  es: {
-    fields: {
-      "daysPerYear": "Derecho anual de vacaciones, días",
-      "monthsWorked": "Meses trabajados",
-      "daysUsed": "Días ya disfrutados",
-    },
-    options: {},
-    results: {
-      "Остаток отпуска": "Saldo de vacaciones",
-      "Накоплено": "Acumulado",
-      "За месяц": "Acumulado por mes",
-      "Использовано": "Días disfrutados",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "дн.": "d",
-      "Годовая норма отпуска должна быть больше нуля": "El derecho anual debe ser mayor que cero",
-      "Отработанные месяцы не могут быть отрицательными": "Los meses trabajados no pueden ser negativos",
-      "Использованные дни не могут быть отрицательными": "Los días disfrutados no pueden ser negativos",
-    },
+  "results": {
+    "Остаток отпуска": "Залишок відпустки",
+    "Накоплено": "Накопичено",
+    "За месяц": "За місяць",
+    "Использовано": "Використано",
+    "Проверьте данные": "Перевірте дані"
   },
+  "values": {
+    ...marketingScalarValues.uk,
+    "дн.": "дн.",
+    "Годовая норма отпуска должна быть больше нуля": "Річна норма відпустки має бути більшою за нуль",
+    "Отработанные месяцы не могут быть отрицательными": "Відпрацьовані місяці не можуть бути від’ємними",
+    "Использованные дни не могут быть отрицательными": "Використані дні не можуть бути від’ємними",
+    "Отработанные месяцы должны быть в пределах одного года": "Відпрацьовані місяці мають бути в межах одного року"
+  }
+},
+  "de": {
+  "fields": {
+    "daysPerYear": "Jahresanspruch, Tage",
+    "monthsWorked": "Gearbeitete Monate",
+    "daysUsed": "Bereits genommene Tage"
+  },
+  "results": {
+    "Остаток отпуска": "Resturlaub",
+    "Накоплено": "Erworben",
+    "За месяц": "Erworben je Monat",
+    "Использовано": "Genommene Tage",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "дн.": "Tage",
+    "Годовая норма отпуска должна быть больше нуля": "Der Jahresanspruch muss größer als null sein",
+    "Отработанные месяцы не могут быть отрицательными": "Die gearbeiteten Monate können nicht negativ sein",
+    "Использованные дни не могут быть отрицательными": "Die genommenen Tage können nicht negativ sein",
+    "Отработанные месяцы должны быть в пределах одного года": "Gearbeitete Monate müssen innerhalb eines Jahres liegen"
+  }
+},
+  "es": {
+  "fields": {
+    "daysPerYear": "Derecho anual de vacaciones, días",
+    "monthsWorked": "Meses trabajados",
+    "daysUsed": "Días ya disfrutados"
+  },
+  "options": {},
+  "results": {
+    "Остаток отпуска": "Saldo de vacaciones",
+    "Накоплено": "Acumulado",
+    "За месяц": "Acumulado por mes",
+    "Использовано": "Días disfrutados",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "дн.": "d",
+    "Годовая норма отпуска должна быть больше нуля": "El derecho anual debe ser mayor que cero",
+    "Отработанные месяцы не могут быть отрицательными": "Los meses trabajados no pueden ser negativos",
+    "Использованные дни не могут быть отрицательными": "Los días disfrutados no pueden ser negativos",
+    "Отработанные месяцы должны быть в пределах одного года": "Los meses trabajados deben estar dentro de un año"
+  }
+}
 };

@@ -1,111 +1,120 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'deposit': 'Kontostand, €',
-      'riskPct': 'Zugelassenes Risiko je Handel, %',
-      'entry': 'Einstiegspreis',
-      'stop': 'Stoppkurs',
-    },
-    results: {
-      'Размер позиции': 'Positionsgröße',
-      'Целых единиц': 'Ganze Einheiten',
-      'Сумма риска': 'Risikobetrag',
-      'Риск на единицу': 'Risiko je Einheit',
-      'Стоимость позиции': 'Wert der Position',
-      'Доля депозита': 'Anteil am Konto',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      '₽': '€',
-      'шт': 'Stk',
-      'Депозит должен быть больше нуля': 'Der Kontostand muss größer als null sein',
-      'Допустимый риск должен быть больше нуля': 'Das zugelassene Risiko muss größer als null sein',
-      'Цена входа должна быть больше нуля': 'Der Einstiegspreis muss größer als null sein',
-      'Цена стопа не может быть отрицательной': 'Der Stoppkurs kann nicht negativ sein',
-      'Стоп не может совпадать с ценой входа': 'Der Stopp kann nicht mit dem Einstiegspreis zusammenfallen',
-    },
+  "en": {
+  "fields": {
+    "deposit": "Account balance",
+    "riskPct": "Risk allowed per trade, %",
+    "entry": "Entry price",
+    "stop": "Stop price"
   },
-  en: {
-    fields: {
-      "deposit": "Account balance, $",
-      "riskPct": "Risk allowed per trade, %",
-      "entry": "Entry price",
-      "stop": "Stop price",
-    },
-    options: {},
-    results: {
-      "Размер позиции": "Position size",
-      "Целых единиц": "Whole units",
-      "Сумма риска": "Risk amount",
-      "Риск на единицу": "Risk per unit",
-      "Стоимость позиции": "Position value",
-      "Доля депозита": "Share of the account",
-      "Проверьте данные": "Check the values",
-    },
-    values: {
-      "₽": "$",
-      "шт": "pcs",
-      "Депозит должен быть больше нуля": "The account balance must be greater than zero",
-      "Допустимый риск должен быть больше нуля": "The permitted risk must be greater than zero",
-      "Цена входа должна быть больше нуля": "The entry price must be greater than zero",
-      "Цена стопа не может быть отрицательной": "The stop price cannot be negative",
-      "Стоп не может совпадать с ценой входа": "The stop cannot equal the entry price",
-    },
+  "options": {},
+  "results": {
+    "Размер позиции": "Position size",
+    "Целых единиц": "Whole units",
+    "Сумма риска": "Risk amount",
+    "Риск на единицу": "Risk per unit",
+    "Стоимость позиции": "Position value",
+    "Доля депозита": "Share of the account",
+    "Проверьте данные": "Check the values"
   },
-  uk: {
-    fields: {
-      "deposit": "Депозит, ₴",
-      "riskPct": "Допустимий ризик на угоду, %",
-      "entry": "Ціна входу",
-      "stop": "Ціна стоп-наказу",
-    },
-    options: {},
-    results: {
-      "Размер позиции": "Розмір позиції",
-      "Целых единиц": "Цілих одиниць",
-      "Сумма риска": "Сума ризику",
-      "Риск на единицу": "Ризик на одиницю",
-      "Стоимость позиции": "Вартість позиції",
-      "Доля депозита": "Частка депозиту",
-      "Проверьте данные": "Перевірте дані",
-    },
-    values: {
-      "₽": "₴",
-      "шт": "од",
-      "Депозит должен быть больше нуля": "Депозит має бути більшим за нуль",
-      "Допустимый риск должен быть больше нуля": "Допустимий ризик має бути більшим за нуль",
-      "Цена входа должна быть больше нуля": "Ціна входу має бути більшою за нуль",
-      "Цена стопа не может быть отрицательной": "Ціна стопу не може бути від'ємною",
-      "Стоп не может совпадать с ценой входа": "Стоп не може збігатися з ціною входу",
-    },
+  "values": {
+    ...marketingScalarValues.en,
+    "₽": "$",
+    "шт": "pcs",
+    "Депозит должен быть больше нуля": "The account balance must be greater than zero",
+    "Допустимый риск должен быть больше нуля": "The permitted risk must be greater than zero",
+    "Цена входа должна быть больше нуля": "The entry price must be greater than zero",
+    "Цена стопа не может быть отрицательной": "The stop price cannot be negative",
+    "Стоп не может совпадать с ценой входа": "The stop cannot equal the entry price",
+    "Допустимый риск не может превышать сто процентов": "Chosen risk cannot exceed 100%"
+  }
+},
+  "uk": {
+  "fields": {
+    "deposit": "Депозит",
+    "riskPct": "Допустимий ризик на угоду, %",
+    "entry": "Ціна входу",
+    "stop": "Ціна стоп-наказу"
   },
-  es: {
-    fields: {
-      "deposit": "Saldo de la cuenta, €",
-      "riskPct": "Riesgo permitido por operación, %",
-      "entry": "Precio de entrada",
-      "stop": "Precio del stop",
-    },
-    options: {},
-    results: {
-      "Размер позиции": "Tamaño de la posición",
-      "Целых единиц": "Unidades enteras",
-      "Сумма риска": "Importe en riesgo",
-      "Риск на единицу": "Riesgo por unidad",
-      "Стоимость позиции": "Valor de la posición",
-      "Доля депозита": "Proporción de la cuenta",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "₽": "€",
-      "шт": "uds.",
-      "Депозит должен быть больше нуля": "El saldo de la cuenta debe ser mayor que cero",
-      "Допустимый риск должен быть больше нуля": "El riesgo permitido debe ser mayor que cero",
-      "Цена входа должна быть больше нуля": "El precio de entrada debe ser mayor que cero",
-      "Цена стопа не может быть отрицательной": "El precio del stop no puede ser negativo",
-      "Стоп не может совпадать с ценой входа": "El stop no puede coincidir con el precio de entrada",
-    },
+  "options": {},
+  "results": {
+    "Размер позиции": "Розмір позиції",
+    "Целых единиц": "Цілих одиниць",
+    "Сумма риска": "Сума ризику",
+    "Риск на единицу": "Ризик на одиницю",
+    "Стоимость позиции": "Вартість позиції",
+    "Доля депозита": "Частка депозиту",
+    "Проверьте данные": "Перевірте дані"
   },
+  "values": {
+    ...marketingScalarValues.uk,
+    "₽": "₴",
+    "шт": "од",
+    "Депозит должен быть больше нуля": "Депозит має бути більшим за нуль",
+    "Допустимый риск должен быть больше нуля": "Допустимий ризик має бути більшим за нуль",
+    "Цена входа должна быть больше нуля": "Ціна входу має бути більшою за нуль",
+    "Цена стопа не может быть отрицательной": "Ціна стопу не може бути від'ємною",
+    "Стоп не может совпадать с ценой входа": "Стоп не може збігатися з ціною входу",
+    "Допустимый риск не может превышать сто процентов": "Обраний ризик не може перевищувати 100%"
+  }
+},
+  "de": {
+  "fields": {
+    "deposit": "Kontostand",
+    "riskPct": "Zugelassenes Risiko je Handel, %",
+    "entry": "Einstiegspreis",
+    "stop": "Stoppkurs"
+  },
+  "results": {
+    "Размер позиции": "Positionsgröße",
+    "Целых единиц": "Ganze Einheiten",
+    "Сумма риска": "Risikobetrag",
+    "Риск на единицу": "Risiko je Einheit",
+    "Стоимость позиции": "Wert der Position",
+    "Доля депозита": "Anteil am Konto",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "₽": "€",
+    "шт": "Stk",
+    "Депозит должен быть больше нуля": "Der Kontostand muss größer als null sein",
+    "Допустимый риск должен быть больше нуля": "Das zugelassene Risiko muss größer als null sein",
+    "Цена входа должна быть больше нуля": "Der Einstiegspreis muss größer als null sein",
+    "Цена стопа не может быть отрицательной": "Der Stoppkurs kann nicht negativ sein",
+    "Стоп не может совпадать с ценой входа": "Der Stopp kann nicht mit dem Einstiegspreis zusammenfallen",
+    "Допустимый риск не может превышать сто процентов": "Das gewählte Risiko darf 100% nicht überschreiten"
+  }
+},
+  "es": {
+  "fields": {
+    "deposit": "Saldo de la cuenta",
+    "riskPct": "Riesgo permitido por operación, %",
+    "entry": "Precio de entrada",
+    "stop": "Precio del stop"
+  },
+  "options": {},
+  "results": {
+    "Размер позиции": "Tamaño de la posición",
+    "Целых единиц": "Unidades enteras",
+    "Сумма риска": "Importe en riesgo",
+    "Риск на единицу": "Riesgo por unidad",
+    "Стоимость позиции": "Valor de la posición",
+    "Доля депозита": "Proporción de la cuenta",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "₽": "€",
+    "шт": "uds.",
+    "Депозит должен быть больше нуля": "El saldo de la cuenta debe ser mayor que cero",
+    "Допустимый риск должен быть больше нуля": "El riesgo permitido debe ser mayor que cero",
+    "Цена входа должна быть больше нуля": "El precio de entrada debe ser mayor que cero",
+    "Цена стопа не может быть отрицательной": "El precio del stop no puede ser negativo",
+    "Стоп не может совпадать с ценой входа": "El stop no puede coincidir con el precio de entrada",
+    "Допустимый риск не может превышать сто процентов": "El riesgo elegido no puede superar el 100%"
+  }
+}
 };

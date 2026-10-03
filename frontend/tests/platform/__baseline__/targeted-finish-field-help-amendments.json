@@ -1,0 +1,75 @@
+{
+  "scope": "User-authorized help-only corrections; no human verification; all other field properties remain immutable",
+  "records": [
+    {
+      "id": "credit-calculator",
+      "locale": "ru",
+      "field": "term",
+      "before": null,
+      "after": "Срок должен составлять от 1 до 1200 целых месяцев. В годах допустимы дроби, если число месяцев целое: 1,5 года = 18 месяцев."
+    },
+    {
+      "id": "paint-calculator",
+      "locale": "ru",
+      "field": "coats",
+      "before": "Целое число до 9007199254740991; дробь не округляется.",
+      "after": "Положительное целое число слоёв по инструкции выбранной краски; дробь не округляется."
+    },
+    {
+      "id": "credit-calculator",
+      "locale": "en",
+      "field": "term",
+      "before": null,
+      "after": "The term must total 1 to 1200 whole months. Fractional years are allowed when they give whole months: 1.5 years = 18 months."
+    },
+    {
+      "id": "paint-calculator",
+      "locale": "en",
+      "field": "coats",
+      "before": "Whole number up to 9007199254740991; fractions are not rounded.",
+      "after": "A positive whole number of coats from the chosen paint instructions; fractions are not rounded."
+    },
+    {
+      "id": "credit-calculator",
+      "locale": "uk",
+      "field": "term",
+      "before": null,
+      "after": "Строк має становити від 1 до 1200 цілих місяців. Дробові роки допустимі, якщо кількість місяців ціла: 1,5 року = 18 місяців."
+    },
+    {
+      "id": "paint-calculator",
+      "locale": "uk",
+      "field": "coats",
+      "before": "Ціле число до 9007199254740991; дріб не округлюється.",
+      "after": "Додатна ціла кількість шарів за інструкцією обраної фарби; дріб не округлюється."
+    },
+    {
+      "id": "credit-calculator",
+      "locale": "de",
+      "field": "term",
+      "before": null,
+      "after": "Die Laufzeit muss 1 bis 1200 ganze Monate ergeben. Bruchteile von Jahren sind möglich, wenn ganze Monate entstehen: 1,5 Jahre = 18 Monate."
+    },
+    {
+      "id": "paint-calculator",
+      "locale": "de",
+      "field": "coats",
+      "before": "Ganze Zahl bis 9007199254740991; Brüche werden nicht gerundet.",
+      "after": "Eine positive ganze Anstrichzahl nach Anleitung der gewählten Farbe; Brüche werden nicht gerundet."
+    },
+    {
+      "id": "credit-calculator",
+      "locale": "es",
+      "field": "term",
+      "before": null,
+      "after": "El plazo debe sumar entre 1 y 1200 meses enteros. Se permiten fracciones de año si equivalen a meses enteros: 1,5 años = 18 meses."
+    },
+    {
+      "id": "paint-calculator",
+      "locale": "es",
+      "field": "coats",
+      "before": "Entero hasta 9007199254740991; las fracciones no se redondean.",
+      "after": "Un número entero positivo de capas según las instrucciones de la pintura; las fracciones no se redondean."
+    }
+  ]
+}

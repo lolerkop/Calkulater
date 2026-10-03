@@ -1,0 +1,1392 @@
+{
+  "sourceFixtureSha256": "81e2e6695df3a6976de440f9315d985fcf5aa4e611f93491b0d8166abff868e9",
+  "scope": "66 real resolved optional numeric field shapes ×5 parser locales; this is codec coverage, not publication of unavailable tax locales.",
+  "fields": [
+    {
+      "id": "credit-calculator",
+      "field": {
+        "name": "extraPayment",
+        "label": "Доплата каждый месяц",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "optional": true
+      },
+      "defaults": {
+        "amount": 500000,
+        "term": 5,
+        "termUnit": "years",
+        "rate": 14,
+        "type": "annuity",
+        "extraPayment": 0,
+        "oneTimeFee": 0
+      }
+    },
+    {
+      "id": "credit-calculator",
+      "field": {
+        "name": "oneTimeFee",
+        "label": "Разовая комиссия",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "optional": true
+      },
+      "defaults": {
+        "amount": 500000,
+        "term": 5,
+        "termUnit": "years",
+        "rate": 14,
+        "type": "annuity",
+        "extraPayment": 0,
+        "oneTimeFee": 0
+      }
+    },
+    {
+      "id": "mortgage-calculator",
+      "field": {
+        "name": "extraPayment",
+        "label": "Доплата каждый месяц",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "optional": true
+      },
+      "defaults": {
+        "price": 8000000,
+        "downPaymentMode": "amount",
+        "downPayment": 1600000,
+        "downPaymentPct": 20,
+        "years": 20,
+        "rate": 13,
+        "type": "annuity",
+        "extraPayment": 0,
+        "monthlyInsurance": 0
+      }
+    },
+    {
+      "id": "mortgage-calculator",
+      "field": {
+        "name": "monthlyInsurance",
+        "label": "Страховка и расходы в месяц",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "optional": true
+      },
+      "defaults": {
+        "price": 8000000,
+        "downPaymentMode": "amount",
+        "downPayment": 1600000,
+        "downPaymentPct": 20,
+        "years": 20,
+        "rate": 13,
+        "type": "annuity",
+        "extraPayment": 0,
+        "monthlyInsurance": 0
+      }
+    },
+    {
+      "id": "income-tax-calculator",
+      "field": {
+        "name": "incomeBeforePeriod",
+        "label": "Облагаемая база до этого месяца",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "optional": true,
+        "help": "Введите накопленную базу после прежних вычетов. При месячном расчёте 0 или пустое поле означает средний налог условного полного года; при годовом расчёте это поле не используется."
+      },
+      "defaults": {
+        "amount": 150000,
+        "period": "month",
+        "direction": "gross",
+        "incomeBeforePeriod": 0,
+        "deductions": 0,
+        "mode": "progressive",
+        "rate": 13
+      }
+    },
+    {
+      "id": "income-tax-calculator",
+      "field": {
+        "name": "deductions",
+        "label": "Налоговые вычеты за период",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "optional": true,
+        "help": "Допустимые вычеты за выбранный период проверяются отдельно. Пустое поле означает 0; прошлые вычеты уже должны быть учтены в предыдущей облагаемой базе."
+      },
+      "defaults": {
+        "amount": 150000,
+        "period": "month",
+        "direction": "gross",
+        "incomeBeforePeriod": 0,
+        "deductions": 0,
+        "mode": "progressive",
+        "rate": 13
+      }
+    },
+    {
+      "id": "break-even-calculator",
+      "field": {
+        "name": "plannedUnits",
+        "label": "Плановый объём продаж",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1,
+        "optional": true,
+        "max": 9007199254740991,
+        "help": "Целое неотрицательное число. Пустое поле или 0 скрывает строки плана; дробные единицы не округляются."
+      },
+      "defaults": {
+        "fixedCosts": 300000,
+        "unitPrice": 1500,
+        "variableCost": 900,
+        "plannedUnits": 0
+      }
+    },
+    {
+      "id": "tile-calculator",
+      "field": {
+        "name": "reserve",
+        "label": "Запас",
+        "type": "number",
+        "defaultValue": 10,
+        "min": 0,
+        "unit": "%",
+        "help": "Выбранный неотрицательный процент; универсальная норма не устанавливается. Пустое поле означает 0.",
+        "optional": true
+      },
+      "defaults": {
+        "mode": "room",
+        "length": 4,
+        "width": 3,
+        "manualArea": 12,
+        "tileLength": 30,
+        "tileWidth": 30,
+        "packArea": 1.44,
+        "reserve": 10,
+        "glueConsumption": 5,
+        "packPrice": 0
+      }
+    },
+    {
+      "id": "tile-calculator",
+      "field": {
+        "name": "glueConsumption",
+        "label": "Введённый расход клея",
+        "type": "number",
+        "defaultValue": 5,
+        "min": 0,
+        "step": 0.1,
+        "unit": "кг/м²",
+        "help": "Расход конкретного клея в кг/м². Пустое поле использует 5; запас увеличивает и оценку клея.",
+        "optional": true
+      },
+      "defaults": {
+        "mode": "room",
+        "length": 4,
+        "width": 3,
+        "manualArea": 12,
+        "tileLength": 30,
+        "tileWidth": 30,
+        "packArea": 1.44,
+        "reserve": 10,
+        "glueConsumption": 5,
+        "packPrice": 0
+      }
+    },
+    {
+      "id": "tile-calculator",
+      "field": {
+        "name": "packPrice",
+        "label": "Цена упаковки",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "optional": true,
+        "help": "Цена в RUB; обмена валют нет. Пустое поле или 0 скрывает стоимость."
+      },
+      "defaults": {
+        "mode": "room",
+        "length": 4,
+        "width": 3,
+        "manualArea": 12,
+        "tileLength": 30,
+        "tileWidth": 30,
+        "packArea": 1.44,
+        "reserve": 10,
+        "glueConsumption": 5,
+        "packPrice": 0
+      }
+    },
+    {
+      "id": "wallpaper-calculator",
+      "field": {
+        "name": "pattern",
+        "label": "Вертикальный раппорт",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "unit": "см",
+        "help": "Вертикальный раппорт в см; пустое поле или 0 — без рисунка. Смещённый рисунок и подрезка отдельно не учитываются.",
+        "optional": true
+      },
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "rollWidth": 1.06,
+        "rollLength": 10,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 0,
+        "rollPrice": 0
+      }
+    },
+    {
+      "id": "wallpaper-calculator",
+      "field": {
+        "name": "rollPrice",
+        "label": "Цена рулона",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "optional": true,
+        "unit": "₽",
+        "help": "Цена в RUB; обмена валют нет. Пустое поле или 0 скрывает стоимость."
+      },
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "rollWidth": 1.06,
+        "rollLength": 10,
+        "windows": 1,
+        "doors": 1,
+        "pattern": 0,
+        "rollPrice": 0
+      }
+    },
+    {
+      "id": "paint-calculator",
+      "field": {
+        "name": "reserve",
+        "label": "Запас",
+        "type": "number",
+        "defaultValue": 10,
+        "min": 0,
+        "unit": "%",
+        "help": "Выбранный неотрицательный процент; универсальная норма не устанавливается. Пустое поле означает 0.",
+        "optional": true
+      },
+      "defaults": {
+        "mode": "manual",
+        "area": 30,
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "windows": 1,
+        "doors": 1,
+        "coats": 2,
+        "consumption": 0.15,
+        "canVolume": 2.5,
+        "reserve": 10,
+        "canPrice": 0
+      }
+    },
+    {
+      "id": "paint-calculator",
+      "field": {
+        "name": "canPrice",
+        "label": "Цена банки",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "optional": true,
+        "unit": "₽",
+        "help": "Цена в RUB; обмена валют нет. Пустое поле или 0 скрывает стоимость."
+      },
+      "defaults": {
+        "mode": "manual",
+        "area": 30,
+        "length": 5,
+        "width": 4,
+        "height": 2.7,
+        "windows": 1,
+        "doors": 1,
+        "coats": 2,
+        "consumption": 0.15,
+        "canVolume": 2.5,
+        "reserve": 10,
+        "canPrice": 0
+      }
+    },
+    {
+      "id": "laminate-calculator",
+      "field": {
+        "name": "reserve",
+        "label": "Запас",
+        "type": "number",
+        "defaultValue": 10,
+        "min": 0,
+        "unit": "%",
+        "help": "Выбранный неотрицательный процент; универсальная норма не устанавливается. Пустое поле означает 0.",
+        "optional": true
+      },
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "packArea": 2.13,
+        "reserve": 10,
+        "packPrice": 0,
+        "underlayPrice": 0
+      }
+    },
+    {
+      "id": "laminate-calculator",
+      "field": {
+        "name": "packPrice",
+        "label": "Цена упаковки",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "optional": true,
+        "unit": "₽",
+        "help": "Цена в RUB, без обмена валют. Пустое поле или 0 задаёт нулевую стоимость этого компонента."
+      },
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "packArea": 2.13,
+        "reserve": 10,
+        "packPrice": 0,
+        "underlayPrice": 0
+      }
+    },
+    {
+      "id": "laminate-calculator",
+      "field": {
+        "name": "underlayPrice",
+        "label": "Цена подложки на площадь",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "optional": true,
+        "unit": "₽/м²",
+        "help": "Цена в RUB, без обмена валют. Пустое поле или 0 задаёт нулевую стоимость этого компонента."
+      },
+      "defaults": {
+        "length": 5,
+        "width": 4,
+        "packArea": 2.13,
+        "reserve": 10,
+        "packPrice": 0,
+        "underlayPrice": 0
+      }
+    },
+    {
+      "id": "screed-calculator",
+      "field": {
+        "name": "mixConsumption",
+        "label": "Расход сухой смеси на 1 см",
+        "type": "number",
+        "defaultValue": 18,
+        "min": 0,
+        "step": 0.1,
+        "unit": "кг/(м²·см)",
+        "help": "Единица кг/(м²·см): норму на 1 мм умножьте на 10. Пустое поле использует 18; 0 даёт 0 смеси и мешков.",
+        "optional": true
+      },
+      "defaults": {
+        "mode": "room",
+        "length": 5,
+        "width": 4,
+        "manualArea": 20,
+        "thickness": 5,
+        "mixConsumption": 18,
+        "bagWeight": 25,
+        "reserve": 10,
+        "bagPrice": 0
+      }
+    },
+    {
+      "id": "screed-calculator",
+      "field": {
+        "name": "bagWeight",
+        "label": "Масса мешка",
+        "type": "number",
+        "defaultValue": 25,
+        "min": 0,
+        "step": 1,
+        "unit": "кг",
+        "optional": true
+      },
+      "defaults": {
+        "mode": "room",
+        "length": 5,
+        "width": 4,
+        "manualArea": 20,
+        "thickness": 5,
+        "mixConsumption": 18,
+        "bagWeight": 25,
+        "reserve": 10,
+        "bagPrice": 0
+      }
+    },
+    {
+      "id": "screed-calculator",
+      "field": {
+        "name": "reserve",
+        "label": "Запас",
+        "type": "number",
+        "defaultValue": 10,
+        "min": 0,
+        "step": 1,
+        "unit": "%",
+        "help": "Выбранный неотрицательный процент; универсальная норма не устанавливается. Пустое поле означает 0.",
+        "optional": true
+      },
+      "defaults": {
+        "mode": "room",
+        "length": 5,
+        "width": 4,
+        "manualArea": 20,
+        "thickness": 5,
+        "mixConsumption": 18,
+        "bagWeight": 25,
+        "reserve": 10,
+        "bagPrice": 0
+      }
+    },
+    {
+      "id": "screed-calculator",
+      "field": {
+        "name": "bagPrice",
+        "label": "Цена мешка",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "optional": true,
+        "help": "Цена в RUB; обмена валют нет. Пустое поле или 0 скрывает стоимость."
+      },
+      "defaults": {
+        "mode": "room",
+        "length": 5,
+        "width": 4,
+        "manualArea": 20,
+        "thickness": 5,
+        "mixConsumption": 18,
+        "bagWeight": 25,
+        "reserve": 10,
+        "bagPrice": 0
+      }
+    },
+    {
+      "id": "brick-calculator",
+      "field": {
+        "name": "openingsArea",
+        "label": "Общая площадь проёмов",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "m²",
+        "min": 0,
+        "step": 0.01,
+        "optional": true
+      },
+      "defaults": {
+        "mode": "dimensions",
+        "wallLength": 6,
+        "wallHeight": 2.8,
+        "manualArea": 16.8,
+        "openingsArea": 0,
+        "unitLength": 250,
+        "unitHeight": 65,
+        "joint": 10,
+        "reserve": 5,
+        "unitPrice": 0
+      }
+    },
+    {
+      "id": "brick-calculator",
+      "field": {
+        "name": "joint",
+        "label": "Толщина шва",
+        "type": "number",
+        "defaultValue": 10,
+        "unit": "мм",
+        "min": 0,
+        "step": 1,
+        "optional": true
+      },
+      "defaults": {
+        "mode": "dimensions",
+        "wallLength": 6,
+        "wallHeight": 2.8,
+        "manualArea": 16.8,
+        "openingsArea": 0,
+        "unitLength": 250,
+        "unitHeight": 65,
+        "joint": 10,
+        "reserve": 5,
+        "unitPrice": 0
+      }
+    },
+    {
+      "id": "brick-calculator",
+      "field": {
+        "name": "reserve",
+        "label": "Запас",
+        "type": "number",
+        "defaultValue": 5,
+        "unit": "%",
+        "min": 0,
+        "step": 1,
+        "help": "Выбранный неотрицательный процент; универсальная норма не устанавливается. Пустое поле означает 0.",
+        "optional": true
+      },
+      "defaults": {
+        "mode": "dimensions",
+        "wallLength": 6,
+        "wallHeight": 2.8,
+        "manualArea": 16.8,
+        "openingsArea": 0,
+        "unitLength": 250,
+        "unitHeight": 65,
+        "joint": 10,
+        "reserve": 5,
+        "unitPrice": 0
+      }
+    },
+    {
+      "id": "brick-calculator",
+      "field": {
+        "name": "unitPrice",
+        "label": "Цена камня",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "step": 0.01,
+        "optional": true,
+        "help": "Цена в RUB; обмена валют нет. Пустое поле или 0 скрывает стоимость."
+      },
+      "defaults": {
+        "mode": "dimensions",
+        "wallLength": 6,
+        "wallHeight": 2.8,
+        "manualArea": 16.8,
+        "openingsArea": 0,
+        "unitLength": 250,
+        "unitHeight": 65,
+        "joint": 10,
+        "reserve": 5,
+        "unitPrice": 0
+      }
+    },
+    {
+      "id": "date-shift-calculator",
+      "field": {
+        "name": "shiftYears",
+        "label": "Лет",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1,
+        "help": "Целое неотрицательное число; пустое поле означает 0. Направление выбирается отдельно.",
+        "optional": true,
+        "max": 9007199254740991
+      },
+      "defaults": {
+        "startDate": "2026-01-01",
+        "shiftDirection": "forward",
+        "shiftYears": 0,
+        "shiftMonths": 0,
+        "shiftWeeks": 0,
+        "shiftDays": 90
+      }
+    },
+    {
+      "id": "date-shift-calculator",
+      "field": {
+        "name": "shiftMonths",
+        "label": "Месяцев",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1,
+        "help": "Целое неотрицательное число; пустое поле означает 0. Направление выбирается отдельно.",
+        "optional": true,
+        "max": 9007199254740991
+      },
+      "defaults": {
+        "startDate": "2026-01-01",
+        "shiftDirection": "forward",
+        "shiftYears": 0,
+        "shiftMonths": 0,
+        "shiftWeeks": 0,
+        "shiftDays": 90
+      }
+    },
+    {
+      "id": "date-shift-calculator",
+      "field": {
+        "name": "shiftWeeks",
+        "label": "Недель",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1,
+        "help": "Целое неотрицательное число; пустое поле означает 0. Направление выбирается отдельно.",
+        "optional": true,
+        "max": 9007199254740991
+      },
+      "defaults": {
+        "startDate": "2026-01-01",
+        "shiftDirection": "forward",
+        "shiftYears": 0,
+        "shiftMonths": 0,
+        "shiftWeeks": 0,
+        "shiftDays": 90
+      }
+    },
+    {
+      "id": "date-shift-calculator",
+      "field": {
+        "name": "shiftDays",
+        "label": "Дней",
+        "type": "number",
+        "defaultValue": 90,
+        "min": 0,
+        "step": 1,
+        "help": "Целое неотрицательное число; пустое поле означает 0. Направление выбирается отдельно.",
+        "optional": true,
+        "max": 9007199254740991
+      },
+      "defaults": {
+        "startDate": "2026-01-01",
+        "shiftDirection": "forward",
+        "shiftYears": 0,
+        "shiftMonths": 0,
+        "shiftWeeks": 0,
+        "shiftDays": 90
+      }
+    },
+    {
+      "id": "bike-gear-ratio",
+      "field": {
+        "name": "wheelCircumference",
+        "label": "Длина окружности колеса",
+        "type": "number",
+        "unit": "м",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 0.01,
+        "optional": true
+      },
+      "defaults": {
+        "chainring": 50,
+        "sprocket": 25,
+        "wheelCircumference": 0
+      }
+    },
+    {
+      "id": "board-volume",
+      "field": {
+        "name": "pricePerM3",
+        "label": "Цена за кубометр",
+        "type": "number",
+        "unit": "₽/м³",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 100,
+        "optional": true
+      },
+      "defaults": {
+        "length": 6,
+        "width": 150,
+        "thickness": 25,
+        "count": 50,
+        "pricePerM3": 0
+      }
+    },
+    {
+      "id": "cac",
+      "field": {
+        "name": "ltv",
+        "label": "Пожизненная выручка с клиента",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "optional": true,
+        "unit": "₽"
+      },
+      "defaults": {
+        "spend": 100000,
+        "customers": 50,
+        "ltv": 0
+      }
+    },
+    {
+      "id": "contribution-margin",
+      "field": {
+        "name": "volume",
+        "label": "Объём, единиц",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "optional": true
+      },
+      "defaults": {
+        "price": 500,
+        "variable": 300,
+        "volume": 0
+      }
+    },
+    {
+      "id": "conversion-rate",
+      "field": {
+        "name": "cost",
+        "label": "Бюджет за период",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1000,
+        "optional": true,
+        "unit": "₽"
+      },
+      "defaults": {
+        "visitors": 8000,
+        "conversions": 240,
+        "cost": 0
+      }
+    },
+    {
+      "id": "cpc",
+      "field": {
+        "name": "impressions",
+        "label": "Показы, 0 если неизвестны",
+        "type": "number",
+        "defaultValue": 92000,
+        "min": 0,
+        "step": 1,
+        "max": 9007199254740991,
+        "optional": true
+      },
+      "defaults": {
+        "cost": 36000,
+        "clicks": 1450,
+        "impressions": 92000
+      }
+    },
+    {
+      "id": "ctr",
+      "field": {
+        "name": "cost",
+        "label": "Расход кампании",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "step": 100,
+        "optional": true
+      },
+      "defaults": {
+        "clicks": 1250,
+        "impressions": 84000,
+        "cost": 0
+      }
+    },
+    {
+      "id": "currency-exchange-fee",
+      "field": {
+        "name": "feeFixed",
+        "label": "Фиксированный сбор",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 10,
+        "optional": true
+      },
+      "defaults": {
+        "direction": "sell",
+        "amount": 1000,
+        "rate": 92.5,
+        "spreadPct": 0.5,
+        "feePct": 1.5,
+        "feeFixed": 0
+      }
+    },
+    {
+      "id": "dividend-yield",
+      "field": {
+        "name": "shares",
+        "label": "Число акций",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1,
+        "optional": true
+      },
+      "defaults": {
+        "dividend": 12,
+        "price": 200,
+        "shares": 0
+      }
+    },
+    {
+      "id": "early-repayment",
+      "field": {
+        "name": "extra",
+        "label": "Доплата в месяц",
+        "type": "number",
+        "defaultValue": 10000,
+        "min": 0,
+        "step": 1000,
+        "unit": "₽",
+        "optional": true
+      },
+      "defaults": {
+        "amount": 3000000,
+        "rate": 18,
+        "years": 20,
+        "extra": 10000
+      }
+    },
+    {
+      "id": "electricity-usage",
+      "field": {
+        "name": "tariff",
+        "label": "Тариф за кВт·ч",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "step": 0.1,
+        "optional": true
+      },
+      "defaults": {
+        "power": 2000,
+        "powerUnit": "w",
+        "hoursPerDay": 3,
+        "days": 30,
+        "tariff": 0
+      }
+    },
+    {
+      "id": "fee-chain",
+      "field": {
+        "name": "storage",
+        "label": "Хранение за отправление",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1,
+        "optional": true,
+        "unit": "₽"
+      },
+      "defaults": {
+        "price": 2000,
+        "commissionPct": 17,
+        "acquiringPct": 1.5,
+        "logistics": 55,
+        "storage": 0,
+        "cost": 900
+      }
+    },
+    {
+      "id": "freelance-rate",
+      "field": {
+        "name": "expenses",
+        "label": "Расходы на работу в месяц",
+        "unit": "₽",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1000,
+        "optional": true
+      },
+      "defaults": {
+        "targetIncome": 150000,
+        "workDays": 21,
+        "hoursPerDay": 6,
+        "billablePct": 70,
+        "expenses": 0,
+        "taxPct": 6
+      }
+    },
+    {
+      "id": "generator-fuel",
+      "field": {
+        "name": "price",
+        "label": "Цена топлива за литр",
+        "type": "number",
+        "unit": "₽",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1,
+        "optional": true
+      },
+      "defaults": {
+        "load": 5,
+        "sfc": 0.3,
+        "hours": 8,
+        "price": 0
+      }
+    },
+    {
+      "id": "hydrostatic-pressure",
+      "field": {
+        "name": "p0",
+        "label": "Внешнее давление",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1000,
+        "optional": true,
+        "unit": "Па"
+      },
+      "defaults": {
+        "density": 1000,
+        "depth": 10,
+        "p0": 0
+      }
+    },
+    {
+      "id": "installment",
+      "field": {
+        "name": "down",
+        "label": "Первоначальный взнос",
+        "type": "number",
+        "defaultValue": 10000,
+        "min": 0,
+        "step": 1000,
+        "unit": "₽",
+        "optional": true
+      },
+      "defaults": {
+        "price": 60000,
+        "down": 10000,
+        "months": 6,
+        "markup": 12
+      }
+    },
+    {
+      "id": "internet-traffic",
+      "field": {
+        "name": "quotaGb",
+        "label": "Лимит оператора",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 10,
+        "optional": true,
+        "unit": "ГБ"
+      },
+      "defaults": {
+        "mbps": 5,
+        "hoursPerDay": 3,
+        "days": 30,
+        "quotaGb": 0
+      }
+    },
+    {
+      "id": "lease-payment",
+      "field": {
+        "name": "down",
+        "label": "Аванс",
+        "type": "number",
+        "defaultValue": 400000,
+        "min": 0,
+        "step": 50000,
+        "unit": "₽",
+        "optional": true
+      },
+      "defaults": {
+        "price": 2000000,
+        "down": 400000,
+        "residualPct": 40,
+        "months": 36,
+        "rate": 12
+      }
+    },
+    {
+      "id": "ltv",
+      "field": {
+        "name": "cac",
+        "label": "Стоимость привлечения",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "step": 500,
+        "optional": true
+      },
+      "defaults": {
+        "mode": "months",
+        "arpu": 1200,
+        "months": 18,
+        "churn": 5,
+        "margin": 100,
+        "cac": 0
+      }
+    },
+    {
+      "id": "network-bandwidth",
+      "field": {
+        "name": "overhead",
+        "label": "Запас",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 5,
+        "optional": true,
+        "unit": "%"
+      },
+      "defaults": {
+        "users": 50,
+        "perUser": 5,
+        "overhead": 0,
+        "concurrency": 100
+      }
+    },
+    {
+      "id": "power-to-weight",
+      "field": {
+        "name": "payload",
+        "label": "Дополнительная нагрузка, кг",
+        "type": "number",
+        "unit": "кг",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 10,
+        "optional": true
+      },
+      "defaults": {
+        "power": 150,
+        "powerUnit": "ps",
+        "mass": 1400,
+        "payload": 0
+      }
+    },
+    {
+      "id": "print-3d-cost",
+      "field": {
+        "name": "wearPerHour",
+        "label": "Амортизация за час",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1,
+        "optional": true,
+        "unit": "₽/ч"
+      },
+      "defaults": {
+        "grams": 85,
+        "spoolPrice": 1800,
+        "spoolWeight": 1000,
+        "hours": 6.5,
+        "powerW": 120,
+        "kwhPrice": 5.5,
+        "wearPerHour": 0,
+        "markupPct": 0
+      }
+    },
+    {
+      "id": "print-3d-cost",
+      "field": {
+        "name": "markupPct",
+        "label": "Наценка",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1,
+        "optional": true,
+        "unit": "%"
+      },
+      "defaults": {
+        "grams": 85,
+        "spoolPrice": 1800,
+        "spoolWeight": 1000,
+        "hours": 6.5,
+        "powerW": 120,
+        "kwhPrice": 5.5,
+        "wearPerHour": 0,
+        "markupPct": 0
+      }
+    },
+    {
+      "id": "ratio",
+      "field": {
+        "name": "total",
+        "label": "Сумма для разбиения",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 100,
+        "optional": true
+      },
+      "defaults": {
+        "parts": "2 3 5",
+        "total": 0
+      }
+    },
+    {
+      "id": "reading-speed",
+      "field": {
+        "name": "bookWords",
+        "label": "Слов в книге",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1000,
+        "optional": true
+      },
+      "defaults": {
+        "words": 3000,
+        "minutes": 12,
+        "bookWords": 0
+      }
+    },
+    {
+      "id": "real-return",
+      "field": {
+        "name": "amount",
+        "label": "Сумма",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "step": 10000,
+        "optional": true
+      },
+      "defaults": {
+        "nominal": 12,
+        "inflation": 7,
+        "amount": 0,
+        "years": 1
+      }
+    },
+    {
+      "id": "refinancing",
+      "field": {
+        "name": "fee",
+        "label": "Расходы на сделку",
+        "type": "number",
+        "defaultValue": 30000,
+        "min": 0,
+        "step": 1000,
+        "unit": "₽",
+        "optional": true
+      },
+      "defaults": {
+        "balance": 2000000,
+        "oldRate": 14,
+        "oldMonths": 120,
+        "newRate": 10,
+        "newMonths": 120,
+        "fee": 30000
+      }
+    },
+    {
+      "id": "rental-yield",
+      "field": {
+        "name": "annualCosts",
+        "label": "Годовые расходы",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1000,
+        "optional": true,
+        "unit": "₽"
+      },
+      "defaults": {
+        "price": 10000000,
+        "rentMode": "annual",
+        "annualRent": 600000,
+        "monthlyRent": 50000,
+        "annualCosts": 0
+      }
+    },
+    {
+      "id": "risk-reward",
+      "field": {
+        "name": "qty",
+        "label": "Объём, единиц",
+        "type": "number",
+        "defaultValue": 100,
+        "min": 0,
+        "step": 0.1,
+        "optional": true
+      },
+      "defaults": {
+        "direction": "long",
+        "entry": 250,
+        "stop": 240,
+        "target": 280,
+        "qty": 100
+      }
+    },
+    {
+      "id": "roi",
+      "field": {
+        "name": "extra",
+        "label": "Дополнительные затраты",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "optional": true
+      },
+      "defaults": {
+        "received": 130000,
+        "invested": 100000,
+        "extra": 0
+      }
+    },
+    {
+      "id": "rule-of-72",
+      "field": {
+        "name": "amount",
+        "label": "Начальная сумма",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "step": 1000,
+        "optional": true
+      },
+      "defaults": {
+        "rate": 8,
+        "amount": 0
+      }
+    },
+    {
+      "id": "savings-goal",
+      "field": {
+        "name": "initial",
+        "label": "Уже накоплено",
+        "type": "number",
+        "defaultValue": 100000,
+        "min": 0,
+        "step": 10000,
+        "unit": "₽",
+        "optional": true
+      },
+      "defaults": {
+        "mode": "payment",
+        "goal": 1000000,
+        "initial": 100000,
+        "rate": 8,
+        "years": 5,
+        "monthly": 15000
+      }
+    },
+    {
+      "id": "shipping-per-unit",
+      "field": {
+        "name": "packaging",
+        "label": "Стоимость упаковки",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "optional": true
+      },
+      "defaults": {
+        "shipping": 1500,
+        "units": 25,
+        "packaging": 0
+      }
+    },
+    {
+      "id": "stock-duration",
+      "field": {
+        "name": "reserveDays",
+        "label": "Страховой запас",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 1,
+        "optional": true,
+        "unit": "дней"
+      },
+      "defaults": {
+        "stock": 30,
+        "perDay": 2,
+        "reserveDays": 0
+      }
+    },
+    {
+      "id": "test-score-percent",
+      "field": {
+        "name": "passMark",
+        "label": "Проходной балл, %",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "optional": true
+      },
+      "defaults": {
+        "correct": 18,
+        "total": 20,
+        "passMark": 0
+      }
+    },
+    {
+      "id": "trip-budget",
+      "field": {
+        "name": "other",
+        "label": "Прочие расходы",
+        "type": "number",
+        "defaultValue": 0,
+        "min": 0,
+        "step": 100,
+        "optional": true,
+        "unit": "₽"
+      },
+      "defaults": {
+        "nights": 4,
+        "days": 5,
+        "people": 2,
+        "hotelPerNight": 3500,
+        "foodPerDayPerPerson": 1200,
+        "transport": 12000,
+        "activities": 5000,
+        "other": 0
+      }
+    },
+    {
+      "id": "trip-cost",
+      "field": {
+        "name": "tolls",
+        "label": "Платные дороги",
+        "type": "number",
+        "defaultValue": 0,
+        "unit": "₽",
+        "min": 0,
+        "step": 100,
+        "optional": true
+      },
+      "defaults": {
+        "distance": 800,
+        "consumption": 7.5,
+        "fuelPrice": 62,
+        "tolls": 0,
+        "passengers": 1,
+        "roundTrip": "no"
+      }
+    }
+  ]
+}

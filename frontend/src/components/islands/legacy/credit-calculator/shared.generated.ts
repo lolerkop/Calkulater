@@ -28,6 +28,9 @@ export const shared: CalculatorLocalization = {
       'Сокращение срока': 'Term reduction',
     },
     values: {
+      'Выберите допустимый режим расчёта.': 'Choose a supported calculation mode.',
+      'Срок должен составлять от 1 до 1200 целых месяцев.': 'The term must be between 1 and 1200 whole months.',
+      'Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.': 'The calculation exceeds numerical precision. Reduce the amount, rate or term.',
       'Показан размер первого (наибольшего) платежа. Далее платёж снижается.': 'The first and largest payment is shown. Later payments gradually decrease.',
       'Показан размер первого (наибольшего) платежа.': 'The first and largest payment is shown.',
       'Показаны первые 12 месяцев и последний платеж.': 'The first 12 months and the final payment are shown.',
@@ -57,6 +60,9 @@ export const shared: CalculatorLocalization = {
       'Сокращение срока': 'Скорочення строку',
     },
     values: {
+      'Выберите допустимый режим расчёта.': 'Оберіть допустимий режим розрахунку.',
+      'Срок должен составлять от 1 до 1200 целых месяцев.': 'Строк має становити від 1 до 1200 цілих місяців.',
+      'Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.': 'Розрахунок виходить за межі числової точності. Зменште суму, ставку або строк.',
       'Показан размер первого (наибольшего) платежа. Далее платёж снижается.': 'Показано перший і найбільший платіж. Наступні платежі поступово зменшуються.',
       'Показан размер первого (наибольшего) платежа.': 'Показано перший і найбільший платіж.',
       'Показаны первые 12 месяцев и последний платеж.': 'Показано перші 12 місяців і останній платіж.',
@@ -86,6 +92,9 @@ export const shared: CalculatorLocalization = {
       'Сокращение срока': 'Verkürzung der Laufzeit',
     },
     values: {
+      'Выберите допустимый режим расчёта.': 'Wähle eine unterstützte Rechenart.',
+      'Срок должен составлять от 1 до 1200 целых месяцев.': 'Die Laufzeit muss zwischen 1 und 1200 ganzen Monaten liegen.',
+      'Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.': 'Die Berechnung überschreitet die Zahlengenauigkeit. Verringere Betrag, Zinssatz oder Laufzeit.',
       'Показан размер первого (наибольшего) платежа. Далее платёж снижается.': 'Gezeigt ist die erste und höchste Rate. Danach sinkt die Rate allmählich.',
       'Показан размер первого (наибольшего) платежа.': 'Gezeigt ist die erste und höchste Rate.',
       'Показаны первые 12 месяцев и последний платеж.': 'Gezeigt sind die ersten 12 Monate und die letzte Rate.',
@@ -97,7 +106,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Ежемесячный платеж': 'Cuota mensual',
       'Общая сумма выплат': 'Total a devolver',
-      'Переплата': 'Intereses totales',
+      'Переплата': 'Coste adicional',
       'Сумма процентов': 'Total de intereses',
       'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
@@ -116,6 +125,9 @@ export const shared: CalculatorLocalization = {
       'Сокращение срока': 'Reducción del plazo',
     },
     values: {
+      'Выберите допустимый режим расчёта.': 'Elige un modo de cálculo válido.',
+      'Срок должен составлять от 1 до 1200 целых месяцев.': 'El plazo debe ser de entre 1 y 1200 meses completos.',
+      'Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.': 'El cálculo supera la precisión numérica. Reduce el importe, el tipo o el plazo.',
       'Показан размер первого (наибольшего) платежа. Далее платёж снижается.': 'Se muestra el importe de la primera cuota, la mayor. Después la cuota va bajando.',
       'Показан размер первого (наибольшего) платежа.': 'Se muestra el importe de la primera cuota, la mayor.',
       'Показаны первые 12 месяцев и последний платеж.': 'Se muestran los 12 primeros meses y la última cuota.',

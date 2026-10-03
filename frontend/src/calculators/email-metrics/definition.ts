@@ -1,5 +1,8 @@
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
+import { contextualField } from './contextualField';
+import { validate } from './validate';
+import { contractContent } from './contractContent';
 import { emailMetricsCopyEn } from './copy.en';
 import { emailMetricsCopyUk } from './copy.uk';
 import { emailMetricsCopyDe } from './copy.de';
@@ -11,6 +14,8 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  contextualField,
+  validate,
   copy: { en: emailMetricsCopyEn, uk: emailMetricsCopyUk, de: emailMetricsCopyDe, es: emailMetricsCopyEs },
   referenceCases: emailMetricsReferenceCases,
   publishedExample: {
@@ -18,61 +23,73 @@ export const definition: CalculatorDefinitionV2 = {
     expected: ['97,00%'],
   },
   presentation: {
-    id: 'email-metrics',
-    name: 'Калькулятор метрик email-рассылки',
-    slug: 'email-metrics',
-    fullPath: '/business/email-metrics/',
-    category: 'business',
-    icon: 'mail',
-    popularity: 22,
-    isNew: false,
-    shortDescription: 'Доставляемость, открываемость и кликабельность рассылки.',
-    longDescription:
-      'Знаменатели здесь выбраны осознанно, и они не одинаковые. Открываемость и кликабельность делятся на доставленные письма, а не на отправленные: письмо, не дошедшее до ящика, не имело шанса быть открытым, и учёт его в знаменателе наказывал бы текст за работу почтового сервера. Отношение кликов к открытиям делится уже на открытия и отвечает на по-настоящему другой вопрос — насколько письмо убеждает того, кто его уже читает. У кампании может быть слабая кликабельность и отличное отношение кликов к открытиям, и такое сочетание указывает на тему письма, а не на его содержание.',
-    seoTitle: 'Калькулятор метрик email-рассылки: открытия и клики',
-    seoDescription:
-      'Рассчитайте доставляемость, открываемость, кликабельность и отношение кликов к открытиям по числу отправленных, доставленных и открытых писем.',
-    h1: 'Калькулятор метрик email-рассылки',
-    keywords: ['метрики email', 'открываемость рассылки', 'кликабельность письма', 'доставляемость'],
-    fields: [
-      { name: 'sent', label: 'Отправлено писем', type: 'number', defaultValue: 12000, min: 0, step: 100 },
-      { name: 'delivered', label: 'Доставлено', type: 'number', defaultValue: 11640, min: 0, step: 100 },
-      { name: 'opened', label: 'Открыто', type: 'number', defaultValue: 3025, min: 0, step: 100 },
-      { name: 'clicked', label: 'Кликов', type: 'number', defaultValue: 412, min: 0, step: 10 },
+    "id": "email-metrics",
+    "name": "Калькулятор метрик email-рассылки",
+    "slug": "email-metrics",
+    "fullPath": "/business/email-metrics/",
+    "category": "business",
+    "icon": "mail",
+    "popularity": 22,
+    "isNew": false,
+    "shortDescription": "Доставляемость, открываемость и кликабельность рассылки.",
+    "seoTitle": "Калькулятор метрик email-рассылки: открытия и клики",
+    "seoDescription": "Рассчитайте доставляемость, открываемость, кликабельность и отношение кликов к открытиям по числу отправленных, доставленных и открытых писем.",
+    "h1": "Калькулятор метрик email-рассылки",
+    "keywords": [
+        "метрики email",
+        "открываемость рассылки",
+        "кликабельность письма",
+        "доставляемость"
     ],
-    resultLabels: {
-      delivery: 'Доставляемость',
-      open: 'Открываемость',
-      click: 'Кликабельность',
-      ctor: 'Кликов на открытие',
+    "fields": [
+        {
+            "name": "sent",
+            "label": "Отправлено писем",
+            "type": "number",
+            "defaultValue": 12000,
+            "min": 0,
+            "step": 1,
+            "max": 9007199254740991
+        },
+        {
+            "name": "delivered",
+            "label": "Доставлено",
+            "type": "number",
+            "defaultValue": 11640,
+            "min": 0,
+            "step": 1,
+            "max": 9007199254740991
+        },
+        {
+            "name": "opened",
+            "label": "Письма с открытием, уникальные",
+            "type": "number",
+            "defaultValue": 3025,
+            "min": 0,
+            "step": 1,
+            "max": 9007199254740991
+        },
+        {
+            "name": "clicked",
+            "label": "Письма с кликом, уникальные",
+            "type": "number",
+            "defaultValue": 412,
+            "min": 0,
+            "step": 1,
+            "max": 9007199254740991
+        }
+    ],
+    "resultLabels": {
+        "delivery": "Доставляемость",
+        "open": "Открываемость",
+        "click": "Кликабельность",
+        "ctor": "Кликов на открытие"
     },
-    howToUse: [
-      'Введите, сколько писем было отправлено.',
-      'Укажите, сколько из них действительно доставлено.',
-      'Укажите число открытий и число кликов.',
-      'Воронка обязана сужаться: каждое число не больше предыдущего.',
-    ],
-    howItWorks:
-      'Доставляемость — доставлено ÷ отправлено. Открываемость и кликабельность делятся на доставленные. Отношение кликов к открытиям делит клики на открытия.',
-    example: 'Из 12 000 отправленных 11 640 доставлено, 3 025 открыто и 412 кликов — доставляемость 97 %, открываемость 25,99 %.',
-    faq: [
-      {
-        q: 'Почему открываемость делится на доставленные, а не на отправленные?',
-        a: 'Потому что недоставленное письмо открыть невозможно. Деление на отправленные подмешивает в метрику качество базы, тогда как измерять она должна тему письма.',
-      },
-      {
-        q: 'Чем кликабельность отличается от отношения кликов к открытиям?',
-        a: 'Кликабельность считает клики среди всех получивших письмо, а отношение кликов к открытиям — среди тех, кто его открыл. Высокое второе при низком первом указывает на тему, а не на содержание.',
-      },
-      {
-        q: 'Насколько сегодня надёжна открываемость?',
-        a: 'Менее надёжна, чем прежде. Средства защиты приватности подгружают отслеживающий пиксель заранее и завышают открытия, поэтому динамика во времени говорит куда больше абсолютного значения.',
-      },
-      {
-        q: 'Почему у меня следующий шаг воронки больше предыдущего?',
-        a: 'Это ошибка выгрузки, а не необычная кампания. Открытий не бывает больше доставок, а кликов больше открытий; переворот обычно означает, что числа взяты за разные периоды.',
-      },
-    ],
-    relatedCalculatorIds: ['conversion-rate', 'ctr', 'engagement-rate'],
+    "relatedCalculatorIds": [
+        "conversion-rate",
+        "ctr",
+        "engagement-rate"
+    ] ,
+    ...contractContent.ru,
   },
 };

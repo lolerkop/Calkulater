@@ -1,12 +1,13 @@
+import { addBuildingWave16Messages } from '../rafters/buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'shape': 'Form des Behälters',
-      'd': 'Durchmesser oder Seite, m',
-      'len': 'Höhe oder Länge, m',
-      'level': 'Füllstand, m',
+      'd': "Durchmesser oder Seite",
+      'len': "Höhe oder Länge",
+      'level': "Füllstand",
     },
     options: {
       'vertical-cylinder': 'stehender Zylinder',
@@ -34,8 +35,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      shape: 'Tank shape', d: 'Diameter or side, m', len: 'Height or length, m',
-      level: 'Liquid level, m',
+      shape: 'Tank shape', d: "Diameter or side", len: "Height or length",
+      level: "Liquid level",
     },
     options: {
       'vertical-cylinder': 'vertical cylinder', 'horizontal-cylinder': 'horizontal tank',
@@ -56,8 +57,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      shape: 'Форма ємності', d: 'Діаметр або сторона, м', len: 'Висота або довжина, м',
-      level: 'Рівень рідини, м',
+      shape: 'Форма ємності', d: "Діаметр або сторона", len: "Висота або довжина",
+      level: "Рівень рідини",
     },
     options: {
       'vertical-cylinder': 'вертикальний циліндр', 'horizontal-cylinder': 'горизонтальна цистерна',
@@ -79,9 +80,9 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "shape": "Forma del depósito",
-      "d": "Diámetro o lado, m",
-      "len": "Altura o longitud, m",
-      "level": "Nivel del líquido, m",
+      "d": "Diámetro o lado",
+      "len": "Altura o longitud",
+      "level": "Nivel del líquido",
     },
     options: {
       "vertical-cylinder": "cilindro vertical",
@@ -108,3 +109,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

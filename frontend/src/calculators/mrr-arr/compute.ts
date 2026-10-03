@@ -1,40 +1,18 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { integer, money, number, text, validOutput } from './numeric';
 
-// Регулярная выручка подписки.
-//
-// ARR здесь — это MRR×12, то есть текущий темп в годовом выражении, а НЕ
-// прогноз выручки за год. Разница существенна: при растущей базе фактический
-// год окажется больше, при падающей меньше, и подставлять ARR в план как
-// ожидаемые деньги нельзя.
-//
-// Рост — редактируемое допущение, а не предсказание, поэтому показан всего один
-// месяц вперёд. Возводить процент в двенадцатую степень и выдавать результат за
-// годовую выручку значило бы продать посетителю уверенность, которой нет.
-
+// ARR annualizes current recurring revenue. The editable growth assumption
+// projects only next month's revenue at unchanged average monthly billing.
 export const compute: CalcFunction = (inputs) => {
-  const subscribers = toNumber(inputs.subscribers);
-  const arpu = toNumber(inputs.arpuMonth);
-  const growth = toNumber(inputs.growthPct) / 100;
-  const fail = (message: string) => ({
-    primary: { label: 'MRR', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+  const subscribers = integer(inputs.subscribers), arpu = number(inputs.arpuMonth), growthPct = number(inputs.growthPct);
+  const fail = (message: string) => ({ primary: { label: 'MRR', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (subscribers === null || !Number.isSafeInteger(subscribers)) return fail('Количество должно быть целым в допустимом диапазоне');
   if (!(subscribers > 0)) return fail('Число подписчиков должно быть больше нуля');
+  if (arpu === null || growthPct === null) return fail('Введите корректные числовые данные');
   if (!(arpu > 0)) return fail('Средний доход с подписчика должен быть больше нуля');
-  if (1 + growth < 0) return fail('Падение выручки не может превышать ста процентов');
-
-  const mrr = subscribers * arpu;
-  const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
-
-  return {
-    primary: { label: 'MRR', value: money(mrr) },
-    secondary: [
-      { label: 'ARR', value: money(mrr * 12) },
-      { label: 'MRR через месяц', value: money(mrr * (1 + growth)) },
-      { label: 'Прирост за месяц', value: money(mrr * growth) },
-      { label: 'Подписчиков', value: fmtNumber(subscribers, 0) },
-    ],
-  };
+  if (growthPct < -100) return fail('Падение выручки не может превышать ста процентов');
+  const mrr = subscribers * arpu, arr = mrr * 12, g = growthPct / 100;
+  const next = mrr * (1 + g), delta = mrr * g;
+  if (!validOutput(mrr, true) || !validOutput(arr, true) || !validOutput(next, growthPct > -100) || !validOutput(delta) || (growthPct !== 0 && delta === 0)) return fail('Результат вне допустимого диапазона');
+  return { primary: { label: 'MRR', value: money(mrr) }, secondary: [ { label: 'ARR', value: money(arr) }, { label: 'MRR через месяц', value: money(next) }, { label: 'Прирост за месяц', value: money(delta) }, { label: 'Подписчиков', value: text(subscribers, 0) } ] };
 };

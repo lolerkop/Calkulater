@@ -17,11 +17,34 @@ const RESULTS_UK = {
   'Проверьте данные': 'Перевірте дані',
 };
 
+const contractValues = {
+  "en": {
+    "Количество должно быть целым в допустимом диапазоне": "The count must be a whole number within the supported range",
+    "Введите корректные значения": "Enter valid numerical values",
+    "Результат выходит за числовые пределы расчёта": "The result exceeds the numerical limits of this calculation"
+  },
+  "uk": {
+    "Количество должно быть целым в допустимом диапазоне": "Кількість має бути цілим числом у допустимому діапазоні",
+    "Введите корректные значения": "Введіть коректні числові значення",
+    "Результат выходит за числовые пределы расчёта": "Результат виходить за числові межі розрахунку"
+  },
+  "de": {
+    "Количество должно быть целым в допустимом диапазоне": "Die Anzahl muss eine ganze Zahl im zulässigen Bereich sein",
+    "Введите корректные значения": "Gib gültige Zahlenwerte ein",
+    "Результат выходит за числовые пределы расчёта": "Das Ergebnis überschreitet die Zahlengrenzen dieser Rechnung"
+  },
+  "es": {
+    "Количество должно быть целым в допустимом диапазоне": "La cantidad debe ser un entero dentro del intervalo permitido",
+    "Введите корректные значения": "Introduce valores numéricos válidos",
+    "Результат выходит за числовые пределы расчёта": "El resultado supera los límites numéricos del cálculo"
+  }
+} as const;
+
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'cost': 'Anschaffungswert, €',
-      'salvage': 'Restwert, €',
+      'cost': 'Anschaffungswert',
+      'salvage': 'Restwert',
       'life': 'Nutzungsdauer, Jahre',
       'method': 'Verfahren',
       'year': 'Anzuzeigendes Jahr',
@@ -44,6 +67,8 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Выберите корректный режим расчёта": "Wählen Sie einen gültigen Berechnungsmodus",
+      ...contractValues.de,
       'Стоимость должна быть больше нуля': 'Der Anschaffungswert muss größer als null sein',
       'Ликвидационная стоимость не может быть отрицательной': 'Der Restwert kann nicht negativ sein',
       'Ликвидационная стоимость должна быть меньше первоначальной': 'Der Restwert muss unter dem Anschaffungswert liegen',
@@ -54,12 +79,14 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      cost: 'Initial cost, ₽', salvage: 'Salvage value, ₽', life: 'Useful life, years',
+      cost: 'Initial cost', salvage: 'Salvage value', life: 'Useful life, years',
       method: 'Method', year: 'Year to show',
     },
     options: { straight: 'straight line', ddb: 'double declining balance', syd: 'sum of years digits' },
     results: RESULTS_EN,
     values: {
+      "Выберите корректный режим расчёта": "Choose a valid calculation mode",
+      ...contractValues.en,
       'Стоимость должна быть больше нуля': 'The cost must be greater than zero',
       'Ликвидационная стоимость не может быть отрицательной': 'The salvage value cannot be negative',
       'Ликвидационная стоимость должна быть меньше первоначальной': 'The salvage value must be lower than the initial cost',
@@ -70,12 +97,14 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      cost: 'Первісна вартість, ₽', salvage: 'Ліквідаційна вартість, ₽', life: 'Строк служби, років',
+      cost: 'Первісна вартість', salvage: 'Ліквідаційна вартість', life: 'Строк служби, років',
       method: 'Метод', year: 'Рік розрахунку',
     },
     options: { straight: 'прямолінійний', ddb: 'подвійний спадний залишок', syd: 'сума чисел років' },
     results: RESULTS_UK,
     values: {
+      "Выберите корректный режим расчёта": "Виберіть коректний режим розрахунку",
+      ...contractValues.uk,
       'Стоимость должна быть больше нуля': 'Вартість має бути більшою за нуль',
       'Ликвидационная стоимость не может быть отрицательной': 'Ліквідаційна вартість не може бути від’ємною',
       'Ликвидационная стоимость должна быть меньше первоначальной': 'Ліквідаційна вартість має бути меншою за первісну',
@@ -86,8 +115,8 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "cost": "Coste inicial, €",
-      "salvage": "Valor residual, €",
+      "cost": "Coste inicial",
+      "salvage": "Valor residual",
       "life": "Vida útil, años",
       "method": "Método",
       "year": "Año a mostrar",
@@ -110,6 +139,8 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Выберите корректный режим расчёта": "Seleccione un modo de cálculo válido",
+      ...contractValues.es,
       "Стоимость должна быть больше нуля": "El coste debe ser mayor que cero",
       "Ликвидационная стоимость не может быть отрицательной": "El valor residual no puede ser negativo",
       "Ликвидационная стоимость должна быть меньше первоначальной": "El valor residual debe ser menor que el coste inicial",

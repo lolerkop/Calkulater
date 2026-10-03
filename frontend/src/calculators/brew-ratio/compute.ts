@@ -1,18 +1,10 @@
+import { choice } from '../../lib/platform/financeWave14Input';
+import { number as toNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
 
-// Заварка кофе по соотношению вода : кофе.
-//
-//   вода = кофе × k        кофе = вода / k        k = вода / кофе
-//
-// Соотношение записывается как 1:k и означает граммы кофе на миллилитры воды.
-// Миллилитр воды принимается за грамм — при температуре заварки расхождение
-// меньше трёх процентов и меньше погрешности бытовых весов.
-//
-// Отличие от пересчёта рецепта: там масштабируется ВЕСЬ список ингредиентов по
-// числу порций, здесь решается одно уравнение с двумя величинами, и решать
-// можно в любую сторону, включая поиск самого соотношения по уже сваренной чашке.
+// Volume-input convention: water in mL = coffee in g × k, not beverage yield.
 const MODE_LABEL: Record<string, string> = {
   coffee: 'Кофе',
   water: 'Вода',
@@ -20,17 +12,19 @@ const MODE_LABEL: Record<string, string> = {
 };
 
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'coffee');
-  const water = toNumber(inputs.water);
-  const coffee = toNumber(inputs.coffee);
-  const ratio = toNumber(inputs.ratio);
-  const label = MODE_LABEL[mode] ?? MODE_LABEL.coffee;
+  const mode = choice(inputs.mode, ['coffee', 'water', 'ratio'] as const, 'coffee');
+  const water = mode === 'water' ? 0 : toNumber(inputs.water);
+  const coffee = mode === 'coffee' ? 0 : toNumber(inputs.coffee);
+  const ratio = mode === 'ratio' ? 1 : toNumber(inputs.ratio);
+  const label = MODE_LABEL[mode ?? 'coffee'] ?? MODE_LABEL.coffee;
   const fail = (message: string) => ({
     primary: { label, value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
   const m = (value: number) => formatMeasure(value, fmtNumber);
 
+  if (mode === null) return fail('Выберите корректный режим расчёта');
+  if (water === null || coffee === null || ratio === null) return fail('Введите корректные числовые данные');
   if (!(ratio > 0) && mode !== 'ratio') return fail('Соотношение должно быть больше нуля');
 
   let outWater: number;
@@ -50,17 +44,21 @@ export const compute: CalcFunction = (inputs) => {
     outCoffee = water / ratio;
   }
 
+  const outRatio = outWater / outCoffee;
+  const capacity = outCoffee * 2;
+  if (![outWater, outCoffee, outRatio, capacity].every(v => validOutput(v, true))) return fail('Результат вне допустимого диапазона');
   const solved = mode === 'ratio'
-    ? `1:${m(outWater / outCoffee)}`
+    ? `1:${m(outRatio)}`
     : mode === 'water' ? `${m(outWater)} мл` : `${m(outCoffee)} г`;
 
   return {
+    note: 'Вода — объём, поданный на заваривание, не выход напитка. Условная ёмкость гущи использует допущение 2 мл/г; фактическое удержание воды не измеряется.',
     primary: { label, value: solved },
     secondary: [
       { label: 'Вода', value: `${m(outWater)} мл` },
       { label: 'Кофе', value: `${m(outCoffee)} г` },
-      { label: 'Соотношение', value: `1:${m(outWater / outCoffee)}` },
-      { label: 'Гуща заберёт воды', value: `${m(outCoffee * 2)} мл` },
+      { label: 'Соотношение', value: `1:${m(outRatio)}` },
+      { label: 'Условная ёмкость гущи', value: `${m(capacity)} мл` },
     ],
   };
 };

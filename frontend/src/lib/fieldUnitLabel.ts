@@ -16,26 +16,33 @@
 
 import type { Field } from './types';
 import type { Locale } from './i18n';
+import { selectedConverterUnitLabel } from './converterFieldUnits';
+import { subjectFieldUnitLabel } from './subjectFieldUnits';
 
 type Копия = { noUnit: string; select: string; date: string; toggle: string };
 
-const КОПИЯ: Record<'ru' | 'uk' | 'en' | 'de', Копия> = {
+const КОПИЯ: Record<'ru' | 'uk' | 'en' | 'de' | 'es', Копия> = {
   ru: { noUnit: 'без единицы', select: 'вариант из списка', date: 'дата', toggle: 'да или нет' },
   uk: { noUnit: 'без одиниці', select: 'варіант зі списку', date: 'дата', toggle: 'так або ні' },
   en: { noUnit: 'unitless', select: 'list option', date: 'date', toggle: 'yes or no' },
   de: { noUnit: 'ohne Einheit', select: 'Auswahl aus der Liste', date: 'Datum', toggle: 'ja oder nein' },
+  es: { noUnit: 'sin unidad', select: 'opción de la lista', date: 'fecha', toggle: 'sí o no' },
 };
 
 /** Варианты переключателя перечисляются через косую черту: «Лет / Месяцев». */
 const РАЗДЕЛИТЕЛЬ = ' / ';
 
 export function fieldUnitCopy(locale: Locale): Копия {
-  return КОПИЯ[locale as 'ru' | 'uk' | 'en' | 'de'] ?? КОПИЯ.en;
+  return КОПИЯ[locale as keyof typeof КОПИЯ] ?? КОПИЯ.en;
 }
 
-export function fieldUnitLabel(field: Field, locale: Locale): string {
+export function fieldUnitLabel(field: Field, locale: Locale, calculatorId?: string): string {
   const copy = fieldUnitCopy(locale);
   if (field.unit) return field.unit;
+  const selectedUnit = calculatorId ? selectedConverterUnitLabel(calculatorId, field, locale) : undefined;
+  if (selectedUnit) return selectedUnit;
+  const subjectUnit = calculatorId ? subjectFieldUnitLabel(calculatorId, field, locale) : undefined;
+  if (subjectUnit) return subjectUnit;
   if (field.type === 'date') return copy.date;
   if (field.type === 'toggle') {
     const варианты = (field.options ?? []).map((option) => option.label.trim()).filter(Boolean);

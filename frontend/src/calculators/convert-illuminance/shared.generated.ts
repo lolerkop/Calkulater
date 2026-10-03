@@ -16,9 +16,6 @@ export const shared: CalculatorLocalization = {
       'Из': 'From',
       'В': 'To',
     },
-    values: {
-      'Норма': 'Healthy range',
-    },
   },
   uk: {
     results: {
@@ -26,9 +23,6 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Результат',
       'Из': 'З',
       'В': 'У',
-    },
-    values: {
-      'Норма': 'Нормальний діапазон',
     },
   },
   de: {
@@ -38,9 +32,6 @@ export const shared: CalculatorLocalization = {
       'Из': 'Von',
       'В': 'Nach',
     },
-    values: {
-      'Норма': 'Normalbereich',
-    },
   },
   es: {
     results: {
@@ -48,9 +39,6 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Resultado',
       'Из': 'De',
       'В': 'A',
-    },
-    values: {
-      'Норма': 'Normal',
     },
   },
 };

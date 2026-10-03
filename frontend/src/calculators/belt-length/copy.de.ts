@@ -1,16 +1,11 @@
-// Немецкий копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла немецкой страницы не существует. Подробный текст живёт в
-// `src/data/deContent/`.
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
-
-export const beltLengthCopyDe: CalculatorSeoCopy = {
-  name: 'Riemenlängenrechner',
-  slug: 'riemenlaenge-rechner',
-  shortDescription: 'Riemenlänge aus Achsabstand und Scheibendurchmessern.',
-  seoTitle: 'Riemenlänge berechnen — aus Achsabstand und Scheiben',
-  seoDescription: 'Berechne die Riemenlänge aus dem Achsabstand und den Durchmessern zweier Scheiben, mit Umschlingungswinkel und Übersetzung.',
-  h1: 'Riemenlängenrechner',
-  keywords: ['Riemenlänge berechnen', 'Riementrieb', 'Achsabstand', 'Umschlingungswinkel', 'Riemenlaenge'],
+export const beltLengthCopyDe: CalculatorCopy = {
+  name: "Riemenlängenrechner",
+  slug: "riemenlaenge-rechner",
+  seoTitle: "Riemenlänge berechnen — aus Achsabstand und Scheiben",
+  h1: "Riemenlängenrechner",
+  keywords: ["Riemenlänge berechnen", "Riementrieb", "Achsabstand", "Umschlingungswinkel", "Riemenlaenge"],
+  ...contractContent.de,
 };

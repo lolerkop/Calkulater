@@ -36,7 +36,7 @@ const pageCopy: Record<Locale, { title: string; description: string; lead: strin
     title: 'Kontakt',
     description: 'Kontakt für Fragen, Rechenfehler und Vorschläge für neue Rechner.',
     lead: 'Schreibe, wenn du einen Rechenfehler gefunden hast, einen neuen Rechner vorschlagen möchtest oder Seitendaten klären willst.',
-    breadcrumbs: 'Breadcrumbs',
+    breadcrumbs: 'Navigationspfad',
   },
   fr: {
     title: 'Contact',
@@ -167,6 +167,19 @@ const contactDetails: Partial<Record<Locale, ContactDetails>> = {
       { id: 'cooperation', title: 'Співпраця', text: 'Запропонуйте новий калькулятор, джерело даних чи співпрацю.' },
     ],
   },
+  de: {
+    channelTitle: 'Kontakt aufnehmen',
+    channelText: 'Beschreibe deine Frage und füge den Link zum Rechner hinzu, wenn es um eine Berechnung geht.',
+    channelAction: 'Supportanfrage öffnen',
+    topicsTitle: 'Wobei wir helfen können',
+    publicChannelNote: 'Der Supportkanal ist öffentlich. Gib dort keine persönlichen oder finanziellen Daten an.',
+    topics: [
+      { id: 'calculation-errors', title: 'Rechenfehler', text: 'Nenne den Rechner, die eingegebenen Werte und das erwartete Ergebnis.' },
+      { id: 'data-questions', title: 'Fragen zu den Daten', text: 'Melde veraltete Zinssätze, Wechselkurse, Formeln oder Quellen.' },
+      { id: 'privacy', title: 'Datenschutz', text: 'Stelle Fragen zur Datenverarbeitung oder zur Datenschutzerklärung.' },
+      { id: 'cooperation', title: 'Zusammenarbeit', text: 'Schlage einen Rechner, eine Datenquelle oder eine Zusammenarbeit vor.' },
+    ],
+  },
   es: {
     channelTitle: 'Cómo contactar',
     channelText: 'Describe la consulta e incluye la URL de la calculadora cuando se refiera a un cálculo.',
@@ -200,8 +213,9 @@ const privacyCopy = {
   ru: { action: 'Написать по вопросам приватности', unavailable: 'Отдельный приватный email пока не настроен. Публичный канал поддержки не используйте для чувствительных данных.' },
   en: { action: 'Contact us about privacy', unavailable: 'A private privacy email is not configured yet. Do not use the public support channel for sensitive information.' },
   uk: { action: 'Написати з питань приватності', unavailable: 'Окрему приватну email-адресу ще не налаштовано. Не використовуйте публічну підтримку для чутливих даних.' },
+  de: { action: 'Bei Datenschutzfragen schreiben', unavailable: 'Eine private E-Mail-Adresse für Datenschutzanfragen ist noch nicht eingerichtet. Nutze den öffentlichen Supportkanal nicht für sensible Angaben.' },
   es: { action: 'Escribir sobre privacidad', unavailable: 'Todavía no hay una dirección de correo específica para privacidad. No uses el canal público de soporte para datos sensibles.' },
-}[locale === 'ru' || locale === 'uk' || locale === 'es' ? locale : 'en'];
+}[locale === 'ru' || locale === 'uk' || locale === 'de' || locale === 'es' ? locale : 'en'];
 ---
 
 <Layout title={title} description={description} canonical={path} locale={locale} alternates={alternates} jsonLd={jsonLd}>
@@ -215,7 +229,7 @@ const privacyCopy = {
       <div class="mt-7 max-w-2xl rounded-2xl border border-white/80 bg-white/85 p-5 shadow-sm backdrop-blur">
         <h2 class="text-fit text-lg font-bold text-ink-900">{details.channelTitle}</h2>
         <p class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{details.channelText}</p>
-        <a href={contactHref} class="mt-4 inline-flex max-w-full rounded-xl bg-gradient-to-r from-accent to-sky px-5 py-3 text-center text-fit text-sm font-bold leading-tight text-white shadow-lg transition-transform hover:-translate-y-0.5" data-testid="contact-channel" data-analytics-event="contact_link_clicked">
+        <a href={contactHref} class="mt-4 inline-flex max-w-full rounded-xl bg-accent px-5 py-3 text-center text-fit text-sm font-bold leading-tight text-white shadow-lg transition-transform hover:-translate-y-0.5" data-testid="contact-channel" data-analytics-event="contact_link_clicked">
           {contactLabel}
         </a>
         {!email && <p class="mt-3 text-fit text-xs leading-relaxed text-ink-500">{details.publicChannelNote}</p>}

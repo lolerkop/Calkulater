@@ -1,5 +1,6 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, toNumber } from '../../lib/format';
+import { fmtInt } from '../../lib/format';
+import { integerInput } from '../../lib/platform/strictNumericInput';
 
 // Все делители числа, их количество и сумма.
 //
@@ -15,14 +16,14 @@ const MAX_N = 1e12;
 const SHOWN = 40;
 
 export const compute: CalcFunction = (inputs) => {
-  const n = toNumber(inputs.n);
+  const n = integerInput(inputs.n);
 
   const fail = (message: string) => ({
     primary: { label: 'Делители', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
-  if (!Number.isInteger(n)) return fail('Число должно быть целым');
+  if (n === null) return fail('Число должно быть целым');
   if (n < 1) return fail('Делители считаются для натуральных чисел, начиная с единицы');
   if (n > MAX_N) return fail('Здесь считаются числа до триллиона');
 
@@ -52,5 +53,6 @@ export const compute: CalcFunction = (inputs) => {
   return {
     primary: { label: 'Делители', value: list },
     secondary,
+    note: all.length > SHOWN ? 'Показаны первые 40 делителей; количество и суммы относятся ко всему набору.' : undefined,
   };
 };

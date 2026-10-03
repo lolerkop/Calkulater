@@ -11,34 +11,46 @@ import type { CalculatorLocalization } from '../../lib/platform/types';
 export const shared: CalculatorLocalization = {
   en: {
     results: {
-      'Срок': 'Term',
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
       'Год': 'Year',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Enter finite numeric values.',
     },
   },
   uk: {
     results: {
-      'Срок': 'Строк',
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
       'Год': 'Рік',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Введіть скінченні числові значення.',
     },
   },
   de: {
     results: {
-      'Срок': 'Laufzeit',
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Год': 'Jahr',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Gib endliche Zahlenwerte ein.',
     },
   },
   es: {
     results: {
-      'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
       'Год': 'Año',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Introduce valores numéricos finitos.',
     },
   },
 };

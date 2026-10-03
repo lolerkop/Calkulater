@@ -1,16 +1,15 @@
-// Немецкий копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла немецкой страницы не существует. Подробный текст живёт в
-// `src/data/deContent/`.
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const returnRateCopyDe: CalculatorSeoCopy = {
+export const returnRateCopyDe: CalculatorCopy = {
   name: 'Rechner für die Rücksendequote',
   slug: 'ruecksendequote-rechner',
   shortDescription: 'Welcher Anteil der Bestellungen zurückkam.',
   seoTitle: 'Rücksendequote berechnen — Anteil zurückgeschickter Bestellungen',
-  seoDescription: 'Berechne die Rücksendequote aus zurückgeschickten und gesamten Bestellungen, mit dem von Kunden behaltenen Anteil.',
+  seoDescription: "Berechne eindeutig gezählte Rücksendebestellungen als Anteil einer Kohorte und die Ergänzung auf 100%. Rücksendungen und Nenner müssen zu denselben Bestellungen gehören.",
   h1: 'Rechner für die Rücksendequote',
   keywords: ['Rücksendequote berechnen', 'Retourenquote', 'Anteil Retouren', 'Ruecksendequote'],
+  ...contractContent.de,
 };

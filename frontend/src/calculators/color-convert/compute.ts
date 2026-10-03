@@ -1,5 +1,5 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 
 // Перевод цвета между HEX, RGB и HSL.
 //
@@ -12,12 +12,12 @@ import { fmtNumber, toStr } from '../../lib/format';
 // исходный код.
 //
 // Насыщенность и светлота выводятся с двумя знаками, а тон целым: тон
-// измеряется в градусах круга, и доли градуса на глаз неразличимы.
+// измеряется в градусах. Это выбранное округление результата, не гарантия восприятия.
 
 const HEX = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i;
 
 export const compute: CalcFunction = (inputs) => {
-  const raw = toStr(inputs.hex, '').trim();
+  const raw = typeof inputs.hex === 'string' ? inputs.hex.trim() : '';
   const fail = (message: string) => ({
     primary: { label: 'RGB', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
@@ -55,7 +55,7 @@ export const compute: CalcFunction = (inputs) => {
   return {
     primary: { label: 'RGB', value: `rgb(${r}, ${g}, ${b})` },
     secondary: [
-      { label: 'HSL', value: `hsl(${fmtNumber(Math.round(h), 0)}, ${percent(s)}%, ${percent(l)}%)` },
+      { label: 'HSL', value: `hsl(${Math.round(h)}, ${(s * 100).toFixed(2)}%, ${(l * 100).toFixed(2)}%)` },
       { label: 'HEX', value: `#${digits.toUpperCase()}` },
       { label: 'Яркость', value: percent(l) },
       { label: 'Красный', value: fmtNumber(r, 0) },

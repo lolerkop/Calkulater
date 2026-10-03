@@ -1,3 +1,4 @@
+import { contractContent } from './contractContent';
 import type { CalculatorSeoCopy } from '../../lib/platform/types';
 
 export const readingSpeedCopyUk: CalculatorSeoCopy = {
@@ -8,4 +9,5 @@ export const readingSpeedCopyUk: CalculatorSeoCopy = {
   seoDescription: 'Виміряйте швидкість читання у словах за хвилину та оцініть час на книгу заданого обсягу.',
   h1: 'Калькулятор швидкості читання',
   keywords: ['швидкість читання', 'слів за хвилину', 'калькулятор читання'],
+  ...contractContent.uk
 };

@@ -1,15 +1,16 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'count': 'Zahl der Pfähle',
-      'diameter': 'Durchmesser des Pfahls, m',
-      'depth': 'Tiefe des Pfahls, m',
-      'grillageLength': 'Länge des Rosts, m',
-      'grillageWidth': 'Breite des Rosts, m',
-      'grillageHeight': 'Höhe des Rosts, m',
-      'waste': 'Zuschlag, %',
+      'diameter': "Durchmesser des Pfahls",
+      'depth': "Tiefe des Pfahls",
+      'grillageLength': "Länge des Rosts",
+      'grillageWidth': "Breite des Rosts",
+      'grillageHeight': "Höhe des Rosts",
+      'waste': "Zuschlag",
     },
     results: {
       'Объём бетона': 'Betonvolumen',
@@ -29,7 +30,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { "count": "Number of piles", "diameter": "Pile diameter, m", "depth": "Pile depth, m", "grillageLength": "Grillage length, m", "grillageWidth": "Grillage width, m", "grillageHeight": "Grillage height, m", "waste": "Allowance, %" },
+    fields: { "count": "Number of piles", "diameter": "Pile diameter", "depth": "Pile depth", "grillageLength": "Grillage length", "grillageWidth": "Grillage width", "grillageHeight": "Grillage height", "waste": "Allowance" },
     options: {},
     results: {
       "Объём бетона": "Concrete volume", "Объём свай": "Piles volume", "Объём ростверка": "Grillage volume",
@@ -45,7 +46,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { "count": "Кількість паль", "diameter": "Діаметр палі, м", "depth": "Глибина палі, м", "grillageLength": "Довжина ростверку, м", "grillageWidth": "Ширина ростверку, м", "grillageHeight": "Висота ростверку, м", "waste": "Запас, %" },
+    fields: { "count": "Кількість паль", "diameter": "Діаметр палі", "depth": "Глибина палі", "grillageLength": "Довжина ростверку", "grillageWidth": "Ширина ростверку", "grillageHeight": "Висота ростверку", "waste": "Запас" },
     options: {},
     results: {
       "Объём бетона": "Об’єм бетону", "Объём свай": "Об’єм паль", "Объём ростверка": "Об’єм ростверку",
@@ -63,12 +64,12 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "count": "Número de pilotes",
-      "diameter": "Diámetro del pilote, m",
-      "depth": "Profundidad del pilote, m",
-      "grillageLength": "Longitud del encepado, m",
-      "grillageWidth": "Ancho del encepado, m",
-      "grillageHeight": "Altura del encepado, m",
-      "waste": "Margen, %",
+      "diameter": "Diámetro del pilote",
+      "depth": "Profundidad del pilote",
+      "grillageLength": "Longitud del encepado",
+      "grillageWidth": "Ancho del encepado",
+      "grillageHeight": "Altura del encepado",
+      "waste": "Margen",
     },
     options: {},
     results: {
@@ -89,3 +90,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

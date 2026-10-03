@@ -1,0 +1,74 @@
+import type { CalculatorDef } from '../../lib/types';
+type Copy = Pick<CalculatorDef, 'longDescription' | 'howToUse' | 'howItWorks' | 'example' | 'faq' | 'disclaimer'>;
+export const contractContent: Record<'ru' | 'en' | 'uk' | 'de' | 'es', Copy> = {
+  ru: {
+    longDescription: 'Цель накопления можно задать сроком или постоянным ежемесячным взносом. Модель отделяет уже накопленное, будущие взносы и начисленные проценты. Проценты поступают на предыдущий остаток, затем в конце месяца добавляется взнос; он начинает приносить доход только в следующем месяце. Постоянная номинальная ставка — допущение сценария, а не обещание доходности или правило всех банковских счетов.',
+    howToUse: ['Выберите расчёт взноса по сроку либо срока по взносу.','Введите положительную цель, начальную сумму и номинальную ставку от 0 до 100 %; пустая начальная сумма означает 0.','Для взноса задайте годы: они округляются до ближайшего целого месяца. Для срока задайте положительный месячный взнос.','Все суммы используйте в одной валюте; отдельно оцените комиссии, налоги и изменение покупательной способности.'],
+    howItWorks: 'Для i = r/1200 остаток через n месяцев: B = I(1+i)^n + C[(1+i)^n−1]/i. При i = 0: B = I+nC. По заданному сроку формула решается относительно C, не ниже нуля. По взносу берётся первый целый месяц достижения цели: при i > 0 действительный срок равен log[(G+C/i)/(I+C/i)]/log(1+i), затем проверяются соседние месяцы. Если I уже не меньше G, срок равен 0. Произвольного предела в 100 лет у метода нет; слишком большие непредставимые значения дают сообщение об ограничении.',
+    example: 'Цель 1 000 000, начало 100 000, 8 % и пять лет: месячный взнос 11 582,09; неокруглённые взносы за 60 месяцев составляют 694 925,29. Для цели 121, начала 100, ставки 12 % и взноса 10 первый месяц даёт 111, второй — 122,11, то есть цель достигается за два месяца. При цели 10 000, начале 0, ставке 0 % и взносе 1 требуется 10 000 месяцев.',
+    faq: [
+      { q: 'Когда ежемесячный взнос начинает приносить проценты?', a: 'Он добавляется после процентов в конце месяца и начинает участвовать в начислении со следующего месяца. Взнос в начале месяца дал бы другой результат.' },
+      { q: 'Можно ли определить срок накопления без месячного перебора?', a: 'Да. При постоянной ставке и взносах существует логарифмическая формула. Затем проверяется первый целый месяц; фактическая переменная ставка потребовала бы другого сценария.' },
+      { q: 'Почему баланс в месяце достижения превышает цель?', a: 'Показан конец первого целого месяца, а не часть месяца или уменьшенный последний взнос. Поэтому последний полный взнос может дать превышение.' },
+      { q: 'Что меняется для цели накопления при нулевой ставке?', a: 'Работает линейная сумма I+nC. Цель 10 000 и взнос 1 без начальных денег требуют 10 000 месяцев; это конечный срок, хотя он дольше столетия.' },
+      { q: 'Гарантирует ли округлённый взнос точную сумму цели?', a: 'Формула рассчитывает взнос без промежуточного денежного округления, а экран показывает два знака. При переводе округлённой суммы может понадобиться небольшая поправка последнего взноса. Налоги, комиссии и инфляция здесь не вычитаются.' },
+    ],
+    disclaimer: 'Постоянная номинальная ставка и взносы в конце месяца. Налоги, комиссии, инфляция и изменения доходности исключены; результат не является прогнозом конкретного вклада.',
+  },
+  en: {
+    longDescription: 'A savings target can be solved for a deadline or a fixed monthly contribution. The model separates initial savings, later deposits and interest. Interest applies to the previous balance before a month-end contribution is added, so that deposit earns interest from the following month. A constant nominal rate is a scenario assumption, rather than a guaranteed return or a convention shared by every savings product.',
+    howToUse: ['Choose contribution from duration or duration from contribution.','Enter a positive target, starting savings and nominal rate from 0 to 100%; blank starting savings means zero.','For the contribution, supply years rounded to the nearest whole month. For duration, supply a positive monthly deposit.','Use one currency, then assess fees, taxes and purchasing-power changes separately.'],
+    howItWorks: 'With i = r/1200, month-n balance B = I(1+i)^n + C[(1+i)^n−1]/i. At i = 0, B = I+nC. A specified duration solves for C, with a floor of zero. For a contribution, the first whole month reaching G is found: at i > 0 the real-valued term is log[(G+C/i)/(I+C/i)]/log(1+i), followed by checks of adjacent months. If I ≥ G, duration is zero. There is no arbitrary century cutoff; unrepresentable values produce a range message.',
+    example: 'Target 1,000,000, initial 100,000, rate 8% and five years give monthly contribution 11,582.09; unrounded contributions over 60 months total 694,925.29. Target 121, initial 100, rate 12% and deposit 10 give balances 111 after one month and 122.11 after two, reaching the target in two months. Target 10,000 with initial zero, rate 0% and deposit 1 needs 10,000 months.',
+    faq: [
+      { q: 'When does a monthly savings deposit start earning interest?', a: 'It is added after interest at month-end and earns from the next month. Beginning-of-month deposits would give a different balance.' },
+      { q: 'Can the savings duration be solved without a monthly loop?', a: 'Yes. Constant rates and deposits allow a logarithmic formula, then the first whole month is checked. A changing rate needs a different scenario.' },
+      { q: 'Why can the first target-month balance exceed the goal?', a: 'The result is a full month with a full deposit, rather than a fractional month or reduced final contribution. The target can therefore be exceeded.' },
+      { q: 'How does the savings target work at zero interest?', a: 'The balance is linear: I+nC. A goal of 10,000 and deposit 1 from zero take 10,000 months, a finite duration even though it exceeds a century.' },
+      { q: 'Does the rounded savings contribution hit the goal exactly?', a: 'The formula uses unrounded contributions while the screen shows two decimals. Depositing the rounded amount may require a small last-deposit adjustment. Taxes, fees and inflation are not deducted.' },
+    ],
+    disclaimer: 'Constant nominal return and month-end contributions. Taxes, fees, inflation and rate changes are excluded; this is not a forecast for a specific savings product.',
+  },
+  uk: {
+    longDescription: 'Для цілі накопичення можна визначити строк або сталий щомісячний внесок. Модель відокремлює початкові кошти, майбутні внески та відсотки. Спочатку відсотки нараховуються на попередній залишок, потім наприкінці місяця додається внесок; він приносить дохід із наступного місяця. Стала номінальна ставка є припущенням, а не обіцянкою чи правилом усіх банківських рахунків.',
+    howToUse: ['Оберіть внесок за строком або строк за внеском.','Введіть додатну ціль, початкові кошти й номінальну ставку від 0 до 100 %; порожні початкові кошти означають 0.','Для внеску задайте роки, округлені до найближчого цілого місяця. Для строку задайте додатний місячний внесок.','Використовуйте одну валюту; окремо оцініть комісії, податки й купівельну спроможність.'],
+    howItWorks: 'За i = r/1200 залишок через n місяців B = I(1+i)^n + C[(1+i)^n−1]/i. За i = 0: B = I+nC. Заданий строк дає розв’язок щодо C, не нижче нуля. Для внеску визначається перший цілий місяць: за i > 0 дійсний строк = log[(G+C/i)/(I+C/i)]/log(1+i), після чого перевіряються сусідні місяці. За I ≥ G строк нульовий. Довільної межі у 100 років немає; непредставні значення дають повідомлення про обмеження.',
+    example: 'Ціль 1 000 000, початок 100 000, 8 % і п’ять років: внесок 11 582,09; неокруглені внески за 60 місяців — 694 925,29. Для цілі 121, початку 100, ставки 12 % і внеску 10 залишок становить 111 через місяць і 122,11 через два: строк — два місяці. Ціль 10 000 із нуля, ставка 0 % і внесок 1 потребують 10 000 місяців.',
+    faq: [
+      { q: 'Коли щомісячний накопичувальний внесок починає приносити відсотки?', a: 'Внесок додається після відсотків наприкінці місяця й приносить дохід із наступного. Внесення на початку місяця змінило б залишок.' },
+      { q: 'Чи можна визначити строк накопичення без помісячного перебору?', a: 'Так. Сталі ставка й внески мають логарифмічний розв’язок із перевіркою першого цілого місяця. Змінна ставка потребує іншого сценарію.' },
+      { q: 'Чому залишок у місяці досягнення перевищує ціль?', a: 'Показано повний місяць із повним внеском, а не частину місяця або зменшений останній внесок. Тому можливе перевищення.' },
+      { q: 'Як працює ціль накопичення за нульової ставки?', a: 'Лінійно: I+nC. Ціль 10 000 і внесок 1 із нуля потребують 10 000 місяців. Строк кінцевий, хоча й довший за століття.' },
+      { q: 'Чи дає округлений внесок точну ціль накопичення?', a: 'Формула використовує неокруглений внесок, екран показує два знаки. Для фактичного округленого переказу може знадобитися мала поправка останнього внеску. Податки, комісії та інфляція не віднімаються.' },
+    ],
+    disclaimer: 'Стала номінальна ставка й внески наприкінці місяця. Податки, комісії, інфляція та зміни дохідності виключені; це не прогноз конкретного вкладу.',
+  },
+  de: {
+    longDescription: 'Ein Sparziel lässt sich nach Laufzeit oder konstantem Monatsbeitrag lösen. Anfangskapital, neue Einzahlungen und Zinsen stehen getrennt. Erst wird das vorhandene Guthaben verzinst, dann folgt die Einzahlung am Monatsende; sie verdient ab dem nächsten Monat Zinsen. Ein konstanter Nominalzins ist eine Szenarioannahme und kein Versprechen oder allgemeiner Kontostandard.',
+    howToUse: ['Wähle Beitrag aus Laufzeit oder Laufzeit aus Beitrag.','Gib positives Ziel, Anfangskapital und Nominalzins von 0 bis 100 % ein; ein leeres Anfangskapital bedeutet null.','Jahre werden für den Beitrag auf den nächsten ganzen Monat gerundet. Für die Laufzeit gib einen positiven Monatsbeitrag ein.','Verwende eine Währung und prüfe Gebühren, Steuern und Kaufkraft separat.'],
+    howItWorks: 'Bei i = r/1200 ist B nach n Monaten = I(1+i)^n + C[(1+i)^n−1]/i. Bei i = 0 gilt B = I+nC. Eine feste Laufzeit liefert C, mindestens null. Beim festen Beitrag folgt der erste ganze Zielmonat aus log[(G+C/i)/(I+C/i)]/log(1+i), anschließend werden benachbarte Monate geprüft. Ist I ≥ G, sind null Monate nötig. Es gibt keine willkürliche Jahrhundertgrenze; nicht darstellbare Werte melden eine Zahlenbereichsgrenze.',
+    example: 'Ziel 30.000 Geldeinheiten, Anfang 5.000, 4 % und fünf Jahre ergeben 360,41 monatlich. Bei Ziel 121, Anfang 100, 12 % und Beitrag 10 stehen nach einem Monat 111 und nach zwei Monaten 122,11 bereit: Zielmonat zwei. Ziel 10.000 aus null bei 0 % und Beitrag 1 braucht 10.000 Monate.',
+    faq: [
+      { q: 'Ab wann wird ein monatlicher Sparbeitrag verzinst?', a: 'Er kommt nach den Zinsen am Monatsende hinzu und wird ab dem nächsten Monat verzinst. Einzahlung am Monatsanfang wäre ein anderes Modell.' },
+      { q: 'Lässt sich die Spardauer ohne Monatsschleife bestimmen?', a: 'Ja. Konstante Zinsen und Beiträge erlauben eine logarithmische Lösung mit Prüfung des ersten ganzen Zielmonats. Variable Zinsen benötigen ein anderes Szenario.' },
+      { q: 'Warum liegt das Guthaben im Zielmonat über dem Sparziel?', a: 'Es zählt ein voller Monat mit vollem Beitrag, kein Teilmonat oder reduzierter Schlussbeitrag. Eine Überschreitung ist deshalb möglich.' },
+      { q: 'Wie funktioniert das Sparziel bei null Zins?', a: 'Linear nach I+nC. Ziel 10.000 und Beitrag 1 aus null benötigen 10.000 Monate, also eine endliche Dauer über einem Jahrhundert.' },
+      { q: 'Erreicht der gerundete Sparbeitrag das Ziel exakt?', a: 'Die Formel rechnet ungerundet, die Anzeige mit zwei Dezimalstellen. Gerundete Überweisungen können einen kleinen Schlussausgleich benötigen. Steuern, Gebühren und Inflation werden nicht abgezogen.' },
+    ],
+    disclaimer: 'Konstanter nominaler Ertrag und Monatsendbeiträge. Steuern, Gebühren, Inflation und Zinsänderungen fehlen; keine Prognose für ein bestimmtes Sparprodukt.',
+  },
+  es: {
+    longDescription: 'Una meta de ahorro puede resolverse por plazo o por aportación mensual fija. Se separan capital inicial, nuevas aportaciones e intereses. Primero se remunera el saldo anterior y después se aporta al final del mes; ese ingreso gana intereses desde el mes siguiente. El tipo nominal constante es una hipótesis, no una rentabilidad garantizada ni una regla de todas las cuentas.',
+    howToUse: ['Elige aportación según plazo o plazo según aportación.','Introduce una meta positiva, capital inicial y nominal del 0 al 100 %; el capital inicial vacío equivale a cero.','Para la aportación, los años se redondean al mes entero más cercano. Para el plazo, introduce un aporte mensual positivo.','Usa una moneda y revisa gastos, impuestos y poder adquisitivo por separado.'],
+    howItWorks: 'Con i = r/1200, saldo tras n meses B = I(1+i)^n + C[(1+i)^n−1]/i. Si i = 0, B = I+nC. Un plazo fijo resuelve C, como mínimo cero. Con aporte fijo, el primer mes entero sale de log[(G+C/i)/(I+C/i)]/log(1+i), comprobando después los meses vecinos. Si I ≥ G, el plazo es cero. No hay un límite arbitrario de un siglo; valores no representables generan una limitación numérica.',
+    example: 'Meta 10.000 unidades monetarias, inicio 1.000, 8 % y cinco años dan un aporte mensual de 115,82. Meta 121, inicio 100, 12 % y aporte 10 dan saldos 111 al primer mes y 122,11 al segundo: se necesitan dos meses. Meta 10.000 desde cero, al 0 % con aporte 1, requiere 10.000 meses.',
+    faq: [
+      { q: '¿Cuándo empieza a generar intereses una aportación mensual de ahorro?', a: 'Se añade después de los intereses al final del mes y genera desde el siguiente. Aportar al inicio del mes cambiaría el saldo.' },
+      { q: '¿Puede resolverse el plazo de ahorro sin recorrer cada mes?', a: 'Sí. Tipo y aportes constantes permiten una fórmula logarítmica y la comprobación del primer mes entero. Un tipo variable exige otro escenario.' },
+      { q: '¿Por qué el saldo del mes objetivo supera la meta?', a: 'Se muestra un mes completo con aporte completo, no una fracción de mes ni una última aportación reducida. Por eso puede haber exceso.' },
+      { q: '¿Qué ocurre con la meta de ahorro al cero por ciento?', a: 'El saldo sigue I+nC. Una meta 10.000 con aporte 1 desde cero tarda 10.000 meses: un plazo finito aunque supere un siglo.' },
+      { q: '¿El aporte de ahorro redondeado alcanza exactamente la meta?', a: 'La fórmula usa el aporte sin redondear y la pantalla muestra dos decimales. Transferir el valor redondeado puede requerir un pequeño ajuste final. No se descuentan impuestos, gastos ni inflación.' },
+    ],
+    disclaimer: 'Tipo nominal constante y aportes al final del mes. Excluye impuestos, gastos, inflación y cambios de rentabilidad; no predice un producto concreto.',
+  },
+};

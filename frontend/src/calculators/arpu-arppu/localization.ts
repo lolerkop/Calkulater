@@ -1,89 +1,104 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'revenue': 'Umsatz im Zeitraum, €',
-      'users': 'Nutzer insgesamt',
-      'payingUsers': 'Davon zahlend',
+  "en": {
+    "fields": {
+      "revenue": "Revenue for the common period",
+      "users": "Total users",
+      "payingUsers": "Of them paying"
     },
-    results: {
-      'ARPU': 'ARPU',
-      'ARPPU': 'ARPPU',
-      'Доля платящих': 'Anteil der Zahlenden',
-      'Выручка': 'Umsatz',
-      'Пользователей': 'Nutzer',
-      'Платящих': 'Zahlende Nutzer',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      '₽': '€',
-      'Выручка должна быть больше нуля': 'Der Umsatz muss größer als null sein',
-      'Число пользователей должно быть больше нуля': 'Die Zahl der Nutzer muss größer als null sein',
-      'Число платящих не может быть отрицательным': 'Die Zahl der Zahlenden kann nicht negativ sein',
-      'Платящих не может быть больше, чем пользователей': 'Es kann nicht mehr Zahlende als Nutzer geben',
-    },
-  },
-  en: {
-    fields: { "revenue": "Revenue for the period, $", "users": "Total users", "payingUsers": "Of them paying" },
-    options: {},
-    results: {
-      "ARPU": "ARPU", "ARPPU": "ARPPU",
+    "options": {},
+    "results": {
+      "ARPU": "ARPU",
+      "ARPPU": "ARPPU",
       "Доля платящих": "Paying share",
       "Выручка": "Revenue",
       "Пользователей": "Users",
       "Платящих": "Paying users",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
+    "values": {
+      ...marketingScalarValues.en,
       "₽": "$",
       "Выручка должна быть больше нуля": "Revenue must be greater than zero",
       "Число пользователей должно быть больше нуля": "The number of users must be greater than zero",
       "Число платящих не может быть отрицательным": "The number of paying users cannot be negative",
-      "Платящих не может быть больше, чем пользователей": "There cannot be more paying users than users",
-    },
+      "Платящих не может быть больше, чем пользователей": "There cannot be more paying users than users"
+    }
   },
-  uk: {
-    fields: { "revenue": "Виручка за період, ₴", "users": "Усього користувачів", "payingUsers": "З них платних" },
-    options: {},
-    results: {
-      "ARPU": "ARPU", "ARPPU": "ARPPU",
+  "uk": {
+    "fields": {
+      "revenue": "Виторг за спільний період",
+      "users": "Усього користувачів",
+      "payingUsers": "З них платних"
+    },
+    "options": {},
+    "results": {
+      "ARPU": "ARPU",
+      "ARPPU": "ARPPU",
       "Доля платящих": "Частка платних",
       "Выручка": "Виручка",
       "Пользователей": "Користувачів",
       "Платящих": "Платних",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
+    "values": {
+      ...marketingScalarValues.uk,
       "₽": "₴",
       "Выручка должна быть больше нуля": "Виручка має бути більшою за нуль",
       "Число пользователей должно быть больше нуля": "Кількість користувачів має бути більшою за нуль",
       "Число платящих не может быть отрицательным": "Кількість платних не може бути від'ємною",
-      "Платящих не может быть больше, чем пользователей": "Платних не може бути більше, ніж користувачів",
-    },
+      "Платящих не может быть больше, чем пользователей": "Платних не може бути більше, ніж користувачів"
+    }
   },
-  es: {
-    fields: {
-      "revenue": "Ingresos del periodo, €",
-      "users": "Usuarios totales",
-      "payingUsers": "De ellos, de pago",
+  "de": {
+    "fields": {
+      "revenue": "Umsatz im gemeinsamen Zeitraum",
+      "users": "Nutzer insgesamt",
+      "payingUsers": "Davon zahlend"
     },
-    options: {},
-    results: {
+    "results": {
+      "ARPU": "ARPU",
+      "ARPPU": "ARPPU",
+      "Доля платящих": "Anteil der Zahlenden",
+      "Выручка": "Umsatz",
+      "Пользователей": "Nutzer",
+      "Платящих": "Zahlende Nutzer",
+      "Проверьте данные": "Prüfe die Werte"
+    },
+    "values": {
+      ...marketingScalarValues.de,
+      "₽": "€",
+      "Выручка должна быть больше нуля": "Der Umsatz muss größer als null sein",
+      "Число пользователей должно быть больше нуля": "Die Zahl der Nutzer muss größer als null sein",
+      "Число платящих не может быть отрицательным": "Die Zahl der Zahlenden kann nicht negativ sein",
+      "Платящих не может быть больше, чем пользователей": "Es kann nicht mehr Zahlende als Nutzer geben"
+    }
+  },
+  "es": {
+    "fields": {
+      "revenue": "Ingresos del periodo común",
+      "users": "Usuarios totales",
+      "payingUsers": "De ellos, de pago"
+    },
+    "options": {},
+    "results": {
       "ARPU": "ARPU",
       "ARPPU": "ARPPU",
       "Доля платящих": "Proporción de pagadores",
       "Выручка": "Ingresos",
       "Пользователей": "Usuarios",
       "Платящих": "Usuarios de pago",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
+      ...marketingScalarValues.es,
       "₽": "€",
       "Выручка должна быть больше нуля": "Los ingresos deben ser mayores que cero",
       "Число пользователей должно быть больше нуля": "El número de usuarios debe ser mayor que cero",
       "Число платящих не может быть отрицательным": "El número de usuarios de pago no puede ser negativo",
-      "Платящих не может быть больше, чем пользователей": "No puede haber más usuarios de pago que usuarios",
-    },
-  },
+      "Платящих не может быть больше, чем пользователей": "No puede haber más usuarios de pago que usuarios"
+    }
+  }
 };

@@ -100,7 +100,8 @@ test.describe('доступность и клавиатура на страни�
 });
 
 test.describe('маршрутизация неизвестного адреса', () => {
-  test.skip(({ baseURL }) => !cloudflare.test(baseURL ?? ''),
+  test.skip(({ baseURL }) => !(cloudflare.test(baseURL ?? '') ||
+    (process.env.CALCUWAY_CLOUDFLARE_EMULATOR === '1' && baseURL === 'http://127.0.0.1:4333')),
     'Правило «ближайший 404.html» принадлежит Cloudflare; локальный astro preview его не воспроизводит.');
 
   for (const locale of locales) {

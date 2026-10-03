@@ -1,43 +1,18 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
-
-// Громкость наушников: паспортная чувствительность плюс прибавка от мощности.
-//
-// Чувствительность в децибелах на милливатт — это уровень звукового давления
-// при подведённом милливатте. Каждое удвоение мощности прибавляет ровно 3 дБ,
-// поэтому прибавка равна 10·log₁₀(P), и десятикратная мощность даёт ровно
-// десять децибел.
-//
-// Напряжение и ток выводятся из мощности и импеданса: именно они, а не
-// мощность, ограничивают выход усилителя, и по ним видно, хватит ли его
-// высокоомным наушникам.
-const MW_IN_W = 1000;
-const A_IN_MA = 1000;
-
-export const compute: CalcFunction = (inputs) => {
-  const sensitivity = toNumber(inputs.sensitivity);
-  const impedance = toNumber(inputs.impedance);
-  const power = toNumber(inputs.power);
-  const fail = (message: string) => ({
-    primary: { label: 'Звуковое давление', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (!(sensitivity > 0)) return fail('Чувствительность должна быть больше нуля');
-  if (!(impedance > 0)) return fail('Импеданс должен быть больше нуля');
-  if (!(power > 0)) return fail('Подводимая мощность должна быть больше нуля');
-
-  const gain = 10 * Math.log10(power);
-  const watts = power / MW_IN_W;
-
-  return {
-    primary: { label: 'Звуковое давление', value: `${formatMeasure(sensitivity + gain, fmtNumber)} дБ` },
-    secondary: [
-      { label: 'Прибавка от мощности', value: `${formatMeasure(gain, fmtNumber)} дБ` },
-      { label: 'Напряжение на выходе', value: `${formatMeasure(Math.sqrt(watts * impedance), fmtNumber)} В` },
-      { label: 'Ток', value: `${formatMeasure(Math.sqrt(watts / impedance) * A_IN_MA, fmtNumber)} мА` },
-      { label: 'Импеданс', value: `${formatMeasure(impedance, fmtNumber)} Ом` },
-    ],
-  };
+import { read, finite, positive, exact, times, add, negative, evaluated, measure, sqrtRatio, INPUT, RANGE } from '../../lib/platform/electronicsNumericInput';
+// Declared sensitivity is SPL at 1mW; electrical estimates use a resistive RMS model.
+export const compute: CalcFunction = inputs => {
+  const sensitivity=read(inputs.sensitivity), r=read(inputs.impedance), power=read(inputs.power);
+  const fail=(message:string)=>({primary:{label:'Оценка уровня SPL',value:'—'},secondary:[{label:'Проверьте данные',value:message,accent:'red' as const}]});
+  if (!finite(sensitivity,r,power)) return fail(INPUT);
+  if (!(r>0)) return fail('Импеданс должен быть больше нуля');
+  if (!(power>0)) return fail('Подводимая мощность должна быть больше нуля');
+  const gain=10*Math.log10(power), spl=evaluated(add(exact(sensitivity),exact(gain)));
+  const voltage=sqrtRatio(times(exact(power),exact(r)),exact(1000));
+  const current=sqrtRatio(times(exact(power),exact(1000)),exact(r));
+  if (!finite(spl,gain) || !positive(voltage,current)) return fail(RANGE);
+  return {primary:{label:'Оценка уровня SPL',value:`${measure(spl)} дБ`},secondary:[
+    {label:'Прибавка от мощности',value:`${measure(gain)} дБ`},{label:'Напряжение на выходе',value:`${measure(voltage)} В`},
+    {label:'Ток',value:`${measure(current)} мА`},{label:'Импеданс',value:`${measure(r)} Ом`},
+  ]};
 };

@@ -26,4 +26,21 @@ export const cpaCplCpiReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"actions": 0, "cost": 5000, "mode": "cpa"},
     expectPrimary: "—",
   },
+// Дополнения: независимое деление, границы фактических счётчиков и IEEE-754.
+  {
+    name: 'дробные кредиты атрибуции не являются фактическими событиями',
+    inputs: { mode: 'cpl', cost: 100, actions: 2.5 },
+    expectPrimary: '—',
+  },
+  {
+    name: 'неизвестное событие не подменяется CPA',
+    inputs: { mode: 'other', cost: 100, actions: 2 },
+    expectPrimary: '—',
+  },
+  {
+    name: 'деление до масштаба сохраняет конечную стоимость тысячи',
+    inputs: { mode: 'cpa', cost: 1e308, actions: 1000000 },
+    expectPrimary: '1,000·10^302 ₽',
+    expectSecondary: [{ label: 'На тысячу действий', value: '1,000·10^305 ₽' }],
+  },
 ];

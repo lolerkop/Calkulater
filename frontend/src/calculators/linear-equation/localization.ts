@@ -1,80 +1,101 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
-const RESULTS_EN = {
-  'Корень': 'Root', 'Уравнение': 'Equation', 'Почему так': 'Why',
-  'Перенос свободного члена': 'Moving the constant', 'Деление на коэффициент': 'Dividing by the coefficient',
-  'Проверка подстановкой': 'Check by substitution',
-};
-const RESULTS_UK = {
-  'Корень': 'Корінь', 'Уравнение': 'Рівняння', 'Почему так': 'Чому так',
-  'Перенос свободного члена': 'Перенесення вільного члена', 'Деление на коэффициент': 'Ділення на коефіцієнт',
-  'Проверка подстановкой': 'Перевірка підстановкою',
-};
-
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'a': 'Koeffizient a',
-      'b': 'Konstante b',
-      'c': 'Rechte Seite c',
+  "de": {
+    "fields": {
+      "a": "Koeffizient a",
+      "b": "Konstante b",
+      "c": "Rechte Seite c"
     },
-    results: {
-      'Корень': 'Lösung',
-      'Уравнение': 'Gleichung',
-      'Почему так': 'Warum das so ist',
-      'Перенос свободного члена': 'Konstante verschieben',
-      'Деление на коэффициент': 'Durch den Koeffizienten teilen',
-      'Проверка подстановкой': 'Probe durch Einsetzen',
+    "results": {
+      "Корень": "Lösung",
+      "Уравнение": "Gleichung",
+      "Почему так": "Warum das so ist",
+      "Перенос свободного члена": "Konstante verschieben",
+      "Деление на коэффициент": "Durch den Koeffizienten teilen",
+      "Проверка подстановкой": "Probe durch Einsetzen",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'любое число': 'jede Zahl',
-      'решений нет': 'keine Lösung',
-      'При нулевом коэффициенте уравнение превращается в верное равенство, которому удовлетворяет любое x': 'Bei einem Koeffizienten von null wird die Gleichung zu einer wahren Aussage, die jedes x erfüllt',
-      'При нулевом коэффициенте уравнение превращается в неверное равенство, и корня нет': 'Bei einem Koeffizienten von null wird die Gleichung zu einer falschen Aussage, und es gibt keine Lösung',
-    },
+    "values": {
+      "любое число": "jede Zahl",
+      "решений нет": "keine Lösung",
+      "При нулевом коэффициенте уравнение превращается в верное равенство, которому удовлетворяет любое x": "Bei einem Koeffizienten von null wird die Gleichung zu einer wahren Aussage, die jedes x erfüllt",
+      "При нулевом коэффициенте уравнение превращается в неверное равенство, и корня нет": "Bei einem Koeffizienten von null wird die Gleichung zu einer falschen Aussage, und es gibt keine Lösung",
+      "Введите конечные числовые коэффициенты": "Geben Sie endliche numerische Koeffizienten ein",
+      "Промежуточное значение или корень вне числового диапазона": "Ein Zwischenwert oder eine Lösung liegt außerhalb des Zahlenbereichs"
+    }
   },
-  en: {
-    fields: { a: 'Coefficient a', b: 'Constant b', c: 'Right-hand side c' },
-    results: RESULTS_EN,
-    values: {
-      'любое число': 'any number', 'решений нет': 'no solution',
-      'При нулевом коэффициенте уравнение превращается в верное равенство, которому удовлетворяет любое x':
-        'With a zero coefficient the equation becomes a true statement, which any x satisfies',
-      'При нулевом коэффициенте уравнение превращается в неверное равенство, и корня нет':
-        'With a zero coefficient the equation becomes a false statement, so there is no root',
+  "en": {
+    "fields": {
+      "a": "Coefficient a",
+      "b": "Constant b",
+      "c": "Right-hand side c"
     },
-  },
-  uk: {
-    fields: { a: 'Коефіцієнт a', b: 'Вільний член b', c: 'Права частина c' },
-    results: RESULTS_UK,
-    values: {
-      'любое число': 'будь-яке число', 'решений нет': 'розв’язків немає',
-      'При нулевом коэффициенте уравнение превращается в верное равенство, которому удовлетворяет любое x':
-        'За нульового коефіцієнта рівняння перетворюється на правильну рівність, якій задовольняє будь-яке x',
-      'При нулевом коэффициенте уравнение превращается в неверное равенство, и корня нет':
-        'За нульового коефіцієнта рівняння перетворюється на хибну рівність, і кореня немає',
+    "results": {
+      "Корень": "Root",
+      "Уравнение": "Equation",
+      "Почему так": "Why",
+      "Перенос свободного члена": "Moving the constant",
+      "Деление на коэффициент": "Dividing by the coefficient",
+      "Проверка подстановкой": "Check by substitution",
+      "Проверьте данные": "Check the values"
     },
+    "values": {
+      "любое число": "any number",
+      "решений нет": "no solution",
+      "При нулевом коэффициенте уравнение превращается в верное равенство, которому удовлетворяет любое x": "With a zero coefficient the equation becomes a true statement, which any x satisfies",
+      "При нулевом коэффициенте уравнение превращается в неверное равенство, и корня нет": "With a zero coefficient the equation becomes a false statement, so there is no root",
+      "Введите конечные числовые коэффициенты": "Enter finite numerical coefficients",
+      "Промежуточное значение или корень вне числового диапазона": "An intermediate value or root is outside the number range"
+    }
   },
-  es: {
-    fields: {
+  "uk": {
+    "fields": {
+      "a": "Коефіцієнт a",
+      "b": "Вільний член b",
+      "c": "Права частина c"
+    },
+    "results": {
+      "Корень": "Корінь",
+      "Уравнение": "Рівняння",
+      "Почему так": "Чому так",
+      "Перенос свободного члена": "Перенесення вільного члена",
+      "Деление на коэффициент": "Ділення на коефіцієнт",
+      "Проверка подстановкой": "Перевірка підстановкою",
+      "Проверьте данные": "Перевірте дані"
+    },
+    "values": {
+      "любое число": "будь-яке число",
+      "решений нет": "розв’язків немає",
+      "При нулевом коэффициенте уравнение превращается в верное равенство, которому удовлетворяет любое x": "За нульового коефіцієнта рівняння перетворюється на правильну рівність, якій задовольняє будь-яке x",
+      "При нулевом коэффициенте уравнение превращается в неверное равенство, и корня нет": "За нульового коефіцієнта рівняння перетворюється на хибну рівність, і кореня немає",
+      "Введите конечные числовые коэффициенты": "Введіть скінченні числові коефіцієнти",
+      "Промежуточное значение или корень вне числового диапазона": "Проміжне значення або корінь поза числовим діапазоном"
+    }
+  },
+  "es": {
+    "fields": {
       "a": "Coeficiente a",
       "b": "Término independiente b",
-      "c": "Lado derecho c",
+      "c": "Lado derecho c"
     },
-    options: {},
-    results: {
+    "options": {},
+    "results": {
       "Корень": "Raíz",
       "Уравнение": "Ecuación",
       "Почему так": "Por qué",
       "Перенос свободного члена": "Paso del término independiente",
       "Деление на коэффициент": "División entre el coeficiente",
       "Проверка подстановкой": "Comprobación por sustitución",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "любое число": "cualquier número",
       "решений нет": "sin solución",
       "При нулевом коэффициенте уравнение превращается в верное равенство, которому удовлетворяет любое x": "Con un coeficiente nulo la ecuación se convierte en una igualdad verdadera, que cumple cualquier x",
       "При нулевом коэффициенте уравнение превращается в неверное равенство, и корня нет": "Con un coeficiente nulo la ecuación se convierte en una igualdad falsa, así que no hay raíz",
-    },
-  },
+      "Введите конечные числовые коэффициенты": "Introduzca coeficientes numéricos finitos",
+      "Промежуточное значение или корень вне числового диапазона": "Un valor intermedio o una raíz están fuera del rango numérico"
+    }
+  }
 };

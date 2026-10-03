@@ -1,11 +1,15 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const differenceAbsRelCopyUk: CalculatorSeoCopy = {
+import { contractContent } from './contractContent';
+
+export const differenceAbsRelCopyUk: CalculatorCopy = {
   name: 'Абсолютна та відносна різниця',
   slug: 'abs-rel-riznytsya',
   shortDescription: 'Наскільки відрізняються два значення — в одиницях і у відсотках.',
   seoTitle: 'Калькулятор абсолютної та відносної різниці',
-  seoDescription: 'Знайдіть абсолютну різницю між двома значеннями та відносну різницю у відсотках, зокрема для від’ємної бази.',
+  seoDescription: "Знайдіть різницю двох значень зі знаком і відносну різницю до модуля початкової бази. Від’ємна база допустима; за нуля відносний відсоток не визначений.",
   h1: 'Абсолютна та відносна різниця',
   keywords: ['абсолютна різниця', 'відносна різниця', 'різниця у відсотках'],
+  ...contractContent.uk,
 };

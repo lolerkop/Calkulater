@@ -1,88 +1,45 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 import { formatQuantity } from '../../lib/platform/measurement';
+import { readScalar, positiveRatio } from './numeric';
 
-// Уравнение состояния идеального газа: PV = nRT.
-//
-// R = 8,314462618 Дж/(моль·К) верна ТОЛЬКО в базовых единицах: паскали,
-// кубометры, моли, кельвины. Поэтому каждая выбранная единица приводится к
-// базовой ДО подстановки, а результат переводится обратно в выбранную уже
-// после. Подставить литры и килопаскали в ту же формулу означало бы получить
-// численно правдоподобный и при этом неверный ответ — ровно тот случай, ради
-// которого единицы здесь заданы явно.
-
+// Rounded approximation to exact R=N_A*k; retained for existing displayed examples.
 const R = 8.314462618;
-const TO_PASCAL: Record<string, number> = { pa: 1, kpa: 1000, atm: 101325 };
-const TO_CUBIC_METRE: Record<string, number> = { m3: 1, l: 0.001 };
-const qty = (value: number): string => formatQuantity(value, fmtNumber);
-
-export const compute: CalcFunction = (inputs) => {
-  const solve = toStr(inputs.solve, 'p');
-  const pressureUnit = toStr(inputs.pressureUnit, 'pa');
-  const volumeUnit = toStr(inputs.volumeUnit, 'm3');
-  const tempUnit = toStr(inputs.tempUnit, 'k');
-  const pressureFactor = TO_PASCAL[pressureUnit] ?? 1;
-  const volumeFactor = TO_CUBIC_METRE[volumeUnit] ?? 1;
-
-  const p = toNumber(inputs.p) * pressureFactor;
-  const v = toNumber(inputs.v) * volumeFactor;
-  const n = toNumber(inputs.n);
-  // Абсолютная температура: ноль по Цельсию — это 273,15 K, а не ноль.
-  const t = tempUnit === 'c' ? toNumber(inputs.t) + 273.15 : toNumber(inputs.t);
-
-  const fail = (label: string, message: string) => ({
-    primary: { label, value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  const constants = [
-    { label: 'Газовая постоянная', value: '8,314463 Дж/(моль·К)' },
-    { label: 'Температура', value: `${qty(t)} К` },
-  ];
-
-  if (t < 0) return fail('Давление', 'Температура не может быть ниже абсолютного нуля');
-
-  if (solve === 'p') {
-    if (!(n > 0)) return fail('Давление', 'Количество вещества должно быть больше нуля');
-    if (!(v > 0)) return fail('Давление', 'Объём должен быть больше нуля');
-    return {
-      primary: { label: 'Давление', value: `${qty((n * R * t) / v / pressureFactor)} ${pressureLabel(pressureUnit)}` },
-      secondary: constants,
-    };
-  }
-  if (solve === 'v') {
-    if (!(n > 0)) return fail('Объём', 'Количество вещества должно быть больше нуля');
-    if (!(p > 0)) return fail('Объём', 'Давление должно быть больше нуля');
-    return {
-      primary: { label: 'Объём', value: `${qty((n * R * t) / p / volumeFactor)} ${volumeLabel(volumeUnit)}` },
-      secondary: constants,
-    };
-  }
-  if (solve === 'n') {
-    if (!(p > 0)) return fail('Количество вещества', 'Давление должно быть больше нуля');
-    if (!(v > 0)) return fail('Количество вещества', 'Объём должен быть больше нуля');
-    if (!(t > 0)) return fail('Количество вещества', 'Температура должна быть больше нуля');
-    return {
-      primary: { label: 'Количество вещества', value: `${qty((p * v) / (R * t))} моль` },
-      secondary: constants,
-    };
-  }
-  if (!(p > 0)) return fail('Температура', 'Давление должно быть больше нуля');
-  if (!(v > 0)) return fail('Температура', 'Объём должен быть больше нуля');
-  if (!(n > 0)) return fail('Температура', 'Количество вещества должно быть больше нуля');
-  const kelvin = (p * v) / (n * R);
-  return {
-    primary: {
-      label: 'Температура',
-      value: tempUnit === 'c' ? `${qty(kelvin - 273.15)} °C` : `${qty(kelvin)} К`,
-    },
-    secondary: [{ label: 'Газовая постоянная', value: '8,314463 Дж/(моль·К)' }],
-  };
+const PRESSURE = { pa: 1, kpa: 1000, atm: 101325 };
+const VOLUME = { m3: 1, l: 0.001 };
+const LABELS = { p: 'Давление', v: 'Объём', n: 'Количество вещества', t: 'Температура' };
+export const compute: CalcFunction = inputs => {
+  const solve = inputs.solve, pu = inputs.pressureUnit, vu = inputs.volumeUnit, tu = inputs.tempUnit;
+  const validSolve = solve === 'p' || solve === 'v' || solve === 'n' || solve === 't';
+  const label = validSolve ? LABELS[solve] : LABELS.p;
+  const fail = (message: string) => ({ primary: { label, value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (!validSolve) return fail('Выберите поддерживаемый режим расчёта');
+  if ((pu !== 'pa' && pu !== 'kpa' && pu !== 'atm') || (vu !== 'm3' && vu !== 'l') || (tu !== 'k' && tu !== 'c')) return fail('Выберите поддерживаемые единицы');
+  const pf = PRESSURE[pu], vf = VOLUME[vu];
+  const n = solve === 'n' ? 1 : readScalar(inputs.n);
+  const p = solve === 'p' ? 1 : readScalar(inputs.p);
+  const v = solve === 'v' ? 1 : readScalar(inputs.v);
+  const rawT = solve === 't' ? 1 : readScalar(inputs.t);
+  const t = solve === 't' ? 1 : tu === 'c' ? rawT + 273.15 : rawT;
+  if (![n,p,v,rawT,t].every(Number.isFinite)) return fail('Введите конечные числа во все известные поля');
+  if (!(n > 0)) return fail('Количество вещества должно быть больше нуля');
+  if (!(p > 0)) return fail('Давление должно быть больше нуля');
+  if (!(v > 0)) return fail('Объём должен быть больше нуля');
+  if (t < 0) return fail('Температура не может быть ниже абсолютного нуля');
+  if (solve === 'n' && !(t > 0)) return fail('Температура должна быть больше нуля');
+  const kelvinOrResult = solve === 'p' ? positiveRatio([n,R,t],[v,vf,pf])
+    : solve === 'v' ? positiveRatio([n,R,t],[p,pf,vf])
+    : solve === 'n' ? positiveRatio([p,pf,v,vf],[R,t])
+    : positiveRatio([p,pf,v,vf],[n,R]);
+  const formalZero = (solve === 'p' || solve === 'v') && t === 0;
+  if (!Number.isFinite(kelvinOrResult) || (kelvinOrResult === 0 && !formalZero)) return fail('Результат выходит за числовой диапазон; проверьте масштаб величин');
+  const answer = solve === 't' && tu === 'c' ? kelvinOrResult - 273.15 : kelvinOrResult;
+  if (!Number.isFinite(answer)) return fail('Результат выходит за числовой диапазон; проверьте масштаб величин');
+  const qty = (x: number) => formatQuantity(x,fmtNumber);
+  const unit = solve === 'p' ? (pu === 'pa' ? 'Па' : pu === 'kpa' ? 'кПа' : 'атм')
+    : solve === 'v' ? (vu === 'm3' ? 'м³' : 'л') : solve === 'n' ? 'моль' : tu === 'c' ? '°C' : 'К';
+  const secondary = [{ label: 'Газовая постоянная', value: '8,314463 Дж/(моль·К)' }];
+  if (solve !== 't') secondary.push({ label: 'Температура', value: `${qty(t)} К` });
+  if (formalZero) secondary.push({ label: 'Предел модели', value: '0 K — формальный предел уравнения, а не физическое состояние идеального газа' });
+  return { primary: { label, value: `${qty(answer)} ${unit}` }, secondary };
 };
-
-function pressureLabel(unit: string): string {
-  return unit === 'kpa' ? 'кПа' : unit === 'atm' ? 'атм' : 'Па';
-}
-
-function volumeLabel(unit: string): string {
-  return unit === 'l' ? 'л' : 'м³';
-}

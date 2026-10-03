@@ -1,5 +1,7 @@
+import { contractContent } from './contractContent';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
+import { validate } from './validate';
 import { batterySeriesParallelCopyEn } from './copy.en';
 import { batterySeriesParallelCopyUk } from './copy.uk';
 import { batterySeriesParallelCopyDe } from './copy.de';
@@ -11,6 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  validate,
   copy: { en: batterySeriesParallelCopyEn, uk: batterySeriesParallelCopyUk, de: batterySeriesParallelCopyDe, es: batterySeriesParallelCopyEs },
   referenceCases: batterySeriesParallelReferenceCases,
   publishedExample: {
@@ -18,6 +21,7 @@ export const definition: CalculatorDefinitionV2 = {
     expected: ['14,8 В'],
   },
   presentation: {
+    seoDescription: "Рассчитайте напряжение, ёмкость и энергию аккумуляторной сборки по параметрам ячейки и схеме последовательно-параллельного соединения.",
     id: 'battery-series-parallel',
     name: 'Калькулятор соединения аккумуляторов',
     slug: 'battery-series-parallel',
@@ -27,53 +31,69 @@ export const definition: CalculatorDefinitionV2 = {
     popularity: 22,
     isNew: false,
     shortDescription: 'Напряжение, ёмкость и энергия сборки по схеме соединения.',
-    longDescription:
-      'Последовательное соединение складывает напряжения, параллельное — ёмкости, и перепутать их дорого. Одни и те же двенадцать ячеек в схеме 4S3P дают 14,8 В при 10,2 А·ч, а в схеме 3S4P — 11,1 В при 13,6 А·ч: запасённая энергия одинакова, но устройство, ожидающее 12 В, запустится только от одной из них. Схема обязана сходиться с числом ячеек: последовательных, умноженных на параллельные, должно быть ровно столько, сколько ячеек есть. Расхождение означает ошибку в плане, а не необычную сборку, и молчаливый пересчёт спрятал бы именно ту ошибку, которую стоит поймать до паяльника.',
+    
     seoTitle: 'Калькулятор последовательного и параллельного соединения аккумуляторов',
-    seoDescription:
-      'Рассчитайте напряжение, ёмкость и энергию аккумуляторной сборки по параметрам ячейки и схеме последовательно-параллельного соединения.',
+    
     h1: 'Калькулятор соединения аккумуляторов',
     keywords: ['соединение аккумуляторов', 'последовательно и параллельно', 'напряжение сборки', 'ёмкость батареи'],
     fields: [
-      { name: 'cells', label: 'Всего ячеек', type: 'number', defaultValue: 12, min: 1, max: 500, step: 1 },
-      { name: 'cellVoltage', label: 'Напряжение ячейки, В', type: 'number', defaultValue: 3.7, min: 0, step: 0.1 },
-      { name: 'cellCapacity', label: 'Ёмкость ячейки, А·ч', type: 'number', defaultValue: 3.4, min: 0, step: 0.1 },
-      { name: 'series', label: 'Ячеек последовательно', type: 'number', defaultValue: 4, min: 1, max: 500, step: 1 },
-      { name: 'parallel', label: 'Групп параллельно', type: 'number', defaultValue: 3, min: 1, max: 500, step: 1 },
-    ],
+  {
+    "name": "cells",
+    "label": "Всего ячеек",
+    "type": "number",
+    "defaultValue": 12,
+    "min": 1,
+    "max": 500,
+    "step": 1,
+    "unit": "1"
+  },
+  {
+    "name": "cellVoltage",
+    "label": "Напряжение ячейки",
+    "type": "number",
+    "defaultValue": 3.7,
+    "min": 0,
+    "step": 0.1,
+    "unit": "В"
+  },
+  {
+    "name": "cellCapacity",
+    "label": "Ёмкость ячейки",
+    "type": "number",
+    "defaultValue": 3.4,
+    "min": 0,
+    "step": 0.1,
+    "unit": "А·ч"
+  },
+  {
+    "name": "series",
+    "label": "Ячеек последовательно",
+    "type": "number",
+    "defaultValue": 4,
+    "min": 1,
+    "max": 500,
+    "step": 1,
+    "unit": "1"
+  },
+  {
+    "name": "parallel",
+    "label": "Групп параллельно",
+    "type": "number",
+    "defaultValue": 3,
+    "min": 1,
+    "max": 500,
+    "step": 1,
+    "unit": "1"
+  }
+],
     resultLabels: {
       voltage: 'Напряжение сборки',
       capacity: 'Ёмкость сборки',
       energy: 'Энергия',
       cells: 'Ячеек',
     },
-    howToUse: [
-      'Введите общее число ячеек, которые есть в наличии.',
-      'Укажите напряжение и ёмкость одной ячейки.',
-      'Укажите, сколько ячеек стоит последовательно и сколько групп идёт параллельно.',
-      'Произведение этих двух чисел обязано равняться общему количеству.',
-    ],
-    howItWorks:
-      'Напряжение сборки = напряжение ячейки × число последовательных. Ёмкость = ёмкость ячейки × число параллельных групп. Энергия — произведение напряжения на ёмкость.',
-    example: 'Двенадцать ячеек 3,7 В и 3,4 А·ч по схеме 4S3P дают 14,8 В, 10,2 А·ч и 150,96 Вт·ч.',
-    faq: [
-      {
-        q: 'Какую схему выбрать?',
-        a: 'Сначала подгоните напряжение под требования устройства, а оставшиеся ячейки пустите параллельно ради ёмкости. Напряжение — жёсткое требование, ёмкость влияет только на время работы.',
-      },
-      {
-        q: 'Почему энергия одинакова при любой схеме?',
-        a: 'Потому что энергия — это напряжение, умноженное на ёмкость, а схема лишь перераспределяет одну и ту же сумму между двумя множителями. Меняется другое: подходит ли сборка устройству.',
-      },
-      {
-        q: 'Можно ли смешивать ячейки разной ёмкости?',
-        a: 'Безопасно — нет. Последовательно самая слабая ячейка ограничивает всю цепочку и может уйти в переполюсовку; параллельно несогласованная ячейка берёт на себя неравный ток. Ячейки нужны подобранные.',
-      },
-      {
-        q: 'Учитывается ли плата защиты и потери в проводах?',
-        a: 'Нет. Настоящая сборка теряет часть напряжения под нагрузкой на внутреннем сопротивлении и соединениях, а плата защиты добавляет свои отсечки. Полученные значения номинальны.',
-      },
-    ],
+
     relatedCalculatorIds: ['battery-runtime', 'battery-charge-time', 'resistor-network'],
+    ...contractContent.ru,
   },
 };

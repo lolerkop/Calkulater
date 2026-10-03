@@ -1,74 +1,30 @@
-// Локализация, принадлежащая калькулятору. Ключи локальны для него: область
-// видимости задаётся структурой манифеста, а не префиксами в именах.
-
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { runtimeScalarPhrases } from '../../lib/platform/runtimeScalarPhrases';
 
-export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'income': 'Einkommen im Zeitraum',
-      'expenses': 'Ausgaben im Zeitraum',
-    },
-    results: {
-      'Норма сбережений': 'Sparquote',
-      'Сбережения за период': 'Im Zeitraum gespart',
-      'Доход': 'Einkommen',
-      'Расходы': 'Ausgaben',
-      'Внимание': 'Achtung',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'Расходы превышают доход': 'Die Ausgaben übersteigen das Einkommen',
-      'Доход должен быть больше нуля': 'Das Einkommen muss größer als null sein',
-    },
-  },
-  en: {
-    fields: { income: 'Income for the period', expenses: 'Expenses for the period' },
-    results: {
-      'Норма сбережений': 'Savings rate',
-      'Сбережения за период': 'Saved during the period',
-      'Доход': 'Income',
-      'Расходы': 'Expenses',
-      'Внимание': 'Warning',
-      'Проверьте данные': 'Check the values',
-    },
-    values: {
-      'Расходы превышают доход': 'Expenses exceed income',
-      'Доход должен быть больше нуля': 'Income must be greater than zero',
-    },
-  },
-  uk: {
-    fields: { income: 'Дохід за період', expenses: 'Витрати за період' },
-    results: {
-      'Норма сбережений': 'Норма заощаджень',
-      'Сбережения за период': 'Заощадження за період',
-      'Доход': 'Дохід',
-      'Расходы': 'Витрати',
-      'Внимание': 'Увага',
-      'Проверьте данные': 'Перевірте дані',
-    },
-    values: {
-      'Расходы превышают доход': 'Витрати перевищують дохід',
-      'Доход должен быть больше нуля': 'Дохід має бути більшим за нуль',
-    },
-  },
-  es: {
-    fields: {
-      "income": "Ingresos del periodo",
-      "expenses": "Gastos del periodo",
-    },
+// Final effective owned bundles; overwritten intermediate maps removed after deep equality proof.
+export const localization:CalculatorLocalization={
+  "en": {
+    fields: {"income": "Income for the period", "expenses": "Expenses for the period"},
+    results: { ...runtimeScalarPhrases("en",[6]),"Норма сбережений": "Savings rate", "Сбережения за период": "Saved during the period", "Доход": "Income", "Расходы": "Expenses", "Внимание": "Warning" },
+    values: { ...runtimeScalarPhrases("en",[2, 0, 4, 7]),"Расходы превышают доход": "Expenses exceed income", "Расходы не могут быть отрицательными": "Expenses cannot be negative" },
     options: {},
-    results: {
-      "Норма сбережений": "Tasa de ahorro",
-      "Сбережения за период": "Ahorrado en el periodo",
-      "Доход": "Ingresos",
-      "Расходы": "Gastos",
-      "Внимание": "Atención",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "Расходы превышают доход": "Los gastos superan a los ingresos",
-      "Доход должен быть больше нуля": "Los ingresos deben ser mayores que cero",
-    },
+  },
+  "uk": {
+    fields: {"income": "Дохід за період", "expenses": "Витрати за період"},
+    results: { ...runtimeScalarPhrases("uk",[8]),"Норма сбережений": "Норма заощаджень", "Сбережения за период": "Заощадження за період", "Доход": "Дохід", "Расходы": "Витрати", "Внимание": "Увага" },
+    values: { ...runtimeScalarPhrases("uk",[3, 1, 6, 9]),"Расходы превышают доход": "Витрати перевищують дохід", "Расходы не могут быть отрицательными": "Витрати не можуть бути від’ємними" },
+    options: {},
+  },
+  "de": {
+    fields: {"income": "Einkommen im Zeitraum", "expenses": "Ausgaben im Zeitraum"},
+    results: { ...runtimeScalarPhrases("de",[8]),"Норма сбережений": "Sparquote", "Сбережения за период": "Im Zeitraum gespart", "Доход": "Einkommen", "Расходы": "Ausgaben", "Внимание": "Achtung" },
+    values: { ...runtimeScalarPhrases("de",[3, 2, 6, 10]),"Расходы превышают доход": "Die Ausgaben übersteigen das Einkommen", "Расходы не могут быть отрицательными": "Ausgaben dürfen nicht negativ sein" },
+    options: {},
+  },
+  "es": {
+    fields: {"income": "Ingresos del periodo", "expenses": "Gastos del periodo"},
+    options: {},
+    results: { ...runtimeScalarPhrases("es",[7]),"Норма сбережений": "Tasa de ahorro", "Сбережения за период": "Ahorrado en el periodo", "Доход": "Ingresos", "Расходы": "Gastos", "Внимание": "Atención" },
+    values: { ...runtimeScalarPhrases("es",[2, 0, 4, 9]),"Расходы превышают доход": "Los gastos superan a los ingresos", "Расходы не могут быть отрицательными": "Los gastos no pueden ser negativos" },
   },
 };

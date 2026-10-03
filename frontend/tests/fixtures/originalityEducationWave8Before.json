@@ -1,0 +1,1086 @@
+{
+  "capturedAt": "2026-10-01T22:45:49.728Z",
+  "scope": "30 actual145 public identities and field/default contracts before education changes",
+  "rows": [
+    {
+      "id": "gpa",
+      "locale": "ru",
+      "path": "/ru/education/gpa/",
+      "name": "Калькулятор среднего балла",
+      "h1": "Калькулятор среднего балла",
+      "seoTitle": "Калькулятор среднего балла с учётом кредитов",
+      "seoDescription": "Рассчитайте средний балл по списку оценок с весами и сравните его с простым средним без учёта кредитов.",
+      "faqCount": 5,
+      "fields": [
+        {
+          "name": "grades",
+          "label": "Оценки: по одной в строке, через пробел вес",
+          "type": "textarea",
+          "defaultValue": "5 3\n4 4\n3 2"
+        }
+      ]
+    },
+    {
+      "id": "gpa",
+      "locale": "en",
+      "path": "/en/education/gpa-calculator/",
+      "name": "GPA calculator",
+      "h1": "GPA calculator",
+      "seoTitle": "GPA calculator weighted by credits",
+      "seoDescription": "Calculate a grade point average from a list of grades with weights and compare it against the unweighted mean.",
+      "faqCount": 5,
+      "fields": [
+        {
+          "name": "grades",
+          "label": "Grades: one per line, weight after a space",
+          "type": "textarea",
+          "defaultValue": "5 3\n4 4\n3 2"
+        }
+      ]
+    },
+    {
+      "id": "gpa",
+      "locale": "uk",
+      "path": "/uk/navchannya/seredniy-bal/",
+      "name": "Калькулятор середнього балу",
+      "h1": "Калькулятор середнього балу",
+      "seoTitle": "Калькулятор середнього балу з урахуванням кредитів",
+      "seoDescription": "Розрахуйте середній бал за списком оцінок з вагами та порівняйте його з простим середнім без урахування кредитів.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "grades",
+          "label": "Оцінки: по одній у рядку, через пробіл вага",
+          "type": "textarea",
+          "defaultValue": "5 3\n4 4\n3 2"
+        }
+      ]
+    },
+    {
+      "id": "gpa",
+      "locale": "de",
+      "path": "/de/lernen/notendurchschnitt-rechner/",
+      "name": "Notendurchschnitt-Rechner",
+      "h1": "Notendurchschnitt-Rechner",
+      "seoTitle": "Notendurchschnitt berechnen — gewichtet nach Punkten",
+      "seoDescription": "Berechne den Notendurchschnitt aus einer Liste von Noten mit Gewichten und vergleiche ihn mit dem ungewichteten Mittel.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "grades",
+          "label": "Noten: eine je Zeile, Gewicht nach einem Leerzeichen",
+          "type": "textarea",
+          "defaultValue": "5 3\n4 4\n3 2"
+        }
+      ]
+    },
+    {
+      "id": "gpa",
+      "locale": "es",
+      "path": "/es/estudios/nota-media-ponderada/",
+      "name": "Calculadora de nota media ponderada",
+      "h1": "Calculadora de nota media ponderada",
+      "seoTitle": "Calculadora de nota media ponderada por créditos",
+      "seoDescription": "Calcula la nota media a partir de una lista de calificaciones con sus créditos y compárala con la media simple.",
+      "faqCount": 5,
+      "fields": [
+        {
+          "name": "grades",
+          "label": "Notas: una por línea, el peso tras un espacio",
+          "type": "textarea",
+          "defaultValue": "5 3\n4 4\n3 2"
+        }
+      ]
+    },
+    {
+      "id": "final-grade",
+      "locale": "ru",
+      "path": "/ru/education/final-grade/",
+      "name": "Калькулятор нужной оценки",
+      "h1": "Калькулятор нужной оценки",
+      "seoTitle": "Калькулятор нужной оценки — какой балл нужен на экзамене",
+      "seoDescription": "Узнайте, какой балл нужен на экзамене для желаемой итоговой оценки при известных текущей оценке и весе экзамена.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "current",
+          "label": "Текущая оценка, %",
+          "type": "number",
+          "defaultValue": 78,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "name": "target",
+          "label": "Желаемая итоговая, %",
+          "type": "number",
+          "defaultValue": 85,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "name": "weight",
+          "label": "Вес экзамена, %",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 100,
+          "step": 5
+        }
+      ]
+    },
+    {
+      "id": "final-grade",
+      "locale": "en",
+      "path": "/en/education/final-grade-calculator/",
+      "name": "Final grade calculator",
+      "h1": "Final grade calculator",
+      "seoTitle": "Final grade calculator — the exam mark you need",
+      "seoDescription": "Work out the exam mark needed to reach a target final grade from your current standing and the exam weight.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "current",
+          "label": "Current grade, %",
+          "type": "number",
+          "defaultValue": 78,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "name": "target",
+          "label": "Target grade, %",
+          "type": "number",
+          "defaultValue": 85,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "name": "weight",
+          "label": "Exam weight, %",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 100,
+          "step": 5
+        }
+      ]
+    },
+    {
+      "id": "final-grade",
+      "locale": "uk",
+      "path": "/uk/navchannya/potribna-otsinka/",
+      "name": "Калькулятор потрібної оцінки",
+      "h1": "Калькулятор потрібної оцінки",
+      "seoTitle": "Калькулятор потрібної оцінки — бал на іспиті",
+      "seoDescription": "Обчисліть, який бал потрібен на іспиті, щоб вийти на бажану підсумкову оцінку за відомої ваги.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "current",
+          "label": "Поточна оцінка, %",
+          "type": "number",
+          "defaultValue": 78,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "name": "target",
+          "label": "Бажана оцінка, %",
+          "type": "number",
+          "defaultValue": 85,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "name": "weight",
+          "label": "Вага іспиту, %",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 100,
+          "step": 5
+        }
+      ]
+    },
+    {
+      "id": "final-grade",
+      "locale": "de",
+      "path": "/de/lernen/endnote-rechner/",
+      "name": "Endnotenrechner",
+      "h1": "Endnotenrechner",
+      "seoTitle": "Endnote berechnen — welche Prüfungsnote nötig ist",
+      "seoDescription": "Ermittle die nötige Prüfungsnote für eine gewünschte Endnote aus deinem aktuellen Stand und dem Gewicht der Prüfung.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "current",
+          "label": "Aktuelle Note, %",
+          "type": "number",
+          "defaultValue": 78,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "name": "target",
+          "label": "Wunschnote, %",
+          "type": "number",
+          "defaultValue": 85,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "name": "weight",
+          "label": "Gewicht der Prüfung, %",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 100,
+          "step": 5
+        }
+      ]
+    },
+    {
+      "id": "final-grade",
+      "locale": "es",
+      "path": "/es/estudios/calculadora-de-nota-final/",
+      "name": "Calculadora de nota final",
+      "h1": "Calculadora de nota final",
+      "seoTitle": "Calculadora de nota final — la nota de examen que necesitas",
+      "seoDescription": "Calcula la nota de examen necesaria para alcanzar una nota final objetivo a partir de tu situación actual y el peso del examen.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "current",
+          "label": "Nota actual, %",
+          "type": "number",
+          "defaultValue": 78,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "name": "target",
+          "label": "Nota objetivo, %",
+          "type": "number",
+          "defaultValue": 85,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "name": "weight",
+          "label": "Peso del examen, %",
+          "type": "number",
+          "defaultValue": 30,
+          "min": 0,
+          "max": 100,
+          "step": 5
+        }
+      ]
+    },
+    {
+      "id": "test-score-percent",
+      "locale": "ru",
+      "path": "/ru/education/test-score-percent/",
+      "name": "Калькулятор процента за тест",
+      "h1": "Калькулятор процента за тест",
+      "seoTitle": "Калькулятор процента за тест — правильные ответы в проценты",
+      "seoDescription": "Переведите правильные ответы в процент за тест, посмотрите число ошибок и проверьте, взят ли проходной балл.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "correct",
+          "label": "Правильных ответов",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "total",
+          "label": "Всего вопросов",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "passMark",
+          "label": "Проходной балл, %",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "test-score-percent",
+      "locale": "en",
+      "path": "/en/education/test-score-percentage-calculator/",
+      "name": "Test score percentage calculator",
+      "h1": "Test score percentage calculator",
+      "seoTitle": "Test score percentage calculator — correct answers to percent",
+      "seoDescription": "Convert correct answers into a test percentage, see how many you got wrong and whether you cleared the pass mark.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "correct",
+          "label": "Correct answers",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "total",
+          "label": "Questions in total",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "passMark",
+          "label": "Pass mark, %",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "test-score-percent",
+      "locale": "uk",
+      "path": "/uk/navchannya/vidsotok-za-test/",
+      "name": "Калькулятор відсотка за тест",
+      "h1": "Калькулятор відсотка за тест",
+      "seoTitle": "Калькулятор відсотка за тест — правильні відповіді у відсотки",
+      "seoDescription": "Переведіть правильні відповіді у відсоток за тест і перевірте, чи подолано прохідний бал.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "correct",
+          "label": "Правильні відповіді",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "total",
+          "label": "Усього питань",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "passMark",
+          "label": "Прохідний бал, %",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "test-score-percent",
+      "locale": "de",
+      "path": "/de/lernen/testergebnis-prozent/",
+      "name": "Rechner für das Testergebnis in Prozent",
+      "h1": "Rechner für das Testergebnis in Prozent",
+      "seoTitle": "Testergebnis in Prozent berechnen — richtige Antworten",
+      "seoDescription": "Rechne richtige Antworten in ein Testergebnis in Prozent um, sieh die Fehlerzahl und ob die Bestehensgrenze erreicht ist.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "correct",
+          "label": "Richtige Antworten",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "total",
+          "label": "Fragen insgesamt",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "passMark",
+          "label": "Bestehensgrenze, %",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "test-score-percent",
+      "locale": "es",
+      "path": "/es/estudios/porcentaje-de-acierto-en-un-test/",
+      "name": "Calculadora de porcentaje de acierto en un test",
+      "h1": "Calculadora de porcentaje de acierto en un test",
+      "seoTitle": "Calculadora de porcentaje de acierto — de respuestas correctas a porcentaje",
+      "seoDescription": "Convierte las respuestas correctas en un porcentaje del test, consulta cuántas fallaste y si superaste la nota de corte.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "correct",
+          "label": "Respuestas correctas",
+          "type": "number",
+          "defaultValue": 18,
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "total",
+          "label": "Preguntas en total",
+          "type": "number",
+          "defaultValue": 20,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "passMark",
+          "label": "Nota de corte, %",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "reading-speed",
+      "locale": "ru",
+      "path": "/ru/education/reading-speed/",
+      "name": "Калькулятор скорости чтения",
+      "h1": "Калькулятор скорости чтения",
+      "seoTitle": "Калькулятор скорости чтения — слов в минуту",
+      "seoDescription": "Измерьте скорость чтения в словах за минуту и оцените, сколько времени займёт книга заданного объёма.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "words",
+          "label": "Прочитано слов",
+          "type": "number",
+          "defaultValue": 3000,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "minutes",
+          "label": "Время, минут",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 0.5
+        },
+        {
+          "name": "bookWords",
+          "label": "Слов в книге",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1000,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "reading-speed",
+      "locale": "en",
+      "path": "/en/education/reading-speed-calculator/",
+      "name": "Reading speed calculator",
+      "h1": "Reading speed calculator",
+      "seoTitle": "Reading speed calculator — words per minute",
+      "seoDescription": "Measure your reading speed in words per minute and estimate how long a book of a given length would take.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "words",
+          "label": "Words read",
+          "type": "number",
+          "defaultValue": 3000,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "minutes",
+          "label": "Time, minutes",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 0.5
+        },
+        {
+          "name": "bookWords",
+          "label": "Words in the book",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1000,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "reading-speed",
+      "locale": "uk",
+      "path": "/uk/navchannya/shvydkist-chytannya/",
+      "name": "Калькулятор швидкості читання",
+      "h1": "Калькулятор швидкості читання",
+      "seoTitle": "Калькулятор швидкості читання — слів за хвилину",
+      "seoDescription": "Виміряйте швидкість читання у словах за хвилину та оцініть час на книгу заданого обсягу.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "words",
+          "label": "Прочитано слів",
+          "type": "number",
+          "defaultValue": 3000,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "minutes",
+          "label": "Час, хвилин",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 0.5
+        },
+        {
+          "name": "bookWords",
+          "label": "Слів у книзі",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1000,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "reading-speed",
+      "locale": "de",
+      "path": "/de/lernen/lesegeschwindigkeit-test/",
+      "name": "Rechner für die Lesegeschwindigkeit",
+      "h1": "Rechner für die Lesegeschwindigkeit",
+      "seoTitle": "Lesegeschwindigkeit berechnen — Wörter je Minute",
+      "seoDescription": "Miss deine Lesegeschwindigkeit in Wörtern je Minute und schätze, wie lange ein Buch bestimmter Länge dauern würde.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "words",
+          "label": "Gelesene Wörter",
+          "type": "number",
+          "defaultValue": 3000,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "minutes",
+          "label": "Zeit, Minuten",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 0.5
+        },
+        {
+          "name": "bookWords",
+          "label": "Wörter im Buch",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1000,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "reading-speed",
+      "locale": "es",
+      "path": "/es/estudios/velocidad-de-lectura/",
+      "name": "Calculadora de velocidad de lectura",
+      "h1": "Calculadora de velocidad de lectura",
+      "seoTitle": "Calculadora de velocidad de lectura — palabras por minuto",
+      "seoDescription": "Mide tu velocidad de lectura en palabras por minuto y estima cuánto tardarías en leer un libro de una extensión dada.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "words",
+          "label": "Palabras leídas",
+          "type": "number",
+          "defaultValue": 3000,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "name": "minutes",
+          "label": "Tiempo, minutos",
+          "type": "number",
+          "defaultValue": 12,
+          "min": 0,
+          "step": 0.5
+        },
+        {
+          "name": "bookWords",
+          "label": "Palabras del libro",
+          "type": "number",
+          "defaultValue": 0,
+          "min": 0,
+          "step": 1000,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "text-reading-time",
+      "locale": "ru",
+      "path": "/ru/education/text-reading-time/",
+      "name": "Калькулятор времени чтения текста",
+      "h1": "Калькулятор времени чтения текста",
+      "seoTitle": "Калькулятор времени чтения текста и выступления",
+      "seoDescription": "Узнайте, сколько минут занимает чтение текста про себя и сколько — чтение вслух, по числу слов или по вставленному тексту.",
+      "faqCount": 5,
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Что известно",
+          "type": "select",
+          "defaultValue": "words",
+          "options": [
+            {
+              "value": "words",
+              "label": "число слов"
+            },
+            {
+              "value": "text",
+              "label": "сам текст"
+            }
+          ]
+        },
+        {
+          "name": "words",
+          "label": "Число слов",
+          "type": "number",
+          "defaultValue": 1200,
+          "min": 0,
+          "step": 50,
+          "showIf": {
+            "field": "mode",
+            "equals": "words"
+          }
+        },
+        {
+          "name": "text",
+          "label": "Текст",
+          "type": "textarea",
+          "defaultValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+          "showIf": {
+            "field": "mode",
+            "equals": "text"
+          }
+        },
+        {
+          "name": "wpm",
+          "label": "Скорость чтения про себя, слов/мин",
+          "type": "number",
+          "defaultValue": 200,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "speechWpm",
+          "label": "Скорость речи вслух, слов/мин",
+          "type": "number",
+          "defaultValue": 130,
+          "min": 0,
+          "step": 10
+        }
+      ]
+    },
+    {
+      "id": "text-reading-time",
+      "locale": "en",
+      "path": "/en/education/reading-time-calculator/",
+      "name": "Reading time calculator",
+      "h1": "Reading time calculator",
+      "seoTitle": "Reading time calculator for text and speeches",
+      "seoDescription": "Find out how long a text takes to read silently and how long it takes read aloud, from a word count or from the text itself.",
+      "faqCount": 5,
+      "fields": [
+        {
+          "name": "mode",
+          "label": "What you have",
+          "type": "select",
+          "defaultValue": "words",
+          "options": [
+            {
+              "value": "words",
+              "label": "a word count"
+            },
+            {
+              "value": "text",
+              "label": "the text itself"
+            }
+          ]
+        },
+        {
+          "name": "words",
+          "label": "Number of words",
+          "type": "number",
+          "defaultValue": 1200,
+          "min": 0,
+          "step": 50,
+          "showIf": {
+            "field": "mode",
+            "equals": "words"
+          }
+        },
+        {
+          "name": "text",
+          "label": "Text",
+          "type": "textarea",
+          "defaultValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+          "showIf": {
+            "field": "mode",
+            "equals": "text"
+          }
+        },
+        {
+          "name": "wpm",
+          "label": "Silent reading speed, words/min",
+          "type": "number",
+          "defaultValue": 200,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "speechWpm",
+          "label": "Speaking speed, words/min",
+          "type": "number",
+          "defaultValue": 130,
+          "min": 0,
+          "step": 10
+        }
+      ]
+    },
+    {
+      "id": "text-reading-time",
+      "locale": "uk",
+      "path": "/uk/navchannya/chas-chytannya-tekstu/",
+      "name": "Калькулятор часу читання тексту",
+      "h1": "Калькулятор часу читання тексту",
+      "seoTitle": "Калькулятор часу читання тексту та виступу",
+      "seoDescription": "Дізнайтеся, скільки хвилин займає читання тексту про себе і скільки — читання вголос, за кількістю слів або за вставленим текстом.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Що відомо",
+          "type": "select",
+          "defaultValue": "words",
+          "options": [
+            {
+              "value": "words",
+              "label": "кількість слів"
+            },
+            {
+              "value": "text",
+              "label": "сам текст"
+            }
+          ]
+        },
+        {
+          "name": "words",
+          "label": "Кількість слів",
+          "type": "number",
+          "defaultValue": 1200,
+          "min": 0,
+          "step": 50,
+          "showIf": {
+            "field": "mode",
+            "equals": "words"
+          }
+        },
+        {
+          "name": "text",
+          "label": "Текст",
+          "type": "textarea",
+          "defaultValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+          "showIf": {
+            "field": "mode",
+            "equals": "text"
+          }
+        },
+        {
+          "name": "wpm",
+          "label": "Швидкість читання про себе, слів/хв",
+          "type": "number",
+          "defaultValue": 200,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "speechWpm",
+          "label": "Швидкість мовлення вголос, слів/хв",
+          "type": "number",
+          "defaultValue": 130,
+          "min": 0,
+          "step": 10
+        }
+      ]
+    },
+    {
+      "id": "text-reading-time",
+      "locale": "de",
+      "path": "/de/lernen/lesedauer-rechner/",
+      "name": "Rechner für die Lesedauer",
+      "h1": "Rechner für die Lesedauer",
+      "seoTitle": "Lesedauer berechnen für Text und Vortrag",
+      "seoDescription": "Finde heraus, wie lange ein Text still gelesen und wie lange er laut vorgelesen dauert, aus der Wortzahl oder aus dem Text selbst.",
+      "faqCount": 5,
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Was du hast",
+          "type": "select",
+          "defaultValue": "words",
+          "options": [
+            {
+              "value": "words",
+              "label": "eine Wortzahl"
+            },
+            {
+              "value": "text",
+              "label": "den Text selbst"
+            }
+          ]
+        },
+        {
+          "name": "words",
+          "label": "Zahl der Wörter",
+          "type": "number",
+          "defaultValue": 1200,
+          "min": 0,
+          "step": 50,
+          "showIf": {
+            "field": "mode",
+            "equals": "words"
+          }
+        },
+        {
+          "name": "text",
+          "label": "Text",
+          "type": "textarea",
+          "defaultValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+          "showIf": {
+            "field": "mode",
+            "equals": "text"
+          }
+        },
+        {
+          "name": "wpm",
+          "label": "Stilles Lesetempo, Wörter/min",
+          "type": "number",
+          "defaultValue": 200,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "speechWpm",
+          "label": "Sprechtempo, Wörter/min",
+          "type": "number",
+          "defaultValue": 130,
+          "min": 0,
+          "step": 10
+        }
+      ]
+    },
+    {
+      "id": "text-reading-time",
+      "locale": "es",
+      "path": "/es/estudios/tiempo-de-lectura/",
+      "name": "Calculadora de tiempo de lectura",
+      "h1": "Calculadora de tiempo de lectura",
+      "seoTitle": "Calculadora de tiempo de lectura para textos y discursos",
+      "seoDescription": "Averigua cuánto se tarda en leer un texto en silencio y cuánto dura leído en voz alta, a partir de un número de palabras o del propio texto.",
+      "faqCount": 5,
+      "fields": [
+        {
+          "name": "mode",
+          "label": "Qué tienes",
+          "type": "select",
+          "defaultValue": "words",
+          "options": [
+            {
+              "value": "words",
+              "label": "un número de palabras"
+            },
+            {
+              "value": "text",
+              "label": "el propio texto"
+            }
+          ]
+        },
+        {
+          "name": "words",
+          "label": "Número de palabras",
+          "type": "number",
+          "defaultValue": 1200,
+          "min": 0,
+          "step": 50,
+          "showIf": {
+            "field": "mode",
+            "equals": "words"
+          }
+        },
+        {
+          "name": "text",
+          "label": "Texto",
+          "type": "textarea",
+          "defaultValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+          "showIf": {
+            "field": "mode",
+            "equals": "text"
+          }
+        },
+        {
+          "name": "wpm",
+          "label": "Velocidad de lectura silenciosa, palabras/min",
+          "type": "number",
+          "defaultValue": 200,
+          "min": 0,
+          "step": 10
+        },
+        {
+          "name": "speechWpm",
+          "label": "Velocidad al hablar, palabras/min",
+          "type": "number",
+          "defaultValue": 130,
+          "min": 0,
+          "step": 10
+        }
+      ]
+    },
+    {
+      "id": "text-word-char-count",
+      "locale": "ru",
+      "path": "/ru/computers/text-word-char-count/",
+      "name": "Счётчик слов и символов",
+      "h1": "Счётчик слов и символов",
+      "seoTitle": "Счётчик слов и символов в тексте онлайн",
+      "seoDescription": "Посчитайте слова, символы с пробелами и без пробелов, предложения и абзацы в тексте, а также среднюю длину слова.",
+      "faqCount": 5,
+      "fields": [
+        {
+          "name": "text",
+          "label": "Текст",
+          "type": "textarea",
+          "defaultValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+        }
+      ]
+    },
+    {
+      "id": "text-word-char-count",
+      "locale": "en",
+      "path": "/en/computers/word-and-character-counter/",
+      "name": "Word and character counter",
+      "h1": "Word and character counter",
+      "seoTitle": "Word and character counter for text online",
+      "seoDescription": "Count words, characters with and without spaces, sentences and paragraphs in a text, plus the average word length.",
+      "faqCount": 5,
+      "fields": [
+        {
+          "name": "text",
+          "label": "Text",
+          "type": "textarea",
+          "defaultValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+        }
+      ]
+    },
+    {
+      "id": "text-word-char-count",
+      "locale": "uk",
+      "path": "/uk/kompyutery/lichylnyk-sliv-i-symvoliv/",
+      "name": "Лічильник слів і символів",
+      "h1": "Лічильник слів і символів",
+      "seoTitle": "Лічильник слів і символів у тексті онлайн",
+      "seoDescription": "Порахуйте слова, символи з пробілами та без пробілів, речення й абзаци в тексті, а також середню довжину слова.",
+      "faqCount": 4,
+      "fields": [
+        {
+          "name": "text",
+          "label": "Текст",
+          "type": "textarea",
+          "defaultValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+        }
+      ]
+    },
+    {
+      "id": "text-word-char-count",
+      "locale": "de",
+      "path": "/de/computer/zeichenzaehler/",
+      "name": "Wörter- und Zeichenzähler",
+      "h1": "Wörter- und Zeichenzähler",
+      "seoTitle": "Wörter und Zeichen zählen — Text online zählen",
+      "seoDescription": "Zähle Wörter, Zeichen mit und ohne Leerzeichen, Sätze und Absätze in einem Text, dazu die mittlere Wortlänge.",
+      "faqCount": 5,
+      "fields": [
+        {
+          "name": "text",
+          "label": "Text",
+          "type": "textarea",
+          "defaultValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+        }
+      ]
+    },
+    {
+      "id": "text-word-char-count",
+      "locale": "es",
+      "path": "/es/informatica/contador-de-palabras-y-caracteres/",
+      "name": "Contador de palabras y caracteres",
+      "h1": "Contador de palabras y caracteres",
+      "seoTitle": "Contador de palabras y caracteres de un texto en línea",
+      "seoDescription": "Cuenta las palabras, los caracteres con y sin espacios, las frases y los párrafos de un texto, además de la longitud media de palabra.",
+      "faqCount": 5,
+      "fields": [
+        {
+          "name": "text",
+          "label": "Texto",
+          "type": "textarea",
+          "defaultValue": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+        }
+      ]
+    }
+  ]
+}

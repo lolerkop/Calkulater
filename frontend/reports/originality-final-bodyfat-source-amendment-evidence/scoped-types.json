@@ -1,0 +1,9 @@
+{
+  "roots": [
+    "src/data/fitnessLegacyContractContent.ts",
+    "tests/originalityFinalBodyfatSourceAmendment.test.ts"
+  ],
+  "ownedDiagnostics": 0,
+  "dependencyDiagnostics": 0,
+  "diagnostics": []
+}

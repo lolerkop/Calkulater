@@ -1,3 +1,4 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 const RESULTS_EN = {
@@ -15,10 +16,10 @@ export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'shape': 'Querschnitt',
-      'a': 'Durchmesser oder Seite, mm',
-      'b': 'Zweite Seite des Flachstahls, mm',
-      'length': 'Länge, m',
-      'density': 'Dichte, g/cm³',
+      'a': "Durchmesser oder Seite",
+      'b': "Zweite Seite des Flachstahls",
+      'length': "Länge",
+      'density': "Dichte",
     },
     options: {
       'round': 'Rundstahl',
@@ -48,8 +49,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      shape: 'Cross-section', a: 'Diameter or side, mm', b: 'Second side of the flat bar, mm',
-      length: 'Length, m', density: 'Density, g/cm³',
+      shape: 'Cross-section', a: "Diameter or side", b: "Second side of the flat bar",
+      length: "Length", density: "Density",
     },
     options: { round: 'round bar', square: 'square bar', flat: 'flat bar' },
     results: RESULTS_EN,
@@ -64,8 +65,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      shape: 'Форма перерізу', a: 'Діаметр або сторона, мм', b: 'Друга сторона смуги, мм',
-      length: 'Довжина, м', density: 'Густина, г/см³',
+      shape: 'Форма перерізу', a: "Діаметр або сторона", b: "Друга сторона смуги",
+      length: "Довжина", density: "Густина",
     },
     options: { round: 'коло', square: 'квадрат', flat: 'смуга' },
     results: RESULTS_UK,
@@ -81,10 +82,10 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "shape": "Sección",
-      "a": "Diámetro o lado, mm",
-      "b": "Segundo lado de la pletina, mm",
-      "length": "Longitud, m",
-      "density": "Densidad, g/cm³",
+      "a": "Diámetro o lado",
+      "b": "Segundo lado de la pletina",
+      "length": "Longitud",
+      "density": "Densidad",
     },
     options: {
       "round": "barra redonda",
@@ -113,3 +114,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

@@ -1,58 +1,36 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatQuantity } from '../../lib/platform/measurement';
+import { read, qty, RANGE, INPUT, MODE } from '../../lib/platform/measurementScalar';
 
-// Механическая работа: W = F · s · cos θ.
-//
-// Угол приходит в ГРАДУСАХ, а Math.cos принимает РАДИАНЫ. Перевод сделан явно
-// и в одном месте: подстановка градусов напрямую дала бы правдоподобное, но
-// неверное число.
-//
-// Косинус прямого угла в плавающей арифметике равен не нулю, а 6,1·10⁻¹⁷.
-// Оставить его как есть значило бы показать работу 3·10⁻¹⁵ Дж там, где верный
-// ответ — ровно ноль, поэтому пренебрежимо малый косинус обнуляется.
 
-const qty = (value: number): string => formatQuantity(value, fmtNumber);
 
-const cosDegrees = (degrees: number): number => {
-  const value = Math.cos((degrees * Math.PI) / 180);
-  return Math.abs(value) < 1e-12 ? 0 : value;
-};
-
+// Work of one constant force through a net displacement, angle in degrees.
+// Only exactly 90 degrees has a zero cosine; nearby angles retain their sign.
+const cosDegrees = (a: number): number => a === 90 ? 0 : a === 0 ? 1 : a === 180 ? -1 : Math.sin((90 - a) * (Math.PI / 180));
+const multiply = (a: number, b: number, c: number): number => a === 0 || b === 0 || c === 0 ? 0 : [(a * b) * c, a * (b * c), (a * c) * b].find(x => Number.isFinite(x) && x !== 0) ?? NaN;
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'W');
-  const force = toNumber(inputs.F);
-  const angleDeg = toNumber(inputs.angleDeg);
-  const cos = cosDegrees(angleDeg);
-  const fail = (message: string) => ({
-    primary: { label: 'Работа', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
+  const mode = inputs.mode;
+  const label = mode === 's' ? 'Перемещение' : 'Работа';
+  const fail = (message: string) => ({ primary: { label, value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (mode !== 'W' && mode !== 's') return fail(MODE);
+  const force = read(inputs.F), angle = read(inputs.angleDeg), supplied = read(mode === 'W' ? inputs.s : inputs.W);
+  if (![force, angle, supplied].every(Number.isFinite)) return fail(INPUT);
   if (force < 0) return fail('Сила не может быть отрицательной');
-
-  let distance = 0;
-  let work = 0;
-  let primaryLabel = 'Работа';
+  if (angle < 0 || angle > 180) return fail('Угол должен лежать в диапазоне от 0 до 180 градусов');
+  const cos = cosDegrees(angle);
+  let distance: number, work: number;
   if (mode === 'W') {
-    distance = toNumber(inputs.s);
+    distance = supplied;
     if (distance < 0) return fail('Перемещение не может быть отрицательным');
-    work = force * distance * cos;
+    work = multiply(force, distance, cos);
   } else {
-    work = toNumber(inputs.W);
-    if (work < 0) return fail('Работа не может быть отрицательной');
+    work = supplied;
     if (!(force > 0)) return fail('Сила должна быть больше нуля, иначе перемещение не определено');
     if (cos === 0) return fail('При прямом угле сила работы не совершает, и перемещение из неё не выводится');
-    distance = work / (force * cos);
-    primaryLabel = 'Перемещение';
+    if (work !== 0 && Math.sign(work) !== Math.sign(cos)) return fail('Знак работы должен соответствовать углу: длина перемещения неотрицательна');
+    distance = work === 0 ? 0 : [(work / force) / cos, (work / cos) / force, work / (force * cos)].find(x => Number.isFinite(x) && x > 0) ?? NaN;
   }
-
-  return {
-    primary: { label: primaryLabel, value: mode === 'W' ? `${qty(work)} Дж` : `${qty(distance)} м` },
-    secondary: [
-      { label: 'Работа', value: `${qty(work)} Дж` },
-      { label: 'Сила', value: `${qty(force)} Н` },
-      { label: 'Перемещение', value: `${qty(distance)} м` },
-      { label: 'Косинус угла', value: qty(cos) },
-    ],
-  };
+  if (![distance, work, cos].every(Number.isFinite)) return fail(RANGE);
+  return { primary: { label, value: mode === 'W' ? `${qty(work)} Дж` : `${qty(distance)} м` }, secondary: [
+    { label: 'Работа', value: `${qty(work)} Дж` }, { label: 'Сила', value: `${qty(force)} Н` }, { label: 'Перемещение', value: `${qty(distance)} м` }, { label: 'Косинус угла', value: qty(cos) },
+  ] };
 };

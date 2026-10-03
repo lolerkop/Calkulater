@@ -1,12 +1,12 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber as ordinaryNumber } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
 
 // Полезная ёмкость RAID-массива.
 //
 // Уровни отличаются тем, сколько ёмкости уходит на избыточность: RAID 0 не
 // тратит ничего и не переживает ни одного отказа, RAID 5 отдаёт под чётность
-// один диск, RAID 6 — два, зеркало — половину.
+// один диск, RAID 6 — два, зеркало из n одинаковых копий оставляет ёмкость одного диска.
 //
 // «Допустимо отказов» у RAID 10 указано ГАРАНТИРОВАННОЕ. Массив переживает и
 // половину дисков, если отказы попадут в разные зеркала, но рассчитывать на
@@ -29,15 +29,24 @@ const LEVELS: Record<string, Level> = {
   '10': { minDisks: 4, tooFew: 'Для этого уровня нужно не меньше четырёх дисков', evenOnly: true, useful: (n, s) => (n / 2) * s, failures: () => 1, kind: 'зеркало с чередованием' },
 };
 
+import { read, INPUT, RANGE } from '../../lib/platform/measurementScalar';
+import { integerInput } from '../../lib/platform/strictNumericInput';
+
+
+const fmtNumber = (value: number, digits = 2): string => value !== 0 && Math.abs(value) < 0.5 * 10 ** -digits ? value.toExponential(3).replace('.', ',') : ordinaryNumber(value, digits);
+
 export const compute: CalcFunction = (inputs) => {
-  const level = LEVELS[toStr(inputs.level, '5')] ?? LEVELS['5'];
-  const disks = toNumber(inputs.disks);
-  const size = toNumber(inputs.sizeTb);
+  const levelKey = (typeof inputs.level === 'string' ? inputs.level : inputs.level === undefined ? '5' : '');
+  const level = Object.hasOwn(LEVELS, levelKey) ? LEVELS[levelKey] : null;
+  const disks = integerInput(inputs.disks) ?? NaN;
+  const size = read(inputs.sizeTb);
   const fail = (message: string) => ({
     primary: { label: 'Полезная ёмкость', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (!level) return fail('Выберите уровень RAID из списка');
+  if (![disks, size].every(Number.isFinite)) return fail(INPUT);
   if (!Number.isInteger(disks)) return fail('Число дисков должно быть целым');
   if (disks < level.minDisks) return fail(level.tooFew);
   if (level.evenOnly && disks % 2 !== 0) return fail('RAID 10 требует чётного числа дисков');
@@ -45,7 +54,8 @@ export const compute: CalcFunction = (inputs) => {
 
   const raw = disks * size;
   const useful = level.useful(disks, size);
-  const tb = (value: number) => `${formatMeasure(value, fmtNumber)} ТБ`;
+  if (![raw, useful].every(v => Number.isFinite(v) && v > 0)) return fail(RANGE);
+  const tb = (value: number) => `${(value !== 0 && Math.abs(value) < 1e-6 ? value.toExponential(3).replace('.', ',') : formatMeasure(value, fmtNumber))} ТБ`;
 
   return {
     primary: { label: 'Полезная ёмкость', value: tb(useful) },

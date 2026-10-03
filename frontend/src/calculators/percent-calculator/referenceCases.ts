@@ -50,13 +50,13 @@ export const percentReferenceCases: readonly CalculatorReferenceCase[] = [
     name: 'изменение вверх: со 100 до 130 = +30%',
     inputs: { mode: 'change', a: 100, b: 130 },
     expectPrimary: '+30,00%',
-    expectSecondary: [{ label: 'Абсолютная разница', value: '30,00' }],
+    expectSecondary: [{ label: 'Разница B − A', value: '30,00' }],
   },
   {
     name: 'изменение вниз: со 130 до 100 = −23,08%',
     inputs: { mode: 'change', a: 130, b: 100 },
     expectPrimary: '-23,08%',
-    expectSecondary: [{ label: 'Абсолютная разница', value: '-30,00' }],
+    expectSecondary: [{ label: 'Разница B − A', value: '-30,00' }],
   },
   {
     name: 'изменение: нулевая база даёт прочерк',
@@ -65,9 +65,9 @@ export const percentReferenceCases: readonly CalculatorReferenceCase[] = [
     expectSecondary: [{ label: 'Ошибка', value: 'Исходное значение не может быть равно нулю' }],
   },
   {
-    name: 'неизвестный режим не роняет расчёт',
+    name: 'неизвестный режим даёт явную ошибку вместо правдоподобного нуля',
     inputs: { mode: 'zzz', a: 1, b: 2 },
-    expectPrimary: '0,00',
-    expectSecondary: [{ label: 'Режим', value: 'Проценты' }],
+    expectPrimary: '—',
+    expectSecondary: [{ label: 'Ошибка', value: 'Выберите допустимый режим расчёта.' }],
   },
 ];

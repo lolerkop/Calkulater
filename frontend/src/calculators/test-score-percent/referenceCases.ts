@@ -46,4 +46,6 @@ export const testScorePercentReferenceCases: readonly CalculatorReferenceCase[] 
     inputs: { correct: 5, total: 0 },
     expectPrimary: '—',
   },
+  {"name": "дробное число ответов не округляется", "inputs": {"correct": 1.9, "total": 2.4}, "expectPrimary": "—"},
+  {"name": "порог проверяется до округления процента", "inputs": {"correct": 1, "total": 3, "passMark": 33.334}, "expectPrimary": "33,33%", "expectSecondary": [{"label": "Проходной балл", "value": "Тест не сдан"}]},
 ];

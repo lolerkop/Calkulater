@@ -1,3 +1,4 @@
+import { buildingWave13ContractContent } from './contractContent';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { metalWeightCopyEn } from './copy.en';
@@ -25,7 +26,7 @@ export const definition: CalculatorDefinitionV2 = {
     isNew: false,
     shortDescription: "Масса круга, квадрата и полосы по размерам сечения и длине.",
     longDescription:
-      "Считает массу металлопроката по площади сечения, длине и плотности сплава. Плотность задаётся вручную, а не берётся из таблицы марок: у сталей она отличается в третьем знаке, а у алюминия, латуни и меди — в первом, и подставлять справочное число за посетителя значило бы отвечать за сплав, которого страница не знает. Кроме массы показана погонная масса и сколько метров проката приходится на тонну — по этим двум строкам счёт от поставщика проверяется без пересчёта.",
+      buildingWave13ContractContent.ru.longDescription,
     seoTitle: "Калькулятор веса металлопроката — круг, квадрат, полоса",
     seoDescription: "Рассчитайте массу металлопроката: круг, квадрат или полоса по размерам сечения, длине и плотности сплава.",
     h1: "Калькулятор веса металлопроката",
@@ -39,10 +40,10 @@ export const definition: CalculatorDefinitionV2 = {
           { value: 'flat', label: 'полоса' },
         ],
       },
-      { name: 'a', label: 'Диаметр или сторона, мм', type: 'number', defaultValue: 20, min: 0, step: 1 },
-      { name: 'b', label: 'Вторая сторона полосы, мм', type: 'number', defaultValue: 4, min: 0, step: 1, showIf: { field: 'shape', equals: 'flat' } },
-      { name: 'length', label: 'Длина, м', type: 'number', defaultValue: 6, min: 0, step: 0.1 },
-      { name: 'density', label: 'Плотность, г/см³', type: 'number', defaultValue: 7.85, min: 0, step: 0.01 },
+      { name: 'a', label: "Диаметр или сторона", type: 'number', unit: "мм", defaultValue: 20, min: 0, step: 1 },
+      { name: 'b', label: "Вторая сторона полосы", type: 'number', unit: "мм", defaultValue: 4, min: 0, step: 1, showIf: { field: 'shape', equals: 'flat' } },
+      { name: 'length', label: "Длина", type: 'number', unit: "м", defaultValue: 6, min: 0, step: 0.1 },
+      { name: 'density', label: "Плотность", type: 'number', unit: "г/см³", defaultValue: 7.85, min: 0, step: 0.01 },
     ],
     resultLabels: {
       "mass": "Масса",
@@ -51,20 +52,11 @@ export const definition: CalculatorDefinitionV2 = {
       "linear": "Погонная масса",
       "perTon": "Метров в тонне",
     },
-    howToUse: [
-      "Выберите форму сечения: круг, квадрат или полоса.",
-      "Введите диаметр или сторону в миллиметрах; для полосы задайте обе стороны.",
-      "Укажите длину заготовки в метрах.",
-      "Задайте плотность сплава: сталь 7,85, алюминий 2,7, латунь 8,5 г/см³.",
-    ],
-    howItWorks: "Масса = площадь сечения × длина × плотность. Площадь круга π(d/2)², квадрата a², полосы a × b. Миллиметры сечения приводятся к метрам делением на миллион.",
-    example: "Стальной круг Ø20 мм длиной 6 м весит 14,797 кг — 2,466 кг на погонный метр.",
-    faq: [
-      { q: "Почему плотность нужно вводить вручную?", a: "Потому что она зависит от сплава. У сталей разница в третьем знаке, а у алюминия против латуни — втрое, и подставлять число за посетителя значило бы отвечать за марку, которой страница не знает." },
-      { q: "Какую плотность брать для стали?", a: "Для конструкционных и низколегированных сталей обычно 7,85 г/см³. Нержавеющие аустенитные немного тяжелее — около 7,9." },
-      { q: "Годится ли расчёт для трубы или уголка?", a: "Нет. У них сечение с пустотой, и площадь считается как разность двух фигур. Здесь считаются сплошные профили: круг, квадрат и полоса." },
-      { q: "Почему фактический вес отличается от расчётного?", a: "Из-за допусков проката. Прокат поставляется с отклонением по размерам, и у длинномерных профилей расхождение в пару процентов — обычное дело." },
-    ],
+    howToUse: buildingWave13ContractContent.ru.howToUse,
+    howItWorks: buildingWave13ContractContent.ru.howItWorks,
+    example: buildingWave13ContractContent.ru.example,
+    faq: buildingWave13ContractContent.ru.faq,
     relatedCalculatorIds: ["wood-weight", "board-volume", "slab-foundation"],
   },
 };
+

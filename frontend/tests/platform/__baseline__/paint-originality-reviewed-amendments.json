@@ -1,0 +1,1244 @@
+{
+  "scope": "Explicit subject amendments after platform migration; original3 migration baselines remain immutable. Expected literals fixed only after exact old/new property review. Not a new proof of historical baseline execution.",
+  "reviewKind": "ROOT AI subject review with prior6-tool peer,480independent numerical controls and30native publication proof; human pending",
+  "evidence": [
+    "reports/originality-building-wave-17.json",
+    "reports/originality-building-wave-17-peer-review.json"
+  ],
+  "approvedTopLevelKeys": {
+    "ru": [
+      "fields",
+      "howToUse",
+      "howItWorks",
+      "faq",
+      "seoContent"
+    ],
+    "en": [
+      "longDescription",
+      "fields",
+      "howToUse",
+      "howItWorks",
+      "example",
+      "faq",
+      "seoContent"
+    ],
+    "uk": [
+      "longDescription",
+      "seoDescription",
+      "fields",
+      "howToUse",
+      "howItWorks",
+      "example",
+      "faq",
+      "seoContent"
+    ]
+  },
+  "preserved": "Every other top-level property, identities, field names/order/defaults/showIf/options, useful originals and independent numeric references. Defined units, min0withstrictpositivevalidator, RAWwholecounts<=MAXSAFE, product-specificcoatcount andunboundednonnegativechosenreserve replace arbitrary caps; emptyreserve=0 supported by actualcompute.",
+  "records": [
+    {
+      "locale": "ru",
+      "baseline": "tests/platform/__baseline__/paint-calculator.ru.json",
+      "baselineSha256": "dd791435bbaa93311cc9e71f4911f6b5106aac62ab6d7fb36a8174364732437d",
+      "changes": [
+        {
+          "key": "fields",
+          "before": [
+            {
+              "name": "mode",
+              "label": "Способ расчёта",
+              "type": "toggle",
+              "defaultValue": "manual",
+              "options": [
+                {
+                  "value": "manual",
+                  "label": "Площадь вручную"
+                },
+                {
+                  "value": "room",
+                  "label": "По размерам комнаты"
+                }
+              ]
+            },
+            {
+              "name": "area",
+              "label": "Площадь, м²",
+              "type": "number",
+              "defaultValue": 30,
+              "min": 0.01,
+              "showIf": {
+                "field": "mode",
+                "equals": "manual"
+              }
+            },
+            {
+              "name": "length",
+              "label": "Длина, м",
+              "type": "number",
+              "defaultValue": 5,
+              "min": 0.01,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "width",
+              "label": "Ширина, м",
+              "type": "number",
+              "defaultValue": 4,
+              "min": 0.01,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "height",
+              "label": "Высота, м",
+              "type": "number",
+              "defaultValue": 2.7,
+              "min": 0.01,
+              "step": 0.1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "windows",
+              "label": "Количество окон",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "doors",
+              "label": "Количество дверей",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "coats",
+              "label": "Количество слоёв",
+              "type": "number",
+              "defaultValue": 2,
+              "min": 1,
+              "max": 4
+            },
+            {
+              "name": "consumption",
+              "label": "Расход на м², л",
+              "type": "number",
+              "defaultValue": 0.15,
+              "min": 0.01,
+              "step": 0.01
+            },
+            {
+              "name": "canVolume",
+              "label": "Объём банки, л",
+              "type": "number",
+              "defaultValue": 2.5,
+              "min": 0.01,
+              "step": 0.1
+            },
+            {
+              "name": "reserve",
+              "label": "Запас, %",
+              "type": "number",
+              "defaultValue": 10,
+              "min": 0,
+              "max": 50
+            },
+            {
+              "name": "canPrice",
+              "label": "Цена одной банки",
+              "type": "number",
+              "defaultValue": 0,
+              "min": 0,
+              "optional": true
+            }
+          ],
+          "after": [
+            {
+              "name": "mode",
+              "label": "Способ расчёта",
+              "type": "toggle",
+              "defaultValue": "manual",
+              "options": [
+                {
+                  "value": "manual",
+                  "label": "Площадь вручную"
+                },
+                {
+                  "value": "room",
+                  "label": "По размерам комнаты"
+                }
+              ]
+            },
+            {
+              "name": "area",
+              "label": "Площадь окрашивания",
+              "type": "number",
+              "defaultValue": 30,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "manual"
+              },
+              "unit": "m²"
+            },
+            {
+              "name": "length",
+              "label": "Длина комнаты",
+              "type": "number",
+              "defaultValue": 5,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "м"
+            },
+            {
+              "name": "width",
+              "label": "Ширина комнаты",
+              "type": "number",
+              "defaultValue": 4,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "м"
+            },
+            {
+              "name": "height",
+              "label": "Высота стен",
+              "type": "number",
+              "defaultValue": 2.7,
+              "min": 0,
+              "step": 0.1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "м"
+            },
+            {
+              "name": "windows",
+              "label": "Количество окон",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "max": 9007199254740991,
+              "step": 1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "шт.",
+              "help": "Целое количество; модель вычитает фиксированные 1,5 м² на окно. Реальные размеры не вводятся."
+            },
+            {
+              "name": "doors",
+              "label": "Количество дверей",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "max": 9007199254740991,
+              "step": 1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "шт.",
+              "help": "Целое количество; модель вычитает фиксированные 1,8 м² на дверь. Реальные размеры не вводятся."
+            },
+            {
+              "name": "coats",
+              "label": "Количество слоёв",
+              "type": "number",
+              "defaultValue": 2,
+              "min": 1,
+              "max": 9007199254740991,
+              "step": 1,
+              "unit": "слоёв",
+              "help": "Целое число до 9007199254740991; дробь не округляется."
+            },
+            {
+              "name": "consumption",
+              "label": "Расход на один слой",
+              "type": "number",
+              "defaultValue": 0.15,
+              "min": 0,
+              "step": 0.01,
+              "unit": "л/м²",
+              "help": "Литры на м² для одного слоя. Если этикетка даёт м²/л, введите обратное значение."
+            },
+            {
+              "name": "canVolume",
+              "label": "Объём банки",
+              "type": "number",
+              "defaultValue": 2.5,
+              "min": 0,
+              "step": 0.1,
+              "unit": "л"
+            },
+            {
+              "name": "reserve",
+              "label": "Запас",
+              "type": "number",
+              "defaultValue": 10,
+              "min": 0,
+              "unit": "%",
+              "help": "Выбранный неотрицательный процент; универсальная норма не устанавливается. Пустое поле означает 0.",
+              "optional": true
+            },
+            {
+              "name": "canPrice",
+              "label": "Цена банки",
+              "type": "number",
+              "defaultValue": 0,
+              "min": 0,
+              "optional": true,
+              "unit": "₽",
+              "help": "Цена в RUB; обмена валют нет. Пустое поле или 0 скрывает стоимость."
+            }
+          ]
+        },
+        {
+          "key": "howToUse",
+          "before": [
+            "Выберите способ — площадь напрямую или размеры комнаты.",
+            "Укажите число слоёв (обычно 2).",
+            "Введите расход и объём банки — данные есть на этикетке.",
+            "Проверьте тип поверхности: пористые основания могут потребовать больше краски."
+          ],
+          "after": [
+            "Выберите способ — площадь напрямую или размеры комнаты.",
+            "Укажите целое положительное число слоёв по инструкции выбранной краски и условиям поверхности.",
+            "Введите расход и объём банки — данные есть на этикетке.",
+            "Проверьте тип поверхности: пористые основания могут потребовать больше краски."
+          ]
+        },
+        {
+          "key": "howItWorks",
+          "before": "Литры = площадь × расход × количество слоёв. Банки округляются вверх, чтобы хватило с запасом.",
+          "after": "В ручном режиме вводится площадь, а в режиме комнаты берётся 2 × (длина + ширина) × высота минус условные 1,5 м² на окно и 1,8 м² на дверь. Окрашиваемая площадь после вычета должна быть положительной. Литры = площадь × расход л/м² на один слой × целое число слоёв × (1 + запас/100). Банки округляются вверх из литров/объёма банки; стоимость равна числу банок × цене в RUB. Остаток от целых банок показывается отдельно от введённого запаса. Расход и число слоёв выбираются по конкретной краске и поверхности: один и два слоя не являются универсальным правилом. Потолок, реальные размеры проёмов, разные расходы по слоям и грунтовка отдельно не добавляются. 0 цены скрывает стоимость; пустая цена означает 0."
+        },
+        {
+          "key": "faq",
+          "before": [
+            {
+              "q": "Какой расход краски брать?",
+              "a": "Обычно 0,1-0,2 л/м² на слой для водоэмульсионных красок. Точные значения — на этикетке."
+            },
+            {
+              "q": "Сколько слоёв нужно?",
+              "a": "Чаще всего 2. На контрастных стенах может понадобиться 3."
+            },
+            {
+              "q": "Учитывается ли грунтовка?",
+              "a": "Нет, грунтовка считается отдельно. Она может снизить расход краски на впитывающих поверхностях."
+            },
+            {
+              "q": "Почему банки округляются вверх?",
+              "a": "Краску покупают банками фиксированного объёма, поэтому итог всегда округляется до целой банки."
+            },
+            {
+              "q": "Можно ли считать потолок?",
+              "a": "Да, выберите ввод площади вручную и укажите площадь потолка, число слоёв и расход для выбранной краски."
+            }
+          ],
+          "after": [
+            {
+              "q": "Какой расход краски брать?",
+              "a": "Возьмите расход конкретной краски для выбранного основания. Если указан выход в м²/л, введите обратную величину: 10 м²/л соответствует 0,1 л/м² на слой. Модель использует один введённый расход для всех слоёв."
+            },
+            {
+              "q": "Сколько слоёв нужно?",
+              "a": "Число слоёв задаётся по инструкции краски и условиям поверхности. Бывают продукты на один слой и системы на два; калькулятор не выбирает их. Он умножает одинаковый введённый расход на целое число слоёв, хотя реальный расход слоёв может различаться."
+            },
+            {
+              "q": "Учитывается ли грунтовка?",
+              "a": "Нет, грунтовка считается отдельно. Она может снизить расход краски на впитывающих поверхностях."
+            },
+            {
+              "q": "Почему банки округляются вверх?",
+              "a": "Краску покупают банками фиксированного объёма, поэтому итог всегда округляется до целой банки."
+            },
+            {
+              "q": "Можно ли считать потолок?",
+              "a": "Да, выберите ввод площади вручную и укажите площадь потолка, число слоёв и расход для выбранной краски."
+            }
+          ]
+        },
+        {
+          "key": "seoContent",
+          "before": {
+            "intro": "Калькулятор краски помогает оценить литры и количество банок для стен или другой площади. В расчёте учитываются площадь, количество слоёв, расход на квадратный метр и объём банки. Это удобно перед покупкой, чтобы не брать слишком мало материала и не переплачивать за лишние банки.",
+            "howItWorks": "Литры = площадь × расход × количество слоёв. Банки округляются вверх, чтобы хватило с запасом.",
+            "example": "30 м² в 2 слоя при расходе 0,15 л/м² без дополнительного запаса → 9 л краски, 4 банки по 2,5 л.",
+            "tips": "Выберите способ — площадь напрямую или размеры комнаты. Укажите число слоёв (обычно 2). Введите расход и объём банки — данные есть на этикетке. Проверьте тип поверхности: пористые основания могут потребовать больше краски.",
+            "faq": [
+              {
+                "q": "Какой расход краски брать?",
+                "a": "Обычно 0,1-0,2 л/м² на слой для водоэмульсионных красок. Точные значения — на этикетке."
+              },
+              {
+                "q": "Сколько слоёв нужно?",
+                "a": "Чаще всего 2. На контрастных стенах может понадобиться 3."
+              },
+              {
+                "q": "Учитывается ли грунтовка?",
+                "a": "Нет, грунтовка считается отдельно. Она может снизить расход краски на впитывающих поверхностях."
+              },
+              {
+                "q": "Почему банки округляются вверх?",
+                "a": "Краску покупают банками фиксированного объёма, поэтому итог всегда округляется до целой банки."
+              },
+              {
+                "q": "Можно ли считать потолок?",
+                "a": "Да, выберите ввод площади вручную и укажите площадь потолка, число слоёв и расход для выбранной краски."
+              }
+            ]
+          },
+          "after": {
+            "intro": "Калькулятор краски помогает оценить литры и количество банок для стен или другой площади. В расчёте учитываются площадь, количество слоёв, расход на квадратный метр и объём банки. Это удобно перед покупкой, чтобы не брать слишком мало материала и не переплачивать за лишние банки.",
+            "howItWorks": "В ручном режиме вводится площадь, а в режиме комнаты берётся 2 × (длина + ширина) × высота минус условные 1,5 м² на окно и 1,8 м² на дверь. Окрашиваемая площадь после вычета должна быть положительной. Литры = площадь × расход л/м² на один слой × целое число слоёв × (1 + запас/100). Банки округляются вверх из литров/объёма банки; стоимость равна числу банок × цене в RUB. Остаток от целых банок показывается отдельно от введённого запаса. Расход и число слоёв выбираются по конкретной краске и поверхности: один и два слоя не являются универсальным правилом. Потолок, реальные размеры проёмов, разные расходы по слоям и грунтовка отдельно не добавляются. 0 цены скрывает стоимость; пустая цена означает 0.",
+            "example": "30 м² в 2 слоя при расходе 0,15 л/м² без дополнительного запаса → 9 л краски, 4 банки по 2,5 л.",
+            "tips": "Выберите способ — площадь напрямую или размеры комнаты. Укажите целое положительное число слоёв по инструкции выбранной краски и условиям поверхности. Введите расход и объём банки — данные есть на этикетке. Проверьте тип поверхности: пористые основания могут потребовать больше краски.",
+            "faq": [
+              {
+                "q": "Какой расход краски брать?",
+                "a": "Возьмите расход конкретной краски для выбранного основания. Если указан выход в м²/л, введите обратную величину: 10 м²/л соответствует 0,1 л/м² на слой. Модель использует один введённый расход для всех слоёв."
+              },
+              {
+                "q": "Сколько слоёв нужно?",
+                "a": "Число слоёв задаётся по инструкции краски и условиям поверхности. Бывают продукты на один слой и системы на два; калькулятор не выбирает их. Он умножает одинаковый введённый расход на целое число слоёв, хотя реальный расход слоёв может различаться."
+              },
+              {
+                "q": "Учитывается ли грунтовка?",
+                "a": "Нет, грунтовка считается отдельно. Она может снизить расход краски на впитывающих поверхностях."
+              },
+              {
+                "q": "Почему банки округляются вверх?",
+                "a": "Краску покупают банками фиксированного объёма, поэтому итог всегда округляется до целой банки."
+              },
+              {
+                "q": "Можно ли считать потолок?",
+                "a": "Да, выберите ввод площади вручную и укажите площадь потолка, число слоёв и расход для выбранной краски."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "baseline": "tests/platform/__baseline__/paint-calculator.en.json",
+      "baselineSha256": "015bfcf2d2de67011c0acbc8e0f8713d4b3a455f368e35a01279db073dc0326d",
+      "changes": [
+        {
+          "key": "longDescription",
+          "before": "Use this paint calculator to estimate paint quantity from area, coats, coverage and can size.",
+          "after": "Estimate litres and whole cans using paintable area, litres per square metre per coat and a chosen coat count. Use a directly measured area or a rectangular room model with fixed opening allowances. The consumption field is litres/m², the reciprocal of coverage stated as m²/L. An entered reserve and excess caused by whole cans are shown as different quantities; the calculator does not decide which paint or surface preparation is suitable."
+        },
+        {
+          "key": "fields",
+          "before": [
+            {
+              "name": "mode",
+              "label": "Mode",
+              "type": "toggle",
+              "defaultValue": "manual",
+              "options": [
+                {
+                  "value": "manual",
+                  "label": "Manual area"
+                },
+                {
+                  "value": "room",
+                  "label": "By room"
+                }
+              ]
+            },
+            {
+              "name": "area",
+              "label": "Area",
+              "type": "number",
+              "defaultValue": 30,
+              "min": 0.01,
+              "showIf": {
+                "field": "mode",
+                "equals": "manual"
+              }
+            },
+            {
+              "name": "length",
+              "label": "Length",
+              "type": "number",
+              "defaultValue": 5,
+              "min": 0.01,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "width",
+              "label": "Width",
+              "type": "number",
+              "defaultValue": 4,
+              "min": 0.01,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "height",
+              "label": "Height",
+              "type": "number",
+              "defaultValue": 2.7,
+              "min": 0.01,
+              "step": 0.1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "windows",
+              "label": "Windows",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "doors",
+              "label": "Doors",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "coats",
+              "label": "Coats",
+              "type": "number",
+              "defaultValue": 2,
+              "min": 1,
+              "max": 4
+            },
+            {
+              "name": "consumption",
+              "label": "Coverage per square meter",
+              "type": "number",
+              "defaultValue": 0.15,
+              "min": 0.01,
+              "step": 0.01
+            },
+            {
+              "name": "canVolume",
+              "label": "Can volume",
+              "type": "number",
+              "defaultValue": 2.5,
+              "min": 0.01,
+              "step": 0.1
+            },
+            {
+              "name": "reserve",
+              "label": "Reserve",
+              "type": "number",
+              "defaultValue": 10,
+              "min": 0,
+              "max": 50
+            },
+            {
+              "name": "canPrice",
+              "label": "Price per can",
+              "type": "number",
+              "defaultValue": 0,
+              "min": 0,
+              "optional": true
+            }
+          ],
+          "after": [
+            {
+              "name": "mode",
+              "label": "Mode",
+              "type": "toggle",
+              "defaultValue": "manual",
+              "options": [
+                {
+                  "value": "manual",
+                  "label": "Manual area"
+                },
+                {
+                  "value": "room",
+                  "label": "By room"
+                }
+              ]
+            },
+            {
+              "name": "area",
+              "label": "Paintable area",
+              "type": "number",
+              "defaultValue": 30,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "manual"
+              },
+              "unit": "m²"
+            },
+            {
+              "name": "length",
+              "label": "Room length",
+              "type": "number",
+              "defaultValue": 5,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "m"
+            },
+            {
+              "name": "width",
+              "label": "Room width",
+              "type": "number",
+              "defaultValue": 4,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "m"
+            },
+            {
+              "name": "height",
+              "label": "Wall height",
+              "type": "number",
+              "defaultValue": 2.7,
+              "min": 0,
+              "step": 0.1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "m"
+            },
+            {
+              "name": "windows",
+              "label": "Window count",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "max": 9007199254740991,
+              "step": 1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "items",
+              "help": "Whole count; the model subtracts a fixed 1.5 m² per window. Actual sizes are not entered."
+            },
+            {
+              "name": "doors",
+              "label": "Door count",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "max": 9007199254740991,
+              "step": 1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "items",
+              "help": "Whole count; the model subtracts a fixed 1.8 m² per door. Actual sizes are not entered."
+            },
+            {
+              "name": "coats",
+              "label": "Coat count",
+              "type": "number",
+              "defaultValue": 2,
+              "min": 1,
+              "max": 9007199254740991,
+              "step": 1,
+              "unit": "coats",
+              "help": "Whole number up to 9007199254740991; fractions are not rounded."
+            },
+            {
+              "name": "consumption",
+              "label": "Consumption per coat",
+              "type": "number",
+              "defaultValue": 0.15,
+              "min": 0,
+              "step": 0.01,
+              "unit": "L/m²",
+              "help": "Litres per m² for one coat. If the label states m²/L, enter its reciprocal."
+            },
+            {
+              "name": "canVolume",
+              "label": "Can volume",
+              "type": "number",
+              "defaultValue": 2.5,
+              "min": 0,
+              "step": 0.1,
+              "unit": "L"
+            },
+            {
+              "name": "reserve",
+              "label": "Reserve",
+              "type": "number",
+              "defaultValue": 10,
+              "min": 0,
+              "unit": "%",
+              "help": "Chosen non-negative percentage; no universal rate is prescribed. Blank means 0.",
+              "optional": true
+            },
+            {
+              "name": "canPrice",
+              "label": "Price per can",
+              "type": "number",
+              "defaultValue": 0,
+              "min": 0,
+              "optional": true,
+              "unit": "RUB",
+              "help": "Price in RUB; no currency exchange. Blank or 0 hides cost."
+            }
+          ]
+        },
+        {
+          "key": "howToUse",
+          "before": [
+            "Enter room dimensions or area.",
+            "Set coats, coverage and can size.",
+            "Review liters and cans."
+          ],
+          "after": [
+            "Enter the measured paintable area or room dimensions; choose the corresponding mode.",
+            "Enter the product rate in L/m² per coat, a whole coat count and a reserve.",
+            "Enter can volume and an optional RUB price, then compare litres, whole cans and excess."
+          ]
+        },
+        {
+          "key": "howItWorks",
+          "before": "The calculator multiplies area by coats and coverage, then divides by can volume.",
+          "after": "Manual mode uses the entered area. Room mode uses 2 × (length + width) × height minus fixed allowances of 1.5 m² per window and 1.8 m² per door; the remaining paintable area must be positive. Litres = area × litres/m² per coat × a positive whole coat count × (1 + reserve/100). Cans are rounded up from litres/can volume; cost is can count × price in RUB. Excess from buying whole cans is separate from the entered reserve. Choose consumption and coat count for the actual paint and surface; neither one nor two coats is a universal rule. The ceiling, actual opening sizes, different consumption between coats and primer are not added separately. A blank price means 0 and hides cost."
+        },
+        {
+          "key": "example",
+          "before": "Estimate paint for 30 square meters with two coats.",
+          "after": "For 30 m², 2 coats, 0.15 L/m² per coat and 0% reserve, the estimate is 9 L. With 2.5 L cans, round up to 4 cans; the extra 1 L comes from whole cans."
+        },
+        {
+          "key": "faq",
+          "before": [
+            {
+              "q": "How accurate is this paint calculator?",
+              "a": "The result is a practical estimate based on the values you enter and the formula shown on the page."
+            },
+            {
+              "q": "Does this paint calculator require an account?",
+              "a": "No. The calculator works in your browser and does not require registration."
+            },
+            {
+              "q": "Can I share a paint calculator result?",
+              "a": "Yes. Use the share link to copy the current inputs in the page URL."
+            }
+          ],
+          "after": [
+            {
+              "q": "How do I convert paint coverage in m²/L?",
+              "a": "Enter the reciprocal as L/m² per coat. Coverage of 10 m²/L becomes 0.1 L/m²; the calculator then multiplies by the area and the coat count."
+            },
+            {
+              "q": "How are windows and doors subtracted in room mode?",
+              "a": "A whole window count subtracts 1.5 m² each and doors subtract 1.8 m² each. For actual opening dimensions or a ceiling, measure the net area separately and use manual mode."
+            },
+            {
+              "q": "Does the paint calculator decide the correct number of coats?",
+              "a": "No. Enter a positive whole count for the selected product and surface. Products differ: a one-coat label and a two-coat system do not use the same assumption."
+            },
+            {
+              "q": "What does the excess from whole paint cans mean?",
+              "a": "It is the difference between purchased whole-can volume and the already calculated need, divided by that need. It arises after the entered reserve and is not added to the reserve again."
+            }
+          ]
+        },
+        {
+          "key": "seoContent",
+          "before": {
+            "intro": "Use this paint calculator to estimate paint quantity from area, coats, coverage and can size.",
+            "howItWorks": "The calculator multiplies area by coats and coverage, then divides by can volume.",
+            "example": "Estimate paint for 30 square meters with two coats.",
+            "tips": "Enter room dimensions or area. Set coats, coverage and can size. Review liters and cans.",
+            "faq": [
+              {
+                "q": "How accurate is this paint calculator?",
+                "a": "The result is a practical estimate based on the values you enter and the formula shown on the page."
+              },
+              {
+                "q": "Does this paint calculator require an account?",
+                "a": "No. The calculator works in your browser and does not require registration."
+              },
+              {
+                "q": "Can I share a paint calculator result?",
+                "a": "Yes. Use the share link to copy the current inputs in the page URL."
+              }
+            ]
+          },
+          "after": {
+            "intro": "Estimate litres and whole cans using paintable area, litres per square metre per coat and a chosen coat count. Use a directly measured area or a rectangular room model with fixed opening allowances. The consumption field is litres/m², the reciprocal of coverage stated as m²/L. An entered reserve and excess caused by whole cans are shown as different quantities; the calculator does not decide which paint or surface preparation is suitable.",
+            "howItWorks": "Manual mode uses the entered area. Room mode uses 2 × (length + width) × height minus fixed allowances of 1.5 m² per window and 1.8 m² per door; the remaining paintable area must be positive. Litres = area × litres/m² per coat × a positive whole coat count × (1 + reserve/100). Cans are rounded up from litres/can volume; cost is can count × price in RUB. Excess from buying whole cans is separate from the entered reserve. Choose consumption and coat count for the actual paint and surface; neither one nor two coats is a universal rule. The ceiling, actual opening sizes, different consumption between coats and primer are not added separately. A blank price means 0 and hides cost.",
+            "example": "For 30 m², 2 coats, 0.15 L/m² per coat and 0% reserve, the estimate is 9 L. With 2.5 L cans, round up to 4 cans; the extra 1 L comes from whole cans.",
+            "tips": "Enter the measured paintable area or room dimensions; choose the corresponding mode. Enter the product rate in L/m² per coat, a whole coat count and a reserve. Enter can volume and an optional RUB price, then compare litres, whole cans and excess.",
+            "faq": [
+              {
+                "q": "How do I convert paint coverage in m²/L?",
+                "a": "Enter the reciprocal as L/m² per coat. Coverage of 10 m²/L becomes 0.1 L/m²; the calculator then multiplies by the area and the coat count."
+              },
+              {
+                "q": "How are windows and doors subtracted in room mode?",
+                "a": "A whole window count subtracts 1.5 m² each and doors subtract 1.8 m² each. For actual opening dimensions or a ceiling, measure the net area separately and use manual mode."
+              },
+              {
+                "q": "Does the paint calculator decide the correct number of coats?",
+                "a": "No. Enter a positive whole count for the selected product and surface. Products differ: a one-coat label and a two-coat system do not use the same assumption."
+              },
+              {
+                "q": "What does the excess from whole paint cans mean?",
+                "a": "It is the difference between purchased whole-can volume and the already calculated need, divided by that need. It arises after the entered reserve and is not added to the reserve again."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "locale": "uk",
+      "baseline": "tests/platform/__baseline__/paint-calculator.uk.json",
+      "baselineSha256": "222b1ddf1326036e4b338b8913979218e1f282b070ad939678d862000ff23bc3",
+      "changes": [
+        {
+          "key": "longDescription",
+          "before": "Фарба рахується не за площею, а за площею, помноженою на кількість шарів: другий шар зазвичай обов’язковий, а темні кольори по світлій основі вимагають і третього. Банки округлюються вгору, тому фактичний запас майже завжди більший за розрахунковий.",
+          "after": "Літри фарби оцінюються за площею, введеною витратою на шар і обраною кількістю шарів. Кількість шарів залежить від конкретної фарби та поверхні й не визначається калькулятором. Заданий запас збільшує потребу, а зайвий об’єм через цілі банки показується окремо; ці відсотки мають різну причину."
+        },
+        {
+          "key": "seoDescription",
+          "before": "Розрахуйте потрібну кількість фарби за площею, покривністю та кількістю шарів.",
+          "after": "Оцініть літри фарби, цілі банки й залишок за площею або розмірами кімнати. Задайте витрату на шар, цілу кількість шарів і обраний запас."
+        },
+        {
+          "key": "fields",
+          "before": [
+            {
+              "name": "mode",
+              "label": "Режим",
+              "type": "toggle",
+              "defaultValue": "manual",
+              "options": [
+                {
+                  "value": "manual",
+                  "label": "Ручна площа"
+                },
+                {
+                  "value": "room",
+                  "label": "За кімнатою"
+                }
+              ]
+            },
+            {
+              "name": "area",
+              "label": "Площа",
+              "type": "number",
+              "defaultValue": 30,
+              "min": 0.01,
+              "showIf": {
+                "field": "mode",
+                "equals": "manual"
+              }
+            },
+            {
+              "name": "length",
+              "label": "Довжина",
+              "type": "number",
+              "defaultValue": 5,
+              "min": 0.01,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "width",
+              "label": "Ширина",
+              "type": "number",
+              "defaultValue": 4,
+              "min": 0.01,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "height",
+              "label": "Зріст",
+              "type": "number",
+              "defaultValue": 2.7,
+              "min": 0.01,
+              "step": 0.1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "windows",
+              "label": "Вікна",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "doors",
+              "label": "Двері",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              }
+            },
+            {
+              "name": "coats",
+              "label": "Кількість шарів",
+              "type": "number",
+              "defaultValue": 2,
+              "min": 1,
+              "max": 4
+            },
+            {
+              "name": "consumption",
+              "label": "Покривність на квадратний метр",
+              "type": "number",
+              "defaultValue": 0.15,
+              "min": 0.01,
+              "step": 0.01
+            },
+            {
+              "name": "canVolume",
+              "label": "Обʼєм банки",
+              "type": "number",
+              "defaultValue": 2.5,
+              "min": 0.01,
+              "step": 0.1
+            },
+            {
+              "name": "reserve",
+              "label": "Запас",
+              "type": "number",
+              "defaultValue": 10,
+              "min": 0,
+              "max": 50
+            },
+            {
+              "name": "canPrice",
+              "label": "Ціна однієї банки",
+              "type": "number",
+              "defaultValue": 0,
+              "min": 0,
+              "optional": true
+            }
+          ],
+          "after": [
+            {
+              "name": "mode",
+              "label": "Режим",
+              "type": "toggle",
+              "defaultValue": "manual",
+              "options": [
+                {
+                  "value": "manual",
+                  "label": "Ручна площа"
+                },
+                {
+                  "value": "room",
+                  "label": "За кімнатою"
+                }
+              ]
+            },
+            {
+              "name": "area",
+              "label": "Площа фарбування",
+              "type": "number",
+              "defaultValue": 30,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "manual"
+              },
+              "unit": "m²"
+            },
+            {
+              "name": "length",
+              "label": "Довжина кімнати",
+              "type": "number",
+              "defaultValue": 5,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "м"
+            },
+            {
+              "name": "width",
+              "label": "Ширина кімнати",
+              "type": "number",
+              "defaultValue": 4,
+              "min": 0,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "м"
+            },
+            {
+              "name": "height",
+              "label": "Висота стін",
+              "type": "number",
+              "defaultValue": 2.7,
+              "min": 0,
+              "step": 0.1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "м"
+            },
+            {
+              "name": "windows",
+              "label": "Кількість вікон",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "max": 9007199254740991,
+              "step": 1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "шт.",
+              "help": "Ціла кількість; модель віднімає фіксовані 1,5 м² на вікно. Справжні розміри не вводяться."
+            },
+            {
+              "name": "doors",
+              "label": "Кількість дверей",
+              "type": "number",
+              "defaultValue": 1,
+              "min": 0,
+              "max": 9007199254740991,
+              "step": 1,
+              "showIf": {
+                "field": "mode",
+                "equals": "room"
+              },
+              "unit": "шт.",
+              "help": "Ціла кількість; модель віднімає фіксовані 1,8 м² на двері. Справжні розміри не вводяться."
+            },
+            {
+              "name": "coats",
+              "label": "Кількість шарів",
+              "type": "number",
+              "defaultValue": 2,
+              "min": 1,
+              "max": 9007199254740991,
+              "step": 1,
+              "unit": "шарів",
+              "help": "Ціле число до 9007199254740991; дріб не округлюється."
+            },
+            {
+              "name": "consumption",
+              "label": "Витрата на один шар",
+              "type": "number",
+              "defaultValue": 0.15,
+              "min": 0,
+              "step": 0.01,
+              "unit": "л/м²",
+              "help": "Літри на м² для одного шару. Якщо етикетка дає м²/л, введіть обернене значення."
+            },
+            {
+              "name": "canVolume",
+              "label": "Об’єм банки",
+              "type": "number",
+              "defaultValue": 2.5,
+              "min": 0,
+              "step": 0.1,
+              "unit": "л"
+            },
+            {
+              "name": "reserve",
+              "label": "Запас",
+              "type": "number",
+              "defaultValue": 10,
+              "min": 0,
+              "unit": "%",
+              "help": "Обраний невід’ємний відсоток; універсальна норма не встановлюється. Порожнє поле означає 0.",
+              "optional": true
+            },
+            {
+              "name": "canPrice",
+              "label": "Ціна банки",
+              "type": "number",
+              "defaultValue": 0,
+              "min": 0,
+              "optional": true,
+              "unit": "RUB",
+              "help": "Ціна в RUB; обміну валют немає. Порожнє поле або 0 приховує вартість."
+            }
+          ]
+        },
+        {
+          "key": "howToUse",
+          "before": [
+            "Введіть площу поверхні.",
+            "Введіть витрату фарби на квадратний метр із банки.",
+            "Задайте кількість шарів — зазвичай два."
+          ],
+          "after": [
+            "Введіть площу поверхні.",
+            "Введіть витрату фарби на квадратний метр із банки.",
+            "Задайте додатну цілу кількість шарів за інструкцією обраної фарби та умовами поверхні."
+          ]
+        },
+        {
+          "key": "howItWorks",
+          "before": "Літри дорівнюють площа × витрата × кількість шарів. Кількість банок округлюється вгору за їхнім об’ємом, щоб вистачило з запасом. Витрата береться паспортна для конкретної фарби й типу основи.",
+          "after": "У ручному режимі вводиться площа. Для кімнати береться 2 × (довжина + ширина) × висота мінус умовні 1,5 м² на вікно та 1,8 м² на двері; залишкова площа має бути додатною. Літри = площа × витрата л/м² на шар × додатна ціла кількість шарів × (1 + запас/100). Банки округлюються вгору з літрів/об’єму банки; вартість = кількість банок × ціна в RUB. Залишок через цілі банки показується окремо від заданого запасу. Витрату й кількість шарів обирають для конкретної фарби та поверхні: ані один, ані два шари не є універсальним правилом. Стеля, справжні розміри прорізів, різна витрата між шарами та ґрунтовка окремо не додаються. Порожня ціна означає 0 і приховує вартість."
+        },
+        {
+          "key": "example",
+          "before": "30 м² у 2 шари за витрати 0,15 л/м² дають 9 л фарби — 4 банки по 2,5 л.",
+          "after": "30 м², 2 шари, 0,15 л/м² на шар і запас 0% дають 9 л. За об’єму банки 2,5 л потрібно 4 банки; зайвий 1 л виникає через цілі банки."
+        },
+        {
+          "key": "faq",
+          "before": [
+            {
+              "q": "Скільки шарів потрібно?",
+              "a": "Зазвичай два. Один шар майже завжди дає плями й просвічування, особливо на неоднорідній основі. Темний колір по світлому може вимагати трьох."
+            },
+            {
+              "q": "Чому реальна витрата більша за паспортну?",
+              "a": "Паспортна вказується для ідеально гладкої основи. Шорстка штукатурка, дерево й фактурні поверхні витрачають на чверть-третину більше."
+            },
+            {
+              "q": "Чи потрібно ґрунтувати перед фарбуванням?",
+              "a": "На пористих і нових основах — так. Вона зменшує витрату фарби й вирівнює вбирання, тому часто окупається сама собою."
+            },
+            {
+              "q": "Чи можна змішувати банки різних партій?",
+              "a": "Краще змішати всі банки в одній великій ємності перед роботою. Відтінок різних партій може трохи відрізнятися, і на суцільній стіні перехід буде видно."
+            }
+          ],
+          "after": [
+            {
+              "q": "Скільки шарів потрібно?",
+              "a": "Кількість шарів визначають інструкція конкретної фарби, покривність, колір і підготовка основи. Є продукти для одного шару й продукти для двох; калькулятор лише множить введену кількість."
+            },
+            {
+              "q": "Чому реальна витрата більша за паспортну?",
+              "a": "Витрата залежить від пористості, фактури, нанесення та підготовки поверхні. Універсального додатка на чверть чи третину немає. Візьміть умови з етикетки й за потреби перевірте на пробній ділянці."
+            },
+            {
+              "q": "Чи потрібно ґрунтувати перед фарбуванням?",
+              "a": "Дотримуйтеся системи підготовки, яку виробник визначив для вашої фарби й основи. Калькулятор не визначає потребу в ґрунтовці та не враховує її кількість."
+            },
+            {
+              "q": "Чи можна змішувати банки різних партій?",
+              "a": "Дотримуйтеся вказівок виробника щодо партій і змішування саме цього продукту. Калькулятор не оцінює сумісність банок чи відмінність відтінку."
+            }
+          ]
+        },
+        {
+          "key": "seoContent",
+          "before": {
+            "intro": "Фарба рахується не за площею, а за площею, помноженою на кількість шарів: другий шар зазвичай обов’язковий, а темні кольори по світлій основі вимагають і третього. Банки округлюються вгору, тому фактичний запас майже завжди більший за розрахунковий.",
+            "howItWorks": "Літри дорівнюють площа × витрата × кількість шарів. Кількість банок округлюється вгору за їхнім об’ємом, щоб вистачило з запасом. Витрата береться паспортна для конкретної фарби й типу основи.",
+            "example": "30 м² у 2 шари за витрати 0,15 л/м² дають 9 л фарби — 4 банки по 2,5 л.",
+            "tips": "Введіть площу поверхні. Введіть витрату фарби на квадратний метр із банки. Задайте кількість шарів — зазвичай два.",
+            "faq": [
+              {
+                "q": "Скільки шарів потрібно?",
+                "a": "Зазвичай два. Один шар майже завжди дає плями й просвічування, особливо на неоднорідній основі. Темний колір по світлому може вимагати трьох."
+              },
+              {
+                "q": "Чому реальна витрата більша за паспортну?",
+                "a": "Паспортна вказується для ідеально гладкої основи. Шорстка штукатурка, дерево й фактурні поверхні витрачають на чверть-третину більше."
+              },
+              {
+                "q": "Чи потрібно ґрунтувати перед фарбуванням?",
+                "a": "На пористих і нових основах — так. Вона зменшує витрату фарби й вирівнює вбирання, тому часто окупається сама собою."
+              },
+              {
+                "q": "Чи можна змішувати банки різних партій?",
+                "a": "Краще змішати всі банки в одній великій ємності перед роботою. Відтінок різних партій може трохи відрізнятися, і на суцільній стіні перехід буде видно."
+              }
+            ]
+          },
+          "after": {
+            "intro": "Літри фарби оцінюються за площею, введеною витратою на шар і обраною кількістю шарів. Кількість шарів залежить від конкретної фарби та поверхні й не визначається калькулятором. Заданий запас збільшує потребу, а зайвий об’єм через цілі банки показується окремо; ці відсотки мають різну причину.",
+            "howItWorks": "У ручному режимі вводиться площа. Для кімнати береться 2 × (довжина + ширина) × висота мінус умовні 1,5 м² на вікно та 1,8 м² на двері; залишкова площа має бути додатною. Літри = площа × витрата л/м² на шар × додатна ціла кількість шарів × (1 + запас/100). Банки округлюються вгору з літрів/об’єму банки; вартість = кількість банок × ціна в RUB. Залишок через цілі банки показується окремо від заданого запасу. Витрату й кількість шарів обирають для конкретної фарби та поверхні: ані один, ані два шари не є універсальним правилом. Стеля, справжні розміри прорізів, різна витрата між шарами та ґрунтовка окремо не додаються. Порожня ціна означає 0 і приховує вартість.",
+            "example": "30 м², 2 шари, 0,15 л/м² на шар і запас 0% дають 9 л. За об’єму банки 2,5 л потрібно 4 банки; зайвий 1 л виникає через цілі банки.",
+            "tips": "Введіть площу поверхні. Введіть витрату фарби на квадратний метр із банки. Задайте додатну цілу кількість шарів за інструкцією обраної фарби та умовами поверхні.",
+            "faq": [
+              {
+                "q": "Скільки шарів потрібно?",
+                "a": "Кількість шарів визначають інструкція конкретної фарби, покривність, колір і підготовка основи. Є продукти для одного шару й продукти для двох; калькулятор лише множить введену кількість."
+              },
+              {
+                "q": "Чому реальна витрата більша за паспортну?",
+                "a": "Витрата залежить від пористості, фактури, нанесення та підготовки поверхні. Універсального додатка на чверть чи третину немає. Візьміть умови з етикетки й за потреби перевірте на пробній ділянці."
+              },
+              {
+                "q": "Чи потрібно ґрунтувати перед фарбуванням?",
+                "a": "Дотримуйтеся системи підготовки, яку виробник визначив для вашої фарби й основи. Калькулятор не визначає потребу в ґрунтовці та не враховує її кількість."
+              },
+              {
+                "q": "Чи можна змішувати банки різних партій?",
+                "a": "Дотримуйтеся вказівок виробника щодо партій і змішування саме цього продукту. Калькулятор не оцінює сумісність банок чи відмінність відтінку."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -19,17 +19,20 @@ const rub = (value: number) => `${fmtNumber(value, 2)} ₽`;
 
 export const compute: CalcFunction = (inputs) => {
   const direction = toStr(inputs.direction, 'sell');
-  const amount = toNumber(inputs.amount);
-  const rate = toNumber(inputs.rate);
-  const feePct = toNumber(inputs.feePct);
-  const feeFixed = toNumber(inputs.feeFixed);
-  const spreadPct = toNumber(inputs.spreadPct);
+  const amount = toNumber(inputs.amount, Number.NaN);
+  const rate = toNumber(inputs.rate, Number.NaN);
+  const feePct = toNumber(inputs.feePct, Number.NaN);
+  const feeFixed = toNumber(inputs.feeFixed === undefined ? 0 : inputs.feeFixed, Number.NaN);
+  const spreadPct = toNumber(inputs.spreadPct, Number.NaN);
 
   const fail = (message: string) => ({
     primary: { label: 'К получению', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if ([inputs.amount, inputs.rate, inputs.feePct, inputs.feeFixed, inputs.spreadPct].some((value) => typeof value === 'boolean')
+    || ![amount, rate, feePct, feeFixed, spreadPct].every(Number.isFinite)) return fail('Введите конечные числовые значения.');
+  if (!['sell', 'buy'].includes(direction)) return fail('Выберите допустимый режим расчёта.');
   if (!(amount > 0)) return fail('Сумма должна быть больше нуля');
   if (!(rate > 0)) return fail('Курс должен быть больше нуля');
   if (feePct < 0 || feeFixed < 0 || spreadPct < 0) return fail('Комиссия и спред не могут быть отрицательными');
@@ -52,6 +55,10 @@ export const compute: CalcFunction = (inputs) => {
   const fixedShown = selling ? feeFixed : feeFixed / effective;
   const received = selling ? afterFixed - feeAmountSource : (afterFixed * (1 - feePct / 100)) / effective;
   const cost = ideal - received;
+  const costPct = (cost / ideal) * 100;
+  if (![effective, ideal, beforeFee, feeAmount, fixedShown, received, cost, costPct].every(Number.isFinite)
+    || effective <= 0 || ideal <= 0) return fail('Результат выходит за пределы числовой точности.');
+  if (received < 0) return fail('Сборы превышают доступную сумму обмена.');
 
   return {
     primary: { label: 'К получению', value: out(received) },
@@ -62,7 +69,7 @@ export const compute: CalcFunction = (inputs) => {
       ...(feeFixed > 0 ? [{ label: 'Фиксированный сбор', value: out(fixedShown) }] : []),
       { label: 'Потери на спреде', value: out(Math.abs(ideal - beforeFee)) },
       { label: 'Полная стоимость обмена', value: out(cost) },
-      { label: 'Доля потерь', value: `${fmtNumber((cost / ideal) * 100, 2)}%` },
+      { label: 'Доля потерь', value: `${fmtNumber(costPct, 2)}%` },
     ],
   };
 };

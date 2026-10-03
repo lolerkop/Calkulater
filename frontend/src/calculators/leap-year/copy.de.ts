@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
@@ -13,4 +14,6 @@ export const leapYearCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Prüfe, ob ein Jahr ein Schaltjahr ist, sieh die Länge des Februars und die nächstgelegenen Schaltjahre.',
   h1: 'Schaltjahr-Rechner',
   keywords: ['Schaltjahr', 'ist es ein Schaltjahr', '29. Februar', 'Schaltjahr berechnen'],
-};
+
+    ...dateTimeWave15ContractContent.de['leap-year'],
+  };

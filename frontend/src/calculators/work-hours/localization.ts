@@ -1,6 +1,7 @@
+import {dateTimeWave15Phrases} from '../../data/dateTimeWave15ResultPhrases';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
-export const localization: CalculatorLocalization = {
+const previousLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'startHour': 'Schichtbeginn, Stunden',
@@ -20,7 +21,7 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
-      '₽': '€',
+
       'ч': 'h',
       'мин': 'min',
       'Число смен должно быть больше нуля': 'Die Zahl der Schichten muss größer als null sein',
@@ -49,7 +50,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
-      "₽": "$",
+
       "ч": "h",
       "мин": "min",
       "Число смен должно быть больше нуля": "The number of shifts must be greater than zero",
@@ -78,7 +79,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
-      "₽": "₴",
+
       "ч": "год",
       "мин": "хв",
       "Число смен должно быть больше нуля": "Кількість змін має бути більшою за нуль",
@@ -107,7 +108,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
-      "₽": "€",
+
       "ч": "h",
       "мин": "min",
       "Число смен должно быть больше нуля": "El número de turnos debe ser mayor que cero",
@@ -117,3 +118,6 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+const ownedKeys = ["Введите целые часы от 0 до 23 и минуты от 0 до 59", "Перерыв должен быть целым неотрицательным числом минут", "Результат выходит за числовой диапазон калькулятора", "Ставка должна быть конечным неотрицательным числом", "Число смен должно быть целым положительным числом", "ден. ед."] as const;
+export const localization:CalculatorLocalization = Object.fromEntries(['en','uk','de','es'].map(locale=>[locale,{...previousLocalization[locale as keyof typeof previousLocalization],values:{...previousLocalization[locale as keyof typeof previousLocalization]?.values,...dateTimeWave15Phrases(locale,ownedKeys)}}]));

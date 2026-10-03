@@ -1,3 +1,4 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 // Единицы принадлежат калькулятору: центральный словарь единиц не трогается,
@@ -20,9 +21,9 @@ const RESULTS_UK = {
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'length': 'Länge des Brettes, m',
-      'width': 'Breite des Brettes, mm',
-      'thickness': 'Dicke des Brettes, mm',
+      'length': "Länge des Brettes",
+      'width': "Breite des Brettes",
+      'thickness': "Dicke des Brettes",
       'count': 'Zahl der Bretter',
       'pricePerM3': 'Preis je Kubikmeter',
     },
@@ -34,6 +35,7 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      '₽': 'RUB',
       ' шт': ' Stk',
       ' кг': ' kg',
       'Длина доски должна быть больше нуля': 'Die Länge des Brettes muss größer als null sein',
@@ -43,10 +45,11 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { length: 'Board length, m', width: 'Board width, mm', thickness: 'Board thickness, mm', count: 'Number of boards', pricePerM3: 'Price per cubic metre', },
+    fields: { length: "Board length", width: "Board width", thickness: "Board thickness", count: 'Number of boards', pricePerM3: 'Price per cubic metre', },
     options: { },
     results: RESULTS_EN,
     values: {
+      '₽': 'RUB',
       ' шт': ' pcs',
       ' кг': ' kg',
       'Длина доски должна быть больше нуля': 'The board length must be greater than zero',
@@ -56,10 +59,11 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { length: 'Довжина дошки, м', width: 'Ширина дошки, мм', thickness: 'Товщина дошки, мм', count: 'Кількість дошок', pricePerM3: 'Ціна за кубометр', },
+    fields: { length: "Довжина дошки", width: "Ширина дошки", thickness: "Товщина дошки", count: 'Кількість дошок', pricePerM3: 'Ціна за кубометр', },
     options: { },
     results: RESULTS_UK,
     values: {
+      '₽': 'RUB',
       ' шт': ' шт',
       ' кг': ' кг',
       'Длина доски должна быть больше нуля': 'Довжина дошки має бути більшою за нуль',
@@ -70,9 +74,9 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "length": "Largo de la tabla, m",
-      "width": "Ancho de la tabla, mm",
-      "thickness": "Grosor de la tabla, mm",
+      "length": "Largo de la tabla",
+      "width": "Ancho de la tabla",
+      "thickness": "Grosor de la tabla",
       "count": "Número de tablas",
       "pricePerM3": "Precio por metro cúbico",
     },
@@ -85,6 +89,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      '₽': 'RUB',
       " шт": " uds.",
       " кг": " kg",
       "Длина доски должна быть больше нуля": "El largo de la tabla debe ser mayor que cero",
@@ -94,3 +99,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

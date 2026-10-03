@@ -1,0 +1,69 @@
+import type { CalculatorDef } from '../../lib/types';
+type Copy = Pick<CalculatorDef, 'longDescription' | 'howToUse' | 'howItWorks' | 'example' | 'faq' | 'disclaimer'>;
+export const contractContent: Record<'ru' | 'en' | 'uk' | 'de' | 'es', Copy> = {
+  ru: {
+    longDescription: 'Постоянная ежемесячная доплата уменьшает остаток аннуитетного кредита быстрее. В этой модели исходный регулярный платёж сохраняется: сокращается срок, а не платёж. Результат сравнивает номинальные проценты двух графиков, учитывая неполный последний платёж. Комиссии, ограничения досрочного погашения и изменение ставки не включены; экономия не равна гарантированной доходности альтернативного вложения.',
+    howToUse: ['Введите сумму, номинальную годовую ставку и срок в годах.','Срок переводится в ближайшее целое число месяцев; требуется не меньше одного.','Задайте неотрицательную постоянную доплату; пустое поле означает 0.','Сравните число платежей, общую выплату и экономию процентов. Проверьте условия договора и необходимый денежный резерв отдельно.'],
+    howItWorks: 'Месячная ставка i = r/1200, исходных месяцев n = round(12×лет). Регулярный аннуитет A постоянен; M = A + доплата. В конце месяца начисляются проценты на остаток, затем вносится M. Остаток после k полных платежей: S−(M−Si)[(1+i)^k−1]/i. Аналитическая формула определяет первый месяц закрытия, а последний платёж ограничивается долгом с процентами. За i = 0 срок определяется S/M. Проценты и платежи рассчитываются без промежуточного округления до копеек, отображение — два знака.',
+    example: '3 000 000 денежных единиц, 18 %, 20 лет и доплата 10 000: регулярный платёж 46 299,35, закрытие за 108 вместо 240 месяцев, всего 6 072 694,68, экономия 5 039 148,29. При долге 1 200, ставке 0 %, сроке год и доплате 100 платёж 100 увеличивается до 200: закрытие за шесть месяцев, экономия процентов 0.',
+    faq: [
+      { q: 'Что сокращает эта доплата: срок кредита или регулярный платёж?', a: 'Срок. Исходный аннуитет сохраняется, доплата поступает ежемесячно с первого платежа. Уменьшение регулярного платежа было бы другой моделью.' },
+      { q: 'Почему последний платёж с доплатой меньше полной суммы?', a: 'В последнем месяце остаётся меньше долга с процентами, чем A плюс доплата. Модель платит только этот остаток, не создавая переплату сверх закрытия.' },
+      { q: 'Нужен ли перебор тысяч месяцев для досрочного закрытия?', a: 'Нет. При постоянной ставке и доплате остаток имеет аналитическую формулу. Проверяется соседний месяц; произвольное ограничение цикла не выдаётся за погашенный кредит.' },
+      { q: 'Достаточно ли сравнить ставку кредита с доходностью вклада?', a: 'Для решения нужны сопоставимые денежные потоки, налоги, комиссии, риск и ликвидность. Здесь показана номинальная экономия процентов, а не гарантированная инвестиционная доходность. Порядок и стоимость досрочного погашения определяет ваш договор.' },
+    ],
+    disclaimer: 'Аннуитет с постоянной ставкой, доплатой в конце каждого месяца и сокращением срока. Комиссии, страховка, налоги, дневной расчёт и договорные ограничения отсутствуют; это не персональная рекомендация.',
+  },
+  en: {
+    longDescription: 'A fixed monthly extra payment reduces an annuity balance faster. This model keeps the original regular instalment and shortens the term. It compares nominal interest across the two schedules and allows a partial final payment. Charges, prepayment restrictions and rate changes are omitted; interest saved is not a guaranteed return from an alternative investment.',
+    howToUse: ['Enter principal, nominal annual rate and years.','Years become the nearest whole number of months, at least one.','Supply a nonnegative constant extra payment; blank means zero.','Compare payment counts, total paid and interest saved. Review your contract and needed cash reserve separately.'],
+    howItWorks: 'Monthly i = r/1200; scheduled n = round(12×years). The original annuity A remains constant and M = A + extra. Month-end interest applies first, then M pays the balance. After k full payments the balance is S−(M−Si)[(1+i)^k−1]/i. An analytic payoff time identifies the closing month; its last payment is limited to remaining debt plus interest. At i = 0 the term follows S/M. Intermediate cash flows are not rounded to cents; displayed amounts use two decimals.',
+    example: 'Principal 3,000,000 monetary units, rate 18%, term 20 years and extra 10,000 give scheduled payment 46,299.35, closure in 108 rather than 240 months, total paid 6,072,694.68 and interest saved 5,039,148.29. With 1,200 at 0% for one year and extra 100, the original 100 becomes 200: closure in six months and zero interest saved.',
+    faq: [
+      { q: 'Does this extra-payment model reduce the term or the instalment?', a: 'The term. The original annuity stays fixed and a constant extra is paid from the first month. Reducing the regular instalment would require another model.' },
+      { q: 'Why is the final payment with extra smaller than a full payment?', a: 'The remaining debt and interest are below A plus extra. Only that remainder is paid, avoiding an excess payment after closure.' },
+      { q: 'Does early payoff require a loop through thousands of months?', a: 'No. A constant rate and payment have an analytic balance formula. Adjacent months are checked; an arbitrary loop cutoff is not treated as a repaid loan.' },
+      { q: 'Is comparing loan interest with savings yield enough for a decision?', a: 'Compare matched cash flows, taxes, charges, risk and liquidity. This result is nominal interest saved, not a guaranteed investment return. Your contract determines prepayment procedure and costs.' },
+    ],
+    disclaimer: 'Constant-rate annuity with month-end extras and a shorter term. Fees, insurance, taxes, day-count rules and contractual restrictions are absent; no personal recommendation is made.',
+  },
+  uk: {
+    longDescription: 'Стала щомісячна доплата швидше зменшує залишок ануїтетного кредиту. Початковий регулярний платіж тут зберігається: скорочується строк. Порівнюються номінальні відсотки двох графіків із неповним останнім платежем. Комісії, обмеження дострокового погашення та зміни ставки не включені; економія не є гарантованою дохідністю іншого вкладення.',
+    howToUse: ['Введіть суму, номінальну річну ставку й роки.','Строк округлюється до найближчої цілої кількості місяців, не менше одного.','Задайте сталу невід’ємну доплату; порожнє поле означає 0.','Порівняйте кількість платежів, загальну виплату й економію відсотків. Окремо перевірте договір і потрібний резерв коштів.'],
+    howItWorks: 'Місячна i = r/1200, початкових місяців n = round(12×років). Ануїтет A сталий, M = A + доплата. Наприкінці місяця спочатку нараховуються відсотки, потім сплачується M. Залишок після k повних платежів: S−(M−Si)[(1+i)^k−1]/i. Аналітичний строк дає місяць закриття; останній платіж обмежений боргом із відсотками. За i = 0 строк визначається S/M. Проміжного округлення до копійок немає; показані суми мають два знаки.',
+    example: '3 000 000 грошових одиниць, 18 %, 20 років і доплата 10 000: платіж за графіком 46 299,35, закриття за 108 замість 240 місяців, виплати 6 072 694,68, економія 5 039 148,29. Борг 1 200 під 0 % на рік і доплата 100 збільшують платіж 100 до 200: закриття за шість місяців, економія відсотків 0.',
+    faq: [
+      { q: 'Що зменшує ця доплата: строк чи регулярний платіж?', a: 'Строк. Початковий ануїтет зберігається, доплата надходить щомісяця з першого платежу. Зменшення самого регулярного платежу потребує іншої моделі.' },
+      { q: 'Чому останній платіж із доплатою менший за повну суму?', a: 'Залишок боргу з відсотками вже менший за A плюс доплата. Сплачується лише цей залишок без зайвої суми після закриття.' },
+      { q: 'Чи потрібно перебирати тисячі місяців до дострокового закриття?', a: 'Ні. Сталі ставка й доплата мають аналітичну формулу залишку. Перевіряються сусідні місяці; довільний ліміт циклу не вважається погашеним боргом.' },
+      { q: 'Чи досить порівняти кредитну ставку з доходом депозиту?', a: 'Потрібні зіставні потоки, податки, комісії, ризик і ліквідність. Тут визначається номінальна економія відсотків, а не гарантована дохідність. Порядок і вартість дострокового погашення встановлює ваш договір, а не універсальне правило для банків.' },
+    ],
+    disclaimer: 'Сталий ануїтет із доплатою наприкінці місяця та скороченням строку. Комісії, страхування, податки, денна база й договірні обмеження відсутні; це не персональна рекомендація.',
+  },
+  de: {
+    longDescription: 'Eine konstante zusätzliche Monatszahlung baut die Annuitätenschuld schneller ab. Die ursprüngliche Rate bleibt hier bestehen; die Laufzeit wird kürzer. Verglichen werden nominale Zinsen einschließlich einer kleineren Schlusszahlung. Gebühren, Vorfälligkeitsregeln und Zinsänderungen fehlen; ersparte Zinsen sind keine garantierte Rendite einer alternativen Anlage.',
+    howToUse: ['Gib Darlehenssumme, nominalen Jahreszins und Jahre ein.','Jahre werden auf die nächste ganze Monatszahl gerundet, mindestens einen Monat.','Setze eine nichtnegative konstante Zusatztilgung an; leer bedeutet null.','Vergleiche Ratenzahl, Zahlungssumme und Zinsersparnis. Prüfe Vertrag und benötigte Liquiditätsreserve separat.'],
+    howItWorks: 'Monatszins i = r/1200; geplante n = round(12×Jahre). Die ursprüngliche Annuität A bleibt konstant; M = A + Zusatztilgung. Am Monatsende fallen erst Zinsen an, dann wird M gezahlt. Nach k vollen Raten ist die Schuld S−(M−Si)[(1+i)^k−1]/i. Die analytische Tilgungsdauer liefert den Schlussmonat mit Zahlung nur der Restschuld samt Zins. Bei i = 0 folgt die Dauer aus S/M. Zwischenschritte werden nicht auf Cent gerundet, Anzeigen schon.',
+    example: '60.000 Geldeinheiten, 18 %, 20 Jahre und 200 zusätzlich ergeben die ursprüngliche Rate 925,99, Tilgung nach 108 statt 240 Monaten und Zinsersparnis 100.782,97. Bei 1.200 zu 0 % für ein Jahr erhöht eine Zusatztilgung von 100 die Rate 100 auf 200: sechs Monate und keine Zinsersparnis.',
+    faq: [
+      { q: 'Verkürzt diese Zusatztilgung die Laufzeit oder senkt sie die Rate?', a: 'Sie verkürzt die Laufzeit. Die ursprüngliche Annuität bleibt gleich und der Zusatz fließt ab dem ersten Monat. Eine Ratensenkung wäre ein anderes Modell.' },
+      { q: 'Warum ist die letzte Zahlung mit Zusatztilgung kleiner?', a: 'Restschuld und Zinsen liegen dann unter A plus Zusatz. Nur der offene Betrag wird gezahlt, ohne überschüssige Zahlung nach der Tilgung.' },
+      { q: 'Muss die vorzeitige Tilgung tausende Monatswerte durchlaufen?', a: 'Nein. Konstanter Zins und konstante Zahlung erlauben eine analytische Restschuldformel. Benachbarte Monate werden geprüft; eine beliebige Schleifengrenze gilt nicht als vollständige Tilgung.' },
+      { q: 'Reicht der Vergleich von Kreditzins und Sparzins als Entscheidung?', a: 'Zahlungsströme, Steuern, Gebühren, Risiko und Liquidität müssen vergleichbar sein. Die nominale Zinsersparnis ist keine garantierte Anlagerendite. Ablauf und Kosten der Sondertilgung hängen vom Vertrag ab.' },
+    ],
+    disclaimer: 'Konstante Annuität mit Monatsend-Zusatztilgung und kürzerer Laufzeit. Gebühren, Versicherungen, Steuern, Tageszählung und Vertragsgrenzen fehlen; keine persönliche Empfehlung.',
+  },
+  es: {
+    longDescription: 'Una amortización adicional mensual constante reduce antes el saldo de un préstamo de cuota fija. Se mantiene la cuota original y se acorta el plazo. Se comparan intereses nominales con una última cuota parcial. Quedan fuera comisiones, restricciones de amortización y cambios de tipo; ahorrar intereses no equivale a una rentabilidad de inversión garantizada.',
+    howToUse: ['Introduce capital, tipo nominal anual y años.','Los años se redondean al mes entero más cercano, como mínimo uno.','Indica una aportación adicional constante no negativa; vacía significa cero.','Compara número de cuotas, total pagado e intereses ahorrados. Revisa contrato y reserva de liquidez aparte.'],
+    howItWorks: 'Tipo mensual i = r/1200; plazo original n = round(12×años). La cuota A permanece fija; M = A + adicional. Al final del mes se calculan intereses y después se paga M. Saldo tras k cuotas completas: S−(M−Si)[(1+i)^k−1]/i. El plazo analítico determina el mes final, cuya cuota solo liquida deuda e intereses pendientes. Con i = 0 la duración sigue S/M. No se redondean flujos intermedios a céntimos; las cantidades mostradas sí.',
+    example: 'Capital 300.000 unidades monetarias, 18 %, 20 años y adicional 100: cuota original 4.629,93, cierre en 204 en vez de 240 meses, total 960.651,18 e intereses ahorrados 150.533,12. Con 1.200 al 0 % por un año, añadir 100 a la cuota 100 permite cerrar en seis meses sin ahorro de intereses.',
+    faq: [
+      { q: '¿La aportación adicional reduce el plazo o la cuota regular?', a: 'Reduce el plazo. Se mantiene la cuota original y se aporta el adicional desde el primer mes. Reducir la cuota regular sería otro modelo.' },
+      { q: '¿Por qué es menor la última cuota con amortización adicional?', a: 'La deuda y los intereses pendientes ya son menores que A más adicional. Se paga solo ese saldo, sin exceso tras la cancelación.' },
+      { q: '¿Hace falta recorrer miles de meses hasta la cancelación anticipada?', a: 'No. Tipo y pago constantes permiten una fórmula analítica del saldo. Se comprueban meses vecinos; un límite arbitrario de iteraciones no se trata como préstamo liquidado.' },
+      { q: '¿Basta comparar el interés del préstamo con el rendimiento del ahorro?', a: 'Hay que comparar flujos, impuestos, gastos, riesgo y liquidez. Este ahorro nominal no es una rentabilidad garantizada. El contrato determina procedimiento y coste de amortización anticipada.' },
+    ],
+    disclaimer: 'Cuota constante, aportaciones al final del mes y reducción de plazo. Excluye comisiones, seguros, impuestos, cómputo diario y restricciones contractuales; no es una recomendación personal.',
+  },
+};

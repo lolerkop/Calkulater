@@ -1,16 +1,15 @@
-// Испанский копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла испанской страницы не существует. Подробный текст живёт в
-// `src/data/esCalculatorContent.ts`.
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const differenceAbsRelCopyEs: CalculatorSeoCopy = {
+export const differenceAbsRelCopyEs: CalculatorCopy = {
   name: "Diferencia absoluta y relativa",
   slug: "diferencia-absoluta-y-relativa",
   shortDescription: "Cuánto se diferencian dos valores, en unidades y en porcentaje.",
   seoTitle: "Calculadora de diferencia absoluta y relativa",
-  seoDescription: "Halla la diferencia absoluta entre dos valores y la diferencia relativa en porcentaje, incluso con bases negativas.",
+  seoDescription: "Calcula la diferencia con signo y la relativa respecto al valor absoluto inicial. Se admiten bases negativas; la base cero no tiene porcentaje relativo.",
   h1: "Diferencia absoluta y relativa",
   keywords: ["diferencia absoluta", "diferencia relativa", "diferencia en porcentaje"],
+  ...contractContent.es,
 };

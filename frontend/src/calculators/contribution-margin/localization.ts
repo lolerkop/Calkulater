@@ -29,6 +29,10 @@ export const localization: CalculatorLocalization = {
     values: {
       'Переменные затраты выше цены': 'Die variablen Kosten übersteigen den Preis',
       'Цена должна быть больше нуля': 'Der Preis muss größer als null sein',
+          "Введите конечные числовые значения.": "Gib endliche Zahlenwerte ein.",
+      "Результат вне допустимого диапазона": "Ergebnis außerhalb des unterstützten Bereichs",
+      "Переменные затраты не могут быть отрицательными.": "Variable Kosten dürfen nicht negativ sein.",
+      "Объём не может быть отрицательным.": "Die Menge darf nicht negativ sein.",
     },
   },
   en: {
@@ -37,6 +41,10 @@ export const localization: CalculatorLocalization = {
     values: {
       'Переменные затраты выше цены': 'Variable costs exceed the price',
       'Цена должна быть больше нуля': 'The price must be greater than zero',
+          "Введите конечные числовые значения.": "Enter finite numerical values.",
+      "Результат вне допустимого диапазона": "Result outside the supported range",
+      "Переменные затраты не могут быть отрицательными.": "Variable costs cannot be negative.",
+      "Объём не может быть отрицательным.": "The quantity cannot be negative.",
     },
   },
   uk: {
@@ -45,6 +53,10 @@ export const localization: CalculatorLocalization = {
     values: {
       'Переменные затраты выше цены': 'Змінні витрати перевищують ціну',
       'Цена должна быть больше нуля': 'Ціна має бути більшою за нуль',
+          "Введите конечные числовые значения.": "Введіть скінченні числові значення.",
+      "Результат вне допустимого диапазона": "Результат поза допустимим діапазоном",
+      "Переменные затраты не могут быть отрицательными.": "Змінні витрати не можуть бути від’ємними.",
+      "Объём не может быть отрицательным.": "Обсяг не може бути від’ємним.",
     },
   },
   es: {
@@ -65,6 +77,10 @@ export const localization: CalculatorLocalization = {
     values: {
       "Переменные затраты выше цены": "Los costes variables superan al precio",
       "Цена должна быть больше нуля": "El precio debe ser mayor que cero",
+          "Введите конечные числовые значения.": "Introduce valores numéricos finitos.",
+      "Результат вне допустимого диапазона": "Resultado fuera del intervalo admitido",
+      "Переменные затраты не могут быть отрицательными.": "Los costes variables no pueden ser negativos.",
+      "Объём не может быть отрицательным.": "La cantidad no puede ser negativa.",
     },
   },
 };

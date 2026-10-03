@@ -4,26 +4,14 @@ export const voltageDropCopyEn: CalculatorCopy = {
   name: "Voltage drop calculator",
   slug: "voltage-drop",
   shortDescription: "Voltage lost along a cable run, from its length, cross-section and material.",
-  longDescription:
-    "Prices the loss that a long cable run costs you. Ohm's law alone will not do it: the resistance has to come from the geometry of the conductor and the resistivity of its metal, which is what this calculator adds. The multiplier differs by supply: in a single-phase circuit the current goes out and comes back along two conductors, so the run counts twice; in a balanced three-phase load there is no return conductor and the factor is the square root of three. Confusing the two is a reliable way to be wrong by half again.",
   seoTitle: "Voltage drop calculator for copper and aluminium cable",
   seoDescription: "Work out the voltage drop along a cable run from current, length, cross-section and conductor material, for single- or three-phase supply.",
   h1: "Voltage drop calculator",
   keywords: ["voltage drop calculator", "cable voltage loss", "cable size voltage drop", "copper aluminium resistance"],
-  howToUse: [
-    "Enter the current the line actually carries.",
-    "Enter the one-way length of the run, not there and back.",
-    "Enter the conductor cross-section in square millimetres.",
-    "Choose the metal and the supply type.",
-  ],
-  howItWorks:
-    "Resistance is resistivity times length divided by cross-section. The drop is that resistance times the current, times two for single-phase or the square root of three for three-phase.",
-  example: "16 A over 20 m of 2.5 mm² copper on a single-phase 230 V supply drops 4.48 V, or 1.95 %.",
-  faq: [
-    { q: "Do I enter the length one way or both?", a: "One way. The doubling for the return conductor is already in the single-phase factor; entering the round trip would double it twice." },
-    { q: "How much drop is acceptable?", a: "Common practice is to stay within 3 % for lighting and 5 % for other loads, but the binding number is whatever your local wiring rules say. This calculator gives you the figure, not the verdict." },
-    { q: "Why is three-phase not simply doubled?", a: "Because in a balanced three-phase load the return currents cancel in the neutral. The line-to-line drop works out to the square root of three times one conductor's drop." },
-    { q: "Does temperature matter?", a: "Yes. The resistivity here is for 20 °C; a conductor running warm resists more, so the real drop is a little larger. Treat the answer as the optimistic end." },
-    { q: "Can I use this to choose a cable size?", a: "You can compare sizes with it, but sizing a cable also needs the current-carrying capacity for your installation method, which is a normative table this calculator deliberately does not carry." },
-  ],
+  longDescription: "Compare voltage losses as cable length, cross-section or material changes. This is a resistive model: both conductors are counted for a two-wire single-phase circuit; balanced three-phase uses line-to-line voltage. Current is per conductor, displayed resistance is for one conductor on the one-way run, and power loss totals the current-carrying conductors. Reactance, imbalance, heating and contact resistance are not calculated.",
+  howToUse: ["Enter amperes and one-way length in metres; do not double the length yourself.", "Enter one conductor’s cross-section in mm², not its diameter, and choose copper or aluminium.", "Use voltage between the two wires for single-phase and between phases for three-phase, such as 400 V rather than 230 V.", "Zero current gives zero loss. If the drop exceeds nominal voltage, those inputs fall outside this supply model’s applicable range."],
+  howItWorks: "Rc = ρL/S with adopted 20 °C model coefficients: copper 0.0175 and aluminium 0.0282 Ω·mm²/m. ΔU = 2IRc for two wires; ΔU = √3IRc for balanced three-phase at power factor 1. Total heat loss is 2I²Rc or 3I²Rc respectively. Percentage = 100ΔU/U; load voltage = U − ΔU.",
+  example: "Copper, 16 A, 20 m, 2.5 mm², 230 V: Rc = 0.0175 × 20/2.5 = 0.14 Ω; ΔU = 4.48 V = 1.95%; load voltage 225.52 V; loss 71.68 W. Aluminium, 32 A, 50 m, 6 mm², three-phase, 400 V: Rc = 0.235 Ω; ΔU = 13.025 V; total loss = 3 × 32² × 0.235 = 721.92 W.",
+  faq: [{"q": "Why is three-phase loss not current times the voltage drop?", "a": "The drop √3IRc is line-to-line. Three conductors dissipate heat, giving 3I²Rc = √3IΔU. The voltage-drop factor √3 cannot replace the heating factor 3."}, {"q": "What does the displayed cable resistance mean?", "a": "It is one conductor’s resistance from source to load. A two-wire loop doubles it; three-phase has no single common loop resistance."}, {"q": "Can voltage-drop percentage alone select a cable?", "a": "No. Ampacity, protection, installation method and applicable local rules are also needed. This tool does not check them or set a regulatory limit."}, {"q": "Why can a warm cable differ from this result?", "a": "The coefficients are fixed at 20 °C. Actual cable temperature, tolerances and connections differ; operating temperature and reactive loads need a fuller model."}, {"q": "What changes if cross-section rises from 2.5 to 5 mm²?", "a": "At fixed current, length and material, R = ρL/S halves; voltage drop and I²R losses halve too. The 16 A, 20 m single-phase copper example becomes 2.24 V and 35.84 W instead of 4.48 V and 71.68 W. This comparison does not check ampacity."}],
+  disclaimer: "Resistive estimate at 20 °C and power factor 1, not code-compliant cable selection. The adopted resistivities are model coefficients, not a product-specific resistance table.",
 };

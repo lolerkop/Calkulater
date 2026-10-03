@@ -26,7 +26,7 @@ export const drywallReferenceCases: readonly CalculatorReferenceCase[] = [
       { label: "С запасом", value: "157,5 м²" },
       { label: "Площадь листа", value: "3,6 м²" },
       { label: "Метров профиля", value: "212,5" },
-      { label: "Саморезов", value: "5 280" },
+      { label: "Саморезов", value: "2 640" },
     ],
   },
   {

@@ -1,11 +1,11 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const geomEllipseCopyUk: CalculatorSeoCopy = {
+export const geomEllipseCopyUk: CalculatorCopy = {
   name: "Калькулятор еліпса",
   slug: "elips",
-  shortDescription: "Площа, периметр, ексцентриситет і фокуси еліпса за піввісями.",
   seoTitle: "Калькулятор еліпса: площа, периметр та ексцентриситет",
-  seoDescription: "Розрахуйте площу, периметр, ексцентриситет і відстань між фокусами еліпса за його піввісями.",
   h1: "Калькулятор еліпса",
   keywords: ["калькулятор еліпса", "площа еліпса", "периметр еліпса"],
+  ...contractContent.uk,
 };

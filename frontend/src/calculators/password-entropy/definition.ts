@@ -1,3 +1,6 @@
+import { contextualField } from './contextualField';
+import { contractContent } from './contractContent';
+import { validate } from './validate';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { passwordEntropyCopyEn } from './copy.en';
@@ -11,10 +14,13 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  contextualField,
+  validate,
   copy: { en: passwordEntropyCopyEn, uk: passwordEntropyCopyUk, de: passwordEntropyCopyDe, es: passwordEntropyCopyEs },
   referenceCases: passwordEntropyReferenceCases,
   publishedExample: { inputs: { length: 12, charset: "alnum", rate: 10 }, expected: ["71,45 бит"] },
   presentation: {
+    ...contractContent.ru,
     id: "password-entropy",
     name: "Калькулятор стойкости пароля",
     slug: "stoykost-parolya",
@@ -23,46 +29,65 @@ export const definition: CalculatorDefinitionV2 = {
     icon: "shield",
     popularity: 38,
     isNew: false,
-    shortDescription: "Энтропия пароля в битах и время полного перебора.",
-    longDescription:
-      "Стойкость пароля определяется не тем, насколько он выглядит «сложным», а размером пространства, в котором его нужно искать: длиной и алфавитом. Добавить один знак к двенадцатизначному паролю из букв и цифр — значит умножить перебор на 62; заменить строчные буквы на смешанный регистр с цифрами — умножить на порядки. Число вариантов быстро уходит за 10²¹, поэтому оно и время перебора показаны показательной записью.",
     seoTitle: "Калькулятор стойкости пароля — энтропия и время перебора",
-    seoDescription: "Рассчитайте энтропию пароля в битах, число вариантов и среднее время полного перебора по длине и алфавиту.",
     h1: "Калькулятор стойкости пароля",
     keywords: ["энтропия пароля", "стойкость пароля", "время перебора", "битов энтропии"],
     fields: [
-      { name: 'length', label: 'Длина пароля, знаков', type: 'number', defaultValue: 12, min: 1, step: 1 },
+  {
+    "name": "length",
+    "label": "Длина случайной последовательности",
+    "type": "number",
+    "defaultValue": 12,
+    "min": 1,
+    "step": 1,
+    "unit": "знаков"
+  },
+  {
+    "name": "charset",
+    "label": "Алфавит",
+    "type": "select",
+    "defaultValue": "alnum",
+    "options": [
       {
-        name: 'charset', label: 'Алфавит', type: 'select', defaultValue: 'alnum',
-        options: [
-          { value: 'digits', label: 'только цифры (10)' },
-          { value: 'lower', label: 'строчные латинские (26)' },
-          { value: 'loweralnum', label: 'строчные и цифры (36)' },
-          { value: 'mixed', label: 'строчные и прописные (52)' },
-          { value: 'alnum', label: 'буквы и цифры (62)' },
-          { value: 'alnumsym', label: 'буквы, цифры и знаки (94)' },
-        ],
+        "value": "digits",
+        "label": "только цифры (10)"
       },
-      { name: 'rate', label: 'Скорость перебора, млрд проверок в секунду', type: 'number', defaultValue: 10, min: 0, step: 1 },
-    ],
+      {
+        "value": "lower",
+        "label": "строчные латинские (26)"
+      },
+      {
+        "value": "loweralnum",
+        "label": "строчные и цифры (36)"
+      },
+      {
+        "value": "mixed",
+        "label": "строчные и прописные (52)"
+      },
+      {
+        "value": "alnum",
+        "label": "буквы и цифры (62)"
+      },
+      {
+        "value": "alnumsym",
+        "label": "буквы, цифры и знаки (94)"
+      }
+    ]
+  },
+  {
+    "name": "rate",
+    "label": "Скорость проверки",
+    "type": "number",
+    "defaultValue": 10,
+    "min": 0,
+    "step": 1,
+    "unit": "10⁹ попыток/с"
+  }
+],
     resultLabels: {
       "entropy": "Энтропия", "combos": "Вариантов пароля", "seconds": "Средний перебор",
       "years": "В годах", "size": "Размер алфавита",
     },
-    howToUse: [
-      "Считайте фактическую длину: пробелы и знаки препинания тоже знаки.",
-      "Алфавит выбирайте по тому, что реально использовано, а не по тому, что разрешено формой регистрации.",
-      "Скорость перебора зависит от того, как хранится пароль: у быстрых хешей это десятки миллиардов проверок в секунду, у медленных — тысячи.",
-      "Оценка для полного перебора. Пароль из словарных слов ломается несравнимо быстрее любой энтропии.",
-    ],
-    howItWorks: "H = L · log₂(N), вариантов N^L, средний перебор — половина пространства.",
-    example: "Двенадцать знаков из букв и цифр дают 71,45 бита и около 3,2·10²¹ вариантов.",
-    faq: [
-      { q: "Сколько битов достаточно?", a: "Ниже 60 бит пароль ломается перебором на обычном оборудовании за обозримое время. 70–80 бит хватает для большинства задач, выше 100 бит перебор перестаёт быть угрозой вовсе — там уже опаснее утечка и повторное использование." },
-      { q: "Почему средний перебор — половина?", a: "Перебор идёт по пространству подряд, и в среднем пароль находится на середине. Это стандартная оценка: она не меняет порядок величины, но честнее, чем считать полный перебор до конца." },
-      { q: "Что сильнее — длина или алфавит?", a: "Длина. Она входит в показатель степени, а алфавит — в основание. Пароль из двадцати строчных букв стойче двенадцатизначного со всеми знаками препинания: 94 бита против 78." },
-      { q: "Считается ли пароль из слов?", a: "Для набора случайных слов считайте алфавитом размер словаря, а длиной — число слов. Но фраза из осмысленного текста энтропии почти не имеет: её перебирают не по знакам, а по цитатам." },
-    ],
     relatedCalculatorIds: ["ipv4-subnet", "files-on-disk", "combinatorics"],
   },
 };

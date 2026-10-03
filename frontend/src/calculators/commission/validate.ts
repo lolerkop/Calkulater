@@ -8,6 +8,8 @@ const ZERO: Partial<Record<Locale, string>> = {
   ru: 'Значение не может быть равно нулю.',
   uk: 'Значення не може дорівнювати нулю.',
   en: 'The value cannot be zero.',
+  de: 'Der Wert darf nicht null sein.',
+  es: 'El valor no puede ser cero.',
 };
 
 export const validate: CalculatorValidator = ({ values, locale, parseNumber }) => {

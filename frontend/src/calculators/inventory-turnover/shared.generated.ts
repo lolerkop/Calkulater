@@ -13,36 +13,44 @@ export const shared: CalculatorLocalization = {
     results: {
       'Срок': 'Term',
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
       'Запас': 'Reserve',
       'Себестоимость': 'Cost',
+      'Год': 'Year',
     },
   },
   uk: {
     results: {
       'Срок': 'Строк',
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
       'Запас': 'Запас',
       'Себестоимость': 'Собівартість',
+      'Год': 'Рік',
     },
   },
   de: {
     results: {
       'Срок': 'Laufzeit',
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Запас': 'Reserve',
       'Себестоимость': 'Selbstkosten',
+      'Год': 'Jahr',
     },
   },
   es: {
     results: {
       'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
       'Запас': 'Reserva',
       'Себестоимость': 'Coste',
+      'Год': 'Año',
     },
   },
 };

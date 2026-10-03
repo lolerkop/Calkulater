@@ -1,6 +1,7 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { mathWave8ContractContent } from './contractContent';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const zScoreCopyUk: CalculatorSeoCopy = {
+export const zScoreCopyUk: CalculatorCopy = {
   name: 'Калькулятор Z-оцінки',
   slug: 'z-ocinka',
   shortDescription: 'На скільки стандартних відхилень значення відстоїть від середнього.',
@@ -8,4 +9,5 @@ export const zScoreCopyUk: CalculatorSeoCopy = {
   seoDescription: 'Обчисліть Z-оцінку значення за середнім і стандартним відхиленням: z = (x − μ) / σ.',
   h1: 'Калькулятор Z-оцінки',
   keywords: ['z-оцінка', 'калькулятор z-score', 'стандартизоване значення'],
+  ...mathWave8ContractContent.uk,
 };

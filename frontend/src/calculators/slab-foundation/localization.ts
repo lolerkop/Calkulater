@@ -1,14 +1,15 @@
+import { addBuildingWave16Messages } from '../rafters/buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'length': 'Länge der Platte, m',
-      'width': 'Breite der Platte, m',
-      'thickness': 'Dicke der Platte, m',
-      'meshStep': 'Mattenabstand, m',
-      'rebarDiameter': 'Durchmesser der Bewehrung, mm',
-      'waste': 'Zuschlag, %',
+      'length': "Länge der Platte",
+      'width': "Breite der Platte",
+      'thickness': "Dicke der Platte",
+      'meshStep': "Mattenabstand",
+      'rebarDiameter': "Durchmesser der Bewehrung",
+      'waste': "Zuschlag",
     },
     results: {
       'Объём бетона': 'Betonvolumen',
@@ -33,12 +34,12 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      "length": "Slab length, m",
-      "width": "Slab width, m",
-      "thickness": "Slab thickness, m",
-      "meshStep": "Mesh spacing, m",
-      "rebarDiameter": "Rebar diameter, mm",
-      "waste": "Allowance, %",
+      "length": "Slab length",
+      "width": "Slab width",
+      "thickness": "Slab thickness",
+      "meshStep": "Mesh spacing",
+      "rebarDiameter": "Rebar diameter",
+      "waste": "Allowance",
     },
     options: {},
     results: {
@@ -64,12 +65,12 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      "length": "Довжина плити, м",
-      "width": "Ширина плити, м",
-      "thickness": "Товщина плити, м",
-      "meshStep": "Крок сітки, м",
-      "rebarDiameter": "Діаметр арматури, мм",
-      "waste": "Запас, %",
+      "length": "Довжина плити",
+      "width": "Ширина плити",
+      "thickness": "Товщина плити",
+      "meshStep": "Крок сітки",
+      "rebarDiameter": "Діаметр арматури",
+      "waste": "Запас",
     },
     options: {},
     results: {
@@ -95,12 +96,12 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "length": "Largo de la losa, m",
-      "width": "Ancho de la losa, m",
-      "thickness": "Espesor de la losa, m",
-      "meshStep": "Separación del mallazo, m",
-      "rebarDiameter": "Diámetro de la barra, mm",
-      "waste": "Margen, %",
+      "length": "Largo de la losa",
+      "width": "Ancho de la losa",
+      "thickness": "Espesor de la losa",
+      "meshStep": "Separación del mallazo",
+      "rebarDiameter": "Diámetro de la barra",
+      "waste": "Margen",
     },
     options: {},
     results: {
@@ -125,3 +126,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

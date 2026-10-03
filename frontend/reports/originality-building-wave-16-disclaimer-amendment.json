@@ -1,0 +1,786 @@
+{
+  "checkedDate": "2026-10-02",
+  "status": "SOURCE AMENDED;733focused direct checks PASS; integrated regenerated publication/browser pending ROOT",
+  "scope": "Only3RU nonempty subject disclaimers, no model/formula/source/field/default/reference/URL changes. All57 other effective owned bodies unchanged.",
+  "historicalFrozenSourceCount": 125,
+  "historicalFrozenDigest": "30e9c1def14aa0f9ec76a7e4f9bbaef44e2d13f80dbf265374df128d4f534320",
+  "coherentPreAmendmentDigest": "165cbd201ea95ecc88815bc1974886e83d34be1926110c515f215713ea5d3d82",
+  "currentSourceCount": 125,
+  "currentSourceDigest": "3ce7f3bb78d01bc18069796b32998b267f92b6302af12f8d17763f105ed3cdda",
+  "currentSourceFiles": [
+    {
+      "path": "src/calculators/rafters/buildingWave16Messages.ts",
+      "bytes": 6604,
+      "sha256": "724fc31926ba660ae0a675b8e2d91620ff78f9bf0c6707cccce41bc08afdb6d1"
+    },
+    {
+      "path": "src/calculators/rafters/buildingWave16Numeric.ts",
+      "bytes": 6104,
+      "sha256": "b7e441cb5b33e8b11dd98c1c39a42454a88af07332030a6959c03dd4360c43d9"
+    },
+    {
+      "path": "src/calculators/rafters/compute.ts",
+      "bytes": 1433,
+      "sha256": "e42aee5054653269c568c87145bf78cd569ac7b84a88aa1a442a640d5defa5ad"
+    },
+    {
+      "path": "src/calculators/rafters/contractContent.ts",
+      "bytes": 15718,
+      "sha256": "33c0982bf0a7411a191e3639d5a2f7f01c82fd20fe4b6e296c5e8be9060415e2"
+    },
+    {
+      "path": "src/calculators/rafters/copy.de.ts",
+      "bytes": 789,
+      "sha256": "d79a9e92b8a3198e38189899d23cccd04c0b27fb32efd06c3571ce4882b7417e"
+    },
+    {
+      "path": "src/calculators/rafters/copy.en.ts",
+      "bytes": 756,
+      "sha256": "13e29c880da560e19727be931dd4a1c2b49c7b080385f01d73b24171d312a2dc"
+    },
+    {
+      "path": "src/calculators/rafters/copy.es.ts",
+      "bytes": 885,
+      "sha256": "39f4e11beff29c4dde6d862f413a4bdc98b35d26b39d911efa86fd7fb6b83bc1"
+    },
+    {
+      "path": "src/calculators/rafters/copy.uk.ts",
+      "bytes": 980,
+      "sha256": "d10b136a086edabe78c0f0ead96d89889a2e9dd3c1ae628b13bb60329aa4010b"
+    },
+    {
+      "path": "src/calculators/rafters/definition.ts",
+      "bytes": 2748,
+      "sha256": "9a03e428320436b0a8d1e809daca29b55130c191dea0b426be16e03031b87583"
+    },
+    {
+      "path": "src/calculators/rafters/island.tsx",
+      "bytes": 820,
+      "sha256": "ea0452ac0b9ecc954794dc691abdc782565b2bbe8f95a468fc0e2f84b8c8c250"
+    },
+    {
+      "path": "src/calculators/rafters/localization.ts",
+      "bytes": 3488,
+      "sha256": "2176e7ae70025bd153c76169a71ea0e5e069147dabc67ca2155dd678952c412b"
+    },
+    {
+      "path": "src/calculators/rafters/referenceCases.ts",
+      "bytes": 1491,
+      "sha256": "dcc7495cb0efb7e928578a07efdad4b69e41b9c166563afcb1fc05fbe730617b"
+    },
+    {
+      "path": "src/calculators/roof-area/compute.ts",
+      "bytes": 2183,
+      "sha256": "f3577b7aa733af6b9688b8567fc9f06c12a2e3babe339f76f8e5c0af2e824b97"
+    },
+    {
+      "path": "src/calculators/roof-area/contractContent.ts",
+      "bytes": 15829,
+      "sha256": "96a77bcb1ba119d56d9834420f80d66686d8a69ff145b0935e6fc30ed6e34d04"
+    },
+    {
+      "path": "src/calculators/roof-area/copy.de.ts",
+      "bytes": 781,
+      "sha256": "f314d2dc7be74e6207e452496abebfce747f5ff89dcc4d5a397ea8f13429cb6c"
+    },
+    {
+      "path": "src/calculators/roof-area/copy.en.ts",
+      "bytes": 740,
+      "sha256": "d7999abe4b54ec6df0275a843a91a7434f7a263d0e2d067936299879c3a33716"
+    },
+    {
+      "path": "src/calculators/roof-area/copy.es.ts",
+      "bytes": 888,
+      "sha256": "ed82e54a64097b24f3baeedbd61c1d209205ec63d154b5895dae24743ee3f203"
+    },
+    {
+      "path": "src/calculators/roof-area/copy.uk.ts",
+      "bytes": 932,
+      "sha256": "0e4abf91f54fd71cbfdfe33162d3604caa8d786ebdb17abbee2deaee82b3f984"
+    },
+    {
+      "path": "src/calculators/roof-area/definition.ts",
+      "bytes": 3712,
+      "sha256": "7ed0174db40314201ab958fc86464ed577b2ceba5294b48f42544d6a8854d992"
+    },
+    {
+      "path": "src/calculators/roof-area/island.tsx",
+      "bytes": 823,
+      "sha256": "76dedccd49f5b6e5d27a97e544d3216a19a4dd58b43c67a538f4b31fb018b5af"
+    },
+    {
+      "path": "src/calculators/roof-area/localization.ts",
+      "bytes": 4966,
+      "sha256": "e9f58792cd94567ece8d460de8ba145476a72555350524f68e4d3e0990bac5e5"
+    },
+    {
+      "path": "src/calculators/roof-area/referenceCases.ts",
+      "bytes": 1502,
+      "sha256": "fa5e33a8f1fd3ac0a63b0a86df559c7959fdae9d180722432a2b5243e5088efb"
+    },
+    {
+      "path": "src/calculators/roof-battens/compute.ts",
+      "bytes": 2301,
+      "sha256": "80721b01ad1eb6b0853fd25444d9f6314e11c570407fc00d7f2592dfbc24c871"
+    },
+    {
+      "path": "src/calculators/roof-battens/contractContent.ts",
+      "bytes": 16981,
+      "sha256": "a8e0ab8ab098ef8d7f8f9a65e013878f7984eaf2936d0df3e185e18144b41d4f"
+    },
+    {
+      "path": "src/calculators/roof-battens/copy.de.ts",
+      "bytes": 757,
+      "sha256": "f1d8d2715dca4ce697aecfeed9443c26b5314f2381d6af25cd555612a9ce8cec"
+    },
+    {
+      "path": "src/calculators/roof-battens/copy.en.ts",
+      "bytes": 762,
+      "sha256": "223107915f06484741cdcfbde8c03ca2eb4f6eb7bfe6f069ba5c47439d18c659"
+    },
+    {
+      "path": "src/calculators/roof-battens/copy.es.ts",
+      "bytes": 914,
+      "sha256": "b2dab25b9150d45b21515fae8690efff400196bf511c1a0033901014c7ae7946"
+    },
+    {
+      "path": "src/calculators/roof-battens/copy.uk.ts",
+      "bytes": 1053,
+      "sha256": "dac6c2528dc11b9da5a6215ffc6eb83a2a903b0336033ac1f75dbf47796e26a2"
+    },
+    {
+      "path": "src/calculators/roof-battens/definition.ts",
+      "bytes": 3350,
+      "sha256": "1c5be82cae34fbaed0a2ed5680e8f7ad013a693f77724796a2d52972b7e8fe7f"
+    },
+    {
+      "path": "src/calculators/roof-battens/island.tsx",
+      "bytes": 829,
+      "sha256": "49efa58d09c38b902256abf26ac496a6e7c7af81804a12bcbc69c0b8af4b73cc"
+    },
+    {
+      "path": "src/calculators/roof-battens/localization.ts",
+      "bytes": 5923,
+      "sha256": "9de7f7701b0ad2a823a0eb4e19783b2b8eadcaa9aeb7a2462fcb5d107490a0d4"
+    },
+    {
+      "path": "src/calculators/roof-battens/referenceCases.ts",
+      "bytes": 2659,
+      "sha256": "47408b4608f289df7267302b692bc54f61dbb6244c477b342dc39a4d79182672"
+    },
+    {
+      "path": "src/calculators/room-volume/compute.ts",
+      "bytes": 1860,
+      "sha256": "a4689a3f646fcb7b0b2adb617a39baa17252fa6c79b2425eb769517eac608bbf"
+    },
+    {
+      "path": "src/calculators/room-volume/contractContent.ts",
+      "bytes": 12993,
+      "sha256": "b406097a379e5964eabfef34405e9fb91ef771ebe9d8ae7be0fc4a24f372218b"
+    },
+    {
+      "path": "src/calculators/room-volume/copy.de.ts",
+      "bytes": 776,
+      "sha256": "6d3999d010bfb8152337c4103d679b579f21d20a3865d14109b2eea76d6dd507"
+    },
+    {
+      "path": "src/calculators/room-volume/copy.en.ts",
+      "bytes": 702,
+      "sha256": "5b90390fef64e481b92c5ce39ca93eaf50e49fef0dc3d5491414b6df1ec35ade"
+    },
+    {
+      "path": "src/calculators/room-volume/copy.es.ts",
+      "bytes": 915,
+      "sha256": "0cbb897cd8ee9a6598adf829168b8cbd4e164f67d8dedc6e371d6077b815070d"
+    },
+    {
+      "path": "src/calculators/room-volume/copy.uk.ts",
+      "bytes": 973,
+      "sha256": "e1a5ea6f9e1b0a383cacc5d11b491767435218568365151f9c96f17e52cb7d65"
+    },
+    {
+      "path": "src/calculators/room-volume/definition.ts",
+      "bytes": 3513,
+      "sha256": "6e1082b5e3131cccb9199b5acb1c8bb0575732e9dc7a816d049bd3728bcd0ba7"
+    },
+    {
+      "path": "src/calculators/room-volume/island.tsx",
+      "bytes": 827,
+      "sha256": "95dc9708a0257c07c05dc4c70a1abde93eadaa4fc5a50828783b80f6dfc659fb"
+    },
+    {
+      "path": "src/calculators/room-volume/localization.ts",
+      "bytes": 4336,
+      "sha256": "7b10dffddf091fcdb7b7daf534e38c44a6b952549fdb93a319745f5cf44d44e8"
+    },
+    {
+      "path": "src/calculators/room-volume/referenceCases.ts",
+      "bytes": 2486,
+      "sha256": "d479c9453b6869ecab59923d9a2f4324e6884d9de45002430ad451963f729bb6"
+    },
+    {
+      "path": "src/calculators/sealant-volume/compute.ts",
+      "bytes": 1921,
+      "sha256": "66681881810dc9802ab52c3a9c694f15285887825c7a093565aec7a0c54af7ca"
+    },
+    {
+      "path": "src/calculators/sealant-volume/contractContent.ts",
+      "bytes": 17379,
+      "sha256": "aa70260655cefb7ee528673ff15bbff87a8f48bba5e2471a6ad5d3697a3bccc4"
+    },
+    {
+      "path": "src/calculators/sealant-volume/copy.de.ts",
+      "bytes": 817,
+      "sha256": "d8ec842d42893a9da9a2dbd0ea3d86671d9dd7b0fb8fa1c1dc335e64687f3174"
+    },
+    {
+      "path": "src/calculators/sealant-volume/copy.en.ts",
+      "bytes": 798,
+      "sha256": "9f2f73165666647d9d04b00a84ad06c1851021611b7d9d38e0ab9f487ce71206"
+    },
+    {
+      "path": "src/calculators/sealant-volume/copy.es.ts",
+      "bytes": 836,
+      "sha256": "6a7eb09b2cb877d9eb8129bc1fde951a210407e5927757adec62a951583b46d2"
+    },
+    {
+      "path": "src/calculators/sealant-volume/copy.uk.ts",
+      "bytes": 1140,
+      "sha256": "ea15b06146de2ba9e7375b41352d5bc04782a454c6108bc85d25c04343118bf1"
+    },
+    {
+      "path": "src/calculators/sealant-volume/definition.ts",
+      "bytes": 3173,
+      "sha256": "b6265a6ab2a8f4b7383d46a954393e5d4e3699e8a062f78254498f0074d0d034"
+    },
+    {
+      "path": "src/calculators/sealant-volume/island.tsx",
+      "bytes": 833,
+      "sha256": "ed9c3b4de2f5e0cbf300237dea6a9c25223da2a150dfc55e3158fdffeb0a6e73"
+    },
+    {
+      "path": "src/calculators/sealant-volume/localization.ts",
+      "bytes": 5492,
+      "sha256": "c6fbcd1dc6b2ca57406625a7ce2e28bd5fb3c7fcd9b8df164a63346c4ba4f533"
+    },
+    {
+      "path": "src/calculators/sealant-volume/referenceCases.ts",
+      "bytes": 2168,
+      "sha256": "233b66eebf1a3d85e6374fbbd9bfebd711ab3e15ecf6e0bc87531b704df234ce"
+    },
+    {
+      "path": "src/calculators/skirting/compute.ts",
+      "bytes": 2427,
+      "sha256": "8b739a8637c54c2ac3d69dc2cf46f956b441c6a8144fffa4b862dcef797d26cd"
+    },
+    {
+      "path": "src/calculators/skirting/contractContent.ts",
+      "bytes": 16036,
+      "sha256": "c17e3df991b124ab919ac387aa11217e648139b957646a4ad86f7a750ee110ab"
+    },
+    {
+      "path": "src/calculators/skirting/copy.de.ts",
+      "bytes": 805,
+      "sha256": "a13f5c5248b111b75b5220ffad9a3439fc7d718c260d5a377132659c991632ef"
+    },
+    {
+      "path": "src/calculators/skirting/copy.en.ts",
+      "bytes": 760,
+      "sha256": "f34419c8aa28c22e9fc38ee781e779b281ba1e3865757d9fd81807188b4649c0"
+    },
+    {
+      "path": "src/calculators/skirting/copy.es.ts",
+      "bytes": 816,
+      "sha256": "fe9496f759fb8ae9d8c9f874e92014c8b0ddcbbb168c843966289d34b628b0df"
+    },
+    {
+      "path": "src/calculators/skirting/copy.uk.ts",
+      "bytes": 1082,
+      "sha256": "02b5d4a9ae448ac7a398322902434f8eb41522d0f0ee997d18063c2a83d13572"
+    },
+    {
+      "path": "src/calculators/skirting/definition.ts",
+      "bytes": 3255,
+      "sha256": "123437fae921c385a66b4f8f5dffeeac5ff542957bbcbd3d231fef15cb0ed2e1"
+    },
+    {
+      "path": "src/calculators/skirting/island.tsx",
+      "bytes": 873,
+      "sha256": "6cf0a7c8156c50c0585227c3fcb9a1fb945d2cc1c85d046f0071fc65c47525f9"
+    },
+    {
+      "path": "src/calculators/skirting/localization.ts",
+      "bytes": 6935,
+      "sha256": "1e6f2357b7e3c311911f611511fc8709e9dce7377e00771dc58f64956bd32088"
+    },
+    {
+      "path": "src/calculators/skirting/referenceCases.ts",
+      "bytes": 2215,
+      "sha256": "5c45ba7b29d8042c819d6a36e04ab61b61ce8b4c103a0d250d373fbc5babf6b0"
+    },
+    {
+      "path": "src/calculators/skirting/validate.ts",
+      "bytes": 799,
+      "sha256": "9147912a0ecf47de2eb879ca3ae7d5635dbbd46aa82166ceef0db7193e2bc946"
+    },
+    {
+      "path": "src/calculators/slab-foundation/compute.ts",
+      "bytes": 2436,
+      "sha256": "f973c2a62f95e88405a237449cdad07e0c0eafff1744c1b2f17878bc73d379b4"
+    },
+    {
+      "path": "src/calculators/slab-foundation/contractContent.ts",
+      "bytes": 18694,
+      "sha256": "d46ddd9ec31461fb7e6a2d3d739b38c34f731aec08537ef9423ef1a155b9706d"
+    },
+    {
+      "path": "src/calculators/slab-foundation/copy.de.ts",
+      "bytes": 743,
+      "sha256": "593cb6aa17d3705e1eb6fdd63b32bae89887999310d0067a7bf01fc4f73203d6"
+    },
+    {
+      "path": "src/calculators/slab-foundation/copy.en.ts",
+      "bytes": 772,
+      "sha256": "3a7f47c7443d286069e4e7c32eea3391ede7756f43fb878a0cf2baffc9babaf3"
+    },
+    {
+      "path": "src/calculators/slab-foundation/copy.es.ts",
+      "bytes": 853,
+      "sha256": "c1c281c0b1e6a953419f38ae8e231cd260b4c355ab562d20f4ac1ad47c96bb67"
+    },
+    {
+      "path": "src/calculators/slab-foundation/copy.uk.ts",
+      "bytes": 1059,
+      "sha256": "5471a3bb9d41c065af1511a75d7edce4ea7605e73e5b8bfeb2a7cc9d715dbff2"
+    },
+    {
+      "path": "src/calculators/slab-foundation/definition.ts",
+      "bytes": 3380,
+      "sha256": "228b233441b7283679708e0f324a779271bc8cab79d8562dc17c9b10aabf5b11"
+    },
+    {
+      "path": "src/calculators/slab-foundation/island.tsx",
+      "bytes": 835,
+      "sha256": "69a15eb9c973a193e45cb9c99030bbfc3c6f038919e1dbe97d91b7787b387869"
+    },
+    {
+      "path": "src/calculators/slab-foundation/localization.ts",
+      "bytes": 5553,
+      "sha256": "baf69609cb9f2a7b913043e7233450fa9997ef6e290f205a11933875a8106cab"
+    },
+    {
+      "path": "src/calculators/slab-foundation/referenceCases.ts",
+      "bytes": 2758,
+      "sha256": "da231c3afe719fb314c995aec41d6c01643e310edb60804663acb3b1fce78f1b"
+    },
+    {
+      "path": "src/calculators/stairs/compute.ts",
+      "bytes": 1868,
+      "sha256": "43f5f047220612e2dbb681be5d317d3835833c1a5e7af0cfc52e83f91b88a426"
+    },
+    {
+      "path": "src/calculators/stairs/contractContent.ts",
+      "bytes": 16885,
+      "sha256": "2af49f31c8eb15a8a92d3cb8615c79339bd0efd961916926dbb32dac14e343ae"
+    },
+    {
+      "path": "src/calculators/stairs/copy.de.ts",
+      "bytes": 855,
+      "sha256": "602879cce1d022f252157244616f3aaf25c8051b512c7f152fb223f9d6705aa5"
+    },
+    {
+      "path": "src/calculators/stairs/copy.en.ts",
+      "bytes": 805,
+      "sha256": "025ad6e42445a0b99b0529aef8fbaa9550ca439f053d584bf9c940e63ab5a33b"
+    },
+    {
+      "path": "src/calculators/stairs/copy.es.ts",
+      "bytes": 935,
+      "sha256": "dfc2a3820af7f9b8d486929c6158dab257c1dd7d93500fefc4d71f4007af532d"
+    },
+    {
+      "path": "src/calculators/stairs/copy.uk.ts",
+      "bytes": 1027,
+      "sha256": "5aaa25656bd59f9c03824660cdea14c2c285c346eacd6d8d02b3e330b92619bc"
+    },
+    {
+      "path": "src/calculators/stairs/definition.ts",
+      "bytes": 2984,
+      "sha256": "b114eb9379b6eeef7889fcdf3bd061107bbb819aa4885cf2504306b6e5f5b377"
+    },
+    {
+      "path": "src/calculators/stairs/island.tsx",
+      "bytes": 818,
+      "sha256": "741d407ab17ab7edfe965ebd8b092353aa46be7d2d1e3952610795886835888b"
+    },
+    {
+      "path": "src/calculators/stairs/localization.ts",
+      "bytes": 5269,
+      "sha256": "6d4913240b866a013f3cb09d0eb4be5990641b3ba17a0b63966efc3d48e6920b"
+    },
+    {
+      "path": "src/calculators/stairs/referenceCases.ts",
+      "bytes": 2261,
+      "sha256": "b6539d4e2a65ae1cc17ce385f59d0e5e459039bb6b6e41ea53c294c2f5ea446b"
+    },
+    {
+      "path": "src/calculators/strip-foundation/compute.ts",
+      "bytes": 1703,
+      "sha256": "589e3ff706aa927b69cf18ceae97dd3a5ece5270164650a23adf0c353ec5fe05"
+    },
+    {
+      "path": "src/calculators/strip-foundation/contractContent.ts",
+      "bytes": 16789,
+      "sha256": "a9e623a7c725fe62d755ab4a82f5eac24d7085bb4fcd62ce6becad72a355ab3b"
+    },
+    {
+      "path": "src/calculators/strip-foundation/copy.de.ts",
+      "bytes": 784,
+      "sha256": "b371ae36f3d17dfdab3eec5039572cae7fa53f535c4e9bd902b8a196ad8f8da2"
+    },
+    {
+      "path": "src/calculators/strip-foundation/copy.en.ts",
+      "bytes": 773,
+      "sha256": "c3a8e4c3a88732567545c556465fd12d83bf984c2783a58b310846e3c5de845e"
+    },
+    {
+      "path": "src/calculators/strip-foundation/copy.es.ts",
+      "bytes": 836,
+      "sha256": "b97d6de91f8b4797394a11b91177c60e8e36601bd7405fe632a231293f794c58"
+    },
+    {
+      "path": "src/calculators/strip-foundation/copy.uk.ts",
+      "bytes": 1019,
+      "sha256": "6b5d7678a55285d5034ab3f4c8239f2b1e133ccdf2b2efbb89b7e62cb313a1e6"
+    },
+    {
+      "path": "src/calculators/strip-foundation/definition.ts",
+      "bytes": 3086,
+      "sha256": "c5075e7a9ee450f0905a456c91e332a841d9c76b5c1576ada90e9291f68c04c2"
+    },
+    {
+      "path": "src/calculators/strip-foundation/island.tsx",
+      "bytes": 837,
+      "sha256": "328039fc94379fbd79f3aba286f3da585cc27430224174940583f52e8e644222"
+    },
+    {
+      "path": "src/calculators/strip-foundation/localization.ts",
+      "bytes": 5035,
+      "sha256": "ee862cc9578a3d57c83a9e5ebc721e85a3f5708082810b6c6618fed941e14c2b"
+    },
+    {
+      "path": "src/calculators/strip-foundation/referenceCases.ts",
+      "bytes": 1294,
+      "sha256": "731acc2ea31cef481b8f52025eb935138e85392b9e39d4c036155b0f12001cbd"
+    },
+    {
+      "path": "src/calculators/tank-volume/compute.ts",
+      "bytes": 5062,
+      "sha256": "908569f171e8670b96336444d35a82d829a6a3bf4a1dac55dbc4bc6a225ef6a2"
+    },
+    {
+      "path": "src/calculators/tank-volume/contextualField.ts",
+      "bytes": 2428,
+      "sha256": "cd33c23583eca581e19cca114f4fe026e8760572271be5d63d435b38f854feb7"
+    },
+    {
+      "path": "src/calculators/tank-volume/contractContent.ts",
+      "bytes": 17513,
+      "sha256": "792a6e1eb51fda335f8bfb64ca774fe89de8a96636d950393d6032df0c0cc4b2"
+    },
+    {
+      "path": "src/calculators/tank-volume/copy.de.ts",
+      "bytes": 838,
+      "sha256": "490a7d60df9dfe558fcc4741b37a00b046aab8962217f9dcd2292f3e87e0ae40"
+    },
+    {
+      "path": "src/calculators/tank-volume/copy.en.ts",
+      "bytes": 791,
+      "sha256": "62f1f2f73db763202b769d2f7b95e642488748076871580c68689fa73aa16fd7"
+    },
+    {
+      "path": "src/calculators/tank-volume/copy.es.ts",
+      "bytes": 909,
+      "sha256": "b0cb492294369e1cca594be47cb0039de3ae3fb01574395489b242a59d18b4ef"
+    },
+    {
+      "path": "src/calculators/tank-volume/copy.uk.ts",
+      "bytes": 1037,
+      "sha256": "fc22a6a160de3cb84315e9726218478bfa941910f66ad9152c2f59a99ab71568"
+    },
+    {
+      "path": "src/calculators/tank-volume/definition.ts",
+      "bytes": 3442,
+      "sha256": "c11a318b53b1c36c5ecc3af4182a91ace80578403f1f975eb07d8bc67870b6bb"
+    },
+    {
+      "path": "src/calculators/tank-volume/island.tsx",
+      "bytes": 899,
+      "sha256": "1d5adf77c8b9cab0b7cfb083634208235ed56afef570bb1b893cc56aa3ec0f90"
+    },
+    {
+      "path": "src/calculators/tank-volume/localization.ts",
+      "bytes": 5673,
+      "sha256": "09535a06da06357c60cc063b8b790d9b1c090857e92a528332b0b1e177b086d9"
+    },
+    {
+      "path": "src/calculators/tank-volume/referenceCases.ts",
+      "bytes": 2001,
+      "sha256": "4646de21c551c7116bb3b18a87f9c2d84a26727e9123cecbb050c8d546832349"
+    },
+    {
+      "path": "src/calculators/underfloor-heating/compute.ts",
+      "bytes": 2417,
+      "sha256": "87d891ed6692eedd944f322a4dd8fc0831115b6e65e83c4c3bfecc7b4c9ff6be"
+    },
+    {
+      "path": "src/calculators/underfloor-heating/contractContent.ts",
+      "bytes": 17419,
+      "sha256": "0b0cf55a683a49dfc7f39d7b0f3b44dd34c265660237122874b5af23af5309c0"
+    },
+    {
+      "path": "src/calculators/underfloor-heating/copy.de.ts",
+      "bytes": 822,
+      "sha256": "2aee70095d74d35a883b5d087941a84b837e448dfa40ae61563b49425db428cb"
+    },
+    {
+      "path": "src/calculators/underfloor-heating/copy.en.ts",
+      "bytes": 818,
+      "sha256": "c0a7095d4ec456f63d94f12f5695f31f13419738ac6fc8029072d6021033d300"
+    },
+    {
+      "path": "src/calculators/underfloor-heating/copy.es.ts",
+      "bytes": 921,
+      "sha256": "891015421e2c7155c6ccb4b8d6ac737c928fc3de760188211ae053242cbca584"
+    },
+    {
+      "path": "src/calculators/underfloor-heating/copy.uk.ts",
+      "bytes": 1119,
+      "sha256": "9cdb25f35c42072b35d2d36174586edaf9dd82442e4c2f2aaf196e70e50a20f8"
+    },
+    {
+      "path": "src/calculators/underfloor-heating/definition.ts",
+      "bytes": 3376,
+      "sha256": "5cba40b2392b2d16883a4c0add165256537dc06e71b71e69c739245bfc74d340"
+    },
+    {
+      "path": "src/calculators/underfloor-heating/island.tsx",
+      "bytes": 841,
+      "sha256": "af4d12c226f68737cec14a97b3d2035aff4e1cca65bd3c99f613396a6f14395d"
+    },
+    {
+      "path": "src/calculators/underfloor-heating/localization.ts",
+      "bytes": 5678,
+      "sha256": "2b92f4937da316bd39e8ea88cce3cc9657813aaf760cc9e550d84025df84e7a6"
+    },
+    {
+      "path": "src/calculators/underfloor-heating/referenceCases.ts",
+      "bytes": 2466,
+      "sha256": "cd2e0f4d81db309e3330098e093bda1024dbfb4a2f9869a40f255e85d91d6366"
+    },
+    {
+      "path": "src/calculators/wood-weight/compute.ts",
+      "bytes": 1971,
+      "sha256": "de5528435d938f8eb4d45c1cab12bc1ec04d24f82a21286380b108d296e94458"
+    },
+    {
+      "path": "src/calculators/wood-weight/contractContent.ts",
+      "bytes": 19931,
+      "sha256": "f2e6da6b9b1f5a296286eeffe214f202781f76b212199a78d7659c7bf4f3e22a"
+    },
+    {
+      "path": "src/calculators/wood-weight/copy.de.ts",
+      "bytes": 770,
+      "sha256": "385f167c5d9505c7c4129b8111cb3aa490bd070027a0b445dc935c515513dc2e"
+    },
+    {
+      "path": "src/calculators/wood-weight/copy.en.ts",
+      "bytes": 776,
+      "sha256": "699ea8ee8c73a705c621ff3d7db20ecf3fcc02f8e8a93fff8538c62a3ead318c"
+    },
+    {
+      "path": "src/calculators/wood-weight/copy.es.ts",
+      "bytes": 848,
+      "sha256": "21f038573a48ab52cd3cfb3eb41df09201c71c96991f3fbb6af5ad55b88a9fd9"
+    },
+    {
+      "path": "src/calculators/wood-weight/copy.uk.ts",
+      "bytes": 1055,
+      "sha256": "200090c909f05973fa3284760b305a3f2516e05600c3d99ae2930877dd6d753c"
+    },
+    {
+      "path": "src/calculators/wood-weight/definition.ts",
+      "bytes": 3209,
+      "sha256": "0ed240bf042f553ff33cc977bc771731f2450d347f71a86dd43bc639c8f07881"
+    },
+    {
+      "path": "src/calculators/wood-weight/island.tsx",
+      "bytes": 827,
+      "sha256": "b2bd121607cc4f93438d6979bc4d2e26734843170b5132a840bcf3442dbaeac2"
+    },
+    {
+      "path": "src/calculators/wood-weight/localization.ts",
+      "bytes": 6924,
+      "sha256": "3a4d1e6313ae181b519622211f33f8709f28147abdbe7195222a397e2e0037f6"
+    },
+    {
+      "path": "src/calculators/wood-weight/referenceCases.ts",
+      "bytes": 2349,
+      "sha256": "f74ede3c065c2a3935ea2fc7527c22546029078ebf8b3a2f54d21a84d13f6774"
+    },
+    {
+      "path": "src/data/buildingWave16MethodSources.ts",
+      "bytes": 2368,
+      "sha256": "e9e20b887b889fa80efab86327ac5856f30dd98f18fe3613307ebf07f58fb660"
+    }
+  ],
+  "sourceDeltaSinceOriginalFreeze": [
+    {
+      "path": "src/calculators/rafters/island.tsx",
+      "beforeSHA256": "7fdce0755c7dc571ccf274b552a2251d2aeb6101e006ff9bfbfb0ac56202472b",
+      "afterSHA256": "ea0452ac0b9ecc954794dc691abdc782565b2bbe8f95a468fc0e2f84b8c8c250",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/roof-area/island.tsx",
+      "beforeSHA256": "79b1e1faf2bc7613a8e4c766c83f5e89d874c92eb476d7f24233531c3c2c3c3a",
+      "afterSHA256": "76dedccd49f5b6e5d27a97e544d3216a19a4dd58b43c67a538f4b31fb018b5af",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/roof-battens/island.tsx",
+      "beforeSHA256": "daf9ce31cecb0749d88068152617dd4b1bb73e12b3a17d49130438ebc0f55d5c",
+      "afterSHA256": "49efa58d09c38b902256abf26ac496a6e7c7af81804a12bcbc69c0b8af4b73cc",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/room-volume/island.tsx",
+      "beforeSHA256": "551812537605c5529b1fbccbf957e61235b6f4474d6fd58d1b26b226ba0df31d",
+      "afterSHA256": "95dc9708a0257c07c05dc4c70a1abde93eadaa4fc5a50828783b80f6dfc659fb",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/sealant-volume/contractContent.ts",
+      "beforeSHA256": "4b115cc1675f2baaf30759116200d7af3b0f5a8f0e9cbff6f618279b4940bfed",
+      "afterSHA256": "aa70260655cefb7ee528673ff15bbff87a8f48bba5e2471a6ad5d3697a3bccc4",
+      "boundary": "Owned RU disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/sealant-volume/island.tsx",
+      "beforeSHA256": "a393a852047aabd7c72060eab377dfc76d6b4b7930abb97883eb096442cf52ef",
+      "afterSHA256": "ed9c3b4de2f5e0cbf300237dea6a9c25223da2a150dfc55e3158fdffeb0a6e73",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/skirting/contractContent.ts",
+      "beforeSHA256": "c529564c0d6aa77eee2cb94e1ba14f45f63f60f0215288e3158d46c77d8bf1f9",
+      "afterSHA256": "c17e3df991b124ab919ac387aa11217e648139b957646a4ad86f7a750ee110ab",
+      "boundary": "Owned RU disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/skirting/island.tsx",
+      "beforeSHA256": "b8afd3998b76682c4b764f30180720dcb671655df5c52b21bb0786bea1abc4f9",
+      "afterSHA256": "6cf0a7c8156c50c0585227c3fcb9a1fb945d2cc1c85d046f0071fc65c47525f9",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/slab-foundation/island.tsx",
+      "beforeSHA256": "6069bb58ce3f21726ee8bb944ff538934a702f4f83bdcf4eee8c355df4422e4b",
+      "afterSHA256": "69a15eb9c973a193e45cb9c99030bbfc3c6f038919e1dbe97d91b7787b387869",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/stairs/island.tsx",
+      "beforeSHA256": "fb05e64e9cd2df3f84c86f28e5db800689b15803bf32752bcaf5149faf174364",
+      "afterSHA256": "741d407ab17ab7edfe965ebd8b092353aa46be7d2d1e3952610795886835888b",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/strip-foundation/island.tsx",
+      "beforeSHA256": "6f3854f25a6ebdcd78d2de35976325f895c1fd1e782e8e675347654a1d97d8bb",
+      "afterSHA256": "328039fc94379fbd79f3aba286f3da585cc27430224174940583f52e8e644222",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/tank-volume/contractContent.ts",
+      "beforeSHA256": "c07ee9a5b43c4ac024a2feb9c44e316682f0cbb1ff0c2503909a40cd70bc484c",
+      "afterSHA256": "792a6e1eb51fda335f8bfb64ca774fe89de8a96636d950393d6032df0c0cc4b2",
+      "boundary": "Owned RU disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/tank-volume/island.tsx",
+      "beforeSHA256": "2b3a4dd8b75d3864fe9e988e9eaba6a2f7f4a26f849a619afada31bc0aef5be4",
+      "afterSHA256": "1d5adf77c8b9cab0b7cfb083634208235ed56afef570bb1b893cc56aa3ec0f90",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/underfloor-heating/island.tsx",
+      "beforeSHA256": "a6d7473db6b50e14fdf321bb567aae2b80810b23b8464e71422be481cb2e6dee",
+      "afterSHA256": "af4d12c226f68737cec14a97b3d2035aff4e1cca65bd3c99f613396a6f14395d",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    },
+    {
+      "path": "src/calculators/wood-weight/island.tsx",
+      "beforeSHA256": "14e5f7ee39a5c04451d09eb2017a5b0f1ef2330ce6243f3bba06ef80de3490d8",
+      "afterSHA256": "b2bd121607cc4f93438d6979bc4d2e26734843170b5132a840bcf3442dbaeac2",
+      "boundary": "ROOT coherent generation changed island entry, not this disclaimer amendment"
+    }
+  ],
+  "ownedAmendment": [
+    {
+      "id": "sealant-volume",
+      "locale": "ru",
+      "path": "src/calculators/sealant-volume/contractContent.ts",
+      "before": "",
+      "after": "Расход рассчитан для постоянного прямоугольного сечения. Размеры и совместимость шва выбирают по конкретному герметику; форма поверхности и потери отдельно не моделируются, выбранный запас не гарантирует их покрытия.",
+      "beforeSHA256": "4b115cc1675f2baaf30759116200d7af3b0f5a8f0e9cbff6f618279b4940bfed",
+      "afterSHA256": "aa70260655cefb7ee528673ff15bbff87a8f48bba5e2471a6ad5d3697a3bccc4",
+      "beforeBytes": 16977,
+      "afterBytes": 17379,
+      "unchangedMathAndOtherLocaleBody": true
+    },
+    {
+      "id": "skirting",
+      "locale": "ru",
+      "path": "src/calculators/skirting/contractContent.ts",
+      "before": "",
+      "after": "Оценка основана на периметре, вычете проёмов и выбранном запасе. Раскрой, углы и соединители не оптимизируются; округление до целых планок не гарантирует достаточный запас для любого плана резов.",
+      "beforeSHA256": "c529564c0d6aa77eee2cb94e1ba14f45f63f60f0215288e3158d46c77d8bf1f9",
+      "afterSHA256": "c17e3df991b124ab919ac387aa11217e648139b957646a4ad86f7a750ee110ab",
+      "beforeBytes": 15677,
+      "afterBytes": 16036,
+      "unchangedMathAndOtherLocaleBody": true
+    },
+    {
+      "id": "tank-volume",
+      "locale": "ru",
+      "path": "src/calculators/tank-volume/contractContent.ts",
+      "before": "",
+      "after": "Расчёт использует внутренние размеры идеализированной ёмкости. Толщина стенок отдельно не учитывается; для капсулы налив оценён линейно, а не по точным сферическим сегментам днищ.",
+      "beforeSHA256": "c07ee9a5b43c4ac024a2feb9c44e316682f0cbb1ff0c2503909a40cd70bc484c",
+      "afterSHA256": "792a6e1eb51fda335f8bfb64ca774fe89de8a96636d950393d6032df0c0cc4b2",
+      "beforeBytes": 17181,
+      "afterBytes": 17513,
+      "unchangedMathAndOtherLocaleBody": true
+    }
+  ],
+  "reason": "ROOT full coherent check reported three empty getCalculatorEditorial.limitation values because these reviewed RU copy disclaimers were blank.",
+  "historicalBoundary": "Original125 source freeze retained in main report.12 island entry changes came from ROOT coherent generator; this amendment edits only3 contractContent.ts files.",
+  "humanReview": "NEEDS_HUMAN_REVIEW",
+  "validation": {
+    "passed": 733,
+    "failed": 0,
+    "files": {
+      "Contracts": 447,
+      "Numeric": 99,
+      "OwnedContent": 184,
+      "DisclaimerAmendment": 3
+    },
+    "log": "/tmp/building16-disclaimer-amendment-scoped.log",
+    "resource": "One worker, no file parallelism. Direct owned12 imports, no generated publication/browser run."
+  },
+  "newRegressionTest": {
+    "path": "tests/originalityBuildingWave16DisclaimerAmendment.test.ts",
+    "sha256": "a825b7ed29277a6af5e2503eecab0d02f064eadd5661baa7c07d798d7c7a4b25"
+  }
+}

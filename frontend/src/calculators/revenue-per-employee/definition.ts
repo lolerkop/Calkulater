@@ -1,13 +1,14 @@
 // Выручка на сотрудника. Целочисленный делитель.
 
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
-import { FIN_DISCLAIMER } from '../../lib/disclaimers';
 import { compute } from './compute';
 import { revenuePerEmployeeCopyEn } from './copy.en';
 import { revenuePerEmployeeCopyUk } from './copy.uk';
 import { revenuePerEmployeeCopyDe } from './copy.de';
 import { revenuePerEmployeeCopyEs } from './copy.es';
 import { revenuePerEmployeeReferenceCases } from './referenceCases';
+
+import { contractContent } from './contractContent';
 
 export const definition: CalculatorDefinitionV2 = {
   id: 'revenue-per-employee',
@@ -16,7 +17,7 @@ export const definition: CalculatorDefinitionV2 = {
   compute,
   copy: { en: revenuePerEmployeeCopyEn, uk: revenuePerEmployeeCopyUk, de: revenuePerEmployeeCopyDe, es: revenuePerEmployeeCopyEs },
   referenceCases: revenuePerEmployeeReferenceCases,
-  publishedExample: { inputs: { revenue: 12000000, employees: 40 }, expected: ['300 000 ₽'] },
+  publishedExample: { inputs: { revenue: 12000000, employees: 20 }, expected: ['600 000 ₽', '50 000 ₽'] },
   presentation: {
     id: 'revenue-per-employee',
     name: 'Калькулятор выручки на сотрудника',
@@ -26,12 +27,10 @@ export const definition: CalculatorDefinitionV2 = {
     icon: 'trending-up',
     popularity: 39,
     isNew: false,
-    shortDescription: 'Сколько выручки приходится на одного человека в штате.',
-    longDescription:
-      'Выручка на сотрудника делит годовую выручку на численность. Это самая грубая мера производительности труда и самая простая для сравнения по годам, потому что она не зависит от уровня зарплат и от того, как распределены затраты.',
+    shortDescription: "Годовая выручка, делённая на целое число сотрудников.",
     seoTitle: 'Калькулятор выручки на сотрудника — производительность труда',
     seoDescription:
-      'Расчёт выручки на сотрудника по годовой выручке и численности, вместе с месячным показателем на человека.',
+      "Рассчитайте годовую выручку на сотрудника по годовой выручке и целой численности. Месячная строка делит этот годовой показатель на 12; дробные FTE не поддерживаются.",
     h1: 'Калькулятор выручки на сотрудника',
     keywords: ['выручка на сотрудника', 'производительность труда', 'эффективность штата'],
     fields: [
@@ -39,16 +38,7 @@ export const definition: CalculatorDefinitionV2 = {
       { name: 'employees', label: 'Число сотрудников', type: 'number', defaultValue: 40, min: 0, step: 1 },
     ],
     resultLabels: { perEmployee: 'Выручка на сотрудника' },
-    howToUse: ['Введите годовую выручку.', 'Введите численность сотрудников.', 'Прочитайте выручку на человека.'],
-    howItWorks: 'Выручка на сотрудника = годовая выручка ÷ численность.',
-    example: 'Выручка 12 000 000 при 40 сотрудниках даёт 300 000 на человека в год.',
-    faq: [
-      { q: 'Учитывать ли частичную занятость?', a: 'Приведите её к полным ставкам до ввода числа, иначе показатель молча смешает две разные единицы измерения.' },
-      { q: 'Включать ли подрядчиков?', a: 'Это ваш выбор, но держите его одинаковым по годам, иначе динамика перестанет что-либо значить.' },
-      { q: 'Какое значение считать хорошим?', a: 'Оно осмысленно только внутри отрасли. Разработка и розница различаются на порядок.' },
-      { q: 'Зачем показан месячный показатель?', a: 'Его проще соотнести с зарплатами, о которых обычно думают помесячно.' },
-    ],
     relatedCalculatorIds: ['aov', 'contribution-margin', 'cac'],
-    disclaimer: FIN_DISCLAIMER,
+    ...contractContent.ru,
   },
 };

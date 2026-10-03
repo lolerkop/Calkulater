@@ -1,11 +1,12 @@
+import { contractContent } from './contractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
 // `src/data/deContent/`.
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const scaleModelCopyDe: CalculatorSeoCopy = {
+export const scaleModelCopyDe: CalculatorCopy = {
   name: 'Rechner für den Modellmaßstab',
   slug: 'modellmassstab-rechner',
   shortDescription: 'Maße zwischen Original und Modell bei einem Maßstab von 1:N umrechnen.',
@@ -13,4 +14,5 @@ export const scaleModelCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Rechne ein wirkliches Maß in ein Modellmaß um und zurück, bei beliebigem Maßstab, und finde den Maßstab selbst aus einem Maßpaar.',
   h1: 'Rechner für den Modellmaßstab',
   keywords: ['Modellmaßstab berechnen', 'Maßstab 1:87', 'Maßstab umrechnen', 'Modellmassstab'],
+  ...contractContent.de
 };

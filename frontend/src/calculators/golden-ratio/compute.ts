@@ -1,43 +1,18 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
+import { read, valid, dim, exact, add, negative, number as rounded, ratio, product, INPUT, MODE, RANGE } from '../../lib/platform/geometryNumericInput';
+
 import { formatStatistic } from '../../lib/platform/measurement';
-
-// Золотое сечение: φ = (1 + √5) / 2.
-//
-// Константа считается из корня в полной точности машинного числа и округляется
-// только при выводе. Записать 1,618 как источник истины значило бы потерять
-// точность там, где её и хотят: отношение частей перестало бы быть точным.
-
-const PHI = (1 + Math.sqrt(5)) / 2;
-const num = (value: number): string => formatStatistic(value, fmtNumber);
-
+const PHI=(1+Math.sqrt(5))/2;
+const statistic=(value:number)=>value!==0&&(Math.abs(value)<1e-7||Math.abs(value)>=1e12)?dim(value):formatStatistic(value,fmtNumber);
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'split');
-  const fail = (label: string, message: string) => ({
-    primary: { label, value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (mode === 'grow') {
-    const a = toNumber(inputs.a);
-    if (!(a > 0)) return fail('Больший отрезок', 'Значение должно быть больше нуля');
-    return {
-      primary: { label: 'Больший отрезок', value: num(a * PHI) },
-      secondary: [
-        { label: 'Меньший отрезок', value: num(a / PHI) },
-        { label: 'φ', value: fmtNumber(PHI, 6) },
-      ],
-    };
-  }
-
-  const total = toNumber(inputs.total);
-  if (!(total > 0)) return fail('Большая часть', 'Длина отрезка должна быть больше нуля');
-  const larger = total / PHI;
-  return {
-    primary: { label: 'Большая часть', value: num(larger) },
-    secondary: [
-      { label: 'Меньшая часть', value: num(total - larger) },
-      { label: 'φ', value: fmtNumber(PHI, 6) },
-    ],
-  };
+ const fail=(message:string)=>({primary:{label:'Большая часть',value:'—'},secondary:[{label:'Проверьте данные',value:message,accent:'red' as const}]});
+ const mode=inputs.mode === undefined ? 'split' : inputs.mode;if(mode!=='split'&&mode!=='grow')return fail(MODE);
+ const known=read(inputs[mode==='split'?'total':'a']);if(!Number.isFinite(known))return fail(INPUT);
+ if(!(known>0))return fail('Длина или известный размер должны быть больше нуля');
+ const larger=mode==='split'?ratio(exact(known),exact(PHI)):product(known,PHI);
+ const smaller=mode==='split'?rounded(add(exact(known),negative(exact(larger)))):ratio(exact(known),exact(PHI));
+ if(!valid(larger,smaller))return fail(RANGE);
+ return {primary:{label:mode==='split'?'Большая часть':'Больший отрезок',value:statistic(larger)},secondary:[
+ {label:mode==='split'?'Меньшая часть':'Меньший отрезок',value:statistic(smaller)},{label:'φ',value:fmtNumber(PHI,6)}]};
 };

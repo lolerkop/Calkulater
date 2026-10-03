@@ -1,0 +1,1466 @@
+{
+  "boundary": "Route/H1/field-default and visibility fixtures from captured actual60 before; numerical expectations are independent literals in E2E, not compute outputs.",
+  "actualBeforeSha256": "d9558befb3104c5ac06567f8d85d6ca129a0ca3ed734297c7a1d4d9b26335199",
+  "records": [
+    {
+      "id": "binomial-probability",
+      "locale": "ru",
+      "url": "/ru/math/binomial-probability/",
+      "h1": "Калькулятор биномиальной вероятности",
+      "fields": [
+        {
+          "name": "n",
+          "defaultValue": 10
+        },
+        {
+          "name": "k",
+          "defaultValue": 3
+        },
+        {
+          "name": "p",
+          "defaultValue": 0.5
+        },
+        {
+          "name": "mode",
+          "defaultValue": "exactly"
+        }
+      ]
+    },
+    {
+      "id": "binomial-probability",
+      "locale": "en",
+      "url": "/en/math/binomial-probability-calculator/",
+      "h1": "Binomial probability calculator",
+      "fields": [
+        {
+          "name": "n",
+          "defaultValue": 10
+        },
+        {
+          "name": "k",
+          "defaultValue": 3
+        },
+        {
+          "name": "p",
+          "defaultValue": 0.5
+        },
+        {
+          "name": "mode",
+          "defaultValue": "exactly"
+        }
+      ]
+    },
+    {
+      "id": "binomial-probability",
+      "locale": "uk",
+      "url": "/uk/math/binomialna-ymovirnist/",
+      "h1": "Калькулятор біноміальної ймовірності",
+      "fields": [
+        {
+          "name": "n",
+          "defaultValue": 10
+        },
+        {
+          "name": "k",
+          "defaultValue": 3
+        },
+        {
+          "name": "p",
+          "defaultValue": 0.5
+        },
+        {
+          "name": "mode",
+          "defaultValue": "exactly"
+        }
+      ]
+    },
+    {
+      "id": "binomial-probability",
+      "locale": "de",
+      "url": "/de/mathematik/binomialverteilung-rechner/",
+      "h1": "Rechner für die Binomialverteilung",
+      "fields": [
+        {
+          "name": "n",
+          "defaultValue": 10
+        },
+        {
+          "name": "k",
+          "defaultValue": 3
+        },
+        {
+          "name": "p",
+          "defaultValue": 0.5
+        },
+        {
+          "name": "mode",
+          "defaultValue": "exactly"
+        }
+      ]
+    },
+    {
+      "id": "binomial-probability",
+      "locale": "es",
+      "url": "/es/matematicas/probabilidad-binomial/",
+      "h1": "Calculadora de probabilidad binomial",
+      "fields": [
+        {
+          "name": "n",
+          "defaultValue": 10
+        },
+        {
+          "name": "k",
+          "defaultValue": 3
+        },
+        {
+          "name": "p",
+          "defaultValue": 0.5
+        },
+        {
+          "name": "mode",
+          "defaultValue": "exactly"
+        }
+      ]
+    },
+    {
+      "id": "confidence-interval",
+      "locale": "ru",
+      "url": "/ru/math/confidence-interval/",
+      "h1": "Калькулятор доверительного интервала",
+      "fields": [
+        {
+          "name": "mean",
+          "defaultValue": 100
+        },
+        {
+          "name": "sd",
+          "defaultValue": 15
+        },
+        {
+          "name": "n",
+          "defaultValue": 36
+        },
+        {
+          "name": "confidence",
+          "defaultValue": "95"
+        }
+      ]
+    },
+    {
+      "id": "confidence-interval",
+      "locale": "en",
+      "url": "/en/math/confidence-interval-calculator/",
+      "h1": "Confidence interval calculator",
+      "fields": [
+        {
+          "name": "mean",
+          "defaultValue": 100
+        },
+        {
+          "name": "sd",
+          "defaultValue": 15
+        },
+        {
+          "name": "n",
+          "defaultValue": 36
+        },
+        {
+          "name": "confidence",
+          "defaultValue": "95"
+        }
+      ]
+    },
+    {
+      "id": "confidence-interval",
+      "locale": "uk",
+      "url": "/uk/math/dovirchyy-interval/",
+      "h1": "Калькулятор довірчого інтервалу",
+      "fields": [
+        {
+          "name": "mean",
+          "defaultValue": 100
+        },
+        {
+          "name": "sd",
+          "defaultValue": 15
+        },
+        {
+          "name": "n",
+          "defaultValue": 36
+        },
+        {
+          "name": "confidence",
+          "defaultValue": "95"
+        }
+      ]
+    },
+    {
+      "id": "confidence-interval",
+      "locale": "de",
+      "url": "/de/mathematik/konfidenzintervall-rechner/",
+      "h1": "Rechner für das Konfidenzintervall",
+      "fields": [
+        {
+          "name": "mean",
+          "defaultValue": 100
+        },
+        {
+          "name": "sd",
+          "defaultValue": 15
+        },
+        {
+          "name": "n",
+          "defaultValue": 36
+        },
+        {
+          "name": "confidence",
+          "defaultValue": "95"
+        }
+      ]
+    },
+    {
+      "id": "confidence-interval",
+      "locale": "es",
+      "url": "/es/matematicas/intervalo-de-confianza/",
+      "h1": "Calculadora de intervalo de confianza",
+      "fields": [
+        {
+          "name": "mean",
+          "defaultValue": 100
+        },
+        {
+          "name": "sd",
+          "defaultValue": 15
+        },
+        {
+          "name": "n",
+          "defaultValue": 36
+        },
+        {
+          "name": "confidence",
+          "defaultValue": "95"
+        }
+      ]
+    },
+    {
+      "id": "correlation",
+      "locale": "ru",
+      "url": "/ru/math/correlation/",
+      "h1": "Калькулятор корреляции",
+      "fields": [
+        {
+          "name": "xs",
+          "defaultValue": "1 2 3 4 5"
+        },
+        {
+          "name": "ys",
+          "defaultValue": "2 4 5 4 5"
+        }
+      ]
+    },
+    {
+      "id": "correlation",
+      "locale": "en",
+      "url": "/en/math/correlation-coefficient-calculator/",
+      "h1": "Correlation coefficient calculator",
+      "fields": [
+        {
+          "name": "xs",
+          "defaultValue": "1 2 3 4 5"
+        },
+        {
+          "name": "ys",
+          "defaultValue": "2 4 5 4 5"
+        }
+      ]
+    },
+    {
+      "id": "correlation",
+      "locale": "uk",
+      "url": "/uk/math/korelyatsiya/",
+      "h1": "Калькулятор кореляції",
+      "fields": [
+        {
+          "name": "xs",
+          "defaultValue": "1 2 3 4 5"
+        },
+        {
+          "name": "ys",
+          "defaultValue": "2 4 5 4 5"
+        }
+      ]
+    },
+    {
+      "id": "correlation",
+      "locale": "de",
+      "url": "/de/mathematik/korrelationskoeffizient/",
+      "h1": "Rechner für den Korrelationskoeffizienten",
+      "fields": [
+        {
+          "name": "xs",
+          "defaultValue": "1 2 3 4 5"
+        },
+        {
+          "name": "ys",
+          "defaultValue": "2 4 5 4 5"
+        }
+      ]
+    },
+    {
+      "id": "correlation",
+      "locale": "es",
+      "url": "/es/matematicas/coeficiente-de-correlacion/",
+      "h1": "Calculadora de coeficiente de correlación",
+      "fields": [
+        {
+          "name": "xs",
+          "defaultValue": "1 2 3 4 5"
+        },
+        {
+          "name": "ys",
+          "defaultValue": "2 4 5 4 5"
+        }
+      ]
+    },
+    {
+      "id": "dice-probability",
+      "locale": "ru",
+      "url": "/ru/math/dice-probability/",
+      "h1": "Калькулятор вероятности на кубиках",
+      "fields": [
+        {
+          "name": "count",
+          "defaultValue": 2
+        },
+        {
+          "name": "sides",
+          "defaultValue": 6
+        },
+        {
+          "name": "target",
+          "defaultValue": 7
+        }
+      ]
+    },
+    {
+      "id": "dice-probability",
+      "locale": "en",
+      "url": "/en/math/dice-probability-calculator/",
+      "h1": "Dice probability calculator",
+      "fields": [
+        {
+          "name": "count",
+          "defaultValue": 2
+        },
+        {
+          "name": "sides",
+          "defaultValue": 6
+        },
+        {
+          "name": "target",
+          "defaultValue": 7
+        }
+      ]
+    },
+    {
+      "id": "dice-probability",
+      "locale": "uk",
+      "url": "/uk/math/imovirnist-kubykiv/",
+      "h1": "Калькулятор ймовірності кубиків",
+      "fields": [
+        {
+          "name": "count",
+          "defaultValue": 2
+        },
+        {
+          "name": "sides",
+          "defaultValue": 6
+        },
+        {
+          "name": "target",
+          "defaultValue": 7
+        }
+      ]
+    },
+    {
+      "id": "dice-probability",
+      "locale": "de",
+      "url": "/de/mathematik/wuerfel-wahrscheinlichkeit/",
+      "h1": "Rechner für Würfelwahrscheinlichkeiten",
+      "fields": [
+        {
+          "name": "count",
+          "defaultValue": 2
+        },
+        {
+          "name": "sides",
+          "defaultValue": 6
+        },
+        {
+          "name": "target",
+          "defaultValue": 7
+        }
+      ]
+    },
+    {
+      "id": "dice-probability",
+      "locale": "es",
+      "url": "/es/matematicas/probabilidad-con-dados/",
+      "h1": "Calculadora de probabilidad con dados",
+      "fields": [
+        {
+          "name": "count",
+          "defaultValue": 2
+        },
+        {
+          "name": "sides",
+          "defaultValue": 6
+        },
+        {
+          "name": "target",
+          "defaultValue": 7
+        }
+      ]
+    },
+    {
+      "id": "probability-basic",
+      "locale": "ru",
+      "url": "/ru/math/probability/",
+      "h1": "Калькулятор вероятности",
+      "fields": [
+        {
+          "name": "mode",
+          "defaultValue": "single"
+        },
+        {
+          "name": "favourable",
+          "defaultValue": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "total",
+          "defaultValue": 6,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "favourable2",
+          "defaultValue": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "complement"
+          }
+        },
+        {
+          "name": "total2",
+          "defaultValue": 6,
+          "showIf": {
+            "field": "mode",
+            "equals": "complement"
+          }
+        },
+        {
+          "name": "p1",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentBoth"
+          }
+        },
+        {
+          "name": "p2",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentBoth"
+          }
+        },
+        {
+          "name": "p3",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentEither"
+          }
+        },
+        {
+          "name": "p4",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentEither"
+          }
+        }
+      ]
+    },
+    {
+      "id": "probability-basic",
+      "locale": "en",
+      "url": "/en/math/probability-calculator/",
+      "h1": "Probability calculator",
+      "fields": [
+        {
+          "name": "mode",
+          "defaultValue": "single"
+        },
+        {
+          "name": "favourable",
+          "defaultValue": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "total",
+          "defaultValue": 6,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "favourable2",
+          "defaultValue": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "complement"
+          }
+        },
+        {
+          "name": "total2",
+          "defaultValue": 6,
+          "showIf": {
+            "field": "mode",
+            "equals": "complement"
+          }
+        },
+        {
+          "name": "p1",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentBoth"
+          }
+        },
+        {
+          "name": "p2",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentBoth"
+          }
+        },
+        {
+          "name": "p3",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentEither"
+          }
+        },
+        {
+          "name": "p4",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentEither"
+          }
+        }
+      ]
+    },
+    {
+      "id": "probability-basic",
+      "locale": "uk",
+      "url": "/uk/math/ymovirnist/",
+      "h1": "Калькулятор ймовірності",
+      "fields": [
+        {
+          "name": "mode",
+          "defaultValue": "single"
+        },
+        {
+          "name": "favourable",
+          "defaultValue": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "total",
+          "defaultValue": 6,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "favourable2",
+          "defaultValue": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "complement"
+          }
+        },
+        {
+          "name": "total2",
+          "defaultValue": 6,
+          "showIf": {
+            "field": "mode",
+            "equals": "complement"
+          }
+        },
+        {
+          "name": "p1",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentBoth"
+          }
+        },
+        {
+          "name": "p2",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentBoth"
+          }
+        },
+        {
+          "name": "p3",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentEither"
+          }
+        },
+        {
+          "name": "p4",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentEither"
+          }
+        }
+      ]
+    },
+    {
+      "id": "probability-basic",
+      "locale": "de",
+      "url": "/de/mathematik/wahrscheinlichkeit-rechner/",
+      "h1": "Wahrscheinlichkeitsrechner",
+      "fields": [
+        {
+          "name": "mode",
+          "defaultValue": "single"
+        },
+        {
+          "name": "favourable",
+          "defaultValue": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "total",
+          "defaultValue": 6,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "favourable2",
+          "defaultValue": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "complement"
+          }
+        },
+        {
+          "name": "total2",
+          "defaultValue": 6,
+          "showIf": {
+            "field": "mode",
+            "equals": "complement"
+          }
+        },
+        {
+          "name": "p1",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentBoth"
+          }
+        },
+        {
+          "name": "p2",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentBoth"
+          }
+        },
+        {
+          "name": "p3",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentEither"
+          }
+        },
+        {
+          "name": "p4",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentEither"
+          }
+        }
+      ]
+    },
+    {
+      "id": "probability-basic",
+      "locale": "es",
+      "url": "/es/matematicas/calculadora-de-probabilidad/",
+      "h1": "Calculadora de probabilidad",
+      "fields": [
+        {
+          "name": "mode",
+          "defaultValue": "single"
+        },
+        {
+          "name": "favourable",
+          "defaultValue": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "total",
+          "defaultValue": 6,
+          "showIf": {
+            "field": "mode",
+            "equals": "single"
+          }
+        },
+        {
+          "name": "favourable2",
+          "defaultValue": 1,
+          "showIf": {
+            "field": "mode",
+            "equals": "complement"
+          }
+        },
+        {
+          "name": "total2",
+          "defaultValue": 6,
+          "showIf": {
+            "field": "mode",
+            "equals": "complement"
+          }
+        },
+        {
+          "name": "p1",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentBoth"
+          }
+        },
+        {
+          "name": "p2",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentBoth"
+          }
+        },
+        {
+          "name": "p3",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentEither"
+          }
+        },
+        {
+          "name": "p4",
+          "defaultValue": 0.5,
+          "showIf": {
+            "field": "mode",
+            "equals": "independentEither"
+          }
+        }
+      ]
+    },
+    {
+      "id": "quartile",
+      "locale": "ru",
+      "url": "/ru/math/kvartili/",
+      "h1": "Калькулятор квартилей и перцентилей",
+      "fields": [
+        {
+          "name": "values",
+          "defaultValue": "2 4 4 5 7 9 11 12"
+        }
+      ]
+    },
+    {
+      "id": "quartile",
+      "locale": "en",
+      "url": "/en/math/quartile/",
+      "h1": "Quartile and percentile calculator",
+      "fields": [
+        {
+          "name": "values",
+          "defaultValue": "2 4 4 5 7 9 11 12"
+        }
+      ]
+    },
+    {
+      "id": "quartile",
+      "locale": "uk",
+      "url": "/uk/math/kvartyli/",
+      "h1": "Калькулятор квартилів і перцентилів",
+      "fields": [
+        {
+          "name": "values",
+          "defaultValue": "2 4 4 5 7 9 11 12"
+        }
+      ]
+    },
+    {
+      "id": "quartile",
+      "locale": "de",
+      "url": "/de/mathematik/quartile-rechner/",
+      "h1": "Rechner für Quartile und Perzentile",
+      "fields": [
+        {
+          "name": "values",
+          "defaultValue": "2 4 4 5 7 9 11 12"
+        }
+      ]
+    },
+    {
+      "id": "quartile",
+      "locale": "es",
+      "url": "/es/matematicas/cuartiles-y-percentiles/",
+      "h1": "Calculadora de cuartiles y percentiles",
+      "fields": [
+        {
+          "name": "values",
+          "defaultValue": "2 4 4 5 7 9 11 12"
+        }
+      ]
+    },
+    {
+      "id": "roman-numerals",
+      "locale": "ru",
+      "url": "/ru/math/roman-numerals/",
+      "h1": "Римские числа",
+      "fields": [
+        {
+          "name": "mode",
+          "defaultValue": "toRoman"
+        },
+        {
+          "name": "arabic",
+          "defaultValue": 1994,
+          "showIf": {
+            "field": "mode",
+            "equals": "toRoman"
+          }
+        },
+        {
+          "name": "roman",
+          "defaultValue": "MMXXIV",
+          "showIf": {
+            "field": "mode",
+            "equals": "toArabic"
+          }
+        }
+      ]
+    },
+    {
+      "id": "roman-numerals",
+      "locale": "en",
+      "url": "/en/math/roman-numerals/",
+      "h1": "Roman numeral converter",
+      "fields": [
+        {
+          "name": "mode",
+          "defaultValue": "toRoman"
+        },
+        {
+          "name": "arabic",
+          "defaultValue": 1994,
+          "showIf": {
+            "field": "mode",
+            "equals": "toRoman"
+          }
+        },
+        {
+          "name": "roman",
+          "defaultValue": "MMXXIV",
+          "showIf": {
+            "field": "mode",
+            "equals": "toArabic"
+          }
+        }
+      ]
+    },
+    {
+      "id": "roman-numerals",
+      "locale": "uk",
+      "url": "/uk/math/rymski-chysla/",
+      "h1": "Конвертер римських чисел",
+      "fields": [
+        {
+          "name": "mode",
+          "defaultValue": "toRoman"
+        },
+        {
+          "name": "arabic",
+          "defaultValue": 1994,
+          "showIf": {
+            "field": "mode",
+            "equals": "toRoman"
+          }
+        },
+        {
+          "name": "roman",
+          "defaultValue": "MMXXIV",
+          "showIf": {
+            "field": "mode",
+            "equals": "toArabic"
+          }
+        }
+      ]
+    },
+    {
+      "id": "roman-numerals",
+      "locale": "de",
+      "url": "/de/mathematik/roemische-zahlen-umrechner/",
+      "h1": "Umrechner für römische Zahlen",
+      "fields": [
+        {
+          "name": "mode",
+          "defaultValue": "toRoman"
+        },
+        {
+          "name": "arabic",
+          "defaultValue": 1994,
+          "showIf": {
+            "field": "mode",
+            "equals": "toRoman"
+          }
+        },
+        {
+          "name": "roman",
+          "defaultValue": "MMXXIV",
+          "showIf": {
+            "field": "mode",
+            "equals": "toArabic"
+          }
+        }
+      ]
+    },
+    {
+      "id": "roman-numerals",
+      "locale": "es",
+      "url": "/es/matematicas/numeros-romanos/",
+      "h1": "Conversor de números romanos",
+      "fields": [
+        {
+          "name": "mode",
+          "defaultValue": "toRoman"
+        },
+        {
+          "name": "arabic",
+          "defaultValue": 1994,
+          "showIf": {
+            "field": "mode",
+            "equals": "toRoman"
+          }
+        },
+        {
+          "name": "roman",
+          "defaultValue": "MMXXIV",
+          "showIf": {
+            "field": "mode",
+            "equals": "toArabic"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rounding",
+      "locale": "ru",
+      "url": "/ru/math/rounding/",
+      "h1": "Калькулятор округления",
+      "fields": [
+        {
+          "name": "value",
+          "defaultValue": 2748.536
+        },
+        {
+          "name": "digits",
+          "defaultValue": 2
+        },
+        {
+          "name": "mode",
+          "defaultValue": "half"
+        }
+      ]
+    },
+    {
+      "id": "rounding",
+      "locale": "en",
+      "url": "/en/math/rounding-calculator/",
+      "h1": "Rounding calculator",
+      "fields": [
+        {
+          "name": "value",
+          "defaultValue": 2748.536
+        },
+        {
+          "name": "digits",
+          "defaultValue": 2
+        },
+        {
+          "name": "mode",
+          "defaultValue": "half"
+        }
+      ]
+    },
+    {
+      "id": "rounding",
+      "locale": "uk",
+      "url": "/uk/math/okruhlennya/",
+      "h1": "Калькулятор округлення",
+      "fields": [
+        {
+          "name": "value",
+          "defaultValue": 2748.536
+        },
+        {
+          "name": "digits",
+          "defaultValue": 2
+        },
+        {
+          "name": "mode",
+          "defaultValue": "half"
+        }
+      ]
+    },
+    {
+      "id": "rounding",
+      "locale": "de",
+      "url": "/de/mathematik/runden-rechner/",
+      "h1": "Rundungsrechner",
+      "fields": [
+        {
+          "name": "value",
+          "defaultValue": 2748.536
+        },
+        {
+          "name": "digits",
+          "defaultValue": 2
+        },
+        {
+          "name": "mode",
+          "defaultValue": "half"
+        }
+      ]
+    },
+    {
+      "id": "rounding",
+      "locale": "es",
+      "url": "/es/matematicas/calculadora-de-redondeo/",
+      "h1": "Calculadora de redondeo",
+      "fields": [
+        {
+          "name": "value",
+          "defaultValue": 2748.536
+        },
+        {
+          "name": "digits",
+          "defaultValue": 2
+        },
+        {
+          "name": "mode",
+          "defaultValue": "half"
+        }
+      ]
+    },
+    {
+      "id": "sample-size",
+      "locale": "ru",
+      "url": "/ru/math/razmer-vyborki/",
+      "h1": "Калькулятор размера выборки",
+      "fields": [
+        {
+          "name": "confidence",
+          "defaultValue": "95"
+        },
+        {
+          "name": "margin",
+          "defaultValue": 5
+        },
+        {
+          "name": "proportion",
+          "defaultValue": 50
+        },
+        {
+          "name": "population",
+          "defaultValue": 0
+        }
+      ]
+    },
+    {
+      "id": "sample-size",
+      "locale": "en",
+      "url": "/en/math/sample-size/",
+      "h1": "Sample size calculator",
+      "fields": [
+        {
+          "name": "confidence",
+          "defaultValue": "95"
+        },
+        {
+          "name": "margin",
+          "defaultValue": 5
+        },
+        {
+          "name": "proportion",
+          "defaultValue": 50
+        },
+        {
+          "name": "population",
+          "defaultValue": 0
+        }
+      ]
+    },
+    {
+      "id": "sample-size",
+      "locale": "uk",
+      "url": "/uk/math/rozmir-vybirky/",
+      "h1": "Калькулятор розміру вибірки",
+      "fields": [
+        {
+          "name": "confidence",
+          "defaultValue": "95"
+        },
+        {
+          "name": "margin",
+          "defaultValue": 5
+        },
+        {
+          "name": "proportion",
+          "defaultValue": 50
+        },
+        {
+          "name": "population",
+          "defaultValue": 0
+        }
+      ]
+    },
+    {
+      "id": "sample-size",
+      "locale": "de",
+      "url": "/de/mathematik/stichprobenumfang-rechner/",
+      "h1": "Rechner für den Stichprobenumfang",
+      "fields": [
+        {
+          "name": "confidence",
+          "defaultValue": "95"
+        },
+        {
+          "name": "margin",
+          "defaultValue": 5
+        },
+        {
+          "name": "proportion",
+          "defaultValue": 50
+        },
+        {
+          "name": "population",
+          "defaultValue": 0
+        }
+      ]
+    },
+    {
+      "id": "sample-size",
+      "locale": "es",
+      "url": "/es/matematicas/tamano-muestral/",
+      "h1": "Calculadora de tamaño muestral",
+      "fields": [
+        {
+          "name": "confidence",
+          "defaultValue": "95"
+        },
+        {
+          "name": "margin",
+          "defaultValue": 5
+        },
+        {
+          "name": "proportion",
+          "defaultValue": 50
+        },
+        {
+          "name": "population",
+          "defaultValue": 0
+        }
+      ]
+    },
+    {
+      "id": "stats-descriptive",
+      "locale": "ru",
+      "url": "/ru/math/descriptive-statistics/",
+      "h1": "Калькулятор среднего и статистики",
+      "fields": [
+        {
+          "name": "values",
+          "defaultValue": "12\n15\n18\n21\n24"
+        },
+        {
+          "name": "mode",
+          "defaultValue": "sample"
+        }
+      ]
+    },
+    {
+      "id": "stats-descriptive",
+      "locale": "en",
+      "url": "/en/math/descriptive-statistics-calculator/",
+      "h1": "Mean and statistics calculator",
+      "fields": [
+        {
+          "name": "values",
+          "defaultValue": "12\n15\n18\n21\n24"
+        },
+        {
+          "name": "mode",
+          "defaultValue": "sample"
+        }
+      ]
+    },
+    {
+      "id": "stats-descriptive",
+      "locale": "uk",
+      "url": "/uk/math/serednie-znachennia/",
+      "h1": "Калькулятор середнього та статистики",
+      "fields": [
+        {
+          "name": "values",
+          "defaultValue": "12\n15\n18\n21\n24"
+        },
+        {
+          "name": "mode",
+          "defaultValue": "sample"
+        }
+      ]
+    },
+    {
+      "id": "stats-descriptive",
+      "locale": "de",
+      "url": "/de/mathematik/mittelwert-standardabweichung/",
+      "h1": "Rechner für Mittelwert, Median und Standardabweichung",
+      "fields": [
+        {
+          "name": "values",
+          "defaultValue": "12\n15\n18\n21\n24"
+        },
+        {
+          "name": "mode",
+          "defaultValue": "sample"
+        }
+      ]
+    },
+    {
+      "id": "stats-descriptive",
+      "locale": "es",
+      "url": "/es/matematicas/estadistica-descriptiva/",
+      "h1": "Calculadora de media, mediana y desviación típica",
+      "fields": [
+        {
+          "name": "values",
+          "defaultValue": "12\n15\n18\n21\n24"
+        },
+        {
+          "name": "mode",
+          "defaultValue": "sample"
+        }
+      ]
+    },
+    {
+      "id": "weighted-mean",
+      "locale": "ru",
+      "url": "/ru/math/weighted-average/",
+      "h1": "Калькулятор средневзвешенного значения",
+      "fields": [
+        {
+          "name": "pairs",
+          "defaultValue": "5 2\n4 3\n3 1"
+        }
+      ]
+    },
+    {
+      "id": "weighted-mean",
+      "locale": "en",
+      "url": "/en/math/weighted-average-calculator/",
+      "h1": "Weighted average calculator",
+      "fields": [
+        {
+          "name": "pairs",
+          "defaultValue": "5 2\n4 3\n3 1"
+        }
+      ]
+    },
+    {
+      "id": "weighted-mean",
+      "locale": "uk",
+      "url": "/uk/math/serednozvazhene/",
+      "h1": "Калькулятор середньозваженого значення",
+      "fields": [
+        {
+          "name": "pairs",
+          "defaultValue": "5 2\n4 3\n3 1"
+        }
+      ]
+    },
+    {
+      "id": "weighted-mean",
+      "locale": "de",
+      "url": "/de/mathematik/gewichteter-durchschnitt/",
+      "h1": "Rechner für den gewichteten Durchschnitt",
+      "fields": [
+        {
+          "name": "pairs",
+          "defaultValue": "5 2\n4 3\n3 1"
+        }
+      ]
+    },
+    {
+      "id": "weighted-mean",
+      "locale": "es",
+      "url": "/es/matematicas/media-ponderada/",
+      "h1": "Calculadora de media ponderada",
+      "fields": [
+        {
+          "name": "pairs",
+          "defaultValue": "5 2\n4 3\n3 1"
+        }
+      ]
+    },
+    {
+      "id": "z-score",
+      "locale": "ru",
+      "url": "/ru/math/z-score/",
+      "h1": "Калькулятор Z-оценки",
+      "fields": [
+        {
+          "name": "x",
+          "defaultValue": 80
+        },
+        {
+          "name": "mean",
+          "defaultValue": 75
+        },
+        {
+          "name": "sd",
+          "defaultValue": 8
+        }
+      ]
+    },
+    {
+      "id": "z-score",
+      "locale": "en",
+      "url": "/en/math/z-score-calculator/",
+      "h1": "Z-score calculator",
+      "fields": [
+        {
+          "name": "x",
+          "defaultValue": 80
+        },
+        {
+          "name": "mean",
+          "defaultValue": 75
+        },
+        {
+          "name": "sd",
+          "defaultValue": 8
+        }
+      ]
+    },
+    {
+      "id": "z-score",
+      "locale": "uk",
+      "url": "/uk/math/z-ocinka/",
+      "h1": "Калькулятор Z-оцінки",
+      "fields": [
+        {
+          "name": "x",
+          "defaultValue": 80
+        },
+        {
+          "name": "mean",
+          "defaultValue": 75
+        },
+        {
+          "name": "sd",
+          "defaultValue": 8
+        }
+      ]
+    },
+    {
+      "id": "z-score",
+      "locale": "de",
+      "url": "/de/mathematik/z-wert-rechner/",
+      "h1": "Rechner für den z-Wert",
+      "fields": [
+        {
+          "name": "x",
+          "defaultValue": 80
+        },
+        {
+          "name": "mean",
+          "defaultValue": 75
+        },
+        {
+          "name": "sd",
+          "defaultValue": 8
+        }
+      ]
+    },
+    {
+      "id": "z-score",
+      "locale": "es",
+      "url": "/es/matematicas/puntuacion-z/",
+      "h1": "Calculadora de puntuación z",
+      "fields": [
+        {
+          "name": "x",
+          "defaultValue": 80
+        },
+        {
+          "name": "mean",
+          "defaultValue": 75
+        },
+        {
+          "name": "sd",
+          "defaultValue": 8
+        }
+      ]
+    }
+  ]
+}

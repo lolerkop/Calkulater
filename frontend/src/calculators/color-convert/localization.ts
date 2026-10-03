@@ -1,28 +1,29 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
-
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'hex': 'Hexadezimaler Farbcode',
+  "de": {
+    "fields": {
+      "hex": "Hexadezimaler Farbcode"
     },
-    results: {
-      'RGB': 'RGB',
-      'HSL': 'HSL',
-      'HEX': 'HEX',
-      'Яркость': 'Helligkeit',
-      'Красный': 'Rot',
-      'Зелёный': 'Grün',
-      'Синий': 'Blau',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "RGB": "RGB",
+      "HSL": "HSL",
+      "HEX": "HEX",
+      "Яркость": "Helligkeit",
+      "Красный": "Rot",
+      "Зелёный": "Grün",
+      "Синий": "Blau",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'Введите три или шесть шестнадцатеричных знаков': 'Trage drei oder sechs hexadezimale Zeichen ein',
-    },
+    "values": {
+      "Введите три или шесть шестнадцатеричных знаков": "Trage drei oder sechs hexadezimale Zeichen ein"
+    }
   },
-  en: {
-    fields: { "hex": "Hexadecimal colour code" },
-    options: {},
-    results: {
+  "en": {
+    "fields": {
+      "hex": "Hexadecimal colour code"
+    },
+    "options": {},
+    "results": {
       "RGB": "RGB",
       "HSL": "HSL",
       "HEX": "HEX",
@@ -30,16 +31,18 @@ export const localization: CalculatorLocalization = {
       "Красный": "Red",
       "Зелёный": "Green",
       "Синий": "Blue",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
-      "Введите три или шесть шестнадцатеричных знаков": "Enter three or six hexadecimal characters",
-    },
+    "values": {
+      "Введите три или шесть шестнадцатеричных знаков": "Enter three or six hexadecimal characters"
+    }
   },
-  uk: {
-    fields: { "hex": "Шістнадцятковий код кольору" },
-    options: {},
-    results: {
+  "uk": {
+    "fields": {
+      "hex": "Шістнадцятковий код кольору"
+    },
+    "options": {},
+    "results": {
       "RGB": "RGB",
       "HSL": "HSL",
       "HEX": "HEX",
@@ -47,18 +50,18 @@ export const localization: CalculatorLocalization = {
       "Красный": "Червоний",
       "Зелёный": "Зелений",
       "Синий": "Синій",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
-      "Введите три или шесть шестнадцатеричных знаков": "Введіть три або шість шістнадцяткових знаків",
-    },
+    "values": {
+      "Введите три или шесть шестнадцатеричных знаков": "Введіть три або шість шістнадцяткових знаків"
+    }
   },
-  es: {
-    fields: {
-      "hex": "Código de color hexadecimal",
+  "es": {
+    "fields": {
+      "hex": "Código de color hexadecimal"
     },
-    options: {},
-    results: {
+    "options": {},
+    "results": {
       "RGB": "RGB",
       "HSL": "HSL",
       "HEX": "HEX",
@@ -66,10 +69,10 @@ export const localization: CalculatorLocalization = {
       "Красный": "Rojo",
       "Зелёный": "Verde",
       "Синий": "Azul",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
-      "Введите три или шесть шестнадцатеричных знаков": "Introduce tres o seis caracteres hexadecimales",
-    },
-  },
+    "values": {
+      "Введите три или шесть шестнадцатеричных знаков": "Introduce tres o seis caracteres hexadecimales"
+    }
+  }
 };

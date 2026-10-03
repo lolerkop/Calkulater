@@ -1,0 +1,182 @@
+[
+  {
+    "route": "/ru/finance/credit-calculator/",
+    "id": "credit-calculator",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/finance/income-tax-calculator/",
+    "id": "income-tax-calculator",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/currency/currency-converter/",
+    "id": "currency-converter",
+    "locale": "ru"
+  },
+  {
+    "route": "/en/currency/usd-to-mdl/",
+    "id": "usd-to-mdl",
+    "locale": "en"
+  },
+  {
+    "route": "/uk/fitness/kalkulyator-bmi/",
+    "id": "bmi-calculator",
+    "locale": "uk"
+  },
+  {
+    "route": "/ru/sport/body-fat-calculator/",
+    "id": "body-fat-calculator",
+    "locale": "ru"
+  },
+  {
+    "route": "/en/fitness/vo2-max-calculator/",
+    "id": "vo2max",
+    "locale": "en"
+  },
+  {
+    "route": "/ru/building/tile-calculator/",
+    "id": "tile-calculator",
+    "locale": "ru"
+  },
+  {
+    "route": "/de/heimwerken/farbrechner/",
+    "id": "paint-calculator",
+    "locale": "de"
+  },
+  {
+    "route": "/ru/date-time/date-calculator/",
+    "id": "date-shift-calculator",
+    "locale": "ru"
+  },
+  {
+    "route": "/es/fechas/duracion-de-tiempo/",
+    "id": "time-duration",
+    "locale": "es"
+  },
+  {
+    "route": "/ru/finance/percent-calculator/",
+    "id": "percent-calculator",
+    "locale": "ru"
+  },
+  {
+    "route": "/es/finanzas/calculadora-descuento/",
+    "id": "discount-calculator",
+    "locale": "es"
+  },
+  {
+    "route": "/ru/geometry/parallelogram/",
+    "id": "geom-parallelogram",
+    "locale": "ru"
+  },
+  {
+    "route": "/de/geometrie/kreis-rechner/",
+    "id": "geom-circle",
+    "locale": "de"
+  },
+  {
+    "route": "/ru/converters/convert-illuminance/",
+    "id": "convert-illuminance",
+    "locale": "ru"
+  },
+  {
+    "route": "/en/converters/length-converter/",
+    "id": "convert-length",
+    "locale": "en"
+  },
+  {
+    "route": "/ru/computers/text-word-char-count/",
+    "id": "text-word-char-count",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/math/divisors/",
+    "id": "divisors",
+    "locale": "ru"
+  },
+  {
+    "route": "/uk/fizyka/kydok-pid-kutom/",
+    "id": "projectile-motion",
+    "locale": "uk"
+  },
+  {
+    "route": "/en/finance/loan-calculator/",
+    "id": "credit-calculator",
+    "locale": "en"
+  },
+  {
+    "route": "/de/finanzen/prozentrechner/",
+    "id": "percent-calculator",
+    "locale": "de"
+  },
+  {
+    "route": "/es/divisas/conversor-divisas/",
+    "id": "currency-converter",
+    "locale": "es"
+  },
+  {
+    "route": "/ru/currency/usd-to-mdl/",
+    "id": "usd-to-mdl",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/sport/bmi-calculator/",
+    "id": "bmi-calculator",
+    "locale": "ru"
+  },
+  {
+    "route": "/de/fitness/koerperfett-rechner/",
+    "id": "body-fat-calculator",
+    "locale": "de"
+  },
+  {
+    "route": "/uk/remont/kalkulyator-plytky/",
+    "id": "tile-calculator",
+    "locale": "uk"
+  },
+  {
+    "route": "/en/date-time/date-calculator/",
+    "id": "date-shift-calculator",
+    "locale": "en"
+  },
+  {
+    "route": "/es/conversores/conversor-de-iluminancia/",
+    "id": "convert-illuminance",
+    "locale": "es"
+  },
+  {
+    "route": "/de/computer/zeichenzaehler/",
+    "id": "text-word-char-count",
+    "locale": "de"
+  },
+  {
+    "route": "/de/finanzen/",
+    "id": "",
+    "locale": "de"
+  },
+  {
+    "route": "/ru/building/",
+    "id": "",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/about/",
+    "id": "",
+    "locale": "ru"
+  },
+  {
+    "route": "/en/about/",
+    "id": "",
+    "locale": "en"
+  },
+  {
+    "route": "/ru/contacts/",
+    "id": "",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/privacy/",
+    "id": "",
+    "locale": "ru"
+  }
+]

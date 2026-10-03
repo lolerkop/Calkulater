@@ -9,10 +9,10 @@ export const tvViewingDistanceReferenceCases: readonly CalculatorReferenceCase[]
     inputs: { diag: 55, ratio: "16:9", lines: 2160 },
     expectPrimary: "1,673 м",
     expectSecondary: [
-      { label: "Комфортное по SMPTE", value: "2,272 м" },
+      { label: "Расстояние при угле 30°", value: "2,272 м" },
       { label: "Ширина экрана", value: "121,76 см" },
       { label: "Высота экрана", value: "68,489 см" },
-      { label: "Дальше этого пиксели не различить", value: "1,09 м" },
+      { label: "Оценка для углового размера 1′", value: "1,09 м" },
     ],
   },
   {
@@ -20,10 +20,10 @@ export const tvViewingDistanceReferenceCases: readonly CalculatorReferenceCase[]
     inputs: { diag: 32, ratio: "16:9", lines: 1080 },
     expectPrimary: "0,9732 м",
     expectSecondary: [
-      { label: "Комфортное по SMPTE", value: "1,322 м" },
+      { label: "Расстояние при угле 30°", value: "1,322 м" },
       { label: "Ширина экрана", value: "70,842 см" },
       { label: "Высота экрана", value: "39,848 см" },
-      { label: "Дальше этого пиксели не различить", value: "1,269 м" },
+      { label: "Оценка для углового размера 1′", value: "1,269 м" },
     ],
   },
   {
@@ -31,10 +31,10 @@ export const tvViewingDistanceReferenceCases: readonly CalculatorReferenceCase[]
     inputs: { diag: 14, ratio: "4:3", lines: 480 },
     expectPrimary: "0,3908 м",
     expectSecondary: [
-      { label: "Комфортное по SMPTE", value: "0,5308 м" },
+      { label: "Расстояние при угле 30°", value: "0,5308 м" },
       { label: "Ширина экрана", value: "28,448 см" },
       { label: "Высота экрана", value: "21,336 см" },
-      { label: "Дальше этого пиксели не различить", value: "1,528 м" },
+      { label: "Оценка для углового размера 1′", value: "1,528 м" },
     ],
   },
   {

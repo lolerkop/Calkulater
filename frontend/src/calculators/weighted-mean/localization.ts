@@ -1,3 +1,4 @@
+import { statisticsMessages } from '../stats-descriptive/statisticsMessages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 const RESULTS_EN = {
@@ -11,7 +12,7 @@ const RESULTS_UK = {
   'Проверьте данные': 'Перевірте дані', 'Строка не разобрана': 'Рядок не розібрано',
 };
 
-export const localization: CalculatorLocalization = {
+const originalLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'pairs': 'Paare aus Wert und Gewicht — eines je Zeile',
@@ -66,3 +67,7 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(originalLocalization).map(([locale, bundle]) => [locale, { ...bundle, values: { ...bundle.values, ...statisticsMessages[locale as keyof typeof statisticsMessages] } }]),
+);

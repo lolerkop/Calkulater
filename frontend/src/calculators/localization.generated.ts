@@ -228,10 +228,12 @@ import { localization as loc_number_to_words } from './number-to-words/localizat
 import { localization as loc_ohms_law } from './ohms-law/localization';
 import { localization as loc_orbital_period } from './orbital-period/localization';
 import { localization as loc_overtime } from './overtime/localization';
+import { localization as loc_paint_calculator } from './paint-calculator/localization';
 import { localization as loc_paper_quantity } from './paper-quantity/localization';
 import { localization as loc_password_entropy } from './password-entropy/localization';
 import { localization as loc_payback_period } from './payback-period/localization';
 import { localization as loc_pendulum } from './pendulum/localization';
+import { localization as loc_percent_calculator } from './percent-calculator/localization';
 import { localization as loc_pet_age } from './pet-age/localization';
 import { localization as loc_pet_food } from './pet-food/localization';
 import { localization as loc_ph_poh } from './ph-poh/localization';
@@ -579,10 +581,12 @@ export const v2Localization: ScopedLocalization = {
     'ohms-law': loc_ohms_law.en ?? {},
     'orbital-period': loc_orbital_period.en ?? {},
     'overtime': loc_overtime.en ?? {},
+    'paint-calculator': loc_paint_calculator.en ?? {},
     'paper-quantity': loc_paper_quantity.en ?? {},
     'password-entropy': loc_password_entropy.en ?? {},
     'payback-period': loc_payback_period.en ?? {},
     'pendulum': loc_pendulum.en ?? {},
+    'percent-calculator': loc_percent_calculator.en ?? {},
     'pet-age': loc_pet_age.en ?? {},
     'pet-food': loc_pet_food.en ?? {},
     'ph-poh': loc_ph_poh.en ?? {},
@@ -929,10 +933,12 @@ export const v2Localization: ScopedLocalization = {
     'ohms-law': loc_ohms_law.uk ?? {},
     'orbital-period': loc_orbital_period.uk ?? {},
     'overtime': loc_overtime.uk ?? {},
+    'paint-calculator': loc_paint_calculator.uk ?? {},
     'paper-quantity': loc_paper_quantity.uk ?? {},
     'password-entropy': loc_password_entropy.uk ?? {},
     'payback-period': loc_payback_period.uk ?? {},
     'pendulum': loc_pendulum.uk ?? {},
+    'percent-calculator': loc_percent_calculator.uk ?? {},
     'pet-age': loc_pet_age.uk ?? {},
     'pet-food': loc_pet_food.uk ?? {},
     'ph-poh': loc_ph_poh.uk ?? {},
@@ -1279,10 +1285,12 @@ export const v2Localization: ScopedLocalization = {
     'ohms-law': loc_ohms_law.de ?? {},
     'orbital-period': loc_orbital_period.de ?? {},
     'overtime': loc_overtime.de ?? {},
+    'paint-calculator': loc_paint_calculator.de ?? {},
     'paper-quantity': loc_paper_quantity.de ?? {},
     'password-entropy': loc_password_entropy.de ?? {},
     'payback-period': loc_payback_period.de ?? {},
     'pendulum': loc_pendulum.de ?? {},
+    'percent-calculator': loc_percent_calculator.de ?? {},
     'pet-age': loc_pet_age.de ?? {},
     'pet-food': loc_pet_food.de ?? {},
     'ph-poh': loc_ph_poh.de ?? {},
@@ -1629,10 +1637,12 @@ export const v2Localization: ScopedLocalization = {
     'ohms-law': loc_ohms_law.es ?? {},
     'orbital-period': loc_orbital_period.es ?? {},
     'overtime': loc_overtime.es ?? {},
+    'paint-calculator': loc_paint_calculator.es ?? {},
     'paper-quantity': loc_paper_quantity.es ?? {},
     'password-entropy': loc_password_entropy.es ?? {},
     'payback-period': loc_payback_period.es ?? {},
     'pendulum': loc_pendulum.es ?? {},
+    'percent-calculator': loc_percent_calculator.es ?? {},
     'pet-age': loc_pet_age.es ?? {},
     'pet-food': loc_pet_food.es ?? {},
     'ph-poh': loc_ph_poh.es ?? {},

@@ -1,12 +1,11 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const geomPyramidCopyUk: CalculatorSeoCopy = {
-  name: 'Калькулятор піраміди',
-  slug: 'piramida',
-  shortDescription: 'Об’єм, апофема та площі правильної піраміди.',
-  seoTitle: 'Калькулятор піраміди: об’єм і площа поверхні',
-  seoDescription:
-    'Розрахунок об’єму, апофеми, бічної та повної поверхні правильної піраміди за кількістю сторін основи, стороною та висотою.',
-  h1: 'Калькулятор піраміди',
-  keywords: ['калькулятор піраміди', 'об’єм піраміди', 'апофема', 'площа поверхні піраміди'],
+export const geomPyramidCopyUk: CalculatorCopy = {
+  name: "Калькулятор піраміди",
+  slug: "piramida",
+  seoTitle: "Калькулятор піраміди: об’єм і площа поверхні",
+  h1: "Калькулятор піраміди",
+  keywords: ["калькулятор піраміди", "об’єм піраміди", "апофема", "площа поверхні піраміди"],
+  ...contractContent.uk,
 };

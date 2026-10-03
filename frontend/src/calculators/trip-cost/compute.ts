@@ -1,52 +1,27 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, fmtNumber, toNumber, toStr } from '../../lib/format';
-
-// Во сколько обойдётся поездка.
-//
-// Считается только то, что действительно тратится в дороге: топливо и платные
-// дороги. Амортизация, износ и налоги сюда не входят — их доля на километр
-// зависит от машины и пробега, и подставить её значило бы выдать догадку за
-// расчёт.
-const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
-
-export const compute: CalcFunction = (inputs) => {
-  const distance = toNumber(inputs.distance);
-  const consumption = toNumber(inputs.consumption);
-  const fuelPrice = toNumber(inputs.fuelPrice);
-  const tolls = toNumber(inputs.tolls);
-  const passengers = Math.round(toNumber(inputs.passengers));
-  const roundTrip = toStr(inputs.roundTrip, 'no') === 'yes';
-
-  const fail = (message: string) => ({
-    primary: { label: 'Стоимость поездки', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+import { fmtInt } from '../../lib/format';
+import { add, exact, evaluated, finite, INPUT, integer, INTEGER, mode, MODE, optional, positive, quotient, RANGE, read, scalar, times } from '../engine-displacement/automotiveNumeric';
+const money = (value: number) => `${scalar(value)} ₽`;
+export const compute: CalcFunction = inputs => {
+  const distance = read(inputs.distance), consumption = read(inputs.consumption), fuelPrice = read(inputs.fuelPrice), tolls = optional(inputs.tolls);
+  const passengers = integer(inputs.passengers), roundTrip = mode(inputs.roundTrip, 'no', ['no', 'yes']);
+  const fail = (message: string) => ({ primary: { label: 'Стоимость поездки', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (!roundTrip) return fail(MODE);
+  if (!finite(distance, consumption, fuelPrice, tolls)) return fail(INPUT);
   if (!(distance > 0)) return fail('Расстояние должно быть больше нуля');
   if (!(consumption > 0)) return fail('Расход должен быть больше нуля');
   if (!(fuelPrice > 0)) return fail('Цена топлива должна быть больше нуля');
   if (tolls < 0) return fail('Плата за дороги не может быть отрицательной');
-  if (!(passengers >= 1)) return fail('Пассажиров должно быть не меньше одного');
-
-  const way = distance * (roundTrip ? 2 : 1);
-  const litres = (way / 100) * consumption;
-  const fuel = litres * fuelPrice;
-  const total = fuel + tolls;
-
-  const secondary = [
-    { label: 'Топливо', value: money(fuel) },
-    { label: 'Израсходовано литров', value: `${fmtNumber(litres, 2)} л` },
-    { label: 'Пройденное расстояние', value: `${fmtNumber(way, 0)} км` },
-  ];
-
+  if (Number.isSafeInteger(passengers) && passengers < 1) return fail('Пассажиров должно быть не меньше одного');
+  if (!Number.isSafeInteger(passengers)) return fail(INTEGER);
+  const wayExact = times(exact(distance), exact(roundTrip === 'yes' ? 2 : 1));
+  const litresExact = times(wayExact, exact(consumption)), fuelExact = times(litresExact, exact(fuelPrice));
+  const totalExact = add(fuelExact, times(exact(tolls), exact(100)));
+  const way = evaluated(wayExact), litres = evaluated(litresExact, exact(100)), fuel = evaluated(fuelExact, exact(100)), total = evaluated(totalExact, exact(100));
+  const share = evaluated(totalExact, times(exact(100), exact(passengers)));
+  if (!positive(way, litres, fuel, total, share)) return fail(RANGE);
+  const secondary = [ { label: 'Топливо', value: money(fuel) }, { label: 'Израсходовано литров', value: `${scalar(litres)} л` }, { label: 'Пройденное расстояние', value: `${scalar(way, 0)} км` } ];
   if (tolls > 0) secondary.push({ label: 'Платные дороги', value: money(tolls) });
-  if (passengers > 1) {
-    secondary.push({ label: 'На человека', value: money(total / passengers) });
-    secondary.push({ label: 'Пассажиров', value: fmtInt(passengers) });
-  }
-
-  return {
-    primary: { label: 'Стоимость поездки', value: money(total) },
-    secondary,
-  };
+  if (passengers > 1) secondary.push({ label: 'На человека', value: money(share) }, { label: 'Пассажиров', value: fmtInt(passengers) });
+  return { primary: { label: 'Стоимость поездки', value: money(total) }, secondary };
 };

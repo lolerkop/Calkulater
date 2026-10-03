@@ -1,5 +1,7 @@
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
+import { validate } from './validate';
+import { contractContent } from './contractContent';
 import { cpcCopyEn } from './copy.en';
 import { cpcCopyUk } from './copy.uk';
 import { cpcCopyDe } from './copy.de';
@@ -11,6 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  validate,
   copy: { en: cpcCopyEn, uk: cpcCopyUk, de: cpcCopyDe, es: cpcCopyEs },
   referenceCases: cpcReferenceCases,
   publishedExample: {
@@ -18,61 +21,66 @@ export const definition: CalculatorDefinitionV2 = {
     expected: ['24,83 ₽'],
   },
   presentation: {
-    id: 'cpc',
-    name: 'Калькулятор CPC',
-    slug: 'cpc',
-    fullPath: '/business/cpc/',
-    category: 'business',
-    icon: 'target',
-    popularity: 23,
-    isNew: false,
-    shortDescription: 'Цена клика по бюджету и кликам, а также CPM и кликабельность.',
-    longDescription:
-      'Цене клика достаточно двух чисел, а третье калькулятор спрашивает потому, что показы открывают ещё две метрики, говорящие то, чего первая сказать не может. CPC отвечает, во что обходится трафик; CPM — во что обходится внимание; кликабельность — насколько хорошо креатив превращает внимание в трафик. Вместе они разделяют две совершенно разные беды, которые растущий CPC сам по себе не различает: подорожавший аукцион и переставшее работать объявление. Нуль в показах поэтому означает «данных нет»: CPC остаётся верным, а две другие метрики просто не выводятся.',
-    seoTitle: 'Калькулятор CPC: цена клика, CPM и кликабельность',
-    seoDescription:
-      'Рассчитайте цену клика по рекламному бюджету и числу кликов, а также CPM и кликабельность, если известны показы.',
-    h1: 'Калькулятор CPC',
-    keywords: ['калькулятор cpc', 'цена клика', 'cpm', 'кликабельность'],
-    fields: [
-      { name: 'cost', label: 'Рекламный бюджет, ₽', type: 'number', defaultValue: 36000, min: 0, step: 1000 },
-      { name: 'clicks', label: 'Получено кликов', type: 'number', defaultValue: 1450, min: 0, step: 10 },
-      { name: 'impressions', label: 'Показы, 0 если неизвестны', type: 'number', defaultValue: 92000, min: 0, step: 1000 },
+    "id": "cpc",
+    "name": "Калькулятор CPC",
+    "slug": "cpc",
+    "fullPath": "/business/cpc/",
+    "category": "business",
+    "icon": "target",
+    "popularity": 23,
+    "isNew": false,
+    "shortDescription": "Цена клика по бюджету и кликам, а также CPM и кликабельность.",
+    "seoTitle": "Калькулятор CPC: цена клика, CPM и кликабельность",
+    "seoDescription": "Рассчитайте цену клика по рекламному бюджету и числу кликов, а также CPM и кликабельность, если известны показы.",
+    "h1": "Калькулятор CPC",
+    "keywords": [
+        "калькулятор cpc",
+        "цена клика",
+        "cpm",
+        "кликабельность"
     ],
-    resultLabels: {
-      cpc: 'Цена клика (CPC)',
-      clicks: 'Кликов',
-      cost: 'Бюджет',
-      cpm: 'CPM',
-      ctr: 'Кликабельность',
+    "fields": [
+        {
+            "name": "cost",
+            "label": "Рекламный расход",
+            "type": "number",
+            "defaultValue": 36000,
+            "min": 0,
+            "step": 1000,
+            "unit": "₽"
+        },
+        {
+            "name": "clicks",
+            "label": "Получено кликов",
+            "type": "number",
+            "defaultValue": 1450,
+            "min": 0,
+            "step": 1,
+            "max": 9007199254740991
+        },
+        {
+            "name": "impressions",
+            "label": "Показы, 0 если неизвестны",
+            "type": "number",
+            "defaultValue": 92000,
+            "min": 0,
+            "step": 1,
+            "max": 9007199254740991,
+            "optional": true
+        }
+    ],
+    "resultLabels": {
+        "cpc": "Цена клика (CPC)",
+        "clicks": "Кликов",
+        "cost": "Бюджет",
+        "cpm": "CPM",
+        "ctr": "Кликабельность"
     },
-    howToUse: [
-      'Введите потраченный рекламный бюджет.',
-      'Укажите, сколько кликов он принёс.',
-      'Добавьте показы: CPM и кликабельность считаются только по ним.',
-      'Поставьте в показах нуль, если площадка их не сообщает.',
+    "relatedCalculatorIds": [
+        "cpm",
+        "ctr",
+        "cpa-cpl-cpi"
     ],
-    howItWorks:
-      'CPC = бюджет ÷ клики. Если известны показы, CPM = бюджет ÷ показы × 1000, а кликабельность = клики ÷ показы × 100.',
-    example: 'Бюджет 36 000 ₽ при 1 450 кликах и 92 000 показах даёт CPC 24,83 ₽ и кликабельность 1,58 %.',
-    faq: [
-      {
-        q: 'Почему выросла цена клика?',
-        a: 'Либо подорожал аукцион, либо упала кликабельность. По одной цене клика эти причины неразличимы — для того рядом и стоят строки CPM и кликабельности.',
-      },
-      {
-        q: 'Какая кликабельность считается хорошей?',
-        a: 'Это целиком зависит от площадки. Поиск по точным запросам нередко даёт несколько процентов, медийные баннеры часто держатся ниже десятой доли процента, и сравнивать их между собой бессмысленно.',
-      },
-      {
-        q: 'Можно ли посчитать CPC без показов?',
-        a: 'Да. Показы нужны только для CPM и кликабельности; поставьте в этом поле нуль, и обе строки просто не выведутся.',
-      },
-      {
-        q: 'Всегда ли меньшая цена клика лучше?',
-        a: 'Нет. Дешёвые клики с нецелевой аудитории обходятся дороже в пересчёте на продажу, чем дорогие по точному запросу. Цена клика мало значит без конверсии рядом.',
-      },
-    ],
-    relatedCalculatorIds: ['cpm', 'ctr', 'cpa-cpl-cpi'],
+    ...contractContent.ru,
   },
 };

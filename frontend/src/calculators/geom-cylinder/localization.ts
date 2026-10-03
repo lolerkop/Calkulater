@@ -1,132 +1,109 @@
+import { geometryWave8ScalarValues } from '../../lib/platform/geometryWave8ScalarLocalization';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'unit': 'Längeneinheit',
-      'r': 'Grundradius',
-      'h': 'Höhe',
+  "de": {
+    "fields": {
+      "unit": "Längeneinheit",
+      "r": "Grundradius",
+      "h": "Höhe"
     },
-    options: {
-      'mm': 'Millimeter',
-      'cm': 'Zentimeter',
-      'm': 'Meter',
+    "options": {
+      "mm": "Millimeter",
+      "cm": "Zentimeter",
+      "m": "Meter"
     },
-    results: {
-      'Объём': 'Volumen',
-      'Боковая поверхность': 'Mantelfläche',
-      'Полная поверхность': 'Gesamtoberfläche',
-      'Площадь основания': 'Grundfläche',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Объём": "Volumen",
+      "Боковая поверхность": "Mantelfläche",
+      "Полная поверхность": "Gesamtoberfläche",
+      "Площадь основания": "Grundfläche",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'мм': 'mm',
-      'см': 'cm',
-      'м': 'm',
-      'мм²': 'mm²',
-      'см²': 'cm²',
-      'м²': 'm²',
-      'мм³': 'mm³',
-      'см³': 'cm³',
-      'м³': 'm³',
-      'Радиус должен быть больше нуля': 'Der Radius muss größer als null sein',
-      'Высота должна быть больше нуля': 'Die Höhe muss größer als null sein',
-    },
+    "values": {
+      ...geometryWave8ScalarValues.de,
+      "Радиус должен быть больше нуля": "Der Radius muss größer als null sein",
+      "Высота должна быть больше нуля": "Die Höhe muss größer als null sein",
+      "Выберите миллиметры, сантиметры или метры": "Wähle Millimeter, Zentimeter oder Meter",
+      "Радиус и высота должны быть больше нуля": "Radius und Höhe müssen positiv sein"
+    }
   },
-  en: {
-    fields: {
+  "en": {
+    "fields": {
       "unit": "Length unit",
       "r": "Base radius",
-      "h": "Height",
+      "h": "Height"
     },
-    options: {
+    "options": {
       "mm": "millimetres",
       "cm": "centimetres",
-      "m": "metres",
+      "m": "metres"
     },
-    results: {
+    "results": {
       "Объём": "Volume",
       "Боковая поверхность": "Lateral surface",
       "Полная поверхность": "Total surface",
       "Площадь основания": "Base area",
-      "Проверьте данные": "Check the values",
+      "Проверьте данные": "Check the values"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryWave8ScalarValues.en,
       "Радиус должен быть больше нуля": "The radius must be greater than zero",
       "Высота должна быть больше нуля": "The height must be greater than zero",
-    },
+      "Выберите миллиметры, сантиметры или метры": "Choose millimetres, centimetres or metres",
+      "Радиус и высота должны быть больше нуля": "Radius and height must be positive"
+    }
   },
-  uk: {
-    fields: {
+  "uk": {
+    "fields": {
       "unit": "Одиниця довжини",
       "r": "Радіус основи",
-      "h": "Висота",
+      "h": "Висота"
     },
-    options: {
+    "options": {
       "mm": "міліметри",
       "cm": "сантиметри",
-      "m": "метри",
+      "m": "метри"
     },
-    results: {
+    "results": {
       "Объём": "Об’єм",
       "Боковая поверхность": "Бічна поверхня",
       "Полная поверхность": "Повна поверхня",
       "Площадь основания": "Площа основи",
-      "Проверьте данные": "Перевірте дані",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
-      "мм": "мм",
-      "см": "см",
-      "м": "м",
-      "мм²": "мм²",
-      "см²": "см²",
-      "м²": "м²",
-      "мм³": "мм³",
-      "см³": "см³",
-      "м³": "м³",
+    "values": {
+      ...geometryWave8ScalarValues.uk,
       "Радиус должен быть больше нуля": "Радіус має бути більшим за нуль",
       "Высота должна быть больше нуля": "Висота має бути більшою за нуль",
-    },
+      "Выберите миллиметры, сантиметры или метры": "Оберіть міліметри, сантиметри або метри",
+      "Радиус и высота должны быть больше нуля": "Радіус і висота мають бути додатними"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "unit": "Unidad de longitud",
       "r": "Radio de la base",
-      "h": "Altura",
+      "h": "Altura"
     },
-    options: {
+    "options": {
       "mm": "milímetros",
       "cm": "centímetros",
-      "m": "metros",
+      "m": "metros"
     },
-    results: {
+    "results": {
       "Объём": "Volumen",
       "Боковая поверхность": "Superficie lateral",
       "Полная поверхность": "Superficie total",
       "Площадь основания": "Área de la base",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
-      "мм": "mm",
-      "см": "cm",
-      "м": "m",
-      "мм²": "mm²",
-      "см²": "cm²",
-      "м²": "m²",
-      "мм³": "mm³",
-      "см³": "cm³",
-      "м³": "m³",
+    "values": {
+      ...geometryWave8ScalarValues.es,
       "Радиус должен быть больше нуля": "El radio debe ser mayor que cero",
       "Высота должна быть больше нуля": "La altura debe ser mayor que cero",
-    },
-  },
+      "Выберите миллиметры, сантиметры или метры": "Elige milímetros, centímetros o metros",
+      "Радиус и высота должны быть больше нуля": "El radio y la altura deben ser positivos"
+    }
+  }
 };

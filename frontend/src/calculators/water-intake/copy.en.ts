@@ -1,41 +1,48 @@
 import type { CalculatorCopy } from '../../lib/platform/types';
 
 export const waterIntakeCopyEn: CalculatorCopy = {
-  name: 'Water intake calculator',
-  slug: 'water-intake-calculator',
-  shortDescription: 'Daily water intake from body weight, activity minutes and hot weather.',
-  longDescription:
-    'The figure starts from body weight at roughly 33 ml per kilogram, adds about 350 ml for every half hour of activity, and lifts the whole total by a tenth in hot weather. The multiplier applies to everything rather than to the activity part alone, because heat increases background losses through skin and breathing, not just sweat during exercise. These are accepted rules of thumb rather than measurements of a particular body: diet, health and climate move the real requirement more than weight does. The glasses figure sits alongside because nobody drinks in litres, and eleven glasses is a number you can still hold in your head by evening.',
-  seoTitle: 'Water intake calculator — daily litres',
-  seoDescription:
-    'Calculate a daily water intake from body weight, minutes of activity and a hot-weather adjustment, with the total also shown in 250 ml glasses.',
-  h1: 'Water intake calculator',
-  keywords: ['water intake calculator', 'how much water to drink', 'daily hydration', 'water per day'],
-  howToUse: [
-    'Enter your body weight in kilograms.',
-    'Enter how many minutes of activity you expect in the day.',
-    'Tick hot weather when the day is hot or the room is warm.',
-    'Spread the total across the day rather than drinking it in one go.',
+  "name": "Fluid estimate calculator",
+  "slug": "water-intake-calculator",
+  "shortDescription": "Educational fluid estimate from explicit weight, activity and heat assumptions, not a drinking requirement.",
+  "longDescription": "Shows an educational scenario with three adopted coefficients: 33 mL/kg body weight, 350 mL per 30 activity minutes and a 10% increase of the whole total in heat. Primary validation of this exact combination has not been established, so the output is a model estimate rather than a daily drinking requirement. For context, EFSA describes adequate total water from food and beverages: 2 L for adult women and 2.5 L for men at moderate temperature and activity. These population references are neither this calculator’s equation nor a personal prescription.",
+  "seoTitle": "Fluid estimate calculator — weight, activity and heat",
+  "seoDescription": "Educational fluid estimate from explicit weight, activity and heat assumptions, not a drinking requirement.",
+  "h1": "Fluid estimate calculator",
+  "keywords": [
+    "water intake calculator",
+    "how much water to drink",
+    "daily hydration",
+    "water per day"
   ],
-  howItWorks:
-    'Baseline = weight × 0.033 litres. Activity adds minutes ÷ 30 × 0.35 litres. Hot weather multiplies the whole total by 1.1.',
-  example: 'At 72 kg with 45 minutes of activity the total is 2.901 litres, about 11.6 glasses.',
-  faq: [
-    {
-      q: 'Does tea and coffee count towards the total?',
-      a: 'Yes. The old idea that caffeine dehydrates you does not survive normal intake; the fluid in tea, coffee and food all counts, which is why the figure is intake rather than plain water.',
-    },
-    {
-      q: 'Why multiply the whole total in hot weather rather than just the activity part?',
-      a: 'Because heat raises losses through skin and breathing whether you exercise or not. Applying the multiplier only to activity would understate a hot day spent sitting still.',
-    },
-    {
-      q: 'Is more water always better?',
-      a: 'No. Drinking far beyond thirst dilutes blood sodium and in extreme cases is dangerous. This figure is a target to spread across a day, not a minimum to force.',
-    },
-    {
-      q: 'How exact is 33 ml per kilogram?',
-      a: 'It is a convention, and a fairly rough one. Kidney health, medication, altitude and diet shift the real requirement well outside what any weight-based rule can capture.',
-    },
+  "howToUse": [
+    "Enter kilograms and nonnegative activity minutes.",
+    "Select heat to see the fixed model multiplier.",
+    "Read weight, activity and heat contributions separately.",
+    "Do not convert litres or glasses into compulsory plain water; consider food and personal restrictions."
   ],
+  "howItWorks": "B =0.033 m L; A =0.35 t/30 L; Q =(B+A)×k, k=1 without heat or 1.1 with heat. Heat increment =(B+A)×0.1. Glasses =Q/0.25. All three coefficients are assumptions; this model does not measure sweating or calculate electrolyte replacement.",
+  "example": "72 kg, 45 min: B=2.376 L, A=0.525 L, total 2.901 L and 11.604 glass equivalents. With heat: 2.901×1.1=3.191 L (3.1911 unrounded), increment 0.2901 L. Zero activity leaves only the weight contribution.",
+  "faq": [
+    {
+      "q": "Do tea and coffee count towards total water intake?",
+      "a": "Yes, beverages and food moisture contribute to total water. That fact does not validate the 33/350/1.1 coefficients or prescribe how much of a particular drink to consume."
+    },
+    {
+      "q": "Why does heat multiply the whole model total?",
+      "a": "It is the scenario’s adopted rule, not a measured physiological relationship. 10% applies to weight plus activity contributions; actual losses depend on conditions and individual factors."
+    },
+    {
+      "q": "Should I drink more than the calculated fluid amount?",
+      "a": "The calculator sets no minimum or maximum and does not suggest forced drinking. If you have prescribed fluid restrictions, follow individual instructions rather than this model."
+    },
+    {
+      "q": "How well supported is 33 mL water per kilogram?",
+      "a": "Here it is a starting assumption with no confirmed universal accuracy. Personal requirement cannot be inferred from weight alone; age, diet, health and activity matter too."
+    },
+    {
+      "q": "How should I read the displayed number of glasses?",
+      "a": "It only converts litres to 250 mL portions. 11.604 glasses equal 2.901 L arithmetically, not a requirement to drink that much plain water in addition to food and beverages."
+    }
+  ],
+  "disclaimer": "Educational scenario, not a drinking requirement or treatment advice. Childhood, pregnancy, lactation and fluid restrictions require separate assessment; the model does not account for them."
 };

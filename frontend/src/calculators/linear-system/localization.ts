@@ -1,77 +1,89 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'a1': 'a₁ — Koeffizient von x in der ersten Gleichung',
-      'b1': 'b₁ — Koeffizient von y in der ersten Gleichung',
-      'c1': 'c₁ — rechte Seite der ersten Gleichung',
-      'a2': 'a₂ — Koeffizient von x in der zweiten Gleichung',
-      'b2': 'b₂ — Koeffizient von y in der zweiten Gleichung',
-      'c2': 'c₂ — rechte Seite der zweiten Gleichung',
+  "de": {
+    "fields": {
+      "a1": "a₁ — Koeffizient von x in der ersten Gleichung",
+      "b1": "b₁ — Koeffizient von y in der ersten Gleichung",
+      "c1": "c₁ — rechte Seite der ersten Gleichung",
+      "a2": "a₂ — Koeffizient von x in der zweiten Gleichung",
+      "b2": "b₂ — Koeffizient von y in der zweiten Gleichung",
+      "c2": "c₂ — rechte Seite der zweiten Gleichung"
     },
-    results: {
-      'Решение системы': 'Lösung des Systems',
-      'Определитель': 'Hauptdeterminante',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Решение системы": "Lösung des Systems",
+      "Определитель": "Hauptdeterminante",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'Определитель равен нулю: решение не единственно': 'Die Determinante ist null: die Lösung ist nicht eindeutig',
-    },
+    "values": {
+      "Определитель равен нулю: решение не единственно": "Die Determinante ist null: die Lösung ist nicht eindeutig",
+      "Введите конечные числовые коэффициенты": "Geben Sie endliche numerische Koeffizienten ein",
+      "Определитель равен нулю: единственной пары решений нет": "Die Determinante ist null: Es gibt kein eindeutiges Lösungspaar",
+      "Определитель или решение вне числового диапазона": "Die Determinante oder Lösung liegt außerhalb des Zahlenbereichs"
+    }
   },
-  en: {
-    fields: {
-      a1: 'a₁ — coefficient of x in the first equation',
-      b1: 'b₁ — coefficient of y in the first equation',
-      c1: 'c₁ — right-hand side of the first equation',
-      a2: 'a₂ — coefficient of x in the second equation',
-      b2: 'b₂ — coefficient of y in the second equation',
-      c2: 'c₂ — right-hand side of the second equation',
+  "en": {
+    "fields": {
+      "a1": "a₁ — coefficient of x in the first equation",
+      "b1": "b₁ — coefficient of y in the first equation",
+      "c1": "c₁ — right-hand side of the first equation",
+      "a2": "a₂ — coefficient of x in the second equation",
+      "b2": "b₂ — coefficient of y in the second equation",
+      "c2": "c₂ — right-hand side of the second equation"
     },
-    results: {
-      'Решение системы': 'Solution',
-      'Определитель': 'Main determinant',
-      'Проверьте данные': 'Check the values',
+    "results": {
+      "Решение системы": "Solution",
+      "Определитель": "Main determinant",
+      "Проверьте данные": "Check the values"
     },
-    values: {
-      'Определитель равен нулю: решение не единственно': 'The determinant is zero: the solution is not unique',
-    },
+    "values": {
+      "Определитель равен нулю: решение не единственно": "The determinant is zero: the solution is not unique",
+      "Введите конечные числовые коэффициенты": "Enter finite numerical coefficients",
+      "Определитель равен нулю: единственной пары решений нет": "The determinant is zero: there is no unique solution pair",
+      "Определитель или решение вне числового диапазона": "The determinant or solution is outside the number range"
+    }
   },
-  uk: {
-    fields: {
-      a1: 'a₁ — коефіцієнт при x у першому рівнянні',
-      b1: 'b₁ — коефіцієнт при y у першому рівнянні',
-      c1: 'c₁ — права частина першого рівняння',
-      a2: 'a₂ — коефіцієнт при x у другому рівнянні',
-      b2: 'b₂ — коефіцієнт при y у другому рівнянні',
-      c2: 'c₂ — права частина другого рівняння',
+  "uk": {
+    "fields": {
+      "a1": "a₁ — коефіцієнт при x у першому рівнянні",
+      "b1": "b₁ — коефіцієнт при y у першому рівнянні",
+      "c1": "c₁ — права частина першого рівняння",
+      "a2": "a₂ — коефіцієнт при x у другому рівнянні",
+      "b2": "b₂ — коефіцієнт при y у другому рівнянні",
+      "c2": "c₂ — права частина другого рівняння"
     },
-    results: {
-      'Решение системы': 'Розв’язок системи',
-      'Определитель': 'Головний визначник',
-      'Проверьте данные': 'Перевірте дані',
+    "results": {
+      "Решение системы": "Розв’язок системи",
+      "Определитель": "Головний визначник",
+      "Проверьте данные": "Перевірте дані"
     },
-    values: {
-      'Определитель равен нулю: решение не единственно': 'Визначник дорівнює нулю: розв’язок не єдиний',
-    },
+    "values": {
+      "Определитель равен нулю: решение не единственно": "Визначник дорівнює нулю: розв’язок не єдиний",
+      "Введите конечные числовые коэффициенты": "Введіть скінченні числові коефіцієнти",
+      "Определитель равен нулю: единственной пары решений нет": "Визначник дорівнює нулю: єдиної пари розв’язків немає",
+      "Определитель или решение вне числового диапазона": "Визначник або розв’язок поза числовим діапазоном"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "a1": "a₁ — coeficiente de x en la primera ecuación",
       "b1": "b₁ — coeficiente de y en la primera ecuación",
       "c1": "c₁ — lado derecho de la primera ecuación",
       "a2": "a₂ — coeficiente de x en la segunda ecuación",
       "b2": "b₂ — coeficiente de y en la segunda ecuación",
-      "c2": "c₂ — lado derecho de la segunda ecuación",
+      "c2": "c₂ — lado derecho de la segunda ecuación"
     },
-    options: {},
-    results: {
+    "options": {},
+    "results": {
       "Решение системы": "Solución del sistema",
       "Определитель": "Determinante principal",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "Определитель равен нулю: решение не единственно": "El determinante es cero: la solución no es única",
-    },
-  },
+      "Введите конечные числовые коэффициенты": "Introduzca coeficientes numéricos finitos",
+      "Определитель равен нулю: единственной пары решений нет": "El determinante es cero: no hay un par único de soluciones",
+      "Определитель или решение вне числового диапазона": "El determinante o la solución están fuera del rango numérico"
+    }
+  }
 };

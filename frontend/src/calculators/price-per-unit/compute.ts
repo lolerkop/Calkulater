@@ -1,53 +1,23 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-
-// Цена за единицу и сравнение двух упаковок.
-//
-// Единица здесь не пересчитывается: она только подписывает результат. Перевод
-// граммов в килограммы остаётся за покупателем — молча делить на тысячу нельзя,
-// потому что в поле может стоять и то и другое.
-const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
-const SUFFIX: Record<string, string> = { kg: 'за кг', l: 'за л', pcs: 'за шт' };
-
-export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'single');
-  const suffix = SUFFIX[toStr(inputs.unit, 'kg')] ?? 'за кг';
-  const fail = (message: string) => ({
-    primary: { label: 'Цена за единицу', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (mode === 'single') {
-    const price = toNumber(inputs.price);
-    const amount = toNumber(inputs.amount);
-    if (!(price > 0)) return fail('Цена должна быть больше нуля');
-    if (!(amount > 0)) return fail('Количество должно быть больше нуля');
-    return {
-      primary: { label: 'Цена за единицу', value: `${money(price / amount)} ${suffix}` },
-      secondary: [
-        { label: 'Цена упаковки', value: money(price) },
-        { label: 'Количество в упаковке', value: fmtNumber(amount, 2) },
-      ],
-    };
-  }
-
-  const priceA = toNumber(inputs.priceA);
-  const amountA = toNumber(inputs.amountA);
-  const priceB = toNumber(inputs.priceB);
-  const amountB = toNumber(inputs.amountB);
-  if (!(priceA > 0) || !(priceB > 0)) return fail('Цена должна быть больше нуля');
-  if (!(amountA > 0) || !(amountB > 0)) return fail('Количество должно быть больше нуля');
-
-  const unitA = priceA / amountA;
-  const unitB = priceB / amountB;
-  const cheaper = Math.abs(unitA - unitB) < 1e-9 ? 'одинаково' : unitA < unitB ? 'A' : 'B';
-
-  return {
-    primary: { label: 'Выгоднее', value: cheaper },
-    secondary: [
-      { label: 'Упаковка A', value: `${money(unitA)} ${suffix}` },
-      { label: 'Упаковка B', value: `${money(unitB)} ${suffix}` },
-      { label: 'Переплата за единицу', value: `${money(Math.abs(unitA - unitB))} ${suffix}` },
-    ],
-  };
+import { read, finite, mode, decimal, evaluated, scalar, money, decimalMoney, INPUT, RANGE, MODE } from '../../lib/calculators/householdWave17Numeric';
+const suffixes={kg:'за кг',l:'за л',pcs:'за шт'};
+const unitFraction=(price:number,amount:number)=>{const p=decimal(price),a=decimal(amount);return {n:p.n*a.d,d:p.d*a.n};};
+const value=(n:bigint,d:bigint)=>evaluated({coefficient:n,exponent:0},{coefficient:d,exponent:0});
+export const compute: CalcFunction = inputs => {
+ const m=mode(inputs.mode,'single',['single','compare']),u=mode(inputs.unit,'kg',['kg','l','pcs']);
+ const fail=(value:string)=>({primary:{label:'Цена за единицу',value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ if(!m||!u)return fail(MODE);const suffix=suffixes[u as keyof typeof suffixes];
+ if(m==='single'){
+  const p=read(inputs.price),a=read(inputs.amount);if(!finite(p,a))return fail(INPUT);
+  if(p<=0)return fail('Цена должна быть больше нуля');if(a<=0)return fail('Количество должно быть больше нуля');
+  const fraction=unitFraction(p,a),unit=value(fraction.n,fraction.d);if(!finite(unit))return fail(RANGE);
+  return {primary:{label:'Цена за единицу',value:`${decimalMoney(fraction)} ${suffix}`},secondary:[{label:'Цена упаковки',value:money(p)},{label:'Количество в упаковке',value:scalar(a,2)}]};
+ }
+ const p=read(inputs.priceA),a=read(inputs.amountA),q=read(inputs.priceB),b=read(inputs.amountB);if(!finite(p,a,q,b))return fail(INPUT);
+ if(p<=0||q<=0)return fail('Цена должна быть больше нуля');if(a<=0||b<=0)return fail('Количество должно быть больше нуля');
+ const fa=unitFraction(p,a),fb=unitFraction(q,b),delta=fa.n*fb.d-fb.n*fa.d;
+ const ua=value(fa.n,fa.d),ub=value(fb.n,fb.d),difference=value(delta<0n?-delta:delta,fa.d*fb.d);
+ if(!finite(ua,ub,difference))return fail(RANGE);
+ return {primary:{label:'Выгоднее',value:delta===0n?'одинаково':delta<0n?'A':'B'},secondary:[
+ {label:'Упаковка A',value:`${decimalMoney(fa)} ${suffix}`},{label:'Упаковка B',value:`${decimalMoney(fb)} ${suffix}`},{label:'Переплата за единицу',value:`${decimalMoney({n:delta<0n?-delta:delta,d:fa.d*fb.d})} ${suffix}`}]};
 };

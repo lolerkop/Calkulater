@@ -12,7 +12,7 @@ export const sampleSizeReferenceCases: readonly CalculatorReferenceCase[] = [
       { label: "Без поправки на совокупность", value: "385 чел" },
       { label: "Критическое значение z", value: "1,96" },
       { label: "Предельная ошибка", value: "5 %" },
-      { label: "Доля от совокупности", value: "0 %" },
+      { label: "Доля от совокупности", value: "—" },
     ],
   },
   {
@@ -34,7 +34,7 @@ export const sampleSizeReferenceCases: readonly CalculatorReferenceCase[] = [
       { label: "Без поправки на совокупность", value: "0 чел" },
       { label: "Критическое значение z", value: "1,96" },
       { label: "Предельная ошибка", value: "5 %" },
-      { label: "Доля от совокупности", value: "0 %" },
+      { label: "Доля от совокупности", value: "—" },
     ],
   },
   {

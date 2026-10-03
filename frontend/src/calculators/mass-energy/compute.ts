@@ -1,43 +1,26 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-import { formatMeasure, formatQuantity } from '../../lib/platform/measurement';
+import { fmtNumber } from '../../lib/format';
+import { formatQuantity } from '../../lib/platform/measurement';
+import { readScalar, positiveRatio } from '../../lib/platform/scaledPositiveRatio';
+import { INPUT, RANGE } from '../../lib/platform/measurementScalar';
 
-// Энергия покоя E = mc².
-//
-// Масса задаётся в ГРАММАХ намеренно. В килограммах разумные бытовые значения
-// пришлось бы вводить как 0,001, а любое «сколько энергии в грамме вещества»
-// — это именно граммы. Само значение энергии при этом выходит за 10¹², поэтому
-// главный ответ печатается показательной записью: 8,988·10¹³ Дж читается, а
-// 89 875 517 873 681,8 Дж — нет.
-//
-// Тротиловый эквивалент даёт масштаб: грамм вещества — это две с лишним
-// десятитысячные Хиросимы, и строка с тоннами объясняет число лучше джоулей.
-const C_LIGHT = 299792458;
-const G_IN_KG = 1000;
-const J_IN_KWH = 3.6e6;
-const J_IN_TON_TNT = 4.184e9;
-const MILLION = 1e6;
-
+const C = 299792458;
 export const compute: CalcFunction = (inputs) => {
-  const grams = toNumber(inputs.massG);
-  const fail = (message: string) => ({
-    primary: { label: 'Энергия покоя', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+  const grams = readScalar(inputs.massG);
+  const fail = (message: string) => ({ primary: { label: 'Энергия покоя', value: '—' },
+    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (!Number.isFinite(grams)) return fail(INPUT);
   if (!(grams > 0)) return fail('Масса должна быть больше нуля');
-
-  const kilograms = grams / G_IN_KG;
-  const energy = kilograms * C_LIGHT * C_LIGHT;
-  const kwh = energy / J_IN_KWH;
-
-  return {
-    primary: { label: 'Энергия покоя', value: `${formatQuantity(energy, fmtNumber)} Дж` },
-    secondary: [
-      { label: 'В киловатт-часах', value: `${formatQuantity(kwh, fmtNumber)} кВт·ч` },
-      { label: 'В тоннах тротилового эквивалента', value: `${formatQuantity(energy / J_IN_TON_TNT, fmtNumber)} т` },
-      { label: 'Масса', value: `${formatMeasure(kilograms, fmtNumber)} кг` },
-      { label: 'Хватило бы городу на', value: `${formatMeasure(kwh / MILLION, fmtNumber)} млн кВт·ч` },
-    ],
-  };
+  const kilograms = positiveRatio([grams], [1000]);
+  const energy = positiveRatio([grams, C, C], [1000]);
+  const kwh = positiveRatio([grams, C, C], [1000, 3.6e6]);
+  const tnt = positiveRatio([grams, C, C], [1000, 4.184e9]);
+  const millions = positiveRatio([grams, C, C], [1000, 3.6e6, 1e6]);
+  if (![energy, kwh, tnt, millions].every(x => Number.isFinite(x) && x > 0)) return fail(RANGE);
+  return { primary: { label: 'Энергия покоя', value: `${formatQuantity(energy, fmtNumber)} Дж` }, secondary: [
+    { label: 'В киловатт-часах', value: `${formatQuantity(kwh, fmtNumber)} кВт·ч` },
+    { label: 'В тоннах тротилового эквивалента', value: `${formatQuantity(tnt, fmtNumber)} т` },
+    { label: 'Масса', value: kilograms > 0 ? `${formatQuantity(kilograms, fmtNumber)} кг` : 'Ненулевое значение меньше числового диапазона' },
+    { label: 'В миллионах киловатт-часов', value: `${formatQuantity(millions, fmtNumber)} млн кВт·ч` },
+  ], note: 'Это энергия покоя mc², а не выход топлива или доступная электрическая энергия.' };
 };

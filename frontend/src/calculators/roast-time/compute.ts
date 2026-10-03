@@ -1,22 +1,9 @@
+import { number as toNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, fmtNumber, toNumber } from '../../lib/format';
+import { fmtInt, fmtNumber } from '../../lib/format';
 import { formatMeasure } from '../../lib/platform/measurement';
 
-// Время запекания: постоянная часть плюс норма на килограмм.
-//
-//   готовка = база + норма × масса
-//   отдых   = готовка × доля / 100
-//
-// Постоянная часть не украшение формулы: она отвечает за прогрев корки и
-// начальную стадию, которая почти не зависит от размера куска. Без неё
-// маленький кусок получал бы пропорционально заниженное время.
-//
-// Отдых после духовки считается отдельной строкой, а не прибавкой к готовке:
-// это разные стадии, и подавать нужно после второй, а вынимать — после первой.
-// Минуты подачи целые: до секунды время запекания никто не выдерживает.
-//
-// Отличие от разварки: там пересчитывается ВЕС продукта между сырым и готовым
-// состоянием, здесь — ВРЕМЯ, и вес только вход.
+// User-selected linear recipe schedule; time does not establish safe doneness.
 export const compute: CalcFunction = (inputs) => {
   const weight = toNumber(inputs.weight);
   const perKg = toNumber(inputs.minutes_per_kg);
@@ -27,6 +14,7 @@ export const compute: CalcFunction = (inputs) => {
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (weight === null || perKg === null || base === null || restPct === null) return fail('Введите корректные числовые данные');
   if (!(weight > 0)) return fail('Масса должна быть больше нуля');
   if (!(perKg > 0)) return fail('Норма минут на килограмм должна быть больше нуля');
   if (!(base >= 0)) return fail('Постоянная часть не может быть отрицательной');
@@ -34,11 +22,14 @@ export const compute: CalcFunction = (inputs) => {
 
   const cook = base + perKg * weight;
   const rest = (cook * restPct) / 100;
-  const hours = Math.floor(cook / 60);
-  const minutes = Math.round(cook % 60);
+  const rounded = Math.round(cook);
+  if (!validOutput(cook, true) || !validOutput(rest, restPct > 0) || !validOutput(cook + rest, true) || !Number.isSafeInteger(rounded)) return fail('Результат вне допустимого диапазона');
+  const hours = Math.floor(rounded / 60);
+  const minutes = rounded % 60;
   const q = (value: number, unit: string) => `${formatMeasure(value, fmtNumber)} ${unit}`;
 
   return {
+    note: 'Линейный расчёт планирует время по заданному рецепту; безопасная готовность проверяется термометром для конкретного продукта. Процент отдыха не заменяет правила безопасности.',
     primary: {
       label: 'Время в духовке',
       value: hours > 0 ? `${fmtInt(hours)} ч ${fmtInt(minutes)} мин` : `${fmtInt(minutes)} мин`,

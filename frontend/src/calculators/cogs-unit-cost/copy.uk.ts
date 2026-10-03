@@ -1,12 +1,18 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const cogsUnitCostCopyUk: CalculatorSeoCopy = {
-  name: 'Калькулятор собівартості одиниці',
-  slug: 'sobivartist-odynytsi',
-  shortDescription: 'Собівартість однієї одиниці продукції за матеріалами, працею та накладними.',
-  seoTitle: 'Калькулятор собівартості одиниці продукції',
-  seoDescription:
-    'Розрахунок собівартості однієї одиниці за витратами на матеріали, працю та накладні витрати, а також частки матеріалів у сумі витрат.',
-  h1: 'Калькулятор собівартості одиниці',
-  keywords: ['собівартість одиниці', 'розрахунок собівартості', 'витрати на продукцію', 'частка матеріалів'],
+export const cogsUnitCostCopyUk: CalculatorCopy = {
+  "name": "Калькулятор собівартості одиниці",
+  "slug": "sobivartist-odynytsi",
+  "shortDescription": "Собівартість однієї одиниці продукції за матеріалами, працею та накладними.",
+  "seoTitle": "Калькулятор собівартості одиниці продукції",
+  "seoDescription": "Розрахунок собівартості однієї одиниці за витратами на матеріали, працю та накладні витрати, а також частки матеріалів у сумі витрат.",
+  "h1": "Калькулятор собівартості одиниці",
+  "keywords": [
+    "собівартість одиниці",
+    "розрахунок собівартості",
+    "витрати на продукцію",
+    "частка матеріалів"
+  ],
+  ...contractContent.uk,
 };

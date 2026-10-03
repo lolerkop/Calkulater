@@ -89,7 +89,7 @@ export const legacyCalculators: CalculatorDef[] = [
     keywords: ['вклад', 'депозит', 'капитализация', 'проценты'],
     fields: [
       { name: 'amount', label: 'Сумма вклада', type: 'number', defaultValue: 100000, unit: '₽', min: 0 },
-      { name: 'months', label: 'Срок, месяцев', type: 'number', defaultValue: 12, min: 1 },
+      { name: 'months', label: 'Срок, месяцев', type: 'number', defaultValue: 12, min: 1, max: 1200, step: 1 },
       { name: 'rate', label: 'Годовая ставка', type: 'number', defaultValue: 12, unit: '%', min: 0, step: 0.1 },
       {
         name: 'capitalization', label: 'Капитализация', type: 'toggle', defaultValue: 'yes',
@@ -162,7 +162,7 @@ export const legacyCalculators: CalculatorDef[] = [
           { value: 'year', label: 'Ежегодно' },
         ],
       },
-      { name: 'years', label: 'Срок, лет', type: 'number', defaultValue: 10, min: 1 },
+      { name: 'years', label: 'Срок, лет', type: 'number', defaultValue: 10, min: 1 / 12, max: 1000, step: 1 / 12 },
       { name: 'topUp', label: 'Регулярное пополнение', type: 'number', defaultValue: 5000, unit: '₽', min: 0 },
       {
         name: 'frequency', label: 'Периодичность пополнения', type: 'select', defaultValue: 'month',
@@ -222,7 +222,7 @@ export const legacyCalculators: CalculatorDef[] = [
       },
       { name: 'downPayment', label: 'Первоначальный взнос', type: 'number', defaultValue: 1600000, unit: '₽', min: 0, showIf: { field: 'downPaymentMode', equals: 'amount' } },
       { name: 'downPaymentPct', label: 'Первоначальный взнос', type: 'number', defaultValue: 20, unit: '%', min: 0, max: 100, showIf: { field: 'downPaymentMode', equals: 'percent' } },
-      { name: 'years', label: 'Срок, лет', type: 'number', defaultValue: 20, min: 1 },
+      { name: 'years', label: 'Срок, лет', type: 'number', defaultValue: 20, min: 1 / 12, max: 100, step: 1 / 12 },
       { name: 'rate', label: 'Ставка', type: 'number', defaultValue: 13, unit: '% годовых', min: 0, step: 0.1 },
       {
         name: 'type', label: 'Тип платежа', type: 'toggle', defaultValue: 'annuity',
@@ -287,16 +287,10 @@ export const legacyCalculators: CalculatorDef[] = [
         name: 'direction', label: 'Что введено', type: 'toggle', defaultValue: 'gross',
         options: [{ value: 'gross', label: 'Начислено' }, { value: 'net', label: 'На руки' }],
       },
-      { name: 'incomeBeforePeriod', label: 'Доход с начала года до этого периода', type: 'number', defaultValue: 0, unit: '₽', min: 0 },
-      { name: 'deductions', label: 'Налоговые вычеты за период', type: 'number', defaultValue: 0, unit: '₽', min: 0 },
-      {
-        name: 'mode', label: 'Режим расчёта', type: 'toggle', defaultValue: 'progressive',
-        options: [{ value: 'progressive', label: 'Прогрессивная 2025' }, { value: 'fixed', label: 'Фиксированная' }],
-      },
-      {
-        name: 'rate', label: 'Фиксированная ставка', type: 'number', defaultValue: 13, unit: '%', min: 0, max: 100, step: 0.1,
-        showIf: { field: 'mode', equals: 'fixed' },
-      },
+      {"name":"incomeBeforePeriod","label":"Облагаемая база до этого месяца","type":"number","defaultValue":0,"unit":"₽","min":0,"optional":true,"help":"Введите накопленную базу после прежних вычетов. При месячном расчёте 0 или пустое поле означает средний налог условного полного года; при годовом расчёте это поле не используется."},
+      {"name":"deductions","label":"Налоговые вычеты за период","type":"number","defaultValue":0,"unit":"₽","min":0,"optional":true,"help":"Допустимые вычеты за выбранный период проверяются отдельно. Пустое поле означает 0; прошлые вычеты уже должны быть учтены в предыдущей облагаемой базе."},
+      {"name":"mode","label":"Режим расчёта","type":"toggle","defaultValue":"progressive","options":[{"value":"progressive","label":"Основная шкала РФ с 2025 года"},{"value":"fixed","label":"Фиксированная"}]},
+      {"name":"rate","label":"Фиксированная ставка","type":"number","defaultValue":13,"unit":"%","min":0,"max":100,"step":0.1,"showIf":{"field":"mode","equals":"fixed"},"help":"Применяется только в фиксированном режиме: от 0 до менее 100%. Калькулятор не определяет статус, вид дохода или право на эту ставку."},
     ],
     resultLabels: {
       tax: 'Сумма налога',
@@ -344,7 +338,7 @@ export const legacyCalculators: CalculatorDef[] = [
     keywords: ['ндс', 'налог на добавленную стоимость', 'выделить ндс', 'начислить ндс', '22 процента'],
     fields: [
       { name: 'amount', label: 'Сумма', type: 'number', defaultValue: 12000, unit: '₽', min: 0.01 },
-      { name: 'operationDate', label: 'Дата операции', type: 'date' },
+      {"name":"operationDate","label":"Дата операции для справки","type":"date","help":"Дата только вызывает предупреждение о переходе 20% → 22% с 2026 года. Ставка не переключается автоматически; правила авансов, возвратов и корректировок проверяются отдельно."},
       {
         name: 'rate', label: 'Ставка НДС', type: 'select', defaultValue: '22',
         options: [
@@ -473,9 +467,9 @@ export const legacyCalculators: CalculatorDef[] = [
       },
       { name: 'cost', label: 'Себестоимость', type: 'number', defaultValue: 100, unit: '₽', min: 0.01, step: 0.01 },
       { name: 'sellPrice', label: 'Цена продажи', type: 'number', defaultValue: 125, unit: '₽', min: 0.01, step: 0.01, showIf: { field: 'mode', equals: 'fromPrice' } },
-      { name: 'markupPct', label: 'Наценка', type: 'number', defaultValue: 30, unit: '%', min: 0, step: 0.1, showIf: { field: 'mode', equals: 'fromMarkup' } },
-      { name: 'marginPct', label: 'Маржа', type: 'number', defaultValue: 20, unit: '%', min: 0, max: 99.99, step: 0.1, showIf: { field: 'mode', equals: 'fromMargin' } },
-      { name: 'quantity', label: 'Количество', type: 'number', defaultValue: 1, min: 1, step: 1 },
+      {"name":"markupPct","label":"Наценка","type":"number","defaultValue":30,"unit":"%","step":0.1,"showIf":{"field":"mode","equals":"fromMarkup"},"signed":true,"help":"Для продажи в убыток допустима отрицательная наценка выше−100%; полученная цена должна быть положительной."},
+      {"name":"marginPct","label":"Маржа","type":"number","defaultValue":20,"unit":"%","max":99.99,"step":0.1,"showIf":{"field":"mode","equals":"fromMargin"},"signed":true,"help":"Допустима отрицательная маржа для убытка; значение должно быть меньше 100% и давать положительную цену."},
+      {"name":"quantity","label":"Количество","type":"number","defaultValue":1,"min":1,"step":1,"max":9007199254740991,"help":"Целое число не меньше 1. Дробное количество не усекается и 0 не заменяется на 1."},
     ],
     resultLabels: {
       price: 'Цена продажи',
@@ -527,7 +521,7 @@ export const legacyCalculators: CalculatorDef[] = [
       { name: 'fixedCosts', label: 'Постоянные затраты за период', type: 'number', defaultValue: 300000, unit: '₽', min: 0, step: 100 },
       { name: 'unitPrice', label: 'Цена продажи единицы', type: 'number', defaultValue: 1500, unit: '₽', min: 0.01, step: 0.01 },
       { name: 'variableCost', label: 'Переменные затраты на единицу', type: 'number', defaultValue: 900, unit: '₽', min: 0, step: 0.01 },
-      { name: 'plannedUnits', label: 'Плановый объём продаж', type: 'number', defaultValue: 0, min: 0, step: 1, optional: true },
+      {"name":"plannedUnits","label":"Плановый объём продаж","type":"number","defaultValue":0,"min":0,"step":1,"optional":true,"max":9007199254740991,"help":"Целое неотрицательное число. Пустое поле или 0 скрывает строки плана; дробные единицы не округляются."},
     ],
     resultLabels: {
       units: 'Точка безубыточности',
@@ -597,7 +591,7 @@ export const legacyCalculators: CalculatorDef[] = [
     example: 'Введите 100 USD, чтобы получить сумму в EUR по справочному курсу на указанную дату.',
     faq: [
       { q: 'Насколько актуальны курсы?', a: 'Конвертер использует сохранённые справочные курсы. Источник и дата каждой участвующей валюты указаны в результате, а резервный источник отмечен отдельно. Банковские курсы покупки и продажи могут отличаться.' },
-      { q: 'Будут ли исторические курсы?', a: 'Пока нет. Это возможно в будущих версиях при подключении внешнего источника.' },
+      { q: 'Есть ли выбор исторического курса?', a: 'Нет. Поля выбора даты и истории курсов нет; используемый набор и даты источников показаны рядом с результатом.' },
       { q: 'Какие валюты поддерживаются?', a: 'В форме доступны USD, EUR, MDL, RON, UAH, PLN, GBP, CHF и TRY.' },
       { q: 'Почему курс может отличаться от обменника?', a: 'Банки и обменные пункты используют собственные курсы покупки и продажи, а также могут учитывать комиссии.' },
       { q: 'Можно ли поделиться готовым расчётом?', a: 'Да, заполненные значения можно сохранить в ссылке и отправить другому человеку для быстрой проверки суммы.' },
@@ -677,8 +671,8 @@ export const legacyCalculators: CalculatorDef[] = [
     example: 'Введите 100 EUR, чтобы получить сумму в MDL по справочному кросс-курсу на указанную дату.',
     faq: [
       { q: 'Какой сейчас курс EUR/MDL?', a: 'Форма показывает справочный кросс-курс на дату, указанную в результате. Курс конкретного банка или обменника нужно проверять отдельно.' },
-      { q: 'Подойдёт ли для расчёта зарплаты?', a: 'Только для прикидки. Зарплатные расчёты лучше делать по официальному курсу.' },
-      { q: 'Можно ли учитывать комиссию перевода?', a: 'Нет, комиссия не добавляется автоматически. Если сервис берёт комиссию, вычтите её отдельно из итоговой суммы.' },
+      { q: 'Подойдёт ли для расчёта зарплаты?', a: 'Только для предварительной оценки. Это смешанный кросс-курс, который может отличаться от прямого официального EUR/MDL. Для расчёта зарплаты проверьте применимое правило, нужную дату и требуемый источник.' },
+      { q: 'Можно ли учитывать комиссию перевода?', a: 'Отдельного поля нет. Сначала уточните, из какой валюты и с какой базы взимается сбор. Фиксированный сбор в MDL можно вычесть из результата; комиссия в EUR или процент от другой базы требует отдельного расчёта.' },
       { q: 'Откуда берётся курс EUR/MDL?', a: 'Это кросс-курс из сохранённых коэффициентов EUR и MDL. Рядом с результатом указаны фактические источники и даты обеих валют; резервный источник отмечается отдельно. Это не коммерческий курс обмена.' },
     ],
     relatedCalculatorIds: ['currency-converter', 'usd-to-eur', 'usd-to-mdl'],
@@ -743,8 +737,8 @@ export const legacyCalculators: CalculatorDef[] = [
     h1: 'Калькулятор ИМТ',
     keywords: ['ИМТ', 'индекс массы тела', 'BMI'],
     fields: [
-      { name: 'height', label: 'Рост, см', type: 'number', defaultValue: 175, min: 1 },
-      { name: 'weight', label: 'Вес, кг', type: 'number', defaultValue: 70, min: 1 },
+      { name: 'height', label: 'Рост', type: 'number', unit: 'см', defaultValue: 175, min: 1 },
+      { name: 'weight', label: 'Вес', type: 'number', unit: 'кг', defaultValue: 70, min: 1 },
     ],
     resultLabels: { bmi: 'ИМТ', category: 'Категория', note: 'Комментарий' },
     howToUse: [
@@ -786,9 +780,9 @@ export const legacyCalculators: CalculatorDef[] = [
         name: 'gender', label: 'Пол', type: 'toggle', defaultValue: 'male',
         options: [{ value: 'male', label: 'Мужской' }, { value: 'female', label: 'Женский' }],
       },
-      { name: 'age', label: 'Возраст, лет', type: 'number', defaultValue: 30, min: 1 },
-      { name: 'height', label: 'Рост, см', type: 'number', defaultValue: 175, min: 1 },
-      { name: 'weight', label: 'Вес, кг', type: 'number', defaultValue: 70, min: 1 },
+      { name: 'age', label: 'Возраст, лет', type: 'number', defaultValue: 30, min: 19, max: 78 },
+      { name: 'height', label: 'Рост', type: 'number', unit: 'см', defaultValue: 175, min: 1 },
+      { name: 'weight', label: 'Вес', type: 'number', unit: 'кг', defaultValue: 70, min: 1 },
       {
         name: 'activity', label: 'Уровень активности', type: 'select', defaultValue: '1.55',
         options: [
@@ -812,8 +806,8 @@ export const legacyCalculators: CalculatorDef[] = [
       { name: 'fatPct', label: 'Доля жиров, %', type: 'number', defaultValue: 25, min: 10, max: 60 },
     ],
     resultLabels: {
-      bmr: 'Базовый обмен (BMR)',
-      daily: 'Дневная норма',
+      bmr: 'Расход энергии в покое (REE)',
+      daily: 'Дневная оценка энергии',
       protein: 'Белки',
       fat: 'Жиры',
       carbs: 'Углеводы',
@@ -862,7 +856,7 @@ export const legacyCalculators: CalculatorDef[] = [
       },
       { name: 'height', label: 'Рост', type: 'number', defaultValue: 180, unit: 'см', min: 100, max: 250, step: 0.5 },
       { name: 'neck', label: 'Обхват шеи', type: 'number', defaultValue: 38, unit: 'см', min: 20, max: 80, step: 0.5 },
-      { name: 'waist', label: 'Обхват талии', type: 'number', defaultValue: 90, unit: 'см', min: 40, max: 200, step: 0.5 },
+      { name: 'waist', label: 'Живот / талия по выбранной формуле', type: 'number', defaultValue: 90, unit: 'см', min: 40, max: 200, step: 0.5 },
       { name: 'hip', label: 'Обхват бёдер', type: 'number', defaultValue: 96, unit: 'см', min: 50, max: 200, step: 0.5, showIf: { field: 'sex', equals: 'female' } },
     ],
     resultLabels: {

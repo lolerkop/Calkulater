@@ -1,0 +1,545 @@
+{
+  "origin": "Independent Python Fraction.from_float(rate) \u00d7 exact integer netminutes \u00d7 days /60, then one correctly rounded float conversion. Display uses declared2decimal units or4significant scientific policy.",
+  "fixtures": [
+    {
+      "netMinutes": 60,
+      "days": 1,
+      "rate": "5e-324",
+      "expectedRoundedBinary": "5e-324",
+      "mustFail": false,
+      "exactRationalNumerator": "1",
+      "exactRationalDenominator": "202402253307310618352495346718917307049556649764142118356901358027430339567995346891960383701437124495187077864316811911389808737385793476867013399940738509921517424276566361364466907742093216341239767678472745068562007483424692698618103355649159556340810056512358769552333414615230502532186327508646006263307707741093494784"
+    },
+    {
+      "netMinutes": 30,
+      "days": 1,
+      "rate": "5e-324",
+      "expectedRoundedBinary": "0.0",
+      "mustFail": true,
+      "exactRationalNumerator": "1",
+      "exactRationalDenominator": "404804506614621236704990693437834614099113299528284236713802716054860679135990693783920767402874248990374155728633623822779617474771586953734026799881477019843034848553132722728933815484186432682479535356945490137124014966849385397236206711298319112681620113024717539104666829230461005064372655017292012526615415482186989568"
+    },
+    {
+      "netMinutes": 90,
+      "days": 1,
+      "rate": "5e-324",
+      "expectedRoundedBinary": "1e-323",
+      "mustFail": false,
+      "exactRationalNumerator": "3",
+      "exactRationalDenominator": "404804506614621236704990693437834614099113299528284236713802716054860679135990693783920767402874248990374155728633623822779617474771586953734026799881477019843034848553132722728933815484186432682479535356945490137124014966849385397236206711298319112681620113024717539104666829230461005064372655017292012526615415482186989568"
+    },
+    {
+      "netMinutes": 1,
+      "days": 1,
+      "rate": "5e-324",
+      "expectedRoundedBinary": "0.0",
+      "mustFail": true,
+      "exactRationalNumerator": "1",
+      "exactRationalDenominator": "12144135198438637101149720803135038422973398985848527101414081481645820374079720813517623022086227469711224671859008714683388524243147608612020803996444310595291045456593981681868014464525592980474386060708364704113720449005481561917086201338949573380448603390741526173140004876913830151931179650518760375798462464465609687040"
+    },
+    {
+      "netMinutes": 30,
+      "days": 2,
+      "rate": "1e+308",
+      "expectedRoundedBinary": "1e+308",
+      "mustFail": false,
+      "exactRationalNumerator": "100000000000000001097906362944045541740492309677311846336810682903157585404911491537163328978494688899061249669721172515611590283743140088328307009198146046031271664502933027185697489699588559043338384466165001178426897626212945177628091195786707458122783970171784415105291802893207873272974885715430223118336",
+      "exactRationalDenominator": "1"
+    },
+    {
+      "netMinutes": 60,
+      "days": 2,
+      "rate": "1e+308",
+      "expectedRoundedBinary": "inf",
+      "mustFail": true,
+      "exactRationalNumerator": "200000000000000002195812725888091083480984619354623692673621365806315170809822983074326657956989377798122499339442345031223180567486280176656614018396292092062543329005866054371394979399177118086676768932330002356853795252425890355256182391573414916245567940343568830210583605786415746545949771430860446236672",
+      "exactRationalDenominator": "1"
+    },
+    {
+      "netMinutes": 1,
+      "days": 1,
+      "rate": "1e+308",
+      "expectedRoundedBinary": "1.6666666666666665e+306",
+      "mustFail": false,
+      "exactRationalNumerator": "25000000000000000274476590736011385435123077419327961584202670725789396351227872884290832244623672224765312417430293128902897570935785022082076752299536511507817916125733256796424372424897139760834596116541250294606724406553236294407022798946676864530695992542946103776322950723301968318243721428857555779584",
+      "exactRationalDenominator": "15"
+    },
+    {
+      "netMinutes": 1440,
+      "days": 1,
+      "rate": "1e+308",
+      "expectedRoundedBinary": "inf",
+      "mustFail": true,
+      "exactRationalNumerator": "2400000000000000026349752710657093001771815432255484312083456389675782049717875796891919895483872533577469992073308140374678166809835362119879368220755505104750519948070392652456739752790125417040121227187960028282245543029110684263074188698880978994946815284122825962527003269436988958551397257170325354840064",
+      "exactRationalDenominator": "1"
+    },
+    {
+      "netMinutes": 59,
+      "days": 1,
+      "rate": "1e-08",
+      "expectedRoundedBinary": "9.833333333333334e-09",
+      "mustFail": false,
+      "exactRationalNumerator": "59438852797719269",
+      "exactRationalDenominator": "6044629098073145873530880"
+    },
+    {
+      "netMinutes": 60,
+      "days": 1,
+      "rate": "1e-08",
+      "expectedRoundedBinary": "1e-08",
+      "mustFail": false,
+      "exactRationalNumerator": "3022314549036573",
+      "exactRationalDenominator": "302231454903657293676544"
+    },
+    {
+      "netMinutes": 1,
+      "days": 9007199254740991,
+      "rate": "0",
+      "expectedRoundedBinary": "0.0",
+      "mustFail": false,
+      "exactRationalNumerator": "0",
+      "exactRationalDenominator": "1"
+    },
+    {
+      "netMinutes": 813,
+      "days": 187,
+      "rate": "1e-200",
+      "expectedRoundedBinary": "2.5338499999999998e-197",
+      "mustFail": false,
+      "exactRationalNumerator": "87348971792881064167",
+      "exactRationalDenominator": "3447282664438742061705455129644321122255070693178195220560793372635124304640134887580412501214880367396115558469584956760404415119480457699739444688094416633826655385110737451870888760367069735990914745457561682575360"
+    },
+    {
+      "netMinutes": 138,
+      "days": 40,
+      "rate": "0.1",
+      "expectedRoundedBinary": "9.200000000000001",
+      "mustFail": false,
+      "exactRationalNumerator": "82866233143617131",
+      "exactRationalDenominator": "9007199254740992"
+    },
+    {
+      "netMinutes": 1139,
+      "days": 25,
+      "rate": "0.01",
+      "expectedRoundedBinary": "4.745833333333334",
+      "mustFail": false,
+      "exactRationalNumerator": "32829439843679968325",
+      "exactRationalDenominator": "6917529027641081856"
+    },
+    {
+      "netMinutes": 1126,
+      "days": 24,
+      "rate": "1.23456789",
+      "expectedRoundedBinary": "556.0493776559999",
+      "mustFail": false,
+      "exactRationalNumerator": "3130279712513946977",
+      "exactRationalDenominator": "5629499534213120"
+    },
+    {
+      "netMinutes": 1154,
+      "days": 187,
+      "rate": "0.1",
+      "expectedRoundedBinary": "359.66333333333336",
+      "mustFail": false,
+      "exactRationalNumerator": "388747116954919339903",
+      "exactRationalDenominator": "1080863910568919040"
+    },
+    {
+      "netMinutes": 757,
+      "days": 144,
+      "rate": "750",
+      "expectedRoundedBinary": "1362600.0",
+      "mustFail": false,
+      "exactRationalNumerator": "1362600",
+      "exactRationalDenominator": "1"
+    },
+    {
+      "netMinutes": 1186,
+      "days": 124,
+      "rate": "1e+305",
+      "expectedRoundedBinary": "inf",
+      "mustFail": true,
+      "exactRationalNumerator": "735319999999999955331922228371071374612482399869667138458023815182537877927489115343874216318115415758058904072905716874058232690283512596949298760366623624210366249609761635871790870335540604688500404521000096183303469137327030999121965323408811765086704639639096274187963965332365120578091866527293985783808",
+      "exactRationalDenominator": "3"
+    },
+    {
+      "netMinutes": 183,
+      "days": 66,
+      "rate": "1.23456789",
+      "expectedRoundedBinary": "248.518516257",
+      "mustFail": false,
+      "exactRationalNumerator": "11192278972096936527",
+      "exactRationalDenominator": "45035996273704960"
+    },
+    {
+      "netMinutes": 34,
+      "days": 133,
+      "rate": "0.1",
+      "expectedRoundedBinary": "7.536666666666667",
+      "mustFail": false,
+      "exactRationalNumerator": "8146111005987753617",
+      "exactRationalDenominator": "1080863910568919040"
+    },
+    {
+      "netMinutes": 286,
+      "days": 93,
+      "rate": "0.1",
+      "expectedRoundedBinary": "44.330000000000005",
+      "mustFail": false,
+      "exactRationalNumerator": "15971565718506727901",
+      "exactRationalDenominator": "360287970189639680"
+    },
+    {
+      "netMinutes": 263,
+      "days": 133,
+      "rate": "0.01",
+      "expectedRoundedBinary": "5.829833333333333",
+      "mustFail": false,
+      "exactRationalNumerator": "40328041309642901213",
+      "exactRationalDenominator": "6917529027641081856"
+    },
+    {
+      "netMinutes": 575,
+      "days": 74,
+      "rate": "1e-200",
+      "expectedRoundedBinary": "7.091666666666666e-198",
+      "mustFail": false,
+      "exactRationalNumerator": "7334093868593423605",
+      "exactRationalDenominator": "1034184799331622618511636538893296336676521207953458566168238011790537291392040466274123750364464110218834667540875487028121324535844137309921833406428324990147996615533221235561266628110120920797274423637268504772608"
+    },
+    {
+      "netMinutes": 825,
+      "days": 173,
+      "rate": "1.23456789",
+      "expectedRoundedBinary": "2936.7283683375",
+      "mustFail": false,
+      "exactRationalNumerator": "52903395141332514185",
+      "exactRationalDenominator": "18014398509481984"
+    },
+    {
+      "netMinutes": 1131,
+      "days": 52,
+      "rate": "1e-200",
+      "expectedRoundedBinary": "9.802e-198",
+      "mustFail": false,
+      "exactRationalNumerator": "8447566169207137271",
+      "exactRationalDenominator": "861820666109685515426363782411080280563767673294548805140198343158781076160033721895103125303720091849028889617396239190101103779870114424934861172023604158456663846277684362967722190091767433997728686364390420643840"
+    },
+    {
+      "netMinutes": 172,
+      "days": 175,
+      "rate": "750",
+      "expectedRoundedBinary": "376250.0",
+      "mustFail": false,
+      "exactRationalNumerator": "376250",
+      "exactRationalDenominator": "1"
+    },
+    {
+      "netMinutes": 1307,
+      "days": 177,
+      "rate": "1e-200",
+      "expectedRoundedBinary": "3.85565e-197",
+      "mustFail": false,
+      "exactRationalNumerator": "132915154051432355923",
+      "exactRationalDenominator": "3447282664438742061705455129644321122255070693178195220560793372635124304640134887580412501214880367396115558469584956760404415119480457699739444688094416633826655385110737451870888760367069735990914745457561682575360"
+    },
+    {
+      "netMinutes": 221,
+      "days": 77,
+      "rate": "0.01",
+      "expectedRoundedBinary": "2.8361666666666667",
+      "mustFail": false,
+      "exactRationalNumerator": "19619265243894715399",
+      "exactRationalDenominator": "6917529027641081856"
+    },
+    {
+      "netMinutes": 283,
+      "days": 144,
+      "rate": "1e+100",
+      "expectedRoundedBinary": "6.792e+102",
+      "mustFail": false,
+      "exactRationalNumerator": "33960000000000000540062182087446816870553305883158175599697388386111660470290614082522544071969744093184",
+      "exactRationalDenominator": "5"
+    },
+    {
+      "netMinutes": 227,
+      "days": 88,
+      "rate": "0.01",
+      "expectedRoundedBinary": "3.3293333333333335",
+      "mustFail": false,
+      "exactRationalNumerator": "2878844997003296959",
+      "exactRationalDenominator": "864691128455135232"
+    },
+    {
+      "netMinutes": 1302,
+      "days": 104,
+      "rate": "1.23456789",
+      "expectedRoundedBinary": "2786.172814152",
+      "mustFail": false,
+      "exactRationalNumerator": "15684758559505940359",
+      "exactRationalDenominator": "5629499534213120"
+    },
+    {
+      "netMinutes": 976,
+      "days": 161,
+      "rate": "1.23456789",
+      "expectedRoundedBinary": "3233.250999384",
+      "mustFail": false,
+      "exactRationalNumerator": "54604754985078993359",
+      "exactRationalDenominator": "16888498602639360"
+    },
+    {
+      "netMinutes": 266,
+      "days": 61,
+      "rate": "1e-200",
+      "expectedRoundedBinary": "2.704333333333333e-198",
+      "mustFail": false,
+      "exactRationalNumerator": "13983902128295756923",
+      "exactRationalDenominator": "5170923996658113092558182694466481683382606039767292830841190058952686456960202331370618751822320551094173337704377435140606622679220686549609167032141624950739983077666106177806333140550604603986372118186342523863040"
+    },
+    {
+      "netMinutes": 1398,
+      "days": 73,
+      "rate": "1e+100",
+      "expectedRoundedBinary": "1.7009e+103",
+      "mustFail": false,
+      "exactRationalNumerator": "85045000000000001352461374429532230293174496432072645579395300214866494837923005731688155494719284051968",
+      "exactRationalDenominator": "5"
+    },
+    {
+      "netMinutes": 1040,
+      "days": 111,
+      "rate": "1e+305",
+      "expectedRoundedBinary": "inf",
+      "mustFail": true,
+      "exactRationalNumerator": "192399999999999988312383502065215324587175126115057332099390445032258455792374620290705270113155369079925111711400560200414518807608317227401736769698278824590755679737961892430142745270845363028433169001034132766234547492277812060369724920067256954254857711835067893099282308287476267746321159658177885634560",
+      "exactRationalDenominator": "1"
+    },
+    {
+      "netMinutes": 1277,
+      "days": 112,
+      "rate": "1e+100",
+      "expectedRoundedBinary": "2.3837333333333336e+103",
+      "mustFail": false,
+      "exactRationalNumerator": "357560000000000005686237745205756296826709071012427481373021148154831723137724145210446432814296280858624",
+      "exactRationalDenominator": "15"
+    },
+    {
+      "netMinutes": 1332,
+      "days": 11,
+      "rate": "0.1",
+      "expectedRoundedBinary": "24.42",
+      "mustFail": false,
+      "exactRationalNumerator": "4399116116015500737",
+      "exactRationalDenominator": "180143985094819840"
+    },
+    {
+      "netMinutes": 1042,
+      "days": 80,
+      "rate": "1.23456789",
+      "expectedRoundedBinary": "1715.2263218399999",
+      "mustFail": false,
+      "exactRationalNumerator": "2896759733960508659",
+      "exactRationalDenominator": "1688849860263936"
+    },
+    {
+      "netMinutes": 631,
+      "days": 108,
+      "rate": "1e+305",
+      "expectedRoundedBinary": "1.1358e+308",
+      "mustFail": false,
+      "exactRationalNumerator": "113579999999999993100418493578831375086337582246092576818340783507088957426704310668494306546009287006745811788881889956149069886528860034762418203234566054558305769774624281404447053055419003808572969517346449062312473514412234375347158817158207093889120264606169497391977570557648412113446763586153036644352",
+      "exactRationalDenominator": "1"
+    },
+    {
+      "netMinutes": 348,
+      "days": 41,
+      "rate": "0.01",
+      "expectedRoundedBinary": "2.378",
+      "mustFail": false,
+      "exactRationalNumerator": "1370823668977541083",
+      "exactRationalDenominator": "576460752303423488"
+    },
+    {
+      "netMinutes": 1256,
+      "days": 21,
+      "rate": "0.01",
+      "expectedRoundedBinary": "4.396",
+      "mustFail": false,
+      "exactRationalNumerator": "1267060733562924853",
+      "exactRationalDenominator": "288230376151711744"
+    },
+    {
+      "netMinutes": 702,
+      "days": 159,
+      "rate": "1.23456789",
+      "expectedRoundedBinary": "2296.666645767",
+      "mustFail": false,
+      "exactRationalNumerator": "103432670500705072137",
+      "exactRationalDenominator": "45035996273704960"
+    },
+    {
+      "netMinutes": 187,
+      "days": 85,
+      "rate": "0.01",
+      "expectedRoundedBinary": "2.649166666666667",
+      "mustFail": false,
+      "exactRationalNumerator": "18325687315725833065",
+      "exactRationalDenominator": "6917529027641081856"
+    },
+    {
+      "netMinutes": 828,
+      "days": 112,
+      "rate": "1e-200",
+      "expectedRoundedBinary": "1.5456e-197",
+      "mustFail": false,
+      "exactRationalNumerator": "832518763461956193",
+      "exactRationalDenominator": "53863791631855344714147736400692517535235479580909300321262396447423817260002107618443945331482505740564305601087264949381318986241882151558428823251475259903541490392355272685482636880735464624858042897774401290240"
+    },
+    {
+      "netMinutes": 41,
+      "days": 74,
+      "rate": "1e+100",
+      "expectedRoundedBinary": "5.056666666666667e+101",
+      "mustFail": false,
+      "exactRationalNumerator": "7585000000000000120623429067528978385251673295752495934149136952551735708691234034627016984272394256384",
+      "exactRationalDenominator": "15"
+    },
+    {
+      "netMinutes": 76,
+      "days": 112,
+      "rate": "0.01",
+      "expectedRoundedBinary": "1.4186666666666667",
+      "mustFail": false,
+      "exactRationalNumerator": "153338560112710651",
+      "exactRationalDenominator": "108086391056891904"
+    },
+    {
+      "netMinutes": 1117,
+      "days": 118,
+      "rate": "1e-200",
+      "expectedRoundedBinary": "2.1967666666666665e-197",
+      "mustFail": false,
+      "exactRationalNumerator": "113593134717253207013",
+      "exactRationalDenominator": "5170923996658113092558182694466481683382606039767292830841190058952686456960202331370618751822320551094173337704377435140606622679220686549609167032141624950739983077666106177806333140550604603986372118186342523863040"
+    },
+    {
+      "netMinutes": 269,
+      "days": 88,
+      "rate": "1e-200",
+      "expectedRoundedBinary": "3.9453333333333335e-198",
+      "mustFail": false,
+      "exactRationalNumerator": "5100254702037118789",
+      "exactRationalDenominator": "1292730999164528273139545673616620420845651509941823207710297514738171614240050582842654687955580137773543334426094358785151655669805171637402291758035406237684995769416526544451583285137651150996593029546585630965760"
+    },
+    {
+      "netMinutes": 571,
+      "days": 40,
+      "rate": "1e+100",
+      "expectedRoundedBinary": "3.8066666666666666e+102",
+      "mustFail": false,
+      "exactRationalNumerator": "11420000000000000181611016473458264094868043380025511347130276070948031877818575171448982723848482848768",
+      "exactRationalDenominator": "3"
+    },
+    {
+      "netMinutes": 924,
+      "days": 187,
+      "rate": "1e+305",
+      "expectedRoundedBinary": "inf",
+      "mustFail": true,
+      "exactRationalNumerator": "287979999999999982506238050544390380325440191364938724001987839710965645005655109934081619995771742139484582487781358245921897745400432407209730535019284490154084306917558553960667919870571973206487442873793188950209069578098567136929695335140169738494355113587644760159726190959601952108033095417682263539712",
+      "exactRationalDenominator": "1"
+    },
+    {
+      "netMinutes": 311,
+      "days": 54,
+      "rate": "1e-200",
+      "expectedRoundedBinary": "2.799e-198",
+      "mustFail": false,
+      "exactRationalNumerator": "4824472088882019429",
+      "exactRationalDenominator": "1723641332219371030852727564822160561127535346589097610280396686317562152320067443790206250607440183698057779234792478380202207559740228849869722344047208316913327692555368725935444380183534867995457372728780841287680"
+    },
+    {
+      "netMinutes": 392,
+      "days": 170,
+      "rate": "750",
+      "expectedRoundedBinary": "833000.0",
+      "mustFail": false,
+      "exactRationalNumerator": "833000",
+      "exactRationalDenominator": "1"
+    },
+    {
+      "netMinutes": 1338,
+      "days": 121,
+      "rate": "1e+100",
+      "expectedRoundedBinary": "2.6983e+103",
+      "mustFail": false,
+      "exactRationalNumerator": "134915000000000002145538554073259343288889848740467763870234780745354966794736696081964930314187220975616",
+      "exactRationalDenominator": "5"
+    },
+    {
+      "netMinutes": 706,
+      "days": 57,
+      "rate": "0.01",
+      "expectedRoundedBinary": "6.707",
+      "mustFail": false,
+      "exactRationalNumerator": "7732644531398122829",
+      "exactRationalDenominator": "1152921504606846976"
+    },
+    {
+      "netMinutes": 1157,
+      "days": 119,
+      "rate": "1e+305",
+      "expectedRoundedBinary": "inf",
+      "mustFail": true,
+      "exactRationalNumerator": "688414999999999958181234348098883615777963432663706825765082501127246386924675541722587674246090714164015830451163288203577759693033678295747227745903537510554288312197552163083662775393082175619640436787146114907834490706322401193032350212308215676524729062853109478315709096984007145845029527682352022552576",
+      "exactRationalDenominator": "3"
+    },
+    {
+      "netMinutes": 990,
+      "days": 16,
+      "rate": "1.23456789",
+      "expectedRoundedBinary": "325.92592296",
+      "mustFail": false,
+      "exactRationalNumerator": "183479983149130107",
+      "exactRationalDenominator": "562949953421312"
+    },
+    {
+      "netMinutes": 258,
+      "days": 60,
+      "rate": "1.23456789",
+      "expectedRoundedBinary": "318.51851561999996",
+      "mustFail": false,
+      "exactRationalNumerator": "717239934128417691",
+      "exactRationalDenominator": "2251799813685248"
+    },
+    {
+      "netMinutes": 725,
+      "days": 132,
+      "rate": "0.1",
+      "expectedRoundedBinary": "159.5",
+      "mustFail": false,
+      "exactRationalNumerator": "5746593124524753215",
+      "exactRationalDenominator": "36028797018963968"
+    },
+    {
+      "netMinutes": 319,
+      "days": 159,
+      "rate": "1.23456789",
+      "expectedRoundedBinary": "1043.6419658114999",
+      "mustFail": false,
+      "exactRationalNumerator": "94002911366737658153",
+      "exactRationalDenominator": "90071992547409920"
+    },
+    {
+      "netMinutes": 516,
+      "days": 18,
+      "rate": "0.01",
+      "expectedRoundedBinary": "1.548",
+      "mustFail": false,
+      "exactRationalNumerator": "446180622282849789",
+      "exactRationalDenominator": "288230376151711744"
+    }
+  ]
+}

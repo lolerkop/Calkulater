@@ -1,86 +1,30 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { runtimeScalarPhrases } from '../../lib/platform/runtimeScalarPhrases';
 
-export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'weight': 'Körpergewicht, kg',
-      'activityMinutes': 'Bewegungsminuten am Tag',
-      'hotWeather': 'Heißes Wetter',
-    },
-    options: {
-      'no': 'Nein',
-      'yes': 'Ja',
-    },
-    results: {
-      'Норма воды в сутки': 'Wasserbedarf am Tag',
-      'Базовая норма': 'Grundbedarf',
-      'Надбавка за нагрузку': 'Zuschlag für Bewegung',
-      'Стаканов по 250 мл': 'Gläser zu 250 ml',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'Масса тела должна быть больше нуля': 'Das Körpergewicht muss größer als null sein',
-      'Минуты нагрузки не могут быть отрицательными': 'Die Bewegungsminuten können nicht negativ sein',
-    },
+// Final effective owned bundles; overwritten intermediate maps removed after deep equality proof.
+export const localization:CalculatorLocalization={
+  "de": {
+    fields: {"weight": "Körpergewicht", "activityMinutes": "Bewegungsminuten am Tag", "hotWeather": "Heißes Wetter"},
+    options: {"no": "Nein", "yes": "Ja"},
+    results: { ...runtimeScalarPhrases("de",[8]),"Норма воды в сутки": "Wasserbedarf am Tag", "Базовая норма": "Grundbedarf", "Надбавка за нагрузку": "Zuschlag für Bewegung", "Стаканов по 250 мл": "Gläser zu 250 ml", "Оценка жидкости по модели": "Flüssigkeitsschätzung nach Modell", "Часть от массы": "Gewichtsanteil", "Часть от нагрузки": "Aktivitätsanteil", "Поправка модели на жару": "Modellzuschlag für Hitze", "Эквивалент стаканов по 250 мл": "Äquivalent in 250-ml-Gläsern", "Укажите жаркую погоду: да или нет": "Wähle heißes Wetter: ja oder nein", "Коэффициенты 33 мл/кг, 350 мл/30 мин и +10 % в жару — допущения этой модели. Итог не предписывает объём питья и не учитывает индивидуальные ограничения жидкости.": "33 ml/kg, 350 ml/30 min und +10 % bei Hitze sind Modellannahmen. Die Summe verordnet keine Trinkmenge und berücksichtigt keine persönlichen Flüssigkeitsbeschränkungen." },
+    values: {"Масса тела должна быть больше нуля": "Das Körpergewicht muss größer als null sein", "Минуты нагрузки не могут быть отрицательными": "Die Bewegungsminuten können nicht negativ sein", "Введите конечные числа для выбранного режима": "Gib endliche Zahlen für den gewählten Modus ein", "Результат выходит за числовой диапазон": "Das Ergebnis überschreitet den Zahlenbereich", "ккал": "kcal", "кг": "kg", "см": "cm", "км": "km", "м": "m", "л": "L", "уд/мин": "Schläge/min", "мл/кг/мин": "ml/kg/min", "Оценка жидкости по модели": "Flüssigkeitsschätzung nach Modell", "Часть от массы": "Gewichtsanteil", "Часть от нагрузки": "Aktivitätsanteil", "Поправка модели на жару": "Modellzuschlag für Hitze", "Эквивалент стаканов по 250 мл": "Äquivalent in 250-ml-Gläsern", "Укажите жаркую погоду: да или нет": "Wähle heißes Wetter: ja oder nein", "Коэффициенты 33 мл/кг, 350 мл/30 мин и +10 % в жару — допущения этой модели. Итог не предписывает объём питья и не учитывает индивидуальные ограничения жидкости.": "33 ml/kg, 350 ml/30 min und +10 % bei Hitze sind Modellannahmen. Die Summe verordnet keine Trinkmenge und berücksichtigt keine persönlichen Flüssigkeitsbeschränkungen."},
   },
-  en: {
-    fields: {
-      weight: 'Body weight, kg',
-      activityMinutes: 'Minutes of activity per day',
-      hotWeather: 'Hot weather',
-    },
-    options: { no: 'No', yes: 'Yes' },
-    results: {
-      'Норма воды в сутки': 'Daily water intake',
-      'Базовая норма': 'Baseline amount',
-      'Надбавка за нагрузку': 'Activity allowance',
-      'Стаканов по 250 мл': 'Glasses of 250 ml',
-      'Проверьте данные': 'Check the values',
-    },
-    values: {
-      'Масса тела должна быть больше нуля': 'The body weight must be greater than zero',
-      'Минуты нагрузки не могут быть отрицательными': 'Activity minutes cannot be negative',
-    },
+  "en": {
+    fields: {"weight": "Body weight", "activityMinutes": "Minutes of activity per day", "hotWeather": "Hot weather"},
+    options: {"no": "No", "yes": "Yes"},
+    results: { ...runtimeScalarPhrases("en",[6]),"Норма воды в сутки": "Daily water intake", "Базовая норма": "Baseline amount", "Надбавка за нагрузку": "Activity allowance", "Стаканов по 250 мл": "Glasses of 250 ml", "Оценка жидкости по модели": "Model fluid estimate", "Часть от массы": "Weight contribution", "Часть от нагрузки": "Activity contribution", "Поправка модели на жару": "Model heat increment", "Эквивалент стаканов по 250 мл": "Equivalent 250 mL glasses", "Укажите жаркую погоду: да или нет": "Select hot weather: yes or no", "Коэффициенты 33 мл/кг, 350 мл/30 мин и +10 % в жару — допущения этой модели. Итог не предписывает объём питья и не учитывает индивидуальные ограничения жидкости.": "33 mL/kg, 350 mL/30 min and +10 % in heat are model assumptions. The total does not prescribe drinking volume or account for personal fluid restrictions." },
+    values: {"Масса тела должна быть больше нуля": "The body weight must be greater than zero", "Минуты нагрузки не могут быть отрицательными": "Activity minutes cannot be negative", "Введите конечные числа для выбранного режима": "Enter finite numbers for the selected mode", "Результат выходит за числовой диапазон": "The result exceeds the numerical range", "ккал": "kcal", "кг": "kg", "см": "cm", "км": "km", "м": "m", "л": "L", "уд/мин": "bpm", "мл/кг/мин": "mL/kg/min", "Оценка жидкости по модели": "Model fluid estimate", "Часть от массы": "Weight contribution", "Часть от нагрузки": "Activity contribution", "Поправка модели на жару": "Model heat increment", "Эквивалент стаканов по 250 мл": "Equivalent 250 mL glasses", "Укажите жаркую погоду: да или нет": "Select hot weather: yes or no", "Коэффициенты 33 мл/кг, 350 мл/30 мин и +10 % в жару — допущения этой модели. Итог не предписывает объём питья и не учитывает индивидуальные ограничения жидкости.": "33 mL/kg, 350 mL/30 min and +10 % in heat are model assumptions. The total does not prescribe drinking volume or account for personal fluid restrictions."},
   },
-  uk: {
-    fields: {
-      weight: 'Маса тіла, кг',
-      activityMinutes: 'Хвилин навантаження на день',
-      hotWeather: 'Спекотна погода',
-    },
-    options: { no: 'Ні', yes: 'Так' },
-    results: {
-      'Норма воды в сутки': 'Норма води на добу',
-      'Базовая норма': 'Базова норма',
-      'Надбавка за нагрузку': 'Надбавка за навантаження',
-      'Стаканов по 250 мл': 'Склянок по 250 мл',
-      'Проверьте данные': 'Перевірте дані',
-    },
-    values: {
-      'Масса тела должна быть больше нуля': 'Маса тіла має бути більшою за нуль',
-      'Минуты нагрузки не могут быть отрицательными': 'Хвилини навантаження не можуть бути від’ємними',
-    },
+  "uk": {
+    fields: {"weight": "Маса тіла", "activityMinutes": "Хвилин навантаження на день", "hotWeather": "Спекотна погода"},
+    options: {"no": "Ні", "yes": "Так"},
+    results: { ...runtimeScalarPhrases("uk",[8]),"Норма воды в сутки": "Норма води на добу", "Базовая норма": "Базова норма", "Надбавка за нагрузку": "Надбавка за навантаження", "Стаканов по 250 мл": "Склянок по 250 мл", "Оценка жидкости по модели": "Оцінка рідини за моделлю", "Часть от массы": "Частина від маси", "Часть от нагрузки": "Частина від активності", "Поправка модели на жару": "Поправка моделі на спеку", "Эквивалент стаканов по 250 мл": "Еквівалент склянок по 250 мл", "Укажите жаркую погоду: да или нет": "Оберіть спеку: так чи ні", "Коэффициенты 33 мл/кг, 350 мл/30 мин и +10 % в жару — допущения этой модели. Итог не предписывает объём питья и не учитывает индивидуальные ограничения жидкости.": "33 мл/кг, 350 мл/30 хв і +10 % у спеку — припущення моделі. Сума не призначає об’єм пиття та не враховує особисті обмеження рідини." },
+    values: {"Масса тела должна быть больше нуля": "Маса тіла має бути більшою за нуль", "Минуты нагрузки не могут быть отрицательными": "Хвилини навантаження не можуть бути від’ємними", "Введите конечные числа для выбранного режима": "Введіть скінченні числа для обраного режиму", "Результат выходит за числовой диапазон": "Результат виходить за числовий діапазон", "ккал": "ккал", "кг": "кг", "см": "см", "км": "км", "м": "м", "л": "л", "уд/мин": "уд/хв", "мл/кг/мин": "мл/кг/хв", "Оценка жидкости по модели": "Оцінка рідини за моделлю", "Часть от массы": "Частина від маси", "Часть от нагрузки": "Частина від активності", "Поправка модели на жару": "Поправка моделі на спеку", "Эквивалент стаканов по 250 мл": "Еквівалент склянок по 250 мл", "Укажите жаркую погоду: да или нет": "Оберіть спеку: так чи ні", "Коэффициенты 33 мл/кг, 350 мл/30 мин и +10 % в жару — допущения этой модели. Итог не предписывает объём питья и не учитывает индивидуальные ограничения жидкости.": "33 мл/кг, 350 мл/30 хв і +10 % у спеку — припущення моделі. Сума не призначає об’єм пиття та не враховує особисті обмеження рідини."},
   },
-  es: {
-    fields: {
-      "weight": "Peso corporal, kg",
-      "activityMinutes": "Minutos de actividad al día",
-      "hotWeather": "Hace calor",
-    },
-    options: {
-      "no": "No",
-      "yes": "Sí",
-    },
-    results: {
-      "Норма воды в сутки": "Consumo diario de agua",
-      "Базовая норма": "Cantidad base",
-      "Надбавка за нагрузку": "Suplemento por actividad",
-      "Стаканов по 250 мл": "Vasos de 250 ml",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "Масса тела должна быть больше нуля": "El peso corporal debe ser mayor que cero",
-      "Минуты нагрузки не могут быть отрицательными": "Los minutos de actividad no pueden ser negativos",
-    },
+  "es": {
+    fields: {"weight": "Peso corporal", "activityMinutes": "Minutos de actividad al día", "hotWeather": "Hace calor"},
+    options: {"no": "No", "yes": "Sí"},
+    results: { ...runtimeScalarPhrases("es",[7]),"Норма воды в сутки": "Consumo diario de agua", "Базовая норма": "Cantidad base", "Надбавка за нагрузку": "Suplemento por actividad", "Стаканов по 250 мл": "Vasos de 250 ml", "Оценка жидкости по модели": "Estimación de líquidos del modelo", "Часть от массы": "Parte del peso", "Часть от нагрузки": "Parte de actividad", "Поправка модели на жару": "Incremento del modelo por calor", "Эквивалент стаканов по 250 мл": "Equivalente en vasos de 250 ml", "Укажите жаркую погоду: да или нет": "Indica calor: sí o no", "Коэффициенты 33 мл/кг, 350 мл/30 мин и +10 % в жару — допущения этой модели. Итог не предписывает объём питья и не учитывает индивидуальные ограничения жидкости.": "33 ml/kg, 350 ml/30 min y +10 % con calor son supuestos del modelo. El total no prescribe cuánto beber ni incluye restricciones personales de líquidos." },
+    values: {"Масса тела должна быть больше нуля": "El peso corporal debe ser mayor que cero", "Минуты нагрузки не могут быть отрицательными": "Los minutos de actividad no pueden ser negativos", "Введите конечные числа для выбранного режима": "Introduce números finitos para el modo elegido", "Результат выходит за числовой диапазон": "El resultado supera el rango numérico", "ккал": "kcal", "кг": "kg", "см": "cm", "км": "km", "м": "m", "л": "L", "уд/мин": "lat/min", "мл/кг/мин": "ml/kg/min", "Оценка жидкости по модели": "Estimación de líquidos del modelo", "Часть от массы": "Parte del peso", "Часть от нагрузки": "Parte de actividad", "Поправка модели на жару": "Incremento del modelo por calor", "Эквивалент стаканов по 250 мл": "Equivalente en vasos de 250 ml", "Укажите жаркую погоду: да или нет": "Indica calor: sí o no", "Коэффициенты 33 мл/кг, 350 мл/30 мин и +10 % в жару — допущения этой модели. Итог не предписывает объём питья и не учитывает индивидуальные ограничения жидкости.": "33 ml/kg, 350 ml/30 min y +10 % con calor son supuestos del modelo. El total no prescribe cuánto beber ni incluye restricciones personales de líquidos."},
   },
 };

@@ -1,5 +1,8 @@
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
+import { contextualField } from './contextualField';
+import { validate } from './validate';
+import { contractContent } from './contractContent';
 import { cycleTimeCopyEn } from './copy.en';
 import { cycleTimeCopyUk } from './copy.uk';
 import { cycleTimeCopyDe } from './copy.de';
@@ -11,48 +14,71 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  contextualField,
+  validate,
   copy: { en: cycleTimeCopyEn, uk: cycleTimeCopyUk, de: cycleTimeCopyDe, es: cycleTimeCopyEs },
   referenceCases: cycleTimeReferenceCases,
   publishedExample: { inputs: { availableMinutes: 480, demand: 120, actualCycle: 3.5 }, expected: ["4 мин/шт"] },
   presentation: {
-    id: "cycle-time",
-    name: "Калькулятор такта производства",
-    slug: "takt-proizvodstva",
-    fullPath: "/business/takt-proizvodstva/",
-    category: "business",
-    icon: "repeat",
-    popularity: 33,
-    isNew: false,
-    shortDescription: "Сколько времени можно тратить на одну единицу, чтобы успевать за спросом.",
-    longDescription:
-      "Такт задаёт не линия, а заказчик: это доступное время смены, поделённое на то, сколько единиц за эту смену нужно отгрузить. Дальше фактический цикл сравнивается с тактом — и если он больше, участок не успевает независимо от того, насколько он «быстрый» сам по себе. Именно поэтому загрузка выше ста процентов означает нехватку времени, а не переработку: сокращать нужно цикл или добавлять параллельные посты.",
-    seoTitle: "Калькулятор такта производства — время на единицу продукции",
-    seoDescription: "Рассчитайте такт производства по доступному времени смены и спросу, сравните с фактическим циклом и оцените загрузку.",
-    h1: "Калькулятор такта производства",
-    keywords: ["такт производства", "время цикла", "бережливое производство", "загрузка участка"],
-    fields: [
-      { name: 'availableMinutes', label: 'Доступное время за смену, мин', type: 'number', defaultValue: 480, min: 0, step: 10 },
-      { name: 'demand', label: 'Спрос за смену, шт', type: 'number', defaultValue: 120, min: 1, step: 1 },
-      { name: 'actualCycle', label: 'Фактический цикл, мин', type: 'number', defaultValue: 3.5, min: 0, step: 0.1 },
+    "id": "cycle-time",
+    "name": "Калькулятор такта производства",
+    "slug": "takt-proizvodstva",
+    "fullPath": "/business/takt-proizvodstva/",
+    "category": "business",
+    "icon": "repeat",
+    "popularity": 33,
+    "isNew": false,
+    "shortDescription": "Сколько времени можно тратить на одну единицу, чтобы успевать за спросом.",
+    "seoTitle": "Калькулятор такта производства — время на единицу продукции",
+    "seoDescription": "Рассчитайте такт производства по доступному времени смены и спросу, сравните с фактическим циклом и оцените загрузку.",
+    "h1": "Калькулятор такта производства",
+    "keywords": [
+        "такт производства",
+        "время цикла",
+        "бережливое производство",
+        "загрузка участка"
     ],
-    resultLabels: {
-      "takt": "Такт производства", "perHour": "Единиц в час", "actual": "Фактический цикл",
-      "load": "Загрузка такта", "capacity": "Возможный выпуск за смену",
+    "fields": [
+        {
+            "name": "availableMinutes",
+            "label": "Доступное время за смену",
+            "type": "number",
+            "defaultValue": 480,
+            "min": 0,
+            "step": 10,
+            "unit": "мин"
+        },
+        {
+            "name": "demand",
+            "label": "Спрос за смену, шт",
+            "type": "number",
+            "defaultValue": 120,
+            "min": 1,
+            "step": 1,
+            "max": 9007199254740991
+        },
+        {
+            "name": "actualCycle",
+            "label": "Фактический цикл",
+            "type": "number",
+            "defaultValue": 3.5,
+            "min": 0,
+            "step": 0.1,
+            "unit": "мин"
+        }
+    ],
+    "resultLabels": {
+        "takt": "Такт производства",
+        "perHour": "Единиц в час",
+        "actual": "Фактический цикл",
+        "load": "Загрузка такта",
+        "capacity": "Возможный выпуск за смену"
     },
-    howToUse: [
-      "Доступное время — это чистое время работы: обеды, пересменки и плановые остановки вычитайте заранее.",
-      "Спрос берите за ту же смену, за которую посчитано доступное время, иначе такт выйдет бессмысленным.",
-      "Фактический цикл — среднее время на единицу, которое участок показывает сейчас.",
-      "Загрузка выше ста процентов означает нехватку времени, а не переработку.",
-    ],
-    howItWorks: "Такт = доступное время / спрос; загрузка = фактический цикл / такт.",
-    example: "Смена 480 минут на 120 изделий даёт такт 4 минуты; фактические 3,5 минуты — загрузка 87,5 %.",
-    faq: [
-      { q: "Чем такт отличается от времени цикла?", a: "Такт — это требование заказчика, время цикла — способность участка. Такт нельзя «улучшить»: он меняется только вместе со спросом или с длиной смены. Улучшают именно цикл, подтягивая его под такт." },
-      { q: "Что делать, если цикл больше такта?", a: "Три пути: сократить цикл, добавить параллельный пост или увеличить доступное время. Расчёт показывает, насколько велика нехватка, — из этого видно, хватит ли одной меры." },
-      { q: "Нужно ли закладывать запас?", a: "Обычно да: планируют цикл на 85–95 % такта, чтобы поглотить сбои и переналадки. Работа ровно в такт означает, что любая остановка сразу превращается в срыв отгрузки." },
-      { q: "Считается ли время наладки?", a: "Только если вы вычли его из доступного времени. Такт считается от чистого времени работы — переналадки, уборка и плановое обслуживание в него входить не должны." },
-    ],
-    relatedCalculatorIds: ["revenue-per-employee", "inventory-turnover", "employee-cost"],
+    "relatedCalculatorIds": [
+        "revenue-per-employee",
+        "inventory-turnover",
+        "employee-cost"
+    ] ,
+    ...contractContent.ru,
   },
 };

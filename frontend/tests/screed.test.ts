@@ -57,9 +57,10 @@ describe('screed: запас', () => {
     expect(row(withReserve, 'Сухая смесь')).toBe('990 кг');
   });
 
-  it('отрицательный запас не уменьшает результат', () => {
+  it('отрицательный запас отклоняется как недопустимый ввод', () => {
     const r = calcScreed({ mode: 'area', manualArea: 10, thickness: 5, reserve: -50 });
-    expect(norm(r.primary.value)).toBe('0,500 м³');
+    expect(norm(r.primary.value)).toBe('—');
+    expect(r.secondary?.[0].value).toContain('неотрицательными');
   });
 });
 

@@ -12,9 +12,11 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
       'Дней': 'Days',
       'Время': 'Time',
+      'Год': 'Year',
     },
     values: {
       'Норма': 'Healthy range',
@@ -23,9 +25,11 @@ export const shared: CalculatorLocalization = {
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
       'Дней': 'Днів',
       'Время': 'Час',
+      'Год': 'Рік',
     },
     values: {
       'Норма': 'Нормальний діапазон',
@@ -34,9 +38,11 @@ export const shared: CalculatorLocalization = {
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Дней': 'Tage',
       'Время': 'Zeit',
+      'Год': 'Jahr',
     },
     values: {
       'Норма': 'Normalbereich',
@@ -45,9 +51,11 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
       'Дней': 'Días',
       'Время': 'Tiempo',
+      'Год': 'Año',
     },
     values: {
       'Норма': 'Normal',

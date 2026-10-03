@@ -1,40 +1,18 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { integer, money, number, text, validOutput } from './numeric';
 
-// ARPU и ARPPU. Разница между ними — знаменатель, и именно он всё решает.
-//
-// ARPU делит выручку на ВСЕХ пользователей, ARPPU — только на платящих.
-// Первая величина падает вместе с ростом бесплатной аудитории, вторая нет,
-// поэтому судить по одной без другой нельзя: растущий ARPPU при падающем ARPU
-// означает, что платят всё меньше людей, но каждый — всё больше.
-//
-// При нуле платящих ARPPU не определён, и строка не выводится: делить выручку
-// не на кого, а бесконечность на экране хуже отсутствия строки.
-
+// This form deliberately shares a revenue numerator. The payer-share identity
+// does not hold for dashboard metrics with different revenue definitions.
 export const compute: CalcFunction = (inputs) => {
-  const revenue = toNumber(inputs.revenue);
-  const users = toNumber(inputs.users);
-  const paying = toNumber(inputs.payingUsers);
-  const fail = (message: string) => ({
-    primary: { label: 'ARPU', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+  const revenue = number(inputs.revenue), users = integer(inputs.users), paying = integer(inputs.payingUsers);
+  const fail = (message: string) => ({ primary: { label: 'ARPU', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (revenue === null) return fail('Введите корректные числовые данные');
   if (!(revenue > 0)) return fail('Выручка должна быть больше нуля');
+  if (users === null || paying === null || !Number.isSafeInteger(users) || !Number.isSafeInteger(paying)) return fail('Количество должно быть целым в допустимом диапазоне');
   if (!(users > 0)) return fail('Число пользователей должно быть больше нуля');
   if (paying < 0) return fail('Число платящих не может быть отрицательным');
   if (paying > users) return fail('Платящих не может быть больше, чем пользователей');
-
-  const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
-
-  return {
-    primary: { label: 'ARPU', value: money(revenue / users) },
-    secondary: [
-      ...(paying > 0 ? [{ label: 'ARPPU', value: money(revenue / paying) }] : []),
-      { label: 'Доля платящих', value: `${fmtNumber((paying / users) * 100, 2)}%` },
-      { label: 'Выручка', value: money(revenue) },
-      { label: 'Пользователей', value: fmtNumber(users, 0) },
-      { label: 'Платящих', value: fmtNumber(paying, 0) },
-    ],
-  };
+  const arpu = revenue / users, arppu = paying > 0 ? revenue / paying : null, share = paying / users * 100;
+  if (!validOutput(arpu, true) || (arppu !== null && !validOutput(arppu, true)) || !validOutput(share, paying > 0)) return fail('Результат вне допустимого диапазона');
+  return { primary: { label: 'ARPU', value: money(arpu) }, secondary: [ ...(arppu !== null ? [{ label: 'ARPPU', value: money(arppu) }] : []), { label: 'Доля платящих', value: `${text(share)}%` }, { label: 'Выручка', value: money(revenue) }, { label: 'Пользователей', value: text(users, 0) }, { label: 'Платящих', value: text(paying, 0) } ] };
 };

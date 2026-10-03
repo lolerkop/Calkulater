@@ -1,5 +1,8 @@
+import { choice } from '../../lib/platform/financeWave11Input';
+import { number, validOutput, integer } from '../../lib/platform/scalarInputDisplay';
+import { displayMoney } from '../../lib/platform/financeDisplay';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 
 // Амортизация актива тремя методами с ликвидационной стоимостью.
 //
@@ -17,17 +20,19 @@ import { fmtNumber, toNumber, toStr } from '../../lib/format';
 const MAX_LIFE = 50;
 
 export const compute: CalcFunction = (inputs) => {
-  const cost = toNumber(inputs.cost);
-  const salvage = toNumber(inputs.salvage);
-  const life = Math.trunc(toNumber(inputs.life));
-  const method = toStr(inputs.method, 'straight');
-  const year = Math.trunc(toNumber(inputs.year));
+  const cost = number(inputs.cost);
+  const salvage = number(inputs.salvage);
+  const life = integer(inputs.life);
+  const method = choice(inputs.method, ['straight', 'ddb', 'syd'], 'straight');
+  const year = integer(inputs.year);
   const fail = (message: string) => ({
     primary: { label: 'Амортизация за год', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
-  const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
+  const money = displayMoney;
 
+  if (method === null) return fail('Выберите корректный режим расчёта');
+  if (cost === null || salvage === null || life === null || year === null) return fail('Введите корректные значения');
   if (!(cost > 0)) return fail('Стоимость должна быть больше нуля');
   if (!(salvage >= 0)) return fail('Ликвидационная стоимость не может быть отрицательной');
   if (salvage >= cost) return fail('Ликвидационная стоимость должна быть меньше первоначальной');
@@ -48,11 +53,12 @@ export const compute: CalcFunction = (inputs) => {
 
   for (let y = 1; y <= life; y += 1) {
     let charge: number;
-    if (method === 'ddb') charge = Math.min((book * 2) / life, book - salvage);
-    else if (method === 'syd') charge = (base * (life - y + 1)) / sumOfYears;
+    if (method === 'ddb') charge = Math.min(book * (2 / life), book - salvage);
+    else if (method === 'syd') charge = base * ((life - y + 1) / sumOfYears);
     else charge = base / life;
-    accumulated += charge;
-    book -= charge;
+    if (!validOutput(charge) || charge < 0) return fail('Результат выходит за числовые пределы расчёта');
+    accumulated = Math.min(base, accumulated + charge);
+    book = Math.max(salvage, cost - accumulated);
     if (y === year) {
       yearly = charge;
       accumulatedAtYear = accumulated;

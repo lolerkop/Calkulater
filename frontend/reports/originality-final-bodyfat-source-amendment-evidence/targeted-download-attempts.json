@@ -1,0 +1,24 @@
+[
+  {
+    "id": "army-query",
+    "url": "https://api.army.mil/e2/c/downloads/566092.pdf?download=1",
+    "tlsVerification": true,
+    "httpStatus": 200,
+    "bytes": 48834,
+    "sha256": "0d19b09c0cc826a071da319460d2ed3b37944f6bd850a27daedf3225249abf04",
+    "finalUrl": "https://api.army.mil/e2/c/downloads/566092.pdf?download=1",
+    "path": "/tmp/calcuway-body-fat-source-gap-review/army-query.pdf"
+  },
+  {
+    "id": "army-www",
+    "url": "https://www.army.mil/e2/downloads/rv7/r2/policydocuments/army_body_composition_program.pdf",
+    "tlsVerification": true,
+    "failure": "HTTP Error 404: Not Found"
+  },
+  {
+    "id": "uscg-508",
+    "url": "https://www.dcms.uscg.mil/Portals/10/CG-1/cg13/docs/pdf/Body_Comp_FAQs_April_2022%20%28508%20Completed%29.pdf?ver=qFV7b4bbMAjspkVqRUS7SA%3D%3D",
+    "tlsVerification": true,
+    "failure": "HTTP Error 403: Forbidden"
+  }
+]

@@ -41,4 +41,7 @@ export const geomCircleReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"mode": "radius", "unit": "cm", "r": 0},
     expectPrimary: "—",
   },
+  // Независимые аналитические случаи: масштабирование формул и явные границы области.
+  {"name": "малая положительная площадь не отображается нулём", "inputs": {"mode": "radius", "unit": "m", "r": 1e-100}, "expectPrimary": "3,142·10^-200 м²", "expectSecondary": [{"label": "Диаметр", "value": "2,000·10^-100 м"}]},
+  {"name": "неизвестная единица не заменяется сантиметрами", "inputs": {"mode": "radius", "unit": "constructor", "r": 1}, "expectPrimary": "—"},
 ];

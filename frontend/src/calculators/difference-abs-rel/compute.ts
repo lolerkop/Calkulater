@@ -10,12 +10,26 @@ import { fmtNumber, toNumber } from '../../lib/format';
 // При нулевой базе относительная разница не определена: делить не на что.
 const show = (value: number) => (Number.isInteger(value) ? String(value) : fmtNumber(value, 4));
 
-export const compute: CalcFunction = (inputs) => {
-  const from = toNumber(inputs.from);
-  const to = toNumber(inputs.to);
+// Required fields reject coercions; a blank optional amount means zero.
+function numericInput(value: unknown, optional = false): number {
+  if (optional && (value === undefined || (typeof value === 'string' && value.trim() === ''))) return 0;
+  if (typeof value !== 'number' && typeof value !== 'string') return NaN;
+  return toNumber(value, NaN);
+}
 
+export const compute: CalcFunction = (inputs) => {
+  const from = numericInput(inputs.from);
+  const to = numericInput(inputs.to);
+
+  const fail = (message: string) => ({
+    primary: { label: 'Абсолютная разница', value: '—' },
+    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
+  });
+  if (![from, to].every(Number.isFinite)) return fail('Введите конечные числовые значения.');
   const absolute = to - from;
   const relative = from === 0 ? null : (absolute / Math.abs(from)) * 100;
+
+  if (!Number.isFinite(absolute) || (relative !== null && !Number.isFinite(relative))) return fail('Результат выходит за пределы числовой точности.');
 
   return {
     primary: { label: 'Абсолютная разница', value: show(absolute) },

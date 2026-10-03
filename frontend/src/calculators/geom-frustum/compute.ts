@@ -1,41 +1,18 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure, lengthSymbol } from '../../lib/platform/measurement';
+import { read, valid, unit as lengthUnit, dim, exact, add, times, number as rounded, ratio, INPUT, UNIT, RANGE } from '../../lib/platform/geometryNumericInput';
 
-// Усечённый конус. Объём V = πh(R² + Rr + r²)/3.
-//
-// Средний член Rr здесь не украшение: без него формула превратилась бы в
-// полусумму двух цилиндров и занизила бы объём. При r = 0 выражение сводится к
-// конусу πR²h/3, что и служит проверкой.
-//
-// Образующая считается от РАЗНОСТИ радиусов: l = √(h² + (R − r)²). Высота — это
-// не образующая, и подстановка h вместо l завысила бы боковую поверхность.
-
-const dim = (value: number): string => formatMeasure(value, fmtNumber);
-
+// Coaxial circular bases of a right cone; R > r, including the cone limit r=0.
 export const compute: CalcFunction = (inputs) => {
-  const unit = lengthSymbol(toStr(inputs.unit, 'cm'));
-  const R = toNumber(inputs.R);
-  const r = toNumber(inputs.r);
-  const h = toNumber(inputs.h);
-  const fail = (message: string) => ({
-    primary: { label: 'Объём', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  if (!(R > 0)) return fail('Нижний радиус должен быть больше нуля');
-  if (r < 0) return fail('Верхний радиус не может быть отрицательным');
-  if (r >= R) return fail('Верхний радиус должен быть меньше нижнего');
-  if (!(h > 0)) return fail('Высота должна быть больше нуля');
-
-  const slant = Math.hypot(h, R - r);
-  const lateral = Math.PI * (R + r) * slant;
-
-  return {
-    primary: { label: 'Объём', value: `${dim((Math.PI * h * (R * R + R * r + r * r)) / 3)} ${unit}³` },
-    secondary: [
-      { label: 'Образующая', value: `${dim(slant)} ${unit}` },
-      { label: 'Боковая поверхность', value: `${dim(lateral)} ${unit}²` },
-      { label: 'Полная поверхность', value: `${dim(lateral + Math.PI * R * R + Math.PI * r * r)} ${unit}²` },
-    ],
-  };
+ const fail=(message:string)=>({primary:{label:'Объём',value:'—'},secondary:[{label:'Проверьте данные',value:message,accent:'red' as const}]});
+ const u=lengthUnit(inputs.unit === undefined ? 'cm' : inputs.unit);if(!u)return fail(UNIT);
+ const R=read(inputs.R),r=read(inputs.r),h=read(inputs.h);if(![R,r,h].every(Number.isFinite))return fail(INPUT);
+ if(!(R>0&&r>=0&&r<R&&h>0))return fail('Требуются R > r ≥ 0 и положительная высота');
+ const l=Math.hypot(h,R-r),squares=add(times(exact(R),exact(R)),times(exact(R),exact(r)),times(exact(r),exact(r)));
+ const volume=ratio(times(exact(Math.PI),exact(h),squares),exact(3));
+ if(!valid(l))return fail(RANGE);
+ const lateralDyadic=times(exact(Math.PI),add(exact(R),exact(r)),exact(l));
+ const lateral=rounded(lateralDyadic),total=rounded(add(lateralDyadic,times(exact(Math.PI),exact(R),exact(R)),times(exact(Math.PI),exact(r),exact(r))));
+ if(!valid(volume,l,lateral,total))return fail(RANGE);
+ return {primary:{label:'Объём',value:dim(volume)+' '+u+'³'},secondary:[{label:'Образующая',value:dim(l)+' '+u},
+ {label:'Боковая поверхность',value:dim(lateral)+' '+u+'²'},{label:'Полная поверхность',value:dim(total)+' '+u+'²'}]};
 };

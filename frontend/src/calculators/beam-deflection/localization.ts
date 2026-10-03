@@ -1,3 +1,4 @@
+import { addBuildingWave13Messages } from './buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
@@ -5,9 +6,9 @@ export const localization: CalculatorLocalization = {
     fields: {
       'scheme': 'Lastfall',
       'load': 'Last',
-      'span': 'Stützweite, m',
-      'e': 'Elastizitätsmodul, GPa',
-      'inertia': 'Flächenträgheitsmoment, cm⁴',
+      'span': "Stützweite",
+      'e': "Elastizitätsmodul",
+      'inertia': "Flächenträgheitsmoment",
     },
     options: {
       'uniform': 'Gleichlast, kN/m',
@@ -34,8 +35,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      scheme: 'Load scheme', load: 'Load', span: 'Span, m',
-      e: 'Modulus of elasticity, GPa', inertia: 'Second moment of area, cm⁴',
+      scheme: 'Load scheme', load: 'Load', span: "Span",
+      e: "Modulus of elasticity", inertia: "Second moment of area",
     },
     options: { uniform: 'uniformly distributed, kN/m', point: 'point load at midspan, kN' },
     results: {
@@ -54,8 +55,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      scheme: 'Схема навантаження', load: 'Навантаження', span: 'Проліт, м',
-      e: 'Модуль пружності, ГПа', inertia: 'Момент інерції перерізу, см⁴',
+      scheme: 'Схема навантаження', load: 'Навантаження', span: "Проліт",
+      e: "Модуль пружності", inertia: "Момент інерції перерізу",
     },
     options: { uniform: 'рівномірне, кН/м', point: 'зосереджене посередині, кН' },
     results: {
@@ -76,9 +77,9 @@ export const localization: CalculatorLocalization = {
     fields: {
       "scheme": "Esquema de carga",
       "load": "Carga",
-      "span": "Luz, m",
-      "e": "Módulo de elasticidad, GPa",
-      "inertia": "Momento de inercia, cm⁴",
+      "span": "Luz",
+      "e": "Módulo de elasticidad",
+      "inertia": "Momento de inercia",
     },
     options: {
       "uniform": "uniformemente repartida, kN/m",
@@ -104,3 +105,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

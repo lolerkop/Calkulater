@@ -1,130 +1,144 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
-// Единицы принадлежат калькулятору: центральный словарь единиц трогать нельзя,
-// это вернуло бы ручную регистрацию. Подстановка идёт по самому длинному ключу,
-// поэтому « моль/л» выигрывает у « моль», а « г/моль» — у « г».
-const RESULTS_EN = {
-  'pH': 'pH',
-  'pOH': 'pOH',
-  'Концентрация H⁺': 'Concentration of H⁺',
-  'Среда': 'Medium',
-  'Проверьте данные': 'Check the values',
-};
-const RESULTS_UK = {
-  'pH': 'pH',
-  'pOH': 'pOH',
-  'Концентрация H⁺': 'Концентрація H⁺',
-  'Среда': 'Середовище',
-  'Проверьте данные': 'Перевірте дані',
-};
-
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'mode': 'Was bekannt ist',
-      'h': 'Konzentration H⁺, mol/l',
-      'ph': 'pH-Wert',
+  "de": {
+    "fields": {
+      "mode": "Was bekannt ist",
+      "h": "Konzentration H⁺, mol/l",
+      "ph": "pH-Wert"
     },
-    options: {
-      'fromH': 'die Konzentration von H⁺',
-      'fromPh': 'der pH-Wert',
+    "options": {
+      "fromH": "die Konzentration von H⁺",
+      "fromPh": "der pH-Wert"
     },
-    results: {
-      'pH': 'pH',
-      'pOH': 'pOH',
-      'Концентрация H⁺': 'Konzentration H⁺',
-      'Среда': 'Milieu',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "pH": "pH",
+      "pOH": "pOH",
+      "Концентрация H⁺": "Konzentration H⁺",
+      "Среда": "Milieu",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      ' моль/л': ' mol/l',
-      ' г/моль': ' g/mol',
-      ' моль': ' mol',
-      ' г/л': ' g/l',
-      ' г': ' g',
-      ' мл': ' ml',
-      ' л': ' l',
-      ' кПа': ' kPa',
-      ' атм': ' atm',
-      ' Па': ' Pa',
-      ' К': ' K',
-      ' ppm': ' ppm',
-      'Дж/(моль·К)': 'J/(mol·K)',
-      'кислая': 'sauer',
-      'щелочная': 'alkalisch',
-      'нейтральная': 'neutral',
-      'pH должен лежать в диапазоне от 0 до 14': 'Der pH-Wert muss im Bereich von 0 bis 14 liegen',
-      'Концентрация должна быть больше нуля': 'Die Konzentration muss größer als null sein',
-      'Полученный pH выходит за диапазон от 0 до 14': 'Der berechnete pH-Wert liegt außerhalb des Bereichs von 0 bis 14',
-    },
+    "values": {
+      " моль/л": " mol/l",
+      " г/моль": " g/mol",
+      " моль": " mol",
+      " г/л": " g/l",
+      " г": " g",
+      " мл": " ml",
+      " л": " l",
+      " кПа": " kPa",
+      " атм": " atm",
+      " Па": " Pa",
+      " К": " K",
+      " ppm": " ppm",
+      "Дж/(моль·К)": "J/(mol·K)",
+      "кислая": "sauer",
+      "щелочная": "alkalisch",
+      "нейтральная": "neutral",
+      "pH должен лежать в диапазоне от 0 до 14": "Der pH-Wert muss im Bereich von 0 bis 14 liegen",
+      "Концентрация должна быть больше нуля": "Die Konzentration muss größer als null sein",
+      "Полученный pH выходит за диапазон от 0 до 14": "Der berechnete pH-Wert liegt außerhalb des Bereichs von 0 bis 14",
+      "Неизвестный режим расчёта": "Unbekannter Rechenmodus",
+      "Введите конечное число": "Gib eine endliche Zahl ein"
+    }
   },
-  en: {
-    fields: { mode: 'What is known', h: 'Concentration of H⁺, mol/L', ph: 'pH', },
-    options: { fromH: 'the concentration of H⁺', fromPh: 'the pH', },
-    results: RESULTS_EN,
-    values: {
-      ' моль/л': ' mol/L',
-      ' г/моль': ' g/mol',
-      ' моль': ' mol',
-      ' г/л': ' g/L',
-      ' г': ' g',
-      ' мл': ' mL',
-      ' л': ' L',
-      ' кПа': ' kPa',
-      ' атм': ' atm',
-      ' Па': ' Pa',
-      ' К': ' K',
-      ' ppm': ' ppm',
-      'Дж/(моль·К)': 'J/(mol·K)',
-      'кислая': 'acidic',
-      'щелочная': 'alkaline',
-      'нейтральная': 'neutral',
-      'pH должен лежать в диапазоне от 0 до 14': 'The pH must lie between 0 and 14',
-      'Концентрация должна быть больше нуля': 'The concentration must be greater than zero',
-      'Полученный pH выходит за диапазон от 0 до 14': 'The resulting pH falls outside the range 0 to 14',
+  "en": {
+    "fields": {
+      "mode": "What is known",
+      "h": "Concentration of H⁺, mol/L",
+      "ph": "pH"
     },
-  },
-  uk: {
-    fields: { mode: 'Що відомо', h: 'Концентрація H⁺, моль/л', ph: 'pH', },
-    options: { fromH: 'концентрація H⁺', fromPh: 'pH', },
-    results: RESULTS_UK,
-    values: {
-      ' моль/л': ' моль/л',
-      ' г/моль': ' г/моль',
-      ' моль': ' моль',
-      ' г/л': ' г/л',
-      ' мл': ' мл',
-      ' кПа': ' кПа',
-      ' атм': ' атм',
-      ' Па': ' Па',
-      ' К': ' К',
-      'Дж/(моль·К)': 'Дж/(моль·К)',
-      'кислая': 'кисле',
-      'щелочная': 'лужне',
-      'нейтральная': 'нейтральне',
-      'pH должен лежать в диапазоне от 0 до 14': 'pH має лежати в діапазоні від 0 до 14',
-      'Концентрация должна быть больше нуля': 'Концентрація має бути більшою за нуль',
-      'Полученный pH выходит за диапазон от 0 до 14': 'Отриманий pH виходить за діапазон від 0 до 14',
+    "options": {
+      "fromH": "the concentration of H⁺",
+      "fromPh": "the pH"
     },
+    "results": {
+      "pH": "pH",
+      "pOH": "pOH",
+      "Концентрация H⁺": "Concentration of H⁺",
+      "Среда": "Medium",
+      "Проверьте данные": "Check the values"
+    },
+    "values": {
+      " моль/л": " mol/L",
+      " г/моль": " g/mol",
+      " моль": " mol",
+      " г/л": " g/L",
+      " г": " g",
+      " мл": " mL",
+      " л": " L",
+      " кПа": " kPa",
+      " атм": " atm",
+      " Па": " Pa",
+      " К": " K",
+      " ppm": " ppm",
+      "Дж/(моль·К)": "J/(mol·K)",
+      "кислая": "acidic",
+      "щелочная": "alkaline",
+      "нейтральная": "neutral",
+      "pH должен лежать в диапазоне от 0 до 14": "The pH must lie between 0 and 14",
+      "Концентрация должна быть больше нуля": "The concentration must be greater than zero",
+      "Полученный pH выходит за диапазон от 0 до 14": "The resulting pH falls outside the range 0 to 14",
+      "Неизвестный режим расчёта": "Unknown calculation mode",
+      "Введите конечное число": "Enter a finite number"
+    }
   },
-  es: {
-    fields: {
+  "uk": {
+    "fields": {
+      "mode": "Що відомо",
+      "h": "Концентрація H⁺, моль/л",
+      "ph": "pH"
+    },
+    "options": {
+      "fromH": "концентрація H⁺",
+      "fromPh": "pH"
+    },
+    "results": {
+      "pH": "pH",
+      "pOH": "pOH",
+      "Концентрация H⁺": "Концентрація H⁺",
+      "Среда": "Середовище",
+      "Проверьте данные": "Перевірте дані"
+    },
+    "values": {
+      " моль/л": " моль/л",
+      " г/моль": " г/моль",
+      " моль": " моль",
+      " г/л": " г/л",
+      " мл": " мл",
+      " кПа": " кПа",
+      " атм": " атм",
+      " Па": " Па",
+      " К": " К",
+      "Дж/(моль·К)": "Дж/(моль·К)",
+      "кислая": "кисле",
+      "щелочная": "лужне",
+      "нейтральная": "нейтральне",
+      "pH должен лежать в диапазоне от 0 до 14": "pH має лежати в діапазоні від 0 до 14",
+      "Концентрация должна быть больше нуля": "Концентрація має бути більшою за нуль",
+      "Полученный pH выходит за диапазон от 0 до 14": "Отриманий pH виходить за діапазон від 0 до 14",
+      "Неизвестный режим расчёта": "Невідомий режим розрахунку",
+      "Введите конечное число": "Введіть скінченне число"
+    }
+  },
+  "es": {
+    "fields": {
       "mode": "Dato conocido",
       "h": "Concentración de H⁺, mol/l",
-      "ph": "pH",
+      "ph": "pH"
     },
-    options: {
+    "options": {
       "fromH": "la concentración de H⁺",
-      "fromPh": "el pH",
+      "fromPh": "el pH"
     },
-    results: {
+    "results": {
       "pH": "pH",
       "pOH": "pOH",
       "Концентрация H⁺": "Concentración de H⁺",
       "Среда": "Medio",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       " моль/л": " mol/l",
       " г/моль": " g/mol",
       " моль": " mol",
@@ -144,6 +158,8 @@ export const localization: CalculatorLocalization = {
       "pH должен лежать в диапазоне от 0 до 14": "El pH debe estar entre 0 y 14",
       "Концентрация должна быть больше нуля": "La concentración debe ser mayor que cero",
       "Полученный pH выходит за диапазон от 0 до 14": "El pH resultante queda fuera del intervalo de 0 a 14",
-    },
-  },
+      "Неизвестный режим расчёта": "Modo de cálculo desconocido",
+      "Введите конечное число": "Introduce un número finito"
+    }
+  }
 };

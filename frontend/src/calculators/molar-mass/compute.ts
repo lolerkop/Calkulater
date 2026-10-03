@@ -23,6 +23,8 @@ const ATOMIC_WEIGHT: Record<string, number> = {
   Na: 22.990, S: 32.06, Cl: 35.45, Ca: 40.078,
 };
 const SUPPORTED = Object.keys(ATOMIC_WEIGHT).join(', ');
+const MAX_FORMULA_LENGTH = 1000;
+const MAX_GROUP_DEPTH = 64;
 const stat = (value: number) => formatStatistic(value, fmtNumber);
 
 type Composition = Record<string, number>;
@@ -35,15 +37,19 @@ function parseFormula(formula: string): Composition | string {
     while (index < formula.length) {
       const char = formula[index];
       if (char === '(') {
+        if (depth >= MAX_GROUP_DEPTH) return 'Слишком сложная химическая формула';
         index += 1;
         const inner = block(depth + 1);
         if (typeof inner === 'string') return inner;
+        if (Object.keys(inner).length === 0) return 'Пустая группа в химической формуле';
         let digits = '';
         while (index < formula.length && /\d/.test(formula[index])) { digits += formula[index]; index += 1; }
         const multiplier = digits ? Number(digits) : 1;
-        if (multiplier === 0) return 'Множитель группы не может быть нулём';
+        if (!Number.isSafeInteger(multiplier) || multiplier <= 0) return 'Индексы и число атомов должны быть положительными безопасными целыми числами';
         for (const [symbol, count] of Object.entries(inner)) {
-          result[symbol] = (result[symbol] ?? 0) + count * multiplier;
+          const total = (result[symbol] ?? 0) + count * multiplier;
+          if (!Number.isSafeInteger(total)) return 'Индексы и число атомов должны быть положительными безопасными целыми числами';
+          result[symbol] = total;
         }
       } else if (char === ')') {
         if (depth === 0) return 'Лишняя закрывающая скобка';
@@ -57,8 +63,10 @@ function parseFormula(formula: string): Composition | string {
         let digits = '';
         while (index < formula.length && /\d/.test(formula[index])) { digits += formula[index]; index += 1; }
         const count = digits ? Number(digits) : 1;
-        if (count === 0) return `Число атомов «${symbol}» не может быть нулём`;
-        result[symbol] = (result[symbol] ?? 0) + count;
+        if (!Number.isSafeInteger(count) || count <= 0) return 'Индексы и число атомов должны быть положительными безопасными целыми числами';
+        const total = (result[symbol] ?? 0) + count;
+        if (!Number.isSafeInteger(total)) return 'Индексы и число атомов должны быть положительными безопасными целыми числами';
+        result[symbol] = total;
       } else {
         return `Символ «${char}» в формуле недопустим`;
       }
@@ -70,6 +78,9 @@ function parseFormula(formula: string): Composition | string {
   const parsed = block(0);
   if (typeof parsed === 'string') return parsed;
   if (Object.keys(parsed).length === 0) return 'Введите химическую формулу';
+  if (!Number.isSafeInteger(Object.values(parsed).reduce((sum, count) => sum + count, 0))) {
+    return 'Индексы и число атомов должны быть положительными безопасными целыми числами';
+  }
   return parsed;
 }
 
@@ -82,6 +93,7 @@ export const compute: CalcFunction = (inputs) => {
   });
 
   if (!formula) return fail('Введите химическую формулу');
+  if (formula.length > MAX_FORMULA_LENGTH) return fail('Слишком сложная химическая формула');
   const composition = parseFormula(formula);
   if (typeof composition === 'string') return fail(composition);
 

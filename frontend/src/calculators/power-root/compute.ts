@@ -1,54 +1,33 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
-
-// Степень и корень.
-//
-// Корень нечётной степени из отрицательного числа существует: ∛−8 = −2. Прямое
-// возведение в дробную степень даёт здесь NaN, потому что для отрицательного
-// основания дробный показатель определён не всегда, поэтому знак выносится
-// отдельно, а корень берётся из модуля.
-//
-// Корень чётной степени из отрицательного числа не существует среди
-// вещественных, и расчёт останавливается вместо показа NaN. По той же причине
-// отклоняется нуль в отрицательной степени: это деление на нуль.
+import { fmtNumber } from '../../lib/format';
+import { formatQuantity } from '../../lib/platform/measurement';
+import { finiteInput, integerInput } from './numeric';
 
 export const compute: CalcFunction = (inputs) => {
-  const root = toStr(inputs.mode, 'power') === 'root';
-  const base = toNumber(inputs.base);
-  const exponent = toNumber(inputs.exponent);
-  const fail = (message: string) => ({
-    primary: { label: 'Результат', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+  const mode = inputs.mode === undefined ? 'power' : inputs.mode;
+  const base = finiteInput(inputs.base), exponent = finiteInput(inputs.exponent);
+  const fail = (message: string) => ({ primary: { label: 'Результат', value: '—' },
+    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (mode !== 'power' && mode !== 'root') return fail('Выберите действие: степень или корень');
+  if (base === null || exponent === null) return fail('Введите конечные числа для основания и показателя');
   let value: number;
-  if (root) {
-    if (!(exponent > 0)) return fail('Степень корня должна быть больше нуля');
-    if (base < 0) {
-      if (!Number.isInteger(exponent) || exponent % 2 === 0) {
-        return fail('Корень чётной степени из отрицательного числа не существует');
-      }
-      value = -Math.pow(-base, 1 / exponent);
-    } else {
-      value = Math.pow(base, 1 / exponent);
-    }
+  if (mode === 'root') {
+    if (exponent <= 0) return fail('Степень корня должна быть больше нуля');
+    if (base < 0 && (integerInput(inputs.exponent) === null || exponent % 2 === 0))
+      return fail('Отрицательное число требует положительной нечётной целой степени корня до 9007199254740991');
+    value = base === 0 ? 0 : base === 1 ? 1 : base < 0 ? -Math.pow(-base, 1 / exponent) : Math.pow(base, 1 / exponent);
   } else {
+    if (base === 0 && exponent === 0) return fail('Для 0⁰ на этой странице не выбран результат');
     if (base === 0 && exponent < 0) return fail('Нуль нельзя возвести в отрицательную степень');
-    if (base < 0 && !Number.isInteger(exponent)) {
-      return fail('Отрицательное основание требует целого показателя');
-    }
+    if (base < 0 && integerInput(inputs.exponent) === null)
+      return fail('Отрицательное основание требует целого показателя по модулю до 9007199254740991');
     value = Math.pow(base, exponent);
   }
-
-  if (!Number.isFinite(value)) return fail('Результат слишком велик для точного расчёта');
-
-  return {
-    primary: { label: 'Результат', value: formatMeasure(value, fmtNumber) },
-    secondary: [
-      { label: 'Основание', value: formatMeasure(base, fmtNumber) },
-      { label: 'Показатель', value: formatMeasure(exponent, fmtNumber) },
-      { label: 'Действие', value: root ? 'корень' : 'степень' },
-    ],
-  };
+  if (!Number.isFinite(value) || (value === 0 && base !== 0))
+    return fail('Результат вне числового диапазона: переполнение или потеря ненулевого значения');
+  const show = (number: number) => formatQuantity(number === 0 ? 0 : number, fmtNumber);
+  return { primary: { label: 'Результат', value: show(value) }, secondary: [
+    { label: 'Основание', value: show(base) }, { label: 'Показатель', value: show(exponent) },
+    { label: 'Действие', value: mode === 'root' ? 'корень' : 'степень' },
+  ] };
 };

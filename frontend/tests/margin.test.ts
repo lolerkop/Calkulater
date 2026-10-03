@@ -85,11 +85,13 @@ describe('margin: партия', () => {
     expect(row(batch, 'Прибыль за партию')).toBe('2 000 ₽');
   });
 
-  it('дробное количество усекается, ноль трактуется как одна единица', () => {
-    const r = calcMargin({ mode: 'fromPrice', cost: 100, sellPrice: 150, quantity: 0 });
-    expect(r.secondary.some((s) => s.label === 'Прибыль за партию')).toBe(false);
-    const frac = calcMargin({ mode: 'fromPrice', cost: 100, sellPrice: 150, quantity: 3.9 });
-    expect(row(frac, 'Прибыль за партию')).toBe('150 ₽');
+  it('нулевое и дробное количество отклоняются до расчёта партии', () => {
+    for (const quantity of [0, 3.9]) {
+      const result = calcMargin({ mode: 'fromPrice', cost: 100, sellPrice: 150, quantity });
+      expect(result.primary.value).toBe('—');
+      expect(row(result, 'Проверьте данные')).toBe('Количество должно быть целым числом не меньше 1');
+      expect(result.secondary.some((s) => s.label === 'Прибыль за партию')).toBe(false);
+    }
   });
 });
 

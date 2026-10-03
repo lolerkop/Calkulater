@@ -1,0 +1,2079 @@
+{
+  "oracle": "Python Decimal100 digits; literal ISO nominal mm / scalar multipliers / elementary angular and linear identities; outputs not consulted",
+  "cases": [
+    {
+      "id": "coordinate-convert",
+      "input": {
+        "mode": "toDecimal",
+        "deg": 55,
+        "minutes": 45,
+        "seconds": "30",
+        "hemisphere": "N"
+      },
+      "expected": "55.75833333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333",
+      "decimals": 4
+    },
+    {
+      "id": "coordinate-convert",
+      "input": {
+        "mode": "toDecimal",
+        "deg": 0,
+        "minutes": 0,
+        "seconds": "59.5",
+        "hemisphere": "N"
+      },
+      "expected": "0.01652777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777778",
+      "decimals": 4
+    },
+    {
+      "id": "coordinate-convert",
+      "input": {
+        "mode": "toDecimal",
+        "deg": 179,
+        "minutes": 59,
+        "seconds": "59.5",
+        "hemisphere": "S"
+      },
+      "expected": "-179.9998611111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
+      "decimals": 4
+    },
+    {
+      "id": "coordinate-convert",
+      "input": {
+        "mode": "toDecimal",
+        "deg": 90,
+        "minutes": 0,
+        "seconds": "0",
+        "hemisphere": "N"
+      },
+      "expected": "90",
+      "decimals": 4
+    },
+    {
+      "id": "coordinate-convert",
+      "input": {
+        "mode": "toDecimal",
+        "deg": 180,
+        "minutes": 0,
+        "seconds": "0",
+        "hemisphere": "S"
+      },
+      "expected": "-180",
+      "decimals": 4
+    },
+    {
+      "id": "coordinate-convert",
+      "input": {
+        "mode": "toDecimal",
+        "deg": 1,
+        "minutes": 59,
+        "seconds": "0.5",
+        "hemisphere": "N"
+      },
+      "expected": "1.983472222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222",
+      "decimals": 4
+    },
+    {
+      "id": "coordinate-convert",
+      "input": {
+        "mode": "toDecimal",
+        "deg": 0,
+        "minutes": 0,
+        "seconds": "0.00001",
+        "hemisphere": "N"
+      },
+      "expected": "2.777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777778E-9",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "unit",
+        "to": "unit"
+      },
+      "expected": "1",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "unit",
+        "to": "unit"
+      },
+      "expected": "2.5",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "unit",
+        "to": "unit"
+      },
+      "expected": "25",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "unit",
+        "to": "thousand"
+      },
+      "expected": "0.001",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "unit",
+        "to": "thousand"
+      },
+      "expected": "0.0025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "unit",
+        "to": "thousand"
+      },
+      "expected": "0.025",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "unit",
+        "to": "lakh"
+      },
+      "expected": "0.00001",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "unit",
+        "to": "lakh"
+      },
+      "expected": "0.000025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "unit",
+        "to": "lakh"
+      },
+      "expected": "0.00025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "unit",
+        "to": "million"
+      },
+      "expected": "0.000001",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "unit",
+        "to": "million"
+      },
+      "expected": "0.0000025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "unit",
+        "to": "million"
+      },
+      "expected": "0.000025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "unit",
+        "to": "crore"
+      },
+      "expected": "1E-7",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "unit",
+        "to": "crore"
+      },
+      "expected": "2.5E-7",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "unit",
+        "to": "crore"
+      },
+      "expected": "0.0000025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "unit",
+        "to": "billion"
+      },
+      "expected": "1E-9",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "unit",
+        "to": "billion"
+      },
+      "expected": "2.5E-9",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "unit",
+        "to": "billion"
+      },
+      "expected": "2.5E-8",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "thousand",
+        "to": "unit"
+      },
+      "expected": "1000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "thousand",
+        "to": "unit"
+      },
+      "expected": "2500.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "thousand",
+        "to": "unit"
+      },
+      "expected": "25000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "thousand",
+        "to": "thousand"
+      },
+      "expected": "1",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "thousand",
+        "to": "thousand"
+      },
+      "expected": "2.5",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "thousand",
+        "to": "thousand"
+      },
+      "expected": "25",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "thousand",
+        "to": "lakh"
+      },
+      "expected": "0.01",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "thousand",
+        "to": "lakh"
+      },
+      "expected": "0.025",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "thousand",
+        "to": "lakh"
+      },
+      "expected": "0.25",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "thousand",
+        "to": "million"
+      },
+      "expected": "0.001",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "thousand",
+        "to": "million"
+      },
+      "expected": "0.0025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "thousand",
+        "to": "million"
+      },
+      "expected": "0.025",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "thousand",
+        "to": "crore"
+      },
+      "expected": "0.0001",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "thousand",
+        "to": "crore"
+      },
+      "expected": "0.00025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "thousand",
+        "to": "crore"
+      },
+      "expected": "0.0025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "thousand",
+        "to": "billion"
+      },
+      "expected": "0.000001",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "thousand",
+        "to": "billion"
+      },
+      "expected": "0.0000025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "thousand",
+        "to": "billion"
+      },
+      "expected": "0.000025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "lakh",
+        "to": "unit"
+      },
+      "expected": "100000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "lakh",
+        "to": "unit"
+      },
+      "expected": "250000.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "lakh",
+        "to": "unit"
+      },
+      "expected": "2500000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "lakh",
+        "to": "thousand"
+      },
+      "expected": "100",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "lakh",
+        "to": "thousand"
+      },
+      "expected": "250.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "lakh",
+        "to": "thousand"
+      },
+      "expected": "2500",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "lakh",
+        "to": "lakh"
+      },
+      "expected": "1",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "lakh",
+        "to": "lakh"
+      },
+      "expected": "2.5",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "lakh",
+        "to": "lakh"
+      },
+      "expected": "25",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "lakh",
+        "to": "million"
+      },
+      "expected": "0.1",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "lakh",
+        "to": "million"
+      },
+      "expected": "0.25",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "lakh",
+        "to": "million"
+      },
+      "expected": "2.5",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "lakh",
+        "to": "crore"
+      },
+      "expected": "0.01",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "lakh",
+        "to": "crore"
+      },
+      "expected": "0.025",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "lakh",
+        "to": "crore"
+      },
+      "expected": "0.25",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "lakh",
+        "to": "billion"
+      },
+      "expected": "0.0001",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "lakh",
+        "to": "billion"
+      },
+      "expected": "0.00025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "lakh",
+        "to": "billion"
+      },
+      "expected": "0.0025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "million",
+        "to": "unit"
+      },
+      "expected": "1000000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "million",
+        "to": "unit"
+      },
+      "expected": "2500000.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "million",
+        "to": "unit"
+      },
+      "expected": "25000000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "million",
+        "to": "thousand"
+      },
+      "expected": "1000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "million",
+        "to": "thousand"
+      },
+      "expected": "2500.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "million",
+        "to": "thousand"
+      },
+      "expected": "25000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "million",
+        "to": "lakh"
+      },
+      "expected": "10",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "million",
+        "to": "lakh"
+      },
+      "expected": "25.0",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "million",
+        "to": "lakh"
+      },
+      "expected": "250",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "million",
+        "to": "million"
+      },
+      "expected": "1",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "million",
+        "to": "million"
+      },
+      "expected": "2.5",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "million",
+        "to": "million"
+      },
+      "expected": "25",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "million",
+        "to": "crore"
+      },
+      "expected": "0.1",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "million",
+        "to": "crore"
+      },
+      "expected": "0.25",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "million",
+        "to": "crore"
+      },
+      "expected": "2.5",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "million",
+        "to": "billion"
+      },
+      "expected": "0.001",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "million",
+        "to": "billion"
+      },
+      "expected": "0.0025",
+      "decimals": 6
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "million",
+        "to": "billion"
+      },
+      "expected": "0.025",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "crore",
+        "to": "unit"
+      },
+      "expected": "10000000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "crore",
+        "to": "unit"
+      },
+      "expected": "25000000.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "crore",
+        "to": "unit"
+      },
+      "expected": "250000000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "crore",
+        "to": "thousand"
+      },
+      "expected": "10000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "crore",
+        "to": "thousand"
+      },
+      "expected": "25000.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "crore",
+        "to": "thousand"
+      },
+      "expected": "250000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "crore",
+        "to": "lakh"
+      },
+      "expected": "100",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "crore",
+        "to": "lakh"
+      },
+      "expected": "250.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "crore",
+        "to": "lakh"
+      },
+      "expected": "2500",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "crore",
+        "to": "million"
+      },
+      "expected": "10",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "crore",
+        "to": "million"
+      },
+      "expected": "25.0",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "crore",
+        "to": "million"
+      },
+      "expected": "250",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "crore",
+        "to": "crore"
+      },
+      "expected": "1",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "crore",
+        "to": "crore"
+      },
+      "expected": "2.5",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "crore",
+        "to": "crore"
+      },
+      "expected": "25",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "crore",
+        "to": "billion"
+      },
+      "expected": "0.01",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "crore",
+        "to": "billion"
+      },
+      "expected": "0.025",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "crore",
+        "to": "billion"
+      },
+      "expected": "0.25",
+      "decimals": 4
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "billion",
+        "to": "unit"
+      },
+      "expected": "1000000000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "billion",
+        "to": "unit"
+      },
+      "expected": "2500000000.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "billion",
+        "to": "unit"
+      },
+      "expected": "25000000000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "billion",
+        "to": "thousand"
+      },
+      "expected": "1000000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "billion",
+        "to": "thousand"
+      },
+      "expected": "2500000.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "billion",
+        "to": "thousand"
+      },
+      "expected": "25000000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "billion",
+        "to": "lakh"
+      },
+      "expected": "10000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "billion",
+        "to": "lakh"
+      },
+      "expected": "25000.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "billion",
+        "to": "lakh"
+      },
+      "expected": "250000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "billion",
+        "to": "million"
+      },
+      "expected": "1000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "billion",
+        "to": "million"
+      },
+      "expected": "2500.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "billion",
+        "to": "million"
+      },
+      "expected": "25000",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "billion",
+        "to": "crore"
+      },
+      "expected": "100",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "billion",
+        "to": "crore"
+      },
+      "expected": "250.0",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "billion",
+        "to": "crore"
+      },
+      "expected": "2500",
+      "decimals": 2
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "1",
+        "from": "billion",
+        "to": "billion"
+      },
+      "expected": "1",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "2.5",
+        "from": "billion",
+        "to": "billion"
+      },
+      "expected": "2.5",
+      "decimals": 3
+    },
+    {
+      "id": "number-scale-names",
+      "input": {
+        "value": "25",
+        "from": "billion",
+        "to": "billion"
+      },
+      "expected": "25",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 64,
+        "sheets": 1
+      },
+      "expected": "0.063996736",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 64,
+        "sheets": 100
+      },
+      "expected": "6.3996736",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 64,
+        "sheets": 500
+      },
+      "expected": "31.998368",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 80,
+        "sheets": 1
+      },
+      "expected": "0.07999592",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 80,
+        "sheets": 100
+      },
+      "expected": "7.999592",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 80,
+        "sheets": 500
+      },
+      "expected": "39.99796",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 120,
+        "sheets": 1
+      },
+      "expected": "0.11999388",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 120,
+        "sheets": 100
+      },
+      "expected": "11.999388",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 120,
+        "sheets": 500
+      },
+      "expected": "59.99694",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 200,
+        "sheets": 1
+      },
+      "expected": "0.1999898",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 200,
+        "sheets": 100
+      },
+      "expected": "19.99898",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a0",
+        "grammage": 200,
+        "sheets": 500
+      },
+      "expected": "99.9949",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 64,
+        "sheets": 1
+      },
+      "expected": "0.031971456",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 64,
+        "sheets": 100
+      },
+      "expected": "3.1971456",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 64,
+        "sheets": 500
+      },
+      "expected": "15.985728",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 80,
+        "sheets": 1
+      },
+      "expected": "0.03996432",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 80,
+        "sheets": 100
+      },
+      "expected": "3.996432",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 80,
+        "sheets": 500
+      },
+      "expected": "19.98216",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 120,
+        "sheets": 1
+      },
+      "expected": "0.05994648",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 120,
+        "sheets": 100
+      },
+      "expected": "5.994648",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 120,
+        "sheets": 500
+      },
+      "expected": "29.97324",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 200,
+        "sheets": 1
+      },
+      "expected": "0.0999108",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 200,
+        "sheets": 100
+      },
+      "expected": "9.99108",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a1",
+        "grammage": 200,
+        "sheets": 500
+      },
+      "expected": "49.9554",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 64,
+        "sheets": 1
+      },
+      "expected": "0.01596672",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 64,
+        "sheets": 100
+      },
+      "expected": "1.596672",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 64,
+        "sheets": 500
+      },
+      "expected": "7.98336",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 80,
+        "sheets": 1
+      },
+      "expected": "0.0199584",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 80,
+        "sheets": 100
+      },
+      "expected": "1.99584",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 80,
+        "sheets": 500
+      },
+      "expected": "9.9792",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 120,
+        "sheets": 1
+      },
+      "expected": "0.0299376",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 120,
+        "sheets": 100
+      },
+      "expected": "2.99376",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 120,
+        "sheets": 500
+      },
+      "expected": "14.9688",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 200,
+        "sheets": 1
+      },
+      "expected": "0.049896",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 200,
+        "sheets": 100
+      },
+      "expected": "4.9896",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a2",
+        "grammage": 200,
+        "sheets": 500
+      },
+      "expected": "24.948",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 64,
+        "sheets": 1
+      },
+      "expected": "0.00798336",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 64,
+        "sheets": 100
+      },
+      "expected": "0.798336",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 64,
+        "sheets": 500
+      },
+      "expected": "3.99168",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 80,
+        "sheets": 1
+      },
+      "expected": "0.0099792",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 80,
+        "sheets": 100
+      },
+      "expected": "0.99792",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 80,
+        "sheets": 500
+      },
+      "expected": "4.9896",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 120,
+        "sheets": 1
+      },
+      "expected": "0.0149688",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 120,
+        "sheets": 100
+      },
+      "expected": "1.49688",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 120,
+        "sheets": 500
+      },
+      "expected": "7.4844",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 200,
+        "sheets": 1
+      },
+      "expected": "0.024948",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 200,
+        "sheets": 100
+      },
+      "expected": "2.4948",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a3",
+        "grammage": 200,
+        "sheets": 500
+      },
+      "expected": "12.474",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 64,
+        "sheets": 1
+      },
+      "expected": "0.00399168",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 64,
+        "sheets": 100
+      },
+      "expected": "0.399168",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 64,
+        "sheets": 500
+      },
+      "expected": "1.99584",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 80,
+        "sheets": 1
+      },
+      "expected": "0.0049896",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 80,
+        "sheets": 100
+      },
+      "expected": "0.49896",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 80,
+        "sheets": 500
+      },
+      "expected": "2.4948",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 120,
+        "sheets": 1
+      },
+      "expected": "0.0074844",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 120,
+        "sheets": 100
+      },
+      "expected": "0.74844",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 120,
+        "sheets": 500
+      },
+      "expected": "3.7422",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 200,
+        "sheets": 1
+      },
+      "expected": "0.012474",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 200,
+        "sheets": 100
+      },
+      "expected": "1.2474",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a4",
+        "grammage": 200,
+        "sheets": 500
+      },
+      "expected": "6.237",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 64,
+        "sheets": 1
+      },
+      "expected": "0.00198912",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 64,
+        "sheets": 100
+      },
+      "expected": "0.198912",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 64,
+        "sheets": 500
+      },
+      "expected": "0.99456",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 80,
+        "sheets": 1
+      },
+      "expected": "0.0024864",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 80,
+        "sheets": 100
+      },
+      "expected": "0.24864",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 80,
+        "sheets": 500
+      },
+      "expected": "1.2432",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 120,
+        "sheets": 1
+      },
+      "expected": "0.0037296",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 120,
+        "sheets": 100
+      },
+      "expected": "0.37296",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 120,
+        "sheets": 500
+      },
+      "expected": "1.8648",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 200,
+        "sheets": 1
+      },
+      "expected": "0.006216",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 200,
+        "sheets": 100
+      },
+      "expected": "0.6216",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a5",
+        "grammage": 200,
+        "sheets": 500
+      },
+      "expected": "3.108",
+      "decimals": 3
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 64,
+        "sheets": 1
+      },
+      "expected": "0.00099456",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 64,
+        "sheets": 100
+      },
+      "expected": "0.099456",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 64,
+        "sheets": 500
+      },
+      "expected": "0.49728",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 80,
+        "sheets": 1
+      },
+      "expected": "0.0012432",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 80,
+        "sheets": 100
+      },
+      "expected": "0.12432",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 80,
+        "sheets": 500
+      },
+      "expected": "0.6216",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 120,
+        "sheets": 1
+      },
+      "expected": "0.0018648",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 120,
+        "sheets": 100
+      },
+      "expected": "0.18648",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 120,
+        "sheets": 500
+      },
+      "expected": "0.9324",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 200,
+        "sheets": 1
+      },
+      "expected": "0.003108",
+      "decimals": 6
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 200,
+        "sheets": 100
+      },
+      "expected": "0.3108",
+      "decimals": 4
+    },
+    {
+      "id": "paper-quantity",
+      "input": {
+        "format": "a6",
+        "grammage": 200,
+        "sheets": 500
+      },
+      "expected": "1.554",
+      "decimals": 3
+    },
+    {
+      "id": "scale-model",
+      "input": {
+        "mode": "toModel",
+        "real": "4350",
+        "scale": "87"
+      },
+      "expected": "50",
+      "decimals": 3
+    },
+    {
+      "id": "scale-model",
+      "input": {
+        "mode": "toModel",
+        "real": "4350",
+        "scale": "160"
+      },
+      "expected": "27.1875",
+      "decimals": 3
+    },
+    {
+      "id": "scale-model",
+      "input": {
+        "mode": "toModel",
+        "real": "50",
+        "scale": "0.5"
+      },
+      "expected": "1.0E+2",
+      "decimals": 2
+    },
+    {
+      "id": "scale-model",
+      "input": {
+        "mode": "toReal",
+        "model": "50",
+        "scale": "43"
+      },
+      "expected": "2150",
+      "decimals": 2
+    },
+    {
+      "id": "scale-model",
+      "input": {
+        "mode": "toReal",
+        "model": "2.5",
+        "scale": "0.5"
+      },
+      "expected": "1.25",
+      "decimals": 3
+    },
+    {
+      "id": "scale-model",
+      "input": {
+        "mode": "findScale",
+        "real": "1000",
+        "model": "100"
+      },
+      "expected": "10",
+      "decimals": 3
+    },
+    {
+      "id": "scale-model",
+      "input": {
+        "mode": "findScale",
+        "real": "5",
+        "model": "10"
+      },
+      "expected": "0.5",
+      "decimals": 4
+    }
+  ]
+}

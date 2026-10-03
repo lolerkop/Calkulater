@@ -1,14 +1,12 @@
 import type { CalculatorContextualField } from '../../lib/platform/types';
-
-// Вычисляемая величина зависит от направления перевода: в одном режиме это
-// время кадра, в другом — частота. Поле остаётся видимым, но только для
-// чтения, чтобы в него не набирали значение, которое всё равно заменится.
-const COMPUTED: Record<string, string> = { fps: 'frameTime', ms: 'fps' };
-const SUFFIX: Record<string, string> = { ru: ' (вычисляется)', en: ' (computed)', uk: ' (обчислюється)' };
-
+const units = {"fps": "FPS", "frameTime": "мс"};
+const native: Record<string, readonly string[]> = {"мс": ["мс", "ms", "мс", "ms", "ms"]};
+const localeIndex: Record<string,number> = {ru:0,en:1,uk:2,de:3,es:4};
+const dynamic: Record<string, readonly [string,Record<string,string>]> = {};
 export const contextualField: CalculatorContextualField = (field, values, locale) => {
-  const mode = String(values.mode ?? 'fps');
-  if (field.name !== COMPUTED[mode]) return field;
-  const suffix = SUFFIX[locale] ?? SUFFIX.en;
-  return { ...field, readOnly: true, label: `${field.label}${suffix}` };
+ const i = localeIndex[locale] ?? 1;
+ const pair = dynamic[field.name];
+ if (pair) { const key = values[pair[0]]; const unit = typeof key === 'string' && Object.hasOwn(pair[1],key) ? pair[1][key] : undefined; return {...field,unit}; }
+ const unit = units[field.name as keyof typeof units];
+ return unit ? {...field,unit:native[unit]?.[i] ?? unit} : field;
 };

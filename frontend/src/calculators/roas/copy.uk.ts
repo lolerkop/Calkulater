@@ -1,11 +1,17 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const roasCopyUk: CalculatorSeoCopy = {
-  name: "Калькулятор ROAS",
-  slug: "roas",
-  shortDescription: "Окупність рекламних витрат разом із ROI.",
-  seoTitle: "Калькулятор ROAS — окупність реклами та ROI",
-  seoDescription: "Обчисліть ROAS як кратність і відсоток разом із ROI та поглядом крізь валову маржу.",
-  h1: "Калькулятор ROAS",
-  keywords: ["roas калькулятор", "окупність реклами", "roas та roi"],
+export const roasCopyUk: CalculatorCopy = {
+  "name": "Калькулятор ROAS",
+  "slug": "roas",
+  "shortDescription": "ROAS за виторгом і дохідність реклами з урахуванням маржі.",
+  "seoTitle": "Калькулятор ROAS — виторг і покриття реклами",
+  "seoDescription": "ROAS за виторгом і дохідність реклами з урахуванням маржі.",
+  "h1": "Калькулятор ROAS",
+  "keywords": [
+    "roas калькулятор",
+    "окупність реклами",
+    "roas та roi"
+  ],
+  ...contractContent.uk,
 };

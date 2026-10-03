@@ -1,0 +1,1845 @@
+{
+  "status": "OWNED_SOURCE_CANDIDATE_FROZEN_NUMERIC_AND_AUTHORED_60_PASS_PUBLICATION_PENDING_NOT_HUMAN_APPROVAL",
+  "checkedLocalDate": "2026-10-02",
+  "scope": {
+    "ids": [
+      "binomial-probability",
+      "confidence-interval",
+      "correlation",
+      "dice-probability",
+      "probability-basic",
+      "quartile",
+      "roman-numerals",
+      "rounding",
+      "sample-size",
+      "stats-descriptive",
+      "weighted-mean",
+      "z-score"
+    ],
+    "localeCount": 5,
+    "actualBeforeUrlCount": 60,
+    "ownedAfterCompleteCopyCount": 60,
+    "limits": "Only12owned engines/60 authored copies. No claim for othercatalog pages; no shared/generated/snapshot/sourcepriority edit, build, deployment oraccount actions."
+  },
+  "baseline": {
+    "beforeDirectory": "/tmp/calcuway-math-wave8-before",
+    "sourceFileCount": 120,
+    "sourceManifestFile": "/tmp/calcuway-math-wave8-before/manifest.json",
+    "sourceManifestFileSha256": "80c2c0456bff2aab50022068f126169a88c1daad57f0544cef01d1b4a14fd9c9",
+    "sourceManifestSha256": "39af53de838c607a22f588c9b1ebed9d16b689d5807712f58cfa4b1b07107810",
+    "actualBeforeFile": "/tmp/calcuway-math-wave8-before/actual60.json",
+    "actualBeforeSha256": "d9558befb3104c5ac06567f8d85d6ca129a0ca3ed734297c7a1d4d9b26335199",
+    "actualBeforeCaptured": true,
+    "provenance": "24 RU/EN copies owned full body;36 UK/DE/ES copies were metadata only, effective body came from actual legacy locale output. All60 effective bodies read before editing;36 useful inherited bodies materialized into current owned copies."
+  },
+  "contracts": [
+    {
+      "id": "binomial-probability",
+      "domain": "n 1..1000, k 0..n, both exact safe integer lexemes; p finite 0..1; exactly/atMost/atLeast.",
+      "methodAndSubjectDecision": "Independent equal-p Bernoulli trials; exact BigInt combination count, bounded log-sum-exp approximate probabilities. p=0/1 true zeros; positive selected probability outside binary64 fails. Correct factorial precision myth and distinguish event exactly k from numerical exactness.",
+      "defaultValues": {
+        "n": 10,
+        "k": 3,
+        "p": 0.5,
+        "mode": "exactly"
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Вероятность ровно k",
+          "value": "0,1172"
+        },
+        "secondary": [
+          {
+            "label": "В процентах",
+            "value": "11,72%"
+          },
+          {
+            "label": "Вероятность ровно k",
+            "value": "0,1172"
+          },
+          {
+            "label": "Не более k",
+            "value": "0,1719"
+          },
+          {
+            "label": "Не менее k",
+            "value": "0,9453"
+          },
+          {
+            "label": "Число сочетаний",
+            "value": "120"
+          },
+          {
+            "label": "Математическое ожидание",
+            "value": "5"
+          },
+          {
+            "label": "Стандартное отклонение",
+            "value": "1,5811"
+          }
+        ]
+      }
+    },
+    {
+      "id": "confidence-interval",
+      "domain": "Finite mean, sd>=0, exact safe integer n>=2, confidence90/95/99; preserved Z1.645/1.96/2.576.",
+      "methodAndSubjectDecision": "Normal known-sigma mean interval. If sample s is used, normal approximation; Student t not implemented. Repeated-sampling coverage, not probability of fixed population mean in an observed interval. Same data units. sd0 formal point; nonzero unrepresentable/collapsed width error, fine representable bounds show17significantdigits when needed.",
+      "defaultValues": {
+        "mean": 100,
+        "sd": 15,
+        "n": 36,
+        "confidence": "95"
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Доверительный интервал",
+          "value": "95,1 … 104,9"
+        },
+        "secondary": [
+          {
+            "label": "Предел погрешности",
+            "value": "4,9"
+          },
+          {
+            "label": "Стандартная ошибка",
+            "value": "2,5"
+          },
+          {
+            "label": "Критическое значение z",
+            "value": "1,96"
+          },
+          {
+            "label": "Нижняя граница",
+            "value": "95,1"
+          },
+          {
+            "label": "Верхняя граница",
+            "value": "104,9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "correlation",
+      "domain": "3..10000 positional pairs, matching length, finite full tokens, no constant series, <=1000000characters per series.",
+      "methodAndSubjectDecision": "Pearson/OLS with intercept; r dimensionless, sample covariance X*Y, slopeY/X, interceptY. Exact centered binary sums preserve huge/tiny recoverable results. No significance/p-value/causation claim. Units consistent within each series, X andY may differ.",
+      "defaultValues": {
+        "xs": "1 2 3 4 5",
+        "ys": "2 4 5 4 5"
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Коэффициент корреляции",
+          "value": "0,7746"
+        },
+        "secondary": [
+          {
+            "label": "Коэффициент детерминации",
+            "value": "0,6"
+          },
+          {
+            "label": "Ковариация выборки",
+            "value": "1,5"
+          },
+          {
+            "label": "Наклон линии",
+            "value": "0,6"
+          },
+          {
+            "label": "Свободный член",
+            "value": "2,2"
+          },
+          {
+            "label": "Пар значений",
+            "value": "5"
+          },
+          {
+            "label": "Среднее X",
+            "value": "3"
+          },
+          {
+            "label": "Среднее Y",
+            "value": "4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dice-probability",
+      "domain": "Exact integers count1..10, sides2..100, feasible integer target.",
+      "methodAndSubjectDecision": "Fair independent identical dice, faces1..sides. Exact bounded BigInt inclusion-exclusion counts; total100^10 not rounded. Tiny nonzero probability shown scientifically. Correct10d20 safe-count claim to10d100=10^20.",
+      "defaultValues": {
+        "count": 2,
+        "sides": 6,
+        "target": 7
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Вероятность суммы",
+          "value": "16,67%"
+        },
+        "secondary": [
+          {
+            "label": "Благоприятных исходов",
+            "value": "6"
+          },
+          {
+            "label": "Всего исходов",
+            "value": "36"
+          },
+          {
+            "label": "Ожидаемая сумма",
+            "value": "7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "probability-basic",
+      "domain": "Four whitelist modes; exact nonnegative safe integer favourable<=positive total; independent probabilitiesfinite0..1, inactive inputs ignored.",
+      "methodAndSubjectDecision": "Counts require equiprobability; independent intersection/union differs from disjoint union. Exact dyadic expression avoids cancellation in complement andtiny union; nonzero primary underflow error; auxiliary impossible odds explicit range diagnostic.",
+      "defaultValues": {
+        "mode": "single",
+        "favourable": 1,
+        "total": 6,
+        "favourable2": 1,
+        "total2": 6,
+        "p1": 0.5,
+        "p2": 0.5,
+        "p3": 0.5,
+        "p4": 0.5
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Вероятность",
+          "value": "0,1667"
+        },
+        "secondary": [
+          {
+            "label": "В процентах",
+            "value": "16,667%"
+          },
+          {
+            "label": "Противоположное событие",
+            "value": "0,8333"
+          },
+          {
+            "label": "Шансы",
+            "value": "5 к 1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "quartile",
+      "domain": "4..10000 finite tokens <=1000000characters; strict full-token grammar; min4 a product rule.",
+      "methodAndSubjectDecision": "Type7 h=(n-1)p linear interpolation; other definitions valid. IQR and1.5IQR fences, observed whiskers are different; flag notprooferror. Exact binary interpolation/fence comparisons; primary nonzero unrepresentable median error, auxiliary range diagnostic.",
+      "defaultValues": {
+        "values": "2 4 4 5 7 9 11 12"
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Медиана",
+          "value": "6"
+        },
+        "secondary": [
+          {
+            "label": "Первый квартиль",
+            "value": "4"
+          },
+          {
+            "label": "Третий квартиль",
+            "value": "9,5"
+          },
+          {
+            "label": "Межквартильный размах",
+            "value": "5,5"
+          },
+          {
+            "label": "Границы усов",
+            "value": "-4,25 … 17,75"
+          },
+          {
+            "label": "Выбросов",
+            "value": "0"
+          },
+          {
+            "label": "Значений",
+            "value": "8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "roman-numerals",
+      "domain": "toRoman integer1..3999; toArabic trimmed/case-normalized canonical string <=15symbols; unknown modes reject.",
+      "methodAndSubjectDecision": "Chosen modern subtractive canonical convention, notuniversal historical bound. Canonical comparison rejects IIII aliases butnotbecause historical representations wereambiguous. No decorative external source.",
+      "defaultValues": {
+        "mode": "toRoman",
+        "arabic": 1994,
+        "roman": "MMXXIV"
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Римское число",
+          "value": "MCMXCIV"
+        },
+        "secondary": [
+          {
+            "label": "Арабское число",
+            "value": "1994"
+          },
+          {
+            "label": "Символов в записи",
+            "value": "7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rounding",
+      "domain": "Finite normalized binary64value, exact integer digits0..10; half/down/up.",
+      "methodAndSubjectDecision": "Shortest decimal representation of input normalized to binary64, then exact BigInt decimal quantization. half ties away from zero, down floor, up ceiling. Preserve visible up-to10 decimal digits/original/signed difference; not arbitrary precision raw decimal or universal legalfinancialrule.",
+      "defaultValues": {
+        "value": 2748.536,
+        "digits": 2,
+        "mode": "half"
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Округлённое значение",
+          "value": "2 748,54"
+        },
+        "secondary": [
+          {
+            "label": "Исходное значение",
+            "value": "2 748,536"
+          },
+          {
+            "label": "Разница",
+            "value": "0,004"
+          },
+          {
+            "label": "Знаков",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sample-size",
+      "domain": "confidence90/95/99 preserved full Z; positivefinite marginpercent, proportion0..100percent, population0unknown ornonnegative safe integer.",
+      "methodAndSubjectDecision": "Normal planning of oneproportion under simple random sampling/response assumptions. Exactdyadic percentformula, exactceilBigInt andFPC; p50conservative under model, p0/100formalzero notsurveyrecommendation. Unknown fraction—. Defaultraw384.145882..=>385,N500corrected217.487218..=>218; doesnotestimateABpower.",
+      "defaultValues": {
+        "confidence": "95",
+        "margin": 5,
+        "proportion": 50,
+        "population": 0
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Размер выборки",
+          "value": "385 чел"
+        },
+        "secondary": [
+          {
+            "label": "Без поправки на совокупность",
+            "value": "385 чел"
+          },
+          {
+            "label": "Критическое значение z",
+            "value": "1,96"
+          },
+          {
+            "label": "Предельная ошибка",
+            "value": "5 %"
+          },
+          {
+            "label": "Доля от совокупности",
+            "value": "—"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stats-descriptive",
+      "domain": "1..10000 finite tokens <=1000000characters, sample/population modes, strict fulltoken grammar.",
+      "methodAndSubjectDecision": "Mean/median/mode/range; exact centered sums, sample denominator n-1 vs population n. Singletons sample variance—, allunique mode— explicitreportconvention. SD data unit, variance squared; overflow/underflow diagnostics do not fakezero; skewness notproven by meanmedian difference.",
+      "defaultValues": {
+        "values": "12\n15\n18\n21\n24",
+        "mode": "sample"
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Среднее",
+          "value": "18"
+        },
+        "secondary": [
+          {
+            "label": "Количество",
+            "value": "5"
+          },
+          {
+            "label": "Сумма",
+            "value": "90"
+          },
+          {
+            "label": "Медиана",
+            "value": "18"
+          },
+          {
+            "label": "Мода",
+            "value": "—"
+          },
+          {
+            "label": "Минимум",
+            "value": "12"
+          },
+          {
+            "label": "Максимум",
+            "value": "24"
+          },
+          {
+            "label": "Размах",
+            "value": "12"
+          },
+          {
+            "label": "Дисперсия",
+            "value": "22,5"
+          },
+          {
+            "label": "Стандартное отклонение",
+            "value": "4,7434"
+          }
+        ]
+      }
+    },
+    {
+      "id": "weighted-mean",
+      "domain": "1..10000 lines ofexactly2 finite tokens, <=1000000characters; weights>=0 andpositive total.",
+      "methodAndSubjectDecision": "Weighted sum/product ratio exactly from finite binaryinputs; individual zero weights valid, negative rejected. Values share consistent units, weights owncommon scale cancels. Two-column textarea not falsely labeled asone scalar dataunit; auxiliary sums outside range explicit.",
+      "defaultValues": {
+        "pairs": "5 2\n4 3\n3 1"
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Взвешенное среднее",
+          "value": "4,1667"
+        },
+        "secondary": [
+          {
+            "label": "Сумма весов",
+            "value": "6"
+          },
+          {
+            "label": "Сумма произведений",
+            "value": "25"
+          },
+          {
+            "label": "Количество пар",
+            "value": "3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "z-score",
+      "domain": "Finite x/mean, finite sd>0.",
+      "methodAndSubjectDecision": "Exact binary difference thenratio, recoverable large signed differences valid. Same dataunits, dimensionlessz. Arithmetic doesnotrequire Gaussian data; Gaussian percentage interpretation does; no p-value/tail computation.",
+      "defaultValues": {
+        "x": 80,
+        "mean": 75,
+        "sd": 8
+      },
+      "candidateDefaultResult": {
+        "primary": {
+          "label": "Z-оценка",
+          "value": "0,625"
+        },
+        "secondary": [
+          {
+            "label": "Отклонение",
+            "value": "5"
+          },
+          {
+            "label": "Положение",
+            "value": "выше среднего"
+          }
+        ]
+      }
+    }
+  ],
+  "numericModel": {
+    "inputs": "Finite binary64 normalized values, strict original integral lexemes for integer fields; bool/blank/malformed/nonfinite/nonzero-underflow rejected. Not arbitraryprecision raw decimal.",
+    "exactOperations": "Private helper uses existing frozen exactdyadic pure module for finitebinary64 sums/products/ratios; private sqrtRatio rounds once to finalnormal/subnormal grid. BigInt counts, combinationcounts, decimalround quantization, sampleceil.",
+    "approximations": "Log binomial probability approximate; rounded CI Z constants preserved. Publication rounding remains existing ordinaryformat except scientificsmall/large values and CI17sig fallbackdistinctbounds.",
+    "displayFailure": "Primary nonzero underflow/unrepresentable result fails closed; finite primary mayretain auxiliary explicit above/below numeric range diagnostics instead ofInfinity/falsezero.",
+    "bounds": {
+      "dataValuesOrPairs": 10000,
+      "charactersPerListOrPairInput": 1000000,
+      "binomialTrials": 1000,
+      "diceCount": 10,
+      "diceSides": 100,
+      "romanCanonicalSymbols": 15,
+      "roundingDecimalPlaces": 10
+    }
+  },
+  "referencePreservation": {
+    "originalCases": 65,
+    "primaryPayloadsPreserved": 65,
+    "fullyUnchangedCases": 63,
+    "twoAuthorizedUnavailableFractionCorrections": [
+      {
+        "id": "sample-size",
+        "name": "95 % при ошибке 5 % и доле 50 %",
+        "reason": "N=0 denotes unknown population; n/N is not available. Neither sample size nor any other numerical reference changed.",
+        "beforePayload": {
+          "name": "95 % при ошибке 5 % и доле 50 %",
+          "inputs": {
+            "confidence": "95",
+            "margin": 5,
+            "proportion": 50,
+            "population": 0
+          },
+          "expectPrimary": "385 чел",
+          "expectSecondary": [
+            {
+              "label": "Без поправки на совокупность",
+              "value": "385 чел"
+            },
+            {
+              "label": "Критическое значение z",
+              "value": "1,96"
+            },
+            {
+              "label": "Предельная ошибка",
+              "value": "5 %"
+            },
+            {
+              "label": "Доля от совокупности",
+              "value": "0 %"
+            }
+          ]
+        },
+        "afterPayload": {
+          "name": "95 % при ошибке 5 % и доле 50 %",
+          "inputs": {
+            "confidence": "95",
+            "margin": 5,
+            "proportion": 50,
+            "population": 0
+          },
+          "expectPrimary": "385 чел",
+          "expectSecondary": [
+            {
+              "label": "Без поправки на совокупность",
+              "value": "385 чел"
+            },
+            {
+              "label": "Критическое значение z",
+              "value": "1,96"
+            },
+            {
+              "label": "Предельная ошибка",
+              "value": "5 %"
+            },
+            {
+              "label": "Доля от совокупности",
+              "value": "—"
+            }
+          ]
+        },
+        "differences": [
+          {
+            "row": 3,
+            "before": {
+              "label": "Доля от совокупности",
+              "value": "0 %"
+            },
+            "after": {
+              "label": "Доля от совокупности",
+              "value": "—"
+            }
+          }
+        ]
+      },
+      {
+        "id": "sample-size",
+        "name": "граница: доля ровно ноль",
+        "reason": "N=0 denotes unknown population; n/N is not available. Neither sample size nor any other numerical reference changed.",
+        "beforePayload": {
+          "name": "граница: доля ровно ноль",
+          "inputs": {
+            "confidence": "95",
+            "margin": 5,
+            "proportion": 0,
+            "population": 0
+          },
+          "expectPrimary": "0 чел",
+          "expectSecondary": [
+            {
+              "label": "Без поправки на совокупность",
+              "value": "0 чел"
+            },
+            {
+              "label": "Критическое значение z",
+              "value": "1,96"
+            },
+            {
+              "label": "Предельная ошибка",
+              "value": "5 %"
+            },
+            {
+              "label": "Доля от совокупности",
+              "value": "0 %"
+            }
+          ]
+        },
+        "afterPayload": {
+          "name": "граница: доля ровно ноль",
+          "inputs": {
+            "confidence": "95",
+            "margin": 5,
+            "proportion": 0,
+            "population": 0
+          },
+          "expectPrimary": "0 чел",
+          "expectSecondary": [
+            {
+              "label": "Без поправки на совокупность",
+              "value": "0 чел"
+            },
+            {
+              "label": "Критическое значение z",
+              "value": "1,96"
+            },
+            {
+              "label": "Предельная ошибка",
+              "value": "5 %"
+            },
+            {
+              "label": "Доля от совокупности",
+              "value": "—"
+            }
+          ]
+        },
+        "differences": [
+          {
+            "row": 3,
+            "before": {
+              "label": "Доля от совокупности",
+              "value": "0 %"
+            },
+            "after": {
+              "label": "Доля от совокупности",
+              "value": "—"
+            }
+          }
+        ]
+      }
+    ],
+    "independentProof": "N=0 isunknown population; cannot formn/N. FiniteN500 n218 yields43.6percent, defaultunadjusted n385 preserved. Existing correctnumbers notredrawn."
+  },
+  "editorial": {
+    "reviewedActualBeforeAndOwnedAfterRecords": 60,
+    "perUrlDecisions": [
+      {
+        "id": "binomial-probability",
+        "locale": "ru",
+        "url": "/ru/math/binomial-probability/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "howToUse",
+          "faq"
+        ],
+        "retainedSections": [
+          "example"
+        ],
+        "detail": "Independent equal-p Bernoulli trials; exact BigInt combination count, bounded log-sum-exp approximate probabilities. p=0/1 true zeros; positive selected probability outside binary64 fails. Correct factorial precision myth and distinguish event exactly k from numerical exactness."
+      },
+      {
+        "id": "binomial-probability",
+        "locale": "en",
+        "url": "/en/math/binomial-probability-calculator/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "howToUse",
+          "faq"
+        ],
+        "retainedSections": [
+          "example"
+        ],
+        "detail": "Independent equal-p Bernoulli trials; exact BigInt combination count, bounded log-sum-exp approximate probabilities. p=0/1 true zeros; positive selected probability outside binary64 fails. Correct factorial precision myth and distinguish event exactly k from numerical exactness."
+      },
+      {
+        "id": "binomial-probability",
+        "locale": "uk",
+        "url": "/uk/math/binomialna-ymovirnist/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse",
+          "faq"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example"
+        ],
+        "detail": "Independent equal-p Bernoulli trials; exact BigInt combination count, bounded log-sum-exp approximate probabilities. p=0/1 true zeros; positive selected probability outside binary64 fails. Correct factorial precision myth and distinguish event exactly k from numerical exactness."
+      },
+      {
+        "id": "binomial-probability",
+        "locale": "de",
+        "url": "/de/mathematik/binomialverteilung-rechner/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse",
+          "faq"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example"
+        ],
+        "detail": "Independent equal-p Bernoulli trials; exact BigInt combination count, bounded log-sum-exp approximate probabilities. p=0/1 true zeros; positive selected probability outside binary64 fails. Correct factorial precision myth and distinguish event exactly k from numerical exactness."
+      },
+      {
+        "id": "binomial-probability",
+        "locale": "es",
+        "url": "/es/matematicas/probabilidad-binomial/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse",
+          "faq"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example"
+        ],
+        "detail": "Independent equal-p Bernoulli trials; exact BigInt combination count, bounded log-sum-exp approximate probabilities. p=0/1 true zeros; positive selected probability outside binary64 fails. Correct factorial precision myth and distinguish event exactly k from numerical exactness."
+      },
+      {
+        "id": "confidence-interval",
+        "locale": "ru",
+        "url": "/ru/math/confidence-interval/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "howToUse",
+          "faq"
+        ],
+        "retainedSections": [
+          "example"
+        ],
+        "detail": "Normal known-sigma mean interval. If sample s is used, normal approximation; Student t not implemented. Repeated-sampling coverage, not probability of fixed population mean in an observed interval. Same data units. sd0 formal point; nonzero unrepresentable/collapsed width error, fine representable bounds show17significantdigits when needed."
+      },
+      {
+        "id": "confidence-interval",
+        "locale": "en",
+        "url": "/en/math/confidence-interval-calculator/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "howToUse",
+          "faq"
+        ],
+        "retainedSections": [
+          "example"
+        ],
+        "detail": "Normal known-sigma mean interval. If sample s is used, normal approximation; Student t not implemented. Repeated-sampling coverage, not probability of fixed population mean in an observed interval. Same data units. sd0 formal point; nonzero unrepresentable/collapsed width error, fine representable bounds show17significantdigits when needed."
+      },
+      {
+        "id": "confidence-interval",
+        "locale": "uk",
+        "url": "/uk/math/dovirchyy-interval/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "howToUse",
+          "faq"
+        ],
+        "retainedSections": [
+          "example"
+        ],
+        "detail": "Normal known-sigma mean interval. If sample s is used, normal approximation; Student t not implemented. Repeated-sampling coverage, not probability of fixed population mean in an observed interval. Same data units. sd0 formal point; nonzero unrepresentable/collapsed width error, fine representable bounds show17significantdigits when needed."
+      },
+      {
+        "id": "confidence-interval",
+        "locale": "de",
+        "url": "/de/mathematik/konfidenzintervall-rechner/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "howToUse",
+          "faq"
+        ],
+        "retainedSections": [
+          "example"
+        ],
+        "detail": "Normal known-sigma mean interval. If sample s is used, normal approximation; Student t not implemented. Repeated-sampling coverage, not probability of fixed population mean in an observed interval. Same data units. sd0 formal point; nonzero unrepresentable/collapsed width error, fine representable bounds show17significantdigits when needed."
+      },
+      {
+        "id": "confidence-interval",
+        "locale": "es",
+        "url": "/es/matematicas/intervalo-de-confianza/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "howToUse",
+          "faq"
+        ],
+        "retainedSections": [
+          "example"
+        ],
+        "detail": "Normal known-sigma mean interval. If sample s is used, normal approximation; Student t not implemented. Repeated-sampling coverage, not probability of fixed population mean in an observed interval. Same data units. sd0 formal point; nonzero unrepresentable/collapsed width error, fine representable bounds show17significantdigits when needed."
+      },
+      {
+        "id": "correlation",
+        "locale": "ru",
+        "url": "/ru/math/correlation/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example",
+          "faq"
+        ],
+        "detail": "Pearson/OLS with intercept; r dimensionless, sample covariance X*Y, slopeY/X, interceptY. Exact centered binary sums preserve huge/tiny recoverable results. No significance/p-value/causation claim. Units consistent within each series, X andY may differ."
+      },
+      {
+        "id": "correlation",
+        "locale": "en",
+        "url": "/en/math/correlation-coefficient-calculator/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example",
+          "faq"
+        ],
+        "detail": "Pearson/OLS with intercept; r dimensionless, sample covariance X*Y, slopeY/X, interceptY. Exact centered binary sums preserve huge/tiny recoverable results. No significance/p-value/causation claim. Units consistent within each series, X andY may differ."
+      },
+      {
+        "id": "correlation",
+        "locale": "uk",
+        "url": "/uk/math/korelyatsiya/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse",
+          "example"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "faq"
+        ],
+        "detail": "Pearson/OLS with intercept; r dimensionless, sample covariance X*Y, slopeY/X, interceptY. Exact centered binary sums preserve huge/tiny recoverable results. No significance/p-value/causation claim. Units consistent within each series, X andY may differ."
+      },
+      {
+        "id": "correlation",
+        "locale": "de",
+        "url": "/de/mathematik/korrelationskoeffizient/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example",
+          "faq"
+        ],
+        "detail": "Pearson/OLS with intercept; r dimensionless, sample covariance X*Y, slopeY/X, interceptY. Exact centered binary sums preserve huge/tiny recoverable results. No significance/p-value/causation claim. Units consistent within each series, X andY may differ."
+      },
+      {
+        "id": "correlation",
+        "locale": "es",
+        "url": "/es/matematicas/coeficiente-de-correlacion/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example",
+          "faq"
+        ],
+        "detail": "Pearson/OLS with intercept; r dimensionless, sample covariance X*Y, slopeY/X, interceptY. Exact centered binary sums preserve huge/tiny recoverable results. No significance/p-value/causation claim. Units consistent within each series, X andY may differ."
+      },
+      {
+        "id": "dice-probability",
+        "locale": "ru",
+        "url": "/ru/math/dice-probability/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example",
+          "faq"
+        ],
+        "detail": "Fair independent identical dice, faces1..sides. Exact bounded BigInt inclusion-exclusion counts; total100^10 not rounded. Tiny nonzero probability shown scientifically. Correct10d20 safe-count claim to10d100=10^20."
+      },
+      {
+        "id": "dice-probability",
+        "locale": "en",
+        "url": "/en/math/dice-probability-calculator/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example",
+          "faq"
+        ],
+        "detail": "Fair independent identical dice, faces1..sides. Exact bounded BigInt inclusion-exclusion counts; total100^10 not rounded. Tiny nonzero probability shown scientifically. Correct10d20 safe-count claim to10d100=10^20."
+      },
+      {
+        "id": "dice-probability",
+        "locale": "uk",
+        "url": "/uk/math/imovirnist-kubykiv/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Fair independent identical dice, faces1..sides. Exact bounded BigInt inclusion-exclusion counts; total100^10 not rounded. Tiny nonzero probability shown scientifically. Correct10d20 safe-count claim to10d100=10^20."
+      },
+      {
+        "id": "dice-probability",
+        "locale": "de",
+        "url": "/de/mathematik/wuerfel-wahrscheinlichkeit/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example",
+          "faq"
+        ],
+        "detail": "Fair independent identical dice, faces1..sides. Exact bounded BigInt inclusion-exclusion counts; total100^10 not rounded. Tiny nonzero probability shown scientifically. Correct10d20 safe-count claim to10d100=10^20."
+      },
+      {
+        "id": "dice-probability",
+        "locale": "es",
+        "url": "/es/matematicas/probabilidad-con-dados/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example",
+          "faq"
+        ],
+        "detail": "Fair independent identical dice, faces1..sides. Exact bounded BigInt inclusion-exclusion counts; total100^10 not rounded. Tiny nonzero probability shown scientifically. Correct10d20 safe-count claim to10d100=10^20."
+      },
+      {
+        "id": "probability-basic",
+        "locale": "ru",
+        "url": "/ru/math/probability/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Counts require equiprobability; independent intersection/union differs from disjoint union. Exact dyadic expression avoids cancellation in complement andtiny union; nonzero primary underflow error; auxiliary impossible odds explicit range diagnostic."
+      },
+      {
+        "id": "probability-basic",
+        "locale": "en",
+        "url": "/en/math/probability-calculator/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Counts require equiprobability; independent intersection/union differs from disjoint union. Exact dyadic expression avoids cancellation in complement andtiny union; nonzero primary underflow error; auxiliary impossible odds explicit range diagnostic."
+      },
+      {
+        "id": "probability-basic",
+        "locale": "uk",
+        "url": "/uk/math/ymovirnist/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Counts require equiprobability; independent intersection/union differs from disjoint union. Exact dyadic expression avoids cancellation in complement andtiny union; nonzero primary underflow error; auxiliary impossible odds explicit range diagnostic."
+      },
+      {
+        "id": "probability-basic",
+        "locale": "de",
+        "url": "/de/mathematik/wahrscheinlichkeit-rechner/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Counts require equiprobability; independent intersection/union differs from disjoint union. Exact dyadic expression avoids cancellation in complement andtiny union; nonzero primary underflow error; auxiliary impossible odds explicit range diagnostic."
+      },
+      {
+        "id": "probability-basic",
+        "locale": "es",
+        "url": "/es/matematicas/calculadora-de-probabilidad/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Counts require equiprobability; independent intersection/union differs from disjoint union. Exact dyadic expression avoids cancellation in complement andtiny union; nonzero primary underflow error; auxiliary impossible odds explicit range diagnostic."
+      },
+      {
+        "id": "quartile",
+        "locale": "ru",
+        "url": "/ru/math/kvartili/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Type7 h=(n-1)p linear interpolation; other definitions valid. IQR and1.5IQR fences, observed whiskers are different; flag notprooferror. Exact binary interpolation/fence comparisons; primary nonzero unrepresentable median error, auxiliary range diagnostic."
+      },
+      {
+        "id": "quartile",
+        "locale": "en",
+        "url": "/en/math/quartile/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Type7 h=(n-1)p linear interpolation; other definitions valid. IQR and1.5IQR fences, observed whiskers are different; flag notprooferror. Exact binary interpolation/fence comparisons; primary nonzero unrepresentable median error, auxiliary range diagnostic."
+      },
+      {
+        "id": "quartile",
+        "locale": "uk",
+        "url": "/uk/math/kvartyli/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Type7 h=(n-1)p linear interpolation; other definitions valid. IQR and1.5IQR fences, observed whiskers are different; flag notprooferror. Exact binary interpolation/fence comparisons; primary nonzero unrepresentable median error, auxiliary range diagnostic."
+      },
+      {
+        "id": "quartile",
+        "locale": "de",
+        "url": "/de/mathematik/quartile-rechner/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Type7 h=(n-1)p linear interpolation; other definitions valid. IQR and1.5IQR fences, observed whiskers are different; flag notprooferror. Exact binary interpolation/fence comparisons; primary nonzero unrepresentable median error, auxiliary range diagnostic."
+      },
+      {
+        "id": "quartile",
+        "locale": "es",
+        "url": "/es/matematicas/cuartiles-y-percentiles/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Type7 h=(n-1)p linear interpolation; other definitions valid. IQR and1.5IQR fences, observed whiskers are different; flag notprooferror. Exact binary interpolation/fence comparisons; primary nonzero unrepresentable median error, auxiliary range diagnostic."
+      },
+      {
+        "id": "roman-numerals",
+        "locale": "ru",
+        "url": "/ru/math/roman-numerals/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "faq"
+        ],
+        "retainedSections": [
+          "howItWorks",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Chosen modern subtractive canonical convention, notuniversal historical bound. Canonical comparison rejects IIII aliases butnotbecause historical representations wereambiguous. No decorative external source."
+      },
+      {
+        "id": "roman-numerals",
+        "locale": "en",
+        "url": "/en/math/roman-numerals/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "faq"
+        ],
+        "retainedSections": [
+          "howItWorks",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Chosen modern subtractive canonical convention, notuniversal historical bound. Canonical comparison rejects IIII aliases butnotbecause historical representations wereambiguous. No decorative external source."
+      },
+      {
+        "id": "roman-numerals",
+        "locale": "uk",
+        "url": "/uk/math/rymski-chysla/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "faq"
+        ],
+        "retainedSections": [
+          "howItWorks",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Chosen modern subtractive canonical convention, notuniversal historical bound. Canonical comparison rejects IIII aliases butnotbecause historical representations wereambiguous. No decorative external source."
+      },
+      {
+        "id": "roman-numerals",
+        "locale": "de",
+        "url": "/de/mathematik/roemische-zahlen-umrechner/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "faq"
+        ],
+        "retainedSections": [
+          "howItWorks",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Chosen modern subtractive canonical convention, notuniversal historical bound. Canonical comparison rejects IIII aliases butnotbecause historical representations wereambiguous. No decorative external source."
+      },
+      {
+        "id": "roman-numerals",
+        "locale": "es",
+        "url": "/es/matematicas/numeros-romanos/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "faq"
+        ],
+        "retainedSections": [
+          "howItWorks",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Chosen modern subtractive canonical convention, notuniversal historical bound. Canonical comparison rejects IIII aliases butnotbecause historical representations wereambiguous. No decorative external source."
+      },
+      {
+        "id": "rounding",
+        "locale": "ru",
+        "url": "/ru/math/rounding/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Shortest decimal representation of input normalized to binary64, then exact BigInt decimal quantization. half ties away from zero, down floor, up ceiling. Preserve visible up-to10 decimal digits/original/signed difference; not arbitrary precision raw decimal or universal legalfinancialrule."
+      },
+      {
+        "id": "rounding",
+        "locale": "en",
+        "url": "/en/math/rounding-calculator/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Shortest decimal representation of input normalized to binary64, then exact BigInt decimal quantization. half ties away from zero, down floor, up ceiling. Preserve visible up-to10 decimal digits/original/signed difference; not arbitrary precision raw decimal or universal legalfinancialrule."
+      },
+      {
+        "id": "rounding",
+        "locale": "uk",
+        "url": "/uk/math/okruhlennya/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Shortest decimal representation of input normalized to binary64, then exact BigInt decimal quantization. half ties away from zero, down floor, up ceiling. Preserve visible up-to10 decimal digits/original/signed difference; not arbitrary precision raw decimal or universal legalfinancialrule."
+      },
+      {
+        "id": "rounding",
+        "locale": "de",
+        "url": "/de/mathematik/runden-rechner/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Shortest decimal representation of input normalized to binary64, then exact BigInt decimal quantization. half ties away from zero, down floor, up ceiling. Preserve visible up-to10 decimal digits/original/signed difference; not arbitrary precision raw decimal or universal legalfinancialrule."
+      },
+      {
+        "id": "rounding",
+        "locale": "es",
+        "url": "/es/matematicas/calculadora-de-redondeo/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Shortest decimal representation of input normalized to binary64, then exact BigInt decimal quantization. half ties away from zero, down floor, up ceiling. Preserve visible up-to10 decimal digits/original/signed difference; not arbitrary precision raw decimal or universal legalfinancialrule."
+      },
+      {
+        "id": "sample-size",
+        "locale": "ru",
+        "url": "/ru/math/razmer-vyborki/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "example",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse"
+        ],
+        "detail": "Normal planning of oneproportion under simple random sampling/response assumptions. Exactdyadic percentformula, exactceilBigInt andFPC; p50conservative under model, p0/100formalzero notsurveyrecommendation. Unknown fraction—. Defaultraw384.145882..=>385,N500corrected217.487218..=>218; doesnotestimateABpower."
+      },
+      {
+        "id": "sample-size",
+        "locale": "en",
+        "url": "/en/math/sample-size/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "example",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse"
+        ],
+        "detail": "Normal planning of oneproportion under simple random sampling/response assumptions. Exactdyadic percentformula, exactceilBigInt andFPC; p50conservative under model, p0/100formalzero notsurveyrecommendation. Unknown fraction—. Defaultraw384.145882..=>385,N500corrected217.487218..=>218; doesnotestimateABpower."
+      },
+      {
+        "id": "sample-size",
+        "locale": "uk",
+        "url": "/uk/math/rozmir-vybirky/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "example",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse"
+        ],
+        "detail": "Normal planning of oneproportion under simple random sampling/response assumptions. Exactdyadic percentformula, exactceilBigInt andFPC; p50conservative under model, p0/100formalzero notsurveyrecommendation. Unknown fraction—. Defaultraw384.145882..=>385,N500corrected217.487218..=>218; doesnotestimateABpower."
+      },
+      {
+        "id": "sample-size",
+        "locale": "de",
+        "url": "/de/mathematik/stichprobenumfang-rechner/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "example",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse"
+        ],
+        "detail": "Normal planning of oneproportion under simple random sampling/response assumptions. Exactdyadic percentformula, exactceilBigInt andFPC; p50conservative under model, p0/100formalzero notsurveyrecommendation. Unknown fraction—. Defaultraw384.145882..=>385,N500corrected217.487218..=>218; doesnotestimateABpower."
+      },
+      {
+        "id": "sample-size",
+        "locale": "es",
+        "url": "/es/matematicas/tamano-muestral/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "example",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse"
+        ],
+        "detail": "Normal planning of oneproportion under simple random sampling/response assumptions. Exactdyadic percentformula, exactceilBigInt andFPC; p50conservative under model, p0/100formalzero notsurveyrecommendation. Unknown fraction—. Defaultraw384.145882..=>385,N500corrected217.487218..=>218; doesnotestimateABpower."
+      },
+      {
+        "id": "stats-descriptive",
+        "locale": "ru",
+        "url": "/ru/math/descriptive-statistics/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Mean/median/mode/range; exact centered sums, sample denominator n-1 vs population n. Singletons sample variance—, allunique mode— explicitreportconvention. SD data unit, variance squared; overflow/underflow diagnostics do not fakezero; skewness notproven by meanmedian difference."
+      },
+      {
+        "id": "stats-descriptive",
+        "locale": "en",
+        "url": "/en/math/descriptive-statistics-calculator/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Mean/median/mode/range; exact centered sums, sample denominator n-1 vs population n. Singletons sample variance—, allunique mode— explicitreportconvention. SD data unit, variance squared; overflow/underflow diagnostics do not fakezero; skewness notproven by meanmedian difference."
+      },
+      {
+        "id": "stats-descriptive",
+        "locale": "uk",
+        "url": "/uk/math/serednie-znachennia/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "howToUse",
+          "example",
+          "faq"
+        ],
+        "retainedSections": [],
+        "detail": "Mean/median/mode/range; exact centered sums, sample denominator n-1 vs population n. Singletons sample variance—, allunique mode— explicitreportconvention. SD data unit, variance squared; overflow/underflow diagnostics do not fakezero; skewness notproven by meanmedian difference."
+      },
+      {
+        "id": "stats-descriptive",
+        "locale": "de",
+        "url": "/de/mathematik/mittelwert-standardabweichung/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Mean/median/mode/range; exact centered sums, sample denominator n-1 vs population n. Singletons sample variance—, allunique mode— explicitreportconvention. SD data unit, variance squared; overflow/underflow diagnostics do not fakezero; skewness notproven by meanmedian difference."
+      },
+      {
+        "id": "stats-descriptive",
+        "locale": "es",
+        "url": "/es/matematicas/estadistica-descriptiva/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "longDescription",
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "howToUse",
+          "example"
+        ],
+        "detail": "Mean/median/mode/range; exact centered sums, sample denominator n-1 vs population n. Singletons sample variance—, allunique mode— explicitreportconvention. SD data unit, variance squared; overflow/underflow diagnostics do not fakezero; skewness notproven by meanmedian difference."
+      },
+      {
+        "id": "weighted-mean",
+        "locale": "ru",
+        "url": "/ru/math/weighted-average/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example",
+          "faq"
+        ],
+        "detail": "Weighted sum/product ratio exactly from finite binaryinputs; individual zero weights valid, negative rejected. Values share consistent units, weights owncommon scale cancels. Two-column textarea not falsely labeled asone scalar dataunit; auxiliary sums outside range explicit."
+      },
+      {
+        "id": "weighted-mean",
+        "locale": "en",
+        "url": "/en/math/weighted-average-calculator/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example",
+          "faq"
+        ],
+        "detail": "Weighted sum/product ratio exactly from finite binaryinputs; individual zero weights valid, negative rejected. Values share consistent units, weights owncommon scale cancels. Two-column textarea not falsely labeled asone scalar dataunit; auxiliary sums outside range explicit."
+      },
+      {
+        "id": "weighted-mean",
+        "locale": "uk",
+        "url": "/uk/math/serednozvazhene/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse",
+          "faq"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example"
+        ],
+        "detail": "Weighted sum/product ratio exactly from finite binaryinputs; individual zero weights valid, negative rejected. Values share consistent units, weights owncommon scale cancels. Two-column textarea not falsely labeled asone scalar dataunit; auxiliary sums outside range explicit."
+      },
+      {
+        "id": "weighted-mean",
+        "locale": "de",
+        "url": "/de/mathematik/gewichteter-durchschnitt/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example",
+          "faq"
+        ],
+        "detail": "Weighted sum/product ratio exactly from finite binaryinputs; individual zero weights valid, negative rejected. Values share consistent units, weights owncommon scale cancels. Two-column textarea not falsely labeled asone scalar dataunit; auxiliary sums outside range explicit."
+      },
+      {
+        "id": "weighted-mean",
+        "locale": "es",
+        "url": "/es/matematicas/media-ponderada/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "howToUse"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "example",
+          "faq"
+        ],
+        "detail": "Weighted sum/product ratio exactly from finite binaryinputs; individual zero weights valid, negative rejected. Values share consistent units, weights owncommon scale cancels. Two-column textarea not falsely labeled asone scalar dataunit; auxiliary sums outside range explicit."
+      },
+      {
+        "id": "z-score",
+        "locale": "ru",
+        "url": "/ru/math/z-score/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "howToUse",
+          "example",
+          "faq"
+        ],
+        "detail": "Exact binary difference thenratio, recoverable large signed differences valid. Same dataunits, dimensionlessz. Arithmetic doesnotrequire Gaussian data; Gaussian percentage interpretation does; no p-value/tail computation."
+      },
+      {
+        "id": "z-score",
+        "locale": "en",
+        "url": "/en/math/z-score-calculator/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": true,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "howToUse",
+          "example",
+          "faq"
+        ],
+        "detail": "Exact binary difference thenratio, recoverable large signed differences valid. Same dataunits, dimensionlessz. Arithmetic doesnotrequire Gaussian data; Gaussian percentage interpretation does; no p-value/tail computation."
+      },
+      {
+        "id": "z-score",
+        "locale": "uk",
+        "url": "/uk/math/z-ocinka/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks",
+          "faq"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "howToUse",
+          "example"
+        ],
+        "detail": "Exact binary difference thenratio, recoverable large signed differences valid. Same dataunits, dimensionlessz. Arithmetic doesnotrequire Gaussian data; Gaussian percentage interpretation does; no p-value/tail computation."
+      },
+      {
+        "id": "z-score",
+        "locale": "de",
+        "url": "/de/mathematik/z-wert-rechner/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "howToUse",
+          "example",
+          "faq"
+        ],
+        "detail": "Exact binary difference thenratio, recoverable large signed differences valid. Same dataunits, dimensionlessz. Arithmetic doesnotrequire Gaussian data; Gaussian percentage interpretation does; no p-value/tail computation."
+      },
+      {
+        "id": "z-score",
+        "locale": "es",
+        "url": "/es/matematicas/puntuacion-z/",
+        "reviewKind": "AI subject/editorial review, not human native approval",
+        "beforeOwnedBodyPresent": false,
+        "decision": "Retain actually read useful body and correct only identified model/precision/assumption clauses; materialize formerly inherited body in owned copy when necessary",
+        "changedSections": [
+          "howItWorks"
+        ],
+        "retainedSections": [
+          "longDescription",
+          "howToUse",
+          "example",
+          "faq"
+        ],
+        "detail": "Exact binary difference thenratio, recoverable large signed differences valid. Same dataunits, dimensionlessz. Arithmetic doesnotrequire Gaussian data; Gaussian percentage interpretation does; no p-value/tail computation."
+      }
+    ],
+    "examplesKeptByteForByte": 53,
+    "exampleAmendments": [
+      {
+        "id": "correlation",
+        "locale": "uk",
+        "before": "Ряди 1, 2, 3, 4, 5 і 2, 4, 5, 4, 5 дають коефіцієнт 0,7746 і лінію з нахилом 0,6. Коефіцієнт детермінації при цьому дорівнює 0,6 — стільки мінливості другого ряду пояснює перший.",
+        "after": "Ряди 1, 2, 3, 4, 5 і 2, 4, 5, 4, 5 дають коефіцієнт 0,7746 і лінію з нахилом 0,6. Коефіцієнт детермінації при цьому дорівнює 0,6 — це частка варіації Y, описана лінійною підгонкою з константою, без причинного висновку."
+      },
+      {
+        "id": "sample-size",
+        "locale": "ru",
+        "before": "При 95 % и ошибке 5 % нужно 385 человек независимо от размера города.",
+        "after": "При 95 %, ошибке 5 процентных пунктов и ожидаемой доле 50 % без конечной поправки n₀ ≈ 384,1459, после округления вверх нужно 385 ответов. Если известно N = 500, поправка даёт примерно 217,4872 и итог 218 ответов."
+      },
+      {
+        "id": "sample-size",
+        "locale": "en",
+        "before": "At 95 % with a 5 % margin you need 385 people whatever the size of the city.",
+        "after": "At 95% confidence, a 5-percentage-point margin and anticipated proportion 50%, the uncorrected n₀ ≈ 384.1459 rounds upward to 385 responses. For a known N = 500, the correction gives approximately 217.4872, hence 218 responses."
+      },
+      {
+        "id": "sample-size",
+        "locale": "uk",
+        "before": "За 95 % і похибки 5 % потрібно 385 людей незалежно від розміру міста. Для селища на 500 жителів поправка знизить це число до 217.",
+        "after": "За 95 %, похибки 5 відсоткових пунктів та очікуваної частки 50 % без скінченної поправки n₀ ≈ 384,1459, після округлення вгору потрібно 385 відповідей. За відомого N = 500 поправка дає приблизно 217,4872, отже потрібно 218 відповідей."
+      },
+      {
+        "id": "sample-size",
+        "locale": "de",
+        "before": "Bei 95 % und einer Fehlergrenze von 5 % brauchst du 385 Personen, gleich wie groß die Stadt ist.",
+        "after": "Bei 95 % Konfidenz, 5 Prozentpunkten Fehlergrenze und erwartetem Anteil 50 % wird das unkorrigierte n₀ ≈ 384,1459 auf 385 Antworten aufgerundet. Bei bekanntem N = 500 ergibt die Korrektur ungefähr 217,4872, also 218 Antworten."
+      },
+      {
+        "id": "sample-size",
+        "locale": "es",
+        "before": "Al 95 % con un margen del 5 % hacen falta 385 personas, sea cual sea el tamaño de la ciudad.",
+        "after": "Con confianza del 95 %, margen de 5 puntos porcentuales y proporción prevista del 50 %, n₀ ≈ 384,1459 sin corrección se redondea hacia arriba a 385 respuestas. Para N = 500 conocido, la corrección da aproximadamente 217,4872, por lo que se necesitan 218 respuestas."
+      },
+      {
+        "id": "stats-descriptive",
+        "locale": "uk",
+        "before": "Ряд 4, 8, 15, 16, 23, 42 дає середнє 18 і медіану 15,5: одне велике значення тягне середнє вгору, а медіану майже ні. Саме ця розбіжність і показує несиметричність даних.",
+        "after": "Ряд 4, 8, 15, 16, 23, 42 дає середнє 18 і медіану 15,5: одне велике значення тягне середнє вгору, а медіану майже ні. Ці два показники описують різні властивості розташування значень; сама різниця не є повним тестом симетричності."
+      }
+    ],
+    "routeAndMetadataBoundary": "All names/slugs/paths/H1/titles/keywords preserved. Only UKRoman seoDescription corrected from71chars to precise supportedcanonical1..3999 description meeting existing80..180projectgate; not aGooglewordcriterion.",
+    "fieldBoundary": "Fields/defaults/options/showIf andAPIunits preserved;9 agreed fixed dataunitannotations added:CImean/sd,zscorex/mean/sd,statsvalues,quartilevalues,correlationxs/ys. Root global5locale unittranslation pending. X/Y units maydiffer; weightedpairs notassignedoneunit."
+  },
+  "sources": {
+    "registry": "src/data/mathWave8MethodSources.ts",
+    "interface": "getMathWave8MethodSources(id:string,locale:string):EditorialSource[]",
+    "primaryReadRecords": 16,
+    "checkedDate": "2026-10-02",
+    "proofFile": "reports/originality-math-wave-8-source-review.json",
+    "scope": "Exact methoddefinitions/assumptions; nohumanverification, productrange approval, legalroundingrules, implementationprecision claim or decorativeRoman source. PennStateactualpublisherbody retrieved afterwebtooltimeout; NISTweightedPDF actuallyvisuallyread."
+  },
+  "validation": {
+    "focusedUnitCommand": "vitest run tests/originalityMathWave8Contracts.test.ts tests/originalityMathWave8Numeric.test.ts tests/originalityMathWave8OwnedContent.test.ts tests/originalityMathWave8InputBoundary.test.ts --maxWorkers=1 --no-file-parallelism",
+    "focusedCounts": {
+      "contracts": 382,
+      "numeric": 336,
+      "ownedContentAndSources": 174,
+      "nativeRawInputShare": 290,
+      "total": 1182,
+      "failed": 0
+    },
+    "independentOracle": "98 literal finalgrid square-root cases plus45 finitebinary datasets, exactPythonFraction inputs/centeredsums andDecimal1600sqrt; fixed expected outputs, no testedcompute used toderiveexpectations. Additional fixed edge/math literals.",
+    "scopedTypecheck": "tsc --noEmit --pretty false -p /tmp/calcuway-math-wave8-tsconfig.json includes four own suites and their imported source graph; exit0 after correcting test-only union/index typings.",
+    "nativeInputScope": "5locale originaldecimalfraction/share/reloadpurelogic, scientificfraction provenance, safeinteger bounds, partialgrammarhandoff, booleanactiveinput, hiddeninactive fields andnonzero-underflowvszero; generatedruntime localeintegration/browser stillpending."
+  },
+  "candidate": {
+    "ownedSourceFileCount": 143,
+    "sourceManifestFile": "reports/originality-math-wave-8-source-manifest.json",
+    "sourceManifestSha256": "30f3eccdce9cfb053cb3d1ad149950835590a4dbd98040f4713e673af8763511",
+    "ownedAfterDefinitionsFile": "/tmp/calcuway-math-wave8-owned-after.json",
+    "ownedAfterSha256": "06f3819104d8a57cef08bf94cb94cb5ed7e9fd301cc26c9cd589331f4ab5c1ce",
+    "artifacts": [
+      {
+        "path": "tests/originalityMathWave8Contracts.test.ts",
+        "sha256": "1c19de966f0ec4d0a477129293de4db418c8695cb671a83503918a32a5273a03"
+      },
+      {
+        "path": "tests/originalityMathWave8Numeric.test.ts",
+        "sha256": "4aae388a386d2660f73d491cd127eec59f96d0166df0da449ea71a794ebd41b5"
+      },
+      {
+        "path": "tests/originalityMathWave8Oracle.json",
+        "sha256": "cefce614dd03dcea356451382297f5714a7a22b763a9263374b95458d6265731"
+      },
+      {
+        "path": "tests/originalityMathWave8OwnedContent.test.ts",
+        "sha256": "9f37289282ce2b1c6118622e16a35a522d6528251e1633e0d3b713f0de174d5e"
+      },
+      {
+        "path": "tests/originalityMathWave8InputBoundary.test.ts",
+        "sha256": "6479c5a873e71313a403c9d2c414b1c9d5935896ad46773bfb6cd4920e0eef4d"
+      },
+      {
+        "path": "reports/originality-math-wave-8-editorial-records.json",
+        "sha256": "c2f806841b9a7a4d9f6159b479e846cd3fc09ba8eb579eb17aaa1b0421d85e91"
+      },
+      {
+        "path": "reports/originality-math-wave-8-source-review.json",
+        "sha256": "fcd5274f11bd9d700a71359a9c526916b91ddc5c098ae83e2a3a4a862921cd93"
+      },
+      {
+        "path": "reports/originality-math-wave-8-source-manifest.json",
+        "sha256": "d9b3ac2c393abef3766d09ab3d166369e5cbb869fe3a431f650b159f4665d756"
+      }
+    ]
+  },
+  "pending": [
+    "ROOT sourcehelper/completecopy priority/globaldataunit5locale mapping integration andgenerator",
+    "Final effective60 getCalculatorById/publicationmetadata/source/body/unit assertions afterROOT generator",
+    "Actual browser60native routes, activeinvalid/share/reload/visual checks onnext coherentimmutable snapshot",
+    "Human native/editorial/subject review; AI passingQA isnot humanapproval",
+    "External Google/AdSense assessment, approval orproduction actions notperformed orguaranteed"
+  ],
+  "knownUnresolvedOwnedArithmeticDefects": []
+}

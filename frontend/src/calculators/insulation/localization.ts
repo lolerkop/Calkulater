@@ -1,3 +1,4 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 // Единицы принадлежат калькулятору: центральный словарь единиц не трогается,
@@ -20,9 +21,9 @@ const RESULTS_UK = {
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'area': 'Zu dämmende Fläche, m²',
-      'thickness': 'Schichtdicke, mm',
-      'slabArea': 'Fläche einer Platte, m²',
+      'area': "Zu dämmende Fläche",
+      'thickness': "Schichtdicke",
+      'slabArea': "Fläche einer Platte",
       'perPack': 'Platten je Paket',
     },
     results: {
@@ -42,7 +43,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { area: 'Area to insulate, m²', thickness: 'Layer thickness, mm', slabArea: 'Area of one slab, m²', perPack: 'Slabs per pack', },
+    fields: { area: "Area to insulate", thickness: "Layer thickness", slabArea: "Area of one slab", perPack: 'Slabs per pack', },
     options: { },
     results: RESULTS_EN,
     values: {
@@ -55,7 +56,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { area: 'Площа утеплення, м²', thickness: 'Товщина шару, мм', slabArea: 'Площа однієї плити, м²', perPack: 'Плит в упаковці', },
+    fields: { area: "Площа утеплення", thickness: "Товщина шару", slabArea: "Площа однієї плити", perPack: 'Плит в упаковці', },
     options: { },
     results: RESULTS_UK,
     values: {
@@ -69,9 +70,9 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "area": "Superficie a aislar, m²",
-      "thickness": "Espesor de la capa, mm",
-      "slabArea": "Superficie de un panel, m²",
+      "area": "Superficie a aislar",
+      "thickness": "Espesor de la capa",
+      "slabArea": "Superficie de un panel",
       "perPack": "Paneles por paquete",
     },
     options: {},
@@ -92,3 +93,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

@@ -1,0 +1,1004 @@
+import type{CalculatorCopy}from '../lib/platform/types';
+type Body=Pick<CalculatorCopy,'longDescription'|'howToUse'|'howItWorks'|'example'|'faq'>&Partial<Pick<CalculatorCopy,'seoDescription'>>;
+export const buildingWave17ContractContent:Record<'ru'|'en'|'uk'|'de'|'es',Record<string,Body>>={
+  "ru": {
+    "tile-calculator": {
+      "longDescription": "Калькулятор плитки помогает заранее посчитать материал для пола или стен: площадь, запас на подрезку, количество плиток, упаковок и примерный расход клея. Можно считать по размерам помещения или ввести готовую площадь, если она уже известна из проекта или замера.",
+      "howToUse": [
+        "Выберите, как считать — по размерам комнаты или сразу по площади.",
+        "Укажите размеры плитки и площадь упаковки (написано на коробке).",
+        "Выберите запас по проверенной раскладке и потерям, затем укажите расход конкретного клея.",
+        "Округлите закупку до целых упаковок и проверьте партию плитки."
+      ],
+      "howItWorks": "Площадь берётся как длина × ширина либо вводится вручную. Закупочная площадь S = площадь × (1 + запас/100). Плитки округляются вверх из S/(длина плитки × ширина плитки/10 000); упаковки отдельно округляются вверх из S/площади упаковки. Оба размера плитки вводятся в сантиметрах. Клей оценивается как S × введённый расход кг/м²: запас здесь увеличивает и клей, поэтому это условная оценка закупки, а не расход только на чистую площадь. 5 кг/м² — исходное значение поля, не норма любого клея. Цена относится к целой упаковке в RUB; конвертации валют нет. Размеры и площадь упаковки должны быть положительными, запас, расход и цена — неотрицательными. Ширина швов, раскладка, отдельные подрезки и размеры стеновых проёмов не моделируются.",
+      "example": "Комната 4 × 3 м, плитка 30 × 30 см, запас 10%: 13,2 м², 147 плиток. При площади упаковки 1,44 м² требуется 10 упаковок. При расходе клея 5 кг/м² модель оценивает 66 кг, включая введённый запас.",
+      "faq": [
+        {
+          "q": "Какой запас плитки закладывать?",
+          "a": "Выберите запас плитки после проверки формата, раскладки и нужных запасных плиток. В модели он увеличивает площадь для плиток, упаковок и клея; округление коробок добавляет отдельный остаток. Введённый процент не гарантирует покрытие подрезок или боя."
+        },
+        {
+          "q": "Сколько клея уйдёт?",
+          "a": "В расчёте клей равен площади с введённым запасом, умноженной на расход кг/м². Возьмите расход из инструкции выбранного клея для нужной плитки, зубца шпателя и основания. Исходные 5 кг/м² — пример поля, а не средний расход любого клея."
+        },
+        {
+          "q": "Нужно ли учитывать бой и брак?",
+          "a": "Да, запас частично покрывает подрезку, бой, брак и возможный ремонт. Для сложной раскладки лучше брать больше."
+        },
+        {
+          "q": "Почему упаковки округляются вверх?",
+          "a": "Плитку обычно покупают коробками, поэтому даже небольшой остаток площади требует ещё одну упаковку."
+        },
+        {
+          "q": "Подходит ли расчёт для стен в ванной?",
+          "a": "Да, если указать площадь стен вручную. Для точности вычтите крупные проёмы и добавьте запас на подрезку."
+        }
+      ]
+    },
+    "wallpaper-calculator": {
+      "longDescription": "Калькулятор обоев считает периметр комнаты, площадь стен, количество полотен и рулонов с учётом высоты, окон, дверей и раппорта рисунка. Он помогает понять, сколько рулонов купить до ремонта и почему обои с крупным рисунком требуют большего запаса.",
+      "howToUse": [
+        "Введите длину, ширину и высоту комнаты.",
+        "Укажите параметры рулона — длину и ширину.",
+        "Задайте количество окон и дверей.",
+        "Если есть рисунок — введите высоту раппорта."
+      ],
+      "howItWorks": "Периметр P = 2 × (длина + ширина). Из P × высота вычитаются условные 1,5 м² на каждое окно и 1,8 м² на каждую дверь; результат ограничивается нулём. Эта площадь делится на высоту и ширину рулона, после чего число полотен округляется вверх. Модель использует эквивалентную общую ширину стен, а не раскрой каждой стены или реальные размеры проёмов. При раппорте r сантиметров длина полотна = округлённое вверх высота/(r/100) × r/100; без раппорта она равна высоте. Полотна из рулона округляются вниз, рулоны — вверх. Если полного полотна нет, выводится ошибка. Припуск на подрезку, смещённый рисунок и работа над/под проёмами отдельно не учитываются. Окна и двери — целые неотрицательные количества; цена задаётся за рулон в RUB.",
+      "example": "Комната 5×4 м, высота 2,7 м, рулон 1,06×10 м, 1 окно, 1 дверь → 6 рулонов.",
+      "faq": [
+        {
+          "q": "Что такое раппорт?",
+          "a": "Это высота повторения рисунка на обоях. Чем больше раппорт — тем больше отходов на подгонку."
+        },
+        {
+          "q": "Что делать, если боюсь нехватки?",
+          "a": "Возьмите на 1 рулон больше. Лучше остаться с запасом, чем искать партию."
+        },
+        {
+          "q": "Почему рулоны считаются целыми?",
+          "a": "Обои продаются рулонами, поэтому результат округляется вверх даже при небольшом недостающем участке."
+        },
+        {
+          "q": "Нужно ли вычитать окна и двери?",
+          "a": "Калькулятор вычитает ориентировочную площадь проёмов, но для сложных комнат лучше дополнительно проверить замеры вручную."
+        },
+        {
+          "q": "Что важнее: площадь или количество полотен?",
+          "a": "Для обоев важны оба показателя. Полотна режутся по высоте стены, поэтому одного расчёта площади бывает недостаточно."
+        }
+      ]
+    },
+    "paint-calculator": {
+      "longDescription": "Калькулятор краски помогает оценить литры и количество банок для стен или другой площади. В расчёте учитываются площадь, количество слоёв, расход на квадратный метр и объём банки. Это удобно перед покупкой, чтобы не брать слишком мало материала и не переплачивать за лишние банки.",
+      "howToUse": [
+        "Выберите способ — площадь напрямую или размеры комнаты.",
+        "Укажите целое положительное число слоёв по инструкции выбранной краски и условиям поверхности.",
+        "Введите расход и объём банки — данные есть на этикетке.",
+        "Проверьте тип поверхности: пористые основания могут потребовать больше краски."
+      ],
+      "howItWorks": "В ручном режиме вводится площадь, а в режиме комнаты берётся 2 × (длина + ширина) × высота минус условные 1,5 м² на окно и 1,8 м² на дверь. Окрашиваемая площадь после вычета должна быть положительной. Литры = площадь × расход л/м² на один слой × целое число слоёв × (1 + запас/100). Банки округляются вверх из литров/объёма банки; стоимость равна числу банок × цене в RUB. Остаток от целых банок показывается отдельно от введённого запаса. Расход и число слоёв выбираются по конкретной краске и поверхности: один и два слоя не являются универсальным правилом. Потолок, реальные размеры проёмов, разные расходы по слоям и грунтовка отдельно не добавляются. 0 цены скрывает стоимость; пустая цена означает 0.",
+      "example": "30 м² в 2 слоя при расходе 0,15 л/м² без дополнительного запаса → 9 л краски, 4 банки по 2,5 л.",
+      "faq": [
+        {
+          "q": "Какой расход краски брать?",
+          "a": "Возьмите расход конкретной краски для выбранного основания. Если указан выход в м²/л, введите обратную величину: 10 м²/л соответствует 0,1 л/м² на слой. Модель использует один введённый расход для всех слоёв."
+        },
+        {
+          "q": "Сколько слоёв нужно?",
+          "a": "Число слоёв задаётся по инструкции краски и условиям поверхности. Бывают продукты на один слой и системы на два; калькулятор не выбирает их. Он умножает одинаковый введённый расход на целое число слоёв, хотя реальный расход слоёв может различаться."
+        },
+        {
+          "q": "Учитывается ли грунтовка?",
+          "a": "Нет, грунтовка считается отдельно. Она может снизить расход краски на впитывающих поверхностях."
+        },
+        {
+          "q": "Почему банки округляются вверх?",
+          "a": "Краску покупают банками фиксированного объёма, поэтому итог всегда округляется до целой банки."
+        },
+        {
+          "q": "Можно ли считать потолок?",
+          "a": "Да, выберите ввод площади вручную и укажите площадь потолка, число слоёв и расход для выбранной краски."
+        }
+      ]
+    },
+    "laminate-calculator": {
+      "longDescription": "Калькулятор ламината считает площадь пола, добавляет запас на подрезку и переводит результат в количество упаковок. Он подходит для быстрой оценки закупки перед ремонтом комнаты, квартиры или отдельной зоны, где важно учесть раскладку, пороги и возможные остатки.",
+      "howToUse": [
+        "Введите размеры комнаты в метрах.",
+        "Укажите площадь одной упаковки (написано на коробке).",
+        "Задайте запас по плану рядов, направлению досок и пригодности обрезков.",
+        "Сравните результат с фактической схемой укладки и направлением досок."
+      ],
+      "howItWorks": "Площадь пола = длина × ширина. Закупочная площадь = площадь пола × (1 + запас/100); упаковки округляются вверх после деления на площадь упаковки. Стоимость включает целые упаковки ламината и подложку по чистой площади пола, без дополнительного процента запаса на подложку. Все введённые цены — RUB, без обмена валют. Размеры и площадь упаковки должны быть положительными, запас и цены — неотрицательными. Это агрегированная прямоугольная модель: раскрой досок, минимальная длина последнего ряда, смещение стыков, ниши и монтажные зазоры не рассчитываются. Допуски основания и зазоры берутся из инструкции выбранного покрытия, а не из универсальной нормы калькулятора.",
+      "example": "Комната 5×4 м, упаковка 2,13 м², запас 10% → 22 м², 11 упаковок.",
+      "faq": [
+        {
+          "q": "Какой запас ламината закладывать?",
+          "a": "Запас ламината зависит от длины досок, направления укладки и повторного использования обрезков. Он увеличивает только закупочную площадь ламината; подложка по цене считается на чистую площадь. Проверяйте план рядов: процент сам по себе не рассчитывает их раскрой."
+        },
+        {
+          "q": "Что делать с остатком?",
+          "a": "Сохраните несколько досок на ремонт после повреждений."
+        },
+        {
+          "q": "Почему важно знать площадь упаковки?",
+          "a": "У разных производителей в коробке разное количество квадратных метров, поэтому расчёт упаковок зависит от конкретного товара."
+        },
+        {
+          "q": "Нужно ли учитывать ниши и коридоры?",
+          "a": "Да. Для сложной формы комнаты лучше разбить пол на несколько прямоугольников и сложить площади."
+        },
+        {
+          "q": "Можно ли использовать для паркета или кварцвинила?",
+          "a": "Для предварительной оценки — да, если материал продаётся упаковками с известной площадью. Запас уточняйте по типу укладки."
+        }
+      ]
+    },
+    "screed-calculator": {
+      "longDescription": "Калькулятор оценивает объём слоя, сухую массу и целые мешки по площади, средней толщине и введённой норме расхода. Используйте расход и вес мешка конкретной смеси, переводя норму в кг/(м²·см). Запас задаёт условную прибавку к закупке; он не заменяет измерение профиля основания. Модель не выбирает допустимую толщину, состав, армирование или время высыхания.",
+      "howToUse": [
+        "Выберите способ расчёта: по длине и ширине помещения или сразу по известной площади.",
+        "Укажите толщину слоя в сантиметрах — её определяет перепад основания и тип покрытия.",
+        "Перенесите расход смеси и вес мешка с упаковки выбранного материала.",
+        "Введите среднюю толщину, взвешенную по площади, и выбранный запас; сравните объём, сухую массу и мешки."
+      ],
+      "howItWorks": "Площадь берётся как длина × ширина либо вводится вручную. Объём м³ = площадь м² × толщина см/100 × (1 + запас/100). Сухая смесь кг = площадь × толщина см × введённый расход кг/(м²·см) × тот же множитель запаса. Масса к закупке округляется вверх до целого килограмма; мешки отдельно округляются вверх из неокруглённой массы/веса мешка. Цена относится к целому мешку в RUB. Если паспорт даёт кг/(м²·мм), умножьте значение на 10; расход на 10 мм совпадает с расходом на 1 см. Вода, плотность мокрого раствора, армирование и прочность не определяются. На неровном основании нужна средняя толщина, взвешенная по площади: полусумма минимума и максимума годится лишь для соответствующего равномерного профиля. Срок высыхания и допустимая толщина зависят от системы и не вычисляются.",
+      "example": "Комната 5 × 4 м, слой 5 см, расход 18 кг/м² на 1 см, мешок 25 кг, запас 10% → 1,100 м³ раствора, 1 980 кг смеси, 80 мешков.",
+      "faq": [
+        {
+          "q": "Какую толщину стяжки закладывать?",
+          "a": "Допустимая толщина зависит от конкретного продукта и системы пола: основания, нагрузки и способа устройства. Возьмите её из технического описания и проекта. Ввод толщины позволяет оценить количество, но не подтверждает допустимость слоя."
+        },
+        {
+          "q": "Откуда взять расход смеси?",
+          "a": "Возьмите расход из технического описания конкретного продукта. Здесь нужна единица кг/(м²·см): норму на 1 мм умножьте на 10, а норма на 10 мм совпадает с нормой на 1 см."
+        },
+        {
+          "q": "Почему количество мешков округляется вверх?",
+          "a": "Смесь продаётся целыми мешками, поэтому даже небольшой остаток требует ещё одной упаковки. Округление вверх делается уже после учёта запаса."
+        },
+        {
+          "q": "Какой запас закладывать?",
+          "a": "Сначала измерьте среднюю толщину слоя с учётом площади участков. Запас смеси — отдельная прибавка на принятые потери при приготовлении и укладке: он увеличивает объём и сухую массу, затем число мешков округляется вверх. Он не исправляет неверную толщину и не является запасом на раскрой."
+        },
+        {
+          "q": "Считает ли калькулятор цемент и песок отдельно?",
+          "a": "Нет. Расчёт идёт по готовой сухой смеси. Пропорции цемента и песка зависят от нужной марки раствора, и подбирать их следует по проекту или рекомендации производителя."
+        },
+        {
+          "q": "Подходит ли расчёт для наливного пола?",
+          "a": "Как условная оценка количества — если расход конкретного продукта можно выразить в кг/(м²·см) и он применим при выбранной толщине. Допустимая толщина, основание, вода затворения и технология задаются отдельно; формула не доказывает пригодность любой сухой смеси."
+        }
+      ]
+    },
+    "brick-calculator": {
+      "longDescription": "Калькулятор считает, сколько кирпичей или блоков закроют стену при кладке в один слой. Каждому камню принадлежит один шов справа и один сверху, поэтому расчётный модуль равен размеру камня плюс толщина шва по каждой стороне. Площадь проёмов вычитается из площади стены, а запас добавляется отдельной строкой, чтобы было видно, сколько камней уходит именно на него.",
+      "howToUse": [
+        "Задайте стену размерами или сразу её площадью, если она известна из проекта.",
+        "Укажите суммарную площадь оконных и дверных проёмов — она вычитается из площади кладки.",
+        "Введите длину и высоту камня в миллиметрах и толщину растворного шва.",
+        "Добавьте запас на бой и подрезку и при необходимости цену за штуку."
+      ],
+      "howItWorks": "Считается один слой кладки по видимой плоскости стены. Площадь = длина × высота либо введённая площадь, минус общая площадь проёмов. Размерный модуль одного камня равен (длина камня + шов) × (высота камня + шов)/1 000 000 м²: шов добавляется один раз по каждой стороне. Камни без запаса и с запасом отдельно округляются вверх из соответствующей площади/площади модуля. Проценты запаса, размеры камня и шов задаются пользователем; универсальная толщина шва не выбирается. При проёмах, занимающих всю стену, показывается пояснение о ненужной кладке. Цена — за один камень в RUB. Толщина стены, перевязка, многослойная кладка, перемычки, раствор и прочность не моделируются. Это оценка числа элементов, а не конструктивный проект.",
+      "example": "Стена 6 × 2,8 м без проёмов, кирпич 250 × 65 мм со швом 10 мм. Модуль равен 0,26 × 0,075 = 0,0195 м², значит на 16,8 м² нужно 862 кирпича, а с запасом 5% — 905 штук.",
+      "faq": [
+        {
+          "q": "Учитывается ли растворный шов?",
+          "a": "Да. Каждому камню принадлежит один шов справа и один сверху: соседний шов уже относится к следующему камню. Поэтому к длине и к высоте камня добавляется толщина шва по одному разу, а не по два. При шве 10 мм кирпич 250 × 65 мм занимает в кладке 260 × 75 мм."
+        },
+        {
+          "q": "Для какой толщины стены выполнен расчёт?",
+          "a": "Для одного слоя кладки по видимой плоскости стены. Кладка в кирпич, в полтора кирпича, колодцевая и с облицовочным слоем требует геометрии перевязки, а не только площади, и в этом калькуляторе не моделируется. Для многослойной стены посчитайте каждый слой отдельно."
+        },
+        {
+          "q": "Почему количество округляется вверх?",
+          "a": "Купить часть кирпича нельзя, а на единицу меньше уже не хватит на всю площадь. Если площадь делится на модуль ровно, лишний камень не добавляется: округление защищено от двоичного шума и не превращает точное число в число плюс один."
+        },
+        {
+          "q": "Какой запас закладывать на бой и подрезку?",
+          "a": "Выберите запас кирпичей по плану резов у проёмов, ожидаемому бою и нужным запасным камням. Модель увеличивает неокруглённую потребность однослойной стены и затем округляет до целых штук. Отдельная строка показывает добавленные штуки; универсальный процент из геометрии не следует."
+        },
+        {
+          "q": "Что делать с проёмами?",
+          "a": "Сложите площади всех окон и дверей и введите сумму в поле проёмов. Она вычитается из площади стены. Если проёмы занимают всю стену, расчёт не выполняется: класть нечего."
+        },
+        {
+          "q": "Подходит ли расчёт для газоблоков и пеноблоков?",
+          "a": "Для прямоугольных блоков применяется та же геометрия, но фактические размеры и толщину шва берут из проекта и инструкции конкретного блока/клея. Значения 2–3 мм — возможный пример, не универсальное требование."
+        },
+        {
+          "q": "Учитывается ли раствор и его расход?",
+          "a": "Нет. Калькулятор считает количество камней, а не объём раствора: он зависит от толщины стены и способа кладки, которые здесь не моделируются. Для раствора воспользуйтесь отдельным расчётом по проекту."
+        }
+      ]
+    }
+  },
+  "en": {
+    "tile-calculator": {
+      "longDescription": "Estimate nominal tile count, whole packs and adhesive for a rectangular surface or a known area. Tile dimensions are entered in centimetres, while room and pack areas use square metres. An entered reserve increases the purchasing area; it does not generate a cutting layout. The adhesive rate and pack coverage must come from the actual products.",
+      "howToUse": [
+        "Enter room area or dimensions.",
+        "Enter tile size and pack area.",
+        "Add reserve and review the result."
+      ],
+      "howItWorks": "The area is length × width or a directly entered area. Purchasing area S = area × (1 + reserve/100). Tiles are rounded up from S/(tile length × tile width/10,000), with tile dimensions in centimetres; packs are separately rounded up from S/pack area. Adhesive is S × the entered kg/m² rate. Reserve therefore also increases the adhesive estimate; this is a purchasing assumption rather than adhesive applied only to the net area. The initial 5 kg/m² is editable and is not a universal product rate. Price is per whole pack in RUB, with no currency conversion. Dimensions and pack area must be positive; reserve, rate and price must be non-negative. Joint width, a cutting layout and individual wall openings are not modeled.",
+      "example": "A 4 × 3 m room, 30 × 30 cm tiles and 10% reserve give 13.2 m² and 147 tiles. With 1.44 m² per pack, buy 10 packs; an entered 5 kg/m² adhesive rate gives 66 kg including reserve.",
+      "faq": [
+        {
+          "q": "How is the number of tiles estimated?",
+          "a": "Enter the area or room dimensions and the tile size. The calculator divides the surface with your reserve allowance by the area of one tile."
+        },
+        {
+          "q": "Why enter a reserve and pack coverage?",
+          "a": "Reserve increases the estimated purchasing area for cuts and breakage; pack coverage then converts that area into whole packs. Neither the entered percentage nor box rounding checks a tile-by-tile cutting plan."
+        },
+        {
+          "q": "Does the estimate replace a laying plan?",
+          "a": "No. Patterns, borders, irregular surfaces and site-specific waste can change the number of tiles or packs needed."
+        },
+        {
+          "q": "Why are tile and pack counts separate?",
+          "a": "Tile count uses nominal tile area, while packs use the entered total pack area. Each is rounded up separately. Check the box marking rather than inferring its tile count from the two rounded results."
+        }
+      ]
+    },
+    "wallpaper-calculator": {
+      "longDescription": "Estimate wallpaper rolls from rectangular room dimensions, roll dimensions and a vertical pattern repeat. The calculation first finds whole strips, then whole rolls; it cannot turn unused fragments into another full strip. Window and door counts subtract fixed areas rather than the actual opening dimensions. The result is an aggregate material estimate to compare with a separate wall-by-wall cutting plan.",
+      "howToUse": [
+        "Enter room dimensions.",
+        "Enter roll width and length.",
+        "Add doors, windows and pattern repeat."
+      ],
+      "howItWorks": "Perimeter P = 2 × (length + width). The model subtracts a fixed 1.5 m² per window and 1.8 m² per door from P × height and clamps the remaining area to zero. Divide that area by height × roll width and round up to obtain strips. This uses equivalent total wall width, not a separate cutting plan or the actual dimensions of each opening. With repeat r in centimetres, strip length = ceiling(height/(r/100)) × r/100; without a repeat it equals height. Strips per roll are rounded down and rolls are rounded up. A roll yielding no full strip produces an error. Trimming allowance, half-drop matching and separate work above or below openings are not modeled. Window and door counts are non-negative whole numbers; roll price is in RUB.",
+      "example": "A 5 × 4 m room with 2.7 m walls, one window and one door has 45.3 m² in this model. A 1.06 × 10 m roll without repeat yields 3 strips; 16 strips require 6 rolls.",
+      "faq": [
+        {
+          "q": "How are wallpaper rolls estimated?",
+          "a": "The calculator estimates the strips needed for the room walls and divides them by the usable strips from one roll."
+        },
+        {
+          "q": "Why enter doors, windows and pattern repeat?",
+          "a": "Openings reduce the area to cover, while matching a repeated pattern can increase the length needed for each strip."
+        },
+        {
+          "q": "Could I still need an extra roll?",
+          "a": "Yes. Cutting loss, wall shape and pattern matching can differ on site, so check the estimate against the room layout before purchasing."
+        },
+        {
+          "q": "Does the wallpaper estimate include half-drop matching?",
+          "a": "No. Strip length is rounded to a whole vertical repeat; half-drop matching and trimming allowance are not added separately. Use the actual product matching instructions for a cutting plan."
+        }
+      ]
+    },
+    "paint-calculator": {
+      "longDescription": "Estimate litres and whole cans using paintable area, litres per square metre per coat and a chosen coat count. Use a directly measured area or a rectangular room model with fixed opening allowances. The consumption field is litres/m², the reciprocal of coverage stated as m²/L. An entered reserve and excess caused by whole cans are shown as different quantities; the calculator does not decide which paint or surface preparation is suitable.",
+      "howToUse": [
+        "Enter the measured paintable area or room dimensions; choose the corresponding mode.",
+        "Enter the product rate in L/m² per coat, a whole coat count and a reserve.",
+        "Enter can volume and an optional RUB price, then compare litres, whole cans and excess."
+      ],
+      "howItWorks": "Manual mode uses the entered area. Room mode uses 2 × (length + width) × height minus fixed allowances of 1.5 m² per window and 1.8 m² per door; the remaining paintable area must be positive. Litres = area × litres/m² per coat × a positive whole coat count × (1 + reserve/100). Cans are rounded up from litres/can volume; cost is can count × price in RUB. Excess from buying whole cans is separate from the entered reserve. Choose consumption and coat count for the actual paint and surface; neither one nor two coats is a universal rule. The ceiling, actual opening sizes, different consumption between coats and primer are not added separately. A blank price means 0 and hides cost.",
+      "example": "For 30 m², 2 coats, 0.15 L/m² per coat and 0% reserve, the estimate is 9 L. With 2.5 L cans, round up to 4 cans; the extra 1 L comes from whole cans.",
+      "faq": [
+        {
+          "q": "How do I convert paint coverage in m²/L?",
+          "a": "Enter the reciprocal as L/m² per coat. Coverage of 10 m²/L becomes 0.1 L/m²; the calculator then multiplies by the area and the coat count."
+        },
+        {
+          "q": "How are windows and doors subtracted in room mode?",
+          "a": "A whole window count subtracts 1.5 m² each and doors subtract 1.8 m² each. For actual opening dimensions or a ceiling, measure the net area separately and use manual mode."
+        },
+        {
+          "q": "Does the paint calculator decide the correct number of coats?",
+          "a": "No. Enter a positive whole count for the selected product and surface. Products differ: a one-coat label and a two-coat system do not use the same assumption."
+        },
+        {
+          "q": "What does the excess from whole paint cans mean?",
+          "a": "It is the difference between purchased whole-can volume and the already calculated need, divided by that need. It arises after the entered reserve and is not added to the reserve again."
+        }
+      ]
+    },
+    "laminate-calculator": {
+      "longDescription": "Estimate whole laminate packs for a rectangular floor using the coverage printed on one pack and a reserve you choose. Net floor area and purchasing area remain separate so you can see what the reserve changes. Optional underlay cost uses net area, while laminate cost uses whole packs. This estimates purchase quantities without designing plank cuts, staggered joints or installation gaps.",
+      "howToUse": [
+        "Enter room length and width.",
+        "Enter pack area and reserve.",
+        "Review required packs."
+      ],
+      "howItWorks": "Floor area = length × width. Purchasing area = floor area × (1 + reserve/100); packs are rounded up after dividing by pack area. Cost includes whole laminate packs plus underlay for the net floor area, without applying the reserve percentage to underlay. All entered prices are RUB, with no currency exchange. Dimensions and pack area must be positive; reserve and prices must be non-negative. This aggregate rectangular model does not calculate plank cuts, the final row length, staggered joints, recesses or installation gaps. Subfloor tolerances and gaps come from the instructions for the selected flooring, not a universal calculator standard.",
+      "example": "A 5 × 4 m floor has 20 m²; 10% reserve gives 22 m². A 2.13 m² pack requires 11 whole packs. Underlay cost, if entered, uses the original 20 m².",
+      "faq": [
+        {
+          "q": "How is floor area calculated?",
+          "a": "Enter the room length and width; the calculator multiplies them to find the area to cover."
+        },
+        {
+          "q": "How are laminate packs estimated?",
+          "a": "The calculator adds your reserve allowance to the floor area and divides by the area covered by one pack."
+        },
+        {
+          "q": "What does the reserve not account for?",
+          "a": "Laminate reserve depends on board length, laying direction and whether offcuts can be reused. It increases the laminate purchasing area; underlay cost still uses net floor area. Check the row plan because a percentage alone does not calculate plank cuts."
+        },
+        {
+          "q": "Which area is used for laminate underlay cost?",
+          "a": "Underlay cost uses the net floor area before laminate reserve. This does not round underlay to whole rolls or sheets; check their packaging separately."
+        }
+      ]
+    },
+    "screed-calculator": {
+      "longDescription": "Estimate layer volume, dry mass and whole bags from area, mean thickness and an entered consumption rate. Use the rate and bag weight for the actual mix, converting consumption to kg/(m²·cm). Reserve is a purchasing allowance and does not replace measuring the substrate profile. This model does not choose allowed thickness, mix composition, reinforcement or drying time.",
+      "howToUse": [
+        "Choose how to define the floor: by room length and width, or by a known area.",
+        "Set the layer thickness in centimetres — it depends on the substrate and the finish.",
+        "Copy the coverage and bag weight from the label of the mix you plan to buy.",
+        "Use area-weighted mean thickness and a chosen reserve; compare volume, dry mass and whole bags."
+      ],
+      "howItWorks": "The area is length × width or an entered area. Volume in m³ = area in m² × thickness in cm/100 × (1 + reserve/100). Dry mix in kg = area × thickness in cm × entered kg/(m²·cm) consumption × the same reserve factor. Purchasing mass is rounded up to a whole kilogram; bags are separately rounded up from the unrounded mass/bag weight. Price is per whole bag in RUB. Convert a product rate in kg/(m²·mm) by multiplying by 10; a rate per 10 mm equals the rate per 1 cm. Water, wet-mix density, reinforcement and strength are not calculated. Uneven floors require an area-weighted mean thickness; the midpoint of minimum and maximum works only for an appropriate uniform profile. Drying time and allowed thickness depend on the system and are not determined here.",
+      "example": "A 20 m² area, 5 cm layer, entered 18 kg/(m²·cm) consumption and 10% reserve give 1.1 m³ and 1,980 kg. With 25 kg bags, round up to 80 bags.",
+      "faq": [
+        {
+          "q": "What layer thickness should I use?",
+          "a": "Allowed thickness depends on the actual product and floor system, including substrate, loads and construction method. Use its technical documentation and the project. Entering a thickness estimates quantity without establishing that the layer is suitable."
+        },
+        {
+          "q": "Where do I find the coverage figure?",
+          "a": "Use the technical sheet of the actual product. This field expects kg/(m²·cm): multiply a per-1-mm rate by 10; a per-10-mm rate equals a per-1-cm rate."
+        },
+        {
+          "q": "Why is the number of bags rounded up?",
+          "a": "Dry mix is sold in whole bags, so even a small remainder needs one more. Rounding happens after the reserve has been applied."
+        },
+        {
+          "q": "How much reserve should I add?",
+          "a": "First measure mean layer thickness, weighted by the area of each part. Mix reserve is a separate allowance for assumed preparation and placement losses: it increases volume and dry mass before bags are rounded up. It does not correct a wrong thickness or represent a cutting allowance."
+        },
+        {
+          "q": "Does it split the mix into cement and sand?",
+          "a": "No. The estimate is based on a ready dry mix. Cement-to-sand proportions depend on the mortar grade you need and should follow the project or the manufacturer guidance."
+        },
+        {
+          "q": "Does it work for self-levelling compound?",
+          "a": "As a conditional quantity estimate, if the actual product rate can be expressed in kg/(m²·cm) and applies at the chosen thickness. Allowed thickness, substrate, mixing water and application method must be checked separately; the formula does not establish suitability of every dry mix."
+        }
+      ]
+    },
+    "brick-calculator": {
+      "longDescription": "This calculator works out how many bricks or blocks cover a wall built as a single leaf. Every unit owns one joint to its right and one above it, so the working module is the unit size plus the joint thickness on each side. The area of openings is subtracted from the wall area, and the waste allowance is reported on its own line so you can see exactly how many units it costs.",
+      "howToUse": [
+        "Describe the wall by its dimensions, or enter its area directly if you already know it.",
+        "Enter the total area of window and door openings — it is subtracted from the masonry area.",
+        "Enter the length and height of the unit in millimetres and the mortar joint thickness.",
+        "Add a waste allowance for breakage and cutting, and a price per unit if you need the cost."
+      ],
+      "howItWorks": "This counts one masonry leaf over the visible wall face. Area = length × height or an entered area, minus total opening area. One unit module is (unit length + joint) × (unit height + joint)/1,000,000 m²: add a joint once in each direction. Counts without and with reserve are separately rounded up from their respective areas/module area. Reserve, unit dimensions and joint thickness are user inputs; no universal joint thickness is selected. If openings occupy the entire wall, an explanatory no-masonry message appears. Price is per unit in RUB. Wall thickness, bonding, multiple leaves, lintels, mortar and strength are not modeled. This estimates element count and is not a structural design.",
+      "example": "A 6 by 2.8 m wall with no openings, built from 250 by 65 mm bricks with a 10 mm joint, gives a module of 0.26 by 0.075 = 0.0195 m², so 16.8 m² needs 862 bricks, or 905 with a 5% allowance.",
+      "faq": [
+        {
+          "q": "Is the mortar joint taken into account?",
+          "a": "Yes. Every unit owns one joint to its right and one above it; the neighbouring joint already belongs to the next unit. So the joint thickness is added once to the length and once to the height, not twice. With a 10 mm joint a 250 by 65 mm brick occupies 260 by 75 mm in the wall."
+        },
+        {
+          "q": "What wall thickness does this cover?",
+          "a": "A single leaf, measured on the visible face of the wall. Walls one brick thick, one and a half bricks, cavity walls and walls with a separate facing leaf need bonding geometry rather than just an area, and are not modelled here. For a multi-leaf wall, calculate each leaf separately."
+        },
+        {
+          "q": "Why is the number rounded up?",
+          "a": "You cannot buy part of a brick, and one unit fewer will not cover the whole area. When the area divides into the module exactly, no extra unit is added: the rounding is protected against binary noise and will not turn an exact number into that number plus one."
+        },
+        {
+          "q": "How much waste should I allow for breakage and cutting?",
+          "a": "Choose brick waste allowance from cuts around openings, expected breakage and spare units. The model increases the unrounded requirement for one wall leaf and then rounds to whole pieces. The separate reserve row shows added pieces; geometry does not establish a universal percentage."
+        },
+        {
+          "q": "How do I handle openings?",
+          "a": "Add up the areas of all windows and doors and enter the total in the openings field. It is subtracted from the wall area. If the openings fill the whole wall, no calculation is produced — there is nothing to build."
+        },
+        {
+          "q": "Does it work for aerated and foam blocks?",
+          "a": "The same geometry applies to rectangular blocks, but use actual unit sizes and joint thickness from the project and product instructions. A 2–3 mm joint is a possible example, not a universal requirement."
+        },
+        {
+          "q": "Does it include mortar consumption?",
+          "a": "No. The calculator counts units, not mortar volume: that depends on the wall thickness and the bonding pattern, neither of which is modelled here. Work the mortar out separately from your drawings."
+        }
+      ]
+    }
+  },
+  "uk": {
+    "tile-calculator": {
+      "longDescription": "Розрахунок плитки множить виміряну площу на обраний коефіцієнт запасу та ділить на номінальну площу однієї плитки. Підрізання, бій і потрібні запасні плитки залежать від конкретної розкладки й матеріалу; універсальний відсоток тут не встановлюється. Калькулятор окремо оцінює цілі упаковки та клей за введеною витратою, але не складає план розкрою.",
+      "howToUse": [
+        "Введіть розміри приміщення або одразу площу.",
+        "Введіть розміри плитки.",
+        "Задайте запас за перевіреною розкладкою й втратами, а витрату клею — за конкретним продуктом."
+      ],
+      "howItWorks": "Площа дорівнює довжині × ширині або вводиться вручну. Закупівельна площа S = площа × (1 + запас/100). Плитки округлюються вгору з S/(довжина плитки × ширина плитки/10 000), а упаковки окремо — з S/площі упаковки. Розміри плитки задаються в сантиметрах. Клей оцінюється як S × введена витрата кг/м², отже запас збільшує і кількість клею; це припущення для закупівлі, а не нанесення лише на чисту площу. Початкові 5 кг/м² можна змінити; це не універсальна норма. Ціна — за цілу упаковку в RUB, без обміну валют. Розміри й площа упаковки додатні; запас, витрата й ціна невід’ємні. Шви, схема розкрою та окремі стінові прорізи не моделюються.",
+      "example": "Кімната 4 × 3 м, плитка 30 × 30 см, запас 10%: 13,2 м² і 147 плиток. За 1,44 м² в упаковці потрібно 10 упаковок; введена витрата клею 5 кг/м² дає 66 кг із запасом.",
+      "faq": [
+        {
+          "q": "Який запас закладати?",
+          "a": "Оберіть запас плитки після перевірки формату, розкладки й потрібних запасних плиток. У моделі він збільшує площу для плиток, упаковок і клею; округлення коробок дає окремий залишок. Введений відсоток не гарантує покриття всіх підрізок або бою."
+        },
+        {
+          "q": "Чому важлива партія?",
+          "a": "Бо відтінок і розмір плитки трохи відрізняються від партії до партії. Різниця непомітна в коробці й добре видно на готовій стіні."
+        },
+        {
+          "q": "Чи враховано шви?",
+          "a": "Ні, калькулятор використовує номінальні розміри плитки. Наприклад, модуль 30 см із швом 2 мм має площу приблизно на 1,34% більшу за саму плитку. Різниця не гарантовано покривається запасом: він може бути нульовим. Для швів і підрізок перевірте окрему розкладку."
+        },
+        {
+          "q": "Скільки потрібно клею?",
+          "a": "Введіть витрату конкретного клею для обраної плитки, зубця шпателя й основи. Калькулятор множить цю витрату на площу із запасом; початкові 5 кг/м² можна змінити."
+        }
+      ],
+      "seoDescription": "Розрахуйте плитки, цілі упаковки та клей за розмірами кімнати або площею, форматом плитки й обраним запасом. Витрата клею задається окремо."
+    },
+    "wallpaper-calculator": {
+      "longDescription": "Розрахунок шпалер рахує не площу, а кількість цілих полотен: рулон ріжеться на смуги висотою стіни, і залишок від кожного рулону здебільшого йде у відхід. Саме тому шпалери майже завжди беруть із запасом більшим, ніж підказує проста площа.",
+      "howToUse": [
+        "Введіть розміри кімнати й висоту стелі.",
+        "Введіть ширину й довжину рулону.",
+        "Укажіть кількість вікон і дверей."
+      ],
+      "howItWorks": "Периметр P = 2 × (довжина + ширина). З P × висота віднімаються умовні 1,5 м² на вікно та 1,8 м² на двері; решта площі обмежується нулем. Кількість полотен — ця площа, поділена на висоту × ширину рулону, з округленням угору. Це еквівалентна загальна ширина стін, а не розкрій кожної стіни чи справжні розміри прорізів. За рапорту r сантиметрів довжина полотна = округлена вгору висота/(r/100) × r/100; без рапорту вона дорівнює висоті. Полотна з рулону округлюються вниз, рулони — вгору. Якщо повного полотна немає, видається помилка. Припуск на підрізання, зміщений рисунок і окрема робота над або під прорізами не враховуються. Вікна та двері — цілі невід’ємні кількості; ціна рулону в RUB.",
+      "example": "Кімната 5 × 4 м, висота 2,7 м, рулон 1,06 × 10 м, одне вікно й одні двері — потрібно 6 рулонів.",
+      "faq": [
+        {
+          "q": "Що таке рапорт і як він впливає?",
+          "a": "Це крок повторення візерунка. Шпалери з рапортом 64 см вимагають підганяти кожне наступне полотно, і відхід зростає — іноді на цілий рулон."
+        },
+        {
+          "q": "Чому не можна рахувати просто за площею?",
+          "a": "Бо рулон ріжеться на цілі полотна висотою стіни. З рулону 10 м за висоти 2,7 м виходить три полотна, а решта 1,9 м здебільшого йде у відхід."
+        },
+        {
+          "q": "Чи віднімати вікна й двері?",
+          "a": "Частково. Великі прорізи враховувати варто, але дрібні краще не віднімати: підрізання навколо них дає багато відходу."
+        },
+        {
+          "q": "Чи брати рулони з однієї партії?",
+          "a": "Обов’язково. Номер партії вказано на етикетці; відтінок різних партій відрізняється, і на суцільній стіні це видно."
+        }
+      ],
+      "seoDescription": "Оцініть цілі рулони шпалер за розмірами кімнати, висотою стін, розміром рулону та рапортом. Перевірте модель полотен і умовне віднімання прорізів."
+    },
+    "paint-calculator": {
+      "longDescription": "Літри фарби оцінюються за площею, введеною витратою на шар і обраною кількістю шарів. Кількість шарів залежить від конкретної фарби та поверхні й не визначається калькулятором. Заданий запас збільшує потребу, а зайвий об’єм через цілі банки показується окремо; ці відсотки мають різну причину.",
+      "howToUse": [
+        "Введіть площу поверхні.",
+        "Введіть витрату фарби на квадратний метр із банки.",
+        "Задайте додатну цілу кількість шарів за інструкцією обраної фарби та умовами поверхні."
+      ],
+      "howItWorks": "У ручному режимі вводиться площа. Для кімнати береться 2 × (довжина + ширина) × висота мінус умовні 1,5 м² на вікно та 1,8 м² на двері; залишкова площа має бути додатною. Літри = площа × витрата л/м² на шар × додатна ціла кількість шарів × (1 + запас/100). Банки округлюються вгору з літрів/об’єму банки; вартість = кількість банок × ціна в RUB. Залишок через цілі банки показується окремо від заданого запасу. Витрату й кількість шарів обирають для конкретної фарби та поверхні: ані один, ані два шари не є універсальним правилом. Стеля, справжні розміри прорізів, різна витрата між шарами та ґрунтовка окремо не додаються. Порожня ціна означає 0 і приховує вартість.",
+      "example": "30 м², 2 шари, 0,15 л/м² на шар і запас 0% дають 9 л. За об’єму банки 2,5 л потрібно 4 банки; зайвий 1 л виникає через цілі банки.",
+      "faq": [
+        {
+          "q": "Скільки шарів потрібно?",
+          "a": "Кількість шарів визначають інструкція конкретної фарби, покривність, колір і підготовка основи. Є продукти для одного шару й продукти для двох; калькулятор лише множить введену кількість."
+        },
+        {
+          "q": "Чому реальна витрата більша за паспортну?",
+          "a": "Витрата залежить від пористості, фактури, нанесення та підготовки поверхні. Універсального додатка на чверть чи третину немає. Візьміть умови з етикетки й за потреби перевірте на пробній ділянці."
+        },
+        {
+          "q": "Чи потрібно ґрунтувати перед фарбуванням?",
+          "a": "Дотримуйтеся системи підготовки, яку виробник визначив для вашої фарби й основи. Калькулятор не визначає потребу в ґрунтовці та не враховує її кількість."
+        },
+        {
+          "q": "Чи можна змішувати банки різних партій?",
+          "a": "Дотримуйтеся вказівок виробника щодо партій і змішування саме цього продукту. Калькулятор не оцінює сумісність банок чи відмінність відтінку."
+        }
+      ],
+      "seoDescription": "Оцініть літри фарби, цілі банки й залишок за площею або розмірами кімнати. Задайте витрату на шар, цілу кількість шарів і обраний запас."
+    },
+    "laminate-calculator": {
+      "longDescription": "Розрахунок ламінату рахує площу з запасом і переводить її в упаковки. Купувати доводиться завжди цілими упаковками, тому фактичний запас зазвичай виявляється більшим за заданий — і це нормально: залишок стане в пригоді під час заміни пошкодженої дошки.",
+      "howToUse": [
+        "Введіть довжину й ширину приміщення.",
+        "Введіть площу однієї упаковки з характеристик.",
+        "Задайте запас за планом рядів, напрямком дощок і придатністю обрізків."
+      ],
+      "howItWorks": "Площа підлоги = довжина × ширина. Закупівельна площа = площа підлоги × (1 + запас/100); упаковки округлюються вгору після ділення на площу упаковки. Вартість включає цілі упаковки ламінату й підкладку за чистою площею підлоги, без додаткового відсотка запасу для підкладки. Усі ціни вводяться в RUB, без обміну валют. Розміри й площа упаковки додатні; запас і ціни невід’ємні. Ця загальна прямокутна модель не розраховує розкрій дощок, довжину останнього ряду, зміщення стиків, ніші чи монтажні зазори. Вимоги до основи та зазорів беруть з інструкції обраного покриття, а не з універсальної норми калькулятора.",
+      "example": "Кімната 5 × 4 м, упаковка 2,13 м², запас 10 % — це 22 м² і 11 упаковок.",
+      "faq": [
+        {
+          "q": "Який запас потрібен ламінату?",
+          "a": "Запас ламінату залежить від довжини дощок, напрямку укладання й повторного використання обрізків. Він збільшує закупівельну площу ламінату, а вартість підкладки рахується за чистою площею. Перевірте план рядів: відсоток не розраховує розкрій дощок."
+        },
+        {
+          "q": "Навіщо залишати ламінат після ремонту?",
+          "a": "Для заміни пошкодженої дошки. Через рік-два конкретна колекція часто зникає з продажу, і підібрати той самий декор уже не вдасться."
+        },
+        {
+          "q": "Чи потрібен зазор біля стін?",
+          "a": "Потрібний зазор визначає інструкція обраного покриття. Наприклад, прочитана інструкція Quick-Step указує 8–10 мм у своєму контексті, але це не універсальна норма. Калькулятор бере повну введену площу й зазори геометрично не віднімає."
+        },
+        {
+          "q": "Чи можна укладати на стару підлогу?",
+          "a": "Перевірте допустимий тип старого покриття, вологість і рівність за інструкцією вашого продукту. Прочитана інструкція Quick-Step використовує допуски 2 мм на 1 м та 1 мм на 20 см, а не універсальні 2 мм на 2 м. Цей калькулятор не перевіряє основу."
+        }
+      ]
+    },
+    "screed-calculator": {
+      "longDescription": "Оцініть об’єм шару, суху масу й цілі мішки за площею, середньою товщиною та введеною нормою витрати. Використовуйте витрату й вагу мішка конкретної суміші, переводячи норму в кг/(м²·см). Запас — припущення для закупівлі, а не заміна вимірювання профілю основи. Модель не обирає допустиму товщину, склад, армування чи строк висихання.",
+      "howToUse": [
+        "Введіть площу приміщення.",
+        "Введіть товщину шару в сантиметрах.",
+        "Введіть середню товщину, зважену за площею, і обраний запас; порівняйте об’єм, суху масу та мішки."
+      ],
+      "howItWorks": "Площа дорівнює довжині × ширині або вводиться вручну. Об’єм м³ = площа м² × товщина см/100 × (1 + запас/100). Суха суміш кг = площа × товщина см × введена витрата кг/(м²·см) × той самий множник запасу. Маса до закупівлі округлюється вгору до цілого кілограма; мішки окремо — з неокругленої маси/ваги мішка. Ціна — за цілий мішок у RUB. Витрату кг/(м²·мм) помножте на 10; витрата на 10 мм збігається з витратою на 1 см. Вода, густина мокрого розчину, армування й міцність не визначаються. Нерівна основа потребує середньої товщини, зваженої за площею; півсума мінімуму й максимуму придатна лише для відповідного рівномірного профілю. Висихання й допустима товщина залежать від системи та тут не обчислюються.",
+      "example": "20 м², шар 5 см, введена витрата 18 кг/(м²·см) і запас 0% дають 1 м³ та 1 800 кг. За мішків 25 кг потрібно 72 мішки.",
+      "faq": [
+        {
+          "q": "Яка мінімальна товщина стяжки?",
+          "a": "Межі товщини залежать від суміші, зчеплення з основою, ізоляції, навантаження й системи підлоги. Універсальні пороги 30, 5 або 70 мм тут не застосовуються. Перевірте технічний опис і проєкт."
+        },
+        {
+          "q": "Чому важлива паспортна витрата?",
+          "a": "Візьміть витрату з технічного опису продукту. Тут потрібна одиниця кг/(м²·см): норму на 1 мм помножте на 10, а норма на 10 мм збігається з нормою на 1 см."
+        },
+        {
+          "q": "Скільки сохне стяжка?",
+          "a": "Строк залежить від продукту, товщини, вологості, температури й вентиляції; перед покриттям перевіряють допустиму залишкову вологість. Прочитана інструкція Quick-Step для своєї основи наводить лише орієнтовні строки, не універсальний тиждень на сантиметр. Калькулятор не визначає готовність стяжки."
+        },
+        {
+          "q": "Чи враховано перепади підлоги?",
+          "a": "Вводиться середня товщина, зважена за площею: складіть об’єми ділянок і поділіть на загальну площу. Півсума мінімальної та максимальної товщини правильна лише для відповідного рівномірного профілю, а не для будь-якої нерівної підлоги."
+        }
+      ]
+    },
+    "brick-calculator": {
+      "longDescription": "Калькулятор рахує, скільки цеглин або блоків закриють стіну за кладки в один шар. Кожному каменю належить один шов праворуч і один згори, тому розрахунковий модуль дорівнює розміру каменю плюс товщина шва по кожній стороні. Площа прорізів віднімається від площі стіни, а запас додається окремим рядком, щоб було видно, скільки каменів іде саме на нього.",
+      "howToUse": [
+        "Задайте стіну розмірами або одразу її площею, якщо вона відома з проєкту.",
+        "Вкажіть сумарну площу віконних і дверних прорізів — вона віднімається від площі кладки.",
+        "Введіть довжину та висоту каменю в міліметрах і товщину розчинного шва.",
+        "Додайте запас на бій і підрізку та за потреби ціну за штуку."
+      ],
+      "howItWorks": "Чиста площа стіни = довжина × висота (або введена площа) − прорізи. Модуль = (довжина каменя + шов) × (висота + шов) / 1 000 000 м²: один шов у кожному напрямку. Потреби без запасу та із запасом окремо округлюються вгору; ціна за штуку — у RUB. Розміри, шов і запас задає користувач. Один шар: товщина стіни, перев’язка, перемички, розчин і міцність не моделюються. Це оцінка кількості, не конструктивний проєкт; суцільні прорізи означають, що кладка не потрібна.",
+      "example": "Стіна 6 × 2,8 м без прорізів, цегла 250 × 65 мм зі швом 10 мм. Модуль дорівнює 0,26 × 0,075 = 0,0195 м², отже на 16,8 м² потрібно 862 цеглини, а із запасом 5% — 905 штук.",
+      "faq": [
+        {
+          "q": "Чи враховується розчинний шов?",
+          "a": "Так. Кожному каменю належить один шов праворуч і один згори: сусідній шов уже стосується наступного каменю. Тому до довжини й до висоти каменю додається товщина шва по одному разу, а не по два. За шва 10 мм цегла 250 × 65 мм займає в кладці 260 × 75 мм."
+        },
+        {
+          "q": "Для якої товщини стіни виконано розрахунок?",
+          "a": "Для одного шару кладки по видимій площині стіни. Кладка в цеглину, у півтори цеглини, колодязна та з облицювальним шаром потребує геометрії перевʼязки, а не лише площі, і в цьому калькуляторі не моделюється. Для багатошарової стіни порахуйте кожен шар окремо."
+        },
+        {
+          "q": "Чому кількість округлюється вгору?",
+          "a": "Купити частину цеглини не можна, а на одиницю менше вже не вистачить на всю площу. Якщо площа ділиться на модуль рівно, зайвий камінь не додається: округлення захищене від двійкового шуму."
+        },
+        {
+          "q": "Який запас закладати на бій і підрізку?",
+          "a": "Оберіть запас цегли за планом різів біля прорізів, очікуваним боєм і запасними каменями. Модель збільшує неокруглену потребу одношарової стіни та округлює до цілих штук. Окремий рядок показує додані штуки; універсальний відсоток із геометрії не випливає."
+        },
+        {
+          "q": "Що робити з прорізами?",
+          "a": "Складіть площі всіх вікон і дверей та введіть суму в поле прорізів. Вона віднімається від площі стіни. Якщо прорізи займають усю стіну, розрахунок не виконується: класти нічого."
+        },
+        {
+          "q": "Чи підходить розрахунок для газоблоків і піноблоків?",
+          "a": "Для прямокутних блоків геометрія та сама, але справжні розміри й шов беруть із проєкту та інструкції конкретного блока/клею. 2–3 мм — можливий приклад, не універсальна вимога."
+        },
+        {
+          "q": "Чи враховується розчин і його витрата?",
+          "a": "Ні. Калькулятор рахує кількість каменів, а не обʼєм розчину: він залежить від товщини стіни та способу кладки, які тут не моделюються."
+        }
+      ]
+    }
+  },
+  "de": {
+    "tile-calculator": {
+      "longDescription": "Rechnet vom Raum zur Bestellung und nicht nur zur Fläche: Fliesenzahl, Pakete und ungefährer Kleberbedarf stehen nebeneinander, weil im Baumarkt alle drei zugleich gebraucht werden. Die Reserve wird vor dem Aufrunden aufgeschlagen, denn Zuschnitt an Rändern und Ecken, Bruch und ein späterer Austausch einzelner Fliesen kosten Material, das keine Flächenrechnung kennt. Pakete werden aufgerundet, weil ein halbes Paket niemand verkauft, und diese Rundung ist bei großformatigen Fliesen der teuerste Schritt der ganzen Rechnung.",
+      "howToUse": [
+        "Wähle, ob du Raummaße oder eine fertige Fläche eingibst.",
+        "Trage das Fliesenformat in Zentimetern ein.",
+        "Trage die Fläche eines Pakets ein — sie steht auf der Verpackung.",
+        "Wähle die Reserve nach geprüftem Verlegeplan und Verlusten; nutze den Verbrauch des konkreten Klebers."
+      ],
+      "howItWorks": "Die Fläche ist Länge × Breite oder eine direkt eingegebene Fläche. Einkaufsfläche S = Fläche × (1 + Reserve/100). Fliesen werden aus S/(Fliesenlänge × Fliesenbreite/10 000) aufgerundet; die Fliesenmaße stehen in Zentimetern. Pakete werden getrennt aus S/Paketfläche aufgerundet. Klebermenge = S × eingegebener Verbrauch in kg/m². Die Reserve erhöht somit auch den Kleberansatz; das ist eine Einkaufsannahme, kein Verbrauch nur auf der Nettofläche. Die voreingestellten 5 kg/m² sind keine allgemeine Produktnorm. Der Preis gilt je ganzem Paket in RUB, ohne Währungsumrechnung. Maße und Paketfläche müssen positiv sein; Reserve, Verbrauch und Preis dürfen nicht negativ sein. Fugenbreite, Zuschnittplan und einzelne Wandöffnungen werden nicht modelliert.",
+      "example": "Ein Raum 4 × 3 m, Fliesen 30 × 30 cm und 10% Reserve ergeben 13,2 m² und 147 Fliesen. Bei 1,44 m² je Paket sind es 10 Pakete; eingegebene 5 kg/m² Kleber ergeben 66 kg einschließlich Reserve.",
+      "faq": [
+        {
+          "q": "Wie viel Reserve ist sinnvoll?",
+          "a": "Wähle die Fliesenreserve nach Format, Verlegeplan und Ersatzfliesen. Sie erhöht hier die Fläche für Stückzahl, Pakete und Kleber; ganze Pakete erzeugen zusätzlichen Rest. Der eingegebene Prozentsatz garantiert nicht genügend Stücke für jeden Schnitt oder Bruch."
+        },
+        {
+          "q": "Warum werden die Pakete aufgerundet?",
+          "a": "Fliesen werden paketweise verkauft. Selbst ein kleiner Rest verlangt ein weiteres Paket, und die Rundung geschieht nach dem Aufschlag der Reserve."
+        },
+        {
+          "q": "Woher nehme ich die Ergiebigkeit des Klebers?",
+          "a": "Vom Sack. Hersteller geben sie in Kilogramm je Quadratmeter für eine bestimmte Zahnung an, und die Zahnung richtet sich nach dem Fliesenformat: großes Format heißt mehr Kleber."
+        },
+        {
+          "q": "Ist die Fugenbreite berücksichtigt?",
+          "a": "Nein. Ein Raster aus 30 cm Fliesen und 2 mm Fugen ist je Richtung 30,2 cm breit; seine Fläche ist rund 1,34% größer als die reine Fliesenfläche. Das ist bereits mehr als 1%. Der Rechner nutzt die Nennmaße und erstellt keinen Fugen- oder Zuschnittplan."
+        },
+        {
+          "q": "Taugt das auch für die Wand?",
+          "a": "Ja, die Rechnung ist dieselbe. Trage die Wandfläche ein und zieh Türen und Fenster vorher ab."
+        }
+      ],
+      "seoDescription": "Berechne Fliesen, ganze Pakete und Kleber aus Raummaßen oder Fläche, Fliesenformat, Paketfläche und gewählter Reserve. Prüfe die eigenen Produktwerte."
+    },
+    "wallpaper-calculator": {
+      "longDescription": "Zählt Bahnen und erst daraus Rollen, denn genau daran scheitert die Überschlagsrechnung nach Fläche: eine Rolle von 10,05 m liefert bei 2,7 m Wandhöhe nur drei Bahnen und nicht 3,7 — der Rest ist zu kurz für eine weitere Bahn und geht als Verschnitt weg. Der Rapport verlängert jede Bahn auf das nächste volle Vielfache des Musters und kann die Zahl der Rollen sprunghaft erhöhen. Fenster und Türen werden nach Stückzahl abgezogen, mit den üblichen Mittelwerten von 1,5 und 1,8 m².",
+      "howToUse": [
+        "Trage Länge, Breite und Wandhöhe des Raums ein.",
+        "Trage das Rollenmaß ein — meist 0,53 × 10,05 m.",
+        "Gib die Zahl der Fenster und Türen an.",
+        "Trage den Rapport in Zentimetern ein; bei glatter Tapete bleibt er null."
+      ],
+      "howItWorks": "Umfang P = 2 × (Länge + Breite). Von P × Höhe werden pauschal 1,5 m² je Fenster und 1,8 m² je Tür abgezogen; die Restfläche wird bei null begrenzt. Bahnen = aufgerundete Restfläche/(Höhe × Rollenbreite). Das nutzt eine äquivalente Gesamtbreite, keinen Zuschnittplan je Wand und keine tatsächlichen Öffnungsmaße. Bei Rapport r in Zentimetern ist die Bahnlänge = aufgerundete Höhe/(r/100) × r/100; ohne Rapport entspricht sie der Höhe. Bahnen je Rolle werden abgerundet, Rollen aufgerundet. Ergibt eine Rolle keine vollständige Bahn, erscheint ein Fehler. Beschnittzugabe, versetzter Ansatz und Arbeiten oberhalb oder unterhalb von Öffnungen werden nicht gesondert berücksichtigt. Fenster und Türen sind nicht negative ganze Anzahlen; der Rollenpreis wird in RUB eingegeben.",
+      "example": "Ein Raum von 4 × 3 m mit 2,7 m Wandhöhe, einem Fenster und einer Tür ergibt bei einer Rolle von 0,53 × 10,05 m eine Wandfläche von 34,5 m², 25 Bahnen und 9 Rollen.",
+      "faq": [
+        {
+          "q": "Warum genügt eine Rechnung nach Fläche nicht?",
+          "a": "Weil Tapete in Bahnen verlegt wird. Aus einer Rolle von 10,05 m werden bei 2,7 m Höhe drei Bahnen, der Rest von 1,95 m ist zu kurz für eine vierte — nach Fläche gerechnet fehlten Rollen."
+        },
+        {
+          "q": "Was ist der Rapport und wie wirkt er?",
+          "a": "Der vertikale Rapport verlängert jede Bahn auf ein ganzes Vielfaches des Musters. Bei 64 cm wird aus 2,7 m eine 3,2-m-Bahn: Aus einer 10,05-m-Rolle entstehen in beiden Fällen drei volle Bahnen, aber unterschiedlich lange Reste. Versetzte Muster und Beschnitt kommen in dieser Modelllänge nicht zusätzlich vor."
+        },
+        {
+          "q": "Wie werden Fenster und Türen berücksichtigt?",
+          "a": "Nach Stückzahl mit Mittelwerten: 1,5 m² je Fenster und 1,8 m² je Tür. Weichen deine Öffnungen stark davon ab, rechne die Wandfläche von Hand und plane etwas großzügiger."
+        },
+        {
+          "q": "Wie viel Reserve sollte ich einplanen?",
+          "a": "Ganze Rollen können Materialreste ergeben, die nicht automatisch als weitere volle Bahn nutzbar sind. Vergleiche das Ergebnis mit einem Plan jeder Wand, Beschnitt und Musteranweisung. Ein zusätzlicher Rollenkauf ist eine eigene Entscheidung und keine geprüfte Mengengarantie des Rechners."
+        },
+        {
+          "q": "Zählt die Decke mit?",
+          "a": "Nein, gerechnet werden nur die Wände. Für die Decke rechne ihre Fläche gesondert und addiere die Rollen."
+        }
+      ]
+    },
+    "paint-calculator": {
+      "longDescription": "Nutze Raummaße oder eine fertige Fläche und schätze Liter aus dem eingegebenen Verbrauch je Anstrich. Das Rechenmodell verwendet denselben Verbrauch für alle Anstriche; tatsächliche Unterschiede zwischen Schichten werden nicht ermittelt. Anstrichzahl und Verbrauch stammen aus Produkt und Oberfläche. Eingegebene Reserve und Rest durch ganze Gebinde werden getrennt gezeigt.",
+      "howToUse": [
+        "Wähle, ob du die Fläche selbst kennst oder aus den Raummaßen rechnest.",
+        "Trage eine positive ganze Anstrichzahl nach Anleitung der gewählten Farbe und Oberfläche ein.",
+        "Trage die Ergiebigkeit in Litern je Quadratmeter und Anstrich ein.",
+        "Trage das Gebindevolumen ein und setze bei Bedarf eine Reserve."
+      ],
+      "howItWorks": "Im manuellen Modus wird die Fläche eingegeben. Der Raummodus nutzt 2 × (Länge + Breite) × Höhe abzüglich pauschal 1,5 m² je Fenster und 1,8 m² je Tür; die Restfläche muss positiv sein. Liter = Fläche × Liter/m² je Anstrich × positive ganze Anstrichzahl × (1 + Reserve/100). Gebinde werden aus Liter/Gebindevolumen aufgerundet; Kosten = Gebindeanzahl × Preis in RUB. Der Rest durch ganze Gebinde wird getrennt von der eingegebenen Reserve gezeigt. Verbrauch und Anstrichzahl gelten für die konkrete Farbe und Oberfläche; ein oder zwei Anstriche sind keine allgemeine Regel. Decke, tatsächliche Öffnungsgrößen, unterschiedlicher Verbrauch je Anstrich und Grundierung werden nicht separat ergänzt. Ein leerer Preis bedeutet 0 und blendet Kosten aus.",
+      "example": "40 m² in zwei Anstrichen bei 0,12 l/m² und 10 % Reserve ergeben 10,6 Liter, also 5 Dosen zu 2,5 l.",
+      "faq": [
+        {
+          "q": "Woher nehme ich die Ergiebigkeit?",
+          "a": "Vom Eimer. Hersteller geben sie meist als Quadratmeter je Liter für einen Anstrich an — der Kehrwert davon gehört in dieses Feld. Auf saugendem Untergrund liegt der wirkliche Verbrauch über der Angabe."
+        },
+        {
+          "q": "Warum stehen zwei Prozentzahlen im Ergebnis?",
+          "a": "Die eine ist die Reserve, die du setzt, die andere der Rest, der beim Aufrunden auf ganze Dosen übrig bleibt. Bei großen Gebinden ist die zweite oft die größere und wird gern übersehen."
+        },
+        {
+          "q": "Wie viele Anstriche brauche ich?",
+          "a": "Nutze die Anleitung der konkreten Farbe und die Bedingungen der Oberfläche. Ein-Schicht-Produkte und Zwei-Schicht-Systeme unterscheiden sich. Der Rechner wählt die Zahl nicht, sondern multipliziert einen einheitlichen Verbrauch mit der ganzen Anstrichzahl; der reale Verbrauch je Schicht kann abweichen."
+        },
+        {
+          "q": "Ist die Grundierung enthalten?",
+          "a": "Nein. Sie hat eine eigene Ergiebigkeit und wird gesondert gerechnet. Eine Grundierung senkt allerdings den Verbrauch der Farbe darüber."
+        },
+        {
+          "q": "Wie werden Fenster und Türen abgezogen?",
+          "a": "Nach Stückzahl mit Mittelwerten von 1,5 und 1,8 m². Weichen deine Öffnungen stark ab, gib die Fläche lieber direkt ein."
+        }
+      ]
+    },
+    "laminate-calculator": {
+      "longDescription": "Zählt Pakete und nicht Quadratmeter, denn gekauft wird in Paketen und der Rest eines angebrochenen Pakets ist bezahlt, ob verlegt oder nicht. Die Reserve wird vor dem Aufrunden aufgeschlagen: Zuschnitt an Wänden, der Versatz der Stöße von Reihe zu Reihe und beschädigte Dielen kosten Material, das keine Bodenfläche zeigt. Ein Preis je Paket und ein Preis der Trittschalldämmung je Quadratmeter lassen sich mitgeben, weil die Dämmung fast immer zusammen mit dem Boden bestellt wird und in der Rechnung leicht vergessen geht.",
+      "howToUse": [
+        "Trage Länge und Breite des Raums ein.",
+        "Trage die Fläche eines Pakets ein — sie steht auf der Verpackung.",
+        "Wähle die Reserve nach Reihenplan, Dielenrichtung und brauchbaren Abschnitten.",
+        "Ergänze bei Bedarf Paketpreis und Preis der Trittschalldämmung je Quadratmeter."
+      ],
+      "howItWorks": "Bodenfläche = Länge × Breite. Einkaufsfläche = Bodenfläche × (1 + Reserve/100); Pakete werden nach Division durch die Paketfläche aufgerundet. Die Kosten umfassen ganze Laminatpakete und Unterlage für die Nettofläche, ohne Reserveaufschlag auf die Unterlage. Alle Preise werden in RUB eingegeben, ohne Währungsumrechnung. Maße und Paketfläche müssen positiv sein; Reserve und Preise dürfen nicht negativ sein. Dieses rechteckige Gesamtmodell berechnet weder Zuschnitt, Länge der letzten Reihe, versetzte Stöße, Nischen noch Montagefugen. Untergrundtoleranzen und Abstände stammen aus der Anleitung des gewählten Belags, nicht aus einer allgemeinen Rechnernorm.",
+      "example": "Ein Raum von 5 × 4 m mit Paketen zu 2,13 m² und 7 % Reserve ergibt 21,4 m² und 11 Pakete.",
+      "faq": [
+        {
+          "q": "Wie viel Reserve ist richtig?",
+          "a": "Die Laminatreserve hängt von Dielenlänge, Verlegerichtung und wiederverwendbaren Abschnitten ab. Sie erhöht die Einkaufsfläche des Laminats; die Unterlagenkosten nutzen weiterhin die Nettofläche. Prüfe den Reihenplan, denn ein Prozentsatz berechnet keinen Dielenzuschnitt."
+        },
+        {
+          "q": "Warum werden die Pakete aufgerundet?",
+          "a": "Laminat wird paketweise verkauft. Ein angebrochenes Paket gibt es nicht, und ein kleiner Rest verlangt ein weiteres."
+        },
+        {
+          "q": "Ist die Trittschalldämmung enthalten?",
+          "a": "Nur als Preis je Quadratmeter, wenn du ihn einträgst. Ihre Fläche entspricht der Bodenfläche; sie wird nicht in Paketen gerechnet."
+        },
+        {
+          "q": "Zählt der Abstand zur Wand mit?",
+          "a": "Der Rechner nutzt die volle eingegebene Bodenfläche und zieht Wandabstände nicht geometrisch ab. Die erforderliche Fuge folgt der Produktanleitung; 8–10 mm gelten im gelesenen Quick-Step-Kontext. Eine Prozentreserve garantiert nicht, dass ein konkreter Zuschnitt oder Wandabstand erfasst ist."
+        },
+        {
+          "q": "Taugt das auch für Vinyl oder Parkett?",
+          "a": "Ja. Die Rechnung ist für jeden Bodenbelag dieselbe, der nach Paketfläche verkauft wird — nur Paketfläche und Reserve ändern sich."
+        }
+      ],
+      "seoDescription": "Berechne ganze Laminatpakete aus Raummaßen, Paketfläche und gewählter Reserve. Vergleiche Einkaufsfläche und optionale Kosten von Laminat und Unterlage."
+    },
+    "screed-calculator": {
+      "longDescription": "Schätze Schichtvolumen, Trockenmasse und ganze Säcke aus Fläche, mittlerer Dicke und eingegebenem Verbrauch. Nutze Verbrauch und Sackgewicht des konkreten Produkts und rechne die Einheit in kg/(m²·cm) um. Die Reserve ist eine Einkaufsannahme und ersetzt keine Messung des Untergrundprofils. Das Modell bestimmt weder zulässige Dicke, Zusammensetzung, Bewehrung noch Trocknungszeit.",
+      "howToUse": [
+        "Wähle, ob du Raummaße oder eine fertige Fläche eingibst.",
+        "Trage die Schichtdicke in Zentimetern ein.",
+        "Trage die Ergiebigkeit vom Sack ein: Kilogramm je Quadratmeter bei 1 cm Schicht.",
+        "Nutze flächengewichtete mittlere Dicke und gewählte Reserve; vergleiche Volumen, Trockenmasse und Säcke."
+      ],
+      "howItWorks": "Die Fläche ist Länge × Breite oder eine eingegebene Fläche. Volumen in m³ = Fläche in m² × Dicke in cm/100 × (1 + Reserve/100). Trockenmasse in kg = Fläche × Dicke in cm × eingegebener Verbrauch kg/(m²·cm) × gleicher Reservefaktor. Die Einkaufsmasse wird auf ganze Kilogramm aufgerundet; Säcke werden getrennt aus ungerundeter Masse/Sackgewicht aufgerundet. Der Preis gilt je ganzem Sack in RUB. Verbrauch in kg/(m²·mm) wird mit 10 multipliziert; eine Angabe je 10 mm entspricht einer Angabe je 1 cm. Wasser, Nassmörteldichte, Bewehrung und Festigkeit werden nicht ermittelt. Unebene Böden benötigen eine flächengewichtete mittlere Dicke; der Mittelwert von Minimum und Maximum passt nur zu einem entsprechenden gleichmäßigen Profil. Trocknungszeit und zulässige Dicke hängen vom System ab und werden hier nicht bestimmt.",
+      "example": "Ein Raum von 5 × 4 m, 5 cm Schicht, 18 kg/m² je Zentimeter, Säcke zu 25 kg und 10 % Reserve ergeben 1,1 m³, 1980 kg Mischung und 80 Säcke.",
+      "faq": [
+        {
+          "q": "Welche Schichtdicke brauche ich?",
+          "a": "Die zulässige Dicke hängt vom konkreten Produkt und Bodensystem ab, einschließlich Untergrund, Lasten und Aufbau. Nutze technische Dokumentation und Projekt. Eine eingegebene Dicke schätzt die Menge, bestätigt aber nicht die Eignung der Schicht."
+        },
+        {
+          "q": "Woher nehme ich die Ergiebigkeit?",
+          "a": "Nutze das technische Datenblatt des Produkts. Das Feld erwartet kg/(m²·cm): je 1 mm mit 10 multiplizieren; je 10 mm entspricht je 1 cm."
+        },
+        {
+          "q": "Warum werden die Säcke aufgerundet?",
+          "a": "Weil Trockenmischung in ganzen Säcken verkauft wird. Auch ein kleiner Rest verlangt einen weiteren, und gerundet wird nach der Reserve."
+        },
+        {
+          "q": "Wie viel Reserve ist sinnvoll?",
+          "a": "Miss zuerst die nach Teilflächen gewichtete mittlere Schichtdicke. Die Mischungsreserve ist ein eigener Zuschlag für angenommene Verluste beim Anmischen und Einbringen: Sie erhöht Volumen und Trockenmasse vor dem Aufrunden der Säcke. Sie korrigiert weder eine falsche Dicke noch einen Zuschnitt."
+        },
+        {
+          "q": "Rechnet das Zement und Sand getrennt?",
+          "a": "Nein, gerechnet wird eine fertige Trockenmischung. Die Anteile von Zement und Sand hängen von der geforderten Festigkeitsklasse ab und gehören in die Planung."
+        },
+        {
+          "q": "Taugt das für Fließspachtel?",
+          "a": "Nur als Mengenmodell, wenn Verbrauchseinheit und eingegebene mittlere Dicke zum Produkt passen. Zulässiger Dickenbereich, Untergrund, Wasserzugabe und Verarbeitung werden separat nach Produktanleitung geprüft."
+        }
+      ]
+    },
+    "brick-calculator": {
+      "longDescription": "Der Kern der Rechnung ist das Rastermaß: jeder Stein besitzt eine Fuge rechts von sich und eine über sich, die nächste Fuge gehört bereits zum nächsten Stein. Deshalb wird die Fugendicke einmal zur Länge und einmal zur Höhe gezählt und nicht zweimal — ein Stein von 250 × 65 mm belegt mit 10 mm Fuge 260 × 75 mm in der Wand. Gerechnet wird eine einschalige Wand nach ihrer sichtbaren Fläche: Verband, Wandstärke über einen Stein hinaus, Pfeiler und Ergänzungssteine brauchen eine Geometrie und nicht nur eine Fläche und werden hier bewusst nicht abgebildet.",
+      "howToUse": [
+        "Wähle, ob du Wandmaße oder eine fertige Fläche eingibst.",
+        "Trage die Fläche aller Fenster und Türen ein — sie wird abgezogen.",
+        "Trage Länge und Höhe des Steins in Millimetern ein.",
+        "Nutze die Fugendicke aus Projekt und Produktanleitung; 10 mm oder 2–3 mm sind mögliche Beispiele, keine allgemeinen Vorgaben."
+      ],
+      "howItWorks": "Berechnet wird ein Mauerblatt über die sichtbare Wandfläche. Fläche = Länge × Höhe oder eingegebene Fläche, abzüglich der gesamten Öffnungsfläche. Das Steinmodul ist (Steinlänge + Fuge) × (Steinhöhe + Fuge)/1 000 000 m²: je Richtung wird eine Fuge ergänzt. Anzahlen ohne und mit Reserve werden getrennt aus jeweiliger Fläche/Modulfläche aufgerundet. Reserve, Steinmaße und Fuge werden eingegeben; es wird keine allgemeine Fugenstärke festgelegt. Belegen Öffnungen die ganze Wand, erscheint ein Hinweis auf entfallende Mauersteine. Der Preis gilt je Stein in RUB. Wanddicke, Verband, mehrere Mauerblätter, Stürze, Mörtel und Tragfähigkeit werden nicht modelliert. Das ist eine Mengenschätzung, kein Tragwerksentwurf.",
+      "example": "Eine Wand von 6 × 2,8 m ohne Öffnungen aus Steinen 250 × 65 mm mit 10 mm Fuge ergibt ein Rastermaß von 0,0195 m², also 862 Steine für 16,8 m² und 905 mit 5 % Reserve.",
+      "faq": [
+        {
+          "q": "Ist die Fuge berücksichtigt?",
+          "a": "Ja, und zwar einmal je Richtung. Jeder Stein besitzt eine Fuge rechts und eine oben, die benachbarte gehört schon zum nächsten Stein — sie doppelt zu zählen ergäbe zu wenig Steine."
+        },
+        {
+          "q": "Für welche Wandstärke gilt das?",
+          "a": "Für eine Schale, gemessen an der sichtbaren Wandfläche. Wände von einem Stein Dicke und mehr, zweischalige Wände und Wände mit Verblendschale brauchen den Verband und werden hier nicht gerechnet — rechne jede Schale einzeln."
+        },
+        {
+          "q": "Warum wird aufgerundet?",
+          "a": "Einen halben Stein kann man nicht kaufen, und ein Stein weniger deckt die Fläche nicht. Geht die Rechnung genau auf, kommt kein zusätzlicher Stein hinzu."
+        },
+        {
+          "q": "Wie viel Reserve für Bruch und Zuschnitt?",
+          "a": "Wähle die Steinreserve nach Schnitten an Öffnungen, erwartetem Bruch und Ersatzsteinen. Das Modell erhöht den ungerundeten Bedarf einer Wandschale und rundet danach auf ganze Stücke. Die separate Reservezeile zeigt zusätzliche Steine; aus der Geometrie folgt kein allgemeiner Prozentsatz."
+        },
+        {
+          "q": "Gilt das auch für Porenbeton?",
+          "a": "Die Geometrie gilt auch für rechteckige Blöcke. Tatsächliche Maße und Fuge stammen aus Projekt und Produktanleitung; 2–3 mm sind ein mögliches Beispiel, keine allgemeine Vorgabe."
+        },
+        {
+          "q": "Ist der Mörtelbedarf enthalten?",
+          "a": "Nein. Gezählt werden Steine, nicht Mörtelvolumen: das hängt von Wandstärke und Verband ab, die hier nicht abgebildet sind."
+        }
+      ]
+    }
+  },
+  "es": {
+    "tile-calculator": {
+      "longDescription": "Calcula cuántos azulejos, cuántos paquetes y cuánto adhesivo hacen falta para alicatar una superficie. Se puede partir de las medidas de la estancia o directamente del área, porque en la obra unas veces se tiene el plano y otras la superficie ya medida. El margen de reserva se indica aparte y no viene impuesto: los cortes de una estancia rectangular sencilla gastan poco, y un suelo con rincones o colocado en diagonal gasta bastante más. El resultado incluye los paquetes redondeados hacia arriba, porque los azulejos se venden por paquete y comprar cuatro paquetes y medio no es una opción.",
+      "howToUse": [
+        "Elige si vas a partir de las medidas de la estancia o del área.",
+        "Introduce el tamaño del azulejo y la superficie que cubre un paquete.",
+        "Añade el margen de reserva y, si quieres, el precio del paquete.",
+        "Consulta las piezas, los paquetes y el adhesivo estimado."
+      ],
+      "howItWorks": "El área es largo × ancho o un área introducida directamente. Área de compra S = área × (1 + reserva/100). Las piezas se redondean hacia arriba desde S/(largo de baldosa × ancho de baldosa/10 000), con las dimensiones en centímetros; los paquetes se redondean por separado desde S/área del paquete. Adhesivo = S × consumo introducido en kg/m². La reserva también aumenta esta estimación de adhesivo: es una hipótesis de compra, no solo la aplicación sobre el área neta. El valor inicial de 5 kg/m² es editable y no es una norma universal. El precio corresponde a un paquete completo en RUB, sin cambio de moneda. Dimensiones y área del paquete positivas; reserva, consumo y precio no negativos. No se modelan juntas, un plano de corte ni huecos individuales de pared.",
+      "example": "Una habitación de 4 × 3 m, baldosas de 30 × 30 cm y reserva del 10% dan 13,2 m² y 147 piezas. Con 1,44 m² por paquete, hacen falta 10 paquetes; un consumo de adhesivo de 5 kg/m² da 66 kg con reserva.",
+      "faq": [
+        {
+          "q": "¿Cuánto margen de reserva conviene dejar?",
+          "a": "Elige la reserva de azulejos tras revisar formato, colocación y piezas de repuesto. Aquí aumenta el área para piezas, paquetes y adhesivo; el redondeo de paquetes deja un sobrante aparte. El porcentaje introducido no garantiza cubrir todos los cortes o roturas."
+        },
+        {
+          "q": "¿Por qué los paquetes se redondean hacia arriba?",
+          "a": "Porque los azulejos se venden por paquete cerrado. Si el cálculo da 4,2 paquetes, hacen falta 5: los 0,8 restantes no se pueden comprar por separado."
+        },
+        {
+          "q": "¿El adhesivo estimado es fiable?",
+          "a": "Es una estimación a partir del consumo que declara el fabricante. El gasto real depende del tamaño del diente de la llana, de la planitud del soporte y del formato del azulejo; en un soporte irregular puede subir de forma notable."
+        },
+        {
+          "q": "¿Se tiene en cuenta la junta entre azulejos?",
+          "a": "No: se usan las medidas nominales del azulejo. Por ejemplo, un módulo de 30 cm con junta de 2 mm tiene un área aproximadamente un 1,34% mayor que la pieza sola. No se garantiza que la reserva cubra la diferencia; puede ser cero. Comprueba juntas y cortes en un plano aparte."
+        },
+        {
+          "q": "¿Puedo usarla para pared y para suelo?",
+          "a": "Sí, el cálculo es el mismo: lo que cambia es la superficie que introduces. Para una pared, resta los huecos de puertas y ventanas antes de escribir el área."
+        }
+      ],
+      "seoDescription": "Calcula piezas, paquetes completos y adhesivo con medidas o área, formato del azulejo y reserva elegida. Introduce el consumo del producto concreto."
+    },
+    "wallpaper-calculator": {
+      "longDescription": "Estima rollos de papel a partir de una habitación rectangular, dimensiones del rollo y repetición vertical del dibujo. Se calculan primero tiras completas y después rollos completos; los retales no se unen para obtener otra tira entera. Ventanas y puertas descuentan áreas fijas, no sus medidas reales. Compara la estimación de material con un plano de corte por pared.",
+      "howToUse": [
+        "Introduce las dimensiones de la habitación.",
+        "Introduce el ancho y el largo del rollo.",
+        "Añade las puertas, las ventanas y el repetido del dibujo."
+      ],
+      "howItWorks": "Perímetro P = 2 × (largo + ancho). De P × altura se descuentan valores fijos de 1,5 m² por ventana y 1,8 m² por puerta; el área restante se limita a cero. Tiras = área restante/(altura × ancho del rollo), redondeada hacia arriba. Se usa un ancho total equivalente, no un plano por pared ni las medidas reales de cada hueco. Con repetición r en centímetros, longitud de tira = techo(altura/(r/100)) × r/100; sin repetición es la altura. Las tiras por rollo se redondean hacia abajo y los rollos hacia arriba. Un rollo que no permite ninguna tira completa produce un error. No se añaden margen de recorte, casado desplazado ni trabajo separado sobre o bajo huecos. Ventanas y puertas son cantidades enteras no negativas; el precio por rollo está en RUB.",
+      "example": "Una habitación de 5 × 4 m y 2,7 m de altura, con una ventana y una puerta, da 45,3 m² en este modelo. Un rollo de 1,06 × 10 m sin repetición permite 3 tiras; 16 tiras requieren 6 rollos.",
+      "faq": [
+        {
+          "q": "¿Cómo se estima el número de rollos?",
+          "a": "Se calculan las tiras necesarias para cubrir las paredes y se dividen entre las tiras aprovechables de cada rollo."
+        },
+        {
+          "q": "¿Para qué sirven los huecos y el repetido del dibujo?",
+          "a": "Puertas y ventanas reducen la superficie que se cubre; casar un dibujo repetido puede aumentar el largo de cada tira."
+        },
+        {
+          "q": "¿Puede hacer falta un rollo adicional?",
+          "a": "Sí. Los recortes, la forma de la habitación y el ajuste del dibujo varían en la obra; comprueba la estimación con las medidas reales."
+        },
+        {
+          "q": "¿La estimación de papel incluye casado desplazado?",
+          "a": "No. La longitud de tira se redondea a una repetición vertical completa; no se añaden casado desplazado ni margen de recorte. El plano de corte debe seguir las instrucciones del papel."
+        }
+      ]
+    },
+    "paint-calculator": {
+      "longDescription": "Estima litros y envases completos a partir del área a pintar, litros por metro cuadrado y capa, y una cantidad de capas elegida. Usa un área medida o el modelo de habitación rectangular con descuentos fijos por huecos. El campo de consumo usa litros/m², el inverso de un rendimiento en m²/L. La reserva introducida y el sobrante de envases completos se muestran por separado; no se decide qué pintura o preparación es adecuada.",
+      "howToUse": [
+        "Introduce el área medida o las dimensiones de la habitación y elige el modo correspondiente.",
+        "Introduce el consumo del producto en L/m² por capa, una cantidad entera de capas y la reserva.",
+        "Introduce el volumen del envase y su precio opcional en RUB; compara litros, envases completos y sobrante."
+      ],
+      "howItWorks": "El modo manual usa el área introducida. El modo habitación usa 2 × (largo + ancho) × altura menos descuentos fijos de 1,5 m² por ventana y 1,8 m² por puerta; el área restante debe ser positiva. Litros = área × litros/m² por capa × número entero positivo de capas × (1 + reserva/100). Los envases se redondean hacia arriba desde litros/volumen del envase; coste = cantidad de envases × precio en RUB. El sobrante por envases completos se muestra aparte de la reserva introducida. Consumo y capas dependen de la pintura y la superficie; una o dos capas no son una regla universal. No se añaden techo, medidas reales de huecos, consumos diferentes entre capas ni imprimación. Un precio vacío equivale a 0 y oculta el coste.",
+      "example": "Para 30 m², 2 capas, 0,15 L/m² por capa y reserva del 0%, hacen falta 9 L. Con envases de 2,5 L se compran 4; el litro adicional se debe a envases completos.",
+      "faq": [
+        {
+          "q": "¿Qué datos se usan para estimar la pintura?",
+          "a": "Introduce la superficie o las medidas de la habitación, el número de manos, el rendimiento de la pintura y el tamaño del bote."
+        },
+        {
+          "q": "¿Por qué influye el número de manos?",
+          "a": "Cada mano vuelve a cubrir la superficie, por lo que aumenta la cantidad estimada de pintura y puede exigir más botes."
+        },
+        {
+          "q": "¿Puede variar el consumo real?",
+          "a": "Sí. La absorción de la pared, la preparación y el rendimiento real del producto pueden cambiar los litros necesarios."
+        },
+        {
+          "q": "¿Qué significa el sobrante de envases completos de pintura?",
+          "a": "Es la diferencia entre volumen comprado en envases completos y necesidad ya calculada, dividida por esa necesidad. Surge después de la reserva y no vuelve a sumarse a ella."
+        }
+      ],
+      "seoDescription": "Estima litros, envases completos y sobrante por área o medidas de habitación. Introduce consumo por capa, número entero de capas y reserva elegida."
+    },
+    "laminate-calculator": {
+      "longDescription": "Estima paquetes completos de laminado para un suelo rectangular usando el área indicada en un paquete y una reserva elegida. La superficie neta y la superficie de compra se muestran por separado para ver el efecto de la reserva. El coste opcional de la base usa el área neta y el del laminado los paquetes completos. Se estiman cantidades de compra sin diseñar cortes, juntas alternadas ni holguras.",
+      "howToUse": [
+        "Introduce el largo y el ancho de la habitación.",
+        "Introduce la superficie del paquete y la reserva.",
+        "Revisa los paquetes necesarios."
+      ],
+      "howItWorks": "Área del suelo = largo × ancho. Área de compra = área del suelo × (1 + reserva/100); los paquetes se redondean hacia arriba tras dividir por el área del paquete. El coste incluye paquetes completos de laminado y base aislante sobre el área neta, sin aplicar a la base el porcentaje de reserva. Los precios se introducen en RUB, sin cambio de moneda. Dimensiones y área del paquete positivas; reserva y precios no negativos. Este modelo rectangular agregado no calcula cortes de tablas, longitud de la última fila, juntas alternadas, nichos ni holguras de montaje. Las tolerancias de la base y las holguras proceden de las instrucciones del revestimiento elegido, no de una norma universal del calculador.",
+      "example": "Un suelo de 5 × 4 m tiene 20 m²; la reserva del 10% da 22 m². Con 2,13 m² por paquete se requieren 11 paquetes completos. El coste de la base, si se introduce, usa los 20 m² originales.",
+      "faq": [
+        {
+          "q": "¿Cómo se obtiene la superficie del suelo?",
+          "a": "Multiplica el largo por el ancho de la habitación; la calculadora hace esta operación con las medidas introducidas."
+        },
+        {
+          "q": "¿Cómo se estima el número de paquetes?",
+          "a": "Se añade la reserva elegida a la superficie y se divide entre los metros cuadrados que cubre un paquete."
+        },
+        {
+          "q": "¿Qué puede quedar fuera de la reserva?",
+          "a": "La reserva de laminado depende del largo de las tablas, dirección de colocación y recortes reutilizables. Aumenta el área de compra del laminado; el coste de la base sigue usando el área neta. Revisa las filas: un porcentaje no calcula los cortes de tablas."
+        },
+        {
+          "q": "¿Qué área se usa para el coste de la base del laminado?",
+          "a": "El área neta antes de la reserva del laminado. No se redondea la base a rollos o láminas completos; sus envases se comprueban aparte."
+        }
+      ]
+    },
+    "screed-calculator": {
+      "longDescription": "Estima volumen de capa, masa seca y sacos completos desde área, espesor medio y consumo introducido. Usa consumo y peso de saco de la mezcla concreta y convierte la unidad a kg/(m²·cm). La reserva es una hipótesis de compra y no sustituye medir el perfil del soporte. El modelo no fija espesor permitido, composición, armado ni tiempo de secado.",
+      "howToUse": [
+        "Elige cómo definir el suelo: por el largo y el ancho de la habitación o por una superficie conocida.",
+        "Fija el espesor de la capa en centímetros: depende del soporte y del acabado.",
+        "Copia el rendimiento y el peso del saco de la etiqueta de la mezcla que vayas a comprar.",
+        "Usa espesor medio ponderado por área y una reserva elegida; compara volumen, masa seca y sacos."
+      ],
+      "howItWorks": "El área es largo × ancho o un área introducida. Volumen en m³ = área en m² × espesor en cm/100 × (1 + reserva/100). Mezcla seca en kg = área × espesor en cm × consumo introducido kg/(m²·cm) × el mismo factor de reserva. La masa de compra se redondea hacia arriba a kilogramos enteros; los sacos se redondean por separado desde masa sin redondear/peso del saco. El precio corresponde a un saco completo en RUB. Multiplica por 10 un consumo kg/(m²·mm); un consumo por 10 mm equivale al de 1 cm. No se calculan agua, densidad de mortero húmedo, armado ni resistencia. Una base irregular requiere espesor medio ponderado por área; la media de mínimo y máximo solo sirve para el perfil uniforme correspondiente. Secado y espesor permitido dependen del sistema y no se determinan aquí.",
+      "example": "Para 20 m², espesor de 5 cm, consumo introducido de 18 kg/(m²·cm) y reserva del 10%, se obtienen 1,1 m³ y 1 980 kg. Con sacos de 25 kg, se redondea a 80 sacos.",
+      "faq": [
+        {
+          "q": "¿Qué espesor de capa debo usar?",
+          "a": "El espesor permitido depende del producto y sistema de suelo, incluidos soporte, cargas y ejecución. Usa la documentación técnica y el proyecto. Introducir un espesor estima cantidad sin confirmar que la capa sea adecuada."
+        },
+        {
+          "q": "¿Dónde encuentro la cifra de rendimiento?",
+          "a": "Usa la ficha técnica del producto. Este campo requiere kg/(m²·cm): multiplica por 10 un consumo por 1 mm; uno por 10 mm equivale al de 1 cm."
+        },
+        {
+          "q": "¿Por qué el número de sacos se redondea hacia arriba?",
+          "a": "La mezcla seca se vende en sacos enteros, así que hasta un resto pequeño exige uno más. El redondeo ocurre después de aplicar la reserva."
+        },
+        {
+          "q": "¿Cuánta reserva debo añadir?",
+          "a": "Mide primero el espesor medio ponderado por las áreas de cada zona. La reserva de mezcla es un margen para pérdidas supuestas al preparar y colocar: aumenta volumen y masa seca antes de redondear los sacos. No corrige un espesor erróneo ni es una reserva de cortes."
+        },
+        {
+          "q": "¿Separa la mezcla en cemento y arena?",
+          "a": "No. La estimación se basa en una mezcla seca preparada. Las proporciones de cemento y arena dependen de la clase de mortero que necesites y deben seguir el proyecto o las indicaciones del fabricante."
+        },
+        {
+          "q": "¿Vale para un autonivelante?",
+          "a": "Como estimación condicionada de cantidad, si el consumo del producto se expresa en kg/(m²·cm) y es aplicable al espesor elegido. Espesor permitido, soporte, agua de amasado y aplicación se comprueban aparte; la fórmula no demuestra que sirva cualquier mezcla seca."
+        }
+      ]
+    },
+    "brick-calculator": {
+      "longDescription": "Esta calculadora determina cuántos ladrillos o bloques cubren un muro levantado como una sola hoja. Cada pieza tiene una junta a su derecha y otra encima, así que el módulo de trabajo es el tamaño de la pieza más el espesor de la junta por cada lado. La superficie de los huecos se resta de la del muro, y la merma se indica en su propia línea para que veas exactamente cuántas piezas cuesta.",
+      "howToUse": [
+        "Describe el muro por sus dimensiones, o introduce su superficie directamente si ya la conoces.",
+        "Introduce la superficie total de los huecos de ventanas y puertas: se resta de la superficie de fábrica.",
+        "Introduce el largo y el alto de la pieza en milímetros y el espesor de la junta de mortero.",
+        "Añade una merma por roturas y cortes, y un precio por pieza si necesitas el coste."
+      ],
+      "howItWorks": "Se cuenta una hoja de fábrica sobre la cara visible del muro. Área = largo × alto o área introducida, menos el área total de huecos. El módulo de una pieza es (largo de pieza + junta) × (alto de pieza + junta)/1 000 000 m²: se añade una junta una vez por dirección. Las cantidades sin y con reserva se redondean por separado desde su área/área del módulo. Reserva, dimensiones de pieza y junta son entradas del usuario; no se fija un espesor universal de junta. Si los huecos ocupan todo el muro, aparece un aviso de que no se necesita fábrica. El precio es por pieza en RUB. No se modelan grosor de muro, aparejo, varias hojas, dinteles, mortero ni resistencia. Es una estimación de piezas, no un proyecto estructural.",
+      "example": "Un muro de 6 por 2,8 m sin huecos, levantado con ladrillos de 250 por 65 mm y junta de 10 mm, da un módulo de 0,26 por 0,075 = 0,0195 m², así que 16,8 m² necesitan 862 ladrillos, o 905 con un 5 % de merma.",
+      "faq": [
+        {
+          "q": "¿Se tiene en cuenta la junta de mortero?",
+          "a": "Sí. Cada pieza tiene una junta a su derecha y otra encima; la junta contigua ya pertenece a la pieza siguiente. Así que el espesor de la junta se suma una vez al largo y una vez al alto, no dos. Con una junta de 10 mm un ladrillo de 250 por 65 mm ocupa 260 por 75 mm en el muro."
+        },
+        {
+          "q": "¿Qué espesor de muro cubre esto?",
+          "a": "Una sola hoja, medida sobre la cara vista del muro. Los muros de un pie, de pie y medio, las cámaras y los muros con hoja de revestimiento aparte exigen la geometría del aparejo y no solo una superficie, y aquí no se modelan. Para un muro de varias hojas, calcula cada una por separado."
+        },
+        {
+          "q": "¿Por qué el número se redondea hacia arriba?",
+          "a": "No se puede comprar parte de un ladrillo, y una pieza menos no cubre toda la superficie. Cuando la superficie encaja exactamente en el módulo no se añade ninguna pieza extra: el redondeo está protegido frente al ruido binario y no convierte un número exacto en ese número más uno."
+        },
+        {
+          "q": "¿Cuánta merma debo prever por roturas y cortes?",
+          "a": "Elige la merma de ladrillos según cortes en huecos, roturas esperadas y piezas de repuesto. El modelo aumenta la necesidad sin redondear de una hoja de muro y luego redondea a piezas enteras. La fila de reserva muestra piezas añadidas; la geometría no fija un porcentaje universal."
+        },
+        {
+          "q": "¿Cómo trato los huecos?",
+          "a": "Suma las superficies de todas las ventanas y puertas e introduce el total en el campo de huecos. Se resta de la superficie del muro. Si los huecos ocupan todo el muro no se produce cálculo: no hay nada que levantar."
+        },
+        {
+          "q": "¿Vale para bloques de hormigón celular?",
+          "a": "La geometría también sirve para bloques rectangulares. Usa medidas y junta del proyecto y de las instrucciones del producto; 2–3 mm son un ejemplo posible, no un requisito universal."
+        },
+        {
+          "q": "¿Incluye el consumo de mortero?",
+          "a": "No. La calculadora cuenta piezas, no volumen de mortero: eso depende del espesor del muro y del aparejo, y ninguno de los dos se modela aquí. Calcula el mortero aparte a partir de tus planos."
+        }
+      ]
+    }
+  }
+};
+export const getBuildingWave17PageCopy=(id:string,locale:string)=>buildingWave17ContractContent[locale as keyof typeof buildingWave17ContractContent]?.[id];

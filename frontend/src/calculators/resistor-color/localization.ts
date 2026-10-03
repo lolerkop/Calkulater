@@ -1,132 +1,188 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
-// Цвета приходят и подписью варианта, и фрагментом внутри строки «Полосы»,
-// поэтому один и тот же набор обслуживает оба места: подстановка значений идёт
-// по фрагментам, а подписи вариантов — по точному ключу.
-const COLORS_EN = {
-  'чёрный': 'black', 'коричневый': 'brown', 'красный': 'red', 'оранжевый': 'orange',
-  'жёлтый': 'yellow', 'зелёный': 'green', 'синий': 'blue', 'фиолетовый': 'violet',
-  'серый': 'grey', 'белый': 'white', 'золотистый': 'gold', 'серебристый': 'silver',
-};
-const COLORS_UK = {
-  'чёрный': 'чорний', 'коричневый': 'коричневий', 'красный': 'червоний', 'оранжевый': 'помаранчевий',
-  'жёлтый': 'жовтий', 'зелёный': 'зелений', 'синий': 'синій', 'фиолетовый': 'фіолетовий',
-  'серый': 'сірий', 'белый': 'білий', 'золотистый': 'золотистий', 'серебристый': 'сріблястий',
-};
-const optionMap = (colors: Record<string, string>) => ({
-  '0': colors['чёрный'], '1': colors['коричневый'], '2': colors['красный'], '3': colors['оранжевый'],
-  '4': colors['жёлтый'], '5': colors['зелёный'], '6': colors['синий'], '7': colors['фиолетовый'],
-  '8': colors['серый'], '9': colors['белый'],
-  '-1': colors['золотистый'], '-2': colors['серебристый'],
-  '5,0': colors['золотистый'], '10': colors['серебристый'],
-});
-
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'b1': 'Erster Ring — erste Ziffer',
-      'b2': 'Zweiter Ring — zweite Ziffer',
-      'mult': 'Dritter Ring — Multiplikator',
-      'tol': 'Vierter Ring — Toleranz',
+  "de": {
+    "fields": {
+      "b1": "Erster Ring — erste Ziffer",
+      "b2": "Zweiter Ring — zweite Ziffer",
+      "mult": "Dritter Ring — Multiplikator",
+      "tol": "Vierter Ring — Toleranz"
     },
-    options: {
-      '0': 'schwarz',
-      '1': 'braun',
-      '2': 'rot',
-      '3': 'orange',
-      '4': 'gelb',
-      '5': 'grün',
-      '6': 'blau',
-      '7': 'violett',
-      '8': 'grau',
-      '9': 'weiß',
-      '10': 'silber',
-      '-1': 'gold',
-      '-2': 'silber',
-      '5,0': 'gold',
+    "options": {
+      "0": "schwarz",
+      "1": "braun",
+      "2": "rot",
+      "3": "orange",
+      "4": "gelb",
+      "5": "grün",
+      "6": "blau",
+      "7": "violett",
+      "8": "grau",
+      "9": "weiß",
+      "10": "silber",
+      "-1": "gold",
+      "-2": "silber",
+      "5,0": "gold"
     },
-    results: {
-      'Номинал': 'Nennwert',
-      'Допуск': 'Toleranz',
-      'Наименьшее допустимое': 'Kleinster zulässiger Wert',
-      'Наибольшее допустимое': 'Größter zulässiger Wert',
-      'Ширина поля допуска': 'Breite des Toleranzfeldes',
-      'Множитель': 'Multiplikator',
-      'Полосы': 'Ringe',
-      'Проверьте данные': 'Prüfe die Werte',
+    "results": {
+      "Номинал": "Nennwert",
+      "Допуск": "Toleranz",
+      "Наименьшее допустимое": "Kleinster zulässiger Wert",
+      "Наибольшее допустимое": "Größter zulässiger Wert",
+      "Ширина поля допуска": "Breite des Toleranzfeldes",
+      "Множитель": "Multiplikator",
+      "Полосы": "Ringe",
+      "Проверьте данные": "Prüfe die Werte"
     },
-    values: {
-      'чёрный': 'schwarz',
-      'коричневый': 'braun',
-      'красный': 'rot',
-      'оранжевый': 'orange',
-      'жёлтый': 'gelb',
-      'зелёный': 'grün',
-      'синий': 'blau',
-      'фиолетовый': 'violett',
-      'серый': 'grau',
-      'белый': 'weiß',
-      'золотистый': 'gold',
-      'серебристый': 'silber',
-      'Ом': 'Ω',
-      'кОм': 'kΩ',
-      'МОм': 'MΩ',
-      'Первая полоса — цифра от 0 до 9': 'Der erste Ring ist eine Ziffer von 0 bis 9',
-      'Вторая полоса — цифра от 0 до 9': 'Der zweite Ring ist eine Ziffer von 0 bis 9',
-      'Множитель — от серебристого до фиолетового': 'Der Multiplikator reicht von silber bis violett',
-      'Допуск должен быть от 0 до 100 %': 'Die Toleranz muss zwischen 0 und 100 % liegen',
-    },
+    "values": {
+      "чёрный": "schwarz",
+      "коричневый": "braun",
+      "красный": "rot",
+      "оранжевый": "orange",
+      "жёлтый": "gelb",
+      "зелёный": "grün",
+      "синий": "blau",
+      "фиолетовый": "violett",
+      "серый": "grau",
+      "белый": "weiß",
+      "золотистый": "gold",
+      "серебристый": "silber",
+      "Ом": "Ω",
+      "кОм": "kΩ",
+      "МОм": "MΩ",
+      "Первая полоса — цифра от 0 до 9": "Der erste Ring ist eine Ziffer von 0 bis 9",
+      "Вторая полоса — цифра от 0 до 9": "Der zweite Ring ist eine Ziffer von 0 bis 9",
+      "Множитель — от серебристого до фиолетового": "Der Multiplikator reicht von silber bis violett",
+      "Допуск должен быть от 0 до 100 %": "Die Toleranz muss zwischen 0 und 100 % liegen",
+      "Введите конечные числа во все активные поля": "Gib endliche Zahlen in alle aktiven Felder ein",
+      "Результат выходит за числовой диапазон; измените данные": "Das Ergebnis liegt außerhalb des Zahlenbereichs; ändere die Eingaben",
+      "Выберите допуск 1, 2, 5 или 10 %": "Wähle eine Toleranz von 1, 2, 5 oder 10%"
+    }
   },
-  en: {
-    fields: {
-      b1: 'First band — first digit', b2: 'Second band — second digit',
-      mult: 'Third band — multiplier', tol: 'Fourth band — tolerance',
+  "en": {
+    "fields": {
+      "b1": "First band — first digit",
+      "b2": "Second band — second digit",
+      "mult": "Third band — multiplier",
+      "tol": "Fourth band — tolerance"
     },
-    options: optionMap(COLORS_EN),
-    results: {
-      'Номинал': 'Nominal value', 'Допуск': 'Tolerance',
-      'Наименьшее допустимое': 'Lowest permitted', 'Наибольшее допустимое': 'Highest permitted',
-      'Ширина поля допуска': 'Tolerance band width', 'Множитель': 'Multiplier', 'Полосы': 'Bands',
-      'Проверьте данные': 'Check the values',
+    "options": {
+      "0": "black",
+      "1": "brown",
+      "2": "red",
+      "3": "orange",
+      "4": "yellow",
+      "5": "green",
+      "6": "blue",
+      "7": "violet",
+      "8": "grey",
+      "9": "white",
+      "10": "silver",
+      "-1": "gold",
+      "-2": "silver",
+      "5,0": "gold"
     },
-    values: {
-      ...COLORS_EN,
-      'Ом': 'Ω', 'кОм': 'kΩ', 'МОм': 'MΩ',
-      'Первая полоса — цифра от 0 до 9': 'The first band is a digit from 0 to 9',
-      'Вторая полоса — цифра от 0 до 9': 'The second band is a digit from 0 to 9',
-      'Множитель — от серебристого до фиолетового': 'The multiplier runs from silver to violet',
-      'Допуск должен быть от 0 до 100 %': 'The tolerance must be between 0 and 100%',
+    "results": {
+      "Номинал": "Nominal value",
+      "Допуск": "Tolerance",
+      "Наименьшее допустимое": "Lowest permitted",
+      "Наибольшее допустимое": "Highest permitted",
+      "Ширина поля допуска": "Tolerance band width",
+      "Множитель": "Multiplier",
+      "Полосы": "Bands",
+      "Проверьте данные": "Check the values"
     },
+    "values": {
+      "чёрный": "black",
+      "коричневый": "brown",
+      "красный": "red",
+      "оранжевый": "orange",
+      "жёлтый": "yellow",
+      "зелёный": "green",
+      "синий": "blue",
+      "фиолетовый": "violet",
+      "серый": "grey",
+      "белый": "white",
+      "золотистый": "gold",
+      "серебристый": "silver",
+      "Ом": "Ω",
+      "кОм": "kΩ",
+      "МОм": "MΩ",
+      "Первая полоса — цифра от 0 до 9": "The first band is a digit from 0 to 9",
+      "Вторая полоса — цифра от 0 до 9": "The second band is a digit from 0 to 9",
+      "Множитель — от серебристого до фиолетового": "The multiplier runs from silver to violet",
+      "Допуск должен быть от 0 до 100 %": "The tolerance must be between 0 and 100%",
+      "Введите конечные числа во все активные поля": "Enter finite numbers in all active fields",
+      "Результат выходит за числовой диапазон; измените данные": "The result exceeds the numeric range; change the inputs",
+      "Выберите допуск 1, 2, 5 или 10 %": "Choose a tolerance of 1, 2, 5 or 10%"
+    }
   },
-  uk: {
-    fields: {
-      b1: 'Перша смуга — перша цифра', b2: 'Друга смуга — друга цифра',
-      mult: 'Третя смуга — множник', tol: 'Четверта смуга — допуск',
+  "uk": {
+    "fields": {
+      "b1": "Перша смуга — перша цифра",
+      "b2": "Друга смуга — друга цифра",
+      "mult": "Третя смуга — множник",
+      "tol": "Четверта смуга — допуск"
     },
-    options: optionMap(COLORS_UK),
-    results: {
-      'Номинал': 'Номінал', 'Допуск': 'Допуск',
-      'Наименьшее допустимое': 'Найменше допустиме', 'Наибольшее допустимое': 'Найбільше допустиме',
-      'Ширина поля допуска': 'Ширина поля допуску', 'Множитель': 'Множник', 'Полосы': 'Смуги',
-      'Проверьте данные': 'Перевірте дані',
+    "options": {
+      "0": "чорний",
+      "1": "коричневий",
+      "2": "червоний",
+      "3": "помаранчевий",
+      "4": "жовтий",
+      "5": "зелений",
+      "6": "синій",
+      "7": "фіолетовий",
+      "8": "сірий",
+      "9": "білий",
+      "10": "сріблястий",
+      "-1": "золотистий",
+      "-2": "сріблястий",
+      "5,0": "золотистий"
     },
-    values: {
-      ...COLORS_UK,
-      'Ом': 'Ом', 'кОм': 'кОм', 'МОм': 'МОм',
-      'Первая полоса — цифра от 0 до 9': 'Перша смуга — цифра від 0 до 9',
-      'Вторая полоса — цифра от 0 до 9': 'Друга смуга — цифра від 0 до 9',
-      'Множитель — от серебристого до фиолетового': 'Множник — від сріблястого до фіолетового',
-      'Допуск должен быть от 0 до 100 %': 'Допуск має бути від 0 до 100 %',
+    "results": {
+      "Номинал": "Номінал",
+      "Допуск": "Допуск",
+      "Наименьшее допустимое": "Найменше допустиме",
+      "Наибольшее допустимое": "Найбільше допустиме",
+      "Ширина поля допуска": "Ширина поля допуску",
+      "Множитель": "Множник",
+      "Полосы": "Смуги",
+      "Проверьте данные": "Перевірте дані"
     },
+    "values": {
+      "чёрный": "чорний",
+      "коричневый": "коричневий",
+      "красный": "червоний",
+      "оранжевый": "помаранчевий",
+      "жёлтый": "жовтий",
+      "зелёный": "зелений",
+      "синий": "синій",
+      "фиолетовый": "фіолетовий",
+      "серый": "сірий",
+      "белый": "білий",
+      "золотистый": "золотистий",
+      "серебристый": "сріблястий",
+      "Ом": "Ом",
+      "кОм": "кОм",
+      "МОм": "МОм",
+      "Первая полоса — цифра от 0 до 9": "Перша смуга — цифра від 0 до 9",
+      "Вторая полоса — цифра от 0 до 9": "Друга смуга — цифра від 0 до 9",
+      "Множитель — от серебристого до фиолетового": "Множник — від сріблястого до фіолетового",
+      "Допуск должен быть от 0 до 100 %": "Допуск має бути від 0 до 100 %",
+      "Введите конечные числа во все активные поля": "Введіть скінченні числа в усі активні поля",
+      "Результат выходит за числовой диапазон; измените данные": "Результат виходить за числовий діапазон; змініть дані",
+      "Выберите допуск 1, 2, 5 или 10 %": "Виберіть допуск 1, 2, 5 або 10%"
+    }
   },
-  es: {
-    fields: {
+  "es": {
+    "fields": {
       "b1": "Primera banda: primera cifra",
       "b2": "Segunda banda: segunda cifra",
       "mult": "Tercera banda: multiplicador",
-      "tol": "Cuarta banda: tolerancia",
+      "tol": "Cuarta banda: tolerancia"
     },
-    options: {
+    "options": {
       "0": "negro",
       "1": "marrón",
       "2": "rojo",
@@ -140,9 +196,9 @@ export const localization: CalculatorLocalization = {
       "10": "plateado",
       "-1": "dorado",
       "-2": "plateado",
-      "5,0": "dorado",
+      "5,0": "dorado"
     },
-    results: {
+    "results": {
       "Номинал": "Valor nominal",
       "Допуск": "Tolerancia",
       "Наименьшее допустимое": "Mínimo admitido",
@@ -150,9 +206,9 @@ export const localization: CalculatorLocalization = {
       "Ширина поля допуска": "Anchura del margen de tolerancia",
       "Множитель": "Multiplicador",
       "Полосы": "Bandas",
-      "Проверьте данные": "Revisa los datos",
+      "Проверьте данные": "Revisa los datos"
     },
-    values: {
+    "values": {
       "чёрный": "negro",
       "коричневый": "marrón",
       "красный": "rojo",
@@ -172,6 +228,9 @@ export const localization: CalculatorLocalization = {
       "Вторая полоса — цифра от 0 до 9": "La segunda banda es una cifra de 0 a 9",
       "Множитель — от серебристого до фиолетового": "El multiplicador va del plateado al violeta",
       "Допуск должен быть от 0 до 100 %": "La tolerancia debe estar entre 0 y 100 %",
-    },
-  },
+      "Введите конечные числа во все активные поля": "Introduce números finitos en todos los campos activos",
+      "Результат выходит за числовой диапазон; измените данные": "El resultado supera el rango numérico; cambia los datos",
+      "Выберите допуск 1, 2, 5 или 10 %": "Selecciona tolerancia del 1, 2, 5 o 10%"
+    }
+  }
 };

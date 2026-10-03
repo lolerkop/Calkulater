@@ -19,32 +19,40 @@ export const compute: CalcFunction = (inputs) => {
     primary: { label: 'Мощность', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
+  const required: Record<string, readonly string[]> = {"P": ["W", "t"], "t": ["W2", "P"], "W": ["P2", "t2"]};
+  if (!Object.hasOwn(required, mode)) return fail('Неизвестный режим расчёта');
+  if (required[mode].some((key) => typeof inputs[key] === 'boolean' || !Number.isFinite(toNumber(inputs[key], Number.NaN)))) {
+    return fail('Введите конечные числа для выбранного режима');
+  }
+
 
   let work = 0;
   let time = 0;
   let power = 0;
   let primaryLabel = 'Мощность';
   if (mode === 'P') {
-    work = toNumber(inputs.W);
-    time = toNumber(inputs.t);
+    work = toNumber(inputs.W, Number.NaN);
+    time = toNumber(inputs.t, Number.NaN);
     if (work < 0) return fail('Работа не может быть отрицательной');
     if (!(time > 0)) return fail('Время должно быть больше нуля');
     power = work / time;
   } else if (mode === 't') {
-    work = toNumber(inputs.W2);
-    power = toNumber(inputs.P);
+    work = toNumber(inputs.W2, Number.NaN);
+    power = toNumber(inputs.P, Number.NaN);
     if (work < 0) return fail('Работа не может быть отрицательной');
     if (!(power > 0)) return fail('Мощность должна быть больше нуля, иначе время не определено');
     time = work / power;
     primaryLabel = 'Время';
   } else {
-    power = toNumber(inputs.P2);
-    time = toNumber(inputs.t2);
+    power = toNumber(inputs.P2, Number.NaN);
+    time = toNumber(inputs.t2, Number.NaN);
     if (power < 0) return fail('Мощность не может быть отрицательной');
     if (!(time > 0)) return fail('Время должно быть больше нуля');
     work = power * time;
     primaryLabel = 'Работа';
   }
+
+  if (![work, time, power].every(Number.isFinite)) return fail('Результат выходит за числовой диапазон');
 
   const primaryValue = mode === 'P' ? `${qty(power)} Вт` : mode === 't' ? `${qty(time)} с` : `${qty(work)} Дж`;
   return {

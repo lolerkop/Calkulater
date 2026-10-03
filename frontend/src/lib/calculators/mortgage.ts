@@ -3,25 +3,33 @@ import { fmtMoney, fmtPct, toNumber, toStr } from '../format';
 import { creditAnnuityPayment } from './credit';
 
 export const calcMortgage: CalcFunction = (inputs) => {
-  const price = toNumber(inputs.price);
+  const price = toNumber(inputs.price, NaN);
   const downPaymentMode = toStr(inputs.downPaymentMode, 'amount');
+  const activeDownPayment = downPaymentMode === 'percent' ? inputs.downPaymentPct : inputs.downPayment;
+  if ([inputs.price, inputs.years, inputs.rate, activeDownPayment, inputs.extraPayment, inputs.monthlyInsurance].some((value) => typeof value === 'boolean')) {
+    return errorResult();
+  }
   const down = downPaymentMode === 'percent'
-    ? price * Math.max(0, toNumber(inputs.downPaymentPct)) / 100
-    : toNumber(inputs.downPayment);
-  const years = Math.round(toNumber(inputs.years));
-  const rate = toNumber(inputs.rate);
+    ? price * toNumber(inputs.downPaymentPct, NaN) / 100
+    : toNumber(inputs.downPayment, NaN);
+  const years = toNumber(inputs.years, NaN);
+  const rate = toNumber(inputs.rate, NaN);
   const type = toStr(inputs.type, 'annuity');
-  const extraPayment = Math.max(0, toNumber(inputs.extraPayment));
-  const monthlyInsurance = Math.max(0, toNumber(inputs.monthlyInsurance));
+  const extraPayment = toNumber(inputs.extraPayment ?? 0, NaN);
+  const monthlyInsurance = toNumber(inputs.monthlyInsurance ?? 0, NaN);
 
   const loanAmount = price - down;
   const months = years * 12;
 
-  if (loanAmount <= 0 || months <= 0 || rate < 0) {
-    return {
-      primary: { label: 'Ежемесячный платеж', value: '—' },
-      secondary: [{ label: 'Проверьте данные', value: 'Сумма кредита должна быть положительной', accent: 'red' }],
-    };
+  if (![price, down, years, rate, extraPayment, monthlyInsurance, loanAmount].every(Number.isFinite)
+    || price <= 0 || down < 0 || loanAmount <= 0 || rate < 0 || extraPayment < 0 || monthlyInsurance < 0) {
+    return errorResult();
+  }
+  if (!['amount', 'percent'].includes(downPaymentMode) || !['annuity', 'differentiated'].includes(type)) {
+    return errorResult('Выберите допустимый режим расчёта.');
+  }
+  if (!Number.isInteger(months) || months < 1 || months > 1200) {
+    return errorResult('Срок должен составлять от 1 до 1200 целых месяцев.');
   }
 
   const r = rate / 100 / 12;
@@ -36,14 +44,17 @@ export const calcMortgage: CalcFunction = (inputs) => {
     let remaining = loanAmount;
     for (let i = 1; i <= months; i++) {
       const interest = remaining * r;
-      const payment = Math.min(monthly + extraPayment, remaining + interest);
+      const due = remaining + interest;
+      const payment = i === months ? due : Math.min(monthly + extraPayment, due);
       const principal = payment - interest;
-      remaining = Math.max(0, remaining - principal);
+      if (principal <= 0 && remaining > 0) return errorResult('Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.');
+      remaining = payment === due ? 0 : Math.max(0, remaining - principal);
       total += payment;
-      if (i <= 12 || i === months || remaining <= 0.01) {
+      if (![monthly, payment, total, remaining].every(Number.isFinite)) return errorResult('Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.');
+      if (i <= 12 || i === months || remaining === 0) {
         schedule.push([String(i), fmtMoney(payment), fmtMoney(principal), fmtMoney(interest), fmtMoney(remaining)]);
       }
-      if (remaining <= 0.01) {
+      if (remaining === 0) {
         actualMonths = i;
         break;
       }
@@ -54,14 +65,15 @@ export const calcMortgage: CalcFunction = (inputs) => {
     total = 0;
     for (let i = 0; i < months; i++) {
       const interest = remaining * r;
-      const principal = Math.min(principalPart + extraPayment, remaining);
+      const principal = i === months - 1 ? remaining : Math.min(principalPart + extraPayment, remaining);
       const payment = principal + interest;
       total += payment;
       remaining -= principal;
-      if (i < 12 || i === months - 1 || remaining <= 0.01) {
+      if (![payment, total, remaining].every(Number.isFinite)) return errorResult('Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.');
+      if (i < 12 || i === months - 1 || remaining === 0) {
         schedule.push([String(i + 1), fmtMoney(payment), fmtMoney(principal), fmtMoney(interest), fmtMoney(Math.max(0, remaining))]);
       }
-      if (remaining <= 0.01) {
+      if (remaining === 0) {
         actualMonths = i + 1;
         break;
       }
@@ -69,10 +81,11 @@ export const calcMortgage: CalcFunction = (inputs) => {
     monthly = principalPart + loanAmount * r;
   }
 
-  const overpay = total - loanAmount;
+  const overpay = Math.max(0, total - loanAmount);
   const insuranceTotal = monthlyInsurance * actualMonths;
   const totalCost = total + down + insuranceTotal;
   const downPaymentPct = price > 0 ? (down / price) * 100 : 0;
+  if (![totalCost, insuranceTotal, monthly + extraPayment + monthlyInsurance].every(Number.isFinite)) return errorResult('Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.');
 
   return {
     primary: { label: 'Ежемесячный платеж', value: fmtMoney(monthly) },
@@ -98,3 +111,10 @@ export const calcMortgage: CalcFunction = (inputs) => {
       : undefined,
   };
 };
+
+function errorResult(message = 'Введите положительные значения'): CalcResult {
+  return {
+    primary: { label: 'Ежемесячный платеж', value: '—' },
+    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' }],
+  };
+}

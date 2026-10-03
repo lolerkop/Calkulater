@@ -1,16 +1,19 @@
 import type { CalcFunction, CalcResult } from '../types';
-import { fmtMoney, fmtNumber, toNumber, toStr } from '../format';
+import { fmtMoney, toNumber, toStr } from '../format';
 
 export const calcCredit: CalcFunction = (inputs) => {
-  const amount = toNumber(inputs.amount);
-  const term = toNumber(inputs.term);
+  if ([inputs.amount, inputs.term, inputs.rate, inputs.extraPayment, inputs.oneTimeFee].some((value) => typeof value === 'boolean')) {
+    return errorResult();
+  }
+  const amount = toNumber(inputs.amount, NaN);
+  const term = toNumber(inputs.term, NaN);
   const termUnit = toStr(inputs.termUnit, 'years');
-  const rate = toNumber(inputs.rate);
+  const rate = toNumber(inputs.rate, NaN);
   const type = toStr(inputs.type, 'annuity');
-  const extraPayment = Math.max(0, toNumber(inputs.extraPayment));
-  const oneTimeFee = Math.max(0, toNumber(inputs.oneTimeFee));
+  const extraPayment = toNumber(inputs.extraPayment ?? 0, NaN);
+  const oneTimeFee = toNumber(inputs.oneTimeFee ?? 0, NaN);
 
-  const months = termUnit === 'months' ? Math.round(term) : Math.round(term * 12);
+  const months = termUnit === 'months' ? term : term * 12;
   const r = rate / 100 / 12;
 
   let monthly = 0;
@@ -19,27 +22,35 @@ export const calcCredit: CalcFunction = (inputs) => {
   let lastActualPayment = 0;
   const schedule: string[][] = [];
 
-  if (months <= 0 || amount <= 0 || rate < 0) {
+  if (![amount, term, rate, extraPayment, oneTimeFee].every(Number.isFinite)
+    || amount <= 0 || rate < 0 || extraPayment < 0 || oneTimeFee < 0) {
     return errorResult();
+  }
+  if (!['years', 'months'].includes(termUnit) || !['annuity', 'differentiated'].includes(type)) {
+    return errorResult('Выберите допустимый режим расчёта.');
+  }
+  if (!Number.isInteger(months) || months < 1 || months > 1200) {
+    return errorResult('Срок должен составлять от 1 до 1200 целых месяцев.');
   }
 
   if (type === 'annuity') {
-    monthly = r === 0
-      ? amount / months
-      : (amount * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
+    monthly = creditAnnuityPayment(amount, months, rate);
     total = 0;
     let remaining = amount;
     for (let i = 1; i <= months; i++) {
       const interest = remaining * r;
-      const payment = Math.min(monthly + extraPayment, remaining + interest);
+      const due = remaining + interest;
+      const payment = i === months ? due : Math.min(monthly + extraPayment, due);
       const principal = payment - interest;
+      if (principal <= 0 && remaining > 0) return errorResult('Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.');
       lastActualPayment = payment;
-      remaining = Math.max(0, remaining - principal);
+      remaining = payment === due ? 0 : Math.max(0, remaining - principal);
       total += payment;
-      if (i <= 12 || i === months || remaining <= 0.01) {
+      if (![monthly, payment, total, remaining].every(Number.isFinite)) return errorResult('Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.');
+      if (i <= 12 || i === months || remaining === 0) {
         schedule.push([String(i), fmtMoney(payment), fmtMoney(principal), fmtMoney(interest), fmtMoney(remaining)]);
       }
-      if (remaining <= 0.01) {
+      if (remaining === 0) {
         actualMonths = i;
         break;
       }
@@ -51,15 +62,16 @@ export const calcCredit: CalcFunction = (inputs) => {
     total = 0;
     for (let i = 0; i < months; i++) {
       const interest = remaining * r;
-      const principal = Math.min(principalPart + extraPayment, remaining);
+      const principal = i === months - 1 ? remaining : Math.min(principalPart + extraPayment, remaining);
       const payment = principal + interest;
       lastActualPayment = payment;
       total += payment;
       remaining -= principal;
-      if (i < 12 || i === months - 1 || remaining <= 0.01) {
+      if (![payment, total, remaining].every(Number.isFinite)) return errorResult('Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.');
+      if (i < 12 || i === months - 1 || remaining === 0) {
         schedule.push([String(i + 1), fmtMoney(payment), fmtMoney(principal), fmtMoney(interest), fmtMoney(Math.max(0, remaining))]);
       }
-      if (remaining <= 0.01) {
+      if (remaining === 0) {
         actualMonths = i + 1;
         break;
       }
@@ -69,9 +81,10 @@ export const calcCredit: CalcFunction = (inputs) => {
   }
 
   const paymentTotal = total;
-  const interestTotal = paymentTotal - amount;
+  const interestTotal = Math.max(0, paymentTotal - amount);
   total += oneTimeFee;
   const overpay = interestTotal + oneTimeFee;
+  if (![total, overpay, monthly + extraPayment].every(Number.isFinite)) return errorResult('Расчёт выходит за пределы числовой точности. Уменьшите сумму, ставку или срок.');
 
   const result: CalcResult = {
     primary: { label: 'Ежемесячный платеж', value: fmtMoney(monthly) },
@@ -104,16 +117,18 @@ export const calcCredit: CalcFunction = (inputs) => {
   return result;
 };
 
-function errorResult(): CalcResult {
+function errorResult(message = 'Введите положительные значения'): CalcResult {
   return {
     primary: { label: 'Ежемесячный платеж', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: 'Введите положительные значения', accent: 'red' }],
+    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' }],
   };
 }
 
-// Вспомогательная функция для тестов
+// Nominal annual rate divided into 12 equal monthly periods. The equivalent
+// discount-factor form avoids subtracting nearly equal powers near a zero rate
+// and avoids overflow of (1 + r)^months for long, high-rate scenarios.
 export function creditAnnuityPayment(amount: number, months: number, annualRate: number): number {
   const r = annualRate / 100 / 12;
   if (r === 0) return amount / months;
-  return (amount * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
+  return amount * r / -Math.expm1(-months * Math.log1p(r));
 }

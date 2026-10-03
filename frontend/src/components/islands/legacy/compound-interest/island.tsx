@@ -5,15 +5,18 @@
 import CalculatorIsland from '../../CalculatorIsland';
 import type { CalculatorClientRuntime } from '../../../../lib/platform/runtime';
 import { calcCompound } from '../../../../lib/calculators/compound';
-import { shared } from './shared.generated';
+
 
 const runtime: CalculatorClientRuntime = {
   compute: calcCompound,
-  localization: shared,
+
 };
 
-type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'>;
+type Props = Omit<Parameters<typeof CalculatorIsland>[0], 'runtime'> & {
+  runtimeLocalization: NonNullable<CalculatorClientRuntime['localization']>;
+};
 
 export default function CompoundInterestLegacyIsland(props: Props) {
-  return <CalculatorIsland {...props} runtime={runtime} />;
+  const { runtimeLocalization, ...islandProps } = props;
+  return <CalculatorIsland {...islandProps} runtime={{ ...runtime, localization: runtimeLocalization }} />;
 }

@@ -1,11 +1,9 @@
-// Испанский копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла испанской страницы не существует. Подробный текст живёт в
-// `src/data/esCalculatorContent.ts`.
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const logarithmCopyEs: CalculatorSeoCopy = {
+export const logarithmCopyEs: CalculatorCopy = {
   name: "Calculadora de logaritmos",
   slug: "calculadora-de-logaritmos",
   shortDescription: "Logaritmos decimales, naturales y de cualquier base, con comprobación.",
@@ -13,4 +11,5 @@ export const logarithmCopyEs: CalculatorSeoCopy = {
   seoDescription: "Calcula un logaritmo en base 10, en base e o en la base que elijas, con el dominio comprobado antes del resultado.",
   h1: "Calculadora de logaritmos",
   keywords: ["calculadora de logaritmos", "log en base 2", "logaritmo natural"],
+  ...contractContent.es,
 };

@@ -61,7 +61,7 @@ export const esCurrencyContent: Partial<Record<string, EsDetailedContent>> = {
     howItWorks: "El conversor obtiene el tipo cruzado USD/MDL de los datos guardados; el resultado muestra la fuente y la fecha reales del tipo MDL.",
     example: "Convierte 100 USD a MDL para una estimación rápida de presupuesto.",
     faq: [
-      { q: "¿Qué introduzco para convertir USD a MDL?", a: "Escribe el importe en dólares estadounidenses; se aplica el tipo cruzado USD/MDL guardado para estimar los leus moldavos." },
+      { q: "¿Qué introduzco para convertir USD a MDL?", a: "Escribe el importe en dólares estadounidenses; se aplica el tipo de referencia USD/MDL guardado para estimar los leus moldavos." },
       { q: "¿Dónde compruebo la fuente del tipo USD/MDL?", a: "Consulta la fecha y la fuente mostradas junto al resultado, incluida cualquier fuente de reserva identificada por separado." },
       { q: "¿Es el resultado de USD a MDL una oferta de cambio?", a: "No. Es una estimación de referencia; un proveedor puede ofrecer otro tipo y cobrar comisiones." },
     ],

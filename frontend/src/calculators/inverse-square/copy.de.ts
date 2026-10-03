@@ -1,16 +1,13 @@
-// Немецкий копирайт калькулятора.
-// Владение копирайтом объявляет доступность калькулятора в локали: без этого
-// файла немецкой страницы не существует. Подробный текст живёт в
-// `src/data/deContent/`.
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { inverseSquareContractContent } from './contractContent';
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
-
-export const inverseSquareCopyDe: CalculatorSeoCopy = {
+export const inverseSquareCopyDe: CalculatorCopy = {
   name: 'Rechner zum Abstandsquadratgesetz',
   slug: 'abstandsquadratgesetz',
   shortDescription: 'Wie die Intensität mit dem Abstand von einer punktförmigen Quelle fällt.',
   seoTitle: 'Abstandsquadratgesetz berechnen — Intensität und Abstand',
-  seoDescription: 'Berechne, wie sich Beleuchtungsstärke, Lautstärke oder Strahlungspegel ändern, wenn man den Abstand zur Quelle verändert.',
+  seoDescription: "Berechne die Änderung der linearen Intensität oder Beleuchtungsstärke mit dem Abstand von einer Punktquelle nach dem Abstandsgesetz.",
   h1: 'Rechner zum Abstandsquadratgesetz',
   keywords: ['Abstandsquadratgesetz', 'Intensität und Abstand', 'Lichtstärke Abstand', 'Quadratgesetz'],
+  ...inverseSquareContractContent.de,
 };

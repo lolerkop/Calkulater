@@ -1,3 +1,4 @@
+import { addBuildingWave16Messages } from '../rafters/buildingWave16Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 // Единицы принадлежат калькулятору: центральный словарь единиц не трогается.
@@ -19,10 +20,10 @@ const RESULTS_UK = {
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'perimeter': 'Gesamtlänge des Streifens, m',
-      'width': 'Breite des Streifens, m',
-      'depth': 'Tiefe des Streifens, m',
-      'waste': 'Zuschlag, %',
+      'perimeter': "Gesamtlänge des Streifens",
+      'width': "Breite des Streifens",
+      'depth': "Tiefe des Streifens",
+      'waste': "Zuschlag",
     },
     results: {
       'Объём бетона': 'Betonvolumen',
@@ -40,7 +41,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { perimeter: 'Total strip length, m', width: 'Strip width, m', depth: 'Strip depth, m', waste: 'Allowance, %', },
+    fields: { perimeter: "Total strip length", width: "Strip width", depth: "Strip depth", waste: "Allowance", },
     options: { },
     results: RESULTS_EN,
     values: {
@@ -52,7 +53,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { perimeter: 'Загальна довжина стрічки, м', width: 'Ширина стрічки, м', depth: 'Глибина стрічки, м', waste: 'Запас, %', },
+    fields: { perimeter: "Загальна довжина стрічки", width: "Ширина стрічки", depth: "Глибина стрічки", waste: "Запас", },
     options: { },
     results: RESULTS_UK,
     values: {
@@ -65,10 +66,10 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "perimeter": "Longitud total de la zapata, m",
-      "width": "Ancho de la zapata, m",
-      "depth": "Profundidad de la zapata, m",
-      "waste": "Margen, %",
+      "perimeter": "Longitud total de la zapata",
+      "width": "Ancho de la zapata",
+      "depth": "Profundidad de la zapata",
+      "waste": "Margen",
     },
     options: {},
     results: {
@@ -87,3 +88,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave16Messages(localization);

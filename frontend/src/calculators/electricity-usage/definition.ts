@@ -1,3 +1,6 @@
+import { validate } from './validate';
+import { contractContent } from './contractContent';
+import { contextualField } from './contextualField';
 // Расход электроэнергии прибором и его стоимость. Первая категория household.
 
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
@@ -13,10 +16,13 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  contextualField,
+  validate,
   copy: { en: electricityUsageCopyEn, uk: electricityUsageCopyUk, de: electricityUsageCopyDe, es: electricityUsageCopyEs },
   referenceCases: electricityUsageReferenceCases,
   publishedExample: { inputs: { power: 2000, powerUnit: 'w', hoursPerDay: 3, days: 30 }, expected: ['180,00 кВт·ч'] },
   presentation: {
+    ...contractContent.ru,
     id: 'electricity-usage',
     name: 'Калькулятор расхода электроэнергии',
     slug: 'electricity-usage',
@@ -26,8 +32,6 @@ export const definition: CalculatorDefinitionV2 = {
     popularity: 41,
     isNew: false,
     shortDescription: 'Киловатт-часы прибора и во сколько они обходятся.',
-    longDescription:
-      'Приводит паспортную мощность прибора к киловаттам один раз, а затем умножает на часы работы и число дней. Ватты и киловатт-часы легко перепутать — первое это мощность, второе энергия, накопленная за время, — поэтому перевод сделан одним видимым шагом. Укажите тариф, и появится стоимость.',
     seoTitle: 'Калькулятор расхода электроэнергии — кВт·ч и стоимость',
     seoDescription:
       'Узнайте, сколько киловатт-часов потребляет прибор за период и во сколько это обходится по вашему тарифу.',
@@ -47,15 +51,6 @@ export const definition: CalculatorDefinitionV2 = {
       { name: 'tariff', label: 'Тариф за кВт·ч', type: 'number', defaultValue: 0, unit: '₽', min: 0, step: 0.1, optional: true },
     ],
     resultLabels: { result: 'Расход энергии', perDay: 'В сутки', month: 'За 30 дней', cost: 'Стоимость за период' },
-    howToUse: ['Возьмите мощность прибора с его наклейки.', 'Укажите, сколько часов в сутки он работает и за сколько дней считаем.', 'Добавьте тариф, чтобы увидеть стоимость.'],
-    howItWorks: 'кВт·ч = мощность в киловаттах × часы в сутки × дни; стоимость — это значение, умноженное на тариф.',
-    example: 'Обогреватель 2000 Вт по 3 часа в сутки за 30 дней съедает 2 × 3 × 30 = 180 кВт·ч.',
-    faq: [
-      { q: 'Откуда взять тариф?', a: 'Из квитанции за электроэнергию, там указана цена за киловатт-час. Многотарифные счётчики здесь не учитываются, считайте по нужной зоне отдельно.' },
-      { q: 'Паспортная мощность — это реальное потребление?', a: 'Это заявленный максимум. Техника с циклами, вроде холодильника или обогревателя с термостатом, потребляет меньше, потому что работает не постоянно.' },
-      { q: 'Чем ватт отличается от киловатт-часа?', a: 'Ватт — это скорость расхода, а киловатт-час — энергия, накопленная за время. Прибор на 1000 Вт за один час съедает ровно 1 кВт·ч.' },
-      { q: 'Обязательно ли указывать тариф?', a: 'Нет. Без него вы всё равно получите потребление в киловатт-часах, просто без строки стоимости.' },
-    ],
     relatedCalculatorIds: ['tip', 'convert-power', 'convert-energy'],
   },
 };

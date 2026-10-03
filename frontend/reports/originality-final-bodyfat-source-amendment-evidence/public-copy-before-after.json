@@ -1,0 +1,562 @@
+[
+  {
+    "id": "body-fat-calculator",
+    "locale": "ru",
+    "before": {
+      "copy": {
+        "longDescription": "Оценка доли жира по росту и обхватам использует историческую модель типа Navy. Сантиметры переводятся в дюймы перед логарифмами: коэффициенты зависят от этого масштаба. Мужская ветка использует живот на уровне пупка и шею; женская — естественную талию, бёдра и шею. Это не современная проверка допуска к службе и не прямое измерение состава тела.",
+        "howToUse": [
+          "Выберите мужскую или женскую ветку, введите рост и обхват шеи в сантиметрах.",
+          "Для мужской ветки измерьте живот через пупок; для женской — наиболее узкую естественную талию.",
+          "В женской ветке добавьте обхват бёдер по наибольшему выступу ягодиц.",
+          "Измеряйте без втягивания живота и перетягивания ленты; сравнивая даты, сохраняйте один протокол."
+        ],
+        "howItWorks": "После деления сантиметров на 2,54: мужская оценка = 86,010log10(A−N) − 70,041log10(H) + 36,76; женская = 163,205log10(W+P−N) − 97,684log10(H) − 78,387. H — рост, N — шея, A — живот, W — талия, P — бёдра, все в дюймах. Логарифмическая разность должна быть положительной; вывод допускается только при 0 < процент < 100.",
+        "example": "Мужская ветка: рост 180 см, шея 38 см, живот 90 см → 19,927… → 19,9%. Женская: рост 165 см, шея 32 см, талия 72 см, бёдра 96 см → 26,679… → 26,7%.",
+        "faq": [
+          {
+            "q": "Насколько точна оценка жира по обхватам?",
+            "a": "Одна универсальная погрешность не установлена для всех посетителей. Лента, телосложение и соответствие модели влияют на результат; десятая процента обозначает формат вывода, а не точность."
+          },
+          {
+            "q": "Где измерять живот, талию и бёдра?",
+            "a": "В мужской ветке живот измеряют через пупок, в женской — естественную талию; женские бёдра — по наибольшему выступу ягодиц. Шея измеряется ниже гортани."
+          },
+          {
+            "q": "Почему ветки для мужчин и женщин различаются?",
+            "a": "Это разные регрессионные модели с разным набором обхватов. Переключение ветки меняет уравнение, а не только подпись."
+          },
+          {
+            "q": "Зачем модели процента жира нужен рост?",
+            "a": "Рост входит в логарифмический член регрессии. Одни обхваты без роста не воспроизводят эту модель."
+          },
+          {
+            "q": "Когда расчёт доли жира отклоняется?",
+            "a": "При неположительных измерениях, неизвестной ветке, неположительной разности A−N или W+P−N, либо оценке вне 0–100%. Для женщин условие W>N отдельно не требуется."
+          },
+          {
+            "q": "Почему результат не показывает норму жира?",
+            "a": "Возраст, цели и медицинский контекст здесь не оцениваются. Один универсальный порог здоровья по такому числу не выводится."
+          },
+          {
+            "q": "Можно ли считать эту модель медицинской или современной военнослужебной нормой?",
+            "a": "Нет. Это историческая оценка; актуальные служебные протоколы могут изменяться. По одному результату нельзя оценить здоровье или назначить питание."
+          }
+        ],
+        "disclaimer": "Историческая модель по обхватам, не измерение и не медицинское заключение. Подтверждение точных коэффициентов по полным оригиналам NHRC остаётся открытым; универсальная погрешность не гарантируется.",
+        "shortDescription": "Историческая оценка доли жира по росту и обхватам с разным протоколом для двух формул.",
+        "seoDescription": "Оцените долю жира по исторической модели Navy: живот у мужчин, естественная талия и бёдра у женщин. Единицы, формулы и ограничения оценки."
+      },
+      "sources": [
+        {
+          "label": "ВМС США, февраль 2025: исторические места измерения обхватов; не текущая норма допуска",
+          "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+        }
+      ]
+    },
+    "after": {
+      "copy": {
+        "longDescription": "Оценка доли жира по росту и обхватам использует историческую модель типа Navy. Сантиметры переводятся в дюймы перед логарифмами: коэффициенты зависят от этого масштаба. Мужская ветка использует живот на уровне пупка и шею; женская — естественную талию, бёдра и шею. Это не современная проверка допуска к службе и не прямое измерение состава тела.",
+        "howToUse": [
+          "Выберите мужскую или женскую ветку, введите рост и обхват шеи в сантиметрах.",
+          "Для мужской ветки измерьте живот через пупок; для женской — наиболее узкую естественную талию.",
+          "В женской ветке добавьте обхват бёдер по наибольшему выступу ягодиц.",
+          "Измеряйте без втягивания живота и перетягивания ленты; сравнивая даты, сохраняйте один протокол."
+        ],
+        "howItWorks": "После деления сантиметров на 2,54: мужская оценка = 86,010log10(A−N) − 70,041log10(H) + 36,76; женская = 163,205log10(W+P−N) − 97,684log10(H) − 78,387. H — рост, N — шея, A — живот, W — талия, P — бёдра, все в дюймах. Логарифмическая разность должна быть положительной; вывод допускается только при 0 < процент < 100.",
+        "example": "Мужская ветка: рост 180 см, шея 38 см, живот 90 см → 19,927… → 19,9%. Женская: рост 165 см, шея 32 см, талия 72 см, бёдра 96 см → 26,679… → 26,7%.",
+        "faq": [
+          {
+            "q": "Насколько точна оценка жира по обхватам?",
+            "a": "Одна универсальная погрешность не установлена для всех посетителей. Лента, телосложение и соответствие модели влияют на результат; десятая процента обозначает формат вывода, а не точность."
+          },
+          {
+            "q": "Где измерять живот, талию и бёдра?",
+            "a": "В мужской ветке живот измеряют через пупок, в женской — естественную талию; женские бёдра — по наибольшему выступу ягодиц. Шея измеряется ниже гортани."
+          },
+          {
+            "q": "Почему ветки для мужчин и женщин различаются?",
+            "a": "Это разные регрессионные модели с разным набором обхватов. Переключение ветки меняет уравнение, а не только подпись."
+          },
+          {
+            "q": "Зачем модели процента жира нужен рост?",
+            "a": "Рост входит в логарифмический член регрессии. Одни обхваты без роста не воспроизводят эту модель."
+          },
+          {
+            "q": "Когда расчёт доли жира отклоняется?",
+            "a": "При неположительных измерениях, неизвестной ветке, неположительной разности A−N или W+P−N, либо оценке вне 0–100%. Для женщин условие W>N отдельно не требуется."
+          },
+          {
+            "q": "Почему результат не показывает норму жира?",
+            "a": "Возраст, цели и медицинский контекст здесь не оцениваются. Один универсальный порог здоровья по такому числу не выводится."
+          },
+          {
+            "q": "Можно ли считать эту модель медицинской или современной военнослужебной нормой?",
+            "a": "Нет. Это историческая оценка; актуальные служебные протоколы могут изменяться. По одному результату нельзя оценить здоровье или назначить питание."
+          }
+        ],
+        "disclaimer": "Точные принятые коэффициенты опубликованы Армией США в 2019 году (с. 3, §f); их исходный вывод по полным оригиналам NHRC пока не проверен. Историческая модель по обхватам не является текущей оценкой Navy, измерением или медицинским заключением; универсальная точность для отдельного человека не гарантируется.",
+        "shortDescription": "Историческая оценка доли жира по росту и обхватам с разным протоколом для двух формул.",
+        "seoDescription": "Оцените долю жира по исторической модели Navy: живот у мужчин, естественная талия и бёдра у женщин. Единицы, формулы и ограничения оценки."
+      },
+      "sources": [
+        {
+          "label": "ВМС США, февраль 2025: исторические места измерения обхватов; не текущая норма допуска",
+          "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+        },
+        {
+          "label": "Армия США, 26 марта 2019, с. 3, §f: историческое использование точных коэффициентов в дюймах",
+          "href": "https://api.army.mil/e2/c/downloads/566092.pdf#page=3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "body-fat-calculator",
+    "locale": "en",
+    "before": {
+      "copy": {
+        "longDescription": "This historical Navy-style model estimates body fat from height and circumferences. Centimetres are converted to inches before applying the logarithms. The male branch uses abdomen at the navel and neck; the female branch uses natural waist, hips and neck. It is neither a current military eligibility assessment nor a direct body-composition measurement.",
+        "howToUse": [
+          "Select the male or female branch and enter height and neck circumference in cm.",
+          "For the male branch, measure the abdomen at the navel; for the female branch, use the narrowest natural waist.",
+          "The female branch also needs hips around the greatest protrusion of the buttocks.",
+          "Avoid pulling the tape tight or drawing in the abdomen; keep the measurement protocol consistent between dates."
+        ],
+        "howItWorks": "Convert cm to inches by dividing by 2.54. Male estimate = 86.010log10(A−N) − 70.041log10(H) + 36.76; female = 163.205log10(W+P−N) − 97.684log10(H) − 78.387. H is height, N neck, A abdomen, W waist and P hips, all in inches. The circumference difference must be positive; only percentages strictly between 0 and 100 are displayed.",
+        "example": "Male branch: height 180 cm, neck 38 cm and abdomen 90 cm → 19.927… → 19.9%. Female branch: height 165 cm, neck 32 cm, waist 72 cm and hips 96 cm → 26.679… → 26.7%.",
+        "faq": [
+          {
+            "q": "How accurate is the circumference body-fat estimate?",
+            "a": "A universal error margin is not established for every visitor. Tape measurements, build and model applicability affect the result; a decimal place is display precision, not measurement accuracy."
+          },
+          {
+            "q": "Where should abdomen, waist and hips be measured?",
+            "a": "Male abdomen is measured at the navel; female waist at the natural waist and hips at the greatest buttock protrusion. Neck is measured below the larynx."
+          },
+          {
+            "q": "Why do the two body-fat branches differ?",
+            "a": "They are separate regression models with different circumference inputs. The selector changes the equation, not merely a label."
+          },
+          {
+            "q": "Why does a body-fat percentage model require height?",
+            "a": "Height enters the logarithmic regression term. Circumferences alone do not reproduce this model."
+          },
+          {
+            "q": "When is this circumference calculation rejected?",
+            "a": "For nonpositive measurements, an unknown branch, nonpositive A−N or W+P−N, or a percentage outside 0–100%. The female equation does not separately require W>N."
+          },
+          {
+            "q": "Why is no healthy body-fat category displayed?",
+            "a": "Age, individual goals and medical context are not assessed. A universal health cut-off cannot be inferred from this result."
+          },
+          {
+            "q": "Is this a medical standard or a current Navy assessment?",
+            "a": "No. It is a historical estimate; current military procedures can change. This number alone cannot determine health or prescribe a diet."
+          }
+        ],
+        "disclaimer": "Historical circumference model, not a measurement or medical conclusion. Exact coefficient verification against the complete original NHRC reports remains open; no universal accuracy margin is promised.",
+        "shortDescription": "Historical body-fat estimate from height and circumferences, using branch-specific measurement sites.",
+        "seoDescription": "Estimate body fat with a historical Navy-style model: male abdomen or female natural waist and hips. See measurement sites, inch-based formulas and limits."
+      },
+      "sources": [
+        {
+          "label": "US Navy, February 2025: historical circumference measurement sites, not current eligibility rules",
+          "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+        }
+      ]
+    },
+    "after": {
+      "copy": {
+        "longDescription": "This historical Navy-style model estimates body fat from height and circumferences. Centimetres are converted to inches before applying the logarithms. The male branch uses abdomen at the navel and neck; the female branch uses natural waist, hips and neck. It is neither a current military eligibility assessment nor a direct body-composition measurement.",
+        "howToUse": [
+          "Select the male or female branch and enter height and neck circumference in cm.",
+          "For the male branch, measure the abdomen at the navel; for the female branch, use the narrowest natural waist.",
+          "The female branch also needs hips around the greatest protrusion of the buttocks.",
+          "Avoid pulling the tape tight or drawing in the abdomen; keep the measurement protocol consistent between dates."
+        ],
+        "howItWorks": "Convert cm to inches by dividing by 2.54. Male estimate = 86.010log10(A−N) − 70.041log10(H) + 36.76; female = 163.205log10(W+P−N) − 97.684log10(H) − 78.387. H is height, N neck, A abdomen, W waist and P hips, all in inches. The circumference difference must be positive; only percentages strictly between 0 and 100 are displayed.",
+        "example": "Male branch: height 180 cm, neck 38 cm and abdomen 90 cm → 19.927… → 19.9%. Female branch: height 165 cm, neck 32 cm, waist 72 cm and hips 96 cm → 26.679… → 26.7%.",
+        "faq": [
+          {
+            "q": "How accurate is the circumference body-fat estimate?",
+            "a": "A universal error margin is not established for every visitor. Tape measurements, build and model applicability affect the result; a decimal place is display precision, not measurement accuracy."
+          },
+          {
+            "q": "Where should abdomen, waist and hips be measured?",
+            "a": "Male abdomen is measured at the navel; female waist at the natural waist and hips at the greatest buttock protrusion. Neck is measured below the larynx."
+          },
+          {
+            "q": "Why do the two body-fat branches differ?",
+            "a": "They are separate regression models with different circumference inputs. The selector changes the equation, not merely a label."
+          },
+          {
+            "q": "Why does a body-fat percentage model require height?",
+            "a": "Height enters the logarithmic regression term. Circumferences alone do not reproduce this model."
+          },
+          {
+            "q": "When is this circumference calculation rejected?",
+            "a": "For nonpositive measurements, an unknown branch, nonpositive A−N or W+P−N, or a percentage outside 0–100%. The female equation does not separately require W>N."
+          },
+          {
+            "q": "Why is no healthy body-fat category displayed?",
+            "a": "Age, individual goals and medical context are not assessed. A universal health cut-off cannot be inferred from this result."
+          },
+          {
+            "q": "Is this a medical standard or a current Navy assessment?",
+            "a": "No. It is a historical estimate; current military procedures can change. This number alone cannot determine health or prescribe a diet."
+          }
+        ],
+        "disclaimer": "The adopted coefficients appear in the US Army's 2019 document (p. 3, §f); their derivation in the complete original NHRC reports remains unverified. This historical circumference model is neither a current Navy assessment nor a measurement or medical conclusion; no universal individual accuracy is promised.",
+        "shortDescription": "Historical body-fat estimate from height and circumferences, using branch-specific measurement sites.",
+        "seoDescription": "Estimate body fat with a historical Navy-style model: male abdomen or female natural waist and hips. See measurement sites, inch-based formulas and limits."
+      },
+      "sources": [
+        {
+          "label": "US Navy, February 2025: historical circumference measurement sites, not current eligibility rules",
+          "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+        },
+        {
+          "label": "US Army, 26 March 2019, p. 3, §f: historical use of the exact inch-based coefficients",
+          "href": "https://api.army.mil/e2/c/downloads/566092.pdf#page=3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "body-fat-calculator",
+    "locale": "uk",
+    "before": {
+      "copy": {
+        "longDescription": "Історична модель типу Navy оцінює частку жиру за зростом та обхватами. Перед логарифмами сантиметри переводяться в дюйми. Чоловіча гілка використовує живіт через пупок і шию; жіноча — природну талію, стегна й шию. Це не сучасна перевірка військового допуску та не пряме вимірювання складу тіла.",
+        "howToUse": [
+          "Оберіть чоловічу чи жіночу гілку, введіть зріст і обхват шиї в см.",
+          "Для чоловічої гілки виміряйте живіт через пупок; для жіночої — найвужчу природну талію.",
+          "У жіночій гілці додайте стегна за найбільшим виступом сідниць.",
+          "Не перетягуйте стрічку й не втягуйте живіт; для порівняння дат зберігайте протокол."
+        ],
+        "howItWorks": "Поділіть сантиметри на 2,54. Чоловіча оцінка = 86,010log10(A−N) − 70,041log10(H) + 36,76; жіноча = 163,205log10(W+P−N) − 97,684log10(H) − 78,387. H — зріст, N — шия, A — живіт, W — талія, P — стегна, у дюймах. Різниця має бути додатною; виводиться лише 0 < відсоток < 100.",
+        "example": "Чоловіча гілка: 180 см, шия 38 см, живіт 90 см → 19,9%. Жіноча: 165 см, шия 32 см, талія 72 см, стегна 96 см → 26,7%.",
+        "faq": [
+          {
+            "q": "Наскільки точна оцінка жиру за обхватами?",
+            "a": "Універсальна похибка для всіх відвідувачів не встановлена. На результат впливають стрічка, статура і застосовність моделі; десята відсотка — формат, а не точність."
+          },
+          {
+            "q": "Де вимірювати живіт, талію та стегна?",
+            "a": "Чоловічий живіт — через пупок, жіночу талію — у природному найвужчому місці, стегна — за виступом сідниць. Шию вимірюють нижче гортані."
+          },
+          {
+            "q": "Чому дві гілки оцінки жиру різні?",
+            "a": "Це окремі регресії з різними обхватами. Перемикач змінює рівняння."
+          },
+          {
+            "q": "Навіщо моделі частки жиру зріст?",
+            "a": "Зріст входить у логарифмічний член; лише обхвати не відтворюють цю модель."
+          },
+          {
+            "q": "Коли оцінка за обхватами відхиляється?",
+            "a": "За недодатних вимірювань, невідомої гілки, недодатної різниці A−N або W+P−N чи відсотка поза 0–100%. Для жіночої гілки умова W>N окремо не потрібна."
+          },
+          {
+            "q": "Чому немає здорової категорії жиру?",
+            "a": "Вік, цілі й медичний контекст не оцінюються, тож універсальну межу здоров’я не виводимо."
+          },
+          {
+            "q": "Це медичний стандарт чи актуальна військова норма?",
+            "a": "Ні. Історична оцінка не замінює чинного протоколу; число не визначає здоров’я і не призначає дієту."
+          }
+        ],
+        "disclaimer": "Історична модель обхватів, не вимірювання й не медичний висновок. Перевірка точних коефіцієнтів за повними оригіналами NHRC лишається відкритою; універсальна похибка не гарантується.",
+        "shortDescription": "Історична оцінка жиру за зростом та обхватами з різними місцями вимірювання для двох формул.",
+        "seoDescription": "Оцініть жир за історичною моделлю Navy: живіт у чоловіків, природна талія й стегна у жінок. Місця вимірювання, формули та обмеження."
+      },
+      "sources": [
+        {
+          "label": "ВМС США, лютий 2025: історичні місця вимірювання обхватів, не чинні норми допуску",
+          "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+        }
+      ]
+    },
+    "after": {
+      "copy": {
+        "longDescription": "Історична модель типу Navy оцінює частку жиру за зростом та обхватами. Перед логарифмами сантиметри переводяться в дюйми. Чоловіча гілка використовує живіт через пупок і шию; жіноча — природну талію, стегна й шию. Це не сучасна перевірка військового допуску та не пряме вимірювання складу тіла.",
+        "howToUse": [
+          "Оберіть чоловічу чи жіночу гілку, введіть зріст і обхват шиї в см.",
+          "Для чоловічої гілки виміряйте живіт через пупок; для жіночої — найвужчу природну талію.",
+          "У жіночій гілці додайте стегна за найбільшим виступом сідниць.",
+          "Не перетягуйте стрічку й не втягуйте живіт; для порівняння дат зберігайте протокол."
+        ],
+        "howItWorks": "Поділіть сантиметри на 2,54. Чоловіча оцінка = 86,010log10(A−N) − 70,041log10(H) + 36,76; жіноча = 163,205log10(W+P−N) − 97,684log10(H) − 78,387. H — зріст, N — шия, A — живіт, W — талія, P — стегна, у дюймах. Різниця має бути додатною; виводиться лише 0 < відсоток < 100.",
+        "example": "Чоловіча гілка: 180 см, шия 38 см, живіт 90 см → 19,9%. Жіноча: 165 см, шия 32 см, талія 72 см, стегна 96 см → 26,7%.",
+        "faq": [
+          {
+            "q": "Наскільки точна оцінка жиру за обхватами?",
+            "a": "Універсальна похибка для всіх відвідувачів не встановлена. На результат впливають стрічка, статура і застосовність моделі; десята відсотка — формат, а не точність."
+          },
+          {
+            "q": "Де вимірювати живіт, талію та стегна?",
+            "a": "Чоловічий живіт — через пупок, жіночу талію — у природному найвужчому місці, стегна — за виступом сідниць. Шию вимірюють нижче гортані."
+          },
+          {
+            "q": "Чому дві гілки оцінки жиру різні?",
+            "a": "Це окремі регресії з різними обхватами. Перемикач змінює рівняння."
+          },
+          {
+            "q": "Навіщо моделі частки жиру зріст?",
+            "a": "Зріст входить у логарифмічний член; лише обхвати не відтворюють цю модель."
+          },
+          {
+            "q": "Коли оцінка за обхватами відхиляється?",
+            "a": "За недодатних вимірювань, невідомої гілки, недодатної різниці A−N або W+P−N чи відсотка поза 0–100%. Для жіночої гілки умова W>N окремо не потрібна."
+          },
+          {
+            "q": "Чому немає здорової категорії жиру?",
+            "a": "Вік, цілі й медичний контекст не оцінюються, тож універсальну межу здоров’я не виводимо."
+          },
+          {
+            "q": "Це медичний стандарт чи актуальна військова норма?",
+            "a": "Ні. Історична оцінка не замінює чинного протоколу; число не визначає здоров’я і не призначає дієту."
+          }
+        ],
+        "disclaimer": "Точні прийняті коефіцієнти опубліковано Армією США у 2019 році (с. 3, §f); їхнє первинне виведення за повними оригіналами NHRC ще не перевірено. Історична модель обхватів не є чинною оцінкою Navy, вимірюванням чи медичним висновком; універсальна точність для окремої людини не гарантується.",
+        "shortDescription": "Історична оцінка жиру за зростом та обхватами з різними місцями вимірювання для двох формул.",
+        "seoDescription": "Оцініть жир за історичною моделлю Navy: живіт у чоловіків, природна талія й стегна у жінок. Місця вимірювання, формули та обмеження."
+      },
+      "sources": [
+        {
+          "label": "ВМС США, лютий 2025: історичні місця вимірювання обхватів, не чинні норми допуску",
+          "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+        },
+        {
+          "label": "Армія США, 26 березня 2019, с. 3, §f: історичне використання точних коефіцієнтів у дюймах",
+          "href": "https://api.army.mil/e2/c/downloads/566092.pdf#page=3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "body-fat-calculator",
+    "locale": "de",
+    "before": {
+      "copy": {
+        "longDescription": "Dieses historische Navy-artige Modell schätzt Körperfett aus Größe und Umfängen. Zentimeter werden vor den Logarithmen in Zoll umgerechnet. Die männliche Formel nutzt den Bauch auf Nabelhöhe und den Hals; die weibliche nutzt natürliche Taille, Hüfte und Hals. Es ist weder eine aktuelle militärische Eignungsprüfung noch eine direkte Körperfettmessung.",
+        "howToUse": [
+          "Männliche oder weibliche Formel wählen, Größe und Halsumfang in cm eingeben.",
+          "Männlich: Bauch auf Nabelhöhe; weiblich: schmalste natürliche Taille messen.",
+          "Weiblich zusätzlich den Hüftumfang an der stärksten Gesäßwölbung eingeben.",
+          "Maßband nicht festziehen oder Bauch einziehen; bei Vergleichen dasselbe Messverfahren verwenden."
+        ],
+        "howItWorks": "Zentimeter durch 2,54 teilen. Männlich = 86,010log10(A−N) − 70,041log10(H) + 36,76; weiblich = 163,205log10(W+P−N) − 97,684log10(H) − 78,387. H: Größe, N: Hals, A: Bauch, W: Taille, P: Hüfte, in Zoll. Die Umfangsdifferenz muss positiv sein; nur 0 < Prozent < 100 wird ausgegeben.",
+        "example": "Männlich: Größe 180 cm, Hals 38 cm, Bauch 90 cm → 19,9%. Weiblich: Größe 165 cm, Hals 32 cm, Taille 72 cm, Hüfte 96 cm → 26,7%.",
+        "faq": [
+          {
+            "q": "Wie genau ist die Körperfettschätzung aus Umfängen?",
+            "a": "Eine universelle Fehlerspanne für alle Besucher ist nicht belegt. Messung, Körperbau und Modellpassung wirken mit; eine Dezimalstelle ist nur Anzeigepräzision."
+          },
+          {
+            "q": "Wo messe ich Bauch, Taille und Hüfte?",
+            "a": "Männlichen Bauch am Nabel, weibliche Taille an der natürlichen schmalsten Stelle, Hüfte an der stärksten Gesäßwölbung; Hals unterhalb des Kehlkopfs."
+          },
+          {
+            "q": "Warum unterscheiden sich die Körperfettformeln?",
+            "a": "Es sind getrennte Regressionen mit unterschiedlichen Eingaben. Der Schalter ändert die Gleichung."
+          },
+          {
+            "q": "Warum braucht die Körperfettgleichung die Größe?",
+            "a": "Die Größe steht im logarithmischen Regressionsterm. Umfänge allein bilden dieses Modell nicht ab."
+          },
+          {
+            "q": "Wann wird die Umfangsrechnung abgelehnt?",
+            "a": "Bei nichtpositiven Maßen, unbekannter Formel, A−N oder W+P−N ≤ 0 oder einem Ergebnis außerhalb 0–100%. Weiblich ist W>N nicht separat erforderlich."
+          },
+          {
+            "q": "Warum erscheint keine gesunde Körperfettkategorie?",
+            "a": "Alter, Ziele und medizinischer Kontext werden nicht erfasst; eine universelle Gesundheitsgrenze wird nicht abgeleitet."
+          },
+          {
+            "q": "Ist das ein medizinischer Standard oder die aktuelle Navy-Prüfung?",
+            "a": "Nein. Es ist eine historische Schätzung; heutige Dienstverfahren können sich ändern. Die Zahl bestimmt weder Gesundheit noch eine Diät."
+          }
+        ],
+        "disclaimer": "Historisches Umfangsmodell, keine Messung oder medizinische Schlussfolgerung. Die Prüfung der exakten Koeffizienten anhand vollständiger NHRC-Originalberichte ist offen; keine universelle Genauigkeitsgarantie.",
+        "shortDescription": "Historische Körperfettschätzung aus Größe und Umfängen mit unterschiedlichen Messstellen je Formel.",
+        "seoDescription": "Körperfett nach historischem Navy-Modell schätzen: männlicher Bauch oder weibliche Taille und Hüfte. Messstellen, Zollformeln und Grenzen erklärt."
+      },
+      "sources": [
+        {
+          "label": "US Navy, Februar 2025: historische Umfangsmessstellen, keine aktuellen Eignungsregeln",
+          "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+        }
+      ]
+    },
+    "after": {
+      "copy": {
+        "longDescription": "Dieses historische Navy-artige Modell schätzt Körperfett aus Größe und Umfängen. Zentimeter werden vor den Logarithmen in Zoll umgerechnet. Die männliche Formel nutzt den Bauch auf Nabelhöhe und den Hals; die weibliche nutzt natürliche Taille, Hüfte und Hals. Es ist weder eine aktuelle militärische Eignungsprüfung noch eine direkte Körperfettmessung.",
+        "howToUse": [
+          "Männliche oder weibliche Formel wählen, Größe und Halsumfang in cm eingeben.",
+          "Männlich: Bauch auf Nabelhöhe; weiblich: schmalste natürliche Taille messen.",
+          "Weiblich zusätzlich den Hüftumfang an der stärksten Gesäßwölbung eingeben.",
+          "Maßband nicht festziehen oder Bauch einziehen; bei Vergleichen dasselbe Messverfahren verwenden."
+        ],
+        "howItWorks": "Zentimeter durch 2,54 teilen. Männlich = 86,010log10(A−N) − 70,041log10(H) + 36,76; weiblich = 163,205log10(W+P−N) − 97,684log10(H) − 78,387. H: Größe, N: Hals, A: Bauch, W: Taille, P: Hüfte, in Zoll. Die Umfangsdifferenz muss positiv sein; nur 0 < Prozent < 100 wird ausgegeben.",
+        "example": "Männlich: Größe 180 cm, Hals 38 cm, Bauch 90 cm → 19,9%. Weiblich: Größe 165 cm, Hals 32 cm, Taille 72 cm, Hüfte 96 cm → 26,7%.",
+        "faq": [
+          {
+            "q": "Wie genau ist die Körperfettschätzung aus Umfängen?",
+            "a": "Eine universelle Fehlerspanne für alle Besucher ist nicht belegt. Messung, Körperbau und Modellpassung wirken mit; eine Dezimalstelle ist nur Anzeigepräzision."
+          },
+          {
+            "q": "Wo messe ich Bauch, Taille und Hüfte?",
+            "a": "Männlichen Bauch am Nabel, weibliche Taille an der natürlichen schmalsten Stelle, Hüfte an der stärksten Gesäßwölbung; Hals unterhalb des Kehlkopfs."
+          },
+          {
+            "q": "Warum unterscheiden sich die Körperfettformeln?",
+            "a": "Es sind getrennte Regressionen mit unterschiedlichen Eingaben. Der Schalter ändert die Gleichung."
+          },
+          {
+            "q": "Warum braucht die Körperfettgleichung die Größe?",
+            "a": "Die Größe steht im logarithmischen Regressionsterm. Umfänge allein bilden dieses Modell nicht ab."
+          },
+          {
+            "q": "Wann wird die Umfangsrechnung abgelehnt?",
+            "a": "Bei nichtpositiven Maßen, unbekannter Formel, A−N oder W+P−N ≤ 0 oder einem Ergebnis außerhalb 0–100%. Weiblich ist W>N nicht separat erforderlich."
+          },
+          {
+            "q": "Warum erscheint keine gesunde Körperfettkategorie?",
+            "a": "Alter, Ziele und medizinischer Kontext werden nicht erfasst; eine universelle Gesundheitsgrenze wird nicht abgeleitet."
+          },
+          {
+            "q": "Ist das ein medizinischer Standard oder die aktuelle Navy-Prüfung?",
+            "a": "Nein. Es ist eine historische Schätzung; heutige Dienstverfahren können sich ändern. Die Zahl bestimmt weder Gesundheit noch eine Diät."
+          }
+        ],
+        "disclaimer": "Die übernommenen Koeffizienten stehen im Dokument der US Army von 2019 (S. 3, §f); ihre ursprüngliche Herleitung anhand vollständiger NHRC-Originalberichte bleibt ungeprüft. Dieses historische Umfangsmodell ist keine aktuelle Navy-Bewertung, Messung oder medizinische Schlussfolgerung; universelle Genauigkeit für Einzelpersonen wird nicht zugesichert.",
+        "shortDescription": "Historische Körperfettschätzung aus Größe und Umfängen mit unterschiedlichen Messstellen je Formel.",
+        "seoDescription": "Körperfett nach historischem Navy-Modell schätzen: männlicher Bauch oder weibliche Taille und Hüfte. Messstellen, Zollformeln und Grenzen erklärt."
+      },
+      "sources": [
+        {
+          "label": "US Navy, Februar 2025: historische Umfangsmessstellen, keine aktuellen Eignungsregeln",
+          "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+        },
+        {
+          "label": "US Army, 26. März 2019, S. 3, §f: historische Verwendung der exakten Zollkoeffizienten",
+          "href": "https://api.army.mil/e2/c/downloads/566092.pdf#page=3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "body-fat-calculator",
+    "locale": "es",
+    "before": {
+      "copy": {
+        "longDescription": "Este modelo histórico de tipo Navy estima grasa con estatura y perímetros. Los centímetros se convierten a pulgadas antes de los logaritmos. La rama masculina usa abdomen al nivel del ombligo y cuello; la femenina, cintura natural, cadera y cuello. No es una evaluación militar vigente ni una medición directa de composición corporal.",
+        "howToUse": [
+          "Elige la rama masculina o femenina e introduce estatura y cuello en cm.",
+          "Hombre: abdomen al nivel del ombligo; mujer: cintura natural más estrecha.",
+          "En la rama femenina añade cadera por la máxima prominencia de los glúteos.",
+          "No aprietes la cinta ni metas el abdomen; conserva el protocolo al comparar fechas."
+        ],
+        "howItWorks": "Divide cm entre 2,54. Masculina = 86,010log10(A−N) − 70,041log10(H) + 36,76; femenina = 163,205log10(W+P−N) − 97,684log10(H) − 78,387. H: estatura, N: cuello, A: abdomen, W: cintura, P: cadera, en pulgadas. La diferencia debe ser positiva; solo se muestra 0 < porcentaje < 100.",
+        "example": "Rama masculina: 180 cm, cuello 38 cm y abdomen 90 cm → 19,9%. Femenina: 165 cm, cuello 32 cm, cintura 72 cm y cadera 96 cm → 26,7%.",
+        "faq": [
+          {
+            "q": "¿Qué precisión tiene la estimación de grasa por perímetros?",
+            "a": "No se ha establecido un error universal para todos. Influyen las medidas, la constitución y la aplicabilidad; un decimal indica formato, no exactitud."
+          },
+          {
+            "q": "¿Dónde mido abdomen, cintura y cadera?",
+            "a": "Abdomen masculino por el ombligo, cintura femenina en su zona natural más estrecha y cadera en la mayor prominencia glútea. Cuello bajo la laringe."
+          },
+          {
+            "q": "¿Por qué difieren las ramas de grasa corporal?",
+            "a": "Son regresiones distintas con entradas diferentes. El selector cambia la ecuación."
+          },
+          {
+            "q": "¿Por qué una fórmula de porcentaje necesita estatura?",
+            "a": "La estatura forma parte del término logarítmico; los perímetros solos no reproducen este modelo."
+          },
+          {
+            "q": "¿Cuándo se rechaza el cálculo de perímetros?",
+            "a": "Con medidas no positivas, rama desconocida, A−N o W+P−N ≤ 0 o resultado fuera de 0–100%. En mujeres no se exige W>N por separado."
+          },
+          {
+            "q": "¿Por qué no aparece una categoría saludable de grasa?",
+            "a": "No se evalúan edad, objetivos ni contexto médico; no se deduce un umbral universal de salud."
+          },
+          {
+            "q": "¿Es un estándar médico o una evaluación Navy actual?",
+            "a": "No. Es una estimación histórica y los procedimientos actuales pueden cambiar. El número no determina la salud ni prescribe una dieta."
+          }
+        ],
+        "disclaimer": "Modelo histórico de perímetros, no medición ni conclusión médica. Sigue pendiente verificar los coeficientes exactos en los informes NHRC originales completos; no se promete error universal.",
+        "shortDescription": "Estimación histórica de grasa con estatura y perímetros, usando puntos de medida distintos por fórmula.",
+        "seoDescription": "Estima grasa con un modelo Navy histórico: abdomen masculino o cintura natural y cadera femeninas. Puntos de medida, fórmulas en pulgadas y límites."
+      },
+      "sources": [
+        {
+          "label": "US Navy, febrero de 2025: puntos históricos de perímetro, no reglas vigentes de acceso",
+          "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+        }
+      ]
+    },
+    "after": {
+      "copy": {
+        "longDescription": "Este modelo histórico de tipo Navy estima grasa con estatura y perímetros. Los centímetros se convierten a pulgadas antes de los logaritmos. La rama masculina usa abdomen al nivel del ombligo y cuello; la femenina, cintura natural, cadera y cuello. No es una evaluación militar vigente ni una medición directa de composición corporal.",
+        "howToUse": [
+          "Elige la rama masculina o femenina e introduce estatura y cuello en cm.",
+          "Hombre: abdomen al nivel del ombligo; mujer: cintura natural más estrecha.",
+          "En la rama femenina añade cadera por la máxima prominencia de los glúteos.",
+          "No aprietes la cinta ni metas el abdomen; conserva el protocolo al comparar fechas."
+        ],
+        "howItWorks": "Divide cm entre 2,54. Masculina = 86,010log10(A−N) − 70,041log10(H) + 36,76; femenina = 163,205log10(W+P−N) − 97,684log10(H) − 78,387. H: estatura, N: cuello, A: abdomen, W: cintura, P: cadera, en pulgadas. La diferencia debe ser positiva; solo se muestra 0 < porcentaje < 100.",
+        "example": "Rama masculina: 180 cm, cuello 38 cm y abdomen 90 cm → 19,9%. Femenina: 165 cm, cuello 32 cm, cintura 72 cm y cadera 96 cm → 26,7%.",
+        "faq": [
+          {
+            "q": "¿Qué precisión tiene la estimación de grasa por perímetros?",
+            "a": "No se ha establecido un error universal para todos. Influyen las medidas, la constitución y la aplicabilidad; un decimal indica formato, no exactitud."
+          },
+          {
+            "q": "¿Dónde mido abdomen, cintura y cadera?",
+            "a": "Abdomen masculino por el ombligo, cintura femenina en su zona natural más estrecha y cadera en la mayor prominencia glútea. Cuello bajo la laringe."
+          },
+          {
+            "q": "¿Por qué difieren las ramas de grasa corporal?",
+            "a": "Son regresiones distintas con entradas diferentes. El selector cambia la ecuación."
+          },
+          {
+            "q": "¿Por qué una fórmula de porcentaje necesita estatura?",
+            "a": "La estatura forma parte del término logarítmico; los perímetros solos no reproducen este modelo."
+          },
+          {
+            "q": "¿Cuándo se rechaza el cálculo de perímetros?",
+            "a": "Con medidas no positivas, rama desconocida, A−N o W+P−N ≤ 0 o resultado fuera de 0–100%. En mujeres no se exige W>N por separado."
+          },
+          {
+            "q": "¿Por qué no aparece una categoría saludable de grasa?",
+            "a": "No se evalúan edad, objetivos ni contexto médico; no se deduce un umbral universal de salud."
+          },
+          {
+            "q": "¿Es un estándar médico o una evaluación Navy actual?",
+            "a": "No. Es una estimación histórica y los procedimientos actuales pueden cambiar. El número no determina la salud ni prescribe una dieta."
+          }
+        ],
+        "disclaimer": "Los coeficientes adoptados aparecen en el documento del Ejército de EE. UU. de 2019 (p. 3, §f); su derivación en los informes NHRC originales completos sigue sin verificarse. Este modelo histórico de perímetros no es una evaluación Navy vigente, una medición ni una conclusión médica; no se promete exactitud universal para cada persona.",
+        "shortDescription": "Estimación histórica de grasa con estatura y perímetros, usando puntos de medida distintos por fórmula.",
+        "seoDescription": "Estima grasa con un modelo Navy histórico: abdomen masculino o cintura natural y cadera femeninas. Puntos de medida, fórmulas en pulgadas y límites."
+      },
+      "sources": [
+        {
+          "label": "US Navy, febrero de 2025: puntos históricos de perímetro, no reglas vigentes de acceso",
+          "href": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/AMDR%20Training_FEB%202025_v4.pdf?ver=uLCWsmsHugcKUXNubKZ3aA%3D%3D"
+        },
+        {
+          "label": "Ejército de EE. UU., 26 de marzo de 2019, p. 3, §f: uso histórico de los coeficientes exactos en pulgadas",
+          "href": "https://api.army.mil/e2/c/downloads/566092.pdf#page=3"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,364 @@
+{
+  "capturedAt": "2026-10-02T06:45:39.341608+00:00",
+  "oracleBoundary": "Independent arithmetic only; fixed expected literals are derived without calling or importing production compute/helper. Does not verify browser publication/human review or all93methods.",
+  "precisionDigits": 90,
+  "stateFixtureCorrections": [
+    {
+      "id": "wind-power",
+      "inputs": {
+        "d": 50,
+        "v": 12,
+        "cp": ".45",
+        "rho": "1.2"
+      },
+      "independentMethod": "90digit Decimal pi from Machin identity16atan(1/5)−4atan(1/239); no production imports",
+      "pi": "3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803480",
+      "areaSquareMetres": "1963.49540849362077403915211454968930262323087460944113810934037019238525392888062414252175",
+      "flowKilowatts": "2035.75203952618601852379291236511786895976577079506857199176409581546503127346343111096655",
+      "usefulKilowatts": "916.088417786783708335706810564303041031894596857780857396293843116959264073058543999934948",
+      "maximumKilowatts": "1206.37157897848060356965505917932910753171304936004063525437872344620150001390425547316536",
+      "maximumDisplay": "1206.37",
+      "oldApproximationDisplay": "1207.20",
+      "exactCp": "16/27",
+      "coefficientDerivation": "Ideal actuator disc Cp(a)=4a(1−a)^2; derivative4(1−a)(1−3a), physical maximum at a=1/3 gives16/27. Scope is the ideal isolated rotor model."
+    },
+    {
+      "id": "curtain-size",
+      "inputs": {
+        "windowWidth": 220,
+        "fullness": "2.5",
+        "fabricWidth": 140,
+        "height": 230,
+        "hem": 30
+      },
+      "independentMethod": "Decimal arithmetic and exact positive quotient ceiling",
+      "neededUnGatheredWidthCm": "550.0",
+      "panels": 4,
+      "cutLengthCm": 260,
+      "totalMetres": "10.4",
+      "labelBefore": "Ширина в сборке",
+      "labelAfter": "Ширина ткани до сборки",
+      "reason": "Fullness multiplies the finished width;550cm is purchased fabric width before gathering, not the final220cm gathered width."
+    },
+    {
+      "id": "luggage-linear",
+      "inputs": {
+        "l": 62,
+        "w": 45,
+        "h": 28,
+        "limit": 115
+      },
+      "independentMethod": "Decimal dimension sum, exact1in=2.54cm",
+      "sumCm": "135",
+      "leftCm": "-20",
+      "inches": "53.1496062992125984251968503937007874015748031496062992125984251968503937007874015748031496",
+      "volumeLitres": "78.12",
+      "status": "превышена",
+      "labelBefore": "Норма",
+      "labelAfter": "По введённому пределу",
+      "reason": "Comparison uses the supplied115cm limit; no live carrier allowance or universal norm is queried."
+    }
+  ],
+  "normalCases": [
+    {
+      "id": "curtain-size",
+      "inputs": {
+        "windowWidth": 220,
+        "fullness": 2.5,
+        "fabricWidth": 140,
+        "height": 230,
+        "hem": 30
+      },
+      "numericExpected": {
+        "primary": "10.4",
+        "Полотнищ": "4",
+        "Ширина ткани до сборки": "550",
+        "Длина отреза": "260"
+      },
+      "derivation": "ceil(220×2.5/140)=4;4×(230+30)/100=10.4m"
+    },
+    {
+      "id": "luggage-linear",
+      "inputs": {
+        "l": 62,
+        "w": 45,
+        "h": 28,
+        "limit": 115
+      },
+      "numericExpected": {
+        "primary": "135",
+        "Запас до предела": "-20",
+        "В дюймах": "53.1496062992125984251968503937007874015748031496062992125984251968503937007874015748031496",
+        "Объём коробки": "78.12"
+      },
+      "stringExpected": {
+        "По введённому пределу": "превышена"
+      },
+      "derivation": "62+45+28=135;115−135=−20;62×45×28/1000=78.12L"
+    },
+    {
+      "id": "picture-frame-mat",
+      "inputs": {
+        "photoWidth": 10,
+        "photoHeight": 20,
+        "border": 2,
+        "bottomExtra": 1
+      },
+      "numericExpected": {
+        "Площадь паспарту": "150",
+        "Нижнее поле": "3",
+        "Соотношение сторон паспарту": ".56"
+      },
+      "primaryLiteral": "14×25 см",
+      "derivation": "(10+4)×(20+4+1)−10×20=150cm²;ratio14/25=.56",
+      "labelAlignmentNote": "Owner corrected actual aspect label fromframe tomat while preparing finalcandidatecopy; exact14/25=.56 independent expectation remains unchanged."
+    },
+    {
+      "id": "price-per-unit",
+      "inputs": {
+        "mode": "compare",
+        "unit": "kg",
+        "priceA": 0.3,
+        "amountA": 3,
+        "priceB": 0.1,
+        "amountB": 1
+      },
+      "numericExpected": {
+        "Упаковка A": ".1",
+        "Упаковка B": ".1",
+        "Переплата за единицу": "0"
+      },
+      "primaryLiteral": "одинаково",
+      "derivation": "Decimal.3/3=.1=.1/1 exactly"
+    },
+    {
+      "id": "print-3d-cost",
+      "inputs": {
+        "grams": 100,
+        "spoolPrice": 2000,
+        "spoolWeight": 1000,
+        "hours": 2,
+        "powerW": 100,
+        "kwhPrice": 5,
+        "wearPerHour": 10,
+        "markupPct": 25
+      },
+      "numericExpected": {
+        "primary": "276.25",
+        "Пластик": "200",
+        "Электричество": "1",
+        "Амортизация принтера": "20",
+        "Наценка": "55.25",
+        "Израсходовано энергии": ".2",
+        "Цена грамма пластика": "2"
+      },
+      "derivation": "Material100×2000/1000=200;energy100×2×5/1000=1;wear2×10=20;base221×1.25=276.25"
+    },
+    {
+      "id": "stock-duration",
+      "inputs": {
+        "stock": 40,
+        "perDay": 2.5,
+        "reserveDays": 3
+      },
+      "numericExpected": {
+        "primary": "16",
+        "Заказать через": "13"
+      },
+      "derivation": "40/2.5=16days;16−3=13days before reserve threshold"
+    },
+    {
+      "id": "subscriptions-cost",
+      "inputs": {
+        "items": "Annual plan 1200 12\nQuarterly plan 300 3\nMonthly plan 50 1"
+      },
+      "numericExpected": {
+        "primary": "250",
+        "В год": "3000",
+        "Подписок": "3",
+        "Её вклад в месяц": "100"
+      },
+      "stringExpected": {
+        "Самая дорогая": "Annual plan"
+      },
+      "derivation": "1200/12+300/3+50/1=250 permonth;12×250=3000 annualized same unchanged input expenses, first equal largest retained"
+    },
+    {
+      "id": "tip",
+      "inputs": {
+        "bill": 100,
+        "tipPercent": 10,
+        "people": 3,
+        "roundPerPerson": "yes"
+      },
+      "numericExpected": {
+        "primary": "111",
+        "Чаевые": "10",
+        "С человека": "37",
+        "Сверх счёта из-за округления": "1"
+      },
+      "derivation": "ceil(100×1.1/3)=37 perperson;37×3=111;111−110=1 extra from chosen whole currencyunit rounding"
+    },
+    {
+      "id": "trip-budget",
+      "inputs": {
+        "nights": 2,
+        "days": 2.5,
+        "people": 3,
+        "hotelPerNight": 100,
+        "foodPerDayPerPerson": 20,
+        "transport": 50,
+        "activities": 25,
+        "other": 10
+      },
+      "numericExpected": {
+        "primary": "435",
+        "Проживание": "200",
+        "Питание": "150",
+        "На человека": "145",
+        "В день": "174"
+      },
+      "derivation": "2×100+2.5×3×20+50+25+10=435;435/3=145;435/2.5=174"
+    }
+  ],
+  "decimalBoundaries": [
+    {
+      "id": "luggage-linear",
+      "inputs": {
+        "l": 0.1,
+        "w": 0.2,
+        "h": 0.3,
+        "limit": 0.6
+      },
+      "decimalSum": "0.6",
+      "decimalLeft": "0.0",
+      "expectedStatus": "проходит"
+    },
+    {
+      "id": "luggage-linear",
+      "inputs": {
+        "l": 0.1,
+        "w": 0.2,
+        "h": 0.30000000000000004,
+        "limit": 0.6
+      },
+      "decimalLeft": "-4E-17",
+      "expectedStatus": "превышена"
+    },
+    {
+      "id": "price-per-unit",
+      "inputs": {
+        "mode": "compare",
+        "unit": "kg",
+        "priceA": 0.30000000000000004,
+        "amountA": 3,
+        "priceB": 0.1,
+        "amountB": 1
+      },
+      "decimalUnitDifference": "1.3333333333333333333333333333333333333333333333333333333333333333333333333E-17",
+      "expectedPrimary": "B"
+    },
+    {
+      "ids": [
+        "subscriptions-cost",
+        "print-3d-cost",
+        "tip"
+      ],
+      "decimalQuotient": "0.335",
+      "equivalentDirectDecimal": ".335",
+      "expectedTwoDigitHalfExpand": "0.34",
+      "ruleBoundary": "Final two-digit display rounds a positive exact half upward; no centallocation or minimum price rule is inferred."
+    },
+    {
+      "id": "subscriptions-cost",
+      "inputs": {
+        "items": "A 100000000 300000001\nB 100000001 300000004"
+      },
+      "exactDifference": "1/90000001500000004",
+      "expectedTop": "B",
+      "derivation": "(100000001×300000001−100000000×300000004)/(300000001×300000004)=1/90000001500000004>0",
+      "boundary": "Accepted mathematical very long month-period precision only, not an ordinary commercial subscription."
+    }
+  ],
+  "binaryRationalDiagnostics": {
+    "priceFalseDifference": "-1/36028797018963968",
+    "priceFalseDifferenceFloat": "-2.7755575615628914e-17",
+    "luggageFalseLeft": "-1/36028797018963968",
+    "luggageFalseLeftFloat": "-2.7755575615628914e-17"
+  },
+  "sourceAccess": [
+    {
+      "url": "https://www.energy.gov/cmei/systems/windexchange/small-wind-guidebook",
+      "checkedAt": "2026-10-02T06:45:39.341958+00:00",
+      "status": "actualPrimaryBodyRead",
+      "formulaLocation": "Power equation L180 and area L187–188",
+      "exactBetzLocation": "Glossary L523 explicitly16/27;Cp definition L534",
+      "supports": [
+        "instantaneous wind power with given density/area/speed/coefficient",
+        "ideal maximum16/27"
+      ],
+      "doesNotSupport": [
+        "forecast of actual site annual energy",
+        "approval/safety",
+        "a universal turbine installed cost orlocal permitting rule"
+      ],
+      "reviewCorrection": "Initial boundedformula-only read saw0.59; full glossary read foundexact16/27. Preliminary bibliographyfinding withdrawn."
+    },
+    {
+      "url": "https://docs.nrel.gov/docs/fy04osti/34755.pdf",
+      "checkedAt": "2026-10-02T06:45:39.341961+00:00",
+      "status": "openInternalError",
+      "usedAsEvidence": false
+    }
+  ],
+  "defaultCases": [
+    {
+      "id": "curtain-size",
+      "primaryExpected": 2.7,
+      "derivation": "ceil(140×2/280)=1;1×(250+20)/100=2.7m"
+    },
+    {
+      "id": "luggage-linear",
+      "primaryExpected": 118,
+      "derivation": "55+40+23=118cm"
+    },
+    {
+      "id": "picture-frame-mat",
+      "primaryDimensions": [
+        30,
+        41
+      ],
+      "derivation": "20+2×5=30;30+2×5+1=41cm"
+    },
+    {
+      "id": "price-per-unit",
+      "primaryExpected": 300,
+      "derivation": "150/.5=300"
+    },
+    {
+      "id": "print-3d-cost",
+      "primaryExpected": 157.29,
+      "derivation": "85×1800/1000 +120×6.5×5.5/1000=153+4.29=157.29"
+    },
+    {
+      "id": "stock-duration",
+      "primaryExpected": 15,
+      "derivation": "30/2=15days"
+    },
+    {
+      "id": "subscriptions-cost",
+      "primaryExpected": 633.83,
+      "derivation": "299+1990/12+169=633.833333... →633.83 at finaldisplay;year7606"
+    },
+    {
+      "id": "tip",
+      "primaryExpected": 3520,
+      "derivation": "3200×(1+10/100)=3520"
+    },
+    {
+      "id": "trip-budget",
+      "primaryExpected": 43000,
+      "derivation": "4×3500+5×2×1200+12000+5000=43000"
+    }
+  ]
+}

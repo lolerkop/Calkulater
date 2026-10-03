@@ -12,29 +12,49 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
-      'Прибыль': 'Profit',
+      'Результат': 'Result',
       'В': 'To',
+      'Себестоимость': 'Cost',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Enter finite numeric values.',
+      'Результат выходит за пределы числовой точности.': 'The result exceeds numerical precision.',
     },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
-      'Прибыль': 'Прибуток',
+      'Результат': 'Результат',
       'В': 'У',
+      'Себестоимость': 'Собівартість',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Введіть скінченні числові значення.',
+      'Результат выходит за пределы числовой точности.': 'Результат виходить за межі числової точності.',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
-      'Прибыль': 'Gewinn',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
+      'Себестоимость': 'Selbstkosten',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Gib endliche Zahlenwerte ein.',
+      'Результат выходит за пределы числовой точности.': 'Das Ergebnis überschreitet die Zahlengenauigkeit.',
     },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
-      'Прибыль': 'Beneficio',
+      'Результат': 'Resultado',
       'В': 'A',
+      'Себестоимость': 'Coste',
+    },
+    values: {
+      'Введите конечные числовые значения.': 'Introduce valores numéricos finitos.',
+      'Результат выходит за пределы числовой точности.': 'El resultado supera la precisión numérica.',
     },
   },
 };

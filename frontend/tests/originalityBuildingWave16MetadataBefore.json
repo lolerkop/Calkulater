@@ -1,0 +1,1537 @@
+[
+  {
+    "id": "rafters",
+    "locale": "ru",
+    "path": "/ru/building/rafters/",
+    "metadata": {
+      "name": "Калькулятор длины стропил",
+      "slug": "rafters",
+      "h1": "Калькулятор длины стропил",
+      "shortDescription": "Длина стропила, угол наклона и уклон двускатной крыши.",
+      "seoTitle": "Калькулятор длины стропил двускатной крыши",
+      "seoDescription": "Рассчитайте длину стропила по пролёту, подъёму конька и свесу вместе с углом наклона и уклоном кровли в процентах.",
+      "keywords": [
+        "длина стропил",
+        "угол крыши",
+        "уклон кровли",
+        "двускатная крыша"
+      ]
+    },
+    "defaults": {
+      "span": 8,
+      "rise": 2.4,
+      "overhang": 0.5
+    }
+  },
+  {
+    "id": "rafters",
+    "locale": "en",
+    "path": "/en/home-improvement/rafter-length-calculator/",
+    "metadata": {
+      "name": "Rafter length calculator",
+      "slug": "rafter-length-calculator",
+      "h1": "Rafter length calculator",
+      "shortDescription": "Rafter length, roof angle and slope for a gable roof.",
+      "seoTitle": "Rafter length calculator for a gable roof",
+      "seoDescription": "Calculate rafter length from the building span, ridge rise and eaves overhang, along with the roof angle and the slope in per cent.",
+      "keywords": [
+        "rafter length calculator",
+        "roof angle",
+        "roof slope",
+        "gable roof"
+      ]
+    },
+    "defaults": {
+      "span": 8,
+      "rise": 2.4,
+      "overhang": 0.5
+    }
+  },
+  {
+    "id": "rafters",
+    "locale": "uk",
+    "path": "/uk/remont/krokvy/",
+    "metadata": {
+      "name": "Калькулятор довжини крокв",
+      "slug": "krokvy",
+      "h1": "Калькулятор довжини крокв",
+      "shortDescription": "Довжина кроквини, кут нахилу та ухил двосхилого даху.",
+      "seoTitle": "Калькулятор довжини крокв двосхилого даху",
+      "seoDescription": "Розрахунок довжини кроквини за прольотом, підйомом і звисом разом із кутом нахилу та ухилом покрівлі у відсотках.",
+      "keywords": [
+        "довжина крокв",
+        "кут даху",
+        "ухил покрівлі",
+        "двосхилий дах"
+      ]
+    },
+    "defaults": {
+      "span": 8,
+      "rise": 2.4,
+      "overhang": 0.5
+    }
+  },
+  {
+    "id": "rafters",
+    "locale": "de",
+    "path": "/de/heimwerken/sparrenlaenge-rechner/",
+    "metadata": {
+      "name": "Rechner für die Sparrenlänge",
+      "slug": "sparrenlaenge-rechner",
+      "h1": "Rechner für die Sparrenlänge",
+      "shortDescription": "Sparrenlänge, Dachneigung und Gefälle für ein Satteldach.",
+      "seoTitle": "Sparrenlänge für ein Satteldach berechnen",
+      "seoDescription": "Berechne die Sparrenlänge aus der Gebäudespannweite, der Firsthöhe und dem Dachüberstand, samt Dachneigung und Gefälle in Prozent.",
+      "keywords": [
+        "Sparrenlänge berechnen",
+        "Dachneigung",
+        "Satteldach Sparren",
+        "Sparrenlaenge"
+      ]
+    },
+    "defaults": {
+      "span": 8,
+      "rise": 2.4,
+      "overhang": 0.5
+    }
+  },
+  {
+    "id": "rafters",
+    "locale": "es",
+    "path": "/es/reformas/longitud-de-pares/",
+    "metadata": {
+      "name": "Calculadora de longitud de pares",
+      "slug": "longitud-de-pares",
+      "h1": "Calculadora de longitud de pares",
+      "shortDescription": "Longitud del par, ángulo de cubierta y pendiente en una cubierta a dos aguas.",
+      "seoTitle": "Calculadora de longitud de pares para una cubierta a dos aguas",
+      "seoDescription": "Calcula la longitud del par a partir de la luz del edificio, la altura de cumbrera y el vuelo del alero, junto con el ángulo de cubierta y la pendiente en porcentaje.",
+      "keywords": [
+        "calculadora de longitud de pares",
+        "ángulo de cubierta",
+        "pendiente de cubierta",
+        "cubierta a dos aguas"
+      ]
+    },
+    "defaults": {
+      "span": 8,
+      "rise": 2.4,
+      "overhang": 0.5
+    }
+  },
+  {
+    "id": "roof-area",
+    "locale": "ru",
+    "path": "/ru/building/roof-area/",
+    "metadata": {
+      "name": "Калькулятор площади крыши",
+      "slug": "roof-area",
+      "h1": "Калькулятор площади крыши",
+      "shortDescription": "Площадь скатов по размерам основания и уклону, в градусах или процентах.",
+      "seoTitle": "Калькулятор площади крыши — скаты по уклону",
+      "seoDescription": "Рассчитайте площадь крыши по длине и ширине основания и уклону в градусах или процентах.",
+      "keywords": [
+        "площадь крыши",
+        "калькулятор кровли",
+        "площадь ската",
+        "уклон крыши"
+      ]
+    },
+    "defaults": {
+      "mode": "gable",
+      "length": 10,
+      "width": 8,
+      "slopeMode": "degrees",
+      "angle": 30,
+      "slopePercent": 30
+    }
+  },
+  {
+    "id": "roof-area",
+    "locale": "en",
+    "path": "/en/home-improvement/roof-area-calculator/",
+    "metadata": {
+      "name": "Roof area calculator",
+      "slug": "roof-area-calculator",
+      "h1": "Roof area calculator",
+      "shortDescription": "Slope area from the footprint and the pitch, in degrees or per cent.",
+      "seoTitle": "Roof area calculator — slopes from the pitch",
+      "seoDescription": "Calculate the roof area from the footprint length and width and the pitch in degrees or per cent.",
+      "keywords": [
+        "roof area calculator",
+        "roof pitch area",
+        "slope area",
+        "roofing calculator"
+      ]
+    },
+    "defaults": {
+      "mode": "gable",
+      "length": 10,
+      "width": 8,
+      "slopeMode": "degrees",
+      "angle": 30,
+      "slopePercent": 30
+    }
+  },
+  {
+    "id": "roof-area",
+    "locale": "uk",
+    "path": "/uk/remont/ploshcha-dakhu/",
+    "metadata": {
+      "name": "Калькулятор площі даху",
+      "slug": "ploshcha-dakhu",
+      "h1": "Калькулятор площі даху",
+      "shortDescription": "Площа схилів за розмірами основи та ухилом, у градусах або відсотках.",
+      "seoTitle": "Калькулятор площі даху — схили за ухилом",
+      "seoDescription": "Обчисліть площу даху за довжиною і шириною основи та ухилом у градусах або відсотках.",
+      "keywords": [
+        "площа даху",
+        "калькулятор покрівлі",
+        "площа схилу"
+      ]
+    },
+    "defaults": {
+      "mode": "gable",
+      "length": 10,
+      "width": 8,
+      "slopeMode": "degrees",
+      "angle": 30,
+      "slopePercent": 30
+    }
+  },
+  {
+    "id": "roof-area",
+    "locale": "de",
+    "path": "/de/heimwerken/dachflaeche-rechner/",
+    "metadata": {
+      "name": "Rechner für die Dachfläche",
+      "slug": "dachflaeche-rechner",
+      "h1": "Rechner für die Dachfläche",
+      "shortDescription": "Fläche der Dachflächen aus dem Grundriss und der Neigung, in Grad oder Prozent.",
+      "seoTitle": "Dachfläche berechnen — Flächen aus der Neigung",
+      "seoDescription": "Berechne die Dachfläche aus Länge und Breite des Grundrisses und der Neigung in Grad oder Prozent.",
+      "keywords": [
+        "Dachfläche berechnen",
+        "Dachneigung Fläche",
+        "Satteldach Fläche",
+        "Dachflaeche"
+      ]
+    },
+    "defaults": {
+      "mode": "gable",
+      "length": 10,
+      "width": 8,
+      "slopeMode": "degrees",
+      "angle": 30,
+      "slopePercent": 30
+    }
+  },
+  {
+    "id": "roof-area",
+    "locale": "es",
+    "path": "/es/reformas/superficie-de-cubierta/",
+    "metadata": {
+      "name": "Calculadora de superficie de cubierta",
+      "slug": "superficie-de-cubierta",
+      "h1": "Calculadora de superficie de cubierta",
+      "shortDescription": "Superficie de faldón a partir de la planta y la pendiente, en grados o en porcentaje.",
+      "seoTitle": "Calculadora de superficie de cubierta — faldones según la pendiente",
+      "seoDescription": "Calcula la superficie de cubierta a partir del largo y el ancho en planta y de la pendiente en grados o en porcentaje.",
+      "keywords": [
+        "calculadora de superficie de cubierta",
+        "superficie según la pendiente",
+        "superficie de faldón",
+        "calculadora de cubiertas"
+      ]
+    },
+    "defaults": {
+      "mode": "gable",
+      "length": 10,
+      "width": 8,
+      "slopeMode": "degrees",
+      "angle": 30,
+      "slopePercent": 30
+    }
+  },
+  {
+    "id": "roof-battens",
+    "locale": "ru",
+    "path": "/ru/building/obreshetka/",
+    "metadata": {
+      "name": "Калькулятор обрешётки",
+      "slug": "obreshetka",
+      "h1": "Калькулятор обрешётки крыши",
+      "shortDescription": "Погонные метры, бруски и объём древесины для обрешётки крыши.",
+      "seoTitle": "Калькулятор обрешётки крыши: метры, бруски и объём",
+      "seoDescription": "Посчитайте погонные метры, число брусков и объём древесины для обрешётки крыши по площади и шагу.",
+      "keywords": [
+        "расчёт обрешётки",
+        "шаг обрешётки",
+        "объём древесины на крышу",
+        "брусков на квадратный метр"
+      ]
+    },
+    "defaults": {
+      "area": 60,
+      "step": 0.35,
+      "battenLength": 6,
+      "sectionWidth": 50,
+      "sectionHeight": 50,
+      "waste": 10
+    }
+  },
+  {
+    "id": "roof-battens",
+    "locale": "en",
+    "path": "/en/home-improvement/roof-battens/",
+    "metadata": {
+      "name": "Roof batten calculator",
+      "slug": "roof-battens",
+      "h1": "Roof batten calculator",
+      "shortDescription": "Running metres, battens and timber volume for roof battening.",
+      "seoTitle": "Roof batten calculator: metres, pieces and volume",
+      "seoDescription": "Work out the running metres, number of battens and timber volume for a roof from its area and batten spacing.",
+      "keywords": [
+        "roof batten calculator",
+        "batten spacing",
+        "roof timber volume",
+        "battens per square metre"
+      ]
+    },
+    "defaults": {
+      "area": 60,
+      "step": 0.35,
+      "battenLength": 6,
+      "sectionWidth": 50,
+      "sectionHeight": 50,
+      "waste": 10
+    }
+  },
+  {
+    "id": "roof-battens",
+    "locale": "uk",
+    "path": "/uk/remont/obreshitka/",
+    "metadata": {
+      "name": "Калькулятор обрешітки даху",
+      "slug": "obreshitka",
+      "h1": "Калькулятор обрешітки даху",
+      "shortDescription": "Погонні метри, бруски і об’єм деревини для обрешітки даху.",
+      "seoTitle": "Калькулятор обрешітки даху: метри, бруски й об’єм",
+      "seoDescription": "Порахуйте погонні метри, кількість брусків і об’єм деревини для обрешітки даху за площею і кроком.",
+      "keywords": [
+        "розрахунок обрешітки",
+        "крок обрешітки",
+        "об’єм деревини на дах",
+        "брусків на квадратний метр"
+      ]
+    },
+    "defaults": {
+      "area": 60,
+      "step": 0.35,
+      "battenLength": 6,
+      "sectionWidth": 50,
+      "sectionHeight": 50,
+      "waste": 10
+    }
+  },
+  {
+    "id": "roof-battens",
+    "locale": "de",
+    "path": "/de/heimwerken/dachlattung-rechner/",
+    "metadata": {
+      "name": "Rechner für die Dachlattung",
+      "slug": "dachlattung-rechner",
+      "h1": "Rechner für die Dachlattung",
+      "shortDescription": "Laufmeter, Latten und Holzvolumen für eine Dachlattung.",
+      "seoTitle": "Dachlattung berechnen: Meter, Stück und Volumen",
+      "seoDescription": "Ermittle Laufmeter, Zahl der Latten und Holzvolumen für ein Dach aus seiner Fläche und dem Lattenabstand.",
+      "keywords": [
+        "Dachlattung berechnen",
+        "Lattenabstand",
+        "Dachlatten Menge",
+        "Lattung Holz"
+      ]
+    },
+    "defaults": {
+      "area": 60,
+      "step": 0.35,
+      "battenLength": 6,
+      "sectionWidth": 50,
+      "sectionHeight": 50,
+      "waste": 10
+    }
+  },
+  {
+    "id": "roof-battens",
+    "locale": "es",
+    "path": "/es/reformas/rastreles-de-cubierta/",
+    "metadata": {
+      "name": "Calculadora de rastreles de cubierta",
+      "slug": "rastreles-de-cubierta",
+      "h1": "Calculadora de rastreles de cubierta",
+      "shortDescription": "Metros lineales, rastreles y volumen de madera para el rastrelado de una cubierta.",
+      "seoTitle": "Calculadora de rastreles de cubierta: metros, piezas y volumen",
+      "seoDescription": "Calcula los metros lineales, el número de rastreles y el volumen de madera de una cubierta a partir de su superficie y la separación entre rastreles.",
+      "keywords": [
+        "calculadora de rastreles de cubierta",
+        "separación de rastreles",
+        "volumen de madera de cubierta",
+        "rastreles por metro cuadrado"
+      ]
+    },
+    "defaults": {
+      "area": 60,
+      "step": 0.35,
+      "battenLength": 6,
+      "sectionWidth": 50,
+      "sectionHeight": 50,
+      "waste": 10
+    }
+  },
+  {
+    "id": "room-volume",
+    "locale": "ru",
+    "path": "/ru/building/room-volume/",
+    "metadata": {
+      "name": "Калькулятор объёма помещения",
+      "slug": "room-volume",
+      "h1": "Калькулятор объёма помещения",
+      "shortDescription": "Объём комнаты по размерам или площади пола.",
+      "seoTitle": "Калькулятор объёма помещения — кубометры по размерам",
+      "seoDescription": "Расчёт объёма комнаты в кубометрах по размерам или площади пола, а также периметр и площадь стен.",
+      "keywords": [
+        "объём помещения",
+        "кубометры",
+        "площадь стен"
+      ]
+    },
+    "defaults": {
+      "mode": "dimensions",
+      "length": 5,
+      "width": 4,
+      "area": 20,
+      "height": 2.7
+    }
+  },
+  {
+    "id": "room-volume",
+    "locale": "en",
+    "path": "/en/home-improvement/room-volume-calculator/",
+    "metadata": {
+      "name": "Room volume calculator",
+      "slug": "room-volume-calculator",
+      "h1": "Room volume calculator",
+      "shortDescription": "Volume of a room from its dimensions or floor area.",
+      "seoTitle": "Room volume calculator — cubic metres from dimensions",
+      "seoDescription": "Calculate room volume in cubic metres from dimensions or floor area, plus perimeter and wall area.",
+      "keywords": [
+        "room volume",
+        "cubic metres",
+        "wall area"
+      ]
+    },
+    "defaults": {
+      "mode": "dimensions",
+      "length": 5,
+      "width": 4,
+      "area": 20,
+      "height": 2.7
+    }
+  },
+  {
+    "id": "room-volume",
+    "locale": "uk",
+    "path": "/uk/remont/kalkulyator-obyemu-prymishchennya/",
+    "metadata": {
+      "name": "Калькулятор обʼєму приміщення",
+      "slug": "kalkulyator-obyemu-prymishchennya",
+      "h1": "Калькулятор обʼєму приміщення",
+      "shortDescription": "Обʼєм кімнати за розмірами або площею підлоги.",
+      "seoTitle": "Калькулятор обʼєму приміщення — кубометри за розмірами",
+      "seoDescription": "Розрахунок обʼєму кімнати в кубометрах за розмірами або площею, а також периметр і площа стін.",
+      "keywords": [
+        "обʼєм приміщення",
+        "кубометри",
+        "площа стін"
+      ]
+    },
+    "defaults": {
+      "mode": "dimensions",
+      "length": 5,
+      "width": 4,
+      "area": 20,
+      "height": 2.7
+    }
+  },
+  {
+    "id": "room-volume",
+    "locale": "de",
+    "path": "/de/heimwerken/raumvolumen-rechner/",
+    "metadata": {
+      "name": "Rechner für das Raumvolumen",
+      "slug": "raumvolumen-rechner",
+      "h1": "Rechner für das Raumvolumen",
+      "shortDescription": "Volumen eines Raumes aus seinen Maßen oder seiner Bodenfläche.",
+      "seoTitle": "Raumvolumen berechnen — Kubikmeter aus den Maßen",
+      "seoDescription": "Berechne das Raumvolumen in Kubikmetern aus den Maßen oder der Bodenfläche, dazu Umfang und Wandfläche.",
+      "keywords": [
+        "Raumvolumen berechnen",
+        "Kubikmeter Raum",
+        "Wandfläche berechnen",
+        "Raum Kubikmeter"
+      ]
+    },
+    "defaults": {
+      "mode": "dimensions",
+      "length": 5,
+      "width": 4,
+      "area": 20,
+      "height": 2.7
+    }
+  },
+  {
+    "id": "room-volume",
+    "locale": "es",
+    "path": "/es/reformas/volumen-de-una-habitacion/",
+    "metadata": {
+      "name": "Calculadora de volumen de una habitación",
+      "slug": "volumen-de-una-habitacion",
+      "h1": "Calculadora de volumen de una habitación",
+      "shortDescription": "Volumen de una habitación a partir de sus dimensiones o de la superficie del suelo.",
+      "seoTitle": "Calculadora de volumen de una habitación — metros cúbicos a partir de las dimensiones",
+      "seoDescription": "Calcula el volumen de una habitación en metros cúbicos a partir de sus dimensiones o de la superficie del suelo, además del perímetro y la superficie de las paredes.",
+      "keywords": [
+        "volumen de una habitación",
+        "metros cúbicos",
+        "superficie de las paredes"
+      ]
+    },
+    "defaults": {
+      "mode": "dimensions",
+      "length": 5,
+      "width": 4,
+      "area": 20,
+      "height": 2.7
+    }
+  },
+  {
+    "id": "sealant-volume",
+    "locale": "ru",
+    "path": "/ru/building/raskhod-germetika/",
+    "metadata": {
+      "name": "Калькулятор расхода герметика",
+      "slug": "raskhod-germetika",
+      "h1": "Калькулятор расхода герметика",
+      "shortDescription": "Расход герметика на шов заданного сечения и число картриджей.",
+      "seoTitle": "Калькулятор расхода герметика — объём и число картриджей",
+      "seoDescription": "Рассчитайте расход герметика по ширине, глубине и длине шва, узнайте число картриджей и метраж из одного картриджа.",
+      "keywords": [
+        "расход герметика",
+        "герметик картридж",
+        "сечение шва",
+        "силиконовый герметик"
+      ]
+    },
+    "defaults": {
+      "width": 6,
+      "depth": 6,
+      "length": 12,
+      "cart": 310,
+      "waste": 10
+    }
+  },
+  {
+    "id": "sealant-volume",
+    "locale": "en",
+    "path": "/en/home-improvement/sealant-volume/",
+    "metadata": {
+      "name": "Sealant volume calculator",
+      "slug": "sealant-volume",
+      "h1": "Sealant volume calculator",
+      "shortDescription": "Sealant needed for a joint of a given section, and how many cartridges that is.",
+      "seoTitle": "Sealant calculator — volume and number of cartridges",
+      "seoDescription": "Work out the sealant needed from the width, depth and length of the joint, with the number of cartridges and metres per cartridge.",
+      "keywords": [
+        "sealant volume",
+        "sealant cartridge",
+        "joint section",
+        "silicone sealant"
+      ]
+    },
+    "defaults": {
+      "width": 6,
+      "depth": 6,
+      "length": 12,
+      "cart": 310,
+      "waste": 10
+    }
+  },
+  {
+    "id": "sealant-volume",
+    "locale": "uk",
+    "path": "/uk/remont/vytrata-germetyka/",
+    "metadata": {
+      "name": "Калькулятор витрати герметика",
+      "slug": "vytrata-germetyka",
+      "h1": "Калькулятор витрати герметика",
+      "shortDescription": "Витрата герметика на шов заданого перерізу та кількість картриджів.",
+      "seoTitle": "Калькулятор витрати герметика — обʼєм і кількість картриджів",
+      "seoDescription": "Розрахуйте витрату герметика за шириною, глибиною та довжиною шва, дізнайтеся кількість картриджів і метраж з одного картриджа.",
+      "keywords": [
+        "витрата герметика",
+        "герметик картридж",
+        "переріз шва",
+        "силіконовий герметик"
+      ]
+    },
+    "defaults": {
+      "width": 6,
+      "depth": 6,
+      "length": 12,
+      "cart": 310,
+      "waste": 10
+    }
+  },
+  {
+    "id": "sealant-volume",
+    "locale": "de",
+    "path": "/de/heimwerken/dichtstoff-rechner/",
+    "metadata": {
+      "name": "Rechner für Dichtstoff",
+      "slug": "dichtstoff-rechner",
+      "h1": "Rechner für Dichtstoff",
+      "shortDescription": "Nötiger Dichtstoff für eine Fuge gegebenen Querschnitts und wie viele Kartuschen das sind.",
+      "seoTitle": "Dichtstoff berechnen — Menge und Zahl der Kartuschen",
+      "seoDescription": "Ermittle den nötigen Dichtstoff aus Breite, Tiefe und Länge der Fuge, mit der Zahl der Kartuschen und den Metern je Kartusche.",
+      "keywords": [
+        "Dichtstoff berechnen",
+        "Silikon Menge",
+        "Kartuschen berechnen",
+        "Fugendichtstoff"
+      ]
+    },
+    "defaults": {
+      "width": 6,
+      "depth": 6,
+      "length": 12,
+      "cart": 310,
+      "waste": 10
+    }
+  },
+  {
+    "id": "sealant-volume",
+    "locale": "es",
+    "path": "/es/reformas/calculadora-de-sellador/",
+    "metadata": {
+      "name": "Calculadora de sellador",
+      "slug": "calculadora-de-sellador",
+      "h1": "Calculadora de sellador",
+      "shortDescription": "Sellador necesario para una junta de sección dada, y a cuántos cartuchos equivale.",
+      "seoTitle": "Calculadora de sellador — volumen y número de cartuchos",
+      "seoDescription": "Calcula el sellador necesario a partir del ancho, la profundidad y la longitud de la junta, con el número de cartuchos y los metros por cartucho.",
+      "keywords": [
+        "volumen de sellador",
+        "cartucho de sellador",
+        "sección de una junta",
+        "silicona"
+      ]
+    },
+    "defaults": {
+      "width": 6,
+      "depth": 6,
+      "length": 12,
+      "cart": 310,
+      "waste": 10
+    }
+  },
+  {
+    "id": "skirting",
+    "locale": "ru",
+    "path": "/ru/building/plintus/",
+    "metadata": {
+      "name": "Калькулятор плинтуса",
+      "slug": "plintus",
+      "h1": "Калькулятор плинтуса",
+      "shortDescription": "Длина плинтуса по периметру комнаты с вычетом проёмов и раскроем на планки.",
+      "seoTitle": "Калькулятор плинтуса — длина и количество планок",
+      "seoDescription": "Рассчитайте длину плинтуса по размерам комнаты с вычетом дверных проёмов, запасом на подрезку и числом планок.",
+      "keywords": [
+        "плинтус",
+        "длина плинтуса",
+        "напольный плинтус",
+        "раскрой планок"
+      ]
+    },
+    "defaults": {
+      "length": 5.2,
+      "width": 3.4,
+      "doors": 2,
+      "doorWidth": 0.9,
+      "plank": 2.5,
+      "waste": 5
+    }
+  },
+  {
+    "id": "skirting",
+    "locale": "en",
+    "path": "/en/home-improvement/skirting-board/",
+    "metadata": {
+      "name": "Skirting board calculator",
+      "slug": "skirting-board",
+      "h1": "Skirting board calculator",
+      "shortDescription": "Skirting length around a room, less doorways, cut into planks.",
+      "seoTitle": "Skirting board calculator — length and number of planks",
+      "seoDescription": "Work out the skirting length from the room dimensions, less doorways, with a cutting allowance and the number of planks.",
+      "keywords": [
+        "skirting board",
+        "skirting length",
+        "baseboard",
+        "plank cutting"
+      ]
+    },
+    "defaults": {
+      "length": 5.2,
+      "width": 3.4,
+      "doors": 2,
+      "doorWidth": 0.9,
+      "plank": 2.5,
+      "waste": 5
+    }
+  },
+  {
+    "id": "skirting",
+    "locale": "uk",
+    "path": "/uk/remont/plintus/",
+    "metadata": {
+      "name": "Калькулятор плінтуса",
+      "slug": "plintus",
+      "h1": "Калькулятор плінтуса",
+      "shortDescription": "Довжина плінтуса по периметру кімнати з відрахуванням прорізів і розкроєм на планки.",
+      "seoTitle": "Калькулятор плінтуса — довжина та кількість планок",
+      "seoDescription": "Розрахуйте довжину плінтуса за розмірами кімнати з відрахуванням дверних прорізів, запасом на підрізання та кількістю планок.",
+      "keywords": [
+        "плінтус",
+        "довжина плінтуса",
+        "підлоговий плінтус",
+        "розкрій планок"
+      ]
+    },
+    "defaults": {
+      "length": 5.2,
+      "width": 3.4,
+      "doors": 2,
+      "doorWidth": 0.9,
+      "plank": 2.5,
+      "waste": 5
+    }
+  },
+  {
+    "id": "skirting",
+    "locale": "de",
+    "path": "/de/heimwerken/sockelleisten-rechner/",
+    "metadata": {
+      "name": "Sockelleisten-Rechner",
+      "slug": "sockelleisten-rechner",
+      "h1": "Sockelleisten-Rechner",
+      "shortDescription": "Sockelleistenlänge im Raum, ohne Türöffnungen, aufgeteilt in Leisten.",
+      "seoTitle": "Sockelleisten-Rechner — Länge und Anzahl der Leisten",
+      "seoDescription": "Ermittle die Sockelleistenlänge aus den Raummaßen, abzüglich Türöffnungen, mit Verschnittzuschlag und Anzahl der Leisten.",
+      "keywords": [
+        "Sockelleisten",
+        "Fußleisten berechnen",
+        "Verschnitt",
+        "Raumumfang",
+        "Fussleisten berechnen"
+      ]
+    },
+    "defaults": {
+      "length": 5.2,
+      "width": 3.4,
+      "doors": 2,
+      "doorWidth": 0.9,
+      "plank": 2.5,
+      "waste": 5
+    }
+  },
+  {
+    "id": "skirting",
+    "locale": "es",
+    "path": "/es/reformas/calculadora-de-rodapie/",
+    "metadata": {
+      "name": "Calculadora de rodapié",
+      "slug": "calculadora-de-rodapie",
+      "h1": "Calculadora de rodapié",
+      "shortDescription": "Longitud de rodapié de una habitación, descontadas las puertas, repartida en tramos.",
+      "seoTitle": "Calculadora de rodapié — longitud y número de tramos",
+      "seoDescription": "Calcula la longitud de rodapié a partir de las dimensiones de la habitación, descontadas las puertas, con un margen de corte y el número de tramos.",
+      "keywords": [
+        "rodapié",
+        "longitud de rodapié",
+        "zócalo",
+        "corte de tramos"
+      ]
+    },
+    "defaults": {
+      "length": 5.2,
+      "width": 3.4,
+      "doors": 2,
+      "doorWidth": 0.9,
+      "plank": 2.5,
+      "waste": 5
+    }
+  },
+  {
+    "id": "slab-foundation",
+    "locale": "ru",
+    "path": "/ru/building/plitnyy-fundament/",
+    "metadata": {
+      "name": "Калькулятор плитного фундамента",
+      "slug": "plitnyy-fundament",
+      "h1": "Калькулятор плитного фундамента",
+      "shortDescription": "Объём бетона и арматурная сетка для плитного фундамента.",
+      "seoTitle": "Калькулятор плитного фундамента: бетон и арматура",
+      "seoDescription": "Посчитайте объём бетона и длину с весом арматурной сетки для плитного фундамента.",
+      "keywords": [
+        "плитный фундамент",
+        "бетон для плиты",
+        "расчёт арматурной сетки",
+        "объём бетона фундамента"
+      ]
+    },
+    "defaults": {
+      "length": 10,
+      "width": 8,
+      "thickness": 0.3,
+      "meshStep": 0.2,
+      "rebarDiameter": 12,
+      "waste": 5
+    }
+  },
+  {
+    "id": "slab-foundation",
+    "locale": "en",
+    "path": "/en/home-improvement/slab-foundation/",
+    "metadata": {
+      "name": "Slab foundation calculator",
+      "slug": "slab-foundation",
+      "h1": "Slab foundation calculator",
+      "shortDescription": "Concrete volume and reinforcing mesh for a raft slab.",
+      "seoTitle": "Slab foundation calculator: concrete and rebar",
+      "seoDescription": "Calculate the concrete volume and the length and weight of reinforcing mesh for a raft slab foundation.",
+      "keywords": [
+        "slab foundation calculator",
+        "raft slab concrete",
+        "rebar mesh calculator",
+        "foundation concrete volume"
+      ]
+    },
+    "defaults": {
+      "length": 10,
+      "width": 8,
+      "thickness": 0.3,
+      "meshStep": 0.2,
+      "rebarDiameter": 12,
+      "waste": 5
+    }
+  },
+  {
+    "id": "slab-foundation",
+    "locale": "uk",
+    "path": "/uk/remont/plytnyy-fundament/",
+    "metadata": {
+      "name": "Калькулятор плитного фундаменту",
+      "slug": "plytnyy-fundament",
+      "h1": "Калькулятор плитного фундаменту",
+      "shortDescription": "Об’єм бетону і армувальна сітка для плитного фундаменту.",
+      "seoTitle": "Калькулятор плитного фундаменту: бетон і арматура",
+      "seoDescription": "Порахуйте об’єм бетону та довжину і вагу армувальної сітки для плитного фундаменту.",
+      "keywords": [
+        "плитний фундамент",
+        "бетон для плити",
+        "розрахунок арматурної сітки",
+        "об’єм бетону фундаменту"
+      ]
+    },
+    "defaults": {
+      "length": 10,
+      "width": 8,
+      "thickness": 0.3,
+      "meshStep": 0.2,
+      "rebarDiameter": 12,
+      "waste": 5
+    }
+  },
+  {
+    "id": "slab-foundation",
+    "locale": "de",
+    "path": "/de/heimwerken/bodenplatte-rechner/",
+    "metadata": {
+      "name": "Rechner für die Bodenplatte",
+      "slug": "bodenplatte-rechner",
+      "h1": "Rechner für die Bodenplatte",
+      "shortDescription": "Betonvolumen und Bewehrungsmatte für eine Bodenplatte.",
+      "seoTitle": "Bodenplatte berechnen: Beton und Bewehrung",
+      "seoDescription": "Berechne das Betonvolumen sowie Länge und Gewicht der Bewehrung für eine Bodenplatte.",
+      "keywords": [
+        "Bodenplatte berechnen",
+        "Beton Bodenplatte",
+        "Bewehrung berechnen",
+        "Fundamentplatte"
+      ]
+    },
+    "defaults": {
+      "length": 10,
+      "width": 8,
+      "thickness": 0.3,
+      "meshStep": 0.2,
+      "rebarDiameter": 12,
+      "waste": 5
+    }
+  },
+  {
+    "id": "slab-foundation",
+    "locale": "es",
+    "path": "/es/reformas/losa-de-cimentacion/",
+    "metadata": {
+      "name": "Calculadora de losa de cimentación",
+      "slug": "losa-de-cimentacion",
+      "h1": "Calculadora de losa de cimentación",
+      "shortDescription": "Volumen de hormigón y mallazo de armadura para una losa de cimentación.",
+      "seoTitle": "Calculadora de losa de cimentación: hormigón y armadura",
+      "seoDescription": "Calcula el volumen de hormigón y la longitud y el peso del mallazo de armadura de una losa de cimentación.",
+      "keywords": [
+        "calculadora de losa de cimentación",
+        "hormigón de una losa",
+        "calculadora de mallazo",
+        "volumen de hormigón de cimentación"
+      ]
+    },
+    "defaults": {
+      "length": 10,
+      "width": 8,
+      "thickness": 0.3,
+      "meshStep": 0.2,
+      "rebarDiameter": 12,
+      "waste": 5
+    }
+  },
+  {
+    "id": "stairs",
+    "locale": "ru",
+    "path": "/ru/building/raschet-lestnicy/",
+    "metadata": {
+      "name": "Калькулятор лестницы",
+      "slug": "raschet-lestnicy",
+      "h1": "Калькулятор лестницы",
+      "shortDescription": "Число ступеней, высота подступенка, длина марша и угол наклона.",
+      "seoTitle": "Калькулятор лестницы — ступени, подступенок, угол наклона",
+      "seoDescription": "Рассчитайте лестницу: число ступеней по предельной высоте подступенка, длину марша, угол наклона и формулу удобства 2h + b.",
+      "keywords": [
+        "расчёт лестницы",
+        "калькулятор ступеней",
+        "высота подступенка",
+        "угол наклона лестницы"
+      ]
+    },
+    "defaults": {
+      "rise_total": 2.8,
+      "tread": 0.28,
+      "max_riser": 0.18
+    }
+  },
+  {
+    "id": "stairs",
+    "locale": "en",
+    "path": "/en/home-improvement/stair-rise-run/",
+    "metadata": {
+      "name": "Stair rise and run calculator",
+      "slug": "stair-rise-run",
+      "h1": "Stair rise and run calculator",
+      "shortDescription": "Step count, riser height, total run and pitch angle.",
+      "seoTitle": "Stair rise and run calculator — steps, riser height, pitch",
+      "seoDescription": "Calculate a staircase: number of steps from the maximum riser height, the total run, the pitch angle and the 2h + b comfort rule.",
+      "keywords": [
+        "stair calculator",
+        "rise and run calculator",
+        "riser height calculator",
+        "staircase pitch calculator"
+      ]
+    },
+    "defaults": {
+      "rise_total": 2.8,
+      "tread": 0.28,
+      "max_riser": 0.18
+    }
+  },
+  {
+    "id": "stairs",
+    "locale": "uk",
+    "path": "/uk/remont/rozrahunok-shodiv/",
+    "metadata": {
+      "name": "Калькулятор сходів",
+      "slug": "rozrahunok-shodiv",
+      "h1": "Калькулятор сходів",
+      "shortDescription": "Кількість сходинок, висота підсхідця, довжина маршу та кут нахилу.",
+      "seoTitle": "Калькулятор сходів — сходинки, підсхідець, кут нахилу",
+      "seoDescription": "Розрахуйте сходи: кількість сходинок за граничною висотою підсхідця, довжину маршу, кут нахилу та формулу зручності 2h + b.",
+      "keywords": [
+        "розрахунок сходів",
+        "калькулятор сходинок",
+        "висота підсхідця"
+      ]
+    },
+    "defaults": {
+      "rise_total": 2.8,
+      "tread": 0.28,
+      "max_riser": 0.18
+    }
+  },
+  {
+    "id": "stairs",
+    "locale": "de",
+    "path": "/de/heimwerken/treppe-steigung-auftritt/",
+    "metadata": {
+      "name": "Rechner für Steigung und Auftritt einer Treppe",
+      "slug": "treppe-steigung-auftritt",
+      "h1": "Rechner für Steigung und Auftritt einer Treppe",
+      "shortDescription": "Zahl der Stufen, Steigungshöhe, Lauflänge und Neigungswinkel.",
+      "seoTitle": "Treppe berechnen — Stufen, Steigungshöhe, Neigung",
+      "seoDescription": "Berechne eine Treppe: Zahl der Stufen aus der höchstzulässigen Steigung, die Lauflänge, den Neigungswinkel und die Schrittmaßregel 2h + b.",
+      "keywords": [
+        "Treppe berechnen",
+        "Steigungshöhe",
+        "Auftritt",
+        "Schrittmaßregel",
+        "Steigungshoehe"
+      ]
+    },
+    "defaults": {
+      "rise_total": 2.8,
+      "tread": 0.28,
+      "max_riser": 0.18
+    }
+  },
+  {
+    "id": "stairs",
+    "locale": "es",
+    "path": "/es/reformas/peldanos-de-escalera/",
+    "metadata": {
+      "name": "Calculadora de peldaños de escalera",
+      "slug": "peldanos-de-escalera",
+      "h1": "Calculadora de peldaños de escalera",
+      "shortDescription": "Número de peldaños, altura de contrahuella, longitud del tramo y ángulo de inclinación.",
+      "seoTitle": "Calculadora de escaleras — peldaños, contrahuella e inclinación",
+      "seoDescription": "Calcula una escalera: número de peldaños a partir de la altura máxima de contrahuella, la longitud del tramo, el ángulo de inclinación y la regla de comodidad 2h + b.",
+      "keywords": [
+        "calculadora de escaleras",
+        "calculadora de huella y contrahuella",
+        "altura de contrahuella",
+        "inclinación de una escalera"
+      ]
+    },
+    "defaults": {
+      "rise_total": 2.8,
+      "tread": 0.28,
+      "max_riser": 0.18
+    }
+  },
+  {
+    "id": "strip-foundation",
+    "locale": "ru",
+    "path": "/ru/building/strip-foundation/",
+    "metadata": {
+      "name": "Калькулятор ленточного фундамента",
+      "slug": "strip-foundation",
+      "h1": "Калькулятор ленточного фундамента",
+      "shortDescription": "Объём бетона для ленты по её длине, ширине и глубине.",
+      "seoTitle": "Калькулятор ленточного фундамента — объём бетона",
+      "seoDescription": "Рассчитайте объём бетона для ленточного фундамента по длине ленты, её ширине и глубине с запасом.",
+      "keywords": [
+        "ленточный фундамент",
+        "объём бетона на фундамент",
+        "калькулятор фундамента",
+        "бетон на ленту"
+      ]
+    },
+    "defaults": {
+      "perimeter": 40,
+      "width": 0.4,
+      "depth": 0.8,
+      "waste": 5
+    }
+  },
+  {
+    "id": "strip-foundation",
+    "locale": "en",
+    "path": "/en/home-improvement/strip-foundation-calculator/",
+    "metadata": {
+      "name": "Strip foundation calculator",
+      "slug": "strip-foundation-calculator",
+      "h1": "Strip foundation calculator",
+      "shortDescription": "Concrete volume for a strip from its length, width and depth.",
+      "seoTitle": "Strip foundation calculator — concrete volume",
+      "seoDescription": "Calculate the concrete volume for a strip foundation from the strip length, width and depth with an allowance.",
+      "keywords": [
+        "strip foundation calculator",
+        "concrete for a foundation",
+        "foundation volume"
+      ]
+    },
+    "defaults": {
+      "perimeter": 40,
+      "width": 0.4,
+      "depth": 0.8,
+      "waste": 5
+    }
+  },
+  {
+    "id": "strip-foundation",
+    "locale": "uk",
+    "path": "/uk/remont/strichkovyi-fundament/",
+    "metadata": {
+      "name": "Калькулятор стрічкового фундаменту",
+      "slug": "strichkovyi-fundament",
+      "h1": "Калькулятор стрічкового фундаменту",
+      "shortDescription": "Об’єм бетону для стрічки за її довжиною, шириною та глибиною.",
+      "seoTitle": "Калькулятор стрічкового фундаменту — об’єм бетону",
+      "seoDescription": "Обчисліть об’єм бетону для стрічкового фундаменту за довжиною стрічки, її шириною та глибиною.",
+      "keywords": [
+        "стрічковий фундамент",
+        "об’єм бетону на фундамент"
+      ]
+    },
+    "defaults": {
+      "perimeter": 40,
+      "width": 0.4,
+      "depth": 0.8,
+      "waste": 5
+    }
+  },
+  {
+    "id": "strip-foundation",
+    "locale": "de",
+    "path": "/de/heimwerken/streifenfundament-rechner/",
+    "metadata": {
+      "name": "Rechner für das Streifenfundament",
+      "slug": "streifenfundament-rechner",
+      "h1": "Rechner für das Streifenfundament",
+      "shortDescription": "Betonvolumen für einen Streifen aus Länge, Breite und Tiefe.",
+      "seoTitle": "Streifenfundament berechnen — Betonvolumen",
+      "seoDescription": "Berechne das Betonvolumen für ein Streifenfundament aus Länge, Breite und Tiefe des Streifens, mit Zuschlag.",
+      "keywords": [
+        "Streifenfundament berechnen",
+        "Beton Streifenfundament",
+        "Fundament Kubikmeter"
+      ]
+    },
+    "defaults": {
+      "perimeter": 40,
+      "width": 0.4,
+      "depth": 0.8,
+      "waste": 5
+    }
+  },
+  {
+    "id": "strip-foundation",
+    "locale": "es",
+    "path": "/es/reformas/zapata-corrida/",
+    "metadata": {
+      "name": "Calculadora de zapata corrida",
+      "slug": "zapata-corrida",
+      "h1": "Calculadora de zapata corrida",
+      "shortDescription": "Volumen de hormigón de una zapata corrida a partir de su longitud, ancho y profundidad.",
+      "seoTitle": "Calculadora de zapata corrida — volumen de hormigón",
+      "seoDescription": "Calcula el volumen de hormigón de una zapata corrida a partir de la longitud, el ancho y la profundidad de la zapata, con margen.",
+      "keywords": [
+        "calculadora de zapata corrida",
+        "hormigón para una cimentación",
+        "volumen de una cimentación"
+      ]
+    },
+    "defaults": {
+      "perimeter": 40,
+      "width": 0.4,
+      "depth": 0.8,
+      "waste": 5
+    }
+  },
+  {
+    "id": "tank-volume",
+    "locale": "ru",
+    "path": "/ru/building/obyom-emkosti/",
+    "metadata": {
+      "name": "Калькулятор объёма ёмкости",
+      "slug": "obyom-emkosti",
+      "h1": "Калькулятор объёма ёмкости",
+      "shortDescription": "Полный объём бака и объём налитого при заданном уровне.",
+      "seoTitle": "Калькулятор объёма ёмкости — бак, цистерна, бочка",
+      "seoDescription": "Рассчитайте полный объём ёмкости и объём налитого по уровню для вертикального бака, горизонтальной цистерны, прямоугольной ванны и капсулы.",
+      "keywords": [
+        "объём ёмкости",
+        "объём цистерны",
+        "объём бака",
+        "сколько литров в бочке"
+      ]
+    },
+    "defaults": {
+      "shape": "vertical-cylinder",
+      "d": 1.5,
+      "len": 2,
+      "level": 1.2
+    }
+  },
+  {
+    "id": "tank-volume",
+    "locale": "en",
+    "path": "/en/home-improvement/tank-volume/",
+    "metadata": {
+      "name": "Tank volume calculator",
+      "slug": "tank-volume",
+      "h1": "Tank volume calculator",
+      "shortDescription": "Full tank volume and the volume held at a given level.",
+      "seoTitle": "Tank volume calculator — cylinder, horizontal tank, barrel",
+      "seoDescription": "Calculate the full volume of a tank and the volume held at a given level for vertical, horizontal, rectangular and capsule shapes.",
+      "keywords": [
+        "tank volume calculator",
+        "horizontal tank volume",
+        "how many litres in a barrel",
+        "tank capacity"
+      ]
+    },
+    "defaults": {
+      "shape": "vertical-cylinder",
+      "d": 1.5,
+      "len": 2,
+      "level": 1.2
+    }
+  },
+  {
+    "id": "tank-volume",
+    "locale": "uk",
+    "path": "/uk/remont/obyem-yemnosti/",
+    "metadata": {
+      "name": "Калькулятор обʼєму ємності",
+      "slug": "obyem-yemnosti",
+      "h1": "Калькулятор обʼєму ємності",
+      "shortDescription": "Повний обʼєм бака та обʼєм налитого за заданого рівня.",
+      "seoTitle": "Калькулятор обʼєму ємності — бак, цистерна, бочка",
+      "seoDescription": "Розрахуйте повний обʼєм ємності та обʼєм налитого за рівнем для вертикального бака, горизонтальної цистерни та прямокутної ванни.",
+      "keywords": [
+        "обʼєм ємності",
+        "обʼєм цистерни",
+        "скільки літрів у бочці"
+      ]
+    },
+    "defaults": {
+      "shape": "vertical-cylinder",
+      "d": 1.5,
+      "len": 2,
+      "level": 1.2
+    }
+  },
+  {
+    "id": "tank-volume",
+    "locale": "de",
+    "path": "/de/heimwerken/behaeltervolumen-rechner/",
+    "metadata": {
+      "name": "Rechner für das Behältervolumen",
+      "slug": "behaeltervolumen-rechner",
+      "h1": "Rechner für das Behältervolumen",
+      "shortDescription": "Gesamtvolumen eines Behälters und die Menge bei gegebenem Füllstand.",
+      "seoTitle": "Behältervolumen berechnen — stehend, liegend, Fass",
+      "seoDescription": "Berechne das Gesamtvolumen eines Behälters und die Menge bei gegebenem Füllstand für stehende, liegende, rechteckige und kapselförmige Behälter.",
+      "keywords": [
+        "Behältervolumen berechnen",
+        "Tankinhalt",
+        "Füllstand Liter",
+        "Behaeltervolumen"
+      ]
+    },
+    "defaults": {
+      "shape": "vertical-cylinder",
+      "d": 1.5,
+      "len": 2,
+      "level": 1.2
+    }
+  },
+  {
+    "id": "tank-volume",
+    "locale": "es",
+    "path": "/es/reformas/volumen-de-depositos/",
+    "metadata": {
+      "name": "Calculadora de volumen de depósitos",
+      "slug": "volumen-de-depositos",
+      "h1": "Calculadora de volumen de depósitos",
+      "shortDescription": "Volumen total de un depósito y volumen contenido a un nivel dado.",
+      "seoTitle": "Calculadora de volumen de depósitos — cilindro, depósito horizontal, bidón",
+      "seoDescription": "Calcula el volumen total de un depósito y el volumen contenido a un nivel dado en formas vertical, horizontal, rectangular y de cápsula.",
+      "keywords": [
+        "calculadora de volumen de depósitos",
+        "volumen de un depósito horizontal",
+        "cuántos litros tiene un bidón",
+        "capacidad de un depósito"
+      ]
+    },
+    "defaults": {
+      "shape": "vertical-cylinder",
+      "d": 1.5,
+      "len": 2,
+      "level": 1.2
+    }
+  },
+  {
+    "id": "underfloor-heating",
+    "locale": "ru",
+    "path": "/ru/building/teplyy-pol/",
+    "metadata": {
+      "name": "Калькулятор трубы тёплого пола",
+      "slug": "teplyy-pol",
+      "h1": "Калькулятор трубы тёплого пола",
+      "shortDescription": "Длина трубы и число петель для водяного тёплого пола.",
+      "seoTitle": "Калькулятор трубы тёплого пола: длина и петли",
+      "seoDescription": "Посчитайте длину трубы и число петель тёплого пола по площади, шагу укладки и краевой зоне.",
+      "keywords": [
+        "тёплый пол расчёт",
+        "длина трубы тёплого пола",
+        "длина петли отопления",
+        "шаг укладки трубы"
+      ]
+    },
+    "defaults": {
+      "area": 20,
+      "step": 0.15,
+      "loopMax": 90,
+      "edgeZone": 4,
+      "edgeStep": 0.1,
+      "waste": 10
+    }
+  },
+  {
+    "id": "underfloor-heating",
+    "locale": "en",
+    "path": "/en/home-improvement/underfloor-heating/",
+    "metadata": {
+      "name": "Underfloor heating pipe calculator",
+      "slug": "underfloor-heating",
+      "h1": "Underfloor heating pipe calculator",
+      "shortDescription": "Pipe length and number of loops for a wet underfloor heating layout.",
+      "seoTitle": "Underfloor heating pipe calculator: length and loops",
+      "seoDescription": "Calculate the pipe length and the number of loops for underfloor heating from area, spacing and edge zone.",
+      "keywords": [
+        "underfloor heating calculator",
+        "pipe length underfloor",
+        "heating loop length",
+        "floor heating spacing"
+      ]
+    },
+    "defaults": {
+      "area": 20,
+      "step": 0.15,
+      "loopMax": 90,
+      "edgeZone": 4,
+      "edgeStep": 0.1,
+      "waste": 10
+    }
+  },
+  {
+    "id": "underfloor-heating",
+    "locale": "uk",
+    "path": "/uk/remont/tepla-pidloga/",
+    "metadata": {
+      "name": "Калькулятор труби теплої підлоги",
+      "slug": "tepla-pidloga",
+      "h1": "Калькулятор труби теплої підлоги",
+      "shortDescription": "Довжина труби і кількість петель для водяної теплої підлоги.",
+      "seoTitle": "Калькулятор труби теплої підлоги: довжина і петлі",
+      "seoDescription": "Порахуйте довжину труби і кількість петель теплої підлоги за площею, кроком укладання і краєвою зоною.",
+      "keywords": [
+        "тепла підлога розрахунок",
+        "довжина труби теплої підлоги",
+        "довжина петлі опалення",
+        "крок укладання труби"
+      ]
+    },
+    "defaults": {
+      "area": 20,
+      "step": 0.15,
+      "loopMax": 90,
+      "edgeZone": 4,
+      "edgeStep": 0.1,
+      "waste": 10
+    }
+  },
+  {
+    "id": "underfloor-heating",
+    "locale": "de",
+    "path": "/de/heimwerken/fussbodenheizung-rohr/",
+    "metadata": {
+      "name": "Rechner für Rohre der Fußbodenheizung",
+      "slug": "fussbodenheizung-rohr",
+      "h1": "Rechner für Rohre der Fußbodenheizung",
+      "shortDescription": "Rohrlänge und Zahl der Heizkreise für eine Fußbodenheizung.",
+      "seoTitle": "Fußbodenheizung berechnen: Rohrlänge und Heizkreise",
+      "seoDescription": "Berechne Rohrlänge und Zahl der Heizkreise für eine Fußbodenheizung aus Fläche, Verlegeabstand und Randzone.",
+      "keywords": [
+        "Fußbodenheizung berechnen",
+        "Rohrlänge Heizkreis",
+        "Verlegeabstand",
+        "Fussbodenheizung Rohr"
+      ]
+    },
+    "defaults": {
+      "area": 20,
+      "step": 0.15,
+      "loopMax": 90,
+      "edgeZone": 4,
+      "edgeStep": 0.1,
+      "waste": 10
+    }
+  },
+  {
+    "id": "underfloor-heating",
+    "locale": "es",
+    "path": "/es/reformas/tubo-para-suelo-radiante/",
+    "metadata": {
+      "name": "Calculadora de tubo para suelo radiante",
+      "slug": "tubo-para-suelo-radiante",
+      "h1": "Calculadora de tubo para suelo radiante",
+      "shortDescription": "Longitud de tubo y número de circuitos para una instalación de suelo radiante por agua.",
+      "seoTitle": "Calculadora de tubo para suelo radiante: longitud y circuitos",
+      "seoDescription": "Calcula la longitud de tubo y el número de circuitos de un suelo radiante a partir de la superficie, la separación y la zona perimetral.",
+      "keywords": [
+        "calculadora de suelo radiante",
+        "longitud de tubo de suelo radiante",
+        "longitud de un circuito",
+        "separación del suelo radiante"
+      ]
+    },
+    "defaults": {
+      "area": 20,
+      "step": 0.15,
+      "loopMax": 90,
+      "edgeZone": 4,
+      "edgeStep": 0.1,
+      "waste": 10
+    }
+  },
+  {
+    "id": "wood-weight",
+    "locale": "ru",
+    "path": "/ru/building/ves-drevesiny/",
+    "metadata": {
+      "name": "Калькулятор веса древесины",
+      "slug": "ves-drevesiny",
+      "h1": "Калькулятор веса древесины",
+      "shortDescription": "Вес древесины по её объёму, породе и влажности.",
+      "seoTitle": "Калькулятор веса древесины по породе и влажности",
+      "seoDescription": "Посчитайте, сколько весит древесина по объёму, породе и влажности, с показанной плотностью, из которой вышел ответ.",
+      "keywords": [
+        "вес древесины",
+        "вес кубометра леса",
+        "плотность древесины по породе",
+        "вес пиломатериалов"
+      ]
+    },
+    "defaults": {
+      "volume": 1,
+      "species": "pine",
+      "moisture": 12
+    }
+  },
+  {
+    "id": "wood-weight",
+    "locale": "en",
+    "path": "/en/home-improvement/wood-weight/",
+    "metadata": {
+      "name": "Wood weight calculator",
+      "slug": "wood-weight",
+      "h1": "Wood weight calculator",
+      "shortDescription": "Weight of timber from its volume, species and moisture content.",
+      "seoTitle": "Wood weight calculator by species and moisture",
+      "seoDescription": "Work out how much timber weighs from its volume, species and moisture content, with the density used shown alongside.",
+      "keywords": [
+        "wood weight calculator",
+        "timber weight per cubic metre",
+        "wood density by species",
+        "lumber weight"
+      ]
+    },
+    "defaults": {
+      "volume": 1,
+      "species": "pine",
+      "moisture": 12
+    }
+  },
+  {
+    "id": "wood-weight",
+    "locale": "uk",
+    "path": "/uk/remont/vaga-derevyny/",
+    "metadata": {
+      "name": "Калькулятор ваги деревини",
+      "slug": "vaga-derevyny",
+      "h1": "Калькулятор ваги деревини",
+      "shortDescription": "Вага деревини за її об’ємом, породою і вологістю.",
+      "seoTitle": "Калькулятор ваги деревини за породою і вологістю",
+      "seoDescription": "Порахуйте, скільки важить деревина за об’ємом, породою і вологістю, з показаною густиною, з якої вийшла відповідь.",
+      "keywords": [
+        "вага деревини",
+        "вага кубометра лісу",
+        "густина деревини за породою",
+        "вага пиломатеріалів"
+      ]
+    },
+    "defaults": {
+      "volume": 1,
+      "species": "pine",
+      "moisture": 12
+    }
+  },
+  {
+    "id": "wood-weight",
+    "locale": "de",
+    "path": "/de/heimwerken/holzgewicht-rechner/",
+    "metadata": {
+      "name": "Rechner für das Holzgewicht",
+      "slug": "holzgewicht-rechner",
+      "h1": "Rechner für das Holzgewicht",
+      "shortDescription": "Gewicht von Holz aus Volumen, Holzart und Holzfeuchte.",
+      "seoTitle": "Holzgewicht berechnen nach Holzart und Feuchte",
+      "seoDescription": "Ermittle, wie viel Holz wiegt, aus seinem Volumen, seiner Holzart und seiner Feuchte, mit der verwendeten Dichte daneben.",
+      "keywords": [
+        "Holzgewicht berechnen",
+        "Dichte Holz",
+        "Holzfeuchte",
+        "Gewicht Kubikmeter Holz"
+      ]
+    },
+    "defaults": {
+      "volume": 1,
+      "species": "pine",
+      "moisture": 12
+    }
+  },
+  {
+    "id": "wood-weight",
+    "locale": "es",
+    "path": "/es/reformas/peso-de-la-madera/",
+    "metadata": {
+      "name": "Calculadora de peso de la madera",
+      "slug": "peso-de-la-madera",
+      "h1": "Calculadora de peso de la madera",
+      "shortDescription": "Peso de la madera a partir de su volumen, su especie y su humedad.",
+      "seoTitle": "Calculadora de peso de la madera por especie y humedad",
+      "seoDescription": "Calcula cuánto pesa la madera a partir de su volumen, su especie y su humedad, con la densidad empleada a la vista.",
+      "keywords": [
+        "calculadora de peso de la madera",
+        "peso de la madera por metro cúbico",
+        "densidad de la madera por especie",
+        "peso de madera aserrada"
+      ]
+    },
+    "defaults": {
+      "volume": 1,
+      "species": "pine",
+      "moisture": 12
+    }
+  }
+]

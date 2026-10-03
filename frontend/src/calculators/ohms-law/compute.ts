@@ -20,14 +20,20 @@ const num = (value: number, digits: number) => fmtNumber(preserveNonZero(value, 
 
 export const compute: CalcFunction = (inputs) => {
   const mode = toStr(inputs.mode, 'vi');
-  const voltage = toNumber(inputs.voltage);
-  const current = toNumber(inputs.current);
-  const resistance = toNumber(inputs.resistance);
+  const voltage = toNumber(inputs.voltage, Number.NaN);
+  const current = toNumber(inputs.current, Number.NaN);
+  const resistance = toNumber(inputs.resistance, Number.NaN);
 
   const fail = (message: string) => ({
     primary: { label: 'Результат', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
+  const required: Record<string, readonly string[]> = {"vi": ["voltage", "current"], "vr": ["voltage", "resistance"], "ir": ["current", "resistance"]};
+  if (!Object.hasOwn(required, mode)) return fail('Неизвестный режим расчёта');
+  if (required[mode].some((key) => typeof inputs[key] === 'boolean' || !Number.isFinite(toNumber(inputs[key], Number.NaN)))) {
+    return fail('Введите конечные числа для выбранного режима');
+  }
+
 
   let u = voltage;
   let i = current;
@@ -55,6 +61,7 @@ export const compute: CalcFunction = (inputs) => {
   }
 
   const power = u * i;
+  if (![u, i, r, power].every(Number.isFinite)) return fail('Результат выходит за числовой диапазон');
 
   return {
     primary: { label: primaryLabel, value: primaryValue },
@@ -62,7 +69,7 @@ export const compute: CalcFunction = (inputs) => {
       { label: 'Мощность', value: `${num(power, 2)} Вт` },
       { label: 'Напряжение', value: `${num(u, 2)} В` },
       { label: 'Ток', value: `${num(i, 3)} А` },
-      { label: 'Сопротивление', value: r > 0 ? `${num(r, 2)} Ом` : '—' },
+      { label: 'Сопротивление', value: `${num(r, 2)} Ом` },
     ],
   };
 };

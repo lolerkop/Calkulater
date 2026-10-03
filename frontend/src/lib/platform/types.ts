@@ -63,6 +63,20 @@ export type CalculatorSeoCopy = Pick<
   'name' | 'slug' | 'shortDescription' | 'seoTitle' | 'seoDescription' | 'h1' | 'keywords' | 'disclaimer'
 >;
 
+/** A locale may own complete editorial copy, or keep its existing metadata-only copy. */
+export type CalculatorLocalizedCopy = CalculatorSeoCopy | CalculatorCopy;
+
+/** Only complete authored copy may replace the separate editorial data. */
+export function isCompleteCalculatorCopy(copy: CalculatorLocalizedCopy | undefined): copy is CalculatorCopy {
+  if (!copy) return false;
+  const candidate = copy as Partial<CalculatorCopy>;
+  return ['longDescription', 'howItWorks', 'example'].every((key) => {
+    const value = candidate[key as keyof CalculatorCopy];
+    return typeof value === 'string' && value.trim().length > 0;
+  }) && Array.isArray(candidate.howToUse) && candidate.howToUse.length > 0
+    && Array.isArray(candidate.faq);
+}
+
 /** Значения формы в том же виде, в каком их держит остров. */
 export type CalculatorFormValues = Record<string, string | number | boolean>;
 
@@ -188,12 +202,13 @@ export type CalculatorDefinitionV2 = {
   readonly presentation: CalculatorDef;
   readonly compute: CalcFunction;
   readonly validate?: CalculatorValidator;
+  readonly validateDate?: (value: string) => boolean;
   readonly contextualField?: CalculatorContextualField;
   readonly copy?: {
     readonly en?: CalculatorCopy;
-    readonly uk?: CalculatorSeoCopy;
-    readonly de?: CalculatorSeoCopy;
-    readonly es?: CalculatorSeoCopy;
+    readonly uk?: CalculatorLocalizedCopy;
+    readonly de?: CalculatorLocalizedCopy;
+    readonly es?: CalculatorLocalizedCopy;
   };
   readonly referenceCases?: readonly CalculatorReferenceCase[];
   readonly publishedExample?: CalculatorPublishedExample;

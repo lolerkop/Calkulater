@@ -1,3 +1,5 @@
+import { contractContent } from './contractContent';
+import { contextualField } from './contextualField';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { cookedWeightCopyEn } from './copy.en';
@@ -11,6 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  contextualField,
   copy: { en: cookedWeightCopyEn, uk: cookedWeightCopyUk, de: cookedWeightCopyDe, es: cookedWeightCopyEs },
   referenceCases: cookedWeightReferenceCases,
   publishedExample: {
@@ -18,6 +21,7 @@ export const definition: CalculatorDefinitionV2 = {
     expected: ["500 г"],
   },
   presentation: {
+    ...contractContent.ru,
     id: "cooked-weight",
     name: "Калькулятор сухого и готового веса",
     slug: "cooked-weight",
@@ -27,8 +31,6 @@ export const definition: CalculatorDefinitionV2 = {
     popularity: 37,
     isNew: false,
     shortDescription: "Пересчёт сухого веса крупы в готовый и обратно вместе с калорийностью порции.",
-    longDescription:
-      "Крупа впитывает воду, мясо её теряет, и пересчёт нужен в обе стороны ровно потому, что калорийность на упаковке указана для сухого продукта, а порция взвешивается готовой. Отсюда вторая половина расчёта: калорийность ста граммов готового блюда, которая у варёного риса вдвое с лишним ниже, чем на пачке. Подстановка табличного значения в вес готовой порции завышает подсчёт примерно вдвое — это самая частая ошибка в подсчёте калорий. Коэффициент разварки задаётся вручную: он зависит от крупы, количества воды и времени варки.",
     seoTitle: "Калькулятор сухого и готового веса продуктов",
     seoDescription: "Пересчитайте сухой вес крупы в готовый и обратно, а также калорийность ста граммов готового блюда по коэффициенту разварки.",
     h1: "Калькулятор сухого и готового веса",
@@ -37,14 +39,14 @@ export const definition: CalculatorDefinitionV2 = {
       {
         name: 'mode', label: 'Что известно', type: 'select', defaultValue: 'rawToCooked',
         options: [
-          { value: 'rawToCooked', label: 'сухой вес — найти готовый' },
-          { value: 'cookedToRaw', label: 'готовый вес — найти сухой' },
+          { value: 'rawToCooked', label: 'сырой/сухой вес — найти готовый' },
+          { value: 'cookedToRaw', label: 'готовый вес — найти сырой/сухой' },
         ],
       },
-      { name: 'raw', label: 'Сухой вес, г', type: 'number', defaultValue: 200, min: 0, step: 10, showIf: { field: 'mode', equals: 'rawToCooked' } },
+      { name: 'raw', label: 'Сырой или сухой вес, г', type: 'number', defaultValue: 200, min: 0, step: 10, showIf: { field: 'mode', equals: 'rawToCooked' } },
       { name: 'cooked', label: 'Готовый вес, г', type: 'number', defaultValue: 500, min: 0, step: 10, showIf: { field: 'mode', equals: 'cookedToRaw' } },
-      { name: 'factor', label: 'Коэффициент разварки', type: 'number', defaultValue: 2.5, min: 0, step: 0.1 },
-      { name: 'kcalPer100Raw', label: 'Ккал на 100 г сухого', type: 'number', defaultValue: 350, min: 0, step: 10 },
+      { name: 'factor', label: 'Коэффициент готового к исходному весу', type: 'number', defaultValue: 2.5, min: 0, step: 0.1 },
+      { name: 'kcalPer100Raw', label: 'Ккал на 100 г исходного', type: 'number', defaultValue: 350, min: 0, step: 10 },
     ],
     resultLabels: {
       "cooked": "Готовый вес",
@@ -53,22 +55,6 @@ export const definition: CalculatorDefinitionV2 = {
       "kcal": "Калорий всего",
       "per100": "Ккал на 100 г готового",
     },
-    howToUse: [
-      "Выберите, что известно: сухой вес или готовый.",
-      "Введите известный вес в граммах.",
-      "Задайте коэффициент разварки: у риса около 2,5, у гречки 2,2, у мяса меньше единицы.",
-      "Впишите калорийность со стороны упаковки — она указана для сухого продукта.",
-    ],
-    howItWorks:
-      "Готовый вес = сухой × коэффициент, обратный счёт делит. Калории считаются от сухого веса, потому что вода их не добавляет, а калорийность ста граммов готового получается делением на готовый вес.",
-    example: "200 г сухого риса дают 500 г готового: 700 ккал всего и лишь 140 ккал на 100 г готовой каши.",
-    faq: [
-      { q: "Почему калорийность готового блюда ниже, чем на упаковке?", a: "Потому что вода не добавляет калорий, а вес увеличивает. У варёного риса на сто граммов приходится примерно 140 ккал против 350 у сухого." },
-      { q: "Какой коэффициент разварки взять?", a: "Ориентиры: рис и макароны около 2,5, гречка 2,2, овсянка до 3. У мяса коэффициент меньше единицы — оно ужаривается. Это оценки, поэтому значение вводится вручную." },
-      { q: "Подходит ли расчёт для мяса?", a: "Да, введите коэффициент меньше единицы: например 0,65 при потере трети веса. Обратный режим тогда покажет, сколько сырого мяса нужно на порцию." },
-      { q: "Влияет ли масло или соус?", a: "Нет, они добавляют собственные калории и в этот расчёт не входят. Считайте их отдельно и прибавляйте к итогу." },
-      { q: "Что делать, если варить дольше обычного?", a: "Увеличьте коэффициент: крупа впитает больше воды, готовый вес вырастет, а калорийность ста граммов снизится." },
-    ],
     relatedCalculatorIds: ["price-per-unit", "stock-duration", "calories-from-macros"],
   },
 };

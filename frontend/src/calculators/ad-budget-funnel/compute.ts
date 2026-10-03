@@ -1,50 +1,42 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
+import { number as readNumber, validOutput } from '../../lib/platform/scalarInputDisplay';
+import { displayMoney } from '../../lib/platform/financeDisplay';
+import { fmtNumber } from '../../lib/format';
 import { formatMeasure, formatStatistic } from '../../lib/platform/measurement';
 
-// Рекламная воронка: во что превращается бюджет.
-//
-//   клики   = бюджет / цена клика
-//   заказы  = клики × конверсия / 100
-//   выручка = заказы × средний чек
-//   ROAS    = выручка / бюджет
-//
-// В отличие от ROAS, который оценивает УЖЕ потраченное, здесь бюджет
-// разворачивается вперёд: сколько кликов он купит, во сколько заказов они
-// превратятся и какую выручку принесут. Каждое звено умножается на следующее,
-// поэтому ошибка в конверсии бьёт по итогу ровно так же сильно, как ошибка
-// в цене клика, — а оценивают конверсию обычно куда небрежнее.
-//
-// Цена заказа показана рядом потому, что сравнивать её со средним чеком —
-// самая быстрая проверка того, окупается ли затея вообще.
 export const compute: CalcFunction = (inputs) => {
-  const budget = toNumber(inputs.budget);
-  const cpc = toNumber(inputs.cpc);
-  const crPct = toNumber(inputs.crPct);
-  const aov = toNumber(inputs.aov);
+  const budget = readNumber(inputs.budget);
+  const cpc = readNumber(inputs.cpc);
+  const crPct = readNumber(inputs.crPct);
+  const aov = readNumber(inputs.aov);
 
   const fail = (message: string) => ({
     primary: { label: 'Ожидаемая выручка', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (budget === null || cpc === null || crPct === null || aov === null) return fail('Введите корректные числовые данные');
+
   if (!(budget > 0)) return fail('Бюджет должен быть больше нуля');
   if (!(cpc > 0)) return fail('Цена клика должна быть больше нуля');
-  if (!(crPct > 0 && crPct <= 100)) return fail('Конверсия должна быть больше нуля и не больше ста процентов');
+  if (!(crPct >= 0 && crPct <= 100)) return fail('Конверсия должна быть от нуля до ста процентов');
   if (!(aov > 0)) return fail('Средний чек должен быть больше нуля');
 
   const clicks = budget / cpc;
-  const orders = (clicks * crPct) / 100;
+  const orders = clicks * (crPct / 100);
   const revenue = orders * aov;
-  const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
+  const roas = revenue / budget;
+  const cpo = crPct > 0 ? cpc / (crPct / 100) : null;
+  if (![clicks, orders, revenue, roas].every(value => validOutput(value)) || (crPct > 0 && (!(orders > 0) || !(revenue > 0) || !(roas > 0) || !validOutput(cpo!, true)))) return fail('Результат вне допустимого диапазона');
+  const money = displayMoney;
 
   return {
     primary: { label: 'Ожидаемая выручка', value: money(revenue) },
     secondary: [
       { label: 'Кликов', value: formatMeasure(clicks, fmtNumber) },
       { label: 'Заказов', value: formatMeasure(orders, fmtNumber) },
-      { label: 'ROAS', value: formatStatistic(revenue / budget, fmtNumber), accent: revenue >= budget ? 'green' : 'red' },
-      { label: 'Цена заказа', value: money(budget / orders) },
+      { label: 'ROAS', value: formatStatistic(roas, fmtNumber) },
+      ...(cpo !== null ? [{ label: 'Цена заказа', value: money(cpo) }] : []),
     ],
   };
 };

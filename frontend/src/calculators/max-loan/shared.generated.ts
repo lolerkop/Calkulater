@@ -41,7 +41,7 @@ export const shared: CalculatorLocalization = {
   },
   es: {
     results: {
-      'Переплата': 'Intereses totales',
+      'Переплата': 'Coste adicional',
       'Срок': 'Plazo',
       'Проверьте данные': 'Revisa los datos',
       'Результат': 'Resultado',

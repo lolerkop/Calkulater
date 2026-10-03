@@ -1,47 +1,24 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure, formatQuantity } from '../../lib/platform/measurement';
-
-// Момент инерции тела относительно оси.
-//
-// Это мера сопротивления ВРАЩЕНИЮ, и она зависит не только от массы, но и от
-// того, как масса распределена: у кольца весь материал на радиусе, поэтому его
-// момент вдвое больше, чем у диска той же массы и радиуса.
-//
-// Отличие от момента силы: тот считает вращающее ДЕЙСТВИЕ силы через плечо,
-// здесь же считается свойство самого тела, к которому сила ещё не приложена.
-const SHAPES: Record<string, { factor: number; label: string }> = {
-  'rod-center': { factor: 1 / 12, label: 'стержень через центр' },
-  'rod-end': { factor: 1 / 3, label: 'стержень через конец' },
-  disk: { factor: 1 / 2, label: 'сплошной диск' },
-  ring: { factor: 1, label: 'тонкое кольцо' },
-  'sphere-solid': { factor: 2 / 5, label: 'сплошной шар' },
-  'sphere-hollow': { factor: 2 / 3, label: 'полая сфера' },
-};
-
-export const compute: CalcFunction = (inputs) => {
-  const shape = toStr(inputs.shape, 'disk');
-  const mass = toNumber(inputs.m);
-  const size = toNumber(inputs.r);
-  const fail = (message: string) => ({
-    primary: { label: 'Момент инерции', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  const m = (value: number, unit: string) => `${formatMeasure(value, fmtNumber)} ${unit}`;
-
-  const body = SHAPES[shape];
-  if (!body) return fail('Неизвестное тело');
-  if (!(mass > 0)) return fail('Масса должна быть больше нуля');
-  if (!(size > 0)) return fail('Размер должен быть больше нуля');
-
-  const inertia = body.factor * mass * size * size;
-  return {
-    primary: { label: 'Момент инерции', value: `${formatQuantity(inertia, fmtNumber)} кг·м²` },
-    secondary: [
-      { label: 'Масса', value: m(mass, 'кг') },
-      { label: 'Размер', value: m(size, 'м') },
-      { label: 'Радиус инерции', value: m(Math.sqrt(inertia / mass), 'м') },
-      { label: 'Тело', value: body.label },
-    ],
-  };
+import { INPUT, RANGE, qty } from '../../lib/platform/measurementScalar';
+import { read, exact, times, evaluated, finite, mode, sqrtRatio } from '../../lib/platform/electronicsNumericInput';
+const shapes={
+ 'rod-center':{n:1,d:12,label:'стержень через центр'},'rod-end':{n:1,d:3,label:'стержень через конец'},
+ disk:{n:1,d:2,label:'сплошной диск'},ring:{n:1,d:1,label:'тонкое кольцо'},
+ 'sphere-solid':{n:2,d:5,label:'сплошной шар'},'sphere-hollow':{n:2,d:3,label:'полая сфера'},
+} as const;
+export const compute:CalcFunction=inputs=>{
+ const selected=mode(inputs.shape,'disk',Object.keys(shapes)) as keyof typeof shapes|null;
+ const mass=read(inputs.m),size=read(inputs.r);
+ const fail=(value:string)=>({primary:{label:'Момент инерции',value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ if(!selected)return fail('Неизвестное тело');
+ if(!finite(mass,size))return fail(INPUT);
+ if(!(mass>0))return fail('Масса должна быть больше нуля');
+ if(!(size>0))return fail('Размер должен быть больше нуля');
+ const body=shapes[selected],square=times(exact(size),exact(size),exact(body.n));
+ const inertia=evaluated(times(exact(mass),square),exact(body.d)),gyration=sqrtRatio(square,exact(body.d));
+ if(!finite(inertia,gyration)||gyration<=0)return fail(RANGE);
+ return {primary:{label:'Момент инерции',value:`${qty(inertia)} кг·м²`},secondary:[
+  {label:'Масса',value:`${qty(mass)} кг`},{label:'Размер',value:`${qty(size)} м`},
+  {label:'Радиус инерции',value:`${qty(gyration)} м`},{label:'Тело',value:body.label},
+ ]};
 };

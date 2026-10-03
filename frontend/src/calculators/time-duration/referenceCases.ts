@@ -32,7 +32,7 @@ export const timeDurationReferenceCases: readonly CalculatorReferenceCase[] = [
     name: 'вычитание уходит в предыдущие сутки: 0:20 минус 45 мин — 23:35',
     inputs: { mode: 'subtract', startHour: 0, startMinute: 20, spanHour: 0, spanMinute: 45 },
     expectPrimary: '23:35',
-    expectSecondary: [{ label: 'Предыдущие сутки', value: 'да' }],
+    expectSecondary: [{ label: 'Переход назад через границу суток', value: 'да' }],
   },
   {
     name: 'граница: совпадающие моменты дают нулевую продолжительность',
@@ -41,9 +41,8 @@ export const timeDurationReferenceCases: readonly CalculatorReferenceCase[] = [
     expectSecondary: [{ label: 'Всего минут', value: '0' }],
   },
   {
-    name: 'домен: значения вне суток приводятся к границам, а не ломают расчёт',
+    name: 'домен: часы и минуты вне суток отклоняются',
     inputs: { mode: 'difference', startHour: 99, startMinute: -5, endHour: 23, endMinute: 59 },
-    expectPrimary: '0 ч 59 мин',
-    expectSecondary: [{ label: 'Начало', value: '23:00' }],
+    expectPrimary: '—',
   },
 ];

@@ -1,3 +1,4 @@
+import { gasLawsContractContent } from './contractContent';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { contextualField } from './contextualField';
@@ -27,7 +28,7 @@ export const definition: CalculatorDefinitionV2 = {
     isNew: false,
     shortDescription: "Переход газа между двумя состояниями: p₁V₁/T₁ = p₂V₂/T₂.",
     longDescription:
-      "Считает переход одной и той же порции газа из первого состояния во второе по объединённому газовому закону. Отличие от уравнения состояния идеального газа простое: та страница описывает одно состояние через количество вещества и универсальную газовую постоянную, здесь количество вещества сокращается — оно у обоих состояний одно и то же, — и остаётся отношение трёх величин. Частные законы Бойля, Шарля и Гей-Люссака получаются из этой формулы, если оставить одну величину постоянной.",
+      gasLawsContractContent.ru.longDescription,
     seoTitle: "Калькулятор объединённого газового закона — p₁V₁/T₁ = p₂V₂/T₂",
     seoDescription: "Рассчитайте давление, объём или температуру газа при переходе между двумя состояниями по объединённому газовому закону.",
     h1: "Калькулятор объединённого газового закона",
@@ -41,12 +42,12 @@ export const definition: CalculatorDefinitionV2 = {
           { value: 't2', label: 'температуру T₂' },
         ],
       },
-      { name: 'p1', label: 'Давление p₁, кПа', type: 'number', defaultValue: 100, min: 0, step: 1 },
-      { name: 'v1', label: 'Объём V₁, л', type: 'number', defaultValue: 2, min: 0, step: 0.1 },
-      { name: 't1', label: 'Температура T₁, К', type: 'number', defaultValue: 300, min: 0, step: 1 },
-      { name: 'p2', label: 'Давление p₂, кПа', type: 'number', defaultValue: 100, min: 0, step: 1 },
-      { name: 'v2', label: 'Объём V₂, л', type: 'number', defaultValue: 1, min: 0, step: 0.1 },
-      { name: 't2', label: 'Температура T₂, К', type: 'number', defaultValue: 300, min: 0, step: 1 },
+      { name: 'p1', label: 'Давление p₁', type: 'number', unit: 'kPa', defaultValue: 100, min: 0, step: 1 },
+      { name: 'v1', label: 'Объём V₁', type: 'number', unit: 'L', defaultValue: 2, min: 0, step: 0.1 },
+      { name: 't1', label: 'Температура T₁', type: 'number', unit: 'K', defaultValue: 300, min: 0, step: 1 },
+      { name: 'p2', label: 'Давление p₂', type: 'number', unit: 'kPa', defaultValue: 100, min: 0, step: 1, showIf: { field: 'mode', oneOf: ['v2', 't2'] } },
+      { name: 'v2', label: 'Объём V₂', type: 'number', unit: 'L', defaultValue: 1, min: 0, step: 0.1, showIf: { field: 'mode', oneOf: ['p2', 't2'] } },
+      { name: 't2', label: 'Температура T₂', type: 'number', unit: 'K', defaultValue: 300, min: 0, step: 1, showIf: { field: 'mode', oneOf: ['p2', 'v2'] } },
     ],
     resultLabels: {
       "p2": "Давление p₂",
@@ -56,20 +57,11 @@ export const definition: CalculatorDefinitionV2 = {
       "state2": "Состояние 2: p·V/T",
       "first": "Первое состояние",
     },
-    howToUse: [
-      "Выберите, какую величину второго состояния ищете.",
-      "Введите давление, объём и температуру первого состояния.",
-      "Заполните две известные величины второго состояния: третья станет только для чтения.",
-      "Температуру задавайте в кельвинах: к градусам Цельсия прибавьте 273,15.",
-    ],
-    howItWorks: "Для одной и той же порции газа отношение p·V/T постоянно, поэтому p₁V₁/T₁ = p₂V₂/T₂. Искомая величина выражается из этого равенства.",
-    example: "Два литра газа под 100 кПа при 300 К, сжатые до литра при той же температуре, дают 200 кПа.",
-    faq: [
-      { q: "Чем это отличается от уравнения состояния идеального газа?", a: "Там считается одно состояние через количество вещества и газовую постоянную. Здесь считается переход между двумя состояниями одной порции, и количество вещества сокращается." },
-      { q: "Почему температура только в кельвинах?", a: "Потому что в формулу входит отношение температур. В шкале Цельсия нуль произволен, и при нуле градусов знаменатель обратился бы в нуль." },
-      { q: "Где здесь законы Бойля и Шарля?", a: "Это частные случаи. Оставьте температуру постоянной — получится закон Бойля — Мариотта, оставьте давление — закон Шарля." },
-      { q: "Годится ли расчёт для реального газа?", a: "Как приближение — да, при умеренных давлениях и вдали от точки конденсации. У сжатых и близких к сжижению газов отклонения становятся заметными." },
-    ],
+    howToUse: gasLawsContractContent.ru.howToUse,
+    howItWorks: gasLawsContractContent.ru.howItWorks,
+    example: gasLawsContractContent.ru.example,
+    faq: gasLawsContractContent.ru.faq,
+    disclaimer: gasLawsContractContent.ru.disclaimer,
     relatedCalculatorIds: ["ideal-gas-law", "moles", "pressure"],
   },
 };

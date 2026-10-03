@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 import type { CalculatorSeoCopy } from '../../lib/platform/types';
 
 export const timeDurationCopyUk: CalculatorSeoCopy = {
@@ -8,4 +9,6 @@ export const timeDurationCopyUk: CalculatorSeoCopy = {
   seoDescription: 'Розрахунок тривалості між двома моментами, додавання та віднімання годин і хвилин.',
   h1: 'Калькулятор тривалості часу',
   keywords: ['тривалість часу', 'години між моментами', 'додати час'],
-};
+
+    ...dateTimeWave15ContractContent.uk['time-duration'],
+  };

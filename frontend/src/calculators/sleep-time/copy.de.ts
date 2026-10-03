@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
@@ -8,9 +9,11 @@ import type { CalculatorSeoCopy } from '../../lib/platform/types';
 export const sleepTimeCopyDe: CalculatorSeoCopy = {
   name: 'Schlafrechner',
   slug: 'schlafrechner',
-  shortDescription: 'Aufsteh- oder Zubettgehzeit nach Schlafzyklen von 90 Minuten.',
+  shortDescription: "Aufstehzeit oder Bettzeit mit angenommenen 90-Minuten-Blöcken.",
   seoTitle: 'Schlafrechner — Zyklen zu 90 Minuten',
-  seoDescription: 'Finde die Zeit zum Aufstehen oder zum Zubettgehen aus einer Zahl von 90-Minuten-Zyklen, mit Einschlafdauer.',
+  seoDescription: "Vergleiche Aufsteh- und Bettzeiten mit festen 90-Minuten-Blöcken und Einschlafzeit; die Formel erkennt keine tatsächlichen Schlafphasen.",
   h1: 'Schlafrechner',
-  keywords: ['Schlafzyklus berechnen', 'wann ins Bett', 'Aufstehzeit', 'Schlafphasen'],
-};
+  keywords: ["Schlafzeit Rechner", "Bettzeit planen", "Aufstehzeit", "90 Minuten Blöcke"],
+
+    ...dateTimeWave15ContractContent.de['sleep-time'],
+  };

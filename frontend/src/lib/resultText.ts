@@ -31,16 +31,18 @@ function replacePhrasesOnce(value: string, phrases: Record<string, string>): str
 // Число читается из самой строки вместе с неразрывными разделителями тысяч,
 // которые расставил Intl в раннере: «6 784 дн.» — это 6784, а не 784.
 const countWords: Array<{ source: RegExp; en: [string, string]; de: [string, string]; es: [string, string]; uk: [string, string, string] }> = [
-  { source: /(\d+(?:\u00a0\d{3})*) (?:года|год|лет)/g, en: ['year', 'years'], de: ['Jahr', 'Jahre'], es: ['año', 'años'], uk: ['рік', 'роки', 'років'] },
-  { source: /(\d+(?:\u00a0\d{3})*) (?:месяцев|месяца|месяц)/g, en: ['month', 'months'], de: ['Monat', 'Monate'], es: ['mes', 'meses'], uk: ['місяць', 'місяці', 'місяців'] },
-  { source: /(\d+(?:\u00a0\d{3})*) (?:дней|дня|день)/g, en: ['day', 'days'], de: ['Tag', 'Tage'], es: ['día', 'días'], uk: ['день', 'дні', 'днів'] },
+  { source: /(?<![\d.,])(\d+(?:\u00a0\d{3})*) (года|год|лет)(?![А-Яа-яЁё])/g, en: ['year', 'years'], de: ['Jahr', 'Jahre'], es: ['año', 'años'], uk: ['рік', 'роки', 'років'] },
+  { source: /(?<![\d.,])(\d+(?:\u00a0\d{3})*) (месяцев|месяца|месяц)(?![А-Яа-яЁё])/g, en: ['month', 'months'], de: ['Monat', 'Monate'], es: ['mes', 'meses'], uk: ['місяць', 'місяці', 'місяців'] },
+  { source: /(?<![\d.,])(\d+(?:\u00a0\d{3})*) (дней|дня|день)(?![А-Яа-яЁё])/g, en: ['day', 'days'], de: ['Tag', 'Tage'], es: ['día', 'días'], uk: ['день', 'дні', 'днів'] },
   // Сокращение «дн.» не изменяется по числу ни в русском, ни в украинском, но в
   // английском и немецком разворачивается в полное слово, которому форма уже нужна.
-  { source: /(\d+(?:\u00a0\d{3})*) дн\./g, en: ['day', 'days'], de: ['Tag', 'Tage'], es: ['día', 'días'], uk: ['дн.', 'дн.', 'дн.'] },
+  { source: /(?<![\d.,])(\d+(?:\u00a0\d{3})*) (дн\.)/g, en: ['day', 'days'], de: ['Tag', 'Tage'], es: ['día', 'días'], uk: ['дн.', 'дн.', 'дн.'] },
 ];
 
-function localizeCountWords(value: string, locale: 'en' | 'de' | 'es' | 'uk'): string {
-  return countWords.reduce((text, unit) => text.replace(unit.source, (_match, digits: string) => {
+function localizeCountWords(value: string, locale: 'en' | 'de' | 'es' | 'uk', phrases: Readonly<Record<string, string>>): string {
+  return countWords.reduce((text, unit) => text.replace(unit.source, (match, digits: string, sourceWord: string) => {
+    // An owned unit spelling keeps precedence over generic count grammar.
+    if (phrases[sourceWord] !== undefined) return match;
     const count = Number(digits.replace(/\u00a0/g, ''));
     const word = locale === 'uk' ? pluralRu(count, unit.uk) : unit[locale][count === 1 ? 0 : 1];
     return `${digits} ${word}`;
@@ -100,11 +102,11 @@ export function localizeText(
   // діапазонльний діапазон»). Одна проходка по объединённому шаблону разбирает
   // каждую позицию ровно один раз, а сортировка по убыванию длины не даёт
   // короткому ключу перехватить совпадение у длинного.
-  let localized = exact ?? replacePhrasesOnce(value, phrases);
-
-  if (locale === 'en' || locale === 'uk' || locale === 'de' || locale === 'es') {
-    localized = localizeCountWords(localized, locale);
-  }
+  // Count words describe the Russian source. Apply them before phrase
+  // translation: Ukrainian hour abbreviation «год» must not become years.
+  const counted = locale === 'en' || locale === 'uk' || locale === 'de' || locale === 'es'
+    ? localizeCountWords(value, locale, phrases) : value;
+  const localized = exact ?? replacePhrasesOnce(counted, phrases);
 
   // Сокращения каждой локали отделены от английских: без этого немецкая
   // страница писала «5 years» и «12 pcs.», а испанская написала бы то же самое —
@@ -128,8 +130,9 @@ export function localizeText(
     .replace(/\/км/g, units.pace)
     .replace(/\/миля/g, locale === 'uk' ? '/миля' : '/mi')
     .replace(/ км(?=$|\s|[),])/g, locale === 'uk' ? ' км' : ' km')
-    .replace(/м²/g, 'm²')
-    .replace(/м³/g, 'm³')
+    .replace(/мм([²³])/g, locale === 'uk' ? 'мм$1' : 'mm$1')
+    .replace(/см([²³])/g, locale === 'uk' ? 'см$1' : 'cm$1')
+    .replace(/м([²³])/g, locale === 'uk' ? 'м$1' : 'm$1')
     .replace(/ м(?=$|\s|[),×])/g, locale === 'uk' ? ' м' : ' m')
     .replace(/ кг(?=$|\s|[),–])/g, ` ${units.kg}`)
     .replace(/ см(?=$|\s|[),])/g, ` ${units.cm}`)

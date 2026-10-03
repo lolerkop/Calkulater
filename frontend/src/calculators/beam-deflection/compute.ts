@@ -1,53 +1,43 @@
+import { measure as displayMeasure, read, finite, mode as selectedMode, INPUT, MODE, RANGE, exact, times, evaluated, quotient } from './buildingWave13Numeric';
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure, formatQuantity } from '../../lib/platform/measurement';
+import { fmtNumber } from '../../lib/format';
 
-// Прогиб балки на двух опорах.
-//
-// Две схемы дают разные формулы И разный смысл единицы нагрузки: при
-// равномерной нагрузка распределена и задаётся в килоньютонах НА МЕТР, при
-// сосредоточенной это одна сила в килоньютонах. Поэтому подпись поля нагрузки
-// меняется вместе с режимом — иначе число вводили бы не в той размерности.
-//
-// Жёсткость EI собирается из модуля упругости в гигапаскалях и момента инерции
-// сечения в сантиметрах в четвёртой степени: именно так их печатают в
-// справочниках сортамента, и переводить их руками — лишний источник ошибки.
-const GPA = 1e9;
-const CM4 = 1e-8;
-const KN = 1000;
-const M_IN_MM = 1000;
-const DEFLECTION_LIMIT = 250;
 
 export const compute: CalcFunction = (inputs) => {
-  const scheme = toStr(inputs.scheme, 'uniform');
-  const load = toNumber(inputs.load);
-  const span = toNumber(inputs.span);
-  const e = toNumber(inputs.e);
-  const inertia = toNumber(inputs.inertia);
+  const scheme = selectedMode(inputs.scheme, 'uniform', ['uniform','point']);
+  const load = read(inputs.load);
+  const span = read(inputs.span);
+  const e = read(inputs.e);
+  const inertia = read(inputs.inertia);
   const fail = (message: string) => ({
     primary: { label: 'Прогиб', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
 
+  if (scheme === null) return fail(MODE);
+  if (!finite(load,span,e,inertia)) return fail(INPUT);
   if (scheme !== 'uniform' && scheme !== 'point') return fail('Выберите схему нагружения из списка');
   if (!(load > 0)) return fail('Нагрузка должна быть больше нуля');
   if (!(span > 0)) return fail('Пролёт должен быть больше нуля');
   if (!(e > 0)) return fail('Модуль упругости должен быть больше нуля');
   if (!(inertia > 0)) return fail('Момент инерции сечения должен быть больше нуля');
 
-  const ei = e * GPA * inertia * CM4;
-  const metres = scheme === 'uniform'
-    ? (5 * load * KN * Math.pow(span, 4)) / (384 * ei)
-    : (load * KN * Math.pow(span, 3)) / (48 * ei);
-  const mm = metres * M_IN_MM;
+  const eiD = times(exact(e),exact(inertia),exact(10));
+  const ei = evaluated(eiD);
+  const numerator = scheme === 'uniform' ? times(exact(5),exact(load),...Array.from({length:4},()=>exact(span)),exact(1e6)) : times(exact(load),...Array.from({length:3},()=>exact(span)),exact(1e6));
+  const denominator = times(exact(scheme === 'uniform' ? 384 : 48),eiD);
+  const mm = evaluated(numerator,denominator);
+  const relative = evaluated(times(exact(span),exact(1000),denominator),numerator);
+  const limit = quotient([span,1000],[250]);
+  if (!finite(ei,mm,relative,limit)) return fail(RANGE);
 
   return {
-    primary: { label: 'Прогиб', value: `${formatMeasure(mm, fmtNumber)} мм` },
+    primary: { label: 'Прогиб', value: `${displayMeasure(mm)} мм` },
     secondary: [
-      { label: 'Относительный прогиб', value: `1/${formatMeasure((span * M_IN_MM) / mm, fmtNumber)}` },
-      { label: 'Жёсткость EI', value: `${formatQuantity(ei, fmtNumber)} Н·м²` },
-      { label: 'Пролёт', value: `${formatMeasure(span, fmtNumber)} м` },
-      { label: 'Предел 1/250', value: `${formatMeasure((span * M_IN_MM) / DEFLECTION_LIMIT, fmtNumber)} мм` },
+      { label: 'Относительный прогиб', value: `1/${displayMeasure(relative)}` },
+      { label: 'Жёсткость EI', value: `${displayMeasure(ei)} Н·м²` },
+      { label: 'Пролёт', value: `${displayMeasure(span)} м` },
+      { label: 'Предел 1/250', value: `${displayMeasure(limit)} мм` },
     ],
   };
 };

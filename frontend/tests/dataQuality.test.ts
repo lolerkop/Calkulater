@@ -44,7 +44,12 @@ describe('data quality: calculators', () => {
       expect(calculator.seoDescription.length, `${calculator.id}: seoDescription`).toBeGreaterThanOrEqual(80);
       expect(calculator.seoDescription.length, `${calculator.id}: seoDescription`).toBeLessThanOrEqual(170);
       expect(calculator.longDescription.length, `${calculator.id}: longDescription`).toBeGreaterThanOrEqual(170);
-      expect(calculator.howToUse.length, `${calculator.id}: howToUse`).toBeGreaterThanOrEqual(3);
+      // The rebuild brief explicitly rejects a fixed section length. A simple
+      // one-input tool can explain its entire use in one substantive item.
+      expect(calculator.howToUse.length, `${calculator.id}: howToUse`).toBeGreaterThanOrEqual(1);
+      for (const step of calculator.howToUse) {
+        expect(step.trim(), `${calculator.id}: empty howToUse item`).not.toBe('');
+      }
       expect(calculator.faq.length, `${calculator.id}: faq`).toBeGreaterThanOrEqual(4);
       expect(calculator.keywords.length, `${calculator.id}: keywords`).toBeGreaterThanOrEqual(3);
       expect(calculator.example.length, `${calculator.id}: example`).toBeGreaterThanOrEqual(30);
@@ -99,7 +104,11 @@ describe('data quality: calculators', () => {
           const controller = fieldsByName.get(field.showIf.field);
           if (controller?.type === 'select' || controller?.type === 'toggle') {
             const controllerValues = controller.options?.map((option) => option.value) ?? [];
-            expect(controllerValues, `${calculator.id}.${field.name}: showIf option`).toContain(String(field.showIf.equals));
+            const allowed = field.showIf.oneOf ?? [field.showIf.equals];
+            expect(allowed.length, `${calculator.id}.${field.name}: showIf alternatives`).toBeGreaterThan(0);
+            for (const value of allowed) {
+              expect(controllerValues, `${calculator.id}.${field.name}: showIf option`).toContain(String(value));
+            }
           }
         }
       }

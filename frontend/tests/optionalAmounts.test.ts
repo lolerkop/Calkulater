@@ -33,6 +33,8 @@ const мусор = (текст: string) => /NaN|Infinity|undefined|\[object/.tes
 
 // Ровно те поля, у которых раннер защищает строку условием «> 0».
 const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
+  ['income-tax-calculator', 'deductions'],
+  ['income-tax-calculator', 'incomeBeforePeriod'],
   ['contribution-margin', 'volume'],
   ['roi', 'extra'],
   ['shipping-per-unit', 'packaging'],
@@ -77,11 +79,24 @@ const НЕОБЯЗАТЕЛЬНЫЕ: Array<[string, string]> = [
   ['conversion-rate', 'cost'],
 ];
 
+// New finance inputs have meaningful nonzero demonstration defaults. Clearing
+// them means zero; it must not replace the initial example or require default=0.
+const FINANCE_OPTIONAL: Array<[string, string, string]> = [
+  ['lease-payment', 'down', '47 333,33 ₽'],
+  ['early-repayment', 'extra', '0,00 ₽'],
+  ['refinancing', 'fee', '554 776,76 ₽'],
+  ['savings-goal', 'initial', '13 609,73 ₽'],
+  ['installment', 'down', '11 200,00 ₽'],
+  ['risk-reward', 'qty', '3'],
+];
+
 describe('необязательные суммы', () => {
   it('помечены в реестре ровно там, где раннер сверяет их с нулём', () => {
     const помечены = calculators.flatMap((calc) =>
       calc.fields.filter((field) => field.optional).map((field) => `${calc.id}.${field.name}`));
-    expect(помечены.sort()).toEqual(НЕОБЯЗАТЕЛЬНЫЕ.map(([c, f]) => `${c}.${f}`).sort());
+    // CPC impressions may be unknown while its useful example retains92000
+    // as the default. Its count-specific contract is checked separately.
+    expect(помечены.sort()).toEqual([...НЕОБЯЗАТЕЛЬНЫЕ.map(([c, f]) => `${c}.${f}`), ...FINANCE_OPTIONAL.map(([c, f]) => `${c}.${f}`), 'cpc.impressions'].sort());
   });
 
   it('у каждого нуль объявлен допустимым и является значением по умолчанию', () => {
@@ -129,6 +144,84 @@ describe('необязательные суммы', () => {
       const errors = validateValues(id, поля(id), { ...базовые(id), [name]: '' } as FormValues, 'ru');
       expect(Object.keys(errors), `${id}.${name} обязано остаться ошибкой`).toContain(name);
     }
+  });
+});
+
+describe('finance: cleared optional values with independent fixed numbers', () => {
+  it.each(['deductions', 'incomeBeforePeriod'])('income-tax/%s: blank preserves the declared default bracket result', (name) => {
+    // Declared model: 150000 monthly gross ×12 =1800000, below2400000;
+    // with both optional values zero, monthly tax is150000×13%=19500.
+    const values = { ...базовые('income-tax-calculator'), [name]: '' } as FormValues;
+    const result = считать('income-tax-calculator', values);
+    expect(result.primary.value.replace(/\s/g, ' ')).toBe('19 500 ₽');
+    expect(result).toEqual(считать('income-tax-calculator', { ...values, [name]: 0 }));
+    for (const raw of ['abc', -1]) {
+      const bad = { ...values, [name]: raw } as FormValues;
+      expect(validateValues('income-tax-calculator', поля('income-tax-calculator'), bad, 'ru')).toHaveProperty(name);
+      expect(считать('income-tax-calculator', bad).primary.value).toBe('—');
+    }
+  });
+  it('installment down keeps10000 as its example while blank means zero financing reduction', () => {
+    expect(поля('installment').find(field => field.name === 'down')!.defaultValue).toBe(10000);
+    // Blank:60000×1.12=67200, divided into6 payments of11200.
+    // Existingexample:(60000−10000)×1.12=56000;9333.33×5+9333.35=56000.
+    const cleared = считать('installment', { ...базовые('installment'), down: '' });
+    expect(cleared.table?.rows.map(row => row[1].replace(/\s/g, ' '))).toEqual(Array(6).fill('11 200,00 ₽'));
+    expect(считать('installment', базовые('installment')).primary.value.replace(/\s/g, ' ')).toBe('9 333,33 ₽');
+    expect(считать('installment', базовые('installment')).secondary).toContainEqual({ label: 'Последний платёж', value: '9\u00a0333,35 ₽' });
+  });
+  it('risk-reward qty keeps100 as its example and zero omits cash amounts without changing the price ratio', () => {
+    expect(поля('risk-reward').find(field => field.name === 'qty')!.defaultValue).toBe(100);
+    const cleared = считать('risk-reward', { ...базовые('risk-reward'), qty: '' });
+    const sample = считать('risk-reward', базовые('risk-reward'));
+    expect(cleared.primary.value).toBe('3'); // (280−250)/(250−240).
+    expect(cleared.secondary.map(row => row.label)).not.toContain('Риск в деньгах');
+    expect(cleared.secondary.map(row => row.label)).not.toContain('Прибыль в деньгах');
+    expect(sample.secondary).toContainEqual({ label: 'Риск в деньгах', value: '1\u00a0000,00 ₽' });
+    expect(sample.secondary).toContainEqual({ label: 'Прибыль в деньгах', value: '3\u00a0000,00 ₽' });
+  });
+  it.each(FINANCE_OPTIONAL)('%s/%s: blank is zero with the declared primary result', (id, name, expected) => {
+    const field = поля(id).find(item => item.name === name)!;
+    expect(field.optional).toBe(true);
+    expect(field.min).toBe(0);
+    const blank = { ...базовые(id), [name]: '' } as FormValues;
+    expect(validateValues(id, поля(id), blank, 'ru')).toEqual({});
+    const result = считать(id, blank);
+    expect(result.primary.value.replace(/\s/g, ' ')).toBe(expected);
+    expect(result).toEqual(считать(id, { ...blank, [name]: 0 }));
+  });
+  it.each(FINANCE_OPTIONAL)('%s/%s: malformed and negative optional values stay errors', (id, name) => {
+    for (const value of ['abc', -1]) {
+      const values = { ...базовые(id), [name]: value } as FormValues;
+      expect(validateValues(id, поля(id), values, 'ru')).toHaveProperty(name);
+      expect(считать(id, values).primary.value).toBe('—');
+    }
+  });
+});
+
+describe('CPC: необязательное число показов с сохранённым примером', () => {
+  it('сохраняет пример92000 и допускает отсутствие показов', () => {
+    const field=поля('cpc').find(f=>f.name==='impressions')!;
+    expect(field.defaultValue).toBe(92000);expect(field.min).toBe(0);expect(field.optional).toBe(true);
+  });
+  it('пустое и нулевое число показов сохраняют CPC без выдуманного CTR', () => {
+    const empty={...базовые('cpc'),impressions:''};
+    expect(validateValues('cpc',поля('cpc'),empty,'ru')).toEqual({});
+    const result=считать('cpc',empty);
+    expect(result).toEqual(считать('cpc',{...empty,impressions:0}));
+    expect(result.primary.value).toBe('24,83 ₽');
+    expect(result.secondary.map(r=>r.label)).not.toContain('Кликабельность');
+    expect(result.secondary.map(r=>r.label)).not.toContain('CPM');
+  });
+  it('2000 реальных показов дают1450/2000=72,5% и36000/2000×1000 CPM',()=>{
+    const result=считать('cpc',{...базовые('cpc'),impressions:2000});
+    expect(result.secondary).toContainEqual({label:'Кликабельность',value:'72,50%'});
+    expect(result.secondary).toContainEqual({label:'CPM',value:'18\u00a0000,00 ₽'});
+  });
+  it('не принимает мусор, дробные показы или показы меньше кликов',()=>{
+    const invalid={...базовые('cpc'),impressions:'abc'};
+    expect(validateValues('cpc',поля('cpc'),invalid,'ru')).toHaveProperty('impressions');
+    for(const impressions of [100,1450.5])expect(считать('cpc',{...базовые('cpc'),impressions}).primary.value).toBe('—');
   });
 });
 

@@ -1,11 +1,12 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'area': 'Raumfläche, m²',
-      'height': 'Raumhöhe, m',
-      'ach': 'Luftwechsel je Stunde, 1/h',
+      'area': "Raumfläche",
+      'height': "Raumhöhe",
+      'ach': "Luftwechsel je Stunde",
     },
     results: {
       'Требуемый расход воздуха': 'Nötiger Volumenstrom',
@@ -26,7 +27,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { area: 'Room area, m²', height: 'Ceiling height, m', ach: 'Air changes per hour, 1/h' },
+    fields: { area: "Room area", height: "Ceiling height", ach: "Air changes per hour" },
     options: {},
     results: {
       'Требуемый расход воздуха': 'Required airflow', 'Объём помещения': 'Room volume',
@@ -41,7 +42,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { area: 'Площа приміщення, м²', height: 'Висота стелі, м', ach: 'Кратність повітрообміну, 1/год' },
+    fields: { area: "Площа приміщення", height: "Висота стелі", ach: "Кратність повітрообміну" },
     options: {},
     results: {
       'Требуемый расход воздуха': 'Потрібна витрата повітря', 'Объём помещения': 'Об’єм приміщення',
@@ -57,9 +58,9 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "area": "Superficie de la sala, m²",
-      "height": "Altura del techo, m",
-      "ach": "Renovaciones por hora, 1/h",
+      "area": "Superficie de la sala",
+      "height": "Altura del techo",
+      "ach": "Renovaciones por hora",
     },
     options: {},
     results: {
@@ -81,3 +82,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

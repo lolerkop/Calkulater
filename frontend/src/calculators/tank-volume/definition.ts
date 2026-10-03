@@ -1,5 +1,7 @@
+import { buildingWave16ContractContent } from './contractContent';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
+import { contextualField } from './contextualField';
 import { tankVolumeCopyEn } from './copy.en';
 import { tankVolumeCopyUk } from './copy.uk';
 import { tankVolumeCopyDe } from './copy.de';
@@ -11,6 +13,7 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  contextualField,
   copy: { en: tankVolumeCopyEn, uk: tankVolumeCopyUk, de: tankVolumeCopyDe, es: tankVolumeCopyEs },
   referenceCases: tankVolumeReferenceCases,
   publishedExample: {
@@ -28,7 +31,7 @@ export const definition: CalculatorDefinitionV2 = {
     isNew: false,
     shortDescription: "Полный объём бака и объём налитого при заданном уровне.",
     longDescription:
-      "Считает и полный объём ёмкости, и сколько жидкости в ней сейчас. У вертикального бака и прямоугольной ванны налив пропорционален уровню, а у горизонтальной цистерны — нет: сечение налитой части там сегмент круга, поэтому половина высоты даёт ровно половину объёма, а четверть высоты — заметно меньше четверти. Отличие от геометрического цилиндра существенное: тот даёт объём тела, здесь же главный ответ — сколько литров внутри при этом уровне.",
+      buildingWave16ContractContent.ru.longDescription,
     seoTitle: "Калькулятор объёма ёмкости — бак, цистерна, бочка",
     seoDescription: "Рассчитайте полный объём ёмкости и объём налитого по уровню для вертикального бака, горизонтальной цистерны, прямоугольной ванны и капсулы.",
     h1: "Калькулятор объёма ёмкости",
@@ -43,9 +46,9 @@ export const definition: CalculatorDefinitionV2 = {
           { value: 'capsule', label: 'капсула' },
         ],
       },
-      { name: 'd', label: 'Диаметр или сторона, м', type: 'number', defaultValue: 1.5, min: 0, step: 0.1 },
-      { name: 'len', label: 'Высота или длина, м', type: 'number', defaultValue: 2, min: 0, step: 0.1 },
-      { name: 'level', label: 'Уровень жидкости, м', type: 'number', defaultValue: 1.2, min: 0, step: 0.1 },
+      { name: 'd', label: "Диаметр или сторона", type: 'number', defaultValue: 1.5, min: 0, step: 0.1 , unit: "м" },
+      { name: 'len', label: "Высота или длина", type: 'number', defaultValue: 2, min: 0, step: 0.1 , unit: "м" },
+      { name: 'level', label: "Уровень жидкости", type: 'number', defaultValue: 1.2, min: 0, step: 0.1 , unit: "м" },
     ],
     resultLabels: {
       "filled": "Объём налитого",
@@ -54,20 +57,11 @@ export const definition: CalculatorDefinitionV2 = {
       "litres": "В литрах",
       "free": "Свободно",
     },
-    howToUse: [
-      "Выберите форму: у горизонтальной цистерны уровень считается от нижней образующей.",
-      "Для цилиндра введите диаметр, для прямоугольной ёмкости — сторону основания.",
-      "Высота или длина: у вертикального бака это высота, у цистерны — длина корпуса.",
-      "Уровень измеряйте щупом от дна; он не может быть выше самой ёмкости.",
-    ],
-    howItWorks: "Вертикальные ёмкости: площадь основания на уровень. Горизонтальная цистерна: площадь сегмента круга r²(θ − sin θ)/2 на длину.",
-    example: "Вертикальный бак диаметром 1,5 м и высотой 2 м при уровне 1,2 м содержит 2,12 м³ — это 2121 литр.",
-    faq: [
-      { q: "Почему у цистерны половина высоты даёт ровно половину объёма?", a: "Потому что круг симметричен относительно горизонтальной оси: сегмент до середины равен половине круга. А вот четверть высоты даёт заметно меньше четверти объёма — сечение внизу узкое." },
-      { q: "Чем это отличается от калькулятора цилиндра?", a: "Геометрический цилиндр даёт объём тела целиком. Здесь есть уровень налива и положение ёмкости, и главный ответ — сколько жидкости внутри сейчас." },
-      { q: "Как считается капсула?", a: "Цилиндр плюс шар того же диаметра, а налив распределяется по общей высоте. Это приближение: точный сегмент сферического днища требует замера самой формы днища." },
-      { q: "Учитывается ли толщина стенки?", a: "Нет. Размеры считаются внутренними. Если вы мерили снаружи, вычтите две толщины стенки из диаметра и одну из высоты." },
-    ],
+    howToUse: buildingWave16ContractContent.ru.howToUse,
+    howItWorks: buildingWave16ContractContent.ru.howItWorks,
+    example: buildingWave16ContractContent.ru.example,
+    faq: buildingWave16ContractContent.ru.faq,
     relatedCalculatorIds: ["geom-cylinder", "pool-fill-time", "room-volume"],
+      disclaimer: buildingWave16ContractContent.ru.disclaimer,
   },
 };

@@ -3,6 +3,7 @@ import Layout from '../../../components/Layout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CalculatorCard from '../../../components/CalculatorCard.astro';
 import FaqList from '../../../components/FaqList.astro';
+import { getCategoryGuidance, guidanceHeadings, type GuidanceLocale } from '../../../data/categoryGuidance';
 import {
   getAlternatesForCategory,
   getCalculatorsByCategory,
@@ -39,7 +40,7 @@ const pageCopy = {
   ru: { breadcrumbs: 'Хлебные крошки' },
   en: { breadcrumbs: 'Breadcrumbs' },
   es: { breadcrumbs: 'Migas de pan' },
-  de: { breadcrumbs: 'Breadcrumbs' },
+  de: { breadcrumbs: 'Brotkrumennavigation' },
   fr: { breadcrumbs: 'Fil d’Ariane' },
   pt: { breadcrumbs: 'Navegação estrutural' },
   it: { breadcrumbs: 'Breadcrumb' },
@@ -60,6 +61,7 @@ const usefulCopy = locale === 'ru'
       intro: 'Начните с популярного калькулятора или откройте полный список. Для другой задачи перейдите в соседний раздел.',
       popular: 'Популярные калькуляторы',
       newItems: 'Новые калькуляторы',
+      moreItems: 'Другие калькуляторы',
       other: 'Другие разделы',
     }
   : locale === 'uk'
@@ -68,6 +70,7 @@ const usefulCopy = locale === 'ru'
         intro: 'Почніть із популярного калькулятора або відкрийте повний список. Для іншого завдання перейдіть до сусіднього розділу.',
         popular: 'Популярні калькулятори',
         newItems: 'Нові калькулятори',
+        moreItems: 'Інші калькулятори',
         other: 'Інші розділи',
       }
     : locale === 'de'
@@ -76,6 +79,7 @@ const usefulCopy = locale === 'ru'
           intro: 'Beginne mit einem gefragten Rechner oder sieh dir die ganze Liste an. Für eine andere Aufgabe hilft ein benachbarter Bereich weiter.',
           popular: 'Gefragte Rechner',
           newItems: 'Neue Rechner',
+          moreItems: 'Weitere Rechner',
           other: 'Weitere Bereiche',
         }
       : locale === 'es'
@@ -84,6 +88,7 @@ const usefulCopy = locale === 'ru'
             intro: 'Empieza por una calculadora popular o abre la lista completa. Si buscas otra cosa, pásate a la sección vecina.',
             popular: 'Calculadoras populares',
             newItems: 'Calculadoras nuevas',
+            moreItems: 'Otras calculadoras',
             other: 'Otras secciones',
           }
       : {
@@ -91,12 +96,19 @@ const usefulCopy = locale === 'ru'
           intro: 'Start with a popular calculator or browse the full list. For a different task, open a related category.',
           popular: 'Popular calculators',
           newItems: 'New calculators',
+          moreItems: 'Other calculators',
           other: 'Other categories',
         };
 const category = getCategoriesBySlug(locale)[categorySlug];
 if (!category) return Astro.redirect('/404');
 
 const calculators = getCalculatorsByCategory(category.id, locale);
+const guidance = getCategoryGuidance(category.id, locale);
+const guideHeadings = guidance ? guidanceHeadings[locale as GuidanceLocale] : undefined;
+const guidedChoices = guidance?.choices.flatMap((choice) => {
+  const calculator = calculators.find((item) => item.id === choice.calculatorId);
+  return calculator ? [{ calculator, reason: choice.reason }] : [];
+}) ?? [];
 const popularInCategory = calculators
   .slice()
   .sort((a, b) => b.popularity - a.popularity)
@@ -238,8 +250,31 @@ const jsonLd = [
 
   <section class="border-t border-ink-200 bg-white/50" data-testid="category-useful-links">
     <div class="mx-auto max-w-page px-5 py-8 sm:px-8 sm:py-10">
-      <h2 class="text-fit text-2xl font-semibold tracking-tight text-ink-900">{usefulCopy.heading}</h2>
-      <p class="mt-3 max-w-3xl text-fit text-sm leading-relaxed text-ink-600">{usefulCopy.intro}</p>
+      <h2 class="text-fit text-2xl font-semibold tracking-tight text-ink-900">{guideHeadings?.heading ?? usefulCopy.heading}</h2>
+      {guidance && guideHeadings ? (
+        <div data-testid="category-guidance">
+          <div class="mt-5 grid gap-4 md:grid-cols-2" data-testid="category-guidance-choices">
+            {guidedChoices.map(({ calculator, reason }) => (
+              <article class="content-card">
+                <h3 class="font-semibold text-ink-900">
+                  <a href={calculator.fullPath} class="text-fit text-accent underline underline-offset-4" data-guidance-calculator={calculator.id}>{calculator.name}</a>
+                </h3>
+                <p class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{reason}</p>
+              </article>
+            ))}
+          </div>
+          <div class="mt-5 grid gap-4 md:grid-cols-2">
+            <div data-testid="category-guidance-checklist">
+              <h3 class="font-semibold text-ink-900">{guideHeadings.prepare}</h3>
+              <p class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{guidance.checklist}</p>
+            </div>
+            <div data-testid="category-guidance-mistake">
+              <h3 class="font-semibold text-ink-900">{guideHeadings.mistake}</h3>
+              <p class="mt-2 text-fit text-sm leading-relaxed text-ink-600">{guidance.mistake}</p>
+            </div>
+          </div>
+        </div>
+      ) : <p class="mt-3 max-w-3xl text-fit text-sm leading-relaxed text-ink-600">{usefulCopy.intro}</p>}
       <div class="mt-6 grid gap-4 lg:grid-cols-3">
         <div class="content-card">
           <h3 class="font-semibold text-ink-900">{usefulCopy.popular}</h3>
@@ -250,7 +285,7 @@ const jsonLd = [
           </div>
         </div>
         <div class="content-card">
-          <h3 class="font-semibold text-ink-900">{usefulCopy.newItems}</h3>
+          <h3 class="font-semibold text-ink-900" data-testid="category-recent-heading">{newInCategory.length > 0 ? usefulCopy.newItems : usefulCopy.moreItems}</h3>
           <div class="mt-3 flex flex-wrap gap-2">
             {(newInCategory.length > 0 ? newInCategory.slice(0, 3) : calculators.slice(-3)).map((calculator) => (
               <a href={calculator.fullPath} class="text-fit text-sm font-medium text-accent underline-offset-4 hover:underline">{calculator.name}</a>

@@ -1,11 +1,11 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const geomCylinderCopyUk: CalculatorSeoCopy = {
+export const geomCylinderCopyUk: CalculatorCopy = {
   name: "Калькулятор циліндра",
   slug: "tsylindr",
-  shortDescription: "Об’єм, бічна й повна поверхня циліндра за радіусом і висотою.",
   seoTitle: "Калькулятор циліндра — об’єм і площа поверхні",
-  seoDescription: "Обчисліть об’єм, бічну й повну площу поверхні циліндра за радіусом і висотою.",
   h1: "Калькулятор циліндра",
   keywords: ["калькулятор циліндра", "об’єм циліндра"],
+  ...contractContent.uk,
 };

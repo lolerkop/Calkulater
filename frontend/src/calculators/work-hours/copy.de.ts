@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
@@ -13,4 +14,6 @@ export const workHoursCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Zähle die geleisteten Stunden aus Schichtbeginn und Schichtende mit abgezogener Pause, auch bei Nachtschichten über Mitternacht.',
   h1: 'Arbeitszeitrechner',
   keywords: ['Arbeitszeit berechnen', 'Stundenzettel', 'Stunden je Schicht', 'Nachtschicht Stunden'],
-};
+
+    ...dateTimeWave15ContractContent.de['work-hours'],
+  };

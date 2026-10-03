@@ -1,98 +1,113 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'mode': 'Was bekannt ist',
-      'oldSalary': 'Bisheriges Gehalt, €',
-      'newSalary': 'Neues Gehalt, €',
-      'raisePct': 'Erhöhung, %',
-    },
-    options: {
-      'fromNew': 'das neue Gehalt',
-      'fromPct': 'der Prozentsatz der Erhöhung',
-    },
-    results: {
-      'Изменение': 'Veränderung',
-      'Новая зарплата': 'Neues Gehalt',
-      'Разница': 'Unterschied',
-      'Было': 'Vorher',
-      'Стало': 'Nachher',
-      'Множитель': 'Faktor',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'Прежняя зарплата должна быть больше нуля': 'Das bisherige Gehalt muss größer als null sein',
-      'Новая зарплата должна быть больше нуля': 'Das neue Gehalt muss größer als null sein',
-    },
+  "en": {
+  "fields": {
+    "mode": "What is known",
+    "oldSalary": "Previous salary",
+    "newSalary": "New salary",
+    "raisePct": "Raise, %"
   },
-  en: {
-    fields: {
-      mode: 'What is known',
-      oldSalary: 'Previous salary, ₽',
-      newSalary: 'New salary, ₽',
-      raisePct: 'Raise, %',
-    },
-    options: { fromNew: 'the new salary', fromPct: 'the raise percentage' },
-    results: {
-      'Изменение': 'Change',
-      'Новая зарплата': 'New salary',
-      'Разница': 'Difference',
-      'Было': 'Before',
-      'Стало': 'After',
-      'Множитель': 'Multiple',
-      'Проверьте данные': 'Check the values',
-    },
-    values: {
-      'Прежняя зарплата должна быть больше нуля': 'The previous salary must be greater than zero',
-      'Новая зарплата должна быть больше нуля': 'The new salary must be greater than zero',
-    },
+  "options": {
+    "fromNew": "the new salary",
+    "fromPct": "the raise percentage"
   },
-  uk: {
-    fields: {
-      mode: 'Що відомо',
-      oldSalary: 'Попередня зарплата, ₽',
-      newSalary: 'Нова зарплата, ₽',
-      raisePct: 'Підвищення, %',
-    },
-    options: { fromNew: 'нова зарплата', fromPct: 'відсоток підвищення' },
-    results: {
-      'Изменение': 'Зміна',
-      'Новая зарплата': 'Нова зарплата',
-      'Разница': 'Різниця',
-      'Было': 'Було',
-      'Стало': 'Стало',
-      'Множитель': 'Множник',
-      'Проверьте данные': 'Перевірте дані',
-    },
-    values: {
-      'Прежняя зарплата должна быть больше нуля': 'Попередня зарплата має бути більшою за нуль',
-      'Новая зарплата должна быть больше нуля': 'Нова зарплата має бути більшою за нуль',
-    },
+  "results": {
+    "Изменение": "Change",
+    "Новая зарплата": "New salary",
+    "Разница": "Difference",
+    "Было": "Before",
+    "Стало": "After",
+    "Множитель": "Multiple",
+    "Проверьте данные": "Check the values"
   },
-  es: {
-    fields: {
-      "mode": "Qué se conoce",
-      "oldSalary": "Salario anterior, €",
-      "newSalary": "Salario nuevo, €",
-      "raisePct": "Subida, %",
-    },
-    options: {
-      "fromNew": "el salario nuevo",
-      "fromPct": "el porcentaje de subida",
-    },
-    results: {
-      "Изменение": "Variación",
-      "Новая зарплата": "Salario nuevo",
-      "Разница": "Diferencia",
-      "Было": "Antes",
-      "Стало": "Después",
-      "Множитель": "Multiplicador",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "Прежняя зарплата должна быть больше нуля": "El salario anterior debe ser mayor que cero",
-      "Новая зарплата должна быть больше нуля": "El salario nuevo debe ser mayor que cero",
-    },
+  "values": {
+    ...marketingScalarValues.en,
+    "Прежняя зарплата должна быть больше нуля": "The previous salary must be greater than zero",
+    "Новая зарплата должна быть больше нуля": "The new salary must be greater than zero",
+    "Неизвестный режим расчёта": "Unknown calculation mode"
+  }
+},
+  "uk": {
+  "fields": {
+    "mode": "Що відомо",
+    "oldSalary": "Попередня зарплата",
+    "newSalary": "Нова зарплата",
+    "raisePct": "Підвищення, %"
   },
+  "options": {
+    "fromNew": "нова зарплата",
+    "fromPct": "відсоток підвищення"
+  },
+  "results": {
+    "Изменение": "Зміна",
+    "Новая зарплата": "Нова зарплата",
+    "Разница": "Різниця",
+    "Было": "Було",
+    "Стало": "Стало",
+    "Множитель": "Множник",
+    "Проверьте данные": "Перевірте дані"
+  },
+  "values": {
+    ...marketingScalarValues.uk,
+    "Прежняя зарплата должна быть больше нуля": "Попередня зарплата має бути більшою за нуль",
+    "Новая зарплата должна быть больше нуля": "Нова зарплата має бути більшою за нуль",
+    "Неизвестный режим расчёта": "Невідомий режим розрахунку"
+  }
+},
+  "de": {
+  "fields": {
+    "mode": "Was bekannt ist",
+    "oldSalary": "Bisheriges Gehalt",
+    "newSalary": "Neues Gehalt",
+    "raisePct": "Erhöhung, %"
+  },
+  "options": {
+    "fromNew": "das neue Gehalt",
+    "fromPct": "der Prozentsatz der Erhöhung"
+  },
+  "results": {
+    "Изменение": "Veränderung",
+    "Новая зарплата": "Neues Gehalt",
+    "Разница": "Unterschied",
+    "Было": "Vorher",
+    "Стало": "Nachher",
+    "Множитель": "Faktor",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "Прежняя зарплата должна быть больше нуля": "Das bisherige Gehalt muss größer als null sein",
+    "Новая зарплата должна быть больше нуля": "Das neue Gehalt muss größer als null sein",
+    "Неизвестный режим расчёта": "Unbekannter Rechenmodus"
+  }
+},
+  "es": {
+  "fields": {
+    "mode": "Qué se conoce",
+    "oldSalary": "Salario anterior",
+    "newSalary": "Salario nuevo",
+    "raisePct": "Subida, %"
+  },
+  "options": {
+    "fromNew": "el salario nuevo",
+    "fromPct": "el porcentaje de subida"
+  },
+  "results": {
+    "Изменение": "Variación",
+    "Новая зарплата": "Salario nuevo",
+    "Разница": "Diferencia",
+    "Было": "Antes",
+    "Стало": "Después",
+    "Множитель": "Multiplicador",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "Прежняя зарплата должна быть больше нуля": "El salario anterior debe ser mayor que cero",
+    "Новая зарплата должна быть больше нуля": "El salario nuevo debe ser mayor que cero",
+    "Неизвестный режим расчёта": "Modo de cálculo desconocido"
+  }
+}
 };

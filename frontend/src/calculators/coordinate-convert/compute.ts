@@ -1,71 +1,44 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtInt, fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatStatistic } from '../../lib/platform/measurement';
-
-// Координаты: градусы-минуты-секунды ↔ десятичные градусы.
-//
-//   D = d + m/60 + s/3600
-//   обратно: d = ⌊|D|⌋, m = ⌊(|D| − d)·60⌋, s = ((|D| − d)·60 − m)·60
-//
-// Знак несёт полушарие, а не само число: в записи ГМС минус не пишут, вместо
-// него ставят букву. Поэтому направление живёт отдельным полем, а знак
-// появляется только в десятичной записи.
-//
-// Секунды хранятся дробными и не округляются: округление секунды до целой
-// сдвигает точку на тридцать метров. Показываются четыре знака — это около
-// одиннадцати метров по широте.
-const HEMISPHERE_LABEL: Record<string, string> = {
-  N: 'северное или восточное',
-  S: 'южное или западное',
-};
-
-export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'toDecimal');
-  const deg = toNumber(inputs.deg);
-  const minutes = toNumber(inputs.minutes);
-  const seconds = toNumber(inputs.seconds);
-  const decimal = toNumber(inputs.decimal);
-  const hemisphere = toStr(inputs.hemisphere, 'N');
-  const toDms = mode === 'toDms';
-  const label = toDms ? 'Градусы, минуты, секунды' : 'Десятичные градусы';
-  const fail = (message: string) => ({
-    primary: { label, value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  const dms = (d: number, m: number, s: number) =>
-    `${fmtInt(d)}° ${fmtInt(m)}′ ${formatStatistic(s, fmtNumber)}″`;
-
-  if (toDms) {
-    if (Math.abs(decimal) > 180) return fail('Десятичные градусы должны быть от −180 до 180');
-    const abs = Math.abs(decimal);
-    let d = Math.floor(abs);
-    let m = Math.floor((abs - d) * 60);
-    let s = ((abs - d) * 60 - m) * 60;
-    if (Number(s.toFixed(6)) >= 60) { s = 0; m += 1; }
-    if (m >= 60) { m = 0; d += 1; }
-    return {
-      primary: { label, value: dms(d, m, s) },
-      secondary: [
-        { label: 'Десятичные градусы', value: `${formatStatistic(decimal, fmtNumber)}°` },
-        { label: 'Полушарие', value: HEMISPHERE_LABEL[decimal < 0 ? 'S' : 'N'] },
-        { label: 'Только градусы и минуты', value: `${fmtInt(d)}° ${formatStatistic(m + s / 60, fmtNumber)}′` },
-      ],
-    };
-  }
-
-  if (!(deg >= 0) || deg > 180) return fail('Градусы должны быть от 0 до 180');
-  if (!(minutes >= 0) || minutes >= 60) return fail('Минуты должны быть от 0 до 59');
-  if (!(seconds >= 0) || seconds >= 60) return fail('Секунды должны быть от 0 до 59');
-  const value = deg + minutes / 60 + seconds / 3600;
-  if (value > 180) return fail('Итог превышает 180 градусов');
-  const signed = hemisphere === 'S' ? -value : value;
-
-  return {
-    primary: { label, value: `${formatStatistic(signed, fmtNumber)}°` },
-    secondary: [
-      { label: 'Градусы, минуты, секунды', value: dms(deg, minutes, seconds) },
-      { label: 'Полушарие', value: HEMISPHERE_LABEL[hemisphere] ?? HEMISPHERE_LABEL.N },
-      { label: 'Только градусы и минуты', value: `${fmtInt(deg)}° ${formatStatistic(minutes + seconds / 60, fmtNumber)}′` },
-    ],
-  };
+import { fmtInt, fmtNumber } from '../../lib/format';
+import { formatStatistic,formatQuantity } from '../../lib/platform/measurement';
+import { readScalar, whole, option } from '../converterWave10Numeric';
+const stat=(n:number)=>n!==0&&Math.abs(n)<1e-4?formatQuantity(n,fmtNumber):formatStatistic(n,fmtNumber);
+const HEMISPHERE_LABEL:Record<string,string>={N:'северное или восточное',S:'южное или западное'};
+// One angular component, not an axis-aware latitude/longitude or GPX validator.
+export const compute:CalcFunction=(inputs)=>{
+ const mode=option(inputs.mode,'toDecimal',['toDecimal','toDms']);
+ const label=mode==='toDms'?'Градусы, минуты, секунды':'Десятичные градусы';
+ const fail=(value:string)=>({primary:{label,value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ const dms=(d:number,m:number,s:number)=>`${fmtInt(d)}° ${fmtInt(m)}′ ${stat(s)}″`;
+ if(!mode)return fail('Выберите направление перевода');
+ if(mode==='toDms'){
+  const decimal=readScalar(inputs.decimal);
+  if(!Number.isFinite(decimal)||Math.abs(decimal)>180)return fail('Десятичные градусы должны быть от −180 до 180');
+  const abs=Math.abs(decimal);let d=Math.floor(abs),m=Math.floor((abs-d)*60);
+  // Round to the same four decimal places as the displayed seconds before carrying.
+  const rawSeconds=((abs-d)*60-m)*60;
+  let s=rawSeconds>0&&rawSeconds<.00005?rawSeconds:Number(rawSeconds.toFixed(4));
+  if(s>=60){s=0;m++;}if(m>=60){m=0;d++;}
+  return {primary:{label,value:dms(d,m,s)},secondary:[
+   {label:'Десятичные градусы',value:`${stat(decimal)}°`},
+   {label:'Полушарие',value:HEMISPHERE_LABEL[decimal<0?'S':'N']},
+   {label:'Только градусы и минуты',value:`${fmtInt(d)}° ${stat(m+s/60)}′`},
+  ]};
+ }
+ const deg=whole(inputs.deg),minutes=whole(inputs.minutes),seconds=readScalar(inputs.seconds);
+ const hemisphere=option(inputs.hemisphere,'N',['N','S']);
+ if(!hemisphere)return fail('Выберите полушарие');
+ if(!(deg>=0&&deg<=180))return fail('Градусы должны быть от 0 до 180');
+ if(!(minutes>=0&&minutes<60))return fail('Минуты должны быть от 0 до 59');
+ if(!(seconds>=0&&seconds<60))return fail('Секунды должны быть от 0 до менее 60');
+ const value=deg+minutes/60+seconds/3600;
+ if(value===0&&(deg>0||minutes>0||seconds>0))return fail('Ненулевой угол меньше числового диапазона');
+ // At180°, even a tiny positive remainder is outside the accepted range.
+ if(value>180||(deg===180&&(minutes>0||seconds>0)))return fail('Итог превышает 180 градусов');
+ const signed=hemisphere==='S'?-value:value;
+ return {primary:{label,value:`${stat(signed)}°`},secondary:[
+  {label:'Градусы, минуты, секунды',value:dms(deg,minutes,seconds)},
+  {label:'Полушарие',value:HEMISPHERE_LABEL[hemisphere]},
+  {label:'Только градусы и минуты',value:`${fmtInt(deg)}° ${stat(minutes+seconds/60)}′`},
+ ]};
 };

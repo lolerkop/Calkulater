@@ -39,4 +39,7 @@ export const geomTriangleReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"mode": "sss", "unit": "cm", "a": 1, "b": 1, "c": 5},
     expectPrimary: "—",
   },
+  // Независимые аналитические случаи: масштабирование формул и явные границы области.
+  {"name": "узкий равнобедренный треугольник не теряет короткую сторону", "inputs": {"mode": "sss", "unit": "m", "a": 1e+100, "b": 1e+100, "c": 1}, "expectPrimary": "5,000·10^99 м²", "expectSecondary": [{"label": "Вид треугольника", "value": "остроугольный"}]},
+  {"name": "площадь по основанию и высоте без промежуточного переполнения", "inputs": {"mode": "baseHeight", "unit": "m", "base": 2e+154, "height": 1e+154}, "expectPrimary": "1,000·10^308 м²"},
 ];

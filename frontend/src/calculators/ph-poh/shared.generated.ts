@@ -13,6 +13,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Check inputs',
       'В': 'To',
+      'Темп': 'Pace',
     },
     values: {
       'Среда': 'Wednesday',
@@ -22,6 +23,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Перевірте дані',
       'В': 'У',
+      'Темп': 'Темп',
     },
     values: {
       'Среда': 'Середа',
@@ -31,6 +33,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
       'В': 'Nach',
+      'Темп': 'Tempo',
     },
     values: {
       'Среда': 'Mittwoch',
@@ -40,6 +43,7 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'В': 'A',
+      'Темп': 'Ritmo',
     },
     values: {
       'Среда': 'miércoles',

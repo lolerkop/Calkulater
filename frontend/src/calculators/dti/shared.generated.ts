@@ -12,29 +12,37 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
+      'Результат': 'Result',
       'В': 'To',
       'Платеж': 'Payment',
+      'Остаток': 'Balance',
     },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
+      'Результат': 'Результат',
       'В': 'У',
       'Платеж': 'Платіж',
+      'Остаток': 'Залишок',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Платеж': 'Rate',
+      'Остаток': 'Restschuld',
     },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Результат': 'Resultado',
       'В': 'A',
       'Платеж': 'Cuota',
+      'Остаток': 'Pendiente',
     },
   },
 };

@@ -217,23 +217,23 @@ export const faq: CategoryFaqByLocale = {
     },
   ],
   de: [
-    {
-      q: "Why must the LED forward voltage be below the supply?",
-      a: "The resistor drops the difference between them. With no difference there is nothing to drop and no operating point, so the calculation has no meaning.",
-    },
-    {
-      q: "What units should the current be in?",
-      a: "Milliamps or amps — the result is the same, and the unit is chosen next to the field.",
-    },
-    {
-      q: "Are inrush current and battery sag included?",
-      a: "No. The calculations are deterministic and use only the values you enter; discharge curves and start-up peaks are not modelled.",
-    },
-    {
-      q: "Is a standard resistor value suggested?",
-      a: "No, the calculator gives the exact computed resistance. Picking the nearest E12 or E24 value is left to you.",
-    },
-  ],
+        {
+          "q": "Warum muss die LED-Flussspannung kleiner als die Versorgung sein?",
+          "a": "Am Widerstand fällt die Differenz ab. Ohne positive Differenz ist in dieser Serienwiderstandsberechnung kein Arbeitspunkt mit dem vorgegebenen positiven Strom bestimmbar."
+        },
+        {
+          "q": "In welcher Einheit wird der Strom eingegeben?",
+          "a": "Beim LED-Widerstandsrechner kannst du Milliampere oder Ampere wählen. Gib denselben physikalischen Strom in der ausgewählten Einheit ein: 20 mA sind 0,02 A."
+        },
+        {
+          "q": "Werden Einschaltstrom und Spannungseinbruch der Batterie berücksichtigt?",
+          "a": "Die einfachen Rechnungen verwenden die eingegebenen Werte. Sie modellieren keine zeitabhängigen Entladekurven oder Einschaltspitzen; prüfe den angegebenen Geltungsbereich des einzelnen Werkzeugs."
+        },
+        {
+          "q": "Wird ein Widerstand aus einer Normreihe vorgeschlagen?",
+          "a": "Der LED-Widerstandsrechner zeigt den berechneten Widerstand und die Leistungen. Ein Bauteil aus E12 oder E24 wird nicht automatisch ausgewählt; Toleranz, Leistung und der gewünschte Strom sind gesondert zu prüfen."
+        }
+      ],
   fr: [
     {
       q: "Why must the LED forward voltage be below the supply?",

@@ -1,6 +1,7 @@
-import type { CalculatorLocalization } from '../../lib/platform/types';
+import type { CalculatorLocalization, CalculatorLocaleBundle, TranslatedLocale } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
-export const localization: CalculatorLocalization = {
+const previousLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'revenue': 'Umsatz, €',
@@ -64,7 +65,7 @@ export const localization: CalculatorLocalization = {
     results: {
       "Прибыль": "Beneficio",
       "Маржа": "Margen",
-      "Наценка": "Marcado",
+      "Наценка": "Recargo",
       "Выручка": "Ingresos",
       "Затраты": "Costes",
       "Проверьте данные": "Revisa los datos",
@@ -75,3 +76,31 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+const contractOverrides: Record<TranslatedLocale, CalculatorLocaleBundle> = {
+  "en": {
+    "fields": {},
+    "values": {}
+  },
+  "uk": {
+    "fields": {},
+    "values": {}
+  },
+  "de": {
+    "fields": {},
+    "values": {}
+  },
+  "es": {
+    "fields": {},
+    "values": {}
+  }
+};
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(contractOverrides).map(([locale, additions]) => {
+    const key = locale as keyof typeof marketingScalarValues;
+    const prior = previousLocalization[key];
+    const nativeFields = Object.fromEntries(Object.entries(prior?.fields ?? {}).map(([name, label]) => [name, label.replace(/, [₽$₴€%]$/, '')]));
+    return [locale, { ...prior, fields: { ...nativeFields, ...additions.fields }, values: { ...prior?.values, ...marketingScalarValues[key], ...additions.values } }];
+  }),
+);

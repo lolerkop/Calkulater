@@ -1,11 +1,38 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
+const contractValues = {
+  "en": {
+    "Количество должно быть целым в допустимом диапазоне": "The count must be a whole number within the supported range",
+    "Введите корректные значения": "Enter valid numerical values",
+    "Результат выходит за числовые пределы расчёта": "The result exceeds the numerical limits of this calculation",
+    "Число месяцев не может превышать 12000": "The month count cannot exceed 12000"
+  },
+  "uk": {
+    "Количество должно быть целым в допустимом диапазоне": "Кількість має бути цілим числом у допустимому діапазоні",
+    "Введите корректные значения": "Введіть коректні числові значення",
+    "Результат выходит за числовые пределы расчёта": "Результат виходить за числові межі розрахунку",
+    "Число месяцев не может превышать 12000": "Кількість місяців не може перевищувати 12000"
+  },
+  "de": {
+    "Количество должно быть целым в допустимом диапазоне": "Die Anzahl muss eine ganze Zahl im zulässigen Bereich sein",
+    "Введите корректные значения": "Gib gültige Zahlenwerte ein",
+    "Результат выходит за числовые пределы расчёта": "Das Ergebnis überschreitet die Zahlengrenzen dieser Rechnung",
+    "Число месяцев не может превышать 12000": "Die Monatszahl darf 12000 nicht überschreiten"
+  },
+  "es": {
+    "Количество должно быть целым в допустимом диапазоне": "La cantidad debe ser un entero dentro del intervalo permitido",
+    "Введите корректные значения": "Introduce valores numéricos válidos",
+    "Результат выходит за числовые пределы расчёта": "El resultado supera los límites numéricos del cálculo",
+    "Число месяцев не может превышать 12000": "El número de meses no puede superar 12000"
+  }
+} as const;
+
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'monthly': 'Monatlicher Beitrag, €',
+      'monthly': 'Monatlicher Beitrag',
       'months': 'Monate',
-      'startPrice': 'Anfangspreis je Anteil, €',
+      'startPrice': 'Anfangspreis je Anteil',
       'priceGrowthPct': 'Monatliche Preisänderung, %',
     },
     results: {
@@ -23,6 +50,7 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      ...contractValues.de,
       'Показаны первые 12 месяцев расчёта.': 'Gezeigt werden die ersten 12 Monate der Rechnung.',
       '₽': '€',
       'Взнос должен быть больше нуля': 'Der Beitrag muss größer als null sein',
@@ -34,9 +62,9 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      "monthly": "Monthly contribution, $",
+      "monthly": "Monthly contribution",
       "months": "Months",
-      "startPrice": "Starting price per unit, $",
+      "startPrice": "Starting price per unit",
       "priceGrowthPct": "Monthly price change, %",
     },
     options: {},
@@ -55,6 +83,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      ...contractValues.en,
       "Показаны первые 12 месяцев расчёта.": "Showing the first 12 months of the calculation.",
       "₽": "$",
       "Взнос должен быть больше нуля": "The contribution must be greater than zero",
@@ -66,9 +95,9 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      "monthly": "Внесок на місяць, ₴",
+      "monthly": "Внесок на місяць",
       "months": "Місяців",
-      "startPrice": "Початкова ціна за одиницю, ₴",
+      "startPrice": "Початкова ціна за одиницю",
       "priceGrowthPct": "Зміна ціни на місяць, %",
     },
     options: {},
@@ -87,6 +116,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      ...contractValues.uk,
       "Показаны первые 12 месяцев расчёта.": "Показано перші 12 місяців розрахунку.",
       "₽": "₴",
       "Взнос должен быть больше нуля": "Внесок має бути більшим за нуль",
@@ -98,9 +128,9 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "monthly": "Aportación mensual, €",
+      "monthly": "Aportación mensual",
       "months": "Meses",
-      "startPrice": "Precio inicial por unidad, €",
+      "startPrice": "Precio inicial por unidad",
       "priceGrowthPct": "Variación mensual del precio, %",
     },
     options: {},
@@ -119,6 +149,7 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      ...contractValues.es,
       "Показаны первые 12 месяцев расчёта.": "Se muestran los 12 primeros meses del cálculo.",
       "₽": "€",
       "Взнос должен быть больше нуля": "La aportación debe ser mayor que cero",

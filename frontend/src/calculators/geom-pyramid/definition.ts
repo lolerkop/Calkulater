@@ -1,3 +1,6 @@
+import { contextualField } from './contextualField';
+import { validate } from './validate';
+import { contractContent } from './contractContent';
 import type { CalculatorDefinitionV2 } from '../../lib/platform/types';
 import { compute } from './compute';
 import { geomPyramidCopyEn } from './copy.en';
@@ -17,6 +20,8 @@ export const definition: CalculatorDefinitionV2 = {
   definitionVersion: 1,
   lifecycle: 'released',
   compute,
+  contextualField,
+  validate,
   copy: { en: geomPyramidCopyEn, uk: geomPyramidCopyUk, de: geomPyramidCopyDe, es: geomPyramidCopyEs },
   referenceCases: geomPyramidReferenceCases,
   publishedExample: {
@@ -24,6 +29,7 @@ export const definition: CalculatorDefinitionV2 = {
     expected: ['108 см³'],
   },
   presentation: {
+    ...contractContent.ru,
     id: 'geom-pyramid',
     name: 'Калькулятор пирамиды',
     slug: 'geom-pyramid',
@@ -32,19 +38,14 @@ export const definition: CalculatorDefinitionV2 = {
     icon: 'triangle',
     popularity: 22,
     isNew: false,
-    shortDescription: 'Объём, апофема и площади правильной пирамиды.',
-    longDescription:
-      'Апофем у пирамиды две, и путаница между ними — обычная ошибка. Апофема основания лежит плашмя внутри основания и идёт от его центра к середине стороны. Апофема боковой грани — это высота треугольной грани, отмеренная по наклонной поверхности, и именно она входит в площадь боковой поверхности. Вторая всегда длиннее первой, потому что образует гипотенузу с высотой пирамиды. Треть в формуле объёма — не приближение: любая пирамида и любой конус занимают ровно треть призмы или цилиндра, стоящих на том же основании при той же высоте.',
     seoTitle: 'Калькулятор пирамиды: объём и площадь поверхности',
-    seoDescription:
-      'Рассчитайте объём, апофему, боковую и полную поверхность правильной пирамиды по числу сторон основания, стороне и высоте.',
     h1: 'Калькулятор пирамиды',
     keywords: ['калькулятор пирамиды', 'объём пирамиды', 'апофема', 'площадь поверхности пирамиды'],
     fields: [
       { name: 'unit', label: 'Единица длины', type: 'select', defaultValue: 'cm', options: UNITS },
-      { name: 'sides', label: 'Сторон основания', type: 'number', defaultValue: 4, min: 3, max: 100, step: 1 },
-      { name: 'side', label: 'Сторона основания', type: 'number', defaultValue: 6, min: 0, step: 0.5 },
-      { name: 'height', label: 'Высота пирамиды', type: 'number', defaultValue: 9, min: 0, step: 0.5 },
+      { name: 'sides', label: 'Сторон основания', type: 'number', unit: '1', defaultValue: 4, min: 3, max: 100, step: 1 },
+      { name: 'side', label: 'Сторона основания', type: 'number', unit: 'см', defaultValue: 6, min: 0, step: 0.5 },
+      { name: 'height', label: 'Высота пирамиды', type: 'number', unit: 'см', defaultValue: 9, min: 0, step: 0.5 },
     ],
     resultLabels: {
       volume: 'Объём',
@@ -53,33 +54,6 @@ export const definition: CalculatorDefinitionV2 = {
       lateral: 'Боковая поверхность',
       total: 'Полная поверхность',
     },
-    howToUse: [
-      'Выберите единицу длины для всех вводимых величин.',
-      'Укажите, сколько сторон у многоугольника основания.',
-      'Введите длину одной стороны основания.',
-      'Введите высоту по вертикали от основания до вершины.',
-    ],
-    howItWorks:
-      'Апофема основания = сторона ÷ (2 × tg(π ÷ n)). Апофема боковой грани — гипотенуза высоты и этой апофемы. Объём = площадь основания × высота ÷ 3.',
-    example: 'Квадратная пирамида со стороной 6 см и высотой 9 см вмещает 108 см³ при апофеме 9,487 см.',
-    faq: [
-      {
-        q: 'Высоту мерить по вертикали или по грани?',
-        a: 'По вертикали, от центра основания до вершины. Измерение по грани — это апофема, и она выдаётся результатом, а не берётся входом.',
-      },
-      {
-        q: 'Почему в объёме треть, а не половина?',
-        a: 'Потому что три одинаковые пирамиды в точности заполняют призму с тем же основанием и той же высотой. Это геометрический факт, а не округлённый коэффициент.',
-      },
-      {
-        q: 'Подойдёт ли расчёт для пирамиды Хеопса?',
-        a: 'Да, как для квадратной пирамиды: четыре стороны основания, сторона около 230 м и высота около 146 м. Результат близок к 2,6 миллиона кубометров.',
-      },
-      {
-        q: 'А если вершина смещена от центра?',
-        a: 'Формула объёма остаётся верной, но грани перестают быть одинаковыми, и единая апофема теряет смысл. Этот расчёт предполагает правильную пирамиду.',
-      },
-    ],
     relatedCalculatorIds: ['geom-cone', 'geom-prism', 'geom-regular-polygon'],
   },
 };

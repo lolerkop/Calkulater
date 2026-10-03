@@ -8,6 +8,7 @@ export const shared: CalculatorLocalization = {
   en: {
     results: {
       'Проверьте данные': 'Check inputs',
+      'Из': 'From',
       'В': 'To',
       'Площадь': 'Area',
       'Количество рулонов': 'Rolls needed',
@@ -25,6 +26,7 @@ export const shared: CalculatorLocalization = {
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
+      'Из': 'З',
       'В': 'У',
       'Площадь': 'Площа',
       'Количество рулонов': 'Кількість рулонів',
@@ -42,6 +44,7 @@ export const shared: CalculatorLocalization = {
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
+      'Из': 'Von',
       'В': 'Nach',
       'Площадь': 'Fläche',
       'Количество рулонов': 'Anzahl der Rollen',
@@ -59,6 +62,7 @@ export const shared: CalculatorLocalization = {
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
+      'Из': 'De',
       'В': 'A',
       'Площадь': 'Área',
       'Количество рулонов': 'Número de rollos',

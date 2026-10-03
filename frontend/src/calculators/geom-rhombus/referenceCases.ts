@@ -26,4 +26,7 @@ export const geomRhombusReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: { "unit": "cm", "mode": "diagonals", "d1": 0, "d2": 8 },
     expectPrimary: "—",
   },
+  // Независимые аналитические случаи: масштабирование формул и явные границы области.
+  {"name": "половина произведения диагоналей без промежуточного переполнения", "inputs": {"unit": "m", "d1": 2e+154, "d2": 1e+154}, "expectPrimary": "1,000·10^308 м²"},
+  {"name": "булево значение не считается единичной диагональю", "inputs": {"unit": "m", "d1": true, "d2": 8}, "expectPrimary": "—"},
 ];

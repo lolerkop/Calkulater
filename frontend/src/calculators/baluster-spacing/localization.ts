@@ -1,3 +1,4 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 const RESULTS_EN = {
@@ -14,9 +15,9 @@ const RESULTS_UK = {
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'run': 'Lichte Weite zwischen den Pfosten, mm',
-      'baluster_width': 'Stabbreite, mm',
-      'max_gap': 'Höchstlücke, mm',
+      'run': "Lichte Weite zwischen den Pfosten",
+      'baluster_width': "Stabbreite",
+      'max_gap': "Höchstlücke",
     },
     results: {
       'Балясин': 'Geländerstäbe',
@@ -38,7 +39,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { run: 'Clear run between posts, mm', baluster_width: 'Baluster width, mm', max_gap: 'Maximum gap, mm' },
+    fields: { run: "Clear run between posts", baluster_width: "Baluster width", max_gap: "Maximum gap" },
     options: {},
     results: RESULTS_EN,
     values: {
@@ -52,7 +53,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { run: 'Проліт між опорами, мм', baluster_width: 'Ширина стійки, мм', max_gap: 'Граничний просвіт, мм' },
+    fields: { run: "Проліт між опорами", baluster_width: "Ширина стійки", max_gap: "Граничний просвіт" },
     options: {},
     results: RESULTS_UK,
     values: {
@@ -67,9 +68,9 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "run": "Luz libre entre postes, mm",
-      "baluster_width": "Ancho del balaustre, mm",
-      "max_gap": "Separación máxima, mm",
+      "run": "Luz libre entre postes",
+      "baluster_width": "Ancho del balaustre",
+      "max_gap": "Separación máxima",
     },
     options: {},
     results: {
@@ -92,3 +93,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

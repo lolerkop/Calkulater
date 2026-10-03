@@ -1,48 +1,42 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { displayNumber as text, displayMoney as money } from '../../lib/platform/financeDisplay';
+import { number } from '../../lib/platform/scalarInputDisplay';
+import { divideRate } from '../../lib/platform/financeMath';
 import { formatStatistic } from '../../lib/platform/measurement';
 
-// Будущая и текущая стоимость денег — две стороны одного множителя (1+i)ⁿ:
-// будущая умножает на него, текущая делит. Дисконтирование отвечает на вопрос
-// «сколько сегодня стоит обещанная через N лет сумма», и на сайте его не было.
-//
-// Эффективная годовая ставка показана отдельно, потому что номинальные 12 %
-// с ежемесячным начислением — это на самом деле 12,68 % годовых. Сравнивать
-// предложения с разной частотой начисления по номинальной ставке нельзя.
-
 const PERIODS: Record<string, number> = { month: 12, quarter: 4, year: 1 };
-
 export const compute: CalcFunction = (inputs) => {
-  const discount = toStr(inputs.mode, 'fv') === 'pv';
-  const amount = toNumber(inputs.amount);
-  const rate = toNumber(inputs.rate);
-  const years = toNumber(inputs.years);
-  const m = PERIODS[toStr(inputs.compounding, 'year')] ?? 1;
+  const mode = inputs.mode === undefined ? 'fv' : inputs.mode;
+  const compounding = inputs.compounding === undefined ? 'year' : inputs.compounding;
+  const discount = mode === 'pv';
   const fail = (message: string) => ({
     primary: { label: discount ? 'Текущая стоимость' : 'Будущая стоимость', value: '—' },
     secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
   });
-
+  if (mode !== 'fv' && mode !== 'pv') return fail('Выберите направление расчёта стоимости');
+  if (typeof compounding !== 'string' || !Object.hasOwn(PERIODS, compounding)) return fail('Выберите частоту начисления процентов');
+  const amount = number(inputs.amount);
+  const rate = number(inputs.rate);
+  const years = number(inputs.years);
+  if (amount === null || rate === null || years === null) return fail('Введите корректные числовые данные');
   if (!(amount > 0)) return fail('Сумма должна быть больше нуля');
   if (rate < 0) return fail('Ставка не может быть отрицательной');
   if (!(years > 0)) return fail('Срок должен быть больше нуля');
-
-  const i = rate / (100 * m);
+  const m = PERIODS[compounding];
+  const i = divideRate(rate, 100 * m);
+  if (i === null) return fail('Результат вне допустимого диапазона');
   const n = years * m;
-  const factor = Math.pow(1 + i, n);
-  if (!Number.isFinite(factor) || factor <= 0) return fail('Значение слишком велико для расчёта');
-
-  const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
-
+  const logarithm = Math.log1p(i);
+  const factor = Math.exp(n * logarithm);
+  const result = discount ? amount / factor : amount * factor;
+  const effective = Math.expm1(m * logarithm) * 100;
+  if (![n, factor, result, effective].every(Number.isFinite) || n <= 0 || factor <= 0 || result <= 0 || (rate > 0 && effective === 0)) return fail('Результат вне допустимого диапазона');
   return {
-    primary: {
-      label: discount ? 'Текущая стоимость' : 'Будущая стоимость',
-      value: money(discount ? amount / factor : amount * factor),
-    },
+    primary: { label: discount ? 'Текущая стоимость' : 'Будущая стоимость', value: money(result) },
     secondary: [
-      { label: 'Множитель роста', value: formatStatistic(factor, fmtNumber) },
-      { label: 'Эффективная годовая ставка', value: `${fmtNumber((Math.pow(1 + i, m) - 1) * 100, 2)}%` },
-      { label: 'Периодов начисления', value: fmtNumber(n, 0) },
+      { label: 'Множитель роста', value: formatStatistic(factor, text) },
+      { label: 'Эффективная годовая ставка', value: `${text(effective)}%` },
+      { label: 'Периодов начисления', value: formatStatistic(n, text) },
       { label: 'Исходная сумма', value: money(amount) },
     ],
   };

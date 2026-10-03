@@ -1,11 +1,12 @@
+import { mathWave8ContractContent } from './contractContent';
 // Испанский копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла испанской страницы не существует. Подробный текст живёт в
 // `src/data/esCalculatorContent.ts`.
 
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const correlationCopyEs: CalculatorSeoCopy = {
+export const correlationCopyEs: CalculatorCopy = {
   name: "Calculadora de coeficiente de correlación",
   slug: "coeficiente-de-correlacion",
   shortDescription: "Correlación de Pearson para dos series, junto con la recta de regresión.",
@@ -13,4 +14,5 @@ export const correlationCopyEs: CalculatorSeoCopy = {
   seoDescription: "Calcula el coeficiente de correlación de Pearson, el coeficiente de determinación, la covarianza y la recta de regresión a partir de dos series de valores.",
   h1: "Calculadora de coeficiente de correlación",
   keywords: ["coeficiente de correlación", "correlación de Pearson", "recta de regresión", "coeficiente de determinación"],
+  ...mathWave8ContractContent.es,
 };

@@ -2,13 +2,14 @@ import { describe, it, expect } from 'vitest';
 import { calcCalorie } from '../src/lib/calculators/calorie';
 
 describe('calorie: calcCalorie', () => {
-  it('считает BMR и TDEE для мужчины (Mifflin-St Jeor)', () => {
+  it('считает REE и TDEE для мужчины (Mifflin-St Jeor)', () => {
     // М, 30 лет, 180 см, 80 кг, активность 1.55, цель maintain
-    // BMR = 10*80 + 6.25*180 - 5*30 + 5 = 800 + 1125 - 150 + 5 = 1780
+    // REE = 10*80 + 6.25*180 - 5*30 + 5 = 800 + 1125 - 150 + 5 = 1780
     // TDEE = 1780 * 1.55 = 2759
     const r = calcCalorie({ gender: 'male', age: 30, height: 180, weight: 80, activity: 1.55, goal: 'maintain' });
+    expect(r.primary.label).toBe('Дневная оценка энергии');
     expect(r.primary.value).toMatch(/2[\s\u00A0\u202F]?759/);
-    expect(r.secondary.find((s) => s.label === 'Базовый обмен (BMR)')?.value).toMatch(/1[\s\u00A0\u202F]?780/);
+    expect(r.secondary.find((s) => s.label === 'Расход энергии в покое (REE)')?.value).toMatch(/1[\s\u00A0\u202F]?780/);
   });
 
   it('применяет пользовательский процент дефицита и распределение макронутриентов', () => {
@@ -22,7 +23,7 @@ describe('calorie: calcCalorie', () => {
   it('для женщины формула с -161', () => {
     // Ж, 25, 165, 60, 1.2 → BMR = 600 + 1031.25 - 125 - 161 = 1345.25
     const r = calcCalorie({ gender: 'female', age: 25, height: 165, weight: 60, activity: 1.2, goal: 'maintain' });
-    expect(r.secondary.find((s) => s.label === 'Базовый обмен (BMR)')?.value).toMatch(/1[\s\u00A0\u202F]?345/);
+    expect(r.secondary.find((s) => s.label === 'Расход энергии в покое (REE)')?.value).toMatch(/1[\s\u00A0\u202F]?345/);
   });
 
   it('цель «похудеть» уменьшает калории на 15%', () => {

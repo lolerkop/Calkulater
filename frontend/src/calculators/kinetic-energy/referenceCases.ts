@@ -30,4 +30,9 @@ export const kineticEnergyReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"mode": "m", "E2": 50, "v2": 0},
     expectPrimary: "—",
   },
+  {
+    name: "удвоенная скорость из видимого примера: 2·6²/2 = 36 Дж",
+    inputs: { mode: 'E', m: 2, v: 6 },
+    expectPrimary: '36 Дж',
+  },
 ];

@@ -15,7 +15,7 @@ function isValidYmId(value: string): boolean {
 }
 
 const locale = Astro.props.locale ?? 'ru';
-const language = locale === 'ru' || locale === 'uk' ? locale : 'en';
+const language = locale === 'ru' || locale === 'uk' || locale === 'de' || locale === 'es' ? locale : 'en';
 const gaId = isValidGaId(SITE.gaId) ? SITE.gaId : '';
 const ymId = isValidYmId(SITE.ymId) ? SITE.ymId : '';
 const analyticsConfigured = Boolean(gaId || ymId);
@@ -23,7 +23,7 @@ const storageKey = 'calcuway.analytics-consent.v1';
 const copy = {
   ru: {
     title: 'Настройки аналитики',
-    text: 'С вашего согласия мы загрузим Google Analytics или Яндекс Метрику, если их идентификаторы настроены. До согласия аналитика не загружается.',
+    text: 'Google Analytics и Яндекс Метрика включаются только с вашего согласия, если настроены. Для защиты введённых данных эти сервисы не работают на калькуляторах, страницах поиска и ссылках с параметрами. Подробности обработки данных описаны в политике конфиденциальности.',
     accept: 'Разрешить',
     reject: 'Отклонить',
     privacy: 'Политика конфиденциальности',
@@ -31,7 +31,7 @@ const copy = {
   },
   en: {
     title: 'Analytics settings',
-    text: 'With your consent, Google Analytics or Yandex Metrica will load when their IDs are configured. No analytics loads before consent.',
+    text: 'Google Analytics and Yandex Metrica load only with your consent, when configured. To protect entered data, these services stay off on calculators, search pages and links with parameters. Data processing details are explained in the privacy policy.',
     accept: 'Allow',
     reject: 'Reject',
     privacy: 'Privacy policy',
@@ -39,7 +39,7 @@ const copy = {
   },
   uk: {
     title: 'Налаштування аналітики',
-    text: 'За вашою згодою буде завантажено Google Analytics або Яндекс Метрику, якщо їхні ідентифікатори налаштовано. До згоди аналітика не завантажується.',
+    text: 'Google Analytics і Яндекс Метрика вмикаються лише за вашою згодою, якщо налаштовані. Для захисту введених даних ці сервіси не працюють у калькуляторах, на сторінках пошуку та в посиланнях із параметрами. Докладніше про обробку даних читайте в політиці конфіденційності.',
     accept: 'Дозволити',
     reject: 'Відхилити',
     privacy: 'Політика конфіденційності',
@@ -47,11 +47,19 @@ const copy = {
   },
   es: {
     title: 'Ajustes de analítica',
-    text: 'Con tu consentimiento se cargará Google Analytics o Yandex Metrica si sus identificadores están configurados. Antes del consentimiento no se carga ninguna analítica.',
+    text: 'Google Analytics y Yandex Metrica solo se cargan con tu consentimiento, si están configurados. Para proteger los datos introducidos, permanecen desactivados en calculadoras, páginas de búsqueda y enlaces con parámetros. Los detalles del tratamiento de datos se explican en la política de privacidad.',
     accept: 'Permitir',
     reject: 'Rechazar',
     privacy: 'Política de privacidad',
     settings: 'Ajustes de privacidad',
+  },
+  de: {
+    title: 'Analyseeinstellungen',
+    text: 'Google Analytics und Yandex Metrica laden nur mit deiner Einwilligung, sofern sie eingerichtet sind. Zum Schutz eingegebener Daten bleiben diese Dienste auf Rechnern, Suchseiten und Links mit Parametern ausgeschaltet. Einzelheiten zur Datenverarbeitung stehen in der Datenschutzerklärung.',
+    accept: 'Zulassen',
+    reject: 'Ablehnen',
+    privacy: 'Datenschutzerklärung',
+    settings: 'Datenschutzeinstellungen',
   },
 }[language];
 ---
@@ -94,8 +102,41 @@ const copy = {
       (() => {
         const banner = document.getElementById('analytics-consent');
         const settings = document.getElementById('analytics-settings');
-        let loaded = false;
+        let gaLoaded = false;
+        let ymLoaded = false;
+        let gaLoading = false;
+        let ymLoading = false;
+        let gaReady = false;
+        let ymReady = false;
         let consentGranted = false;
+        // Provider account settings can enable automatic URL/form collection.
+        // Do not load those libraries at all where this app accepts inputs or
+        // changes query parameters. A gtag custom-event allowlist is not enough.
+        const canLoadAnalytics = () => {
+          const url = new URL(window.location.href);
+          const parts = url.pathname.split('/').filter(Boolean);
+          const staticPage = parts.length === 2 && ['about', 'contacts', 'privacy'].includes(parts[1]);
+          const categoryPage = parts.length === 2 && Boolean(document.querySelector('[data-testid^="category-page-"]'));
+          if (!staticPage && !categoryPage) return false;
+          if (url.search || url.hash) return false;
+          if (document.querySelector('input, select, textarea')) return false;
+          if (document.referrer) {
+            try {
+              const referrer = new URL(document.referrer);
+              if (referrer.search || referrer.hash) return false;
+            } catch { return false; }
+          }
+          return true;
+        };
+        const safePageMetadata = () => {
+          const canonical = document.querySelector('link[rel="canonical"]')?.href;
+          const page = new URL(canonical || window.location.href);
+          return {
+            page_location: page.origin + page.pathname,
+            page_referrer: document.referrer ? new URL(document.referrer).origin + '/' : '',
+            page_title: document.title,
+          };
+        };
         const allowedEvents = new Set([
           'calculator_view',
           'calculator_input_started',
@@ -111,15 +152,24 @@ const copy = {
         const allowedMetadata = new Set(['calculator_id', 'locale', 'target_locale', 'target_path']);
 
         const sendEvent = (name, metadata = {}) => {
-          if (!consentGranted || !allowedEvents.has(name)) return;
+          if (!consentGranted || !canLoadAnalytics() || !allowedEvents.has(name)) return;
           const safeMetadata = {};
-          for (const [key, value] of Object.entries(metadata)) {
+          for (const [key, value] of Object.entries(metadata ?? {})) {
             if (allowedMetadata.has(key) && typeof value === 'string' && value.length <= 120) {
-              safeMetadata[key] = value;
+              if (key === 'target_path') {
+                try {
+                  const target = new URL(value, window.location.origin);
+                  if (target.origin === window.location.origin) safeMetadata[key] = target.pathname;
+                } catch {}
+              } else if (key === 'locale' || key === 'target_locale') {
+                if (['ru', 'en', 'uk', 'de', 'es'].includes(value)) safeMetadata[key] = value;
+              } else if (/^[a-z0-9-]{1,80}$/.test(value)) {
+                safeMetadata[key] = value;
+              }
             }
           }
-          if (gaId && window.gtag) window.gtag('event', name, safeMetadata);
-          if (ymId && window.ym) window.ym(Number(ymId), 'reachGoal', name, safeMetadata);
+          if (gaReady && window.gtag) window.gtag('event', name, { ...safeMetadata, ...safePageMetadata() });
+          if (ymReady && window.ym) window.ym(Number(ymId), 'reachGoal', name, safeMetadata);
         };
 
         window.addEventListener('calcuway:analytics', (event) => {
@@ -137,46 +187,67 @@ const copy = {
           });
         });
 
+        const initializeGa = () => {
+          if (!consentGranted || !canLoadAnalytics()) return;
+          window[`ga-disable-${gaId}`] = false;
+          const page = safePageMetadata();
+          window.gtag('set', { ...page, allow_google_signals: false, allow_ad_personalization_signals: false });
+          window.gtag('config', gaId, {
+            ...page,
+            send_page_view: false,
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false,
+          });
+          window.gtag('event', 'page_view', page);
+          gaReady = true;
+        };
+        const initializeYm = () => {
+          if (!consentGranted || !canLoadAnalytics()) return;
+          const page = safePageMetadata();
+          window.ym(Number(ymId), 'init', {
+            defer: true,
+            clickmap: false,
+            trackLinks: false,
+            accurateTrackBounce: false,
+            trackHash: false,
+            webvisor: false,
+            ecommerce: false,
+            sendTitle: false,
+          });
+          window.ym(Number(ymId), 'hit', page.page_location, { title: page.page_title, referer: page.page_referrer });
+          ymReady = true;
+        };
         const loadAnalytics = () => {
           consentGranted = true;
-          if (gaId) window[`ga-disable-${gaId}`] = false;
-          if (loaded) {
-            if (gaId && window.gtag) window.gtag('config', gaId, { anonymize_ip: true });
-            if (ymId && window.ym) window.ym(Number(ymId), 'init', {
-              clickmap: true,
-              trackLinks: true,
-              accurateTrackBounce: true,
-              webvisor: false,
-            });
-            return;
-          }
-          loaded = true;
-
-          if (gaId) {
+          if (!canLoadAnalytics()) return;
+          if (gaId && gaLoaded) initializeGa();
+          else if (gaId && !gaLoading) {
+            gaLoading = true;
+            window[`ga-disable-${gaId}`] = true;
             window.dataLayer = window.dataLayer || [];
-            window.gtag = function () { window.dataLayer.push(arguments); };
+            window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
             window.gtag('js', new Date());
-            window.gtag('config', gaId, { anonymize_ip: true });
             const gaScript = document.createElement('script');
             gaScript.async = true;
             gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaId)}`;
+            gaScript.referrerPolicy = 'no-referrer';
             gaScript.dataset.testid = 'analytics-ga-loader';
+            gaScript.onload = () => { gaLoaded = true; gaLoading = false; initializeGa(); };
+            gaScript.onerror = () => { gaLoading = false; gaScript.remove(); };
             document.head.appendChild(gaScript);
           }
-
-          if (ymId) {
+          if (ymId && ymLoaded) initializeYm();
+          else if (ymId && !ymLoading) {
+            ymLoading = true;
             window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
             window.ym.l = Number(new Date());
-            window.ym(Number(ymId), 'init', {
-              clickmap: true,
-              trackLinks: true,
-              accurateTrackBounce: true,
-              webvisor: false,
-            });
             const ymScript = document.createElement('script');
             ymScript.async = true;
             ymScript.src = 'https://mc.yandex.ru/metrika/tag.js';
+            ymScript.referrerPolicy = 'no-referrer';
             ymScript.dataset.testid = 'analytics-ym-loader';
+            ymScript.onload = () => { ymLoaded = true; ymLoading = false; initializeYm(); };
+            ymScript.onerror = () => { ymLoading = false; ymScript.remove(); };
             document.head.appendChild(ymScript);
           }
         };
@@ -193,8 +264,11 @@ const copy = {
             loadAnalytics();
           } else {
             consentGranted = false;
+            const hadYmCounter = ymReady;
+            gaReady = false;
+            ymReady = false;
             if (gaId) window[`ga-disable-${gaId}`] = true;
-            if (ymId && window.ym) window.ym(Number(ymId), 'destruct');
+            if (hadYmCounter && window.ym) window.ym(Number(ymId), 'destruct');
           }
         };
 

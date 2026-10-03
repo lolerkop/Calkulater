@@ -1,6 +1,7 @@
-import type { CalculatorLocalization } from '../../lib/platform/types';
+import type { CalculatorLocalization, CalculatorLocaleBundle, TranslatedLocale } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
-export const localization: CalculatorLocalization = {
+const previousLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'cogs': 'Wareneinsatz im Zeitraum, €',
@@ -106,3 +107,51 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+const contractOverrides: Record<TranslatedLocale, CalculatorLocaleBundle> = {
+  "en": {
+    "fields": {
+      "cogs": "Annual cost of goods sold"
+    },
+    "values": {
+      "Выберите способ расчёта среднего запаса": "Select a method for average inventory",
+      "Запасы не могут быть отрицательными": "Inventory balances cannot be negative"
+    }
+  },
+  "uk": {
+    "fields": {
+      "cogs": "Річна собівартість продажів"
+    },
+    "values": {
+      "Выберите способ расчёта среднего запаса": "Виберіть спосіб розрахунку середнього запасу",
+      "Запасы не могут быть отрицательными": "Запаси не можуть бути від’ємними"
+    }
+  },
+  "de": {
+    "fields": {
+      "cogs": "Jährlicher Wareneinsatz"
+    },
+    "values": {
+      "Выберите способ расчёта среднего запаса": "Wähle eine Methode für den Durchschnittsbestand",
+      "Запасы не могут быть отрицательными": "Bestände dürfen nicht negativ sein"
+    }
+  },
+  "es": {
+    "fields": {
+      "cogs": "Coste anual de las mercancías vendidas"
+    },
+    "values": {
+      "Выберите способ расчёта среднего запаса": "Elige un método para las existencias medias",
+      "Запасы не могут быть отрицательными": "Los saldos de existencias no pueden ser negativos"
+    }
+  }
+};
+
+export const localization: CalculatorLocalization = Object.fromEntries(
+  Object.entries(contractOverrides).map(([locale, additions]) => {
+    const key = locale as keyof typeof marketingScalarValues;
+    const prior = previousLocalization[key];
+    const nativeFields = Object.fromEntries(Object.entries(prior?.fields ?? {}).map(([name, label]) => [name, label.replace(/, [₽$₴€%]$/, '')]));
+    return [locale, { ...prior, fields: { ...nativeFields, ...additions.fields }, values: { ...prior?.values, ...marketingScalarValues[key], ...additions.values } }];
+  }),
+);

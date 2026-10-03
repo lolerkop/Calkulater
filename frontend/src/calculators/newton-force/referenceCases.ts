@@ -37,4 +37,33 @@ export const newtonForceReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"mode": "F", "m": -2, "a": 3},
     expectPrimary: "—",
   },
+
+  // Wave 4: fixed expectations derived analytically from the stated model.
+  {
+  "name": "нулевая равнодействующая даёт нулевое ускорение положительной массы",
+  "inputs": {
+    "mode": "a",
+    "F2": 0,
+    "m2": 10
+  },
+  "expectPrimary": "0 м/с²"
+},
+  {
+  "name": "ошибка: нулевая сила с ненулевым ускорением не даёт положительную массу",
+  "inputs": {
+    "mode": "m",
+    "F": 0,
+    "a2": 2
+  },
+  "expectPrimary": "—"
+},
+  {
+  "name": "равнодействующая тяги30 и противоположного трения10: ввод20Н",
+  "inputs": {
+    "mode": "a",
+    "F2": 20,
+    "m2": 10
+  },
+  "expectPrimary": "2 м/с²"
+},
 ];

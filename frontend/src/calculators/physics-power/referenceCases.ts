@@ -30,4 +30,9 @@ export const physicsPowerReferenceCases: readonly CalculatorReferenceCase[] = [
     inputs: {"mode": "P", "W": 1000, "t": 0},
     expectPrimary: "—",
   },
+  {
+    name: "удвоенное время из видимого примера: 1000/20 = 50 Вт",
+    inputs: { mode: 'P', W: 1000, t: 20 },
+    expectPrimary: '50 Вт',
+  },
 ];

@@ -1,3 +1,4 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 // Единицы принадлежат калькулятору: центральный словарь единиц не трогается,
@@ -21,12 +22,12 @@ export const localization: CalculatorLocalization = {
   de: {
     fields: {
       'mode': 'Wie die Fläche angegeben wird',
-      'area': 'Wandfläche, m²',
-      'length': 'Wandlänge, m',
-      'height': 'Wandhöhe, m',
-      'thickness': 'Schichtdicke, mm',
-      'consumption': 'Verbrauch, kg/m² je 1 mm',
-      'bagWeight': 'Sackgewicht, kg',
+      'area': "Wandfläche",
+      'length': "Wandlänge",
+      'height': "Wandhöhe",
+      'thickness': "Schichtdicke",
+      'consumption': "Verbrauch",
+      'bagWeight': "Sackgewicht",
     },
     options: {
       'area': 'über die Fläche',
@@ -49,7 +50,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   en: {
-    fields: { mode: 'How to give the area', area: 'Wall area, m²', length: 'Wall length, m', height: 'Wall height, m', thickness: 'Layer thickness, mm', consumption: 'Consumption, kg/m² per 1 mm', bagWeight: 'Bag weight, kg', },
+    fields: { mode: 'How to give the area', area: "Wall area", length: "Wall length", height: "Wall height", thickness: "Layer thickness", consumption: "Consumption", bagWeight: "Bag weight", },
     options: { area: 'by area', dimensions: 'by length and height', },
     results: RESULTS_EN,
     values: {
@@ -62,7 +63,7 @@ export const localization: CalculatorLocalization = {
     },
   },
   uk: {
-    fields: { mode: 'Як задати площу', area: 'Площа стіни, м²', length: 'Довжина стіни, м', height: 'Висота стіни, м', thickness: 'Товщина шару, мм', consumption: 'Витрата суміші, кг/м² на 1 мм', bagWeight: 'Вага мішка, кг', },
+    fields: { mode: 'Як задати площу', area: "Площа стіни", length: "Довжина стіни", height: "Висота стіни", thickness: "Товщина шару", consumption: "Витрата суміші", bagWeight: "Вага мішка", },
     options: { area: 'площею', dimensions: 'довжиною і висотою', },
     results: RESULTS_UK,
     values: {
@@ -77,12 +78,12 @@ export const localization: CalculatorLocalization = {
   es: {
     fields: {
       "mode": "Cómo indicar la superficie",
-      "area": "Superficie de la pared, m²",
-      "length": "Largo de la pared, m",
-      "height": "Alto de la pared, m",
-      "thickness": "Espesor de la capa, mm",
-      "consumption": "Consumo, kg/m² por 1 mm",
-      "bagWeight": "Peso del saco, kg",
+      "area": "Superficie de la pared",
+      "length": "Largo de la pared",
+      "height": "Alto de la pared",
+      "thickness": "Espesor de la capa",
+      "consumption": "Consumo",
+      "bagWeight": "Peso del saco",
     },
     options: {
       "area": "por superficie",
@@ -105,3 +106,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

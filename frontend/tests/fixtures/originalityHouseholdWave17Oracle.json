@@ -1,0 +1,4557 @@
+{
+  "precision": 90,
+  "seed": 172901,
+  "independentMethod": "Python Decimal90 identities; monetary ROUND_HALF_UP, no application imports",
+  "cases": [
+    {
+      "id": "curtain-size",
+      "name": "seed172901-0",
+      "inputs": {
+        "windowWidth": 423,
+        "fullness": "3",
+        "fabricWidth": 280,
+        "height": 230,
+        "hem": 27
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "12.85",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "5",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-0",
+      "inputs": {
+        "l": "33.3",
+        "w": "31.6",
+        "h": "34.2",
+        "limit": "86.8"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "99.1",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-12.3",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "39.0157480314960629921259842519685039370078740157480314960629921259842519685039370078740157",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "35.987976",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-0",
+      "inputs": {
+        "photoWidth": "49",
+        "photoHeight": "38",
+        "border": "2.2",
+        "bottomExtra": "2.6"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "541.00",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "4.8",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "1.18666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-0",
+      "inputs": {
+        "mode": "single",
+        "unit": "kg",
+        "price": "411.16",
+        "amount": "1.07"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "384.26",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-0",
+      "inputs": {
+        "grams": "124.7",
+        "spoolPrice": "101.52",
+        "spoolWeight": "750",
+        "hours": "20",
+        "powerW": "52",
+        "kwhPrice": "6.49",
+        "wearPerHour": "3.09",
+        "markupPct": "17"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "99.95",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "16.88",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "6.75",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-0",
+      "inputs": {
+        "stock": "1396",
+        "perDay": "119",
+        "reserveDays": "2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "11.7310924369747899159663865546218487394957983193277310924369747899159663865546218487394958",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-0",
+      "inputs": {
+        "items": "A 868.17 1\nB 17.74 2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "877.04",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "10524.48",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "868.17",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-0",
+      "inputs": {
+        "bill": "140.49",
+        "tipPercent": "23",
+        "people": 12,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "180.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "32.31",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "15.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-0",
+      "inputs": {
+        "nights": 11,
+        "days": 7,
+        "people": 6,
+        "hotelPerNight": 1871,
+        "foodPerDayPerPerson": 2328,
+        "transport": 8228,
+        "activities": 9782,
+        "other": 276
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "136643.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "22773.83",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "19520.43",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-1",
+      "inputs": {
+        "windowWidth": 209,
+        "fullness": "2.6",
+        "fabricWidth": 300,
+        "height": 238,
+        "hem": 26
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "5.28",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "2",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-1",
+      "inputs": {
+        "l": "65.1",
+        "w": "33.3",
+        "h": "19.9",
+        "limit": "17"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "118.3",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-101.3",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "46.5748031496062992125984251968503937007874015748031496062992125984251968503937007874015748",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "43.139817",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-1",
+      "inputs": {
+        "photoWidth": "8.8",
+        "photoHeight": "13.1",
+        "border": "9.4",
+        "bottomExtra": "2"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "820.36",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "11.4",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.814159292035398230088495575221238938053097345132743362831858407079646017699115044247787611",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-1",
+      "inputs": {
+        "mode": "single",
+        "unit": "l",
+        "price": "625.35",
+        "amount": "7.04"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "88.83",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-1",
+      "inputs": {
+        "grams": "148.4",
+        "spoolPrice": "295.35",
+        "spoolWeight": "500",
+        "hours": "16",
+        "powerW": "35",
+        "kwhPrice": "2.5",
+        "wearPerHour": "2.53",
+        "markupPct": "38"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "178.77",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "87.66",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "1.40",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-1",
+      "inputs": {
+        "stock": "5182",
+        "perDay": "141",
+        "reserveDays": "5"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "36.7517730496453900709219858156028368794326241134751773049645390070921985815602836879432624",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-1",
+      "inputs": {
+        "items": "A 658.12 0.5\nB 3.14 0.25"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "1328.80",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "15945.60",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "1316.24",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-1",
+      "inputs": {
+        "bill": "2999.6",
+        "tipPercent": "36",
+        "people": 1,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "4080.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "1079.86",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-1",
+      "inputs": {
+        "nights": 18,
+        "days": 4,
+        "people": 6,
+        "hotelPerNight": 2846,
+        "foodPerDayPerPerson": 2160,
+        "transport": 3018,
+        "activities": 7045,
+        "other": 983
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "114114.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "19019.00",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "28528.50",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-2",
+      "inputs": {
+        "windowWidth": 340,
+        "fullness": "1.9",
+        "fabricWidth": 280,
+        "height": 108,
+        "hem": 29
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "4.11",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "3",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-2",
+      "inputs": {
+        "l": "86.8",
+        "w": "47.7",
+        "h": "32.3",
+        "limit": "86.2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "166.8",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-80.6",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "65.6692913385826771653543307086614173228346456692913385826771653543307086614173228346456693",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "133.733628",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-2",
+      "inputs": {
+        "photoWidth": "43.9",
+        "photoHeight": "67",
+        "border": "8.9",
+        "bottomExtra": "0.4"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "2315.54",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "9.3",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.724178403755868544600938967136150234741784037558685446009389671361502347417840375586854460",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-2",
+      "inputs": {
+        "mode": "single",
+        "unit": "pcs",
+        "price": "330.28",
+        "amount": "1.47"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "224.68",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-2",
+      "inputs": {
+        "grams": "144.2",
+        "spoolPrice": "344.36",
+        "spoolWeight": "500",
+        "hours": "9.5",
+        "powerW": "316",
+        "kwhPrice": "3.09",
+        "wearPerHour": "3.28",
+        "markupPct": "95"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "272.51",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "99.31",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "9.28",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-2",
+      "inputs": {
+        "stock": "7039",
+        "perDay": "114",
+        "reserveDays": "3"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "61.7456140350877192982456140350877192982456140350877192982456140350877192982456140350877193",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-2",
+      "inputs": {
+        "items": "A 552.34 1\nB 68.98 2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "586.83",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "7041.96",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "552.34",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-2",
+      "inputs": {
+        "bill": "3378.47",
+        "tipPercent": "36",
+        "people": 9,
+        "roundPerPerson": "no"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "4594.72",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "1216.25",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "510.52",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-2",
+      "inputs": {
+        "nights": 20,
+        "days": 25,
+        "people": 7,
+        "hotelPerNight": 972,
+        "foodPerDayPerPerson": 1659,
+        "transport": 7336,
+        "activities": 7266,
+        "other": 61
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "324428.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "46346.86",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "12977.12",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-3",
+      "inputs": {
+        "windowWidth": 140,
+        "fullness": "2.7",
+        "fabricWidth": 280,
+        "height": 111,
+        "hem": 5
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "2.32",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "2",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-3",
+      "inputs": {
+        "l": "67.9",
+        "w": "27.9",
+        "h": "45.2",
+        "limit": "102.1"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "141.0",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-38.9",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "55.5118110236220472440944881889763779527559055118110236220472440944881889763779527559055118",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "85.627332",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-3",
+      "inputs": {
+        "photoWidth": "3.9",
+        "photoHeight": "20.7",
+        "border": "3.2",
+        "bottomExtra": "1.5"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "213.85",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "4.7",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.360139860139860139860139860139860139860139860139860139860139860139860139860139860139860140",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-3",
+      "inputs": {
+        "mode": "single",
+        "unit": "kg",
+        "price": "821.14",
+        "amount": "7.48"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "109.78",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-3",
+      "inputs": {
+        "grams": "121.2",
+        "spoolPrice": "274.46",
+        "spoolWeight": "1000",
+        "hours": "39.1",
+        "powerW": "30",
+        "kwhPrice": "1.72",
+        "wearPerHour": "4.44",
+        "markupPct": "71"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "357.20",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "33.26",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "2.02",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-3",
+      "inputs": {
+        "stock": "2333",
+        "perDay": "139",
+        "reserveDays": "6"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "16.7841726618705035971223021582733812949640287769784172661870503597122302158273381294964029",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-3",
+      "inputs": {
+        "items": "A 784.24 6\nB 21.15 2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "141.28",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "1695.38",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "130.71",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-3",
+      "inputs": {
+        "bill": "2211.91",
+        "tipPercent": "68",
+        "people": 6,
+        "roundPerPerson": "no"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "3716.01",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "1504.10",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "619.33",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-3",
+      "inputs": {
+        "nights": 4,
+        "days": 5,
+        "people": 5,
+        "hotelPerNight": 298,
+        "foodPerDayPerPerson": 693,
+        "transport": 4495,
+        "activities": 289,
+        "other": 370
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "23671.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "4734.20",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "4734.20",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-4",
+      "inputs": {
+        "windowWidth": 409,
+        "fullness": "2",
+        "fabricWidth": 150,
+        "height": 112,
+        "hem": 9
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "7.26",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "6",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-4",
+      "inputs": {
+        "l": "7.1",
+        "w": "15.4",
+        "h": "22.2",
+        "limit": "173.5"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "44.7",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "128.8",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "17.5984251968503937007874015748031496062992125984251968503937007874015748031496062992125984",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "2.427348",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-4",
+      "inputs": {
+        "photoWidth": "43.9",
+        "photoHeight": "69.5",
+        "border": "2.6",
+        "bottomExtra": "1.7"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "700.19",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "4.3",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.642670157068062827225130890052356020942408376963350785340314136125654450261780104712041885",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-4",
+      "inputs": {
+        "mode": "single",
+        "unit": "l",
+        "price": "729.18",
+        "amount": "7.86"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "92.77",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-4",
+      "inputs": {
+        "grams": "24.5",
+        "spoolPrice": "121.11",
+        "spoolWeight": "750",
+        "hours": "5.8",
+        "powerW": "212",
+        "kwhPrice": "3.99",
+        "wearPerHour": "0.38",
+        "markupPct": "45"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "16.05",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "3.96",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "4.91",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-4",
+      "inputs": {
+        "stock": "8826",
+        "perDay": "106",
+        "reserveDays": "4"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "83.2641509433962264150943396226415094339622641509433962264150943396226415094339622641509434",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-4",
+      "inputs": {
+        "items": "A 677.7 3\nB 49.55 2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "250.68",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "3008.10",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "225.90",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-4",
+      "inputs": {
+        "bill": "2593.31",
+        "tipPercent": "33",
+        "people": 4,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "3452.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "855.79",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "863.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-4",
+      "inputs": {
+        "nights": 1,
+        "days": 9,
+        "people": 2,
+        "hotelPerNight": 3291,
+        "foodPerDayPerPerson": 2645,
+        "transport": 760,
+        "activities": 1347,
+        "other": 821
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "53829.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "26914.50",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "5981.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-5",
+      "inputs": {
+        "windowWidth": 89,
+        "fullness": "2.5",
+        "fabricWidth": 300,
+        "height": 144,
+        "hem": 5
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "1.49",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "1",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-5",
+      "inputs": {
+        "l": "44.6",
+        "w": "50.2",
+        "h": "5.9",
+        "limit": "184.7"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "100.7",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "84.0",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "39.6456692913385826771653543307086614173228346456692913385826771653543307086614173228346457",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "13.209628",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-5",
+      "inputs": {
+        "photoWidth": "18.5",
+        "photoHeight": "67.6",
+        "border": "4.2",
+        "bottomExtra": "0.1"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "796.49",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "4.3",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.353482260183968462549277266754270696452036793692509855453350854139290407358738501971090670",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-5",
+      "inputs": {
+        "mode": "single",
+        "unit": "l",
+        "price": "203.24",
+        "amount": "7.7"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "26.39",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-5",
+      "inputs": {
+        "grams": "83",
+        "spoolPrice": "41.07",
+        "spoolWeight": "500",
+        "hours": "25.2",
+        "powerW": "80",
+        "kwhPrice": "10.16",
+        "wearPerHour": "3.07",
+        "markupPct": "65"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "172.70",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "6.82",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "20.48",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-5",
+      "inputs": {
+        "stock": "4584",
+        "perDay": "165",
+        "reserveDays": "7"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "27.7818181818181818181818181818181818181818181818181818181818181818181818181818181818181818",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-5",
+      "inputs": {
+        "items": "A 22.35 1\nB 35.64 4"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "31.26",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "375.12",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "22.35",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-5",
+      "inputs": {
+        "bill": "484.65",
+        "tipPercent": "66",
+        "people": 8,
+        "roundPerPerson": "no"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "804.52",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "319.87",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "100.56",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-5",
+      "inputs": {
+        "nights": 7,
+        "days": 17,
+        "people": 6,
+        "hotelPerNight": 3379,
+        "foodPerDayPerPerson": 1903,
+        "transport": 1621,
+        "activities": 9831,
+        "other": 365
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "229576.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "38262.67",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "13504.47",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-6",
+      "inputs": {
+        "windowWidth": 428,
+        "fullness": "2.8",
+        "fabricWidth": 140,
+        "height": 318,
+        "hem": 7
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "29.25",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "9",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-6",
+      "inputs": {
+        "l": "73.4",
+        "w": "27.9",
+        "h": "42.9",
+        "limit": "164.7"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "144.2",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "20.5",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "56.7716535433070866141732283464566929133858267716535433070866141732283464566929133858267717",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "87.853194",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-6",
+      "inputs": {
+        "photoWidth": "44.1",
+        "photoHeight": "34.7",
+        "border": "6.8",
+        "bottomExtra": "2.9"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "1423.97",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "9.7",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "1.126953125",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-6",
+      "inputs": {
+        "mode": "single",
+        "unit": "pcs",
+        "price": "625.81",
+        "amount": "3.14"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "199.30",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-6",
+      "inputs": {
+        "grams": "50.2",
+        "spoolPrice": "94.29",
+        "spoolWeight": "1000",
+        "hours": "6",
+        "powerW": "283",
+        "kwhPrice": "0.14",
+        "wearPerHour": "2.01",
+        "markupPct": "32"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "22.48",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "4.73",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "0.24",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-6",
+      "inputs": {
+        "stock": "174",
+        "perDay": "49",
+        "reserveDays": "8"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "3.55102040816326530612244897959183673469387755102040816326530612244897959183673469387755102",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-6",
+      "inputs": {
+        "items": "A 895.95 12\nB 83.06 0.25"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "406.90",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "4882.83",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "332.24",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-6",
+      "inputs": {
+        "bill": "2398.42",
+        "tipPercent": "17",
+        "people": 4,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "2808.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "407.73",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "702.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-6",
+      "inputs": {
+        "nights": 7,
+        "days": 18,
+        "people": 4,
+        "hotelPerNight": 8611,
+        "foodPerDayPerPerson": 1491,
+        "transport": 8716,
+        "activities": 4851,
+        "other": 176
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "181372.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "45343.00",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "10076.22",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-7",
+      "inputs": {
+        "windowWidth": 103,
+        "fullness": "2.3",
+        "fabricWidth": 280,
+        "height": 321,
+        "hem": 12
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "3.33",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "1",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-7",
+      "inputs": {
+        "l": "62.8",
+        "w": "25.9",
+        "h": "4.9",
+        "limit": "193.8"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "93.6",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "100.2",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "36.8503937007874015748031496062992125984251968503937007874015748031496062992125984251968504",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "7.969948",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-7",
+      "inputs": {
+        "photoWidth": "24.1",
+        "photoHeight": "38.8",
+        "border": "8.1",
+        "bottomExtra": "2.1"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "1366.05",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "10.2",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.705779334500875656742556917688266199649737302977232924693520140105078809106830122591943958",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-7",
+      "inputs": {
+        "mode": "single",
+        "unit": "kg",
+        "price": "316.36",
+        "amount": "5.19"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "60.96",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-7",
+      "inputs": {
+        "grams": "10.9",
+        "spoolPrice": "25.6",
+        "spoolWeight": "500",
+        "hours": "12",
+        "powerW": "300",
+        "kwhPrice": "4.67",
+        "wearPerHour": "1.94",
+        "markupPct": "89"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "76.83",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "0.56",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "16.81",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-7",
+      "inputs": {
+        "stock": "2103",
+        "perDay": "138",
+        "reserveDays": "0"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "15.2391304347826086956521739130434782608695652173913043478260869565217391304347826086956522",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-7",
+      "inputs": {
+        "items": "A 205.28 6\nB 61.54 0.25"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "280.37",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "3364.48",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "246.16",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-7",
+      "inputs": {
+        "bill": "3460.6",
+        "tipPercent": "51",
+        "people": 11,
+        "roundPerPerson": "no"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "5225.51",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "1764.91",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "475.05",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-7",
+      "inputs": {
+        "nights": 2,
+        "days": 23,
+        "people": 6,
+        "hotelPerNight": 9692,
+        "foodPerDayPerPerson": 994,
+        "transport": 3499,
+        "activities": 7963,
+        "other": 167
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "168185.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "28030.83",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "7312.39",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-8",
+      "inputs": {
+        "windowWidth": 269,
+        "fullness": "2.7",
+        "fabricWidth": 150,
+        "height": 343,
+        "hem": 17
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "18",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "5",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-8",
+      "inputs": {
+        "l": "83.6",
+        "w": "7.6",
+        "h": "11.4",
+        "limit": "78.8"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "102.6",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-23.8",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "40.3937007874015748031496062992125984251968503937007874015748031496062992125984251968503937",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "7.243104",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-8",
+      "inputs": {
+        "photoWidth": "44.8",
+        "photoHeight": "43.6",
+        "border": "7.8",
+        "bottomExtra": "1.5"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "1713.00",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "9.3",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.995057660626029654036243822075782537067545304777594728171334431630971993410214168039538715",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-8",
+      "inputs": {
+        "mode": "single",
+        "unit": "l",
+        "price": "282.24",
+        "amount": "8.51"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "33.17",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-8",
+      "inputs": {
+        "grams": "52.1",
+        "spoolPrice": "90.25",
+        "spoolWeight": "1000",
+        "hours": "19.3",
+        "powerW": "269",
+        "kwhPrice": "6.35",
+        "wearPerHour": "1.21",
+        "markupPct": "4"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "63.46",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "4.70",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "32.97",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-8",
+      "inputs": {
+        "stock": "3788",
+        "perDay": "134",
+        "reserveDays": "9"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "28.2686567164179104477611940298507462686567164179104477611940298507462686567164179104477612",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-8",
+      "inputs": {
+        "items": "A 473.82 6\nB 24.69 2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "91.32",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "1095.78",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "78.97",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-8",
+      "inputs": {
+        "bill": "2215.8",
+        "tipPercent": "53",
+        "people": 1,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "3391.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "1174.37",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-8",
+      "inputs": {
+        "nights": 1,
+        "days": 11,
+        "people": 6,
+        "hotelPerNight": 3798,
+        "foodPerDayPerPerson": 2450,
+        "transport": 8566,
+        "activities": 1396,
+        "other": 497
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "175957.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "29326.17",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "15996.09",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-9",
+      "inputs": {
+        "windowWidth": 236,
+        "fullness": "1.6",
+        "fabricWidth": 150,
+        "height": 135,
+        "hem": 13
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "4.44",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "3",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-9",
+      "inputs": {
+        "l": "28.2",
+        "w": "56",
+        "h": "1.9",
+        "limit": "81.4"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "86.1",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-4.7",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "33.8976377952755905511811023622047244094488188976377952755905511811023622047244094488188976",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "3.00048",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-9",
+      "inputs": {
+        "photoWidth": "9.2",
+        "photoHeight": "54.6",
+        "border": "5.2",
+        "bottomExtra": "1.9"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "808.92",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "7.1",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.292974588938714499252615844544095665171898355754857997010463378176382660687593423019431988",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-9",
+      "inputs": {
+        "mode": "single",
+        "unit": "pcs",
+        "price": "598.29",
+        "amount": "5.78"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "103.51",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-9",
+      "inputs": {
+        "grams": "1.5",
+        "spoolPrice": "55.25",
+        "spoolWeight": "500",
+        "hours": "34.9",
+        "powerW": "234",
+        "kwhPrice": "8.87",
+        "wearPerHour": "1.68",
+        "markupPct": "84"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "241.47",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "0.17",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "72.44",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-9",
+      "inputs": {
+        "stock": "6507",
+        "perDay": "120",
+        "reserveDays": "8"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "54.225",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-9",
+      "inputs": {
+        "items": "A 669.06 12\nB 10.76 2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "61.14",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "733.62",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "55.76",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-9",
+      "inputs": {
+        "bill": "534.97",
+        "tipPercent": "9",
+        "people": 10,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "590.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "48.15",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "59.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-9",
+      "inputs": {
+        "nights": 11,
+        "days": 23,
+        "people": 8,
+        "hotelPerNight": 7656,
+        "foodPerDayPerPerson": 2988,
+        "transport": 2973,
+        "activities": 8606,
+        "other": 396
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "645983.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "80747.88",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "28086.22",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-10",
+      "inputs": {
+        "windowWidth": 175,
+        "fullness": "2.3",
+        "fabricWidth": 120,
+        "height": 308,
+        "hem": 23
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "13.24",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "4",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-10",
+      "inputs": {
+        "l": "69.8",
+        "w": "17.2",
+        "h": "6.2",
+        "limit": "19.8"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "93.2",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-73.4",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "36.6929133858267716535433070866141732283464566929133858267716535433070866141732283464566929",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "7.443472",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-10",
+      "inputs": {
+        "photoWidth": "9.7",
+        "photoHeight": "11",
+        "border": "9.8",
+        "bottomExtra": "1.6"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "836.76",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "11.4",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.909937888198757763975155279503105590062111801242236024844720496894409937888198757763975155",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-10",
+      "inputs": {
+        "mode": "single",
+        "unit": "l",
+        "price": "299.58",
+        "amount": "6.39"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "46.88",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-10",
+      "inputs": {
+        "grams": "130.4",
+        "spoolPrice": "71.65",
+        "spoolWeight": "1000",
+        "hours": "15.9",
+        "powerW": "226",
+        "kwhPrice": "9.64",
+        "wearPerHour": "3.89",
+        "markupPct": "14"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "120.65",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "9.34",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "34.64",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-10",
+      "inputs": {
+        "stock": "3899",
+        "perDay": "138",
+        "reserveDays": "10"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "28.2536231884057971014492753623188405797101449275362318840579710144927536231884057971014493",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-10",
+      "inputs": {
+        "items": "A 256.63 6\nB 79.03 2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "82.29",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "987.44",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "42.77",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-10",
+      "inputs": {
+        "bill": "3009.91",
+        "tipPercent": "40",
+        "people": 3,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "4215.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "1203.96",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "1405.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-10",
+      "inputs": {
+        "nights": 14,
+        "days": 10,
+        "people": 3,
+        "hotelPerNight": 8798,
+        "foodPerDayPerPerson": 2353,
+        "transport": 9377,
+        "activities": 2156,
+        "other": 987
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "206282.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "68760.67",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "20628.20",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-11",
+      "inputs": {
+        "windowWidth": 162,
+        "fullness": "3",
+        "fabricWidth": 150,
+        "height": 245,
+        "hem": 31
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "11.04",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "4",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-11",
+      "inputs": {
+        "l": "18.4",
+        "w": "48",
+        "h": "47",
+        "limit": "105.3"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "113.4",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-8.1",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "44.6456692913385826771653543307086614173228346456692913385826771653543307086614173228346457",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "41.5104",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-11",
+      "inputs": {
+        "photoWidth": "43.1",
+        "photoHeight": "55.1",
+        "border": "7.3",
+        "bottomExtra": "0.1"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "1652.65",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "7.4",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.826647564469914040114613180515759312320916905444126074498567335243553008595988538681948424",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-11",
+      "inputs": {
+        "mode": "single",
+        "unit": "l",
+        "price": "561.78",
+        "amount": "2.93"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "191.73",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-11",
+      "inputs": {
+        "grams": "78.4",
+        "spoolPrice": "73.65",
+        "spoolWeight": "500",
+        "hours": "14.8",
+        "powerW": "187",
+        "kwhPrice": "2.24",
+        "wearPerHour": "2.31",
+        "markupPct": "1"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "52.46",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "11.55",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "6.20",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-11",
+      "inputs": {
+        "stock": "1822",
+        "perDay": "35",
+        "reserveDays": "6"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "52.0571428571428571428571428571428571428571428571428571428571428571428571428571428571428571",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-11",
+      "inputs": {
+        "items": "A 742.36 1\nB 38.46 4"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "751.98",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "9023.70",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "742.36",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-11",
+      "inputs": {
+        "bill": "816.74",
+        "tipPercent": "20",
+        "people": 6,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "984.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "163.35",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "164.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-11",
+      "inputs": {
+        "nights": 2,
+        "days": 21,
+        "people": 6,
+        "hotelPerNight": 8248,
+        "foodPerDayPerPerson": 1415,
+        "transport": 2043,
+        "activities": 2660,
+        "other": 363
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "199852.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "33308.67",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "9516.76",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-12",
+      "inputs": {
+        "windowWidth": 400,
+        "fullness": "3.2",
+        "fabricWidth": 300,
+        "height": 112,
+        "hem": 21
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "6.65",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "5",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-12",
+      "inputs": {
+        "l": "37.7",
+        "w": "32.9",
+        "h": "25.2",
+        "limit": "197.7"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "95.8",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "101.9",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "37.7165354330708661417322834645669291338582677165354330708661417322834645669291338582677165",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "31.256316",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-12",
+      "inputs": {
+        "photoWidth": "20.3",
+        "photoHeight": "68.9",
+        "border": "0.6",
+        "bottomExtra": "0.5"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "119.23",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "1.1",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.304532577903682719546742209631728045325779036827195467422096317280453257790368271954674221",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-12",
+      "inputs": {
+        "mode": "single",
+        "unit": "l",
+        "price": "868.2",
+        "amount": "7.86"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "110.46",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-12",
+      "inputs": {
+        "grams": "122.8",
+        "spoolPrice": "202.25",
+        "spoolWeight": "500",
+        "hours": "27",
+        "powerW": "299",
+        "kwhPrice": "0.83",
+        "wearPerHour": "2.76",
+        "markupPct": "61"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "210.74",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "49.67",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "6.70",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-12",
+      "inputs": {
+        "stock": "7367",
+        "perDay": "98",
+        "reserveDays": "3"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "75.1734693877551020408163265306122448979591836734693877551020408163265306122448979591836735",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-12",
+      "inputs": {
+        "items": "A 456.31 12\nB 14.06 1"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "52.09",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "625.03",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "38.03",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-12",
+      "inputs": {
+        "bill": "2520.23",
+        "tipPercent": "70",
+        "people": 7,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "4291.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "1764.16",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "613.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-12",
+      "inputs": {
+        "nights": 12,
+        "days": 17,
+        "people": 4,
+        "hotelPerNight": 3614,
+        "foodPerDayPerPerson": 689,
+        "transport": 6929,
+        "activities": 3489,
+        "other": 887
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "101525.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "25381.25",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "5972.06",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-13",
+      "inputs": {
+        "windowWidth": 76,
+        "fullness": "1.6",
+        "fabricWidth": 140,
+        "height": 98,
+        "hem": 35
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "1.33",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "1",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-13",
+      "inputs": {
+        "l": "9.9",
+        "w": "39.7",
+        "h": "38.9",
+        "limit": "68.1"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "88.5",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-20.4",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "34.8425196850393700787401574803149606299212598425196850393700787401574803149606299212598425",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "15.288867",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-13",
+      "inputs": {
+        "photoWidth": "22.1",
+        "photoHeight": "51.3",
+        "border": "5.8",
+        "bottomExtra": "0.5"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "1002.85",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "6.3",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.531545741324921135646687697160883280757097791798107255520504731861198738170347003154574132",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-13",
+      "inputs": {
+        "mode": "single",
+        "unit": "kg",
+        "price": "785.9",
+        "amount": "8.13"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "96.67",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-13",
+      "inputs": {
+        "grams": "62.4",
+        "spoolPrice": "239.48",
+        "spoolWeight": "250",
+        "hours": "6.7",
+        "powerW": "309",
+        "kwhPrice": "4.15",
+        "wearPerHour": "4.03",
+        "markupPct": "89"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "180.24",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "59.77",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "8.59",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-13",
+      "inputs": {
+        "stock": "9933",
+        "perDay": "106",
+        "reserveDays": "7"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "93.7075471698113207547169811320754716981132075471698113207547169811320754716981132075471698",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-13",
+      "inputs": {
+        "items": "A 514.77 1\nB 52.98 0.25"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "726.69",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "8720.28",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "514.77",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-13",
+      "inputs": {
+        "bill": "1255.16",
+        "tipPercent": "27",
+        "people": 4,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "1596.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "338.89",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "399.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-13",
+      "inputs": {
+        "nights": 1,
+        "days": 16,
+        "people": 7,
+        "hotelPerNight": 6535,
+        "foodPerDayPerPerson": 2011,
+        "transport": 5156,
+        "activities": 17,
+        "other": 122
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "237062.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "33866.00",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "14816.38",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-14",
+      "inputs": {
+        "windowWidth": 376,
+        "fullness": "2.4",
+        "fabricWidth": 280,
+        "height": 196,
+        "hem": 34
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "9.2",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "4",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-14",
+      "inputs": {
+        "l": "45.3",
+        "w": "56.3",
+        "h": "33.9",
+        "limit": "79.3"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "135.5",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-56.2",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "53.3464566929133858267716535433070866141732283464566929133858267716535433070866141732283465",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "86.458221",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-14",
+      "inputs": {
+        "photoWidth": "20",
+        "photoHeight": "64.9",
+        "border": "1",
+        "bottomExtra": "2.7"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "233.2",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "3.7",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.316091954022988505747126436781609195402298850574712643678160919540229885057471264367816092",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-14",
+      "inputs": {
+        "mode": "single",
+        "unit": "pcs",
+        "price": "894.65",
+        "amount": "8.6"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "104.03",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-14",
+      "inputs": {
+        "grams": "126.1",
+        "spoolPrice": "145.33",
+        "spoolWeight": "750",
+        "hours": "11.8",
+        "powerW": "196",
+        "kwhPrice": "6.65",
+        "wearPerHour": "4.49",
+        "markupPct": "22"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "113.21",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "24.43",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "15.38",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-14",
+      "inputs": {
+        "stock": "1268",
+        "perDay": "111",
+        "reserveDays": "1"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "11.4234234234234234234234234234234234234234234234234234234234234234234234234234234234234234",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-14",
+      "inputs": {
+        "items": "A 282.01 6\nB 71.04 1"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "118.04",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "1416.50",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "71.04",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-14",
+      "inputs": {
+        "bill": "2449.96",
+        "tipPercent": "21",
+        "people": 9,
+        "roundPerPerson": "no"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "2964.45",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "514.49",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "329.38",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-14",
+      "inputs": {
+        "nights": 13,
+        "days": 21,
+        "people": 8,
+        "hotelPerNight": 9387,
+        "foodPerDayPerPerson": 1554,
+        "transport": 9513,
+        "activities": 1048,
+        "other": 371
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "394035.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "49254.38",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "18763.57",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-15",
+      "inputs": {
+        "windowWidth": 114,
+        "fullness": "2.4",
+        "fabricWidth": 140,
+        "height": 78,
+        "hem": 40
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "2.36",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "2",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-15",
+      "inputs": {
+        "l": "74.9",
+        "w": "15.5",
+        "h": "22.2",
+        "limit": "44.7"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "112.6",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-67.9",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "44.3307086614173228346456692913385826771653543307086614173228346456692913385826771653543307",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "25.77309",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-15",
+      "inputs": {
+        "photoWidth": "29.3",
+        "photoHeight": "33.8",
+        "border": "8.6",
+        "bottomExtra": "2.3"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "1488.11",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "10.9",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.872420262664165103189493433395872420262664165103189493433395872420262664165103189493433396",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-15",
+      "inputs": {
+        "mode": "single",
+        "unit": "kg",
+        "price": "617.82",
+        "amount": "6.76"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "91.39",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-15",
+      "inputs": {
+        "grams": "67.1",
+        "spoolPrice": "229.87",
+        "spoolWeight": "250",
+        "hours": "4.9",
+        "powerW": "350",
+        "kwhPrice": "11.44",
+        "wearPerHour": "1.34",
+        "markupPct": "71"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "150.28",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "61.70",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "19.62",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-15",
+      "inputs": {
+        "stock": "7572",
+        "perDay": "23",
+        "reserveDays": "5"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "329.217391304347826086956521739130434782608695652173913043478260869565217391304347826086957",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-15",
+      "inputs": {
+        "items": "A 211.97 1\nB 17.98 0.25"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "283.89",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "3406.68",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "211.97",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-15",
+      "inputs": {
+        "bill": "509.73",
+        "tipPercent": "36",
+        "people": 11,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "704.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "183.50",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "64.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-15",
+      "inputs": {
+        "nights": 19,
+        "days": 17,
+        "people": 3,
+        "hotelPerNight": 5934,
+        "foodPerDayPerPerson": 2494,
+        "transport": 2311,
+        "activities": 209,
+        "other": 694
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "243154.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "81051.33",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "14303.18",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-16",
+      "inputs": {
+        "windowWidth": 106,
+        "fullness": "2.8",
+        "fabricWidth": 120,
+        "height": 154,
+        "hem": 28
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "5.46",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "3",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-16",
+      "inputs": {
+        "l": "1.8",
+        "w": "52.4",
+        "h": "49.9",
+        "limit": "74.9"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "104.1",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-29.2",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "40.9842519685039370078740157480314960629921259842519685039370078740157480314960629921259843",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "4.706568",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-16",
+      "inputs": {
+        "photoWidth": "39.7",
+        "photoHeight": "59.9",
+        "border": "6.9",
+        "bottomExtra": "1.3"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "1634.47",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "8.2",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.713333333333333333333333333333333333333333333333333333333333333333333333333333333333333333",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-16",
+      "inputs": {
+        "mode": "single",
+        "unit": "l",
+        "price": "412.2",
+        "amount": "9.94"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "41.47",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-16",
+      "inputs": {
+        "grams": "0.9",
+        "spoolPrice": "73.83",
+        "spoolWeight": "1000",
+        "hours": "32.5",
+        "powerW": "298",
+        "kwhPrice": "0.98",
+        "wearPerHour": "5",
+        "markupPct": "52"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "261.53",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "0.07",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "9.49",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-16",
+      "inputs": {
+        "stock": "3634",
+        "perDay": "1",
+        "reserveDays": "6"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "3634",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-16",
+      "inputs": {
+        "items": "A 365.01 1\nB 81.77 2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "405.90",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "4870.74",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "365.01",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-16",
+      "inputs": {
+        "bill": "1174.42",
+        "tipPercent": "62",
+        "people": 2,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "1904.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "728.14",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "952.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-16",
+      "inputs": {
+        "nights": 15,
+        "days": 11,
+        "people": 1,
+        "hotelPerNight": 7542,
+        "foodPerDayPerPerson": 1961,
+        "transport": 4076,
+        "activities": 4457,
+        "other": 777
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "144011.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "144011.00",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "13091.91",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-17",
+      "inputs": {
+        "windowWidth": 209,
+        "fullness": "3",
+        "fabricWidth": 280,
+        "height": 346,
+        "hem": 2
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "10.44",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "3",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-17",
+      "inputs": {
+        "l": "77.9",
+        "w": "33.1",
+        "h": "19.5",
+        "limit": "185.1"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "130.5",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "54.6",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "51.3779527559055118110236220472440944881889763779527559055118110236220472440944881889763780",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "50.280555",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-17",
+      "inputs": {
+        "photoWidth": "18.8",
+        "photoHeight": "18.4",
+        "border": "1.5",
+        "bottomExtra": "3"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "186.00",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "4.5",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.893442622950819672131147540983606557377049180327868852459016393442622950819672131147540984",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-17",
+      "inputs": {
+        "mode": "single",
+        "unit": "pcs",
+        "price": "766.75",
+        "amount": "9.35"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "82.01",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-17",
+      "inputs": {
+        "grams": "53.3",
+        "spoolPrice": "297.34",
+        "spoolWeight": "500",
+        "hours": "36.9",
+        "powerW": "25",
+        "kwhPrice": "11.18",
+        "wearPerHour": "1.43",
+        "markupPct": "83"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "173.44",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "31.70",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "10.31",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-17",
+      "inputs": {
+        "stock": "9703",
+        "perDay": "186",
+        "reserveDays": "5"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "52.1666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-17",
+      "inputs": {
+        "items": "A 366.66 6\nB 75.13 0.25"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "361.63",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "4339.56",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "300.52",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-17",
+      "inputs": {
+        "bill": "3478.42",
+        "tipPercent": "10",
+        "people": 2,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "3828.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "347.84",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "1914.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-17",
+      "inputs": {
+        "nights": 8,
+        "days": 22,
+        "people": 7,
+        "hotelPerNight": 7949,
+        "foodPerDayPerPerson": 757,
+        "transport": 3451,
+        "activities": 5251,
+        "other": 823
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "189695.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "27099.29",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "8622.50",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-18",
+      "inputs": {
+        "windowWidth": 194,
+        "fullness": "2.5",
+        "fabricWidth": 140,
+        "height": 69,
+        "hem": 3
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "2.88",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "4",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-18",
+      "inputs": {
+        "l": "87.1",
+        "w": "23.4",
+        "h": "11.2",
+        "limit": "133.3"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "121.7",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "11.6",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "47.9133858267716535433070866141732283464566929133858267716535433070866141732283464566929134",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "22.827168",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-18",
+      "inputs": {
+        "photoWidth": "27.8",
+        "photoHeight": "42.6",
+        "border": "9.4",
+        "bottomExtra": "0.5"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "1700.26",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "9.9",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.752827140549273021001615508885298869143780290791599353796445880452342487883683360258481422",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-18",
+      "inputs": {
+        "mode": "single",
+        "unit": "l",
+        "price": "425.3",
+        "amount": "7.65"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "55.59",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-18",
+      "inputs": {
+        "grams": "23.3",
+        "spoolPrice": "389.5",
+        "spoolWeight": "250",
+        "hours": "20.8",
+        "powerW": "234",
+        "kwhPrice": "9.23",
+        "wearPerHour": "3.67",
+        "markupPct": "10"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "173.32",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "36.30",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "44.92",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-18",
+      "inputs": {
+        "stock": "2066",
+        "perDay": "152",
+        "reserveDays": "2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "13.5921052631578947368421052631578947368421052631578947368421052631578947368421052631578947",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-18",
+      "inputs": {
+        "items": "A 9.13 3\nB 8.5 2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "7.29",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "87.52",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "4.25",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-18",
+      "inputs": {
+        "bill": "489.16",
+        "tipPercent": "4",
+        "people": 11,
+        "roundPerPerson": "yes"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "517.00",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "19.57",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "47.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-18",
+      "inputs": {
+        "nights": 18,
+        "days": 25,
+        "people": 8,
+        "hotelPerNight": 1091,
+        "foodPerDayPerPerson": 975,
+        "transport": 3559,
+        "activities": 3021,
+        "other": 757
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "221975.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "27746.88",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "8879.00",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "curtain-size",
+      "name": "seed172901-19",
+      "inputs": {
+        "windowWidth": 349,
+        "fullness": "1.6",
+        "fabricWidth": 120,
+        "height": 282,
+        "hem": 10
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "14.6",
+          "kind": "measure"
+        },
+        {
+          "label": "Полотнищ",
+          "expected": "5",
+          "kind": "count"
+        }
+      ]
+    },
+    {
+      "id": "luggage-linear",
+      "name": "seed172901-19",
+      "inputs": {
+        "l": "10.9",
+        "w": "17.5",
+        "h": "23.3",
+        "limit": "20"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "51.7",
+          "kind": "measure"
+        },
+        {
+          "label": "Запас до предела",
+          "expected": "-31.7",
+          "kind": "measure"
+        },
+        {
+          "label": "В дюймах",
+          "expected": "20.3543307086614173228346456692913385826771653543307086614173228346456692913385826771653543",
+          "kind": "measure"
+        },
+        {
+          "label": "Объём коробки",
+          "expected": "4.444475",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "picture-frame-mat",
+      "name": "seed172901-19",
+      "inputs": {
+        "photoWidth": "20.8",
+        "photoHeight": "32.9",
+        "border": "4.5",
+        "bottomExtra": "1"
+      },
+      "targets": [
+        {
+          "label": "Площадь паспарту",
+          "expected": "594.10",
+          "kind": "measure"
+        },
+        {
+          "label": "Нижнее поле",
+          "expected": "5.5",
+          "kind": "measure"
+        },
+        {
+          "label": "Соотношение сторон паспарту",
+          "expected": "0.694638694638694638694638694638694638694638694638694638694638694638694638694638694638694639",
+          "kind": "measure"
+        }
+      ]
+    },
+    {
+      "id": "price-per-unit",
+      "name": "seed172901-19",
+      "inputs": {
+        "mode": "single",
+        "unit": "kg",
+        "price": "691.23",
+        "amount": "4.96"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "139.36",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "print-3d-cost",
+      "name": "seed172901-19",
+      "inputs": {
+        "grams": "7.4",
+        "spoolPrice": "140.95",
+        "spoolWeight": "500",
+        "hours": "11.6",
+        "powerW": "125",
+        "kwhPrice": "1.5",
+        "wearPerHour": "3.9",
+        "markupPct": "80"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "89.10",
+          "kind": "money"
+        },
+        {
+          "label": "Пластик",
+          "expected": "2.09",
+          "kind": "money"
+        },
+        {
+          "label": "Электричество",
+          "expected": "2.18",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "stock-duration",
+      "name": "seed172901-19",
+      "inputs": {
+        "stock": "7922",
+        "perDay": "120",
+        "reserveDays": "10"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "66.0166666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+          "kind": "day"
+        }
+      ]
+    },
+    {
+      "id": "subscriptions-cost",
+      "name": "seed172901-19",
+      "inputs": {
+        "items": "A 622.62 12\nB 48.77 2"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "76.27",
+          "kind": "money"
+        },
+        {
+          "label": "В год",
+          "expected": "915.24",
+          "kind": "money"
+        },
+        {
+          "label": "Её вклад в месяц",
+          "expected": "51.89",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "tip",
+      "name": "seed172901-19",
+      "inputs": {
+        "bill": "2848.59",
+        "tipPercent": "18",
+        "people": 7,
+        "roundPerPerson": "no"
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "3361.34",
+          "kind": "money"
+        },
+        {
+          "label": "Чаевые",
+          "expected": "512.75",
+          "kind": "money"
+        },
+        {
+          "label": "С человека",
+          "expected": "480.19",
+          "kind": "money"
+        }
+      ]
+    },
+    {
+      "id": "trip-budget",
+      "name": "seed172901-19",
+      "inputs": {
+        "nights": 18,
+        "days": 25,
+        "people": 1,
+        "hotelPerNight": 1500,
+        "foodPerDayPerPerson": 2731,
+        "transport": 1065,
+        "activities": 2857,
+        "other": 307
+      },
+      "targets": [
+        {
+          "label": "primary",
+          "expected": "99504.00",
+          "kind": "money"
+        },
+        {
+          "label": "На человека",
+          "expected": "99504.00",
+          "kind": "money"
+        },
+        {
+          "label": "В день",
+          "expected": "3980.16",
+          "kind": "money"
+        }
+      ]
+    }
+  ]
+}

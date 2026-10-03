@@ -1,3 +1,4 @@
+import { dateTimeWave15ContractContent } from '../../data/dateTimeWave15ContractContent';
 // Немецкий копирайт калькулятора.
 // Владение копирайтом объявляет доступность калькулятора в локали: без этого
 // файла немецкой страницы не существует. Подробный текст живёт в
@@ -13,4 +14,6 @@ export const timeDurationCopyDe: CalculatorSeoCopy = {
   seoDescription: 'Berechne die Dauer zwischen zwei Uhrzeiten oder addiere und subtrahiere Stunden und Minuten von einer Uhrzeit.',
   h1: 'Rechner für die Zeitdauer',
   keywords: ['Zeitdauer berechnen', 'Stunden zwischen Uhrzeiten', 'Zeit addieren', 'Zeitspanne'],
-};
+
+    ...dateTimeWave15ContractContent.de['time-duration'],
+  };

@@ -1,46 +1,18 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber } from '../../lib/format';
-import { formatMeasure } from '../../lib/platform/measurement';
-import { ceilUnits } from '../../lib/rounding';
-
-// Расход герметика на шов.
-//
-// Удобство арифметики: миллиметр на миллиметр на метр даёт ровно миллилитр,
-// поэтому сечение шва в квадратных миллиметрах, умноженное на длину в метрах,
-// сразу даёт миллилитры без коэффициентов.
-//
-// Строка «метров из одного картриджа» отвечает на настоящий вопрос в магазине:
-// не «сколько миллилитров», а «хватит ли одного картриджа на эту дверь».
-const PERCENT = 100;
-
-export const compute: CalcFunction = (inputs) => {
-  const width = toNumber(inputs.width);
-  const depth = toNumber(inputs.depth);
-  const length = toNumber(inputs.length);
-  const cartridge = toNumber(inputs.cart);
-  const waste = toNumber(inputs.waste);
-  const fail = (message: string) => ({
-    primary: { label: 'Нужно герметика', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
-  if (!(width > 0)) return fail('Ширина шва должна быть больше нуля');
-  if (!(depth > 0)) return fail('Глубина шва должна быть больше нуля');
-  if (!(length > 0)) return fail('Длина шва должна быть больше нуля');
-  if (!(cartridge > 0)) return fail('Объём картриджа должен быть больше нуля');
-  if (!(waste >= 0)) return fail('Запас не может быть отрицательным');
-
-  const section = width * depth;
-  const millilitres = section * length;
-  const withWaste = millilitres * (1 + waste / PERCENT);
-
-  return {
-    primary: { label: 'Нужно герметика', value: `${formatMeasure(withWaste, fmtNumber)} мл` },
-    secondary: [
-      { label: 'Без запаса', value: `${formatMeasure(millilitres, fmtNumber)} мл` },
-      { label: 'Картриджей', value: `${ceilUnits(withWaste / cartridge)} шт` },
-      { label: 'Метров из одного картриджа', value: `${formatMeasure(cartridge / section, fmtNumber)} м` },
-      { label: 'Сечение шва', value: `${formatMeasure(section, fmtNumber)} мм²` },
-    ],
-  };
+import { fmtNumber } from '../../lib/format';
+import { INPUT, RANGE, finite, read, exact, times, mul, quotient, reserve, decimal, dproduct, reserveDecimal, ceilDecimal, measure } from '../rafters/buildingWave16Numeric';
+// mm × mm × m = mL; rectangular section only.
+export const compute:CalcFunction=inputs=>{
+ const width=read(inputs.width),depth=read(inputs.depth),length=read(inputs.length),cart=read(inputs.cart),waste=read(inputs.waste);
+ const fail=(value:string)=>({primary:{label:'Нужно герметика',value:'—'},secondary:[{label:'Проверьте данные',value,accent:'red' as const}]});
+ if(!finite(width,depth,length,cart,waste))return fail(INPUT);
+ if(!(width>0))return fail('Ширина шва должна быть больше нуля');
+ if(!(depth>0))return fail('Глубина шва должна быть больше нуля');
+ if(!(length>0))return fail('Длина шва должна быть больше нуля');
+ if(!(cart>0))return fail('Объём картриджа должен быть больше нуля');
+ if(waste<0)return fail('Запас не может быть отрицательным');
+ const section=mul(width,depth),net=mul(width,depth,length),total=reserve(times(exact(width),exact(depth),exact(length)),waste),coverage=quotient([cart],[width,depth]);
+ const carts=ceilDecimal(reserveDecimal(dproduct(width,depth,length),waste),decimal(cart));
+ if(!finite(section,net,total,coverage,carts))return fail(RANGE);
+ return {primary:{label:'Нужно герметика',value:`${measure(total)} мл`},secondary:[{label:'Без запаса',value:`${measure(net)} мл`},{label:'Картриджей',value:`${carts} шт`},{label:'Метров из одного картриджа',value:`${measure(coverage)} м`},{label:'Сечение шва',value:`${measure(section)} мм²`}]};
 };

@@ -1,6 +1,7 @@
 import type { CalculatorReferenceCase } from '../../lib/platform/types';
 
-// Значения выведены вручную: ROAS = доход ÷ расход, ROI = (доход−расход) ÷ расход.
+// При марже100% старые численные эталоны сохраняются.
+// НазваниеROI исправлено: знаменатель — только рекламный расход, не все затраты.
 //   480 000 / 120 000 = 4,0× → 400 % и ROI 300 %
 //   95 000 / 120 000 = 0,791666… → ROI −20,83 %
 export const roasReferenceCases: readonly CalculatorReferenceCase[] = [
@@ -10,20 +11,20 @@ export const roasReferenceCases: readonly CalculatorReferenceCase[] = [
     expectPrimary: '4,00×',
     expectSecondary: [
       { label: 'ROAS в процентах', value: '400,00%' },
-      { label: 'ROI', value: '300,00%' },
+      { label: 'Доходность рекламного расхода', value: '300,00%' },
     ],
   },
   {
     name: 'убыточная кампания: доход 95 000 при расходе 120 000',
     inputs: { revenue: 95000, cost: 120000, margin: 100 },
     expectPrimary: '0,79×',
-    expectSecondary: [{ label: 'ROI', value: '-20,83%' }],
+    expectSecondary: [{ label: 'Доходность рекламного расхода', value: '-20,83%' }],
   },
   {
     name: 'граница: доход равен расходу — точка окупаемости',
     inputs: { revenue: 120000, cost: 120000, margin: 100 },
     expectPrimary: '1,00×',
-    expectSecondary: [{ label: 'ROI', value: '0,00%' }],
+    expectSecondary: [{ label: 'Доходность рекламного расхода', value: '0,00%' }],
   },
   {
     name: 'маржа снижает окупаемость: 480 000 при марже 40 %',

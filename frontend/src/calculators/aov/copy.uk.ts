@@ -1,6 +1,9 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+// Complete subject copy; metadata and published locale routes are preserved.
+import type { CalculatorCopy } from '../../lib/platform/types';
 
-export const aovCopyUk: CalculatorSeoCopy = {
+import { contractContent } from './contractContent';
+
+export const aovCopyUk: CalculatorCopy = {
   name: 'Калькулятор середнього чека',
   slug: 'serednii-chek',
   shortDescription: 'Виторг, поділений на кількість замовлень.',
@@ -8,4 +11,5 @@ export const aovCopyUk: CalculatorSeoCopy = {
   seoDescription: 'Розрахунок середнього чека: виторг за період, поділений на кількість замовлень того самого періоду.',
   h1: 'Калькулятор середнього чека',
   keywords: ['середній чек', 'AOV', 'середній кошик'],
+  ...contractContent.uk,
 };

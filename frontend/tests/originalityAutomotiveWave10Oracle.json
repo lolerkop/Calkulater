@@ -1,0 +1,620 @@
+{
+  "oracle": "Python decimal80, exact decimal fixture inputs; independent formulas, no import of tested compute; displayed precision permits binary64/π differences.",
+  "fixtures": [
+    {
+      "id": "car-depreciation",
+      "inputs": {
+        "price": 1000,
+        "years": 1,
+        "ratePct": 10,
+        "firstYearPct": 20
+      },
+      "expectedDecimal80": "800.0",
+      "formula": "P·(1−f)·(1−r)^(y−1)"
+    },
+    {
+      "id": "compression-ratio",
+      "inputs": {
+        "displacement": 100,
+        "chamber": 21
+      },
+      "expectedDecimal80": "5.7619047619047619047619047619047619047619047619047619047619047619047619047619048",
+      "formula": "1+Vs/Vc"
+    },
+    {
+      "id": "engine-displacement",
+      "inputs": {
+        "bore": 71,
+        "stroke": 81,
+        "cylinders": 1
+      },
+      "expectedDecimal80": "320.69456347660949123057625222601747429456810158056064598157758771892997570779779",
+      "formula": "πD²Sn/4000 with80digit π"
+    },
+    {
+      "id": "fuel-consumption",
+      "inputs": {
+        "mode": "measure",
+        "litres": 11,
+        "distance": 117
+      },
+      "expectedDecimal80": "9.4017094017094017094017094017094017094017094017094017094017094017094017094017094",
+      "formula": "100L/s"
+    },
+    {
+      "id": "fuel-oil-mix",
+      "inputs": {
+        "fuel": 1,
+        "ratio": 30
+      },
+      "expectedDecimal80": "33.333333333333333333333333333333333333333333333333333333333333333333333333333333",
+      "formula": "1000F/N"
+    },
+    {
+      "id": "power-to-weight",
+      "inputs": {
+        "power": 110,
+        "powerUnit": "ps",
+        "mass": 1100,
+        "payload": 50
+      },
+      "expectedDecimal80": "70.352054347826086956521739130434782608695652173913043478260869565217391304347826",
+      "formula": "P·735.49875/(m+load), W/kg=kW/t"
+    },
+    {
+      "id": "quarter-mile-elapsed-time",
+      "inputs": {
+        "power": 110,
+        "mass": 1100
+      },
+      "expectedDecimal80": "16.333302902714120452068169787953637454110927699617269382049505805166724071623954",
+      "formula": "5.825·(W/P)^(1/3), inheritedpreset"
+    },
+    {
+      "id": "speed-distance-time",
+      "inputs": {
+        "mode": "speed",
+        "distance": 117,
+        "time": 3
+      },
+      "expectedDecimal80": "39",
+      "formula": "s/t"
+    },
+    {
+      "id": "stopping-distance",
+      "inputs": {
+        "speed": 40,
+        "reaction": 1,
+        "mu": 0.5,
+        "grade": 1
+      },
+      "expectedDecimal80": "23.453355276905449559066724076368558975716070563241262302380259919343459061022330",
+      "formula": "u·tr+u²/[2g(μ+grade/100)]"
+    },
+    {
+      "id": "tire-size",
+      "inputs": {
+        "width": 160,
+        "profile": 50,
+        "diameter": 11
+      },
+      "expectedDecimal80": "439.4",
+      "formula": "rim·25.4+2width·profile/100"
+    },
+    {
+      "id": "trip-cost",
+      "inputs": {
+        "distance": 110,
+        "consumption": 8,
+        "fuelPrice": 2,
+        "tolls": 5,
+        "passengers": 1,
+        "roundTrip": "yes"
+      },
+      "expectedDecimal80": "40.2",
+      "formula": "2s·c·price/100+tolls once"
+    },
+    {
+      "id": "wheel-offset",
+      "inputs": {
+        "width": 7,
+        "offset": -5,
+        "newOffset": 20
+      },
+      "expectedDecimal80": "96.6",
+      "formula": "widthin·25.4/2+signedET+12.7"
+    },
+    {
+      "id": "car-depreciation",
+      "inputs": {
+        "price": 2000,
+        "years": 2,
+        "ratePct": 10,
+        "firstYearPct": 20
+      },
+      "expectedDecimal80": "1440.00",
+      "formula": "P·(1−f)·(1−r)^(y−1)"
+    },
+    {
+      "id": "compression-ratio",
+      "inputs": {
+        "displacement": 200,
+        "chamber": 22
+      },
+      "expectedDecimal80": "10.090909090909090909090909090909090909090909090909090909090909090909090909090909",
+      "formula": "1+Vs/Vc"
+    },
+    {
+      "id": "engine-displacement",
+      "inputs": {
+        "bore": 72,
+        "stroke": 82,
+        "cylinders": 2
+      },
+      "expectedDecimal80": "667.72666896458901407580407525575866101880317282078249161329862342747253025769602",
+      "formula": "πD²Sn/4000 with80digit π"
+    },
+    {
+      "id": "fuel-consumption",
+      "inputs": {
+        "mode": "measure",
+        "litres": 12,
+        "distance": 134
+      },
+      "expectedDecimal80": "8.9552238805970149253731343283582089552238805970149253731343283582089552238805970",
+      "formula": "100L/s"
+    },
+    {
+      "id": "fuel-oil-mix",
+      "inputs": {
+        "fuel": 2,
+        "ratio": 35
+      },
+      "expectedDecimal80": "57.142857142857142857142857142857142857142857142857142857142857142857142857142857",
+      "formula": "1000F/N"
+    },
+    {
+      "id": "power-to-weight",
+      "inputs": {
+        "power": 120,
+        "powerUnit": "ps",
+        "mass": 1200,
+        "payload": 100
+      },
+      "expectedDecimal80": "67.892192307692307692307692307692307692307692307692307692307692307692307692307692",
+      "formula": "P·735.49875/(m+load), W/kg=kW/t"
+    },
+    {
+      "id": "quarter-mile-elapsed-time",
+      "inputs": {
+        "power": 120,
+        "mass": 1200
+      },
+      "expectedDecimal80": "16.333302902714120452068169787953637454110927699617269382049505805166724071623954",
+      "formula": "5.825·(W/P)^(1/3), inheritedpreset"
+    },
+    {
+      "id": "speed-distance-time",
+      "inputs": {
+        "mode": "speed",
+        "distance": 134,
+        "time": 4
+      },
+      "expectedDecimal80": "33.5",
+      "formula": "s/t"
+    },
+    {
+      "id": "stopping-distance",
+      "inputs": {
+        "speed": 50,
+        "reaction": 1,
+        "mu": 0.5,
+        "grade": 2
+      },
+      "expectedDecimal80": "32.802784695845357063340098661368751902556344780073916255316971497658412490014856",
+      "formula": "u·tr+u²/[2g(μ+grade/100)]"
+    },
+    {
+      "id": "tire-size",
+      "inputs": {
+        "width": 170,
+        "profile": 50,
+        "diameter": 12
+      },
+      "expectedDecimal80": "474.8",
+      "formula": "rim·25.4+2width·profile/100"
+    },
+    {
+      "id": "trip-cost",
+      "inputs": {
+        "distance": 120,
+        "consumption": 8,
+        "fuelPrice": 2,
+        "tolls": 10,
+        "passengers": 2,
+        "roundTrip": "yes"
+      },
+      "expectedDecimal80": "48.4",
+      "formula": "2s·c·price/100+tolls once"
+    },
+    {
+      "id": "wheel-offset",
+      "inputs": {
+        "width": 7,
+        "offset": 0,
+        "newOffset": 20
+      },
+      "expectedDecimal80": "101.6",
+      "formula": "widthin·25.4/2+signedET+12.7"
+    },
+    {
+      "id": "car-depreciation",
+      "inputs": {
+        "price": 3000,
+        "years": 3,
+        "ratePct": 10,
+        "firstYearPct": 20
+      },
+      "expectedDecimal80": "1944.000",
+      "formula": "P·(1−f)·(1−r)^(y−1)"
+    },
+    {
+      "id": "compression-ratio",
+      "inputs": {
+        "displacement": 300,
+        "chamber": 23
+      },
+      "expectedDecimal80": "14.043478260869565217391304347826086956521739130434782608695652173913043478260870",
+      "formula": "1+Vs/Vc"
+    },
+    {
+      "id": "engine-displacement",
+      "inputs": {
+        "bore": 73,
+        "stroke": 83,
+        "cylinders": 3
+      },
+      "expectedDecimal80": "1042.1613163735055084435223051961553116504480541470536977684736133424200134114257",
+      "formula": "πD²Sn/4000 with80digit π"
+    },
+    {
+      "id": "fuel-consumption",
+      "inputs": {
+        "mode": "measure",
+        "litres": 13,
+        "distance": 151
+      },
+      "expectedDecimal80": "8.6092715231788079470198675496688741721854304635761589403973509933774834437086093",
+      "formula": "100L/s"
+    },
+    {
+      "id": "fuel-oil-mix",
+      "inputs": {
+        "fuel": 3,
+        "ratio": 40
+      },
+      "expectedDecimal80": "75",
+      "formula": "1000F/N"
+    },
+    {
+      "id": "power-to-weight",
+      "inputs": {
+        "power": 130,
+        "powerUnit": "ps",
+        "mass": 1300,
+        "payload": 150
+      },
+      "expectedDecimal80": "65.941267241379310344827586206896551724137931034482758620689655172413793103448276",
+      "formula": "P·735.49875/(m+load), W/kg=kW/t"
+    },
+    {
+      "id": "quarter-mile-elapsed-time",
+      "inputs": {
+        "power": 130,
+        "mass": 1300
+      },
+      "expectedDecimal80": "16.333302902714120452068169787953637454110927699617269382049505805166724071623954",
+      "formula": "5.825·(W/P)^(1/3), inheritedpreset"
+    },
+    {
+      "id": "speed-distance-time",
+      "inputs": {
+        "mode": "speed",
+        "distance": 151,
+        "time": 5
+      },
+      "expectedDecimal80": "30.2",
+      "formula": "s/t"
+    },
+    {
+      "id": "stopping-distance",
+      "inputs": {
+        "speed": 60,
+        "reaction": 1,
+        "mu": 0.5,
+        "grade": 3
+      },
+      "expectedDecimal80": "43.388789648268559815778111718804254260316083593684305330782418095811231331804637",
+      "formula": "u·tr+u²/[2g(μ+grade/100)]"
+    },
+    {
+      "id": "tire-size",
+      "inputs": {
+        "width": 180,
+        "profile": 50,
+        "diameter": 13
+      },
+      "expectedDecimal80": "510.2",
+      "formula": "rim·25.4+2width·profile/100"
+    },
+    {
+      "id": "trip-cost",
+      "inputs": {
+        "distance": 130,
+        "consumption": 8,
+        "fuelPrice": 2,
+        "tolls": 15,
+        "passengers": 3,
+        "roundTrip": "yes"
+      },
+      "expectedDecimal80": "56.6",
+      "formula": "2s·c·price/100+tolls once"
+    },
+    {
+      "id": "wheel-offset",
+      "inputs": {
+        "width": 7,
+        "offset": 5,
+        "newOffset": 20
+      },
+      "expectedDecimal80": "106.6",
+      "formula": "widthin·25.4/2+signedET+12.7"
+    },
+    {
+      "id": "car-depreciation",
+      "inputs": {
+        "price": 4000,
+        "years": 4,
+        "ratePct": 10,
+        "firstYearPct": 20
+      },
+      "expectedDecimal80": "2332.8000",
+      "formula": "P·(1−f)·(1−r)^(y−1)"
+    },
+    {
+      "id": "compression-ratio",
+      "inputs": {
+        "displacement": 400,
+        "chamber": 24
+      },
+      "expectedDecimal80": "17.666666666666666666666666666666666666666666666666666666666666666666666666666667",
+      "formula": "1+Vs/Vc"
+    },
+    {
+      "id": "engine-displacement",
+      "inputs": {
+        "bore": 74,
+        "stroke": 84,
+        "cylinders": 4
+      },
+      "expectedDecimal80": "1445.0823551688474530010005540144388546845507690021586759553389133481186218291556",
+      "formula": "πD²Sn/4000 with80digit π"
+    },
+    {
+      "id": "fuel-consumption",
+      "inputs": {
+        "mode": "measure",
+        "litres": 14,
+        "distance": 168
+      },
+      "expectedDecimal80": "8.3333333333333333333333333333333333333333333333333333333333333333333333333333333",
+      "formula": "100L/s"
+    },
+    {
+      "id": "fuel-oil-mix",
+      "inputs": {
+        "fuel": 4,
+        "ratio": 45
+      },
+      "expectedDecimal80": "88.888888888888888888888888888888888888888888888888888888888888888888888888888889",
+      "formula": "1000F/N"
+    },
+    {
+      "id": "power-to-weight",
+      "inputs": {
+        "power": 140,
+        "powerUnit": "ps",
+        "mass": 1400,
+        "payload": 200
+      },
+      "expectedDecimal80": "64.356140625",
+      "formula": "P·735.49875/(m+load), W/kg=kW/t"
+    },
+    {
+      "id": "quarter-mile-elapsed-time",
+      "inputs": {
+        "power": 140,
+        "mass": 1400
+      },
+      "expectedDecimal80": "16.333302902714120452068169787953637454110927699617269382049505805166724071623954",
+      "formula": "5.825·(W/P)^(1/3), inheritedpreset"
+    },
+    {
+      "id": "speed-distance-time",
+      "inputs": {
+        "mode": "speed",
+        "distance": 168,
+        "time": 6
+      },
+      "expectedDecimal80": "28",
+      "formula": "s/t"
+    },
+    {
+      "id": "stopping-distance",
+      "inputs": {
+        "speed": 70,
+        "reaction": 1,
+        "mu": 0.5,
+        "grade": 4
+      },
+      "expectedDecimal80": "55.142671493425985858149394444650882191721983415362555355302781101588700841236266",
+      "formula": "u·tr+u²/[2g(μ+grade/100)]"
+    },
+    {
+      "id": "tire-size",
+      "inputs": {
+        "width": 190,
+        "profile": 50,
+        "diameter": 14
+      },
+      "expectedDecimal80": "545.6",
+      "formula": "rim·25.4+2width·profile/100"
+    },
+    {
+      "id": "trip-cost",
+      "inputs": {
+        "distance": 140,
+        "consumption": 8,
+        "fuelPrice": 2,
+        "tolls": 20,
+        "passengers": 4,
+        "roundTrip": "yes"
+      },
+      "expectedDecimal80": "64.8",
+      "formula": "2s·c·price/100+tolls once"
+    },
+    {
+      "id": "wheel-offset",
+      "inputs": {
+        "width": 7,
+        "offset": 10,
+        "newOffset": 20
+      },
+      "expectedDecimal80": "111.6",
+      "formula": "widthin·25.4/2+signedET+12.7"
+    },
+    {
+      "id": "car-depreciation",
+      "inputs": {
+        "price": 5000,
+        "years": 5,
+        "ratePct": 10,
+        "firstYearPct": 20
+      },
+      "expectedDecimal80": "2624.40000",
+      "formula": "P·(1−f)·(1−r)^(y−1)"
+    },
+    {
+      "id": "compression-ratio",
+      "inputs": {
+        "displacement": 500,
+        "chamber": 25
+      },
+      "expectedDecimal80": "21",
+      "formula": "1+Vs/Vc"
+    },
+    {
+      "id": "engine-displacement",
+      "inputs": {
+        "bore": 75,
+        "stroke": 85,
+        "cylinders": 5
+      },
+      "expectedDecimal80": "1877.5924843720248651749392095381403956334645238452780883170567289964683990694921",
+      "formula": "πD²Sn/4000 with80digit π"
+    },
+    {
+      "id": "fuel-consumption",
+      "inputs": {
+        "mode": "measure",
+        "litres": 15,
+        "distance": 185
+      },
+      "expectedDecimal80": "8.1081081081081081081081081081081081081081081081081081081081081081081081081081081",
+      "formula": "100L/s"
+    },
+    {
+      "id": "fuel-oil-mix",
+      "inputs": {
+        "fuel": 5,
+        "ratio": 50
+      },
+      "expectedDecimal80": "100",
+      "formula": "1000F/N"
+    },
+    {
+      "id": "power-to-weight",
+      "inputs": {
+        "power": 150,
+        "powerUnit": "ps",
+        "mass": 1500,
+        "payload": 250
+      },
+      "expectedDecimal80": "63.04275",
+      "formula": "P·735.49875/(m+load), W/kg=kW/t"
+    },
+    {
+      "id": "quarter-mile-elapsed-time",
+      "inputs": {
+        "power": 150,
+        "mass": 1500
+      },
+      "expectedDecimal80": "16.333302902714120452068169787953637454110927699617269382049505805166724071623954",
+      "formula": "5.825·(W/P)^(1/3), inheritedpreset"
+    },
+    {
+      "id": "speed-distance-time",
+      "inputs": {
+        "mode": "speed",
+        "distance": 185,
+        "time": 7
+      },
+      "expectedDecimal80": "26.428571428571428571428571428571428571428571428571428571428571428571428571428571",
+      "formula": "s/t"
+    },
+    {
+      "id": "stopping-distance",
+      "inputs": {
+        "speed": 80,
+        "reaction": 1,
+        "mu": 0.5,
+        "grade": 5
+      },
+      "expectedDecimal80": "68.000727855350313920093950311540756120029708190123146640747792347302203709165650",
+      "formula": "u·tr+u²/[2g(μ+grade/100)]"
+    },
+    {
+      "id": "tire-size",
+      "inputs": {
+        "width": 200,
+        "profile": 50,
+        "diameter": 15
+      },
+      "expectedDecimal80": "581.0",
+      "formula": "rim·25.4+2width·profile/100"
+    },
+    {
+      "id": "trip-cost",
+      "inputs": {
+        "distance": 150,
+        "consumption": 8,
+        "fuelPrice": 2,
+        "tolls": 25,
+        "passengers": 5,
+        "roundTrip": "yes"
+      },
+      "expectedDecimal80": "73",
+      "formula": "2s·c·price/100+tolls once"
+    },
+    {
+      "id": "wheel-offset",
+      "inputs": {
+        "width": 7,
+        "offset": 15,
+        "newOffset": 20
+      },
+      "expectedDecimal80": "116.6",
+      "formula": "widthin·25.4/2+signedET+12.7"
+    }
+  ]
+}

@@ -1,3 +1,19 @@
+import { getCalculatorSpecificLimitation } from './calculatorSpecificLimitations';
+import {getHouseholdWave17MethodSources} from './householdWave17MethodSources';
+import {getBuildingWave16MethodSources} from './buildingWave16MethodSources';
+import {getPhysicsWave16MethodSources} from './physicsWave16MethodSources';
+import {getHouseholdWave16MethodSources} from './householdWave16MethodSources';
+import {getHouseholdWave15MethodSources} from './householdWave15MethodSources';
+import {getFinanceWave14MethodSources} from './financeWave14MethodSources';
+import{getBuildingWave17MethodSources}from './buildingWave17MethodSources';
+import {getBuildingWave13MethodSources} from './buildingWave13MethodSources';
+import {getElectronicsWave12MethodSources} from './electronicsWave12MethodSources';
+import {getFinanceWave11MethodSources} from './financeWave11MethodSources';
+import {getConverterWave10MethodSources} from './converterWave10MethodSources';
+import {getAutomotiveWave10MethodSources} from './automotiveWave10MethodSources';
+import {getComputerWave9MethodSources} from './computerWave9MethodSources';
+import {getBusinessWave9MethodSources} from './businessWave9MethodSources';
+import {getDateTimeWave15MethodSources} from './dateTimeWave15MethodSources';
 import {
   allRateSources,
   ratesAreStale,
@@ -8,6 +24,43 @@ import {
 } from './currencies';
 import type { CalculatorDef } from '../lib/types';
 import { categoryDefinitions } from '../categories/manifest.generated';
+import { getFinanceMethodSources } from './financeContractContent';
+import { getPercentDiscountMethodSources } from './percentDiscountContractContent';
+import { methodSources as adRoiSources } from '../calculators/ad-roi/methodSources';
+import { methodSources as dayOfWeekSources } from '../calculators/day-of-week/methodSources';
+import { methodSources as dividendYieldSources } from '../calculators/dividend-yield/methodSources';
+import { getReviewedMethodSources, getReviewedSourceCaveat } from './reviewedMethodSources';
+import { getFitnessMethodSources } from './fitnessLegacyContractContent';
+import { getPhysicsMethodSources } from './physicsMethodSources';
+import { getChemistrySpecialMethodSources } from './chemistrySpecialMethodSources';
+import { getChemistryWave4MethodSources } from './chemistryWave4MethodSources';
+import { getMechanicsWave4MethodSources } from './mechanicsWave4MethodSources';
+import { getGasWave5MethodSources } from './gasWave5MethodSources';
+import { getMathWave5MethodSources } from './mathWave5MethodSources';
+import { getGeometryWave6MethodSources } from './geometryWave6MethodSources';
+import { getMathWave6MethodSources } from './mathWave6MethodSources';
+import { getFinanceWave6MethodSources } from './financeWave6MethodSources';
+import { getElectronicsWave7MethodSources } from './electronicsWave7MethodSources';
+import { getModernPhysicsWave7MethodSources } from './modernPhysicsWave7MethodSources';
+import { getFinanceWave8MethodSources } from './financeWave8MethodSources';
+import { getGeometryWave8MethodSources } from './geometryWave8MethodSources';
+import { getMathWave8MethodSources } from './mathWave8MethodSources';
+import { getEducationWave8MethodSources } from './educationWave8MethodSources';
+import { methodSources as marketingCpcSources } from '../calculators/cpc/methodSources';
+import { methodSources as marketingCpmSources } from '../calculators/cpm/methodSources';
+import { methodSources as marketingCtrSources } from '../calculators/ctr/methodSources';
+import { methodSources as marketingRoasSources } from '../calculators/roas/methodSources';
+import { methodSources as marketingLtvSources } from '../calculators/ltv/methodSources';
+import { methodSources as marketingMrrSources } from '../calculators/mrr-arr/methodSources';
+import { methodSources as marketingArpuSources } from '../calculators/arpu-arppu/methodSources';
+import { methodSources as marketingEngagementSources } from '../calculators/engagement-rate/methodSources';
+import { methodSources as wave4SimpleInterestSources } from '../calculators/simple-interest/methodSources';
+import { methodSources as wave4ContributionMarginSources } from '../calculators/contribution-margin/methodSources';
+import { methodSources as wave4PaybackPeriodSources } from '../calculators/payback-period/methodSources';
+import { methodSources as wave4WeekNumberSources } from '../calculators/week-number/methodSources';
+import { methodSources as wave4CacSources } from '../calculators/cac/methodSources';
+import { methodSources as wave4CpaCplCpiSources } from '../calculators/cpa-cpl-cpi/methodSources';
+import { methodSources as wave4ConversionRateSources } from '../calculators/conversion-rate/methodSources';
 
 export type EditorialSource = {
   label: string;
@@ -107,8 +160,61 @@ export function getCalculatorEditorial(calculator: CalculatorDef, locale: string
     reviewedLabel: copy.reviewed,
     limitationLabel: copy.limitation,
     method: calculator.howItWorks,
-    sources: [],
-    limitation: genericLimitations[lang][calculator.category],
+    sources: [
+      ...getHouseholdWave17MethodSources(calculator.id, lang),
+      ...getBuildingWave16MethodSources(calculator.id, lang),
+      ...getPhysicsWave16MethodSources(calculator.id, lang),
+      ...getHouseholdWave16MethodSources(calculator.id, lang),
+      ...getHouseholdWave15MethodSources(calculator.id, lang),
+      ...getFinanceWave14MethodSources(calculator.id, lang),
+      ...getBuildingWave17MethodSources(calculator.id, lang),
+      ...getFinanceMethodSources(calculator.id, locale),
+      ...getPercentDiscountMethodSources(calculator.id, locale),
+      ...getReviewedMethodSources(calculator.id, locale),
+      ...getFitnessMethodSources(calculator.id, lang),
+      ...getPhysicsMethodSources(calculator.id, lang),
+      ...getChemistrySpecialMethodSources(calculator.id, lang),
+      ...getChemistryWave4MethodSources(calculator.id, lang),
+      ...getMechanicsWave4MethodSources(calculator.id, lang),
+      ...getGasWave5MethodSources(calculator.id, lang),
+      ...getMathWave5MethodSources(calculator.id, lang),
+      ...getGeometryWave6MethodSources(calculator.id, lang),
+      ...getMathWave6MethodSources(calculator.id, lang),
+      ...getFinanceWave6MethodSources(calculator.id, lang),
+      ...getElectronicsWave7MethodSources(calculator.id, lang),
+      ...getModernPhysicsWave7MethodSources(calculator.id, lang),
+      ...getFinanceWave8MethodSources(calculator.id, lang),
+      ...getGeometryWave8MethodSources(calculator.id, lang),
+      ...getMathWave8MethodSources(calculator.id, lang),
+      ...getEducationWave8MethodSources(calculator.id, lang),
+      ...getDateTimeWave15MethodSources(calculator.id, lang),
+      ...getBuildingWave13MethodSources(calculator.id, lang),
+      ...getElectronicsWave12MethodSources(calculator.id, lang),
+      ...getFinanceWave11MethodSources(calculator.id, lang),
+      ...getConverterWave10MethodSources(calculator.id, lang),
+      ...getAutomotiveWave10MethodSources(calculator.id, lang),
+      ...getComputerWave9MethodSources(calculator.id, lang),
+      ...getBusinessWave9MethodSources(calculator.id, lang),
+      ...(calculator.id === 'cpc' ? marketingCpcSources[lang] : []),
+      ...(calculator.id === 'cpm' ? marketingCpmSources[lang] : []),
+      ...(calculator.id === 'ctr' ? marketingCtrSources[lang] : []),
+      ...(calculator.id === 'roas' ? marketingRoasSources[lang] : []),
+      ...(calculator.id === 'ltv' ? marketingLtvSources[lang] : []),
+      ...(calculator.id === 'mrr-arr' ? marketingMrrSources[lang] : []),
+      ...(calculator.id === 'arpu-arppu' ? marketingArpuSources[lang] : []),
+      ...(calculator.id === 'engagement-rate' ? marketingEngagementSources[lang] : []),
+      ...(calculator.id === 'simple-interest' ? wave4SimpleInterestSources[lang] : []),
+      ...(calculator.id === 'contribution-margin' ? wave4ContributionMarginSources[lang] : []),
+      ...(calculator.id === 'payback-period' ? wave4PaybackPeriodSources[lang] : []),
+      ...(calculator.id === 'week-number' ? wave4WeekNumberSources[lang] : []),
+      ...(calculator.id === 'cac' ? wave4CacSources[lang] : []),
+      ...(calculator.id === 'cpa-cpl-cpi' ? wave4CpaCplCpiSources[lang] : []),
+      ...(calculator.id === 'conversion-rate' ? wave4ConversionRateSources[lang] : []),
+      ...(calculator.id === 'ad-roi' ? adRoiSources[lang] : []),
+      ...(calculator.id === 'day-of-week' ? dayOfWeekSources[lang] : []),
+      ...(calculator.id === 'dividend-yield' ? dividendYieldSources[lang] : []),
+    ],
+    limitation: [getCalculatorSpecificLimitation(calculator.id, lang) ?? calculator.disclaimer ?? genericLimitations[lang][calculator.category], getReviewedSourceCaveat(calculator.id, locale)].filter(Boolean).join(' '),
   };
 
 // Названия источников по локалям. Источник называется тот, чьи данные реально
@@ -205,42 +311,8 @@ function currencyFieldPinned(calculator: CalculatorDef, name: 'from' | 'to'): bo
     };
   }
 
-  if (calculator.id === 'income-tax-calculator') {
-    return {
-      ...base,
-      sources: [{
-        label: 'ФНС России: прогрессивная шкала НДФЛ 13/15/18/20/22%',
-        href: 'https://www.nalog.gov.ru/rn77/news/tax_doc_news/15562179/',
-      }],
-      limitation: 'Расчёт предназначен для основной прогрессивной шкалы доходов резидента за налоговый период 2025-2026. Отдельные налоговые базы, статус нерезидента и вычеты требуют самостоятельной проверки.',
-    };
-  }
-
-  if (calculator.id === 'vat-calculator') {
-    return {
-      ...base,
-      sources: [{
-        label: 'ФНС России: применение основной ставки НДС 22% с 1 января 2026 года',
-        href: 'https://www.nalog.gov.ru/rn25/news/activities_fts/16590316/',
-      }],
-      limitation: 'Ставка 22% применяется к операциям 2026 года; ставка 20% оставлена для сверки операций прошлых периодов. Право на ставки 0%, 5%, 7% или 10% зависит от вида операции и налогового режима.',
-    };
-  }
-
   if (calculator.id === 'bmi-calculator') {
-    return {
-      ...base,
-      sources: [{
-        label: sourceText(locale, 'ВОЗ: формула и ограничения индекса массы тела', 'WHO: BMI formula and interpretation limits', 'ВООЗ: формула й обмеження індексу маси тіла'),
-        href: 'https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight',
-      }],
-      limitation: sourceText(
-        locale,
-        'Категории предназначены для взрослых. ИМТ не измеряет долю жира и может быть непоказателен для детей, беременных, пожилых людей и спортсменов с высокой мышечной массой.',
-        'Adult cutoffs do not measure body fat directly and may be unsuitable for children, pregnancy, older adults or muscular athletes.',
-        'Категорії призначені для дорослих. ІМТ не вимірює частку жиру й може бути непоказовим для дітей, вагітних, літніх людей і спортсменів із великою м’язовою масою.',
-      ),
-    };
+    return base; // Reviewed CDC adult 20+ scope and the authored local limitation.
   }
 
   return base;

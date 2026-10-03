@@ -1,38 +1,16 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
-import { formatMeasure, lengthSymbol } from '../../lib/platform/measurement';
-
-// Правильный многоугольник: равные стороны, равные углы.
-//
-// Тангенс берётся от РАДИАН (π / n), а внутренний угол выводится в ГРАДУСАХ.
-// Смешение этих двух мер — классическая ошибка, поэтому перевод сделан явно
-// и в одном месте.
-
-const dim = (value: number): string => formatMeasure(value, fmtNumber);
+import { isIntegralNumberText } from '../../lib/format';
+import { read, valid, unit as lengthUnit, dim, exact, times, ratio, product, INPUT, UNIT, RANGE } from '../../lib/platform/geometryNumericInput';
 
 export const compute: CalcFunction = (inputs) => {
-  const unit = lengthSymbol(toStr(inputs.unit, 'cm'));
-  const n = toNumber(inputs.n);
-  const side = toNumber(inputs.side);
-  const fail = (message: string) => ({
-    primary: { label: 'Площадь', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-  if (!Number.isInteger(n)) return fail('Число сторон должно быть целым');
-  if (!(n >= 3)) return fail('Сторон должно быть не меньше трёх');
-  if (!(side > 0)) return fail('Длина стороны должна быть больше нуля');
-
-  const tan = Math.tan(Math.PI / n);
-  const area = (n * side * side) / (4 * tan);
-  const apothem = side / (2 * tan);
-  const interiorDegrees = ((n - 2) * 180) / n;
-
-  return {
-    primary: { label: 'Площадь', value: `${dim(area)} ${unit}²` },
-    secondary: [
-      { label: 'Периметр', value: `${dim(n * side)} ${unit}` },
-      { label: 'Апофема', value: `${dim(apothem)} ${unit}` },
-      { label: 'Внутренний угол', value: `${dim(interiorDegrees)}°` },
-    ],
-  };
+ const fail=(message:string)=>({primary:{label:'Площадь',value:'—'},secondary:[{label:'Проверьте данные',value:message,accent:'red' as const}]});
+ const u=lengthUnit(inputs.unit === undefined ? 'cm' : inputs.unit);if(!u)return fail(UNIT);
+ const n=read(inputs.n),a=read(inputs.side);if(![n,a].every(Number.isFinite))return fail(INPUT);
+ if(!Number.isSafeInteger(n)||isIntegralNumberText(inputs.n as string|number)!==true||n<3||n>1000)return fail('Число сторон должно быть целым от 3 до 1000');
+ if(!(a>0))return fail('Длина стороны должна быть больше нуля');
+ const tangent=n===4?1:Math.tan(Math.PI/n),area=ratio(times(exact(n),exact(a),exact(a)),times(exact(4),exact(tangent)));
+ const apothem=ratio(exact(a),times(exact(2),exact(tangent))),perimeter=product(n,a),angle=(n-2)*180/n;
+ if(!valid(area,apothem,perimeter,angle))return fail(RANGE);
+ return {primary:{label:'Площадь',value:dim(area)+' '+u+'²'},secondary:[{label:'Периметр',value:dim(perimeter)+' '+u},
+ {label:'Апофема',value:dim(apothem)+' '+u},{label:'Внутренний угол',value:dim(angle)+'°'}]};
 };

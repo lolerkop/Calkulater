@@ -1,6 +1,7 @@
+import {dateTimeWave15Phrases} from '../../data/dateTimeWave15ResultPhrases';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
-export const localization: CalculatorLocalization = {
+const previousLocalization: CalculatorLocalization = {
   de: {
     fields: {
       'fromOffset': 'UTC-Abweichung — von',
@@ -105,3 +106,6 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+const ownedKeys = ["Введите целые часы от 0 до 23 и минуты от 0 до 59", "Смещение UTC должно быть от −12 до +14 и соответствовать целому числу минут", "через двое суток", "двое суток назад"] as const;
+export const localization:CalculatorLocalization = Object.fromEntries(['en','uk','de','es'].map(locale=>[locale,{...previousLocalization[locale as keyof typeof previousLocalization],values:{...previousLocalization[locale as keyof typeof previousLocalization]?.values,...dateTimeWave15Phrases(locale,ownedKeys)}}]));

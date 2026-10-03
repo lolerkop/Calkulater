@@ -13,45 +13,36 @@ export const shared: CalculatorLocalization = {
     results: {
       'Проверьте данные': 'Check inputs',
       'Прибыль': 'Profit',
+      'Результат': 'Result',
       'В': 'To',
       'Себестоимость': 'Cost',
-      'Проценты': 'Interest',
-    },
-    values: {
-      'Проценты': 'Percentages',
     },
   },
   uk: {
     results: {
       'Проверьте данные': 'Перевірте дані',
       'Прибыль': 'Прибуток',
+      'Результат': 'Результат',
       'В': 'У',
       'Себестоимость': 'Собівартість',
-      'Проценты': 'Відсотки',
-    },
-    values: {
-      'Проценты': 'Відсотки',
     },
   },
   de: {
     results: {
       'Проверьте данные': 'Prüfe die Werte',
       'Прибыль': 'Gewinn',
+      'Результат': 'Ergebnis',
       'В': 'Nach',
       'Себестоимость': 'Selbstkosten',
-      'Проценты': 'Zinsen',
-    },
-    values: {
-      'Проценты': 'Prozent',
     },
   },
   es: {
     results: {
       'Проверьте данные': 'Revisa los datos',
       'Прибыль': 'Beneficio',
+      'Результат': 'Resultado',
       'В': 'A',
       'Себестоимость': 'Coste',
-      'Проценты': 'Intereses',
     },
   },
 };

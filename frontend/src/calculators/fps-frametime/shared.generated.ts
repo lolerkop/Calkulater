@@ -16,6 +16,9 @@ export const shared: CalculatorLocalization = {
       'В': 'To',
       'Время': 'Time',
     },
+    values: {
+      'Результат выходит за числовой диапазон': 'The result exceeds the numeric range',
+    },
   },
   uk: {
     results: {
@@ -23,6 +26,9 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Результат',
       'В': 'У',
       'Время': 'Час',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'Результат виходить за числовий діапазон',
     },
   },
   de: {
@@ -32,6 +38,9 @@ export const shared: CalculatorLocalization = {
       'В': 'Nach',
       'Время': 'Zeit',
     },
+    values: {
+      'Результат выходит за числовой диапазон': 'Das Ergebnis überschreitet den Zahlenbereich',
+    },
   },
   es: {
     results: {
@@ -39,6 +48,9 @@ export const shared: CalculatorLocalization = {
       'Результат': 'Resultado',
       'В': 'A',
       'Время': 'Tiempo',
+    },
+    values: {
+      'Результат выходит за числовой диапазон': 'El resultado excede el rango numérico',
     },
   },
 };

@@ -1,12 +1,21 @@
 import { expect, test } from '@playwright/test';
 
-test('privacy page exposes all required sections and contact path', async ({ page }) => {
+test('privacy page exposes all required sections and the configured private contact', async ({ page }) => {
   await page.goto('/ru/privacy/');
 
   for (const id of ['operator', 'data', 'local', 'share-links', 'storage', 'analytics', 'processors', 'logs', 'retention', 'rights', 'contact', 'updated', 'changes']) {
     await expect(page.getByTestId(`privacy-section-${id}`)).toBeVisible();
   }
-  await expect(page.getByTestId('privacy-contact')).toHaveAttribute('href', '/ru/contacts/#privacy');
+  const email = process.env.PUBLIC_PRIVACY_EMAIL || process.env.PUBLIC_CONTACT_EMAIL || '';
+  if (email) {
+    await expect(page.getByTestId('privacy-contact')).toHaveText(email);
+    await expect(page.getByTestId('privacy-contact')).toHaveAttribute('href', `mailto:${email}`);
+    await expect(page.getByTestId('privacy-section-contact')).not.toContainText('Отдельный приватный email пока не настроен');
+  } else {
+    await expect(page.getByTestId('privacy-contact')).toHaveCount(0);
+    await expect(page.getByTestId('privacy-section-contact')).toContainText('Отдельный приватный email пока не настроен');
+  }
+  await expect(page.getByTestId('privacy-section-contact')).toContainText('GitHub');
 });
 
 test('analytics UI and external loaders are absent when IDs are not configured', async ({ page }) => {

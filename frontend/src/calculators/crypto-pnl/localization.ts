@@ -1,5 +1,24 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
+const contractValues = {
+  "en": {
+    "Введите корректные значения": "Enter valid numerical values",
+    "Результат выходит за числовые пределы расчёта": "The result exceeds the numerical limits of this calculation"
+  },
+  "uk": {
+    "Введите корректные значения": "Введіть коректні числові значення",
+    "Результат выходит за числовые пределы расчёта": "Результат виходить за числові межі розрахунку"
+  },
+  "de": {
+    "Введите корректные значения": "Gib gültige Zahlenwerte ein",
+    "Результат выходит за числовые пределы расчёта": "Das Ergebnis überschreitet die Zahlengrenzen dieser Rechnung"
+  },
+  "es": {
+    "Введите корректные значения": "Introduce valores numéricos válidos",
+    "Результат выходит за числовые пределы расчёта": "El resultado supera los límites numéricos del cálculo"
+  }
+} as const;
+
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
@@ -24,6 +43,9 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Выберите корректный режим расчёта": "Wählen Sie einen gültigen Berechnungsmodus",
+      "Комиссия должна быть от 0 до 100%": "Die Gebühr muss zwischen 0 und 100% liegen",
+      ...contractValues.de,
       '₽': '€',
       'Цена входа должна быть больше нуля': 'Der Einstiegspreis muss größer als null sein',
       'Цена выхода должна быть больше нуля': 'Der Ausstiegspreis muss größer als null sein',
@@ -55,6 +77,9 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      "Выберите корректный режим расчёта": "Choose a valid calculation mode",
+      "Комиссия должна быть от 0 до 100%": "The fee must be from 0 to 100%",
+      ...contractValues.en,
       "₽": "$",
       "Цена входа должна быть больше нуля": "The entry price must be greater than zero",
       "Цена выхода должна быть больше нуля": "The exit price must be greater than zero",
@@ -86,6 +111,9 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      "Выберите корректный режим расчёта": "Виберіть коректний режим розрахунку",
+      "Комиссия должна быть от 0 до 100%": "Комісія має бути від 0 до 100%",
+      ...contractValues.uk,
       "₽": "₴",
       "Цена входа должна быть больше нуля": "Ціна входу має бути більшою за нуль",
       "Цена выхода должна быть больше нуля": "Ціна виходу має бути більшою за нуль",
@@ -117,6 +145,9 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Выберите корректный режим расчёта": "Seleccione un modo de cálculo válido",
+      "Комиссия должна быть от 0 до 100%": "La comisión debe estar entre el 0 y el 100%",
+      ...contractValues.es,
       "₽": "€",
       "Цена входа должна быть больше нуля": "El precio de entrada debe ser mayor que cero",
       "Цена выхода должна быть больше нуля": "El precio de salida debe ser mayor que cero",

@@ -1,119 +1,132 @@
 import type { CalculatorLocalization } from '../../lib/platform/types';
+import { marketingScalarValues } from '../../lib/platform/marketingScalarLocalization';
 
 export const localization: CalculatorLocalization = {
-  de: {
-    fields: {
-      'ingredients': 'Zutaten: Name und Menge je Zeile',
-      'fromServings': 'Portionen im Rezept',
-      'toServings': 'Benötigte Portionen',
-    },
-    results: {
-      'Коэффициент': 'Umrechnungsfaktor',
-      'Ингредиентов': 'Zutaten',
-      'Было всего': 'Ursprüngliche Summe',
-      'Стало всего': 'Neue Summe',
-      'Порций было': 'Portionen vorher',
-      'Порций стало': 'Portionen nachher',
-      'Пересчёт ингредиентов': 'Umgerechnete Zutaten',
-      'Ингредиент': 'Zutat',
-      'Было': 'Vorher',
-      'Стало': 'Nachher',
-      'Проверьте данные': 'Prüfe die Werte',
-    },
-    values: {
-      'Нужны название и количество в строке:': 'In der Zeile werden Name und Menge gebraucht:',
-      'Количество должно быть числом в строке:': 'Die Menge muss eine Zahl sein, in der Zeile:',
-      'Исходное число порций должно быть больше нуля': 'Die ursprüngliche Portionszahl muss größer als null sein',
-      'Нужное число порций должно быть больше нуля': 'Die benötigte Portionszahl muss größer als null sein',
-      'Количество не может быть отрицательным': 'Die Menge kann nicht negativ sein',
-      'Введите хотя бы один ингредиент': 'Trage mindestens eine Zutat ein',
-    },
+  "en": {
+  "fields": {
+    "ingredients": "Ingredients: name and quantity per line",
+    "fromServings": "Servings in the recipe",
+    "toServings": "Servings needed"
   },
-  en: {
-    fields: {
-      "ingredients": "Ingredients: name and quantity per line",
-      "fromServings": "Servings in the recipe",
-      "toServings": "Servings needed",
-    },
-    options: {},
-    results: {
-      "Коэффициент": "Scaling factor",
-      "Ингредиентов": "Ingredients",
-      "Было всего": "Original total",
-      "Стало всего": "Scaled total",
-      "Порций было": "Servings before",
-      "Порций стало": "Servings after",
-      "Пересчёт ингредиентов": "Scaled ingredients",
-      "Ингредиент": "Ingredient",
-      "Было": "Before",
-      "Стало": "After",
-      "Проверьте данные": "Check the values",
-    },
-    values: {
-      "Нужны название и количество в строке:": "Name and quantity are required on the line:",
-      "Количество должно быть числом в строке:": "The quantity must be a number on the line:",
-      "Исходное число порций должно быть больше нуля": "The original number of servings must be greater than zero",
-      "Нужное число порций должно быть больше нуля": "The required number of servings must be greater than zero",
-      "Количество не может быть отрицательным": "Quantity cannot be negative",
-      "Введите хотя бы один ингредиент": "Enter at least one ingredient",
-    },
+  "options": {},
+  "results": {
+    "Коэффициент": "Scaling factor",
+    "Ингредиентов": "Ingredients",
+    "Было всего": "Original total",
+    "Стало всего": "Scaled total",
+    "Порций было": "Servings before",
+    "Порций стало": "Servings after",
+    "Пересчёт ингредиентов": "Scaled ingredients",
+    "Ингредиент": "Ingredient",
+    "Было": "Before",
+    "Стало": "After",
+    "Проверьте данные": "Check the values"
   },
-  uk: {
-    fields: {
-      "ingredients": "Інгредієнти: назва і кількість у рядку",
-      "fromServings": "Порцій у рецепті",
-      "toServings": "Порцій потрібно",
-    },
-    options: {},
-    results: {
-      "Коэффициент": "Коефіцієнт",
-      "Ингредиентов": "Інгредієнтів",
-      "Было всего": "Було разом",
-      "Стало всего": "Стало разом",
-      "Порций было": "Порцій було",
-      "Порций стало": "Порцій стало",
-      "Пересчёт ингредиентов": "Перерахунок інгредієнтів",
-      "Ингредиент": "Інгредієнт",
-      "Было": "Було",
-      "Стало": "Стало",
-      "Проверьте данные": "Перевірте дані",
-    },
-    values: {
-      "Нужны название и количество в строке:": "Потрібні назва і кількість у рядку:",
-      "Количество должно быть числом в строке:": "Кількість має бути числом у рядку:",
-      "Исходное число порций должно быть больше нуля": "Початкова кількість порцій має бути більшою за нуль",
-      "Нужное число порций должно быть больше нуля": "Потрібна кількість порцій має бути більшою за нуль",
-      "Количество не может быть отрицательным": "Кількість не може бути від'ємною",
-      "Введите хотя бы один ингредиент": "Введіть хоча б один інгредієнт",
-    },
+  "values": {
+    ...marketingScalarValues.en,
+    "Нужны название и количество в строке:": "Name and quantity are required on the line:",
+    "Количество должно быть числом в строке:": "The quantity must be a number on the line:",
+    "Исходное число порций должно быть больше нуля": "The original number of servings must be greater than zero",
+    "Нужное число порций должно быть больше нуля": "The required number of servings must be greater than zero",
+    "Количество не может быть отрицательным": "Quantity cannot be negative",
+    "Введите хотя бы один ингредиент": "Enter at least one ingredient",
+    "Введите список ингредиентов текстом": "Enter the ingredient list as text",
+    "Суммы количества имеют смысл только при одной общей единице во всех строках. Смешанные единицы сохраняются по строкам, но их сумму нельзя читать как массу или объём.": "Quantity totals are meaningful only with one common unit throughout. Mixed units stay per row, but their sum is not a mass or volume."
+  }
+},
+  "uk": {
+  "fields": {
+    "ingredients": "Інгредієнти: назва і кількість у рядку",
+    "fromServings": "Порцій у рецепті",
+    "toServings": "Порцій потрібно"
   },
-  es: {
-    fields: {
-      "ingredients": "Ingredientes: nombre y cantidad por línea",
-      "fromServings": "Raciones de la receta",
-      "toServings": "Raciones necesarias",
-    },
-    options: {},
-    results: {
-      "Коэффициент": "Factor de escalado",
-      "Ингредиентов": "Ingredientes",
-      "Было всего": "Total original",
-      "Стало всего": "Total escalado",
-      "Порций было": "Raciones antes",
-      "Порций стало": "Raciones después",
-      "Пересчёт ингредиентов": "Ingredientes recalculados",
-      "Ингредиент": "Ingrediente",
-      "Было": "Antes",
-      "Стало": "Después",
-      "Проверьте данные": "Revisa los datos",
-    },
-    values: {
-      "Нужны название и количество в строке:": "Hacen falta un nombre y una cantidad en la línea:",
-      "Количество должно быть числом в строке:": "La cantidad debe ser un número en la línea:",
-      "Исходное число порций должно быть больше нуля": "El número original de raciones debe ser mayor que cero",
-      "Нужное число порций должно быть больше нуля": "El número de raciones necesarias debe ser mayor que cero",
-      "Количество не может быть отрицательным": "La cantidad no puede ser negativa",
-      "Введите хотя бы один ингредиент": "Introduce al menos un ingrediente",
-    },
+  "options": {},
+  "results": {
+    "Коэффициент": "Коефіцієнт",
+    "Ингредиентов": "Інгредієнтів",
+    "Было всего": "Було разом",
+    "Стало всего": "Стало разом",
+    "Порций было": "Порцій було",
+    "Порций стало": "Порцій стало",
+    "Пересчёт ингредиентов": "Перерахунок інгредієнтів",
+    "Ингредиент": "Інгредієнт",
+    "Было": "Було",
+    "Стало": "Стало",
+    "Проверьте данные": "Перевірте дані"
   },
+  "values": {
+    ...marketingScalarValues.uk,
+    "Нужны название и количество в строке:": "Потрібні назва і кількість у рядку:",
+    "Количество должно быть числом в строке:": "Кількість має бути числом у рядку:",
+    "Исходное число порций должно быть больше нуля": "Початкова кількість порцій має бути більшою за нуль",
+    "Нужное число порций должно быть больше нуля": "Потрібна кількість порцій має бути більшою за нуль",
+    "Количество не может быть отрицательным": "Кількість не може бути від'ємною",
+    "Введите хотя бы один ингредиент": "Введіть хоча б один інгредієнт",
+    "Введите список ингредиентов текстом": "Введіть список інгредієнтів текстом",
+    "Суммы количества имеют смысл только при одной общей единице во всех строках. Смешанные единицы сохраняются по строкам, но их сумму нельзя читать как массу или объём.": "Суми кількості мають сенс лише за однієї одиниці в усіх рядках. Змішані одиниці лишаються по рядках, але їхня сума не є масою або об’ємом."
+  }
+},
+  "de": {
+  "fields": {
+    "ingredients": "Zutaten: Name und Menge je Zeile",
+    "fromServings": "Portionen im Rezept",
+    "toServings": "Benötigte Portionen"
+  },
+  "results": {
+    "Коэффициент": "Umrechnungsfaktor",
+    "Ингредиентов": "Zutaten",
+    "Было всего": "Ursprüngliche Summe",
+    "Стало всего": "Neue Summe",
+    "Порций было": "Portionen vorher",
+    "Порций стало": "Portionen nachher",
+    "Пересчёт ингредиентов": "Umgerechnete Zutaten",
+    "Ингредиент": "Zutat",
+    "Было": "Vorher",
+    "Стало": "Nachher",
+    "Проверьте данные": "Prüfe die Werte"
+  },
+  "values": {
+    ...marketingScalarValues.de,
+    "Нужны название и количество в строке:": "In der Zeile werden Name und Menge gebraucht:",
+    "Количество должно быть числом в строке:": "Die Menge muss eine Zahl sein, in der Zeile:",
+    "Исходное число порций должно быть больше нуля": "Die ursprüngliche Portionszahl muss größer als null sein",
+    "Нужное число порций должно быть больше нуля": "Die benötigte Portionszahl muss größer als null sein",
+    "Количество не может быть отрицательным": "Die Menge kann nicht negativ sein",
+    "Введите хотя бы один ингредиент": "Trage mindestens eine Zutat ein",
+    "Введите список ингредиентов текстом": "Zutatenliste als Text eingeben",
+    "Суммы количества имеют смысл только при одной общей единице во всех строках. Смешанные единицы сохраняются по строкам, но их сумму нельзя читать как массу или объём.": "Mengensummen gelten nur bei einer gemeinsamen Einheit. Gemischte Einheiten bleiben zeilenweise, ihre Summe ist jedoch keine Masse oder kein Volumen."
+  }
+},
+  "es": {
+  "fields": {
+    "ingredients": "Ingredientes: nombre y cantidad por línea",
+    "fromServings": "Raciones de la receta",
+    "toServings": "Raciones necesarias"
+  },
+  "options": {},
+  "results": {
+    "Коэффициент": "Factor de escalado",
+    "Ингредиентов": "Ingredientes",
+    "Было всего": "Total original",
+    "Стало всего": "Total escalado",
+    "Порций было": "Raciones antes",
+    "Порций стало": "Raciones después",
+    "Пересчёт ингредиентов": "Ingredientes recalculados",
+    "Ингредиент": "Ingrediente",
+    "Было": "Antes",
+    "Стало": "Después",
+    "Проверьте данные": "Revisa los datos"
+  },
+  "values": {
+    ...marketingScalarValues.es,
+    "Нужны название и количество в строке:": "Hacen falta un nombre y una cantidad en la línea:",
+    "Количество должно быть числом в строке:": "La cantidad debe ser un número en la línea:",
+    "Исходное число порций должно быть больше нуля": "El número original de raciones debe ser mayor que cero",
+    "Нужное число порций должно быть больше нуля": "El número de raciones necesarias debe ser mayor que cero",
+    "Количество не может быть отрицательным": "La cantidad no puede ser negativa",
+    "Введите хотя бы один ингредиент": "Introduce al menos un ingrediente",
+    "Введите список ингредиентов текстом": "Introduce la lista de ingredientes como texto",
+    "Суммы количества имеют смысл только при одной общей единице во всех строках. Смешанные единицы сохраняются по строкам, но их сумму нельзя читать как массу или объём.": "Sumas de cantidades solo valen con unidad común. Unidades mezcladas se conservan por línea, pero su suma no es masa ni volumen."
+  }
+}
 };

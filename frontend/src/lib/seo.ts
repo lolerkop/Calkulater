@@ -323,7 +323,6 @@ export function howToJsonLd(params: {
     description: params.description,
     inLanguage: localeMeta[locale].localeCode,
     url: absUrl(params.path),
-    totalTime: 'PT1M',
     step: steps.map((text, i) => ({
       '@type': 'HowToStep',
       position: i + 1,

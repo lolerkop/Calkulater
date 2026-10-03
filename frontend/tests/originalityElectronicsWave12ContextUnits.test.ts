@@ -1,0 +1,15 @@
+import {describe,it,expect}from "vitest";
+import {contextualField as coaxial_cable_impedance} from "../src/calculators/coaxial-cable-impedance/contextualField";
+import {contextualField as headphone_power} from "../src/calculators/headphone-power/contextualField";
+import {contextualField as inverter_power} from "../src/calculators/inverter-power/contextualField";
+import {contextualField as lc_resonance} from "../src/calculators/lc-resonance/contextualField";
+import {contextualField as led_resistor} from "../src/calculators/led-resistor/contextualField";
+import {contextualField as ne555_timer_astable} from "../src/calculators/ne555-timer-astable/contextualField";
+import {contextualField as rc_filter} from "../src/calculators/rc-filter/contextualField";
+import {contextualField as rms_voltage} from "../src/calculators/rms-voltage/contextualField";
+import {contextualField as transformer_ratio} from "../src/calculators/transformer-ratio/contextualField";
+import {contextualField as voltage_divider} from "../src/calculators/voltage-divider/contextualField";
+const hooks={coaxial_cable_impedance,headphone_power,inverter_power,lc_resonance,led_resistor,ne555_timer_astable,rc_filter,rms_voltage,transformer_ratio,voltage_divider};
+const cases=[["coaxial_cable_impedance", "dIn", {}, ["мм", "mm", "мм", "mm", "mm"]], ["headphone_power", "sensitivity", {}, ["дБ", "dB", "дБ", "dB", "dB"]], ["inverter_power", "outputPower", {}, ["Вт", "W", "Вт", "W", "W"]], ["lc_resonance", "l", {}, ["мкГн", "µH", "мкГн", "µH", "µH"]], ["led_resistor", "current", {"currentUnit": "ma"}, ["мА", "mA", "мА", "mA", "mA"]], ["led_resistor", "current", {"currentUnit": "a"}, ["А", "A", "А", "A", "A"]], ["ne555_timer_astable", "r1", {}, ["кОм", "kΩ", "кОм", "kΩ", "kΩ"]], ["rc_filter", "c", {}, ["нФ", "nF", "нФ", "nF", "nF"]], ["rms_voltage", "value", {}, ["В", "V", "В", "V", "V"]], ["transformer_ratio", "n1", {}, ["витков", "turns", "витків", "Windungen", "espiras"]], ["voltage_divider", "r2", {}, ["Ом", "Ω", "Ом", "Ω", "Ω"]]] as const;
+const locales=["ru","en","uk","de","es"] as const;
+describe("Electronics12 raw contextual SI units",()=>{for(const [id,name,values,expected]of cases)for(const [i,locale]of locales.entries())it(`${id}/${name}/${locale}`,()=>{const field={name,label:name,type:"number" as const,defaultValue:1,unit:"wrong-old-unit"};expect(hooks[id](field,values,locale).unit).toBe(expected[i]);});it("unsupported LED current mode clears unit",()=>{expect(led_resistor({name:"current",label:"current",type:"number",unit:"A"},{currentUnit:"unknown"},"en").unit).toBeUndefined();});});

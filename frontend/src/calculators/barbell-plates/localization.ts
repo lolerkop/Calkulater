@@ -3,8 +3,8 @@ import type { CalculatorLocalization } from '../../lib/platform/types';
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'target': 'Zielgewicht, kg',
-      'bar': 'Gewicht der Stange, kg',
+      'target': 'Zielgewicht',
+      'bar': 'Gewicht der Stange',
       'plates': 'Vorhandene Scheiben, ein Gewicht je Eintrag',
     },
     results: {
@@ -20,6 +20,12 @@ export const localization: CalculatorLocalization = {
       'Проверьте данные': 'Prüfe die Werte',
     },
     values: {
+      "Без дополнительных блинов": "Keine zusätzlichen Scheiben",
+      "Вес цели и грифа: от 0 до 1000 кг, не более трёх знаков после запятой": "Ziel- und Stangenmasse:0–1000 kg, höchstens drei Nachkommastellen",
+      "Вес блина: до 1000 кг, не более трёх знаков после запятой": "Scheibenmasse: bis 1000 kg, höchstens drei Nachkommastellen",
+      "Введите не более 32 разных весов блинов": "Höchstens 32 verschiedene Scheibenmassen eingeben",
+      "Количество блинов каждого веса не ограничено. Для показанного набора нужны одинаковые пары; проверьте их наличие и вместимость грифа.": "Jeder Nennwert ist unbegrenzt verfügbar. Passende Paare und Platz auf der Stange prüfen.",
+
       'кг': 'kg',
       'Вес блина должен быть числом:': 'Das Scheibengewicht muss eine Zahl sein:',
       'Вес блина должен быть больше нуля': 'Das Scheibengewicht muss größer als null sein',
@@ -30,8 +36,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      "target": "Target weight, kg",
-      "bar": "Bar weight, kg",
+      "target": "Target weight",
+      "bar": "Bar weight",
       "plates": "Available plates, one weight per token",
     },
     options: {},
@@ -48,6 +54,12 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Check the values",
     },
     values: {
+      "Без дополнительных блинов": "No additional plates",
+      "Вес цели и грифа: от 0 до 1000 кг, не более трёх знаков после запятой": "Target and bar mass: 0–1000 kg, at most three decimal places",
+      "Вес блина: до 1000 кг, не более трёх знаков после запятой": "Plate mass: up to 1000 kg, at most three decimal places",
+      "Введите не более 32 разных весов блинов": "Enter at most 32 different plate masses",
+      "Количество блинов каждого веса не ограничено. Для показанного набора нужны одинаковые пары; проверьте их наличие и вместимость грифа.": "Each plate denomination has unlimited quantity. The shown combination needs matching pairs; check availability and sleeve capacity.",
+
       "кг": "kg",
       "Вес блина должен быть числом:": "The plate weight must be a number:",
       "Вес блина должен быть больше нуля": "The plate weight must be greater than zero",
@@ -58,8 +70,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      "target": "Цільова вага, кг",
-      "bar": "Вага грифа, кг",
+      "target": "Цільова вага",
+      "bar": "Вага грифа",
       "plates": "Доступні млинці, по одній вазі на токен",
     },
     options: {},
@@ -76,6 +88,12 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Перевірте дані",
     },
     values: {
+      "Без дополнительных блинов": "Без додаткових млинців",
+      "Вес цели и грифа: от 0 до 1000 кг, не более трёх знаков после запятой": "Маса цілі й грифа:0–1000 кг, не більше трьох десяткових знаків",
+      "Вес блина: до 1000 кг, не более трёх знаков после запятой": "Маса млинця: до 1000 кг, не більше трьох десяткових знаків",
+      "Введите не более 32 разных весов блинов": "Введіть не більше 32 різних мас млинців",
+      "Количество блинов каждого веса не ограничено. Для показанного набора нужны одинаковые пары; проверьте их наличие и вместимость грифа.": "Кількість кожного номіналу необмежена. Потрібні однакові пари; перевірте наявність і місце на грифі.",
+
       "кг": "кг",
       "Вес блина должен быть числом:": "Вага млинця має бути числом:",
       "Вес блина должен быть больше нуля": "Вага млинця має бути більшою за нуль",
@@ -86,8 +104,8 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "target": "Peso objetivo, kg",
-      "bar": "Peso de la barra, kg",
+      "target": "Peso objetivo",
+      "bar": "Peso de la barra",
       "plates": "Discos disponibles, un peso por elemento",
     },
     options: {},
@@ -104,6 +122,12 @@ export const localization: CalculatorLocalization = {
       "Проверьте данные": "Revisa los datos",
     },
     values: {
+      "Без дополнительных блинов": "Sin discos adicionales",
+      "Вес цели и грифа: от 0 до 1000 кг, не более трёх знаков после запятой": "Masa objetivo y barra:0–1000 kg, máximo tres decimales",
+      "Вес блина: до 1000 кг, не более трёх знаков после запятой": "Masa del disco: hasta 1000 kg, máximo tres decimales",
+      "Введите не более 32 разных весов блинов": "Introduce como máximo 32 masas distintas de discos",
+      "Количество блинов каждого веса не ограничено. Для показанного набора нужны одинаковые пары; проверьте их наличие и вместимость грифа.": "Cada denominación tiene cantidad ilimitada. Comprueba pares iguales disponibles y espacio en la barra.",
+
       "кг": "kg",
       "Вес блина должен быть числом:": "El peso del disco debe ser un número:",
       "Вес блина должен быть больше нуля": "El peso del disco debe ser mayor que cero",

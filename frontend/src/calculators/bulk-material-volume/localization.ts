@@ -1,3 +1,4 @@
+import { addBuildingWave13Messages } from '../beam-deflection/buildingWave13Messages';
 import type { CalculatorLocalization } from '../../lib/platform/types';
 
 const RESULTS_EN = {
@@ -14,11 +15,11 @@ const RESULTS_UK = {
 export const localization: CalculatorLocalization = {
   de: {
     fields: {
-      'length': 'Länge der Fläche, m',
-      'width': 'Breite der Fläche, m',
-      'depth': 'Schichtdicke, cm',
-      'density': 'Schüttdichte, t/m³',
-      'waste': 'Zuschlag für Verdichtung, %',
+      'length': "Länge der Fläche",
+      'width': "Breite der Fläche",
+      'depth': "Schichtdicke",
+      'density': "Schüttdichte",
+      'waste': "Zuschlag für Verdichtung",
     },
     results: {
       'Нужно материала': 'Nötiges Material',
@@ -41,8 +42,8 @@ export const localization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      length: 'Area length, m', width: 'Area width, m', depth: 'Layer thickness, cm',
-      density: 'Bulk density, t/m³', waste: 'Compaction allowance, %',
+      length: "Area length", width: "Area width", depth: "Layer thickness",
+      density: "Bulk density", waste: "Compaction allowance",
     },
     options: {},
     results: RESULTS_EN,
@@ -56,8 +57,8 @@ export const localization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      length: 'Довжина майданчика, м', width: 'Ширина майданчика, м', depth: 'Товщина шару, см',
-      density: 'Насипна густина, т/м³', waste: 'Запас на усадку, %',
+      length: "Довжина майданчика", width: "Ширина майданчика", depth: "Товщина шару",
+      density: "Насипна густина", waste: "Запас на усадку",
     },
     options: {},
     results: RESULTS_UK,
@@ -71,11 +72,11 @@ export const localization: CalculatorLocalization = {
   },
   es: {
     fields: {
-      "length": "Largo de la superficie, m",
-      "width": "Ancho de la superficie, m",
-      "depth": "Espesor de la capa, cm",
-      "density": "Densidad aparente, t/m³",
-      "waste": "Margen por compactación, %",
+      "length": "Largo de la superficie",
+      "width": "Ancho de la superficie",
+      "depth": "Espesor de la capa",
+      "density": "Densidad aparente",
+      "waste": "Margen por compactación",
     },
     options: {},
     results: {
@@ -98,3 +99,5 @@ export const localization: CalculatorLocalization = {
     },
   },
 };
+
+addBuildingWave13Messages(localization);

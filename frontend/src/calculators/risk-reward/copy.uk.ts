@@ -1,11 +1,17 @@
-import type { CalculatorSeoCopy } from '../../lib/platform/types';
+import type { CalculatorCopy } from '../../lib/platform/types';
+import { contractContent } from './contractContent';
 
-export const riskRewardCopyUk: CalculatorSeoCopy = {
-  name: "Калькулятор ризик/прибуток",
-  slug: "ryzyk-prybutok",
-  shortDescription: "Відношення ризику до прибутку за трьома цінами та частка угод для беззбитковості.",
-  seoTitle: "Калькулятор ризик/прибуток — відношення та беззбитковість",
-  seoDescription: "Розрахуйте відношення ризику до прибутку за ціною входу, стопом і ціллю, а також частку прибуткових угод для беззбитковості.",
-  h1: "Калькулятор ризик/прибуток",
-  keywords: ["ризик прибуток", "відношення ризику до прибутку", "беззбиткова частка угод"],
+export const riskRewardCopyUk: CalculatorCopy = {
+  "name": "Калькулятор ризик/прибуток",
+  "slug": "ryzyk-prybutok",
+  "shortDescription": "Відношення ризику до прибутку за трьома цінами та частка угод для беззбитковості.",
+  "seoTitle": "Калькулятор ризик/прибуток — відношення та беззбитковість",
+  "seoDescription": "Розрахуйте відношення ризику до прибутку за ціною входу, стопом і ціллю, а також частку прибуткових угод для беззбитковості.",
+  "h1": "Калькулятор ризик/прибуток",
+  "keywords": [
+    "ризик прибуток",
+    "відношення ризику до прибутку",
+    "беззбиткова частка угод"
+  ],
+  ...contractContent.uk,
 };

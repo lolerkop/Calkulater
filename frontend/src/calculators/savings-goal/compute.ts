@@ -1,89 +1,56 @@
 import type { CalcFunction } from '../../lib/types';
-import { fmtNumber, toNumber, toStr } from '../../lib/format';
+import { fmtNumber } from '../../lib/format';
 import { formatStatistic } from '../../lib/platform/measurement';
+import { money, number, optionalNumber, text } from '../../lib/platform/scalarInputDisplay';
+import { divideRate, logAdd, logExpm1, log1pExp, savingsBalance, wholeMonthsFromYears } from '../../lib/platform/financeMath';
 
-// Накопление к цели: сколько откладывать в месяц или за сколько накопится.
-//
-// Режим «взнос» решается формулой аннуитета относительно PMT; режим «срок»
-// замкнутой формулы не имеет и считается помесячно, потому что взнос вносится
-// в конце периода, а проценты начисляются на уже накопленное. Итерация
-// ограничена сотней лет: цель, недостижимая за это время, честнее объявить
-// недостижимой, чем показать четырёхзначный срок.
-//
-// Срок выводится ЦЕЛЫМИ месяцами: половина месяца ничего не значит, потому что
-// взнос приходит целиком.
-
-const money = (value: number) => `${fmtNumber(value, 2)} ₽`;
-const MAX_MONTHS = 1200;
-
+// Constant nominal monthly rate and contributions at month-end. Solve the
+// geometric series analytically; whole contribution months are checked against
+// both the target and the immediately preceding month, without a century cap.
 export const compute: CalcFunction = (inputs) => {
-  const mode = toStr(inputs.mode, 'payment');
-  const goal = toNumber(inputs.goal);
-  const initial = toNumber(inputs.initial);
-  const rate = toNumber(inputs.rate);
-  const fail = (message: string) => ({
-    primary: { label: mode === 'term' ? 'Срок' : 'Взнос в месяц', value: '—' },
-    secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }],
-  });
-
+  const mode = inputs.mode === undefined ? 'payment' : inputs.mode;
+  const goal = number(inputs.goal), initial = optionalNumber(inputs.initial), rate = number(inputs.rate);
+  const fail = (message: string) => ({ primary: { label: mode === 'term' ? 'Срок' : 'Взнос в месяц', value: '—' }, secondary: [{ label: 'Проверьте данные', value: message, accent: 'red' as const }] });
+  if (mode !== 'payment' && mode !== 'term') return fail('Неизвестный режим расчёта');
+  if (goal === null || initial === null || rate === null) return fail('Введите корректные числовые данные');
   if (!(goal > 0)) return fail('Цель должна быть больше нуля');
   if (initial < 0) return fail('Начальная сумма не может быть отрицательной');
   if (rate < 0 || rate > 100) return fail('Ставка должна быть от 0 до 100 % годовых');
-
-  const i = rate / 100 / 12;
-
+  const i = divideRate(rate, 1200);
+  if (i === null) return fail('Результат вне допустимого диапазона');
   if (mode === 'term') {
-    const monthly = toNumber(inputs.monthly);
+    const monthly = number(inputs.monthly);
+    if (monthly === null) return fail('Введите корректные числовые данные');
     if (!(monthly > 0)) return fail('Ежемесячный взнос должен быть больше нуля');
-    let balance = initial;
-    let months = 0;
-    while (balance < goal && months < MAX_MONTHS) {
-      balance = balance * (1 + i) + monthly;
-      months += 1;
-    }
-    if (balance < goal) return fail('За сто лет цель не достигается: увеличьте взнос');
-    const contributions = monthly * months;
-    return {
-      primary: { label: 'Срок', value: `${fmtNumber(months, 0)} мес` },
-      secondary: [
-        { label: 'В годах', value: formatStatistic(months / 12, fmtNumber) },
-        { label: 'Итоговая сумма', value: money(balance) },
-        { label: 'Всего взносов', value: money(contributions) },
-        { label: 'Начислено процентов', value: money(balance - initial - contributions) },
-        { label: 'Цель', value: money(goal) },
-      ],
-    };
+    const delta = Math.max(0, goal - initial);
+    const logFraction = i === 0 || delta === 0 ? 0 : Math.log(i) + Math.log(delta) - logAdd(Math.log(monthly), initial > 0 ? Math.log(i) + Math.log(initial) : -Infinity);
+    const fractionalMonths = delta === 0 ? 0 : i === 0 ? delta / monthly : log1pExp(logFraction) / Math.log1p(i);
+    let months = Math.ceil(fractionalMonths);
+    if (!Number.isSafeInteger(months) || months < 0 || (delta > 0 && months === 0)) return fail('Результат вне допустимого диапазона');
+    // Check at most two neighbouring whole months rather than stepping through
+    // the entire duration. An unresolved precision boundary is an explicit error.
+    let result = savingsBalance(initial, monthly, i, months);
+    const previous = months > 0 ? savingsBalance(initial, monthly, i, months - 1) : null;
+    if (previous && previous.balance >= goal) { months -= 1; result = previous; }
+    else if (result.balance < goal) { months += 1; result = savingsBalance(initial, monthly, i, months); }
+    if (!Number.isSafeInteger(months) || ![result.balance, result.contributions, result.interest].every(Number.isFinite) || result.balance < goal || result.interest < 0 || (months > 0 && savingsBalance(initial, monthly, i, months - 1).balance >= goal)) return fail('Результат вне допустимого диапазона');
+    return { primary: { label: 'Срок', value: `${text(months, 0)} мес` }, secondary: [
+      { label: 'В годах', value: formatStatistic(months / 12, fmtNumber) }, { label: 'Итоговая сумма', value: money(result.balance) },
+      { label: 'Всего взносов', value: money(result.contributions) }, { label: 'Начислено процентов', value: money(result.interest) }, { label: 'Цель', value: money(goal) },
+    ] };
   }
-
-  const years = toNumber(inputs.years);
-  const months = Math.round(years * 12);
-  if (!(months >= 1)) return fail('Срок должен быть не меньше месяца');
-  const grown = initial * (1 + i) ** months;
-  if (grown >= goal) {
-    return {
-      primary: { label: 'Взнос в месяц', value: money(0) },
-      secondary: [
-        { label: 'Месяцев', value: fmtNumber(months, 0) },
-        { label: 'Всего взносов', value: money(0) },
-        { label: 'Начислено процентов', value: money(grown - initial) },
-        { label: 'Итоговая сумма', value: money(grown) },
-        { label: 'Цель', value: money(goal) },
-      ],
-    };
-  }
-  const payment = i === 0
-    ? (goal - grown) / months
-    : ((goal - grown) * i) / ((1 + i) ** months - 1);
-  const contributions = payment * months;
-
-  return {
-    primary: { label: 'Взнос в месяц', value: money(payment) },
-    secondary: [
-      { label: 'Месяцев', value: fmtNumber(months, 0) },
-      { label: 'Всего взносов', value: money(contributions) },
-      { label: 'Начислено процентов', value: money(goal - initial - contributions) },
-      { label: 'Итоговая сумма', value: money(goal) },
-      { label: 'Цель', value: money(goal) },
-    ],
-  };
+  const years = number(inputs.years);
+  if (years === null) return fail('Введите корректные числовые данные');
+  const months = wholeMonthsFromYears(years);
+  if (months === null) return fail('Срок должен быть не меньше месяца');
+  const grown = savingsBalance(initial, 0, i, months);
+  if (![grown.balance, grown.interest].every(Number.isFinite)) return fail('Результат вне допустимого диапазона');
+  const remaining = Math.max(0, goal - grown.balance);
+  const payment = remaining === 0 ? 0 : i === 0 ? remaining / months : Math.exp(Math.log(remaining) + Math.log(i) - logExpm1(months * Math.log1p(i)));
+  const result = savingsBalance(initial, payment, i, months);
+  if (![payment, result.balance, result.contributions, result.interest].every(Number.isFinite) || (remaining > 0 && payment <= 0) || result.interest < 0) return fail('Результат вне допустимого диапазона');
+  return { primary: { label: 'Взнос в месяц', value: money(payment) }, secondary: [
+    { label: 'Месяцев', value: text(months, 0) }, { label: 'Всего взносов', value: money(result.contributions) },
+    { label: 'Начислено процентов', value: money(result.interest) }, { label: 'Итоговая сумма', value: money(remaining > 0 ? goal : result.balance) }, { label: 'Цель', value: money(goal) },
+  ] };
 };
