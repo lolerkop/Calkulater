@@ -20,14 +20,14 @@ export const generatedRateProvenance = {
   PLN: { provider: 'ecb', date: '2026-10-02', fallback: false },
   RON: { provider: 'ecb', date: '2026-10-02', fallback: false },
   TRY: { provider: 'ecb', date: '2026-10-02', fallback: false },
-  UAH: { provider: 'nbu', date: '2026-10-03', fallback: false },
-  MDL: { provider: 'bnm', date: '2026-10-03', fallback: false },
+  UAH: { provider: 'nbu', date: '2026-10-04', fallback: false },
+  MDL: { provider: 'bnm', date: '2026-10-04', fallback: false },
 } as const;
 
 export const generatedRateSources = {
-  bnm: { label: "National Bank of Moldova", url: 'https://www.bnm.md/en/official_exchange_rates', date: '2026-10-03', fallback: false },
+  bnm: { label: "National Bank of Moldova", url: 'https://www.bnm.md/en/official_exchange_rates', date: '2026-10-04', fallback: false },
   ecb: { label: "European Central Bank", url: 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html', date: '2026-10-02', fallback: false },
-  nbu: { label: "National Bank of Ukraine", url: 'https://bank.gov.ua/ua/markets/exchangerates', date: '2026-10-03', fallback: false },
+  nbu: { label: "National Bank of Ukraine", url: 'https://bank.gov.ua/ua/markets/exchangerates', date: '2026-10-04', fallback: false },
 } as const;
 
 export const generatedRatesDate = '2026-10-02';
