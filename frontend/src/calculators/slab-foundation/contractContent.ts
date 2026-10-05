@@ -30,7 +30,7 @@ export const buildingWave16ContractContent = {
       },
       {
         "q": "Зачем отдельный калькулятор, если объём считает общий бетонный?",
-        "a": "Потому что плите нужна не только заливка. Здесь сразу считается сетка в двух слоях с плюс одним прутком у края — того, чего расчёт объёма фигуры не даёт."
+        "a": "Здесь, кроме объёма бетона, считается сетка в двух слоях и двух направлениях. Количество рядов равно floor(сторона/шаг)+1: первый ряд в позиции 0. Это не добавочный пруток у каждого края; защитный слой, крайние ряды и нахлёсты определяют по проекту отдельно."
       }
     ],
     "disclaimer": "Это геометрический подсчёт в описанной модели. Он не подтверждает несущую способность, безопасность или соответствие требованиям проекта; конструктивные параметры проверяют отдельно."
@@ -64,7 +64,7 @@ export const buildingWave16ContractContent = {
       },
       {
         "q": "Why a separate calculator if the general concrete one gives volume?",
-        "a": "Because a slab needs more than a pour. This one also counts the mesh in two layers with the extra bar at each edge — something a volume-of-a-shape calculation does not give you."
+        "a": "Besides concrete volume, this calculator counts mesh in two layers and two directions. Rows equal floor(side/spacing)+1, starting with a row at 0. This does not add a bar at each edge; cover, edge rows and laps must be determined separately from the design."
       }
     ],
     "disclaimer": "This is a geometric quantity calculation within the described model. It does not establish load capacity, safety or project compliance; check design parameters separately."
@@ -98,7 +98,7 @@ export const buildingWave16ContractContent = {
       },
       {
         "q": "Навіщо окремий калькулятор, якщо об’єм рахує загальний бетонний?",
-        "a": "Бо плиті потрібна не лише заливка. Тут одразу рахується сітка у двох шарах із плюс одним прутком біля краю — того, чого розрахунок об’єму фігури не дає."
+        "a": "Тут, крім об’єму бетону, рахується сітка у двох шарах і двох напрямках. Кількість рядів дорівнює floor(сторона/крок)+1: перший ряд у позиції 0. Це не додатковий прут біля кожного краю; захисний шар, крайні ряди та перехльости визначають за проєктом окремо."
       }
     ],
     "disclaimer": "Це геометричний підрахунок в описаній моделі. Він не підтверджує несучу здатність, безпечність чи відповідність проєктним вимогам; конструктивні параметри перевіряють окремо."
@@ -132,7 +132,7 @@ export const buildingWave16ContractContent = {
       },
       {
         "q": "Warum ein eigener Rechner, wenn der allgemeine Betonrechner das Volumen liefert?",
-        "a": "Weil eine Platte mehr braucht als eine Betonage. Dieser zählt auch die Matte in zwei Lagen mit dem zusätzlichen Stab an jeder Kante — etwas, das eine Volumenrechnung nicht liefert."
+        "a": "Neben dem Betonvolumen zählt dieser Rechner das Gitter in zwei Lagen und zwei Richtungen. Die Zahl der Reihen ist floor(Seite/Abstand)+1, mit der ersten Reihe bei 0. Das fügt keinen Stab an jeder Kante hinzu; Betondeckung, Randreihen und Überlappungen sind nach Planung gesondert festzulegen."
       }
     ],
     "disclaimer": "Dies ist eine geometrische Mengenberechnung im beschriebenen Modell. Tragfähigkeit, Sicherheit und Planungskonformität werden damit nicht bestätigt; Konstruktionsparameter gesondert prüfen."
@@ -166,7 +166,7 @@ export const buildingWave16ContractContent = {
       },
       {
         "q": "¿Para qué una calculadora aparte si la general de hormigón ya da el volumen?",
-        "a": "Porque una losa necesita más que un vertido. Esta cuenta además el mallazo en dos capas con la barra adicional en cada borde, algo que un cálculo de volumen de una figura no te da."
+        "a": "Además del volumen de hormigón, esta calculadora cuenta la malla en dos capas y dos direcciones. Las filas son floor(lado/separación)+1, con la primera en 0. No añade una barra en cada borde; recubrimiento, filas de borde y solapes se determinan aparte según el proyecto."
       }
     ],
     "disclaimer": "Es un cálculo geométrico de cantidades en el modelo descrito. No acredita capacidad resistente, seguridad ni conformidad con el proyecto; comprueba aparte los parámetros de diseño."

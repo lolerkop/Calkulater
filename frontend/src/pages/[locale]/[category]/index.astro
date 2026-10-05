@@ -3,6 +3,7 @@ import Layout from '../../../components/Layout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CalculatorCard from '../../../components/CalculatorCard.astro';
 import FaqList from '../../../components/FaqList.astro';
+import { instrumentCountLabel } from '../../../lib/plural';
 import { getCategoryGuidance, guidanceHeadings, type GuidanceLocale } from '../../../data/categoryGuidance';
 import {
   getAlternatesForCategory,
@@ -189,7 +190,7 @@ const jsonLd = [
 
       <div class="mt-5 flex min-w-0 flex-wrap items-baseline gap-3 sm:mt-6 sm:gap-4">
         <span class="text-fit text-xs uppercase tracking-wider text-ink-500">
-          {calculators.length} {copy.instruments}
+          {calculators.length} {instrumentCountLabel(calculators.length, locale, copy.instruments)}
         </span>
       </div>
 
@@ -203,7 +204,7 @@ const jsonLd = [
       <div class="mt-6 grid grid-cols-2 gap-2 sm:mt-8 sm:gap-3 lg:grid-cols-4" data-testid="category-hero-stats">
         <div class="meta-card">
           <div class="font-mono text-2xl font-semibold text-ink-900">{calculators.length}</div>
-          <div class="mt-1 text-fit text-xs uppercase tracking-wider text-ink-500">{copy.instruments}</div>
+          <div class="mt-1 text-fit text-xs uppercase tracking-wider text-ink-500">{instrumentCountLabel(calculators.length, locale, copy.instruments)}</div>
         </div>
         <div class="meta-card">
           <div class="font-mono text-2xl font-semibold text-ink-900">{popularInCategory.length}</div>

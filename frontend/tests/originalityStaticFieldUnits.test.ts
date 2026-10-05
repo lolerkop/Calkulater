@@ -1,3 +1,4 @@
+import { postAuditField } from './helpers/postAuditAmendments';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
@@ -6,7 +7,8 @@ import { clientLocales } from '../src/lib/clientI18n';
 import { fieldUnitLabel } from '../src/lib/fieldUnitLabel';
 import { subjectFieldUnitContracts, subjectFieldUnitLabel } from '../src/lib/subjectFieldUnits';
 import type { Field } from '../src/lib/types';
-import { amendedFieldHelp } from './helpers/targetedFinishFieldHelp';
+import { amendedFieldHelp as previousFieldHelp } from './helpers/targetedFinishFieldHelp';
+const amendedFieldHelp = (id: string, locale: Locale, field: Field) => postAuditField(id,locale,previousFieldHelp(id,locale,field));
 
 // Expected captions come from the three independently curated subject packets,
 // with the single approved compact loan-term wording recorded separately. They
@@ -66,7 +68,7 @@ describe('771 published quantity fields retain their input contracts and get exa
       const frozen = before.rows.find(row => row.id === record.id && row.locale === evidence.locale)!;
       expect(calculator.fullPath).toBe(evidence.route);
       const field = calculator.fields.find(field => field.name === record.field)!;
-      expect(JSON.stringify(field)).toBe(JSON.stringify(amendedFieldHelp(record.id,evidence.locale,evidence.sourceField)));
+      expect(field).toEqual(amendedFieldHelp(record.id,evidence.locale,evidence.sourceField));
       expect(field.unit).toBeUndefined(); expect(field.type).toBe(record.type);
       expect(frozen.fields.find(row => row.source.name === record.field)!.staticUnit).toBe(evidence.beforeStaticUnit);
       const snapshot = JSON.stringify(calculator.fields);
@@ -83,7 +85,7 @@ describe('1028 dimensionless, count, abstract and non-quantity field description
     it(`${record.id}/${evidence.locale}/${record.field}: KEEP`, () => {
       const calculator = page(record.id, evidence.locale);
       const field = calculator.fields.find(field => field.name === record.field)!;
-      expect(JSON.stringify(field)).toBe(JSON.stringify(amendedFieldHelp(record.id,evidence.locale,evidence.sourceField)));
+      expect(field).toEqual(amendedFieldHelp(record.id,evidence.locale,evidence.sourceField));
       expect(field.type).toBe(record.type);
       expect(subjectFieldUnitLabel(record.id, field, evidence.locale)).toBeUndefined();
       expect(fieldUnitLabel(field, evidence.locale, record.id)).toBe(evidence.beforeStaticUnit);
@@ -95,7 +97,7 @@ it('preserves every source-field property across all1866 records with ten exact 
   expect(before.rows).toHaveLength(1866);
   for (const frozen of before.rows) {
     const calculator = page(frozen.id, frozen.locale);
-    expect(JSON.stringify(calculator.fields), `${frozen.id}/${frozen.locale}`).toBe(JSON.stringify(frozen.fields.map(field => amendedFieldHelp(frozen.id,frozen.locale,field.source))));
+    expect(calculator.fields, `${frozen.id}/${frozen.locale}`).toEqual(frozen.fields.map(field => amendedFieldHelp(frozen.id,frozen.locale,field.source)));
   }
 });
 

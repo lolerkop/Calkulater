@@ -1,3 +1,4 @@
+import { postAuditField } from './helpers/postAuditAmendments';
 import { describe, expect, it } from 'vitest';
 import { getCalculators, getCalculatorById, locales } from '../src/lib/i18n';
 import { parseLocalizedNumber } from '../src/lib/format';
@@ -40,7 +41,7 @@ describe('немецкий числовой паритет', () => {
         expect(variant!.fields.map((f) => f.name), `${calculator.id}: имена полей`)
           .toEqual(reference.fields.map((f) => f.name));
         expect(variant!.fields.map((f) => f.defaultValue), `${calculator.id}: значения по умолчанию`)
-          .toEqual(reference.fields.map((f) => f.defaultValue));
+          .toEqual(reference.fields.map((f) => postAuditField(calculator.id,variant!.fullPath!.split('/')[1],f).defaultValue));
         expect(variant!.fields.map((f) => f.type), `${calculator.id}: типы полей`)
           .toEqual(reference.fields.map((f) => f.type));
       }

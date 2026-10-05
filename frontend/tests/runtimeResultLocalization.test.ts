@@ -104,11 +104,12 @@ function collectLeaks(locale: 'en' | 'uk' | 'de', onlyIds?: Set<string>): Leak[]
   for (const calculator of calculators) {
     if (onlyIds && !onlyIds.has(calculator.id)) continue;
     // Калькуляторы без страницы в этой локали посетитель в ней не увидит.
-    if (!getCalculatorById(calculator.id, locale)) continue;
+    const nativeCalculator = getCalculatorById(calculator.id, locale);
+    if (!nativeCalculator) continue;
     const run = runners[calculator.id];
     if (!run) continue;
 
-    for (const inputs of scenariosFor(calculator.fields)) {
+    for (const inputs of scenariosFor(nativeCalculator.fields)) {
       let russian: CalcResult;
       try {
         russian = run(inputs as never);

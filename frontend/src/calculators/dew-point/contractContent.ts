@@ -132,7 +132,7 @@ export const contract = {
       },
       {
         "q": "¿Por qué suda una pared si la habitación está caliente?",
-        "a": "El rocío se forma según la temperatura de la superficie, no la del aire. Un rincón frío o el mocheta de una ventana pueden quedar por debajo del punto de rocío mientras el aire de la habitación está bastante más caliente."
+        "a": "El rocío se forma según la temperatura de la superficie, no la del aire. Un rincón frío o la mocheta de una ventana pueden quedar por debajo del punto de rocío mientras el aire de la habitación está bastante más caliente."
       },
       {
         "q": "¿Qué precisión tiene esta fórmula?",

@@ -1,5 +1,5 @@
 import type { Field } from './types';
-import { isIntegralNumberText, parseLocalizedNumber, type NumberLocale } from './format';
+import { isIntegralNumberText, normalizedNumberText, parseLocalizedNumber, type NumberLocale } from './format';
 import { isFieldVisible } from './fieldVisibility';
 
 export type ShareFormValues = Record<string, string | number | boolean>;
@@ -79,6 +79,7 @@ function parseUrlValue(
     }
     const parsed = parseLocalizedNumber(raw, locale);
     if (parsed === null) return undefined;
+    if (field.preserveDecimalText) return normalizedNumberText(raw, locale)!;
     // Preserve a decimal fraction rounded onto an integer, so an owned
     // integer validator can inspect its actual text instead of accepting1.
     return Number.isInteger(parsed) && isIntegralNumberText(raw, locale) === false ? raw : parsed;
@@ -138,7 +139,9 @@ export function buildCalculatorQueryString(
     const precisionLostExponent = field.type === 'number' && typeof rawValue === 'string'
       && SCIENTIFIC_NUMBER.test(rawValue) && Number.isFinite(Number(rawValue))
       && Number.isInteger(Number(rawValue)) && !integralScientificText(rawValue);
-    const value = roundedFraction || precisionLostExponent ? rawValue : parsedValue;
+    const exactDecimal = field.preserveDecimalText && typeof rawValue === 'string' && typeof parsedValue === 'number';
+    const value = exactDecimal ? normalizedNumberText(rawValue, locale)
+      : roundedFraction || precisionLostExponent ? rawValue : parsedValue;
     const defaultValue = defaultValueForField(field);
     if ((value === '' && !['number', 'textarea', 'date'].includes(field.type)) || value === undefined || value === null || value === defaultValue) continue;
 

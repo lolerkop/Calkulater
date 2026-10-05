@@ -20,7 +20,7 @@ export default defineConfig({
     format: 'directory',
   },
   server: {
-    host: '0.0.0.0',
+    host: '127.0.0.1',
     port: 3000,
   },
   vite: {
@@ -29,7 +29,7 @@ export default defineConfig({
         clientPort: 443,
         protocol: 'wss',
       },
-      allowedHosts: true,
+      allowedHosts: ['localhost', '127.0.0.1', '[::1]'],
     },
   },
 });

@@ -7049,7 +7049,7 @@ const spanishLegacyFieldOverrides: Record<string, Record<string, string>> = {
 // а не цепочкой условий. Немецкий результат при этом не меняется.
 const legacyFieldOverridesByLocale: Partial<Record<Locale, Record<string, Record<string, string>>>> = {
   en: { 'body-fat-calculator': { waist: 'Abdomen / waist for selected equation' } },
-  uk: { 'body-fat-calculator': { waist: 'Живіт / талія за обраною формулою' } },
+  uk: { 'body-fat-calculator': { waist: 'Живіт / талія за обраною формулою' }, 'one-rep-max-calculator': { weight: 'Робоча маса снаряда' } },
   de: germanLegacyFieldOverrides,
   es: spanishLegacyFieldOverrides,
 };
@@ -7057,13 +7057,17 @@ const legacyFieldOverridesByLocale: Partial<Record<Locale, Record<string, Record
 const creditTermHelp: Partial<Record<Locale, string>> = {"ru": "Срок должен составлять от 1 до 1200 целых месяцев. В годах допустимы дроби, если число месяцев целое: 1,5 года = 18 месяцев.", "en": "The term must total 1 to 1200 whole months. Fractional years are allowed when they give whole months: 1.5 years = 18 months.", "uk": "Строк має становити від 1 до 1200 цілих місяців. Дробові роки допустимі, якщо кількість місяців ціла: 1,5 року = 18 місяців.", "de": "Die Laufzeit muss 1 bis 1200 ganze Monate ergeben. Bruchteile von Jahren sind möglich, wenn ganze Monate entstehen: 1,5 Jahre = 18 Monate.", "es": "El plazo debe sumar entre 1 y 1200 meses enteros. Se permiten fracciones de año si equivalen a meses enteros: 1,5 años = 18 meses."};
 
 function localizeField(field: Field, locale: Locale, calculatorId: string): Field {
+  const defaultValue = field.defaultValueByLocale?.[locale] ?? field.defaultValue;
+  const { defaultValueByLocale, ...publicField } = field;
   const help = calculatorId === 'credit-calculator' && field.name === 'term'
     ? creditTermHelp[locale] ?? creditTermHelp.en : field.help;
-  if (locale === 'ru') return help === field.help ? field : { ...field, help };
+  if (locale === 'ru') return help === field.help && defaultValue === field.defaultValue && !defaultValueByLocale
+    ? field : { ...publicField, help, defaultValue };
   const fieldLabels = fieldLabelsByLocale[locale];
   const localizedOptions = optionLabelsByLocale[locale];
   return {
-    ...field,
+    ...publicField,
+    defaultValue,
     // Сначала подпись, объявленная самим калькулятором, затем общая карта.
     // Имена полей вроде `mode` встречаются у многих калькуляторов сразу,
     // поэтому обращение к V2-локализации всегда идёт с идентификатором.

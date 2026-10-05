@@ -37,7 +37,7 @@ export const definition: CalculatorDefinitionV2 = {
     h1: 'Конвертер температуры',
     keywords: ['конвертер температуры', 'цельсий в фаренгейт', 'кельвин'],
     fields: [
-      { name: 'value', label: 'Температура', type: 'number', defaultValue: 20, signed: true },
+      { name: 'value', label: 'Температура', type: 'number', defaultValue: 20, signed: true, preserveDecimalText: true },
       { name: 'from', label: 'Из единицы', type: 'select', defaultValue: 'c', options: unitOptions(temperatureUnits, temperatureNames) },
       { name: 'to', label: 'В единицу', type: 'select', defaultValue: 'f', options: unitOptions(temperatureUnits, temperatureNames) },
     ],

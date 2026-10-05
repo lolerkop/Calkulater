@@ -1,5 +1,5 @@
 import type { CalculatorDef } from './types';
-import { lastUpdated as currencyRatesUpdatedAt } from '../data/currencies';
+import { currencies, sourcesForCurrencies, type CurrencyCode } from '../data/currencies';
 
 export type CalculatorFreshness = {
   label: string;
@@ -8,12 +8,26 @@ export type CalculatorFreshness = {
 };
 
 const taxCalculatorIds = new Set(['income-tax-calculator', 'vat-calculator']);
+const fixedCurrencyPairs: Record<string, readonly CurrencyCode[]> = {
+  'usd-to-eur': ['USD', 'EUR'],
+  'usd-to-mdl': ['USD', 'MDL'],
+  'eur-to-mdl': ['EUR', 'MDL'],
+};
 
 export function calculatorFreshness(calculator: CalculatorDef): CalculatorFreshness {
+  if (calculator.id === 'currency-exchange-fee') {
+    return {
+      label: 'Методика',
+      value: 'ручные данные',
+      note: 'Формула использует введённые вами курс и комиссию; справочные курсы банков и дата их загрузки к этому расчёту не относятся.',
+    };
+  }
   if (calculator.category === 'currency') {
+    const sources = sourcesForCurrencies(fixedCurrencyPairs[calculator.id] ?? currencies.map((currency) => currency.code));
     return {
       label: 'Курсы',
-      value: currencyRatesUpdatedAt,
+      value: sources.length === 1 ? sources[0].date
+        : sources.map((source) => `${source.id.toUpperCase()} ${source.date}`).join('; '),
       note: 'Сохранённый набор справочных курсов: даты и источники отдельных валют указаны ниже. Коммерческий курс банка может отличаться.',
     };
   }

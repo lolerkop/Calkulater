@@ -16,3 +16,10 @@ export function pluralRu(n: number, forms: [string, string, string]): string {
   if (last === 1) return forms[0];
   return forms[2];
 }
+
+/** Counted instrument label; keep the existing wording for other locales. */
+export function instrumentCountLabel(n: number, locale: string, fallback: string): string {
+  if (locale === 'ru') return pluralRu(n, ['инструмент', 'инструмента', 'инструментов']);
+  if (locale === 'uk') return pluralRu(n, ['інструмент', 'інструменти', 'інструментів']);
+  return fallback;
+}

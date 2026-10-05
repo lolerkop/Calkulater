@@ -8,7 +8,7 @@ export const mathWave8ContractContent = {
     "howToUse": [
       "Числа разделяются пробелами, переводами строки или точкой с запятой; запятая перед пробелом тоже считается разделителем.",
       "Дробные значения пишутся через запятую: 2,5 — это два с половиной, а не два значения.",
-      "Нужно не меньше четырёх значений: на трёх числах квартили теряют смысл.",
+      "Эта форма принимает не меньше четырёх значений. Это ограничение калькулятора: квартили по выбранному правилу интерполяции можно определить и для трёх чисел.",
       "Выбросом считается значение за границами Q1 − 1,5·IQR и Q3 + 1,5·IQR — та самая договорённость ящика с усами."
     ],
     "example": "Для выборки 2 4 4 5 7 9 11 12 первый квартиль равен 4, медиана 6, третий квартиль 9,5.",
@@ -37,7 +37,7 @@ export const mathWave8ContractContent = {
     "howToUse": [
       "Separate numbers with spaces, new lines or semicolons; a comma before a space also counts as a separator.",
       "Write decimals with a comma: 2,5 is two and a half, not two values.",
-      "At least four values are needed: quartiles lose their meaning on three numbers.",
+      "This form accepts at least four values. This is a calculator input limit: the chosen interpolation rule can also define quartiles for three numbers.",
       "A value beyond Q1 − 1.5·IQR or Q3 + 1.5·IQR counts as an outlier — the usual box-plot convention."
     ],
     "example": "For the sample 2 4 4 5 7 9 11 12 the first quartile is 4, the median 6 and the third quartile 9.5.",
@@ -66,7 +66,7 @@ export const mathWave8ContractContent = {
     "howToUse": [
       "Числа розділяються пробілами, переносами рядка або крапкою з комою.",
       "Дробові значення пишіть через кому: 2,5 — це два з половиною, а не два значення.",
-      "Потрібно не менше чотирьох значень: на трьох числах квартилі втрачають сенс.",
+      "Ця форма приймає не менше чотирьох значень. Це обмеження калькулятора: квартилі за обраним правилом інтерполяції можна визначити й для трьох чисел.",
       "Викидом вважається значення за межами Q1 − 1,5·IQR і Q3 + 1,5·IQR."
     ],
     "example": "Для вибірки 2 4 4 5 7 9 11 12 перший квартиль дорівнює 4, медіана 6, третій квартиль 9,5. Міжквартильний розмах тут 5,5, і викидів немає.",
@@ -95,7 +95,7 @@ export const mathWave8ContractContent = {
     "howToUse": [
       "Trenne die Zahlen mit Leerzeichen, Zeilenumbrüchen oder Semikola; ein Komma vor einem Leerzeichen zählt ebenfalls als Trenner.",
       "Schreibe Dezimalzahlen mit Komma: 2,5 ist zweieinhalb und nicht zwei Werte.",
-      "Es werden mindestens vier Werte gebraucht: bei drei Zahlen verlieren Quartile ihren Sinn.",
+      "Dieses Formular nimmt mindestens vier Werte an. Das ist eine Eingabegrenze des Rechners: die gewählte Interpolationsregel kann Quartile auch für drei Zahlen bestimmen.",
       "Ein Wert jenseits von Q1 − 1,5·IQA oder Q3 + 1,5·IQA gilt als Ausreißer — die übliche Boxplot-Übereinkunft."
     ],
     "example": "Für die Stichprobe 2 4 4 5 7 9 11 12 ist das erste Quartil 4, der Median 6 und das dritte Quartil 9,5.",
@@ -124,7 +124,7 @@ export const mathWave8ContractContent = {
     "howToUse": [
       "Separa los números con espacios, saltos de línea o punto y coma; una coma seguida de espacio también cuenta como separador.",
       "Escribe los decimales con coma: 2,5 son dos y medio, no dos valores.",
-      "Hacen falta al menos cuatro valores: con tres números los cuartiles pierden sentido.",
+      "Este formulario admite al menos cuatro valores. Es un límite de entrada de la calculadora: la regla de interpolación elegida también permite definir cuartiles para tres números.",
       "Un valor más allá de Q1 − 1,5·RIC o Q3 + 1,5·RIC cuenta como atípico, según el convenio habitual del diagrama de caja."
     ],
     "example": "Para la muestra 2 4 4 5 7 9 11 12 el primer cuartil es 4, la mediana 6 y el tercer cuartil 9,5.",

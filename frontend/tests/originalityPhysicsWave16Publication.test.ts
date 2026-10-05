@@ -1,3 +1,4 @@
+import { postAuditCopy } from './helpers/postAuditAmendments';
 import { describe, expect, it } from 'vitest';
 import fixtureJson from './fixtures/originality-physics-wave-16-publication.json';
 import { getCalculatorById } from '../src/lib/i18n';
@@ -19,10 +20,10 @@ describe('Physics31: all155 effective published native bodies, routes, fields an
  for (const golden of fixture.pages) it(`${golden.id}/${golden.locale}: actual authored content and dimensional contract`,()=>{
   const actual=getCalculatorById(golden.id,golden.locale);expect(actual).toBeDefined();if(!actual)throw new Error('Missing published physics route');
   expect(actual.fullPath).toBe(golden.route);
-  for(const key of ['name','slug','h1','shortDescription','seoTitle','seoDescription','longDescription','howItWorks','example','disclaimer'] as const)expect(actual[key]).toBe(golden.copy[key]);
+  for(const key of ['name','slug','h1','shortDescription','seoTitle','seoDescription','longDescription','howItWorks','example','disclaimer'] as const)expect(actual[key]).toBe(postAuditCopy(golden.id,golden.locale,golden.copy)[key]);
   expect(actual.seoDescription.length).toBeGreaterThanOrEqual(80);expect(actual.seoDescription.length).toBeLessThanOrEqual(180); // Existing internal metadata guard, not a Google word rule.
-  expect(actual.howToUse).toEqual(golden.copy.howToUse);expect(actual.faq).toEqual(golden.copy.faq);
-  expect(actual.seoContent).toEqual({intro:golden.copy.longDescription,howItWorks:golden.copy.howItWorks,example:golden.copy.example,tips:golden.copy.howToUse.join(' '),faq:golden.copy.faq});
+  expect(actual.howToUse).toEqual(postAuditCopy(golden.id,golden.locale,golden.copy).howToUse);expect(actual.faq).toEqual(postAuditCopy(golden.id,golden.locale,golden.copy).faq);
+  expect(actual.seoContent).toEqual({intro:postAuditCopy(golden.id,golden.locale,golden.copy).longDescription,howItWorks:postAuditCopy(golden.id,golden.locale,golden.copy).howItWorks,example:postAuditCopy(golden.id,golden.locale,golden.copy).example,tips:postAuditCopy(golden.id,golden.locale,golden.copy).howToUse.join(' '),faq:postAuditCopy(golden.id,golden.locale,golden.copy).faq});
   expect(actual.fields.map(f=>f.name)).toEqual(golden.fields.map(f=>f.name));
   for(const [index,field]of actual.fields.entries()){
    const expected=golden.fields[index];
@@ -30,7 +31,7 @@ describe('Physics31: all155 effective published native bodies, routes, fields an
    expect(fieldUnitLabel(field,golden.locale,golden.id)).toBe(expected.staticUnit);
   }
   expect(getPhysicsWave16MethodSources(golden.id,golden.locale)).toEqual(golden.sources);
-  const editorial=getCalculatorEditorial(actual,golden.locale);expect(editorial.method).toBe(golden.copy.howItWorks);expect(editorial.limitation).toContain(golden.copy.disclaimer);
+  const editorial=getCalculatorEditorial(actual,golden.locale);expect(editorial.method).toBe(postAuditCopy(golden.id,golden.locale,golden.copy).howItWorks);expect(editorial.limitation).toContain(postAuditCopy(golden.id,golden.locale,golden.copy).disclaimer);
   for(const source of golden.sources)expect(editorial.sources).toContainEqual(source);
   expect(golden.sources.length).toBeGreaterThan(0);
   if(['en','de','es'].includes(golden.locale))expect(JSON.stringify([actual.fields,golden.sources,actual.disclaimer])).not.toMatch(/[А-Яа-яЁёІіЇїЄє]/);

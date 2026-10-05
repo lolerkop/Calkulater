@@ -270,7 +270,7 @@ const featuredCategoryCalculators = Object.fromEntries(
           <h1 class="text-fit text-4xl font-extrabold leading-[1.04] tracking-[-0.055em] text-ink-900 sm:text-5xl lg:text-6xl" data-testid="home-h1">
             <>
               <span>{homeText[locale].h1Top} </span><br />
-              <span>{homeText[locale].h1Middle} <span class="bg-gradient-to-r from-accent to-sky bg-clip-text text-transparent">{homeText[locale].h1Accent}</span>.</span>
+              <span>{homeText[locale].h1Middle} <span class="bg-gradient-to-r from-accent to-action-blue bg-clip-text text-transparent">{homeText[locale].h1Accent}</span>.</span>
             </>
           </h1>
           <p class="mt-5 max-w-2xl text-fit text-base leading-relaxed text-ink-600 sm:text-lg">
@@ -278,7 +278,7 @@ const featuredCategoryCalculators = Object.fromEntries(
           </p>
 
           <div class="mt-7 grid gap-3 sm:flex sm:flex-wrap" data-testid="home-hero-actions">
-            <a href={localeCatalog(locale)} class="inline-flex max-w-full items-center justify-center rounded-xl bg-gradient-to-r from-accent to-sky px-5 py-3.5 text-center text-sm font-bold leading-tight text-white shadow-[0_12px_28px_rgba(103,88,243,0.25)] transition-all hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(103,88,243,0.32)]">
+            <a href={localeCatalog(locale)} class="inline-flex max-w-full items-center justify-center rounded-xl bg-gradient-to-r from-accent-600 to-action-blue px-5 py-3.5 text-center text-sm font-bold leading-tight text-white shadow-[0_12px_28px_rgba(103,88,243,0.25)] transition-all hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(103,88,243,0.32)]">
               {copy.allCalculators}
             </a>
             <a href="#categories" class="inline-flex max-w-full items-center justify-center rounded-xl border border-ink-200 bg-white/80 px-5 py-3.5 text-center text-sm font-bold leading-tight text-ink-900 shadow-sm transition-colors hover:border-accent-100 hover:text-accent">

@@ -7,9 +7,9 @@ export const mathWave8ContractContent = {
     "howItWorks": "n₀ = z²·p·(1−p)/e², где p и e в формуле — доли от 0 до 1, а поля задаются в процентах и процентных пунктах. При N > 0: n = N·n₀/(N−1+n₀); окончательное число округляется вверх. N — целое от 0 до 9007199254740991: 0 означает неизвестную или очень большую совокупность, а не её измеренный размер. Для N = 0 доля выборки от совокупности не определена и показана прочерком. При p = 0 или 1 формула формально даёт ноль: это вырождение модели, а не рекомендация провести опрос без ответов. Около крайних долей нормальное приближение требует отдельной проверки.",
     "howToUse": [
       "Предельная ошибка — это половина ширины доверительного интервала: «±3 %» означает 3.",
-      "Ожидаемую долю ставьте 50 %, если она неизвестна: так выборка выйдет наибольшей и точно достаточной.",
+      "Если ожидаемая доля неизвестна, 50 % даёт наибольший объём в этой модели нормального приближения для одной доли при простой случайной выборке. Это не гарантирует достаточность для любого исследования и не устраняет смещение отбора.",
       "Объём совокупности задавайте нулём, если она велика или неизвестна — поправка тогда не включается.",
-      "Расчёт для простой случайной выборки. Кластерная или квотная требует больше людей."
+      "Модель предполагает простую случайную выборку. Для кластерного, квотного или другого дизайна отдельно оценивают план отбора, эффект дизайна и смещения; универсального правила «нужно больше людей» здесь нет."
     ],
     "example": "При 95 %, ошибке 5 процентных пунктов и ожидаемой доле 50 % без конечной поправки n₀ ≈ 384,1459, после округления вверх нужно 385 ответов. Если известно N = 500, поправка даёт примерно 217,4872 и итог 218 ответов.",
     "faq": [
@@ -36,9 +36,9 @@ export const mathWave8ContractContent = {
     "howItWorks": "n₀ = z²·p·(1−p)/e², where formula p and e are fractions, while fields use percentages and percentage points. For N > 0, n = N·n₀/(N−1+n₀); the final count is rounded upward. N is an integer from 0 to 9007199254740991: 0 means unknown or very large population, not its measured size. At N = 0 the sampling fraction is unavailable and shown as a dash. At p = 0 or 1 the formula formally gives zero: a degenerate model, not advice to obtain no responses. The normal approximation needs separate assessment near endpoint proportions.",
     "howToUse": [
       "Margin of error is half the interval width: \"±3 %\" means 3.",
-      "Set the expected proportion to 50 % if unknown: that gives the largest and therefore safe sample.",
+      "If the expected proportion is unknown, 50% gives the largest size within this normal-approximation model for one proportion under simple random sampling. It does not guarantee adequacy for every study or remove selection bias.",
       "Set population to zero when it is large or unknown — the correction then stays off.",
-      "This assumes simple random sampling. Cluster or quota designs need more people."
+      "The model assumes simple random sampling. Cluster, quota and other designs require a separate assessment of sampling, design effects and bias; there is no universal rule here that they need more people."
     ],
     "example": "At 95% confidence, a 5-percentage-point margin and anticipated proportion 50%, the uncorrected n₀ ≈ 384.1459 rounds upward to 385 responses. For a known N = 500, the correction gives approximately 217.4872, hence 218 responses.",
     "faq": [
@@ -65,9 +65,9 @@ export const mathWave8ContractContent = {
     "howItWorks": "n₀ = z²·p·(1−p)/e², де p та e у формулі — частки, а поля задаються у відсотках і відсоткових пунктах. За N > 0: n = N·n₀/(N−1+n₀); остаточну кількість округлено вгору. N — ціле від 0 до 9007199254740991: 0 означає невідому або дуже велику сукупність, а не її виміряний розмір. За N = 0 частка вибірки від сукупності невідома й показана прочерком. За p = 0 або 1 формула формально дає нуль: це виродження моделі, а не порада опитувати без відповідей. Біля крайніх часток нормальне наближення потребує окремої перевірки.",
     "howToUse": [
       "Гранична похибка — це половина ширини довірчого інтервалу: «±3 %» означає 3.",
-      "Очікувану частку ставте 50 %, якщо вона невідома: так вибірка вийде найбільшою і напевно достатньою.",
+      "Якщо очікувана частка невідома, 50 % дає найбільший обсяг у цій моделі нормального наближення для однієї частки за простої випадкової вибірки. Це не гарантує достатності для будь-якого дослідження й не усуває зміщення відбору.",
       "Обсяг сукупності задавайте нулем, якщо вона велика або невідома.",
-      "Розрахунок для простої випадкової вибірки; кластерна чи квотна потребує більше людей."
+      "Модель передбачає просту випадкову вибірку. Для кластерного, квотного або іншого дизайну окремо оцінюють план відбору, ефект дизайну й зміщення; універсального правила «потрібно більше людей» тут немає."
     ],
     "example": "За 95 %, похибки 5 відсоткових пунктів та очікуваної частки 50 % без скінченної поправки n₀ ≈ 384,1459, після округлення вгору потрібно 385 відповідей. За відомого N = 500 поправка дає приблизно 217,4872, отже потрібно 218 відповідей.",
     "faq": [
@@ -94,9 +94,9 @@ export const mathWave8ContractContent = {
     "howItWorks": "n₀ = z²·p·(1−p)/e²; p und e sind in der Formel Anteile, die Eingaben erfolgen in Prozent beziehungsweise Prozentpunkten. Für N > 0 gilt n = N·n₀/(N−1+n₀); die endgültige Anzahl wird aufgerundet. N ist ganzzahlig von 0 bis 9007199254740991. 0 bedeutet unbekannte oder sehr große Population, keine gemessene Größe. Für N = 0 ist der Stichprobenanteil unbekannt und erscheint als Strich. p = 0 oder 1 ergibt formal null: eine entartete Modellannahme, keine Empfehlung für null Antworten. Nahe den Randanteilen muss die Normalapproximation gesondert geprüft werden.",
     "howToUse": [
       "Die Fehlergrenze ist die halbe Intervallbreite: „±3 %“ heißt 3.",
-      "Setze den erwarteten Anteil auf 50 %, wenn er unbekannt ist: das ergibt die größte und damit sichere Stichprobe.",
+      "Ist der erwartete Anteil unbekannt, liefert 50 % die größte Stichprobe innerhalb dieses Normalapproximation-Modells für einen Anteil bei einfacher Zufallsziehung. Das garantiert weder Eignung für jede Studie noch die Beseitigung von Auswahlverzerrungen.",
       "Setze die Grundgesamtheit auf null, wenn sie groß oder unbekannt ist — die Korrektur bleibt dann aus.",
-      "Angenommen wird eine einfache Zufallsstichprobe. Klumpen- oder Quotenverfahren brauchen mehr Personen."
+      "Das Modell setzt eine einfache Zufallsstichprobe voraus. Bei Klumpen-, Quoten- und anderen Verfahren sind Auswahlplan, Designeffekte und Verzerrungen gesondert zu beurteilen; eine allgemeine Regel „mehr Personen nötig“ gilt hier nicht."
     ],
     "example": "Bei 95 % Konfidenz, 5 Prozentpunkten Fehlergrenze und erwartetem Anteil 50 % wird das unkorrigierte n₀ ≈ 384,1459 auf 385 Antworten aufgerundet. Bei bekanntem N = 500 ergibt die Korrektur ungefähr 217,4872, also 218 Antworten.",
     "faq": [
@@ -123,9 +123,9 @@ export const mathWave8ContractContent = {
     "howItWorks": "n₀ = z²·p·(1−p)/e²; p y e son fracciones en la fórmula, pero los campos usan porcentajes y puntos porcentuales. Para N > 0, n = N·n₀/(N−1+n₀); el recuento final se redondea hacia arriba. N es un entero entre 0 y 9007199254740991: 0 significa población desconocida o muy grande, no su tamaño medido. Para N = 0 la fracción muestral es desconocida y se muestra con una raya. Con p = 0 o 1 la fórmula da cero formalmente: es un modelo degenerado, no una recomendación de no obtener respuestas. Cerca de esos extremos hay que evaluar aparte la aproximación normal.",
     "howToUse": [
       "El margen de error es la mitad de la anchura del intervalo: «±3 %» significa 3.",
-      "Deja la proporción esperada en el 50 % si no la conoces: da la muestra mayor y por tanto segura.",
+      "Si se desconoce la proporción esperada, el 50 % da el tamaño mayor dentro de este modelo de aproximación normal para una proporción con muestreo aleatorio simple. No garantiza suficiencia para cualquier estudio ni elimina el sesgo de selección.",
       "Pon la población en cero cuando sea grande o desconocida: la corrección se queda entonces desactivada.",
-      "Esto supone un muestreo aleatorio simple. Los diseños por conglomerados o por cuotas exigen más personas."
+      "El modelo supone muestreo aleatorio simple. Los diseños por conglomerados, cuotas u otros requieren evaluar aparte el plan de selección, los efectos del diseño y los sesgos; no existe aquí una regla universal de «más personas»."
     ],
     "example": "Con confianza del 95 %, margen de 5 puntos porcentuales y proporción prevista del 50 %, n₀ ≈ 384,1459 sin corrección se redondea hacia arriba a 385 respuestas. Para N = 500 conocido, la corrección da aproximadamente 217,4872, por lo que se necesitan 218 respuestas.",
     "faq": [

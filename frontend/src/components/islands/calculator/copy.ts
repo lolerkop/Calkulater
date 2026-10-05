@@ -560,6 +560,18 @@ const shareWarningCopyByLocale: Partial<Record<Locale, {
     confirm: 'Скопіювати',
     cancel: 'Скасувати',
   },
+  de: {
+    title: 'Prüfe die Daten vor dem Kopieren',
+    text: 'Der Link enthält die eingegebenen Parameter. Sende ihn nur an Personen, mit denen du diese Werte teilen möchtest.',
+    confirm: 'Link kopieren',
+    cancel: 'Abbrechen',
+  },
+  es: {
+    title: 'Revisa los datos antes de copiar',
+    text: 'El enlace contendrá los parámetros introducidos. Envíalo solo a personas con las que quieras compartir estos valores.',
+    confirm: 'Copiar enlace',
+    cancel: 'Cancelar',
+  },
 };
 
 export function shareWarningCopy(locale: Locale) {
@@ -574,10 +586,19 @@ export function swapCopy(locale: Locale): string {
   if (locale === 'uk') return 'Поміняти валюти місцями';
   if (locale === 'ru') return 'Поменять валюты местами';
   if (locale === 'es') return 'Intercambiar las divisas';
+  if (locale === 'de') return 'Währungen tauschen';
   return 'Swap currencies';
 }
 
 export function excludedDatesCopy(locale: Locale) {
+  if (locale === 'de') {
+    return {
+      help: 'Wähle ein Datum und füge es der Liste hinzu. Jedes Datum kann einzeln entfernt werden.',
+      add: 'Datum hinzufügen',
+      list: 'Ausgeschlossene Daten',
+      remove: 'Datum entfernen',
+    };
+  }
   if (locale === 'ru') {
     return {
       help: 'Выберите дату и добавьте её в список. Каждую дату можно удалить отдельно.',

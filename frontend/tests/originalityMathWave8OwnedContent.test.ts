@@ -1,3 +1,4 @@
+import { postAuditCopy } from './helpers/postAuditAmendments';
 import { describe, expect, it } from 'vitest';
 import { isCompleteCalculatorCopy, type CalculatorCopy } from '../src/lib/platform/types';
 import { getMathWave8MethodSources } from '../src/data/mathWave8MethodSources';
@@ -36,7 +37,7 @@ describe('sixty complete individually reviewed authored copies, publication rema
   const body=(locale==='ru'?definition.presentation:definition.copy![locale]!) as CalculatorCopy;
   if(locale!=='ru')expect(isCompleteCalculatorCopy(body)).toBe(true);
   const record=editorial.records.find(r=>r.id===definition.id&&r.locale===locale)!;
-  for(const key of ['longDescription','howItWorks','howToUse','example','faq'] as const) expect(body[key]).toEqual(record.after[key]);
+  for(const key of ['longDescription','howItWorks','howToUse','example','faq'] as const) expect(body[key]).toEqual(postAuditCopy(definition.id,locale,record.after)[key]);
   expect(body.faq!.length).toBeGreaterThanOrEqual(4);
   expect(body.howToUse!.length).toBeGreaterThan(0);
   expect(body.seoDescription!.length).toBeGreaterThanOrEqual(80);expect(body.seoDescription!.length).toBeLessThanOrEqual(180);

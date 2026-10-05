@@ -44,6 +44,8 @@ export type ConversionSpec<Id extends string> = {
    * с первым.
    */
   readonly resultLabel: string;
+  /** Optional exact transform owned by an affine converter; other units retain their model. */
+  readonly transform?: (value: number, from: Id, to: Id, raw: unknown) => number;
 };
 
 /** Приведение к базовой единице. */
@@ -132,7 +134,7 @@ export function buildConverter<Id extends string>(spec: ConversionSpec<Id>): Cal
 
     const fromUnit = spec.units[from];
     const toUnit = spec.units[to];
-    const converted = convert(spec.units, value, from, to);
+    const converted = spec.transform ? spec.transform(value, from, to, inputs.value) : convert(spec.units, value, from, to);
     const linear = !(fromUnit.offset ?? 0) && !(toUnit.offset ?? 0);
     if (!Number.isFinite(converted) || (linear && value !== 0 && converted === 0)) {
       return {
@@ -143,7 +145,7 @@ export function buildConverter<Id extends string>(spec: ConversionSpec<Id>): Cal
 
     // Соотношение единиц: показывает, во что превращается одна единица,
     // и потому сразу выдаёт неверный множитель, если он ошибочен.
-    const perUnit = convert(spec.units, 1, from, to);
+    const perUnit = spec.transform ? spec.transform(1, from, to, 1) : convert(spec.units, 1, from, to);
 
     return {
       primary: { label: spec.resultLabel, value: `${formatConverted(converted)} ${toUnit.symbol}` },

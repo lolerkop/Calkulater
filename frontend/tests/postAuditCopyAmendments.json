@@ -1,0 +1,631 @@
+{
+  "working-days-calculator/ru": {
+    "howToUse": [
+      "Выберите даты начала и окончания.",
+      "Включите учёт выходных, если суббота и воскресенье считаются рабочими.",
+      "Выберите исключаемую дату и нажмите «Добавить дату». Повторите для каждой даты.",
+      "Проверьте результат с календарём вашей страны или компании."
+    ],
+    "howItWorks": "Обе границы входят в диапазон. По умолчанию рабочими считаются понедельник–пятница; переключатель рабочей субботы добавляет субботу, но не воскресенье. Если включены все выходные, субботний переключатель не влияет. В форме выберите одну дату и нажмите «Добавить дату»; следующие даты добавляйте по одной. Повторы учитываются один раз, даты вне диапазона не влияют, ошибочная дата отклоняет расчёт. Исключение имеет приоритет перед выходным: такой день входит в строку исключений, а не в строку выходных. Календарные дни равны рабочим + выходным + исключённым. Государственные праздники, переносы и производственный календарь не загружаются. Даты принимаются в формате YYYY-MM-DD, годы 0001–9999, по продолженному григорианскому календарю без исторических переходов конкретной страны.",
+    "faq": [
+      {
+        "q": "Какие дни считаются выходными?",
+        "a": "Суббота и воскресенье. Праздничные дни нужно указать вручную."
+      },
+      {
+        "q": "Можно ли указать диапазон дат для исключения?",
+        "a": "Сейчас нет — добавляйте каждую конкретную дату отдельно через кнопку «Добавить дату»."
+      },
+      {
+        "q": "Включаются ли начальная и конечная даты?",
+        "a": "Да, диапазон считается по календарным дням внутри выбранных дат. Если дата попадает под выходной или исключение, она не добавляется к рабочим."
+      },
+      {
+        "q": "Можно ли считать шестидневную рабочую неделю?",
+        "a": "Да. Включите режим рабочей субботы: воскресенье останется выходным, а суббота будет учитываться как рабочий день. Праздники и переносы добавляйте в исключённые даты."
+      },
+      {
+        "q": "Подходит ли расчёт для юридических сроков?",
+        "a": "Для предварительной оценки — да. Для официальных сроков сверяйте правила исчисления дней в договоре, законе или локальном календаре."
+      }
+    ]
+  },
+  "engine-displacement/ru": {
+    "faq": [
+      {
+        "q": "Почему в паспорте другое число?",
+        "a": "В названии модели объём может быть округлён. Геометрический расчёт по диаметру и ходу помогает сравнить размеры цилиндров, но может отличаться от значения в документах. Для налогов, регистрации или таможенного оформления нужны соответствующие документы и применимые правила; калькулятор не устанавливает юридически действующий объём."
+      },
+      {
+        "q": "Что даёт расточка блока?",
+        "a": "Каждый лишний миллиметр диаметра прибавляет объём квадратично: у мотора 82 мм расточка до 83 даёт около 45 см³ на четыре цилиндра. Ход поршня при этом не меняется — он задан коленвалом."
+      },
+      {
+        "q": "Чем длинноходный мотор отличается?",
+        "a": "S/D больше 1 означает длинноходную геометрию, меньше 1 — короткоходную. Фактическая характеристика зависит и от газообмена, фаз, наддува и допустимых оборотов; по одному отношению нельзя вывести тягу с низких оборотов."
+      },
+      {
+        "q": "Годится ли расчёт для мотоцикла?",
+        "a": "Да, формула не зависит от типа техники. Для одноцилиндрового мотора поставьте единицу — расчёт покажет один и тот же объём в обеих строках."
+      }
+    ]
+  },
+  "quartile/ru": {
+    "howToUse": [
+      "Числа разделяются пробелами, переводами строки или точкой с запятой; запятая перед пробелом тоже считается разделителем.",
+      "Дробные значения пишутся через запятую: 2,5 — это два с половиной, а не два значения.",
+      "Эта форма принимает не меньше четырёх значений. Это ограничение калькулятора: квартили по выбранному правилу интерполяции можно определить и для трёх чисел.",
+      "Выбросом считается значение за границами Q1 − 1,5·IQR и Q3 + 1,5·IQR — та самая договорённость ящика с усами."
+    ]
+  },
+  "sample-size/ru": {
+    "howToUse": [
+      "Предельная ошибка — это половина ширины доверительного интервала: «±3 %» означает 3.",
+      "Если ожидаемая доля неизвестна, 50 % даёт наибольший объём в этой модели нормального приближения для одной доли при простой случайной выборке. Это не гарантирует достаточность для любого исследования и не устраняет смещение отбора.",
+      "Объём совокупности задавайте нулём, если она велика или неизвестна — поправка тогда не включается.",
+      "Модель предполагает простую случайную выборку. Для кластерного, квотного или другого дизайна отдельно оценивают план отбора, эффект дизайна и смещения; универсального правила «нужно больше людей» здесь нет."
+    ]
+  },
+  "slab-foundation/ru": {
+    "faq": [
+      {
+        "q": "Почему плюс один пруток?",
+        "a": "Модель ставит первый ряд в позиции 0, затем s, 2s и до floor(сторона/s)·s. Поэтому десять шагов дают одиннадцать рядов. Если сторона не кратна шагу, последний ряд не достигает противоположной границы; дополнительный ряд и защитный слой надо определять по чертежу отдельно."
+      },
+      {
+        "q": "Всегда ли верны два слоя?",
+        "a": "Нет. Два слоя — фиксированное допущение этого подсчёта, каждый с двумя направлениями. Требуемое армирование зависит от расчёта плиты, нагрузок и условий основания. Полученное количество не подтверждает выбранную схему."
+      },
+      {
+        "q": "Откуда 0,888 кг на метр?",
+        "a": "Из геометрии: круг 12 мм — это 113,1 мм², а сталь при 7850 кг/м³ даёт 0,888 кг на каждый метр. Это арифметика, а не таблица."
+      },
+      {
+        "q": "Учтены ли нахлёсты прутков?",
+        "a": "Нет. Сетка использует длины сторон без нахлёстов, анкеровки и подрезки. Поле «запас» меняет только бетон, не длину или массу стали. Добавочные длины определите по проекту и посчитайте отдельно."
+      },
+      {
+        "q": "Зачем отдельный калькулятор, если объём считает общий бетонный?",
+        "a": "Здесь, кроме объёма бетона, считается сетка в двух слоях и двух направлениях. Количество рядов равно floor(сторона/шаг)+1: первый ряд в позиции 0. Это не добавочный пруток у каждого края; защитный слой, крайние ряды и нахлёсты определяют по проекту отдельно."
+      }
+    ]
+  },
+  "slope/ru": {
+    "faq": [
+      {
+        "q": "Как связаны проценты и градусы уклона?",
+        "a": "p = 100tan(α), α = arctan(p/100) в градусах. Например, 5 % ≈ 2,862°, 10 % ≈ 5,711°, 100 % = 45°. При малых углах линейно приближается угол в радианах, а не равенство чисел процентов и градусов."
+      },
+      {
+        "q": "Какой уклон допустим для пандуса?",
+        "a": "Эта страница рассчитывает геометрию, но не проверяет допустимость пандуса. Требования зависят от страны, типа объекта, высоты подъёма, площадок и других параметров. Отношение 1:12 математически равно 8,333… %, а не ровно 8 %. Применимое требование проверяют отдельно."
+      },
+      {
+        "q": "Заложение мерить по горизонтали или по земле?",
+        "a": "По горизонтали. Измерение вдоль ската даёт длину наклона, и подстановка её вместо заложения занижает уклон."
+      },
+      {
+        "q": "Может ли подъём быть отрицательным?",
+        "a": "Да. Процент и угол зависят от знака отношения подъём/пробег. При положительном пробеге отрицательный подъём даёт отрицательные значения; если оба значения отрицательны, отношение, процент и угол положительны. Например, −1/−1 даёт 100 % и 45°."
+      }
+    ]
+  },
+  "speed-of-sound/ru": {
+    "faq": [
+      {
+        "q": "Почему давление не влияет на скорость звука?",
+        "a": "c=331,3√(1+t/273,15) м/с — заданное приближение при постоянных составе газа и отношении теплоёмкостей. Следствия: скорость в км/ч=3,6 c, время 1 км=1000/c с, путь за 3 с=3 c м."
+      },
+      {
+        "q": "Почему задержку грома в секундах делят на три для оценки расстояния в километрах?",
+        "a": "Делят задержку в секундах, а не расстояние: приблизительно d в км ≈ задержка/3. По модели d = c·задержка/1000. При 20 °C получаются 343,21 м/с и 1235,57 км/ч, около 2,914 с на 1 км и 1029,64 м за 3 с. При 0 °C модель даёт 331,3 м/с. Приближённый сухой воздух с фиксированными газовыми параметрами. Влажность и состав могут менять скорость; общей гарантии «меньше 1%» нет. В воде, стали и неоднородной атмосфере нужна другая модель. Оценка расстояния по грому не устанавливает безопасную дистанцию до молнии."
+      },
+      {
+        "q": "Влияет ли влажность?",
+        "a": "Приближённый сухой воздух с фиксированными газовыми параметрами. Влажность и состав могут менять скорость; общей гарантии «меньше 1%» нет. В воде, стали и неоднородной атмосфере нужна другая модель. Оценка расстояния по грому не устанавливает безопасную дистанцию до молнии."
+      },
+      {
+        "q": "Какая скорость звука в воде и в стали?",
+        "a": "Около 1500 м/с в воде и около 5900 м/с в стали — в разы больше, чем в воздухе, потому что эти среды гораздо менее сжимаемы. Этот расчёт для них неприменим."
+      }
+    ]
+  },
+  "working-days-calculator/en": {
+    "howToUse": [
+      "Enter start and end dates.",
+      "Choose whether weekends count as workdays.",
+      "Choose an excluded date and click “Add date”; repeat for each date."
+    ],
+    "howItWorks": "Both endpoints are included. The default workweek is Monday–Friday; working Saturday adds Saturday but keeps Sunday excluded. When all weekends count as working, the Saturday switch has no effect. In the form, choose one date and click “Add date”; add further dates one at a time. Duplicates count once, dates outside the interval have no effect, and an invalid date rejects the calculation. An exclusion takes precedence over a weekend: it belongs to excluded dates rather than the weekend row. Calendar days equal working + weekend + excluded days. Public holidays, transferred workdays and a national employment calendar are not loaded. Dates use YYYY-MM-DD and years 0001–9999 under the proleptic Gregorian calendar, without country-specific historical changeovers.",
+    "faq": [
+      {
+        "q": "How are business days counted?",
+        "a": "Both endpoints count. Full weeks and the remaining weekdays are counted under the selected weekend rules, then unique excluded dates are removed with priority over the weekend category."
+      },
+      {
+        "q": "Can I change how weekends are treated?",
+        "a": "Yes. Choose whether weekend days count as workdays before reading the total."
+      },
+      {
+        "q": "Are public holidays excluded automatically?",
+        "a": "No. Enter any holidays or other dates to exclude yourself; the calculator does not assume a country-specific holiday calendar."
+      },
+      {
+        "q": "What happens when an excluded date is also a weekend?",
+        "a": "It appears once as an excluded date, rather than in the weekend count. Duplicates and dates outside the selected interval do not reduce the total again."
+      }
+    ]
+  },
+  "engine-displacement/en": {
+    "faq": [
+      {
+        "q": "Why do the papers say something else?",
+        "a": "A model name may use rounded displacement. A geometric calculation from bore and stroke helps compare cylinder dimensions and may differ from the documented value. Tax, registration or customs use requires the relevant documents and applicable rules; this calculator does not establish legally accepted displacement."
+      },
+      {
+        "q": "What does boring the block do?",
+        "a": "Every extra millimetre of bore adds volume quadratically: on an 82 mm engine, boring to 83 adds about 45 cm³ across four cylinders. The stroke stays put — it is set by the crankshaft."
+      },
+      {
+        "q": "How does a long-stroke engine differ?",
+        "a": "S/D above 1 describes a long-stroke geometry and below 1 a short-stroke one. The actual curve also depends on breathing, valve timing, boost and permitted engine speed; the ratio alone cannot establish low-speed torque."
+      },
+      {
+        "q": "Does this work for a motorcycle?",
+        "a": "Yes, the formula does not care about the vehicle. For a single-cylinder engine enter one and the calculation shows the same volume in both rows."
+      }
+    ]
+  },
+  "quartile/en": {
+    "howToUse": [
+      "Separate numbers with spaces, new lines or semicolons; a comma before a space also counts as a separator.",
+      "Write decimals with a comma: 2,5 is two and a half, not two values.",
+      "This form accepts at least four values. This is a calculator input limit: the chosen interpolation rule can also define quartiles for three numbers.",
+      "A value beyond Q1 − 1.5·IQR or Q3 + 1.5·IQR counts as an outlier — the usual box-plot convention."
+    ]
+  },
+  "sample-size/en": {
+    "howToUse": [
+      "Margin of error is half the interval width: \"±3 %\" means 3.",
+      "If the expected proportion is unknown, 50% gives the largest size within this normal-approximation model for one proportion under simple random sampling. It does not guarantee adequacy for every study or remove selection bias.",
+      "Set population to zero when it is large or unknown — the correction then stays off.",
+      "The model assumes simple random sampling. Cluster, quota and other designs require a separate assessment of sampling, design effects and bias; there is no universal rule here that they need more people."
+    ]
+  },
+  "slab-foundation/en": {
+    "faq": [
+      {
+        "q": "Why plus one bar?",
+        "a": "The model places the first row at 0, then s, 2s through floor(side/s)·s. Ten intervals therefore give eleven rows. If the side is not a multiple of spacing, the last row does not reach the opposite boundary; an extra row and cover must be determined separately from the drawing."
+      },
+      {
+        "q": "Are two layers always right?",
+        "a": "No. Two layers are a fixed counting assumption, each with two directions. Required reinforcement depends on slab analysis, loads and support conditions. The quantity does not approve that arrangement."
+      },
+      {
+        "q": "Where does 0.888 kg per metre come from?",
+        "a": "From the geometry: a 12 mm circle is 113.1 mm², and steel at 7,850 kg/m³ gives 0.888 kg for every metre of it. It is arithmetic, not a table lookup."
+      },
+      {
+        "q": "Is the overlap of bars included?",
+        "a": "No. Mesh lengths follow the sides without laps, anchorage or cutting allowances. The reserve field changes concrete only, not steel length or mass. Determine added lengths from the design and count them separately."
+      },
+      {
+        "q": "Why a separate calculator if the general concrete one gives volume?",
+        "a": "Besides concrete volume, this calculator counts mesh in two layers and two directions. Rows equal floor(side/spacing)+1, starting with a row at 0. This does not add a bar at each edge; cover, edge rows and laps must be determined separately from the design."
+      }
+    ]
+  },
+  "slope/en": {
+    "faq": [
+      {
+        "q": "How do per cent and degrees relate?",
+        "a": "p = 100tan(α), with α = arctan(p/100) converted to degrees. For example, 5% ≈ 2.862°, 10% ≈ 5.711° and 100% = 45°. Small-angle linearization applies to radians, not equality of percentage and degree numbers."
+      },
+      {
+        "q": "What slope is acceptable for a wheelchair ramp?",
+        "a": "This page calculates geometry and does not establish whether a ramp is permissible. Requirements depend on jurisdiction, building use, rise, landings and other parameters. The ratio 1:12 is mathematically 8.333…%, not exactly 8%. Check the applicable requirement separately."
+      },
+      {
+        "q": "Should the run be measured horizontally or along the ground?",
+        "a": "Horizontally. Measuring along the incline gives the slope length instead, and using it as the run understates the gradient."
+      },
+      {
+        "q": "Can the rise be negative?",
+        "a": "Yes. The percentage and angle follow the sign of rise/run. With positive run, negative rise gives negative results; when both are negative, the ratio, percentage and angle are positive. For example, −1/−1 gives 100% and 45°."
+      }
+    ]
+  },
+  "speed-of-sound/en": {
+    "faq": [
+      {
+        "q": "Why does pressure not affect the speed of sound?",
+        "a": "c=331.3√(1+t/273.15) m/s is the stated approximation at fixed composition and heat-capacity ratio. Thus km/h=3.6 c, time over 1 km=1000/c s and distance in 3 s=3 c m."
+      },
+      {
+        "q": "Why divide thunder delay in seconds by three to estimate kilometres?",
+        "a": "Divide the delay in seconds, not the distance: approximately d in km ≈ delay/3. In the model, d = c·delay/1000. At 20 °C the model gives 343.21 m/s,1235.57 km/h, about 2.914 s over 1 km and 1029.64 m in 3 s. At 0 °C it returns 331.3 m/s. Approximate dry air with fixed gas parameters. Humidity and composition can change sound speed; there is no universal “under 1%” guarantee. Water, steel and nonuniform air need another model. Thunder-delay distance does not establish a safe lightning distance."
+      },
+      {
+        "q": "Does humidity matter?",
+        "a": "Approximate dry air with fixed gas parameters. Humidity and composition can change sound speed; there is no universal “under 1%” guarantee. Water, steel and nonuniform air need another model. Thunder-delay distance does not establish a safe lightning distance."
+      },
+      {
+        "q": "What about water and steel?",
+        "a": "About 1500 m/s in water and about 5900 m/s in steel — many times faster than in air, because those media are far less compressible. This calculation does not apply to them."
+      }
+    ]
+  },
+  "working-days-calculator/uk": {
+    "howToUse": [
+      "Введіть початкову й кінцеву дати.",
+      "Виберіть виключену дату й натисніть «Додати дату»; повторіть для кожної дати.",
+      "Прочитайте кількість календарних, робочих і вихідних днів."
+    ],
+    "howItWorks": "Обидві межі входять у діапазон. За замовчуванням робочими є понеділок–п’ятниця; робоча субота додає суботу, але не неділю. Якщо всі вихідні рахуються робочими, перемикач суботи не впливає. У формі виберіть одну дату й натисніть «Додати дату»; наступні дати додавайте по одній. Повтори враховуються один раз, дати поза діапазоном не впливають, помилкова дата відхиляє розрахунок. Виключення має пріоритет перед вихідним і потрапляє саме до рядка виключених дат. Календарні дні дорівнюють робочим + вихідним + виключеним. Державні свята, перенесення і виробничий календар не завантажуються. Дати мають формат YYYY-MM-DD і роки 0001–9999 за продовженим григоріанським календарем без історичних переходів окремої країни.",
+    "faq": [
+      {
+        "q": "Чому не можна просто поділити на сім?",
+        "a": "Через неповні тижні на краях. Діапазон із понеділка по понеділок містить не рівне число тижнів, і ділення дасть помилку в один-два дні."
+      },
+      {
+        "q": "Чи враховуються свята?",
+        "a": "Тільки ті, які ви ввели самі. Календар свят різний для кожної країни й змінюється рік до року, тому зашивати його в розрахунок було б хибно."
+      },
+      {
+        "q": "Чи входять граничні дати в розрахунок?",
+        "a": "Так, обидві. Діапазон з 1 по 28 лютого містить 28 днів, а не 27 — це важливо для строків договорів."
+      },
+      {
+        "q": "Як рахувати перенесені вихідні?",
+        "a": "Перемикач робочої суботи застосовується до всіх субот діапазону. Список виключень лише забирає дати й не може зробити одну неробочу суботу робочою. Для окремих перенесень скоригуйте календар поза цією моделлю."
+      }
+    ]
+  },
+  "employee-cost/uk": {
+    "howItWorks": "Внески рахуються як оклад × ставка ÷ 100 і додаються зверху, а не віднімаються. Разом дорівнює оклад + внески + накладні. Множник — це підсумок, поділений на оклад: це безрозмірне співвідношення витрат та окладу за той самий період, а не вартість години. Оклад і накладні мають стосуватися того самого місяця або року. Ступінчасті ставки, граничні бази й пільги розрахуйте окремо до вводу ефективної ставки. Загальна сума тут не ділиться на години. Введена ставка має початковий діапазон поля 0–200 %, що не є нормативом внесків."
+  },
+  "logarithm/uk": {
+    "faq": [
+      {
+        "q": "Чому число має бути додатним?",
+        "a": "Додатна основа в жодному дійсному степені не дає нуля чи від’ємного числа, тому логарифм нуля не визначений. Коли x прямує до 0 з додатного боку, log_b(x) прямує до −∞ для b > 1 та до +∞ для 0 < b < 1. Логарифма від’ємного числа серед дійсних немає."
+      },
+      {
+        "q": "Чим натуральний логарифм відрізняється від десяткового?",
+        "a": "Лише основою: у натурального це число e ≈ 2,71828, у десяткового — 10. Перехід між ними — множення на сталу, тому форма графіка однакова."
+      },
+      {
+        "q": "Чому основа не може дорівнювати одиниці?",
+        "a": "Бо одиниця в будь-якому степені дорівнює одиниці, і рівняння 1ˣ = 5 розв’язку не має. Формально ln 1 = 0, і вийшло б ділення на нуль."
+      },
+      {
+        "q": "Де логарифми потрібні на практиці?",
+        "a": "Скрізь, де величина змінюється в рази, а не на однакову величину: децибели, pH, зоряні величини, шкала Ріхтера. Логарифм перетворює множення на додавання."
+      }
+    ]
+  },
+  "quartile/uk": {
+    "howToUse": [
+      "Числа розділяються пробілами, переносами рядка або крапкою з комою.",
+      "Дробові значення пишіть через кому: 2,5 — це два з половиною, а не два значення.",
+      "Ця форма приймає не менше чотирьох значень. Це обмеження калькулятора: квартилі за обраним правилом інтерполяції можна визначити й для трьох чисел.",
+      "Викидом вважається значення за межами Q1 − 1,5·IQR і Q3 + 1,5·IQR."
+    ]
+  },
+  "sample-size/uk": {
+    "howToUse": [
+      "Гранична похибка — це половина ширини довірчого інтервалу: «±3 %» означає 3.",
+      "Якщо очікувана частка невідома, 50 % дає найбільший обсяг у цій моделі нормального наближення для однієї частки за простої випадкової вибірки. Це не гарантує достатності для будь-якого дослідження й не усуває зміщення відбору.",
+      "Обсяг сукупності задавайте нулем, якщо вона велика або невідома.",
+      "Модель передбачає просту випадкову вибірку. Для кластерного, квотного або іншого дизайну окремо оцінюють план відбору, ефект дизайну й зміщення; універсального правила «потрібно більше людей» тут немає."
+    ]
+  },
+  "slab-foundation/uk": {
+    "faq": [
+      {
+        "q": "Чому плюс один прут?",
+        "a": "Модель ставить перший ряд у позиції 0, далі s, 2s і до floor(сторона/s)·s. Тому десять кроків дають одинадцять рядів. Якщо сторона не кратна кроку, останній ряд не досягає протилежної межі; додатковий ряд та захисний шар визначають за кресленням окремо."
+      },
+      {
+        "q": "Чи завжди правильні два шари?",
+        "a": "Ні. Два шари — фіксоване припущення підрахунку, кожен із двома напрямками. Потрібне армування залежить від розрахунку плити, навантажень та основи. Кількість не підтверджує обрану схему."
+      },
+      {
+        "q": "Звідки 0,888 кг на метр?",
+        "a": "З геометрії: коло 12 мм це 113,1 мм², а сталь при 7850 кг/м³ дає 0,888 кг на кожен метр. Це арифметика, а не таблиця."
+      },
+      {
+        "q": "Чи враховано перехльости прутків?",
+        "a": "Ні. Сітка використовує довжини сторін без перехльостів, анкерування та підрізання. Поле запасу змінює лише бетон, не довжину чи масу сталі. Додаткові довжини визначте за проєктом та порахуйте окремо."
+      },
+      {
+        "q": "Навіщо окремий калькулятор, якщо об’єм рахує загальний бетонний?",
+        "a": "Тут, крім об’єму бетону, рахується сітка у двох шарах і двох напрямках. Кількість рядів дорівнює floor(сторона/крок)+1: перший ряд у позиції 0. Це не додатковий прут біля кожного краю; захисний шар, крайні ряди та перехльости визначають за проєктом окремо."
+      }
+    ]
+  },
+  "working-days-calculator/de": {
+    "howToUse": [
+      "Trage Anfangs- und Enddatum ein — beide Tage zählen mit.",
+      "Stelle ein, ob Wochenenden als Arbeitstage gelten.",
+      "Stelle gesondert ein, ob der Samstag ein Arbeitstag ist.",
+      "Wähle ein auszuschließendes Datum und klicke auf „Datum hinzufügen“; wiederhole dies für jedes Datum."
+    ],
+    "howItWorks": "Beide Grenztage zählen mit. Standardmäßig gilt Montag–Freitag; ein arbeitender Samstag ergänzt den Samstag, jedoch nicht den Sonntag. Wenn alle Wochenenden als Arbeitstage zählen, wirkt der Samstagsschalter nicht. Wähle im Formular ein Datum und klicke auf „Datum hinzufügen“; füge weitere Daten einzeln hinzu. Doppelte Daten zählen einmal, Daten außerhalb des Intervalls wirken nicht, ungültige Daten verhindern die Rechnung. Eine Ausnahme hat Vorrang vor dem Wochenende und erscheint in der Ausnahmezeile. Kalendertage sind Arbeitstage + Wochenendtage + ausgeschlossene Tage. Feiertage, verlegte Arbeitstage und gesetzliche Arbeitskalender werden nicht geladen. Daten verwenden YYYY-MM-DD und Jahre 0001–9999 im proleptischen gregorianischen Kalender ohne historische Landesumstellungen.",
+    "faq": [
+      {
+        "q": "Warum sind keine Feiertage eingebaut?",
+        "a": "Weil die benötigte Feiertags- und Ausnahmeliste zur konkreten Region und zum Zeitraum passen muss. Dieser Rechner lädt keinen solchen Kalender; du gibst die zu entfernenden Daten selbst ein."
+      },
+      {
+        "q": "Zählen Anfangs- und Endtag mit?",
+        "a": "Ja, beide. Für Kalendertage ohne den Anfangstag ist es ein Tag weniger. Bei Arbeitstagen wird nur dann einer abgezogen, wenn dieser Anfangstag nach den gewählten Regeln einschließlich Ausnahmen tatsächlich ein Arbeitstag ist."
+      },
+      {
+        "q": "Was ist der Unterschied zwischen Arbeitstag und Werktag?",
+        "a": "Hier folgt ein Arbeitstag ausschließlich den gewählten Wochenend- und Ausnahmeregeln. Welche Bedeutung ein Vertrag oder eine Frist den Begriffen Arbeitstag und Werktag gibt, wird nicht automatisch festgestellt; der Samstagsschalter legt nur dieses Rechenmodell fest."
+      },
+      {
+        "q": "In welchem Format trage ich die freien Tage ein?",
+        "a": "Wähle jedes Datum einzeln und klicke auf „Datum hinzufügen“. Tage außerhalb des Zeitraums bleiben ohne Wirkung."
+      },
+      {
+        "q": "Taugt das für gesetzliche Fristen?",
+        "a": "Als Schätzung. Fristen zählen je nach Gesetz in Kalendertagen, Werktagen oder Bankarbeitstagen, und die maßgebliche Regel steht im Vertrag oder Gesetz."
+      }
+    ]
+  },
+  "engine-displacement/de": {
+    "faq": [
+      {
+        "q": "Warum steht im Fahrzeugschein etwas anderes?",
+        "a": "Die Modellbezeichnung kann einen gerundeten Hubraum nennen. Die geometrische Rechnung aus Bohrung und Hub hilft beim Vergleich von Zylindermaßen und kann vom dokumentierten Wert abweichen. Für Steuer, Zulassung oder Zoll sind die entsprechenden Dokumente und geltenden Regeln erforderlich; der Rechner stellt keinen rechtlich maßgeblichen Hubraum fest."
+      },
+      {
+        "q": "Was bewirkt das Aufbohren des Blocks?",
+        "a": "Jeder zusätzliche Millimeter Bohrung bringt quadratisch Volumen: bei einem 82-mm-Motor bringt das Aufbohren auf 83 rund 45 cm³ über vier Zylinder. Der Hub bleibt, wo er ist — ihn setzt die Kurbelwelle."
+      },
+      {
+        "q": "Wie unterscheidet sich ein Langhuber?",
+        "a": "S/D über 1 bedeutet langhubige, unter 1 kurzhubige Geometrie. Die tatsächliche Kennlinie hängt auch von Gaswechsel, Steuerzeiten, Aufladung und zulässiger Drehzahl ab; das Verhältnis allein bestimmt keine Zugkraft bei niedrigen Drehzahlen."
+      },
+      {
+        "q": "Funktioniert das auch für ein Motorrad?",
+        "a": "Ja, die Formel kümmert sich nicht um das Fahrzeug. Bei einem Einzylinder trägst du eins ein, und die Rechnung zeigt dasselbe Volumen in beiden Zeilen."
+      }
+    ]
+  },
+  "inflation/de": {
+    "example": "10 000 € behalten bei 8 % Inflation über 10 Jahre die Kaufkraft von nur 4631,93 € — ein Verlust von 53,68 %. Bei Inflation null entsprechen Kaufkraft und künftiger Warenkorb dem Anfangsbetrag; der Verlust ist null."
+  },
+  "quartile/de": {
+    "howToUse": [
+      "Trenne die Zahlen mit Leerzeichen, Zeilenumbrüchen oder Semikola; ein Komma vor einem Leerzeichen zählt ebenfalls als Trenner.",
+      "Schreibe Dezimalzahlen mit Komma: 2,5 ist zweieinhalb und nicht zwei Werte.",
+      "Dieses Formular nimmt mindestens vier Werte an. Das ist eine Eingabegrenze des Rechners: die gewählte Interpolationsregel kann Quartile auch für drei Zahlen bestimmen.",
+      "Ein Wert jenseits von Q1 − 1,5·IQA oder Q3 + 1,5·IQA gilt als Ausreißer — die übliche Boxplot-Übereinkunft."
+    ]
+  },
+  "sample-size/de": {
+    "howToUse": [
+      "Die Fehlergrenze ist die halbe Intervallbreite: „±3 %“ heißt 3.",
+      "Ist der erwartete Anteil unbekannt, liefert 50 % die größte Stichprobe innerhalb dieses Normalapproximation-Modells für einen Anteil bei einfacher Zufallsziehung. Das garantiert weder Eignung für jede Studie noch die Beseitigung von Auswahlverzerrungen.",
+      "Setze die Grundgesamtheit auf null, wenn sie groß oder unbekannt ist — die Korrektur bleibt dann aus.",
+      "Das Modell setzt eine einfache Zufallsstichprobe voraus. Bei Klumpen-, Quoten- und anderen Verfahren sind Auswahlplan, Designeffekte und Verzerrungen gesondert zu beurteilen; eine allgemeine Regel „mehr Personen nötig“ gilt hier nicht."
+    ]
+  },
+  "slab-foundation/de": {
+    "faq": [
+      {
+        "q": "Warum ein Stab mehr?",
+        "a": "Das Modell beginnt bei 0, dann s, 2s bis floor(Seite/s)·s. Zehn Abstände ergeben elf Reihen. Ist die Seite kein Vielfaches des Abstands, erreicht die letzte Reihe nicht den gegenüberliegenden Rand; Zusatzreihe und Betondeckung sind nach Zeichnung gesondert festzulegen."
+      },
+      {
+        "q": "Sind zwei Lagen immer richtig?",
+        "a": "Nein. Zwei Lagen sind eine feste Zählannahme, jeweils mit zwei Richtungen. Die erforderliche Bewehrung hängt von Plattenberechnung, Lasten und Auflagerbedingungen ab. Die Menge bestätigt diese Anordnung nicht."
+      },
+      {
+        "q": "Woher kommen die 0,888 kg je Meter?",
+        "a": "Aus der Geometrie: ein Kreis mit 12 mm hat 113,1 mm², und Stahl mit 7850 kg/m³ ergibt 0,888 kg für jeden Meter davon. Es ist Rechnerei und kein Tabellenwert."
+      },
+      {
+        "q": "Ist der Stoß der Stäbe enthalten?",
+        "a": "Nein. Gitterlängen folgen den Seiten ohne Überlappung, Verankerung und Zuschnitt. Der Zuschlag ändert nur Beton, nicht Stahllänge oder -masse. Zusatzlängen nach Planung gesondert ermitteln."
+      },
+      {
+        "q": "Warum ein eigener Rechner, wenn der allgemeine Betonrechner das Volumen liefert?",
+        "a": "Neben dem Betonvolumen zählt dieser Rechner das Gitter in zwei Lagen und zwei Richtungen. Die Zahl der Reihen ist floor(Seite/Abstand)+1, mit der ersten Reihe bei 0. Das fügt keinen Stab an jeder Kante hinzu; Betondeckung, Randreihen und Überlappungen sind nach Planung gesondert festzulegen."
+      }
+    ]
+  },
+  "slope/de": {
+    "faq": [
+      {
+        "q": "Wie hängen Prozent und Grad zusammen?",
+        "a": "p = 100tan(α), α = arctan(p/100), umgerechnet in Grad. Zum Beispiel: 5 % ≈ 2,862°, 10 % ≈ 5,711°, 100 % = 45°. Die lineare Kleinwinkelnäherung gilt im Bogenmaß, nicht als Zahlengleichheit von Prozent und Grad."
+      },
+      {
+        "q": "Welche Steigung ist für eine Rollstuhlrampe zulässig?",
+        "a": "Diese Seite berechnet Geometrie und beurteilt nicht die Zulässigkeit einer Rampe. Anforderungen hängen von Rechtsraum, Gebäudenutzung, Höhe, Podesten und weiteren Größen ab. Das Verhältnis 1:12 ist rechnerisch 8,333… % und nicht genau 8 %. Die anwendbare Vorgabe ist separat zu prüfen."
+      },
+      {
+        "q": "Wird die Strecke waagerecht oder am Gelände entlang gemessen?",
+        "a": "Waagerecht. Entlang der Neigung gemessen ergibt sich stattdessen die Neigungslänge, und sie als waagerechte Strecke zu nehmen setzt die Steigung zu niedrig an."
+      },
+      {
+        "q": "Kann der Höhenunterschied negativ sein?",
+        "a": "Ja. Prozentwert und Winkel folgen dem Vorzeichen von Höhenunterschied/horizontaler Strecke. Bei positiver Strecke ergibt ein negativer Höhenunterschied negative Werte; sind beide negativ, sind Verhältnis, Prozentwert und Winkel positiv. Zum Beispiel ergibt −1/−1 100 % und 45°."
+      }
+    ]
+  },
+  "speed-of-sound/de": {
+    "faq": [
+      {
+        "q": "Warum wirkt sich der Druck nicht auf die Schallgeschwindigkeit aus?",
+        "a": "c=331,3√(1+t/273,15) m/s ist die Näherung bei fester Gaszusammensetzung und konstantem Wärmekapazitätsverhältnis. km/h=3,6 c, Zeit für 1 km=1000/c s und Weg in 3 s=3 c m."
+      },
+      {
+        "q": "Warum teilt man die Donnerverzögerung in Sekunden durch drei, um Kilometer zu schätzen?",
+        "a": "Geteilt wird die Verzögerung in Sekunden, nicht die Entfernung: näherungsweise d in km ≈ Verzögerung/3. Im Modell gilt d = c·Verzögerung/1000. Bei 20 °C:343,21 m/s,1235,57 km/h, etwa 2,914 s für 1 km und 1029,64 m in 3 s. Bei 0 °C sind es 331,3 m/s. Angenäherte trockene Luft mit festen Gasparametern. Feuchte und Zusammensetzung können die Geschwindigkeit verändern; es gibt keine allgemeine Zusage „unter 1%“. Wasser, Stahl und inhomogene Luft brauchen andere Modelle. Entfernung aus Donnerverzögerung legt keinen sicheren Blitzabstand fest."
+      },
+      {
+        "q": "Spielt die Luftfeuchte eine Rolle?",
+        "a": "Angenäherte trockene Luft mit festen Gasparametern. Feuchte und Zusammensetzung können die Geschwindigkeit verändern; es gibt keine allgemeine Zusage „unter 1%“. Wasser, Stahl und inhomogene Luft brauchen andere Modelle. Entfernung aus Donnerverzögerung legt keinen sicheren Blitzabstand fest."
+      },
+      {
+        "q": "Und in Wasser und Stahl?",
+        "a": "Rund 1500 m/s in Wasser und rund 5900 m/s in Stahl — ein Mehrfaches der Luft, weil diese Medien weit weniger zusammendrückbar sind. Diese Rechnung gilt für sie nicht."
+      }
+    ]
+  },
+  "working-days-calculator/es": {
+    "howToUse": [
+      "Introduce la fecha de inicio y la de fin.",
+      "Elige si los fines de semana cuentan como laborables.",
+      "Elige una fecha excluida y pulsa «Añadir fecha»; repite para cada fecha."
+    ],
+    "howItWorks": "Se incluyen ambos extremos. Por defecto se trabaja de lunes a viernes; el sábado laborable añade el sábado, pero no el domingo. Si todos los fines de semana cuentan como laborables, el selector del sábado no cambia nada. En el formulario, elige una fecha y pulsa «Añadir fecha»; añade las siguientes de una en una. Los duplicados cuentan una vez, las fechas externas no influyen y una fecha inválida rechaza el cálculo. Una exclusión tiene prioridad sobre el fin de semana y figura en su propia fila. Días naturales = laborables + fin de semana + excluidos. No se cargan festivos nacionales, jornadas trasladadas ni calendarios laborales legales. Las fechas usan YYYY-MM-DD y años 0001–9999 del calendario gregoriano proléptico, sin transiciones históricas de cada país.",
+    "faq": [
+      {
+        "q": "¿Cómo se cuentan los días laborables?",
+        "a": "Se incluyen ambos extremos. Se cuentan semanas completas y días restantes según la regla elegida; después se retiran fechas excluidas únicas, con prioridad sobre la categoría de fin de semana."
+      },
+      {
+        "q": "¿Puedo cambiar el tratamiento de los fines de semana?",
+        "a": "Sí. Elige si los días de fin de semana deben contar como laborables antes de consultar el total."
+      },
+      {
+        "q": "¿Se excluyen los festivos automáticamente?",
+        "a": "No. Introduce a mano los festivos u otras fechas que quieras excluir; no se presupone un calendario nacional."
+      },
+      {
+        "q": "¿Qué pasa si una fecha excluida cae en fin de semana?",
+        "a": "Se cuenta una vez como excluida, no también como fin de semana. Los duplicados y las fechas fuera del intervalo no vuelven a reducir el total."
+      }
+    ]
+  },
+  "dew-point/es": {
+    "faq": [
+      {
+        "q": "¿Por qué al 100 % el punto de rocío coincide con la temperatura?",
+        "a": "Porque el aire ya está saturado: no hace falta enfriarlo, la condensación empieza de inmediato. El logaritmo de uno es cero, y la fórmula devuelve con honestidad la temperatura original."
+      },
+      {
+        "q": "¿Por qué suda una pared si la habitación está caliente?",
+        "a": "El rocío se forma según la temperatura de la superficie, no la del aire. Un rincón frío o la mocheta de una ventana pueden quedar por debajo del punto de rocío mientras el aire de la habitación está bastante más caliente."
+      },
+      {
+        "q": "¿Qué precisión tiene esta fórmula?",
+        "a": "Los límites t −60…60 °C y 0<RH≤100% pertenecen al formulario, no prometen ±0,4 °C. Los coeficientes son aproximados; distingue rocío sobre agua líquida de escarcha. No se calculan superficie, puentes térmicos ni confort personal."
+      },
+      {
+        "q": "¿Por qué se rechaza una humedad de cero?",
+        "a": "Porque con humedad nula no existe punto de rocío: no hay nada que condensar. El logaritmo de cero no tiene ningún valor, y eso es una magnitud ausente, no un extremo del intervalo."
+      }
+    ]
+  },
+  "engine-displacement/es": {
+    "faq": [
+      {
+        "q": "¿Por qué la documentación dice otra cosa?",
+        "a": "El nombre del modelo puede usar una cilindrada redondeada. El cálculo geométrico a partir del diámetro y la carrera sirve para comparar las dimensiones y puede diferir del valor documentado. Para impuestos, matriculación o aduana hacen falta los documentos y las normas aplicables; la calculadora no establece una cilindrada con validez legal."
+      },
+      {
+        "q": "¿Qué consigue rectificar el bloque?",
+        "a": "Cada milímetro extra de diámetro añade volumen de forma cuadrática: en un motor de 82 mm, rectificar a 83 añade unos 45 cm³ entre los cuatro cilindros. La carrera no cambia: la fija el cigüeñal."
+      },
+      {
+        "q": "¿En qué se diferencia un motor de carrera larga?",
+        "a": "S/D mayor que 1 indica carrera larga y menor que 1 carrera corta. La curva real también depende del intercambio de gases, la distribución, la sobrealimentación y el régimen permitido; la relación sola no establece el par a bajas vueltas."
+      },
+      {
+        "q": "¿Vale para una motocicleta?",
+        "a": "Sí, a la fórmula le da igual el vehículo. Para un motor monocilíndrico introduce uno y el cálculo mostrará el mismo volumen en ambas filas."
+      }
+    ]
+  },
+  "inflation/es": {
+    "example": "10 000 con un 8 % de inflación durante 10 años conservan el poder adquisitivo de solo 4631,93: una pérdida del 53,68 %. Con inflación cero, el poder adquisitivo y el coste futuro de la cesta igualan el importe inicial, sin pérdida."
+  },
+  "quartile/es": {
+    "howToUse": [
+      "Separa los números con espacios, saltos de línea o punto y coma; una coma seguida de espacio también cuenta como separador.",
+      "Escribe los decimales con coma: 2,5 son dos y medio, no dos valores.",
+      "Este formulario admite al menos cuatro valores. Es un límite de entrada de la calculadora: la regla de interpolación elegida también permite definir cuartiles para tres números.",
+      "Un valor más allá de Q1 − 1,5·RIC o Q3 + 1,5·RIC cuenta como atípico, según el convenio habitual del diagrama de caja."
+    ]
+  },
+  "sample-size/es": {
+    "howToUse": [
+      "El margen de error es la mitad de la anchura del intervalo: «±3 %» significa 3.",
+      "Si se desconoce la proporción esperada, el 50 % da el tamaño mayor dentro de este modelo de aproximación normal para una proporción con muestreo aleatorio simple. No garantiza suficiencia para cualquier estudio ni elimina el sesgo de selección.",
+      "Pon la población en cero cuando sea grande o desconocida: la corrección se queda entonces desactivada.",
+      "El modelo supone muestreo aleatorio simple. Los diseños por conglomerados, cuotas u otros requieren evaluar aparte el plan de selección, los efectos del diseño y los sesgos; no existe aquí una regla universal de «más personas»."
+    ]
+  },
+  "slab-foundation/es": {
+    "faq": [
+      {
+        "q": "¿Por qué una barra más?",
+        "a": "El modelo sitúa la primera fila en 0, luego s, 2s hasta floor(lado/s)·s. Diez intervalos dan once filas. Si el lado no es múltiplo de la separación, la última no llega al borde opuesto; la fila adicional y el recubrimiento se determinan aparte según el plano."
+      },
+      {
+        "q": "¿Dos capas son siempre lo correcto?",
+        "a": "No. Dos capas son una hipótesis fija de conteo, cada una con dos direcciones. La armadura necesaria depende del análisis, cargas y apoyo. La cantidad no aprueba esa disposición."
+      },
+      {
+        "q": "¿De dónde salen los 0,888 kg por metro?",
+        "a": "De la geometría: un círculo de 12 mm son 113,1 mm², y el acero a 7850 kg/m³ da 0,888 kg por cada metro. Es aritmética, no una consulta de tabla."
+      },
+      {
+        "q": "¿Se incluyen los solapes de las barras?",
+        "a": "No. La malla usa las longitudes de lados sin solapes, anclaje ni cortes. El margen modifica solo el hormigón, no longitud ni masa del acero. Calcula aparte las longitudes adicionales del proyecto."
+      },
+      {
+        "q": "¿Para qué una calculadora aparte si la general de hormigón ya da el volumen?",
+        "a": "Además del volumen de hormigón, esta calculadora cuenta la malla en dos capas y dos direcciones. Las filas son floor(lado/separación)+1, con la primera en 0. No añade una barra en cada borde; recubrimiento, filas de borde y solapes se determinan aparte según el proyecto."
+      }
+    ]
+  },
+  "slope/es": {
+    "faq": [
+      {
+        "q": "¿Qué relación hay entre el porcentaje y los grados?",
+        "a": "p = 100tan(α), con α = arctan(p/100) convertido a grados. Por ejemplo, 5 % ≈ 2,862°, 10 % ≈ 5,711° y 100 % = 45°. La aproximación lineal de ángulo pequeño usa radianes, no igualdad entre números de porcentaje y grados."
+      },
+      {
+        "q": "¿Qué pendiente es aceptable para una rampa de silla de ruedas?",
+        "a": "Esta página calcula geometría y no determina si una rampa es admisible. Los requisitos dependen del lugar, uso del edificio, desnivel, descansillos y otros parámetros. La razón 1:12 es matemáticamente 8,333… %, no exactamente 8 %. Comprueba aparte el requisito aplicable."
+      },
+      {
+        "q": "¿La distancia se mide en horizontal o por el suelo?",
+        "a": "En horizontal. Medir por la pendiente da la longitud inclinada, y usarla como distancia horizontal subestima la pendiente."
+      },
+      {
+        "q": "¿El desnivel puede ser negativo?",
+        "a": "Sí. El porcentaje y el ángulo siguen el signo de desnivel/recorrido horizontal. Con recorrido positivo, un desnivel negativo da resultados negativos; si ambos son negativos, la relación, el porcentaje y el ángulo son positivos. Por ejemplo, −1/−1 da 100 % y 45°."
+      }
+    ]
+  },
+  "speed-of-sound/es": {
+    "faq": [
+      {
+        "q": "¿Por qué la presión no afecta a la velocidad del sonido?",
+        "a": "c=331,3√(1+t/273,15) m/s es la aproximación con composición y razón de capacidades fijas. km/h=3,6 c, tiempo de 1 km=1000/c s y distancia en 3 s=3 c m."
+      },
+      {
+        "q": "¿Por qué se divide entre tres el retraso del trueno en segundos para estimar kilómetros?",
+        "a": "Se divide el retraso en segundos, no la distancia: aproximadamente d en km ≈ retraso/3. En el modelo, d = c·retraso/1000. A 20 °C:343,21 m/s,1235,57 km/h, unos 2,914 s para 1 km y 1029,64 m en 3 s. A 0 °C devuelve 331,3 m/s. Aire seco aproximado con parámetros fijos. Humedad y composición pueden cambiar la velocidad; no hay garantía universal «menos del 1%». Agua, acero y atmósfera no uniforme necesitan otro modelo. La distancia por retraso del trueno no establece distancia segura de rayos."
+      },
+      {
+        "q": "¿Importa la humedad?",
+        "a": "Aire seco aproximado con parámetros fijos. Humedad y composición pueden cambiar la velocidad; no hay garantía universal «menos del 1%». Agua, acero y atmósfera no uniforme necesitan otra modelo. La distancia por retraso del trueno no establece distancia segura de rayos."
+      },
+      {
+        "q": "¿Y el agua y el acero?",
+        "a": "Unos 1500 m/s en el agua y unos 5900 m/s en el acero: muchas veces más rápido que en el aire, porque esos medios son mucho menos compresibles. Este cálculo no se les aplica."
+      }
+    ]
+  }
+}

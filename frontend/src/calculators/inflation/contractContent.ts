@@ -107,7 +107,7 @@ export const contractContent: Record<'ru' | 'en' | 'uk' | 'de' | 'es', Copy> = {
       "Der Satz ist deine Annahme und keine Vorhersage."
     ],
     "howItWorks": "Bei jährlicher Inflation p in Prozent, Laufzeit t in Jahren und Betrag A gilt: Preisfaktor F = (1+p/100)^t; Kaufkraft = A/F; künftiger Preis des heutigen Warenkorbs = A×F. Verlust = A−A/F, Verlustanteil = (1−1/F)×100 %. Bruchteile von Jahren werden nicht gerundet. Die Inflation muss über −100 % liegen. Bei Deflation ist der Verlust negativ und die Kaufkraft steigt. Alle Beträge verwenden dieselbe Währung ohne Wechselkurs.",
-    "example": "10 000 € behalten bei 8 % Inflation über 10 Jahre die Kaufkraft von nur 4631,94 € — ein Verlust von 53,68 %. Bei Inflation null entsprechen Kaufkraft und künftiger Warenkorb dem Anfangsbetrag; der Verlust ist null.",
+    "example": "10 000 € behalten bei 8 % Inflation über 10 Jahre die Kaufkraft von nur 4631,93 € — ein Verlust von 53,68 %. Bei Inflation null entsprechen Kaufkraft und künftiger Warenkorb dem Anfangsbetrag; der Verlust ist null.",
     "faq": [
       {
         "q": "Warum sind 8 % über 10 Jahre nicht 80 %?",
@@ -141,7 +141,7 @@ export const contractContent: Record<'ru' | 'en' | 'uk' | 'de' | 'es', Copy> = {
       "El tipo es tu suposición, no una previsión."
     ],
     "howItWorks": "Para inflación anual p en porcentaje, plazo t en años e importe A: factor de precios F = (1+p/100)^t; poder adquisitivo = A/F; coste futuro de la cesta actual = A×F. Pérdida = A−A/F; parte perdida = (1−1/F)×100 %. Los años fraccionarios se usan sin redondearlos. La inflación debe superar −100 %. La deflación da una pérdida negativa, es decir, una ganancia de poder adquisitivo. Todos los importes usan una moneda, sin conversión.",
-    "example": "10 000 con un 8 % de inflación durante 10 años conservan el poder adquisitivo de solo 4631,94: una pérdida del 53,68 %. Con inflación cero, el poder adquisitivo y el coste futuro de la cesta igualan el importe inicial, sin pérdida.",
+    "example": "10 000 con un 8 % de inflación durante 10 años conservan el poder adquisitivo de solo 4631,93: una pérdida del 53,68 %. Con inflación cero, el poder adquisitivo y el coste futuro de la cesta igualan el importe inicial, sin pérdida.",
     "faq": [
       {
         "q": "¿Por qué un 8 % durante 10 años no es un 80 %?",

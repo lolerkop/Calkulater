@@ -183,7 +183,7 @@ describe('owned raw whole-count hooks run before form normalization in5native la
   });
   for(const locale of locales) it(`commission/${locale}:3modes have explicitamount/fee/rate units and nativezeroerror`,()=>{
     const field=ownedDefinitions[2].presentation.fields.find(f=>f.name==='b')!;
-    expect(ownedDefinitions[2].contextualField!(field,{mode:'fromAmount'},locale).unit).toBe('%');expect(ownedDefinitions[2].contextualField!(field,{mode:'rate'},locale).unit).toBe('₽');
+    expect(ownedDefinitions[2].contextualField!(field,{mode:'fromAmount'},locale).unit).toBe('%');expect(ownedDefinitions[2].contextualField!(field,{mode:'rate'},locale).unit).toBe({ru:'₽',en:'$',uk:'₴',de:'€',es:'€'}[locale]);
     const errors=ownedDefinitions[2].validate!({values:{mode:'fromCommission',a:100,b:0},locale,fields:ownedDefinitions[2].presentation.fields,parseNumber:text=>parseLocalizedNumber(text,locale)});expect(errors.b).toBeTruthy();if(['en','de','es'].includes(locale))expect(errors.b).not.toMatch(/[А-Яа-яЁё]/);
   });
 });

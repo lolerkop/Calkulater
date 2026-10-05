@@ -5,7 +5,7 @@
 import type { Field } from '../../../lib/types';
 import type { Locale } from '../../../lib/clientI18n';
 import type { ShareFormValues } from '../../../lib/shareLink';
-import { parseLocalizedNumber } from '../../../lib/format';
+import { normalizedNumberText, parseLocalizedNumber } from '../../../lib/format';
 
 // Единая модель значений формы: то же, что уходит в share-ссылку.
 export type FormValues = ShareFormValues;
@@ -28,7 +28,8 @@ export function normalizeValues(fields: Field[], values: FormValues, locale: Loc
     const text = String(raw ?? '');
     const parsed = parseLocalizedNumber(text, locale);
     if (parsed !== null) {
-      normalized[field.name] = parsed;
+      normalized[field.name] = field.preserveDecimalText && typeof raw !== 'number'
+        ? normalizedNumberText(text, locale)! : parsed;
       continue;
     }
     // Пустое необязательное поле значит «суммы нет». Раннер такие поля сверяет

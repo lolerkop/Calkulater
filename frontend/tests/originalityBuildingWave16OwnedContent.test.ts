@@ -1,3 +1,4 @@
+import { postAuditCopy } from './helpers/postAuditAmendments';
 import {describe,it,expect} from 'vitest';
 import {isCompleteCalculatorCopy,type CalculatorCopy} from '../src/lib/platform/types';
 import {parseLocalizedNumber} from '../src/lib/format';
@@ -38,7 +39,7 @@ describe('60 owned native bodies and inherited published examples, identity, def
   const record=editorial.records.find(r=>r.id===tool.id&&r.locale===locale)!;
   const old=before.find(r=>r.id===tool.id&&r.locale===locale)!;
   expect(isCompleteCalculatorCopy(body)).toBe(true);
-  for(const key of ['longDescription','howItWorks','howToUse','example','faq','disclaimer']as const)expect(body[key]).toEqual((record.after as Record<string,unknown>)[key]);
+  for(const key of ['longDescription','howItWorks','howToUse','example','faq','disclaimer']as const)expect(body[key]).toEqual(postAuditCopy(tool.id,locale,record.after as Record<string,unknown>)[key]);
   for(const key of ['name','slug','h1','seoTitle','shortDescription','keywords']as const)expect(body[key]).toEqual(old.metadata[key]);
   if(tool.id==='stairs'&&locale==='de')expect(body.seoDescription).toContain('gewählter Maximalsteigung');else expect(body.seoDescription).toBe(old.metadata.seoDescription);
   expect(body.seoDescription!.length).toBeGreaterThanOrEqual(80);expect(body.seoDescription!.length).toBeLessThanOrEqual(180);

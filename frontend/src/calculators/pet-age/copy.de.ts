@@ -5,9 +5,9 @@ export const petAgeCopyDe: CalculatorCopy = {
   ...{
   "name": "Rechner für das Alter eines Haustiers",
   "slug": "haustier-alter-rechner",
-  "shortDescription": "Alter einer Katze oder eines Hundes in Menschenjahren nach einer tierärztlichen Tabelle.",
+  "shortDescription": "Anschauliche Schätzung des Menschenalters einer Katze oder eines Hundes mit der Skala 15/9/4/7.",
   "seoTitle": "Alter eines Haustiers berechnen — Katzen- und Hundejahre",
-  "seoDescription": "Rechne das Alter einer Katze oder eines Hundes über eine nicht lineare tierärztliche Tabelle in Menschenjahre um, mit eigenem Satz für große Rassen.",
+  "seoDescription": "Schätze das anschauliche Menschenalter einer Katze oder eines Hundes mit der Skala 15/9/4/7. Dies ist keine tierärztliche Beurteilung von Gesundheit oder Lebenserwartung.",
   "h1": "Rechner für das Alter eines Haustiers",
   "keywords": [
     "Hundealter berechnen",

@@ -515,12 +515,13 @@ const categoryFallback = getCalculatorsByCategory(calc.category, locale)
   .slice(0, 3);
 const relatedOrCategory = related.length > 0 ? related : categoryFallback;
 const ruFreshness = calculatorFreshness(calc);
+const hasReferenceRates = calc.category === 'currency' && calc.id !== 'currency-exchange-fee';
 const freshness = locale === 'ru'
   ? ruFreshness
   : {
       label: pageCopy.freshness,
-      value: calc.category === 'currency' ? ruFreshness.value : pageCopy.formulaBased,
-      note: calc.category === 'currency'
+      value: hasReferenceRates ? ruFreshness.value : pageCopy.formulaBased,
+      note: hasReferenceRates
         ? pageCopy.currencyNote
         : pageCopy.formulaNote,
     };

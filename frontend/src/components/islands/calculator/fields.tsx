@@ -19,11 +19,14 @@ export function defaultHelpForField(field: Field, locale: Locale): string {
   if (field.type === 'date') return copy.dateHelp;
   if (field.type === 'textarea') return copy.textareaHelp;
   if (field.type !== 'number') return '';
-  if (name.includes('rate') || label.includes('ставк')) return copy.rateHelp;
+  // «доставка» contains «ставк» but is a cost, not an interest rate.
+  if (name.includes('rate') || /(^|\s)ставк[а-яіїєґ]*/.test(label)) return copy.rateHelp;
   if (name.includes('amount') || name.includes('price') || label.includes('сумм') || label.includes('цен')) return copy.amountHelp;
   if ((name.includes('month') || name.includes('year') || label.includes('срок')) && field.step === 1) return copy.integerHelp;
   if (name.includes('height') || name.includes('weight') || name.includes('length') || name.includes('width') || label.includes('размер')) return copy.unitHelp;
-  if (name.includes('reserve') || label.includes('запас')) return copy.reserveHelp;
+  // Reserve can mean days, units or inventory value. Only an explicitly
+  // percentage field may receive a percentage hint; its name alone is insufficient.
+  if (field.unit?.includes('%') && (name.includes('reserve') || label.includes('запас'))) return copy.reserveHelp;
   return '';
 }
 

@@ -4,7 +4,7 @@ import { categories } from '../src/data/categories';
 import { calculatorGuidance } from '../src/lib/calculatorGuidance';
 import { calculatorFreshness } from '../src/lib/calculatorFreshness';
 import { allRunners as runners } from '../src/lib/runners.all';
-import { lastUpdated as currencyRatesUpdatedAt } from '../src/data/currencies';
+import { sourcesForCurrencies, currencies } from '../src/data/currencies';
 
 const categoryIds = new Set(categories.map((category) => category.id));
 const categorySlugsById = new Map(categories.map((category) => [category.id, category.slug]));
@@ -223,7 +223,10 @@ describe('data quality: calculators', () => {
     expect(currency).toBeDefined();
     expect(incomeTax).toBeDefined();
     expect(vat).toBeDefined();
-    expect(calculatorFreshness(currency!).value).toBe(currencyRatesUpdatedAt);
+    const sources = sourcesForCurrencies(currencies.map(({ code }) => code));
+    expect(sources.length).toBeGreaterThan(0);
+    expect(calculatorFreshness(currency!).value).toBe(sources.length === 1 ? sources[0].date
+      : sources.map((source) => `${source.id.toUpperCase()} ${source.date}`).join('; '));
     expect(calculatorFreshness(currency!).note).toContain('Сохранённый набор справочных курсов');
     expect(calculatorFreshness(incomeTax!).value).toBe('проверяйте нормы');
     expect(calculatorFreshness(vat!).note).toContain('официальными источниками');

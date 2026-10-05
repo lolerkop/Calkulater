@@ -10,7 +10,8 @@ const labels = {
 export const contextualField: CalculatorContextualField = (field, values, locale): Field => {
   if (field.name !== 'a' && field.name !== 'b') return field;
   const copy = labels[locale as keyof typeof labels] ?? labels.en;
-  if (values.mode === 'fromCommission') return { ...field, label: field.name === 'a' ? copy.commission : copy.rate, unit: field.name === 'a' ? '₽' : '%' };
-  if (values.mode === 'rate') return { ...field, label: field.name === 'a' ? copy.amount : copy.commission, unit: '₽' };
-  return { ...field, label: field.name === 'a' ? copy.amount : copy.rate, unit: field.name === 'a' ? '₽' : '%' };
+  const currency = ({ ru: '₽', en: '$', uk: '₴', de: '€', es: '€' } as Record<string, string>)[locale] ?? field.unit ?? '₽';
+  if (values.mode === 'fromCommission') return { ...field, label: field.name === 'a' ? copy.commission : copy.rate, unit: field.name === 'a' ? currency : '%' };
+  if (values.mode === 'rate') return { ...field, label: field.name === 'a' ? copy.amount : copy.commission, unit: currency };
+  return { ...field, label: field.name === 'a' ? copy.amount : copy.rate, unit: field.name === 'a' ? currency : '%' };
 };

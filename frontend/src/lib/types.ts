@@ -13,6 +13,8 @@ export type Field = {
   label: string;
   type: FieldType;
   defaultValue?: string | number | boolean;
+  // Only authored initial examples use this map; entered/shared values stay literal.
+  defaultValueByLocale?: Readonly<Record<string, string | number | boolean>>;
   unit?: string;
   options?: FieldOption[];
   placeholder?: string;
@@ -23,6 +25,8 @@ export type Field = {
   // Объявляется явно, потому что отсутствие `min` иначе неотличимо от забытого
   // ограничения — а забытое ограничение пропускает опечатку вроде «−5 ГБ».
   signed?: boolean;
+  // Exact boundary comparisons need accepted decimal digits before Number parsing.
+  preserveDecimalText?: boolean;
   step?: number;
   help?: string;
   readOnly?: boolean;

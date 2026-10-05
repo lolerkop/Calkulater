@@ -113,7 +113,7 @@ export type NumberLocale = 'ru' | 'uk' | 'en' | string;
  * запятая. Точечные разряды в ru никогда не были контрактом: Intl для ru-RU
  * группирует неразрывным пробелом и точку не выводит.
  */
-function normalizedNumberText(value: string, locale: NumberLocale): string | null {
+export function normalizedNumberText(value: string, locale: NumberLocale = 'ru'): string | null {
 
   // Все виды пробелов — один и тот же разделитель разрядов.
   const spaced = value.trim().replace(/[\s\u00a0\u202f\u2009]+/g, ' ');

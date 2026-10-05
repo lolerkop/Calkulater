@@ -299,7 +299,8 @@ describe('routing content: localized components', () => {
       // У предупреждения о ссылке своё, более узкое покрытие с откатом на en.
       expect(shareWarningCopy(locale).confirm).toBeTruthy();
     }
-    expect(shareWarningCopy('de')).toEqual(shareWarningCopy('en'));
+    expect(shareWarningCopy('de').confirm).toBe('Link kopieren');
+    expect(shareWarningCopy('es').confirm).toBe('Copiar enlace');
   });
 });
 

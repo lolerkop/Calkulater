@@ -25,7 +25,7 @@ const originalLocalization: CalculatorLocalization = {
   },
   en: {
     fields: {
-      price: 'Purchase price, ₽',
+      price: 'Purchase price',
       years: 'Years of ownership',
       ratePct: 'Annual loss after the first year, %',
       firstYearPct: 'Loss in the first year, %',
@@ -46,7 +46,7 @@ const originalLocalization: CalculatorLocalization = {
   },
   uk: {
     fields: {
-      price: 'Ціна купівлі, ₽',
+      price: 'Ціна купівлі',
       years: 'Років володіння',
       ratePct: 'Річна втрата після першого року, %',
       firstYearPct: 'Втрата за перший рік, %',

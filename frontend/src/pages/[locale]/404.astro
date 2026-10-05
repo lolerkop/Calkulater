@@ -2,6 +2,7 @@
 import Layout from '../../components/Layout.astro';
 import CalculatorCard from '../../components/CalculatorCard.astro';
 import SearchBox from '../../components/islands/SearchBox.tsx';
+import { instrumentCountLabel } from '../../lib/plural';
 import {
   getCategories,
   getPopularCalculators,
@@ -123,7 +124,7 @@ const text = notFound[locale];
           </h2>
         </div>
         <span class="font-mono text-fit text-xs text-ink-500">
-          {calculators.length} {copy.instruments}
+          {calculators.length} {instrumentCountLabel(calculators.length, locale, copy.instruments)}
         </span>
       </div>
       <SearchBox locale={locale} client:idle />

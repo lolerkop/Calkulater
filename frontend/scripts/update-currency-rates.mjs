@@ -45,7 +45,7 @@ export const PROVIDERS = {
   bnm: {
     label: 'National Bank of Moldova',
     url: 'https://www.bnm.md/en/official_exchange_rates?get_xml=1',
-    page: 'https://www.bnm.md/en/official_exchange_rates',
+    page: 'https://www.bnm.md/en/content/official-exchange-rates',
     currencies: ['MDL'],
   },
 };
@@ -230,11 +230,10 @@ export async function fetchBnm(fetchImpl, now = new Date()) {
   const errors = [];
   for (let back = 0; back < 5; back += 1) {
     const day = new Date(now.getTime() - back * 86_400_000);
-    const dotted = [
-      String(day.getUTCDate()).padStart(2, '0'),
-      String(day.getUTCMonth() + 1).padStart(2, '0'),
-      day.getUTCFullYear(),
-    ].join('.');
+    const parts = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Chisinau', day: '2-digit', month: '2-digit', year: 'numeric',
+    }).formatToParts(day);
+    const dotted = ['day', 'month', 'year'].map((type) => parts.find((part) => part.type === type)?.value).join('.');
     try {
       const xml = await fetchText(`${PROVIDERS.bnm.url}&date=${dotted}`, fetchImpl);
       return parseBnmXml(xml);

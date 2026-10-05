@@ -15,8 +15,8 @@ export const contract = {
         "a": "c=331,3√(1+t/273,15) м/с — заданное приближение при постоянных составе газа и отношении теплоёмкостей. Следствия: скорость в км/ч=3,6 c, время 1 км=1000/c с, путь за 3 с=3 c м."
       },
       {
-        "q": "Почему расстояние до грозы делят на три?",
-        "a": "При 20 °C получаются 343,21 м/с,1229? км/ч? Скорость в км/ч точно пересчитывается:≈1235,57 км/ч. Время 1 км≈2,914 с, за 3 с звук проходит≈1029,64 м. При 0 °C модель даёт 331,3 м/с. Приближённый сухой воздух с фиксированными газовыми параметрами. Влажность и состав могут менять скорость; общей гарантии «меньше 1%» нет. В воде, стали и неоднородной атмосфере нужна другая модель. Оценка расстояния по грому не устанавливает безопасную дистанцию до молнии."
+        "q": "Почему задержку грома в секундах делят на три для оценки расстояния в километрах?",
+        "a": "Делят задержку в секундах, а не расстояние: приблизительно d в км ≈ задержка/3. По модели d = c·задержка/1000. При 20 °C получаются 343,21 м/с и 1235,57 км/ч, около 2,914 с на 1 км и 1029,64 м за 3 с. При 0 °C модель даёт 331,3 м/с. Приближённый сухой воздух с фиксированными газовыми параметрами. Влажность и состав могут менять скорость; общей гарантии «меньше 1%» нет. В воде, стали и неоднородной атмосфере нужна другая модель. Оценка расстояния по грому не устанавливает безопасную дистанцию до молнии."
       },
       {
         "q": "Влияет ли влажность?",
@@ -44,8 +44,8 @@ export const contract = {
         "a": "c=331.3√(1+t/273.15) m/s is the stated approximation at fixed composition and heat-capacity ratio. Thus km/h=3.6 c, time over 1 km=1000/c s and distance in 3 s=3 c m."
       },
       {
-        "q": "Why divide the distance to a storm by three?",
-        "a": "At 20 °C the model gives 343.21 m/s,1235.57 km/h, about 2.914 s over 1 km and 1029.64 m in 3 s. At 0 °C it returns 331.3 m/s. Approximate dry air with fixed gas parameters. Humidity and composition can change sound speed; there is no universal “under 1%” guarantee. Water, steel and nonuniform air need another model. Thunder-delay distance does not establish a safe lightning distance."
+        "q": "Why divide thunder delay in seconds by three to estimate kilometres?",
+        "a": "Divide the delay in seconds, not the distance: approximately d in km ≈ delay/3. In the model, d = c·delay/1000. At 20 °C the model gives 343.21 m/s,1235.57 km/h, about 2.914 s over 1 km and 1029.64 m in 3 s. At 0 °C it returns 331.3 m/s. Approximate dry air with fixed gas parameters. Humidity and composition can change sound speed; there is no universal “under 1%” guarantee. Water, steel and nonuniform air need another model. Thunder-delay distance does not establish a safe lightning distance."
       },
       {
         "q": "Does humidity matter?",
@@ -102,8 +102,8 @@ export const contract = {
         "a": "c=331,3√(1+t/273,15) m/s ist die Näherung bei fester Gaszusammensetzung und konstantem Wärmekapazitätsverhältnis. km/h=3,6 c, Zeit für 1 km=1000/c s und Weg in 3 s=3 c m."
       },
       {
-        "q": "Warum die Entfernung zum Gewitter durch drei teilen?",
-        "a": "Bei 20 °C:343,21 m/s,1235,57 km/h, etwa 2,914 s für 1 km und 1029,64 m in 3 s. Bei 0 °C sind es 331,3 m/s. Angenäherte trockene Luft mit festen Gasparametern. Feuchte und Zusammensetzung können die Geschwindigkeit verändern; es gibt keine allgemeine Zusage „unter 1%“. Wasser, Stahl und inhomogene Luft brauchen andere Modelle. Entfernung aus Donnerverzögerung legt keinen sicheren Blitzabstand fest."
+        "q": "Warum teilt man die Donnerverzögerung in Sekunden durch drei, um Kilometer zu schätzen?",
+        "a": "Geteilt wird die Verzögerung in Sekunden, nicht die Entfernung: näherungsweise d in km ≈ Verzögerung/3. Im Modell gilt d = c·Verzögerung/1000. Bei 20 °C:343,21 m/s,1235,57 km/h, etwa 2,914 s für 1 km und 1029,64 m in 3 s. Bei 0 °C sind es 331,3 m/s. Angenäherte trockene Luft mit festen Gasparametern. Feuchte und Zusammensetzung können die Geschwindigkeit verändern; es gibt keine allgemeine Zusage „unter 1%“. Wasser, Stahl und inhomogene Luft brauchen andere Modelle. Entfernung aus Donnerverzögerung legt keinen sicheren Blitzabstand fest."
       },
       {
         "q": "Spielt die Luftfeuchte eine Rolle?",
@@ -131,8 +131,8 @@ export const contract = {
         "a": "c=331,3√(1+t/273,15) m/s es la aproximación con composición y razón de capacidades fijas. km/h=3,6 c, tiempo de 1 km=1000/c s y distancia en 3 s=3 c m."
       },
       {
-        "q": "¿Por qué se divide entre tres la distancia a una tormenta?",
-        "a": "A 20 °C:343,21 m/s,1235,57 km/h, unos 2,914 s para 1 km y 1029,64 m en 3 s. A 0 °C devuelve 331,3 m/s. Aire seco aproximado con parámetros fijos. Humedad y composición pueden cambiar la velocidad; no hay garantía universal «menos del 1%». Agua, acero y atmósfera no uniforme necesitan otra modelo. La distancia por retraso del trueno no establece distancia segura de rayos."
+        "q": "¿Por qué se divide entre tres el retraso del trueno en segundos para estimar kilómetros?",
+        "a": "Se divide el retraso en segundos, no la distancia: aproximadamente d en km ≈ retraso/3. En el modelo, d = c·retraso/1000. A 20 °C:343,21 m/s,1235,57 km/h, unos 2,914 s para 1 km y 1029,64 m en 3 s. A 0 °C devuelve 331,3 m/s. Aire seco aproximado con parámetros fijos. Humedad y composición pueden cambiar la velocidad; no hay garantía universal «menos del 1%». Agua, acero y atmósfera no uniforme necesitan otro modelo. La distancia por retraso del trueno no establece distancia segura de rayos."
       },
       {
         "q": "¿Importa la humedad?",

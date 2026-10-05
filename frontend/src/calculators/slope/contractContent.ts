@@ -29,7 +29,7 @@ export const contractContent: Record<'ru'|'en'|'uk'|'de'|'es', Body> = {
       },
       {
         "q": "Может ли подъём быть отрицательным?",
-        "a": "Да, и это спуск. Процент и угол выходят отрицательными — честное описание движения вниз."
+        "a": "Да. Процент и угол зависят от знака отношения подъём/пробег. При положительном пробеге отрицательный подъём даёт отрицательные значения; если оба значения отрицательны, отношение, процент и угол положительны. Например, −1/−1 даёт 100 % и 45°."
       }
     ],
     "shortDescription": "Уклон в процентах и градусах по подъёму и заложению.",
@@ -61,7 +61,7 @@ export const contractContent: Record<'ru'|'en'|'uk'|'de'|'es', Body> = {
       },
       {
         "q": "Can the rise be negative?",
-        "a": "Yes, and it means a descent. The percentage and the angle both come out negative, which is the honest description of going down."
+        "a": "Yes. The percentage and angle follow the sign of rise/run. With positive run, negative rise gives negative results; when both are negative, the ratio, percentage and angle are positive. For example, −1/−1 gives 100% and 45°."
       }
     ],
     "shortDescription": "Slope in per cent and degrees from rise and run.",
@@ -125,7 +125,7 @@ export const contractContent: Record<'ru'|'en'|'uk'|'de'|'es', Body> = {
       },
       {
         "q": "Kann der Höhenunterschied negativ sein?",
-        "a": "Ja, und dann bedeutet er ein Gefälle. Prozentwert und Winkel kommen beide negativ heraus, und das beschreibt das Abwärtsgehen ehrlich."
+        "a": "Ja. Prozentwert und Winkel folgen dem Vorzeichen von Höhenunterschied/horizontaler Strecke. Bei positiver Strecke ergibt ein negativer Höhenunterschied negative Werte; sind beide negativ, sind Verhältnis, Prozentwert und Winkel positiv. Zum Beispiel ergibt −1/−1 100 % und 45°."
       }
     ],
     "shortDescription": "Steigung in Prozent und Grad aus Höhenunterschied und waagerechter Strecke.",
@@ -157,7 +157,7 @@ export const contractContent: Record<'ru'|'en'|'uk'|'de'|'es', Body> = {
       },
       {
         "q": "¿El desnivel puede ser negativo?",
-        "a": "Sí, y significa un descenso. El porcentaje y el ángulo salen negativos, que es la descripción honesta de bajar."
+        "a": "Sí. El porcentaje y el ángulo siguen el signo de desnivel/recorrido horizontal. Con recorrido positivo, un desnivel negativo da resultados negativos; si ambos son negativos, la relación, el porcentaje y el ángulo son positivos. Por ejemplo, −1/−1 da 100 % y 45°."
       }
     ],
     "shortDescription": "Pendiente en porcentaje y en grados a partir del desnivel y la distancia horizontal.",

@@ -1,3 +1,4 @@
+import { postAuditCopy } from './helpers/postAuditAmendments';
 import {describe,expect,it} from 'vitest';
 import data from './fixtures/originality-physics-wave-16-publication.json';
 import {buildInitialValues,readValuesFromSearch} from '../src/lib/shareLink';
@@ -52,7 +53,7 @@ describe('Physics31 prepared browser fixtures: literal independent controls, no 
  for(const model of data.modes)for(const state of model.states)it(model.id+': independent signed/inverse mode '+JSON.stringify(state.input),()=>close(byId.get(model.id)!.compute(state.input as unknown as CalcInputs).primary.value,state.primary));
  for(const golden of data.pages)it(golden.id+'/'+golden.locale+': complete frozen copy incl three root metadata amendments',()=>{
   const d=byId.get(golden.id)!;const copy=golden.locale==='ru'?d.presentation:d.copy![golden.locale as 'en'|'uk'|'de'|'es'];expect(isCompleteCalculatorCopy(copy)).toBe(true);if(!isCompleteCalculatorCopy(copy))throw Error('Incomplete authored native copy');
-  for(const key of ['name','slug','h1','shortDescription','seoTitle','seoDescription','longDescription','howItWorks','example','disclaimer','howToUse','faq'] as const)expect(copy[key]).toEqual(golden.copy[key]);
+  for(const key of ['name','slug','h1','shortDescription','seoTitle','seoDescription','longDescription','howItWorks','example','disclaimer','howToUse','faq'] as const)expect(copy[key]).toEqual(postAuditCopy(golden.id,golden.locale,golden.copy)[key]);
  });
 });
 

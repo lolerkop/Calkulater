@@ -737,8 +737,8 @@ export const legacyCalculators: CalculatorDef[] = [
     h1: 'Калькулятор ИМТ',
     keywords: ['ИМТ', 'индекс массы тела', 'BMI'],
     fields: [
-      { name: 'height', label: 'Рост', type: 'number', unit: 'см', defaultValue: 175, min: 1 },
-      { name: 'weight', label: 'Вес', type: 'number', unit: 'кг', defaultValue: 70, min: 1 },
+      { name: 'height', label: 'Рост', type: 'number', unit: 'см', defaultValue: 175, min: 1, preserveDecimalText: true },
+      { name: 'weight', label: 'Вес', type: 'number', unit: 'кг', defaultValue: 70, min: 1, preserveDecimalText: true },
     ],
     resultLabels: { bmi: 'ИМТ', category: 'Категория', note: 'Комментарий' },
     howToUse: [

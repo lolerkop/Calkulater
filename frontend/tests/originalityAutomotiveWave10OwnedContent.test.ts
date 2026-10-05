@@ -1,3 +1,4 @@
+import { postAuditCopy } from './helpers/postAuditAmendments';
 import { describe, expect, it } from 'vitest';
 import { definition as d0 } from '../src/calculators/car-depreciation/definition';
 import { localization as l0 } from '../src/calculators/car-depreciation/localization';
@@ -37,7 +38,7 @@ describe('60 individually reviewed complete native copies and unchanged identity
   const body=(locale==='ru'?tool.presentation:tool.copy![locale]!) as CalculatorCopy;
   if(locale!=='ru')expect(isCompleteCalculatorCopy(body)).toBe(true);
   const record=editorial.records.find(r=>r.id===tool.id&&r.locale===locale)!;
-  for(const key of ['longDescription','howItWorks','howToUse','example','faq'] as const)expect(body[key]).toEqual(record.after[key]);
+  for(const key of ['longDescription','howItWorks','howToUse','example','faq'] as const)expect(body[key]).toEqual(postAuditCopy(tool.id,locale,record.after)[key]);
   const old=before.find(r=>r.id===tool.id&&r.locale===locale)!;
   for(const key of ['name','slug','h1','seoTitle','shortDescription','keywords'] as const)expect(body[key]).toEqual(old.metadata[key]);
   const amendedDescription=tool.id==='fuel-consumption'&&locale==='uk'?'Розрахуйте витрату пального в л/100 км або км/л за літрами й пробігом, а також потрібний об’єм для заданого маршруту.':tool.id==='tire-size'&&locale==='de'?old.metadata.seoDescription?.replace('Abrolldurchmesser','Außendurchmesser'):old.metadata.seoDescription;

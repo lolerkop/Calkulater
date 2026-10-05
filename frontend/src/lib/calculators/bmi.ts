@@ -1,5 +1,6 @@
 import type { CalcFunction } from '../types';
 import { fmtNumber, toNumber } from '../format';
+import { decimalInput, decimalLess, decimalMultiply } from '../platform/decimalInput';
 
 export function bmiValue(heightCm: number, weightKg: number): number {
   const heightM = heightCm / 100;
@@ -31,7 +32,14 @@ export const calcBmi: CalcFunction = (inputs) => {
   }
 
   const bmi = bmiValue(height, weight);
-  const cat = bmiCategory(bmi);
+  // Compare the original decimal measurements against each existing cutoff.
+  // 10000 × kg < cutoff × cm² avoids both the binary square and display rounding.
+  const h = decimalInput(inputs.height)!;
+  const w = decimalMultiply(decimalInput(inputs.weight)!, { n: 10000n, d: 1n });
+  const square = decimalMultiply(h, h);
+  const cutoffs = [16, 18.5, 25, 30, 35, 40];
+  const index = cutoffs.findIndex(cutoff => decimalLess(w, decimalMultiply(decimalInput(cutoff)!, square)));
+  const cat = bmiCategory(index === 0 ? 0 : cutoffs[index === -1 ? 5 : index - 1]);
   const heightM = height / 100;
   const healthyMin = 18.5 * heightM * heightM;
   const healthyMax = 25 * heightM * heightM;

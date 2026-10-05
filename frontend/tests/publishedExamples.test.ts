@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { calculators } from '../src/data/calculators';
 import { calculatorSeoContent } from '../src/data/calculatorSeoContent';
 import { publishedExamples } from '../src/data/publishedExamples';
-import { getCalculatorById, getCalculators, locales } from '../src/lib/i18n';
+import { getCalculatorById, isCalculatorAvailableInLocale, locales } from '../src/lib/i18n';
 import { allRunners as runners } from '../src/lib/runners.all';
 
 const normalize = (value: string) => value.replace(/[\s\u00a0\u202f]+/g, ' ').trim();
@@ -14,7 +14,11 @@ describe('published examples', () => {
     );
     const publishedRoutes = new Set(
       locales.flatMap((locale) =>
-        getCalculators(locale).map((calculator) => `${locale}:${calculator.id}`),
+        // Publication uses this same availability filter. Coverage needs IDs,
+        // so do not build the full localized copy for all 1,866 routes here.
+        calculators
+          .filter((calculator) => isCalculatorAvailableInLocale(calculator.id, locale))
+          .map((calculator) => `${locale}:${calculator.id}`),
       ),
     );
     expect(coveredRoutes).toEqual(publishedRoutes);

@@ -21,9 +21,10 @@ function normalize(fields: Field[], overrides: Record<string, unknown>, locale =
 }
 
 describe('island values: numeric parsing', () => {
-  it('turns integer and decimal input into numbers', () => {
-    expect(normalize(bmi, { height: '180' }).height).toBe(180);
-    expect(normalize(bmi, { weight: '72,5' }).weight).toBe(72.5);
+  it('retains accepted decimal digits for exact BMI boundaries', () => {
+    expect(normalize(bmi, { height: '180' }).height).toBe('180');
+    expect(normalize(bmi, { weight: '72,5' }).weight).toBe('72.5');
+    expect(normalize(vat, { amount: '72,5' }).amount).toBe(72.5);
   });
 
   it('accepts thousands separators, including non-breaking ones', () => {
@@ -95,6 +96,6 @@ describe('island values: non-numeric fields', () => {
     const output = normalizeValues(bmi, input, 'ru');
     expect(output).not.toBe(input);
     expect(input.height).toBe('180');
-    expect(output.height).toBe(180);
+    expect(output.height).toBe('180');
   });
 });

@@ -15,7 +15,7 @@ export const automotiveWave10ContractContent = {
     "faq": [
       {
         "q": "Почему в паспорте другое число?",
-        "a": "Паспортный литраж округляют до десятых, а иногда до маркетингового значения модели. Точный объём из размеров цилиндра отличается на десятки кубических сантиметров, и именно он важен для таможенных и налоговых расчётов."
+        "a": "В названии модели объём может быть округлён. Геометрический расчёт по диаметру и ходу помогает сравнить размеры цилиндров, но может отличаться от значения в документах. Для налогов, регистрации или таможенного оформления нужны соответствующие документы и применимые правила; калькулятор не устанавливает юридически действующий объём."
       },
       {
         "q": "Что даёт расточка блока?",
@@ -44,7 +44,7 @@ export const automotiveWave10ContractContent = {
     "faq": [
       {
         "q": "Why do the papers say something else?",
-        "a": "The stated displacement is rounded to a tenth, and sometimes to the model's marketing figure. The exact volume from the cylinder dimensions differs by tens of cubic centimetres, and that is the number customs and tax work from."
+        "a": "A model name may use rounded displacement. A geometric calculation from bore and stroke helps compare cylinder dimensions and may differ from the documented value. Tax, registration or customs use requires the relevant documents and applicable rules; this calculator does not establish legally accepted displacement."
       },
       {
         "q": "What does boring the block do?",
@@ -101,7 +101,7 @@ export const automotiveWave10ContractContent = {
     "faq": [
       {
         "q": "Warum steht im Fahrzeugschein etwas anderes?",
-        "a": "Der ausgewiesene Hubraum ist auf ein Zehntel gerundet, manchmal auf die Marketingzahl des Modells. Das genaue Volumen aus den Zylindermaßen weicht um Dutzende Kubikzentimeter ab, und mit dieser Zahl arbeiten Zoll und Steuer."
+        "a": "Die Modellbezeichnung kann einen gerundeten Hubraum nennen. Die geometrische Rechnung aus Bohrung und Hub hilft beim Vergleich von Zylindermaßen und kann vom dokumentierten Wert abweichen. Für Steuer, Zulassung oder Zoll sind die entsprechenden Dokumente und geltenden Regeln erforderlich; der Rechner stellt keinen rechtlich maßgeblichen Hubraum fest."
       },
       {
         "q": "Was bewirkt das Aufbohren des Blocks?",
@@ -130,7 +130,7 @@ export const automotiveWave10ContractContent = {
     "faq": [
       {
         "q": "¿Por qué la documentación dice otra cosa?",
-        "a": "La cilindrada declarada se redondea a la décima, y a veces a la cifra comercial del modelo. El volumen exacto según las medidas del cilindro difiere en decenas de centímetros cúbicos, y ese es el número con el que trabajan la aduana y Hacienda."
+        "a": "El nombre del modelo puede usar una cilindrada redondeada. El cálculo geométrico a partir del diámetro y la carrera sirve para comparar las dimensiones y puede diferir del valor documentado. Para impuestos, matriculación o aduana hacen falta los documentos y las normas aplicables; la calculadora no establece una cilindrada con validez legal."
       },
       {
         "q": "¿Qué consigue rectificar el bloque?",

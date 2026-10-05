@@ -36,9 +36,13 @@ export const definition: CalculatorDefinitionV2 = {
       { name: 'flour', label: 'Мука, г', type: 'number', defaultValue: 500, min: 0, step: 10 },
       {
         name: 'ingredients', label: 'Ингредиенты: название и процент от муки в строке', type: 'textarea',
-        // Умолчание не имеет пути локализации, поэтому названия нейтральны.
-        // Гидратация распознаётся и по русскому, и по английскому названию воды.
-        defaultValue: 'water 68\nsalt 2\nyeast 1.2',
+        defaultValue: 'вода 68\nсоль 2\nдрожжи 1,2',
+        defaultValueByLocale: {
+          en: 'water 68\nsalt 2\nyeast 1.2',
+          uk: 'вода 68\nсіль 2\nдріжджі 1,2',
+          de: 'Wasser 68\nSalz 2\nHefe 1,2',
+          es: 'agua 68\nsal 2\nlevadura 1,2',
+        },
       },
     ],
     resultLabels: {

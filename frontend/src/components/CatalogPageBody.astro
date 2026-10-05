@@ -13,6 +13,7 @@ import CatalogPagination from './CatalogPagination.astro';
 import { clientUi } from '../lib/clientI18n';
 import { CATALOG_PAGE_SIZE } from '../lib/catalogPagination';
 import { ui, type Locale } from '../lib/i18n';
+import { instrumentCountLabel } from '../lib/plural';
 import type { CalculatorDef, CategoryId } from '../lib/types';
 
 type CatalogRow = Pick<CalculatorDef, 'id' | 'name' | 'shortDescription' | 'fullPath' | 'category' | 'popularity' | 'isNew'> & {
@@ -56,7 +57,7 @@ const LABELS = ({
     <div class="mt-5 flex min-w-0 flex-wrap items-baseline gap-3 sm:mt-6 sm:gap-4">
       <span class="font-mono text-fit text-sm text-ink-500">/{locale}/calculators</span>
       <span class="text-fit text-xs uppercase tracking-wider text-ink-500">
-        {total} {copy.instruments}
+        {total} {instrumentCountLabel(total, locale, copy.instruments)}
       </span>
     </div>
 

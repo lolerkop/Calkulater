@@ -33,6 +33,7 @@ function replacePhrasesOnce(value: string, phrases: Record<string, string>): str
 const countWords: Array<{ source: RegExp; en: [string, string]; de: [string, string]; es: [string, string]; uk: [string, string, string] }> = [
   { source: /(?<![\d.,])(\d+(?:\u00a0\d{3})*) (года|год|лет)(?![А-Яа-яЁё])/g, en: ['year', 'years'], de: ['Jahr', 'Jahre'], es: ['año', 'años'], uk: ['рік', 'роки', 'років'] },
   { source: /(?<![\d.,])(\d+(?:\u00a0\d{3})*) (месяцев|месяца|месяц)(?![А-Яа-яЁё])/g, en: ['month', 'months'], de: ['Monat', 'Monate'], es: ['mes', 'meses'], uk: ['місяць', 'місяці', 'місяців'] },
+  { source: /(?<![\d.,])(\d+(?:\u00a0\d{3})*(?:[.,]\d+)?) (мес\.?)(?![А-Яа-яЁё])/g, en: ['mo.', 'mo.'], de: ['Mon.', 'Mon.'], es: ['mes', 'meses'], uk: ['міс.', 'міс.', 'міс.'] },
   { source: /(?<![\d.,])(\d+(?:\u00a0\d{3})*) (дней|дня|день)(?![А-Яа-яЁё])/g, en: ['day', 'days'], de: ['Tag', 'Tage'], es: ['día', 'días'], uk: ['день', 'дні', 'днів'] },
   // Сокращение «дн.» не изменяется по числу ни в русском, ни в украинском, но в
   // английском и немецком разворачивается в полное слово, которому форма уже нужна.
@@ -41,9 +42,12 @@ const countWords: Array<{ source: RegExp; en: [string, string]; de: [string, str
 
 function localizeCountWords(value: string, locale: 'en' | 'de' | 'es' | 'uk', phrases: Readonly<Record<string, string>>): string {
   return countWords.reduce((text, unit) => text.replace(unit.source, (match, digits: string, sourceWord: string) => {
+    // Only Spanish month forms need the decimal-duration extension. Preserve
+    // existing presentation and owned phrase precedence in the other languages.
+    if (locale !== 'es' && /[.,]/.test(digits)) return match;
     // An owned unit spelling keeps precedence over generic count grammar.
-    if (phrases[sourceWord] !== undefined) return match;
-    const count = Number(digits.replace(/\u00a0/g, ''));
+    if (phrases[sourceWord] !== undefined && !(locale === 'es' && /^мес\.?$/.test(sourceWord))) return match;
+    const count = Number(digits.replace(/\u00a0/g, '').replace(',', '.'));
     const word = locale === 'uk' ? pluralRu(count, unit.uk) : unit[locale][count === 1 ? 0 : 1];
     return `${digits} ${word}`;
   }), value);

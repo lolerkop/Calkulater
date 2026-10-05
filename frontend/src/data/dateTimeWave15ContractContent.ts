@@ -44,10 +44,10 @@ export const dateTimeWave15ContractContent: Record<'ru'|'en'|'uk'|'de'|'es',Reco
       "howToUse": [
         "Выберите даты начала и окончания.",
         "Включите учёт выходных, если суббота и воскресенье считаются рабочими.",
-        "Через запятую введите даты праздников, которые нужно исключить.",
+        "Выберите исключаемую дату и нажмите «Добавить дату». Повторите для каждой даты.",
         "Проверьте результат с календарём вашей страны или компании."
       ],
-      "howItWorks": "Обе границы входят в диапазон. По умолчанию рабочими считаются понедельник–пятница; переключатель рабочей субботы добавляет субботу, но не воскресенье. Если включены все выходные, субботний переключатель не влияет. Исключения вводятся датами YYYY-MM-DD через запятую, точку с запятой или новую строку. Повторы учитываются один раз, даты вне диапазона не влияют, ошибочная дата отклоняет расчёт. Исключение имеет приоритет перед выходным: такой день входит в строку исключений, а не в строку выходных. Календарные дни равны рабочим + выходным + исключённым. Государственные праздники, переносы и производственный календарь не загружаются. Даты принимаются в формате YYYY-MM-DD, годы 0001–9999, по продолженному григорианскому календарю без исторических переходов конкретной страны.",
+      "howItWorks": "Обе границы входят в диапазон. По умолчанию рабочими считаются понедельник–пятница; переключатель рабочей субботы добавляет субботу, но не воскресенье. Если включены все выходные, субботний переключатель не влияет. В форме выберите одну дату и нажмите «Добавить дату»; следующие даты добавляйте по одной. Повторы учитываются один раз, даты вне диапазона не влияют, ошибочная дата отклоняет расчёт. Исключение имеет приоритет перед выходным: такой день входит в строку исключений, а не в строку выходных. Календарные дни равны рабочим + выходным + исключённым. Государственные праздники, переносы и производственный календарь не загружаются. Даты принимаются в формате YYYY-MM-DD, годы 0001–9999, по продолженному григорианскому календарю без исторических переходов конкретной страны.",
       "example": "01.02.2026 — 28.02.2026 → 28 календарных, 20 рабочих, 8 выходных.",
       "faq": [
         {
@@ -56,7 +56,7 @@ export const dateTimeWave15ContractContent: Record<'ru'|'en'|'uk'|'de'|'es',Reco
         },
         {
           "q": "Можно ли указать диапазон дат для исключения?",
-          "a": "Сейчас нет — только список конкретных дат через запятую."
+          "a": "Сейчас нет — добавляйте каждую конкретную дату отдельно через кнопку «Добавить дату»."
         },
         {
           "q": "Включаются ли начальная и конечная даты?",
@@ -295,9 +295,9 @@ export const dateTimeWave15ContractContent: Record<'ru'|'en'|'uk'|'de'|'es',Reco
       "howToUse": [
         "Enter start and end dates.",
         "Choose whether weekends count as workdays.",
-        "Add excluded dates if needed."
+        "Choose an excluded date and click “Add date”; repeat for each date."
       ],
-      "howItWorks": "Both endpoints are included. The default workweek is Monday–Friday; working Saturday adds Saturday but keeps Sunday excluded. When all weekends count as working, the Saturday switch has no effect. Enter exclusions as YYYY-MM-DD separated by commas, semicolons or line breaks. Duplicates count once, dates outside the interval have no effect, and an invalid date rejects the calculation. An exclusion takes precedence over a weekend: it belongs to excluded dates rather than the weekend row. Calendar days equal working + weekend + excluded days. Public holidays, transferred workdays and a national employment calendar are not loaded. Dates use YYYY-MM-DD and years 0001–9999 under the proleptic Gregorian calendar, without country-specific historical changeovers.",
+      "howItWorks": "Both endpoints are included. The default workweek is Monday–Friday; working Saturday adds Saturday but keeps Sunday excluded. When all weekends count as working, the Saturday switch has no effect. In the form, choose one date and click “Add date”; add further dates one at a time. Duplicates count once, dates outside the interval have no effect, and an invalid date rejects the calculation. An exclusion takes precedence over a weekend: it belongs to excluded dates rather than the weekend row. Calendar days equal working + weekend + excluded days. Public holidays, transferred workdays and a national employment calendar are not loaded. Dates use YYYY-MM-DD and years 0001–9999 under the proleptic Gregorian calendar, without country-specific historical changeovers.",
       "example": "From 1 to 28 February 2026 inclusive: 28 calendar days,20 Monday–Friday workdays and 8 weekend days, with no exclusions.",
       "faq": [
         {
@@ -540,10 +540,10 @@ export const dateTimeWave15ContractContent: Record<'ru'|'en'|'uk'|'de'|'es',Reco
       "longDescription": "Повні тижні рахуються блоками по сім днів, а решта дат — за днями тижня; унікальні виключення віднімаються окремо. Так враховуються неповні тижні на краях без перебору кожної дати довгого діапазону. Свята треба задавати самому — вони різні для кожної країни й року.",
       "howToUse": [
         "Введіть початкову й кінцеву дати.",
-        "Додайте свята й вихідні, які треба виключити.",
+        "Виберіть виключену дату й натисніть «Додати дату»; повторіть для кожної дати.",
         "Прочитайте кількість календарних, робочих і вихідних днів."
       ],
-      "howItWorks": "Обидві межі входять у діапазон. За замовчуванням робочими є понеділок–п’ятниця; робоча субота додає суботу, але не неділю. Якщо всі вихідні рахуються робочими, перемикач суботи не впливає. Виключення вводяться як YYYY-MM-DD через кому, крапку з комою або новий рядок. Повтори враховуються один раз, дати поза діапазоном не впливають, помилкова дата відхиляє розрахунок. Виключення має пріоритет перед вихідним і потрапляє саме до рядка виключених дат. Календарні дні дорівнюють робочим + вихідним + виключеним. Державні свята, перенесення і виробничий календар не завантажуються. Дати мають формат YYYY-MM-DD і роки 0001–9999 за продовженим григоріанським календарем без історичних переходів окремої країни.",
+      "howItWorks": "Обидві межі входять у діапазон. За замовчуванням робочими є понеділок–п’ятниця; робоча субота додає суботу, але не неділю. Якщо всі вихідні рахуються робочими, перемикач суботи не впливає. У формі виберіть одну дату й натисніть «Додати дату»; наступні дати додавайте по одній. Повтори враховуються один раз, дати поза діапазоном не впливають, помилкова дата відхиляє розрахунок. Виключення має пріоритет перед вихідним і потрапляє саме до рядка виключених дат. Календарні дні дорівнюють робочим + вихідним + виключеним. Державні свята, перенесення і виробничий календар не завантажуються. Дати мають формат YYYY-MM-DD і роки 0001–9999 за продовженим григоріанським календарем без історичних переходів окремої країни.",
       "example": "З 01.02.2026 по 28.02.2026 — 28 календарних днів, 20 робочих і 8 вихідних.",
       "faq": [
         {
@@ -768,9 +768,9 @@ export const dateTimeWave15ContractContent: Record<'ru'|'en'|'uk'|'de'|'es',Reco
         "Trage Anfangs- und Enddatum ein — beide Tage zählen mit.",
         "Stelle ein, ob Wochenenden als Arbeitstage gelten.",
         "Stelle gesondert ein, ob der Samstag ein Arbeitstag ist.",
-        "Trage Feiertage und andere freie Tage als Liste ein."
+        "Wähle ein auszuschließendes Datum und klicke auf „Datum hinzufügen“; wiederhole dies für jedes Datum."
       ],
-      "howItWorks": "Beide Grenztage zählen mit. Standardmäßig gilt Montag–Freitag; ein arbeitender Samstag ergänzt den Samstag, jedoch nicht den Sonntag. Wenn alle Wochenenden als Arbeitstage zählen, wirkt der Samstagsschalter nicht. Ausnahmen werden als YYYY-MM-DD mit Komma, Semikolon oder Zeilenumbruch getrennt. Doppelte Daten zählen einmal, Daten außerhalb des Intervalls wirken nicht, ungültige Daten verhindern die Rechnung. Eine Ausnahme hat Vorrang vor dem Wochenende und erscheint in der Ausnahmezeile. Kalendertage sind Arbeitstage + Wochenendtage + ausgeschlossene Tage. Feiertage, verlegte Arbeitstage und gesetzliche Arbeitskalender werden nicht geladen. Daten verwenden YYYY-MM-DD und Jahre 0001–9999 im proleptischen gregorianischen Kalender ohne historische Landesumstellungen.",
+      "howItWorks": "Beide Grenztage zählen mit. Standardmäßig gilt Montag–Freitag; ein arbeitender Samstag ergänzt den Samstag, jedoch nicht den Sonntag. Wenn alle Wochenenden als Arbeitstage zählen, wirkt der Samstagsschalter nicht. Wähle im Formular ein Datum und klicke auf „Datum hinzufügen“; füge weitere Daten einzeln hinzu. Doppelte Daten zählen einmal, Daten außerhalb des Intervalls wirken nicht, ungültige Daten verhindern die Rechnung. Eine Ausnahme hat Vorrang vor dem Wochenende und erscheint in der Ausnahmezeile. Kalendertage sind Arbeitstage + Wochenendtage + ausgeschlossene Tage. Feiertage, verlegte Arbeitstage und gesetzliche Arbeitskalender werden nicht geladen. Daten verwenden YYYY-MM-DD und Jahre 0001–9999 im proleptischen gregorianischen Kalender ohne historische Landesumstellungen.",
       "example": "Vom 1. bis 30. September 2026 liegen 30 Kalendertage, davon 22 Arbeitstage bei einer Fünftagewoche.",
       "faq": [
         {
@@ -787,7 +787,7 @@ export const dateTimeWave15ContractContent: Record<'ru'|'en'|'uk'|'de'|'es',Reco
         },
         {
           "q": "In welchem Format trage ich die freien Tage ein?",
-          "a": "Als Liste von Daten, ein Datum je Zeile. Tage außerhalb des Zeitraums bleiben ohne Wirkung."
+          "a": "Wähle jedes Datum einzeln und klicke auf „Datum hinzufügen“. Tage außerhalb des Zeitraums bleiben ohne Wirkung."
         },
         {
           "q": "Taugt das für gesetzliche Fristen?",
@@ -1018,9 +1018,9 @@ export const dateTimeWave15ContractContent: Record<'ru'|'en'|'uk'|'de'|'es',Reco
       "howToUse": [
         "Introduce la fecha de inicio y la de fin.",
         "Elige si los fines de semana cuentan como laborables.",
-        "Añade fechas excluidas si hace falta."
+        "Elige una fecha excluida y pulsa «Añadir fecha»; repite para cada fecha."
       ],
-      "howItWorks": "Se incluyen ambos extremos. Por defecto se trabaja de lunes a viernes; el sábado laborable añade el sábado, pero no el domingo. Si todos los fines de semana cuentan como laborables, el selector del sábado no cambia nada. Introduce exclusiones como YYYY-MM-DD separadas por comas, punto y coma o saltos de línea. Los duplicados cuentan una vez, las fechas externas no influyen y una fecha inválida rechaza el cálculo. Una exclusión tiene prioridad sobre el fin de semana y figura en su propia fila. Días naturales = laborables + fin de semana + excluidos. No se cargan festivos nacionales, jornadas trasladadas ni calendarios laborales legales. Las fechas usan YYYY-MM-DD y años 0001–9999 del calendario gregoriano proléptico, sin transiciones históricas de cada país.",
+      "howItWorks": "Se incluyen ambos extremos. Por defecto se trabaja de lunes a viernes; el sábado laborable añade el sábado, pero no el domingo. Si todos los fines de semana cuentan como laborables, el selector del sábado no cambia nada. En el formulario, elige una fecha y pulsa «Añadir fecha»; añade las siguientes de una en una. Los duplicados cuentan una vez, las fechas externas no influyen y una fecha inválida rechaza el cálculo. Una exclusión tiene prioridad sobre el fin de semana y figura en su propia fila. Días naturales = laborables + fin de semana + excluidos. No se cargan festivos nacionales, jornadas trasladadas ni calendarios laborales legales. Las fechas usan YYYY-MM-DD y años 0001–9999 del calendario gregoriano proléptico, sin transiciones históricas de cada país.",
       "example": "Del 1 al 28 de febrero de 2026, ambos incluidos: 28 días naturales,20 laborables de lunes a viernes y 8 de fin de semana, sin exclusiones.",
       "faq": [
         {
