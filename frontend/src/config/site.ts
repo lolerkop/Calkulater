@@ -14,8 +14,8 @@ if (configuredUrl && !url.startsWith('http://localhost') && !url.startsWith('htt
 
 export const SITE = {
   url,
-  name: 'Калькуляторы',
-  fullName: 'Калькуляторы — онлайн-калькуляторы для повседневных расчетов',
+  name: 'Calcuway',
+  fullName: 'Calcuway — онлайн-калькуляторы для повседневных расчетов',
   description:
     'Онлайн-калькуляторы для финансов, валют, спорта, ремонта и работы с датами. Простые инструменты без регистрации.',
   email,

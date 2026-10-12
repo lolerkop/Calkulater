@@ -1,3 +1,5 @@
+import { CONTENT_SECURITY_POLICY } from '../lib/security/csp.generated.mjs';
+
 const PRODUCTION_HOSTNAME = 'calcuway.com';
 
 const EXACT_REDIRECTS = new Map([
@@ -38,13 +40,20 @@ export async function onRequest(context) {
   }
 
   const assetResponse = await context.next();
-  if (url.hostname === PRODUCTION_HOSTNAME) return assetResponse;
+  const isHtml = /^text\/html(?:;|$)/i.test(assetResponse.headers.get('Content-Type') || '');
+  if (url.hostname === PRODUCTION_HOSTNAME && !isHtml) return assetResponse;
 
   // Тот же сайт доступен на служебных доменах Cloudflare Pages. Страницы там
   // отдают canonical на продакшен, но при этом объявляют index,follow, поэтому
   // копия остаётся индексируемой. Заголовок закрывает её от поисковых систем,
   // не затрагивая продакшен-домен.
   const response = new Response(assetResponse.body, assetResponse);
-  response.headers.set('X-Robots-Tag', 'noindex');
+  // _headers rules do not apply to Functions responses. Use the same generated
+  // build policy here, including on locale 404s and non-production hosts.
+  if (isHtml) {
+    response.headers.set('Content-Security-Policy', CONTENT_SECURITY_POLICY);
+    response.headers.delete('Content-Security-Policy-Report-Only');
+  }
+  if (url.hostname !== PRODUCTION_HOSTNAME) response.headers.set('X-Robots-Tag', 'noindex');
   return response;
 }

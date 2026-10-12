@@ -4,7 +4,7 @@
 // поэтому translateLabel/localizeResult/resultToText остаются в островe.
 
 import { useId } from 'react';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, Ref } from 'react';
 import {
   AlertCircle,
   Calculator as CalculatorIcon,
@@ -213,6 +213,7 @@ function ResultBlock({
 }
 
 export function ResultPanel({
+  panelRef,
   title,
   result,
   hasValidationErrors,
@@ -222,6 +223,7 @@ export function ResultPanel({
   onEdit,
   onPrint,
 }: {
+  panelRef?: Ref<HTMLDivElement>;
   title: string;
   result: CalcResult | null;
   hasValidationErrors: boolean;
@@ -235,6 +237,8 @@ export function ResultPanel({
 
   return (
     <div
+      ref={panelRef}
+      id="calc-result-panel"
       className="min-w-0 lg:col-span-2 lg:sticky lg:top-6 self-start focus:outline-none"
       data-testid="calc-result-wrap"
       tabIndex={-1}

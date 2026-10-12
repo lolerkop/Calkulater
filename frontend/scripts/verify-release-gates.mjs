@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { CONTENT_SECURITY_POLICY } from '../lib/security/csp.generated.mjs';
 
 const expectedRoutes = [
   '/',
@@ -62,15 +63,21 @@ for (const route of ['/ru/contacts/', '/ru/privacy/']) {
   }
 }
 
-const headers = fs.readFileSync('public/_headers', 'utf8');
+const headers = fs.readFileSync('dist/_headers', 'utf8');
 for (const header of [
-  'Content-Security-Policy-Report-Only',
+  'Content-Security-Policy:',
   'Referrer-Policy',
   'X-Content-Type-Options',
   'Permissions-Policy',
   'Strict-Transport-Security',
 ]) {
   if (!headers.includes(header)) issues.push(`Security header is missing: ${header}`);
+}
+if (!headers.includes(`Content-Security-Policy: ${CONTENT_SECURITY_POLICY}`)) {
+  issues.push('Enforced static CSP differs from the Pages Functions build policy.');
+}
+if (/^\s*Content-Security-Policy-Report-Only:/im.test(headers)) {
+  issues.push('Obsolete Report-Only CSP remains in the release artifact.');
 }
 
 const performance = JSON.parse(fs.readFileSync('reports/lighthouse/current/summary.json', 'utf8'));

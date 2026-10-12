@@ -190,25 +190,14 @@ test.describe('таблица результата подсказывает, ч�
     expect(первая).not.toMatch(/NaN|Infinity|undefined/);
   });
 
-  test('шапка сохраняет прежний цвет подложки', async ({ page }) => {
+  test('шапка использует явное меню вместо горизонтальной полосы', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/ru/');
-    const h = await page.evaluate(`(() => {
-      const n = document.querySelector('[data-testid="header-nav"]');
-      const cs = getComputedStyle(n);
-      const probe = document.createElement('div');
-      probe.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;background-color:var(--nav-veil)';
-      n.appendChild(probe); const veil = getComputedStyle(probe).backgroundColor; probe.remove();
-      const корень = getComputedStyle(document.documentElement);
-      return { navVeil: cs.getPropertyValue('--nav-veil').trim(),
-        headerVeil: корень.getPropertyValue('--header-veil').trim(),
-        подложка: (veil.match(/\\d+/g) || []).slice(0, 3).map(Number).join(','),
-        слоёв: (String(cs.backgroundImage).match(/gradient/g) || []).length }; })()`) as any;
-    // Переменная введена ради панели результата, но у шапки её значение по
-    // умолчанию обязано остаться прежним, иначе это уже правка шапки.
-    expect(h.navVeil).toBe(h.headerVeil);
-    expect(h.подложка, '#FEFEFF').toBe('254,254,255');
-    expect(h.слоёв).toBe(4);
+    const nav = page.getByTestId('header-nav');
+    expect(await nav.evaluate((element) => element.classList.contains('nav-scroll'))).toBe(false);
+    await expect(page.getByTestId('header-categories-toggle')).toBeVisible();
+    await page.getByTestId('header-categories-toggle').click();
+    await expect(page.getByTestId('header-categories-panel')).toBeVisible();
   });
 
   test('якорная навигация калькулятора остаётся без этой подсказки', async ({ page }) => {

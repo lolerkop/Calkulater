@@ -34,6 +34,7 @@ import {
 import { normalizeValues, type FormValues } from './calculator/values';
 import { FieldRenderer } from './calculator/fields';
 import { ResultPanel } from './calculator/results';
+import { MobileResultLink } from './calculator/MobileResultLink';
 import { localizeResult, resultToText } from './calculator/resultLocalization';
 
 type Props = {
@@ -165,6 +166,7 @@ export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props
   // включая наследственные. Общий реестр расчётов сюда больше не импортируется.
   const runner = runtime.compute;
   const formRef = useRef<HTMLFormElement | null>(null);
+  const resultPanelRef = useRef<HTMLDivElement | null>(null);
   const inputStartedRef = useRef(false);
   const resultTrackedRef = useRef(false);
   const validationTrackedRef = useRef(false);
@@ -282,8 +284,10 @@ export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props
       if (!form) return;
 
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      form.scrollIntoView({
-        block: 'start',
+      const headerHeight = document.querySelector('[data-testid="site-header"]')
+        ?.getBoundingClientRect().height ?? 0;
+      window.scrollTo({
+        top: Math.max(0, window.scrollY + form.getBoundingClientRect().top - headerHeight - 16),
         behavior: prefersReducedMotion ? 'auto' : 'smooth',
       });
       const firstFocusable = form.querySelector<HTMLElement>(
@@ -567,6 +571,7 @@ export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props
       </form>
 
       <ResultPanel
+        panelRef={resultPanelRef}
         title={calc.resultTitle ?? calc.name}
         result={displayResult}
         hasValidationErrors={hasValidationErrors}
@@ -575,6 +580,13 @@ export default function CalculatorIsland({ calc, locale = 'ru', runtime }: Props
         onCopy={copyResult}
         onEdit={focusFormPanel}
         onPrint={printResult}
+      />
+      <MobileResultLink
+        formRef={formRef}
+        resultRef={resultPanelRef}
+        primary={displayResult?.primary ?? null}
+        hasValidationErrors={hasValidationErrors}
+        locale={locale}
       />
     </div>
   );

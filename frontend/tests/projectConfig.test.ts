@@ -171,7 +171,7 @@ describe('project configuration', () => {
     expect(astroConfig).toContain("format: 'directory'");
   });
 
-  it('ships static hosting headers without locking future analytics or ads', () => {
+  it('generates enforced hosting CSP from the actual Astro build', () => {
     const headers = readProjectFile('frontend/public/_headers');
 
     expect(headers).toContain('X-Content-Type-Options: nosniff');
@@ -183,13 +183,15 @@ describe('project configuration', () => {
     expect(headers).toContain('application/opensearchdescription+xml; charset=utf-8');
     expect(headers).toContain('/site.webmanifest');
     expect(headers).toContain('application/manifest+json; charset=utf-8');
-    expect(headers).toContain('Content-Security-Policy-Report-Only');
+    expect(headers).toContain('Enforcing CSP is generated from built script hashes');
+    expect(readProjectFile('frontend/astro.config.mjs')).toContain('contentSecurityPolicy()');
+    expect(readProjectFile('frontend/functions/_middleware.js')).toContain("response.headers.set('Content-Security-Policy', CONTENT_SECURITY_POLICY)");
     expect(headers).toContain('Cache-Control: public, max-age=0, must-revalidate');
     expect(headers).toContain('/_astro/*');
     expect(headers).toContain('/fonts/*');
     expect(headers).toContain('Cache-Control: public, max-age=31536000, immutable');
     expect(headers).not.toMatch(/fonts\.(?:googleapis|gstatic)\.com/);
-    expect(headers).not.toMatch(/^\s*Content-Security-Policy:/m);
+    expect(headers).not.toMatch(/^\s*Content-Security-Policy-Report-Only:/m);
     expect(headers).not.toMatch(/Strict-Transport-Security:.*(?:includeSubDomains|preload)/i);
   });
 

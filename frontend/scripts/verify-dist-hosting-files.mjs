@@ -1,5 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { CONTENT_SECURITY_POLICY, INLINE_SCRIPT_HASHES } from '../lib/security/csp.generated.mjs';
+import { buildContentSecurityPolicy } from '../lib/security/content-security-policy.mjs';
+import { collectHtmlFiles, inlineScriptHashes, scriptElements, generatedCspModule } from './lib/csp-build.mjs';
 
 const root = path.resolve('dist');
 const issues = [];
@@ -26,7 +29,7 @@ if (headers) {
     'Referrer-Policy: strict-origin-when-cross-origin',
     'X-Frame-Options: SAMEORIGIN',
     'Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()',
-    "Content-Security-Policy-Report-Only: default-src 'self';",
+    "Content-Security-Policy: default-src 'self';",
     "object-src 'none'",
     "https://www.googletagmanager.com",
     "https://mc.yandex.ru",
@@ -43,8 +46,16 @@ if (headers) {
   for (const line of requiredHeaderLines) {
     if (!headers.includes(line)) issues.push(`_headers: missing "${line}"`);
   }
-  if (/^\s*Content-Security-Policy:/m.test(headers)) {
-    issues.push('_headers: enforcing CSP must wait until Report-Only violations are reviewed');
+  const policyLines = headers.split(/\r?\n/).filter((line) => /^\s*Content-Security-Policy:/i.test(line));
+  if (policyLines.length !== 1) issues.push('_headers: expected one generated enforcing CSP');
+  if (policyLines[0]?.trim() !== `Content-Security-Policy: ${CONTENT_SECURITY_POLICY}`) {
+    issues.push('_headers: enforcing policy differs from the Pages Functions policy');
+  }
+  if (/^\s*Content-Security-Policy-Report-Only:/im.test(headers)) {
+    issues.push('_headers: obsolete Report-Only policy must not accompany the enforced policy');
+  }
+  for (const line of headers.split(/\r?\n/)) {
+    if (line.length > 2000) issues.push('_headers: line exceeds Cloudflare Pages 2,000-character limit');
   }
   if (/Strict-Transport-Security:.*(?:includeSubDomains|preload)/i.test(headers)) {
     issues.push('_headers: HSTS subdomain or preload rollout requires separate domain verification');
@@ -52,6 +63,35 @@ if (headers) {
   if (/fonts\.(?:googleapis|gstatic)\.com/.test(headers)) {
     issues.push('_headers: Google Fonts CSP domains remain after fonts were self-hosted');
   }
+}
+
+const observedHashes = new Set();
+const scriptPolicy = CONTENT_SECURITY_POLICY.split('; ').find((directive) => directive.startsWith('script-src ')) || '';
+if (/(?:'unsafe-inline'|'unsafe-eval'|\bdata:|\bblob:)/.test(scriptPolicy)) {
+  issues.push('CSP: scripts must use build-generated hashes rather than unsafe inline/eval permissions');
+}
+for (const file of collectHtmlFiles(root)) {
+  const html = fs.readFileSync(file, 'utf8');
+  for (const hash of inlineScriptHashes(html)) observedHashes.add(hash);
+  for (const script of scriptElements(html)) {
+    const src = script.attributes.src;
+    if (script.executable && src && !src.startsWith('/') && !/^https:\/\/(?:www\.googletagmanager\.com|mc\.yandex\.(?:ru|com)|yastatic\.net|static\.cloudflareinsights\.com)(?:\/|$)/.test(src)) {
+      issues.push(`${path.relative(root, file)}: script URL is outside the enforced policy: ${src}`);
+    }
+  }
+  if (/\son[a-z]+\s*=|\b(?:href|src)\s*=\s*["']?javascript:/i.test(html)) {
+    issues.push(`${path.relative(root, file)}: inline event handler or javascript: URL is blocked by CSP`);
+  }
+}
+const hashes = [...observedHashes].sort();
+if (JSON.stringify(hashes) !== JSON.stringify(INLINE_SCRIPT_HASHES)) {
+  issues.push('CSP: generated script hashes do not match the complete HTML artifact');
+}
+if (buildContentSecurityPolicy(hashes) !== CONTENT_SECURITY_POLICY) {
+  issues.push('CSP: generated policy has drifted from its source definition');
+}
+if (fs.readFileSync(path.resolve('lib/security/csp.generated.mjs'), 'utf8') !== generatedCspModule(hashes)) {
+  issues.push('CSP: generated module differs from the deterministic build output');
 }
 
 const robots = readDist('robots.txt');
@@ -105,7 +145,7 @@ if (manifest) {
   const parsed = JSON.parse(manifest);
   if (parsed.start_url !== '/') issues.push('site.webmanifest: start_url must be /');
   if (parsed.scope !== '/') issues.push('site.webmanifest: scope must be /');
-  if (parsed.theme_color !== '#E63946') issues.push('site.webmanifest: unexpected theme_color');
+  if (parsed.theme_color !== '#5F4EE8') issues.push('site.webmanifest: unexpected theme_color');
 }
 
 if (issues.length > 0) {
@@ -114,4 +154,4 @@ if (issues.length > 0) {
   process.exit(1);
 }
 
-console.log('Verified dist hosting files: headers, robots, sitemap, ads.txt, OpenSearch, and manifest look valid.');
+console.log(`Verified dist hosting files, enforced CSP, and ${hashes.length} script hashes across the complete HTML artifact.`);

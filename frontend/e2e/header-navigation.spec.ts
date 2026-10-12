@@ -1,171 +1,91 @@
 import { expect, test } from '@playwright/test';
-import { locales } from '../src/lib/i18n';
+import { getCategories, locales, type Locale } from '../src/lib/i18n';
 
-// Полоса разделов в шапке прокручивается, когда её пункты не помещаются.
-// Прокрутка в CSS дотягивается только до того, что вышло за КОНЕЦ полосы:
-// scrollLeft не бывает отрицательным. Поэтому выравнивание вправо
-// (justify-content: flex-end) вместе с overflow-x отправляло лишние пункты за
-// начало, откуда их нельзя было ни увидеть, ни домотать: на 768 первый пункт
-// «Все калькуляторы» стоял на x = -149 и был недоступен вообще.
-//
-// Тесты ниже проверяют не конкретные отступы, а само это свойство: ни один
-// пункт не уходит за начало полосы, до каждого доходит прокрутка, ничто ни на
-// что не налезает. Так они переживут смену размеров и переводов и не потребуют
-// сверки картинок.
-
-// Ширины вокруг точки перелома md (768) и вокруг тех, где раньше ломалось.
 const WIDTHS = [320, 375, 767, 768, 800, 900, 1022, 1023, 1024, 1440];
-
-// Русская полоса самая длинная, украинская самая короткая: берём обе, чтобы
-// проверить и переполненное, и свободное состояние.
-const ROUTES = [
-  { path: '/ru/', name: 'RU главная' },
-  { path: '/en/', name: 'EN главная' },
-  { path: '/uk/', name: 'UK главная' },
-  { path: '/ru/finance/', name: 'RU раздел' },
-  // Немецкий каталог курируется: этого калькулятора в нём нет, поэтому
-  // переключатель показывает на один язык меньше — и это верно.
-  { path: '/ru/date-time/working-days-calculator/', name: 'RU калькулятор', everyLocale: false },
+const ROUTES: { path: string; locale: Locale; everyLocale?: boolean }[] = [
+  { path: '/ru/', locale: 'ru' },
+  { path: '/en/', locale: 'en' },
+  { path: '/uk/', locale: 'uk' },
+  { path: '/ru/finance/', locale: 'ru' },
+  { path: '/ru/date-time/working-days-calculator/', locale: 'ru', everyLocale: false },
 ];
 
-type NavGeometry = {
-  mode: 'desktop' | 'mobile';
-  itemsPastStart: number;
-  firstItemOffset: number;
-  reachableFromStart: boolean;
-  overlaps: number;
-  documentOverflow: number;
-  visibleLinks: number;
-  languageLinks: number;
-};
-
-const readNavGeometry = `(() => {
-  // Полоса разделов одна на обе раскладки — выбирать между копиями больше не из чего.
-  const nav = document.querySelector('[data-testid="header-nav"]');
-  const navBox = nav.getBoundingClientRect();
-  const items = [...nav.children];
-
-  // Домотать до самого начала: если пункт остаётся левее полосы и здесь,
-  // значит он лежит за пределами области, куда достаёт прокрутка.
-  const before = nav.scrollLeft;
-  nav.scrollLeft = -1e6;
-  const atStart = nav.getBoundingClientRect();
-  const worst = Math.min(...items.map((item) => item.getBoundingClientRect().left - atStart.left));
-  nav.scrollLeft = before;
-
-  // Переключатель языка теперь всегда сосед полосы, а не её содержимое, но
-  // фильтр оставлен: он описывает намерение «в перечне разделов только разделы»
-  // и не зависит от того, где переключатель лежит сейчас.
-  const languageSwitcher = document.querySelector('[data-language-switcher]');
-  const navLinks = [...nav.querySelectorAll('a')].filter((link) => !link.closest('[data-language-switcher]'));
-  // Сравнивать надо видимые части: у полосы overflow-x, и хвост пункта за её
-  // краем обрезан, хотя getBoundingClientRect по-прежнему считает его целиком.
-  const languageBox = languageSwitcher ? languageSwitcher.getBoundingClientRect() : null;
-  const overlaps = languageBox
-    ? navLinks.filter((link) => {
-        const box = link.getBoundingClientRect();
-        const left = Math.max(box.left, navBox.left);
-        const right = Math.min(box.right, navBox.right);
-        return right > left && left < languageBox.right - 0.5 && right > languageBox.left + 0.5
-          && box.top < languageBox.bottom - 0.5 && box.bottom > languageBox.top + 0.5;
-      }).length
-    : 0;
-
-  return {
-    mode: window.innerWidth >= 768 ? 'desktop' : 'mobile',
-    itemsPastStart: items.filter((item) => item.getBoundingClientRect().left < navBox.left - 0.5).length,
-    firstItemOffset: Math.round(navLinks[0].getBoundingClientRect().left - navBox.left),
-    reachableFromStart: worst >= -0.5,
-    overlaps,
-    documentOverflow: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth),
-    visibleLinks: navLinks.filter((link) => link.getClientRects().length).length,
-    languageLinks: languageSwitcher ? languageSwitcher.querySelectorAll('a').length : 0,
-  };
-})()`;
-
 for (const width of WIDTHS) {
-  test(`навигация шапки помещается и прокручивается на ${width}px`, async ({ page }) => {
+  test(`${width}px: visible navigation controls and every category fit the viewport`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
-
     for (const route of ROUTES) {
       await page.goto(route.path);
-      const geometry: NavGeometry = await page.evaluate(readNavGeometry);
-      const where = `${route.name} @ ${width}px`;
-
-      // Главное: ничего не уехало за начало полосы, куда прокрутка не достаёт.
-      expect(geometry.itemsPastStart, `${where}: пункты за началом полосы`).toBe(0);
-      expect(geometry.firstItemOffset, `${where}: первый пункт левее полосы`).toBeGreaterThanOrEqual(0);
-      expect(geometry.reachableFromStart, `${where}: до начала полосы не домотать`).toBe(true);
-
-      expect(geometry.overlaps, `${where}: пункты налезают на переключатель языка`).toBe(0);
-      expect(geometry.documentOverflow, `${where}: горизонтальный перелив документа`).toBe(0);
-
-      // Все разделы и все языки на месте: правка не должна ничего прятать.
-      expect(geometry.visibleLinks, `${where}: пропали пункты навигации`).toBeGreaterThanOrEqual(6);
-        // Переключатель показывает только те локали, где страница существует.
-        // Там, где она есть во всех, требуем все; на курируемой странице — не
-        // меньше трёх. Потерянный язык или пустой переключатель так же поймаются.
-        expect(geometry.languageLinks, `${where}: пропали языки`)
-          .toBeGreaterThanOrEqual(route.everyLocale === false ? locales.length - 1 : locales.length);
-        expect(geometry.languageLinks, `${where}: лишние языки`).toBeLessThanOrEqual(locales.length);
+      const where = `${route.path} @ ${width}px`;
+      const catalog = page.getByTestId('header-nav-all-calculators');
+      const categories = page.getByTestId('header-categories-toggle');
+      const language = page.getByTestId('header-language-toggle');
+      for (const control of [catalog, categories, language]) await expect(control).toBeVisible();
+      const geometry = await page.getByTestId('site-header').evaluate((header) => {
+        const controls = [...header.querySelectorAll<HTMLElement>('.header-catalog-link, summary')]
+          .map((element) => element.getBoundingClientRect());
+        return {
+          overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          outside: controls.filter((box) => box.left < 0 || box.right > innerWidth).length,
+          tooSmall: controls.filter((box) => box.width < 40 || box.height < 40).length,
+          overlaps: controls.some((box, index) => controls.slice(index + 1).some((other) =>
+            box.left < other.right && box.right > other.left && box.top < other.bottom && box.bottom > other.top)),
+        };
+      });
+      expect(geometry.overflow, `${where}: document overflow`).toBeLessThanOrEqual(1);
+      expect(geometry.outside, `${where}: control outside viewport`).toBe(0);
+      expect(geometry.tooSmall, `${where}: undersized tap target`).toBe(0);
+      expect(geometry.overlaps, `${where}: overlapping controls`).toBe(false);
+      await categories.click();
+      const panel = page.getByTestId('header-categories-panel');
+      await expect(panel).toBeVisible();
+      const categoryLinks = panel.getByRole('link');
+      expect(await categoryLinks.count(), `${where}: category count`).toBe(getCategories(route.locale).length);
+      const box = (await panel.boundingBox())!;
+      expect(box.x, `${where}: panel left edge`).toBeGreaterThanOrEqual(0);
+      expect(box.x + box.width, `${where}: panel right edge`).toBeLessThanOrEqual(width);
+      expect(await panel.evaluate((element) => element.scrollWidth - element.clientWidth), `${where}: horizontal menu scroll`).toBeLessThanOrEqual(1);
+      for (const category of getCategories(route.locale)) {
+        await expect(page.getByTestId(`header-nav-${category.slug}`)).toHaveCount(1);
+        await expect(page.getByTestId(`header-nav-${category.slug}`)).toHaveAttribute('href', `/${route.locale}/${category.slug}/`);
+      }
+      await language.click();
+      await expect(page.getByTestId('header-categories-menu')).not.toHaveAttribute('open');
+      expect(await page.locator('[data-language-switcher] a').count(), `${where}: available languages`)
+        .toBeGreaterThanOrEqual(route.everyLocale === false ? locales.length - 1 : locales.length);
+      const languageOptions = page.locator('[data-language-switcher] .header-language-option');
+      expect(await languageOptions.count()).toBe(locales.length);
+      for (const option of await languageOptions.all()) {
+        await expect(option).toBeVisible();
+        const optionBox = (await option.boundingBox())!;
+        expect(optionBox.x).toBeGreaterThanOrEqual(0);
+        expect(optionBox.x + optionBox.width).toBeLessThanOrEqual(width);
+        expect(optionBox.height).toBeGreaterThanOrEqual(40);
+      }
     }
   });
 }
 
-test('каждый раздел доступен с клавиатуры и открывается', async ({ page }) => {
-  await page.setViewportSize({ width: 768, height: 900 });
-  await page.goto('/ru/');
-
-  const links = page.getByTestId('header-nav').getByRole('link');
-  const total = await links.count();
-  expect(total).toBeGreaterThanOrEqual(6);
-
-  for (let index = 0; index < total; index += 1) {
-    const link = links.nth(index);
-    await link.focus();
-    // Браузер доматывает полосу до сфокусированного пункта по правилу
-    // «nearest»: уже пересекающийся с видимой частью он не двигает, поэтому
-    // хвост длинного пункта может остаться обрезанным справа. Это общее
-    // свойство любой горизонтальной полосы, и оно одинаково до и после правки.
-    // Проверяем то, чего не было раньше: пункт не уходит за НАЧАЛО полосы,
-    // куда прокрутка не достаёт, и остаётся видимым настолько, чтобы понимать,
-    // где стоит фокус.
-    const placement = await link.evaluate(async (element) => {
-      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-      const box = element.getBoundingClientRect();
-      const nav = element.closest('[data-testid="header-nav"]')!.getBoundingClientRect();
-      return {
-        text: element.textContent?.trim() ?? '',
-        fromStart: box.left - nav.left,
-        visibleWidth: Math.min(box.right, nav.right) - Math.max(box.left, nav.left),
-      };
-    });
-    expect(placement.fromStart, `«${placement.text}» уходит за начало полосы при фокусе`).toBeGreaterThanOrEqual(-0.5);
-    expect(placement.visibleWidth, `«${placement.text}» при фокусе почти не видно`).toBeGreaterThan(24);
-  }
-
-  const href = await links.first().getAttribute('href');
-  await links.first().click();
-  await expect(page).toHaveURL(new RegExp(`${href}$`));
+test('category menu follows its selected section and opens a destination', async ({ page }) => {
+  await page.goto('/ru/finance/percent-calculator/');
+  await page.getByTestId('header-categories-toggle').click();
+  await expect(page.getByTestId('header-nav-finance')).toHaveAttribute('aria-current', 'location');
+  await page.getByTestId('header-nav-finance').click();
+  await expect(page).toHaveURL(/\/ru\/finance\/$/);
+  await page.getByTestId('header-categories-toggle').click();
+  await expect(page.getByTestId('header-nav-finance')).toHaveAttribute('aria-current', 'page');
 });
 
-test('полоса подсказывает прокрутку затенением у края', async ({ page }) => {
-  await page.setViewportSize({ width: 375, height: 812 });
+test('menus remain usable when JavaScript is disabled', async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 320, height: 800 } });
+  const page = await context.newPage();
   await page.goto('/ru/');
-
-  const nav = page.getByTestId('header-nav');
-  const state = await nav.evaluate((element) => {
-    const style = getComputedStyle(element);
-    return {
-      scrollable: element.scrollWidth > element.clientWidth,
-      layers: (style.backgroundImage.match(/gradient/g) ?? []).length,
-      // Подложка привязана к содержимому, тень — к полосе: только такая пара
-      // гасит подсказку на том конце, где пунктов уже не осталось.
-      attachment: style.backgroundAttachment.replace(/\s+/g, ''),
-    };
-  });
-
-  expect(state.scrollable, 'на 375px полоса обязана прокручиваться').toBe(true);
-  expect(state.layers, 'нет слоёв подсказки о прокрутке').toBe(4);
-  expect(state.attachment).toBe('local,local,scroll,scroll');
+  await page.getByTestId('header-categories-toggle').click();
+  await expect(page.getByTestId('header-nav-finance')).toBeVisible();
+  await page.getByTestId('header-nav-finance').click();
+  await expect(page).toHaveURL(/\/ru\/finance\/$/);
+  await page.getByTestId('header-language-toggle').click();
+  await expect(page.getByTestId('header-lang-en')).toBeVisible();
+  await page.getByTestId('header-lang-en').click();
+  await expect(page).toHaveURL(/\/en\/finance\/$/);
+  await context.close();
 });

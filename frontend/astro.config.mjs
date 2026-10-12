@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import contentSecurityPolicy from './scripts/integrations/content-security-policy.mjs';
 
 const CANONICAL_SITE = 'https://calcuway.com';
 const SITE = process.env.PUBLIC_SITE_URL || CANONICAL_SITE;
@@ -14,6 +15,7 @@ export default defineConfig({
   integrations: [
     react(),
     tailwind({ applyBaseStyles: false }),
+    contentSecurityPolicy(),
   ],
   trailingSlash: 'ignore',
   build: {

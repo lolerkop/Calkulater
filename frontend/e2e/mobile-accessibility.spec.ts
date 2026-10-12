@@ -83,13 +83,14 @@ test('skip link, FAQ and responsive navigation work from the keyboard', async ({
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('page-main')).toBeFocused();
 
-  // Полоса разделов одна на обе раскладки. Прежде здесь проверялось, что
-  // настольная копия скрыта, а мобильная показана; копий больше нет, поэтому
-  // контракт сильнее: на узком экране полоса видима и несёт ВСЕ разделы.
+  // Native category disclosure exposes the single complete list on mobile.
   const nav = page.getByTestId('header-nav');
   await expect(nav).toBeVisible();
+  await page.getByTestId('header-categories-toggle').focus();
+  await page.keyboard.press('Enter');
+  await expect(page.getByTestId('header-categories-menu')).toHaveAttribute('open', '');
   const разделы = nav.locator('a[data-testid^="header-nav-"]');
-  expect(await разделы.count(), 'разделы в полосе').toBe(getCategories('ru').length + 1);
+  expect(await разделы.count(), 'разделы в меню').toBe(getCategories('ru').length + 1);
 
   const summary = page.getByTestId('faq-item-0').locator('summary');
   await summary.focus();

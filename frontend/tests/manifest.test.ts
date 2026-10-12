@@ -13,7 +13,7 @@ describe('site web manifest', () => {
     expect(manifest.description).toBe(SITE.description);
     expect(manifest.start_url).toBe('/');
     expect(manifest.scope).toBe('/');
-    expect(manifest.theme_color).toBe('#E63946');
+    expect(manifest.theme_color).toBe('#5F4EE8');
     expect(manifest.shortcuts).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
@@ -51,6 +51,16 @@ describe('site web manifest', () => {
           src: '/favicon.svg',
           sizes: 'any',
           type: 'image/svg+xml',
+        }),
+        expect.objectContaining({
+          src: '/icon-192.png',
+          sizes: '192x192',
+          type: 'image/png',
+        }),
+        expect.objectContaining({
+          src: '/icon-512.png',
+          sizes: '512x512',
+          type: 'image/png',
         }),
       ]),
     );

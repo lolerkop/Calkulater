@@ -4,6 +4,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parse } from 'parse5';
+import { generatedRateSources } from '../src/data/currencyRates.generated.ts';
+import { expectedIntrapageSourceLinks } from './lib/intrapageCurrencySources.mjs';
 
 const args = process.argv.slice(2);
 const reportArg = args.indexOf('--report');
@@ -65,7 +67,12 @@ for (const row of fixture.rows) {
   }
   const links = nodes(sources, n => n.tagName === 'a' && attr(n, 'data-testid') !== 'method-section-link')
     .map(n => ({ label: normalize(text(n)), href: attr(n, 'href') }));
-  if (JSON.stringify(links) !== JSON.stringify(row.editorial.sources.filter(s => s.href).map(s => ({ label: normalize(s.label), href: s.href })))) fail('Source labels/URLs changed or removed');
+  try {
+    const expectedLinks = expectedIntrapageSourceLinks(row, generatedRateSources);
+    if (JSON.stringify(links) !== JSON.stringify(expectedLinks)) fail('Source labels/URLs changed or removed');
+  } catch (error) {
+    fail(error.message);
+  }
   const schemas = nodes(doc, n => n.tagName === 'script' && attr(n, 'type') === 'application/ld+json')
     .flatMap(n => JSON.parse((n.childNodes ?? []).map(c => c.value ?? '').join('')));
   const howTo = schemas.find(s => s['@type'] === 'HowTo');

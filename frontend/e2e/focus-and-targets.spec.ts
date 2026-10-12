@@ -87,75 +87,53 @@ test.describe('видимость фокуса с клавиатуры', () => {
 });
 
 test.describe('область нажатия переключателя языка', () => {
-  const МИНИМУМ = 40;
-
   for (const width of [320, 375, 390, 430]) {
-    test(`на ${width}px область нажатия не меньше ${МИНИМУМ}px и не задевает соседей`, async ({ page }) => {
+    test(`на ${width}px языки имеют отдельные цели не меньше 44px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto('/ru/');
-      const ссылка = page.getByTestId('header-lang-en');
-      await ссылка.scrollIntoViewIfNeeded();
-
-      const замер = await page.evaluate(() => {
-        const en = document.querySelector('[data-testid="header-lang-en"]') as HTMLElement;
-        const ru = document.querySelector('[data-testid="header-lang-ru"]') as HTMLElement;
-        const box = en.getBoundingClientRect();
-        const cx = box.x + box.width / 2;
-        // Реальная область: сканируем вверх и вниз, пока точка принадлежит ссылке.
-        let top = box.y;
-        let bottom = box.bottom;
-        for (let y = Math.round(box.y); y > box.y - 25; y -= 1) {
-          const hit = document.elementFromPoint(cx, y);
-          if (hit === en || en.contains(hit)) top = y; else break;
-        }
-        for (let y = Math.round(box.bottom); y < box.bottom + 25; y += 1) {
-          const hit = document.elementFromPoint(cx, y);
-          if (hit === en || en.contains(hit)) bottom = y; else break;
-        }
-        const rb = ru.getBoundingClientRect();
-        const попадаетВСоседа = document.elementFromPoint(rb.x + rb.width / 2, rb.y + rb.height / 2);
+      await page.getByTestId('header-language-toggle').click();
+      const sizes = await page.locator('[data-language-switcher]').evaluate((menu) => {
+        const links = [...menu.querySelectorAll('a')];
         return {
-          видимая: Math.round(box.height),
-          область: Math.round(bottom - top),
-          соседЦел: попадаетВСоседа === ru || ru.contains(попадаетВСоседа),
-          перелив: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth),
+          targets: links.map((link) => {
+            const box = link.getBoundingClientRect();
+            const hit = document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2);
+            return { height: box.height, width: box.width, ownsCenter: hit === link || Boolean(hit && link.contains(hit)) };
+          }),
+          overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
         };
       });
-
-      expect(замер.область, 'область нажатия').toBeGreaterThanOrEqual(МИНИМУМ);
-      expect(замер.область, 'область должна быть больше видимой плашки').toBeGreaterThan(замер.видимая);
-      expect(замер.соседЦел, 'расширение перехватило соседний язык').toBe(true);
-      expect(замер.перелив, 'горизонтальный перелив').toBe(0);
+      expect(sizes.targets.length).toBe(5);
+      for (const target of sizes.targets) {
+        expect(target.height).toBeGreaterThanOrEqual(44);
+        expect(target.width).toBeGreaterThanOrEqual(44);
+        expect(target.ownsCenter).toBe(true);
+      }
+      expect(sizes.overflow).toBeLessThanOrEqual(1);
     });
   }
 
-  test('нажатие выше и ниже плашки открывает нужную локаль', async ({ page }) => {
-    for (const смещение of [-5, 15, 35]) {
+  test('нажатие в разных частях языка открывает нужную локаль', async ({ page }) => {
+    for (const fraction of [0.15, 0.5, 0.85]) {
       await page.setViewportSize({ width: 375, height: 900 });
       await page.goto('/ru/');
-      const ссылка = page.getByTestId('header-lang-en');
-      await ссылка.scrollIntoViewIfNeeded();
-      const box = (await ссылка.boundingBox())!;
-      await page.mouse.click(box.x + box.width / 2, box.y + смещение);
+      await page.getByTestId('header-language-toggle').click();
+      const link = page.getByTestId('header-lang-en');
+      const box = (await link.boundingBox())!;
+      await page.mouse.click(box.x + box.width / 2, box.y + box.height * fraction);
       await page.waitForURL(/\/en\//, { timeout: 10000 });
-      expect(new URL(page.url()).pathname, `смещение ${смещение}px`).toBe('/en/');
+      expect(new URL(page.url()).pathname).toBe('/en/');
     }
   });
 
-  test('расширение не изменило высоту шапки и полосы', async ({ page }) => {
-    await page.setViewportSize({ width: 375, height: 900 });
+  test('компактная шапка не растёт при открытии языка', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 900 });
     await page.goto('/ru/');
-    const размеры = await page.evaluate(() => ({
-      шапка: Math.round(document.querySelector('[data-testid="site-header"]')!.getBoundingClientRect().height),
-      полоса: Math.round(document.querySelector('[data-testid="header-nav"]')!.getBoundingClientRect().height),
-      плашка: Math.round(document.querySelector('[data-testid="header-lang-en"]')!.getBoundingClientRect().height),
-    }));
-    // Значения зафиксированы: расширение области нажатия не должно их двигать.
-    // 119/54 вместо прежних 118/53 — цена перехода на одну полосу разделов
-    // вместо двух: рамка строки переехала на саму полосу. Плашка языка как
-    // была 30px, так и осталась — расширение по-прежнему только виртуальное.
-    expect(размеры.шапка).toBe(119);
-    expect(размеры.полоса).toBe(54);
-    expect(размеры.плашка).toBe(30);
+    const header = page.getByTestId('site-header');
+    const before = (await header.boundingBox())!.height;
+    expect(before).toBeLessThanOrEqual(128);
+    await page.getByTestId('header-language-toggle').click();
+    expect((await header.boundingBox())!.height).toBe(before);
+    await expect(page.getByTestId('header-lang-en')).toBeVisible();
   });
 });
