@@ -9,8 +9,8 @@ export const generatedRatesToUSD = {
   PLN: 3.91174371,
   RON: 4.76583973,
   TRY: 49.1730323,
-  UAH: 44.8526,
-  MDL: 17.9003,
+  UAH: 44.8894,
+  MDL: 17.9033,
 } as const;
 
 export const generatedRateProvenance = {
@@ -20,14 +20,14 @@ export const generatedRateProvenance = {
   PLN: { provider: 'ecb', date: '2026-10-09', fallback: false },
   RON: { provider: 'ecb', date: '2026-10-09', fallback: false },
   TRY: { provider: 'ecb', date: '2026-10-09', fallback: false },
-  UAH: { provider: 'nbu', date: '2026-10-11', fallback: false },
-  MDL: { provider: 'bnm', date: '2026-10-11', fallback: false },
+  UAH: { provider: 'nbu', date: '2026-10-12', fallback: false },
+  MDL: { provider: 'bnm', date: '2026-10-12', fallback: false },
 } as const;
 
 export const generatedRateSources = {
-  bnm: { label: "National Bank of Moldova", url: 'https://www.bnm.md/en/content/official-exchange-rates', date: '2026-10-11', fallback: false },
+  bnm: { label: "National Bank of Moldova", url: 'https://www.bnm.md/en/content/official-exchange-rates', date: '2026-10-12', fallback: false },
   ecb: { label: "European Central Bank", url: 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html', date: '2026-10-09', fallback: false },
-  nbu: { label: "National Bank of Ukraine", url: 'https://bank.gov.ua/ua/markets/exchangerates', date: '2026-10-11', fallback: false },
+  nbu: { label: "National Bank of Ukraine", url: 'https://bank.gov.ua/ua/markets/exchangerates', date: '2026-10-12', fallback: false },
 } as const;
 
 export const generatedRatesDate = '2026-10-09';
