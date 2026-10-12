@@ -1,13 +1,26 @@
 import { test, expect, type Page } from '@playwright/test';
 import { appendFileSync, readFileSync } from 'node:fs';
 import { fixture } from './helpers/calculatorRouteSmoke';
+import { generatedRateSources } from '../src/data/currencyRates.generated';
 
-const root = new URL('../../fixes/post-audit-2026-10-05/', import.meta.url);
-const oracles = JSON.parse(readFileSync(new URL('peer/boundary-oracles.json', root), 'utf8'));
+const root = new URL('./fixtures/post-audit-runtime/', import.meta.url);
+const oracles = JSON.parse(readFileSync(new URL('./fixtures/post-audit-boundary-oracles.json', import.meta.url), 'utf8'));
 const dialogPlan = JSON.parse(readFileSync(new URL('results/dialog-scope.json', root), 'utf8')) as {url:string;locale:string;engine_id:string}[];
 const pluralPlan = JSON.parse(readFileSync(new URL('results/plural-scope.json', root), 'utf8')) as {route:string;locale:string}[];
 const rateProof = JSON.parse(readFileSync(new URL('sources/official-rates-independent.json', root), 'utf8'));
-const mdlDate = rateProof.find((r:{provider:string})=>r.provider==='bnm').date.split('.').reverse().join('-');
+const bnmProofs = rateProof.filter((r:{provider:string})=>r.provider==='bnm');
+expect(bnmProofs).toHaveLength(1);
+expect(bnmProofs[0].provider).toBe('bnm');
+expect(bnmProofs[0].url).toMatch(/^https:\/\/www\.bnm\.md\/en\/official_exchange_rates\?/);
+expect(bnmProofs[0].date).toMatch(/^\d{2}\.\d{2}\.\d{4}$/);
+const historicalBnmDate = bnmProofs[0].date.split('.').reverse().join('-');
+expect(new Date(`${historicalBnmDate}T00:00:00Z`).toISOString().slice(0,10)).toBe(historicalBnmDate);
+// The historical independent proof stays frozen; the rendered freshness date
+// must follow the official dataset used by this build.
+const mdlDate = generatedRateSources.bnm.date;
+expect(generatedRateSources.bnm.url).toBe('https://www.bnm.md/en/content/official-exchange-rates');
+expect(mdlDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+expect(new Date(`${mdlDate}T00:00:00Z`).toISOString().slice(0,10)).toBe(mdlDate);
 const locales = ['ru','en','uk','de','es'];
 const categoryTranslations: Record<string,string[]> = {
   'Выраженный дефицит': ['Выраженный дефицит','Severely underweight','Виражений дефіцит ваги','Starkes Untergewicht','Delgadez severa'],
@@ -48,8 +61,9 @@ async function helpWithout(page:Page,name:string,forbidden:string|RegExp) {
   expect(help.join(' ')).not.toMatch(typeof forbidden==='string'?new RegExp(forbidden):forbidden);
   return {help_present:help.length>0,help:help.join(' ')};
 }
-test.beforeEach(async({page})=>{
-  await page.context().route('**/*',r=>new URL(r.request().url()).origin==='http://127.0.0.1:8771'?r.continue():r.abort());
+test.beforeEach(async({page,baseURL})=>{
+  const allowedOrigin = new URL(baseURL || 'http://127.0.0.1:8771').origin;
+  await page.context().route('**/*',r=>new URL(r.request().url()).origin===allowedOrigin?r.continue():r.abort());
   await page.setViewportSize({width:390,height:950});
 });
 for(const locale of locales) {

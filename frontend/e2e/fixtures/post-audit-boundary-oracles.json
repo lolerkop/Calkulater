@@ -1,0 +1,1056 @@
+{
+  "stage": "PRE_IMPLEMENTATION_DESIGN_REVIEW",
+  "method": "Python fractions.Fraction from exact input decimal text. No product helper imports and no epsilon.",
+  "scope": [
+    "AUD-001",
+    "AUD-002"
+  ],
+  "production_access": "NOT_RUN_BY_PEER",
+  "public_locales": [
+    "ru",
+    "en",
+    "uk",
+    "de",
+    "es"
+  ],
+  "source_sha256_at_oracle_creation": {
+    "frontend/src/lib/calculators/bmi.ts": "a68fdcb82075077d36ee4353968526c9653180771b1a96210271d2ed6a8f6e4b",
+    "frontend/src/calculators/convert-temperature/compute.ts": "b8d4b2e93c3b0e8c1e8a965614d649eeaea9373af11bab635b002ba9825b189d",
+    "frontend/src/calculators/convert-temperature/units.ts": "88798ea0e3914b8f73d40e5364b315190d299bcb1ebfa6f59355fe4b656e782c",
+    "frontend/src/lib/platform/conversion.ts": "3e0457b4d14c9fbfcbfe1605bfb36a62d889c03dfaafa943fb713d649772b200",
+    "frontend/src/components/islands/calculator/values.ts": "023636d9de1ff971cf30f34cf1aa487aa15c172f6091b627e44a431b52b438e9",
+    "frontend/src/lib/format.ts": "c333184f6d43866ab6556f7844eb8f431a4e3ce6f6ef7583aefaef72a2dee4b5",
+    "frontend/src/lib/calculators/householdWave17Numeric.ts": "c7303c13f142e00c1d247fbe67ff5badb05cb556a4485e2b39be947f3954b17c",
+    "frontend/src/lib/platform/geometryNumericInput.ts": "e465d20676f61e6867d7b369706904c4926a2cacab13c6986240c1100d721c0e"
+  },
+  "recommendations": {
+    "bmi": "Compare 10000*weight against cutoff*height^2 as exact raw decimal rationals, using all existing cutoffs 16/18.5/25/30/35/40. Preserve raw UI decimal text through normalization for just the relevant fields.",
+    "temperature": "Exact affine rational conversion via K with constants 27315/100, 45967/100, 5/9, 9/5; one final conversion to binary Number. Keep existing algebraic below-absolute-zero domain and scientific formatting.",
+    "existing_helpers": "Reuse the BigInt fraction approach and correctly rounded ratio in geometryNumericInput. Existing decimal(number) implementations operate on shortest Number text and cannot recover raw decimal digits erased by parsing.",
+    "medical_boundary": "Existing screening/disclaimer/audience copy is outside this formula-only recommendation. Current CDC confirms main cutoffs 18.5/25/30/35/40 and adult audience 20+; cutoff 16 is a regression oracle for the existing finer product classification, not a new CDC claim."
+  },
+  "primary_source_checked": {
+    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html",
+    "checked_date": "2026-10-05",
+    "relevant_lines": "32-69"
+  },
+  "bmi_cases": [
+    {
+      "label": "160 cm; cutoff 16; delta -0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "40.9599"
+      },
+      "exact_bmi": {
+        "numerator": "409599",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Выраженный дефицит"
+    },
+    {
+      "label": "160 cm; cutoff 16; delta 0 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "40.96"
+      },
+      "exact_bmi": {
+        "numerator": "16",
+        "denominator": "1"
+      },
+      "expect_category_ru": "Недостаток веса"
+    },
+    {
+      "label": "160 cm; cutoff 16; delta 0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "40.9601"
+      },
+      "exact_bmi": {
+        "numerator": "409601",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Недостаток веса"
+    },
+    {
+      "label": "160 cm; cutoff 16; delta -0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "40.9599999999999999"
+      },
+      "exact_bmi": {
+        "numerator": "409599999999999999",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Выраженный дефицит"
+    },
+    {
+      "label": "160 cm; cutoff 16; delta 0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "40.9600000000000001"
+      },
+      "exact_bmi": {
+        "numerator": "409600000000000001",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Недостаток веса"
+    },
+    {
+      "label": "160 cm; cutoff 18.5; delta -0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "47.3599"
+      },
+      "exact_bmi": {
+        "numerator": "473599",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Недостаток веса"
+    },
+    {
+      "label": "160 cm; cutoff 18.5; delta 0 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "47.36"
+      },
+      "exact_bmi": {
+        "numerator": "37",
+        "denominator": "2"
+      },
+      "expect_category_ru": "Норма"
+    },
+    {
+      "label": "160 cm; cutoff 18.5; delta 0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "47.3601"
+      },
+      "exact_bmi": {
+        "numerator": "473601",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Норма"
+    },
+    {
+      "label": "160 cm; cutoff 18.5; delta -0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "47.3599999999999999"
+      },
+      "exact_bmi": {
+        "numerator": "473599999999999999",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Недостаток веса"
+    },
+    {
+      "label": "160 cm; cutoff 18.5; delta 0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "47.3600000000000001"
+      },
+      "exact_bmi": {
+        "numerator": "473600000000000001",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Норма"
+    },
+    {
+      "label": "160 cm; cutoff 25; delta -0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "63.9999"
+      },
+      "exact_bmi": {
+        "numerator": "639999",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Норма"
+    },
+    {
+      "label": "160 cm; cutoff 25; delta 0 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "64"
+      },
+      "exact_bmi": {
+        "numerator": "25",
+        "denominator": "1"
+      },
+      "expect_category_ru": "Избыточный вес"
+    },
+    {
+      "label": "160 cm; cutoff 25; delta 0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "64.0001"
+      },
+      "exact_bmi": {
+        "numerator": "640001",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Избыточный вес"
+    },
+    {
+      "label": "160 cm; cutoff 25; delta -0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "63.9999999999999999"
+      },
+      "exact_bmi": {
+        "numerator": "639999999999999999",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Норма"
+    },
+    {
+      "label": "160 cm; cutoff 25; delta 0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "64.0000000000000001"
+      },
+      "exact_bmi": {
+        "numerator": "640000000000000001",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Избыточный вес"
+    },
+    {
+      "label": "160 cm; cutoff 30; delta -0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "76.7999"
+      },
+      "exact_bmi": {
+        "numerator": "767999",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Избыточный вес"
+    },
+    {
+      "label": "160 cm; cutoff 30; delta 0 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "76.8"
+      },
+      "exact_bmi": {
+        "numerator": "30",
+        "denominator": "1"
+      },
+      "expect_category_ru": "Ожирение I степени"
+    },
+    {
+      "label": "160 cm; cutoff 30; delta 0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "76.8001"
+      },
+      "exact_bmi": {
+        "numerator": "768001",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Ожирение I степени"
+    },
+    {
+      "label": "160 cm; cutoff 30; delta -0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "76.7999999999999999"
+      },
+      "exact_bmi": {
+        "numerator": "767999999999999999",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Избыточный вес"
+    },
+    {
+      "label": "160 cm; cutoff 30; delta 0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "76.8000000000000001"
+      },
+      "exact_bmi": {
+        "numerator": "768000000000000001",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Ожирение I степени"
+    },
+    {
+      "label": "160 cm; cutoff 35; delta -0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "89.5999"
+      },
+      "exact_bmi": {
+        "numerator": "895999",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Ожирение I степени"
+    },
+    {
+      "label": "160 cm; cutoff 35; delta 0 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "89.6"
+      },
+      "exact_bmi": {
+        "numerator": "35",
+        "denominator": "1"
+      },
+      "expect_category_ru": "Ожирение II степени"
+    },
+    {
+      "label": "160 cm; cutoff 35; delta 0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "89.6001"
+      },
+      "exact_bmi": {
+        "numerator": "896001",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Ожирение II степени"
+    },
+    {
+      "label": "160 cm; cutoff 35; delta -0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "89.5999999999999999"
+      },
+      "exact_bmi": {
+        "numerator": "895999999999999999",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Ожирение I степени"
+    },
+    {
+      "label": "160 cm; cutoff 35; delta 0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "89.6000000000000001"
+      },
+      "exact_bmi": {
+        "numerator": "896000000000000001",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Ожирение II степени"
+    },
+    {
+      "label": "160 cm; cutoff 40; delta -0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "102.3999"
+      },
+      "exact_bmi": {
+        "numerator": "1023999",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Ожирение II степени"
+    },
+    {
+      "label": "160 cm; cutoff 40; delta 0 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "102.4"
+      },
+      "exact_bmi": {
+        "numerator": "40",
+        "denominator": "1"
+      },
+      "expect_category_ru": "Ожирение III степени"
+    },
+    {
+      "label": "160 cm; cutoff 40; delta 0.0001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "102.4001"
+      },
+      "exact_bmi": {
+        "numerator": "1024001",
+        "denominator": "25600"
+      },
+      "expect_category_ru": "Ожирение III степени"
+    },
+    {
+      "label": "160 cm; cutoff 40; delta -0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "102.3999999999999999"
+      },
+      "exact_bmi": {
+        "numerator": "1023999999999999999",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Ожирение II степени"
+    },
+    {
+      "label": "160 cm; cutoff 40; delta 0.0000000000000001 kg",
+      "inputs": {
+        "height": "160",
+        "weight": "102.4000000000000001"
+      },
+      "exact_bmi": {
+        "numerator": "1024000000000000001",
+        "denominator": "25600000000000000"
+      },
+      "expect_category_ru": "Ожирение III степени"
+    },
+    {
+      "label": "Specified independent 200/100 control",
+      "inputs": {
+        "height": "200",
+        "weight": "100"
+      },
+      "exact_bmi": {
+        "numerator": "25",
+        "denominator": "1"
+      },
+      "expect_category_ru": "Избыточный вес"
+    },
+    {
+      "label": "Decimal height 161.5; cutoff 25; delta -0.0000000000000001 kg",
+      "inputs": {
+        "height": "161.5",
+        "weight": "65.2056249999999999"
+      },
+      "exact_bmi": {
+        "numerator": "652056249999999999",
+        "denominator": "26082250000000000"
+      },
+      "expect_category_ru": "Норма"
+    },
+    {
+      "label": "Decimal height 161.5; cutoff 25; delta 0 kg",
+      "inputs": {
+        "height": "161.5",
+        "weight": "65.205625"
+      },
+      "exact_bmi": {
+        "numerator": "25",
+        "denominator": "1"
+      },
+      "expect_category_ru": "Избыточный вес"
+    },
+    {
+      "label": "Decimal height 161.5; cutoff 25; delta 0.0000000000000001 kg",
+      "inputs": {
+        "height": "161.5",
+        "weight": "65.2056250000000001"
+      },
+      "exact_bmi": {
+        "numerator": "652056250000000001",
+        "denominator": "26082250000000000"
+      },
+      "expect_category_ru": "Избыточный вес"
+    },
+    {
+      "label": "Decimal height 175; cutoff 25; delta -0.0000000000000001 kg",
+      "inputs": {
+        "height": "175",
+        "weight": "76.5624999999999999"
+      },
+      "exact_bmi": {
+        "numerator": "765624999999999999",
+        "denominator": "30625000000000000"
+      },
+      "expect_category_ru": "Норма"
+    },
+    {
+      "label": "Decimal height 175; cutoff 25; delta 0 kg",
+      "inputs": {
+        "height": "175",
+        "weight": "76.5625"
+      },
+      "exact_bmi": {
+        "numerator": "25",
+        "denominator": "1"
+      },
+      "expect_category_ru": "Избыточный вес"
+    },
+    {
+      "label": "Decimal height 175; cutoff 25; delta 0.0000000000000001 kg",
+      "inputs": {
+        "height": "175",
+        "weight": "76.5625000000000001"
+      },
+      "exact_bmi": {
+        "numerator": "765625000000000001",
+        "denominator": "30625000000000000"
+      },
+      "expect_category_ru": "Избыточный вес"
+    }
+  ],
+  "temperature_cases": [
+    {
+      "label": "Exact absolute-zero anchor c->c",
+      "inputs": {
+        "value": "-273.15",
+        "from": "c",
+        "to": "c"
+      },
+      "exact_result": {
+        "numerator": "-5463",
+        "denominator": "20"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-273.15"
+    },
+    {
+      "label": "Exact absolute-zero anchor c->f",
+      "inputs": {
+        "value": "-273.15",
+        "from": "c",
+        "to": "f"
+      },
+      "exact_result": {
+        "numerator": "-45967",
+        "denominator": "100"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-459.67"
+    },
+    {
+      "label": "Exact absolute-zero anchor c->k",
+      "inputs": {
+        "value": "-273.15",
+        "from": "c",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "expect_sign": 0,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "0.0"
+    },
+    {
+      "label": "Exact absolute-zero anchor c->r",
+      "inputs": {
+        "value": "-273.15",
+        "from": "c",
+        "to": "r"
+      },
+      "exact_result": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "expect_sign": 0,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "0.0"
+    },
+    {
+      "label": "Exact absolute-zero anchor f->c",
+      "inputs": {
+        "value": "-459.67",
+        "from": "f",
+        "to": "c"
+      },
+      "exact_result": {
+        "numerator": "-5463",
+        "denominator": "20"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-273.15"
+    },
+    {
+      "label": "Exact absolute-zero anchor f->f",
+      "inputs": {
+        "value": "-459.67",
+        "from": "f",
+        "to": "f"
+      },
+      "exact_result": {
+        "numerator": "-45967",
+        "denominator": "100"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-459.67"
+    },
+    {
+      "label": "Exact absolute-zero anchor f->k",
+      "inputs": {
+        "value": "-459.67",
+        "from": "f",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "expect_sign": 0,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "0.0"
+    },
+    {
+      "label": "Exact absolute-zero anchor f->r",
+      "inputs": {
+        "value": "-459.67",
+        "from": "f",
+        "to": "r"
+      },
+      "exact_result": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "expect_sign": 0,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "0.0"
+    },
+    {
+      "label": "Exact absolute-zero anchor k->c",
+      "inputs": {
+        "value": "0",
+        "from": "k",
+        "to": "c"
+      },
+      "exact_result": {
+        "numerator": "-5463",
+        "denominator": "20"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-273.15"
+    },
+    {
+      "label": "Exact absolute-zero anchor k->f",
+      "inputs": {
+        "value": "0",
+        "from": "k",
+        "to": "f"
+      },
+      "exact_result": {
+        "numerator": "-45967",
+        "denominator": "100"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-459.67"
+    },
+    {
+      "label": "Exact absolute-zero anchor k->k",
+      "inputs": {
+        "value": "0",
+        "from": "k",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "expect_sign": 0,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "0.0"
+    },
+    {
+      "label": "Exact absolute-zero anchor k->r",
+      "inputs": {
+        "value": "0",
+        "from": "k",
+        "to": "r"
+      },
+      "exact_result": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "expect_sign": 0,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "0.0"
+    },
+    {
+      "label": "Exact absolute-zero anchor r->c",
+      "inputs": {
+        "value": "0",
+        "from": "r",
+        "to": "c"
+      },
+      "exact_result": {
+        "numerator": "-5463",
+        "denominator": "20"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-273.15"
+    },
+    {
+      "label": "Exact absolute-zero anchor r->f",
+      "inputs": {
+        "value": "0",
+        "from": "r",
+        "to": "f"
+      },
+      "exact_result": {
+        "numerator": "-45967",
+        "denominator": "100"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-459.67"
+    },
+    {
+      "label": "Exact absolute-zero anchor r->k",
+      "inputs": {
+        "value": "0",
+        "from": "r",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "expect_sign": 0,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "0.0"
+    },
+    {
+      "label": "Exact absolute-zero anchor r->r",
+      "inputs": {
+        "value": "0",
+        "from": "r",
+        "to": "r"
+      },
+      "exact_result": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "expect_sign": 0,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "0.0"
+    },
+    {
+      "label": "Near-zero c->k; delta -0.0000000000000001",
+      "inputs": {
+        "value": "-273.1500000000000001",
+        "from": "c",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "-1",
+        "denominator": "10000000000000000"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-1e-16"
+    },
+    {
+      "label": "Near-zero c->r; delta -0.0000000000000001",
+      "inputs": {
+        "value": "-273.1500000000000001",
+        "from": "c",
+        "to": "r"
+      },
+      "exact_result": {
+        "numerator": "-9",
+        "denominator": "50000000000000000"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-1.8e-16"
+    },
+    {
+      "label": "Near-zero c->k; delta 0.0000000000000001",
+      "inputs": {
+        "value": "-273.1499999999999999",
+        "from": "c",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "1",
+        "denominator": "10000000000000000"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "1e-16"
+    },
+    {
+      "label": "Near-zero c->r; delta 0.0000000000000001",
+      "inputs": {
+        "value": "-273.1499999999999999",
+        "from": "c",
+        "to": "r"
+      },
+      "exact_result": {
+        "numerator": "9",
+        "denominator": "50000000000000000"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "1.8e-16"
+    },
+    {
+      "label": "Near-zero f->k; delta -0.0000000000000001",
+      "inputs": {
+        "value": "-459.6700000000000001",
+        "from": "f",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "-1",
+        "denominator": "18000000000000000"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-5.555555555555556e-17"
+    },
+    {
+      "label": "Near-zero f->r; delta -0.0000000000000001",
+      "inputs": {
+        "value": "-459.6700000000000001",
+        "from": "f",
+        "to": "r"
+      },
+      "exact_result": {
+        "numerator": "-1",
+        "denominator": "10000000000000000"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-1e-16"
+    },
+    {
+      "label": "Near-zero f->k; delta 0.0000000000000001",
+      "inputs": {
+        "value": "-459.6699999999999999",
+        "from": "f",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "1",
+        "denominator": "18000000000000000"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "5.555555555555556e-17"
+    },
+    {
+      "label": "Near-zero f->r; delta 0.0000000000000001",
+      "inputs": {
+        "value": "-459.6699999999999999",
+        "from": "f",
+        "to": "r"
+      },
+      "exact_result": {
+        "numerator": "1",
+        "denominator": "10000000000000000"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "1e-16"
+    },
+    {
+      "label": "Near-zero k->r; delta -0.0000000000000001",
+      "inputs": {
+        "value": "-0.0000000000000001",
+        "from": "k",
+        "to": "r"
+      },
+      "exact_result": {
+        "numerator": "-9",
+        "denominator": "50000000000000000"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-1.8e-16"
+    },
+    {
+      "label": "Near-zero k->r; delta 0.0000000000000001",
+      "inputs": {
+        "value": "0.0000000000000001",
+        "from": "k",
+        "to": "r"
+      },
+      "exact_result": {
+        "numerator": "9",
+        "denominator": "50000000000000000"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "1.8e-16"
+    },
+    {
+      "label": "Near-zero r->k; delta -0.0000000000000001",
+      "inputs": {
+        "value": "-0.0000000000000001",
+        "from": "r",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "-1",
+        "denominator": "18000000000000000"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-5.555555555555556e-17"
+    },
+    {
+      "label": "Near-zero r->k; delta 0.0000000000000001",
+      "inputs": {
+        "value": "0.0000000000000001",
+        "from": "r",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "1",
+        "denominator": "18000000000000000"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "5.555555555555556e-17"
+    },
+    {
+      "label": "Existing anchor/identity -40 c->f",
+      "inputs": {
+        "value": "-40",
+        "from": "c",
+        "to": "f"
+      },
+      "exact_result": {
+        "numerator": "-40",
+        "denominator": "1"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-40.0"
+    },
+    {
+      "label": "Existing anchor/identity -40 f->c",
+      "inputs": {
+        "value": "-40",
+        "from": "f",
+        "to": "c"
+      },
+      "exact_result": {
+        "numerator": "-40",
+        "denominator": "1"
+      },
+      "expect_sign": -1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "-40.0"
+    },
+    {
+      "label": "Existing anchor/identity 0 c->f",
+      "inputs": {
+        "value": "0",
+        "from": "c",
+        "to": "f"
+      },
+      "exact_result": {
+        "numerator": "32",
+        "denominator": "1"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "32.0"
+    },
+    {
+      "label": "Existing anchor/identity 32 f->c",
+      "inputs": {
+        "value": "32",
+        "from": "f",
+        "to": "c"
+      },
+      "exact_result": {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      "expect_sign": 0,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "0.0"
+    },
+    {
+      "label": "Existing anchor/identity 100 c->f",
+      "inputs": {
+        "value": "100",
+        "from": "c",
+        "to": "f"
+      },
+      "exact_result": {
+        "numerator": "212",
+        "denominator": "1"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "212.0"
+    },
+    {
+      "label": "Existing anchor/identity 212 f->c",
+      "inputs": {
+        "value": "212",
+        "from": "f",
+        "to": "c"
+      },
+      "exact_result": {
+        "numerator": "100",
+        "denominator": "1"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "100.0"
+    },
+    {
+      "label": "Existing anchor/identity 491.67 r->k",
+      "inputs": {
+        "value": "491.67",
+        "from": "r",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "5463",
+        "denominator": "20"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "273.15"
+    },
+    {
+      "label": "Existing anchor/identity 273.15 k->r",
+      "inputs": {
+        "value": "273.15",
+        "from": "k",
+        "to": "r"
+      },
+      "exact_result": {
+        "numerator": "49167",
+        "denominator": "100"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "491.67"
+    },
+    {
+      "label": "Existing anchor/identity 36.6 c->c",
+      "inputs": {
+        "value": "36.6",
+        "from": "c",
+        "to": "c"
+      },
+      "exact_result": {
+        "numerator": "183",
+        "denominator": "5"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "36.6"
+    },
+    {
+      "label": "Existing anchor/identity 0.0000000000000001 k->k",
+      "inputs": {
+        "value": "0.0000000000000001",
+        "from": "k",
+        "to": "k"
+      },
+      "exact_result": {
+        "numerator": "1",
+        "denominator": "10000000000000000"
+      },
+      "expect_sign": 1,
+      "algebraically_allowed": true,
+      "expect_nearest_float": "1e-16"
+    }
+  ],
+  "remaining_verification": "Implementation pending; no current test pass is claimed. Final review must exercise raw UI text and all five localized results, then contrast independently."
+}

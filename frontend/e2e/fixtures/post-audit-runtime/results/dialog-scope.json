@@ -1,0 +1,1106 @@
+[
+  {
+    "url": "https://calcuway.com/de/finanzen/kreditrechner/",
+    "locale": "de",
+    "engine_id": "credit-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/d0854b58b69996ca4520.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/zinseszinsrechner/",
+    "locale": "de",
+    "engine_id": "compound-interest",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/6ba2e43b0c15e4f646bc.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/hypothekenrechner/",
+    "locale": "de",
+    "engine_id": "mortgage-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/5ab877e7d91f0dee316a.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/prozentrechner/",
+    "locale": "de",
+    "engine_id": "percent-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/deaad79d834dd23fdbff.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/rabattrechner/",
+    "locale": "de",
+    "engine_id": "discount-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/424a78cdf19de520404e.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/marge-aufschlag-rechner/",
+    "locale": "de",
+    "engine_id": "margin-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/4ee0983a48a6a272f063.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/gewinnschwelle-rechner/",
+    "locale": "de",
+    "engine_id": "break-even-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/6e76c2a3c9a8f9ac3e43.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/waehrungen/waehrungsrechner/",
+    "locale": "de",
+    "engine_id": "currency-converter",
+    "published_calc_category": "currency",
+    "production_evidence": "corpus/pages/4e53bbbddd44cf60d0cb.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/waehrungen/usd-in-eur/",
+    "locale": "de",
+    "engine_id": "usd-to-eur",
+    "published_calc_category": "currency",
+    "production_evidence": "corpus/pages/68c871df7f7a32b04807.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/waehrungen/eur-in-mdl/",
+    "locale": "de",
+    "engine_id": "eur-to-mdl",
+    "published_calc_category": "currency",
+    "production_evidence": "corpus/pages/934a88d88ab09e2bd1a1.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/waehrungen/usd-in-mdl/",
+    "locale": "de",
+    "engine_id": "usd-to-mdl",
+    "published_calc_category": "currency",
+    "production_evidence": "corpus/pages/feb4fd1a5603e0981646.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/bmi-rechner/",
+    "locale": "de",
+    "engine_id": "bmi-calculator",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/eccb77aa9d21e095f667.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/kalorienrechner/",
+    "locale": "de",
+    "engine_id": "calorie-calculator",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/a6f64b97b5f75bf0893d.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/koerperfett-rechner/",
+    "locale": "de",
+    "engine_id": "body-fat-calculator",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/802280fee5b8aab91e50.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/one-rep-max-rechner/",
+    "locale": "de",
+    "engine_id": "one-rep-max-calculator",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/d6a72ccf313020a0412e.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/laufpace-rechner/",
+    "locale": "de",
+    "engine_id": "running-pace-calculator",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/e7ed32b54eff7cf64787.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/kalorienverbrauch-sport/",
+    "locale": "de",
+    "engine_id": "activity-calories",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/4e5f2fe3ce1dc7d5ab12.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/annuitaetenrechner/",
+    "locale": "de",
+    "engine_id": "annuity",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/36d391e64053f96eaf8f.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/effektiver-jahreszins/",
+    "locale": "de",
+    "engine_id": "apr-apy",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/584b87af1255bc0c0331.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/hantelscheiben-rechner/",
+    "locale": "de",
+    "engine_id": "barbell-plates",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/e4ebe61cb371ecab1ef3.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/fahrrad-uebersetzung/",
+    "locale": "de",
+    "engine_id": "bike-gear-ratio",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/f2f271dd8daff52e7b32.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/laufradgroesse-fahrrad/",
+    "locale": "de",
+    "engine_id": "bike-wheel-size",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/4e4df97527be82fcabf2.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/bonus-rechner/",
+    "locale": "de",
+    "engine_id": "bonus",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/b031e828c8c271de44b4.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/50-30-20-budget/",
+    "locale": "de",
+    "engine_id": "budget-50-30-20",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/ee854f676920a5e96774.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/gemeinsame-kosten-teilen/",
+    "locale": "de",
+    "engine_id": "budget-split",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/e7909b4b09701c0af2ec.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/kalorien-aus-makros/",
+    "locale": "de",
+    "engine_id": "calories-from-macros",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/ecb40ed8ee79d5540113.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/cagr-rechner/",
+    "locale": "de",
+    "engine_id": "cagr",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/759612f3812844a5deb7.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/provision-rechner/",
+    "locale": "de",
+    "engine_id": "commission",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/fd2782cbee2fcee0c85f.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/kreditkarte-tilgung/",
+    "locale": "de",
+    "engine_id": "credit-card-payoff",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/bc7331592c52d36f54f5.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/krypto-gewinn-rechner/",
+    "locale": "de",
+    "engine_id": "crypto-pnl",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/d9ca3827da984dab810b.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/waehrungen/wechselkosten-rechner/",
+    "locale": "de",
+    "engine_id": "currency-exchange-fee",
+    "published_calc_category": "currency",
+    "production_evidence": "corpus/pages/8493add65c73bf1af02d.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/sparplan-durchschnittskosten/",
+    "locale": "de",
+    "engine_id": "dca",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/f700ae5f57bbd41dc4fa.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/schulden-tilgungsstrategie/",
+    "locale": "de",
+    "engine_id": "debt-snowball-avalanche",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/debe4cc9d3c57c41c7a9.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/abschreibung-rechner/",
+    "locale": "de",
+    "engine_id": "depreciation-methods",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/d4871130bf909d426727.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/dividendenrendite-rechner/",
+    "locale": "de",
+    "engine_id": "dividend-yield",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/75ea14d445c2403fc19e.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/eigenkapital-rechner/",
+    "locale": "de",
+    "engine_id": "down-payment",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/892590c507db6b652aa5.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/schuldendienstquote/",
+    "locale": "de",
+    "engine_id": "dti",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/421859f16758526428cb.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/sondertilgung-rechner/",
+    "locale": "de",
+    "engine_id": "early-repayment",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/580cb6cec16045bfd310.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/notgroschen-rechner/",
+    "locale": "de",
+    "engine_id": "emergency-fund",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/ceccc5c610fd47ecd4dd.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/stundensatz-freelancer/",
+    "locale": "de",
+    "engine_id": "freelance-rate",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/e19c7b1a501cc3b863fb.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/darlehen-auf-wohneigentum/",
+    "locale": "de",
+    "engine_id": "home-equity",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/cb9b557df7a6d2e62152.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/idealgewicht-rechner/",
+    "locale": "de",
+    "engine_id": "ideal-weight",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/8dd31de2f3fc1d252e80.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/inflation-rechner/",
+    "locale": "de",
+    "engine_id": "inflation",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/873b656fcc1a3ae2c9a7.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/ratenkauf-rechner/",
+    "locale": "de",
+    "engine_id": "installment",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/8601a0710714cb9c954c.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/leasingrate-rechner/",
+    "locale": "de",
+    "engine_id": "lease-payment",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/2788d19510b6aefcf580.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/hebel-position-rechner/",
+    "locale": "de",
+    "engine_id": "leverage",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/94df2a7ce369daee8aaa.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/marktkapitalisierung-rechner/",
+    "locale": "de",
+    "engine_id": "market-cap",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/17a6d63b2d954a53cea6.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/maximalpuls-rechner/",
+    "locale": "de",
+    "engine_id": "max-heart-rate",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/6019503b5f7974922e3c.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/maximale-darlehenssumme/",
+    "locale": "de",
+    "engine_id": "max-loan",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/936d1b0f4349b4033f28.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/ueberstunden-rechner/",
+    "locale": "de",
+    "engine_id": "overtime",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/979c5714889940eaed96.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/positionsgroesse-rechner/",
+    "locale": "de",
+    "engine_id": "position-size",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/8e7fd0c1121aeedfeef6.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/reale-rendite-rechner/",
+    "locale": "de",
+    "engine_id": "real-return",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/0eec9140aa1b3b676e18.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/umschuldung-rechner/",
+    "locale": "de",
+    "engine_id": "refinancing",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/cb6a4c665e43ca64c03f.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/mietrendite-rechner/",
+    "locale": "de",
+    "engine_id": "rental-yield",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/ae442da31a108a67b6b0.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/chance-risiko-verhaeltnis/",
+    "locale": "de",
+    "engine_id": "risk-reward",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/1296388afe9eb21a7fe0.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/roi-rechner/",
+    "locale": "de",
+    "engine_id": "roi",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/8f0d2de874055a3fc3d6.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/regel-von-72-rechner/",
+    "locale": "de",
+    "engine_id": "rule-of-72",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/578422c0ac47baaddbba.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/gehalt-umrechnen/",
+    "locale": "de",
+    "engine_id": "salary-convert",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/3ca232985a5a55113035.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/gehaltserhoehung-rechner/",
+    "locale": "de",
+    "engine_id": "salary-raise",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/ec489f2229eb8bb0db9b.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/sparziel-rechner/",
+    "locale": "de",
+    "engine_id": "savings-goal",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/4301d8eb86d839b94d1a.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/sparquote-rechner/",
+    "locale": "de",
+    "engine_id": "savings-rate",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/415afef1065c8f351225.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/einfache-zinsen-rechner/",
+    "locale": "de",
+    "engine_id": "simple-interest",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/0a7ab09956ccc69b8986.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/schritte-in-kilometer/",
+    "locale": "de",
+    "engine_id": "steps-distance-calories",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/4157783ea63a7129d1d5.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/zeitwert-des-geldes/",
+    "locale": "de",
+    "engine_id": "time-value-money",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/b1ffaa0bbc8c1fd87472.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/urlaubsanspruch-rechner/",
+    "locale": "de",
+    "engine_id": "vacation-accrual",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/85d6123829a86055eb79.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/vo2max-rechner/",
+    "locale": "de",
+    "engine_id": "vo2max",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/a7977375fd1d3bc5aba5.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/taille-groesse-verhaeltnis/",
+    "locale": "de",
+    "engine_id": "waist-ratio",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/8ad796ae26b949e97f4a.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/fitness/wasserbedarf-rechner/",
+    "locale": "de",
+    "engine_id": "water-intake",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/4c545bf86234a9ec3809.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/de/finanzen/arbeitstag-wert-rechner/",
+    "locale": "de",
+    "engine_id": "workday-cost",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/87d6c6fafe3a0a74fd0c.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-prestamo/",
+    "locale": "es",
+    "engine_id": "credit-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/2d1377c73a48e7c48554.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-interes-compuesto/",
+    "locale": "es",
+    "engine_id": "compound-interest",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/8edf6023bae03cc572ac.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-hipoteca/",
+    "locale": "es",
+    "engine_id": "mortgage-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/57440d7c917f5d260e7a.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-porcentajes/",
+    "locale": "es",
+    "engine_id": "percent-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/8436167815772ae5cffb.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-descuento/",
+    "locale": "es",
+    "engine_id": "discount-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/6b328e28a70eb8aad198.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-de-margen/",
+    "locale": "es",
+    "engine_id": "margin-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/acc38ce2779b0c101717.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/punto-de-equilibrio/",
+    "locale": "es",
+    "engine_id": "break-even-calculator",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/6718ceeb92840cdbf717.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/divisas/usd-a-eur/",
+    "locale": "es",
+    "engine_id": "usd-to-eur",
+    "published_calc_category": "currency",
+    "production_evidence": "corpus/pages/a09fd4528ed796bcbf0f.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/divisas/conversor-divisas/",
+    "locale": "es",
+    "engine_id": "currency-converter",
+    "published_calc_category": "currency",
+    "production_evidence": "corpus/pages/8d806e1ee566d10b0b66.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/divisas/eur-a-mdl/",
+    "locale": "es",
+    "engine_id": "eur-to-mdl",
+    "published_calc_category": "currency",
+    "production_evidence": "corpus/pages/aa40a31615524ec9d75a.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/divisas/usd-a-mdl/",
+    "locale": "es",
+    "engine_id": "usd-to-mdl",
+    "published_calc_category": "currency",
+    "production_evidence": "corpus/pages/44b3392f19f8b3628a26.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/calculadora-calorias/",
+    "locale": "es",
+    "engine_id": "calorie-calculator",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/36f7ccfcf60887a04ecf.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/calculadora-imc/",
+    "locale": "es",
+    "engine_id": "bmi-calculator",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/af592bdcc10c8251463d.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/porcentaje-de-grasa-corporal/",
+    "locale": "es",
+    "engine_id": "body-fat-calculator",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/d54e1471a0b5ab96decf.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/calculadora-ritmo-carrera/",
+    "locale": "es",
+    "engine_id": "running-pace-calculator",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/0724457dde9e207c9f09.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/calculadora-1rm/",
+    "locale": "es",
+    "engine_id": "one-rep-max-calculator",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/2470c423360fbe6e6a36.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/calorias-del-ejercicio/",
+    "locale": "es",
+    "engine_id": "activity-calories",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/40dad46167a62774730a.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/cuota-francesa/",
+    "locale": "es",
+    "engine_id": "annuity",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/e54c02fba31f03bcd984.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/tin-y-tae/",
+    "locale": "es",
+    "engine_id": "apr-apy",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/bed07021a036574f71e1.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/discos-de-barra/",
+    "locale": "es",
+    "engine_id": "barbell-plates",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/1122b2ffd3ac92a700b2.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/desarrollo-de-bicicleta/",
+    "locale": "es",
+    "engine_id": "bike-gear-ratio",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/7b2c4be88e2e411ddfdc.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/tamano-de-rueda-de-bicicleta/",
+    "locale": "es",
+    "engine_id": "bike-wheel-size",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/9443ffb3845331193fe8.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-de-bonus/",
+    "locale": "es",
+    "engine_id": "bonus",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/777f53611fc1e1b8fec4.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/presupuesto-50-30-20/",
+    "locale": "es",
+    "engine_id": "budget-50-30-20",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/4aaba9059aaaf18abf36.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/reparto-de-gastos-comunes/",
+    "locale": "es",
+    "engine_id": "budget-split",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/d3f5fcd5a22c91e556ac.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-de-cagr/",
+    "locale": "es",
+    "engine_id": "cagr",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/814aeb1303238cd30ae3.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/calorias-de-los-macronutrientes/",
+    "locale": "es",
+    "engine_id": "calories-from-macros",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/a15df6cdb36b1297e8a6.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-de-comision/",
+    "locale": "es",
+    "engine_id": "commission",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/f407d647ad0b6a312677.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/amortizacion-de-tarjeta-de-credito/",
+    "locale": "es",
+    "engine_id": "credit-card-payoff",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/cae2f3c713b4276e1b9b.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/beneficio-en-cripto/",
+    "locale": "es",
+    "engine_id": "crypto-pnl",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/84f98ae0f0900d2499ce.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/divisas/coste-de-cambio-de-divisas/",
+    "locale": "es",
+    "engine_id": "currency-exchange-fee",
+    "published_calc_category": "currency",
+    "production_evidence": "corpus/pages/13c3a9a72311f39f6468.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/aportaciones-periodicas-dca/",
+    "locale": "es",
+    "engine_id": "dca",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/e9299d08c3ae3660e75d.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/amortizacion-de-deudas/",
+    "locale": "es",
+    "engine_id": "debt-snowball-avalanche",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/61773738abc7ffd8e745.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/amortizacion-de-activos/",
+    "locale": "es",
+    "engine_id": "depreciation-methods",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/ba592beb2da573b9eda1.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/rentabilidad-por-dividendo/",
+    "locale": "es",
+    "engine_id": "dividend-yield",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/631ccf284320216ea0de.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-de-entrada/",
+    "locale": "es",
+    "engine_id": "down-payment",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/2d5250f679df9dccb6b1.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/ratio-deuda-ingresos/",
+    "locale": "es",
+    "engine_id": "dti",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/32f515a7720f01732d16.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/amortizacion-anticipada/",
+    "locale": "es",
+    "engine_id": "early-repayment",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/4b23498c51349b949591.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/fondo-de-emergencia/",
+    "locale": "es",
+    "engine_id": "emergency-fund",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/d69f9afeab20bac5e46e.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/tarifa-freelance/",
+    "locale": "es",
+    "engine_id": "freelance-rate",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/a53e23a3d1c7e0f94039.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/prestamo-con-garantia-hipotecaria/",
+    "locale": "es",
+    "engine_id": "home-equity",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/3e7a1a34348cb0176b95.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/peso-ideal/",
+    "locale": "es",
+    "engine_id": "ideal-weight",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/da23ffeffac2a2a65f71.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-de-inflacion/",
+    "locale": "es",
+    "engine_id": "inflation",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/0d0dacc3476eea6f85db.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/compra-a-plazos/",
+    "locale": "es",
+    "engine_id": "installment",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/fa63e694a07c2e581a1f.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/cuota-de-renting/",
+    "locale": "es",
+    "engine_id": "lease-payment",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/7fd73245984eba8f42b6.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-de-apalancamiento/",
+    "locale": "es",
+    "engine_id": "leverage",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/94702ea67a68a37f5528.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/capitalizacion-bursatil/",
+    "locale": "es",
+    "engine_id": "market-cap",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/746fea53520bdfb313fb.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/frecuencia-cardiaca-maxima/",
+    "locale": "es",
+    "engine_id": "max-heart-rate",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/2d42effd8f58b132adc1.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/prestamo-maximo/",
+    "locale": "es",
+    "engine_id": "max-loan",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/3d31852888fdebd487a5.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-de-horas-extra/",
+    "locale": "es",
+    "engine_id": "overtime",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/6ccf4498830496213dde.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/tamano-de-posicion/",
+    "locale": "es",
+    "engine_id": "position-size",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/380d477aa1502352e9d7.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/rentabilidad-real/",
+    "locale": "es",
+    "engine_id": "real-return",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/0c31987d03d55336150a.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/refinanciacion-de-prestamos/",
+    "locale": "es",
+    "engine_id": "refinancing",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/3dbc57c225aa5fc5b621.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/rentabilidad-del-alquiler/",
+    "locale": "es",
+    "engine_id": "rental-yield",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/ebe4c40602a73519efe4.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/ratio-riesgo-beneficio/",
+    "locale": "es",
+    "engine_id": "risk-reward",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/e2e0379a3389d5403865.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/calculadora-de-roi/",
+    "locale": "es",
+    "engine_id": "roi",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/9eeaead027703a74d587.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/regla-del-72/",
+    "locale": "es",
+    "engine_id": "rule-of-72",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/63c4b8342f4c5e116964.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/conversor-de-salario/",
+    "locale": "es",
+    "engine_id": "salary-convert",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/6ca1eb48a709eac39ec1.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/subida-salarial/",
+    "locale": "es",
+    "engine_id": "salary-raise",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/98323b2b8dc6727943cf.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/objetivo-de-ahorro/",
+    "locale": "es",
+    "engine_id": "savings-goal",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/ee75270aa2caa6901a88.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/tasa-de-ahorro/",
+    "locale": "es",
+    "engine_id": "savings-rate",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/b21fb45031507a9b24f9.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/interes-simple/",
+    "locale": "es",
+    "engine_id": "simple-interest",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/d4e1436728ee9389a124.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/de-pasos-a-distancia/",
+    "locale": "es",
+    "engine_id": "steps-distance-calories",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/83ec9bd6b8ebd7f514e5.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/valor-temporal-del-dinero/",
+    "locale": "es",
+    "engine_id": "time-value-money",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/87775eb519d1f3f239c6.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/dias-de-vacaciones-acumulados/",
+    "locale": "es",
+    "engine_id": "vacation-accrual",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/abe33d5fb9c863cdd421.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/vo2-max/",
+    "locale": "es",
+    "engine_id": "vo2max",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/a6ceeca8ff119a89d94d.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/indice-cintura-estatura/",
+    "locale": "es",
+    "engine_id": "waist-ratio",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/9451f956131975c3cb0b.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/fitness/consumo-de-agua/",
+    "locale": "es",
+    "engine_id": "water-intake",
+    "published_calc_category": "sport",
+    "production_evidence": "corpus/pages/c2ae18a0e9e3ddce72bb.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  },
+  {
+    "url": "https://calcuway.com/es/finanzas/coste-de-un-dia-de-trabajo/",
+    "locale": "es",
+    "engine_id": "workday-cost",
+    "published_calc_category": "finance",
+    "production_evidence": "corpus/pages/9f515a6c04925ca7d569.json",
+    "scope": "SOURCE_INFERRED_CONDITIONAL_DIALOG_ONLY; noteverypageactualdialogopened"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "AUD-017",
+    "title": "Склонение счётчиков RU/UK и единицы месяцев ES",
+    "priority": "P3",
+    "confidence": "CONFIRMED",
+    "observed_urls": [
+      "https://calcuway.com/ru/electronics/",
+      "https://calcuway.com/ru/finance/",
+      "https://calcuway.com/ru/household/",
+      "https://calcuway.com/ru/physics/",
+      "https://calcuway.com/uk/404",
+      "https://calcuway.com/uk/404/",
+      "https://calcuway.com/uk/calculators/",
+      "https://calcuway.com/uk/calculators/page/2/",
+      "https://calcuway.com/uk/calculators/page/3/",
+      "https://calcuway.com/uk/elektronika/",
+      "https://calcuway.com/uk/fizyka/",
+      "https://calcuway.com/uk/pobut/",
+      "https://calcuway.com/es/finanzas/amortizacion-de-tarjeta-de-credito/",
+      "https://calcuway.com/es/finanzas/amortizacion-de-deudas/",
+      "https://calcuway.com/es/negocios/calculadora-de-ltv/",
+      "https://calcuway.com/es/negocios/plazo-de-recuperacion/"
+    ],
+    "actual": "12категорийных/catalog/404адресов дают21/31/51инструментов/373інструментів;4ESрезультата26/18/40mes.",
+    "expected": "RU21/31/51инструмент;UK373інструменти;ESmesesили устойчивое сокращение.",
+    "reproduction": [
+      "Прочитать точные16URL/subscopes."
+    ],
+    "root_cause": "Неизменяемая строка суффикса вместо правил числа; разныекомпонентысохраненыотдельнымиsubscopes.",
+    "evidence_files": [
+      "agents/policy/findings.json",
+      "agents/policy/CONTENT_REVIEW.jsonl",
+      "results/current-version-bridge-summary.json",
+      "agents/models/current-version-peer/CURRENT_PRODUCTION_BINDING.jsonl"
+    ],
+    "counterarguments_and_limits": "Не распространяется на весь каталог; корректный основной результат не отменяет узкое указанное противоречие.",
+    "status": "FIXED_VERIFIED",
+    "backlog_correction": null,
+    "resolved_fields": "RU/UK count labels; ES month result units",
+    "implementation": "Собственные plural rules в category heading и metadata-card, catalog и404; ES mes/meses выбираются по числу, включая decimal18,00 и authored abbreviation overrides.",
+    "source_files": [
+      "frontend/src/lib/plural.ts",
+      "frontend/src/lib/resultText.ts",
+      "frontend/src/pages/[locale]/[category]/index.astro",
+      "frontend/src/components/CatalogPageBody.astro",
+      "frontend/src/pages/[locale]/404.astro"
+    ],
+    "verification": "16 исходных URL/states (две UK404 aliases→один asset); все32 RU/UK category pages и оба счётчика; ES26/18,00/40 meses; unit cases1/2/5/11/21 и1,00/1,50/2,00/18,00/21,00.",
+    "resolution_scope": "Числа сохранены; EN/DE/UK decimal phrase precedence сохранён. Первоначальные ошибки новых assertions и два дополнительных product paths сохранены отдельно.",
+    "publication": "LOCAL_ONLY_NOT_PUBLISHED",
+    "current_baseline_evidence": [
+      "results/source-baseline.json",
+      "results/production-baseline.json",
+      "results/public-baseline-byte-bridge.json",
+      "patches/source.diff"
+    ],
+    "new_evidence": [
+      "results/targeted-browser-final-decimal-month.jsonl",
+      "results/npm-check-final-decimal-month.log",
+      "results/all-calculator-routes-final.jsonl",
+      "results/plural-scope.json",
+      "results/decimal-month-regression.log"
+    ],
+    "scoped_UI_scenarios_passed": 48
+  }
+]

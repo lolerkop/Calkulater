@@ -1,0 +1,45 @@
+[
+  {
+    "provider": "bnm",
+    "url": "https://www.bnm.md/en/official_exchange_rates?get_xml=1&date=05.10.2026",
+    "retrievedUTC": "2026-10-04T22:39:19.224444+00:00",
+    "raw": "bnm-rates-2026-10-05.xml",
+    "sha256": "34c8d72161317a4fa870523be6ae5b199da4d9bb41f5edd3574dc77bead6aaea",
+    "date": "05.10.2026",
+    "nominal": "1",
+    "raw_value": "17.8920",
+    "units": "MDL per USD",
+    "independent_quotient": "17.8920",
+    "matches_generated": true
+  },
+  {
+    "provider": "nbu",
+    "url": "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json&date=20261005",
+    "retrievedUTC": "2026-10-04T22:39:19.535432+00:00",
+    "raw": "nbu-rates-2026-10-05.json",
+    "sha256": "917e90beba63e4254c122974b4ca64a24327ecd23fad163507e368afd9afee15",
+    "date": "05.10.2026",
+    "nominal": 1,
+    "units": "UAH per USD",
+    "independent_quotient": "44.9857",
+    "matches_generated": true
+  },
+  {
+    "provider": "ecb",
+    "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+    "retrievedUTC": "2026-10-04T22:39:19.689890+00:00",
+    "raw": "ecb-rates-2026-10-02.xml",
+    "sha256": "d16ef240d4d97a953b925cbf81451c812c559cd33f2ebe07b08b51e4085709e2",
+    "date": "2026-10-02",
+    "basis": "1 EUR",
+    "published_usd": "1.1225",
+    "independent_units_per_usd": {
+      "EUR": "0.8908685968819599109131403118",
+      "GBP": "0.7575322939866369710467706013",
+      "CHF": "0.8266369710467706013363028953",
+      "PLN": "3.899777282850779510022271715",
+      "RON": "4.765077951002227171492204900",
+      "TRY": "49.14476614699331848552338530"
+    }
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "route": "/ru/finance/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/currency/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/sport/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/building/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/date-time/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/math/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/business/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/converters/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/electronics/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/computers/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/education/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/automotive/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/household/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/geometry/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/physics/",
+    "locale": "ru"
+  },
+  {
+    "route": "/ru/chemistry/",
+    "locale": "ru"
+  },
+  {
+    "route": "/uk/finansy/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/valyuty/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/fitness/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/remont/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/daty/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/math/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/business/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/konvertery/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/elektronika/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/navchannya/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/kompyutery/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/avtomobili/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/pobut/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/heometriya/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/fizyka/",
+    "locale": "uk"
+  },
+  {
+    "route": "/uk/himiya/",
+    "locale": "uk"
+  }
+]

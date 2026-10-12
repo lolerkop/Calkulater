@@ -585,6 +585,22 @@ table {
 }
 
 /* One category list and one language list, with full-size native controls. */
+.site-header {
+  @apply sticky top-0 z-40 border-b border-ink-200 bg-white/85 backdrop-blur-xl;
+}
+
+.header-container {
+  @apply mx-auto max-w-page px-4 sm:px-8;
+}
+
+.header-logo {
+  @apply flex min-h-16 items-center gap-2.5 py-3 md:min-h-0 md:py-0;
+}
+
+.header-brand-name {
+  @apply text-lg font-extrabold tracking-[-0.035em] text-ink-900 sm:text-xl;
+}
+
 .header-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -629,6 +645,7 @@ table {
   transition: color 0.16s ease, background-color 0.16s ease;
 }
 
+.header-catalog-link { min-width: 44px; font-weight: 600; }
 .header-menu-trigger {
   justify-content: center;
   gap: 0.5rem;
@@ -688,12 +705,14 @@ table {
 }
 
 .header-category-panel {
+  @apply font-medium text-ink-600;
   display: grid;
   left: 0;
   gap: 0.125rem;
 }
 
 .header-language-panel {
+  @apply text-ink-600;
   width: 14rem;
 }
 
