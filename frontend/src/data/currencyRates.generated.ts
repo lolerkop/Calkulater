@@ -3,31 +3,31 @@
 // A currency falls back to Exchange Rate API only when its own source is unavailable.
 export const generatedRatesToUSD = {
   USD: 1,
-  EUR: 0.89174246,
-  GBP: 0.74500624,
-  CHF: 0.82067059,
-  PLN: 3.91207419,
-  RON: 4.76565008,
-  TRY: 50.22355984,
-  UAH: 45.5013,
-  MDL: 17.9458,
+  EUR: 0.89871484,
+  GBP: 0.75148737,
+  CHF: 0.82987328,
+  PLN: 3.9577604,
+  RON: 4.80372068,
+  TRY: 50.22890267,
+  UAH: 45.3222,
+  MDL: 18.1049,
 } as const;
 
 export const generatedRateProvenance = {
-  EUR: { provider: 'ecb', date: '2026-11-10', fallback: false },
-  GBP: { provider: 'ecb', date: '2026-11-10', fallback: false },
-  CHF: { provider: 'ecb', date: '2026-11-10', fallback: false },
-  PLN: { provider: 'ecb', date: '2026-11-10', fallback: false },
-  RON: { provider: 'ecb', date: '2026-11-10', fallback: false },
-  TRY: { provider: 'ecb', date: '2026-11-10', fallback: false },
-  UAH: { provider: 'nbu', date: '2026-11-11', fallback: false },
-  MDL: { provider: 'bnm', date: '2026-11-11', fallback: false },
+  EUR: { provider: 'ecb', date: '2026-11-11', fallback: false },
+  GBP: { provider: 'ecb', date: '2026-11-11', fallback: false },
+  CHF: { provider: 'ecb', date: '2026-11-11', fallback: false },
+  PLN: { provider: 'ecb', date: '2026-11-11', fallback: false },
+  RON: { provider: 'ecb', date: '2026-11-11', fallback: false },
+  TRY: { provider: 'ecb', date: '2026-11-11', fallback: false },
+  UAH: { provider: 'nbu', date: '2026-11-12', fallback: false },
+  MDL: { provider: 'bnm', date: '2026-11-12', fallback: false },
 } as const;
 
 export const generatedRateSources = {
-  bnm: { label: "National Bank of Moldova", url: 'https://www.bnm.md/en/content/official-exchange-rates', date: '2026-11-11', fallback: false },
-  ecb: { label: "European Central Bank", url: 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html', date: '2026-11-10', fallback: false },
-  nbu: { label: "National Bank of Ukraine", url: 'https://bank.gov.ua/ua/markets/exchangerates', date: '2026-11-11', fallback: false },
+  bnm: { label: "National Bank of Moldova", url: 'https://www.bnm.md/en/content/official-exchange-rates', date: '2026-11-12', fallback: false },
+  ecb: { label: "European Central Bank", url: 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html', date: '2026-11-11', fallback: false },
+  nbu: { label: "National Bank of Ukraine", url: 'https://bank.gov.ua/ua/markets/exchangerates', date: '2026-11-12', fallback: false },
 } as const;
 
-export const generatedRatesDate = '2026-11-10';
+export const generatedRatesDate = '2026-11-11';
