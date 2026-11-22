@@ -1,7 +1,7 @@
 export const generatedRatesUpdateStatus: 'success' | 'failed' = 'success';
-export const generatedRatesUpdateAttemptedAt = '2026-11-21T13:28:20.621Z';
+export const generatedRatesUpdateAttemptedAt = '2026-11-22T13:21:07.789Z';
 export const generatedRatesUpdateMessage = "";
-export const generatedRatesLastSuccessfulCheckAt = '2026-11-21T13:28:20.621Z';
+export const generatedRatesLastSuccessfulCheckAt = '2026-11-22T13:21:07.789Z';
 export const generatedRatesLastSuccessfulEffectiveDate = '2026-11-20';
 export const generatedRatesUsedFallback = false;
 export const generatedRatesDegradedProviders = [] as const;
